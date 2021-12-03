@@ -13,7 +13,7 @@ import {Separator} from '@twilio-paste/separator';
 import {Stack} from '@twilio-paste/stack';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
-import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
+import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '@twilio-paste/popover';
 import Changelog from '@twilio-paste/popover/CHANGELOG.md';
 import {Text} from '@twilio-paste/text';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
@@ -151,9 +151,9 @@ available in the [props description here](#popover-container).
   {rightExample}
 </LivePreview>
 
-### Modifying the PopoverButton
+### PopoverButton
 
-The PopoverButton by default renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
+The PopoverButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
 
 <LivePreview
   scope={{
@@ -169,14 +169,16 @@ The PopoverButton by default renders a Button component and accepts all of its p
   {buttonVariantsExample}
 </LivePreview>
 
-To make the PopoverButton a Badge component, pass the prop `as="badge"`. Then the PopoverButton accepts all of the badges props and badge variants, which are listed [on the Badge page](/components/badge#props).
+### PopoverBadgeButton
+
+To launch a Popover from a Badge component, use the PopoverBadgeButton component. It renders a Badge and accepts all of its props except for `as`, which are listed [on the Badge page](/components/badge#props).
 
 <LivePreview
   scope={{
     Box,
     Popover,
     PopoverContainer,
-    PopoverButton,
+    PopoverBadgeButton,
     Text,
     NewIcon,
     InformationIcon,

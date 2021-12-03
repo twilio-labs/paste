@@ -110,7 +110,7 @@ const PopoverBadgeExample = () => {
   return (
     <Box display="flex" columnGap="space40">
       <PopoverContainer baseId="popover-example">
-        <PopoverButton as="badge" variant="default">Open popover</PopoverButton>
+        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
         <Popover aria-label="Popover">
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
@@ -118,12 +118,12 @@ const PopoverBadgeExample = () => {
         </Popover>
       </PopoverContainer>
       <PopoverContainer baseId="popover-example">
-        <PopoverButton as="badge" variant="info">
+        <PopoverBadgeButton variant="info">
           <>
             <InformationIcon decorative={false} title="Information" />
             Open popover
           </>
-        </PopoverButton>
+        </PopoverBadgeButton>
         <Popover aria-label="Popover">
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
@@ -131,12 +131,12 @@ const PopoverBadgeExample = () => {
         </Popover>
       </PopoverContainer>
       <PopoverContainer baseId="popover-example">
-        <PopoverButton as="badge" variant="warning">
+        <PopoverBadgeButton variant="warning">
           <>
             <WarningIcon decorative={false} title="Warning" />
             Open popover
           </>
-        </PopoverButton>
+        </PopoverBadgeButton>
         <Popover aria-label="Popover">
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
@@ -144,12 +144,12 @@ const PopoverBadgeExample = () => {
         </Popover>
       </PopoverContainer>
       <PopoverContainer baseId="popover-example">
-        <PopoverButton as="badge" variant="new">
+        <PopoverBadgeButton variant="new">
           <>
             <NewIcon decorative={false} title="New" />
             Open popover
           </>
-        </PopoverButton>
+        </PopoverBadgeButton>
         <Popover aria-label="Popover">
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
