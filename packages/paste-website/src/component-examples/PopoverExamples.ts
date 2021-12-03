@@ -65,3 +65,22 @@ render(
   <StateHookExample />
 )
 `.trim();
+
+export const badgeExample = `
+const PopoverBadgeExample = () => {
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton as="badge" variant="info">Open popover</PopoverButton>
+      <Popover aria-label="Popover">
+        <Text as="span">
+          This is the Twilio styled popover that you can use in all your applications.
+        </Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+render(
+  <PopoverBadgeExample />
+)
+`.trim();
