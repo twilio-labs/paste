@@ -376,3 +376,22 @@ export const NewBadgeAsAnchor: React.FC = () => (
     </Badge>
   </Wrapper>
 );
+
+export const LongTextBadge: React.FC = () => (
+  <Wrapper>
+    <Badge as="a" href="#" variant="default">
+      <InformationIcon decorative />
+      This is a badge with a lot of text
+    </Badge>
+
+    <Badge as="span" variant="default">
+      <InformationIcon decorative />
+      This is a badge with a lot of text
+    </Badge>
+
+    <Badge as="button" onClick={() => {}} variant="default">
+      <InformationIcon decorative />
+      This is a badge with a lot of text
+    </Badge>
+  </Wrapper>
+);
