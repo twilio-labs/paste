@@ -4,7 +4,7 @@ import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '../src';
+import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -81,11 +81,9 @@ export const PopoverBottom: React.FC = () => {
 export const BadgePopover: React.FC = () => {
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id" visible>
-        <PopoverButton as="badge" variant="default">
-          Open popover
-        </PopoverButton>
-        <Popover aria-label="Popover">
+      <PopoverContainer baseId="test-id">
+        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
+        <Popover aria-label="Popover" data-testid="badge-popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>

@@ -7,7 +7,7 @@ import {Text} from '@twilio-paste/text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
-import {Popover, PopoverContainer, PopoverButton, getElementName} from '../src';
+import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 describe('Popover', () => {
   describe('Render', () => {
@@ -71,37 +71,8 @@ describe('Popover', () => {
     });
   });
 
-  describe('PopoverButton render as', () => {
-    it('renders PopoverButton as a Button by default', () => {
-      render(
-        <Theme.Provider theme="default">
-          <PopoverTop />
-        </Theme.Provider>
-      );
-
-      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
-      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
-    });
-
-    it('renders PopoverButton as a Button', () => {
-      render(
-        <Theme.Provider theme="default">
-          <PopoverContainer baseId="test-id">
-            <PopoverButton variant="primary" as="button">
-              Open popover
-            </PopoverButton>
-            <Popover aria-label="Popover">
-              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-            </Popover>
-          </PopoverContainer>
-        </Theme.Provider>
-      );
-
-      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
-      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
-    });
-
-    it('renders PopoverButton as a Badge', () => {
+  describe('PopoverBadge', () => {
+    it('renders PopoverBadgeButton as a Badge', () => {
       render(
         <Theme.Provider theme="default">
           <BadgePopover />
@@ -111,6 +82,23 @@ describe('Popover', () => {
       expect(popoverButton).toHaveAttribute('data-paste-element', 'BUTTON');
 
       expect(popoverButton.querySelector('[data-paste-element="POPOVER_BADGE"]')).toBeInTheDocument();
+    });
+
+    it('should render a popover badge button with aria attributes', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <BadgePopover />
+        </Theme.Provider>
+      );
+      const renderedPopoverButton = screen.getByRole('button', {name: 'Open popover'});
+      const renderedPopover = screen.getByTestId('badge-popover');
+      expect(renderedPopoverButton.getAttribute('aria-haspopup')).toEqual('dialog');
+      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
+      expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
+      expect(renderedPopover).not.toBeVisible();
+      renderedPopoverButton.click();
+      await waitFor(() => expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true'));
+      await waitFor(() => expect(renderedPopover).toBeVisible());
     });
   });
 
@@ -230,20 +218,5 @@ describe('Popover', () => {
 
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
     });
-  });
-});
-
-describe('getElementName', () => {
-  it('returns the element name when it is a button', () => {
-    expect(getElementName('button', 'POPOVER_BUTTON')).toBe('POPOVER_BUTTON');
-    expect(getElementName('button', 'CUSTOM_BUTTON')).toBe('CUSTOM_BUTTON');
-  });
-
-  it('returns POPOVER_BADGE when it is a badge with default element name', () => {
-    expect(getElementName('badge', 'POPOVER_BUTTON')).toBe('POPOVER_BADGE');
-  });
-
-  it('returns CUSTOM_BADGE when it is a badge with a custom element name', () => {
-    expect(getElementName('badge', 'CUSTOM_BADGE')).toBe('CUSTOM_BADGE');
   });
 });
