@@ -7,7 +7,7 @@ import {Text} from '@twilio-paste/text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
-import {Popover, PopoverContainer, PopoverButton} from '../src';
+import {Popover, PopoverContainer, PopoverButton, getElementName} from '../src';
 
 describe('Popover', () => {
   describe('Render', () => {
@@ -230,5 +230,20 @@ describe('Popover', () => {
 
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
     });
+  });
+});
+
+describe('getElementName', () => {
+  it('returns the element name when it is a button', () => {
+    expect(getElementName('button', 'POPOVER_BUTTON')).toBe('POPOVER_BUTTON');
+    expect(getElementName('button', 'CUSTOM_BUTTON')).toBe('CUSTOM_BUTTON');
+  });
+
+  it('returns POPOVER_BADGE when it is a badge with default element name', () => {
+    expect(getElementName('badge', 'POPOVER_BUTTON')).toBe('POPOVER_BADGE');
+  });
+
+  it('returns CUSTOM_BADGE when it is a badge with a custom element name', () => {
+    expect(getElementName('badge', 'CUSTOM_BADGE')).toBe('CUSTOM_BADGE');
   });
 });

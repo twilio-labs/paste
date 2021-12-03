@@ -13,28 +13,24 @@ const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(({chil
   </Badge>
 ));
 
+export const getElementName = (as: PopoverButtonProps['as'], element: string): string => {
+  if (as === 'badge' && element === 'POPOVER_BUTTON') {
+    return 'POPOVER_BADGE';
+  }
+  return element;
+};
+
 const PopoverButton = React.forwardRef<HTMLButtonElement, PopoverButtonProps>(
   ({as = 'button', children, element = 'POPOVER_BUTTON', ...popoverButtonProps}, ref) => {
     const popover = React.useContext(PopoverContext);
-    let ButtonComponent;
-
-    if (as === 'button') {
-      ButtonComponent = Button;
-    } else if (as === 'badge') {
-      ButtonComponent = ButtonBadge;
-    }
-
-    let computedElement = element;
-    if (as === 'badge' && element === 'POPOVER_BUTTON') {
-      computedElement = 'POPOVER_BADGE';
-    }
+    const Component = as === 'badge' ? ButtonBadge : Button;
 
     return (
       <NonModalDialogDisclosurePrimitive
-        element={computedElement}
+        element={getElementName(as, element)}
         {...(popover as any)}
         {...popoverButtonProps}
-        as={ButtonComponent}
+        as={Component}
         ref={ref}
       >
         {children}
