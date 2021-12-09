@@ -85,7 +85,7 @@ export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_
       element={element}
       ref={cellRef}
       as={as === 'td' ? Td : Th}
-      onMouseDown={handleMouseDown}
+      onClick={handleMouseDown}
     />
   );
 };

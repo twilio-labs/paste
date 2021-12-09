@@ -9,7 +9,9 @@ interface SidebarAnchorProps {
   onClick?: () => void;
 }
 
-const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>((props) =>
+const StyledSidebarAnchor = styled(Link, {
+  shouldForwardProp: (prop) => prop !== 'nested',
+})<SidebarAnchorProps>((props) =>
   css({
     position: 'relative',
     display: 'block',

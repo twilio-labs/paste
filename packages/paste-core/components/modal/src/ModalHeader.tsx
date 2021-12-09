@@ -21,7 +21,7 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
           <Flex vAlignContent="center" grow={1} marginRight="space70">
             {children}
           </Flex>
-          <Button element={`${element}_CLOSE_BUTTON`} variant="reset" size="reset" onClick={() => onDismiss()}>
+          <Button element={`${element}_CLOSE_BUTTON`} variant="secondary_icon" size="reset" onClick={() => onDismiss()}>
             <CloseIcon
               element={`${element}_CLOSE_ICON`}
               decorative={false}

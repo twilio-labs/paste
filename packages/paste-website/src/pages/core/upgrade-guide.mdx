@@ -41,7 +41,7 @@ export const pageQuery = graphql`
 
 ### Core 10.0.0
 
-- [Truncate] `title` prop is required for the Truncate component. More details: [`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4) [#1603](https://github.com/twilio-labs/paste/pull/1603)
+- [Truncate] `title` prop is required for the Truncate component. More details: <inlineCode>[fa2ffc5c](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)</inlineCode> [#1603](https://github.com/twilio-labs/paste/pull/1603)
 
   **ACTION NEEDED**: Add a title prop to all uses of the Truncate component. This prop should be a string that matches the contents of the component.
 
@@ -56,7 +56,7 @@ export const pageQuery = graphql`
 
 ### Core 9.0.0
 
-- [Button] Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a **design** breaking change that you should be aware of when upgrading. More details: [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307)
+- [Button] Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a **design** breaking change that you should be aware of when upgrading. More details: <inlineCode>[1bcb8b30](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200)</inlineCode> [#1307](https://github.com/twilio-labs/paste/pull/1307)
 
   **ACTION NEEDED**: Inspect all instances of Buttons as links, ensuring the design change works as intended for your layout.
 
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
   <Button as="a" href="https://twilio.com">Twilio</Button>
   ```
 
-- [Button] Additional validation added to throw an error if the `disabled` or `loading` props are set to true for a Button as link. This is a functionality breaking change to existing disabled link buttons. More details: [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307)
+- [Button] Additional validation added to throw an error if the `disabled` or `loading` props are set to true for a Button as link. This is a functionality breaking change to existing disabled link buttons. More details: <inlineCode>[1bcb8b30](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200)</inlineCode> [#1307](https://github.com/twilio-labs/paste/pull/1307)
 
   **ACTION NEEDED**: Ensure there are no instances of Buttons as links that use `disabled` or `loading` props as true.
 
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
 
 ### Core 4.3.2
 
-- [Disclosure] `style` prop is now being blocked by safelySpreadBoxProps, so any additional styles will no longer be rendered. More details: [`b8265071`](https://github.com/twilio-labs/paste/commit/b82650716256de22aeff36e00d46577f71d1b3fd)
+- [Disclosure] `style` prop is now being blocked by safelySpreadBoxProps, so any additional styles will no longer be rendered. More details: <inlineCode>[b8265071](https://github.com/twilio-labs/paste/commit/b82650716256de22aeff36e00d46577f71d1b3fd)</inlineCode>
 
   **ACTION NEEDED**: Ensure there are no instances of Disclosure that use the `style` prop.
 
@@ -176,7 +176,7 @@ export const pageQuery = graphql`
 
 ### Core 4.0.0
 
-- [Core] The Absolute component has been deprecated. For a replacement use the Box component with absolute positioning. More details: [`84c22b4`](https://github.com/twilio-labs/paste/commit/84c22b42ccdc5e924101b586592e93e1c8f19fba)
+- [Core] The Absolute component has been deprecated. For a replacement use the Box component with absolute positioning. More details: <inlineCode>[84c22b4](https://github.com/twilio-labs/paste/commit/84c22b42ccdc5e924101b586592e93e1c8f19fba)</inlineCode>
 
 **Action Needed**: Replace any Absolute components with a Box component with the `position` prop set to `absolute`.
 

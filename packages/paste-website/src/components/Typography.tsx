@@ -31,13 +31,16 @@ export const InlineCode: React.FC = (props) => {
     <Box
       as="code"
       backgroundColor="colorBackground"
+      borderWidth="borderWidth10"
+      borderColor="colorBorderWeaker"
+      borderStyle="solid"
       borderRadius="borderRadius20"
-      color="colorText"
+      color="inherit"
       fontFamily="fontFamilyCode"
       fontSize="fontSize20"
       lineHeight="lineHeight20"
-      paddingY="space20"
-      paddingX="space30"
+      paddingY="space10"
+      paddingX="space20"
       {...props}
     />
   );

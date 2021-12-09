@@ -15,7 +15,9 @@ const ActionMenu: React.FC = () => {
         <MoreIcon decorative={false} title="More options" />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItem {...menu}>Settings</MenuItem>
+        <MenuItem {...menu} href="https://google.com">
+          Settings
+        </MenuItem>
         <MenuItem {...menu} disabled>
           Extensions
         </MenuItem>
