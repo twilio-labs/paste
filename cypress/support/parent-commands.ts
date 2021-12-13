@@ -85,7 +85,7 @@ declare namespace Cypress {
 Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content-area'));
 
 Cypress.Commands.add('pageHeaderShouldBeVisible', (headerText) => {
-  cy.contains('h1', headerText).shouldBeVisible();
+  cy.contains('h1', headerText).should('be.visible');
 });
 
 Cypress.Commands.add('overviewTableRendersCorrectly', () => {
@@ -131,9 +131,9 @@ Cypress.Commands.add('checkInPageNavigationLinks', () => {
 
 Cypress.Commands.add('checkPageAside', () => {
   cy.getDocsPageContentArea().getInFixedContainer('[data-cy="page-aside"]').as('pageAside');
-  cy.get('@pageAside').find('[data-cy="table-of-contents"]').shouldBeVisible();
-  cy.get('@pageAside').contains('button', 'Rate this page').shouldBeVisible();
-  cy.get('@pageAside').find('[data-cy="page-aside-anchor"]').shouldBeVisible();
+  cy.get('@pageAside').find('[data-cy="table-of-contents"]').should('be.visible');
+  cy.get('@pageAside').contains('button', 'Rate this page').should('be.visible');
+  cy.get('@pageAside').find('[data-cy="page-aside-anchor"]').should('be.visible');
 });
 
 Cypress.Commands.add('checkLivePreviews', () => {
@@ -150,10 +150,10 @@ Cypress.Commands.add('checkChangelogRevealer', () => {
   cy.getInFixedContainer('#component-changelog')
     .as('changelogContainer')
     .contains('h2', 'Changelog')
-    .shouldBeVisible()
-    .click();
+    .should('be.visible')
+    .click(); // Note: when cypress is upgraded, we can specify ScrollBehavior here to center if not default
 
-  cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').shouldBeVisible();
+  cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').should('be.visible');
 });
 
 Cypress.Commands.add('getInFixedContainer', (selector) => {
@@ -163,6 +163,6 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     .get('@target')
     .invoke('innerHeight')
     .then((height) => {
-      return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}});
+      return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
     });
 });
