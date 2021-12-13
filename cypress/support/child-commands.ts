@@ -5,5 +5,3 @@
  * `Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })`
  * @see https://on.cypress.io/custom-commands#Child-Commands
  */
-
-// Placeholder for child commands.
