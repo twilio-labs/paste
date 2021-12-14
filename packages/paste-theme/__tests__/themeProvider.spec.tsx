@@ -20,16 +20,6 @@ describe('Theme.Provider', () => {
     ReactDOM.render(<Theme.Provider />, document.createElement('div'));
   });
 
-  it('should render the console link text color', (): void => {
-    const {getByText} = render(
-      <Theme.Provider theme="default">
-        <ThemeConsumerExampleTextColor />
-      </Theme.Provider>
-    );
-
-    expect(getByText('Color: rgb(0, 94, 166)')).toBeDefined();
-  });
-
   it('should render the sendgrid link text color', (): void => {
     const {getByText} = render(
       <Theme.Provider theme="sendgrid">
