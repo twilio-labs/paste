@@ -12,6 +12,7 @@ import {
   spacings,
   textColors,
   zIndices,
+  colors,
 } from '@twilio-paste/design-tokens';
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
@@ -30,4 +31,5 @@ export const DefaultTheme = generateThemeFromTokens({
   spacings,
   textColors,
   zIndices,
+  colors,
 });
