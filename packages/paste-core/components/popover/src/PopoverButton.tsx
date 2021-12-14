@@ -1,20 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {ButtonProps} from '@twilio-paste/button';
-import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import type {PopoverButtonProps} from './types';
 import {PopoverContext} from './PopoverContext';
-
-export interface PopoverButtonProps extends ButtonProps, Pick<BoxProps, 'element'> {
-  id?: string;
-  children: React.ReactNode;
-  toggle?: () => void;
-}
 
 const PopoverButton = React.forwardRef<HTMLButtonElement, PopoverButtonProps>(
   ({children, element = 'POPOVER_BUTTON', ...popoverButtonProps}, ref) => {
     const popover = React.useContext(PopoverContext);
+
     return (
       <NonModalDialogDisclosurePrimitive
         element={element}

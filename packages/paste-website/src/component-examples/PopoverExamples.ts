@@ -65,3 +65,102 @@ render(
   <StateHookExample />
 )
 `.trim();
+
+export const buttonVariantsExample = `
+const PopoverBadgeExample = () => {
+  return (
+    <Box display="flex" columnGap="space40">
+      <PopoverContainer baseId="popover-example">
+        <PopoverButton variant="primary" size="small">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+      <PopoverContainer baseId="popover-example">
+        <PopoverButton variant="secondary_icon" size="icon_small">
+          <PlusIcon decorative={false}  title="Open popover" />
+        </PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+      <PopoverContainer baseId="popover-example">
+        <PopoverButton variant="reset" size="reset">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+render(
+  <PopoverBadgeExample />
+)
+`.trim();
+
+export const badgeExample = `
+const PopoverBadgeExample = () => {
+  return (
+    <Box display="flex" columnGap="space40">
+      <PopoverContainer baseId="popover-example">
+        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+      <PopoverContainer baseId="popover-example">
+        <PopoverBadgeButton variant="info">
+          <>
+            <InformationIcon decorative={false} title="Information" />
+            Open popover
+          </>
+        </PopoverBadgeButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+      <PopoverContainer baseId="popover-example">
+        <PopoverBadgeButton variant="warning">
+          <>
+            <WarningIcon decorative={false} title="Warning" />
+            Open popover
+          </>
+        </PopoverBadgeButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+      <PopoverContainer baseId="popover-example">
+        <PopoverBadgeButton variant="new">
+          <>
+            <NewIcon decorative={false} title="New" />
+            Open popover
+          </>
+        </PopoverBadgeButton>
+        <Popover aria-label="Popover">
+          <Text as="span">
+            This is the Twilio styled popover that you can use in all your applications.
+          </Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+render(
+  <PopoverBadgeExample />
+)
+`.trim();
