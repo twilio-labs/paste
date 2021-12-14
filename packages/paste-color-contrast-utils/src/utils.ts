@@ -85,6 +85,17 @@ export const getTokensWithUIControlContrastRequirements = (rawTokens: DesignToke
     .filter((token) => token.type === 'color' && token.uicontrol_contrast_pairing != null);
 
 /**
+ * get all color tokens that have ui control contrast requirements
+ *
+ * @param {DesignTokensJSON} rawTokens original design tokens object from the design tokens package
+ * @return {*}  {DesignToken[]} array of design tokens
+ */
+export const getTokensWithDataVisualizationContrastRequirements = (rawTokens: DesignTokensJSON): DesignToken[] =>
+  convertRawTokenJSONToArray(rawTokens)
+    // filter by type and contrast pairing type
+    .filter((token) => token.type === 'color' && token.data_visualization_contrast_pairing != null);
+
+/**
  * build an array of contrast results for each token pairing
  *
  * @param {DesignToken[]} filteredTokens array of token names that we know have contrast requirements
@@ -95,7 +106,7 @@ export const getTokensWithUIControlContrastRequirements = (rawTokens: DesignToke
 export const getContrastRatingForTokenPairing = (
   filteredTokens: DesignToken[],
   tokens: AllGenericTokens,
-  pairingKey: 'text_contrast_pairing' | 'uicontrol_contrast_pairing'
+  pairingKey: 'text_contrast_pairing' | 'uicontrol_contrast_pairing' | 'data_visualization_contrast_pairing'
 ): TokenPairContrastRating[] => {
   return filteredTokens.reduce((tokenRatings: TokenPairContrastRating[], token: DesignToken) => {
     /** array of tokens that are paired with this token for the type of contrast checking we're doing */
@@ -194,5 +205,31 @@ export const getContrastRatingsOfTokensWithUIControlContrastRequirements = (
     tokenWithUIControlContrastRequirements,
     flattenedTokens,
     'uicontrol_contrast_pairing'
+  );
+};
+
+/**
+ * Takes all design tokens in an object and determines which ones
+ * have a data visualization contrast ratio requirement against another token
+ * based on the annotations made in the raw design token files. Those token
+ * pairs then have the contrast ratio between them checked and rated.
+ * The result of which is returned as an array of ratings
+ *
+ * @param {Partial<GenericTokensShape>} tokens
+ * @return {*}  {TokenPairContrastRating[]}
+ */
+export const getContrastRatingsOfTokensWithDataVisualizationContrastRequirements = (
+  tokens: Partial<GenericTokensShape>
+): TokenPairContrastRating[] => {
+  // always use the Default raw JSON to get the pairings as other themes won't inherit them automatically
+  const defaultThemeRawJSON = DefaultRawTokenJSON.props;
+  const tokenWithUIControlContrastRequirements = getTokensWithDataVisualizationContrastRequirements(
+    defaultThemeRawJSON
+  );
+  const flattenedTokens = flattenCategorizedTokens(tokens);
+  return getContrastRatingForTokenPairing(
+    tokenWithUIControlContrastRequirements,
+    flattenedTokens,
+    'data_visualization_contrast_pairing'
   );
 };
