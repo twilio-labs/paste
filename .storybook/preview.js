@@ -18,7 +18,7 @@ export const globalTypes = {
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
       icon: 'paintbrush',
       // array of plain string values or MenuItem shape (see below)
-      items: ['default', 'dark', 'sendgrid', 'console'],
+      items: ['default', 'dark', 'sendgrid'],
     },
   },
   theme_layout: {
