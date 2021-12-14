@@ -235,7 +235,7 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-grow property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" grow={[true, false, 1]} />
       </Theme.Provider>
     );
@@ -251,7 +251,7 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-shrink property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" grow shrink={[true, false, 1]} />
       </Theme.Provider>
     );
@@ -267,7 +267,7 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-basis property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" basis={[400, 100, 200]} />
       </Theme.Provider>
     );
@@ -291,7 +291,7 @@ describe('Flex Row', () => {
 
   it('should set a responsive flex-direction property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" display="flex" vertical={[true, false, false]} />
       </Theme.Provider>
     );
@@ -315,7 +315,7 @@ describe('Flex Wrap', () => {
 
   it('should set a responsive flex-wrap property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" wrap={[true, true, false]} />
       </Theme.Provider>
     );
@@ -339,7 +339,7 @@ describe('Vertical Alignment', () => {
 
   it('should set a responsive align-items property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" vAlignContent={['top', 'center', 'bottom']} />
       </Theme.Provider>
     );
@@ -363,7 +363,7 @@ describe('Horizontal Alignment', () => {
 
   it('should set a responsive justify-content property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Flex data-testid="renderedFlexElement" hAlignContent={['left', 'center', 'right']} />
       </Theme.Provider>
     );

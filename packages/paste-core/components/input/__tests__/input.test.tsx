@@ -15,7 +15,7 @@ const NOOP = (): void => {};
 describe('Input render', () => {
   it('should render', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} />
       </Theme.Provider>
     );
@@ -24,7 +24,7 @@ describe('Input render', () => {
 
   it('should render with readOnly', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} readOnly />
       </Theme.Provider>
     );
@@ -33,7 +33,7 @@ describe('Input render', () => {
 
   it('should render with disabled', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} disabled />
       </Theme.Provider>
     );
@@ -42,7 +42,7 @@ describe('Input render', () => {
 
   it('should render with hasError', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} hasError />
       </Theme.Provider>
     );
@@ -51,7 +51,7 @@ describe('Input render', () => {
 
   it('should render with prefix', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
       </Theme.Provider>
     );
@@ -60,7 +60,7 @@ describe('Input render', () => {
 
   it('should render with suffix', (): void => {
     const {asFragment} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Input id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
       </Theme.Provider>
     );
@@ -69,7 +69,7 @@ describe('Input render', () => {
 
   it('has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Label htmlFor="input_1">Label Text</Label>
         <Input id="input_1" type="text" value="test" onChange={NOOP} />
         <HelpText>Help text.</HelpText>
@@ -81,7 +81,7 @@ describe('Input render', () => {
 
   it('disabled has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Label htmlFor="input_2" disabled>
           Label Text
         </Label>
@@ -95,7 +95,7 @@ describe('Input render', () => {
 
   it('hasError has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Label htmlFor="input_3">Label Text</Label>
         <Input id="input_3" type="text" value="test" onChange={NOOP} hasError />
         <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>

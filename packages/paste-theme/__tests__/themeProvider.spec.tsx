@@ -22,7 +22,7 @@ describe('Theme.Provider', () => {
 
   it('should render the console link text color', (): void => {
     const {getByText} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
@@ -42,7 +42,7 @@ describe('Theme.Provider', () => {
 
   it('should rely on the default breakpoints set on the theme object', () => {
     const {getByText} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );

@@ -66,7 +66,7 @@ describe('Alert', () => {
   describe('Variant neutral', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Alert variant="neutral">This is a neutral alert</Alert>
           <Alert onDismiss={onDismissMock} variant="neutral">
             This is a neutral alert
@@ -81,7 +81,7 @@ describe('Alert', () => {
   describe('Variant error', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Alert variant="error">This is a error alert</Alert>
           <Alert onDismiss={onDismissMock} variant="error">
             This is a error alert
@@ -96,7 +96,7 @@ describe('Alert', () => {
   describe('Variant warning', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Alert variant="warning">This is a warning alert</Alert>
           <Alert onDismiss={onDismissMock} variant="warning">
             This is a warning alert

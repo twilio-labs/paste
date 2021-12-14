@@ -11,7 +11,7 @@ const HookExampleComponent = (): React.ReactElement => {
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
     ReactDOM.render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <HookExampleComponent />
       </Theme.Provider>,
       document.createElement('div')
@@ -20,7 +20,7 @@ describe('useTheme', () => {
 
   it('should be able to access the theme object', () => {
     const {getByText} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <HookExampleComponent />
       </Theme.Provider>
     );

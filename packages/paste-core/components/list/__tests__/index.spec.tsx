@@ -21,7 +21,7 @@ describe('Ordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
@@ -125,7 +125,7 @@ describe('Unordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <UnorderedList marginTop="space40" marginBottom="space40">
             Children
           </UnorderedList>

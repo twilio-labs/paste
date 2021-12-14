@@ -10,7 +10,7 @@ describe('SiblingBox render', () => {
   it('should render', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <SiblingBox
             width="sizeSquare50"
             _hover={{

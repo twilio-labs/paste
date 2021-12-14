@@ -17,7 +17,7 @@ describe('Button', () => {
   describe('Button axe checker', () => {
     it('Primary has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -29,7 +29,7 @@ describe('Button', () => {
 
     it('Secondary has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="secondary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -41,7 +41,7 @@ describe('Button', () => {
 
     it('Destructive has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="destructive" onClick={NOOP}>
             Delete
           </Button>
@@ -53,7 +53,7 @@ describe('Button', () => {
 
     it('Destructive_secondary has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="destructive_secondary" onClick={NOOP}>
             Delete
           </Button>
@@ -65,7 +65,7 @@ describe('Button', () => {
 
     it('Destructive_link has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
           </Button>
@@ -77,7 +77,7 @@ describe('Button', () => {
 
     it('Link button has no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="link" onClick={NOOP}>
             Go to Paste
           </Button>
@@ -125,7 +125,7 @@ describe('Button', () => {
 
     it('Loading states have no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="primary" onClick={NOOP} loading>
             Submit
           </Button>
@@ -137,7 +137,7 @@ describe('Button', () => {
 
     it('Disabled states have no accessibility violations', async () => {
       const {container} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="destructive" onClick={NOOP} disabled>
             Undo
           </Button>
@@ -306,7 +306,7 @@ describe('Button', () => {
 
     it('Has an aria-busy attribute when loading', () => {
       const {getByRole} = testRender(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Button variant="secondary" loading>
             button
           </Button>

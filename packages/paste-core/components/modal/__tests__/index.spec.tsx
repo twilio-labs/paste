@@ -16,7 +16,7 @@ const handleCloseMock: jest.Mock = jest.fn();
 const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
-    <Theme.Provider theme="console">
+    <Theme.Provider theme="default">
       <Modal
         data-testid="modal"
         aria-busy="true"
@@ -57,7 +57,7 @@ const MockInitalFocusModal: React.FC = () => {
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
   const inputID = useUID();
   return (
-    <Theme.Provider theme="console">
+    <Theme.Provider theme="default">
       <Modal
         data-testid="modal"
         ariaLabelledby={modalHeadingID}

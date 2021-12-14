@@ -9,7 +9,7 @@ const MockComponentWithTheme = withTheme(MockComponent);
 describe('withTheme', () => {
   it('should render without crashing', (): void => {
     ReactDOM.render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <MockComponentWithTheme />
       </Theme.Provider>,
       document.createElement('div')
@@ -18,7 +18,7 @@ describe('withTheme', () => {
 
   it('should be able to access the theme object', () => {
     const {getByText} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <MockComponentWithTheme />
       </Theme.Provider>
     );
