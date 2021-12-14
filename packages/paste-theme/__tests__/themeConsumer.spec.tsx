@@ -24,6 +24,6 @@ describe('Theme.Consumer', () => {
       </Theme.Provider>
     );
 
-    expect(getByText('rgb(40, 42, 43)')).toBeDefined();
+    expect(getByText('rgb(18, 28, 45)')).toBeDefined();
   });
 });
