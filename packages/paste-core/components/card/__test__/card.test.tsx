@@ -61,7 +61,7 @@ describe('Card', () => {
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <Card>card content</Card>
       </Theme.Provider>
     );

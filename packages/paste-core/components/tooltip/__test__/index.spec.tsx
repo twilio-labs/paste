@@ -66,7 +66,7 @@ describe('Tooltip', () => {
       const focusHandlerMock: jest.Mock = jest.fn();
       const clickHandlerMock: jest.Mock = jest.fn();
       render(
-        <Theme.Provider theme="console">
+        <Theme.Provider theme="default">
           <Tooltip text="Welcome to Paste!" data-testid="tooltip-children-example">
             <Button variant="primary" onFocus={focusHandlerMock} onClick={clickHandlerMock}>
               Open Tooltip
