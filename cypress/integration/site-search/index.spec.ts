@@ -6,7 +6,7 @@ const addQueryMetaData = ({query, result}) => {
   return {results: [{...results, query, params: `query=${query}&hitsPerPage=5`}]};
 };
 const extractRequestParams = (parsedBody) => Cypress._.get(parsedBody, 'requests[0].params');
-const extractHits = (xhr) => Cypress._.get(xhr, 'response.body.results[0].hits', []);
+const extractHits = ({response: {body}}) => Cypress._.get(JSON.parse(body), 'results[0].hits', []);
 
 const testSearch = (searchPhrase) => {
   const searchPhraseCopy = searchPhrase.slice();
@@ -17,29 +17,19 @@ const testSearch = (searchPhrase) => {
     });
 
     cy.get<string>('@inputText').then((inputText) => {
-      cy.get('[data-cy="paste-docs-search-input"]').should('be.visible').as('searchInput');
-
-      cy.get('@searchInput')
-        .then(($inputEl) => {
-          const hasFocus = $inputEl.is(':focus');
-
-          return hasFocus ? cy.wrap($inputEl) : cy.wrap($inputEl).focus();
-        })
-        .should('have.focus')
-        .type(letter);
+      cy.get('[data-cy="paste-docs-search-input"]').should('be.visible').click().should('have.focus').type(letter);
 
       cy.wait('@searchRequest').then((xhr) => {
-        const body = JSON.parse(Cypress._.get(xhr, 'request.body', '{}'));
-        const searchParamString = extractRequestParams(body);
+        cy.get<string>('@searchString').then((searchParamString) => {
+          cy.verifyExpectedQuery(searchParamString, {query: inputText});
 
-        cy.verifyExpectedQuery(searchParamString, {query: inputText});
+          const hits = extractHits(xhr);
 
-        const hits = extractHits(xhr);
-
-        cy.get('[id*="algolia-autocomplete-listbox"]')
-          .should('be.visible')
-          .find('[role="option"]')
-          .should('have.length', hits.length);
+          cy.get('[id*="algolia-autocomplete-listbox"]')
+            .should('be.visible')
+            .find('[role="option"]')
+            .should('have.length', hits.length);
+        });
       });
     });
   });
@@ -66,7 +56,8 @@ describe('Docs website search', () => {
         const {body: jsonBody, reply} = req;
 
         // For now, this is a bit dense, but in future version of Cypress this body parsing has been improved as well. For now, there are utilities above to assist.
-        const searchString = extractRequestParams(JSON.parse(jsonBody));
+        const searchString = extractRequestParams(JSON.parse(jsonBody)).as('searchString');
+
         const parsedParams = new URLSearchParams(searchString);
 
         // Use the empty hits response fixture if there is not a parameter "query" in POST body
@@ -85,7 +76,7 @@ describe('Docs website search', () => {
     cy.wrap('').as('inputText');
   });
 
-  it.skip('should handle search (basic)', () => {
+  it('should handle search (basic)', () => {
     testSearch('hello');
   });
 

@@ -152,8 +152,7 @@ Cypress.Commands.add('verifyExpectedQuery', (searchString, expectedQuery) => {
 
   const expectedQueryParamKeys = Object.keys(expectedQuery);
   expectedQueryParamKeys.forEach((key) => {
-    cy.wrap(parsedParams.has(key)).should('eql', true);
-    cy.wrap(parsedParams.get(key)).should('eql', expectedQuery[key]);
+    expect(parsedParams.get(key)).to.eql(expectedQuery[key]);
   });
 });
 
