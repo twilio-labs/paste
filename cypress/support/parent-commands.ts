@@ -80,7 +80,11 @@ declare namespace Cypress {
      */
     checkChangelogRevealer(): void;
 
-    // @TODO add notes/docs here.
+    /**
+     * Asserts that:
+     * - parsed search string has expected keys that map to the correct values
+     * - uses [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+     */
     verifyExpectedQuery(queryString: string, expectedParams: Record<string, string | boolean>): void;
   }
 }
@@ -142,11 +146,6 @@ Cypress.Commands.add('checkPageAside', () => {
 Cypress.Commands.add('checkLivePreviews', () => {
   cy.getDocsPageContentArea().find('[data-cy="live-preview"]').should('have.length.above', 0);
 });
-
-const commonSpies = {
-  search: '*.algolia.net/1/indexes/*/queries*',
-  analytics: '*.google-analytics.com*',
-};
 
 Cypress.Commands.add('verifyExpectedQuery', (searchString, expectedQuery) => {
   const parsedParams = new URLSearchParams(searchString);
