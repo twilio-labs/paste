@@ -7,5 +7,7 @@
     "runMode": 2,
     "openMode": 0
   },
-  "blockHosts": "*.google-analytics.com"
+  "blockHosts": "*.google-analytics.com",
+  "testFiles": ["**/**/*.spec.ts"],
+  "experimentalNetworkStubbing": true
 }

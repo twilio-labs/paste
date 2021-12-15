@@ -1,0 +1,1012 @@
+{
+  "h": {
+    "results": [
+      {
+        "hits": [
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Heading",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/heading/#paste-docs-content-area",
+            "objectID": "f2f70fa648dd1b07ae277ae24a6a112c641f04e8",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>eading",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["h"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>eading",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["h"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Help Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/help-text/#paste-docs-content-area",
+            "objectID": "af5c0a1745ef244992c5a651a5bec2281a5c2c80",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>elp Text",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["h"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>elp Text",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["h"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to build custom UI with Paste Tokens and Primitives",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/customization/composing-custom-components-with-design-tokens/#paste-docs-content-area",
+            "objectID": "8d0b2b77eb3e0526eac4afc67a42608fae93aeba",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to build custom UI with Paste Tokens and Primitives",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["h"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to build custom UI with Paste Tokens and Primitives",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["h"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to add an icon",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/icons/how-to-add-an-icon/#paste-docs-content-area",
+            "objectID": "278b6070f65143c5e0258d9d9fd973080537425a",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to add an icon",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["h"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to add an icon",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["h"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#paste-docs-content-area",
+            "objectID": "22c99bc04300ebff3ab7fcfcc368fd941bf2ed74",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to work with the Design Systems Team",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["h"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">H</span>ow to work with the Design Systems Team",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["h"]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "nbHits": 165,
+        "page": 0,
+        "nbPages": 33,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  },
+  "he": {
+    "results": [
+      {
+        "hits": [
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Heading",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/heading/#paste-docs-content-area",
+            "objectID": "f2f70fa648dd1b07ae277ae24a6a112c641f04e8",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">He</span>ading",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["he"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">He</span>ading",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["he"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Help Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/help-text/#paste-docs-content-area",
+            "objectID": "af5c0a1745ef244992c5a651a5bec2281a5c2c80",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">He</span>lp Text",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["he"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">He</span>lp Text",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["he"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "getting-help-from-the-dsys-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#getting-help-from-the-dsys-team",
+            "objectID": "32c4dc373d69c658a797dda8d0e99768b3b18028",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["he"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["he"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "when-should-you-talk-to-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "When should you talk to the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#when-should-you-talk-to-the-design-systems-team",
+            "objectID": "1df6557e8ed793d251bc871e193300bf829b93c8",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["he"]
+                },
+                "lvl2": {
+                  "value": "When should you talk to the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["he"]
+                  },
+                  "lvl2": {
+                    "value": "When should you talk to the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "What kind of support can you expect from the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "objectID": "edbc3445cca834ea54f9a5b004f074c599219bc7",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["he"]
+                },
+                "lvl2": {
+                  "value": "What kind of support can you expect from the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">he</span>lp from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["he"]
+                  },
+                  "lvl2": {
+                    "value": "What kind of support can you expect from the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "nbHits": 104,
+        "page": 0,
+        "nbPages": 21,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  },
+  "hel": {
+    "results": [
+      {
+        "hits": [
+          {
+            "anchor": "paste-docs-content-area",
+            "content": "Hello",
+            "hierarchy": {
+              "lvl0": "Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/primitives/text/#paste-docs-content-area",
+            "objectID": "b03930a4b3904d5e384cdecbfc9e2da08bda2f82",
+            "_snippetResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hell</span>o",
+                "matchLevel": "full"
+              }
+            },
+            "_highlightResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hell</span>o",
+                "matchLevel": "full",
+                "fullyHighlighted": false,
+                "matchedWords": ["hell"]
+              },
+              "hierarchy": {
+                "lvl0": {
+                  "value": "Text",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "Text",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Help Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/help-text/#paste-docs-content-area",
+            "objectID": "af5c0a1745ef244992c5a651a5bec2281a5c2c80",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Help</span> Text",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Help</span> Text",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "getting-help-from-the-dsys-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#getting-help-from-the-dsys-team",
+            "objectID": "32c4dc373d69c658a797dda8d0e99768b3b18028",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "when-should-you-talk-to-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "When should you talk to the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#when-should-you-talk-to-the-design-systems-team",
+            "objectID": "1df6557e8ed793d251bc871e193300bf829b93c8",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                },
+                "lvl2": {
+                  "value": "When should you talk to the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  },
+                  "lvl2": {
+                    "value": "When should you talk to the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "What kind of support can you expect from the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "objectID": "edbc3445cca834ea54f9a5b004f074c599219bc7",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                },
+                "lvl2": {
+                  "value": "What kind of support can you expect from the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  },
+                  "lvl2": {
+                    "value": "What kind of support can you expect from the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "nbHits": 85,
+        "page": 0,
+        "nbPages": 17,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  },
+  "hell": {
+    "results": [
+      {
+        "hits": [
+          {
+            "anchor": "paste-docs-content-area",
+            "content": "Hello",
+            "hierarchy": {
+              "lvl0": "Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/primitives/text/#paste-docs-content-area",
+            "objectID": "b03930a4b3904d5e384cdecbfc9e2da08bda2f82",
+            "_snippetResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hell</span>o",
+                "matchLevel": "full"
+              }
+            },
+            "_highlightResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hell</span>o",
+                "matchLevel": "full",
+                "fullyHighlighted": false,
+                "matchedWords": ["hell"]
+              },
+              "hierarchy": {
+                "lvl0": {
+                  "value": "Text",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "Text",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "paste-docs-content-area",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "Help Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/components/help-text/#paste-docs-content-area",
+            "objectID": "af5c0a1745ef244992c5a651a5bec2281a5c2c80",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Help</span> Text",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Help</span> Text",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "getting-help-from-the-dsys-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#getting-help-from-the-dsys-team",
+            "objectID": "32c4dc373d69c658a797dda8d0e99768b3b18028",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "when-should-you-talk-to-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "When should you talk to the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#when-should-you-talk-to-the-design-systems-team",
+            "objectID": "1df6557e8ed793d251bc871e193300bf829b93c8",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                },
+                "lvl2": {
+                  "value": "When should you talk to the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  },
+                  "lvl2": {
+                    "value": "When should you talk to the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "anchor": "what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "content": null,
+            "hierarchy": {
+              "lvl0": "How to work with the Design Systems Team",
+              "lvl1": "Getting help from the DSYS Team ",
+              "lvl2": "What kind of support can you expect from the Design Systems team? ",
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/getting-started/working-guide/#what-kind-of-support-can-you-expect-from-the-design-systems-team",
+            "objectID": "edbc3445cca834ea54f9a5b004f074c599219bc7",
+            "_highlightResult": {
+              "hierarchy": {
+                "lvl0": {
+                  "value": "How to work with the Design Systems Team",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                },
+                "lvl1": {
+                  "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": ["hell"]
+                },
+                "lvl2": {
+                  "value": "What kind of support can you expect from the Design Systems team? ",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "How to work with the Design Systems Team",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  },
+                  "lvl1": {
+                    "value": "Getting <span class=\"algolia-docsearch-suggestion--highlight\">help</span> from the DSYS Team ",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords": ["hell"]
+                  },
+                  "lvl2": {
+                    "value": "What kind of support can you expect from the Design Systems team? ",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "nbHits": 85,
+        "page": 0,
+        "nbPages": 17,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  },
+  "hello": {
+    "results": [
+      {
+        "hits": [
+          {
+            "anchor": "paste-docs-content-area",
+            "content": "Hello",
+            "hierarchy": {
+              "lvl0": "Text",
+              "lvl1": null,
+              "lvl2": null,
+              "lvl3": null,
+              "lvl4": null,
+              "lvl5": null,
+              "lvl6": null
+            },
+            "url": "https://paste.twilio.design/primitives/text/#paste-docs-content-area",
+            "objectID": "b03930a4b3904d5e384cdecbfc9e2da08bda2f82",
+            "_snippetResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hello</span>",
+                "matchLevel": "full"
+              }
+            },
+            "_highlightResult": {
+              "content": {
+                "value": "<span class=\"algolia-docsearch-suggestion--highlight\">Hello</span>",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": ["hello"]
+              },
+              "hierarchy": {
+                "lvl0": {
+                  "value": "Text",
+                  "matchLevel": "none",
+                  "matchedWords": []
+                }
+              },
+              "hierarchy_camel": [
+                {
+                  "lvl0": {
+                    "value": "Text",
+                    "matchLevel": "none",
+                    "matchedWords": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "nbHits": 1,
+        "page": 0,
+        "nbPages": 1,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  },
+  "no_result": {
+    "results": [
+      {
+        "hits": [],
+        "nbHits": 165,
+        "page": 0,
+        "nbPages": 33,
+        "hitsPerPage": 5,
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "index": "twilio_paste",
+        "processingTimeMS": 1
+      }
+    ]
+  }
+}

@@ -80,6 +80,7 @@ declare namespace Cypress {
      */
     checkChangelogRevealer(): void;
 
+    // @TODO add notes/docs here.
     verifyExpectedQuery(queryString: string, expectedParams: Record<string, string | boolean>): void;
   }
 }
