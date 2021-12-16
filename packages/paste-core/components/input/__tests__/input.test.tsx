@@ -13,60 +13,6 @@ import type {InputTypes} from '../src';
 const NOOP = (): void => {};
 
 describe('Input render', () => {
-  it('should render', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with readOnly', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} readOnly />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with disabled', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} disabled />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with hasError', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} hasError />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with prefix', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with suffix', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="default">
-        <Input id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
   it('has no accessibility violations', async () => {
     const {container} = render(
       <Theme.Provider theme="default">
