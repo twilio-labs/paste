@@ -1,17 +1,33 @@
+const resetString = (string) => string.slice(0, string.length - 2);
+
 describe('Docs website search', () => {
   let searchTerm = '';
   before(() => {
-    // TESTING: Testing if using "cy.visit" ensure that the assets load before running the tests.
     cy.visit('/');
   });
 
   beforeEach(() => {
     cy.server();
-    cy.route({url: 'https://*.algolia.net/**', method: 'POST'}).as('searchRequest');
+    cy.route({url: 'https://**.algolia.net/**', method: 'POST'}).as('searchRequest');
   });
 
   beforeEach(() => {
     cy.get('[data-cy="paste-docs-search-input"]').as('searchInputEl');
+  });
+
+  beforeEach(() => {
+    cy.get('@searchInputEl').then(($inputEl) => {
+      // Is this test "re-trying", if so, we should reset the test state.
+      // https://docs.cypress.io/guides/guides/test-retries#Can-I-access-the-current-attempt-counter-from-the-test
+      const shouldResetTestState = Cypress._.get(cy.state('test'), '_currentRetry', 0);
+
+      if (shouldResetTestState !== 0) {
+        // remove last character from input
+        cy.wrap($inputEl).type('{backspace}');
+        // remove the  last character from our saved value
+        searchTerm = resetString(searchTerm);
+      }
+    });
   });
 
   'dsys'.split('').forEach(async (letter) => {
