@@ -25,8 +25,6 @@ describe('Docs website search', () => {
 
       searchTerm += letter;
 
-      console.log({searchTerm, letter});
-
       cy.get('@searchInputEl').should('have.attr', 'value', searchTerm);
 
       cy.wait('@searchRequest');
@@ -34,6 +32,7 @@ describe('Docs website search', () => {
       cy.get('[id*="algolia-autocomplete-listbox"]')
         .should('be.visible')
         .find('[role="option"]')
+        // Simple check for now, that the box contains some results.
         .should('have.length.above', 0);
     });
   });
