@@ -1,13 +1,8 @@
 describe('Docs website search', () => {
   let searchTerm = '';
   before(() => {
-    // Start an XHR server with the built-in cypress utilities.
-    cy.server();
-    cy.route('**/**/page-data.json').as('pageDataResponse');
-    cy.route('**/**/app-data.json').as('appDataResponse');
+    // TESTING: Testing if using "cy.visit" ensure that the assets load before running the tests.
     cy.visit('/');
-    // Wait for the JS assets to load since they are necessary for the search functionality.
-    cy.wait(['@pageDataResponse', '@appDataResponse']);
   });
 
   beforeEach(() => {
