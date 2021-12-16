@@ -12,7 +12,7 @@ describe('Docs website search', () => {
 
   beforeEach(() => {
     cy.server();
-    cy.route({url: 'https://bh4d9od16a-dsn.algolia.net/1/indexes/*/**', method: 'POST'}).as('searchRequest');
+    cy.route({url: 'https://*.algolia.net/**', method: 'POST'}).as('searchRequest');
   });
 
   beforeEach(() => {
