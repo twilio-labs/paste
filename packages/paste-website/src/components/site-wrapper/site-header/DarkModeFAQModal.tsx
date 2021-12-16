@@ -64,8 +64,8 @@ export const DarkModeFAQModal: React.FC = () => {
       </Paragraph>
       <Paragraph>
         Themes are an implementation of design language. Paste, by default, uses the new design language that was
-        specifically designed to unify all Twilio products. Paste also comes with legacy SendGrid design language
-        support.
+        specifically designed to unify all Twilio products. Paste also comes with the ability to support legacy design
+        languages.
       </Paragraph>
       <Paragraph>
         The new, default design language is the only design language that supports Light and Dark Mode via the
