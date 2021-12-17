@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {SiblingBox} from '../src';
 
@@ -10,7 +9,7 @@ describe('SiblingBox render', () => {
   it('should render', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <SiblingBox
             width="sizeSquare50"
             _hover={{
@@ -58,7 +57,7 @@ describe('SiblingBox render', () => {
           >
             child
           </SiblingBox>
-        </Theme.Provider>
+        </CustomizationProvider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
