@@ -3,4 +3,3 @@ declare module '*.md' {
   export default value;
 }
 declare module '*.png';
-
