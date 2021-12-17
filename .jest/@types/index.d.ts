@@ -1,4 +1,4 @@
-import type {GenericThemeShape} from '@twilio-paste/theme';
+import type { GenericThemeShape } from '@twilio-paste/theme';
 import type { EmotionMatchers } from 'jest-emotion'
 
 declare global {
