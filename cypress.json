@@ -8,6 +8,5 @@
     "openMode": 2
   },
   "blockHosts": "*.google-analytics.com",
-  "testFiles": ["**/**/*.spec.ts"],
-  "experimentalNetworkStubbing": true
+  "testFiles": ["**/**/*.spec.ts"]
 }
