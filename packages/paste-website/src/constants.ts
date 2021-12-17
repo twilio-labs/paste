@@ -36,6 +36,7 @@ export const ENVIRONMENT_CONTEXT: EnvironmentContext =
   (process.env.GATSBY_ENVIRONMENT_CONTEXT as EnvironmentContext) || 'local';
 
 export const SidebarCategoryRoutes = {
+  INTRODUCTION: '/introduction',
   COMPONENTS: '/components',
   PATTERNS: '/patterns',
   PRIMITIVES: '/primitives',
