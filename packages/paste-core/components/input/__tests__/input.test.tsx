@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 // @ts-ignore typescript doesn't like js imports
@@ -15,11 +14,11 @@ const NOOP = (): void => {};
 describe('Input render', () => {
   it('has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default">
         <Label htmlFor="input_1">Label Text</Label>
         <Input id="input_1" type="text" value="test" onChange={NOOP} />
         <HelpText>Help text.</HelpText>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -27,13 +26,13 @@ describe('Input render', () => {
 
   it('disabled has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default">
         <Label htmlFor="input_2" disabled>
           Label Text
         </Label>
         <Input id="input_2" type="text" value="test" onChange={NOOP} disabled />
         <HelpText>Help text.</HelpText>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -41,11 +40,11 @@ describe('Input render', () => {
 
   it('hasError has no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default">
         <Label htmlFor="input_3">Label Text</Label>
         <Input id="input_3" type="text" value="test" onChange={NOOP} hasError />
         <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
@@ -66,12 +65,12 @@ describe('Alert', () => {
   describe('Variant neutral', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default">
           <Alert variant="neutral">This is a neutral alert</Alert>
           <Alert onDismiss={onDismissMock} variant="neutral">
             This is a neutral alert
           </Alert>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -81,12 +80,12 @@ describe('Alert', () => {
   describe('Variant error', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default">
           <Alert variant="error">This is a error alert</Alert>
           <Alert onDismiss={onDismissMock} variant="error">
             This is a error alert
           </Alert>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -96,12 +95,12 @@ describe('Alert', () => {
   describe('Variant warning', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default">
           <Alert variant="warning">This is a warning alert</Alert>
           <Alert onDismiss={onDismissMock} variant="warning">
             This is a warning alert
           </Alert>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
