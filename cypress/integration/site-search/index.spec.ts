@@ -4,7 +4,7 @@ describe('Docs website search', () => {
   let searchTerm = '';
   before(() => {
     cy.visit('/');
-    cy.get('@hydrationFinished').should('have.been.called');
+    cy.wait(500);
   });
 
   beforeEach(() => {

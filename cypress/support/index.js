@@ -32,7 +32,3 @@ Cypress.on('uncaught:exception', (err) => {
     return false;
   }
 });
-
-Cypress.on('window:before:load', ($window) => {
-  $window.addEventListener(hydrationFinishedEvent.type, cy.stub().as('hydrationFinished'));
-});
