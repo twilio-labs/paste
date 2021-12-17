@@ -79,13 +79,6 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
-
-    /**
-     * Asserts that:
-     * - parsed search string has expected keys that map to the correct values
-     * - uses [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
-     */
-    verifyExpectedQuery(queryString: string, expectedParams: Record<string, string | boolean>): void;
   }
 }
 
@@ -145,15 +138,6 @@ Cypress.Commands.add('checkPageAside', () => {
 
 Cypress.Commands.add('checkLivePreviews', () => {
   cy.getDocsPageContentArea().find('[data-cy="live-preview"]').should('have.length.above', 0);
-});
-
-Cypress.Commands.add('verifyExpectedQuery', (searchString, expectedQuery) => {
-  const parsedParams = new URLSearchParams(searchString);
-
-  const expectedQueryParamKeys = Object.keys(expectedQuery);
-  expectedQueryParamKeys.forEach((key) => {
-    expect(parsedParams.get(key)).to.eql(expectedQuery[key]);
-  });
 });
 
 Cypress.Commands.add('checkDoDonts', () => {
