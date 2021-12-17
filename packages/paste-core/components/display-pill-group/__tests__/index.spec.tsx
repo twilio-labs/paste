@@ -73,7 +73,6 @@ describe('DisplayPillGroup', () => {
       const {getByTestId} = render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOM_PILL_GROUP: {

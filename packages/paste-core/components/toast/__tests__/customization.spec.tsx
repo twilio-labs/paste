@@ -23,11 +23,7 @@ describe('Toast data-paste-element attribute', () => {
 describe('Toast customization', () => {
   it('should set styles on default Toast', () => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getStyles()}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getStyles()}>
         {makeToast('warning')}
       </CustomizationProvider>
     );
@@ -45,11 +41,7 @@ describe('Toast customization', () => {
   });
   it('should set styles on custom element Toast', () => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getStyles('FOO')}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getStyles('FOO')}>
         {makeToast('error', 'FOO')}
       </CustomizationProvider>
     );

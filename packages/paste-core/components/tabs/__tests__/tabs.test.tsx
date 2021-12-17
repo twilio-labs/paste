@@ -275,7 +275,6 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             HORIZONTAL_TABS: {
@@ -342,7 +341,6 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             HORSE: {

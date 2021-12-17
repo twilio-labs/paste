@@ -337,11 +337,7 @@ describe('Customization', () => {
 
   it('should add custom styling to a default Radio', () => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getCustomizationStyles()}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles()}>
         <RadioGroup {...defaultGroupProps} errorText="error">
           <Radio helpText="help" {...defaultProps}>
             foo
@@ -374,11 +370,7 @@ describe('Customization', () => {
 
   it('should add custom styling to a custom element Radio', () => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getCustomizationStyles('MY_RADIO')}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_RADIO')}>
         <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
           <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
             foo

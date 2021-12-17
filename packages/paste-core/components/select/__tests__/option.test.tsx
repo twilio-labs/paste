@@ -109,7 +109,6 @@ describe('Option', () => {
     it('should add custom styles to Option', () => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             OPTION: {
@@ -132,7 +131,6 @@ describe('Option', () => {
     it('should add custom styles to Option with a custom element data attribute', () => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             OPTION: {

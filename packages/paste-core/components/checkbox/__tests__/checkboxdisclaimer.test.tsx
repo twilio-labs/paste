@@ -67,7 +67,6 @@ describe('Customization', () => {
   it('Should add custom styling to a default Checkbox Disclaimer', () => {
     const {container} = testRender(
       <CustomizationProvider
-        // @ts-expect-error global test variable
         theme={TestTheme}
         elements={{
           CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
@@ -92,7 +91,6 @@ describe('Customization', () => {
   it('Should add custom styling to a custom named Checkbox Disclaimer', () => {
     const {container} = testRender(
       <CustomizationProvider
-        // @ts-expect-error global test variable
         theme={TestTheme}
         elements={{
           MY_CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
