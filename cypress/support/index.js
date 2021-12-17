@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 
+import {hydrationFinishedEvent} from '../../packages/paste-website/gatsby-browser.js';
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -29,4 +31,8 @@ Cypress.on('uncaught:exception', (err) => {
   if (resizeObserverLoopErrRe.test(err.message)) {
     return false;
   }
+});
+
+Cypress.on('window:before:load', ($window) => {
+  $window.addEventListener(hydrationFinishedEvent.type, cy.stub().as('hydrationFinished'));
 });
