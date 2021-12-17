@@ -9,7 +9,7 @@ import {Card} from '../src';
 describe('Card', () => {
   it('should render', (): void => {
     render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
       </CustomizationProvider>
     );
@@ -19,7 +19,7 @@ describe('Card', () => {
 
   it('should render default padding', (): void => {
     render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
       </CustomizationProvider>
     );
@@ -29,7 +29,7 @@ describe('Card', () => {
 
   it('should render custom padding values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card
           data-testid="card"
           paddingTop="space20"
@@ -48,7 +48,7 @@ describe('Card', () => {
 
   it('should render children', (): void => {
     render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card>I AM A JEDI!!!!</Card>
       </CustomizationProvider>
     );
@@ -60,7 +60,7 @@ describe('Card', () => {
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
     const {container} = render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card>card content</Card>
       </CustomizationProvider>
     );

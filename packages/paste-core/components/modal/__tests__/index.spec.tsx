@@ -2,7 +2,6 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {FormLabel, FormInput} from '@twilio-paste/form';
@@ -17,7 +16,7 @@ const handleCloseMock: jest.Mock = jest.fn();
 const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
-    <CustomizationProvider baseTheme="default">
+    <CustomizationProvider baseTheme="default" theme={TestTheme}>
       <Modal
         data-testid="modal"
         aria-busy="true"
@@ -58,7 +57,7 @@ const MockInitalFocusModal: React.FC = () => {
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
   const inputID = useUID();
   return (
-    <CustomizationProvider baseTheme="default">
+    <CustomizationProvider baseTheme="default" theme={TestTheme}>
       <Modal
         data-testid="modal"
         ariaLabelledby={modalHeadingID}

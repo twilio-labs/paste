@@ -9,7 +9,7 @@ describe('Ordered List', () => {
   describe('Render', () => {
     it('should render a plain ordered list wrapper', () => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList>Children</OrderedList>
         </CustomizationProvider>
       );
@@ -19,7 +19,7 @@ describe('Ordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
@@ -97,7 +97,7 @@ describe('Ordered List', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const {container} = render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList>
             <ListItem>item</ListItem>
           </OrderedList>
@@ -113,7 +113,7 @@ describe('Unordered List', () => {
   describe('Render', () => {
     it('should render a plain unordered list wrapper', () => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList>Children</UnorderedList>
         </CustomizationProvider>
       );
@@ -123,7 +123,7 @@ describe('Unordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList marginTop="space40" marginBottom="space40">
             Children
           </UnorderedList>
@@ -201,7 +201,7 @@ describe('Unordered List', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const {container} = render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList>
             <ListItem>item</ListItem>
           </UnorderedList>
@@ -217,7 +217,7 @@ describe('ListItem', () => {
   describe('Render', () => {
     it('should render a plain list item', () => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <ListItem>Children</ListItem>
         </CustomizationProvider>
       );

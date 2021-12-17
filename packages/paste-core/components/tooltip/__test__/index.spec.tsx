@@ -19,7 +19,7 @@ const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) =>
 describe('Tooltip', () => {
   describe('Render', () => {
     render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <TooltipWithoutTheme />
       </CustomizationProvider>
     );
@@ -65,7 +65,7 @@ describe('Tooltip', () => {
       const focusHandlerMock: jest.Mock = jest.fn();
       const clickHandlerMock: jest.Mock = jest.fn();
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Tooltip text="Welcome to Paste!" data-testid="tooltip-children-example">
             <Button variant="primary" onFocus={focusHandlerMock} onClick={clickHandlerMock}>
               Open Tooltip
@@ -96,7 +96,7 @@ describe('Tooltip', () => {
   describe('Customization', () => {
     it('should set a default element data attribute for Tooltip', (): void => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme />
         </CustomizationProvider>
       );
@@ -109,7 +109,7 @@ describe('Tooltip', () => {
 
     it('should set a custom element data attribute for a custom element name on Tooltip', (): void => {
       render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme elementName="CUSTOM_TOOLTIP" />
         </CustomizationProvider>
       );
@@ -178,7 +178,7 @@ describe('Tooltip', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme />
         </CustomizationProvider>
       );

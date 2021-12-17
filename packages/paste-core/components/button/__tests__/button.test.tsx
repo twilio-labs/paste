@@ -17,7 +17,7 @@ describe('Button', () => {
   describe('Button axe checker', () => {
     it('Primary has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -29,7 +29,7 @@ describe('Button', () => {
 
     it('Secondary has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -41,7 +41,7 @@ describe('Button', () => {
 
     it('Destructive has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive" onClick={NOOP}>
             Delete
           </Button>
@@ -53,7 +53,7 @@ describe('Button', () => {
 
     it('Destructive_secondary has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_secondary" onClick={NOOP}>
             Delete
           </Button>
@@ -65,7 +65,7 @@ describe('Button', () => {
 
     it('Destructive_link has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
           </Button>
@@ -77,7 +77,7 @@ describe('Button', () => {
 
     it('Link button has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="link" onClick={NOOP}>
             Go to Paste
           </Button>
@@ -89,7 +89,7 @@ describe('Button', () => {
 
     it('Primary Icon button has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
           </Button>
@@ -101,7 +101,7 @@ describe('Button', () => {
 
     it('Secondary Icon button has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
           </Button>
@@ -113,7 +113,7 @@ describe('Button', () => {
 
     it('Destructive Icon button has no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
           </Button>
@@ -125,7 +125,7 @@ describe('Button', () => {
 
     it('Loading states have no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary" onClick={NOOP} loading>
             Submit
           </Button>
@@ -137,7 +137,7 @@ describe('Button', () => {
 
     it('Disabled states have no accessibility violations', async () => {
       const {container} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive" onClick={NOOP} disabled>
             Undo
           </Button>
@@ -306,7 +306,7 @@ describe('Button', () => {
 
     it('Has an aria-busy attribute when loading', () => {
       const {getByRole} = testRender(
-        <CustomizationProvider baseTheme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" loading>
             button
           </Button>

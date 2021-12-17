@@ -14,7 +14,7 @@ const NOOP = (): void => {};
 describe('Input render', () => {
   it('has no accessibility violations', async () => {
     const {container} = render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Label htmlFor="input_1">Label Text</Label>
         <Input id="input_1" type="text" value="test" onChange={NOOP} />
         <HelpText>Help text.</HelpText>
@@ -26,7 +26,7 @@ describe('Input render', () => {
 
   it('disabled has no accessibility violations', async () => {
     const {container} = render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Label htmlFor="input_2" disabled>
           Label Text
         </Label>
@@ -40,7 +40,7 @@ describe('Input render', () => {
 
   it('hasError has no accessibility violations', async () => {
     const {container} = render(
-      <CustomizationProvider baseTheme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Label htmlFor="input_3">Label Text</Label>
         <Input id="input_3" type="text" value="test" onChange={NOOP} hasError />
         <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
