@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {getHumanizedNameFromPackageName} from './RouteUtils';
+import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
 
 export type GraphqlData = Record<string, any>;
@@ -103,4 +103,29 @@ export const getNormalizedHeaderData = (data: GraphqlData): GraphqlData => {
       [currentKey]: mutatedData,
     };
   }, {});
+};
+
+export const getNormalizedNavigationData = (data: GraphqlData): GraphqlData => {
+  const queryKeys = Object.keys(data);
+  const normalizedData: Record<string, GraphqlData> = {};
+
+  queryKeys.forEach((currentKey) => {
+    if (shouldFlatten(currentKey)) {
+      const dataFragment = data[currentKey].edges;
+      const mutateOperation = ({name}: GraphqlData): GraphqlData => ({
+        name: getHumanizedNameFromPackageName(name),
+        slug: getNameFromPackageName(name),
+      });
+
+      let res: Array<GraphqlData> = [];
+
+      dataFragment.forEach((currentPackage: GraphqlData) => {
+        const mutatedData = mutateOperation(currentPackage.node);
+        res = [...res, mutatedData];
+      });
+      normalizedData[currentKey] = res;
+    }
+  });
+
+  return normalizedData;
 };

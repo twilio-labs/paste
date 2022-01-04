@@ -11,12 +11,13 @@ import {SidebarAnchor} from './SidebarAnchor';
 import {SidebarDisclosureButton} from './SidebarDisclosureButton';
 import {SidebarItem} from './SidebarItem';
 import {SidebarSeparator} from './SidebarSeparator';
-import {SidebarNestedItem} from './SidebarNestedItem';
+// import {SidebarNestedItem} from './SidebarNestedItem';
 import {SidebarNestedList} from './SidebarNestedList';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
 import {useNavigationContext} from '../../../context/NavigationContext';
+import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -24,6 +25,10 @@ interface SidebarNavigationProps {
 
 const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const data = useNavigationContext();
+
+  const updatedData = getNormalizedNavigationData(data);
+
+  // const {components, patterns, primitives } =
 
   const introductionDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.INTRODUCTION),
@@ -121,11 +126,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...introductionDisclosure} data-cy="introduction-list">
             <SidebarNestedList>
-              <SidebarNestedItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to="/">
                   About Paste
                 </SidebarAnchor>
-              </SidebarNestedItem>
+              </SidebarItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
@@ -150,56 +155,56 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...patternsDisclosure} data-cy="patterns-list">
             <SidebarNestedList>
-              <SidebarNestedItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
                   Overview
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
                   How to contribute
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/button-vs-anchor`}>
                   Button vs. Anchor
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/create`}>
                   Create
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/data-export`}>
                   Data Export
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
                   Delete
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-states`}>
                   Empty states
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications-and-feedback`}>
                   Notifications and feedback
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
                   Object details
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
                   Status
                 </SidebarAnchor>
-              </SidebarNestedItem>
+              </SidebarItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
@@ -221,21 +226,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...primitivesDisclosure} data-cy="primitives-list">
             <SidebarNestedList>
-              <SidebarNestedItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PRIMITIVES}>
                   Overview
                 </SidebarAnchor>
-              </SidebarNestedItem>
+              </SidebarItem>
               {data.allPastePrimitive.edges.filter(filteredComponents).map(({node}) => {
                 return (
-                  <SidebarNestedItem key={node.name}>
+                  <SidebarItem key={node.name} level={1}>
                     <SidebarAnchor
                       nested
                       to={`${SidebarCategoryRoutes.PRIMITIVES}/${getNameFromPackageName(node.name)}`}
                     >
                       {getHumanizedNameFromPackageName(node.name)}
                     </SidebarAnchor>
-                  </SidebarNestedItem>
+                  </SidebarItem>
                 );
               })}
             </SidebarNestedList>
@@ -259,16 +264,16 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...tokensDisclosure} data-cy="design-tokens-list">
             <SidebarNestedList>
-              <SidebarNestedItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.TOKENS}>
                   Token list
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
+              </SidebarItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
                   Design Tokens package
                 </SidebarAnchor>
-              </SidebarNestedItem>
+              </SidebarItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
@@ -333,11 +338,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...gettingStartedDisclosure} data-cy="getting-started-list">
             <SidebarNestedList>
-              <SidebarNestedItem>
+              <SidebarItem level={1}>
                 <SidebarAnchor nested to="/getting-started/quickstart">
                   Quick Start
                 </SidebarAnchor>
-              </SidebarNestedItem>
+              </SidebarItem>
               <SidebarNestedItem>
                 <SidebarAnchor nested to="/getting-started/manual-installation">
                   Manual Installation
