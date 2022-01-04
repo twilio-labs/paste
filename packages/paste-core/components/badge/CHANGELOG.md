@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 1.1.3
+
+### Patch Changes
+
+- [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] Update the maxWidth
+
 ## 1.1.2
 
 ### Patch Changes
