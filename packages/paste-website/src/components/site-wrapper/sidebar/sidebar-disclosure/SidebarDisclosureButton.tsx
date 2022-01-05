@@ -4,6 +4,8 @@ import type {BoxProps} from '@twilio-paste/box';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
 
+import {SidebarItem} from '../SidebarItem';
+
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
 interface SidebarDisclosureButtonProps extends BoxProps {
@@ -66,8 +68,10 @@ export const SidebarDisclosureButton: React.FC<SidebarDisclosureButtonProps> = (
   const {disclosure} = React.useContext(SidebarDisclosureContext);
 
   return (
-    <DisclosurePrimitive as={StyledButton} {...disclosure} {...props}>
-      {children}
-    </DisclosurePrimitive>
+    <SidebarItem nested>
+      <DisclosurePrimitive as={StyledButton} {...disclosure} {...props}>
+        {children}
+      </DisclosurePrimitive>
+    </SidebarItem>
   );
 };
