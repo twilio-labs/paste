@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+- [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add PopoverBadgeButton component
+
+### Patch Changes
+
+- [`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51) [#2083](https://github.com/twilio-labs/paste/pull/2083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert, Modal, Popover, Toast] Update close button to use `secondary_icon` button variant
+
 ## 6.2.0
 
 ### Minor Changes

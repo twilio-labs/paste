@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/label",
-  "version": "6.0.6",
+  "version": "6.0.7",
   "category": "user input",
   "status": "production",
   "description": "A Label is text that provides a visible and accessible name to a form element.",

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/popover",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "category": "interaction",
   "status": "production",
   "description": "A Popover is a page overlay triggered by a click that displays additional interactive content.",
@@ -44,7 +44,7 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/badge": "^1.1.2",
+    "@twilio-paste/badge": "^1.1.3",
     "@twilio-paste/box": "^4.2.5",
     "@twilio-paste/button": "^7.0.11",
     "@twilio-paste/design-tokens": "^6.14.1",

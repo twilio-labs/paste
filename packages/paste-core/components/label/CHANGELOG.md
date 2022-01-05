@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.7
+
+### Patch Changes
+
+- [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5) [#2087](https://github.com/twilio-labs/paste/pull/2087) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update the cursor
+
 ## 6.0.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.5
+
+### Patch Changes
+
+- [`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51) [#2083](https://github.com/twilio-labs/paste/pull/2083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert, Modal, Popover, Toast] Update close button to use `secondary_icon` button variant
+
 ## 7.1.4
 
 ### Patch Changes
