@@ -15,11 +15,10 @@ export type PackageStatusObject = [
 ];
 
 export interface ComponentNode {
-  node: {
-    name: string;
-    version: string;
-    status: string;
-  };
+  name: string;
+  packageName?: string;
+  version?: string;
+  status?: string;
 }
 
 export interface AirTableComponentNode {
