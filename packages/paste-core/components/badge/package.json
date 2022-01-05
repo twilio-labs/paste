@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/badge",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "category": "data display",
   "status": "production",
   "description": "A Badge is a visual text label that describes an attribute of an object.",
