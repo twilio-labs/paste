@@ -2,81 +2,26 @@ import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {
-  useDisclosurePrimitiveState,
-  DisclosurePrimitive,
-  DisclosurePrimitiveContent,
-} from '@twilio-paste/disclosure-primitive';
-import {SidebarAnchor} from './SidebarAnchor';
-import {SidebarDisclosureButton} from './SidebarDisclosureButton';
-import {SidebarItem} from './SidebarItem';
-import {SidebarSeparator} from './SidebarSeparator';
-// import {SidebarNestedItem} from './SidebarNestedItem';
-import {SidebarNestedList} from './SidebarNestedList';
-import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
-import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
-import {filteredComponents} from '../../../utils/componentFilters';
-import {useNavigationContext} from '../../../context/NavigationContext';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getCurrentPathname} from '../../../utils/RouteUtils';
+import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
 import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
-interface SidebarNavigationProps {
-  children?: React.ReactNode;
-}
+import {SidebarAnchor} from './SidebarAnchor';
+import {SidebarSeparator} from './SidebarSeparator';
+import {SidebarDisclosure} from './sidebar-disclosure/SidebarDisclosure';
+import {SidebarDisclosureButton} from './sidebar-disclosure/SidebarDisclosureButton';
+import {SidebarDisclosureContent} from './sidebar-disclosure/SidebarDisclosureContent';
 
-const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
+const SidebarNavigation: React.FC = () => {
   const data = useNavigationContext();
+  const currentPathname = getCurrentPathname();
 
-  const updatedData = getNormalizedNavigationData(data);
-
-  // const {components, patterns, primitives } =
-
-  const introductionDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.INTRODUCTION),
-  });
-
-  const gettingStartedDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED),
-  });
-
-  const componentsDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS),
-  });
-
-  const primitivesDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.PRIMITIVES),
-  });
-
-  const layoutDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.LAYOUT),
-  });
-
-  const iconDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM),
-  });
-
-  const contentDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CONTENT),
-  });
-
-  const librariesDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.LIBRARIES),
-  });
-
-  const tokensDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS),
-  });
-
-  const patternsDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.PATTERNS),
-  });
-
-  const customizationDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CUSTOMIZATION),
-  });
-
-  const coreDisclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CORE),
-  });
+  const {allPasteComponent, allPasteLayout, allPastePrimitive} = getNormalizedNavigationData(data);
+  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon'}];
+  const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
 
   return (
     <Box
@@ -109,10 +54,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         </SidebarAnchor>
       </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...introductionDisclosure}
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
             data-cy="introduction-button"
             onClick={() =>
               trackCustomEvent({
@@ -123,25 +66,88 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             }
           >
             Introduction
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...introductionDisclosure} data-cy="introduction-list">
-            <SidebarNestedList>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to="/">
-                  About Paste
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="introduction-list">
+            {/* <SidebarAnchor nested to="/">
+              About Paste
+            </SidebarAnchor> */}
+            <SidebarDisclosure nested>
+              <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
+              <SidebarDisclosureContent>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/design-guidelines`}>
+                  Design guidelines
                 </SidebarAnchor>
-              </SidebarItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <SidebarAnchor to="/inclusive-design">Accessibility</SidebarAnchor>
-        </SidebarItem>
+              </SidebarDisclosureContent>
+            </SidebarDisclosure>
+            <SidebarDisclosure nested>
+              <SidebarDisclosureButton>For engineers</SidebarDisclosureButton>
+              <SidebarDisclosureContent>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/quickstart`}>
+                  Quick start
+                </SidebarAnchor>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/manual-installation`}>
+                  Manual installation
+                </SidebarAnchor>
+              </SidebarDisclosureContent>
+            </SidebarDisclosure>
+            <SidebarDisclosure nested>
+              <SidebarDisclosureButton>Contributing</SidebarDisclosureButton>
+              <SidebarDisclosureContent>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
+                  Icons
+                </SidebarAnchor>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
+                  Patterns
+                </SidebarAnchor>
+              </SidebarDisclosureContent>
+            </SidebarDisclosure>
+            {/* <SidebarAnchor nested>Working with us</SidebarAnchor> */}
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarAnchor to="/inclusive-design">Accessibility</SidebarAnchor>
         <SidebarSeparator />
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...patternsDisclosure}
+        <SidebarDisclosure>
+          <SidebarDisclosureButton>Foundations</SidebarDisclosureButton>
+          <SidebarDisclosureContent>
+            <SidebarDisclosure nested>
+              <SidebarDisclosureButton
+                data-cy="content-button"
+                onClick={() =>
+                  trackCustomEvent({
+                    category: 'Left Navigation',
+                    action: 'click-content',
+                    label: 'Content',
+                  })
+                }
+              >
+                Content
+              </SidebarDisclosureButton>
+              <SidebarDisclosureContent data-cy="content-list">
+                {/* <SidebarAnchor nested to={}>Content checklist</SidebarAnchor> */}
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
+                  Voice and tone
+                </SidebarAnchor>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
+                  Product style guide
+                </SidebarAnchor>
+              </SidebarDisclosureContent>
+            </SidebarDisclosure>
+            <SidebarAnchor
+              to="/illustrations"
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Left Navigation',
+                  action: 'click-illustrations',
+                  label: 'Illustrations',
+                })
+              }
+            >
+              Illustrations
+            </SidebarAnchor>
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
             data-cy="patterns-button"
             onClick={() =>
               trackCustomEvent({
@@ -152,279 +158,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             }
           >
             Patterns
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...patternsDisclosure} data-cy="patterns-list">
-            <SidebarNestedList>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
-                  How to contribute
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/button-vs-anchor`}>
-                  Button vs. Anchor
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/create`}>
-                  Create
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/data-export`}>
-                  Data Export
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
-                  Delete
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-states`}>
-                  Empty states
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications-and-feedback`}>
-                  Notifications and feedback
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
-                  Object details
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
-                  Status
-                </SidebarAnchor>
-              </SidebarItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="patterns-list">
+            <div>Foo</div>
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        {/* <SidebarDisclosure>
+          <SidebarDisclosureButton>Experiences</SidebarDisclosureButton>
+          <SidebarDisclosureContent></SidebarDisclosureContent>
+        </SidebarDisclosure> */}
         <SidebarSeparator />
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...primitivesDisclosure}
-            data-cy="primitives-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-primitives',
-                label: 'Primitives',
-              })
-            }
-          >
-            Primitives
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...primitivesDisclosure} data-cy="primitives-list">
-            <SidebarNestedList>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.PRIMITIVES}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarItem>
-              {data.allPastePrimitive.edges.filter(filteredComponents).map(({node}) => {
-                return (
-                  <SidebarItem key={node.name} level={1}>
-                    <SidebarAnchor
-                      nested
-                      to={`${SidebarCategoryRoutes.PRIMITIVES}/${getNameFromPackageName(node.name)}`}
-                    >
-                      {getHumanizedNameFromPackageName(node.name)}
-                    </SidebarAnchor>
-                  </SidebarItem>
-                );
-              })}
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...tokensDisclosure}
-            data-cy="design-tokens-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-design-tokens',
-                label: 'Design Tokens',
-              })
-            }
-          >
-            Tokens
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...tokensDisclosure} data-cy="design-tokens-list">
-            <SidebarNestedList>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.TOKENS}>
-                  Token list
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
-                  Design Tokens package
-                </SidebarAnchor>
-              </SidebarItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarSeparator />
-        <SidebarItem>
-          <SidebarAnchor
-            to="/articles"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-articles',
-                label: 'Articles',
-              })
-            }
-          >
-            Blog
-          </SidebarAnchor>
-        </SidebarItem>
-        <SidebarItem>
-          <SidebarAnchor
-            to="/roadmap"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-roadmap',
-                label: 'Roadmap',
-              })
-            }
-          >
-            Roadmap
-          </SidebarAnchor>
-        </SidebarItem>
-
-        {/* <SidebarItem display={['none', 'none', 'block']}>
-          <SidebarAnchor
-            to="/"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-home',
-                label: 'Home',
-              })
-            }
-          >
-            Home
-          </SidebarAnchor>
-        </SidebarItem>
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...gettingStartedDisclosure}
-            data-cy="getting-started-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-getting-started',
-                label: 'Getting Started',
-              })
-            }
-          >
-            Getting Started
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...gettingStartedDisclosure} data-cy="getting-started-list">
-            <SidebarNestedList>
-              <SidebarItem level={1}>
-                <SidebarAnchor nested to="/getting-started/quickstart">
-                  Quick Start
-                </SidebarAnchor>
-              </SidebarItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/manual-installation">
-                  Manual Installation
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/design">
-                  Design Guidelines
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/working-guide">
-                  How to work with us
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/about-paste">
-                  About Paste
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/faqs">
-                  FAQs
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <SidebarAnchor to="/principles">Principles</SidebarAnchor>
-        </SidebarItem>
-        <SidebarItem>
-          <SidebarAnchor to="/inclusive-design">Inclusive Design Guide</SidebarAnchor>
-        </SidebarItem>
-
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...coreDisclosure}
-            data-cy="core-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-core',
-                label: 'Core',
-              })
-            }
-          >
-            Core
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...coreDisclosure} data-cy="core-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.CORE}>
-                  Core Package
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changelog`}>
-                  Core Changelog
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
-                  Upgrade Guide
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changing-theme`}>
-                  Changing the Theme
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-
-
-        
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...componentsDisclosure}
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
             data-cy="components-button"
             onClick={() =>
               trackCustomEvent({
@@ -435,159 +180,127 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             }
           >
             Components
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...componentsDisclosure} data-cy="components-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.COMPONENTS}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              {data.allPasteComponent.edges.filter(filteredComponents).map(({node}) => {
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="components-list">
+            {filteredComponentSidebarItems.map(({name, slug}) => {
+              if (name === 'Icon') {
                 return (
-                  <SidebarNestedItem key={node.name}>
-                    <SidebarAnchor
-                      nested
-                      to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}
+                  <SidebarDisclosure nested>
+                    <SidebarDisclosureButton
+                      data-cy="icons-button"
+                      onClick={() =>
+                        trackCustomEvent({
+                          category: 'Left Navigation',
+                          action: 'click-icons',
+                          label: 'Icons',
+                        })
+                      }
                     >
-                      {getHumanizedNameFromPackageName(node.name)}
-                    </SidebarAnchor>
-                  </SidebarNestedItem>
-                );
-              })}
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...layoutDisclosure}
-            data-cy="layout-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-layout',
-                label: 'Layout',
-              })
-            }
-          >
-            Layout
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...layoutDisclosure} data-cy="layout-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.LAYOUT}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              {data.allPasteLayout.edges
-                .filter(({node}) => node.status !== PackageStatus.BACKLOG)
-                .map(({node}) => {
-                  return (
-                    <SidebarNestedItem key={node.name}>
-                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.LAYOUT}/${getNameFromPackageName(node.name)}`}>
-                        {getHumanizedNameFromPackageName(node.name)}
+                      {name}
+                    </SidebarDisclosureButton>
+                    <SidebarDisclosureContent data-cy="icons-list">
+                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>
+                        Icon list
                       </SidebarAnchor>
-                    </SidebarNestedItem>
-                  );
-                })}
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...iconDisclosure}
-            data-cy="icons-button"
+                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/usage-guidelines`}>
+                        Usage
+                      </SidebarAnchor>
+                    </SidebarDisclosureContent>
+                  </SidebarDisclosure>
+                );
+              }
+              return (
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
+                  {name}
+                </SidebarAnchor>
+              );
+            })}
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
+            data-cy="primitives-button"
             onClick={() =>
               trackCustomEvent({
                 category: 'Left Navigation',
-                action: 'click-icons',
-                label: 'Icons',
+                action: 'click-primitives',
+                label: 'Primitives',
               })
             }
           >
-            Icons
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...iconDisclosure} data-cy="icons-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>
-                  Icons List
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/usage-guidelines`}>
-                  Usage Guidelines
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
-                  How to add an icon
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <SidebarAnchor
-            to="/illustrations"
+            Primitives
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="primitives-list">
+            {allPastePrimitive.map(({name, slug}) => (
+              <SidebarAnchor nested to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`}>
+                {name}
+              </SidebarAnchor>
+            ))}
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
+            data-cy="design-tokens-button"
             onClick={() =>
               trackCustomEvent({
                 category: 'Left Navigation',
-                action: 'click-illustrations',
-                label: 'Illustrations',
+                action: 'click-design-tokens',
+                label: 'Design Tokens',
               })
             }
           >
-            Illustrations
-          </SidebarAnchor>
-        </SidebarItem>
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...contentDisclosure}
-            data-cy="content-button"
+            Tokens
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="design-tokens-list">
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/`}>
+              Token list
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
+              Design tokens package
+            </SidebarAnchor>
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
+            data-cy="core-button"
             onClick={() =>
               trackCustomEvent({
                 category: 'Left Navigation',
-                action: 'click-content',
-                label: 'Content',
+                action: 'click-core',
+                label: 'Core',
               })
             }
           >
-            Content
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...contentDisclosure} data-cy="content-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.CONTENT}>
-                  Guideline Usage
+            Core
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="core-list">
+            <SidebarAnchor nested to={SidebarCategoryRoutes.CORE}>
+              Paste core
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>
+              Theme package
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changelog`}>
+              Core changelog
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
+              Upgrade guide
+            </SidebarAnchor>
+            <SidebarDisclosure nested>
+              <SidebarDisclosureButton data-cy="libraries-button">Libraries</SidebarDisclosureButton>
+              <SidebarDisclosureContent data-cy="libraries-list">
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
+                  UID library
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
-                  Voice and tone
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
+                  Codemods
                 </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
-                  Product style guide
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/get-support`}>
-                  Get support
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...customizationDisclosure}
+              </SidebarDisclosureContent>
+            </SidebarDisclosure>
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarDisclosure>
+          <SidebarDisclosureButton
             data-cy="customization-button"
             onClick={() =>
               trackCustomEvent({
@@ -598,75 +311,53 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             }
           >
             Customization
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...customizationDisclosure} data-cy="customization-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
-                  Customization Provider
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
-                  Creating a Custom Theme
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
-                  Customizing Component Elements
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor
-                  nested
-                  to={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}
-                >
-                  Composing Custom Components With Design Tokens
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem>
-        <SidebarItem>
-          <DisclosurePrimitive
-            as={SidebarDisclosureButton}
-            {...librariesDisclosure}
-            data-cy="libraries-button"
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-libraries',
-                label: 'Libraries',
-              })
-            }
-          >
-            Libraries
-          </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...librariesDisclosure} data-cy="libraries-list">
-            <SidebarNestedList>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={SidebarCategoryRoutes.LIBRARIES}>
-                  Overview
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
-                  UID
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
-                  Codemods
-                </SidebarAnchor>
-              </SidebarNestedItem>
-            </SidebarNestedList>
-          </DisclosurePrimitiveContent>
-        </SidebarItem> */}
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="customization-list">
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
+              Overview
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
+              Customization Provider
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
+              Customizing themes
+            </SidebarAnchor>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
+              Customizing components
+            </SidebarAnchor>
+            <SidebarAnchor
+              nested
+              to={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}
+            >
+              Composing custom UI with tokens
+            </SidebarAnchor>
+          </SidebarDisclosureContent>
+        </SidebarDisclosure>
+        <SidebarSeparator />
+        <SidebarAnchor
+          to="/articles"
+          onClick={() =>
+            trackCustomEvent({
+              category: 'Left Navigation',
+              action: 'click-articles',
+              label: 'Articles',
+            })
+          }
+        >
+          Blog
+        </SidebarAnchor>
+        <SidebarAnchor
+          to="/roadmap"
+          onClick={() =>
+            trackCustomEvent({
+              category: 'Left Navigation',
+              action: 'click-roadmap',
+              label: 'Roadmap',
+            })
+          }
+        >
+          Roadmap
+        </SidebarAnchor>
       </Box>
     </Box>
   );
