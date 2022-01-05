@@ -38,8 +38,8 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
         type="text"
         placeholder={`Try "button" or "token"`}
         value={value}
-        onChange={(event) => {
-          onChange(event.target.value);
+        onChange={({target: {value: inputValue}}) => {
+          onChange(inputValue);
         }}
         variant={isMobileNav ? 'default' : 'inverse'}
         insertBefore={
