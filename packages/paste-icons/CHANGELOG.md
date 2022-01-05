@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.9.0
+
+### Minor Changes
+
+- [`10446cb7a`](https://github.com/twilio-labs/paste/commit/10446cb7af3add2bb547d538cb97cb0a2dd398ae) [#2059](https://github.com/twilio-labs/paste/pull/2059) Thanks [@kylegilbreath](https://github.com/kylegilbreath)! - [paste-icons] Added ProductSegment, ScreenShare, StopScreenShare, LowerHand, RaiseHand, VideoOff, VideoOn, MicrophoneOff, MicrophoneOn
+
 ## 5.8.1
 
 ### Patch Changes

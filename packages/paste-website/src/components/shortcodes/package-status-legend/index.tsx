@@ -2,11 +2,11 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Badge} from '@twilio-paste/badge';
 import type {BadgeVariants} from '@twilio-paste/badge/src/types';
+import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
 
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
-import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badge-popover';
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
@@ -37,16 +37,16 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
 
   if (statusData?.badgeVariant) {
     return (
-      <BadgePopoverContainer baseId="status">
-        <BadgePopoverButton variant={statusData?.badgeVariant}>
+      <PopoverContainer baseId="status">
+        <PopoverBadgeButton variant={statusData?.badgeVariant}>
           {/* fragment needed bc Badge expects one React node as child */}
           <>
             <NewIcon decorative size="sizeIcon10" />
             {status}
           </>
-        </BadgePopoverButton>
-        <BadgePopover aria-label={status}>{statusData?.popoverContent}</BadgePopover>
-      </BadgePopoverContainer>
+        </PopoverBadgeButton>
+        <Popover aria-label={status}>{statusData?.popoverContent}</Popover>
+      </PopoverContainer>
     );
   }
 

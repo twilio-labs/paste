@@ -6,7 +6,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {PopoverTop, StateHookExample} from '../stories/index.stories';
+import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 describe('Popover', () => {
@@ -68,6 +68,37 @@ describe('Popover', () => {
         return;
       }
       expect(popover).not.toBeVisible();
+    });
+  });
+
+  describe('PopoverBadge', () => {
+    it('renders PopoverBadgeButton as a Badge', () => {
+      render(
+        <Theme.Provider theme="default">
+          <BadgePopover />
+        </Theme.Provider>
+      );
+      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'BUTTON');
+
+      expect(popoverButton.querySelector('[data-paste-element="POPOVER_BADGE"]')).toBeInTheDocument();
+    });
+
+    it('should render a popover badge button with aria attributes', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <BadgePopover />
+        </Theme.Provider>
+      );
+      const renderedPopoverButton = screen.getByRole('button', {name: 'Open popover'});
+      const renderedPopover = screen.getByTestId('badge-popover');
+      expect(renderedPopoverButton.getAttribute('aria-haspopup')).toEqual('dialog');
+      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
+      expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
+      expect(renderedPopover).not.toBeVisible();
+      renderedPopoverButton.click();
+      await waitFor(() => expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true'));
+      await waitFor(() => expect(renderedPopover).toBeVisible());
     });
   });
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.14.2
+
+### Patch Changes
+
+- [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e) [#2028](https://github.com/twilio-labs/paste/pull/2028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design-tokens] Changed the alias that Dark mode's color-text-icon points to from gray-10 to gray-60
+
 ## 6.14.1
 
 ### Patch Changes

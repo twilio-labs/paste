@@ -12,7 +12,7 @@ const StyledCode = styled.code((props) => ({
   lineHeight: themeGet('lineHeights.lineHeight30')(props),
   overflowX: 'auto',
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
-  whiteSpace: 'pre',
+  whiteSpace: 'pre-wrap',
 }));
 
 export type Language =

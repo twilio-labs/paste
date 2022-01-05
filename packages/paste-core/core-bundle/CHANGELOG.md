@@ -1,5 +1,53 @@
 # Change Log
 
+## 10.19.0
+
+### Minor Changes
+
+- [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784) [#2107](https://github.com/twilio-labs/paste/pull/2107) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix default imports for JSON to play nice with webpack 5
+
+* [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add PopoverBadgeButton component
+
+### Patch Changes
+
+- [`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51) [#2083](https://github.com/twilio-labs/paste/pull/2083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert, Modal, Popover, Toast] Update close button to use `secondary_icon` button variant
+
+* [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] Update the maxWidth
+
+- [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5) [#2087](https://github.com/twilio-labs/paste/pull/2087) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update the cursor
+
+- Updated dependencies [[`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51), [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784), [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5)]:
+  - @twilio-paste/alert@7.1.2
+  - @twilio-paste/modal@7.1.5
+  - @twilio-paste/popover@6.3.0
+  - @twilio-paste/toast@5.2.2
+  - @twilio-paste/color-contrast-utils@1.2.0
+  - @twilio-paste/badge@1.1.3
+  - @twilio-paste/label@6.0.7
+
+## 10.18.0
+
+### Minor Changes
+
+- [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636) [#2013](https://github.com/twilio-labs/paste/pull/2013) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] Add variants to be used specifically with icons.
+
+### Patch Changes
+
+- [`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947) [#2057](https://github.com/twilio-labs/paste/pull/2057) Thanks [@zahnster](https://github.com/zahnster)! - [Checkbox] Declare relative position on checkbox to fix focus position bug
+
+* [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8) [#2075](https://github.com/twilio-labs/paste/pull/2075) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data-grid] Fixes issue where inner links would at times not be clickable.
+
+- [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e) [#2028](https://github.com/twilio-labs/paste/pull/2028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design-tokens] Changed the alias that Dark mode's color-text-icon points to from gray-10 to gray-60
+
+* [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e) [#2029](https://github.com/twilio-labs/paste/pull/2029) Thanks [@shleewhite](https://github.com/shleewhite)! - Export the BadgeProps type and correctly pass the ref to the wrapper element when the Badge is focusable.
+
+* Updated dependencies [[`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947), [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636), [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8), [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e), [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e)]:
+  - @twilio-paste/checkbox@6.1.3
+  - @twilio-paste/button@7.1.0
+  - @twilio-paste/data-grid@0.2.1
+  - @twilio-paste/design-tokens@6.14.2
+  - @twilio-paste/badge@1.1.2
+
 ## 10.17.0
 
 ### Minor Changes
