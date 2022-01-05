@@ -5,7 +5,8 @@
   "projectId": "pe4h41",
   "retries": {
     "runMode": 2,
-    "openMode": 0
+    "openMode": 2
   },
-  "blockHosts": "*.google-analytics.com"
+  "blockHosts": "*.google-analytics.com",
+  "testFiles": ["**/**/*.spec.ts"]
 }

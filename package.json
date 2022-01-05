@@ -70,7 +70,7 @@
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:tools-16": "USE_REACT_16=true jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",
-    "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn cypress run --record --spec \"./cypress/integration/**/**/*.spec.ts\"'",
+    "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn cypress run --record'",
     "test:website-gui": "start-server-and-test 'yarn serve:website' http://localhost:9000  'yarn cypress open'",
     "serve:website": "yarn workspace @twilio-paste/website serve",
     "package-size-action-build": "yarn build",
