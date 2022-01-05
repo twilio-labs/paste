@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {styled, css} from '@twilio-paste/styling-library';
 import {Link} from 'gatsby';
+import {SidebarItem} from './SidebarItem';
 
 interface SidebarAnchorProps {
   children: React.ReactNode;
@@ -44,9 +45,11 @@ const StyledSidebarAnchor = styled(Link, {
 );
 
 const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, nested, to}) => (
-  <StyledSidebarAnchor nested={nested} to={to}>
-    {children}
-  </StyledSidebarAnchor>
+  <SidebarItem nested={nested}>
+    <StyledSidebarAnchor nested={nested} to={to}>
+      {children}
+    </StyledSidebarAnchor>
+  </SidebarItem>
 );
 
 export {SidebarAnchor};
