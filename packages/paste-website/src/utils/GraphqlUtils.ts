@@ -112,9 +112,11 @@ export const getNormalizedNavigationData = (data: GraphqlData): GraphqlData => {
   queryKeys.forEach((currentKey) => {
     if (shouldFlatten(currentKey)) {
       const dataFragment = data[currentKey].edges;
-      const mutateOperation = ({name}: GraphqlData): GraphqlData => ({
+      const mutateOperation = ({name, status}: GraphqlData): GraphqlData => ({
         name: getHumanizedNameFromPackageName(name),
+        packageName: name,
         slug: getNameFromPackageName(name),
+        status,
       });
 
       let res: Array<GraphqlData> = [];
