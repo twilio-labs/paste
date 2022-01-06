@@ -91,7 +91,6 @@ describe('OptionGroup', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             OPTION: {
@@ -113,7 +112,6 @@ describe('OptionGroup', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             OPTION_GROUP: {

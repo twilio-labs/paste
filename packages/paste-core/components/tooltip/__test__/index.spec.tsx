@@ -124,7 +124,6 @@ describe('Tooltip', () => {
     it('should add custom styling to default Tooltip', (): void => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             TOOLTIP: {
@@ -151,7 +150,6 @@ describe('Tooltip', () => {
     it('should add custom styling to custom named Tooltip', (): void => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOM_TOOLTIP: {
