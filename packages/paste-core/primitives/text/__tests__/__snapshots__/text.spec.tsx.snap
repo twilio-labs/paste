@@ -2,9 +2,9 @@
 
 exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -13,26 +13,26 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 .emotion-0:hover {
-  color: rgb(0,94,166);
+  color: rgb(2,99,224);
 }
 
 .emotion-0:active,
 .emotion-0[data-active=true] {
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-0:focus {
-  color: rgb(3,44,94);
+  color: rgb(3,11,93);
 }
 
 .emotion-0:visited {
-  color: rgb(226,37,37);
+  color: rgb(214,31,31);
 }
 
 .emotion-0:nth-of-type(even) {
@@ -85,23 +85,23 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 }
 
 .emotion-0:last-of-type {
-  color: rgb(179,211,233);
+  color: rgb(153,205,255);
 }
 
 .emotion-0[aria-expanded=true] {
-  color: rgb(200,204,207);
+  color: rgb(174,178,193);
 }
 
 .emotion-0[aria-grabbed=true] {
-  color: rgb(0,153,74);
+  color: rgb(14,124,58);
 }
 
 .emotion-0:not(:first-of-type) {
-  color: rgb(228,98,22);
+  color: rgb(141,49,24);
 }
 
 .emotion-0:not(:last-of-type) {
-  color: rgb(168,62,0);
+  color: rgb(141,49,24);
 }
 
 .emotion-0:before {
@@ -119,7 +119,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 }
 
 .emotion-0:focus-within {
-  color: rgb(112,117,120);
+  color: rgb(96,107,133);
 }
 
 <div
@@ -138,9 +138,9 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 
 exports[`as should render as a provided HTML element 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -149,7 +149,7 @@ exports[`as should render as a provided HTML element 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -170,9 +170,9 @@ exports[`as should render as a provided HTML element 1`] = `
 
 exports[`color should set a color property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -181,7 +181,7 @@ exports[`color should set a color property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -202,9 +202,9 @@ exports[`color should set a color property 1`] = `
 
 exports[`color should set a responsive color property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -213,14 +213,14 @@ exports[`color should set a responsive color property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(226,37,37);
+  color: rgb(214,31,31);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    color: rgb(0,153,74);
+    color: rgb(14,124,58);
   }
 }
 
@@ -245,9 +245,9 @@ exports[`color should set a responsive color property 1`] = `
 
 exports[`display should set a display property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -256,7 +256,7 @@ exports[`display should set a display property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
@@ -279,9 +279,9 @@ exports[`display should set a display property 1`] = `
 
 exports[`display should set a responsive display property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -290,7 +290,7 @@ exports[`display should set a responsive display property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
@@ -324,9 +324,9 @@ exports[`display should set a responsive display property 1`] = `
 
 exports[`fontFamily should set a font family property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -335,7 +335,7 @@ exports[`fontFamily should set a font family property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-family: 'Fira Mono','Courier New',Courier,monospace;
@@ -358,9 +358,9 @@ exports[`fontFamily should set a font family property 1`] = `
 
 exports[`fontFamily should set a responsive font family property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -369,10 +369,10 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
 }
 
 @media screen and (min-width:25rem) {
@@ -403,9 +403,9 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 
 exports[`fontSize should set a font size property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -414,7 +414,7 @@ exports[`fontSize should set a font size property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.625rem;
   line-height: 1.25rem;
 }
@@ -435,9 +435,9 @@ exports[`fontSize should set a font size property 1`] = `
 
 exports[`fontSize should set a responsive font size property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -446,7 +446,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.75rem;
   line-height: 1.25rem;
 }
@@ -478,9 +478,9 @@ exports[`fontSize should set a responsive font size property 1`] = `
 
 exports[`fontStyle should set a font style property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -489,7 +489,7 @@ exports[`fontStyle should set a font style property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-style: italic;
@@ -512,9 +512,9 @@ exports[`fontStyle should set a font style property 1`] = `
 
 exports[`fontStyle should set a responsive font style property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -523,7 +523,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-style: italic;
@@ -557,9 +557,9 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 
 exports[`fontWeight should set a font weight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -568,7 +568,7 @@ exports[`fontWeight should set a font weight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 700;
@@ -591,9 +591,9 @@ exports[`fontWeight should set a font weight property 1`] = `
 
 exports[`fontWeight should set a responsive font weight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -602,15 +602,15 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 
@@ -636,9 +636,9 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 
 exports[`letterSpacing should set a letter spacing property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -647,7 +647,7 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-letter-spacing: 1px;
@@ -673,9 +673,9 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 
 exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -684,7 +684,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-letter-spacing: -2px;
@@ -724,9 +724,9 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 
 exports[`lineHeight should set a line height property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -735,7 +735,7 @@ exports[`lineHeight should set a line height property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1rem;
 }
@@ -756,9 +756,9 @@ exports[`lineHeight should set a line height property 1`] = `
 
 exports[`lineHeight should set a responsive line height property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -767,7 +767,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -794,9 +794,9 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 
 exports[`margin should set a margin property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -805,7 +805,7 @@ exports[`margin should set a margin property 1`] = `
 .emotion-0 {
   margin: 0.125rem;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -826,9 +826,9 @@ exports[`margin should set a margin property 1`] = `
 
 exports[`margin should set a responsive margin property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -837,7 +837,7 @@ exports[`margin should set a responsive margin property 1`] = `
 .emotion-0 {
   margin: 0.25rem;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -864,9 +864,9 @@ exports[`margin should set a responsive margin property 1`] = `
 
 exports[`marginBottom should set a marginBottom property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -875,7 +875,7 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 0.125rem;
@@ -897,9 +897,9 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 
 exports[`marginBottom should set a responsive marginBottom property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -908,7 +908,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 0.25rem;
@@ -936,9 +936,9 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 
 exports[`marginLeft should set a marginLeft property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -947,7 +947,7 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-left: 0.125rem;
@@ -969,9 +969,9 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 
 exports[`marginLeft should set a responsive marginLeft property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -980,7 +980,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-left: 0.25rem;
@@ -1008,9 +1008,9 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 
 exports[`marginRight should set a marginRight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1019,7 +1019,7 @@ exports[`marginRight should set a marginRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-right: 0.125rem;
@@ -1041,9 +1041,9 @@ exports[`marginRight should set a marginRight property 1`] = `
 
 exports[`marginRight should set a responsive marginRight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1052,7 +1052,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-right: 0.25rem;
@@ -1080,9 +1080,9 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 
 exports[`marginTop should set a marginTop property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1091,7 +1091,7 @@ exports[`marginTop should set a marginTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-top: 0.125rem;
@@ -1113,9 +1113,9 @@ exports[`marginTop should set a marginTop property 1`] = `
 
 exports[`marginTop should set a responsive marginTop property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1124,7 +1124,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-top: 0.25rem;
@@ -1152,9 +1152,9 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 
 exports[`padding should set a padding property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1163,7 +1163,7 @@ exports[`padding should set a padding property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0.125rem;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -1184,9 +1184,9 @@ exports[`padding should set a padding property 1`] = `
 
 exports[`padding should set a responsive padding property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1195,7 +1195,7 @@ exports[`padding should set a responsive padding property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0.25rem;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -1222,9 +1222,9 @@ exports[`padding should set a responsive padding property 1`] = `
 
 exports[`paddingBottom should set a paddingBottom property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1233,7 +1233,7 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-bottom: 0.125rem;
@@ -1255,9 +1255,9 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 
 exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1266,7 +1266,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-bottom: 0.25rem;
@@ -1294,9 +1294,9 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 
 exports[`paddingLeft should set a paddingLeft property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1305,7 +1305,7 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-left: 0.125rem;
@@ -1327,9 +1327,9 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 
 exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1338,7 +1338,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-left: 0.25rem;
@@ -1366,9 +1366,9 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 
 exports[`paddingRight should set a paddingRight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1377,7 +1377,7 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-right: 0.125rem;
@@ -1399,9 +1399,9 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 
 exports[`paddingRight should set a responsive paddingRight property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1410,7 +1410,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-right: 0.25rem;
@@ -1438,9 +1438,9 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 
 exports[`paddingTop should set a paddingTop property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1449,7 +1449,7 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-top: 0.125rem;
@@ -1471,9 +1471,9 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 
 exports[`paddingTop should set a responsive paddingTop property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1482,7 +1482,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-top: 0.25rem;
@@ -1510,9 +1510,9 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 
 exports[`textAlign should set a responsive textAlign property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1521,7 +1521,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;
@@ -1549,9 +1549,9 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 
 exports[`textAlign should set a textAlign property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1560,7 +1560,7 @@ exports[`textAlign should set a textAlign property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: right;
@@ -1582,9 +1582,9 @@ exports[`textAlign should set a textAlign property 1`] = `
 
 exports[`textDecoration should set a responsive textDecoration property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1593,7 +1593,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-text-decoration: underline;
@@ -1629,9 +1629,9 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 
 exports[`textDecoration should set a textDecoration property 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -1640,7 +1640,7 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-text-decoration: underline;

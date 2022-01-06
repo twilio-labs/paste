@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '../src';
 import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
@@ -9,27 +8,27 @@ import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 describe('Backgrounds', () => {
   it('should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box backgroundColor="colorBackgroundPrimary" data-testid="box">
           background single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,122,197)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)');
   });
 
   it('should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']} data-testid="box">
           background responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(179,211,233)');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,122,197)', {
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153,205,255)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -38,7 +37,7 @@ describe('Backgrounds', () => {
 describe('Color mappings', () => {
   it('should map single color values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           backgroundColor="colorBackgroundPrimary"
           borderColor="colorBorderStrong"
@@ -51,21 +50,21 @@ describe('Color mappings', () => {
         >
           background single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,122,197)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(136,140,142)');
-    expect(renderedBox).toHaveStyleRule('border-bottom-color', 'rgb(146,18,0)');
-    expect(renderedBox).toHaveStyleRule('border-left-color', 'rgb(146,18,0)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('border-bottom-color', 'rgb(117,12,12)');
+    expect(renderedBox).toHaveStyleRule('border-left-color', 'rgb(117,12,12)');
     expect(renderedBox).toHaveStyleRule('border-right-color', 'rgba(255,255,255,0.5)');
     expect(renderedBox).toHaveStyleRule('border-top-color', 'rgba(255,255,255,0.5)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(40,42,43)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(18,28,45)');
   });
 
   it('should map responsive color values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}
           borderColor={['colorBorderStrong', 'colorBorderDestructiveStrong']}
@@ -74,18 +73,18 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(179,211,233)');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,122,197)', {
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153,205,255)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)', {
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(136,140,142)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(146,18,0)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(40,42,43)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(18,28,45)');
     expect(renderedBox).toHaveStyleRule('color', 'rgb(255,255,255)', {
       media: 'screen and (min-width:25rem)',
     });
@@ -93,7 +92,7 @@ describe('Color mappings', () => {
 
   it('should map pseudo selector color values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           _hover={{
             backgroundColor: 'colorBackground',
@@ -104,17 +103,17 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(248,248,249)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(146,18,0)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {target: ':hover'});
     expect(renderedBox).toHaveStyleRule('color', 'rgb(255,255,255)', {target: ':hover'});
   });
 
   it('should map responsive pseudo selector color values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           _hover={{
             backgroundColor: ['colorBackground', 'colorBackgroundBody'],
@@ -125,21 +124,21 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(248,248,249)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)', {target: ':hover'});
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(255,255,255)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(146,18,0)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(146,18,0)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(226,37,37)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(200,204,207)', {
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(214,31,31)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(136,145,170)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
@@ -149,7 +148,7 @@ describe('Color mappings', () => {
 describe('Borders', () => {
   it('should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           borderStyle="solid"
           borderColor="colorBorderPrimaryStrong"
@@ -159,18 +158,18 @@ describe('Borders', () => {
         >
           border single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'solid');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,62,130)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,20,137)');
     expect(renderedBox).toHaveStyleRule('border-width', '1px');
     expect(renderedBox).toHaveStyleRule('border-radius', '4px');
   });
 
   it('should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           borderStyle={['dashed', 'dotted', 'solid']}
           borderColor={['colorBorderPrimaryStrong', 'colorBorderPrimaryWeak']}
@@ -180,7 +179,7 @@ describe('Borders', () => {
         >
           border responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'dashed');
@@ -190,8 +189,8 @@ describe('Borders', () => {
     expect(renderedBox).toHaveStyleRule('border-style', 'solid', {
       media: 'screen and (min-width:64rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,62,130)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(179,211,233)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,20,137)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(102,179,255)', {
       media: 'screen and (min-width:25rem)',
     });
     expect(renderedBox).toHaveStyleRule('border-width', '1px');
@@ -208,7 +207,7 @@ describe('Borders', () => {
 describe('Sizes', () => {
   it('should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           width="size10"
           minWidth="size0"
@@ -220,7 +219,7 @@ describe('Sizes', () => {
         >
           size single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('width', '5.5rem');
@@ -233,7 +232,7 @@ describe('Sizes', () => {
 
   it('should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           width={['size10', 'size20']}
           minWidth={['size0', 'size10']}
@@ -245,7 +244,7 @@ describe('Sizes', () => {
         >
           size responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('width', '5.5rem');
@@ -278,11 +277,11 @@ describe('Sizes', () => {
 describe('Spaces', () => {
   it('(A) it should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box margin="space20" data-testid="box">
           space single 1
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin', '0.25rem');
@@ -290,11 +289,11 @@ describe('Spaces', () => {
 
   it('(A) it should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box margin={['space20', 'space30']} data-testid="box">
           space responsive 1
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin', '0.25rem');
@@ -305,11 +304,11 @@ describe('Spaces', () => {
 
   it('(B) it should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box marginTop="space20" marginRight="space20" marginBottom="space30" marginLeft="space30" data-testid="box">
           space single 2
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.25rem');
@@ -320,7 +319,7 @@ describe('Spaces', () => {
 
   it('(B)it should render responsive values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box
           marginTop={['space20', 'space30']}
           marginRight={['space20', 'space30']}
@@ -330,7 +329,7 @@ describe('Spaces', () => {
         >
           space responsive 2
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.25rem');
@@ -353,11 +352,11 @@ describe('Spaces', () => {
 
   it('(C) it should render single values for column and row gap', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box display="flex" columnGap="space10" rowGap="space10" data-testid="box">
           space single 3
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('column-gap', '0.125rem');
@@ -366,11 +365,11 @@ describe('Spaces', () => {
 
   it('(C) it should render responsive values for column and row gap', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box display="flex" columnGap={['space20', 'space30']} rowGap={['space30', 'space40']} data-testid="box">
           space single 3
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('column-gap', '0.25rem');
@@ -388,27 +387,27 @@ describe('Spaces', () => {
 describe('Shadows', () => {
   it('should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box boxShadow="shadowCard" data-testid="box">
           shadow single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 4px 0 rgba(40,42,43,0.3)');
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18,28,45,0.1)');
   });
 
   it('should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box boxShadow={['shadowCard', 'shadowFocus']} data-testid="box">
           shadow responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 4px 0 rgba(40,42,43,0.3)');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 0 0 4px rgba(2,122,197,0.8)', {
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18,28,45,0.1)');
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 0 0 4px rgba(2,99,224,0.7)', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -417,27 +416,27 @@ describe('Shadows', () => {
 describe('ZIndex', () => {
   it('should render single values', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box zIndex="zIndex10" data-testid="box">
           z-index single
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('z-index', '2010');
+    expect(renderedBox).toHaveStyleRule('z-index', '10');
   });
 
   it('should render responsive values', () => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Box zIndex={['zIndex10', 'zIndex20']} data-testid="box">
           z-index responsive
         </Box>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('z-index', '2010');
-    expect(renderedBox).toHaveStyleRule('z-index', '2020', {
+    expect(renderedBox).toHaveStyleRule('z-index', '10');
+    expect(renderedBox).toHaveStyleRule('z-index', '20', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -445,7 +444,7 @@ describe('ZIndex', () => {
   describe('Pseudo-class props', () => {
     it('should generate pseudo-class CSS', (): void => {
       render(
-        <Theme.Provider theme="console">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Box
             _hover={{padding: 'space10'}}
             _active={{padding: 'space10'}}
@@ -476,7 +475,7 @@ describe('ZIndex', () => {
           >
             PseudoBox
           </Box>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedBox = screen.getByTestId('box');
       expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':hover'});

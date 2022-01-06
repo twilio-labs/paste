@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -10,9 +9,9 @@ import {Card} from '../src';
 describe('Card', () => {
   it('should render', (): void => {
     render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toBeDefined();
@@ -20,9 +19,9 @@ describe('Card', () => {
 
   it('should render default padding', (): void => {
     render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toHaveStyleRule('padding', '1.25rem');
@@ -30,7 +29,7 @@ describe('Card', () => {
 
   it('should render custom padding values', (): void => {
     render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card
           data-testid="card"
           paddingTop="space20"
@@ -38,7 +37,7 @@ describe('Card', () => {
           paddingBottom="space40"
           paddingLeft="space50"
         />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toHaveStyleRule('padding-top', '0.25rem');
@@ -49,9 +48,9 @@ describe('Card', () => {
 
   it('should render children', (): void => {
     render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card>I AM A JEDI!!!!</Card>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedCardContent = screen.getByText('I AM A JEDI!!!!');
     expect(renderedCardContent).toBeDefined();
@@ -61,9 +60,9 @@ describe('Card', () => {
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
     const {container} = render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card>card content</Card>
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
