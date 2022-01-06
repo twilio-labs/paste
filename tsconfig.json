@@ -28,7 +28,7 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*"],
+  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts"],
   "exclude": [
     "node_modules",
     "docs",

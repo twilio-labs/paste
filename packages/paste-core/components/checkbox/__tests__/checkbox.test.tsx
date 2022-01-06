@@ -279,11 +279,7 @@ describe('Customization', () => {
 
   it('should add custom styling to default Checkbox', (): void => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getCustomizationStyles()}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles()}>
         <CheckboxGroup data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
           <Checkbox {...defaultProps} helpText="bar">
             foo
@@ -319,11 +315,7 @@ describe('Customization', () => {
 
   it('should add custom styling to a custom named Checkbox', (): void => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getCustomizationStyles('MY_CHECKBOX')}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_CHECKBOX')}>
         <CheckboxGroup
           element="MY_CHECKBOX_GROUP"
           data-testid="checkbox-group"
@@ -372,11 +364,7 @@ describe('Customization', () => {
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
     const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getCustomizationStyles('MY_CHECKBOX')}
-      >
+      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_CHECKBOX')}>
         <Checkbox id="foo" name="foo">
           foo
         </Checkbox>

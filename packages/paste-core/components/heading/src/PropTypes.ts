@@ -13,4 +13,5 @@ export const HeadingPropTypes = {
     'heading50',
     'heading60',
   ] as HeadingVariants[]).isRequired,
+  display: PropTypes.string,
 };

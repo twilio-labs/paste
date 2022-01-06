@@ -230,7 +230,6 @@ describe('Disclosure', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             DISCLOSURE: {padding: 'space100'},
@@ -259,7 +258,6 @@ describe('Disclosure', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             MY_DISCLOSURE: {padding: 'space100'},

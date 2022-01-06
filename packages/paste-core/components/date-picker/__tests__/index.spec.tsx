@@ -105,7 +105,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             DATEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
@@ -125,7 +124,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             DATEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
@@ -145,7 +143,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOMDATE: {backgroundColor: 'colorBackgroundBusy'},
@@ -165,7 +162,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOMDATE: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},

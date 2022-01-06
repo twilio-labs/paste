@@ -1,15 +1,13 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
 import {Badge} from '@twilio-paste/badge';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Stack} from '@twilio-paste/stack';
-import {Anchor} from '@twilio-paste/anchor';
-import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
 import {useUID} from '@twilio-paste/uid-library';
 import {Statuses} from './constants';
 import type {RoadmapProps} from './types';
 import {slugify} from '../../utils/RouteUtils';
+import {AnchoredHeading} from '../Heading';
 
 const StatusBadges = {
   [Statuses.TODO]: (
@@ -44,19 +42,9 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
 
           return (
             <Box key={useUID()} id={releaseSlug} data-cy={`release-container-#${releaseSlug}`}>
-              <Heading as="h2" variant="heading20">
-                <Box as="span" display="flex" alignItems="center">
-                  Release - {release.release}
-                  <Anchor data-cy="anchored-heading-h2" href={`#${releaseSlug}`}>
-                    <LinkIcon
-                      color="colorTextIcon"
-                      decorative={false}
-                      title={`${release.release} page anchor`}
-                      size="sizeIcon40"
-                    />
-                  </Anchor>
-                </Box>
-              </Heading>
+              <AnchoredHeading as="h2" variant="heading20" existingSlug={releaseSlug}>
+                {release.release}
+              </AnchoredHeading>
               <Table>
                 <THead>
                   <Tr>

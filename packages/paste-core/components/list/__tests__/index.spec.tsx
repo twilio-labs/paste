@@ -65,7 +65,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -81,7 +80,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -169,7 +167,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -185,7 +182,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -260,7 +256,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -276,7 +271,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >

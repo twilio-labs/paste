@@ -217,7 +217,6 @@ describe('Select', () => {
   describe('Customization', () => {
     const CustomizationWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <CustomizationProvider
-        // @ts-expect-error global test variable
         theme={TestTheme}
         elements={{
           SELECT: {
