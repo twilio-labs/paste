@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.20.0
+
+### Minor Changes
+
+- [`9132d0cb`](https://github.com/twilio-labs/paste/commit/9132d0cb3ed82bf4a1956484b93783605e2aea1d) [#2118](https://github.com/twilio-labs/paste/pull/2118) Thanks [@zahnster](https://github.com/zahnster)! - Fix default imports for JSON to play nice with webpack 5
+
+* [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6) [#2088](https://github.com/twilio-labs/paste/pull/2088) Thanks [@gloriliale](https://github.com/gloriliale)! - [Heading] Added the prop "display" to Heading to make aligning Headings with Icons possible
+
+### Patch Changes
+
+- Updated dependencies [[`9132d0cb`](https://github.com/twilio-labs/paste/commit/9132d0cb3ed82bf4a1956484b93783605e2aea1d), [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6)]:
+  - @twilio-paste/style-props@3.2.0
+  - @twilio-paste/heading@5.2.0
+
 ## 10.19.0
 
 ### Minor Changes
