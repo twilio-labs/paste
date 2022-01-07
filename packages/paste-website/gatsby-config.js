@@ -178,7 +178,7 @@ const gatsbyConfig = {
           },
           {
             baseId: process.env.AIRTABLE_BASEID,
-            tableName: '2021 BPM',
+            tableName: 'BPM',
           },
         ],
       },
