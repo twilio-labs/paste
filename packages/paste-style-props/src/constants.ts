@@ -1,4 +1,4 @@
-import * as RawJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
+import RawJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
 
 const camelCase = require('lodash.camelcase');
 
