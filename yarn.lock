@@ -11695,7 +11695,7 @@ __metadata:
     "@twilio-paste/flex": ^2.1.1
     "@twilio-paste/form-pill-group": ^1.1.3
     "@twilio-paste/grid": ^2.1.1
-    "@twilio-paste/heading": ^5.1.1
+    "@twilio-paste/heading": ^5.2.0
     "@twilio-paste/help-text": ^6.1.1
     "@twilio-paste/icons": ^5.9.0
     "@twilio-paste/inline-control-group": ^6.1.1
@@ -11721,7 +11721,7 @@ __metadata:
     "@twilio-paste/skeleton-loader": ^0.1.3
     "@twilio-paste/spinner": ^7.2.2
     "@twilio-paste/stack": ^2.1.1
-    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/style-props": ^3.2.0
     "@twilio-paste/styling-library": ^0.3.5
     "@twilio-paste/table": ^2.1.2
     "@twilio-paste/tabs": ^2.1.1
@@ -12121,12 +12121,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/heading@^5.0.2, @twilio-paste/heading@^5.1.1, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
+"@twilio-paste/heading@^5.0.2, @twilio-paste/heading@^5.1.1, @twilio-paste/heading@^5.2.0, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/heading@workspace:packages/paste-core/components/heading"
   dependencies:
     "@twilio-paste/design-tokens": ^6.14.1
-    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/style-props": ^3.2.0
     "@twilio-paste/styling-library": ^0.3.5
     "@twilio-paste/text": ^4.1.5
     "@twilio-paste/theme": ^5.3.2
@@ -12896,7 +12896,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/style-props@^3.0.2, @twilio-paste/style-props@^3.1.1, @twilio-paste/style-props@workspace:packages/paste-style-props":
+"@twilio-paste/style-props@^3.0.2, @twilio-paste/style-props@^3.1.1, @twilio-paste/style-props@^3.2.0, @twilio-paste/style-props@workspace:packages/paste-style-props":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/style-props@workspace:packages/paste-style-props"
   dependencies:
