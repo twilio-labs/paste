@@ -104,9 +104,10 @@ render(
 
 export const multiSelectExample = `const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
-const BasicMultiCombobox = () => {
+export const BasicMultiCombobox: React.FC = () => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
+  const [inputValue, setInputValue] = React.useState('');
 
   const formPillState = useFormPillState();
 
@@ -118,11 +119,15 @@ const BasicMultiCombobox = () => {
     selectedItems,
   } = useMultiSelectPrimitive({});
 
-  const handleSelectItemOnClick = React.useCallback(
-    ({selectedItem}) => {
+  const handleSelectItemOnChange = React.useCallback(
+    (selectedItem) => {
       addSelectedItem(selectedItem);
-
-      setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== selectedItem));
+      setFilteredItems((currentFilteredItems) =>
+        currentFilteredItems.filter((item) => {
+          return item !== selectedItem;
+        })
+      );
+      setInputValue('');
     },
     [addSelectedItem, setFilteredItems]
   );
@@ -145,11 +150,28 @@ const BasicMultiCombobox = () => {
     getToggleButtonProps,
     highlightedIndex,
     isOpen,
-    selectedItem,
   } = useComboboxPrimitive({
+    inputValue,
     items: filteredItems,
-    onSelectedItemChange: (args) => {
-      handleSelectItemOnClick(args);
+    onStateChange: (args) => {
+      switch (args.type) {
+        case useComboboxPrimitive.stateChangeTypes.InputChange:
+          if (args.inputValue) {
+            setInputValue(args.inputValue);
+          }
+          break;
+        case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
+        case useComboboxPrimitive.stateChangeTypes.ItemClick:
+        case useComboboxPrimitive.stateChangeTypes.InputBlur:
+          if (args.selectedItem) {
+            handleSelectItemOnChange(args.selectedItem);
+          } else if (args.inputValue) {
+            handleSelectItemOnChange(args.inputValue);
+          }
+          break;
+        default:
+          break;
+      }
     },
   });
   const uid = useUID();
@@ -166,7 +188,6 @@ const BasicMultiCombobox = () => {
             type="text"
             {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))}
             {...getToggleButtonProps({tabIndex: 0})}
-            value={selectedItem || ''}
           />
         </Box>
         {isOpen && (
@@ -174,6 +195,7 @@ const BasicMultiCombobox = () => {
             <ComboboxListboxGroup>
               {filteredItems.map((item, index) => (
                 <ComboboxListboxOption
+                  variant="default"
                   highlighted={highlightedIndex === index}
                   key={seed('item-'+item)}
                   {...getItemProps({item, index})}
@@ -186,7 +208,7 @@ const BasicMultiCombobox = () => {
         )}
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
-        {selectedItems.map((item, index) => {
+        {selectedItems.map((selectedItem, index) => {
           return (
             <FormPill
               {...getSelectedItemProps({
@@ -195,10 +217,10 @@ const BasicMultiCombobox = () => {
               })}
               tabIndex={null}
               {...formPillState}
-              key={seed('selected-item-'+item)}
-              onDismiss={() => handleRemoveItemOnClick(item)}
+              key={seed('selected-item-'+selectedItem)}
+              onDismiss={() => handleRemoveItemOnClick(selectedItem)}
             >
-              {item}
+              {selectedItem}
             </FormPill>
           );
         })}
