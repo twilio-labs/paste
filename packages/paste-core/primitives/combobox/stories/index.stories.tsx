@@ -176,7 +176,7 @@ export const BasicMultiCombobox: React.FC = () => {
     selectedItems,
   } = useMultiSelectPrimitive({});
 
-  const handleSelectItemOnChange = React.useCallback(
+  const handleSelectItemOnClick = React.useCallback(
     (selectedItem) => {
       addSelectedItem(selectedItem);
       setFilteredItems((currentFilteredItems) =>
@@ -221,9 +221,9 @@ export const BasicMultiCombobox: React.FC = () => {
         case useComboboxPrimitive.stateChangeTypes.ItemClick:
         case useComboboxPrimitive.stateChangeTypes.InputBlur:
           if (args.selectedItem) {
-            handleSelectItemOnChange(args.selectedItem);
+            handleSelectItemOnClick(args.selectedItem);
           } else if (args.inputValue) {
-            handleSelectItemOnChange(args.inputValue);
+            handleSelectItemOnClick(args.inputValue);
           }
           break;
         default:
