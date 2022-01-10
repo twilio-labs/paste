@@ -161,7 +161,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-export const BasicMultiCombobox: React.FC = () => {
+export const BasicMultiCombobox: React.ReactNode = () => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
   const [inputValue, setInputValue] = React.useState('');
@@ -184,7 +184,7 @@ export const BasicMultiCombobox: React.FC = () => {
           return item !== selectedItem;
         })
       );
-      setInputValue('');
+      // setInputValue('');
     },
     [addSelectedItem, setFilteredItems]
   );
@@ -220,6 +220,7 @@ export const BasicMultiCombobox: React.FC = () => {
         case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
         case useComboboxPrimitive.stateChangeTypes.ItemClick:
         case useComboboxPrimitive.stateChangeTypes.InputBlur:
+          console.log(args.selectedItem, args);
           if (args.selectedItem) {
             handleSelectItemOnClick(args.selectedItem);
           } else if (args.inputValue) {
