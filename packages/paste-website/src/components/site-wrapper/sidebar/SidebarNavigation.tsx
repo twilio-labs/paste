@@ -19,8 +19,8 @@ const SidebarNavigation: React.FC = () => {
   const data = useNavigationContext();
   const currentPathname = getCurrentPathname();
 
-  const {allPasteComponent, allPasteLayout, allPastePrimitive} = getNormalizedNavigationData(data);
-  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon'}];
+  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
+  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icon'}];
   const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
 
   return (
@@ -74,7 +74,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarDisclosure nested>
               <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/design-guidelines`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design`}>
                   Design guidelines
                 </SidebarAnchor>
               </SidebarDisclosureContent>
@@ -82,10 +82,10 @@ const SidebarNavigation: React.FC = () => {
             <SidebarDisclosure nested>
               <SidebarDisclosureButton>For engineers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/quickstart`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
                   Quick start
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.GETTING_STARTED}/manual-installation`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/manual-installation`}>
                   Manual installation
                 </SidebarAnchor>
               </SidebarDisclosureContent>
@@ -93,10 +93,10 @@ const SidebarNavigation: React.FC = () => {
             <SidebarDisclosure nested>
               <SidebarDisclosureButton>Contributing</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
                   Icons
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTRIBUTING}/patterns`}>
                   Patterns
                 </SidebarAnchor>
               </SidebarDisclosureContent>
@@ -133,7 +133,7 @@ const SidebarNavigation: React.FC = () => {
               </SidebarDisclosureContent>
             </SidebarDisclosure>
             <SidebarAnchor
-              to="/illustrations"
+              to={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
               onClick={() =>
                 trackCustomEvent({
                   category: 'Left Navigation',
@@ -160,13 +160,16 @@ const SidebarNavigation: React.FC = () => {
             Patterns
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="patterns-list">
-            <div>Foo</div>
+            <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
+              Overview
+            </SidebarAnchor>
+            {allPastePattern.map(({name, slug}) => (
+              <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/${slug}`}>
+                {name}
+              </SidebarAnchor>
+            ))}
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        {/* <SidebarDisclosure>
-          <SidebarDisclosureButton>Experiences</SidebarDisclosureButton>
-          <SidebarDisclosureContent></SidebarDisclosureContent>
-        </SidebarDisclosure> */}
         <SidebarSeparator />
         <SidebarDisclosure>
           <SidebarDisclosureButton
@@ -182,6 +185,9 @@ const SidebarNavigation: React.FC = () => {
             Components
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="components-list">
+            <SidebarAnchor nested to={SidebarCategoryRoutes.COMPONENTS}>
+              Overview
+            </SidebarAnchor>
             {filteredComponentSidebarItems.map(({name, slug}) => {
               if (name === 'Icon') {
                 return (
@@ -199,10 +205,10 @@ const SidebarNavigation: React.FC = () => {
                       {name}
                     </SidebarDisclosureButton>
                     <SidebarDisclosureContent data-cy="icons-list">
-                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>
+                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
                         Icon list
                       </SidebarAnchor>
-                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}/usage-guidelines`}>
+                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
                         Usage
                       </SidebarAnchor>
                     </SidebarDisclosureContent>
@@ -277,7 +283,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor nested to={SidebarCategoryRoutes.CORE}>
               Paste core
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
               Theme package
             </SidebarAnchor>
             <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changelog`}>
@@ -289,6 +295,9 @@ const SidebarNavigation: React.FC = () => {
             <SidebarDisclosure nested>
               <SidebarDisclosureButton data-cy="libraries-button">Libraries</SidebarDisclosureButton>
               <SidebarDisclosureContent data-cy="libraries-list">
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}`}>
+                  Overview
+                </SidebarAnchor>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
                   UID library
                 </SidebarAnchor>
@@ -335,12 +344,12 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarSeparator />
         <SidebarAnchor
-          to="/articles"
+          to="/blog"
           onClick={() =>
             trackCustomEvent({
               category: 'Left Navigation',
-              action: 'click-articles',
-              label: 'Articles',
+              action: 'click-blog',
+              label: 'Blog',
             })
           }
         >
