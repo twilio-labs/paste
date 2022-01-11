@@ -30,7 +30,6 @@
     "esModuleInterop": true
   },
   "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts"],
-  "files": ["node_modules/@applitools/types/types/index.d.ts"],
   "exclude": [
     "node_modules",
     "docs",

@@ -155,101 +155,101 @@ jobs:
       - name: Run eslint
         run: yarn lint
 
-  tests:
-    name: Test repository using React 17
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # tests:
+  #   name: Test repository using React 17
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
+  #     - name: Setup Node.js 12.x
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 12.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run tests
-        run: yarn test
+  #     - name: Run tests
+  #       run: yarn test
 
-  react16_tests:
-    name: Test repository using React 16
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # react16_tests:
+  #   name: Test repository using React 16
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
+  #     - name: Setup Node.js 12.x
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 12.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run tests
-        run: yarn test:react-16
+  #     - name: Run tests
+  #       run: yarn test:react-16
 
   prettier:
     name: Prettier checks
@@ -299,64 +299,64 @@ jobs:
       - name: Run prettier
         run: yarn prettier
 
-  chromatic:
-    name: Component Visual regression tests
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+  # chromatic:
+  #   name: Component Visual regression tests
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.event.pull_request.draft == false
 
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          # Chromatic needs the full git history to work
-          fetch-depth: 0
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
+  #       with:
+  #         # Chromatic needs the full git history to work
+  #         fetch-depth: 0
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
+  #     - name: Setup Node.js 12.x
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 12.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMA_APP_CODE }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: "build:storybook"
-          autoAcceptChanges: "main"
-          exitOnceUploaded: true
+  #     - name: Run Chromatic
+  #       uses: chromaui/action@v1
+  #       with:
+  #         projectToken: ${{ secrets.CHROMA_APP_CODE }}
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         buildScriptName: "build:storybook"
+  #         autoAcceptChanges: "main"
+  #         exitOnceUploaded: true
 
   cypress:
     name: Website tests
@@ -418,6 +418,11 @@ jobs:
         run: yarn test:website
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
+          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+          USE_CYPRESS_EYES: true
 
   pr-categorizer:
     name: Categorize the PR using labels

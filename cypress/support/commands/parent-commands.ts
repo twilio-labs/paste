@@ -1,6 +1,7 @@
 import '@applitools/eyes-cypress/commands';
 
-import {openTwilioEyes, checkTwilioEyes, closeTwilioEyes} from './utils';
+import {getBranchName, eyesAreEnabled} from '@utils/applitools';
+
 /**
  * @file Custom parent commands
  * @description commands that are not chained off of a previous command
@@ -8,85 +9,6 @@ import {openTwilioEyes, checkTwilioEyes, closeTwilioEyes} from './utils';
  * `Cypress.Commands.add("login", (email, password) => { ... })`
  * @see https://on.cypress.io/custom-commands#Parent-Commands
  */
-
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Cypress {
-  interface Chainable<Subject> {
-    /**
-     * Gets the docs side `main` tag and returns it's chainer.
-     * @example <caption>Find div with ID "my-selector" from the main element.</caption>
-     * // returns Chainer<HTMLDivElement>
-     * cy.getDocsPageContentArea().get('#my-selector').then(...);
-     */
-    getDocsPageContentArea(): Chainable<Subject>;
-
-    /**
-     * Gets element by selector in a fixed container.
-     *
-     * @param {string} selector
-     * @returns `Chainable<Subject>`
-     * @example <caption>Find div with ID "my-selector" from the main element.</caption>
-     * // returns Chainer<HTMLDivElement>
-     * cy.getInFixedContainer('#my-selector').then(...);
-     * @alias `get`
-     * @alias `invoke('innerHeight')`
-     * @alias `scrollIntoView({offset: {top: height, left: 0}})`
-     * @see https://on.cypress.io/guides/core-concepts/interacting-with-elements#scrolling
-     */
-    getInFixedContainer(selector: string): Chainable<Subject>;
-
-    /**
-     * Gets page header and asserts it it exists, and is visible with correct text.
-     *
-     * @param {string} headerText
-     * @alias `contains`
-     * @alias `should`
-     */
-    pageHeaderShouldBeVisible(headerText: string): void;
-
-    /**
-     * Asserts the overview table component renders correctly.
-     */
-    overviewTableRendersCorrectly(): void;
-
-    /**
-     * Asserts that:
-     * - anchored headings each have an `href` attribute that is prefixed by `#`
-     * - that only `h2` and `h3` headings have matching in-page navigation links.
-     */
-    checkInPageNavigationLinks(): void;
-
-    /**
-     * Asserts that:
-     * - anchored headings each have an `href` attribute that is prefixed by `#`
-     * - that only `h2` and `h3` headings have matching in-page navigation links.
-     */
-    checkPageAside(): void;
-
-    /**
-     * Asserts that:
-     * - at least one live preview is in page
-     */
-    checkLivePreviews(): void;
-
-    /**
-     * Asserts that:
-     * - at least one do/don't container is in page
-     */
-    checkDoDonts(): void;
-
-    /**
-     * Asserts that:
-     * - change log container is visible
-     * - change log header `h2` with text "Changlog" is visible
-     * - on click of header, the changelog content is visible.
-     */
-    checkChangelogRevealer(): void;
-
-    closeTwilioEyes(): void;
-    checkTwilioEyes(args: {tag: string}): void;
-  }
-}
 
 Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content-area'));
 
@@ -173,7 +95,36 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     });
 });
 
-Cypress.Commands.add('openTwilioEyes', openTwilioEyes);
+Cypress.Commands.add('openTwilioEyes', (overrides = {}) => {
+  cy.log('checking if eyes are enabled');
+  if (eyesAreEnabled()) {
+    cy.log('eyes are enabled!');
+    const params: Partial<Eyes.Open.Options> = {
+      appName: '[DSYS] - Paste Website',
+      browser: {
+        width: 1920,
+        height: 1440,
+      },
+      branch: getBranchName(),
+      baselineBranch: 'default',
+      matchLevel: 'Layout',
+      ...overrides,
+    };
 
-Cypress.Commands.add('checkTwilioEyes', checkTwilioEyes);
-Cypress.Commands.add('closeTwilioEyes', closeTwilioEyes);
+    cy.log(`starting eyes with these arguments: ${params}`);
+
+    cy.eyesOpen(params);
+  }
+});
+
+Cypress.Commands.add('checkTwilioEyes', (overrides = {}) => {
+  const checkOptions = {ignoreDisplacements: true, useDom: true, ...overrides};
+  if (eyesAreEnabled()) {
+    cy.eyesCheckWindow(checkOptions);
+  }
+});
+Cypress.Commands.add('closeTwilioEyes', () => {
+  if (eyesAreEnabled()) {
+    cy.eyesClose();
+  }
+});
