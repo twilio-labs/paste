@@ -27,7 +27,7 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
 
 <ComponentOverviewTable
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  componentsList={props.data.allAirtable.edges}
+  componentsList={[...props.data.allAirtable.edges]}
 />
 
 <Callout>
@@ -77,7 +77,7 @@ export const pageQuery = graphql`
     }
     allAirtable(
       sort: {fields: [data___Feature]}
-      filter: {data: {status: {ne: null}, Component_Category: {eq: "component"}}}
+      filter: {data: {status: {ne: null}, Component_Category: {in: ["component", "layout"]}}}
     ) {
       edges {
         node {
