@@ -20,7 +20,7 @@ const SidebarNavigation: React.FC = () => {
   const currentPathname = getCurrentPathname();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
-  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icon'}];
+  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
   const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
 
   return (
@@ -74,7 +74,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarDisclosure nested>
               <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
                   Design guidelines
                 </SidebarAnchor>
               </SidebarDisclosureContent>

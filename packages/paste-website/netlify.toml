@@ -28,13 +28,71 @@
   directory = "functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
 
+# INTRODUCTION/
+[[redirects]]
+  from = '/getting-started/design'
+  to = '/introduction/for-designers/design-guidelines'
+
+[[redirects]]
+  from = "/getting-started/engineering"
+  to = "/introduction/for-engineers/quickstart"
+
+[[redirects]]
+  from = '/getting-started/manual-installation'
+  to = '/introduction/for-engineers/manual-installation'
+
+[[redirects]]
+  from = '/icons/how-to-add-an-icon'
+  to = '/introduction/contributing/icons'
+
+[[redirects]]
+  from = '/patterns/contribute'
+  to = '/introduction/contributing/patterns'
+
+# FOUNDATIONS/
+[[redirects]]
+  from = '/content/voice-and-tone'
+  to = '/foundations/content/voice-and-tone'
+
+[[redirects]]
+  from = '/content/product-style-guide'
+  to = '/foundations/content/product-style-guide'
+
+[[redirects]]
+  from = '/illustrations'
+  to = '/foundations/illustrations'
+
+# COMPONENTS/
+[[redirects]]
+  from = '/icons'
+  to = '/components/icons'
+
+[[redirects]]
+  from = '/icons/usage-guidelines'
+  to = '/components/icons/usage-guidelines'
+
+[[redirects]]
+  from = '/layouts/*'
+  to = '/components/:splat'
+
+# CORE/
+[[redirects]]
+  from = '/tokens/theme-package'
+  to = '/core/theme-package'
+
+[[redirects]]
+  from = '/libraries/*'
+  to = '/core/libraries/:splat'
+
+# CUSTOMIZATION/
 [[redirects]]
   from = "/tokens/how-to-compose-custom-ui-with-tokens"
   to = "/customization/composing-custom-components-with-design-tokens"
 
+# BLOG/
 [[redirects]]
-  from = "/getting-started/engineering"
-  to = "/getting-started/quickstart"
+  from = '/articles'
+  to = '/blog'
 
 [[headers]]
   for = "/*"
