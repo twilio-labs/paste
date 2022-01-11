@@ -49,14 +49,22 @@
   from = '/patterns/contribute'
   to = '/introduction/contributing/patterns'
 
-# FOUNDATIONS/
 [[redirects]]
-  from = '/content/voice-and-tone'
-  to = '/foundations/content/voice-and-tone'
+  from = '/principles'
+  to = '/introduction/about-paste'
 
 [[redirects]]
-  from = '/content/product-style-guide'
-  to = '/foundations/content/product-style-guide'
+  from = '/getting-started/faqs'
+  to = '/introduction/about-paste'
+
+[[redirects]]
+  from = '/getting-started/working-guide'
+  to = '/introduction/working-with-us'
+
+# FOUNDATIONS/
+[[redirects]]
+  from = '/content/*'
+  to = '/foundations/content/:splat'
 
 [[redirects]]
   from = '/illustrations'
@@ -64,12 +72,8 @@
 
 # COMPONENTS/
 [[redirects]]
-  from = '/icons'
-  to = '/components/icons'
-
-[[redirects]]
-  from = '/icons/usage-guidelines'
-  to = '/components/icons/usage-guidelines'
+  from = '/icons/*'
+  to = '/components/icons/:splat'
 
 [[redirects]]
   from = '/layouts/*'

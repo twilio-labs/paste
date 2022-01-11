@@ -68,9 +68,9 @@ const SidebarNavigation: React.FC = () => {
             Introduction
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="introduction-list">
-            {/* <SidebarAnchor nested to="/">
+            <SidebarAnchor nested to="/introduction/about-paste">
               About Paste
-            </SidebarAnchor> */}
+            </SidebarAnchor>
             <SidebarDisclosure nested>
               <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
@@ -101,7 +101,9 @@ const SidebarNavigation: React.FC = () => {
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            {/* <SidebarAnchor nested>Working with us</SidebarAnchor> */}
+            <SidebarAnchor nested to={`${SidebarCategoryRoutes.INTRODUCTION}/working-with-us`}>
+              Working with us
+            </SidebarAnchor>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
         <SidebarAnchor to="/inclusive-design">Accessibility</SidebarAnchor>

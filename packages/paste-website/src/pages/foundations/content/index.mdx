@@ -1,16 +1,16 @@
 ---
 title: Guideline Usage
 description: An overview to help you navigate product content guidance and a look at what's coming soon.
-slug: /content/
+slug: /foundations/content/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Anchor} from '@twilio-paste/anchor';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/content/"}}) {
+    mdx(fields: {slug: {eq: "/foundations/content/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

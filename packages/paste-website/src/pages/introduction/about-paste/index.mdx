@@ -1,7 +1,7 @@
 ---
-title: Getting started FAQs
-description: Frequently asked questions when getting started with Paste.
-slug: /getting-started/faqs/
+title: About Paste
+description: Read about Twilio's UX Principles, as well as the operating principles for Paste.
+slug: /introduction/about-paste
 ---
 
 import {graphql} from 'gatsby';
@@ -14,7 +14,7 @@ import {InlineCode} from '../../../components/Typography';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/getting-started/faqs/"}}) {
+    mdx(fields: {slug: {eq: "/introduction/about-paste/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -44,7 +44,67 @@ export const pageQuery = graphql`
 
 <content>
 
-## Engineering
+## Twilio UX Principles
+
+These principles are statements of how I work, how you work, how we work as a UX organisation. We hold ourselves accountable to the behaviours and practices for which they advocate. We challenge our work to meet the standards they call for.
+
+### How we work
+
+#### Think big and take small steps
+
+Work methodically towards a compelling vision. Be willing to iterate your work as you build an understanding of customer needs, capturing the vision as you adjust and progress.
+
+#### Start with the customer
+
+Understand the customer, their problem, and the context first. Begin by conducting or seeking out the customer research that will enable you to create a compelling solution.
+
+#### Seek feedback early and often
+
+Share work while it’s still scrappy to shape its direction. Collaborate with other disciplines to expose different ideas that challenge your thinking and strengthen your work as it evolves.
+
+#### Validate work with customer testing
+
+Invite real customers to test and challenge solutions. Gather robust feedback and iterate your work until it both solves the customer problem and improves the overall product experience.
+
+#### Shepherd work all the way to the customer
+
+Take responsibility for every detail that’s delivered to the customer. Share the work’s intent with your team and ensure that its implementation is true to the vision.
+
+### How we build
+
+#### Develop a seamless experience
+
+Create customer experiences that are unified in look and feel. Make the transitions between business units unnoticeable with consistent use of styles, patterns, and interactions.
+
+#### Refine to the essentials
+
+Choose every element with a clear purpose that’s attached to a customer need. Refine the experience until every component is essential in solving the customer problem.
+
+#### Set the bar higher
+
+Meet the high standard that’s expected, then push past it. Elevate function, form, language, and design to ensure that the quality of the experience raises the bar for future work.
+
+#### Recognize the diversity of every user
+
+Understand that our users are not all like us. Work with empathy and consideration, offering guidance and encouragement to create an inclusive experience.
+
+## Design System Principles
+
+The Design Systems team won't ship anything unless:
+
+### It's Inclusive
+
+We build a floor for every experience at Twilio. It’s crucial that we consider the voices of people who don’t look like us, speak different languages, work in different parts of the world, or use our work in different ways.
+
+### It's a Multiplier
+
+We don’t work on something unless its a base common denominator for a number of exceptional experiences. Our work should multiply upstream and downstream efforts.
+
+### It's Referenceable
+
+Systems should never have single points of failure. Good documentation, reliable APIs, and an intuitive language of operation are necessary to ensure that what we do works, and works well.
+
+## FAQs
 
 <Stack orientation="vertical" spacing="space140">
   <Disclosure visible>
