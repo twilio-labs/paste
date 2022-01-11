@@ -1,0 +1,215 @@
+---
+title: Paste Manual Installation
+description: Instructions to manually add Paste to a project.
+slug: /introduction/for-engineers/manual-installation/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {version as coreVersion} from '@twilio-paste/core/package.json';
+import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import Package from '../../../../../../../package.json';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/introduction/for-engineers/manual-installation/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Dependencies
+
+To start using Paste, you must first install the following third party dependencies:
+
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>react</Td>
+        <Td>{Package.dependencies['react']}</Td>
+      </Tr>
+      <Tr>
+        <Td>react-dom</Td>
+        <Td>{Package.dependencies['react-dom']}</Td>
+      </Tr>
+      <Tr>
+        <Td>prop-types</Td>
+        <Td>{Package.dependencies['prop-types']}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+Install them in your project folder using either of these terminal commands:
+
+```shell
+# yarn
+yarn add react react-dom prop-types
+
+# npm
+npm install react react-dom prop-types
+```
+
+## Paste Packages
+
+Paste is split into two main packages: `@twilio-paste/core` and `@twilio-paste/icons`. Everything provided by Paste
+is included into those two packages.
+
+A key distinction with Paste Core is that we _include_ - not _bundle_ - all of Paste; this means we expose sub-packages you can individually import. This keeps your app lean by only including the code you use. For more information, read our Paste Core documentation.
+
+<Box marginBottom="space30">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>@twilio-paste/core</Td>
+        <Td>{coreVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/icons</Td>
+        <Td>{iconsVersion}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+```shell
+# yarn
+yarn add @twilio-paste/core @twilio-paste/icons
+
+# npm
+npm install @twilio-paste/core @twilio-paste/icons
+```
+
+### Setting up the Theme Provider
+
+For Paste components to be styled correctly, you must provide them with a theme.
+To do so you must wrap the root of your app with the theme provider and select a theme.
+We recommend the default theme.
+
+```jsx
+import {Theme} from '@twilio-paste/core/theme';
+
+// Wrap your root component with the Theme.Provider like so:
+const App = () => (
+  <Theme.Provider theme="default">
+    <RestOfYourAppInHere />
+  </Theme.Provider>
+);
+```
+
+## How to Load the Right Font
+
+### Default theme
+
+Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
+
+The **best and most performant way** to load the fonts is to include the following snippet in the `<head />` of your web page.
+
+```
+<link rel="preconnect" href="https://assets.twilio.com" crossorigin />
+<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css">
+```
+
+<Callout>
+  <CalloutText>
+    We recommend loading the fonts directly from the Twilio CDN. This provides the fastest download time, therefore
+    giving you the most optimized page load experience.
+  </CalloutText>
+</Callout>
+
+Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider`
+and select the `default` theme. **Note:** this will result in slower download times than including the fonts in the `<head />`.
+
+### Other themes
+
+If you are using **any other theme**, Paste leaves it up to you to load the fonts needed. For example, SendGrid uses Colfax. More often than not with those themes, you are working within existing applications and these fonts are automatically loaded for you.
+
+## Tips for Testing
+
+### Disable Animation
+
+Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
+are required to wrap them in the [Theme Provider](#setting-up-the-theme-provider). If you do not, your components may fail to render correctly.
+
+It can sometimes be helpful to test Paste components without animation. To disable animations on Paste components, pass the `disableAnimations` boolean prop to the &lt;Theme.Provider&gt;.
+
+```jsx
+<Theme.Provider theme="default" disableAnimations>
+  {/* your content */}
+</Theme.Provider>
+```
+
+### Handling Icons in Jest
+
+Jest will often complain about using the esModules versions (`/esm/`) of Paste Icons, since it perfers the commonJS version. You'll often see an error similar to:
+
+```
+Test suite failed to run
+  unknown: Unexpected token (1:660)
+    This usually means that you are trying to import a file which
+    Jest cannot parse, e.g. it's not plain JavaScript.
+    ...
+```
+
+In order to fix these Jest errors, you'll need to configure Jest to correctly handle the esModules versions of Paste Icons.
+
+You can use the `transformIgnorePatterns` option to tell Jest to not transform Paste Icons, which allows Jest to transpile these files. More
+information about `transformIgnorePatterns` can be found by [reading the Jest documentation](https://jestjs.io/docs/en/configuration#transformignorepatterns-arraystring).
+
+```js
+// jest.config.js
+{
+  "transformIgnorePatterns": [
+    "/node_modules/@twilio-paste/icons/.*"
+  ]
+}
+```
+
+### Global Styles
+
+Many apps/websites utilize global stylesheets. Even though Paste styles are scoped at the component level, global styles can creep
+in and cause some havoc. Make sure to thoroughly test Paste components to verify everything looks as they should.
+
+</content>
+
+</contentwrapper>

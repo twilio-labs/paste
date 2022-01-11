@@ -66,6 +66,15 @@ export const pageQuery = graphql`
         }
       }
     }
+    allPasteLayout {
+      edges {
+        node {
+          version
+          name
+          status
+        }
+      }
+    }
     allAirtable(
       sort: {fields: [data___Feature]}
       filter: {data: {status: {ne: null}, Component_Category: {eq: "component"}}}
