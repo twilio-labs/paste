@@ -4,7 +4,6 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import {getCurrentPathname} from '../../../utils/RouteUtils';
 import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
 import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
 import {useNavigationContext} from '../../../context/NavigationContext';
@@ -17,7 +16,6 @@ import {SidebarDisclosureContent} from './sidebar-disclosure/SidebarDisclosureCo
 
 const SidebarNavigation: React.FC = () => {
   const data = useNavigationContext();
-  const currentPathname = getCurrentPathname();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
@@ -54,7 +52,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarAnchor>
       </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.INTRODUCTION}>
           <SidebarDisclosureButton
             data-cy="introduction-button"
             onClick={() =>
@@ -71,7 +69,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor nested to="/introduction/about-paste">
               About Paste
             </SidebarAnchor>
-            <SidebarDisclosure nested>
+            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}>
               <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
@@ -79,7 +77,7 @@ const SidebarNavigation: React.FC = () => {
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            <SidebarDisclosure nested>
+            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}>
               <SidebarDisclosureButton>For engineers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
@@ -90,7 +88,7 @@ const SidebarNavigation: React.FC = () => {
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            <SidebarDisclosure nested>
+            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTRIBUTING}>
               <SidebarDisclosureButton>Contributing</SidebarDisclosureButton>
               <SidebarDisclosureContent>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
@@ -108,10 +106,10 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarAnchor to="/inclusive-design">Accessibility</SidebarAnchor>
         <SidebarSeparator />
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
           <SidebarDisclosureButton>Foundations</SidebarDisclosureButton>
           <SidebarDisclosureContent>
-            <SidebarDisclosure nested>
+            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTENT}>
               <SidebarDisclosureButton
                 data-cy="content-button"
                 onClick={() =>
@@ -125,7 +123,9 @@ const SidebarNavigation: React.FC = () => {
                 Content
               </SidebarDisclosureButton>
               <SidebarDisclosureContent data-cy="content-list">
-                {/* <SidebarAnchor nested to={}>Content checklist</SidebarAnchor> */}
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>
+                  Content checklist
+                </SidebarAnchor>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
                   Voice and tone
                 </SidebarAnchor>
@@ -148,7 +148,7 @@ const SidebarNavigation: React.FC = () => {
             </SidebarAnchor>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.PATTERNS}>
           <SidebarDisclosureButton
             data-cy="patterns-button"
             onClick={() =>
@@ -173,7 +173,7 @@ const SidebarNavigation: React.FC = () => {
           </SidebarDisclosureContent>
         </SidebarDisclosure>
         <SidebarSeparator />
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.COMPONENTS}>
           <SidebarDisclosureButton
             data-cy="components-button"
             onClick={() =>
@@ -193,7 +193,7 @@ const SidebarNavigation: React.FC = () => {
             {filteredComponentSidebarItems.map(({name, slug}) => {
               if (name === 'Icon') {
                 return (
-                  <SidebarDisclosure nested>
+                  <SidebarDisclosure nested categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
                     <SidebarDisclosureButton
                       data-cy="icons-button"
                       onClick={() =>
@@ -225,7 +225,7 @@ const SidebarNavigation: React.FC = () => {
             })}
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.PRIMITIVES}>
           <SidebarDisclosureButton
             data-cy="primitives-button"
             onClick={() =>
@@ -246,7 +246,7 @@ const SidebarNavigation: React.FC = () => {
             ))}
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.TOKENS}>
           <SidebarDisclosureButton
             data-cy="design-tokens-button"
             onClick={() =>
@@ -268,7 +268,7 @@ const SidebarNavigation: React.FC = () => {
             </SidebarAnchor>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CORE}>
           <SidebarDisclosureButton
             data-cy="core-button"
             onClick={() =>
@@ -294,7 +294,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
               Upgrade guide
             </SidebarAnchor>
-            <SidebarDisclosure nested>
+            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
               <SidebarDisclosureButton data-cy="libraries-button">Libraries</SidebarDisclosureButton>
               <SidebarDisclosureContent data-cy="libraries-list">
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}`}>
@@ -310,7 +310,7 @@ const SidebarNavigation: React.FC = () => {
             </SidebarDisclosure>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarDisclosure>
+        <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}>
           <SidebarDisclosureButton
             data-cy="customization-button"
             onClick={() =>
