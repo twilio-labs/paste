@@ -12,6 +12,5 @@
     }
   },
   "include": ["./**/*.ts"],
-  "exclude": ["mode_modules/**/*"],
-  "files": ["../node_modules/@applitools/eyes-cypress/eyes-index.d.ts"]
+  "exclude": ["mode_modules/**/*"]
 }

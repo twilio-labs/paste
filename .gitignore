@@ -87,6 +87,7 @@ docs
 # Cypress
 cypress/videos
 cypress/screenshots
+cypress/downloads
 
 # Local Netlify folder
 .netlify
