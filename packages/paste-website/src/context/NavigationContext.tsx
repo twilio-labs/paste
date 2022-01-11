@@ -51,6 +51,18 @@ export interface NavigationQuery {
       }
     ];
   };
+  allPastePattern: {
+    edges: [
+      {
+        node: {
+          data: {
+            Feature: string;
+            status: string;
+          };
+        };
+      }
+    ];
+  };
 }
 
 export const NavigationContext = React.createContext<NavigationQuery | null>(null);

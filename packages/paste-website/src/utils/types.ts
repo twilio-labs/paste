@@ -18,7 +18,7 @@ export interface ComponentNode {
   name: string;
   packageName?: string;
   version?: string;
-  status?: string;
+  packageStatus?: string;
 }
 
 export interface AirTableComponentNode {
