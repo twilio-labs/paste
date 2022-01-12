@@ -5,18 +5,32 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {styled} from '@twilio-paste/styling-library';
-// import {useTheme} from '@twilio-paste/theme';
-// import {PasteIconInverse} from '../../icons/PasteIconInverse';
+import {useTheme} from '@twilio-paste/theme';
+import {PasteIcon} from '../../icons/PasteIcon';
 import {PasteIconPride} from '../../icons/PasteIconPride';
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
+interface StyledLinkProps {
+  href: string;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
 
-  &:visited {
-    color: inherit;
-  }
-`;
+const StyledLink: React.FC<StyledLinkProps> = ({children, ...props}) => {
+  return (
+    <Box
+      {...props}
+      as="a"
+      textDecoration="none"
+      color="colorTextInverse"
+      _hover={{textDecoration: 'underline'}}
+      _focus={{boxShadow: 'shadowFocus', borderRadius: 'borderRadius10'}}
+      _focusVisible={{outline: 'none'}}
+    >
+      {children}
+    </Box>
+  );
+};
 
 interface SiteHeaderLogoProps {
   title?: string;
@@ -26,7 +40,12 @@ interface SiteHeaderLogoProps {
 // Note: 'subtitle' isn't passed for the mobile view, so we use that fact
 // to render different sizes and spacing in mobile
 const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
-  // const theme = useTheme();
+  const theme = useTheme();
+
+  const pastePrideIcon = <PasteIconPride display="block" size={42} />;
+  const pasteRedIcon = <PasteIcon color={theme.textColors.colorTextBrandHighlight} display="block" size={42} />;
+  const [pasteIcon, setPasteIcon] = React.useState(pastePrideIcon);
+
   return (
     <Box
       display="flex"
@@ -38,39 +57,38 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
       borderRightWidth={['borderWidth0', 'borderWidth0', 'borderWidth10']}
       minWidth={subtitle ? 'sizeSidebar' : 'size0'}
     >
-      <MediaObject verticalAlign="center">
-        <MediaFigure spacing="space40">
-          {/* <PasteIconInverse color={theme.textColors.colorTextInverse} display="block" size={42} /> */}
-          <PasteIconPride display="block" size={42} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
-            <StyledLink
-              to="/"
-              onClick={() =>
-                trackCustomEvent({
-                  category: 'Top Navigation',
-                  action: 'click-paste-logo',
-                  label: 'Paste logo',
-                })
-              }
-            >
+      <StyledLink
+        href="/"
+        onClick={() =>
+          trackCustomEvent({
+            category: 'Top Navigation',
+            action: 'click-paste-logo',
+            label: 'Paste logo',
+          })
+        }
+        onMouseEnter={() => setPasteIcon(pasteRedIcon)}
+        onMouseLeave={() => setPasteIcon(pastePrideIcon)}
+      >
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space40">{pasteIcon}</MediaFigure>
+          <MediaBody>
+            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
               {title}
-            </StyledLink>
-          </Text>
-          {subtitle ? (
-            <Text
-              as="div"
-              fontSize="fontSize20"
-              fontWeight="fontWeightNormal"
-              lineHeight="lineHeight20"
-              color="colorTextInverse"
-            >
-              {subtitle}
             </Text>
-          ) : null}
-        </MediaBody>
-      </MediaObject>
+            {subtitle ? (
+              <Text
+                as="div"
+                fontSize="fontSize20"
+                fontWeight="fontWeightNormal"
+                lineHeight="lineHeight20"
+                color="colorTextInverse"
+              >
+                {subtitle}
+              </Text>
+            ) : null}
+          </MediaBody>
+        </MediaObject>
+      </StyledLink>
     </Box>
   );
 };
