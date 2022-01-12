@@ -111,8 +111,10 @@ const SidebarNavigation: React.FC = () => {
         </SidebarAnchor>
         <SidebarSeparator />
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
-          <SidebarDisclosureButton level={0}>Foundations</SidebarDisclosureButton>
-          <SidebarDisclosureContent>
+          <SidebarDisclosureButton level={0} data-cy="foundations-button">
+            Foundations
+          </SidebarDisclosureButton>
+          <SidebarDisclosureContent data-cy="foundations-list">
             <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTENT}>
               <SidebarDisclosureButton
                 level={1}
