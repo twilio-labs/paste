@@ -138,6 +138,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       iconColor = 'colorTextInverseWeak';
     }
 
+    const {ref: toggleButtonRef, ...toggleButtonProps} = getToggleButtonProps({tabIndex: 0, ref});
+
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
         <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
@@ -153,9 +155,9 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         >
           <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
             <ComboboxInputSelect
-              {...getToggleButtonProps({tabIndex: 0})}
+              {...toggleButtonProps}
               // we spread props into `getInputProps` so that Downshift handles events correctly
-              {...getInputProps({disabled, required, ref, ...props})}
+              {...getInputProps({disabled, required, ref: toggleButtonRef, ...props})}
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}

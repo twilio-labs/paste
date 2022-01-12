@@ -30,19 +30,16 @@ export const DropdownCombobox = (): React.ReactNode => {
     selectedItem,
   } = useComboboxPrimitive({items});
   const uid = useUID();
+
+  const {ref, toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
+
   return (
     <>
       <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
       </Label>
       <Box {...getComboboxProps({role: 'combobox'})}>
-        <Input
-          id={uid}
-          type="text"
-          {...getInputProps()}
-          {...getToggleButtonProps({tabIndex: 0})}
-          value={selectedItem || ''}
-        />
+        <Input id={uid} type="text" {...toggleButtonProps} {...getInputProps({ref})} value={selectedItem || ''} />
       </Box>
       <ul {...getMenuProps()}>
         {isOpen &&
