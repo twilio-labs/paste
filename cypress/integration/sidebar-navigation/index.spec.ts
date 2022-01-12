@@ -1,10 +1,7 @@
 describe('Sidebar navigation', () => {
   beforeEach(() => {
-    cy.intercept('/page-data/*/page-data.json').as('javascriptAssets');
-
     cy.visit('/');
-
-    cy.wait('@javascriptAssets');
+    cy.wait(500);
   });
 
   it('opens the sidebar disclosures', () => {
