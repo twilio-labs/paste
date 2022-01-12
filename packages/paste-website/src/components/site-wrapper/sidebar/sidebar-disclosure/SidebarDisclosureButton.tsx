@@ -4,74 +4,85 @@ import type {BoxProps} from '@twilio-paste/box';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
 
-import {SidebarItem} from '../SidebarItem';
-
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
 interface SidebarDisclosureButtonProps extends BoxProps {
   onClick?: () => void;
+  level: 0 | 1;
 }
 
-const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButtonProps>(({...props}, ref) => (
-  <Box
-    as="button"
-    position="relative"
-    display="flex"
-    alignItems="center"
-    width="100%"
-    padding="space40"
-    fontFamily="fontFamilyText"
-    fontSize="inherit"
-    fontWeight="fontWeightNormal"
-    textAlign="left"
-    color="colorText"
-    backgroundColor="transparent"
-    border="none"
-    textDecoration="none"
-    transition="0.1s background-color ease-in-out"
-    outline="none"
-    borderRadius="borderRadius10"
-    appearance="none"
-    ref={ref}
-    {...props}
-    _hover={{
-      cursor: 'pointer',
-      textDecoration: 'underline',
-    }}
-    _focus={{
-      boxShadow: 'shadowFocus',
-      textDecoration: 'underline',
-    }}
-    _expanded={{
-      fontWeight: 'fontWeightBold',
-    }}
-  >
+const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButtonProps>(({level, ...props}, ref) => {
+  const levelPaddingMap = {
+    0: {
+      paddingY: 'space40',
+      paddingRight: 'space40',
+    },
+    1: {
+      paddingY: 'space30',
+      paddingLeft: 'space50',
+      paddingRight: 'space40',
+    },
+  };
+
+  return (
     <Box
-      as="span"
-      alignItems="center"
+      as="button"
+      position="relative"
       display="flex"
-      marginRight="space20"
-      transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
-      transition="transform 100ms ease-out"
+      alignItems="center"
+      width="100%"
+      columnGap="space30"
+      fontFamily="fontFamilyText"
+      fontSize="inherit"
+      fontWeight="fontWeightNormal"
+      textAlign="left"
+      color="colorText"
+      backgroundColor="transparent"
+      border="none"
+      textDecoration="none"
+      transition="0.1s background-color ease-in-out"
+      outline="none"
+      borderRadius="borderRadius10"
+      appearance="none"
+      ref={ref}
+      {...levelPaddingMap[level]}
+      {...props}
+      _hover={{
+        cursor: 'pointer',
+        textDecoration: 'underline',
+      }}
+      _focus={{
+        boxShadow: 'shadowFocus',
+        textDecoration: 'underline',
+      }}
+      _expanded={{
+        fontWeight: 'fontWeightBold',
+      }}
     >
-      <ChevronDisclosureExpandedIcon
-        color="colorTextIcon"
-        decorative
-        size={['sizeIcon40', 'sizeIcon40', 'sizeIcon10']}
-      />
+      <Box
+        as="span"
+        alignItems="center"
+        display="flex"
+        transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
+        transition="transform 100ms ease-out"
+      >
+        <ChevronDisclosureExpandedIcon
+          color="colorTextIcon"
+          decorative
+          size={['sizeIcon40', 'sizeIcon40', 'sizeIcon10']}
+        />
+      </Box>
+      <Box flexGrow={1}>{props.children}</Box>
     </Box>
-    <Box flexGrow={1}>{props.children}</Box>
-  </Box>
-));
+  );
+});
 
 export const SidebarDisclosureButton: React.FC<SidebarDisclosureButtonProps> = ({children, ...props}) => {
   const {disclosure} = React.useContext(SidebarDisclosureContext);
 
   return (
-    <SidebarItem nested>
-      <DisclosurePrimitive as={StyledButton} {...disclosure} {...props}>
-        {children}
-      </DisclosurePrimitive>
-    </SidebarItem>
+    <DisclosurePrimitive as={StyledButton} {...disclosure} {...props}>
+      {children}
+    </DisclosurePrimitive>
   );
 };

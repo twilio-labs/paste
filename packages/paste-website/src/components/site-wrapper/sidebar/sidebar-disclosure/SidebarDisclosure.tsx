@@ -24,7 +24,7 @@ export const SidebarDisclosure: React.FC<SidebarDisclosureProps> = ({children, n
 
   return (
     <SidebarDisclosureContext.Provider value={disclosureContext}>
-      <SidebarItem nested={nested}>{children}</SidebarItem>
+      <SidebarItem>{children}</SidebarItem>
     </SidebarDisclosureContext.Provider>
   );
 };

@@ -24,8 +24,8 @@ const SidebarNavigation: React.FC = () => {
   return (
     <Box
       as="nav"
-      marginTop={['space0', 'space0', 'space70']}
-      marginX="space20"
+      paddingTop={['space0', 'space0', 'space70']}
+      paddingX="space20"
       paddingBottom={['space50', 'space50', 'space0']}
       overflow="auto"
       role="navigation"
@@ -37,7 +37,7 @@ const SidebarNavigation: React.FC = () => {
         marginLeft="space20"
         marginRight={['space160', 'space160', 'space0']}
       >
-        <SidebarAnchor to="/">
+        <SidebarAnchor level={0} to="/">
           <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
             <Box as="span" paddingRight="space30">
               <img src="/logo.svg" alt="" width="28px" height="28px" />
@@ -54,6 +54,7 @@ const SidebarNavigation: React.FC = () => {
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.INTRODUCTION}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="introduction-button"
             onClick={() =>
               trackCustomEvent({
@@ -66,51 +67,54 @@ const SidebarNavigation: React.FC = () => {
             Introduction
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="introduction-list">
-            <SidebarAnchor nested to="/introduction/about-paste">
+            <SidebarAnchor level={1} to="/introduction/about-paste">
               About Paste
             </SidebarAnchor>
-            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}>
-              <SidebarDisclosureButton>For designers</SidebarDisclosureButton>
+            <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}>
+              <SidebarDisclosureButton level={1}>For designers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
                   Design guidelines
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}>
-              <SidebarDisclosureButton>For engineers</SidebarDisclosureButton>
+            <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}>
+              <SidebarDisclosureButton level={1}>For engineers</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
                   Quick start
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/manual-installation`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/manual-installation`}>
                   Manual installation
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTRIBUTING}>
-              <SidebarDisclosureButton>Contributing</SidebarDisclosureButton>
+            <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CONTRIBUTING}>
+              <SidebarDisclosureButton level={1}>Contributing</SidebarDisclosureButton>
               <SidebarDisclosureContent>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
                   Icons
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTRIBUTING}/patterns`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/patterns`}>
                   Patterns
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.INTRODUCTION}/working-with-us`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.INTRODUCTION}/working-with-us`}>
               Working with us
             </SidebarAnchor>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
-        <SidebarAnchor to="/inclusive-design">Accessibility</SidebarAnchor>
+        <SidebarAnchor level={0} to="/inclusive-design">
+          Accessibility
+        </SidebarAnchor>
         <SidebarSeparator />
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
-          <SidebarDisclosureButton>Foundations</SidebarDisclosureButton>
+          <SidebarDisclosureButton level={0}>Foundations</SidebarDisclosureButton>
           <SidebarDisclosureContent>
             <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTENT}>
               <SidebarDisclosureButton
+                level={1}
                 data-cy="content-button"
                 onClick={() =>
                   trackCustomEvent({
@@ -123,18 +127,19 @@ const SidebarNavigation: React.FC = () => {
                 Content
               </SidebarDisclosureButton>
               <SidebarDisclosureContent data-cy="content-list">
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>
                   Content checklist
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
                   Voice and tone
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
                   Product style guide
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
             <SidebarAnchor
+              level={1}
               to={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
               onClick={() =>
                 trackCustomEvent({
@@ -150,6 +155,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.PATTERNS}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="patterns-button"
             onClick={() =>
               trackCustomEvent({
@@ -162,11 +168,11 @@ const SidebarNavigation: React.FC = () => {
             Patterns
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="patterns-list">
-            <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
+            <SidebarAnchor level={1} to={SidebarCategoryRoutes.PATTERNS}>
               Overview
             </SidebarAnchor>
             {allPastePattern.map(({name, slug}) => (
-              <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/${slug}`}>
+              <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
                 {name}
               </SidebarAnchor>
             ))}
@@ -175,6 +181,7 @@ const SidebarNavigation: React.FC = () => {
         <SidebarSeparator />
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.COMPONENTS}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="components-button"
             onClick={() =>
               trackCustomEvent({
@@ -187,14 +194,15 @@ const SidebarNavigation: React.FC = () => {
             Components
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="components-list">
-            <SidebarAnchor nested to={SidebarCategoryRoutes.COMPONENTS}>
+            <SidebarAnchor level={1} to={SidebarCategoryRoutes.COMPONENTS}>
               Overview
             </SidebarAnchor>
             {filteredComponentSidebarItems.map(({name, slug}) => {
               if (name === 'Icon') {
                 return (
-                  <SidebarDisclosure nested categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
+                  <SidebarDisclosure nested categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
                     <SidebarDisclosureButton
+                      level={1}
                       data-cy="icons-button"
                       onClick={() =>
                         trackCustomEvent({
@@ -207,10 +215,10 @@ const SidebarNavigation: React.FC = () => {
                       {name}
                     </SidebarDisclosureButton>
                     <SidebarDisclosureContent data-cy="icons-list">
-                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
+                      <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
                         Icon list
                       </SidebarAnchor>
-                      <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
+                      <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
                         Usage
                       </SidebarAnchor>
                     </SidebarDisclosureContent>
@@ -218,7 +226,7 @@ const SidebarNavigation: React.FC = () => {
                 );
               }
               return (
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
+                <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
                   {name}
                 </SidebarAnchor>
               );
@@ -227,6 +235,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.PRIMITIVES}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="primitives-button"
             onClick={() =>
               trackCustomEvent({
@@ -239,8 +248,11 @@ const SidebarNavigation: React.FC = () => {
             Primitives
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="primitives-list">
+            <SidebarAnchor level={1} to={SidebarCategoryRoutes.PRIMITIVES}>
+              Overview
+            </SidebarAnchor>
             {allPastePrimitive.map(({name, slug}) => (
-              <SidebarAnchor nested to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`}>
+              <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
                 {name}
               </SidebarAnchor>
             ))}
@@ -248,6 +260,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.TOKENS}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="design-tokens-button"
             onClick={() =>
               trackCustomEvent({
@@ -260,16 +273,17 @@ const SidebarNavigation: React.FC = () => {
             Tokens
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="design-tokens-list">
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/`}>
               Token list
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
               Design tokens package
             </SidebarAnchor>
           </SidebarDisclosureContent>
         </SidebarDisclosure>
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CORE}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="core-button"
             onClick={() =>
               trackCustomEvent({
@@ -282,28 +296,30 @@ const SidebarNavigation: React.FC = () => {
             Core
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="core-list">
-            <SidebarAnchor nested to={SidebarCategoryRoutes.CORE}>
+            <SidebarAnchor level={1} to={SidebarCategoryRoutes.CORE}>
               Paste core
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
               Theme package
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changelog`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changelog`}>
               Core changelog
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
               Upgrade guide
             </SidebarAnchor>
             <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
-              <SidebarDisclosureButton data-cy="libraries-button">Libraries</SidebarDisclosureButton>
+              <SidebarDisclosureButton level={1} data-cy="libraries-button">
+                Libraries
+              </SidebarDisclosureButton>
               <SidebarDisclosureContent data-cy="libraries-list">
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}`}>
                   Overview
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
                   UID library
                 </SidebarAnchor>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
+                <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
                   Codemods
                 </SidebarAnchor>
               </SidebarDisclosureContent>
@@ -312,6 +328,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}>
           <SidebarDisclosureButton
+            level={0}
             data-cy="customization-button"
             onClick={() =>
               trackCustomEvent({
@@ -324,20 +341,20 @@ const SidebarNavigation: React.FC = () => {
             Customization
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="customization-list">
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
               Overview
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
               Customization Provider
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
               Customizing themes
             </SidebarAnchor>
-            <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
+            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
               Customizing components
             </SidebarAnchor>
             <SidebarAnchor
-              nested
+              level={1}
               to={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}
             >
               Composing custom UI with tokens
@@ -346,6 +363,7 @@ const SidebarNavigation: React.FC = () => {
         </SidebarDisclosure>
         <SidebarSeparator />
         <SidebarAnchor
+          level={0}
           to="/blog"
           onClick={() =>
             trackCustomEvent({
@@ -358,6 +376,7 @@ const SidebarNavigation: React.FC = () => {
           Blog
         </SidebarAnchor>
         <SidebarAnchor
+          level={0}
           to="/roadmap"
           onClick={() =>
             trackCustomEvent({
