@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Link} from 'gatsby';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {styled} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {PasteIcon} from '../../icons/PasteIcon';
 import {PasteIconPride} from '../../icons/PasteIconPride';
