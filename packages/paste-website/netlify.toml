@@ -76,7 +76,7 @@
   to = '/components/icons/:splat'
 
 [[redirects]]
-  from = '/layouts/*'
+  from = '/layout/*'
   to = '/components/:splat'
 
 # CORE/
