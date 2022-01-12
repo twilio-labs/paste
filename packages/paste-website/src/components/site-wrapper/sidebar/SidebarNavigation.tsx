@@ -27,6 +27,7 @@ const SidebarNavigation: React.FC = () => {
       paddingTop={['space0', 'space0', 'space70']}
       paddingX="space20"
       paddingBottom={['space50', 'space50', 'space0']}
+      height="100%"
       overflow="auto"
       role="navigation"
       aria-label="Main"
