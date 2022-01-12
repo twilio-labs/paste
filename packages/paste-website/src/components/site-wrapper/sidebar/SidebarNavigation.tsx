@@ -18,8 +18,11 @@ const SidebarNavigation: React.FC = () => {
   const data = useNavigationContext();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
+
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
   const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
+
+  const filteredPrimitives = allPastePrimitive.filter(filteredComponents);
 
   return (
     <Box
@@ -254,7 +257,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={1} to={SidebarCategoryRoutes.PRIMITIVES}>
               Overview
             </SidebarAnchor>
-            {allPastePrimitive.map(({name, slug}) => (
+            {filteredPrimitives.map(({name, slug}) => (
               <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
                 {name}
               </SidebarAnchor>

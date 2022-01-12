@@ -52,7 +52,7 @@ If you&rsquo;re a Flex customer, and want to build a Flex plugin that follows yo
 
 ## About the Customization Provider
 
-Similar to the Paste [ThemeProvider](/tokens/theme-package), the `CustomizationProvider` uses [React Context](https://reactjs.org/docs/context.html) to provide a [theme object](/tokens/theme-package/#theme) to any descendant components in the tree.
+Similar to the Paste [ThemeProvider](/core/theme-package), the `CustomizationProvider` uses [React Context](https://reactjs.org/docs/context.html) to provide a [theme object](/core/theme-package/#theme) to any descendant components in the tree.
 
 The `CustomizationProvider` currently differs in two ways:
 
@@ -75,7 +75,7 @@ const MyApp = () => (
 
 ## Providing a Theme Object
 
-For the `theme` prop you can pass a complete [theme object](/tokens/theme-package#theme) or a partial theme object for smaller customizations. If a partial theme object is passed, the `CustomizationProvider` merges the custom theme object with the base Paste theme you chose. For example, if you want to customize certain background color tokens of the Dark theme you would only need to pass the following:
+For the `theme` prop you can pass a complete [theme object](/core/theme-package#theme) or a partial theme object for smaller customizations. If a partial theme object is passed, the `CustomizationProvider` merges the custom theme object with the base Paste theme you chose. For example, if you want to customize certain background color tokens of the Dark theme you would only need to pass the following:
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';

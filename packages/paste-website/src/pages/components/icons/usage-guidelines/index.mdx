@@ -44,8 +44,8 @@ export const pageQuery = graphql`
 <Callout>
   <CalloutTitle>Can't find the icon you need?</CalloutTitle>
   <CalloutText>
-    Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute
-    it to the library following <SiteLink to="/icons/how-to-add-an-icon">our guidelines.</SiteLink>
+    Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute it to the library following{' '}
+    <SiteLink to="/introduction/contributing/icons">our guidelines.</SiteLink>
   </CalloutText>
 </Callout>
 
@@ -62,7 +62,7 @@ Icons can either be **decorative** or **informative**. _"Decorative icons don’
 of a page. The information provided by the image might already be given using adjacent text, or the image
 might be included to make the website more visually attractive."_ (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
 
-Our icons require the developer define whether an icon is decorative by [providing the required property](/icons/usage-guidelines#making-an-icon-decorative-or-informative).
+Our icons require the developer define whether an icon is decorative by [providing the required property](/components/icons/usage-guidelines#making-an-icon-decorative-or-informative).
 
 ### Give informative icons a title
 
@@ -177,7 +177,7 @@ yarn add @twilio-paste/icons
 ### Usage
 
 Icons have to be imported individually. This import style was decided for [important
-performance benefits](/icons/usage-guidelines#why-react-components). As our icon set grows to contain over 100 icons, we don't
+performance benefits](/components/icons/usage-guidelines#why-react-components). As our icon set grows to contain over 100 icons, we don't
 want projects that use only a few icons to pay the price of a large bundle.
 
 ```jsx
