@@ -36,7 +36,7 @@ export const pageQuery = graphql`
     }
     allAirtable(
       sort: {fields: [data___Feature]}
-      filter: {data: {status: {nin: [null, "in development"]}, Component_Category: {eq: "pattern"}}}
+      filter: {data: {status: {nin: [null]}, Component_Category: {eq: "pattern"}}}
     ) {
       edges {
         node {
@@ -119,59 +119,23 @@ There are two primary goals of patterns:
           </THead>
           <TBody>
             <Tr>
-              <Td>Display text</Td>
-              <Td>Special text styles for marketing, showing stats, etc.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Filter group</Td>
-              <Td>Controls for filtering lists of objects or data.</Td>
-              <Td>
-                <strong>In progress</strong>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td>Copy</Td>
-              <Td>How to enable a user to copy a snippet of text, such as an API key or code snippet.</Td>
-              <Td>
-                <strong>In progress</strong>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td>Status</Td>
-              <Td>How to display the status of an object or process.</Td>
-              <Td>
-                <strong>In progress</strong>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td>Small detail text</Td>
-              <Td>Special text styles for small pieces of descriptive text, such as captions.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Component comparisons</Td>
-              <Td>Guidance on when to use certain similar components, such as Combobox versus Select.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Forms</Td>
-              <Td>Guidance for laying out forms and patterns for common form interactions.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Layouts</Td>
-              <Td>Common page layouts, such as Insights pages, and parts of pages, such as standard page headers.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Search</Td>
-              <Td>How to enable a user to search a set of data based on an alphanumeric string.</Td>
+              <Td>Card actions</Td>
+              <Td>How to enable a user to perform actions on objects in a card layout.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
               <Td>Code</Td>
               <Td>How to display code in the UI.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Country flags</Td>
+              <Td>How and when to use country flags in the UI.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Component comparisons</Td>
+              <Td>Guidance on when to use certain similar components, such as Combobox versus Select.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
@@ -185,8 +149,38 @@ There are two primary goals of patterns:
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
+              <Td>Disclose information</Td>
+              <Td>How to give the user additional information, using something like help text or a tooltip.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Directional modal</Td>
+              <Td>How to enable a user to move forwards and backwards through a set of modals.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Display text</Td>
+              <Td>Special text styles for marketing, showing stats, etc.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Drag and drop</Td>
+              <Td>How to present drag and drop controls, such as a file upload or a WYSIWYG editor.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
               <Td>Edit object</Td>
               <Td>How to make and apply changes to an object.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Forms</Td>
+              <Td>Guidance for laying out forms and patterns for common form interactions.</Td>
+              <Td>Open for contribution</Td>
+            </Tr>
+            <Tr>
+              <Td>Layouts</Td>
+              <Td>Common page layouts, such as Insights pages, and parts of pages, such as standard page headers.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
@@ -195,33 +189,8 @@ There are two primary goals of patterns:
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
-              <Td>Disclose information</Td>
-              <Td>How to give the user additional information, using something like help text or a tooltip.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Wizard</Td>
-              <Td>How to take a user through a multi-step flow.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Country flags</Td>
-              <Td>How and when to use country flags in the UI.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Card actions</Td>
-              <Td>How to enable a user to perform actions on objects in a card layout.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Promotional messaging</Td>
-              <Td>How to promote new features and upsells in the UI.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Data visualization</Td>
-              <Td>Guidance for displaying data in the UI.</Td>
+              <Td>Media player</Td>
+              <Td>How to present media controls, such as pause and play.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
@@ -235,31 +204,19 @@ There are two primary goals of patterns:
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
-              <Td>Directional modal</Td>
-              <Td>How to enable a user to move forwards and backwards through a set of modals.</Td>
+              <Td>Promotional messaging</Td>
+              <Td>How to promote new features and upsells in the UI.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
-              <Td>Media player</Td>
-              <Td>How to present media controls, such as pause and play.</Td>
+              <Td>Search</Td>
+              <Td>How to enable a user to search a set of data based on an alphanumeric string.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
-              <Td>Drag and drop</Td>
-              <Td>How to present drag and drop controls, such as a file upload or a WYSIWYG editor.</Td>
+              <Td>Small detail text</Td>
+              <Td>Special text styles for small pieces of descriptive text, such as captions.</Td>
               <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Import and upload</Td>
-              <Td>How to move a file into Twilio.</Td>
-              <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Alarm setup</Td>
-              <Td>How to set up an alarm for a Twilio event in Console.</Td>
-              <Td>
-                <strong>In progress</strong>
-              </Td>
             </Tr>
           </TBody>
         </Table>
