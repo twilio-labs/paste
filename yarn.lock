@@ -38912,6 +38912,7 @@ is-whitespace@latest:
     search-in-file: ^1.2.2
     shelljs: ^0.8.3
     start-server-and-test: ^1.11.5
+    storybook-addon-gatsby: ^0.0.3
     storybook-addon-performance: ^0.14.0
     terser: ^5.3.0
     theo: ^8.1.5
@@ -45680,6 +45681,15 @@ resolve@^1.17.0:
   version: 2.11.1
   resolution: "store2@npm:2.11.1"
   checksum: 89f15704d04f351583144abeca445a33a6bc689052db69ee756b812568c4c2ad41e99ea79dc3aab7c28a5651805a68e5cdcec816d2db09e2af4cc620f716232e
+  languageName: node
+  linkType: hard
+
+"storybook-addon-gatsby@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "storybook-addon-gatsby@npm:0.0.3"
+  peerDependencies:
+    gatsby: ^3 || ^4
+  checksum: 050d44c12e34f4054db4f09738aa2f71d572c7d9c03ce5253c5d9f291a4ce3f310ed580a59d4b5422b46b69f4550376c7b87404389e99cbd23d427741aba821b
   languageName: node
   linkType: hard
 
