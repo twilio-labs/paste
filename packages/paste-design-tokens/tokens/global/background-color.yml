@@ -8,159 +8,159 @@ props:
   # base background
   color-background:
     value: "{!palette-gray-10}"
-    comment: Default background color for any container
+    comment: Background color used for containers.
   color-background-strong:
     value: "{!palette-gray-20}"
-    comment: Strong default background color
+    comment: Strong background color used for containers.
   color-background-stronger:
     value: "{!palette-gray-50}"
-    comment: Stronger default background color
+    comment: Stronger background color used for containers.
   color-background-strongest:
     value: "{!palette-gray-70}"
-    comment: Strongest default background color
+    comment: Strongest background color used for containers.
   color-background-inverse:
     value: "{!palette-gray-0-transparent-10}"
-    comment: Inverse background color for any container. Must be used on color-background-body-inverse.
+    comment: Inverse background color used for containers.
   color-background-inverse-strong:
     value: "{!palette-gray-0-transparent-20}"
-    comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
+    comment: Strong inverse background color used for containers.
 
   # brand backgrounds
   color-background-brand:
     value: "{!palette-blue-80}"
-    comment: Primary brand background, accessible with inverse text
+    comment: Background color used for brand.
   color-background-brand-strong:
     value: "{!palette-blue-90}"
-    comment: Strong primary brand background, accessible with inverse text
+    comment: Strong background color used for brand.
   color-background-brand-stronger:
     value: "{!palette-blue-100}"
-    comment: Stronger primary brand background, accessible with inverse text
+    comment: Stronger background color used for brand.
   color-background-brand-highlight:
     value: "{!amaranth}"
-    comment: Highlight brand background, accessible with black text
+    comment: Background color used for brand highlights.
   color-background-brand-highlight-weakest:
     value: "{!amaranth-transparent-10}"
-    comment: Weakest highlight brand background
+    comment: Weakest background color used for brand.
 
   # user background
   color-background-user:
     value: "{!palette-purple-30}"
-    comment: User avatar background color
+    comment: Background color used for user avatars.
 
   # account backgrounds
   color-background-subaccount:
     value: "{!palette-yellow-20}"
-    comment: Subaccount background color
+    comment: Background color used for subaccounts.
   color-background-trial:
     value: "{!palette-green-20}"
-    comment: Trial account background color
+    comment: Background color used for trial accounts.
 
   # page body
   color-background-body:
     value: "{!palette-gray-0}"
-    comment: Background color of the main page body
+    comment: Background color used for the main page body.
   color-background-body-inverse:
     value: "{!palette-gray-100}"
-    comment: Inverse background color of the main page body, the darkest gray in the system
+    comment: Inverse background color used for the main page body.
 
   # status
   color-background-neutral-weakest:
     value: "{!palette-blue-10}"
-    comment: Weakest neutral background color
+    comment: Weakest background color used for neutral or default variants.
   color-background-success:
     value: "{!palette-green-60}"
-    comment: Success background color
+    comment: Background color used for success alerts and toasts.
   color-background-success-weakest:
     value: "{!palette-green-10}"
-    comment: Weakest success background color
+    comment: Weakest background color used for success alerts and toasts.
   color-background-warning:
     value: "{!palette-orange-60}"
-    comment: Warning background color
+    comment: Background color used for warning alerts and toasts.
   color-background-warning-weakest:
     value: "{!palette-orange-10}"
-    comment: Weakest warning background color
+    comment: Weakest background color used for warning alerts and toasts.
   color-background-error-strong:
     value: "{!palette-red-80}"
-    comment: Strong error background color
+    comment: Strongest background used for error alerts and toasts.
   color-background-error:
     value: "{!palette-red-60}"
-    comment: Error background color
+    comment: Background color used for error alerts and toasts.
   color-background-error-weakest:
     value: "{!palette-red-10}"
-    comment: Weakest error background color
+    comment: Weakest background color used for error alerts and toasts.
   color-background-required:
     value: "{!palette-red-50}"
-    comment: Required background color
+    comment: Background color used to represent required form fields.
   color-background-new:
     value: "{!palette-purple-20}"
-    comment: Background color for indicating a new status.
+    comment: Background color used to represent a new status.
 
   # row backgrounds
   color-background-row-striped:
     value: "{!palette-gray-10}"
-    comment: Background color for alternative striped rows
+    comment: Background color used for alternative striped rows.
 
   # primary background
   color-background-primary-strongest:
     value: "{!palette-blue-100}"
-    comment: Strongest background for primary actions or highlights
+    comment: Strongest background color used for primary actions or highlights.
   color-background-primary-stronger:
     value: "{!palette-blue-90}"
-    comment: Stronger background for primary actions or highlights
+    comment: Stronger background color used for primary actions or highlights.
   color-background-primary-strong:
     value: "{!palette-blue-80}"
-    comment: Strong background for primary actions or highlights
+    comment: Strong background color used for primary actions or highlights.
   color-background-primary:
     value: "{!palette-blue-60}"
-    comment: Background for primary actions or highlights
+    comment: Background color used for primary actions or highlights.
   color-background-primary-weak:
     value: "{!palette-blue-30}"
-    comment: Weak background for primary actions or highlights
+    comment: Weak background color used for primary actions or highlights.
   color-background-primary-weaker:
     value: "{!palette-blue-20}"
-    comment: Weaker background for primary actions or highlights
+    comment: Weaker background color used for primary actions or highlights.
   color-background-primary-weakest:
     value: "{!palette-blue-10}"
-    comment: Weakest background for primary actions or highlights
+    comment: Weakest background color used for primary actions or highlights.
 
   # destructive backgrounds
   color-background-destructive-strongest:
     value: "{!palette-red-100}"
-    comment: Strongest background for destructive actions or highlights
+    comment: Strongest background color used for destructive actions or highlights.
   color-background-destructive-stronger:
     value: "{!palette-red-90}"
-    comment: Stronger background for destructive actions or highlights
+    comment: Stronger background color used for destructive actions or highlights.
   color-background-destructive-strong:
     value: "{!palette-red-80}"
-    comment: Strong background for destructive actions or highlights
+    comment: Strong background color used for destructive actions or highlights.
   color-background-destructive:
     value: "{!palette-red-60}"
-    comment: Background for destructive actions or highlights
+    comment: Background color used for destructive actions or highlights.
   color-background-destructive-weak:
     value: "{!palette-red-30}"
-    comment: Weak background for destructive actions or highlights
+    comment: Weak background color used for destructive actions or highlights.
   color-background-destructive-weaker:
     value: "{!palette-red-20}"
-    comment: Weaker background for destructive actions or highlights
+    comment: Weaker background color used for destructive actions or highlights.
   color-background-destructive-weakest:
     value: "{!palette-red-10}"
-    comment: Weakest background for destructive actions or highlights
+    comment: Weakest background color used for destructive actions or highlights.
 
   # overlay backgrounds
   color-background-overlay:
     value: "{!palette-blue-100-transparent-40}"
-    comment: Default background for overlays
+    comment: Background color used for overlays.
 
   #availability
   color-background-available:
     value: "{!palette-green-60}"
-    comment: Color used to represent an entity or person as "available".
+    comment: Background color used to represent an entity or person as "available".
   color-background-busy:
     value: "{!palette-orange-60}"
-    comment: Color used to represent an entity or person as "busy".
+    comment: Background color used to represent an entity or person as "busy".
   color-background-unavailable:
     value: "{!palette-red-60}"
-    comment: Color used to represent an entity or person as "unavailable".
+    comment: Background color used to represent an entity or person as "unavailable".
   color-background-offline:
     value: "{!palette-gray-40}"
-    comment: Color used to represent an entity or person as "offline".
+    comment: Background color used to represent an entity or person as "offline".
