@@ -75,16 +75,20 @@ const SidebarNavigation: React.FC = () => {
               About Paste
             </SidebarAnchor>
             <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}>
-              <SidebarDisclosureButton level={1}>For designers</SidebarDisclosureButton>
-              <SidebarDisclosureContent>
+              <SidebarDisclosureButton level={1} data-cy="for-designers-button">
+                For designers
+              </SidebarDisclosureButton>
+              <SidebarDisclosureContent data-cy="for-designers-list">
                 <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
                   Design guidelines
                 </SidebarAnchor>
               </SidebarDisclosureContent>
             </SidebarDisclosure>
             <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}>
-              <SidebarDisclosureButton level={1}>For engineers</SidebarDisclosureButton>
-              <SidebarDisclosureContent>
+              <SidebarDisclosureButton level={1} data-cy="for-engineers-button">
+                For engineers
+              </SidebarDisclosureButton>
+              <SidebarDisclosureContent data-cy="for-engineers-list">
                 <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
                   Quick start
                 </SidebarAnchor>
@@ -94,8 +98,10 @@ const SidebarNavigation: React.FC = () => {
               </SidebarDisclosureContent>
             </SidebarDisclosure>
             <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CONTRIBUTING}>
-              <SidebarDisclosureButton level={1}>Contributing</SidebarDisclosureButton>
-              <SidebarDisclosureContent>
+              <SidebarDisclosureButton level={1} data-cy="contributing-button">
+                Contributing
+              </SidebarDisclosureButton>
+              <SidebarDisclosureContent data-cy="contributing-list">
                 <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
                   Icons
                 </SidebarAnchor>
