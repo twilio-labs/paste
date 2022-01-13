@@ -19,11 +19,15 @@ const result = require('dotenv').config();
  */
 module.exports = (on, config) => {
   if (config.env.USE_CYPRESS_EYES == null) {
-    config.env.USE_CYPRESS_EYES = process.env.USE_CYPRESS_EYES;
+    config.env.USE_CYPRESS_EYES = JSON.parse(process.env.USE_CYPRESS_EYES);
   }
 
   if (config.env.GITHUB_BRANCH_NAME == null) {
     config.env.GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
+  }
+
+  if (config.env.BATCH_NAME == null) {
+    config.env.BATCH_NAME = process.env.GITHUB_HEAD_SHA;
   }
 
   if (config.env.USE_CYPRESS_EYES === true && process.env.APPLITOOLS_API_KEY == null) {

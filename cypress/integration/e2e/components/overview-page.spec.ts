@@ -1,4 +1,4 @@
-describe('Overview page', function () {
+describe('Overview page', () => {
   beforeEach(() => {
     cy.visit('/components');
   });

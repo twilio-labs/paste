@@ -1,4 +1,4 @@
-describe('Alert-dialog component documentation page', function () {
+describe('Alert-dialog component documentation page', () => {
   beforeEach(() => {
     cy.visit('/components/alert-dialog');
   });
