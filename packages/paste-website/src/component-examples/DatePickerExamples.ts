@@ -221,3 +221,50 @@ const MinAndMaxPicker = (props) => {
 }
 render(<MinAndMaxPicker />)
 `.trim();
+
+export const DateTimeRangePicker = `
+const DateTimeRangePicker = (props) => {
+  const [selectedItem, setSelectedItem] = React.useState('')
+  const uidStartDP = useUID();
+  return selectedItem === "Custom" ? (
+    <>
+      <Box margin="space60">
+        <Label htmlFor="uidStartDP">Date range</Label>
+      </Box>
+      <Stack orientation="horizontal" spacing="space80">
+        <Box marginLeft="space60">
+          <DatePicker id="uidStartDP" aria-describedby="start-date" />
+          <HelpText id="start-date">Start date</HelpText>
+        </Box>
+        <Box>
+          <TimePicker aria-describedby="start-time" />
+          <HelpText id="start-time">Start time</HelpText>
+        </Box>
+      </Stack>
+      <Stack orientation="horizontal" spacing="space80">
+        <Box marginLeft="space60" marginTop="space60">
+          <DatePicker aria-describedby="end-date" />
+          <HelpText id="end-date">End date</HelpText>
+        </Box>
+        <Box marginTop="space60">
+          <TimePicker aria-describedby="end-time" />
+          <HelpText id="end-time">End time</HelpText>
+        </Box>
+      </Stack>
+    </>
+    ) : (
+      <Box margin="space60">
+        <Combobox
+          insertAfter={<CalendarIcon decorative />}
+          items={["Last 7 days", "Last 30 days", "Last 6 months", "Custom"]}
+          labelText="Date range"
+          onSelectedItemChange={(changes) => {
+            setSelectedItem(changes.selectedItem)
+          }}
+        />
+      </Box>
+    )
+  }
+
+render(<DateTimeRangePicker />)
+`.trim();

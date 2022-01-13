@@ -8,8 +8,7 @@ describe('Docs website search', () => {
   });
 
   beforeEach(() => {
-    cy.server();
-    cy.route({url: 'https://**.algolia.net/**', method: 'POST'}).as('searchRequest');
+    cy.intercept({url: 'https://**.algolia.net/**', method: 'POST'}).as('searchRequest');
   });
 
   beforeEach(() => {
