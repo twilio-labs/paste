@@ -9,7 +9,7 @@ import {SidebarItem} from '../SidebarItem';
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
 interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState {
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
   nested?: boolean;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
 }

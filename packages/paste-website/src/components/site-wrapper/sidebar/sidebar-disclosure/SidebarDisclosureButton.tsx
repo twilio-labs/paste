@@ -11,23 +11,23 @@ interface SidebarDisclosureButtonProps extends BoxProps {
   level: 0 | 1;
 }
 
-const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButtonProps>(({level, ...props}, ref) => {
-  const levelPaddingMap: Partial<
-    {
-      [key in SidebarDisclosureButtonProps['level']]: Partial<BoxStyleProps>;
-    }
-  > = {
-    0: {
-      paddingY: 'space40',
-      paddingRight: 'space40',
-    },
-    1: {
-      paddingY: 'space30',
-      paddingLeft: 'space50',
-      paddingRight: 'space40',
-    },
-  };
+const levelPaddingMap: Partial<
+  {
+    [key in SidebarDisclosureButtonProps['level']]: Partial<BoxStyleProps>;
+  }
+> = {
+  0: {
+    paddingY: 'space40',
+    paddingRight: 'space40',
+  },
+  1: {
+    paddingY: 'space30',
+    paddingLeft: 'space50',
+    paddingRight: 'space40',
+  },
+};
 
+const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButtonProps>(({level, ...props}, ref) => {
   return (
     <Box
       as="button"

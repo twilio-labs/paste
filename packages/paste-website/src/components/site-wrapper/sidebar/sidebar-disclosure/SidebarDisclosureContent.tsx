@@ -7,7 +7,7 @@ import type {DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-pri
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
 interface SidebarDisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
 }
 
 const StyledNestedList = React.forwardRef<HTMLUListElement, SidebarDisclosureContentProps>(

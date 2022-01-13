@@ -1,17 +1,22 @@
 import * as React from 'react';
 import {styled, css} from '@twilio-paste/styling-library';
 import {Link} from 'gatsby';
+import type {BoxStyleProps} from '@twilio-paste/box';
 
 import {SidebarItem} from './SidebarItem';
 
 interface SidebarAnchorProps {
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
   level: 0 | 1 | 2;
   to: string;
   onClick?: () => void;
 }
 
-const levelPaddingMap = {
+const levelPaddingMap: Partial<
+  {
+    [key in SidebarAnchorProps['level']]: Partial<BoxStyleProps>;
+  }
+> = {
   0: {
     paddingY: 'space40',
     paddingLeft: ['space110', 'space110', 'space90'],
