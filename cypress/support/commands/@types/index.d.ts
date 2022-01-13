@@ -71,9 +71,5 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
-
-    closeTwilioEyes(): void;
-    openTwilioEyes(overrides?: Partial<Eyes.Open.Options> | undefined): void;
-    checkTwilioEyes(overrides?: Partial<Eyes.Open.Options> | undefined): void;
   }
 }

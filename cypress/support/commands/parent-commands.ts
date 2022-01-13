@@ -1,7 +1,5 @@
 import '@applitools/eyes-cypress/commands';
 
-import {getBranchName, eyesAreEnabled} from '@utils/applitools';
-
 /**
  * @file Custom parent commands
  * @description commands that are not chained off of a previous command
@@ -93,38 +91,4 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     .then((height) => {
       return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
     });
-});
-
-Cypress.Commands.add('openTwilioEyes', (overrides = {}) => {
-  cy.log('checking if eyes are enabled');
-  if (eyesAreEnabled()) {
-    cy.log('eyes are enabled!');
-    const params: Partial<Eyes.Open.Options> = {
-      appName: '[DSYS] - Paste Website',
-      browser: {
-        width: 1920,
-        height: 1440,
-      },
-      branch: getBranchName(),
-      baselineBranch: 'default',
-      matchLevel: 'Layout',
-      ...overrides,
-    };
-
-    cy.log(`starting eyes with these arguments: ${params}`);
-
-    cy.eyesOpen(params);
-  }
-});
-
-Cypress.Commands.add('checkTwilioEyes', (overrides = {}) => {
-  const checkOptions = {ignoreDisplacements: true, useDom: true, ...overrides};
-  if (eyesAreEnabled()) {
-    cy.eyesCheckWindow(checkOptions);
-  }
-});
-Cypress.Commands.add('closeTwilioEyes', () => {
-  if (eyesAreEnabled()) {
-    cy.eyesClose();
-  }
 });
