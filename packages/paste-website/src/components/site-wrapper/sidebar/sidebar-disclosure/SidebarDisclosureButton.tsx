@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
 
@@ -12,7 +12,11 @@ interface SidebarDisclosureButtonProps extends BoxProps {
 }
 
 const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButtonProps>(({level, ...props}, ref) => {
-  const levelPaddingMap = {
+  const levelPaddingMap: Partial<
+    {
+      [key in SidebarDisclosureButtonProps['level']]: Partial<BoxStyleProps>;
+    }
+  > = {
     0: {
       paddingY: 'space40',
       paddingRight: 'space40',

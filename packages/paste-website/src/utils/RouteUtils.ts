@@ -55,8 +55,6 @@ export const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Components';
     case SidebarCategoryRoutes.PRIMITIVES:
       return 'Primitives';
-    case SidebarCategoryRoutes.LAYOUT:
-      return 'Layout';
     case SidebarCategoryRoutes.TOKENS:
       return 'Tokens';
     case SidebarCategoryRoutes.LIBRARIES:
@@ -68,6 +66,6 @@ export const getCategoryNameFromRoute = (categoryRoute: string): string => {
     case SidebarCategoryRoutes.PATTERNS:
       return 'Patterns';
     default:
-      return 'Layout';
+      return 'Components';
   }
 };

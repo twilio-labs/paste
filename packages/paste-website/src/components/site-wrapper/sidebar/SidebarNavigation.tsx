@@ -177,7 +177,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={1} to={SidebarCategoryRoutes.PATTERNS}>
               Overview
             </SidebarAnchor>
-            {allPastePattern.map(({name, slug}) => (
+            {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
               <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
                 {name}
               </SidebarAnchor>
@@ -203,7 +203,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={1} to={SidebarCategoryRoutes.COMPONENTS}>
               Overview
             </SidebarAnchor>
-            {filteredComponentSidebarItems.map(({name, slug}) => {
+            {filteredComponentSidebarItems.map(({name, slug}: {[key: string]: string}) => {
               if (name === 'Icon') {
                 return (
                   <SidebarDisclosure nested categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
@@ -257,7 +257,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={1} to={SidebarCategoryRoutes.PRIMITIVES}>
               Overview
             </SidebarAnchor>
-            {filteredPrimitives.map(({name, slug}) => (
+            {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
               <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
                 {name}
               </SidebarAnchor>
