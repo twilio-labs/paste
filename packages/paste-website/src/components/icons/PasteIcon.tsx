@@ -1,20 +1,36 @@
 import * as React from 'react';
+import type * as CSS from 'csstype';
 import {useUID} from '@twilio-paste/uid-library';
 
 export interface PasteIconProps {
-  className?: string;
-  color?: string;
   decorative?: boolean;
-  display?: string;
   size?: number;
   title?: string;
+  color?: CSS.ColorProperty;
+  display?: CSS.DisplayProperty;
+  position?: CSS.PositionProperty;
+  top?: CSS.DirectionProperty;
+  left?: CSS.DirectionProperty;
+  opacity?: CSS.OpacityProperty;
+  transition?: CSS.TransitionProperty;
 }
 
 const PasteIcon = React.memo(
-  ({title = 'Twilio Icon', className, color, decorative = true, display, size}: PasteIconProps) => {
+  ({
+    title = 'Twilio Icon',
+    color,
+    decorative = true,
+    display,
+    size,
+    opacity,
+    transition,
+    position,
+    top,
+    left,
+  }: PasteIconProps) => {
     const uid = useUID();
     return (
-      <span style={{color, display, width: size, height: size}} className={className}>
+      <span style={{color, display, opacity, transition, position, top, left, width: size, height: size}}>
         <svg
           role="img"
           aria-hidden={decorative}

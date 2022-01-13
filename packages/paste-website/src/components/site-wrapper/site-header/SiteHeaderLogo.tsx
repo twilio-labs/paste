@@ -21,6 +21,7 @@ const StyledLink: React.FC<StyledLinkProps> = ({children, ...props}) => {
       as="a"
       textDecoration="none"
       color="colorTextInverse"
+      position="relative"
       _hover={{textDecoration: 'underline'}}
       _focus={{boxShadow: 'shadowFocus', borderRadius: 'borderRadius10'}}
       _focusVisible={{outline: 'none'}}
@@ -39,10 +40,9 @@ interface SiteHeaderLogoProps {
 // to render different sizes and spacing in mobile
 const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
   const theme = useTheme();
-
-  const pastePrideIcon = <PasteIconPride display="block" size={42} />;
-  const pasteRedIcon = <PasteIcon color={theme.textColors.colorTextBrandHighlight} display="block" size={42} />;
-  const [pasteIcon, setPasteIcon] = React.useState(pastePrideIcon);
+  const [logoOpacity, setLogoOpacity] = React.useState(1);
+  const [hoverOpacity, setHoverOpacity] = React.useState(0);
+  const logoTransition = 'ease-out 350ms';
 
   return (
     <Box
@@ -64,13 +64,31 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
             label: 'Paste logo',
           })
         }
-        onMouseEnter={() => setPasteIcon(pasteRedIcon)}
-        onMouseLeave={() => setPasteIcon(pastePrideIcon)}
+        onMouseEnter={() => {
+          setLogoOpacity(0);
+          setHoverOpacity(1);
+        }}
+        onMouseLeave={() => {
+          setLogoOpacity(1);
+          setHoverOpacity(0);
+        }}
       >
         <MediaObject verticalAlign="center">
-          <MediaFigure spacing="space40">{pasteIcon}</MediaFigure>
+          <MediaFigure spacing="space40">
+            <PasteIconPride display="block" size={42} transition={logoTransition} opacity={logoOpacity} />
+            <PasteIcon
+              color={theme.textColors.colorTextBrandHighlight}
+              opacity={hoverOpacity}
+              transition={logoTransition}
+              display="block"
+              position="absolute"
+              top="0"
+              left="0"
+              size={42}
+            />
+          </MediaFigure>
           <MediaBody>
-            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
+            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorTextInverse">
               {title}
             </Text>
             {subtitle ? (
