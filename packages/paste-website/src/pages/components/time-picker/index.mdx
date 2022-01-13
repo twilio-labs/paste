@@ -11,6 +11,8 @@ import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {TimePicker, formatReturnTime} from '@twilio-paste/time-picker';
+import {DatePicker} from '@twilio-paste/date-picker';
+import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -29,6 +31,7 @@ import {
   LabelOnlyPicker,
   StackOfPickers,
 } from '../../../component-examples/TimePickerExamples.ts';
+import {DateTimeRangePicker} from '../../../component-examples/DatePickerExamples.ts';
 
 export const pageQuery = graphql`
   {
@@ -255,6 +258,14 @@ The Time Picker doesn't currently support the selection of time ranges within a 
 
 <LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor, Stack, Box}} noInline>
   {TimeRangePicker}
+</LivePreview>
+
+### DateTime range picker
+
+Paste pickers don't currently support date time range selections in a single component, however the same functionality can be implemented using a combobox along with the date range and time range picker solutions. If you'd like to provide your users with pre-determined options before displaying the pickers, use the following example as a jumping off point.
+
+<LivePreview scope={{DatePicker, TimePicker, Combobox, Label, HelpText, useUID, Stack, Box, CalendarIcon}} noInline>
+  {DateTimeRangePicker}
 </LivePreview>
 
 ## Time formatting

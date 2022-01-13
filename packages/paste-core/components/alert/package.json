@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "category": "feedback",
   "status": "production",
   "description": "An Alert is a banner that notifies users to high-priority or time-sensitive information.",

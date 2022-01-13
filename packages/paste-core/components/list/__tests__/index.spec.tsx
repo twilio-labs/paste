@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -11,9 +9,9 @@ describe('Ordered List', () => {
   describe('Render', () => {
     it('should render a plain ordered list wrapper', () => {
       render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList>Children</OrderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).not.toBeNull();
@@ -21,11 +19,11 @@ describe('Ordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <Theme.Provider theme="console">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
@@ -67,7 +65,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -83,7 +80,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -99,11 +95,11 @@ describe('Ordered List', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList>
             <ListItem>item</ListItem>
           </OrderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -115,9 +111,9 @@ describe('Unordered List', () => {
   describe('Render', () => {
     it('should render a plain unordered list wrapper', () => {
       render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList>Children</UnorderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).not.toBeNull();
@@ -125,11 +121,11 @@ describe('Unordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <Theme.Provider theme="console">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList marginTop="space40" marginBottom="space40">
             Children
           </UnorderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
@@ -171,7 +167,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -187,7 +182,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -203,11 +197,11 @@ describe('Unordered List', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList>
             <ListItem>item</ListItem>
           </UnorderedList>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -219,9 +213,9 @@ describe('ListItem', () => {
   describe('Render', () => {
     it('should render a plain list item', () => {
       render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <ListItem>Children</ListItem>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const renderedListItem = screen.getByRole('listitem');
       expect(renderedListItem).not.toBeNull();
@@ -262,7 +256,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
@@ -278,7 +271,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >

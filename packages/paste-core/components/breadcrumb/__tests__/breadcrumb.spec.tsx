@@ -165,7 +165,6 @@ describe('Breadcrumb', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
@@ -223,7 +222,6 @@ describe('Breadcrumb', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOM: {marginY: 'space60', fontVariantNumeric: 'ordinal'},

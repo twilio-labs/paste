@@ -26,9 +26,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
-  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*"],
+  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts"],
   "exclude": [
     "node_modules",
     "docs",

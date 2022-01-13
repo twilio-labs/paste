@@ -7,7 +7,7 @@ The Paste `ThemeProvider` leverages React's [Context](https://reactjs.org/docs/c
 ```js
 import {Theme} from '@twilio-paste/theme';
 
-<Theme.Provider theme="console">
+<Theme.Provider theme="default">
   <App />
 </Theme.Provider>;
 ```

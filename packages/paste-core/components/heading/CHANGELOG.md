@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+- [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6) [#2088](https://github.com/twilio-labs/paste/pull/2088) Thanks [@gloriliale](https://github.com/gloriliale)! - [Heading] Added the prop "display" to Heading to make aligning Headings with Icons possible
+
 ## 5.1.1
 
 ### Patch Changes

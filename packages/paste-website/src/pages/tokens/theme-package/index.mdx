@@ -78,7 +78,7 @@ the correct token value for the supplied theme.
 ```js
 import {Theme} from '@twilio-paste/theme';
 
-<Theme.Provider theme="console">
+<Theme.Provider theme="default">
   <App />
 </Theme.Provider>;
 ```
@@ -87,7 +87,7 @@ import {Theme} from '@twilio-paste/theme';
 
 | Prop               | Type     | Description                                                                               | Default           |
 | ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| theme?             | enum     | 'default', 'console', 'sendgrid'                                                          | 'default'         |
+| theme?             | enum     | 'default', 'sendgrid'                                                                     | 'default'         |
 | customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
 
 ## Using tokens in custom components

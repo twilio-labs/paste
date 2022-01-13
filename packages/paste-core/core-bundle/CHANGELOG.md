@@ -1,5 +1,44 @@
 # Change Log
 
+## 10.20.0
+
+### Minor Changes
+
+- [`9132d0cb`](https://github.com/twilio-labs/paste/commit/9132d0cb3ed82bf4a1956484b93783605e2aea1d) [#2118](https://github.com/twilio-labs/paste/pull/2118) Thanks [@zahnster](https://github.com/zahnster)! - Fix default imports for JSON to play nice with webpack 5
+
+* [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6) [#2088](https://github.com/twilio-labs/paste/pull/2088) Thanks [@gloriliale](https://github.com/gloriliale)! - [Heading] Added the prop "display" to Heading to make aligning Headings with Icons possible
+
+### Patch Changes
+
+- Updated dependencies [[`9132d0cb`](https://github.com/twilio-labs/paste/commit/9132d0cb3ed82bf4a1956484b93783605e2aea1d), [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6)]:
+  - @twilio-paste/style-props@3.2.0
+  - @twilio-paste/heading@5.2.0
+
+## 10.19.0
+
+### Minor Changes
+
+- [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784) [#2107](https://github.com/twilio-labs/paste/pull/2107) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix default imports for JSON to play nice with webpack 5
+
+* [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add PopoverBadgeButton component
+
+### Patch Changes
+
+- [`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51) [#2083](https://github.com/twilio-labs/paste/pull/2083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert, Modal, Popover, Toast] Update close button to use `secondary_icon` button variant
+
+* [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] Update the maxWidth
+
+- [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5) [#2087](https://github.com/twilio-labs/paste/pull/2087) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update the cursor
+
+- Updated dependencies [[`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51), [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784), [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5)]:
+  - @twilio-paste/alert@7.1.2
+  - @twilio-paste/modal@7.1.5
+  - @twilio-paste/popover@6.3.0
+  - @twilio-paste/toast@5.2.2
+  - @twilio-paste/color-contrast-utils@1.2.0
+  - @twilio-paste/badge@1.1.3
+  - @twilio-paste/label@6.0.7
+
 ## 10.18.0
 
 ### Minor Changes

@@ -84,7 +84,6 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             SKELETON_LOADER: {
@@ -102,7 +101,6 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOM_SKELETON_LOADER: {

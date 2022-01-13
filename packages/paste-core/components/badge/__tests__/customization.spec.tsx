@@ -7,11 +7,7 @@ import {makeBadge, getStyles} from '../stories/customization.stories';
 const makeCustomizationWrapper = (element: string | undefined = 'BADGE'): RenderOptions['wrapper'] =>
   // eslint-disable-next-line react/display-name
   ({children}) => (
-    <CustomizationProvider
-      // @ts-expect-error global test variable
-      theme={TestTheme}
-      elements={getStyles(element)}
-    >
+    <CustomizationProvider theme={TestTheme} elements={getStyles(element)}>
       {children}
     </CustomizationProvider>
   );

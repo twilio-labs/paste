@@ -221,12 +221,13 @@ const Component = () => (
 
 #### Props
 
-| Prop          | Type                | Description                                                                  | Default |
-| ------------- | ------------------- | ---------------------------------------------------------------------------- | ------- |
-| as            | `asTags`            | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                   | null    |
-| id?           | `string`            |                                                                              | null    |
-| marginBottom? | `oneOf(['space0'])` | Currently we only allow `space0` to remove bottom margin                     | null    |
-| variant       | `headingVariants`   | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60' | null    |
+| Prop          | Type                           | Description                                                                               | Default |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ------- |
+| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null    |
+| id?           | `string`                       |                                                                                           | null    |
+| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null    |
+| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null    |
+| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block" |
 
 <ChangelogRevealer>
   <Changelog />
