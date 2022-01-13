@@ -18,7 +18,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
     <>
       <Breadcrumb>
         <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        {type === 'component' && <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>}
+        <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
       </Breadcrumb>
       <Heading as="h1" variant="heading10">
         {getHumanizedNameFromPackageName(name)}
