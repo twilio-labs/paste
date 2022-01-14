@@ -18,11 +18,12 @@ const levelPaddingMap: Partial<
 > = {
   0: {
     paddingY: 'space40',
+    paddingLeft: 'space40',
     paddingRight: 'space40',
   },
   1: {
     paddingY: 'space30',
-    paddingLeft: 'space50',
+    paddingLeft: 'space60',
     paddingRight: 'space40',
   },
 };
@@ -35,7 +36,7 @@ const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButton
       display="flex"
       alignItems="center"
       width="100%"
-      columnGap="space30"
+      columnGap="space20"
       fontFamily="fontFamilyText"
       fontSize="inherit"
       fontWeight="fontWeightNormal"
