@@ -10,20 +10,17 @@ import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
 interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
-  nested?: boolean;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
 }
 
-export const SidebarDisclosure: React.FC<SidebarDisclosureProps> = ({children, nested, categoryRoute, ...props}) => {
+export const SidebarDisclosure: React.FC<SidebarDisclosureProps> = ({children, categoryRoute, ...props}) => {
   const disclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(categoryRoute),
     ...props,
   });
 
-  const disclosureContext = {disclosure, nested};
-
   return (
-    <SidebarDisclosureContext.Provider value={disclosureContext}>
+    <SidebarDisclosureContext.Provider value={{disclosure}}>
       <SidebarItem>{children}</SidebarItem>
     </SidebarDisclosureContext.Provider>
   );

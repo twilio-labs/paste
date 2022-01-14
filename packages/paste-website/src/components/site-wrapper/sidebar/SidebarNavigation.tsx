@@ -124,7 +124,7 @@ const SidebarNavigation: React.FC = () => {
             Foundations
           </SidebarDisclosureButton>
           <SidebarDisclosureContent data-cy="foundations-list">
-            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.CONTENT}>
+            <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.CONTENT}>
               <SidebarDisclosureButton
                 level={1}
                 data-cy="content-button"
@@ -212,7 +212,7 @@ const SidebarNavigation: React.FC = () => {
             {filteredComponentSidebarItems.map(({name, slug}: {[key: string]: string}) => {
               if (name === 'Icon') {
                 return (
-                  <SidebarDisclosure nested categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
+                  <SidebarDisclosure categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
                     <SidebarDisclosureButton
                       level={1}
                       data-cy="icons-button"
@@ -320,7 +320,7 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
               Upgrade guide
             </SidebarAnchor>
-            <SidebarDisclosure nested categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
+            <SidebarDisclosure categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
               <SidebarDisclosureButton level={1} data-cy="libraries-button">
                 Libraries
               </SidebarDisclosureButton>
