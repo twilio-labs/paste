@@ -40,7 +40,7 @@ props:
     comment: Background color used for brand highlights.
   color-background-brand-highlight-weakest:
     value: "{!amaranth-transparent-10}"
-    comment: Weakest background color used for brand.
+    comment: Weakest background color used for brand highlights.
 
   # user background
   color-background-user:
@@ -81,7 +81,7 @@ props:
     comment: Weakest background color used for warning alerts and toasts.
   color-background-error-strong:
     value: "{!palette-red-80}"
-    comment: Strongest background used for error alerts and toasts.
+    comment: Strongest background color used for error alerts and toasts.
   color-background-error:
     value: "{!palette-red-60}"
     comment: Background color used for error alerts and toasts.
