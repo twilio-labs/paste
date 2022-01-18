@@ -2,15 +2,15 @@ import * as React from 'react';
 import type * as CSS from 'csstype';
 import {useUID} from '@twilio-paste/uid-library';
 
-export interface PasteIconProps {
+export interface PasteIconProps<TLength = string | number> {
   decorative?: boolean;
   size?: number;
   title?: string;
   color?: CSS.ColorProperty;
   display?: CSS.DisplayProperty;
   position?: CSS.PositionProperty;
-  top?: CSS.DirectionProperty;
-  left?: CSS.DirectionProperty;
+  top?: CSS.TopProperty<TLength>;
+  left?: CSS.LeftProperty<TLength>;
   opacity?: CSS.OpacityProperty;
   transition?: CSS.TransitionProperty;
 }
