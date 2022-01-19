@@ -39288,6 +39288,7 @@ is-whitespace@latest:
     react-dom: ^17.0.2
     react-dom-16: "npm:react-dom@^16.8.6"
     react-ga: ^3.3.0
+    react-router-dom: ^6.2.1
     react-test-renderer: ^16.8.6
     regenerator-runtime: ^0.13.3
     search-in-file: ^1.2.2
@@ -42309,7 +42310,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.0.0":
+"react-router-dom@npm:^6.0.0, react-router-dom@npm:^6.2.1":
   version: 6.2.1
   resolution: "react-router-dom@npm:6.2.1"
   dependencies:
