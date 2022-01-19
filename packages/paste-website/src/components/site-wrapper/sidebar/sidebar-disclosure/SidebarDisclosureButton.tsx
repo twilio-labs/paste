@@ -6,7 +6,7 @@ import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisc
 
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
-interface SidebarDisclosureButtonProps extends BoxProps {
+export interface SidebarDisclosureButtonProps extends BoxProps {
   onClick?: () => void;
   level: 0 | 1;
 }

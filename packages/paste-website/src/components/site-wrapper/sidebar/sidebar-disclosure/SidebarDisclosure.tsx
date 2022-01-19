@@ -8,7 +8,7 @@ import {getCurrentPathname} from '../../../../utils/RouteUtils';
 import {SidebarItem} from '../SidebarItem';
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
-interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState {
+export interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
 }

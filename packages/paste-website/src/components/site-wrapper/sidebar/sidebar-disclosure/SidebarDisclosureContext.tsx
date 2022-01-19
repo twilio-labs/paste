@@ -1,8 +1,6 @@
 import * as React from 'react';
 import type {DisclosurePrimitveStateReturn} from '@twilio-paste/disclosure-primitive';
 
-// interface SidebarDisclosureContextProps extends DisclosurePrimitveStateReturn {}
-
 interface SidebarDisclosureContextProps {
   disclosure?: DisclosurePrimitveStateReturn;
 }

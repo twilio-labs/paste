@@ -6,7 +6,7 @@ import type {DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-pri
 
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
-interface SidebarDisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
+export interface SidebarDisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
 }
 
