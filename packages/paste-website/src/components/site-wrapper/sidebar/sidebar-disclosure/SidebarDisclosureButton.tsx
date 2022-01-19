@@ -17,9 +17,7 @@ const levelPaddingMap: Partial<
   }
 > = {
   0: {
-    paddingY: 'space40',
-    paddingLeft: 'space40',
-    paddingRight: 'space40',
+    padding: 'space40',
   },
   1: {
     paddingY: 'space30',
