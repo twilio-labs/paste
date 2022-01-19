@@ -102,28 +102,32 @@ function cleanupOpenDisclosures(visited: Set<string>) {
 }
 
 /**
- * Helper that gets the coordinates of the disclosure content
+ * Helper that gets the coordinates of the disclosure content relative to the ul that wraps the disclosures
  * @param level {'0' | '1'} - the level the disclosure content is nested
  * @returns {top, left} - the content's coordinates
  */
 function getTargetOffset(level) {
   if (Number(level) > 0) {
-    return cy
-      .get('@currentContent')
-      .prev()
-      .parent()
-      .parent()
-      .prev()
-      .invoke('offset')
-      .then((containingOffset) => {
-        cy.get('@currentContent')
-          .invoke('offset')
-          .then((currentOffset) => {
-            const top = containingOffset.top + currentOffset.top;
-            const left = currentOffset.left;
-            return {top, left};
-          });
-      });
+    // creates an alias for the ul that wraps the disclosures
+    cy.get('@currentContent').parent().parent().as('navigationList');
+
+    return (
+      cy
+        .get('@navigationList')
+        // calls jquery offset(), returns top, left coordinates of the ul
+        .invoke('offset')
+        .then((containingOffset) => {
+          cy.get('@currentContent')
+            // calls jquery offset(), returns top, left coordinates of disclosure content
+            .invoke('offset')
+            .then((currentOffset) => {
+              // add the top values, which is the correct value for cypress to scroll
+              const top = containingOffset.top + currentOffset.top;
+              const left = currentOffset.left;
+              return {top, left};
+            });
+        })
+    );
   }
 
   return cy.get('@currentContent').invoke('offset');
