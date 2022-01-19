@@ -22,8 +22,8 @@ describe('Sidebar navigation', () => {
   let visited = new Set<string>();
 
   before(() => {
-    cy.visit('/tokens');
-    cy.wait(500);
+    cy.visit('/');
+    cy.wait(1000);
   });
 
   beforeEach(() => {
