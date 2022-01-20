@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
@@ -156,6 +157,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               {cat.info}
+              <Paragraph as="div">Testing testing testing, applitools should detect a change.</Paragraph>
               <Box marginBottom="space160">
                 <Table>
                   <THead>

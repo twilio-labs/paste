@@ -1,10 +1,4 @@
-import {
-  getBranchName,
-  getBatchName,
-  eyesAreEnabled,
-  DEFAULT_CHECK_PARAMS,
-  DEFAULT_OPEN_PARAMS,
-} from '@utils/applitools';
+import {eyesAreEnabled, DEFAULT_CHECK_PARAMS, DEFAULT_OPEN_PARAMS} from '@utils/applitools';
 
 describe('Token list filter', function () {
   // ℹ️ If we use anon functions instead of arrow functions, we can leverage Mocha's context and pull the test name directly from this
@@ -19,10 +13,6 @@ describe('Token list filter', function () {
   });
 
   describe('Visual regression tests', () => {
-    /* TODO:
-      - full page check or multiple section/region checks
-      - need to add check for branch name/batch id for CI runs
-    */
     it('Basic VRT', () => {
       // ℹ️ We are able to reference `this.title` because we have bound this describe block to the Cypress context.
       const testSuiteName = this.title;
@@ -33,8 +23,6 @@ describe('Token list filter', function () {
         const openParams: Partial<Eyes.Open.Options> = {
           ...DEFAULT_OPEN_PARAMS,
           testName: testSuiteName,
-          batchName: getBatchName(),
-          branch: getBranchName(),
         };
 
         cy.log(`starting eyes with these params: ${openParams}`);
@@ -43,6 +31,7 @@ describe('Token list filter', function () {
 
         const checkParams: Partial<Eyes.Check.Options> = {
           ...DEFAULT_CHECK_PARAMS,
+          tag: 'local testing configuration',
         };
 
         cy.log(`[Applitools]: Checking window with these params: ${checkParams}`);
