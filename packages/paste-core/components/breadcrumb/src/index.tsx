@@ -21,7 +21,7 @@ const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({e
   </Text>
 );
 
-export interface BreadcrumbItemProps extends React.HTMLAttributes<HTMLLIElement> {
+export interface BreadcrumbItemProps extends React.HTMLAttributes<HTMLAnchorElement | HTMLSpanElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
   parentElement?: BoxElementProps['element'];
@@ -36,7 +36,6 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
     const elementName = element || parentElement || DEFAULT_ELEMENT_NAME;
     return (
       <Box
-        {...safelySpreadBoxProps(props)}
         alignItems="center"
         as="li"
         color="colorText"
@@ -46,11 +45,12 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
         lineHeight="lineHeight20"
       >
         {href ? (
-          <Anchor element={`${elementName}_ANCHOR`} href={href} ref={ref}>
+          <Anchor {...safelySpreadBoxProps(props)} element={`${elementName}_ANCHOR`} href={href} ref={ref}>
             {children}
           </Anchor>
         ) : (
           <Text
+            {...safelySpreadBoxProps(props)}
             aria-current="page"
             as="span"
             element={`${elementName}_TEXT`}
