@@ -56,33 +56,39 @@ const SidebarNavigation: React.FC = () => {
   return (
     <Box
       as="nav"
-      paddingTop={['space0', 'space0', 'space70']}
+      paddingTop={['space50', 'space50', 'space70']}
       paddingX="space20"
-      paddingBottom={['space50', 'space50', 'space0']}
+      paddingBottom={['space70', 'space70', 'space0']}
       height="100%"
       overflow="auto"
       role="navigation"
       aria-label="Main"
     >
-      <Box
-        display={['block', 'block', 'none']}
-        marginTop="space20"
-        marginLeft="space20"
-        marginRight={['space160', 'space160', 'space0']}
-      >
-        <SidebarAnchor level={0} to="/">
-          <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
-            <Box as="span" paddingRight="space30">
-              <img src="/logo.svg" alt="" width="28px" height="28px" />
-            </Box>
-            <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-              Paste
-            </Text>
-            <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-              Home
-            </Text>
+      <Box display={['block', 'block', 'none']}>
+        <Box
+          as="a"
+          href="/"
+          display={['flex', 'flex', 'none']}
+          alignItems="center"
+          lineHeight="lineHeight20"
+          width="100%"
+          textDecoration="none"
+          borderRadius="borderRadius10"
+          padding="space40"
+          outline="none"
+          columnGap="space30"
+          _focus={{
+            boxShadow: 'shadowFocus',
+            textDecoration: 'underline',
+          }}
+        >
+          <Box as="span">
+            <img src="/logo.svg" alt="" width="28px" height="28px" />
           </Box>
-        </SidebarAnchor>
+          <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+            Paste Home
+          </Text>
+        </Box>
       </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <NavigationDisclosure
