@@ -1,5 +1,7 @@
 import * as React from 'react';
+import {Link} from 'gatsby';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -7,29 +9,21 @@ import {useTheme} from '@twilio-paste/theme';
 import {PasteIcon} from '../../icons/PasteIcon';
 import {PasteIconPride} from '../../icons/PasteIconPride';
 
-interface StyledLinkProps {
-  href: string;
-  onClick?: () => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-}
+const LogoLink = styled(Link)`
+  position: relative;
+  text-decoration: none;
+  color: ${themeGet('textColors.colorTextInverse')};
 
-const StyledLink: React.FC<StyledLinkProps> = ({children, ...props}) => {
-  return (
-    <Box
-      {...props}
-      as="a"
-      textDecoration="none"
-      color="colorTextInverse"
-      position="relative"
-      _hover={{textDecoration: 'underline'}}
-      _focus={{boxShadow: 'shadowFocus', borderRadius: 'borderRadius10'}}
-      _focusVisible={{outline: 'none'}}
-    >
-      {children}
-    </Box>
-  );
-};
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: ${themeGet('shadows.shadowFocus')};
+    border-radius: ${themeGet('radii.borderRadius10')};
+  }
+`;
 
 interface SiteHeaderLogoProps {
   title?: string;
@@ -55,8 +49,8 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
       borderRightWidth={['borderWidth0', 'borderWidth0', 'borderWidth10']}
       minWidth={subtitle ? 'sizeSidebar' : 'size0'}
     >
-      <StyledLink
-        href="/"
+      <LogoLink
+        to="/"
         onClick={() =>
           trackCustomEvent({
             category: 'Top Navigation',
@@ -104,7 +98,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
             ) : null}
           </MediaBody>
         </MediaObject>
-      </StyledLink>
+      </LogoLink>
     </Box>
   );
 };
