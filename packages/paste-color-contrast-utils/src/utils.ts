@@ -223,12 +223,12 @@ export const getContrastRatingsOfTokensWithDataVisualizationContrastRequirements
 ): TokenPairContrastRating[] => {
   // always use the Default raw JSON to get the pairings as other themes won't inherit them automatically
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
-  const tokenWithUIControlContrastRequirements = getTokensWithDataVisualizationContrastRequirements(
+  const tokenWithDataVisualizationContrastRequirements = getTokensWithDataVisualizationContrastRequirements(
     defaultThemeRawJSON
   );
   const flattenedTokens = flattenCategorizedTokens(tokens);
   return getContrastRatingForTokenPairing(
-    tokenWithUIControlContrastRequirements,
+    tokenWithDataVisualizationContrastRequirements,
     flattenedTokens,
     'data_visualization_contrast_pairing'
   );
