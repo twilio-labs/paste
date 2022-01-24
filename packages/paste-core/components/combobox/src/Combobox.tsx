@@ -18,6 +18,7 @@ import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
 import {ComboboxListbox} from './styles/ComboboxListbox';
 import {ComboboxItems} from './ComboboxItems';
 import type {ComboboxProps} from './types';
+import {useMergeRefs} from '@twilio-paste/utils';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -109,7 +110,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       highlightedIndex,
       isOpen,
     } = state || defaultState;
-
     React.useEffect(() => {
       if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
         scrollToIndex(highlightedIndex);
@@ -131,14 +131,15 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       );
     }
 
+    const {ref: toggleButtonRef, ...toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
+    const mergedRefs = ref ? useMergeRefs(ref, toggleButtonRef) : toggleButtonRef;
+
     let iconColor = 'colorTextIcon' as TextColor;
     if (disabled) {
       iconColor = 'colorTextWeaker';
     } else if (variant === 'inverse') {
       iconColor = 'colorTextInverseWeak';
     }
-
-    const {ref: toggleButtonRef, ...toggleButtonProps} = getToggleButtonProps({tabIndex: 0, ref});
 
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
@@ -157,7 +158,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             <ComboboxInputSelect
               {...toggleButtonProps}
               // we spread props into `getInputProps` so that Downshift handles events correctly
-              {...getInputProps({disabled, required, ref: toggleButtonRef, ...props})}
+              {...getInputProps({disabled, required, ref: mergedRefs, ...props})}
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
