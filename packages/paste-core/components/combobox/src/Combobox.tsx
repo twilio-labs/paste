@@ -110,6 +110,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       highlightedIndex,
       isOpen,
     } = state || defaultState;
+
     React.useEffect(() => {
       if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
         scrollToIndex(highlightedIndex);
