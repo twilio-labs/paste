@@ -28,7 +28,7 @@ const IGNORE_LIST = [
 export const shouldFlagChangeset = (filePath: string) => {
   const fileContent = fs.readFileSync(filePath).toString();
 
-  return !IGNORE_LIST.includes(fileContent);
+  return !IGNORE_LIST.some((ignorePath) => fileContent.match(ignorePath));
 };
 
 /**
