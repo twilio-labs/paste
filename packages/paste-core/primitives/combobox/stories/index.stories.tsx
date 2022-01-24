@@ -30,19 +30,16 @@ export const DropdownCombobox = (): React.ReactNode => {
     selectedItem,
   } = useComboboxPrimitive({items});
   const uid = useUID();
+
+  const {ref, toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
+
   return (
     <>
       <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
       </Label>
       <Box {...getComboboxProps({role: 'combobox'})}>
-        <Input
-          id={uid}
-          type="text"
-          {...getInputProps()}
-          {...getToggleButtonProps({tabIndex: 0})}
-          value={selectedItem || ''}
-        />
+        <Input id={uid} type="text" {...toggleButtonProps} {...getInputProps({ref})} value={selectedItem || ''} />
       </Box>
       <ul {...getMenuProps()}>
         {isOpen &&
@@ -177,14 +174,13 @@ export const BasicMultiCombobox: React.ReactNode = () => {
   } = useMultiSelectPrimitive({});
 
   const handleSelectItemOnClick = React.useCallback(
-    (selectedItem) => {
+    ({selectedItem}) => {
       addSelectedItem(selectedItem);
       setFilteredItems((currentFilteredItems) =>
         currentFilteredItems.filter((item) => {
           return item !== selectedItem;
         })
       );
-      // setInputValue('');
     },
     [addSelectedItem, setFilteredItems]
   );
@@ -215,24 +211,24 @@ export const BasicMultiCombobox: React.ReactNode = () => {
         case useComboboxPrimitive.stateChangeTypes.InputChange:
           if (args.inputValue) {
             setInputValue(args.inputValue);
+            setFilteredItems(items.filter((item) => item.toLowerCase().startsWith(args.inputValue.toLowerCase())));
           }
           break;
         case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
         case useComboboxPrimitive.stateChangeTypes.ItemClick:
         case useComboboxPrimitive.stateChangeTypes.InputBlur:
-          console.log(args.selectedItem, args);
-          if (args.selectedItem) {
-            handleSelectItemOnClick(args.selectedItem);
-          } else if (args.inputValue) {
-            handleSelectItemOnClick(args.inputValue);
-          }
+          console.log(args);
+          handleSelectItemOnClick(args);
+          setInputValue('');
           break;
         default:
           break;
       }
     },
   });
+
   const uid = useUID();
+  const {ref, toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
 
   return (
     <>
@@ -244,13 +240,16 @@ export const BasicMultiCombobox: React.ReactNode = () => {
           <Input
             id={uid}
             type="text"
-            {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))}
-            {...getToggleButtonProps({tabIndex: 0})}
+            {...toggleButtonProps}
+            {...getInputProps({
+              ref,
+              ...getDropdownProps({preventKeyAction: isOpen}),
+            })}
           />
         </Box>
-        {isOpen && (
-          <ComboboxListbox {...getMenuProps()}>
-            <ComboboxListboxGroup>
+        <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
+          {isOpen && (
+            <>
               {filteredItems.map((item, index) => (
                 <ComboboxListboxOption
                   variant="default"
@@ -261,9 +260,9 @@ export const BasicMultiCombobox: React.ReactNode = () => {
                   {item}
                 </ComboboxListboxOption>
               ))}
-            </ComboboxListboxGroup>
-          </ComboboxListbox>
-        )}
+            </>
+          )}
+        </ComboboxListbox>
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
         {selectedItems.map((selectedItem, index) => {
