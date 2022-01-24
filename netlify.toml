@@ -1,15 +1,7 @@
 [dev]
-  command = "yarn start"
+  command = "yarn start:website"
   targetPort = 8000
   framework = "#custom"
-
-[build]
-  publish = "packages/paste-website/public/"
-  command = "yarn build:js && yarn build:tokens && yarn build:website"
-
-[build.environment]
-  YARN_ENABLE_GLOBAL_CACHE = "true"
-  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
 
 [context.deploy-preview]
   # only do a preview deply when there is a website change
@@ -25,10 +17,9 @@
   GATSBY_ENVIRONMENT_CONTEXT = "production"
 
 [functions]
-  directory = "functions"
+  directory = "packages/paste-website/functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
 
-# need to all add redirects to ./netlify.toml as well
 # INTRODUCTION/
 [[redirects]]
   from = '/getting-started/design'
@@ -104,3 +95,6 @@
   [headers.values]
     X-Shenanigans = "none"
 
+[build.environment]
+  YARN_ENABLE_GLOBAL_CACHE = "true"
+  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
