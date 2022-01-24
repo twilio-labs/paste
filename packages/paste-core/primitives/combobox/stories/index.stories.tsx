@@ -173,22 +173,9 @@ export const BasicMultiCombobox: React.ReactNode = () => {
     selectedItems,
   } = useMultiSelectPrimitive({});
 
-  const handleSelectItemOnClick = React.useCallback(
-    ({selectedItem}) => {
-      addSelectedItem(selectedItem);
-      setFilteredItems((currentFilteredItems) =>
-        currentFilteredItems.filter((item) => {
-          return item !== selectedItem;
-        })
-      );
-    },
-    [addSelectedItem, setFilteredItems]
-  );
-
   const handleRemoveItemOnClick = React.useCallback(
     (selectedItem) => {
       removeSelectedItem(selectedItem);
-
       setFilteredItems((currentFilteredItems) => [...currentFilteredItems, selectedItem].sort());
     },
     [removeSelectedItem]
@@ -203,23 +190,25 @@ export const BasicMultiCombobox: React.ReactNode = () => {
     getToggleButtonProps,
     highlightedIndex,
     isOpen,
+    selectItem,
   } = useComboboxPrimitive({
     inputValue,
     items: filteredItems,
     onStateChange: (args) => {
       switch (args.type) {
         case useComboboxPrimitive.stateChangeTypes.InputChange:
-          if (args.inputValue) {
-            setInputValue(args.inputValue);
-            setFilteredItems(items.filter((item) => item.toLowerCase().startsWith(args.inputValue.toLowerCase())));
-          }
+          setInputValue(args.inputValue);
+          setFilteredItems((currentFilteredItems) =>
+            currentFilteredItems.filter((item) => item.toLowerCase().startsWith(args.inputValue.toLowerCase()))
+          );
           break;
         case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
         case useComboboxPrimitive.stateChangeTypes.ItemClick:
         case useComboboxPrimitive.stateChangeTypes.InputBlur:
-          console.log(args);
-          handleSelectItemOnClick(args);
+          addSelectedItem(args.selectedItem);
+          setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== args.selectedItem));
           setInputValue('');
+          selectItem(null);
           break;
         default:
           break;
