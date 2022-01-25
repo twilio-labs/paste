@@ -1,14 +1,11 @@
 import * as React from 'react';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import lodash from 'lodash';
-import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
-import {useMergeRefs} from '@twilio-paste/utils';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
 import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive} from '../src';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
@@ -34,31 +31,15 @@ export const BasicMultiCombobox: React.FC = () => {
     selectedItems,
   } = useMultiSelectPrimitive({
     onSelectedItemsChange: (changes) => {
-      let diff = [];
-
       if (changes.type.includes('add')) {
         const [toRemove] = lodash.difference(changes.selectedItems, selectedItems);
         setFilteredItems((state) => state.filter((item) => item !== toRemove));
       } else if (changes.type.includes('remove')) {
-        diff = lodash.difference(selectedItems, changes.selectedItems);
-        setFilteredItems((state) => [...state, diff[0]].sort());
+        const [toAdd] = lodash.difference(selectedItems, changes.selectedItems);
+        setFilteredItems((state) => [...state, toAdd as string].sort());
       }
     },
   });
-
-  const handleSelectItemOnClick = React.useCallback(
-    ({selectedItem}) => {
-      addSelectedItem(selectedItem);
-    },
-    [addSelectedItem]
-  );
-
-  const handleRemoveItemOnClick = React.useCallback(
-    (selectedItem) => {
-      removeSelectedItem(selectedItem);
-    },
-    [removeSelectedItem]
-  );
 
   const {
     getComboboxProps,
@@ -70,12 +51,19 @@ export const BasicMultiCombobox: React.FC = () => {
     highlightedIndex,
     isOpen,
     selectedItem,
+    selectItem,
   } = useComboboxPrimitive({
     items: filteredItems,
-    onSelectedItemChange: ({inputValue: selectedItemOnChangeValue, type, ...args}) => {
-      handleSelectItemOnClick(args);
+    onInputValueChange: ({inputValue: value}) => {
+      setInputValue(value);
+    },
+    onSelectedItemChange: ({selectedItem: selected}) => {
+      if (selected != null) {
+        addSelectedItem(selected);
 
-      setInputValue('');
+        setInputValue('');
+      }
+      selectItem(null);
     },
   });
 
@@ -93,33 +81,24 @@ export const BasicMultiCombobox: React.FC = () => {
     });
   }, [inputValue]);
 
-  const {ref: toggleButtonRef, ...toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
-
   const dropdownProps = getDropdownProps({
     preventKeyAction: isOpen,
-    ref: toggleButtonRef,
+    ...getToggleButtonProps({tabIndex: 0}),
   });
 
   return (
     <>
       <Box marginBottom="space40" position="relative">
-        <Label htmlFor={seed('multiselect-primitive-input')} {...getLabelProps()}>
+        <Label htmlFor={seed('multi-select-primitive-input')} {...getLabelProps()}>
           Choose a component
         </Label>
         <Box {...getComboboxProps({role: 'combobox'})}>
           <Input
-            id={seed('multiselect-primitive-input')}
+            id={seed('multi-select-primitive-input')}
             type="text"
             {...getInputProps({
-              ...getDropdownProps({
-                preventKeyAction: isOpen,
-                ref: toggleButtonRef,
-              }),
-              onChange: ({target: {value}}) => {
-                setInputValue(value);
-              },
+              ...dropdownProps,
             })}
-            {...toggleButtonProps}
             value={inputValue}
           />
         </Box>
@@ -150,7 +129,9 @@ export const BasicMultiCombobox: React.FC = () => {
               tabIndex={null}
               {...formPillState}
               key={seed(`selected-item-${item}`)}
-              onDismiss={() => handleRemoveItemOnClick(item)}
+              onDismiss={() => {
+                removeSelectedItem(item);
+              }}
             >
               {item}
             </FormPill>
