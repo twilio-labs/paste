@@ -4,6 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
+import {useMergeRefs} from '@twilio-paste/utils';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
 import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
@@ -30,6 +31,7 @@ export const DropdownCombobox = (): React.ReactNode => {
     selectedItem,
   } = useComboboxPrimitive({items});
   const uid = useUID();
+
   return (
     <>
       <Label htmlFor={uid} {...getLabelProps()}>
@@ -163,6 +165,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
 
 export const BasicMultiCombobox: React.FC = () => {
   const seed = useUIDSeed();
+  const [inputValue, setInputValue] = React.useState('');
   const [filteredItems, setFilteredItems] = React.useState([...items]);
 
   const formPillState = useFormPillState();
@@ -205,41 +208,46 @@ export const BasicMultiCombobox: React.FC = () => {
     selectedItem,
   } = useComboboxPrimitive({
     items: filteredItems,
-    onSelectedItemChange: (args) => {
+    onInputValueChange: ({inputValue: inputOnChangeValue}) => {
+      setInputValue(inputOnChangeValue);
+    },
+    onSelectedItemChange: ({inputValue: selectedItemOnChangeValue, ...args}) => {
       handleSelectItemOnClick(args);
+      console.log({selectedItemOnChangeValue, selectedItem: args.selectedItem});
+      setInputValue('');
     },
   });
-  const uid = useUID();
+
+  const {ref: toggleButtonRef, ...toggleButtonProps} = getToggleButtonProps({tabIndex: 0});
 
   return (
     <>
       <Box marginBottom="space40" position="relative">
-        <Label htmlFor={uid} {...getLabelProps()}>
+        <Label htmlFor={seed('multiselect-primitive-input')} {...getLabelProps()}>
           Choose a component
         </Label>
         <Box {...getComboboxProps({role: 'combobox'})}>
           <Input
-            id={uid}
+            id={seed('multiselect-primitive-input')}
             type="text"
-            {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))}
-            {...getToggleButtonProps({tabIndex: 0})}
-            value={selectedItem || ''}
+            {...getInputProps(getDropdownProps({preventKeyAction: isOpen, ref: toggleButtonRef}))}
+            {...toggleButtonProps}
+            value={inputValue}
           />
         </Box>
         {isOpen && (
-          <ComboboxListbox {...getMenuProps()}>
-            <ComboboxListboxGroup>
-              {filteredItems.map((item, index) => (
-                <ComboboxListboxOption
-                  highlighted={highlightedIndex === index}
-                  key={seed(`item-${item}`)}
-                  {...getItemProps({item, index})}
-                >
-                  {item}
-                </ComboboxListboxOption>
-              ))}
-            </ComboboxListboxGroup>
-          </ComboboxListbox>
+          <Box as="ul" {...getMenuProps()}>
+            {filteredItems.map((item, index) => (
+              <Box
+                as="li"
+                backgroundColor={highlightedIndex === index ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
+                key={seed(`item-${item}`)}
+                {...getItemProps({item, index})}
+              >
+                {item}
+              </Box>
+            ))}
+          </Box>
         )}
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
