@@ -179,7 +179,9 @@ export const BasicMultiCombobox: React.ReactNode = () => {
   );
 
   const getFilteredItems = (): string[] => {
-    return items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase()));
+    return items.filter(
+      (item) => !selectedItems.includes(item) && item.toLowerCase().startsWith(inputValue.toLowerCase())
+    );
   };
 
   const {
