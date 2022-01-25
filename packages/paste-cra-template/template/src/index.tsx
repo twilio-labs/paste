@@ -25,15 +25,9 @@ export const Index: React.FC = () => {
             <Link to="/page2">page 2</Link>
           </Stack>
           <Routes>
-            <Route path="">
-              <IndexPage />
-            </Route>
-            <Route path="page1">
-              <Page1 />
-            </Route>
-            <Route path="/page2">
-              <Page2 />
-            </Route>
+            <Route path="" element={<IndexPage />} />
+            <Route path="/page1" element={<Page1 />} />
+            <Route path="/page2" element={<Page2 />} />
           </Routes>
         </BrowserRouter>
       </React.Suspense>
