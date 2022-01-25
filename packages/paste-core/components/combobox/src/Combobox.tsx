@@ -13,12 +13,12 @@ import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
 import type {TextColor} from '@twilio-paste/style-props';
+import {useMergeRefs} from '@twilio-paste/utils';
 import {ComboboxInputSelect} from './styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
 import {ComboboxListbox} from './styles/ComboboxListbox';
 import {ComboboxItems} from './ComboboxItems';
 import type {ComboboxProps} from './types';
-import {useMergeRefs} from '@twilio-paste/utils';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
