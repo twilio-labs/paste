@@ -157,7 +157,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               {cat.info}
-              <Paragraph as="div">Testing testing testing, applitools should detect a change.</Paragraph>
               <Box marginBottom="space160">
                 <Table>
                   <THead>
