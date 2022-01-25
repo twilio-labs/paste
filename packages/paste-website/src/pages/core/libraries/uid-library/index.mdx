@@ -1,0 +1,167 @@
+---
+title: UID Library
+description: Generates unique identifiers for HTML and JS
+slug: /core/libraries/uid-library/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import PackageJSON from '@twilio-paste/uid-library/package.json';
+import {SidebarCategoryRoutes} from '../../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/core/libraries/uid-library/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="UID Library"
+  categoryRoute={SidebarCategoryRoutes.LIBRARIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/uid"
+  storybookUrl="/?path=/story/libraries-uid"
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
+/>
+
+---
+
+<contentwrapper>
+<PageAside data={props.data.mdx} />
+<content>
+
+## Guidelines
+
+### Why do we need unique IDs
+
+Unique IDs are important because:
+
+- The [HTML spec says they should be unique](https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute) and strange bugs might occur otherwise.
+- You need them to correctly pair form elements together for better UX.
+- You need them to provide additional information for screenreaders, such as to provide a text hint to icons.
+
+Here's what could happen without unique IDs:
+
+<iframe
+  src="https://codesandbox.io/embed/blue-http-xqqo4?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  title="blue-http-xqqo4"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<br />
+<br />
+<br />
+
+### Why do we need a library?
+
+Anytime a software product needs unique identifiers, the likelyhood of `id` collisions increases the larger the project and team becomes.
+Furthermore, the way React has transformed the traditional process of page-based development to componened-based development leads to more situations where an `id` can clash.
+For example, if one page renders the same `DeleteIcon` component twice and that icon has `id="delete-icon"` hardcoded, then we now have an `id` collision.
+It is very difficult to predict the exact circumstances where a component will be used, so any time a component needs an `id` the risk of a collision is present.
+
+### How does this library work?
+
+This library maintains a sequential count, so that everytime a component mounts and needs an ID, it will fetch the next value (`count += 1`).
+
+---
+
+## Usage Guide
+
+This package is a wrapper around [react-uid](https://github.com/thearnica/react-uid).
+If you’re wondering why we wrapped that package into our own, we reasoned that
+it would be best for our consumers’ developer experience. For example:
+
+- We can control which APIs we expose and how to expose them. For example, in this package
+  export only some of the source package's exports.
+- If we want to migrate the underlying nuts and bolts in the future, Twilio products that
+  depend on this primitive would need to replace all occurrences of `import … from ‘@react-uid’`
+  to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/uid-library`,
+  this refactor can be avoided. The only change would be a version bump in the package.json file.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we allow, to help reduce
+  potential bugs our consumers may face.
+
+This package has 4 exports, described below.
+
+### API
+
+#### useUID()
+
+This is a React Hook to generate a UID.
+
+<iframe
+  src="https://codesandbox.io/embed/happy-bush-ued0c?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  title="useUID example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<Box marginTop="space100" />
+
+#### useUIDSeed()
+
+This React Hook creates a seed from which you can generate several UIDs. It's handy for when you need multiple `id`s in a single component.
+
+<iframe
+  src="https://codesandbox.io/embed/useuidseed-example-p0sxb?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  title="useUIDSeed example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<Box marginTop="space100" />
+
+#### UIDFork Component
+
+<Callout>
+  <CalloutText>This is only needed for lazy-loaded or code-split chunks.</CalloutText>
+</Callout>
+
+This React Component pivots the global singleton `count` to read a counter from React Context.
+If your app has code-splitting or lazy-loading, you want to wrap every entrypoint with `<UIDFork>` in order
+to garantee there isn't any collisions.
+
+<Box marginTop="space100" />
+
+#### uid(item, index)
+
+<Callout variant="warning">
+  <CalloutTitle>Don't use this API in React Components</CalloutTitle>
+  <CalloutText>
+    Prefer using the other React Hooks (useUID or useUIDSeed) in React components. They are Server Side Rendering (SSR)
+    compatible and the recommended future-proof API.
+  </CalloutText>
+</Callout>
+
+A plain Javascript function to return a UID. `item` should be an object (in JS, this could mean a function, an array, etc.). If `item` isn't an object
+, provide the second argument `index`. This API is not SSR friendly.
+
+We provide this export for quick UID generation in utility files.
+
+<iframe
+  src="https://codesandbox.io/embed/uid-example-s35fo?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="uid Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+</content>
+
+</contentwrapper>

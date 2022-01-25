@@ -23,7 +23,7 @@ const SiteFooterNav: React.FC = () => {
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
-              href="/getting-started/about-paste"
+              href="/introduction/about-paste"
               variant="inverse"
               onClick={() =>
                 trackCustomEvent({
@@ -49,7 +49,7 @@ const SiteFooterNav: React.FC = () => {
               Our roadmap
             </Anchor>
             <Anchor
-              href="/getting-started/design"
+              href="/introduction/for-designers/design-guidelines"
               variant="inverse"
               onClick={() =>
                 trackCustomEvent({
@@ -62,7 +62,7 @@ const SiteFooterNav: React.FC = () => {
               Design guidelines
             </Anchor>
             <Anchor
-              href="/getting-started/quickstart"
+              href="/introduction/for-engineers/quickstart"
               variant="inverse"
               onClick={() =>
                 trackCustomEvent({
@@ -107,7 +107,7 @@ const SiteFooterNav: React.FC = () => {
               Report a bug
             </Anchor>
             <Anchor
-              href="/getting-started/working-guide"
+              href="/introduction/working-with-us"
               variant="inverse"
               onClick={() =>
                 trackCustomEvent({

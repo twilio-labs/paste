@@ -9,6 +9,7 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
+    'storybook-addon-gatsby',
     'storybook-addon-performance',
     './addons/google-analytics/register',
   ],

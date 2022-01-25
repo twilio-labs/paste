@@ -36,17 +36,23 @@ export const ENVIRONMENT_CONTEXT: EnvironmentContext =
   (process.env.GATSBY_ENVIRONMENT_CONTEXT as EnvironmentContext) || 'local';
 
 export const SidebarCategoryRoutes = {
-  COMPONENTS: '/components',
+  INTRODUCTION: '/introduction',
+  FOR_DESIGNERS: '/introduction/for-designers',
+  FOR_ENGINEERS: '/introduction/for-engineers',
+  CONTRIBUTING: '/introduction/contributing',
+  ACCESSIBILITY: '/accessibility',
+  FOUNDATIONS: '/foundations',
+  CONTENT: '/foundations/content',
   PATTERNS: '/patterns',
+  EXPERIENCES: '/experiences',
+  COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
-  LAYOUT: '/layout',
-  ICON_SYSTEM: '/icons',
-  CONTENT: '/content',
-  LIBRARIES: '/libraries',
-  GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
-  CUSTOMIZATION: '/customization',
   CORE: '/core',
+  LIBRARIES: '/core/libraries',
+  CUSTOMIZATION: '/customization',
+  ROADMAP: '/roadmap',
+  BLOG: '/blog',
 };
 
 export const PackageStatus = {
