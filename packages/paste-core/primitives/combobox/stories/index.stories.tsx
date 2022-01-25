@@ -160,9 +160,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
 
 export const BasicMultiCombobox: React.ReactNode = () => {
   const seed = useUIDSeed();
-  const [filteredItems, setFilteredItems] = React.useState([...items]);
   const [inputValue, setInputValue] = React.useState('');
-
   const formPillState = useFormPillState();
 
   const {
@@ -176,10 +174,13 @@ export const BasicMultiCombobox: React.ReactNode = () => {
   const handleRemoveItemOnClick = React.useCallback(
     (selectedItem) => {
       removeSelectedItem(selectedItem);
-      setFilteredItems((currentFilteredItems) => [...currentFilteredItems, selectedItem].sort());
     },
     [removeSelectedItem]
   );
+
+  const getFilteredItems = (): string[] => {
+    return items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase()));
+  };
 
   const {
     getComboboxProps,
@@ -193,22 +194,20 @@ export const BasicMultiCombobox: React.ReactNode = () => {
     selectItem,
   } = useComboboxPrimitive({
     inputValue,
-    items: filteredItems,
+    items: getFilteredItems(),
     onStateChange: (args) => {
       switch (args.type) {
         case useComboboxPrimitive.stateChangeTypes.InputChange:
           setInputValue(args.inputValue);
-          setFilteredItems((currentFilteredItems) =>
-            currentFilteredItems.filter((item) => item.toLowerCase().startsWith(args.inputValue.toLowerCase()))
-          );
           break;
         case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
         case useComboboxPrimitive.stateChangeTypes.ItemClick:
         case useComboboxPrimitive.stateChangeTypes.InputBlur:
-          addSelectedItem(args.selectedItem);
-          setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== args.selectedItem));
-          setInputValue('');
-          selectItem(null);
+          if (args.selectedItem) {
+            addSelectedItem(args.selectedItem);
+            setInputValue('');
+            selectItem(null);
+          }
           break;
         default:
           break;
@@ -239,7 +238,7 @@ export const BasicMultiCombobox: React.ReactNode = () => {
         <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
           {isOpen && (
             <>
-              {filteredItems.map((item, index) => (
+              {getFilteredItems().map((item, index) => (
                 <ComboboxListboxOption
                   variant="default"
                   highlighted={highlightedIndex === index}
