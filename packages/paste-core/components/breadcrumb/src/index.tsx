@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import type {BoxProps, BoxElementProps} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import type {AnchorProps} from '@twilio-paste/anchor';
+import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
 const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({element}) => (
@@ -21,22 +22,30 @@ const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({e
   </Text>
 );
 
-export interface BreadcrumbItemProps extends React.HTMLAttributes<HTMLLIElement> {
+type BreadcrumbItemBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
   parentElement?: BoxElementProps['element'];
-  href?: string;
   last?: boolean;
-}
+};
+
+type BreadcrumbItemAsSpanProps = React.HTMLAttributes<HTMLSpanElement> &
+  BreadcrumbItemBaseProps & {
+    href?: never;
+  };
+type BreadcrumbItemAsAnchorProps = AnchorProps &
+  BreadcrumbItemBaseProps & {
+    href: string;
+  };
+
+type BreadcrumbItemProps = BreadcrumbItemAsSpanProps | BreadcrumbItemAsAnchorProps;
 
 const DEFAULT_ELEMENT_NAME = 'BREADCRUMB';
 
-const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
+const BreadcrumbItem = React.forwardRef<HTMLSpanElement, BreadcrumbItemProps>(
   ({children, element, parentElement, href, last, ...props}, ref) => {
     const elementName = element || parentElement || DEFAULT_ELEMENT_NAME;
     return (
       <Box
-        {...safelySpreadBoxProps(props)}
         alignItems="center"
         as="li"
         color="colorText"
@@ -46,11 +55,13 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
         lineHeight="lineHeight20"
       >
         {href ? (
-          <Anchor element={`${elementName}_ANCHOR`} href={href} ref={ref}>
+          // @ts-expect-error we need to explore polymorphic types for this ref to work https://www.benmvp.com/blog/forwarding-refs-polymorphic-react-component-typescript/
+          <Anchor {...props} element={`${elementName}_ANCHOR`} href={href} ref={ref}>
             {children}
           </Anchor>
         ) : (
           <Text
+            {...safelySpreadTextProps(props)}
             aria-current="page"
             as="span"
             element={`${elementName}_TEXT`}
@@ -73,7 +84,7 @@ if (process.env.NODE_ENV === 'development') {
   BreadcrumbItem.propTypes = {
     children: PropTypes.node.isRequired,
     element: PropTypes.string,
-    href: PropTypes.string,
+    href: PropTypes.string.isRequired,
     last: PropTypes.bool,
   };
 }
