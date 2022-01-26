@@ -3,8 +3,9 @@ enum EnvironmentVariables {
 }
 
 export const DEFAULT_OPEN_PARAMS: Partial<Eyes.Open.Options> = {
-  baselineBranch: 'default',
-  matchLevel: 'Layout',
+  matchLevel: 'Strict',
+  branchName: 'test/website-vrt',
+  baselineBranch: 'test/website-vrt',
 };
 // https://help.applitools.com/hc/en-us/articles/4408368066957-useDom-and-enablePatterns-Flags
 export const DEFAULT_CHECK_PARAMS: Partial<Eyes.Check.Options> = {fully: true, useDom: true, enablePatterns: true};
