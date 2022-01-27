@@ -1,4 +1,5 @@
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   stories: ['../packages/**/*.stories.mdx', '../packages/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -10,7 +11,6 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
     'storybook-addon-gatsby',
-    'storybook-addon-performance',
     './addons/google-analytics/register',
   ],
   typescript: {
@@ -45,6 +45,15 @@ module.exports = {
 
     config.resolve.plugins =
       config.resolve.plugins == null ? customPlugins : [...config.resolve.plugins, ...customPlugins];
+
+    // Need to custom alias react-dom and scheduler for component profiling in production
+    // mode. Without doing so, no React profiling data can be extracted from stories
+    // When they are deployed.
+    const customAlias = {
+      'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
+      'scheduler/tracing': 'scheduler/tracing-profiling',
+    };
+    config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
 
     return config;
   },
