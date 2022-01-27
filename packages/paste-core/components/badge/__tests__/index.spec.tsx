@@ -52,7 +52,7 @@ describe('Badge', () => {
       it('should return return no modifications when child icon size is default', () => {
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
 
-        const icon = (result.current as React.ReactNode)[1];
+        const icon = (result.current as NonNullable<React.ReactNode>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
@@ -63,7 +63,7 @@ describe('Badge', () => {
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
 
-        const icon = (result.current as React.ReactNode)[1];
+        const icon = (result.current as NonNullable<React.ReactNode>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
