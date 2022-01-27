@@ -5,8 +5,7 @@ import {version} from '../packages/paste-core/core-bundle/package.json';
 const trackRenderPerformance = (data) => {
   const commitSha = process.env.STORYBOOK_GITHUB_SHA ? process.env.STORYBOOK_GITHUB_SHA : 'localdev';
 
-  // TODO: replace with https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric
-  fetch('https://deploy-preview-1--paste-data.netlify.app/.netlify/functions/create-component-perf-metric', {
+  fetch('https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric', {
     method: 'POST',
     keepalive: true,
     mode: 'cors',
