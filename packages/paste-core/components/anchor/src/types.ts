@@ -1,7 +1,8 @@
 import type {LayoutProps, SpaceProps} from '@twilio-paste/style-props';
 import type {BoxProps} from '@twilio-paste/box';
+import React from 'react';
 
-export type AnchorTabIndexes = 0 | -1;
+export type AnchorTabIndexes = (0 | -1) | number;
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
 export type AnchorVariants = 'default' | 'inverse';
 

@@ -23,26 +23,20 @@ const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({e
 );
 
 type BreadcrumbItemBaseProps = Pick<BoxProps, 'element'> & {
-  children: NonNullable<React.ReactNode>;
   parentElement?: BoxElementProps['element'];
   last?: boolean;
+  children: NonNullable<React.ReactNode>;
 };
 
-type BreadcrumbItemAsSpanProps = React.HTMLAttributes<HTMLSpanElement> &
-  BreadcrumbItemBaseProps & {
-    href?: never;
-  };
-type BreadcrumbItemAsAnchorProps = AnchorProps &
-  BreadcrumbItemBaseProps & {
-    href: string;
-  };
+type BreadcrumbItemAsSpanProps = React.HTMLAttributes<HTMLSpanElement> & BreadcrumbItemBaseProps & {href?: never};
+type BreadcrumbItemAsAnchorProps = AnchorProps & BreadcrumbItemBaseProps;
 
 type BreadcrumbItemProps = BreadcrumbItemAsSpanProps | BreadcrumbItemAsAnchorProps;
 
 const DEFAULT_ELEMENT_NAME = 'BREADCRUMB';
 
-const BreadcrumbItem = React.forwardRef<HTMLSpanElement, BreadcrumbItemProps>(
-  ({children, element, parentElement, href, last, ...props}, ref) => {
+const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, BreadcrumbItemProps>(
+  ({element, last, parentElement, href, children, ...props}, ref) => {
     const elementName = element || parentElement || DEFAULT_ELEMENT_NAME;
     return (
       <Box
@@ -55,19 +49,23 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement, BreadcrumbItemProps>(
         lineHeight="lineHeight20"
       >
         {href ? (
-          // @ts-expect-error we need to explore polymorphic types for this ref to work https://www.benmvp.com/blog/forwarding-refs-polymorphic-react-component-typescript/
-          <Anchor {...props} element={`${elementName}_ANCHOR`} href={href} ref={ref}>
+          <Anchor
+            {...(props as Partial<BreadcrumbItemAsAnchorProps>)}
+            element={`${elementName}_ANCHOR`}
+            href={href}
+            ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+          >
             {children}
           </Anchor>
         ) : (
           <Text
-            {...safelySpreadTextProps(props)}
+            {...safelySpreadTextProps(props as Partial<BreadcrumbItemAsSpanProps>)}
             aria-current="page"
             as="span"
             element={`${elementName}_TEXT`}
             fontSize="fontSize20"
             lineHeight="lineHeight20"
-            ref={ref}
+            ref={ref as React.ForwardedRef<HTMLSpanElement>}
           >
             {children}
           </Text>
@@ -80,14 +78,12 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement, BreadcrumbItemProps>(
 
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-if (process.env.NODE_ENV === 'development') {
-  BreadcrumbItem.propTypes = {
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-    href: PropTypes.string.isRequired,
-    last: PropTypes.bool,
-  };
-}
+BreadcrumbItem.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+  href: PropTypes.string as PropTypes.Validator<string>,
+  last: PropTypes.bool,
+};
 
 export interface BreadcrumbProps extends React.HTMLAttributes<'nav'> {
   children: NonNullable<React.ReactNode>;
