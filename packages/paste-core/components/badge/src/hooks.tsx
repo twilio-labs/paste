@@ -3,7 +3,7 @@ import {useUIDSeed} from '@twilio-paste/uid-library';
 
 const DEFAULT_ICON_SIZE = 'sizeIcon10';
 
-export const useResizeChildIcons = (children: React.ReactNode): React.ReactNode => {
+export const useResizeChildIcons = (children: NonNullable<React.ReactNode>): NonNullable<React.ReactNode> => {
   const seed = useUIDSeed();
 
   if (!Array.isArray(children)) {
