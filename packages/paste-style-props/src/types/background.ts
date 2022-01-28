@@ -1,8 +1,8 @@
 // https://styled-system.com/api/#background
-import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
-import {StyleReset} from './helpers';
+import type * as CSS from 'csstype';
+import type {ThemeShape} from '@twilio-paste/theme';
+import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {StyleReset} from './helpers';
 
 // Tokens
 export type BackgroundColorOptions = keyof ThemeShape['backgroundColors'];

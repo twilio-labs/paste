@@ -33,6 +33,7 @@ import {
 import {
   getContrastRatingsOfTokensWithTextContrastRequirements,
   getContrastRatingsOfTokensWithUIControlContrastRequirements,
+  getContrastRatingsOfTokensWithDataVisualizationContrastRequirements,
 } from '../src/utils';
 
 const defaultThemeTextColorContrastRatings = getContrastRatingsOfTokensWithTextContrastRequirements({
@@ -67,6 +68,25 @@ const defaultThemeUiControlColorContrastRatings = getContrastRatingsOfTokensWith
   textColors,
   zIndices,
 });
+const defaultThemeDataVisualizationColorContrastRatings = getContrastRatingsOfTokensWithDataVisualizationContrastRequirements(
+  {
+    backgroundColors,
+    borderColors,
+    borderWidths,
+    radii,
+    colors,
+    fonts,
+    fontSizes,
+    fontWeights,
+    lineHeights,
+    boxShadows,
+    sizings,
+    spacings,
+    textColors,
+    zIndices,
+  }
+);
+
 const darkThemeTextColorContrastRatings = getContrastRatingsOfTokensWithTextContrastRequirements({
   backgroundColors: darkBackgroundColors,
   borderColors: darkBorderColors,
@@ -99,6 +119,24 @@ const darkThemeUiControlColorContrastRatings = getContrastRatingsOfTokensWithUIC
   textColors: darkTextColors,
   zIndices: darkZIndices,
 });
+const darkThemeDataVisualizationColorContrastRatings = getContrastRatingsOfTokensWithDataVisualizationContrastRequirements(
+  {
+    backgroundColors: darkBackgroundColors,
+    borderColors: darkBorderColors,
+    borderWidths: darkBorderWidths,
+    radii: darkRadii,
+    colors: darkColors,
+    fonts: darkFonts,
+    fontSizes: darkFontSizes,
+    fontWeights: darkFontWeights,
+    lineHeights: darkLineHeights,
+    boxShadows: darkBoxShadows,
+    sizings: darkSizings,
+    spacings: darkSpacings,
+    textColors: darkTextColors,
+    zIndices: darkZIndices,
+  }
+);
 
 describe('Default Theme', () => {
   describe('Text color contrast ratio for token pairs', () => {
@@ -109,6 +147,11 @@ describe('Default Theme', () => {
   describe('UI Control color contrast ratio for token pairs', () => {
     test.each(defaultThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
+    });
+  });
+  describe('Data visualization color contrast ratio for token pairs', () => {
+    test.each(defaultThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+      expect(rating.contrast).toBeGreaterThanOrEqual(2.25);
     });
   });
 });
@@ -122,6 +165,11 @@ describe.skip('Dark Theme', () => {
   describe('UI Control color contrast ratio for token pairs', () => {
     test.each(darkThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
+    });
+  });
+  describe('Data visualization color contrast ratio for token pairs', () => {
+    test.each(darkThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+      expect(rating.contrast).toBeGreaterThanOrEqual(2);
     });
   });
 });
