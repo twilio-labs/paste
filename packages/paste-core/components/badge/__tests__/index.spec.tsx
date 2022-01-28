@@ -10,6 +10,8 @@ import {Badge} from '../src';
 import {isFocusableElement, getBadgeSpanProps} from '../src/utils';
 import {useResizeChildIcons} from '../src/hooks';
 
+type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
+
 describe('Badge', () => {
   describe('Utils', () => {
     describe('isFocusableElement', () => {
@@ -52,7 +54,7 @@ describe('Badge', () => {
       it('should return return no modifications when child icon size is default', () => {
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
 
-        const icon = (result.current as NonNullable<React.ReactNode>)[1];
+        const icon = (result.current as ArrayLike<NamedChild>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
@@ -63,7 +65,7 @@ describe('Badge', () => {
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
 
-        const icon = (result.current as NonNullable<React.ReactNode>)[1];
+        const icon = (result.current as ArrayLike<NamedChild>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
