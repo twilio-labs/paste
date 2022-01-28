@@ -64,7 +64,16 @@ const CheckboxIcon: React.FC<{
   if (indeterminate) {
     return <MinusIcon element={element} decorative color={color} size="sizeIcon10" />;
   }
-  return <CheckboxCheckIcon element={element} hidden={!checked} decorative color={color} size="sizeIcon10" />;
+  return (
+    <CheckboxCheckIcon
+      element={element}
+      hidden={!checked}
+      display={!checked ? 'none' : 'block'}
+      decorative
+      color={color}
+      size="sizeIcon10"
+    />
+  );
 };
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
