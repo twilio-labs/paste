@@ -1,11 +1,9 @@
 import * as React from 'react';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
-import type {BadgeChildren} from './types';
-
 const DEFAULT_ICON_SIZE = 'sizeIcon10';
 
-export const useResizeChildIcons = (children: BadgeChildren): BadgeChildren => {
+export const useResizeChildIcons = (children: NonNullable<React.ReactNode>): NonNullable<React.ReactNode> => {
   const seed = useUIDSeed();
 
   if (!Array.isArray(children)) {

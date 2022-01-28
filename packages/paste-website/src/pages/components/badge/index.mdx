@@ -398,7 +398,7 @@ const BadgeExample = () => (
 
 | Prop     | Type                                   | Description                                                        | Default     |
 | -------- | -------------------------------------- | ------------------------------------------------------------------ | ----------- |
-| children | `BadgeChildren`                        |                                                                    | `null`      |
+| children | `NonNullable<React.ReactNode>`         |                                                                    | `null`      |
 | variant  | `BadgeVariants`                        | `default`, `info`, `success`, `warning`, `error`, `new`            | `null`      |
 | as       | `BadgeBaseElements`                    | The HTML tag to use as base. -`span`, `button`, `a`                | `null`      |
 | href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.        | `undefined` |

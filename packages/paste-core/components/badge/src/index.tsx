@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 
-import type {BadgeProps, BadgeVariants, BadgeChildren} from './types';
+import type {BadgeProps, BadgeVariants} from './types';
 import {useResizeChildIcons} from './hooks';
 import {badgeFocusableStyles, badgeVariantStyles} from './styles';
 import {getBadgeSpanProps, isFocusableElement} from './utils';
@@ -51,12 +51,7 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
 Badge.displayName = 'Badge';
 
 Badge.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]).isRequired as PropTypes.Validator<BadgeChildren>,
+  children: PropTypes.node.isRequired,
   element: PropTypes.string,
   variant: PropTypes.oneOf(['info', 'default', 'warning', 'error', 'success', 'new'] as BadgeVariants[]).isRequired,
   // @ts-expect-error type unions are a little too much for prop types inferred types to handle
