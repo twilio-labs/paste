@@ -12,6 +12,7 @@ import {
   spacings,
   textColors,
   zIndices,
+  colors,
 } from '@twilio-paste/design-tokens/dist/themes/console/tokens.es6';
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
@@ -30,4 +31,5 @@ export const ConsoleTheme = generateThemeFromTokens({
   spacings,
   textColors,
   zIndices,
+  colors,
 });
