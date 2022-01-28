@@ -12,6 +12,8 @@ export interface DesignToken {
   text_contrast_pairing?: string[];
   /** tokens that when paired with this token, must pass the ui control color contrast ratio requirement */
   uicontrol_contrast_pairing?: string[];
+  /** tokens that when paired with this token, must pass the data visualization color contrast ratio requirement */
+  data_visualization_contrast_pairing?: string[];
   type: string;
   value: string;
 }

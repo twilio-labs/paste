@@ -163,6 +163,16 @@
       "comment": "Dark shade of destructive link text to be used in interactions",
       "originalValue": "{!palette-red-70}",
       "name": "color-text-link-destructive-dark"
+    },
+    "color-data-visualization-1": {
+      "type": "color",
+      "category": "color",
+      "value": "#750c0c",
+      "comment": "Color used for data visualizations. Must be used in a sequence.",
+      "uicontrol_contrast_pairing": ["color-background-body"],
+      "data_visualization_contrast_pairing": ["color-data-visualization-8", "color-data-visualization-10"],
+      "originalValue": "{!palette-red-80}",
+      "name": "color-data-visualization-9"
     }
   }
 }
