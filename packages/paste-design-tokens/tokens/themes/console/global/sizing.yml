@@ -1,6 +1,0 @@
-global:
-  type: size
-  category: sizing
-imports:
-  - ../../../global/sizing.yml
-  - ../aliases/sizing.yml
