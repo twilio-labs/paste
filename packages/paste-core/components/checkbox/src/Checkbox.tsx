@@ -67,7 +67,6 @@ const CheckboxIcon: React.FC<{
   return (
     <CheckboxCheckIcon
       element={element}
-      hidden={!checked}
       display={!checked ? 'none' : 'block'}
       decorative
       color={color}
