@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';

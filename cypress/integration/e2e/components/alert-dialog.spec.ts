@@ -1,5 +1,3 @@
-import {eyesAreEnabled, DEFAULT_OPEN_PARAMS, DEFAULT_CHECK_PARAMS} from '@utils/applitools';
-
 describe('Alert-dialog component documentation page', function () {
   beforeEach(() => {
     cy.visit('/components/alert-dialog');

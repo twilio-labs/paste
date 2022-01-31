@@ -8,5 +8,5 @@
     "openMode": 2
   },
   "blockHosts": "*.google-analytics.com",
-  "testFiles": ["token-list/index.spec.ts"]
+  "testFiles": ["**/**/*.spec.ts"]
 }

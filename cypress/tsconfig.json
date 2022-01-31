@@ -5,11 +5,7 @@
     "lib": ["es2017", "DOM"],
     "types": ["cypress", "@applitools/eyes-cypress"],
     "baseUrl": ".",
-    "moduleResolution": "node",
-    "paths": {
-      "@commands/*": ["./support/commands/*"],
-      "@utils/*": ["./support/utils/*"]
-    }
+    "moduleResolution": "node"
   },
   "include": ["./**/*.ts"],
   "exclude": ["mode_modules/**/*"]
