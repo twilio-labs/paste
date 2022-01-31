@@ -128,6 +128,9 @@ const SidebarNavigation: React.FC = () => {
             </SidebarAnchor>
           </NavigationDisclosure>
           <NavigationDisclosure buttonText="Contributing" categoryRoute={SidebarCategoryRoutes.CONTRIBUTING} level={1}>
+            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/components`}>
+              Components
+            </SidebarAnchor>
             <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
               Icons
             </SidebarAnchor>
