@@ -65,6 +65,11 @@ describe('generateThemeFromTokens', () => {
         spacings: {space10: '28px'},
         textColors: {colorText: 'black'},
         zIndices: {zIndex0: '-20'},
+        colors: {
+          colorDataVisualization1: 'red',
+          colorDataVisualization2: 'blue',
+          colorDataVisualization3: 'green',
+        },
       })
     ).toMatchSnapshot();
   });

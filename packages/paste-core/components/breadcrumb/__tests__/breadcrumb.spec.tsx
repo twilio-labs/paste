@@ -58,6 +58,18 @@ describe('Breadcrumb', () => {
     expect(getByText('foo').getAttribute('aria-current')).toBe('page');
   });
 
+  it('should pass props given to BreadcrumbItem onto its Anchor or Text child', () => {
+    render(
+      <Breadcrumb>
+        <BreadcrumbItem href="#" data-testid="breadcrumb-anchor">
+          foo
+        </BreadcrumbItem>
+      </Breadcrumb>
+    );
+    const breadcrumbAnchor = screen.getByRole('listitem').firstChild as HTMLElement;
+    expect(breadcrumbAnchor.getAttribute('data-testid')).toEqual('breadcrumb-anchor');
+  });
+
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<BreadcrumbExample />);
@@ -81,14 +93,14 @@ describe('Breadcrumb', () => {
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('TEST_PARENT');
 
-      const breadcrumbItem1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
-      const breadcrumbItem2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
+      const breadcrumbItem1 = screen.getAllByRole('listitem')[0] as HTMLElement;
+      const breadcrumbItem2 = screen.getAllByRole('listitem')[1] as HTMLElement;
 
       expect(breadcrumbItem1.getAttribute('data-paste-element')).toEqual('TEST_ITEM');
       expect(breadcrumbItem2.getAttribute('data-paste-element')).toEqual('TEST_ITEM');
 
-      const node1 = breadcrumbItem1.firstChild as HTMLElement;
-      const node2 = breadcrumbItem2.firstChild as HTMLElement;
+      const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
+      const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
 
       expect(node1.getAttribute('data-paste-element')).toEqual('TEST_ANCHOR');
       expect(node2.getAttribute('data-paste-element')).toEqual('TEST_ANCHOR');
@@ -111,14 +123,14 @@ describe('Breadcrumb', () => {
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('TEST_PARENT');
 
-      const breadcrumbItem1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
-      const breadcrumbItem2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
+      const breadcrumbItem1 = screen.getAllByRole('listitem')[0] as HTMLElement;
+      const breadcrumbItem2 = screen.getAllByRole('listitem')[1] as HTMLElement;
 
       expect(breadcrumbItem1.getAttribute('data-paste-element')).toEqual('TEST_PARENT_ITEM');
       expect(breadcrumbItem2.getAttribute('data-paste-element')).toEqual('TEST_PARENT_ITEM');
 
-      const node1 = breadcrumbItem1.firstChild as HTMLElement;
-      const node2 = breadcrumbItem2.firstChild as HTMLElement;
+      const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
+      const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
 
       expect(node1.getAttribute('data-paste-element')).toEqual('TEST_PARENT_ANCHOR');
       expect(node2.getAttribute('data-paste-element')).toEqual('TEST_PARENT_ANCHOR');
@@ -142,14 +154,14 @@ describe('Breadcrumb', () => {
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('BREADCRUMB');
 
-      const breadcrumbItem1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
-      const breadcrumbItem2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
+      const breadcrumbItem1 = screen.getAllByRole('listitem')[0] as HTMLElement;
+      const breadcrumbItem2 = screen.getAllByRole('listitem')[1] as HTMLElement;
 
       expect(breadcrumbItem1.getAttribute('data-paste-element')).toEqual('BREADCRUMB_ITEM');
       expect(breadcrumbItem2.getAttribute('data-paste-element')).toEqual('BREADCRUMB_ITEM');
 
-      const node1 = breadcrumbItem1.firstChild as HTMLElement;
-      const node2 = breadcrumbItem2.firstChild as HTMLElement;
+      const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
+      const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
 
       expect(node1.getAttribute('data-paste-element')).toEqual('BREADCRUMB_ANCHOR');
       expect(node2.getAttribute('data-paste-element')).toEqual('BREADCRUMB_ANCHOR');
@@ -194,27 +206,27 @@ describe('Breadcrumb', () => {
 
       expect(screen.getByTestId('breadcrumb')).toHaveStyleRule('font-variant-numeric', 'slashed-zero');
 
-      const breadcrumbItem1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
-      const breadcrumbItem2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
-      const breadcrumbItem3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
+      const breadcrumbItem1 = screen.getAllByRole('listitem')[0] as HTMLElement;
+      const breadcrumbItem2 = screen.getAllByRole('listitem')[1] as HTMLElement;
+      const breadcrumbItem3 = screen.getAllByRole('listitem')[2] as HTMLElement;
 
       expect(breadcrumbItem1).toHaveStyleRule('font-weight', '500');
       expect(breadcrumbItem2).toHaveStyleRule('font-weight', '500');
       expect(breadcrumbItem3).toHaveStyleRule('font-weight', '500');
 
-      const node1 = breadcrumbItem1.firstChild as HTMLElement;
+      const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
       const separator1 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node1).toHaveStyleRule('text-decoration', 'underline wavy');
       expect(node1).toHaveStyleRule('color', 'rgb(96,107,133)');
       expect(separator1).toHaveStyleRule('color', 'rgb(242,47,70)');
 
-      const node2 = breadcrumbItem2.firstChild as HTMLElement;
-      const separator2 = breadcrumbItem2.lastChild as HTMLElement;
+      const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
+      const separator2 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node2).toHaveStyleRule('text-decoration', 'underline wavy');
       expect(node2).toHaveStyleRule('color', 'rgb(96,107,133)');
       expect(separator2).toHaveStyleRule('color', 'rgb(242,47,70)');
 
-      const node3 = breadcrumbItem3.firstChild as HTMLElement;
+      const node3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
       expect(node3).toHaveStyleRule('letter-spacing', '0.25rem');
     });
 
@@ -257,25 +269,25 @@ describe('Breadcrumb', () => {
 
       expect(screen.getByTestId('breadcrumb')).toHaveStyleRule('font-variant-numeric', 'ordinal');
 
-      const breadcrumbItem1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
-      const breadcrumbItem2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
-      const breadcrumbItem3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
+      const breadcrumbItem1 = screen.getAllByRole('listitem')[0] as HTMLElement;
+      const breadcrumbItem2 = screen.getAllByRole('listitem')[1] as HTMLElement;
+      const breadcrumbItem3 = screen.getAllByRole('listitem')[2] as HTMLElement;
 
       expect(breadcrumbItem1).toHaveStyleRule('font-weight', '400');
       expect(breadcrumbItem2).toHaveStyleRule('font-weight', '400');
       expect(breadcrumbItem3).toHaveStyleRule('font-weight', '700');
 
-      const node1 = breadcrumbItem1.firstChild as HTMLElement;
+      const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
       const separator1 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node1).toHaveStyleRule('font-weight', '700');
       expect(separator1).toHaveStyleRule('color', 'rgb(96,107,133)');
 
-      const node2 = breadcrumbItem2.firstChild as HTMLElement;
+      const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
       const separator2 = breadcrumbItem2.lastChild as HTMLElement;
       expect(node2).toHaveStyleRule('font-weight', '600');
       expect(separator2).toHaveStyleRule('color', 'rgb(96,107,133)');
 
-      const node3 = breadcrumbItem3.firstChild as HTMLElement;
+      const node3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
       expect(node3).toHaveStyleRule('letter-spacing', '0.25rem');
     });
   });

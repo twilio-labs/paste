@@ -1,12 +1,10 @@
 import type {ButtonProps} from '@twilio-paste/button';
 import type {BoxProps} from '@twilio-paste/box';
 
-export type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
-export type BadgeChildren = NamedChild | React.ReactText | (React.ReactText | NamedChild)[];
 export type BadgeVariants = 'info' | 'default' | 'warning' | 'error' | 'success' | 'new';
 
 type BadgeBaseProps = Pick<BoxProps, 'element'> & {
-  children: BadgeChildren;
+  children: NonNullable<React.ReactNode>;
   variant: BadgeVariants;
 };
 type BadgeAsSpanProps = React.HTMLAttributes<HTMLSpanElement> & {

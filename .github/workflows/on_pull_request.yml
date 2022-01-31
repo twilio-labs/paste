@@ -299,66 +299,67 @@ jobs:
       - name: Run prettier
         run: yarn prettier
 
-  # chromatic:
-  #   name: Component Visual regression tests
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   if: github.event.pull_request.draft == false
+  chromatic:
+    name: Component Visual regression tests
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
 
-  #   steps:
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v2
-  #       with:
-  #         # Chromatic needs the full git history to work
-  #         fetch-depth: 0
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          # Chromatic needs the full git history to work
+          fetch-depth: 0
 
-  #     - name: Setup Node.js 12.x
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 12.x
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
 
-  #     - name: Get yarn cache directory path
-  #       id: yarn-cache-dir-path
-  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-  #     - name: Load Yarn cache
-  #       uses: actions/cache@v2
-  #       id: yarn_cache_id
-  #       with:
-  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-yarn
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
 
-  #     - name: Node modules cache
-  #       uses: actions/cache@v2
-  #       id: node_modules_cache_id
-  #       with:
-  #         path: |
-  #           node_modules
-  #           */*/node_modules
-  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Node modules cache
+        uses: actions/cache@v2
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-  #     - name: Install Dependencies
-  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-  #       run: yarn install --immutable
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
 
-  #     - name: Download build artifacts
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: compiled-js-and-types
-  #         path: packages/
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-js-and-types
+          path: packages/
 
-  #     - name: Run Chromatic
-  #       uses: chromaui/action@v1
-  #       with:
-  #         projectToken: ${{ secrets.CHROMA_APP_CODE }}
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         buildScriptName: "build:storybook"
-  #         autoAcceptChanges: "main"
-  #         exitOnceUploaded: true
-  #       env:
-  #         STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+      - name: Run Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMA_APP_CODE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: "build:storybook"
+          autoAcceptChanges: "main"
+          exitOnceUploaded: true
+        env:
+          STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+
 
   cypress:
     name: Website tests
