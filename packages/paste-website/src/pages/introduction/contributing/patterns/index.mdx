@@ -44,37 +44,24 @@ export const pageQuery = graphql`
   }
 `;
 
-<content>
-
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
-</Heading>
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
-
-</content>
-
----
-
 <contentwrapper>
 
 <PageAside data={props.data.mdx} />
 
 <content>
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+How to contribute a pattern to Paste.
+
+---
 
 Thanks for your interest in contributing patterns! Since this is a general guideline, feel free to grow or shrink this process however you need.
 
 ## General process
 
-1. Write a [short 🩳 spec](https://docs.google.com/document/d/1SSIURVMzlGbANyvtYlU61ZdDaSqF2QigFdFZuSnYSkk/edit) and design your pattern(s). The pattern could potentially be something you’re already working on. Here are some [examples of other specs](https://drive.google.com/drive/folders/1zae55uF3M-s4QUDsGMtwHLbmi31wmJ54?usp=sharing) people have written.
-
+1. Write a [short spec](https://docs.google.com/document/d/1SSIURVMzlGbANyvtYlU61ZdDaSqF2QigFdFZuSnYSkk/edit) and design your pattern(s). The pattern could potentially be something you’re already working on. Here are some [examples of other specs](https://drive.google.com/drive/folders/1zae55uF3M-s4QUDsGMtwHLbmi31wmJ54?usp=sharing) people have written.
 2. Review the spec with us, your crit pod(s), and the Design Systems Committee
-
 3. If you have time or are already planning to do usability testing on your product feature, test the pattern with users (be sure to tap into the PD org to see if research exists already)
-
 4. Add it to the Paste site for all to use and reference 🎉
 
 Have feedback on the process? Add to [our feedback doc](https://docs.google.com/document/d/1N_edYt6O9_2DpJi0kwvU0Fjaxur-voEOi89YzP2qyOE/edit#).
