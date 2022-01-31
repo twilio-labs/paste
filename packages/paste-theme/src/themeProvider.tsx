@@ -25,10 +25,10 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
       };
     case DeprecatedThemeVariants.CONSOLE:
       isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);
-    // return {
-    //   ...DefaultTheme,
-    //   breakpoints: customBreakpoints || DefaultTheme.breakpoints,
-    // };
+      return {
+        ...DefaultTheme,
+        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
+      };
     case ThemeVariants.FLEX:
     case ThemeVariants.DEFAULT:
     default:
