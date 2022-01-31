@@ -6,6 +6,7 @@ import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
 import {ThemeVariants, DeprecatedThemeVariants} from './constants';
+import {isDeprecatedTheme} from './utils/isDeprecatedTheme';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
@@ -23,10 +24,11 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
         breakpoints: customBreakpoints || SendGridTheme.breakpoints,
       };
     case DeprecatedThemeVariants.CONSOLE:
-      return {
-        ...DefaultTheme,
-        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
-      };
+      isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);
+    // return {
+    //   ...DefaultTheme,
+    //   breakpoints: customBreakpoints || DefaultTheme.breakpoints,
+    // };
     case ThemeVariants.FLEX:
     case ThemeVariants.DEFAULT:
     default:
