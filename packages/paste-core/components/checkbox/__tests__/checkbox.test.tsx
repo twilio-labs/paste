@@ -201,6 +201,7 @@ describe('Checkbox event handlers', () => {
         data-testid="checkbox-button"
         id="foo"
         name="foo"
+        checked
         onChange={onChangeMock}
         onFocus={onFocusMock}
         onBlur={onBlurMock}
