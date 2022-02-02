@@ -88,7 +88,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       isSelectAll,
       isSelectAllChild,
       required,
-      defaultChecked,
       ...props
     },
     ref
@@ -102,7 +101,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const hasError = props.hasError != null ? props.hasError : checkboxGroupContext.hasError;
 
     // Manages what the value of checked is depending on if it is controlled or uncontrolled
-    const [checkedState, setCheckedState] = React.useState(!!defaultChecked);
+    const [checkedState, setCheckedState] = React.useState(!!props.defaultChecked);
     const isControlled = checkedProp !== undefined;
     const mergedChecked = isControlled ? checkedProp : checkedState;
 
