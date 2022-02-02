@@ -148,12 +148,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       >
         <HiddenCheckbox
           {...safelySpreadBoxProps(props)}
-          checked={mergedChecked}
+          checked={checkedProp}
           disabled={disabled}
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
-          aria-checked={indeterminate ? 'mixed' : mergedChecked}
+          aria-checked={indeterminate ? 'mixed' : checkedProp}
           aria-invalid={hasError}
           id={id}
           required={required}
