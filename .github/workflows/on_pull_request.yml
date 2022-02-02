@@ -417,9 +417,15 @@ jobs:
           GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
 
       - name: Run cypress
+        id: run-cypress-tests
         run: yarn test:website
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          APPLITOOLS_SERVER_URL: "https://twilioeyesapi.applitools.com"
+          APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
+          APPLITOOLS_BATCH_ID: ${{ github.event.pull_request.head.sha }}
+          USE_CYPRESS_EYES: true
 
   pr-categorizer:
     name: Categorize the PR using labels

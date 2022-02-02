@@ -156,7 +156,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               {cat.info}
-              <Box marginBottom="space160">
+              <Box marginBottom="space160" data-cy="tokens-table-container">
                 <Table>
                   <THead>
                     <Tr>
