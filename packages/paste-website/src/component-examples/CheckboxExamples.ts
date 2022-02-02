@@ -21,6 +21,48 @@ render(
 )
 `.trim();
 
+export const uncontrolledCheckbox = `
+const UncontrolledCheckbox = () => {
+  return (
+    <Checkbox
+      id="uncontrolled"
+      value="uncontrolled"
+      name="uncontrolled"
+      defaultChecked
+    >
+      I am an uncontrolled checkbox
+    </Checkbox>
+  );
+};
+
+render(
+  <UncontrolledCheckbox />
+)
+`.trim();
+
+export const controlledCheckbox = `
+const ControlledCheckbox = () => {
+  const [checked, setChecked] = React.useState(true);
+  return (
+    <Checkbox
+      id="controlled"
+      value="controlled"
+      name="controlled"
+      checked={checked}
+      onChange={(event) => {
+        setChecked(event.target.checked);
+      }}
+    >
+      I am a controlled checkbox
+    </Checkbox>
+  );
+};
+
+render(
+  <ControlledCheckbox />
+)
+`.trim();
+
 export const indeterminateExample = `
 const Results = () => {
   const [checkedItems, setCheckedItems] = React.useState([true, false]);

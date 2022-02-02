@@ -13,18 +13,8 @@ export default {
 };
 
 export const DefaultCheckbox = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
-
   return (
-    <Checkbox
-      id={useUID()}
-      value="label"
-      name="foo"
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
-    >
+    <Checkbox id={useUID()} value="label" name="foo">
       Label
     </Checkbox>
   );
@@ -55,19 +45,8 @@ CheckboxChecked.story = {
 };
 
 export const CheckboxRequired = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <Checkbox
-      id={useUID()}
-      value="label"
-      name="foo"
-      helpText="Some interesting help text"
-      required
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
-    >
+    <Checkbox id={useUID()} value="label" name="foo" helpText="Some interesting help text" required>
       Label
     </Checkbox>
   );
@@ -78,18 +57,8 @@ CheckboxRequired.story = {
 };
 
 export const CheckboxDisabled = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(true);
   return (
-    <Checkbox
-      id={useUID()}
-      value="1"
-      disabled
-      name="foo"
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
-    >
+    <Checkbox id={useUID()} value="1" disabled name="foo">
       Label
     </Checkbox>
   );
@@ -122,18 +91,8 @@ CheckboxDisabledChecked.story = {
 };
 
 export const CheckboxError = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <Checkbox
-      id={useUID()}
-      value="1"
-      name="foo"
-      hasError
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
-    >
+    <Checkbox id={useUID()} value="1" name="foo" hasError>
       Label
     </Checkbox>
   );
@@ -166,18 +125,8 @@ CheckboxErrorChecked.story = {
 };
 
 export const CheckboxHelpTextString = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <Checkbox
-      id={useUID()}
-      value="1"
-      name="foo"
-      helpText="Some interesting help text"
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
-    >
+    <Checkbox id={useUID()} value="1" name="foo" helpText="Some interesting help text">
       Label
     </Checkbox>
   );
@@ -188,7 +137,6 @@ CheckboxHelpTextString.story = {
 };
 
 export const CheckboxHelpTextChildren = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
     <Checkbox
       id={useUID()}
@@ -199,10 +147,6 @@ export const CheckboxHelpTextChildren = (): React.ReactNode => {
           Some interesting help text with a <a href="http://www.google.com">link</a>
         </>
       }
-      checked={checked}
-      onChange={(event) => {
-        setChecked(event.target.checked);
-      }}
     >
       Label
     </Checkbox>
@@ -345,42 +289,15 @@ DefaultCheckboxGroup.story = {
 };
 
 export const CheckboxGroupError = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
   return (
     <CheckboxGroup name="bar" legend="This is the legend text" errorText="This is the error text." required>
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text.">
         Third
       </Checkbox>
     </CheckboxGroup>
@@ -392,43 +309,15 @@ CheckboxGroupError.story = {
 };
 
 export const CheckboxGroupDisabled = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
-
   return (
     <CheckboxGroup name="bar" legend="This is the legend text" required disabled>
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text.">
         Third
       </Checkbox>
     </CheckboxGroup>
@@ -440,44 +329,15 @@ CheckboxGroupDisabled.story = {
 };
 
 export const CheckboxGroupOverrideDisabled = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(true);
-  const [checked2, setChecked2] = React.useState(true);
-  const [checked3, setChecked3] = React.useState(true);
-
   return (
     <CheckboxGroup name="bar" legend="This is the legend text" required>
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        disabled
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text." disabled>
         Third
       </Checkbox>
     </CheckboxGroup>
@@ -489,9 +349,6 @@ CheckboxGroupOverrideDisabled.story = {
 };
 
 export const CheckboxGroupHorizontal = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
   return (
     <CheckboxGroup
       name="bar"
@@ -500,37 +357,13 @@ export const CheckboxGroupHorizontal = (): React.ReactNode => {
       orientation="horizontal"
       required
     >
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text.">
         Third
       </Checkbox>
     </CheckboxGroup>
@@ -542,48 +375,15 @@ CheckboxGroupHorizontal.story = {
 };
 
 export const CheckboxGroupHorizontalDisabled = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
   return (
-    <CheckboxGroup
-      name="bar"
-      legend="This is the legend text"
-      helpText="Help text should go here."
-      orientation="horizontal"
-      disabled
-    >
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+    <CheckboxGroup name="bar" legend="This is the legend text" orientation="horizontal" required disabled>
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text.">
         Third
       </Checkbox>
     </CheckboxGroup>
@@ -595,12 +395,6 @@ CheckboxGroupHorizontalDisabled.story = {
 };
 
 export const CheckboxGroupHorizontalError = (): React.ReactNode => {
-  const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
-  const [checked4, setChecked4] = React.useState(false);
-  const [checked5, setChecked5] = React.useState(false);
-
   return (
     <CheckboxGroup
       name="bar"
@@ -609,59 +403,19 @@ export const CheckboxGroupHorizontalError = (): React.ReactNode => {
       orientation="horizontal"
       required
     >
-      <Checkbox
-        id={useUID()}
-        value="1"
-        helpText="This is some help text."
-        checked={checked1}
-        onChange={(event) => {
-          setChecked1(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="1" helpText="This is some help text.">
         First
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="2"
-        helpText="This is some help text."
-        checked={checked2}
-        onChange={(event) => {
-          setChecked2(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="2" helpText="This is some help text.">
         Second
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="3"
-        helpText="This is some help text."
-        checked={checked3}
-        onChange={(event) => {
-          setChecked3(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="3" helpText="This is some help text.">
         Third
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="4"
-        helpText="This is some help text."
-        checked={checked4}
-        onChange={(event) => {
-          setChecked4(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="4" helpText="This is some help text.">
         Forth
       </Checkbox>
-      <Checkbox
-        id={useUID()}
-        value="5"
-        helpText="This is some help text."
-        checked={checked5}
-        onChange={(event) => {
-          setChecked5(event.target.checked);
-        }}
-      >
+      <Checkbox id={useUID()} value="5" helpText="This is some help text.">
         Fifth
       </Checkbox>
     </CheckboxGroup>
@@ -825,15 +579,8 @@ CheckboxIndeterminateHorizontalGroup.story = {
 };
 
 export const DefaultCheckboxDisclaimer = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <CheckboxDisclaimer
-      id={useUID()}
-      value="foo"
-      name="foo"
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    >
+    <CheckboxDisclaimer id={useUID()} value="foo" name="foo">
       <Text as="span">
         I declare the information provided above is accurate. I acknowledge that Twilio will process the information
         provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
@@ -849,16 +596,8 @@ DefaultCheckboxDisclaimer.story = {
 };
 
 export const CheckboxDisclaimerRequired = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <CheckboxDisclaimer
-      id={useUID()}
-      value="foo"
-      name="foo"
-      required
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    >
+    <CheckboxDisclaimer id={useUID()} value="foo" name="foo" required>
       <Text as="span">
         I declare the information provided above is accurate. I acknowledge that Twilio will process the information
         provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
@@ -874,16 +613,8 @@ CheckboxDisclaimerRequired.story = {
 };
 
 export const CheckboxDisclaimerError = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <CheckboxDisclaimer
-      errorText="This is the error text."
-      id={useUID()}
-      value="foo"
-      name="foo"
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    >
+    <CheckboxDisclaimer errorText="This is the error text." id={useUID()} value="foo" name="foo">
       <Text as="span">
         I declare the information provided above is accurate. I acknowledge that Twilio will process the information
         provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
@@ -899,16 +630,8 @@ CheckboxDisclaimerError.story = {
 };
 
 export const CheckboxDisclaimerDisabled = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState(false);
   return (
-    <CheckboxDisclaimer
-      disabled
-      id={useUID()}
-      value="foo"
-      name="foo"
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    >
+    <CheckboxDisclaimer disabled id={useUID()} value="foo" name="foo">
       I declare the information provided above is accurate. I acknowledge that Twilio will process the information
       provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
       or authorities where required by local law. I understand that Twilio phone numbers may be taken out of service for

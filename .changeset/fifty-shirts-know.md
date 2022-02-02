@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/checkbox': patch
-'@twilio-paste/core': patch
+'@twilio-paste/checkbox': minor
+'@twilio-paste/core': minor
 ---
 
-[Checkbox] Hide check icon when not checked
+[Checkbox] Hide check icon when not checked, add the defaultChecked prop.
