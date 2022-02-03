@@ -39,8 +39,8 @@ export const DropdownCombobox = (): React.ReactNode => {
         <Input
           id={uid}
           type="text"
-          {...getInputProps()}
           {...getToggleButtonProps({tabIndex: 0})}
+          {...getInputProps()}
           value={selectedItem || ''}
         />
       </Box>
