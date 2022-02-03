@@ -18,20 +18,6 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     });
   }
 };
-exports.onCreateWebpackConfig = ({stage, loaders, actions}) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /docsearch\.js/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-};
 exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes([
     schema.buildObjectType({
