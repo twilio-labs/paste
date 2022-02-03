@@ -8,12 +8,7 @@ import {DarkModeToggle} from './DarkModeToggle';
 
 import 'react-github-button/assets/style.css';
 
-interface SiteHeaderDesktopProps {
-  searchValue: string;
-  onSearchChange: (newSearchValue: string) => void;
-}
-
-const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSearchChange}) => {
+const SiteHeaderDesktop: React.FC = () => {
   return (
     <Box
       as="header"
@@ -40,7 +35,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         <DarkModeToggle />
         <Box marginTop="space10">
           <Stack orientation="horizontal" spacing="space60">
-            <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
+            <SiteHeaderSearch />
             <Box>
               <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
             </Box>
