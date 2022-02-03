@@ -2,7 +2,6 @@ import * as React from 'react';
 import _ from 'lodash';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Text} from '@twilio-paste/text';
@@ -10,8 +9,7 @@ import {Select, Option} from '@twilio-paste/select';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {useCombobox, Combobox} from '../src';
+import {Combobox} from '../src';
 
 const items = [
   'Alert',
@@ -547,65 +545,6 @@ export const ComboboxControlled = (): React.ReactNode => {
 
 ComboboxControlled.story = {
   name: 'Combobox - Controlled',
-};
-
-export const ComboboxControlledUsingState = (): React.ReactNode => {
-  const [value, setValue] = React.useState('');
-  const [selectedItem, setSelectedItem] = React.useState({});
-  const [inputItems, setInputItems] = React.useState(objectItems);
-  const {reset, ...state} = useCombobox({
-    items: inputItems,
-    itemToString: (item) => (item ? item.label : ''),
-    onSelectedItemChange: (changes) => {
-      // @ts-ignore
-      setSelectedItem(changes.selectedItem);
-    },
-    onInputValueChange: ({inputValue}) => {
-      if (inputValue !== undefined) {
-        setInputItems(
-          _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
-        );
-        setValue(inputValue);
-      }
-    },
-    inputValue: value,
-  });
-  return (
-    <>
-      <Combobox
-        state={state}
-        items={inputItems}
-        autocomplete
-        labelText="Choose a country:"
-        helpText="This is the help text"
-        optionTemplate={(item: ObjectItem) => (
-          <div>
-            {item.code} | {item.label} | {item.phone}
-          </div>
-        )}
-        insertAfter={
-          <Button
-            variant="link"
-            size="reset"
-            onClick={() => {
-              reset();
-            }}
-          >
-            <CloseIcon decorative={false} title="Clear" />
-          </Button>
-        }
-      />
-      <Box paddingTop="space70">
-        Input value state: {JSON.stringify(value)}
-        <br />
-        Selected item state: {JSON.stringify(selectedItem)}
-      </Box>
-    </>
-  );
-};
-
-ComboboxControlledUsingState.story = {
-  name: 'Combobox - Controlled using state',
 };
 
 export const ComboboxOpen = (): React.ReactNode => {
