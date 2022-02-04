@@ -1,6 +1,7 @@
 import {DefaultTheme} from './default';
 import {SendGridTheme} from './sendgrid';
-import {ConsoleTheme} from './console';
 import {DarkTheme} from './dark';
+
+const ConsoleTheme = DefaultTheme;
 
 export {DefaultTheme, ConsoleTheme, SendGridTheme, DarkTheme};
