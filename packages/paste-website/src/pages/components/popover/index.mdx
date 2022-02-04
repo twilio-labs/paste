@@ -28,6 +28,7 @@ import {
   StateHookPopoverExample,
   badgeExample,
   buttonVariantsExample,
+  setWidthExample,
 } from '../../../component-examples/PopoverExamples';
 
 export const pageQuery = graphql`
@@ -151,6 +152,28 @@ available in the [props description here](#popover-container).
   {rightExample}
 </LivePreview>
 
+### Adjusting size
+
+The Popover's width will grow to fit its content up to a maximum width of our `size50` token.
+Content width can be adjusted, up to the Popover's max width, by wrapping it in a `Box`
+component with a declared width.
+
+<LivePreview
+  scope={{
+    Box,
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Text,
+    Heading,
+    Separator,
+    Button,
+  }}
+  noInline
+>
+  {setWidthExample}
+</LivePreview>
+
 ### PopoverButton
 
 The PopoverButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
@@ -246,7 +269,7 @@ See the [badge](/components/badge) component.
 | border-color     | color-border-weaker   | No          |
 | border-radius    | border-radius-20      | No          |
 | box-shadow       | shadow-card           | No          |
-| max-width        | size-30               | No          |
+| max-width        | size-50               | No          |
 | padding          | space-50              | No          |
 | padding-left     | space-70              | No          |
 | padding-right    | space-70              | No          |
