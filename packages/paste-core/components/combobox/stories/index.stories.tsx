@@ -1,7 +1,9 @@
 import * as React from 'react';
 import _ from 'lodash';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Text} from '@twilio-paste/text';
@@ -9,7 +11,9 @@ import {Select, Option} from '@twilio-paste/select';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {Combobox} from '../src';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import {Combobox, useCombobox} from '../src';
 
 const items = [
   'Alert',
@@ -545,6 +549,74 @@ export const ComboboxControlled = (): React.ReactNode => {
 
 ComboboxControlled.story = {
   name: 'Combobox - Controlled',
+};
+
+export const ComboboxControlledUsingState: StoryFn = () => {
+  const [value, setValue] = React.useState('');
+  const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({} as ObjectItem);
+  const [inputItems, setInputItems] = React.useState<ObjectItem[] | never[]>(objectItems as ObjectItem[]);
+  const {reset, ...state} = useCombobox<ObjectItem>({
+    items: inputItems,
+    itemToString: (item) => (item ? item.label : ''),
+    onSelectedItemChange: (changes) => {
+      if (changes.selectedItem != null) {
+        setSelectedItem(changes.selectedItem);
+      }
+    },
+    onInputValueChange: ({inputValue}) => {
+      if (inputValue !== undefined) {
+        setInputItems(
+          _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+        );
+        setValue(inputValue);
+      }
+    },
+    inputValue: value,
+    selectedItem,
+  });
+  return (
+    <>
+      <Combobox
+        state={{...state, reset}}
+        items={inputItems}
+        autocomplete
+        itemToString={(item) => (item ? item.label : '')}
+        labelText="Choose a country:"
+        helpText="This is the help text"
+        optionTemplate={(item: ObjectItem) => (
+          <div>
+            {item.code} | {item.label} | {item.phone}
+          </div>
+        )}
+        insertAfter={
+          <Button
+            variant="link"
+            size="reset"
+            onClick={() => {
+              setValue('');
+              setSelectedItem({} as ObjectItem);
+              reset();
+            }}
+          >
+            {value !== '' ? (
+              <CloseIcon decorative={false} title="Clear" />
+            ) : (
+              <SearchIcon decorative={false} title="Search" />
+            )}
+          </Button>
+        }
+      />
+      <Box paddingTop="space70">
+        Input value state: {JSON.stringify(value)}
+        <br />
+        Selected item state: {JSON.stringify(selectedItem)}
+      </Box>
+    </>
+  );
+};
+
+ComboboxControlledUsingState.story = {
+  name: 'Combobox - Controlled using state',
 };
 
 export const ComboboxOpen = (): React.ReactNode => {

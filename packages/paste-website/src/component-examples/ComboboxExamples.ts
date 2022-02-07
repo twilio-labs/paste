@@ -372,55 +372,55 @@ const objectItems = [
   {code: 'AT', label: 'Austria', phone: '43'},
 ];
 
-const ComboboxUsingStatehook = () => {
+const ComboboxControlledUsingState = () => {
   const [value, setValue] = React.useState('');
   const [selectedItem, setSelectedItem] = React.useState({});
   const [inputItems, setInputItems] = React.useState(objectItems);
-
   const {reset, ...state} = useCombobox({
     items: inputItems,
-    itemToString: item => (item ? item.label : null),
-    onSelectedItemChange: changes => {
-      setSelectedItem(changes.selectedItem);
+    itemToString: (item) => (item ? item.label : ''),
+    onSelectedItemChange: (changes) => {
+      if (changes.selectedItem != null) {
+        setSelectedItem(changes.selectedItem);
+      }
     },
     onInputValueChange: ({inputValue}) => {
       if (inputValue !== undefined) {
         setInputItems(
-          _.filter(objectItems, item => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          _.filter(objectItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
         );
         setValue(inputValue);
       }
     },
     inputValue: value,
+    selectedItem,
   });
-
   return (
     <>
       <Combobox
-        state={state}
+        state={{...state, reset}}
         items={inputItems}
         autocomplete
+        itemToString={(item) => (item ? item.label : '')}
         labelText="Choose a country:"
         helpText="This is the help text"
-        optionTemplate={item => (
+        optionTemplate={(item) => (
           <div>
             {item.code} | {item.label} | {item.phone}
           </div>
         )}
         insertAfter={
-          value !== '' ? (
-            <Button
-              variant="link"
-              size="reset"
-              onClick={() => {
-                reset();
-              }}
-            >
-              <CloseIcon decorative={false} title="Clear" />
-            </Button>
-          ) : (
-            <SearchIcon decorative={false} title="search" />
-          )
+          <Button
+            variant="link"
+            size="reset"
+            onClick={() => {
+              setValue('');
+              setSelectedItem({});
+              reset();
+            }}
+          >
+          {!!value ? <CloseIcon decorative={false} title="Clear" />  : <SearchIcon decorative={false} title="Search" />}
+          </Button>
         }
       />
       <Box paddingTop="space70">
@@ -430,8 +430,9 @@ const ComboboxUsingStatehook = () => {
       </Box>
     </>
   );
-}
+};
+
 render(
-  <ComboboxUsingStatehook />
+  <ComboboxControlledUsingState />
 )
 `.trim();
