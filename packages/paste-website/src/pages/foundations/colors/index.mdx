@@ -8,10 +8,23 @@ import {graphql} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
 import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {PrimaryColorExample, DestructiveColorExample} from '../../../component-examples/ColorsFoundationExamples';
+import {ColorSwatch} from '../../../components/color-swatch/ColorSwatch';
+
+import {
+  PrimaryColorExample,
+  DestructiveColorExample,
+  BackgroundColorSwatches,
+  TextColorSwatches,
+  BorderColorSwatches,
+  StandardPairingSwatches,
+  StatusPairingSwatches,
+  InversePairingSwatches,
+} from '../../../component-examples/ColorsFoundationExamples';
 
 export const pageQuery = graphql`
   {
@@ -81,6 +94,8 @@ To learn more about design tokens, check out our Tokens Overview.
 
 Background color tokens define the background colors used in many of Paste’s UI components and elements.
 
+<BackgroundColorSwatches />
+
 [View all background color tokens](/tokens/#background-colors)
 
 ### Text and icon colors
@@ -89,11 +104,15 @@ Text color tokens are used to define text and icon colors. We’ve created a set
 
 We specifically have `color-text-*` and `color-text-icon-*` tokens, since icons have different contrast requirements. Since they are graphical objects, they only need to meet a 3:1 color contrast ratio, as opposed to text, which must meet 4.5:1. This means that icons can use any `color-text-*` or `color-text-icon-*` token, but text should never use `color-text-icon-*` tokens.
 
+<TextColorSwatches />
+
 [View all text and icon color tokens](/tokens/#text-colors)
 
 ### Border colors
 
 Border color tokens define the color of borders, as seen in toasts, alerts, cards, checkboxes, radio buttons, and more.
+
+<BorderColorSwatches />
 
 [View all border color tokens](/tokens/#border-colors)
 
@@ -105,9 +124,15 @@ Not all text or icons tokens will be accessible on all background tokens in Past
 
 The standard text and icon color tokens (`$color-text`, ` $color-text-weak`, `$color-text-icon`) are meant to be used on the standard background color tokens (`$color-background` and `$color-background-body`).
 
+<StandardPairingSwatches />
+
 Status text and icon color tokens are designed to be accessible on the standard background color tokens and on the weakest variant of the corresponding status background color token. For example, `$color-text-success` can be used on top of `$color-background-success-weakest`. `$color-text` can also be used on the weakest variant of all status background color tokens.
 
+<StatusPairingSwatches />
+
 The inverse text and icon color tokens (`$color-text-inverse`, `$color-text-inverse-weak`, `$color-text-icon-inverse`) are meant to be used on the inverse background color tokens (`$color-background-inverse` and `$color-background-body-inverse`).
+
+<InversePairingSwatches />
 
 A comprehensive list of all accessible color pairings is coming soon!
 
@@ -216,7 +241,7 @@ Coming soon!
 
 One of our core design principles for Paste is [“It’s Inclusive”](/introduction/about-paste/#its-inclusive). We strive to use and pair colors that are accessible for all users, including those with low vision. The color palette and guidelines conform to [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/) (WCAG) AA standards, an industry standard and legal guideline set from [section 508](https://www.section508.gov).
 
-When choosing colors, they should be able to be seen by all kinds of users, including those with low vision. Learn more about inclusive design via [our Inclusive Design Guide](/accessibility).
+When choosing colors, they should be able to be seen by all kinds of users, including those with low vision. Learn more about inclusive design via [our Inclusive Design Guide](/inclusive-design).
 
 ### Tools
 
