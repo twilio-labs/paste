@@ -37,7 +37,7 @@ describe('Checkbox', () => {
     const {getByRole, container} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
     expect(getByRole('checkbox')).not.toBeNull();
 
-    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"');
+    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"]');
     expect(checkIcon).toHaveStyleRule('display', 'none');
   });
 
@@ -58,7 +58,7 @@ describe('Checkbox', () => {
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
 
-    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"');
+    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"]');
     expect(checkIcon).toHaveStyleRule('display', 'block');
   });
 
