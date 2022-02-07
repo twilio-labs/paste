@@ -169,6 +169,9 @@ const SidebarNavigation: React.FC = () => {
               Product style guide
             </SidebarAnchor>
           </NavigationDisclosure>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/colors`}>
+            Colors
+          </SidebarAnchor>
           <SidebarAnchor
             level={1}
             to={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
