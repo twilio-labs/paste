@@ -56,7 +56,9 @@ const pageQuery = graphql`
     }
     allPastePattern: allAirtable(
       sort: {fields: [data___Feature]}
-      filter: {data: {status: {nin: [null, "in development"]}, Component_Category: {eq: "pattern"}}}
+      filter: {
+        data: {status: {nin: [null, "in development"]}, Component_Category: {eq: "pattern"}, Documentation: {eq: true}}
+      }
     ) {
       edges {
         node {

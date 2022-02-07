@@ -1,9 +1,14 @@
 import * as React from 'react';
+import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {Label} from '@twilio-paste/label';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {DatePicker} from '@twilio-paste/date-picker';
+import {TimePicker} from '@twilio-paste/time-picker';
+import {Separator} from '@twilio-paste/separator';
 import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -24,6 +29,58 @@ export const Default: React.FC = () => {
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+export const SmallerSize: React.FC = () => {
+  return (
+    <Box height="300px">
+      <PopoverContainer baseId="test-id" visible>
+        <PopoverButton variant="primary">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Box width="size30">
+            <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+          </Box>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+export const WideContent: React.FC = () => {
+  const date1ID = useUID();
+  const time1ID = useUID();
+  const date2ID = useUID();
+  const time2ID = useUID();
+  return (
+    <Box height="300px">
+      <PopoverContainer baseId="test-id" visible>
+        <PopoverButton variant="primary">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Stack orientation="horizontal" spacing="space40">
+            <Box width="10rem">
+              <Label htmlFor={date1ID}>Start date</Label>
+              <DatePicker id={date1ID} />
+            </Box>
+            <Box width="8rem">
+              <Label htmlFor={time1ID}>Start time</Label>
+              <TimePicker id={time1ID} />
+            </Box>
+          </Stack>
+          <Separator orientation="horizontal" verticalSpacing="space40" />
+          <Stack orientation="horizontal" spacing="space40">
+            <Box width="10rem">
+              <Label htmlFor={date2ID}>Start date</Label>
+              <DatePicker id={date2ID} />
+            </Box>
+            <Box width="8rem">
+              <Label htmlFor={time2ID}>Start time</Label>
+              <TimePicker id={time2ID} />
+            </Box>
+          </Stack>
         </Popover>
       </PopoverContainer>
     </Box>

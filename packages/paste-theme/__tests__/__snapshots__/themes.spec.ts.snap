@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Console theme should match the snapshot 1`] = `
-Array [
-  "backgroundColors",
-  "borderColors",
-  "borderWidths",
-  "breakpoints",
-  "dataVisualization",
-  "fontSizes",
-  "fontWeights",
-  "fonts",
-  "heights",
-  "iconSizes",
-  "lineHeights",
-  "maxHeights",
-  "maxWidths",
-  "minHeights",
-  "minWidths",
-  "radii",
-  "shadows",
-  "sizes",
-  "space",
-  "textColors",
-  "widths",
-  "zIndices",
-]
-`;
-
 exports[`Default theme should match the snapshot 1`] = `
 Array [
   "backgroundColors",

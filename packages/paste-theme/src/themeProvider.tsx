@@ -1,16 +1,17 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {DefaultTheme, SendGridTheme, ConsoleTheme, DarkTheme} from './themes';
+import {DefaultTheme, SendGridTheme, DarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
-import {ThemeVariants} from './constants';
+import {ThemeVariants, DeprecatedThemeVariants} from './constants';
+import {isDeprecatedTheme} from './utils/isDeprecatedTheme';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
+function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.DARK:
       return {
@@ -22,10 +23,11 @@ function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[
         ...SendGridTheme,
         breakpoints: customBreakpoints || SendGridTheme.breakpoints,
       };
-    case ThemeVariants.CONSOLE:
+    case DeprecatedThemeVariants.CONSOLE:
+      isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);
       return {
-        ...ConsoleTheme,
-        breakpoints: customBreakpoints || ConsoleTheme.breakpoints,
+        ...DefaultTheme,
+        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
       };
     case ThemeVariants.FLEX:
     case ThemeVariants.DEFAULT:
