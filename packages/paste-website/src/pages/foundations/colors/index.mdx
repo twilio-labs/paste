@@ -5,9 +5,13 @@ slug: /foundations/colors/
 ---
 
 import {graphql} from 'gatsby';
+import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {PrimaryColorExample, DestructiveColorExample} from '../../../component-examples/ColorsFoundationExamples';
 
 export const pageQuery = graphql`
   {
@@ -115,9 +119,13 @@ Paste uses Twilio’s brand colors intentionally and sparingly. Twilio Red is re
 
 For primary interactive elements, like buttons and links, we use blue colors to help differentiate between interactive and non-interactive UI elements.
 
+<LivePreview scope={{Stack, Button, Anchor}}>{PrimaryColorExample}</LivePreview>
+
 ### Destructive interactive colors
 
 For interactive elements that connote a destructive action, such as deleting an object, we use red colors. This is used to inform users of the possible consequences of deleting or removing something within the UI.
+
+<LivePreview scope={{Stack, Button, DeleteIcon}}>{DestructiveColorExample}</LivePreview>
 
 ### Statuses
 
