@@ -23,8 +23,7 @@ const BasicCombobox = () => {
         <Input
           id={uid}
           type="text"
-          {...getInputProps()}
-          {...getToggleButtonProps({tabIndex: 0})}
+          {...getInputProps(getToggleButtonProps({tabIndex: 0}))}
           value={selectedItem || ''}
         />
       </Box>
