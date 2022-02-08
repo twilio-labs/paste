@@ -59,18 +59,16 @@ const CheckboxIcon: React.FC<{
   disabled: boolean | undefined;
   checked: boolean | undefined;
   element: BoxProps['element'];
-}> = ({checked, element, disabled, indeterminate}) => {
-  const color = disabled && (checked || indeterminate) ? 'colorTextIcon' : 'colorTextWeakest';
-
+}> = ({checked, element, indeterminate}) => {
   if (indeterminate) {
-    return <MinusIcon element={element} decorative color={color} size="sizeIcon10" />;
+    return <MinusIcon element={element} decorative color="inherit" size="sizeIcon10" />;
   }
   return (
     <CheckboxCheckIcon
       element={element}
       display={!checked ? 'none' : 'block'}
       decorative
-      color={color}
+      color="inherit"
       size="sizeIcon10"
     />
   );

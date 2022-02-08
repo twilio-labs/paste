@@ -47,7 +47,7 @@ const disabledStyles = merge(BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
   fontWeight: 'fontWeightSemibold',
   backgroundColor: 'colorBackgroundInverse',
-  boxShadow: 'shadowBorderInverseWeaker',
+  boxShadow: 'shadowBorderInverseWeakest',
 });
 
 const ButtonStyleMapping = {
