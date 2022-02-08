@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 
 const backgroundTokens: BackgroundColorOptions[] = [
@@ -71,34 +72,35 @@ const inversePairingTokens: TokenPair[] = [
   {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse'},
 ];
 
-const SwatchContainer: React.FC = ({children}) => {
-  return (
-    <Box display="flex" rowGap="space100" columnGap="space70" flexWrap="wrap" marginBottom="space100">
-      {children}
-    </Box>
-  );
-};
+const StyledSwatchGrid = styled.div<{numberColumns: number}>`
+  display: grid;
+  column-gap: ${themeGet('space.space70')};
+  row-gap: ${themeGet('space.space100')};
+  margin-bottom: ${themeGet('space.space70')};
+  grid-template-columns: ${(props) => `repeat(${props.numberColumns}, 1fr)`};
+  grid-template-rows: repeat(2, auto);
+`;
 
 export const BackgroundColorSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={4}>
       {backgroundTokens.map((token) => (
-        <Box width="size20">
+        <Box>
           <ColorSwatch backgroundColor={token} />
           <ColorSwatchText>{token}</ColorSwatchText>
         </Box>
       ))}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
 export const TextColorSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={4}>
       {textTokens.map((token) => {
         const isInverseText = token === 'colorTextWeakest' || token === 'colorTextIconInverse';
         return (
-          <Box width="size20">
+          <Box>
             <ColorSwatch
               color={token}
               backgroundColor={isInverseText ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
@@ -107,18 +109,18 @@ export const TextColorSwatches: React.FC = () => {
           </Box>
         );
       })}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
 export const BorderColorSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={4}>
       {borderTokens.map((token) => {
         const isInverseBorder = token === 'colorBorderInverse';
 
         return (
-          <Box width="size20">
+          <Box>
             <ColorSwatch
               borderColor={!isInverseBorder ? token : undefined}
               backgroundColor={isInverseBorder ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
@@ -141,17 +143,17 @@ export const BorderColorSwatches: React.FC = () => {
           </Box>
         );
       })}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
 export const StandardPairingSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={3}>
       {standardPairingTokens.map(({textToken, backgroundToken}) => {
         const hasBorder = backgroundToken === 'colorBackgroundBody';
         return (
-          <Box width="size20">
+          <Box>
             <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
               <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
@@ -159,17 +161,17 @@ export const StandardPairingSwatches: React.FC = () => {
           </Box>
         );
       })}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
 export const StatusPairingSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={3}>
       {statusPairingTokens.map(({textToken, backgroundToken}) => {
         const hasBorder = backgroundToken === 'colorBackgroundBody';
         return (
-          <Box width="size20">
+          <Box>
             <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
               <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
@@ -177,16 +179,16 @@ export const StatusPairingSwatches: React.FC = () => {
           </Box>
         );
       })}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
 export const InversePairingSwatches: React.FC = () => {
   return (
-    <SwatchContainer>
+    <StyledSwatchGrid numberColumns={3}>
       {inversePairingTokens.map(({textToken, backgroundToken}) => {
         return (
-          <Box width="size20">
+          <Box>
             <ColorSwatch backgroundColor={backgroundToken}>
               <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
@@ -194,7 +196,7 @@ export const InversePairingSwatches: React.FC = () => {
           </Box>
         );
       })}
-    </SwatchContainer>
+    </StyledSwatchGrid>
   );
 };
 
