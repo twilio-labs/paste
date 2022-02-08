@@ -30,14 +30,14 @@ import {ResetButton} from './ResetButton';
 const AnimatedBox = animated(Box);
 
 // If size isn't passed, come up with a smart default:
-// - 'reset' for reset
+// - 'reset' for variant 'link'
 // - 'icon' if there's 1 child that's an icon
 // - 'default' otherwise
 const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?: ButtonSizes): ButtonSizes => {
   let smartSize: ButtonSizes = 'default';
   if (size != null) {
     smartSize = size;
-  } else if (variant === 'reset') {
+  } else if (variant === 'link' || variant === 'destructive_link' || variant === 'reset') {
     smartSize = 'reset';
   } else if (React.Children.count(children) === 1) {
     React.Children.forEach(children, (child) => {
