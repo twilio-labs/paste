@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 
-const backgroundTokens = [
+const backgroundTokens: BackgroundColorOptions[] = [
   'colorBackground',
   'colorBackgroundStrong',
   'colorBackgroundPrimary',
@@ -13,7 +14,7 @@ const backgroundTokens = [
   'colorBackgroundNew',
 ];
 
-const textTokens = [
+const textTokens: TextColorOptions[] = [
   'colorText',
   'colorTextWeak',
   'colorTextWeaker',
@@ -24,7 +25,7 @@ const textTokens = [
   'colorTextIconInverse',
 ];
 
-const borderTokens = [
+const borderTokens: BorderColorOptions[] = [
   'colorBorder',
   'colorBorderWeak',
   'colorBorderWeaker',
@@ -35,7 +36,12 @@ const borderTokens = [
   'colorBorderInverse',
 ];
 
-const standardPairingTokens = [
+interface TokenPair {
+  textToken: TextColorOptions;
+  backgroundToken: BackgroundColorOptions;
+}
+
+const standardPairingTokens: TokenPair[] = [
   {textToken: 'colorText', backgroundToken: 'colorBackground'},
   {textToken: 'colorTextWeak', backgroundToken: 'colorBackground'},
   {textToken: 'colorTextIcon', backgroundToken: 'colorBackground'},
@@ -44,7 +50,7 @@ const standardPairingTokens = [
   {textToken: 'colorTextIcon', backgroundToken: 'colorBackgroundBody'},
 ];
 
-const statusPairingTokens = [
+const statusPairingTokens: TokenPair[] = [
   {textToken: 'colorTextSuccess', backgroundToken: 'colorBackground'},
   {textToken: 'colorTextWarning', backgroundToken: 'colorBackground'},
   {textToken: 'colorTextError', backgroundToken: 'colorBackground'},
@@ -56,7 +62,7 @@ const statusPairingTokens = [
   {textToken: 'colorTextError', backgroundToken: 'colorBackgroundErrorWeakest'},
 ];
 
-const inversePairingTokens = [
+const inversePairingTokens: TokenPair[] = [
   {textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundInverse'},
   {textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundInverse'},
   {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundInverse'},
