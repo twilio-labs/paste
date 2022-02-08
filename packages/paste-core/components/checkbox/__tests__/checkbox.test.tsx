@@ -34,8 +34,11 @@ const defaultGroupProps = {
 
 describe('Checkbox', () => {
   it('should render', () => {
-    const {getByRole} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
+    const {getByRole, container} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
     expect(getByRole('checkbox')).not.toBeNull();
+
+    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"]');
+    expect(checkIcon).toHaveStyleRule('display', 'none');
   });
 
   it('should render as invalid', () => {
@@ -47,13 +50,28 @@ describe('Checkbox', () => {
     expect(getByRole('checkbox').getAttribute('aria-invalid')).toBeTruthy();
   });
 
-  it('should render as checked', () => {
-    const {getByLabelText} = render(
+  it('should render as checked when defaultChecked', () => {
+    const {getByLabelText, container} = render(
+      <Checkbox {...defaultProps} defaultChecked onChange={NOOP}>
+        foo
+      </Checkbox>
+    );
+    expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
+
+    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"]');
+    expect(checkIcon).toHaveStyleRule('display', 'block');
+  });
+
+  it('should render as checked when controlled', () => {
+    const {getByLabelText, container} = render(
       <Checkbox {...defaultProps} checked onChange={NOOP}>
         foo
       </Checkbox>
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
+
+    const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"');
+    expect(checkIcon).toHaveStyleRule('display', 'block');
   });
 
   it('should render a required dot', () => {
@@ -195,6 +213,7 @@ describe('Checkbox event handlers', () => {
         data-testid="checkbox-button"
         id="foo"
         name="foo"
+        checked
         onChange={onChangeMock}
         onFocus={onFocusMock}
         onBlur={onBlurMock}
@@ -211,8 +230,20 @@ describe('Checkbox event handlers', () => {
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 
-  it('Should check the checkbox', () => {
-    // const onChangeMock: jest.Mock = jest.fn();
+  it('Should not call onChange handler when uncontrolled', () => {
+    const onChangeMock: jest.Mock = jest.fn();
+
+    const {getByTestId} = render(
+      <Checkbox data-testid="checkbox-button" id="foo" name="foo" onChange={onChangeMock}>
+        foo
+      </Checkbox>
+    );
+
+    fireEvent.click(getByTestId('checkbox-button'));
+    expect(onChangeMock).toHaveBeenCalledTimes(0);
+  });
+
+  it('Should check the checkbox when controlled', () => {
     const MockCheckBox: React.FC = () => {
       const [checked, setChecked] = React.useState(false);
       return (
@@ -225,6 +256,21 @@ describe('Checkbox event handlers', () => {
             setChecked(event.target.checked);
           }}
         >
+          foo
+        </Checkbox>
+      );
+    };
+
+    const {getByTestId} = render(<MockCheckBox />);
+
+    fireEvent.click(getByTestId('checkbox-button'));
+    expect((getByTestId('checkbox-button') as HTMLInputElement).checked).toBe(true);
+  });
+
+  it('Should check the checkbox when uncontrolled', () => {
+    const MockCheckBox: React.FC = () => {
+      return (
+        <Checkbox data-testid="checkbox-button" id="foo" name="foo">
           foo
         </Checkbox>
       );

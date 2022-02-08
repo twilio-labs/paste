@@ -21,7 +21,6 @@ import {
   FriendlyName,
   WithHelpText,
   WithErrorText,
-  dontText,
 } from '../../../component-examples/PrivacyPatternExamples.tsx';
 import {Button} from '@twilio-paste/button';
 
@@ -209,8 +208,11 @@ If an input containing a privacy indicator is in an error state, the error messa
       </HelpText>
     </Box>
   </Do>
-  {/* omitted the anchor to GH Discussions in the body here, is that ok? */}
-  <Dont title="Don't" body={dontText} preview={false}>
+  <Dont
+    title="Don't"
+    body="Update the copy specific to a particular field as that may encourage inconsistencies across the customer experience. If the default copy doesn’t work for your use case, please create a Github Discussion to discuss adding a new variant."
+    preview={false}
+  >
     <Box padding="space60">
       <Label htmlFor="dont-1">Friendly name</Label>
       <Input type="text" id="dont-1" aria-describedby="dont-1-ht" value="My favorite service" />

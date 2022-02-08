@@ -15,7 +15,12 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/checkbox/CHANGELOG.md';
-import {checkedCheckbox, indeterminateExample} from '../../../component-examples/CheckboxExamples';
+import {
+  checkedCheckbox,
+  indeterminateExample,
+  uncontrolledCheckbox,
+  controlledCheckbox,
+} from '../../../component-examples/CheckboxExamples';
 
 export const pageQuery = graphql`
   {
@@ -100,6 +105,22 @@ Use a checkbox to present a user with a binary (e.g. on/off) choice that is part
   - Ensure the label text includes wording that successfully describes the requirement to the user that they should check the box
 - When in an error state display an inline error message below the offending checkbox that clearly describes the error along with an icon that depicts the severity.
 - When displaying additional content based on checking a checkbox, be sure that the new content appears after the checkbox so that it is naturally discoverable by assistive technology users.
+
+## Controlled vs. uncontrolled checkboxes
+
+The checkbox can either be controlled, meaning there is an external state that determines if the checkbox is checked or not, or uncontrolled, meaning the checkbox manages its own state.
+
+To make an uncontrolled checkbox, you do not pass the `checked` or `onChange` props. If you need the checkbox to be checked by default, use the `defaultChecked` prop.
+
+<LivePreview scope={{Checkbox}} noInline>
+  {uncontrolledCheckbox}
+</LivePreview>
+
+To make a controlled checkbox, you must pass the `checked` and `onChange` props. You cannot use the `defaultChecked` prop in a controlled checkbox.
+
+<LivePreview scope={{Checkbox}} noInline>
+  {controlledCheckbox}
+</LivePreview>
 
 ## Examples
 
@@ -400,6 +421,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | children          | `ReactNode`                              |             | null    |
 | id?               | `string`                                 |             | null    |
 | checked?          | `boolean`                                |             | false   |
+| defaultChecked?   | `boolean`                                |             | null    |
 | hasError?         | `boolean`                                |             | false   |
 | helpText?         | `string` or `ReactNode`                  |             | null    |
 | indeterminate?    | `boolean`                                |             | false   |
@@ -428,15 +450,16 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
-| Prop       | Type                                     | Description | Default |
-| ---------- | ---------------------------------------- | ----------- | ------- |
-| children   | `ReactNode`                              |             | null    |
-| id?        | `string`                                 |             | null    |
-| checked?   | `boolean`                                |             | false   |
-| errorText? | `string` or `ReactNode`                  |             | null    |
-| onChange?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onFocus?   | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onBlur?    | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| Prop            | Type                                     | Description | Default |
+| --------------- | ---------------------------------------- | ----------- | ------- |
+| children        | `ReactNode`                              |             | null    |
+| id?             | `string`                                 |             | null    |
+| checked?        | `boolean`                                |             | false   |
+| defaultChecked? | `boolean`                                |             | null    |
+| errorText?      | `string` or `ReactNode`                  |             | null    |
+| onChange?       | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onFocus?        | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onBlur?         | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
 <ChangelogRevealer>
   <Changelog />
