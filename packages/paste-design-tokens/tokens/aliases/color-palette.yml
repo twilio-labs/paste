@@ -35,6 +35,7 @@ aliases:
   palette-gray-80: "#394762"
   palette-gray-90: "#1f304c"
   palette-gray-100: "#121c2d"
+  palette-gray-110: "#0D131C"
 
   ## Grays transparent based on lightest gray
   palette-gray-0-transparent-10: "rgba(255, 255, 255, 0.1)"
