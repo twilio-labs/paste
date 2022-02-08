@@ -1,11 +1,33 @@
 import * as React from 'react';
+import * as lodash from 'lodash';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import type {TextProps} from '@twilio-paste/text';
 
+interface ColorSwatchTextProps extends Pick<TextProps, 'color' | 'fontSize' | 'fontFamily' | 'margin'> {
+  children: string;
+  shouldKebabText?: boolean;
+}
 interface ColorSwatchProps extends Pick<BoxProps, 'borderColor' | 'backgroundColor' | 'color'> {
   children?: React.ReactNode;
 }
+
+export const ColorSwatchText: React.FC<ColorSwatchTextProps> = ({
+  children,
+  fontFamily = 'fontFamilyCode',
+  fontSize = 'fontSize20',
+  shouldKebabText = true,
+  ...props
+}) => {
+  const swatchText = shouldKebabText ? `$${lodash.kebabCase(children)}` : children;
+
+  return (
+    <Text as="span" fontFamily={fontFamily} fontSize={fontSize} {...props}>
+      {swatchText}
+    </Text>
+  );
+};
 
 export const ColorSwatch: React.FC<ColorSwatchProps> = ({borderColor, backgroundColor, color, children}) => {
   return (
@@ -23,9 +45,9 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({borderColor, background
       width={color ? 'max-content' : undefined}
     >
       {color && !children ? (
-        <Text as="span" color={color} fontSize="fontSize70" margin="space20" aria-hidden="true">
+        <ColorSwatchText color={color} fontSize="fontSize70" margin="space20" shouldKebabText={false}>
           Ag
-        </Text>
+        </ColorSwatchText>
       ) : (
         children
       )}

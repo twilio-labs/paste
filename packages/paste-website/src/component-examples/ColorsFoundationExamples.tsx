@@ -1,9 +1,6 @@
 import * as React from 'react';
-import * as lodash from 'lodash';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {TextProps} from '@twilio-paste/text';
-import {ColorSwatch} from '../components/color-swatch/ColorSwatch';
+import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 
 const backgroundTokens = [
   'colorBackground',
@@ -68,18 +65,6 @@ const inversePairingTokens = [
   {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse'},
 ];
 
-interface SwatchTextProps extends Pick<TextProps, 'color'> {
-  text: string;
-}
-
-const SwatchText: React.FC<SwatchTextProps> = ({text, color}) => {
-  return (
-    <Text as="span" fontFamily="fontFamilyCode" fontSize="fontSize20" color={color}>
-      {`$${lodash.kebabCase(text)}`}
-    </Text>
-  );
-};
-
 const SwatchContainer: React.FC = ({children}) => {
   return (
     <Box display="flex" rowGap="space100" columnGap="space70" flexWrap="wrap" marginBottom="space100">
@@ -94,7 +79,7 @@ export const BackgroundColorSwatches: React.FC = () => {
       {backgroundTokens.map((token) => (
         <Box width="size20">
           <ColorSwatch backgroundColor={token} />
-          <SwatchText text={token} />
+          <ColorSwatchText>{token}</ColorSwatchText>
         </Box>
       ))}
     </SwatchContainer>
@@ -112,7 +97,7 @@ export const TextColorSwatches: React.FC = () => {
               color={token}
               backgroundColor={isInverseText ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
             />
-            <SwatchText text={token} />
+            <ColorSwatchText>{token}</ColorSwatchText>
           </Box>
         );
       })}
@@ -146,7 +131,7 @@ export const BorderColorSwatches: React.FC = () => {
                 />
               ) : null}
             </ColorSwatch>
-            <SwatchText text={token} />
+            <ColorSwatchText>{token}</ColorSwatchText>
           </Box>
         );
       })}
@@ -162,9 +147,9 @@ export const StandardPairingSwatches: React.FC = () => {
         return (
           <Box width="size20">
             <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
-              <SwatchText text={textToken} color={textToken} />
+              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
-            <SwatchText text={backgroundToken} />
+            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
           </Box>
         );
       })}
@@ -180,9 +165,9 @@ export const StatusPairingSwatches: React.FC = () => {
         return (
           <Box width="size20">
             <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
-              <SwatchText text={textToken} color={textToken} />
+              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
-            <SwatchText text={backgroundToken} />
+            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
           </Box>
         );
       })}
@@ -197,9 +182,9 @@ export const InversePairingSwatches: React.FC = () => {
         return (
           <Box width="size20">
             <ColorSwatch backgroundColor={backgroundToken}>
-              <SwatchText text={textToken} color={textToken} />
+              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
             </ColorSwatch>
-            <SwatchText text={backgroundToken} />
+            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
           </Box>
         );
       })}
