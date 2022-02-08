@@ -161,13 +161,6 @@ const BasicMultiCombobox = () => {
 
   const inputId = seed('input-element');
 
-  const dropdownProps = getDropdownProps({
-    preventKeyAction: isOpen,
-    ...getToggleButtonProps({tabIndex: 0}),
-  });
-
-  const toggleButtonProps = getToggleButtonProps({tabIndex: 0});
-
   return (
     <>
       <Box marginBottom="space40" position="relative">
@@ -179,12 +172,15 @@ const BasicMultiCombobox = () => {
             id={inputId}
             type="text"
             {...getInputProps({
-              ...dropdownProps,
+              ...getDropdownProps({
+                preventKeyAction: isOpen,
+                ...getToggleButtonProps({tabIndex: 0}),
+              }),
             })}
             value={selectedItem || ''}
           />
         </Box>
-        <ComboboxListbox hidden={!isOpen} {...getMenuProps({ref: toggleButtonProps.ref})}>
+        <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
           <ComboboxListboxGroup>
             {filteredItems.map((filteredItem, index) => (
               <ComboboxListboxOption

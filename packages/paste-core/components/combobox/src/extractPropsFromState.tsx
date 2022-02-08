@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import type {UseComboboxPrimitiveStateChange, UseComboboxPrimitiveReturnValue} from '@twilio-paste/combobox-primitive';
-import {isEmpty} from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 import type {ComboboxProps} from './types';
 

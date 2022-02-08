@@ -217,13 +217,6 @@ export const BasicMultiCombobox: React.FC = () => {
   });
   const uid = useUID();
 
-  const dropdownProps = getDropdownProps({
-    preventKeyAction: isOpen,
-    ...getToggleButtonProps({tabIndex: 0}),
-  });
-
-  const toggleButtonProps = getToggleButtonProps({tabIndex: 0});
-
   return (
     <>
       <Box marginBottom="space40" position="relative">
@@ -235,12 +228,15 @@ export const BasicMultiCombobox: React.FC = () => {
             id={uid}
             type="text"
             {...getInputProps({
-              ...dropdownProps,
+              ...getDropdownProps({
+                preventKeyAction: isOpen,
+                ...getToggleButtonProps({tabIndex: 0}),
+              }),
             })}
             value={selectedItem || ''}
           />
         </Box>
-        <ComboboxListbox hidden={!isOpen} {...getMenuProps({ref: toggleButtonProps.ref})}>
+        <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
           <ComboboxListboxGroup>
             {filteredItems.map((filteredItem, index) => (
               <ComboboxListboxOption
