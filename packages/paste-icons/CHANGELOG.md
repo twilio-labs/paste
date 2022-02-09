@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`40911568`](https://github.com/twilio-labs/paste/commit/40911568af47384a230b41b18910d6cc533347e3) [#2193](https://github.com/twilio-labs/paste/pull/2193) Thanks [@loreina](https://github.com/loreina)! - [paste-icons] Add Send action icon for Webchat
+
 ## 6.0.0
 
 ### Minor Changes
