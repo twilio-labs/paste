@@ -1,26 +1,37 @@
 import * as React from 'react';
 import {styled, themeGet} from '@twilio-paste/styling-library';
-import {colors} from '@twilio-paste/design-tokens';
-import {colors as darkColors} from '@twilio-paste/design-tokens/dist/themes/dark/tokens.es6';
+import {aliases} from '@twilio-paste/design-tokens/dist/tokens.raw.json';
+import {aliases as DarkAliases} from '@twilio-paste/design-tokens/dist/themes/dark/tokens.raw.json';
 import {Box} from '@twilio-paste/box';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 
-const aliasPrefixes = ['colorGray', 'colorRed', 'colorOrange', 'colorYellow', 'colorGreen', 'colorBlue', 'colorPurple'];
+type ThemeShape = Record<string, Record<string, string | number>>;
 
-type AliasName = keyof typeof colors;
+const aliasPrefixes = [
+  'palette-gray',
+  'palette-red',
+  'palette-orange',
+  'palette-yellow',
+  'palette-green',
+  'palette-blue',
+  'palette-purple',
+];
+const excludedAliases = new Set(['palette-gray-0', 'palette-orange-65']);
 
 const sortAliasNames = (aliasNames: string[]): string[] => {
   return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, {numeric: true})).reverse();
 };
 
+const filterAliasNames = (aliasName: string, prefix: string): boolean =>
+  aliasName.includes(prefix) && !aliasName.includes('transparent') && !excludedAliases.has(aliasName);
+
 const getAliasValuesFromPrefix = (prefix: string, theme: 'default' | 'dark'): string[] => {
-  const themeColors = theme === 'default' ? colors : darkColors;
-  const filteredAliasNames = Object.keys(themeColors).filter(
-    (tokenName) => tokenName.includes(prefix) && tokenName !== 'colorGray0'
-  );
+  const themeColors: ThemeShape = theme === 'default' ? aliases : DarkAliases;
+  const filteredAliasNames = Object.keys(themeColors).filter((aliasName) => filterAliasNames(aliasName, prefix));
 
   return sortAliasNames(filteredAliasNames).reduce((current: string[], aliasName): string[] => {
-    return [...current, themeColors[aliasName as AliasName]];
+    const aliasObject = themeColors[aliasName];
+    return [...current, aliasObject.value as string];
   }, []);
 };
 
