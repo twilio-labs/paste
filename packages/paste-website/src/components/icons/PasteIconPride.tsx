@@ -1,19 +1,21 @@
 import * as React from 'react';
+import type * as CSS from 'csstype';
 import {useUID} from '@twilio-paste/uid-library';
 
 export interface PasteIconPrideProps {
-  className?: string;
   decorative?: boolean;
-  display?: string;
   size?: number;
   title?: string;
+  display?: CSS.DisplayProperty;
+  opacity?: CSS.OpacityProperty;
+  transition?: CSS.TransitionProperty;
 }
 
 const PasteIconPride = React.memo(
-  ({title = 'Twilio Paste', className, decorative = true, display, size}: PasteIconPrideProps) => {
+  ({title = 'Twilio Paste', decorative = true, display, size, opacity, transition}: PasteIconPrideProps) => {
     const titleId = `paste-icon-${useUID()}`;
     return (
-      <span style={{display, width: size, height: size}} className={className}>
+      <span style={{display, opacity, transition, width: size, height: size}}>
         <svg
           role="img"
           aria-hidden={decorative}

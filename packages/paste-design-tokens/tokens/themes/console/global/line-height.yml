@@ -1,5 +1,0 @@
-global:
-  category: line-height
-  type: number
-imports:
-  - ../../../global/line-height.yml

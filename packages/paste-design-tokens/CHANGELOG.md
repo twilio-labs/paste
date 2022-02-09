@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+- [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37) [#2168](https://github.com/twilio-labs/paste/pull/2168) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] Deprecated the console theme. The package no longer exports console tokens, the default tokens should be used instead.
+
+### Minor Changes
+
+- [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc) [#2093](https://github.com/twilio-labs/paste/pull/2093) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design Tokens] Add data-visualization tokens for 10 categorical (sequential) colors. These can be used to accessibly theme chart content, like bars in bar charts or lines in line charts.
+
 ## 6.14.2
 
 ### Patch Changes

@@ -1,0 +1,225 @@
+---
+title: Voice and tone
+description: How to use the Twilio Voice and tonal qualities to communicate effectively in our products.
+slug: /foundations/content/voice-and-tone/
+---
+
+import {graphql} from 'gatsby';
+import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/foundations/content/voice-and-tone/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## What are voice and tone?
+
+#### Voice is the foundation of every written or spoken communication.
+
+Voice makes us &mdash; Twilio &mdash; identifiable, consistent, and familiar.
+
+#### Tone is how you modify what you say to convey emotion or intent.
+
+Tone enables you to choose words, structures, punctuation, or syntax appropriate to the scenario.
+
+<Callout>
+  <CalloutTitle as="h4">Voice or tone?</CalloutTitle>
+  <CalloutText>
+    Think of your best friend. You can recognize their voice &mdash; that doesn't change. But how they speak in a job
+    interview is different from how they chat with you at the weekend. They <strong>sound</strong> the same &mdash;
+    that’s voice. But they change <strong>how</strong> they express themselves &mdash; that’s tone.
+  </CalloutText>
+</Callout>
+
+---
+
+### Twilio voice and tone
+
+#### The Twilio Voice is how we sound in writing or out loud.
+
+The characteristics of our voice don’t change. Twilio always sounds
+
+- Human
+- Accurate
+- Authentic
+
+---
+
+#### Tone has four parts
+
+The four qualities of tone are as follows. The exact mix changes to meet the user’s needs and situation.
+
+- Positive
+- Conversational
+- Encouraging
+- Knowledgeable
+
+#### Human = write with the user in mind
+
+Users succeed when they achieve their goal efficiently and have a positive experience.
+Create content that appeals to both their head and heart &#151; content that you'd want to read.
+
+- Reduce cognitive load by using common words in simple, short structures.
+- Be empathetic and consider the user's situation and emotional state.
+- Offer appropriate reactions, just as you would face-to-face.
+
+#### Accurate = write with precision
+
+Users need our content to be accurate.
+They rely on the words we use to help them achieve their goal.
+A user should never be surprised by what content means.
+
+- Use consistent language for features and products.
+- Give the user all the information they need to make a decision.
+- Remember, you are not the user.
+
+#### Authentic = write transparently
+
+Users need our content to be truthful and evidence-based.
+They rely on our products to do what they say.
+Being evasive or exaggerating isn’t useful and impacts the user’s trust in our products.
+
+- Be clear about what is and isn’t possible, particularly with beta or pilot features.
+- Never suggest or claim that the product does something it can’t deliver.
+- Test the product rigorously so you can be confident and precise about its functions.
+
+---
+
+## Tone
+
+Tone is used to modify how we communicate, according to the scenario and the user’s situation.
+Think of tone as a stabilizer tool.
+
+We want our users to feel
+
+- Confident
+- At ease
+- Empowered
+- Reassured
+
+To do that, we use a combination of tonal qualities
+
+- Positive
+- Conversational
+- Encouraging
+- Knowledgeable
+
+---
+
+### Tonal qualities
+
+#### Positive
+
+You're task-focused but warm. When the user wins, you recognize their success genuinely.
+
+- **Do** be engaging, efficient, and forward-looking.
+- **Do** front-load messages with the reason (why) then the action (how.)
+  - _To get started, add a user_
+  - _Congratulations, you sent your first campaign email!_
+
+Being over-enthusiastic all the time can sound insincere. Choose moments of infrequent success.
+
+- **Don't** be annoying, hyperbolic, or misleading.
+- **Don't** add empty phrases or punctuation to try to sound positive.
+  - _First up, add a user, then we can get going!_
+
+#### Conversational
+
+Speak to the user as you would in person. Imagine you're on friendly, but professional terms.
+
+- **Do** be friendly, approachable, and straightforward.
+- **Do** use common contractions (you’ll, we’re, let’s.)
+  - _You're not logged in_
+
+You aren't jokey or casual with the user. Remember, the user has a goal to complete.
+
+- **Don't** be colloquial or over-familiar.
+- **Don't** use slang or idioms. These can exclude users and obscure meaning.
+  - _Head over to Studio_
+  - _Oops, looks like you're a few characters short of a password_
+
+Write as much copy as you need to convey the message in a conversational tone.
+
+- **Avoid** sounding robotic or sacrificing meaning to save space. Shorter is not always better or clearer.
+- **Avoid** prioritizing space or design over comprehension or conversational language.
+  - _Create_
+- Instead, choose the words that clearly communicate what an interaction does.
+  - _Create Agent profile_
+
+#### Encouraging
+
+Show empathy, advise, and guide. Show the user how to succeed to give them confidence.
+
+- **Do** be helpful, reassuring, and supportive.
+- **Do** include a _please_ if the user is making additional effort.
+  - _To apply changes, please reload the page_
+  - _Change an Agent's skill level in Agent Profile_
+
+Users need support and reassurance without judgement.
+
+- **Don't** be patronizing or sound impatient.
+- **Don't** precede an instruction with _just_ or frame it as being easy or simple.
+  - _To apply changes, just reload the page_
+  - _Change an Agent's skill level easily in Agent Profile_
+
+#### Knowledgeable
+
+Empower the user by sharing information. Show them the edges of the flow for context.
+
+- **Do** be informative, guiding, and clear.
+- **Do** signpost what’s next to enable discovery.
+  - _To see available networks, select a country_
+
+Avoid surprising the user with another step and don't assume they know as much as you.
+
+- **Don't** be dictatorial, superior, or know-it-all.
+- **Don't** make the user guess what an interaction will do.
+  - _Select country_
+
+---
+
+## Finding tone that works
+
+Identify the user, their place in the experience, what they need, and their emotional state. Put yourself in their shoes.
+
+| Interaction | Context                                                                        | User need                                                                 | Approach                                                                 |
+| :---------- | :----------------------------------------------------------------------------- | :------------------------------------------------------------------------ | :----------------------------------------------------------------------- |
+| Neutral     | A repeated interaction (Login screen, confirmation message)                    | Familiarity and recognition. Efficiency, nothing unusual, and no friction | Conversational and positive. Be efficient, approachable, and unobtrusive |
+| Positive    | A high point (Completion of a complex flow, first-time success with a process) | Confirmation of success. A positive affirmation and clear next step       | Positive and encouraging. Be congratulatory and forward-looking          |
+| Negative    | An error or problem (Access denied, system failure)                            | Resolution and reassurance. A clear solution and reassurance              | Knowledgeable and encouraging. Be clear, informative, and calm           |
+
+Tone balances the interaction, leaving the user in a net-positive place emotionally.
+
+If in doubt, aim to sound like a friendly specialist. Be the voice of someone you'd want to come back to for support or guidance.
+
+Every interaction deserves consideration. If you can write in the Twilio Voice and use appropriate tonal qualities, your content will have a strong, user-focused foundation.
+
+</content>
+</contentwrapper>

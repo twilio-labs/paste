@@ -6,6 +6,18 @@ import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
+const IGNORE_LIST = [
+  '@twilio-paste/core',
+  '@twilio-paste/icons',
+  '@twilio-paste/website',
+  '@twilio-paste/codemods',
+  '@twilio-paste/cra-template',
+  '@twilio-paste/nextjs-template',
+  '@twilio-paste/theme-designer',
+  '@twilio-paste/color-contrast-utils',
+  '@twilio-paste/token-contrast-checker',
+];
+
 /**
  * Utility to check the contents of a changeset file for core and icons package and determine whether that changeset
  * should be flagged as missing core
@@ -15,9 +27,8 @@ export declare function fail(message: string): void;
  */
 export const shouldFlagChangeset = (filePath: string) => {
   const fileContent = fs.readFileSync(filePath).toString();
-  const containsIcons = fileContent.match(/'@twilio-paste\/icons'/);
-  const containsCore = fileContent.match(/'@twilio-paste\/core'/);
-  return !containsCore && !containsIcons;
+
+  return !IGNORE_LIST.some((ignorePath) => fileContent.match(ignorePath));
 };
 
 /**

@@ -1,5 +1,65 @@
 # Change Log
 
+## 2.23.12
+
+### Patch Changes
+
+- Updated dependencies [[`fd23d95b`](https://github.com/twilio-labs/paste/commit/fd23d95b62a6dc2930f3669d3fdf807c1ab57000), [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`02285a8aa`](https://github.com/twilio-labs/paste/commit/02285a8aadfafc3fb1fcb024ca78abe2f5204f5a), [`39ab32c2`](https://github.com/twilio-labs/paste/commit/39ab32c2d9e211b3a46a7cb789c62b7e6463510d), [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`ff1817a1`](https://github.com/twilio-labs/paste/commit/ff1817a1f486441a8e6fdc36c39cb65ab2605eca), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`68439c40`](https://github.com/twilio-labs/paste/commit/68439c4097dc533dd9a1bbc6965578f13e130c12)]:
+  - @twilio-paste/breadcrumb@5.0.0
+  - @twilio-paste/design-tokens@7.0.0
+  - @twilio-paste/color-contrast-utils@2.0.0
+  - @twilio-paste/checkbox@7.0.0
+  - @twilio-paste/icons@6.0.0
+  - @twilio-paste/theme@6.0.0
+  - @twilio-paste/popover@7.0.0
+  - @twilio-paste/style-props@4.0.0
+  - @twilio-paste/badge@2.0.0
+  - @twilio-paste/alert@8.0.0
+  - @twilio-paste/anchor@6.0.0
+  - @twilio-paste/avatar@3.0.0
+  - @twilio-paste/base-radio-checkbox@7.0.0
+  - @twilio-paste/button@8.0.0
+  - @twilio-paste/card@4.0.0
+  - @twilio-paste/combobox@9.0.0
+  - @twilio-paste/date-picker@1.0.0
+  - @twilio-paste/disclosure@6.0.0
+  - @twilio-paste/display-pill-group@2.0.0
+  - @twilio-paste/form-pill-group@2.0.0
+  - @twilio-paste/heading@6.0.0
+  - @twilio-paste/help-text@7.0.0
+  - @twilio-paste/inline-control-group@7.0.0
+  - @twilio-paste/input@4.0.0
+  - @twilio-paste/input-box@5.0.0
+  - @twilio-paste/label@7.0.0
+  - @twilio-paste/list@3.0.0
+  - @twilio-paste/menu@8.0.0
+  - @twilio-paste/modal@8.0.0
+  - @twilio-paste/pagination@1.0.0
+  - @twilio-paste/paragraph@5.0.0
+  - @twilio-paste/radio-group@7.0.0
+  - @twilio-paste/screen-reader-only@7.0.0
+  - @twilio-paste/select@6.0.0
+  - @twilio-paste/separator@3.0.0
+  - @twilio-paste/skeleton-loader@1.0.0
+  - @twilio-paste/spinner@8.0.0
+  - @twilio-paste/table@3.0.0
+  - @twilio-paste/tabs@3.0.0
+  - @twilio-paste/textarea@4.0.0
+  - @twilio-paste/time-picker@1.0.0
+  - @twilio-paste/toast@6.0.0
+  - @twilio-paste/tooltip@5.0.0
+  - @twilio-paste/truncate@8.0.0
+  - @twilio-paste/aspect-ratio@5.0.0
+  - @twilio-paste/flex@3.0.0
+  - @twilio-paste/grid@3.0.0
+  - @twilio-paste/media-object@5.0.0
+  - @twilio-paste/stack@3.0.0
+  - @twilio-paste/box@5.0.0
+  - @twilio-paste/sibling-box@4.0.0
+  - @twilio-paste/text@5.0.0
+  - @twilio-paste/customization@3.0.0
+  - @twilio-paste/alert-dialog@1.0.0
+
 ## 2.23.11
 
 ### Patch Changes

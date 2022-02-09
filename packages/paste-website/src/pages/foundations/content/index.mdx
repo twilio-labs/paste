@@ -1,0 +1,106 @@
+---
+title: Guideline Usage
+description: An overview to help you navigate product content guidance and a look at what's coming soon.
+slug: /foundations/content/
+---
+
+import {graphql} from 'gatsby';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Anchor} from '@twilio-paste/anchor';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/foundations/content/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<Callout variant="warning">
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
+  <CalloutText>
+    These guidelines are still in development and are not yet complete. If you can't see what you need here, you've
+    found an edge-case or exception, or you have other comments, reach out to Caroline Tecks on Slack.
+  </CalloutText>
+</Callout>
+
+**Use the guidance in the way that makes most sense to you.**
+These content pages should help you to feel more confident in writing concise, clear, and consistent product content.
+
+You might read [Voice and tone](/foundations/content/voice-and-tone) once for foundational understanding, while you might bookmark [Product style guide](/foundations/content/product-style-guide) for ease of reference.
+
+Look out for training sessions coming soon to help you make the most of these pages.
+
+## Sections at a glance &mdash; find what you need
+
+### Voice and tone
+
+- Understand voice and tone and their role in communicating.
+- Identify and use the Twilio Voice consistently.
+- Use tone to shape the user experience.
+- Find the appropriate tone and approach.
+- Go to [Voice and tone](/foundations/content/voice-and-tone)
+
+### Product style guide
+
+- The core principles of our content and "how we should write."
+- Punctuation guidance and exceptions.
+- Formatting and grammar tips, including capitals, lists, bold/italics, numbers, acronyms, and abbreviations.
+- Commonly confused or misspelled words and phrases.
+- Go to [Product style guide](/foundations/content/product-style-guide)
+
+### Components (coming in Q2)
+
+- Applying guidance to specific components. Covering buttons, headings, modals, navigation etc.
+
+### Get support
+
+- Check and edit content yourself with prompts and guidance.
+- Submit a request for content support from a UX Writer.
+- Go to [Get Support](/foundations/content/content-checklist)
+
+## Feedback
+
+These guidelines rely on your feedback to evolve and grow. Please reach out on Slack with
+
+- Usability feedback &mdash; the more specific, the better.
+- Edge cases or exceptions &mdash; send over screen shots and queries.
+- Additional examples &mdash; have a great example of before/after?
+- Questions and queries &mdash; if something isn't clear, let us know.
+
+<Callout>
+  <CalloutTitle as="h4">Need support with non-product content?</CalloutTitle>
+  <CalloutText>
+    {' '}
+    Visit the <Anchor href="https://www.twilio.com/brand/guidelines/writing-style">
+      Brand Writing Style Guidelines here
+    </Anchor>.
+  </CalloutText>
+</Callout>
+
+</content>
+</contentwrapper>

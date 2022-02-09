@@ -7,9 +7,10 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
-import type {NamedChild} from '../src/types';
 import {isFocusableElement, getBadgeSpanProps} from '../src/utils';
 import {useResizeChildIcons} from '../src/hooks';
+
+type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
 
 describe('Badge', () => {
   describe('Utils', () => {

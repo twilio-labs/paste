@@ -1,36 +1,37 @@
 import type {
-  backgroundColors as BackgroundColors,
-  borderColors as BorderColors,
-  borderWidths as BorderWidths,
-  radii as Radii,
-  fonts as Fonts,
-  fontSizes as FontSizes,
-  fontWeights as FontWeights,
-  lineHeights as LineHeights,
-  boxShadows as BoxShadows,
-  sizings as Sizings,
-  spacings as Spacings,
-  textColors as TextColors,
-  zIndices as ZIndices,
-} from '@twilio-paste/design-tokens';
-
-import type {GenericThemeShape} from './types/GenericThemeShape';
+  GenericThemeShape,
+  ColorsKeys,
+  BackgroundColorsKeys,
+  BorderColorsKeys,
+  BorderWidthsKeys,
+  FontSizesKeys,
+  FontWeightsKeys,
+  FontsKeys,
+  SizingKeys,
+  LineHeightsKeys,
+  RadiiKeys,
+  BoxShadowsKeys,
+  SpacingsKeys,
+  TextColorsKeys,
+  ZIndicesKeys,
+} from './types/GenericThemeShape';
 
 interface GenerateThemeFromTokensArgs {
-  backgroundColors: Partial<{[key in keyof typeof BackgroundColors]: any}>;
-  borderColors: Partial<{[key in keyof typeof BorderColors]: any}>;
-  borderWidths: Partial<{[key in keyof typeof BorderWidths]: any}>;
-  radii: Partial<{[key in keyof typeof Radii]: any}>;
-  fonts: Partial<{[key in keyof typeof Fonts]: any}>;
-  fontSizes: Partial<{[key in keyof typeof FontSizes]: any}>;
-  fontWeights: Partial<{[key in keyof typeof FontWeights]: any}>;
-  lineHeights: Partial<{[key in keyof typeof LineHeights]: any}>;
-  boxShadows: Partial<{[key in keyof typeof BoxShadows]: any}>;
+  backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
+  borderColors: Partial<{[key in BorderColorsKeys]: any}>;
+  borderWidths: Partial<{[key in BorderWidthsKeys]: any}>;
+  radii: Partial<{[key in RadiiKeys]: any}>;
+  fonts: Partial<{[key in FontsKeys]: any}>;
+  fontSizes: Partial<{[key in FontSizesKeys]: any}>;
+  fontWeights: Partial<{[key in FontWeightsKeys]: any}>;
+  lineHeights: Partial<{[key in LineHeightsKeys]: any}>;
+  boxShadows: Partial<{[key in BoxShadowsKeys]: any}>;
   // there are some sizes we expect must appear to generate breakpoints and icons sizes
-  sizings: {[key in keyof typeof Sizings]: any};
-  spacings: Partial<{[key in keyof typeof Spacings]: any}>;
-  textColors: Partial<{[key in keyof typeof TextColors]: any}>;
-  zIndices: Partial<{[key in keyof typeof ZIndices]: any}>;
+  sizings: {[key in SizingKeys]: any};
+  spacings: Partial<{[key in SpacingsKeys]: any}>;
+  textColors: Partial<{[key in TextColorsKeys]: any}>;
+  zIndices: Partial<{[key in ZIndicesKeys]: any}>;
+  colors: Partial<{[key in ColorsKeys]: any}>;
 }
 
 export const generateThemeFromTokens = ({
@@ -47,9 +48,23 @@ export const generateThemeFromTokens = ({
   spacings,
   textColors,
   zIndices,
+  colors,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
+
+  // Get only the dataViz color tokens from the 'colors' token bucket
+  const dataVisualization = Object.keys(colors)
+    .filter((colorToken) => {
+      return colorToken.includes('DataVisualization');
+    })
+    .reduce<Record<ColorsKeys, string>>(
+      (obj, key) => ({
+        ...obj,
+        [key]: colors[key as ColorsKeys],
+      }),
+      {} as Record<ColorsKeys, string>
+    );
 
   return {
     shadows: boxShadows,
@@ -85,5 +100,6 @@ export const generateThemeFromTokens = ({
     },
     space: spacings,
     zIndices,
+    dataVisualization,
   };
 };

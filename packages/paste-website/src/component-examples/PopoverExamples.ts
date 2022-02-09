@@ -164,3 +164,28 @@ render(
   <PopoverBadgeExample />
 )
 `.trim();
+
+export const setWidthExample = `
+const PopoverExample = () => {
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">✊ Action</PopoverButton>
+      <Popover aria-label="Popover">
+        <Box width="size30">
+          <Heading as="h3" variant="heading30">Heads up!</Heading>
+          <Separator orientation="horizontal" verticalSpacing="space50" />
+          <Text as="span">
+            Black Lives Matter. We stand with the Black community
+          </Text>
+          <Separator orientation="horizontal" verticalSpacing="space50" />
+          <Button onClick={() => {}} variant="primary">Agree</Button>
+        </Box>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+render(
+  <PopoverExample />
+)
+`.trim();

@@ -18,7 +18,7 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({title, author, avatar, dat
     <>
       <Breadcrumb>
         <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to="/articles">Articles</BreadcrumbItem>
+        <BreadcrumbItem to="/blog">Blog</BreadcrumbItem>
       </Breadcrumb>
       <Box marginBottom="space70">
         <Heading as="h1" variant="heading10" marginBottom="space0">
