@@ -136,7 +136,7 @@ props:
       - color-background-primary-weakest
       - color-background-destructive-weakest
   color-border-primary-weak:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-30}"
     comment: Weak primary border color
   color-border-primary-weaker:
     value: "{!palette-blue-20}"
