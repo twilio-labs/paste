@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-Updates default size for link buttons to 'default' from 'reset'
+Updates 'reset' styles to set inherited font size
