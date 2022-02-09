@@ -15,7 +15,7 @@ const Sidebar: React.FC = () => {
     <StyledSidebar
       as="aside"
       backgroundColor="colorBackground"
-      borderRightColor="colorBorderInverseWeaker"
+      borderRightColor="colorBorderInverseWeak"
       borderRightWidth="borderWidth10"
       borderRightStyle="solid"
       position="sticky"
