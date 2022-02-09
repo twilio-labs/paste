@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
@@ -196,6 +197,40 @@ export const InversePairingSwatches: React.FC = () => {
     </StyledSwatchGrid>
   );
 };
+
+const ImgCaption: React.FC = ({children}) => (
+  <Box as="p" marginTop="space40" marginBottom="space110">
+    <Text as="span" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">
+      <Text as="span" fontWeight="fontWeightBold" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">
+        Image caption:
+      </Text>{' '}
+      {children}
+    </Text>
+  </Box>
+);
+
+export const TokensDiagramImgCaption: React.FC = () => (
+  <ImgCaption>
+    Aliases in Paste contain the hard-coded values that are the primitive form of the colors in our palette. All design
+    tokens reference an alias. In this example, the $color-background-primary and $color-text-link tokens reference the
+    $color-palette-blue-60 alias to define the color of the token. However, each token is applied to a specific need for
+    different components, such as the background color of a primary button or the color of the anchor.
+  </ImgCaption>
+);
+
+export const InteractingStatesImgCaption: React.FC = () => (
+  <ImgCaption>
+    In this example, we are using a combination of color and shadow to help users identify the primary button while in
+    it’s different states.
+  </ImgCaption>
+);
+
+export const UseOfColorImgCaption: React.FC = () => (
+  <ImgCaption>
+    In this example, a success toast uses multiple distinguishing visual elements– the thick left border and the icon–
+    along with green colors to further convey to a user that an action they just took was successful.
+  </ImgCaption>
+);
 
 export const PrimaryColorExample = `
 <Stack orientation='horizontal' spacing='space70'>

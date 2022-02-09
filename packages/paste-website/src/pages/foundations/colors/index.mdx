@@ -27,16 +27,39 @@ import {
   StandardPairingSwatches,
   StatusPairingSwatches,
   InversePairingSwatches,
+  UseOfColorImgCaption,
+  TokensDiagramImgCaption,
+  InteractingStatesImgCaption,
 } from '../../../component-examples/ColorsFoundationExamples';
 
 export const pageQuery = graphql`
   {
     tokensDiagram: file(
       sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/foundations/tokens-diagram.png"}
+      relativePath: {eq: "images/foundations/colors/tokens-diagram.png"}
     ) {
       childImageSharp {
-        fluid(maxWidth: 640) {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    interactingStates: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/colors/interacting-states.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    useOfColorExample: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/colors/use-of-color-example.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -97,11 +120,14 @@ Colors in Paste are built on aliases and design tokens. Tokens abstract values t
 
 Paste’s color aliases are the primitive form of the colors in our palette. They act as an “alias” for the true hex code or RGB value of each of our colors and are referenced by our design tokens. Each of our colors currently has a minimum of 10 identified “steps”, with the opportunity to add new ones as needed. Lower steps appear lighter in color and higher steps appear darker in color.
 
-### Design tokens
+### Color design tokens
 
 Design tokens represent fundamental decisions of Paste’s design language, specifying their intended usage with their semantic naming in a predictable and clear way. All of Paste’s design tokens reference our aliases, and all Paste components and primitives use design tokens. Aliases are never directly used in the implementation of Paste UI; only tokens can be used.
 
 To learn more about design tokens, check out our Tokens Overview.
+
+<Img fluid={props.data.tokensDiagram.childImageSharp.fluid} />
+<TokensDiagramImgCaption />
 
 ## Color tokens
 
@@ -297,6 +323,9 @@ The following have no contrast requirements:
 
 As detailed in [WCAG Success Criterion 1.4.1 (Level A)](https://www.w3.org/TR/WCAG21/#use-of-color), it is important not to use color alone as a means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. Instead, convey such information with text and/or iconography, and use color only as a means to further enforce the meaning.
 
+<Img fluid={props.data.useOfColorExample.childImageSharp.fluid} />
+<UseOfColorImgCaption />
+
 ### User Interface controls
 
 As detailed in [WCAG Success Criterion 1.4.11 (Level AA)](https://www.w3.org/TR/WCAG21/#non-text-contrast), the intent of this success criterion is to ensure that active user interface controls—such as buttons and form controls—and meaningful graphics are distinguishable by people with moderately low vision.
@@ -308,6 +337,9 @@ As detailed in [WCAG Success Criterion 1.4.11 (Level AA)](https://www.w3.org/TR/
   - If you just change the background color, the new background must be 3:1 against adjacent colors and the previous background color.
   - If you change the physical shape, i.e. adding a shadow, the shadow must meet 3:1 against adjacent color.
   - If you change the physical attributes outside of color alone, e.g., underline the text, color contrast requirements for the control is exempt.
+
+<Img fluid={props.data.interactingStates.childImageSharp.fluid} />
+<InteractingStatesImgCaption />
 
 <Callout>
   <CalloutTitle as="h4">Still need more guidance?</CalloutTitle>
