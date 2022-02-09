@@ -5,7 +5,7 @@ import type {BoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import type {TextProps} from '@twilio-paste/text';
 
-interface ColorSwatchTextProps extends Pick<TextProps, 'color' | 'fontSize' | 'fontFamily' | 'margin'> {
+interface ColorSwatchTextProps extends Pick<TextProps, 'color' | 'fontSize' | 'fontFamily' | 'margin' | 'aria-hidden'> {
   children: string;
   shouldKebabText?: boolean;
 }
@@ -45,7 +45,13 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({borderColor, background
       width={color ? 'max-content' : undefined}
     >
       {color && !children ? (
-        <ColorSwatchText color={color} fontSize="fontSize70" margin="space20" shouldKebabText={false}>
+        <ColorSwatchText
+          color={color}
+          fontSize="fontSize70"
+          margin="space20"
+          shouldKebabText={false}
+          aria-hidden="true"
+        >
           Ag
         </ColorSwatchText>
       ) : (

@@ -77,124 +77,135 @@ const StyledSwatchGrid = styled.div<{numberColumns: number}>`
   display: grid;
   column-gap: ${themeGet('space.space70')};
   row-gap: ${themeGet('space.space100')};
-  margin-bottom: ${themeGet('space.space70')};
   grid-template-columns: ${(props) => `repeat(${props.numberColumns}, 1fr)`};
   grid-template-rows: repeat(2, auto);
 `;
 
 export const BackgroundColorSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={4}>
-      {backgroundTokens.map((token) => (
-        <Box>
-          <ColorSwatch backgroundColor={token} />
-          <ColorSwatchText>{token}</ColorSwatchText>
-        </Box>
-      ))}
-    </StyledSwatchGrid>
+    <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
+      <StyledSwatchGrid numberColumns={4}>
+        {backgroundTokens.map((token) => (
+          <Box as="li" listStyleType="none">
+            <ColorSwatch backgroundColor={token} />
+            <ColorSwatchText>{token}</ColorSwatchText>
+          </Box>
+        ))}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
 export const TextColorSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={4}>
-      {textTokens.map((token) => (
-        <Box>
-          <ColorSwatch
-            color={token}
-            backgroundColor={token === 'colorTextWeakest' ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
-          />
-          <ColorSwatchText>{token}</ColorSwatchText>
-        </Box>
-      ))}
-    </StyledSwatchGrid>
+    <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
+      <StyledSwatchGrid numberColumns={4}>
+        {textTokens.map((token) => (
+          <Box as="li" listStyleType="none">
+            <ColorSwatch
+              color={token}
+              backgroundColor={token === 'colorTextWeakest' ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
+            />
+            <ColorSwatchText>{token}</ColorSwatchText>
+          </Box>
+        ))}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
 export const BorderColorSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={4}>
-      {borderTokens.map((token) => {
-        const isInverseBorder = token === 'colorBorderInverse';
+    <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
+      <StyledSwatchGrid numberColumns={4}>
+        {borderTokens.map((token) => {
+          const isInverseBorder = token === 'colorBorderInverse';
 
-        return (
-          <Box>
-            <ColorSwatch
-              borderColor={!isInverseBorder ? token : undefined}
-              backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
-            >
-              {isInverseBorder ? (
-                <Box
-                  position="absolute"
-                  top="space20"
-                  bottom="space20"
-                  left="space20"
-                  right="space20"
-                  borderWidth="borderWidth20"
-                  borderStyle="solid"
-                  borderColor={token}
-                  borderRadius="borderRadius20"
-                />
-              ) : null}
-            </ColorSwatch>
-            <ColorSwatchText>{token}</ColorSwatchText>
-          </Box>
-        );
-      })}
-    </StyledSwatchGrid>
+          return (
+            <Box as="li" listStyleType="none">
+              <ColorSwatch
+                borderColor={!isInverseBorder ? token : undefined}
+                backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
+              >
+                {isInverseBorder ? (
+                  <Box
+                    position="absolute"
+                    top="space20"
+                    bottom="space20"
+                    left="space20"
+                    right="space20"
+                    borderWidth="borderWidth20"
+                    borderStyle="solid"
+                    borderColor={token}
+                    borderRadius="borderRadius20"
+                  />
+                ) : null}
+              </ColorSwatch>
+              <ColorSwatchText>{token}</ColorSwatchText>
+            </Box>
+          );
+        })}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
 export const StandardPairingSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={3}>
-      {standardPairingTokens.map(({textToken, backgroundToken}) => {
-        const hasBorder = backgroundToken === 'colorBackgroundBody';
-        return (
-          <Box>
-            <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
-              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
-            </ColorSwatch>
-            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
-          </Box>
-        );
-      })}
-    </StyledSwatchGrid>
+    <Box marginBottom="space130">
+      <StyledSwatchGrid numberColumns={3}>
+        {standardPairingTokens.map(({textToken, backgroundToken}) => {
+          const hasBorder = backgroundToken === 'colorBackgroundBody';
+          return (
+            <Box aria-hidden="true">
+              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
+                <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
+              </ColorSwatch>
+              <ColorSwatchText>{backgroundToken}</ColorSwatchText>
+            </Box>
+          );
+        })}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
 export const StatusPairingSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={3}>
-      {statusPairingTokens.map(({textToken, backgroundToken}) => {
-        const hasBorder = backgroundToken === 'colorBackgroundBody';
-        return (
-          <Box>
-            <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
-              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
-            </ColorSwatch>
-            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
-          </Box>
-        );
-      })}
-    </StyledSwatchGrid>
+    <Box marginBottom="space130">
+      <StyledSwatchGrid numberColumns={3}>
+        {statusPairingTokens.map(({textToken, backgroundToken}) => {
+          const hasBorder = backgroundToken === 'colorBackgroundBody';
+          return (
+            <Box aria-hidden="true">
+              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
+                <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
+              </ColorSwatch>
+              <ColorSwatchText>{backgroundToken}</ColorSwatchText>
+            </Box>
+          );
+        })}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
 export const InversePairingSwatches: React.FC = () => {
   return (
-    <StyledSwatchGrid numberColumns={3}>
-      {inversePairingTokens.map(({textToken, backgroundToken}) => {
-        return (
-          <Box>
-            <ColorSwatch backgroundColor={backgroundToken}>
-              <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
-            </ColorSwatch>
-            <ColorSwatchText>{backgroundToken}</ColorSwatchText>
-          </Box>
-        );
-      })}
-    </StyledSwatchGrid>
+    <Box marginBottom="space130">
+      <StyledSwatchGrid numberColumns={3}>
+        {inversePairingTokens.map(({textToken, backgroundToken}) => {
+          return (
+            <Box aria-hidden="true">
+              <ColorSwatch backgroundColor={backgroundToken}>
+                <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
+              </ColorSwatch>
+              <ColorSwatchText>{backgroundToken}</ColorSwatchText>
+            </Box>
+          );
+        })}
+      </StyledSwatchGrid>
+    </Box>
   );
 };
 
