@@ -97,18 +97,15 @@ export const BackgroundColorSwatches: React.FC = () => {
 export const TextColorSwatches: React.FC = () => {
   return (
     <StyledSwatchGrid numberColumns={4}>
-      {textTokens.map((token) => {
-        const isInverseText = token === 'colorTextWeakest' || token === 'colorTextIconInverse';
-        return (
-          <Box>
-            <ColorSwatch
-              color={token}
-              backgroundColor={isInverseText ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
-            />
-            <ColorSwatchText>{token}</ColorSwatchText>
-          </Box>
-        );
-      })}
+      {textTokens.map((token) => (
+        <Box>
+          <ColorSwatch
+            color={token}
+            backgroundColor={token === 'colorTextWeakest' ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
+          />
+          <ColorSwatchText>{token}</ColorSwatchText>
+        </Box>
+      ))}
     </StyledSwatchGrid>
   );
 };
@@ -123,7 +120,7 @@ export const BorderColorSwatches: React.FC = () => {
           <Box>
             <ColorSwatch
               borderColor={!isInverseBorder ? token : undefined}
-              backgroundColor={isInverseBorder ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
+              backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
             >
               {isInverseBorder ? (
                 <Box
