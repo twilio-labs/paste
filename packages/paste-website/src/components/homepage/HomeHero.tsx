@@ -5,6 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
+import {Stack} from '@twilio-paste/stack';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
@@ -64,24 +65,46 @@ const HomeHero: React.FC = () => {
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto" position="relative">
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
-              <NewComponentBanner>
-                <Badge as="span" variant="new">
-                  New!
-                </Badge>
-                <NewComponentBannerText>Announcing Paste for Twilio programmable apps!</NewComponentBannerText>
-                <NewComponentBannerLink
-                  to="/customization"
-                  onClick={() =>
-                    trackCustomEvent({
-                      category: 'Hero',
-                      action: 'click-new-component-banner',
-                      label: 'Launch Customization',
-                    })
-                  }
-                >
-                  Take a look
-                </NewComponentBannerLink>
-              </NewComponentBanner>
+              <Stack orientation="vertical" spacing="space40">
+                <NewComponentBanner>
+                  <Badge as="span" variant="new">
+                    New!
+                  </Badge>
+                  <NewComponentBannerText>We&apos;re hiring a Staff Product Designer!</NewComponentBannerText>
+                  <NewComponentBannerLink
+                    showExternal
+                    to="https://boards.greenhouse.io/twilio/jobs/3823505"
+                    onClick={() =>
+                      trackCustomEvent({
+                        category: 'Hero',
+                        action: 'click-new-component-banner',
+                        label: 'Go to Staff Designer Position',
+                      })
+                    }
+                  >
+                    Apply here
+                  </NewComponentBannerLink>
+                </NewComponentBanner>
+                <NewComponentBanner>
+                  <Badge as="span" variant="new">
+                    New!
+                  </Badge>
+                  <NewComponentBannerText>We&apos;re hiring a Principal UX Engineer!</NewComponentBannerText>
+                  <NewComponentBannerLink
+                    showExternal
+                    to="https://boards.greenhouse.io/twilio/jobs/3873421"
+                    onClick={() =>
+                      trackCustomEvent({
+                        category: 'Hero',
+                        action: 'click-new-component-banner',
+                        label: 'Go to Principal UX',
+                      })
+                    }
+                  >
+                    Apply here
+                  </NewComponentBannerLink>
+                </NewComponentBanner>
+              </Stack>
               <Text
                 as="h1"
                 color="colorTextInverse"
