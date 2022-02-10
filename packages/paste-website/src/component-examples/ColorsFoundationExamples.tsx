@@ -100,8 +100,10 @@ export const BackgroundColorSwatches: React.FC = () => {
   );
 };
 
+type BackgroundColorMap = Partial<Record<TextColorOptions, BackgroundColorOptions>>;
+
 export const TextColorSwatches: React.FC = () => {
-  const backgroundColorMap = {
+  const backgroundColorMap: BackgroundColorMap = {
     colorTextWeakest: 'colorBackgroundStrongest',
     colorTextInverse: 'colorBackgroundBodyInverse',
   };
