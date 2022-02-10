@@ -3,13 +3,14 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
 import {styled, themeGet} from '@twilio-paste/styling-library';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 
 const backgroundTokens: BackgroundColorOptions[] = [
+  'colorBackgroundBody',
   'colorBackground',
   'colorBackgroundStrong',
   'colorBackgroundPrimary',
-  'colorBackgroundStrongest',
   'colorBackgroundSuccess',
   'colorBackgroundWarning',
   'colorBackgroundError',
@@ -23,8 +24,8 @@ const textTokens: TextColorOptions[] = [
   'colorTextWeakest',
   'colorTextLink',
   'colorTextLinkDestructive',
+  'colorTextInverse',
   'colorTextIcon',
-  'colorTextIconInverse',
 ];
 
 const borderTokens: BorderColorOptions[] = [
@@ -87,7 +88,10 @@ export const BackgroundColorSwatches: React.FC = () => {
       <StyledSwatchGrid numberColumns={4}>
         {backgroundTokens.map((token) => (
           <Box as="li" listStyleType="none">
-            <ColorSwatch backgroundColor={token} />
+            <ColorSwatch
+              backgroundColor={token}
+              borderColor={token === 'colorBackgroundBody' ? 'colorBorderWeaker' : undefined}
+            />
             <ColorSwatchText>{token}</ColorSwatchText>
           </Box>
         ))}
@@ -97,18 +101,24 @@ export const BackgroundColorSwatches: React.FC = () => {
 };
 
 export const TextColorSwatches: React.FC = () => {
+  const backgroundColorMap = {
+    colorTextWeakest: 'colorBackgroundStrongest',
+    colorTextInverse: 'colorBackgroundBodyInverse',
+  };
+
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
-        {textTokens.map((token) => (
-          <Box as="li" listStyleType="none">
-            <ColorSwatch
-              color={token}
-              backgroundColor={token === 'colorTextWeakest' ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
-            />
-            <ColorSwatchText>{token}</ColorSwatchText>
-          </Box>
-        ))}
+        {textTokens.map((token) => {
+          return (
+            <Box as="li" listStyleType="none">
+              <ColorSwatch color={token} backgroundColor={backgroundColorMap[token]}>
+                {token === 'colorTextIcon' && <InformationIcon decorative size="sizeIcon40" color="colorTextIcon" />}
+              </ColorSwatch>
+              <ColorSwatchText>{token}</ColorSwatchText>
+            </Box>
+          );
+        })}
       </StyledSwatchGrid>
     </Box>
   );
