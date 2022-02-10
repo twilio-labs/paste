@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.0.0
+
+### Minor Changes
+
+- [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37) [#2168](https://github.com/twilio-labs/paste/pull/2168) Thanks [@shleewhite](https://github.com/shleewhite)! - [Theme] Deprecated the console theme. Using theme="console" in the Theme.Provider returns the default theme and ConsoleThemeShape returns the DefaultThemeShape. The default theme should be used instead.
+
+* [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc) [#2093](https://github.com/twilio-labs/paste/pull/2093) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add `dataVisualization` token bucket to theme object.
+
+### Patch Changes
+
+- Updated dependencies [[`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc)]:
+  - @twilio-paste/design-tokens@7.0.0
+  - @twilio-paste/color-contrast-utils@2.0.0
+
 ## 5.3.3
 
 ### Patch Changes

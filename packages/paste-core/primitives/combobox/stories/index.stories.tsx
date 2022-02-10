@@ -39,8 +39,8 @@ export const DropdownCombobox = (): React.ReactNode => {
         <Input
           id={uid}
           type="text"
-          {...getInputProps()}
           {...getToggleButtonProps({tabIndex: 0})}
+          {...getInputProps()}
           value={selectedItem || ''}
         />
       </Box>
@@ -176,7 +176,7 @@ export const BasicMultiCombobox: React.FC = () => {
   } = useMultiSelectPrimitive({});
 
   const handleSelectItemOnClick = React.useCallback(
-    ({selectedItem}) => {
+    (selectedItem) => {
       addSelectedItem(selectedItem);
 
       setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== selectedItem));
@@ -203,10 +203,16 @@ export const BasicMultiCombobox: React.FC = () => {
     highlightedIndex,
     isOpen,
     selectedItem,
+    selectItem,
   } = useComboboxPrimitive({
     items: filteredItems,
-    onSelectedItemChange: (args) => {
-      handleSelectItemOnClick(args);
+    initialInputValue: '',
+    onSelectedItemChange: ({selectedItem: selected}) => {
+      if (selected != null) {
+        handleSelectItemOnClick(selected);
+      }
+
+      selectItem((null as unknown) as string);
     },
   });
   const uid = useUID();
@@ -221,26 +227,28 @@ export const BasicMultiCombobox: React.FC = () => {
           <Input
             id={uid}
             type="text"
-            {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))}
-            {...getToggleButtonProps({tabIndex: 0})}
+            {...getInputProps({
+              ...getDropdownProps({
+                preventKeyAction: isOpen,
+                ...getToggleButtonProps({tabIndex: 0}),
+              }),
+            })}
             value={selectedItem || ''}
           />
         </Box>
-        {isOpen && (
-          <ComboboxListbox {...getMenuProps()}>
-            <ComboboxListboxGroup>
-              {filteredItems.map((item, index) => (
-                <ComboboxListboxOption
-                  highlighted={highlightedIndex === index}
-                  key={seed(`item-${item}`)}
-                  {...getItemProps({item, index})}
-                >
-                  {item}
-                </ComboboxListboxOption>
-              ))}
-            </ComboboxListboxGroup>
-          </ComboboxListbox>
-        )}
+        <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
+          <ComboboxListboxGroup>
+            {filteredItems.map((filteredItem, index) => (
+              <ComboboxListboxOption
+                highlighted={highlightedIndex === index}
+                variant="default"
+                {...getItemProps({item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`)})}
+              >
+                {filteredItem}
+              </ComboboxListboxOption>
+            ))}
+          </ComboboxListboxGroup>
+        </ComboboxListbox>
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
         {selectedItems.map((item, index) => {
@@ -249,10 +257,10 @@ export const BasicMultiCombobox: React.FC = () => {
               {...getSelectedItemProps({
                 selectedItem,
                 index,
+                key: `selected-item-${item}`,
               })}
               tabIndex={null}
               {...formPillState}
-              key={seed(`selected-item-${item}`)}
               onDismiss={() => handleRemoveItemOnClick(item)}
             >
               {item}
