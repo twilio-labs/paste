@@ -3,8 +3,6 @@ import * as PropTypes from 'prop-types';
 import {useVirtual} from 'react-virtual';
 import {useTheme, remToPx} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
-import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
-import type {UseComboboxPrimitiveStateChange} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
 import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
@@ -18,6 +16,8 @@ import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
 import {ComboboxListbox} from './styles/ComboboxListbox';
 import {ComboboxItems} from './ComboboxItems';
 import type {ComboboxProps} from './types';
+
+import {extractPropsFromState} from './extractPropsFromState';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -79,26 +79,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       paddingStart: remToPx(theme.space.space30, 'number') as number,
     });
 
-    const defaultState = useComboboxPrimitive({
-      initialSelectedItem,
-      items,
-      onHighlightedIndexChange: React.useCallback(
-        (changes: UseComboboxPrimitiveStateChange<string>) => {
-          if (onHighlightedIndexChange) {
-            onHighlightedIndexChange(changes);
-          }
-        },
-        [onHighlightedIndexChange]
-      ),
-      onInputValueChange,
-      onIsOpenChange,
-      onSelectedItemChange,
-      ...(itemToString != null && {itemToString}),
-      ...(initialIsOpen != null && {initialIsOpen}),
-      ...(inputValue != null && {inputValue}),
-      ...(selectedItem != null && {selectedItem}),
-    });
-
     const {
       getComboboxProps,
       getInputProps,
@@ -108,7 +88,19 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       getToggleButtonProps,
       highlightedIndex,
       isOpen,
-    } = state || defaultState;
+    } = extractPropsFromState({
+      onInputValueChange,
+      onIsOpenChange,
+      onSelectedItemChange,
+      onHighlightedIndexChange,
+      itemToString,
+      initialIsOpen,
+      inputValue,
+      selectedItem,
+      initialSelectedItem,
+      items,
+      state,
+    });
 
     React.useEffect(() => {
       if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {

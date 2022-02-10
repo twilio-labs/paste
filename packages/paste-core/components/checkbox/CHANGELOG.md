@@ -1,5 +1,28 @@
 # Change Log
 
+## 7.0.0
+
+### Minor Changes
+
+- [`02285a8aa`](https://github.com/twilio-labs/paste/commit/02285a8aadfafc3fb1fcb024ca78abe2f5204f5a) [#2167](https://github.com/twilio-labs/paste/pull/2167) Thanks [@shleewhite](https://github.com/shleewhite)! - [Checkbox] Hide check icon when not checked, add the defaultChecked prop.
+
+### Patch Changes
+
+- Updated dependencies [[`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`39ab32c2`](https://github.com/twilio-labs/paste/commit/39ab32c2d9e211b3a46a7cb789c62b7e6463510d), [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc)]:
+  - @twilio-paste/design-tokens@7.0.0
+  - @twilio-paste/icons@6.0.0
+  - @twilio-paste/theme@6.0.0
+  - @twilio-paste/style-props@4.0.0
+  - @twilio-paste/base-radio-checkbox@7.0.0
+  - @twilio-paste/help-text@7.0.0
+  - @twilio-paste/inline-control-group@7.0.0
+  - @twilio-paste/label@7.0.0
+  - @twilio-paste/screen-reader-only@7.0.0
+  - @twilio-paste/media-object@5.0.0
+  - @twilio-paste/box@5.0.0
+  - @twilio-paste/sibling-box@4.0.0
+  - @twilio-paste/text@5.0.0
+
 ## 6.1.3
 
 ### Patch Changes

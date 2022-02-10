@@ -1,5 +1,11 @@
 # @twilio-paste/cra-template
 
+## 1.2.0
+
+### Minor Changes
+
+- [`008ca17c`](https://github.com/twilio-labs/paste/commit/008ca17ca6e04fd46879cb34b646fc385a05b5f5) [#2136](https://github.com/twilio-labs/paste/pull/2136) Thanks [@TheSisb](https://github.com/TheSisb)! - [cra-template] Upgrade react-router-dom to fix compile errors. Thanks @younessssssss!
+
 ## 1.1.1
 
 ### Patch Changes

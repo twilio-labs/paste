@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.0.0
+
+### Patch Changes
+
+- [`fd23d95b`](https://github.com/twilio-labs/paste/commit/fd23d95b62a6dc2930f3669d3fdf807c1ab57000) [#2151](https://github.com/twilio-labs/paste/pull/2151) Thanks [@gloriliale](https://github.com/gloriliale)! - [Breadcrumb] spread props onto Anchor or Text of breadcrumb, not the list item wrapping it.
+
+- Updated dependencies [[`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc)]:
+  - @twilio-paste/design-tokens@7.0.0
+  - @twilio-paste/theme@6.0.0
+  - @twilio-paste/style-props@4.0.0
+  - @twilio-paste/anchor@6.0.0
+  - @twilio-paste/box@5.0.0
+  - @twilio-paste/text@5.0.0
+
 ## 4.1.1
 
 ### Patch Changes
