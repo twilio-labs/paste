@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/radio-group': patch
-'@twilio-paste/core': patch
+'@twilio-paste/radio-group': minor
+'@twilio-paste/core': minor
 ---
 
-[radio-group] Update design tokens and use svg for radio dot
+[radio-group] Add new customization element for the radio control circle and update design tokens
