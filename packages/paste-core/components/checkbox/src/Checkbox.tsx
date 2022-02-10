@@ -119,10 +119,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     if (isSelectAll) {
       paddingLeft = 'space20';
 
-      if (mergedChecked || indeterminate) {
+      checkboxBackground = 'colorBackground';
+
+      if ((mergedChecked || indeterminate) && !disabled) {
         checkboxBackground = 'colorBackgroundPrimaryWeakest';
-      } else if (!disabled) {
-        checkboxBackground = 'colorBackground';
       }
     }
     if (isSelectAllChild) {
