@@ -27,10 +27,10 @@ props:
     value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-60}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-border-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
     comment: Weaker shadow border for disabled inputs.
   shadow-border-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
     comment: Weak shadow border for disabled inputs.
   shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
