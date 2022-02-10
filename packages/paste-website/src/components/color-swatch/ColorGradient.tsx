@@ -18,14 +18,14 @@ const aliasPrefixes = [
 ];
 const excludedAliases = new Set(['palette-gray-0', 'palette-orange-65']);
 
-const sortAliasNames = (aliasNames: string[]): string[] => {
+export const sortAliasNames = (aliasNames: string[]): string[] => {
   return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, {numeric: true})).reverse();
 };
 
-const filterAliasNames = (aliasName: string, prefix: string): boolean =>
+export const filterAliasNames = (aliasName: string, prefix: string): boolean =>
   aliasName.includes(prefix) && !aliasName.includes('transparent') && !excludedAliases.has(aliasName);
 
-const getAliasValuesFromPrefix = (prefix: string, theme: 'default' | 'dark'): string[] => {
+export const getAliasValuesFromPrefix = (prefix: string, theme: 'default' | 'dark'): string[] => {
   const themeColors: ThemeShape = theme === 'default' ? aliases : DarkAliases;
   const filteredAliasNames = Object.keys(themeColors).filter((aliasName) => filterAliasNames(aliasName, prefix));
 
@@ -49,7 +49,7 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(7, 1fr);
 `;
 
-const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) => {
+export const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) => {
   const {theme} = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
 
