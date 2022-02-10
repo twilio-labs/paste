@@ -255,7 +255,7 @@ props:
       - color-background-primary-weakest
       - color-background-destructive-weakest
   color-border-destructive-weak:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-30}"
     comment: Destructive focus border color
   color-border-destructive-weaker:
     value: "{!palette-red-20}"
