@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`72b2db53`](https://github.com/twilio-labs/paste/commit/72b2db538cf91e12867a7d0f64ef0736e60c37e6) [#2155](https://github.com/twilio-labs/paste/pull/2155) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox] Do not conditionally render the `useCombobox` hook inside the `Combobox` component.
+
+  - passing a state object from `useCombobox` via props to the component caused unexpected side effects
+  - introduces conditional render of the component with its' own hook invocation, or with the forwarded state object
+
+- Updated dependencies [[`72b2db53`](https://github.com/twilio-labs/paste/commit/72b2db538cf91e12867a7d0f64ef0736e60c37e6)]:
+  - @twilio-paste/combobox@9.0.1
+
 ## 11.0.0
 
 ### Major Changes

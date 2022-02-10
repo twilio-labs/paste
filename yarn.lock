@@ -11936,7 +11936,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox@^9.0.0, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
+"@twilio-paste/combobox@^9.0.0, @twilio-paste/combobox@^9.0.1, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
@@ -12009,7 +12009,7 @@ __metadata:
     "@twilio-paste/checkbox": ^7.0.0
     "@twilio-paste/clipboard-copy-library": ^1.0.1
     "@twilio-paste/color-contrast-utils": ^2.0.0
-    "@twilio-paste/combobox": ^9.0.0
+    "@twilio-paste/combobox": ^9.0.1
     "@twilio-paste/combobox-primitive": ^0.3.1
     "@twilio-paste/customization": ^3.0.0
     "@twilio-paste/data-grid": ^1.0.0
