@@ -232,14 +232,14 @@ export const TokensDiagramImgCaption: React.FC = () => (
 export const InteractingStatesImgCaption: React.FC = () => (
   <ImgCaption>
     In this example, we are using a combination of color and shadow to help users identify the primary button while in
-    it’s different states.
+    its different states.
   </ImgCaption>
 );
 
 export const UseOfColorImgCaption: React.FC = () => (
   <ImgCaption>
-    In this example, a success toast uses multiple distinguishing visual elements– the thick left border and the icon–
-    along with green colors to further convey to a user that an action they just took was successful.
+    In this example, a success toast uses multiple distinguishing visual elements—the thick left border and the
+    icon—along with green colors to further convey to a user that an action they just took was successful.
   </ImgCaption>
 );
 

@@ -17,6 +17,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {ColorSwatch} from '../../../components/color-swatch/ColorSwatch';
 import {ColorGradientRainbow} from '../../../components/color-swatch/ColorGradient';
+import {SidebarCategoryRoutes} from '../../../constants';
 
 import {
   PrimaryColorExample,
@@ -78,17 +79,23 @@ export const pageQuery = graphql`
   }
 `;
 
+<content>
+
+<ComponentHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
+/>
+
+</content>
+
+---
+
 <contentwrapper>
 
 <PageAside data={props.data.mdx} />
 
 <content>
-
-<h1>{props.pageContext.frontmatter.title}</h1>
-
-<p>{props.pageContext.frontmatter.description}</p>
-
----
 
 ## Introduction
 
@@ -123,8 +130,6 @@ Paste’s color aliases are the primitive form of the colors in our palette. The
 ### Color design tokens
 
 Design tokens represent fundamental decisions of Paste’s design language, specifying their intended usage with their semantic naming in a predictable and clear way. All of Paste’s design tokens reference our aliases, and all Paste components and primitives use design tokens. Aliases are never directly used in the implementation of Paste UI; only tokens can be used.
-
-To learn more about design tokens, check out our Tokens Overview.
 
 <Img fluid={props.data.tokensDiagram.childImageSharp.fluid} />
 <TokensDiagramImgCaption />
@@ -175,8 +180,6 @@ The inverse text and icon color tokens (`$color-text-inverse`, `$color-text-inve
 
 <InversePairingSwatches />
 
-A comprehensive list of all accessible color pairings is coming soon!
-
 ### Brand colors
 
 Paste uses Twilio’s brand colors intentionally and sparingly. Twilio Red is reserved for moments of impact like in illustrations, logos, or iconography, as our products’ environments need a subdued brand presence and a more focused experience. [Learn more about color distribution from the Twilio brand guidelines](https://www.twilio.com/brand/elements/colorresources#Color_distribution).
@@ -223,7 +226,7 @@ Paste, by default, uses the design language that was specifically designed to un
 
 #### Dark theme
 
-Dark Theme is in “early preview” and more work will be done to ensure color contrasts are accessible. Eventually, Dark Theme will be available for wider adoption, but this relies on full Paste adoption in a product. If there are parts of your UI that are not built with Paste, you should not adopt this early preview theme. If there are parts of the UI that aren’t using Paste, Dark theme wouldn’t be applied and the result will be a broken and inconsistent UI. For more questions, [join our discussion on GitHub](https://github.com/twilio-labs/paste/discussions/1527).
+Paste also has a Dark theme that can be leveraged to enable dark mode within products. This, however, relies on full Paste adoption in a product. If there are parts of the UI that aren’t using Paste, Dark theme wouldn’t be applied and the result will be a broken and inconsistent UI. For more questions, [join our discussion on GitHub](https://github.com/twilio-labs/paste/discussions/1527).
 
 ### Colors in illustrations
 
