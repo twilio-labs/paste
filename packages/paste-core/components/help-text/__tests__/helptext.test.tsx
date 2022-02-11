@@ -50,7 +50,6 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        // @ts-expect-error global test variable
         theme={TestTheme}
         elements={{
           HELP_TEXT: {
@@ -75,7 +74,6 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        // @ts-expect-error global test variable
         theme={TestTheme}
         elements={{
           foo: {

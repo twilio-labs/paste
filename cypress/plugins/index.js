@@ -12,10 +12,17 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+const result = require('dotenv').config();
+
 /**
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+  if (config.env.USE_CYPRESS_EYES == null) {
+    config.env.USE_CYPRESS_EYES = JSON.parse(process.env.USE_CYPRESS_EYES);
+  }
+
+  return config;
 };
+
+require('@applitools/eyes-cypress')(module);

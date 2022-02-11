@@ -310,7 +310,6 @@ describe('Table', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             TABLE: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
@@ -383,7 +382,6 @@ describe('Table', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             dog: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},

@@ -1,0 +1,74 @@
+---
+title: Illustrations
+description: Guidelines and repository of illustrations that can be used in Twilio UIs.
+slug: /foundations/illustrations/
+---
+
+import {graphql} from 'gatsby';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Flex} from '@twilio-paste/flex';
+import {Anchor} from '@twilio-paste/anchor';
+import {Grid} from '@twilio-paste/grid';
+import {Card} from '@twilio-paste/card';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {Link} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/foundations/illustrations/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+---
+
+Illustrations help breathe life into our brand. It can take a complex idea and make it easier to understand. It is a tool that allows us to communicate our product in a way that feels human and fun.
+
+Our illustration style is carefully curated by the Twilio Brand team. While adding these elements to your UI, ensure that you are reviewing your work with them. A good place to start is by posting in #mkg-brand.
+
+[Read the brand illustration guidelines](https://www.twilio.com/brand/guidelines/illustration-guidelines)
+
+[Browse the illustration library](https://library.twilio.com). To log in to the library with your Twilio credentials, request application access through IT via [ServiceNow](https://twilio.service-now.com) for "The Library (Bynder)".
+
+### General guidelines for product UIs
+
+- Only make necessary and thoughtful adjustments to the illustration colors. When doing so, ensure that you’re using Paste's palette.
+- Do not add extraneous elements to the illustrations. You may remove unnecessary elements, but do so while maintaining the thematic feel that the illustration is trying to convey.
+- We recommend using SVGs over PNGs when possible, in order to improve performance and avoid blurring.
+
+### Accessibility
+
+- **Aim to pair your illustrations with text:** Remember that different cultures may interpret the same image in different ways, so despite our best intentions, it is helpful to provide adjoining text.
+- **Illustrations shouldn't include navigational interactions:** Illustrations should not have interactions such as click or hover behavior that is essential to navigation and usage of the product. Instead they should be wrapped with an (or, ideally, laid out with supporting) interactive element such as Anchor.
+- **Give your illustrations a title:** An SVG `title` or image `alt` text is required on non-decorative illustrations so assistive technology can infer equal meaning as a sighted user would. For example, avoid a title that reads "WhatsApp Illustration - 01". Instead a title that says "Get started with our WhatsApp API" is preferable.
+
+### Request new illustrations
+
+The best way to request new illustrations is to file a request with the Brand team. You can create a new
+[request on Jira](https://issues.corp.twilio.com/projects/MARK/issues) (VPN required).
+
+</content>
+
+</contentwrapper>

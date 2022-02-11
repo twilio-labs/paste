@@ -64,13 +64,13 @@ export const DarkModeFAQModal: React.FC = () => {
       </Paragraph>
       <Paragraph>
         Themes are an implementation of design language. Paste, by default, uses the new design language that was
-        specifically designed to unify all Twilio products. Paste also comes with legacy Console and legacy SendGrid
-        design language support.
+        specifically designed to unify all Twilio products. Paste also comes with the ability to support legacy design
+        languages.
       </Paragraph>
       <Paragraph>
         The new, default design language is the only design language that supports Light and Dark Mode via the
-        &ldquo;default&rdquo; and &ldquo;dark&rdquo; themes. Legacy Console and SendGrid design languages{' '}
-        <strong>do not support</strong> Light and Dark Modes.
+        &ldquo;default&rdquo; and &ldquo;dark&rdquo; themes. The Legacy SendGrid design language{' '}
+        <strong>does not support</strong> Light and Dark Modes.
       </Paragraph>
       <Heading variant="heading20" as="h2">
         Has this been researched with customers?

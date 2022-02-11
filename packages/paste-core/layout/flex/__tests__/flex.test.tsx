@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
-import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {
   getGrow,
@@ -235,9 +234,9 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-grow property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" grow={[true, false, 1]} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-grow', '0', {
@@ -251,9 +250,9 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-shrink property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" grow shrink={[true, false, 1]} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-shrink', '0', {
@@ -267,9 +266,9 @@ describe('Flex Options', () => {
 
   it('should set a responsive flex-basis property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" basis={[400, 100, 200]} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-basis', '100px', {
@@ -291,9 +290,9 @@ describe('Flex Row', () => {
 
   it('should set a responsive flex-direction property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" display="flex" vertical={[true, false, false]} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
@@ -315,9 +314,9 @@ describe('Flex Wrap', () => {
 
   it('should set a responsive flex-wrap property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" wrap={[true, true, false]} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap', {
@@ -339,9 +338,9 @@ describe('Vertical Alignment', () => {
 
   it('should set a responsive align-items property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" vAlignContent={['top', 'center', 'bottom']} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('align-items', 'center', {
@@ -363,9 +362,9 @@ describe('Horizontal Alignment', () => {
 
   it('should set a responsive justify-content property', (): void => {
     render(
-      <Theme.Provider theme="console">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" hAlignContent={['left', 'center', 'right']} />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('justify-content', 'center', {

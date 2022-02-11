@@ -82,7 +82,8 @@ Headings should allow users to easily distinguish content sections on the page.
 - Headings should be used with intention that maintains a coherent document outline
 - Don’t use heading tags to resize text. Instead use the `<Text>` primitive
 - Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
-- There can only be one `<h1>` tag per page.
+- There can only be one `<h1>` tag per page
+- Always use sentence case when writing headings, for more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
 
 #### Accessibility
 
@@ -125,7 +126,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading10">
-  Heading One
+  Heading one
 </Heading>`}
 </LivePreview>
 
@@ -133,7 +134,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading20">
-  Heading Two
+  Heading two
 </Heading>`}
 </LivePreview>
 
@@ -141,7 +142,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading30">
-  Heading Three
+  Heading three
 </Heading>`}
 </LivePreview>
 
@@ -149,7 +150,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading40">
-  Heading Four
+  Heading four
 </Heading>`}
 </LivePreview>
 
@@ -157,7 +158,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading50">
-  Heading Five
+  Heading five
 </Heading>`}
 </LivePreview>
 
@@ -165,7 +166,7 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading60">
-  Heading Six
+  Heading six
 </Heading>`}
 </LivePreview>
 
@@ -184,6 +185,19 @@ It is important to not skip one or more heading levels as it is common for scree
 ### When to use Heading
 
 Headings should be used for page headings or content subsections. Headings are broken into six levels, where h1 is the highest level and h6 is the lowest. Avoid skipping heading levels. Use the next lowest heading level to maintain a coherent document outline.
+
+<DoDont>
+  <Do title="Do" body="Use sentence case in headings." center>
+    <Heading as="h2" variant="heading10">
+      This is sentence case
+    </Heading>
+  </Do>
+  <Dont title="Don't" body="Don’t use title case." center>
+    <Heading as="h2" variant="heading10">
+      This Is Title Case
+    </Heading>
+  </Dont>
+</DoDont>
 
 <DoDont>
   <Do title="Do" body="Use headings for page headings to specific sections of content." />
@@ -221,12 +235,13 @@ const Component = () => (
 
 #### Props
 
-| Prop          | Type                | Description                                                                  | Default |
-| ------------- | ------------------- | ---------------------------------------------------------------------------- | ------- |
-| as            | `asTags`            | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                   | null    |
-| id?           | `string`            |                                                                              | null    |
-| marginBottom? | `oneOf(['space0'])` | Currently we only allow `space0` to remove bottom margin                     | null    |
-| variant       | `headingVariants`   | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60' | null    |
+| Prop          | Type                           | Description                                                                               | Default |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ------- |
+| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null    |
+| id?           | `string`                       |                                                                                           | null    |
+| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null    |
+| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null    |
+| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block" |
 
 <ChangelogRevealer>
   <Changelog />

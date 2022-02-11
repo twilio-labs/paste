@@ -1,0 +1,93 @@
+---
+title: Contributing a component
+description: How to contribute a component to Paste.
+slug: /introduction/contributing/components/
+---
+
+import {graphql} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/introduction/contributing/components/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+How to contribute a component to Paste.
+
+---
+
+Thanks for your interest in contributing a component! There are many ways to contribute and it’s up to you what scope and type of contribution will have the most impact.
+
+The following guidelines can flex to your capacity, so feel free to adapt as you see fit.
+
+## Ways to contribute
+
+- Contributing the code for a new component
+- Creating a variation of a component
+- Adding design assets of a component to Figma
+- Documenting one part of a component
+- Sharing research related to a component
+- Refining an existing component based on new information
+
+## Roles
+
+### Design System’s role
+
+We’re here to partner with you throughout the component process to ensure you’re building something that is systemized and accessible. You’ll be paired with a designer and engineer from our team to facilitate the process.
+
+We’ll also help you refine design assets for our Figma libraries, build the component in code, and add the spec content to the docs site.
+
+### Your role (anyone at Twilio!)
+
+You’ll create and research the component and socialize it within your crit pods, committees, and peers.
+
+It’s helpful for designers and engineers to pair together on this work to understand the product-specific customer problems, and implementation on both sides.
+
+## Process
+
+### General process
+
+This is the process we follow when creating a net-new component for Paste. This process is fluid and adaptable to the scope and type of your contribution.
+
+1. Start by filling out the kickoff section of a [component spec](https://docs.google.com/document/d/1e1m4amg1Khbxo-limb-PPDSJvNeDF2YBFCWrqeS5MPc/edit). Here are some [examples of other specs](https://drive.google.com/drive/folders/1ehHLxeX3OBpgW5TkGc0KkmAAFEnGj4L3) people have written.
+2. Review the kickoff section of the spec with DSYS.
+3. Fill out the rest of the component spec and conduct some design and/or API explorations. Review the spec and explorations with DSYS, your crit pod(s), and the design systems committee.
+4. If you have time or are already planning to do usability testing on your product feature, test the component with users (be sure to tap into the PD org to see if research exists already).
+5. Create the design components in Figma and build the component in code. You can focus on one or both, and DSYS will partner with you to execute the work.
+6. Publish the component docs to the doc site! 🎉
+
+### Adding a component to Figma
+
+1. Create a branch off of the [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components) file.
+2. If a page for the component doesn’t exist yet, create a new page named “👀 Component name”.
+3. Design the component and variants on the page.
+4. Review with DSYS designers by adding them as reviewers of the branch.
+5. Publish the component to the Figma library! 🎉
+
+## Where do I start?
+
+Check out our [roadmap](/roadmap) to see what's available. Anything that’s not “complete” or “in progress” is up for grabs.
+
+Have a new idea? [Create a Github Discussion](https://github.com/twilio-labs/paste/discussions/new) to see if there’s
+a need for something else that’s not already on the roadmap.
+
+</content>
+
+</contentwrapper>

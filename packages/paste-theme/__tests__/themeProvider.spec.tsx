@@ -20,14 +20,15 @@ describe('Theme.Provider', () => {
     ReactDOM.render(<Theme.Provider />, document.createElement('div'));
   });
 
-  it('should render the console link text color', (): void => {
+  it('should render default link text color instead of console', () => {
     const {getByText} = render(
       <Theme.Provider theme="console">
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
 
-    expect(getByText('Color: rgb(0, 94, 166)')).toBeDefined();
+    // console theme link color: rgb(4, 60, 181)
+    expect(getByText('Color: rgb(2, 99, 224)')).toBeDefined();
   });
 
   it('should render the sendgrid link text color', (): void => {
@@ -42,7 +43,7 @@ describe('Theme.Provider', () => {
 
   it('should rely on the default breakpoints set on the theme object', () => {
     const {getByText} = render(
-      <Theme.Provider theme="console">
+      <Theme.Provider theme="default">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );

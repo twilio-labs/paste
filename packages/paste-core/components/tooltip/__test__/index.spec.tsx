@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {act, fireEvent, render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
-import {Theme} from '@twilio-paste/theme';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
@@ -20,9 +19,9 @@ const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) =>
 describe('Tooltip', () => {
   describe('Render', () => {
     render(
-      <Theme.Provider theme="default">
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <TooltipWithoutTheme />
-      </Theme.Provider>
+      </CustomizationProvider>
     );
     it('should render a tooltip button with aria attributes', () => {
       const renderedTooltipButton = screen.getByRole('button');
@@ -66,13 +65,13 @@ describe('Tooltip', () => {
       const focusHandlerMock: jest.Mock = jest.fn();
       const clickHandlerMock: jest.Mock = jest.fn();
       render(
-        <Theme.Provider theme="console">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Tooltip text="Welcome to Paste!" data-testid="tooltip-children-example">
             <Button variant="primary" onFocus={focusHandlerMock} onClick={clickHandlerMock}>
               Open Tooltip
             </Button>
           </Tooltip>
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const tooltip = screen.getByTestId('tooltip-children-example');
 
@@ -97,9 +96,9 @@ describe('Tooltip', () => {
   describe('Customization', () => {
     it('should set a default element data attribute for Tooltip', (): void => {
       render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme />
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
@@ -110,9 +109,9 @@ describe('Tooltip', () => {
 
     it('should set a custom element data attribute for a custom element name on Tooltip', (): void => {
       render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme elementName="CUSTOM_TOOLTIP" />
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
@@ -124,7 +123,6 @@ describe('Tooltip', () => {
     it('should add custom styling to default Tooltip', (): void => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             TOOLTIP: {
@@ -151,7 +149,6 @@ describe('Tooltip', () => {
     it('should add custom styling to custom named Tooltip', (): void => {
       render(
         <CustomizationProvider
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{
             CUSTOM_TOOLTIP: {
@@ -179,9 +176,9 @@ describe('Tooltip', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Theme.Provider theme="default">
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme />
-        </Theme.Provider>
+        </CustomizationProvider>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();

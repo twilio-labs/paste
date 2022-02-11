@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`40911568`](https://github.com/twilio-labs/paste/commit/40911568af47384a230b41b18910d6cc533347e3) [#2193](https://github.com/twilio-labs/paste/pull/2193) Thanks [@loreina](https://github.com/loreina)! - [paste-icons] Add Send action icon for Webchat
+
+## 6.0.0
+
+### Minor Changes
+
+- [`39ab32c2`](https://github.com/twilio-labs/paste/commit/39ab32c2d9e211b3a46a7cb789c62b7e6463510d) [#2141](https://github.com/twilio-labs/paste/pull/2141) Thanks [@loreina](https://github.com/loreina)! - [paste-icons] Added Microvisor product icon
+
+### Patch Changes
+
+- Updated dependencies [[`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`0a52eeee`](https://github.com/twilio-labs/paste/commit/0a52eeee469a2288d43d4e7f4acef27854fe8b37), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc), [`04de0d1d`](https://github.com/twilio-labs/paste/commit/04de0d1de8428ba5e0fd04c1ec94639c78cab6cc)]:
+  - @twilio-paste/design-tokens@7.0.0
+  - @twilio-paste/theme@6.0.0
+  - @twilio-paste/style-props@4.0.0
+  - @twilio-paste/box@5.0.0
+
 ## 5.9.0
 
 ### Minor Changes

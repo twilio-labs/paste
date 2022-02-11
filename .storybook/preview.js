@@ -1,12 +1,12 @@
 import React from 'react';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
 import isChromatic from 'chromatic/isChromatic';
-import {withPerformance} from 'storybook-addon-performance';
 import {StylingGlobals} from '@twilio-paste/styling-library';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Grid, Column} from '@twilio-paste/grid';
+import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
 
 export const globalTypes = {
   theme: {
@@ -18,7 +18,7 @@ export const globalTypes = {
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
       icon: 'paintbrush',
       // array of plain string values or MenuItem shape (see below)
-      items: ['default', 'dark', 'sendgrid', 'console'],
+      items: ['default', 'dark', 'sendgrid'],
     },
   },
   theme_layout: {
@@ -31,6 +31,18 @@ export const globalTypes = {
         {value: 'default', title: 'default'},
         {value: 'side-by-side', title: 'side by side'},
         {value: 'stacked', title: 'stacked'},
+      ],
+    },
+  },
+  locale: {
+    name: 'Locale',
+    description: 'Internationalization locale',
+    defaultValue: 'en',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        {value: 'en', right: 'LTR', title: 'English'},
+        {value: 'rtl', right: 'RTL', title: 'English (RTL)'},
       ],
     },
   },
@@ -50,20 +62,34 @@ export const decorators = [
   (Story, context) => {
     const theme = context.globals.theme;
     const layout = context.globals.theme_layout;
+    const lang = context.globals.locale;
+
+    switch (lang) {
+      case 'rtl':
+        document.body.setAttribute('dir', 'rtl');
+        break;
+
+      default:
+        document.body.setAttribute('dir', 'ltr');
+        break;
+    }
+
     switch (layout) {
       default:
       case 'default':
         return (
-          <Theme.Provider theme={theme} disableAnimations={isChromatic()}>
+          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
             <GlobalStyles />
-            <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-              <Story />
-            </Box>
-          </Theme.Provider>
+            <Theme.Provider theme={theme} disableAnimations={isChromatic()}>
+              <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <Story />
+              </Box>
+            </Theme.Provider>
+          </RenderPerformanceProfiler>
         );
       case 'side-by-side':
         return (
-          <>
+          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="side-by-side">
             <GlobalStyles />
             <Grid>
               <Column>
@@ -81,11 +107,11 @@ export const decorators = [
                 </Theme.Provider>
               </Column>
             </Grid>
-          </>
+          </RenderPerformanceProfiler>
         );
       case 'stacked':
         return (
-          <>
+          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
             <GlobalStyles />
             <Stack orientation="vertical">
               <Theme.Provider theme="default" disableAnimations={isChromatic()}>
@@ -113,11 +139,10 @@ export const decorators = [
                 </Box>
               </Theme.Provider>
             </Stack>
-          </>
+          </RenderPerformanceProfiler>
         );
     }
   },
-  withPerformance,
 ];
 
 export const parameters = {

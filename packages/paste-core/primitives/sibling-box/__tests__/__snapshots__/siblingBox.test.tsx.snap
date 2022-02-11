@@ -2,9 +2,9 @@
 
 exports[`SiblingBox render should render 1`] = `
 .emotion-1 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -34,7 +34,7 @@ exports[`SiblingBox render should render 1`] = `
 }
 
 input[type=checkbox]:active + label .emotion-0 {
-  color: rgb(40,42,43);
+  color: rgb(18,28,45);
 }
 
 input[type=checkbox]:checked + label .emotion-0,
@@ -76,7 +76,7 @@ input[type=checkbox] + label .emotion-0 > * {
 }
 
 input[type=checkbox]:disabled + label .emotion-0 {
-  border-color: rgb(136,140,142);
+  border-color: rgb(136,145,170);
 }
 
 input[type=checkbox]:focus + label .emotion-0 {
@@ -88,7 +88,7 @@ input[type=checkbox]:hover:not(:disabled):not(:checked) + label .emotion-0 {
 }
 
 input[type=checkbox][aria-invalid=true] + label .emotion-0 {
-  background-color: rgb(248,248,249);
+  background-color: rgb(244,244,246);
 }
 
 <div

@@ -8,7 +8,6 @@ import {customElementStyles} from '../stories/components/CustomizableDataGrid';
 describe('Data Grid Customization', () => {
   it('can be customized generically', () => {
     const {getByTestId} = render(
-      // @ts-expect-error global theme for test
       <CustomizationProvider theme={TestTheme} elements={customElementStyles()}>
         <PlainDataGrid />
       </CustomizationProvider>
@@ -46,7 +45,6 @@ describe('Data Grid Customization', () => {
 
   it('can be customized uniquely', () => {
     const {getByTestId} = render(
-      // @ts-expect-error global theme for test
       <CustomizationProvider theme={TestTheme} elements={customElementStyles('FOO')}>
         <PlainDataGrid element="FOO" />
       </CustomizationProvider>

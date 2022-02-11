@@ -27,13 +27,6 @@ const Error404 = ({pathname, componentList, layoutList, primitiveList}: Error404
       return <NotBuilt type="component" name={pageName} />;
     }
 
-    if (pathname.includes(SidebarCategoryRoutes.LAYOUT)) {
-      if (isInDevelopment) {
-        return <InDevelopment type="layout" name={pageName} />;
-      }
-      return <NotBuilt type="layout" name={pageName} />;
-    }
-
     if (pathname.includes(SidebarCategoryRoutes.PRIMITIVES)) {
       if (isInDevelopment) {
         return <InDevelopment type="primitive" name={pageName} />;

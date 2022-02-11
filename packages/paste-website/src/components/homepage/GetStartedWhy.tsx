@@ -32,7 +32,7 @@ export const GetStarterWhy: React.FC = () => {
           </Paragraph>
         </div>
         <GetStartedCardLink
-          to="/getting-started/about-paste"
+          to="/introduction/about-paste"
           onClick={() =>
             trackCustomEvent({
               category: 'Get started',

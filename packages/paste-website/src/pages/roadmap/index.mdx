@@ -27,13 +27,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    BPM: allAirtable(sort: {fields: [data___Name]}, filter: {table: {eq: "2021 BPM"}}) {
+    BPM: allAirtable(sort: {fields: [data___Name]}, filter: {table: {eq: "BPM"}}) {
       edges {
         node {
           data {
             Name
-            Short_description
-            Long_description
+            Full_name
             Status
             Status_description
           }

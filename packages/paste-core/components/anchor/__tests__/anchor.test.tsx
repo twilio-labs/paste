@@ -203,7 +203,6 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >
@@ -220,7 +219,6 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          // @ts-expect-error global test variable
           theme={TestTheme}
           elements={{FUNKY_ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >

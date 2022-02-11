@@ -1,8 +1,9 @@
 import {
   getContrastRatingForTokenPairing,
-  getTokensWithUIControlContrastRequirements,
-  convertRawTokenJSONToArray,
   getTokensWithTextContrastRequirements,
+  getTokensWithUIControlContrastRequirements,
+  getTokensWithDataVisualizationContrastRequirements,
+  convertRawTokenJSONToArray,
 } from '../src/utils';
 import * as RawJSON from '../__fixtures__/tokens.raw.json';
 import * as RawExtraJSON from '../__fixtures__/tokensWithExtraPairings.raw.json';
@@ -91,6 +92,23 @@ describe('getTokensWithUIControlContrastRequirements', () => {
     ]);
   });
 });
+describe('getTokensWithDataVisualizationContrastRequirements', () => {
+  test('it should only return tokens with data visualization contrast requirements', () => {
+    expect(getTokensWithDataVisualizationContrastRequirements(RawExtraJSON.props)).toEqual([
+      {
+        category: 'color',
+        comment: 'Color used for data visualizations. Must be used in a sequence.',
+        data_visualization_contrast_pairing: ['color-data-visualization-8', 'color-data-visualization-10'],
+        name: 'color-data-visualization-9',
+        originalValue: '{!palette-red-80}',
+        type: 'color',
+        uicontrol_contrast_pairing: ['color-background-body'],
+        value: '#750c0c',
+      },
+    ]);
+  });
+});
+
 describe('getContrastRatingForTokenPairing', () => {
   test('it should get the contrast ratio rating for only text color contrast requirements', () => {
     const filteredTextContrastTokens = getTokensWithTextContrastRequirements(RawJSON.props);

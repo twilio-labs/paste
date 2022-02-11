@@ -1,36 +1,47 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Badge} from '@twilio-paste/badge';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Stack} from '@twilio-paste/stack';
-import {Anchor} from '@twilio-paste/anchor';
-import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
 import {useUID} from '@twilio-paste/uid-library';
+import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
+import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {Statuses} from './constants';
 import type {RoadmapProps} from './types';
 import {slugify} from '../../utils/RouteUtils';
+import {AnchoredHeading} from '../Heading';
 
-const StatusBadges = {
+const StatusIconWrapper: React.FC = ({children}) => (
+  <Box display="flex" columnGap="space20" justifyContent="flex-start">
+    {children}
+  </Box>
+);
+
+const StatusIcons = {
   [Statuses.TODO]: (
-    <Badge as="span" variant="info">
+    <StatusIconWrapper>
+      <ProcessDraftIcon decorative={false} title={Statuses.TODO} color="colorTextIcon" />
       {Statuses.TODO}
-    </Badge>
+    </StatusIconWrapper>
   ),
   [Statuses.IN_PROGRESS]: (
-    <Badge as="span" variant="new">
+    <StatusIconWrapper>
+      <ProcessInProgressIcon decorative={false} title={Statuses.IN_PROGRESS} color="colorTextIconNeutral" />
       {Statuses.IN_PROGRESS}
-    </Badge>
+    </StatusIconWrapper>
   ),
   [Statuses.COMPLETE]: (
-    <Badge as="span" variant="success">
+    <StatusIconWrapper>
+      <ProcessSuccessIcon decorative={false} title={Statuses.COMPLETE} color="colorTextIconSuccess" />
       {Statuses.COMPLETE}
-    </Badge>
+    </StatusIconWrapper>
   ),
   [Statuses.AT_RISK]: (
-    <Badge as="span" variant="warning">
+    <StatusIconWrapper>
+      <ProcessWarningIcon decorative={false} title={Statuses.AT_RISK} color="colorTextIconWarning" />
       {Statuses.AT_RISK}
-    </Badge>
+    </StatusIconWrapper>
   ),
 };
 
@@ -44,25 +55,15 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
 
           return (
             <Box key={useUID()} id={releaseSlug} data-cy={`release-container-#${releaseSlug}`}>
-              <Heading as="h2" variant="heading20">
-                <Box as="span" display="flex" alignItems="center">
-                  Release - {release.release}
-                  <Anchor data-cy="anchored-heading-h2" href={`#${releaseSlug}`}>
-                    <LinkIcon
-                      color="colorTextIcon"
-                      decorative={false}
-                      title={`${release.release} page anchor`}
-                      size="sizeIcon40"
-                    />
-                  </Anchor>
-                </Box>
-              </Heading>
+              <AnchoredHeading as="h2" variant="heading20" existingSlug={releaseSlug}>
+                {release.release}
+              </AnchoredHeading>
               <Table>
                 <THead>
                   <Tr>
                     <Th width="200px">Feature</Th>
                     <Th>Description</Th>
-                    <Th textAlign="center" width="120px">
+                    <Th textAlign="left" width="140px">
                       Status
                     </Th>
                   </Tr>
@@ -77,11 +78,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
                             ? feature.node.data.Public_Description__from_System_[0]
                             : feature.node.data.Release_Description}
                         </Td>
-                        <Td>
-                          <Box display="flex" justifyContent="center">
-                            {StatusBadges[feature.node.data.Status]}
-                          </Box>
-                        </Td>
+                        <Td>{StatusIcons[feature.node.data.Status]}</Td>
                       </Tr>
                     );
                   })}

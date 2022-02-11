@@ -25,6 +25,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   isSelectAll?: boolean;
   isSelectAllChild?: boolean;
   checked?: boolean;
+  defaultChecked?: boolean;
 }
 
 type HiddenCheckboxProps = Pick<
@@ -64,13 +65,21 @@ const CheckboxIcon: React.FC<{
   if (indeterminate) {
     return <MinusIcon element={element} decorative color={color} size="sizeIcon10" />;
   }
-  return <CheckboxCheckIcon element={element} hidden={!checked} decorative color={color} size="sizeIcon10" />;
+  return (
+    <CheckboxCheckIcon
+      element={element}
+      display={!checked ? 'none' : 'block'}
+      decorative
+      color={color}
+      size="sizeIcon10"
+    />
+  );
 };
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
-      checked,
+      checked: checkedProp,
       element = 'CHECKBOX',
       children,
       helpText,
@@ -90,7 +99,21 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const disabled = props.disabled != null ? props.disabled : checkboxGroupContext.disabled;
     const name = props.name != null ? props.name : checkboxGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : checkboxGroupContext.hasError;
-    const handleChange = props.onChange != null ? props.onChange : checkboxGroupContext.onChange;
+
+    // Manages what the value of checked is depending on if it is controlled or uncontrolled
+    const [checkedState, setCheckedState] = React.useState(!!props.defaultChecked);
+    const isControlled = checkedProp !== undefined;
+    const mergedChecked = isControlled ? checkedProp : checkedState;
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+      if (!isControlled) {
+        setCheckedState(event.target.checked);
+      } else if (props.onChange) {
+        props.onChange(event);
+      } else {
+        checkboxGroupContext.onChange(event);
+      }
+    };
 
     let paddingLeft: SpaceOptions | null = null;
     let checkboxBackground: BackgroundColorOptions | null = null;
@@ -98,7 +121,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     if (isSelectAll) {
       paddingLeft = 'space20';
 
-      if (checked || indeterminate) {
+      if (mergedChecked || indeterminate) {
         checkboxBackground = 'colorBackgroundPrimaryWeakest';
       } else if (!disabled) {
         checkboxBackground = 'colorBackground';
@@ -124,12 +147,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       >
         <HiddenCheckbox
           {...safelySpreadBoxProps(props)}
-          checked={checked}
+          checked={checkedProp}
           disabled={disabled}
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
-          aria-checked={indeterminate ? 'mixed' : checked}
+          aria-checked={indeterminate ? 'mixed' : checkedProp}
           aria-invalid={hasError}
           id={id}
           required={required}
@@ -146,7 +169,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           >
             <CheckboxIcon
               element={`${element}_ICON`}
-              checked={checked}
+              checked={mergedChecked}
               disabled={disabled}
               indeterminate={indeterminate}
             />
@@ -188,6 +211,7 @@ Checkbox.propTypes = {
   isSelectAll: PropTypes.bool,
   isSelectAllChild: PropTypes.bool,
   element: PropTypes.string,
+  defaultChecked: PropTypes.bool,
 };
 
 export {Checkbox};

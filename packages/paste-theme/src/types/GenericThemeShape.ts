@@ -1,130 +1,151 @@
-import {
-  backgroundColors,
-  borderColors,
-  borderWidths,
-  radii,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  boxShadows,
-  sizings,
-  spacings,
-  textColors,
-  zIndices,
+import type {
+  backgroundColors as BackgroundColors,
+  borderColors as BorderColors,
+  borderWidths as BorderWidths,
+  radii as Radii,
+  fonts as Fonts,
+  fontSizes as FontSizes,
+  fontWeights as FontWeights,
+  lineHeights as LineHeights,
+  boxShadows as BoxShadows,
+  sizings as Sizings,
+  spacings as Spacings,
+  textColors as TextColors,
+  zIndices as ZIndices,
+  colors as Colors,
 } from '@twilio-paste/design-tokens';
+
+export type BackgroundColorsKeys = keyof typeof BackgroundColors;
+export type BorderColorsKeys = keyof typeof BorderColors;
+export type BorderWidthsKeys = keyof typeof BorderWidths;
+export type ColorsKeys = keyof typeof Colors;
+export type FontSizesKeys = keyof typeof FontSizes;
+export type FontWeightsKeys = keyof typeof FontWeights;
+export type FontsKeys = keyof typeof Fonts;
+export type SizingKeys = keyof typeof Sizings;
+export type LineHeightsKeys = keyof typeof LineHeights;
+export type RadiiKeys = keyof typeof Radii;
+export type BoxShadowsKeys = keyof typeof BoxShadows;
+export type SpacingsKeys = keyof typeof Spacings;
+export type TextColorsKeys = keyof typeof TextColors;
+export type ZIndicesKeys = keyof typeof ZIndices;
 
 // TODO Dynamically type this
 export interface GenericThemeShape {
   backgroundColors: Partial<
     {
-      [key in keyof typeof backgroundColors]: any;
+      [key in BackgroundColorsKeys]: any;
     }
   >;
   borderColors: Partial<
     {
-      [key in keyof typeof borderColors]: any;
+      [key in BorderColorsKeys]: any;
     }
   >;
   borderWidths: Partial<
     {
-      [key in keyof typeof borderWidths]: any;
+      [key in BorderWidthsKeys]: any;
     }
   >;
   breakpoints: Partial<{
     [key: string]: any;
   }>;
+  dataVisualization: Partial<
+    {
+      [key in ColorsKeys]: any;
+    }
+  >;
   fontSizes: Partial<
     {
-      [key in keyof typeof fontSizes]: any;
+      [key in FontSizesKeys]: any;
     }
   >;
   fontWeights: Partial<
     {
-      [key in keyof typeof fontWeights]: any;
+      [key in FontWeightsKeys]: any;
     }
   >;
   fonts: Partial<
     {
-      [key in keyof typeof fonts]: any;
+      [key in FontsKeys]: any;
     }
   >;
   heights: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   iconSizes: {
-    sizeIcon10: typeof sizings['sizeIcon10'];
-    sizeIcon20: typeof sizings['sizeIcon20'];
-    sizeIcon30: typeof sizings['sizeIcon30'];
-    sizeIcon40: typeof sizings['sizeIcon40'];
-    sizeIcon50: typeof sizings['sizeIcon50'];
-    sizeIcon60: typeof sizings['sizeIcon60'];
-    sizeIcon70: typeof sizings['sizeIcon70'];
-    sizeIcon80: typeof sizings['sizeIcon80'];
-    sizeIcon90: typeof sizings['sizeIcon90'];
-    sizeIcon100: typeof sizings['sizeIcon100'];
-    sizeIcon110: typeof sizings['sizeIcon110'];
+    sizeIcon10: typeof Sizings['sizeIcon10'];
+    sizeIcon20: typeof Sizings['sizeIcon20'];
+    sizeIcon30: typeof Sizings['sizeIcon30'];
+    sizeIcon40: typeof Sizings['sizeIcon40'];
+    sizeIcon50: typeof Sizings['sizeIcon50'];
+    sizeIcon60: typeof Sizings['sizeIcon60'];
+    sizeIcon70: typeof Sizings['sizeIcon70'];
+    sizeIcon80: typeof Sizings['sizeIcon80'];
+    sizeIcon90: typeof Sizings['sizeIcon90'];
+    sizeIcon100: typeof Sizings['sizeIcon100'];
+    sizeIcon110: typeof Sizings['sizeIcon110'];
   };
   lineHeights: Partial<
     {
-      [key in keyof typeof lineHeights]: any;
+      [key in LineHeightsKeys]: any;
     }
   >;
   maxHeights: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   maxWidths: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   minHeights: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   minWidths: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   radii: Partial<
     {
-      [key in keyof typeof radii]: any;
+      [key in RadiiKeys]: any;
     }
   >;
   shadows: Partial<
     {
-      [key in keyof typeof boxShadows]: any;
+      [key in BoxShadowsKeys]: any;
     }
   >;
   sizes: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   space: Partial<
     {
-      [key in keyof typeof spacings]: any;
+      [key in SpacingsKeys]: any;
     }
   >;
   textColors: Partial<
     {
-      [key in keyof typeof textColors]: any;
+      [key in TextColorsKeys]: any;
     }
   >;
   widths: Partial<
     {
-      [key in keyof typeof sizings]: any;
+      [key in SizingKeys]: any;
     }
   >;
   zIndices: Partial<
     {
-      [key in keyof typeof zIndices]: any;
+      [key in ZIndicesKeys]: any;
     }
   >;
 }

@@ -1,0 +1,268 @@
+---
+title: Privacy
+description: Use the Privacy pattern to inform a user of form fields that are not for personal data.
+slug: /patterns/privacy/
+---
+
+import {graphql} from 'gatsby';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Anchor} from '@twilio-paste/anchor';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {Input} from '@twilio-paste/input';
+import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {
+  PrivacyExample,
+  FriendlyName,
+  WithHelpText,
+  WithErrorText,
+} from '../../../component-examples/PrivacyPatternExamples.tsx';
+import {Button} from '@twilio-paste/button';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/privacy/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Privacy"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+            Product_suitability
+          }
+        }
+      }
+    }
+  }
+`;
+
+<content>
+
+<NormalizePatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  data={props.data}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{Label, Input, HelpText, Anchor}}>{PrivacyExample}</LivePreview>
+
+## Ingredients
+
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/help-text">Help Text</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/anchor">Anchor</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/primitives/box">Box</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+<Grid gutter="space30" marginBottom="space80">
+  <Column span={4}>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/input">Input</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+
+```jsx
+// import all components for Privacy patterns
+
+import {​ HelpText } from "@twilio-paste/core/help-text";
+import { Anchor } from "@twilio-paste/core/anchor";
+import { Box } from "@twilio-paste/core/box"
+import { Input } from "@twilio-paste/core/input"
+
+```
+
+## Background
+
+[Personally Identifiable Information (PII)](https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii#fields-marked-not-pii), or personal data, is data that corresponds to a single person. PII might be a phone number, national ID number, email address, or any data that can be used, either on its own or with any other information, to contact, identify, or locate a person. Read about [PII used in Twilio Products](https://wiki.hq.twilio.com/pages/viewpage.action?spaceKey=LEGAL&title=PII+used+in+Twilio+Products).
+
+In the API, Twilio clearly labels fields as “PII” and “Not PII”, defines what PII is, and outlines how Twilio handles fields marked "Not PII".
+
+In our UIs, we currently do not label fields that are not intended to store personal data. This data is then available and exposed in our internal tools, such as Monkey. We need to adequately warn or discourage customers from putting personal data into freeform fields that are not intended for PII. In particular, we’ve seen users input personal data, such as their first and last name, into the Friendly Name field even though it isn't PII.
+
+There are a lot of non-PII fields where the risk that a user would accidentally input sensitive information is low (such as SIDs). The Privacy pattern defines how to inform a user to not input personal data in fields where the risk of inputting sensitive info is higher (such as Friendly Name).
+
+## Usage
+
+### General
+
+The Privacy pattern is used to communicate the data management of a form field. Use a Privacy indicator to inform a user of a field where the data is <strong>not PII</strong>.
+
+Privacy indicators:
+
+- Leverage help text placed alongside a form component where a user may accidentally enter personal data in fields that we don’t treat as PII on our systems.
+- Refer to PII as “personal data”, where “PII/non-PII” terminology is reserved for internal use.
+- Provide a subtle prompt about personal data to users, rather than a warning.
+- Are different from a [required field indicator](/components/input/#required-field-indicator), which is a visual representation to inform a user of a required field.
+
+### Design
+
+A privacy indicator is [Help Text](/components/help-text/#accessibility) and has specific copy to inform a user of a non-PII field. Within the Help Text is an Anchor linking out to [Twilio docs on how we handle PII](https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii).
+
+<LivePreview scope={{Label, Input, HelpText, Anchor}}>{PrivacyExample}</LivePreview>
+
+### Accessibility
+
+Because the privacy indicator leverages [Help Text](/components/help-text/#accessibility), it shares all of the Accessibility guidelines of that component.
+
+## Variations
+
+### Friendly or unique name
+
+Use when informing a user that a “friendly name” or "unique name” field is non-PII.
+
+<LivePreview scope={{Label, Input, HelpText, Anchor, Button, Heading, Box}}>{FriendlyName}</LivePreview>
+
+<Callout>
+  <CalloutTitle>Need a variation that isn't included here?</CalloutTitle>
+  <CalloutText>
+    Variations of this pattern will be added as there are more non-PII fields where users may unintentionally input
+    personal data. Please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      create a GitHub Discussion
+    </Anchor>{' '}
+    if there is a variant you would like added.
+  </CalloutText>
+</Callout>
+
+## Composition
+
+### Positioning with additional help text
+
+If there is additional help text on a form component, append the privacy help text after the additional help text.
+
+<LivePreview scope={{Label, Input, HelpText, Anchor}}>{WithHelpText}</LivePreview>
+
+### Positioning with error text
+
+If an input containing a privacy indicator is in an error state, the error message will replace <strong> all </strong> help text, including the privacy indicator.
+
+<LivePreview scope={{Label, Input, HelpText, Anchor}} noInline>
+  {WithErrorText}
+</LivePreview>
+
+## Dos and don'ts
+
+<DoDont>
+  <Do title="Do" body="Use the same copy as in the pattern to indicate a non-PII field." preview={false}>
+    <Box padding="space60">
+      <Label htmlFor="do-1">Friendly name</Label>
+      <Input type="text" id="do-1" aria-describedby="do-1-ht" value="My favorite service" />
+      <HelpText id="do-1-ht">
+        Avoid entering{' '}
+        <Anchor
+          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
+          showExternal
+        >
+          personal data
+        </Anchor>{' '}
+        like your name, email address, or phone number.
+      </HelpText>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Update the copy specific to a particular field as that may encourage inconsistencies across the customer experience. If the default copy doesn’t work for your use case, please create a Github Discussion to discuss adding a new variant."
+    preview={false}
+  >
+    <Box padding="space60">
+      <Label htmlFor="dont-1">Friendly name</Label>
+      <Input type="text" id="dont-1" aria-describedby="dont-1-ht" value="My favorite service" />
+      <HelpText id="dont-1-ht">Don't add your name here!</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Append privacy help text so it is read after any additional help text." preview={false}>
+    <Box padding="space60">
+      <Label htmlFor="do-2">Friendly name</Label>
+      <Input type="text" id="do-2" aria-describedby="do-2-ht" value="My favorite service" />
+      <HelpText id="do-2-ht">
+        [Additional help text]. Avoid entering{' '}
+        <Anchor
+          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
+          showExternal
+        >
+          personal data
+        </Anchor>{' '}
+        like your name, email address, or phone number.
+      </HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Add privacy help text before additional help text." preview={false}>
+    <Box padding="space60">
+      <Label htmlFor="dont-2">Friendly name</Label>
+      <Input type="text" id="dont-2" aria-describedby="dont-2-ht" value="My favorite service" />
+      <HelpText id="dont-2-ht">
+        Avoid entering{' '}
+        <Anchor
+          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
+          showExternal
+        >
+          personal data
+        </Anchor>{' '}
+        like your name, email address, or phone number. [Additional help text].
+      </HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+## Starter kits
+
+- [Figma](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns?node-id=1333%3A59088)
+
+## Related discussions
+
+- [DSYS-2818: Privacy Vulnerability — Console does not discourage use of freeform fields for PII](https://issues.corp.twilio.com/browse/DSYS-2818)
+
+</content>
+
+</contentwrapper>

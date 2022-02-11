@@ -11,12 +11,7 @@ import axe from '../../../../../.jest/axe-helper';
 
 // eslint-disable-next-line react/display-name
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider
-    // @ts-expect-error global test variable
-    theme={TestTheme}
-    elements={elements}
-    data-testid="test-wrapper"
-  >
+  <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
     {children}
   </CustomizationProvider>
 );

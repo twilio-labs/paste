@@ -1,7 +1,0 @@
-imports:
-  - ../../../aliases/color.yml
-aliases:
-  amaranth: "#F22F46"
-  black: "#000000"
-  midnight: "#233659"
-  white: "#FFFFFF"
