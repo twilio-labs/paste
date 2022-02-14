@@ -43,7 +43,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
               Documentation
             </Th>
             <Th textAlign="center" width="170px">
-              <Box display="flex" alignItems="center">
+              <Box display="flex" alignItems="center" justifyContent="center">
                 <Text as="span" marginRight="space20">
                   Peer review
                 </Text>

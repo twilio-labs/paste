@@ -1,6 +1,3 @@
-import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-
 export const PrivacyExample = `
 <>
   <Label htmlFor="input">Friendly name</Label>
@@ -83,7 +80,3 @@ const PrivacyPatternError = () => {
 
 render(<PrivacyPatternError />)
 `.trim();
-
-export const dontText = `Update the copy specific to a particular field as that may encourage inconsistencies across the customer experience. If the default copy doesn’t work for your use case, please ${(
-  <Anchor href="https://github.com/twilio-labs/paste/discussions">create a GitHub Discussion</Anchor>
-)} to discuss adding a new variant.`;
