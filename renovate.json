@@ -1,5 +1,9 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "rangeStrategy": "update-lockfile"
+    }
   ]
 }
