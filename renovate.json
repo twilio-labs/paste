@@ -8,16 +8,15 @@
     {
       "matchPackageNames": [
         "react-16",
-        "react-16-dom",
+        "react-dom-16",
         "@emotion/core",
         "@emotion/babel-preset-css-prop",
         "@emotion/styled",
         "emotion",
         "emotion-theming",
         "jest-emotion",
+        "eslint-plugin-emotion",
         "graphql",
-        "@types/webpack",
-        "webpack",
         "babel-preset-gatsby",
         "gatsby",
         "gatsby-image",
@@ -33,8 +32,12 @@
         "gatsby-transformer-json",
         "gatsby-transformer-remark",
         "gatsby-transformer-sharp",
+        "gatsby-plugin-react-svg",
+        "gatsby-source-airtable",
         "@mdx-js/mdx",
-        "@mdx-js/react"
+        "@mdx-js/react",
+        "@types/webpack",
+        "webpack"
       ],
       "enabled": false
     }
