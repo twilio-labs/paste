@@ -448,6 +448,55 @@ HeaderContent.story = {
   },
 };
 
+export const i18nProp = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const handleOpen = (): void => setIsOpen(true);
+  const handleClose = (): void => setIsOpen(false);
+  const modalHeadingID = useUID();
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        Open
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader i18nDismissLabel="Modal schließen">
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Edit Account Details
+          </ModalHeading>
+          <Flex as="div" marginLeft="space40" vAlignContent="center">
+            <InformationIcon decorative={false} title="information" size="sizeIcon10" />
+            <Text as="span" color="colorTextWeak" fontSize="fontSize20">
+              More information
+            </Text>
+          </Flex>
+        </ModalHeader>
+        <ModalBody>
+          <Heading as="h2" variant="heading40">
+            Modal heading
+          </Heading>
+          <Paragraph>Custom modal body content.</Paragraph>
+        </ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary">Submit</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+
+i18nProp.story = {
+  name: 'i18n prop',
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
+};
+
 export const CustomInitialFocusElement = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
   const [name, setName] = React.useState('');
