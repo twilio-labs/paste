@@ -493,5 +493,13 @@ export const connectivityStatusExamples = `
     />
     Offline
   </Box>
+  <Box display="inherit">
+    <ConnectivityNeutralIcon
+      color="colorTextIcon"
+      decorative={false}
+      title="neutral"
+    />
+    Neutral
+  </Box>
 </Box>
 `.trim();

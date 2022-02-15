@@ -35,6 +35,7 @@ import {ConnectivityAvailableIcon} from '@twilio-paste/icons/esm/ConnectivityAva
 import {ConnectivityBusyIcon} from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
 import {ConnectivityUnavailableIcon} from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
 import {ConnectivityOfflineIcon} from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
+import {ConnectivityNeutralIcon} from '@twilio-paste/icons/esm/ConnectivityNeutralIcon';
 
 import {
   ProcessDisabled,
@@ -303,6 +304,7 @@ Connectivity statuses are used to show if a user, object, or system is online or
     ConnectivityBusyIcon,
     ConnectivityUnavailableIcon,
     ConnectivityOfflineIcon,
+    ConnectivityNeutralIcon,
   }}
   language="jsx"
 >
@@ -352,6 +354,14 @@ Connectivity statuses are used to show if a user, object, or system is online or
       <Td>ConnectivityOfflineIcon</Td>
       <Td>$color-text-icon-offline</Td>
       <Td>Indicates that a person or entity is offline.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <ConnectivityNeutralIcon title="neutral" color="colorTextIcon" />
+      </Td>
+      <Td>ConnectivityNeutralIcon</Td>
+      <Td>$color-text-icon</Td>
+      <Td>Indicates that a person or entity is neutral.</Td>
     </Tr>
   </TBody>
 </Table>
