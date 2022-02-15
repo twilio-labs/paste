@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@datadog/browser-rum": "^2.8.1",
+    "@docsearch/css": "^3.0.0-alpha.42",
+    "@docsearch/react": "alpha",
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
@@ -89,7 +91,6 @@
     "@twilio-paste/types": "^3.1.2",
     "@twilio-paste/uid-library": "^0.2.1",
     "color": "^3.1.2",
-    "docsearch.js": "2.6.3",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.19",
     "gatsby-image": "^2.2.41",

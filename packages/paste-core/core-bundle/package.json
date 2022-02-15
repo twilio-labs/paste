@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "11.0.0",
+  "version": "11.0.1",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -39,7 +39,7 @@
     "@twilio-paste/checkbox": "^7.0.0",
     "@twilio-paste/clipboard-copy-library": "^1.0.1",
     "@twilio-paste/color-contrast-utils": "^2.0.0",
-    "@twilio-paste/combobox": "^9.0.0",
+    "@twilio-paste/combobox": "^9.0.1",
     "@twilio-paste/combobox-primitive": "^0.3.1",
     "@twilio-paste/customization": "^3.0.0",
     "@twilio-paste/data-grid": "^1.0.0",
