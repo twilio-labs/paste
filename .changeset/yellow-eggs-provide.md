@@ -5,7 +5,7 @@
 
 [radio-group]
 
-- Add new customization element for the radio control circle
+- Add new customization element `RADIO_CONTROL_CIRCLE` to controls the styles of the circle within the radio button
 - Update default color to `colorTextWeakest`
 - Update hover text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
 - Update focus text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
