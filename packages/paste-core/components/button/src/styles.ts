@@ -71,5 +71,6 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     paddingBottom: 'space0',
     paddingLeft: 'space0',
     borderWidth: 'borderWidth0',
+    fontSize: 'inherit',
   },
 };
