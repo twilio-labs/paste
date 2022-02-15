@@ -4,6 +4,39 @@
     {
       "matchPackagePatterns": ["*"],
       "rangeStrategy": "update-lockfile"
+    },
+    {
+      "matchPackageNames": [
+        "react-16",
+        "react-16-dom",
+        "@emotion/core",
+        "@emotion/babel-preset-css-prop",
+        "@emotion/styled",
+        "emotion",
+        "emotion-theming",
+        "jest-emotion",
+        "graphql",
+        "@types/webpack",
+        "webpack",
+        "babel-preset-gatsby",
+        "gatsby",
+        "gatsby-image",
+        "gatsby-plugin-google-analytics",
+        "gatsby-plugin-manifest",
+        "gatsby-plugin-mdx",
+        "gatsby-plugin-react-helmet",
+        "gatsby-plugin-sharp",
+        "gatsby-plugin-sitemap",
+        "gatsby-plugin-typescript",
+        "gatsby-remark-images",
+        "gatsby-source-filesystem",
+        "gatsby-transformer-json",
+        "gatsby-transformer-remark",
+        "gatsby-transformer-sharp",
+        "@mdx-js/mdx",
+        "@mdx-js/react"
+      ],
+      "enabled": false
     }
   ]
 }
