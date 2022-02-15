@@ -16,6 +16,7 @@ const getCustomizationStyles = (element = 'RADIO'): {[key: string]: PasteCustomC
   [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
   [`${element}`]: {padding: 'space30'},
   [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
+  [`${element}_CONTROL_CIRCLE`]: {color: 'colorText'},
   [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
   [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
 });
@@ -312,6 +313,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
@@ -331,6 +333,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
@@ -358,6 +361,10 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
+      'color',
+      'rgb(18,28,45)'
+    );
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'
@@ -394,6 +401,10 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
+      'color',
+      'rgb(18,28,45)'
+    );
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'

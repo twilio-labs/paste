@@ -24,10 +24,8 @@ props:
       - color-background-error-weakest
       - color-background-new
       - color-background-row-striped
-      - color-background-primary-weak
       - color-background-primary-weaker
       - color-background-primary-weakest
-      - color-background-destructive-weak
       - color-background-destructive-weaker
       - color-background-destructive-weakest
   color-border:
@@ -54,23 +52,24 @@ props:
   color-border-weaker:
     value: "{!palette-gray-20}"
     comment: Weaker border color
+  color-border-inverse-weakest:
+    value: "{!palette-gray-90}"
+    comment: Weakest border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse-weaker:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-80}"
     comment: Weaker border on inverse backgrounds. Must be used on color-background-body-inverse.
-    uicontrol_contrast_pairing:
-      - color-background-body-inverse
   color-border-inverse:
-    value: "{!palette-gray-0-transparent-50}"
+    value: "{!palette-gray-50}"
     comment: Border on inverse backgrounds. Must be used on color-background-body-inverse.
     uicontrol_contrast_pairing:
       - color-background-body-inverse
   color-border-inverse-strong:
-    value: "{!palette-gray-0-transparent-70}"
+    value: "{!palette-gray-20}"
     comment: Strong border on inverse backgrounds. Must be used on color-background-body-inverse.
     uicontrol_contrast_pairing:
       - color-background-body-inverse
   color-border-inverse-stronger:
-    value: "{!palette-gray-0-transparent-90}"
+    value: "{!palette-gray-10}"
     comment: Stronger border on inverse backgrounds. Must be used on color-background-body-inverse.
     uicontrol_contrast_pairing:
       - color-background-body-inverse
@@ -93,9 +92,7 @@ props:
       - color-background-subaccount
       - color-background-trial
       - color-background-neutral-weakest
-      - color-background-success
       - color-background-success-weakest
-      - color-background-warning
       - color-background-warning-weakest
       - color-background-error-weakest
       - color-background-new
@@ -115,9 +112,7 @@ props:
       - color-background-subaccount
       - color-background-trial
       - color-background-neutral-weakest
-      - color-background-success
       - color-background-success-weakest
-      - color-background-warning
       - color-background-warning-weakest
       - color-background-error-weakest
       - color-background-new
@@ -134,24 +129,14 @@ props:
     uicontrol_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-subaccount
-      - color-background-trial
       - color-background-neutral-weakest
       # - color-background-success
-      - color-background-success-weakest
       # - color-background-warning
-      - color-background-warning-weakest
-      - color-background-error-weakest
-      - color-background-new
       - color-background-row-striped
-      - color-background-primary-weak
-      - color-background-primary-weaker
       - color-background-primary-weakest
-      - color-background-destructive-weak
-      - color-background-destructive-weaker
       - color-background-destructive-weakest
   color-border-primary-weak:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-30}"
     comment: Weak primary border color
   color-border-primary-weaker:
     value: "{!palette-blue-20}"
@@ -162,7 +147,7 @@ props:
 
   # status borders
   color-border-neutral-weak:
-    value: "{!palette-gray-50}"
+    value: "{!palette-blue-40}"
     comment: Weak neutral border color
   color-border-neutral:
     value: "{!palette-blue-60}"
@@ -185,6 +170,9 @@ props:
   color-border-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest warning border color
+  color-border-error-stronger:
+    value: "{!palette-red-90}"
+    comment: Stronger error border color
   color-border-error-strong:
     value: "{!palette-red-80}"
     comment: Strong error border color
@@ -194,21 +182,14 @@ props:
     uicontrol_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-subaccount
-      - color-background-trial
       - color-background-neutral-weakest
       # - color-background-success
-      - color-background-success-weakest
       # - color-background-warning
       - color-background-warning-weakest
       - color-background-error-weakest
-      - color-background-new
       - color-background-row-striped
-      - color-background-primary-weak
-      - color-background-primary-weaker
       - color-background-primary-weakest
       # - color-background-destructive-weak
-      - color-background-destructive-weaker
       - color-background-destructive-weakest
   color-border-error-weak:
     value: "{!palette-red-40}"
@@ -230,9 +211,7 @@ props:
       - color-background-subaccount
       - color-background-trial
       - color-background-neutral-weakest
-      - color-background-success
       - color-background-success-weakest
-      - color-background-warning
       - color-background-warning-weakest
       - color-background-error-weakest
       - color-background-new
@@ -252,9 +231,7 @@ props:
       - color-background-subaccount
       - color-background-trial
       - color-background-neutral-weakest
-      - color-background-success
       - color-background-success-weakest
-      - color-background-warning
       - color-background-warning-weakest
       - color-background-error-weakest
       - color-background-new
@@ -271,23 +248,14 @@ props:
     uicontrol_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-subaccount
-      - color-background-trial
       - color-background-neutral-weakest
       # - color-background-success
-      - color-background-success-weakest
       # - color-background-warning
-      - color-background-warning-weakest
-      - color-background-error-weakest
-      - color-background-new
       - color-background-row-striped
-      - color-background-primary-weak
-      - color-background-primary-weaker
       - color-background-primary-weakest
-      - color-background-destructive-weaker
       - color-background-destructive-weakest
   color-border-destructive-weak:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-30}"
     comment: Destructive focus border color
   color-border-destructive-weaker:
     value: "{!palette-red-20}"

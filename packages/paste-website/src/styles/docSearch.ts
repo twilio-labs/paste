@@ -1,161 +1,138 @@
 import {css} from '@twilio-paste/styling-library';
+import type {CSSObject} from '@twilio-paste/styling-library';
+import {pasteBaseStyles} from '@twilio-paste/theme';
+import type {GenericThemeShape} from '@twilio-paste/theme';
 
+export const docSearchVariable = (theme: GenericThemeShape): CSSObject => {
+  return {
+    ':root': {
+      '--docsearch-primary-color': theme.backgroundColors.colorBackgroundPrimaryStronger,
+      '--docsearch-text-color': theme.textColors.colorText,
+      '--docsearch-spacing': theme.space.space50,
+      '--docsearch-icon-stroke-width': theme.borderWidths.borderWidth20,
+      '--docsearch-highlight-color': theme.backgroundColors.colorBackgroundPrimaryStronger,
+      '--docsearch-muted-color': theme.textColors.colorTextWeak,
+      '--docsearch-container-background': theme.backgroundColors.colorBackgroundOverlay,
+      '--docsearch-logo-color': theme.textColors.colorTextWeak,
+      '--docsearch-modal-width': theme.sizes.size70,
+      '--docsearch-modal-height': '600px',
+      '--docsearch-modal-background': theme.backgroundColors.colorBackgroundBody,
+      '--docsearch-modal-shadow': theme.shadows.shadowCard,
+      '--docsearch-searchbox-height': '46px',
+      '--docsearch-searchbox-background': theme.backgroundColors.colorBackgroundInverse,
+      '--docsearch-searchbox-focus-background': theme.backgroundColors.colorBackgroundBody,
+      '--docsearch-searchbox-shadow': theme.shadows.shadowFocus,
+      '--docsearch-hit-height': '56px',
+      '--docsearch-hit-color': theme.textColors.colorText,
+      '--docsearch-hit-active-color': theme.textColors.colorTextWeakest,
+      '--docsearch-hit-background': theme.backgroundColors.colorBackgroundBody,
+      '--docsearch-hit-shadow': 'none',
+      '--docsearch-key-gradient': theme.backgroundColors.colorBackground,
+      '--docsearch-key-shadow': 'none',
+      '--docsearch-footer-height': '44px',
+      '--docsearch-footer-background': theme.backgroundColors.colorBackgroundBody,
+      '--docsearch-footer-shadow': 'none',
+    },
+  };
+};
 export const docSearchStyles = css({
-  '.algolia-autocomplete': {
+  '.DocSearch-Button': {
+    backgroundColor: 'colorBackgroundInverseStrong',
+    borderRadius: 'borderRadius20',
+    boxShadow: 'shadowBorderInverse',
+    color: 'colorTextInverseWeak',
+    paddingX: 'space40',
+    margin: '0',
+
     width: '100%',
+    '&:active, &:focus, &:hover': {
+      backgroundColor: 'colorBackgroundInverseStrong',
+      color: 'colorTextInverse',
+    },
+    '&:hover': {
+      boxShadow: 'shadowBorderInverseStrongest',
+    },
+    '&:active, &:focus': {
+      boxShadow: 'shadowFocusInverse',
+    },
+    '.DocSearch-Search-Icon': {
+      color: 'colorTextInverse',
+      size: 'sizeIcon10',
+    },
   },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestion': {
-    marginY: 'space30',
-    marginX: '0',
+  '.DocSearch-Button-Placeholder': {
+    fontSize: 'fontSize30',
+    fontFamily: 'fontFamilyText',
+    fontWeight: 'fontWeightNormal',
+    fontStyle: 'italic',
+    'font-variation-settings': '"slnt" 0',
+    paddingX: 'space40',
   },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a': {
-    textDecoration: 'none',
+  '.DocSearch-Button-Key': {
+    top: 0,
+    paddingBottom: 0,
   },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:hover, .algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:focus': {
-    textDecoration: 'none',
+  '.DocSearch-Container': {
+    ...pasteBaseStyles(),
   },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:hover .algolia-docsearch-suggestion--title, .algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:focus .algolia-docsearch-suggestion--title': {
-    textDecoration: 'underline',
+  '.DocSearch-Dropdown': {
+    a: {
+      color: 'colorTextLink',
+      textDecoration: 'underline',
+      ':hover': {
+        textDecoration: 'none',
+      },
+    },
   },
-  '.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header': {
+  '.DocSearch-SearchBar': {
+    paddingBottom: 'space20',
+  },
+  '.DocSearch-Search-Icon': {
+    color: 'colorTextIcon',
+  },
+  '.DocSearch-Input': {
+    paddingLeft: 'space50',
+  },
+  '.DocSearch-LoadingIndicator svg, .DocSearch-MagnifierLabel svg': {
+    size: 'sizeIcon10',
+  },
+  '.DocSearch-Hits mark': {
+    color: 'colorTextLink',
+  },
+  '.DocSearch-Hit': {
+    paddingBottom: 'space30',
+    a: {
+      borderColor: 'colorBorderWeaker',
+      borderStyle: 'solid',
+      borderWidth: 'borderWidth20',
+      textDecoration: 'none',
+    },
+    '&[aria-selected=true] a': {
+      borderColor: 'colorBorderPrimaryStronger',
+    },
+  },
+  '.DocSearch-Hit-title': {
+    fontSize: 'fontSize30',
+  },
+  '.DocSearch-Hit-path': {
+    fontSize: 'fontSize20',
+  },
+  '.DocSearch-Hit-source': {
+    color: 'colorText',
+    fontSize: 'fontSize30',
+    fontWeight: 'fontWeightMedium',
+  },
+  '.DocSearch-Hit-icon': {
     display: 'none',
   },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--category-header': {
-    display: 'none',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--title': {
-    color: 'colorText',
-    fontWeight: 'fontWeightSemibold',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--highlight': {
-    background: 'transparent',
-    color: 'inherit',
-    padding: '0',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--highlight': {
-    background: 'colorBackgroundPrimaryLightest',
-    boxShadow: 'none',
+  '.DocSearch-Prefill': {
     color: 'colorTextLink',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight': {
-    background: 'colorBackgroundPrimaryLightest',
-    boxShadow: 'none',
-    color: 'colorTextLink',
-    fontWeight: 'fontWeightSemibold',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion:hover': {
-    color: 'colorTextLinkStronger',
-  },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content': {
-    backgroundColor: 'colorBackground',
-  },
-  '.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--title': {
     textDecoration: 'underline',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--wrapper': {
-    alignItems: 'stretch',
-    display: 'flex',
-    float: 'none',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column': {
-    color: 'colorTextWeak',
-    float: 'none',
-    paddingTop: 'space30',
-    paddingBottom: 'space20',
-    paddingX: 'space30',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--content': {
-    float: 'none',
-    paddingTop: 'space30',
-    paddingBottom: 'space20',
-    paddingX: 'space30',
-    width: '100%',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--text': {
-    marginBottom: 'space20',
-  },
-  '.algolia-autocomplete .algolia-docsearch-footer': {
-    color: 'colorTextWeak',
-    fontSize: 'fontSize10',
-    lineHeight: 'lineHeight10',
-    textAlign: 'right',
-  },
-  '.algolia-autocomplete .algolia-docsearch-footer--logo': {
-    background: 'transparent',
-    color: 'colorTextLink',
-    display: 'inline',
-    overflow: 'visible',
-    textIndent: '0',
-  },
-  '.algolia-autocomplete .algolia-docsearch-footer--logo:hover': {
-    textDecoration: 'none',
-  },
-  '.algolia-autocomplete .ds-dropdown-menu:before': {
-    backgroundColor: 'colorBackgroundBody',
-    borderTopColor: 'colorBorderWeak',
-    borderRightColor: 'colorBorderWeak',
-  },
-  '.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-]': {
-    backgroundColor: 'colorBackgroundBody',
-    borderColor: 'colorBorderWeak',
-    padding: 'space30',
-    paddingTop: '0',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion': {
-    backgroundColor: 'colorBackgroundBody',
-    color: 'colorText',
-  },
-  '.algolia-autocomplete .algolia-docsearch-suggestion--content:before': {
-    backgroundColor: 'colorBackgroundStrong',
-  },
-  '@media only screen and (max-width: 768px)': {
-    '.algolia-autocomplete': {
-      width: '100% !important',
+    '&:hover': {
+      textDecoration: 'none',
     },
-    '.algolia-autocomplete .ds-dropdown-menu, .algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu': {
-      position: 'fixed !important',
-      top: '120px !important',
-      left: '20px !important',
-      right: '20px !important',
-      width: 'calc(100vw - 40px) !important',
-      maxWidth: '550px !important',
-      minWidth: '280px !important',
-      maxHeight: '300px',
-      overflow: 'auto',
-    },
-    '.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu .algolia-docsearch-suggestion--content': {
-      paddingLeft: '4px',
-    },
-    '.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column': {
-      display: 'inline-block',
-      width: '35%',
-      float: 'none',
-      paddingTop: 'space30',
-      paddingBottom: 'space20',
-      paddingX: 'space30',
-      color: 'colorTextWeak',
-      fontSize: '0.9em',
-      fontWeight: 'inherit',
-      textAlign: 'right',
-      opacity: 'inherit',
-      wordBreak: 'break-word',
-    },
-    '.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column:after': {
-      content: '""',
-      position: 'absolute',
-      display: 'block',
-      top: '0',
-      height: '100%',
-      width: '1px',
-      backgroundColor: 'colorBackgroundStrong',
-      right: '0',
-    },
-    '.algolia-autocomplete .ds-dropdown-menu .algolia-docsearch-suggestion--content': {
-      float: 'none',
-      paddingTop: 'space30',
-      paddingBottom: 'space20',
-      paddingX: 'space30',
-      width: '100%',
-    },
+  },
+  '.DocSearch-Commands-Key': {
+    paddingBottom: '0',
   },
 });

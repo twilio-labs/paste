@@ -86,11 +86,16 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           >
             <Box
               as="span"
-              backgroundColor={state.disabled && state.checked ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
-              borderRadius="borderRadiusCircle"
-              height="sizeSquare25"
-              width="sizeSquare25"
-            />
+              element={`${element}_CONTROL_CIRCLE`}
+              lineHeight="lineHeight0"
+              display="block"
+              color="inherit"
+              size="sizeIcon10"
+            >
+              <svg role="img" aria-hidden width="100%" height="100%" viewBox="0 0 16 16" fill="none">
+                <circle fill="currentColor" cx={8} cy={8} r={3} />
+              </svg>
+            </Box>
           </BaseRadioCheckboxControl>
           <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`}>{children}</BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>

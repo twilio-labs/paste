@@ -14,7 +14,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   transition: 'none',
   _hover: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
   _focus: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
-  _active: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
+  _active: {color: 'colorTextLinkStrongest', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {

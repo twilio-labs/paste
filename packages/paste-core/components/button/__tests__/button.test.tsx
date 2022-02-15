@@ -438,7 +438,7 @@ describe('Button', () => {
       const button = getByTestId('primary-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextWeakest');
+      expect(button).toHaveStyleRule('color', 'colorTextInverse');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundPrimary');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderPrimary');
 
@@ -498,7 +498,7 @@ describe('Button', () => {
       const button = getByTestId('destructive-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextWeakest');
+      expect(button).toHaveStyleRule('color', 'colorTextInverse');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundDestructive');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
 

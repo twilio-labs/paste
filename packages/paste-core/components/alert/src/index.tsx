@@ -29,7 +29,7 @@ export const AlertBackgroundColors = {
 } as const;
 export const AlertBorderColors = {
   ERROR: 'colorBorderErrorWeak',
-  NEUTRAL: 'colorBorderNeutral',
+  NEUTRAL: 'colorBorderNeutralWeak',
   WARNING: 'colorBorderWarningWeak',
 } as const;
 

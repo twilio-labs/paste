@@ -156,7 +156,7 @@ describe('Default Theme', () => {
   });
 });
 
-describe.skip('Dark Theme', () => {
+describe('Dark Theme', () => {
   describe('Text color contrast ratio for token pairs', () => {
     test.each(darkThemeTextColorContrastRatings)('ratio check for %p', (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(4.5);

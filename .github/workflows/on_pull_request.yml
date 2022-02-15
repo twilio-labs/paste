@@ -415,6 +415,9 @@ jobs:
           AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
           AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
           GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+          GATSBY_DOCSEARCHV3_APIKEY: ${{ secrets.GATSBY_DOCSEARCHV3_APIKEY }}
+          GATSBY_DOCSEARCHV3_INDEXNAME: ${{ secrets.GATSBY_DOCSEARCHV3_INDEXNAME }}
+          GATSBY_DOCSEARCHV3_APPID: ${{ secrets.GATSBY_DOCSEARCHV3_APPID }}
 
       - name: Run cypress
         id: run-cypress-tests

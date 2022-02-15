@@ -59,18 +59,16 @@ const CheckboxIcon: React.FC<{
   disabled: boolean | undefined;
   checked: boolean | undefined;
   element: BoxProps['element'];
-}> = ({checked, element, disabled, indeterminate}) => {
-  const color = disabled && (checked || indeterminate) ? 'colorTextIcon' : 'colorTextWeakest';
-
+}> = ({checked, element, indeterminate}) => {
   if (indeterminate) {
-    return <MinusIcon element={element} decorative color={color} size="sizeIcon10" />;
+    return <MinusIcon element={element} decorative color="inherit" size="sizeIcon10" />;
   }
   return (
     <CheckboxCheckIcon
       element={element}
       display={!checked ? 'none' : 'block'}
       decorative
-      color={color}
+      color="inherit"
       size="sizeIcon10"
     />
   );
@@ -121,10 +119,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     if (isSelectAll) {
       paddingLeft = 'space20';
 
-      if (mergedChecked || indeterminate) {
+      checkboxBackground = 'colorBackground';
+
+      if ((mergedChecked || indeterminate) && !disabled) {
         checkboxBackground = 'colorBackgroundPrimaryWeakest';
-      } else if (!disabled) {
-        checkboxBackground = 'colorBackground';
       }
     }
     if (isSelectAllChild) {

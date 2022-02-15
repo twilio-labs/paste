@@ -13,7 +13,7 @@ const merge = require('deepmerge');
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextWeakest',
+  color: 'colorTextInverse',
   backgroundColor: 'colorBackgroundDestructive',
   boxShadow: 'shadowBorderDestructive',
   _hover: {
