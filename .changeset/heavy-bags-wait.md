@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/icons': patch
-'@twilio-paste/core': patch
+'@twilio-paste/icons': minor
+'@twilio-paste/core': minor
 ---
 
 [Icon] add connectivity neutral icon
