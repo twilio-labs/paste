@@ -495,7 +495,7 @@ export const connectivityStatusExamples = `
   </Box>
   <Box display="inherit">
     <ConnectivityNeutralIcon
-      color="colorTextIcon"
+      color="colorTextIconNeutral"
       decorative={false}
       title="neutral"
     />
