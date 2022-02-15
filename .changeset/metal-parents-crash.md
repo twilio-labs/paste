@@ -123,11 +123,11 @@
     - Updated `shadow-border-error` to red-60
     - Updated `shadow-border-error-strong` to red-30
   - Inverse
-    - Removed `color-border-inverse-weaker`
-    - Removed `color-border-inverse`
-    - Removed `color-border-inverse-strong`
-    - Removed `color-border-inverse-stronger`
-    - Removed `color-border-inverse-strongest`
+    - Removed `shadow-border-inverse-weaker`
+    - Removed `shadow-border-inverse`
+    - Removed `shadow-border-inverse-strong`
+    - Removed `shadow-border-inverse-stronger`
+    - Removed `shadow-border-inverse-strongest`
 - Dark theme: text color
   - Updated `color-text-weak` to gray-50
   - Updated `color-text-weaker` to gray-80
@@ -136,6 +136,7 @@
   - Link
     - Updated `color-text-link-weak` to gray-80
     - Updated `color-text-link-stronger` to gray-0
+    - Updated color-text-link-destructive-weak to gray-80
     - Updated `color-text-link-destructive-stronger` to gray-0
   - Success
     - Updated `color-text-success` to green-30
