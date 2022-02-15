@@ -14,7 +14,7 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, elemen
     <Box
       {...safelySpreadBoxProps(props)}
       backgroundColor="colorBackgroundBodyInverse"
-      borderColor="colorBorderStrong"
+      borderColor="colorBorderInverseWeaker"
       borderRadius="borderRadius20"
       borderStyle="solid"
       borderWidth="borderWidth10"

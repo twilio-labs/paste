@@ -14,7 +14,7 @@ const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
       borderStyle="solid"
       borderWidth="borderWidth10"
       borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderNeutral"
+      borderLeftColor="colorBorderNeutralWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"

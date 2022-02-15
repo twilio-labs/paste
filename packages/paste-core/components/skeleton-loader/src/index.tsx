@@ -9,7 +9,7 @@ const AnimatedSkeleton = animated(Box);
 
 const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
   css({
-    background: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 60%, transparent)`,
+    background: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.4) 60%, transparent)`,
   })
 );
 

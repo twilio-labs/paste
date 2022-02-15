@@ -8,27 +8,27 @@ imports:
 props:
   # base background
   color-background:
-    value: "{!palette-gray-90}"
+    value: "{!palette-gray-100}"
     comment: Default background color for any container
   color-background-strong:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-90}"
     comment: Strong default background color
   color-background-stronger:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-80}"
     comment: Stronger default background color
   color-background-strongest:
     value: "{!palette-gray-20}"
     comment: Strongest default background color
   color-background-inverse:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-90}"
     comment: Inverse background color for any container. Must be used on color-background-body-inverse.
   color-background-inverse-strong:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-80}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
 
   # brand backgrounds
   color-background-brand:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-100}"
     comment: Primary brand background, accessible with inverse text
   color-background-brand-strong:
     value: "{!palette-gray-90}"
@@ -50,15 +50,15 @@ props:
 
   # account backgrounds
   color-background-subaccount:
-    value: "{!palette-yellow-90}"
+    value: "{!palette-gray-90}"
     comment: Subaccount background color
   color-background-trial:
-    value: "{!palette-green-90}"
+    value: "{!palette-green-100}"
     comment: Trial account background color
 
   # page body
   color-background-body:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-110}"
     comment: Background color of the main page body
   color-background-body-inverse:
     value: "{!palette-gray-100}"
@@ -69,22 +69,25 @@ props:
     value: "{!palette-blue-90}"
     comment: Weakest neutral background color
   color-background-success:
-    value: "{!palette-green-40}"
+    value: "{!palette-green-60}"
     comment: Success background color
   color-background-success-weakest:
-    value: "{!palette-green-90}"
+    value: "{!palette-green-100}"
     comment: Weakest success background color
   color-background-warning:
-    value: "{!palette-orange-40}"
+    value: "{!palette-orange-60}"
     comment: Warning background color
   color-background-warning-weakest:
     value: "{!palette-orange-100}"
     comment: Weakest warning background color
-  color-background-error-strong:
+  color-background-error-stronger:
     value: "{!palette-red-20}"
+    comment: Stronger error background color
+  color-background-error-strong:
+    value: "{!palette-red-40}"
     comment: Strong error background color
   color-background-error:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-60}"
     comment: Error background color
   color-background-error-weakest:
     value: "{!palette-red-100}"
@@ -95,58 +98,58 @@ props:
 
   # row backgrounds
   color-background-row-striped:
-    value: "{!palette-gray-90}"
+    value: "{!palette-gray-100}"
     comment: Background color for alternative striped rows
 
   # primary background
   color-background-primary-strongest:
-    value: "{!palette-gray-0}"
+    value: "{!palette-blue-10}"
     comment: Strongest background for primary actions or highlights
   color-background-primary-stronger:
-    value: "{!palette-blue-10}"
+    value: "{!palette-blue-20}"
     comment: Stronger background for primary actions or highlights
   color-background-primary-strong:
-    value: "{!palette-blue-20}"
+    value: "{!palette-blue-30}"
     comment: Strong background for primary actions or highlights
   color-background-primary:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-60}"
     comment: Background for primary actions or highlights
   color-background-primary-weak:
-    value: "{!palette-gray-0-transparent-30}"
+    value: "{!palette-gray-80}"
     comment: Weak background for primary actions or highlights
   color-background-primary-weaker:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-90}"
     comment: Weaker background for primary actions or highlights
   color-background-primary-weakest:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-100}"
     comment: Weakest background for primary actions or highlights
 
   # destructive backgrounds
   color-background-destructive-strongest:
-    value: "{!palette-gray-0}"
+    value: "{!palette-red-10}"
     comment: Strongest background for destructive actions or highlights
   color-background-destructive-stronger:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-20}"
     comment: Stronger background for destructive actions or highlights
   color-background-destructive-strong:
-    value: "{!palette-red-20}"
+    value: "{!palette-red-30}"
     comment: Strong background for destructive actions or highlights
   color-background-destructive:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-60}"
     comment: Background for destructive actions or highlights
   color-background-destructive-weak:
-    value: "{!palette-gray-0-transparent-30}"
+    value: "{!palette-gray-80}"
     comment: Weak background for destructive actions or highlights
   color-background-destructive-weaker:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-90}"
     comment: Weaker background for destructive actions or highlights
   color-background-destructive-weakest:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-100}"
     comment: Weakest background for destructive actions or highlights
 
   # overlay backgrounds
   color-background-overlay:
-    value: "{!palette-gray-80-transparent-80}"
+    value: "{!palette-gray-100-transparent-90}"
     comment: Default background for overlays
 
   #availability

@@ -3,7 +3,7 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 export const modalHeaderStyles = {
   borderBottomStyle: 'solid',
   borderBottomWidth: 'borderWidth10',
-  borderBottomColor: 'colorBorderWeaker',
+  borderBottomColor: 'colorBorderWeak',
   padding: 'space50',
   margin: 'space0',
   flexShrink: 0,
@@ -18,7 +18,7 @@ export const modalBodyStyles = {
 export const modalFooterStyles = {
   borderTopStyle: 'solid',
   borderTopWidth: 'borderWidth10',
-  borderTopColor: 'colorBorderWeaker',
+  borderTopColor: 'colorBorderWeak',
   padding: 'space50',
   display: 'flex',
   flexShrink: 0,

@@ -16,7 +16,7 @@ const aliasPrefixes = [
   'palette-blue',
   'palette-purple',
 ];
-const excludedAliases = new Set(['palette-gray-0', 'palette-orange-65']);
+const excludedAliases = new Set(['palette-gray-0', 'palette-gray-110', 'palette-orange-65']);
 
 export const sortAliasNames = (aliasNames: string[]): string[] => {
   return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, {numeric: true})).reverse();
