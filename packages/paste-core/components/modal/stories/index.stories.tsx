@@ -467,11 +467,6 @@ export const i18nProp = (): React.ReactNode => {
           </ModalHeading>
         </ModalHeader>
         <ModalBody>
-          <Paragraph>
-            "Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es como
-            tratar de nadar en un nuevo elemento, un elemento 'extranjero'" — Gloria E. Anzaldúa
-          </Paragraph>
-
           <FormLabel htmlFor="author">Escoja una autora</FormLabel>
           <Select id="author">
             <Option value="allende">Isabel Allende</Option>
