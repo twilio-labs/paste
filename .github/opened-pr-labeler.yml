@@ -1,0 +1,5 @@
+# https://github.com/actions/labeler
+
+# Add 'Status: Do Not Merge' label to any newly opened PR
+"Status: Do Not Merge":
+  - "**/*"
