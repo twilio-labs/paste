@@ -6,6 +6,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Select, Option} from '@twilio-paste/select';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -457,32 +458,34 @@ export const i18nProp = (): React.ReactNode => {
   return (
     <div>
       <Button variant="primary" onClick={handleOpen}>
-        Open
+        Abrir modal
       </Button>
       <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
-        <ModalHeader i18nDismissLabel="Modal schließen">
+        <ModalHeader i18nDismissLabel="Cerrar modal">
           <ModalHeading as="h3" id={modalHeadingID}>
-            Edit Account Details
+            Escoja una autora
           </ModalHeading>
-          <Flex as="div" marginLeft="space40" vAlignContent="center">
-            <InformationIcon decorative={false} title="information" size="sizeIcon10" />
-            <Text as="span" color="colorTextWeak" fontSize="fontSize20">
-              More information
-            </Text>
-          </Flex>
         </ModalHeader>
         <ModalBody>
-          <Heading as="h2" variant="heading40">
-            Modal heading
-          </Heading>
-          <Paragraph>Custom modal body content.</Paragraph>
+          <Paragraph>
+            "Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es como
+            tratar de nadar en un nuevo elemento, un elemento 'extranjero'" — Gloria E. Anzaldúa
+          </Paragraph>
+
+          <FormLabel htmlFor="author">Escoja una autora</FormLabel>
+          <Select id="author">
+            <Option value="allende">Isabel Allende</Option>
+            <Option value="cisneros">Sandra Cisneros</Option>
+            <Option value="santiago">Esmeralda Santiago</Option>
+            <Option value="anzaldúa">Gloria E. Anzaldúa</Option>
+          </Select>
         </ModalBody>
         <ModalFooter>
           <ModalFooterActions>
             <Button variant="secondary" onClick={handleClose}>
-              Cancel
+              Cancelar
             </Button>
-            <Button variant="primary">Submit</Button>
+            <Button variant="primary">Confirmar</Button>
           </ModalFooterActions>
         </ModalFooter>
       </Modal>
