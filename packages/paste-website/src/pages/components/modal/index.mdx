@@ -21,7 +21,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples';
+import {defaultExample, initialFocusExample, wideExample, i18nExample} from '../../../component-examples/ModalExamples';
 
 export const pageQuery = graphql`
   {
@@ -202,6 +202,30 @@ To set a different initial focus target, set the `initialFocusRef` prop on the `
   noInline
 >
   {initialFocusExample}
+</LivePreview>
+
+### Internationalization
+
+To internationalize the modal, simply pass different text as children to the Modal components. The only exception is the dismiss button in the `ModalHeader` component–to change the button’s text, use the `i18nDismissLabel` prop.
+
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    FormLabel,
+    Select,
+    Option,
+    Paragraph,
+  }}
+  noInline
+>
+  {i18nExample}
 </LivePreview>
 
 ## Composition Notes
@@ -422,9 +446,10 @@ const ModalTrigger = () => {
 
 #### ModalHeader Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop              | Type        | Description | Default       |
+| ----------------- | ----------- | ----------- | ------------- |
+| children          | `ReactNode` |             | null          |
+| i18nDismissLabel? | `string`    |             | 'Close modal' |
 
 #### ModalHeading Props
 
