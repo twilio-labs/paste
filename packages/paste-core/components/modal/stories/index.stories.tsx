@@ -6,6 +6,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Select, Option} from '@twilio-paste/select';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -443,6 +444,52 @@ export const HeaderContent = (): React.ReactNode => {
 
 HeaderContent.story = {
   name: 'Header content',
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
+};
+
+export const i18nProp = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const handleOpen = (): void => setIsOpen(true);
+  const handleClose = (): void => setIsOpen(false);
+  const modalHeadingID = useUID();
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        Abrir modal
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader i18nDismissLabel="Cerrar modal">
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Escoja una autora
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+          <FormLabel htmlFor="author">Escoja una autora</FormLabel>
+          <Select id="author">
+            <Option value="allende">Isabel Allende</Option>
+            <Option value="cisneros">Sandra Cisneros</Option>
+            <Option value="santiago">Esmeralda Santiago</Option>
+            <Option value="anzaldúa">Gloria E. Anzaldúa</Option>
+          </Select>
+        </ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancelar
+            </Button>
+            <Button variant="primary">Confirmar</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+
+i18nProp.story = {
+  name: 'i18n prop',
   parameters: {
     chromatic: {disableSnapshot: true},
   },

@@ -185,3 +185,56 @@ render(
   <ModalTrigger />
 )
 `.trim();
+
+export const i18nExample = `
+const ModalTrigger = () => {
+  // Modal properties
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  const modalHeadingID = useUID();
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        Abrir modal
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader i18nDismissLabel='Cerrar modal'>
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Escoja una autora
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+
+          <Paragraph>
+            "Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es como tratar de nadar en un nuevo elemento, un elemento 'extranjero'"
+             — Gloria E. Anzaldúa
+          </Paragraph>
+
+          <FormLabel htmlFor="author">Escoja una autora</FormLabel>
+          <Select id="author">
+            <Option value="allende">Isabel Allende</Option>
+            <Option value="cisneros">Sandra Cisneros</Option>
+            <Option value="santiago">Esmeralda Santiago</Option>
+            <Option value="anzaldúa">Gloria E. Anzaldúa</Option>
+          </Select>
+
+        </ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancelar
+            </Button>
+            <Button variant="primary">Confirmar</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+
+render(
+  <ModalTrigger />
+)
+`.trim();
