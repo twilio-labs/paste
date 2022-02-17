@@ -108,10 +108,10 @@ const I18nFormPillGroup = () => {
           <CalendarIcon decorative size="sizeIcon10" />
           Le tennis
         </FormPill>
-        <FormPill {...pillState} selected>
+        <FormPill {...pillState}>
           Le football américain
         </FormPill>
-        <FormPill {...pillState} selected>
+        <FormPill {...pillState}>
           Le ski
         </FormPill>
         <FormPill {...pillState}>Le football</FormPill>
