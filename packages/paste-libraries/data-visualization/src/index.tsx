@@ -1,0 +1,1 @@
+export {usePasteHighchartsTheme} from './usePasteHighchartsTheme';
