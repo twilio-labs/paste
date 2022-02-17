@@ -43,6 +43,7 @@
     "@twilio-paste/combobox-primitive": "^0.3.1",
     "@twilio-paste/customization": "^3.0.0",
     "@twilio-paste/data-grid": "^1.0.0",
+    "@twilio-paste/data-visualization-library": "^0.0.1",
     "@twilio-paste/date-picker": "^1.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",
     "@twilio-paste/disclosure": "^6.0.0",
