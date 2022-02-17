@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 
 export interface ScreenReaderOnlyProps extends Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;
+  id?: string;
 }
 
 const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
@@ -34,6 +36,7 @@ ScreenReaderOnly.displayName = 'ScreenReaderOnly';
 if (process.env.NODE_ENV === 'development') {
   ScreenReaderOnly.propTypes = {
     children: PropTypes.node.isRequired,
+    id: PropTypes.string,
   };
 }
 
