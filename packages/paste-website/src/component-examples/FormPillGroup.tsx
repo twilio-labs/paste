@@ -101,15 +101,14 @@ const I18nFormPillGroup = () => {
     <form>
       <FormPillGroup
         {...pillState}
-        data-testid="form-pill-group"
         aria-label="Votre sports favoris:"
         i18nKeyboardControls="Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection."
       >
-        <FormPill data-testid="form-pill" {...pillState}>
+        <FormPill {...pillState}>
           <CalendarIcon decorative size="sizeIcon10" />
           Le tennis
         </FormPill>
-        <FormPill {...pillState} selected data-testid="form-pill-selected">
+        <FormPill {...pillState} selected>
           Le football américain
         </FormPill>
         <FormPill {...pillState} selected>
