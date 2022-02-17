@@ -23,6 +23,7 @@
     "/packages/paste-core/primitives/combobox",
     "/packages/paste-customization",
     "/packages/paste-core/components/data-grid",
+    "/packages/paste-libraries/data-visualization",
     "/packages/paste-core/components/date-picker",
     "/packages/paste-design-tokens",
     "/packages/paste-core/components/disclosure",

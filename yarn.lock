@@ -12196,6 +12196,7 @@ __metadata:
     "@twilio-paste/combobox-primitive": ^0.3.1
     "@twilio-paste/customization": ^3.0.0
     "@twilio-paste/data-grid": ^1.0.0
+    "@twilio-paste/data-visualization-library": ^0.0.1
     "@twilio-paste/date-picker": ^1.0.0
     "@twilio-paste/design-tokens": ^7.0.0
     "@twilio-paste/disclosure": ^6.0.0
@@ -12334,6 +12335,34 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.1
     "@twilio-paste/utils": ^1.0.0
     prop-types: ^15.7.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/data-visualization-library@^0.0.1, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization"
+  dependencies:
+    "@twilio-paste/animation-library": ^0.3.1
+    "@twilio-paste/color-contrast-utils": ^2.0.0
+    "@twilio-paste/design-tokens": ^7.0.0
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^6.0.0
+    "@twilio-paste/types": ^3.1.3
+    deepmerge: 4.2.2
+    highcharts: ^9.3.3
+    highcharts-react-official: ^3.1.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/animation-library": ^0.3.1
+    "@twilio-paste/color-contrast-utils": ^2.0.0
+    "@twilio-paste/design-tokens": ^7.0.0
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^6.0.0
+    "@twilio-paste/types": ^3.1.1
+    highcharts: ^9.3.3
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
@@ -29990,6 +30019,23 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"highcharts-react-official@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "highcharts-react-official@npm:3.1.0"
+  peerDependencies:
+    highcharts: ">=6.0.0"
+    react: ">=16.8.0"
+  checksum: 13ea12e8f778d4b7dac735082b6f36ed3c852b7c31823812ba42ea78e72ce21b90e62daf0a2bc35bb6db07705a9f19cf7b21c03455c6f3fb14e7cab8d35b0ecf
+  languageName: node
+  linkType: hard
+
+"highcharts@npm:^9.3.3":
+  version: 9.3.3
+  resolution: "highcharts@npm:9.3.3"
+  checksum: bd952eafcf7b1c136ab1e20d6b58172f9aeab9381c13e3d67f08b10eb6b2c1f96e62a8d276f29b1e92ef0a8cbc6d1696cd0e554691063a5183235e820b42404b
+  languageName: node
+  linkType: hard
+
 "highlight.js@npm:^10.1.1, highlight.js@npm:~10.5.0":
   version: 10.5.0
   resolution: "highlight.js@npm:10.5.0"
@@ -39275,6 +39321,8 @@ is-whitespace@latest:
     gulp-if: ^3.0.0
     gulp-terser: ^2.0.1
     gulp-theo: 2.0.1
+    highcharts: ^9.3.3
+    highcharts-react-official: ^3.1.0
     husky: ^3.0.0
     immutable: ^4.0.0-rc.12
     jest: 26.6.0
