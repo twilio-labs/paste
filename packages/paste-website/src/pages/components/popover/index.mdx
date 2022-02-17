@@ -29,6 +29,7 @@ import {
   badgeExample,
   buttonVariantsExample,
   setWidthExample,
+  i18nExample,
 } from '../../../component-examples/PopoverExamples';
 
 export const pageQuery = graphql`
@@ -248,6 +249,20 @@ For full details on how to use the state hook, and what props to provide it, fol
   language="jsx"
 >
   {StateHookPopoverExample}
+</LivePreview>
+
+### Internationalization
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Text,
+  }}
+  noInline
+>
+  {i18nExample}
 </LivePreview>
 
 ## Anatomy
