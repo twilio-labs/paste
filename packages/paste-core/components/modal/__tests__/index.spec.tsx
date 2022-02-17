@@ -96,39 +96,16 @@ const MockInitalFocusModal: React.FC = () => {
   );
 };
 
-const I18nMockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
+const I18nMockModal: React.FC = () => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
     <CustomizationProvider baseTheme="default" theme={TestTheme}>
-      <Modal
-        data-testid="modal"
-        aria-busy="true"
-        id="a-new-id"
-        ariaLabelledby={modalHeadingID}
-        isOpen
-        onDismiss={handleCloseMock}
-        size="default"
-      >
-        <ModalHeader data-testid="modal-header" i18nDismissLabel="foo bar">
-          <ModalHeading as="h3" data-testid="modal-heading" id={modalHeadingID}>
+      <Modal ariaLabelledby={modalHeadingID} isOpen onDismiss={handleCloseMock} size="default">
+        <ModalHeader i18nDismissLabel="foo bar">
+          <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
           </ModalHeading>
         </ModalHeader>
-        <ModalBody data-testid="modal-body">
-          <Heading as="h2" variant="heading40">
-            Test Content
-          </Heading>
-          <Paragraph>Custom modal body content.</Paragraph>
-          {children}
-        </ModalBody>
-        <ModalFooter>
-          <ModalFooterActions>
-            <Button variant="secondary" onClick={handleCloseMock}>
-              Cancel
-            </Button>
-            <Button variant="primary">Submit</Button>
-          </ModalFooterActions>
-        </ModalFooter>
       </Modal>
     </CustomizationProvider>
   );
