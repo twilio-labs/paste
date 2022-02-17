@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`usePasteHighChartsTheme hook should return a deepmerged options object when options are passed 1`] = `
+Object {
+  "chart": Object {
+    "backgroundColor": "rgb(255, 255, 255)",
+  },
+  "colors": Array [
+    "rgb(0, 20, 137)",
+    "rgb(14, 124, 58)",
+    "rgb(13, 58, 31)",
+    "rgb(0, 140, 255)",
+    "rgb(57, 71, 98)",
+    "rgb(166, 127, 227)",
+    "rgb(109, 46, 209)",
+    "rgb(136, 145, 170)",
+    "rgb(117, 12, 12)",
+    "rgb(235, 86, 86)",
+  ],
+  "credits": Object {
+    "style": Object {
+      "color": "rgb(174, 178, 193)",
+    },
+  },
+  "labels": Object {
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+    },
+  },
+  "legend": Object {
+    "itemHoverStyle": Object {
+      "color": "rgb(96, 107, 133)",
+    },
+    "itemStyle": Object {
+      "color": "rgb(18, 28, 45)",
+      "font": "0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+      },
+    },
+  },
+  "plotOptions": Object {
+    "series": Object {
+      "borderColor": "transparent",
+    },
+  },
+  "series": Array [
+    Object {
+      "data": Array [
+        43934,
+        52503,
+        57177,
+        69658,
+        97031,
+        119931,
+        137133,
+        154175,
+      ],
+      "name": "Installation",
+    },
+    Object {
+      "data": Array [
+        24916,
+        24064,
+        29742,
+        29851,
+        32490,
+        30282,
+        38121,
+        40434,
+      ],
+      "name": "Manufacturing",
+    },
+    Object {
+      "data": Array [
+        11744,
+        17722,
+        16005,
+        19771,
+        20185,
+        24377,
+        32147,
+        39387,
+      ],
+      "name": "Sales &amp; Distribution",
+    },
+    Object {
+      "data": Array [
+        null,
+        null,
+        7988,
+        12169,
+        15112,
+        22452,
+        34400,
+        34227,
+      ],
+      "name": "Project Development",
+    },
+    Object {
+      "data": Array [
+        12908,
+        5948,
+        8105,
+        11248,
+        8989,
+        11816,
+        18274,
+        18111,
+      ],
+      "name": "Other",
+    },
+  ],
+  "subtitle": Object {
+    "style": Object {
+      "color": "rgb(96, 107, 133)",
+      "font": "0.75rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+    "text": "Source: thesolarfoundation.com",
+  },
+  "title": Object {
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+      "font": "700 1rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+    "text": "Solar Employment Growth by Sector, 2010-2016",
+  },
+  "tooltip": Object {
+    "backgroundColor": "rgb(244, 244, 246)",
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+    },
+  },
+  "xAxis": Object {
+    "labels": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "500 0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+    "lineColor": "rgb(18, 28, 45)",
+    "tickColor": "rgb(18, 28, 45)",
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "600 0.875rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+  },
+  "yAxis": Object {
+    "labels": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "500 0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "600 0.875rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+  },
+}
+`;
+
+exports[`usePasteHighChartsTheme hook should return the theme options object when an empty object is passed 1`] = `
+Object {
+  "chart": Object {
+    "backgroundColor": "rgb(255, 255, 255)",
+  },
+  "colors": Array [
+    "rgb(0, 20, 137)",
+    "rgb(14, 124, 58)",
+    "rgb(13, 58, 31)",
+    "rgb(0, 140, 255)",
+    "rgb(57, 71, 98)",
+    "rgb(166, 127, 227)",
+    "rgb(109, 46, 209)",
+    "rgb(136, 145, 170)",
+    "rgb(117, 12, 12)",
+    "rgb(235, 86, 86)",
+  ],
+  "credits": Object {
+    "style": Object {
+      "color": "rgb(174, 178, 193)",
+    },
+  },
+  "labels": Object {
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+    },
+  },
+  "legend": Object {
+    "itemHoverStyle": Object {
+      "color": "rgb(96, 107, 133)",
+    },
+    "itemStyle": Object {
+      "color": "rgb(18, 28, 45)",
+      "font": "0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+      },
+    },
+  },
+  "plotOptions": Object {
+    "series": Object {
+      "borderColor": "transparent",
+    },
+  },
+  "subtitle": Object {
+    "style": Object {
+      "color": "rgb(96, 107, 133)",
+      "font": "0.75rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+  },
+  "title": Object {
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+      "font": "700 1rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    },
+  },
+  "tooltip": Object {
+    "backgroundColor": "rgb(244, 244, 246)",
+    "style": Object {
+      "color": "rgb(18, 28, 45)",
+    },
+  },
+  "xAxis": Object {
+    "labels": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "500 0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+    "lineColor": "rgb(18, 28, 45)",
+    "tickColor": "rgb(18, 28, 45)",
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "600 0.875rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+  },
+  "yAxis": Object {
+    "labels": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "500 0.625rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+    "title": Object {
+      "style": Object {
+        "color": "rgb(18, 28, 45)",
+        "font": "600 0.875rem 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      },
+    },
+  },
+}
+`;

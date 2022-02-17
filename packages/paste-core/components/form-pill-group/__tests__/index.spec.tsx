@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
@@ -20,6 +20,25 @@ const CustomElementFormPillGroup: React.FC = () => {
       >
         <FormPill {...pillState} element="CUSTOM_PILL" data-testid="form-pill">
           Tennis
+        </FormPill>
+      </FormPillGroup>
+    </form>
+  );
+};
+
+const I18nProp: React.FC = () => {
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup
+        {...pillState}
+        data-testid="form-pill-group"
+        aria-label="Votre sports favoris:"
+        i18nKeyboardControls="Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection."
+      >
+        <FormPill data-testid="form-pill" {...pillState}>
+          Le tennis
         </FormPill>
       </FormPillGroup>
     </form>
@@ -90,27 +109,20 @@ describe('FormPillGroup', () => {
     });
 
     it('can remove pills', () => {
-      const {getByTestId, getAllByText} = render(<SelectableAndRemovable />);
+      const {getByRole} = render(<SelectableAndRemovable />);
 
       /* Test click to remove */
-      const xButtonScreenReaderElement = getAllByText('. Press delete or backspace to remove');
-      // Because this example has several pills with X button
-      const firstXButtonScreenReaderElement = xButtonScreenReaderElement[0];
-      const firstPillXButton = firstXButtonScreenReaderElement.parentNode;
-      if (firstPillXButton == null) {
-        throw new Error('firstPillXButton is null');
-      }
+      const firstPill = getByRole('option', {name: 'Tennis'});
+      const firstPillX = firstPill.querySelector('[data-paste-element="BOX"]');
+      fireEvent.click(firstPillX as Element);
+      expect(firstPill).not.toBeInTheDocument();
 
-      fireEvent.click(firstPillXButton);
-      expect(firstPillXButton).not.toBeInTheDocument();
-
-      // We get `pill-0` index because after removal, the first pill is gone and the second becomes 0
-      const secondPill = getByTestId('form-pill-0');
+      /* Test keyboard to remove */
+      const secondPill = getByRole('option', {name: 'Baseball'});
       fireEvent.keyDown(secondPill, {key: 'Delete', code: 'Delete'});
       expect(secondPill).not.toBeInTheDocument();
 
-      // We get `pill-0` index because after removal, the second pill is gone and the third becomes 0
-      const thirdPill = getByTestId('form-pill-0');
+      const thirdPill = getByRole('option', {name: 'Football'});
       fireEvent.keyDown(thirdPill, {key: 'Backspace', code: 'Backspace'});
       expect(thirdPill).not.toBeInTheDocument();
     });
@@ -181,6 +193,24 @@ describe('FormPillGroup', () => {
       const {container} = render(<SelectableAndRemovable />);
       const results = await axe(container);
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('i18n', () => {
+    it('should have default keyboard controls text', () => {
+      render(<Basic />);
+      const keyboardControlsText = screen.getByText(
+        'Press Delete or Backspace to remove. Press Enter to toggle selection.'
+      );
+      expect(keyboardControlsText).toBeDefined();
+    });
+
+    it('should use i18nKeyboardControls for keyboard controls text', () => {
+      render(<I18nProp />);
+      const keyboardControlsText = screen.getByText(
+        'Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection.'
+      );
+      expect(keyboardControlsText).toBeDefined();
     });
   });
 });

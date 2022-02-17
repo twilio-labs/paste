@@ -8,7 +8,6 @@ import {DirectButtonPropTypes} from './proptypes';
 const merge = require('deepmerge');
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  fontSize: 'inherit',
   fontWeight: 'inherit',
   color: 'inherit',
 });
