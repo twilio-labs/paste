@@ -13,42 +13,45 @@ import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {SimpleStorage} from '../../../utils/SimpleStorage';
-import {getCurrentPathname} from '../../../utils/RouteUtils';
+import {useLocationPathname} from '../../../utils/RouteUtils';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
   dislikePage: (event: React.MouseEvent) => void;
 };
 
-export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
-  <>
-    <Heading as="h4" variant="heading40">
-      Rate this page
-    </Heading>
-    <Text as="p" marginBottom="space50">
-      Let us know how we&apos;re doing! Please rate this page:
-    </Text>
-    <Stack orientation="horizontal" spacing="space60">
-      <Button variant="link" onClick={likePage}>
-        <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
-        It&apos;s useful!
-      </Button>
-      <Button variant="link" onClick={dislikePage}>
-        <ThumbsDownIcon size="sizeIcon50" decorative={false} title="Dislike this page" />
-        It has issues
-      </Button>
-    </Stack>
-    <Separator orientation="horizontal" verticalSpacing="space50" />
-    <Text as="p">
-      Spot an issue?{' '}
-      <Anchor
-        href={`https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=Spotted%20a%20documentation%20error%20on%20${getCurrentPathname()}`}
-      >
-        Let us know!
-      </Anchor>
-    </Text>
-  </>
-);
+export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
+  const pathname = useLocationPathname();
+  return (
+    <>
+      <Heading as="h4" variant="heading40">
+        Rate this page
+      </Heading>
+      <Text as="p" marginBottom="space50">
+        Let us know how we&apos;re doing! Please rate this page:
+      </Text>
+      <Stack orientation="horizontal" spacing="space60">
+        <Button variant="link" onClick={likePage}>
+          <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
+          It&apos;s useful!
+        </Button>
+        <Button variant="link" onClick={dislikePage}>
+          <ThumbsDownIcon size="sizeIcon50" decorative={false} title="Dislike this page" />
+          It has issues
+        </Button>
+      </Stack>
+      <Separator orientation="horizontal" verticalSpacing="space50" />
+      <Text as="p">
+        Spot an issue?{' '}
+        <Anchor
+          href={`https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=Spotted%20a%20documentation%20error%20on%20${pathname}`}
+        >
+          Let us know!
+        </Anchor>
+      </Text>
+    </>
+  );
+};
 
 export const LikedPage: React.FC<RatingProps> = () => (
   <>

@@ -3,7 +3,7 @@ import {useDisclosurePrimitiveState} from '@twilio-paste/disclosure-primitive';
 import type {DisclosurePrimitiveInitialState} from '@twilio-paste/disclosure-primitive';
 
 import type {SidebarCategoryRoutes} from '../../../../constants';
-import {getCurrentPathname} from '../../../../utils/RouteUtils';
+import {useLocationPathname} from '../../../../utils/RouteUtils';
 
 import {SidebarItem} from '../SidebarItem';
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
@@ -14,8 +14,9 @@ export interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState 
 }
 
 export const SidebarDisclosure: React.FC<SidebarDisclosureProps> = ({children, categoryRoute, ...props}) => {
+  const pathname = useLocationPathname();
   const disclosure = useDisclosurePrimitiveState({
-    visible: getCurrentPathname().startsWith(categoryRoute),
+    visible: pathname.startsWith(categoryRoute),
     ...props,
   });
 

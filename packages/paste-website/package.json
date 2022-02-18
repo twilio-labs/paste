@@ -22,6 +22,7 @@
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
+    "@reach/router": "^1.3.4",
     "@twilio-paste/alert": "^8.0.3",
     "@twilio-paste/alert-dialog": "^1.0.2",
     "@twilio-paste/anchor": "^6.0.2",
