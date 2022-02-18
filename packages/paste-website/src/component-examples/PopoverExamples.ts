@@ -197,8 +197,8 @@ const I18nExample = () => {
       <PopoverButton variant="primary">Abrir popover</PopoverButton>
       <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
         <Text as="span">
-          &quot;Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es
-          como tratar de nadar en un nuevo elemento, un elemento &apos;extranjero&apos;&quot; — Gloria E. Anzaldúa
+          "Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es
+          como tratar de nadar en un nuevo elemento, un elemento 'extranjero'" — Gloria E. Anzaldúa
         </Text>
       </Popover>
     </PopoverContainer>
