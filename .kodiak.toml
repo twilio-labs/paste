@@ -3,7 +3,7 @@ version = 1
 [merge]
 automerge_label = "🚀 merge it!"
 blocking_labels = ["Status: WIP", "Status: Do Not Merge"]
-method = ["rebase", "squash"]
+method = "squash"
 
 [merge.automerge_dependencies]
 # only auto merge "minor" and "patch" version upgrades.
