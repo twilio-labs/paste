@@ -219,4 +219,36 @@ describe('Popover', () => {
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
     });
   });
+
+  describe('i18n', () => {
+    it('should have default dismiss button text', () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverContainer baseId="test-id" visible>
+            <PopoverButton variant="primary">Open popover</PopoverButton>
+            <Popover aria-label="Popover">Foo</Popover>
+          </PopoverContainer>
+        </Theme.Provider>
+      );
+
+      const dismissButton = screen.getByRole('button', {name: 'Close popover'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nKeyboardControls for dismiss button text', () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverContainer baseId="test-id" visible>
+            <PopoverButton variant="primary">Abrir popover</PopoverButton>
+            <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
+              Foo
+            </Popover>
+          </PopoverContainer>
+        </Theme.Provider>
+      );
+
+      const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
+      expect(dismissButton).toBeDefined();
+    });
+  });
 });

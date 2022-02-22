@@ -189,3 +189,23 @@ render(
   <PopoverExample />
 )
 `.trim();
+
+export const i18nExample = `
+const I18nExample = () => {
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Abrir popover</PopoverButton>
+      <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
+        <Text as="span">
+          "Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es
+          como tratar de nadar en un nuevo elemento, un elemento 'extranjero'" — Gloria E. Anzaldúa
+        </Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+render(
+  <I18nExample />
+)
+`.trim();

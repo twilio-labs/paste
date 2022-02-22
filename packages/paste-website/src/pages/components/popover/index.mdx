@@ -29,6 +29,7 @@ import {
   badgeExample,
   buttonVariantsExample,
   setWidthExample,
+  i18nExample,
 } from '../../../component-examples/PopoverExamples';
 
 export const pageQuery = graphql`
@@ -250,6 +251,22 @@ For full details on how to use the state hook, and what props to provide it, fol
   {StateHookPopoverExample}
 </LivePreview>
 
+### Internationalization
+
+To internationalize the popover, simply pass different text as children to the popover's contents and the `aria-label` prop. The only exception is the dismiss button–to change the dismiss button’s text, use the `i18nDismissLabel` prop.
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Text,
+  }}
+  noInline
+>
+  {i18nExample}
+</LivePreview>
+
 ## Anatomy
 
 ### PopoverButton
@@ -449,6 +466,10 @@ Sets the placement of popover in relation to the `PopoverButton`. Available opti
 ##### `aria-label: string`
 
 Required label for this Popover component. Titles the entire popover context for screen readers.
+
+##### `i18nDismissLabel: string`
+
+Label for the dismiss button in the popover. The default value is 'Close popover'.
 
 <ChangelogRevealer>
   <Changelog />
