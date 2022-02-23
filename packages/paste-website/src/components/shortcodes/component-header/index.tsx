@@ -36,6 +36,7 @@ export interface ComponentHeaderProps {
   packageStatus?: string;
   storybookUrl?: string;
   version?: string;
+  isBreadcrumbAnAnchor?: boolean;
 }
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
@@ -50,6 +51,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   packageStatus,
   storybookUrl,
   version,
+  isBreadcrumbAnAnchor = true,
 }) => {
   const ogImagePath = packageName
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
@@ -64,6 +66,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     display: 'inline-block',
   };
 
+  const categoryName = getCategoryNameFromRoute(categoryRoute);
+
   return (
     <Box>
       {ogImagePath && (
@@ -72,7 +76,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         </Helmet>
       )}
       <Box marginBottom="space50">
-        <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
+        {isBreadcrumbAnAnchor ? <Anchor href={categoryRoute}>{categoryName}</Anchor> : <>{categoryName}</>}
       </Box>
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
         <Box marginRight="space50">
