@@ -147,6 +147,9 @@ const SidebarNavigation: React.FC = () => {
         </SidebarAnchor>
         <SidebarSeparator />
         <NavigationDisclosure buttonText="Foundations" categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} level={0}>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/colors`}>
+            Colors
+          </SidebarAnchor>
           <NavigationDisclosure
             buttonText="Content"
             categoryRoute={SidebarCategoryRoutes.CONTENT}
@@ -169,8 +172,8 @@ const SidebarNavigation: React.FC = () => {
               Product style guide
             </SidebarAnchor>
           </NavigationDisclosure>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/colors`}>
-            Colors
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
+            Data visualization
           </SidebarAnchor>
           <SidebarAnchor
             level={1}
