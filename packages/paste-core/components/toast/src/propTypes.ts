@@ -6,6 +6,11 @@ export const ToastPropTypes = {
   onDismiss: PropTypes.func,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   variant: PropTypes.oneOf(['error', 'neutral', 'success', 'warning']) as any,
+  i18nDismissLabel: PropTypes.string,
+  i18nErrorLabel: PropTypes.string,
+  i18nNeutralLabel: PropTypes.string,
+  i18nSuccessLabel: PropTypes.string,
+  i18nWarningLabel: PropTypes.string,
 };
 
 export const ToastPortalPropTypes = {
