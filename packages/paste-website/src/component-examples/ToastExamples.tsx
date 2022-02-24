@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
-import {Toaster, useToaster, ToastVariants} from '@twilio-paste/toast';
+import {Toaster, useToaster} from '@twilio-paste/toast';
+import type {ToastVariants} from '@twilio-paste/toast';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Input} from '@twilio-paste/input';
@@ -83,3 +84,15 @@ export const ToasterExample: React.FC = () => {
     </div>
   );
 };
+
+export const i18nExample = `
+const I18nExample = () => {
+  return (
+    <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
+      <Text as="div">Soy una notificacion</Text>
+    </Toast>
+  );
+};
+
+render(<I18nExample />);
+`;
