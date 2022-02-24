@@ -332,6 +332,9 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
               Codemods
             </SidebarAnchor>
+            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/data-visualization`}>
+              Data visualization
+            </SidebarAnchor>
           </NavigationDisclosure>
         </NavigationDisclosure>
         <NavigationDisclosure
