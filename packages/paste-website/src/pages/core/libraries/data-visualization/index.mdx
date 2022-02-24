@@ -1,0 +1,72 @@
+---
+title: Data visualization library
+description: A library that helps theme data visualizations with Paste tokens.
+slug: /core/libraries/data-visualizatioln/
+---
+
+import {graphql} from 'gatsby';
+import PackageJSON from '@twilio-paste/data-visualization-library/package.json';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
+
+import {SidebarCategoryRoutes} from '../../../../constants';
+
+import {LineChartExample, LineChartOptions} from '../../../../component-examples/DataVisualizationExamples';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/core/libraries/data-visualization/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Data visualization library"
+  categoryRoute={SidebarCategoryRoutes.LIBRARIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/data-visualization"
+  storybookUrl="/?path=/story/libraries-data-visualization"
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
+/>
+
+---
+
+<contentwrapper>
+<PageAside data={props.data.mdx} />
+<content>
+
+## Usage
+
+This package is meant to be used with another data visualization library to style visualizations.
+
+### usePasteHighchartsTheme
+
+This is a React Hook to take a Highcharts config and add Paste colors and fonts.
+
+<LivePreview scope={{Highcharts, HighchartsReact, usePasteHighchartsTheme, LineChartOptions}} language="jsx" noInline>
+  {LineChartExample}
+</LivePreview>
+
+The hook adds [the following configs](https://github.com/twilio-labs/paste/blob/4aefbe75d7c34ebdab209be14073426c1632d8a9/packages/paste-libraries/data-visualization/src/usePasteHighchartsTheme.tsx#L42):
+
+- `colors`: the colors Highcharts cycles through for the chart's series
+- `chart`: the background color
+- `title`, `subtitle`, `legend`, `credits`, `label`, and `tooltip`: the font, text colors, and background color
+- `xAxis`, `yAxis`: the font, text colors, and the line and tick colors.
+
+To learn more about the configurations available, check out [the Highcharts API documentation](https://api.highcharts.com/highcharts/).
+
+</content>
+
+</contentwrapper>

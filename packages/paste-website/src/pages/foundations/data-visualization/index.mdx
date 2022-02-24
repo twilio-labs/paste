@@ -7,15 +7,56 @@ slug: /foundations/data-visualization/
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
+
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  LineChartExample,
+  LineChartOptions,
+  DataVizColorSwatches,
+  PieChartCaption,
+  LineChartCaption,
+} from '../../../component-examples/DataVisualizationExamples';
 
 export const pageQuery = graphql`
   {
+    figmaColors: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/data-visualization/figma-colors.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    pieChart: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/data-visualization/pie-chart.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    lineChart: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/data-visualization/line-chart.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     mdx(fields: {slug: {eq: "/foundations/data-visualization/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -57,11 +98,21 @@ This foundation page was created to help establish a familiar and accessible use
 
 ### For engineers
 
+The easiest way to use the data visualization tokens in your charts is to use `usePasteHighchartsTheme` from the [data visualization library package](/core/libraries/data-visualization) with [Highcharts](https://www.highcharts.com/). The `usePasteHighchartsTheme` hook takes an object of Highchart configurations and returns a new object with Paste colors and fonts.
+
+<LivePreview scope={{Highcharts, HighchartsReact, usePasteHighchartsTheme, LineChartOptions}} language="jsx" noInline>
+  {LineChartExample}
+</LivePreview>
+
 ### For designers
 
 To get started incorporating our data visualization design tools into your own Twilio customer experiences and prototypes, please visit our [Design Guidelines for Paste](/getting-started/design).
 
 The [color palette](#color-palettes) used for data visualizations are available as color styles in both the [Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) and [Dark Theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme?node-id=0%3A1) libraries.
+
+<Box maxWidth="size30" paddingBottom="space110" marginX="auto">
+  <Img fluid={props.data.figmaColors.childImageSharp.fluid} />
+</Box>
 
 ## Color palettes
 
@@ -81,11 +132,13 @@ The categorical palette is fully 3:1 contrast-accessible against our `$color-bac
   <CalloutTitle as="h3">Be mindful about how you apply this palette.</CalloutTitle>
   <CalloutText>
     The colors of this palette should be applied in sequence strictly as described below. The sequence is carefully
-    curated to maximize contrast between neighboring colors to help with visual differentiation. You may be able to
-    start anywhere in the sequence, but be sure to follow the remaining order (i.e. You can start with 5, as long as you
-    use the rest of the sequence in order; 6, 7, 8, 9, 10, 1, 2, 3, 4 …)
+    curated to maximize contrast between neighboring colors to help with visual differentiation. You can start anywhere
+    in the sequence, but be sure to follow the remaining order (i.e. You can start with 5, as long as you use the rest
+    of the sequence in order; 6, 7, 8, 9, 10, 1, 2, 3, 4 …)
   </CalloutText>
 </Callout>
+
+<DataVizColorSwatches />
 
 ## Chart anatomy
 
@@ -103,9 +156,15 @@ Although we’ve ensured that the recommended [data visualization colors](#color
 
 An example showing the use of divider lines is [this pie chart categorizing the race diversity index in the U.S. from the 2010 census data](https://www.census.gov/content/dam/Census/newsroom/blogs/2021/rsblog-meauring-race-ethnic-diversity-2020-census/rsblog-measuring-race-ethnic-diversity-2020-census-figure4.jpg). A white divider line is used to create contrast and help distinguish the difference between the categories.
 
+<Img fluid={props.data.pieChart.childImageSharp.fluid} />
+<PieChartCaption />
+
 ### Shapes
 
 Shapes can also be used in combination with color coded data points. The main considerations when designing these are ease of differentiation and consistency of use. Just like semantic colors, certain shapes can have semantic meaning too (e.g. triangles for warning or caution). For this reason, it’s important for teams to align on their use, especially in status alerts.
+
+<Img fluid={props.data.lineChart.childImageSharp.fluid} />
+<LineChartCaption />
 
 </content>
 
