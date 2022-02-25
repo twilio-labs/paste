@@ -6,6 +6,7 @@ slug: /core/libraries/data-visualizatioln/
 
 import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/data-visualization-library/package.json';
+import Changelog from '@twilio-paste/data-visualization-library/CHANGELOG.md';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
@@ -51,7 +52,7 @@ This package is meant to be used with another data visualization library to styl
 ### Installation
 
 ```bash
-yarn add @twilio-paste/data-visualization-library
+yarn add @twilio-paste/data-visualization-library - or - yarn add @twilio-paste/core/data-visualization-library
 ```
 
 ### usePasteHighchartsTheme
@@ -104,6 +105,10 @@ The hook adds [the following styles](https://github.com/twilio-labs/paste/blob/4
 - `xAxis`, `yAxis`: the font, text colors, and the line and tick colors.
 
 To learn more about the configurations available, check out [the Highcharts API documentation](https://api.highcharts.com/highcharts/).
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
 
 </content>
 
