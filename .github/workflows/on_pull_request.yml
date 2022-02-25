@@ -358,7 +358,7 @@ jobs:
           autoAcceptChanges: "main"
           exitOnceUploaded: true
         env:
-          STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+          STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
 
   cypress:
     name: Website tests
