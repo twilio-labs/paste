@@ -429,6 +429,7 @@ jobs:
           APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
           APPLITOOLS_BATCH_ID: ${{ github.event.pull_request.head.sha }}
           USE_CYPRESS_EYES: true
+          PR_NUMBER: ${{ github.event.number }}
 
   pr-categorizer:
     name: Categorize the PR using labels

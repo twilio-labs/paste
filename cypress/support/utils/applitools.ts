@@ -2,8 +2,10 @@ enum EnvironmentVariables {
   UseCypressEyes = 'USE_CYPRESS_EYES',
 }
 
+const prNumber = process?.env?.PR_NUMBER;
+
 export const DEFAULT_OPEN_PARAMS: Partial<Eyes.Open.Options> = {
-  batchName: 'Paste',
+  batchName: prNumber ? `Paste: PR ${prNumber}` : 'Paste: Local Run',
 };
 
 export const DEFAULT_CHECK_PARAMS: Partial<Eyes.Check.Options> = {
