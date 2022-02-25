@@ -7,8 +7,7 @@ import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
-import {STORYBOOK_DOMAIN} from '../../../constants';
-import type {SidebarCategoryRoutes} from '../../../constants';
+import {STORYBOOK_DOMAIN, SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
 import {getOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
@@ -36,7 +35,6 @@ export interface ComponentHeaderProps {
   packageStatus?: string;
   storybookUrl?: string;
   version?: string;
-  isBreadcrumbAnAnchor?: boolean;
 }
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
@@ -51,7 +49,6 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   packageStatus,
   storybookUrl,
   version,
-  isBreadcrumbAnAnchor = true,
 }) => {
   const ogImagePath = packageName
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
@@ -67,6 +64,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   };
 
   const categoryName = getCategoryNameFromRoute(categoryRoute);
+  const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
 
   return (
     <Box>
@@ -76,7 +74,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         </Helmet>
       )}
       <Box marginBottom="space50">
-        {isBreadcrumbAnAnchor ? <Anchor href={categoryRoute}>{categoryName}</Anchor> : <>{categoryName}</>}
+        {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
       </Box>
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
         <Box marginRight="space50">
