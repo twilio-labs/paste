@@ -24,7 +24,7 @@ const ModalTrigger = () => {
              — Toni Morrison
           </Paragraph>
 
-          <FormLabel htmlFor="author">Choose an author</FormLabel>
+          <Label htmlFor="author">Choose an author</Label>
           <Select id="author">
             <Option value="baldwin">James Baldwin</Option>
             <Option value="brown">adrienne maree brown</Option>
@@ -85,16 +85,16 @@ const ModalTrigger = () => {
           <Grid gutter="space50">
             <Column>
               <Box marginBottom="space50">
-                <FormLabel htmlFor={documentNameInputID}>Supporting document name</FormLabel>
-                <FormInput onChange={(e) => setDocumentName(e.currentTarget.value)} id={documentNameInputID} type="text" value={documentName} />
+                <Label htmlFor={documentNameInputID}>Supporting document name</Label>
+                <Input onChange={(e) => setDocumentName(e.currentTarget.value)} id={documentNameInputID} type="text" value={documentName} />
               </Box>
               <Box marginBottom="space50">
-                <FormLabel htmlFor={address1InputID}>Address 1</FormLabel>
-                <FormInput onChange={(e) => setAddress1Name(e.currentTarget.value)} id={address1InputID} type="text" value={address1} />
+                <Label htmlFor={address1InputID}>Address 1</Label>
+                <Input onChange={(e) => setAddress1Name(e.currentTarget.value)} id={address1InputID} type="text" value={address1} />
               </Box>
               <Box>
-                <FormLabel htmlFor={address2InputID}>Address 2</FormLabel>
-                <FormInput onChange={(e) => setAddress2Name(e.currentTarget.value)} id={address2InputID} type="text" value={address2} />
+                <Label htmlFor={address2InputID}>Address 2</Label>
+                <Input onChange={(e) => setAddress2Name(e.currentTarget.value)} id={address2InputID} type="text" value={address2} />
               </Box>
             </Column>
             <Column>
@@ -157,8 +157,8 @@ const ModalTrigger = () => {
         </ModalHeader>
         <ModalBody>
           <Box as="form">
-            <FormLabel htmlFor={inputID}>Project Name</FormLabel>
-            <FormInput
+            <Label htmlFor={inputID}>Project Name</Label>
+            <Input
               id={inputID}
               value={name}
               // assign the target ref here
@@ -212,7 +212,7 @@ const ModalTrigger = () => {
              — Gloria E. Anzaldúa
           </Paragraph>
 
-          <FormLabel htmlFor="author">Escoja una autora</FormLabel>
+          <Label htmlFor="author">Escoja una autora</Label>
           <Select id="author">
             <Option value="allende">Isabel Allende</Option>
             <Option value="cisneros">Sandra Cisneros</Option>

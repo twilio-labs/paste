@@ -4,29 +4,38 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Anchor} from '@twilio-paste/anchor';
-import {Checkbox, FormLabel, FormInput, Select, Option, Radio, FormTextArea, CheckboxGroup, RadioGroup} from '../src';
-import type {FormInputProps, SelectProps, FormTextAreaProps, CheckboxGroupProps, RadioGroupProps} from '../src';
+import {Checkbox, CheckboxGroup} from '@twilio-paste/checkbox';
+import type {CheckboxGroupProps} from '@twilio-paste/checkbox';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import type {InputProps} from '@twilio-paste/input';
+import {Select, Option} from '@twilio-paste/select';
+import type {SelectProps} from '@twilio-paste/select';
+import {Radio, RadioGroup} from '@twilio-paste/radio-group';
+import type {RadioGroupProps} from '@twilio-paste/radio-group';
+import {TextArea} from '@twilio-paste/textarea';
+import type {TextAreaProps} from '@twilio-paste/textarea';
 
-const InputField: React.FC<Pick<FormInputProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
+const InputField: React.FC<Pick<InputProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
-      <FormLabel htmlFor={inputIDSeed('input')} disabled={disabled}>
+      <Label htmlFor={inputIDSeed('input')} disabled={disabled}>
         Text Input
-      </FormLabel>
-      <FormInput id={inputIDSeed('input')} type="text" value="" disabled={disabled} hasError={hasError} />
+      </Label>
+      <Input id={inputIDSeed('input')} type="text" value="" disabled={disabled} hasError={hasError} />
     </>
   );
 };
 
-const TextareaField: React.FC<Pick<FormTextAreaProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
+const TextareaField: React.FC<Pick<TextAreaProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
-      <FormLabel htmlFor={inputIDSeed('textarea')} disabled={disabled}>
+      <Label htmlFor={inputIDSeed('textarea')} disabled={disabled}>
         Textarea textarea
-      </FormLabel>
-      <FormTextArea id={inputIDSeed('textarea')} value="" disabled={disabled} hasError={hasError} />
+      </Label>
+      <TextArea id={inputIDSeed('textarea')} value="" disabled={disabled} hasError={hasError} />
     </>
   );
 };
@@ -35,9 +44,9 @@ const SelectField: React.FC<Pick<SelectProps, 'disabled' | 'hasError'>> = ({disa
   const inputIDSeed = useUIDSeed();
   return (
     <>
-      <FormLabel htmlFor={inputIDSeed('select')} disabled={disabled}>
+      <Label htmlFor={inputIDSeed('select')} disabled={disabled}>
         Select Input
-      </FormLabel>
+      </Label>
       <Select id={inputIDSeed('select')} value="" onChange={() => {}} disabled={disabled} hasError={hasError}>
         <Option value="1">Option</Option>
       </Select>
