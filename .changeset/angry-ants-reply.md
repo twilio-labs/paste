@@ -79,4 +79,4 @@
 '@twilio-paste/utils': patch
 ---
 
-esbuild dependency update for compiled source code
+Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.

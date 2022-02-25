@@ -97,7 +97,7 @@ function build(packageJson) {
       minify: true,
       format: 'esm',
       outfile: outFileESM,
-      // Needed to bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({externals: external})],
     })
     .catch((error) => {
@@ -126,7 +126,7 @@ function build(packageJson) {
       ...config,
       format: 'esm',
       outfile: outFileESM.replace('.es.js', '.debug.es.js'),
-      // Needed to bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({externals: external})],
     })
     .catch((error) => {
