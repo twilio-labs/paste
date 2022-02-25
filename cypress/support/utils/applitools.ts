@@ -1,9 +1,11 @@
 enum EnvironmentVariables {
   UseCypressEyes = 'USE_CYPRESS_EYES',
+  PRNumber = 'PR_NUMBER',
+  PRTitle = 'PR_TITLE',
 }
 
-const prNumber = process.env.PR_NUMBER;
-const prTitle = process.env.PR_TITLE;
+const prNumber = Cypress.env(EnvironmentVariables.PRNumber);
+const prTitle = Cypress.env(EnvironmentVariables.PRTitle);
 
 export const DEFAULT_OPEN_PARAMS: Partial<Eyes.Open.Options> = {
   batchName: prNumber ? `Paste: #${prNumber} - ${prTitle}` : 'Paste: Local Run',
