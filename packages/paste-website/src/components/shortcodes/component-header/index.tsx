@@ -65,10 +65,13 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
 
   const categoryName = getCategoryNameFromRoute(categoryRoute);
   const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
+  const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
+    categoryRoute
+  );
 
   return (
     <Box>
-      {ogImagePath && (
+      {ogImagePath && shouldHavePreview && (
         <Helmet>
           <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
         </Helmet>
