@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+- [`2e27b03a`](https://github.com/twilio-labs/paste/commit/2e27b03a57b185021478534829f921278ad7f3ac) [#2215](https://github.com/twilio-labs/paste/pull/2215) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icon] add connectivity neutral icon
+
+### Patch Changes
+
+- [`c867e3f4`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
 ## 6.1.0
 
 ### Minor Changes
