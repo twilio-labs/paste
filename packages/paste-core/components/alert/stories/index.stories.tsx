@@ -202,7 +202,7 @@ export const CustomAlert = (): React.ReactNode => {
 
 export const I18nAlerts = (): React.ReactNode => {
   const i18nStrings = {
-    i18nDismissLabel: "fermez l'alerte",
+    i18nDismissLabel: "Fermez l'alerte",
     i18nErrorLabel: '(erreur)',
     i18nWarningLabel: '(avertissement)',
     i18nNeutralLabel: '(information)',

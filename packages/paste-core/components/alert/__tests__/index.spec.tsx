@@ -208,4 +208,74 @@ describe('Alert', () => {
       );
     });
   });
+
+  describe('i18n', () => {
+    it('should have default dismiss button text', () => {
+      render(
+        <Alert variant="neutral" onDismiss={onDismissMock}>
+          This is an alert
+        </Alert>
+      );
+      const dismissButton = screen.getByRole('button', {name: 'Dismiss alert'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nDismissLabel for dismiss button text', () => {
+      render(
+        <Alert variant="neutral" i18nDismissLabel="Fermez l'alerte" onDismiss={onDismissMock}>
+          C&apos;est une alerte neutre.
+        </Alert>
+      );
+      const dismissButton = screen.getByRole('button', {name: "Fermez l'alerte"});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should have default error variant icon text', () => {
+      render(<Alert variant="error">This is an alert</Alert>);
+      const iconText = screen.getByText('(error)');
+      expect(iconText).toBeDefined();
+    });
+
+    it('should have default neutral variant icon text', () => {
+      render(<Alert variant="neutral">This is an alert</Alert>);
+      const iconText = screen.getByText('(information)');
+      expect(iconText).toBeDefined();
+    });
+
+    it('should have default warning variant icon text', () => {
+      render(<Alert variant="warning">This is an alert</Alert>);
+      const iconText = screen.getByText('(warning)');
+      expect(iconText).toBeDefined();
+    });
+
+    it('should use the i18nErrorLabel for error variant icon text', () => {
+      render(
+        <Alert variant="error" i18nErrorLabel="(erreur)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const iconText = screen.getByText('(erreur)');
+      expect(iconText).toBeDefined();
+    });
+
+    it('should use the i18nNeutralLabel for neutral variant icon text', () => {
+      render(
+        <Alert variant="neutral" i18nNeutralLabel="(information)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const iconText = screen.getByText('(information)');
+      expect(iconText).toBeDefined();
+    });
+
+    it('should use the i18nWarningLabel for warning variant icon text', () => {
+      render(
+        <Alert variant="warning" i18nWarningLabel="(avertissement)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const iconText = screen.getByText('(avertissement)');
+      expect(iconText).toBeDefined();
+    });
+  });
 });
