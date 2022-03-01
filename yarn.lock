@@ -11679,7 +11679,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/alert@^8.0.1, @twilio-paste/alert@workspace:packages/paste-core/components/alert":
+"@twilio-paste/alert@^8.0.1, @twilio-paste/alert@^8.0.2, @twilio-paste/alert@workspace:packages/paste-core/components/alert":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/alert@workspace:packages/paste-core/components/alert"
   dependencies:
@@ -12189,7 +12189,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
-    "@twilio-paste/alert": ^8.0.1
+    "@twilio-paste/alert": ^8.0.2
     "@twilio-paste/alert-dialog": ^1.0.1
     "@twilio-paste/anchor": ^6.0.1
     "@twilio-paste/animation-library": ^0.3.4
@@ -12208,7 +12208,7 @@ __metadata:
     "@twilio-paste/combobox-primitive": ^0.3.2
     "@twilio-paste/customization": ^3.0.1
     "@twilio-paste/data-grid": ^1.0.1
-    "@twilio-paste/data-visualization-library": ^0.1.0
+    "@twilio-paste/data-visualization-library": ^0.1.1
     "@twilio-paste/date-picker": ^1.0.1
     "@twilio-paste/design-tokens": ^7.1.0
     "@twilio-paste/disclosure": ^6.0.1
@@ -12352,7 +12352,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/data-visualization-library@^0.1.0, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
+"@twilio-paste/data-visualization-library@^0.1.0, @twilio-paste/data-visualization-library@^0.1.1, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization"
   dependencies:

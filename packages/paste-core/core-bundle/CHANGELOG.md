@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+- [`2100371f`](https://github.com/twilio-labs/paste/commit/2100371f74c488f145b4d8bf0b814f6eaff609e4) [#2253](https://github.com/twilio-labs/paste/pull/2253) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add i18n props to support i18n
+
+* [`33c43687`](https://github.com/twilio-labs/paste/commit/33c436872f341abf473093ce48cd0b28a338dbed) [#2236](https://github.com/twilio-labs/paste/pull/2236) Thanks [@shleewhite](https://github.com/shleewhite)! - [Data Visualization] add changelog
+
+* Updated dependencies [[`2100371f`](https://github.com/twilio-labs/paste/commit/2100371f74c488f145b4d8bf0b814f6eaff609e4), [`33c43687`](https://github.com/twilio-labs/paste/commit/33c436872f341abf473093ce48cd0b28a338dbed)]:
+  - @twilio-paste/alert@8.0.2
+  - @twilio-paste/data-visualization-library@0.1.1
+
 ## 11.1.0
 
 ### Minor Changes
