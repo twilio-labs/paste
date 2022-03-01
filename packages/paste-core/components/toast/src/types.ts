@@ -18,6 +18,26 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
    * Use this to set focus within the toast when it is rendered
    */
   setFocus?: boolean;
+  /**
+   * Label for the dismiss button in a dismissable toast
+   */
+  i18nDismissLabel?: string;
+  /**
+   * Icon label text for the error variant
+   */
+  i18nErrorLabel?: string;
+  /**
+   * Icon label text for the neutral variant
+   */
+  i18nNeutralLabel?: string;
+  /**
+   * Icon label text for the success variant
+   */
+  i18nSuccessLabel?: string;
+  /**
+   * Icon label text for the warning variant
+   */
+  i18nWarningLabel?: string;
 }
 
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {

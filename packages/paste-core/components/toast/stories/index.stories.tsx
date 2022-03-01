@@ -177,6 +177,57 @@ export const Warning = (): React.ReactNode => {
   );
 };
 
+export const I18n = (): React.ReactNode => {
+  return (
+    <Box minHeight="size90">
+      <ToastContainer>
+        <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
+          <Text as="div">Soy una notificacion</Text>
+        </Toast>
+        <Toast
+          variant="neutral"
+          onDismiss={action('dismiss')}
+          i18nDismissLabel="Cerrar notificacion"
+          i18nNeutralLabel="(informacion)"
+        >
+          <Text as="div">
+            <strong>Título</strong> Soy una notificacion
+          </Text>
+        </Toast>
+        <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
+          <Text as="div">
+            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+            commodo cursus magna.
+          </Text>
+        </Toast>
+        <Toast
+          variant="neutral"
+          onDismiss={action('dismiss')}
+          i18nDismissLabel="Cerrar notificacion"
+          i18nNeutralLabel="(informacion)"
+        >
+          <Text as="div">
+            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
+            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          </Text>
+          <Text as="p">
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
+          </Text>
+        </Toast>
+      </ToastContainer>
+    </Box>
+  );
+};
+
+I18n.storyName = 'i18n Prop';
+
 interface ToastContainerExample {
   variant: ToastVariants;
   message: string;
