@@ -222,6 +222,20 @@ Keep in mind that the longer an alert is present, the more it starts looking lik
 </Alert>`}
 </LivePreview>
 
+### Internationalization
+
+To internationalize an alert, simply pass different text as children to the alert.
+The only exceptions to this are the labels for both the dismiss button and the variant icons.
+To change the dismiss button&apos;s label text, use the `i18nDismissLabel` prop.
+To change the label of a variant's icon, use the matching i18n prop for the variant.
+For an `error` variant, for example, set the `i18nErrorLabel` prop.
+
+<LivePreview scope={{Alert, Text}} language="jsx">
+  {`<Alert onDismiss={() => alert('fermée')} variant="warning" i18nWarningLabel="(avertissement)">
+  C&apos;est une alerte d&apos;avertissement.
+</Alert>`}
+</LivePreview>
+
 ## Composition Notes
 
 Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
@@ -369,12 +383,16 @@ const Component = () => (
 
 #### Props
 
-| Prop       | Type         | Description                                                                                      | Default |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------ | ------- |
-| children?  | `ReactNode`  |                                                                                                  | null    |
-| onDismiss? | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null    |
-| role?      | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | null    |
-| variant?   | `string`     | `error` / `neutral` / `warning`                                                                  | null    |
+| Prop              | Type         | Description                                                                                      | Default         |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | --------------- |
+| children?         | `ReactNode`  |                                                                                                  | null            |
+| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null            |
+| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | null            |
+| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null            |
+| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert' |
+| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'       |
+| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)' |
+| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'     |
 
 <ChangelogRevealer>
   <Changelog />
