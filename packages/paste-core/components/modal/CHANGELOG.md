@@ -1,5 +1,18 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`9b0579415`](https://github.com/twilio-labs/paste/commit/9b0579415b3c7f392d088a136e08e3c45dfb2b53) [#2218](https://github.com/twilio-labs/paste/pull/2218) Thanks [@shleewhite](https://github.com/shleewhite)! - [Modal] add i18nDismissLabel prop to ModalHeader to support i18n
+
+- [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [modal]
+
+  - Update modal header border bottom color to `colorBorderWeak`
+  - Update modal footer border top color to `colorBorderWeak`
+
 ## 8.0.0
 
 ### Patch Changes
