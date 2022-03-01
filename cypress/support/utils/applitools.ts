@@ -1,14 +1,10 @@
 enum EnvironmentVariables {
   UseCypressEyes = 'USE_CYPRESS_EYES',
-  PRNumber = 'PR_NUMBER',
-  PRTitle = 'PR_TITLE',
 }
 
-const prNumber = Cypress.env(EnvironmentVariables.PRNumber);
-const prTitle = Cypress.env(EnvironmentVariables.PRTitle);
-
 export const DEFAULT_OPEN_PARAMS: Partial<Eyes.Open.Options> = {
-  batchName: prNumber ? `Paste: #${prNumber} - ${prTitle}` : 'Paste: Local Run',
+  // this is empty for now, but may be added to later
+  // as we expand our Applitools testing footprint
 };
 
 export const DEFAULT_CHECK_PARAMS: Partial<Eyes.Check.Options> = {
