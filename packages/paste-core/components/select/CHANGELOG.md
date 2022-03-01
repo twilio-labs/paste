@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`1f564a931`](https://github.com/twilio-labs/paste/commit/1f564a931b9a844a9d097edb2012c65692af9bd4) [#2242](https://github.com/twilio-labs/paste/pull/2242) Thanks [@shleewhite](https://github.com/shleewhite)! - [Select] set the background color on the select, option, and optionGroup
+
 ## 6.0.0
 
 ### Patch Changes
