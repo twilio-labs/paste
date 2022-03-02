@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.0.2
+
+### Patch Changes
+
+- [`2100371f`](https://github.com/twilio-labs/paste/commit/2100371f74c488f145b4d8bf0b814f6eaff609e4) [#2253](https://github.com/twilio-labs/paste/pull/2253) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add i18n props to support i18n
+
 ## 8.0.1
 
 ### Patch Changes
