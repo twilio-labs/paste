@@ -223,6 +223,21 @@ This example combines all the separate features displayed previously into one ex
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
+### Internationalization
+
+To internationalize an data grid, simply pass different text as children to the data grid sub-components.
+The only exceptions to this are the labels for the `DataGridHeaderSortIcon` component.
+To change the label of a sorting icons, use the matching i18n prop for the direction.
+For an `ascending` variant, for example, set the `i18nAscendingLabel` prop.
+
+<iframe
+  src="https://codesandbox.io/embed/internationalization-data-grid-s3uuul?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Internationalization Data Grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 ## Composition Notes
 
 The Data Grid component was designed to be [accessible and composable](/introduction/about-paste/#paste-is).
@@ -371,11 +386,14 @@ const Component = () => (
 
 #### DataGridHeaderSort Props
 
-| Prop      | Type                              | Description                                                       | Default                 |
-| --------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
-| direction | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
-| onClick?  | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
-| element?  | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
+| Prop                 | Type                              | Description                                                       | Default                 |
+| -------------------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
+| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
+| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
+| element?             | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
+| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"            | `'Sort ascending'`      |
+| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"           | `'Sort descending'`     |
+| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                 | `'Unsorted'`            |
 
 #### DataGridRow Props
 
