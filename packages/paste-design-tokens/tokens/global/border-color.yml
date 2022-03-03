@@ -146,18 +146,24 @@ props:
     comment: Weakest primary border color
 
   # status borders
-  color-border-neutral-weak:
-    value: "{!palette-blue-40}"
-    comment: Weak neutral border color
   color-border-neutral:
     value: "{!palette-blue-60}"
     comment: Neutral border color
+  color-border-neutral-weak:
+    value: "{!palette-blue-40}"
+    comment: Weak neutral border color
+  color-border-neutral-weaker:
+    value: "{!palette-blue-20}"
+    comment: Weaker neutral border color
   color-border-success:
     value: "{!palette-green-60}"
     comment: Success border color
   color-border-success-weak:
     value: "{!palette-green-50}"
     comment: Weak success border color
+  color-border-success-weaker:
+    value: "{!palette-green-20}"
+    comment: Weaker success border color
   color-border-success-weakest:
     value: "{!palette-green-10}"
     comment: Weakest success border color
@@ -167,6 +173,9 @@ props:
   color-border-warning-weak:
     value: "{!palette-orange-40}"
     comment: Weak warning border color
+  color-border-warning-weaker:
+    value: "{!palette-orange-20}"
+    comment: Weaker warning border color
   color-border-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest warning border color
@@ -194,9 +203,15 @@ props:
   color-border-error-weak:
     value: "{!palette-red-40}"
     comment: Weak error border color
+  color-border-error-weaker:
+    value: "{!palette-red-20}"
+    comment: Weaker error border color
   color-border-error-weakest:
     value: "{!palette-red-10}"
     comment: Weakest error border color
+  color-border-new-weaker:
+    value: "{!palette-purple-20}"
+    comment: Weaker border color for something designated as new
 
   # destructive borders
   color-border-destructive-strongest:
@@ -263,3 +278,17 @@ props:
   color-border-destructive-weakest:
     value: "{!palette-red-10}"
     comment: Destructive focus border color
+
+  # decorative
+  color-border-decorative-10-weaker:
+    value: "{!palette-gray-20}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-20-weaker:
+    value: "{!palette-blue-20}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-30-weaker:
+    value: "{!palette-green-20}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-40-weaker:
+    value: "{!palette-purple-20}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.

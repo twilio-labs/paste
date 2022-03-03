@@ -19,3 +19,6 @@ props:
   border-radius-circle:
     value: "{!border-radius-circle}"
     comment: Circular border radius
+  border-radius-pill:
+    value: "{!border-radius-pill}"
+    comment: Pill border radius

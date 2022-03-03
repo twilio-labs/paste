@@ -153,7 +153,7 @@ describe('FormPillGroup', () => {
       expect(group).toHaveStyleRule('margin', '0.75rem');
 
       const pill = getByTestId('form-pill');
-      expect(pill).toHaveStyleRule('background-color', 'rgb(231,220,250)');
+      expect(pill).toHaveStyleRule('background-color', 'rgb(245,240,252)');
     });
     it('should add custom styles to custom element FormPillGroup & FormPill', () => {
       const {getByTestId} = render(
