@@ -238,7 +238,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(error)');
+      expect(icon?.textContent).toEqual('(error)');
     });
 
     it('should have default neutral variant icon text', () => {
@@ -249,7 +249,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(information)');
+      expect(icon?.textContent).toEqual('(information)');
     });
 
     it('should have default warning variant icon text', () => {
@@ -260,7 +260,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(warning)');
+      expect(icon?.textContent).toEqual('(warning)');
     });
 
     it('should use the i18nErrorLabel for error variant icon text', () => {
@@ -271,7 +271,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(erreur)');
+      expect(icon?.textContent).toEqual('(erreur)');
     });
 
     it('should use the i18nNeutralLabel for neutral variant icon text', () => {
@@ -282,7 +282,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(information)');
+      expect(icon?.textContent).toEqual('(information)');
     });
 
     it('should use the i18nWarningLabel for warning variant icon text', () => {
@@ -293,7 +293,7 @@ describe('Alert', () => {
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
-      expect(icon.textContent).toEqual('(avertissement)');
+      expect(icon?.textContent).toEqual('(avertissement)');
     });
   });
 });

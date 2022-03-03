@@ -86,7 +86,7 @@ describe('Toast', () => {
 
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(error)');
+      expect(icon?.textContent).toEqual('(error)');
     });
 
     it('should have default neutral variant icon text', () => {
@@ -97,7 +97,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(information)');
+      expect(icon?.textContent).toEqual('(information)');
     });
 
     it('should have default success variant icon text', () => {
@@ -108,7 +108,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(success)');
+      expect(icon?.textContent).toEqual('(success)');
     });
 
     it('should have default warning variant icon text', () => {
@@ -119,7 +119,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(warning)');
+      expect(icon?.textContent).toEqual('(warning)');
     });
 
     it('should use i18n prop for error variant icon text', () => {
@@ -130,7 +130,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(erreur)');
+      expect(icon?.textContent).toEqual('(erreur)');
     });
 
     it('should use i18n prop for neutral variant icon text', () => {
@@ -141,7 +141,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(informacion)');
+      expect(icon?.textContent).toEqual('(informacion)');
     });
 
     it('should use i18n prop for success variant icon text', () => {
@@ -152,7 +152,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(éxito)');
+      expect(icon?.textContent).toEqual('(éxito)');
     });
 
     it('should use i18n prop for warning variant icon text', () => {
@@ -163,7 +163,7 @@ describe('Toast', () => {
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
-      expect(icon.textContent).toEqual('(aviso)');
+      expect(icon?.textContent).toEqual('(aviso)');
     });
   });
 
