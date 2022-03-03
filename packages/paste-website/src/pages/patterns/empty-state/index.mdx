@@ -1,7 +1,7 @@
 ---
-title: Empty states
-description: The Empty States pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.
-slug: /patterns/empty-states/
+title: Empty state
+description: The Empty State pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.
+slug: /patterns/empty-state/
 ---
 
 import {graphql} from 'gatsby';
@@ -19,7 +19,7 @@ import {useUID} from 'react-uid';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/empty-states/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/empty-state/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -30,7 +30,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(filter: {data: {Feature: {eq: "Empty states"}}}) {
+    allAirtable(filter: {data: {Feature: {eq: "Empty state"}}}) {
       edges {
         node {
           data {
@@ -115,9 +115,9 @@ export const pageQuery = graphql`
   </Column>
 </Grid>
 
-For Card sizing, go to the [Sizing & responsiveness section](/patterns/empty-states#sizing-and-responsiveness) for more details.
+For Card sizing, go to the [Sizing & responsiveness section](/patterns/empty-state#sizing-and-responsiveness) for more details.
 
-For illustrations, we recommend using a fixed width of `$size-20`. The illustration must be directly related to the message you’re communicating. Read more about [which illustrations to use for each use case](/patterns/empty-states#content-examples-by-use-case).
+For illustrations, we recommend using a fixed width of `$size-20`. The illustration must be directly related to the message you’re communicating. Read more about [which illustrations to use for each use case](/patterns/empty-state#content-examples-by-use-case).
 
 ```jsx
 // import all ingredients for the empty state patterns
@@ -134,7 +134,7 @@ import {​Anchor} from "@twilio-paste/core/anchor";
 
 This pattern is used to explain to a customer what they should do next if content is either unavailable or can't be displayed.
 
-Empty states should:
+An empty state should:
 
 - **Be clear:** If there's a path forward, explain it as concisely as possible. Include an explanation for why a customer is seeing the empty state if it helps them better understand what to do next.
 - **Give direction and educate the customer:** Let customers know what steps they can take to move forward. Guiding them to "Create an alpha sender" is more helpful than saying "No alpha senders".
@@ -164,13 +164,13 @@ check out the [Button vs. Anchor pattern](/patterns/button-vs-anchor).
 
 ### Empty state with an immediate next step
 
-In most cases, empty states have a [Heading](/components/heading) summarizing what's happening, a [Paragraph](/components/paragraph) that gives more detail to help a customer decide what to do next, and 1–2 calls-to-action.
+In most cases, an empty state has a [Heading](/components/heading) to summarize what's happening, a [Paragraph](/components/paragraph) that gives more detail to help a customer decide what to do next, and 1–2 calls-to-action.
 
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-states-with-immediate-next-steps-7tbp3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
     style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
-    title="Empty States with immediate next steps"
+    title="Empty state with an immediate next step"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   ></iframe>
@@ -202,8 +202,8 @@ If your empty state composition needs to accommodate different screen sizes, you
 
 <Callout>
   <CalloutText>
-    If you'd like to contribute guidelines for empty states in even more compact situations, like a navigation panel or
-    components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}
+    If you'd like to contribute guidelines for the empty state pattern in even more compact situations, like a
+    navigation panel or components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}
     <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor>!
   </CalloutText>
 </Callout>
@@ -435,9 +435,9 @@ If you're interested in contributing more guidelines, please reach out in a [Git
 
 Here are use cases we're know we're missing guidelines on:
 
-- Empty states in compact situations, like a navigation panel or components like [Combobox](/components/combobox).
-- Empty states for charts and graphs.
-- Error states and when to use error states vs. empty states.
+- Empty state in compact situations, like a navigation panel or components like [Combobox](/components/combobox).
+- Empty state for charts and graphs.
+- Error states and when to use an error state vs. empty state.
 - Notice anything else? [Let us know](https://github.com/twilio-labs/paste/discussions)!
 
 </content>
