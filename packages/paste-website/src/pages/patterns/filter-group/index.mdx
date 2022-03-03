@@ -1,0 +1,250 @@
+---
+title: Filter group
+description: The filter group pattern allows the user to filter lists, tables, and any other collection of data.
+slug: /patterns/filter-group/
+---
+
+import {graphql} from 'gatsby';
+// import {Grid, Column} from '@twilio-paste/grid';
+import {Card} from '@twilio-paste/card';
+// import {Heading} from '@twilio-paste/heading';
+import {Anchor} from '@twilio-paste/anchor';
+// import {Label} from '@twilio-paste/label';
+// import {HelpText} from '@twilio-paste/help-text';
+// import {Input} from '@twilio-paste/input';
+import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+// import {DoDont, Do, Dont} from '../../../components/DoDont';
+// import {
+//   PrivacyExample,
+//   FriendlyName,
+//   WithHelpText,
+//   WithErrorText,
+// } from '../../../component-examples/PrivacyPatternExamples.tsx';
+// import {Button} from '@twilio-paste/button';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/filter-group/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Filter group"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+            Product_suitability
+          }
+        }
+      }
+    }
+  }
+`;
+
+<content>
+
+<NormalizePatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  data={props.data}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Ingredients
+
+TODO: maybe make this a grid instead of stacks
+
+<Box marginBottom="space80">
+  <Stack orientation="horizontal" spacing="space30">
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/select">Select</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/combobox">Combobox</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/input">Input</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/separator">Separator</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+  </Stack>
+  <Stack orientation="horizontal" spacing="space30">
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button">Button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/stack">Stack</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/flex">Flex</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+  </Stack>
+</Box>
+
+```jsx
+// import all components for Filter group patterns
+
+import {Select} from '@twilio-paste/core/select';
+import {Combobox} from '@twilio-paste/core/combobox';
+import {Input} from '@twilio-paste/core/input';
+import {Separator} from '@twilio-paste/core/separator';
+import {Button} from '@twilio-paste/core/button';
+import {Stack} from '@twilio-paste/core/stack';
+import {Flex} from '@twilio-paste/core/flex';
+```
+
+## Usage
+
+### General
+
+The filter group pattern should be used when a user is presented with a page containing a large amount of data that they could be filtering or searching through.
+
+Which filter parameters and functionality you can surface to the user will be highly dependent on the page use case. This pattern should serve as a guide to start with as you design and build your filter group, but will likely be very unique to your specific product or use case.
+
+Be judicious in which filters you make available for your users to represent the most common methods they would be using to reduce the entire data set. Filters being included in the filter group should almost always represent data being displayed in the page data set.
+
+### Accessibility
+
+The filter group pattern relies on the accessibility features built into components included into the group.
+
+When using the filter group, ensure that users:
+
+- Can easily identify and understand labels for each control
+- Be notified of state changes. For example, when a button changes from the disabled state to the default state
+- Can complete all actions with the keyboard
+
+## Variations
+
+### Simple table filtering
+
+<strong>Simple table filtering</strong> should be used when you have a table (or data grid) of data and want to allow users
+to temporarily filter and/or search for a subset of the dataset for viewing or analysis. This variant should be used when
+you have a specific amount of parameters you want to allow users to filter by, and not allow users to add their own custom
+query logic.
+
+The following states/logic should be used in your filter group:
+
+- The default value for all filters should be the “All” option, and when the “Clear all” link style button is clicked it should revert all filter parameters back to this default state. The only filter that should have a different default would be the date / time select, which would instead show the default time range your team designates as the default.
+- The filters would all be applied as a single call when the “Apply” button is clicked, instead of filtering the table each time a single filter parameter value is selected.
+- It is recommended to use the <Anchor href="/components/skeleton-loader">skeleton loader</Anchor> when loading the results of the filters and/or search.
+- The “Apply” and “Clear all” buttons should be in the disabled state on page load, and would enable when at least one of the filter parameters value is changed from the previous state.
+
+Always consider opportunities to reduce cognitive load by limiting the number of filters presented. For the simple table filter group we recommend including no more than 5 filters. If you need to include more than 5 filters, please refer to the <Anchor href="#TODO:">Complex table filtering</Anchor> variation.
+
+#### Default state
+
+TODO: img
+
+#### Empty state
+
+When the applied filters and/or search does not return any results, use the <Anchor href="/patterns/empty-state">empty state pattern</Anchor> to inform the user and provide a method to reset all filter and search criteria.
+
+TODO: img
+
+#### Custom date range
+
+While we don’t yet have an official custom date/time component, in the interim it is recommended to use the following combination of Popover, Date Input, and Time Input to allow customers to select a custom date/time range.
+
+When the Custom option is selected, the Popover containing the Date Inputs and Time Inputs necessary would be displayed to allow customers to enter their desired range. Once the Apply button is clicked, the Popover would hide. If a customer wants to change their original selections, they must click on the Calendar link style button to open the Popover again.
+
+TODO: img
+
+#### Searching TODO: update section (re: loreina's comment in spec)
+
+When using search input to filter data, hitting the “enter” key on a keyboard will apply the search filter.
+
+#### Dos and Don'ts
+
+TODO: table
+
+### Complex table filtering
+
+<strong>Complex table filtering</strong> is for users who are adding more than 5 filter parameters, multi-select filter criteria,
+selecting custom query rules, and/or creating complex if/else logic without code to filter down a large data table.
+
+<Callout>
+  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
+  <CalloutText>
+    We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
+    consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.
+  </CalloutText>
+</Callout>
+
+### Insights page filtering
+
+<strong>Insights filtering</strong> is for users who are adding deeper query logic for their Insights products.
+
+<Callout>
+  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
+  <CalloutText>
+    We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
+    consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.
+  </CalloutText>
+</Callout>
+
+## Starter kits
+
+- <Anchor href="https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/?node-id=1391%3A47182">Figma</Anchor>
+- Codesandbox TODO: link
+
+## Related discussions
+
+- https://github.com/twilio-labs/paste/discussions/2017
+- https://github.com/twilio-labs/paste/discussions/1979
+- https://github.com/twilio-labs/paste/discussions/1702
+
+</content>
+
+</contentwrapper>
