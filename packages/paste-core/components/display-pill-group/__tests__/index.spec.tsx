@@ -64,10 +64,10 @@ describe('DisplayPillGroup', () => {
       expect(group).toHaveStyleRule('margin', '0.75rem');
 
       const pillLink = getByTestId('display-pill-anchor');
-      expect(pillLink).toHaveStyleRule('background-color', 'rgb(231,220,250)');
+      expect(pillLink).toHaveStyleRule('background-color', 'rgb(245,240,252)');
 
       const pillStandard = getByTestId('display-pill-standard');
-      expect(pillStandard).toHaveStyleRule('background-color', 'rgb(231,220,250)');
+      expect(pillStandard).toHaveStyleRule('background-color', 'rgb(245,240,252)');
     });
     it('should add custom styles to custom element DisplayPillGroup & DisplayPill', () => {
       const {getByTestId} = render(

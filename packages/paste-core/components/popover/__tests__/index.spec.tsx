@@ -79,9 +79,7 @@ describe('Popover', () => {
         </Theme.Provider>
       );
       const popoverButton = screen.getByRole('button', {name: 'Open popover'});
-      expect(popoverButton).toHaveAttribute('data-paste-element', 'BUTTON');
-
-      expect(popoverButton.querySelector('[data-paste-element="POPOVER_BADGE"]')).toBeInTheDocument();
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BADGE');
     });
 
     it('should render a popover badge button with aria attributes', async () => {

@@ -95,7 +95,7 @@ props:
     value: "{!palette-red-50}"
     comment: Background color used to represent required form fields.
   color-background-new:
-    value: "{!palette-purple-20}"
+    value: "{!palette-purple-10}"
     comment: Background color used to represent a new status.
 
   # row backgrounds
@@ -167,3 +167,17 @@ props:
   color-background-offline:
     value: "{!palette-gray-40}"
     comment: Background color used to represent an entity or person as "offline".
+
+  #decorative
+  color-background-decorative-10-weakest:
+    value: "{!palette-gray-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-20-weakest:
+    value: "{!palette-blue-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-30-weakest:
+    value: "{!palette-green-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-40-weakest:
+    value: "{!palette-purple-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
