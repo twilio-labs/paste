@@ -6,7 +6,7 @@ module.exports = {
   },
   appName: '[DSYS] - Paste Website',
   browser: {
-    width: 1920,
+    width: 1280,
     height: 1440,
     name: 'chrome',
   },
