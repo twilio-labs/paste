@@ -22,17 +22,49 @@ const ToastComponentVariants = {
   warning: WarningToast,
 };
 
-const renderToastIcon = (variant: ToastVariants, element?: string): React.ReactElement => {
+const renderToastIcon = (variant: ToastVariants, title: string, element?: string): React.ReactElement => {
   switch (variant) {
     case ToastVariantObject.ERROR:
-      return <ErrorIcon color="colorTextIconError" decorative element={`${element}_ICON`} size="sizeIcon20" />;
+      return (
+        <ErrorIcon
+          color="colorTextIconError"
+          decorative={false}
+          title={title}
+          element={`${element}_ICON`}
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.SUCCESS:
-      return <SuccessIcon color="colorTextIconSuccess" decorative element={`${element}_ICON`} size="sizeIcon20" />;
+      return (
+        <SuccessIcon
+          color="colorTextIconSuccess"
+          decorative={false}
+          title={title}
+          element={`${element}_ICON`}
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.WARNING:
-      return <WarningIcon color="colorTextIconWarning" decorative element={`${element}_ICON`} size="sizeIcon20" />;
+      return (
+        <WarningIcon
+          color="colorTextIconWarning"
+          decorative={false}
+          title={title}
+          element={`${element}_ICON`}
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.NEUTRAL:
     default:
-      return <NeutralIcon color="colorTextIconNeutral" decorative element={`${element}_ICON`} size="sizeIcon20" />;
+      return (
+        <NeutralIcon
+          color="colorTextIconNeutral"
+          decorative={false}
+          title={title}
+          element={`${element}_ICON`}
+          size="sizeIcon20"
+        />
+      );
   }
 };
 
@@ -74,8 +106,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       <ToastComponent role="status" variant={variant} element={element} ref={ref} {...props}>
         <MediaObject as="div">
           <MediaFigure as="div" spacing="space60">
-            {renderToastIcon(variant, element)}
-            <ScreenReaderOnly>{i18nVariants[variant]}</ScreenReaderOnly>
+            {renderToastIcon(variant, i18nVariants[variant], element)}
           </MediaFigure>
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (

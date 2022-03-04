@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 
+import {DataGridHeaderSort} from '../src';
 import {ComposableCellsDataGrid} from '../stories/components/ComposableCellsDataGrid';
 import {SortableColumnsDataGrid} from '../stories/components/SortableColumnsDataGrid';
 import {PaginatedDataGrid} from '../stories/components/PaginatedDataGrid';
@@ -228,6 +229,46 @@ describe('Data Grid', () => {
       // Because it is in a table, we don't need labels
       const results = await axe(container, {rules: {label: {enabled: false}}});
       expect(results).toHaveNoViolations();
+    });
+  });
+});
+
+describe('i18n', () => {
+  describe('DataGridHeaderSort', () => {
+    it('should have default ascending label', () => {
+      render(<DataGridHeaderSort direction="ascending" />);
+      const button = screen.getByRole('button', {name: 'Sort ascending'});
+      expect(button).toBeDefined();
+    });
+
+    it('should have default descending label', () => {
+      render(<DataGridHeaderSort direction="descending" />);
+      const button = screen.getByRole('button', {name: 'Sort descending'});
+      expect(button).toBeDefined();
+    });
+
+    it('should have default unsorted label', () => {
+      render(<DataGridHeaderSort direction="none" />);
+      const button = screen.getByRole('button', {name: 'Unsorted'});
+      expect(button).toBeDefined();
+    });
+
+    it('should use i18nAscendingLabel for the ascending label', () => {
+      render(<DataGridHeaderSort direction="ascending" i18nAscendingLabel="Tri croissant" />);
+      const button = screen.getByRole('button', {name: 'Tri croissant'});
+      expect(button).toBeDefined();
+    });
+
+    it('should use i18nDescendingLabel for the descending label', () => {
+      render(<DataGridHeaderSort direction="descending" i18nDescendingLabel="Tri décroissant" />);
+      const button = screen.getByRole('button', {name: 'Tri décroissant'});
+      expect(button).toBeDefined();
+    });
+
+    it('should use i18nUnsortedLabel for the unsorted label', () => {
+      render(<DataGridHeaderSort direction="none" i18nUnsortedLabel="Non triés" />);
+      const button = screen.getByRole('button', {name: 'Non triés'});
+      expect(button).toBeDefined();
     });
   });
 });
