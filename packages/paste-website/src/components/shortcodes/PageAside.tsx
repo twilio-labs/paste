@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {TableOfContents} from './table-of-contents';
 import {FeedbackPopover} from './feedback-popover';
+import {useLocationPathname} from '../../utils/RouteUtils';
 
 interface PageAsideProps {
   data: {
@@ -32,7 +33,7 @@ const PageAside: React.FC<PageAsideProps> = ({data, hideFeedback}) => {
       data-cy="page-aside"
     >
       <Box position="sticky" top="space130">
-        {hideFeedback ? null : <FeedbackPopover />}
+        {hideFeedback ? null : <FeedbackPopover pathname={useLocationPathname()} />}
         <TableOfContents headings={data.headings} />
       </Box>
     </Box>

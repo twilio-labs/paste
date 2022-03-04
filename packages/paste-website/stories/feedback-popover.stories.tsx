@@ -1,28 +1,17 @@
 import * as React from 'react';
-import {Router} from '@reach/router';
 import {FeedbackPopover, UnratedPage, LikedPage, DislikedPage} from '../src/components/shortcodes/feedback-popover';
 
 const NOOP = (): void => {};
 
-export const ButtonFeedbackPopover = (): React.ReactNode => (
-  <Router>
-    <FeedbackPopover />
-  </Router>
-);
+export const ButtonFeedbackPopover = (): React.ReactNode => <FeedbackPopover pathname="storybook" />;
 export const UnratedPageFeedbackPopover = (): React.ReactNode => (
-  <Router>
-    <UnratedPage likePage={NOOP} dislikePage={NOOP} />
-  </Router>
+  <UnratedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
 );
 export const LikedPageFeedbackPopover = (): React.ReactNode => (
-  <Router>
-    <LikedPage likePage={NOOP} dislikePage={NOOP} />
-  </Router>
+  <LikedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
 );
 export const DislikedPageFeedbackPopover = (): React.ReactNode => (
-  <Router>
-    <DislikedPage likePage={NOOP} dislikePage={NOOP} />
-  </Router>
+  <DislikedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
 );
 
 // eslint-disable-next-line import/no-default-export
