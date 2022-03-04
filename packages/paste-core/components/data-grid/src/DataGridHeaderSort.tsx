@@ -57,7 +57,6 @@ export const DataGridHeaderSort: React.FC<DataGridHeaderSortProps> = ({
   };
 
   return (
-    // @ts-ignore fixme when button accepts element
     <Button element={element} variant="reset" size="reset" onClick={onClick} {...props}>
       <DataGridHeaderSortIcon element={`${element}_ICON`} direction={direction} />
       <ScreenReaderOnly>{i18nLabelDirectionMap[direction]}</ScreenReaderOnly>
