@@ -18,6 +18,9 @@ import {pieChartOptions} from './options/pieChartOptions';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Libraries/data-visualization',
+  parameters: {
+    chromatic: {delay: 500},
+  },
 } as Meta;
 
 export const LineChart: Story = () => {
