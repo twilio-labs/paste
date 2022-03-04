@@ -56,15 +56,39 @@ export interface AlertProps extends Pick<BoxProps, 'element'> {
   i18nWarningLabel?: string;
 }
 
-const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactElement => {
+const renderAlertIcon = (variant: AlertVariants, element: string, title: string): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
-      return <ErrorIcon element={`${element}_ICON`} color="colorTextIconError" decorative size="sizeIcon20" />;
+      return (
+        <ErrorIcon
+          element={`${element}_ICON`}
+          color="colorTextIconError"
+          decorative={false}
+          title={title}
+          size="sizeIcon20"
+        />
+      );
     case AlertVariants.WARNING:
-      return <WarningIcon element={`${element}_ICON`} color="colorTextIconWarning" decorative size="sizeIcon20" />;
+      return (
+        <WarningIcon
+          element={`${element}_ICON`}
+          color="colorTextIconWarning"
+          decorative={false}
+          title={title}
+          size="sizeIcon20"
+        />
+      );
     case AlertVariants.NEUTRAL:
     default:
-      return <NeutralIcon element={`${element}_ICON`} color="colorTextIconNeutral" decorative size="sizeIcon20" />;
+      return (
+        <NeutralIcon
+          element={`${element}_ICON`}
+          color="colorTextIconNeutral"
+          decorative={false}
+          title={title}
+          size="sizeIcon20"
+        />
+      );
   }
 };
 
@@ -108,8 +132,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       >
         <MediaObject as="div">
           <MediaFigure as="div" spacing="space30">
-            {renderAlertIcon(variant, element)}
-            <ScreenReaderOnly>{i18nLabelVariantMap[variant]}</ScreenReaderOnly>
+            {renderAlertIcon(variant, element, i18nLabelVariantMap[variant])}
           </MediaFigure>
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (

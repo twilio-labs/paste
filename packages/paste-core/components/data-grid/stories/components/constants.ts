@@ -18,6 +18,27 @@ export const TableBodyData = [
   ['Fritz', 'Bashirian', 'France', 'Magali.Harber@hotmail.com', '1-229-278-7567'],
 ];
 
+export const I18nTableHeaderData = ['Prénom', 'Nom de famille', 'Pays', 'Email', 'N º de téléphone'];
+
+export const I18nTableBodyData = [
+  ['Lottie', 'Hintz', 'Corée du Sud', 'John.Zulauf@gmail.com', '1-652-451-4330'],
+  [
+    'Paige',
+    'Kshlerin',
+    "Territoire britannique de l'océan Indien (Îles Chagos)",
+    'Natalie.Klein@yahoo.com',
+    '668.667.3238 x27714',
+  ],
+  ['Kadin', 'Will', 'Haïti', 'Ora_Bartoletti@yahoo.com', '446.666.1937 x759'],
+  ['Troy', 'McDermott', 'Qatar', 'Richmond34@hotmail.com', '(209) 774-9227 x5109'],
+  ['Devyn', 'Weimann', 'République démocratique du Congo', 'Matilde86@gmail.com', '652-441-1766 x377'],
+  ['Triston', 'Dickinson', 'Terres australes françaises', 'Violette.Kihn97@yahoo.com', '939.571.3994'],
+  ['Maeve', 'West', 'Norvège', 'Mittie80@yahoo.com', '395.983.4598 x8023'],
+  ['Tracey', 'Farrell', 'Macao', 'Barrett72@yahoo.com', '1-805-781-6325'],
+  ['Jovanny', 'Mante', 'Îles Pitcairn', 'Fausto_Vandervort15@gmail.com', '(629) 375-5743 x726'],
+  ['Fritz', 'Bashirian', 'France', 'Magali.Harber@hotmail.com', '1-229-278-7567'],
+];
+
 export const PaginatedTableBodyData = [
   ['Dana', 'Purdy', 'Kyrgyz Republic', 'Summer_Schulist82@gmail.com', '1-509-540-5248 x5237'],
   ['Newton', 'Smith', 'Ireland', 'Julianne52@hotmail.com', '482.997.2560'],

@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {ArrowUpIcon} from '@twilio-paste/icons/esm/ArrowUpIcon';
 import {UnsortedIcon} from '@twilio-paste/icons/esm/UnsortedIcon';
@@ -11,16 +12,19 @@ export type SortDirection = 'ascending' | 'descending' | 'none';
 interface DataGridHeaderSortIconProps {
   direction: SortDirection;
   element?: BoxProps['element'];
+  i18nAscendingLabel?: string;
+  i18nDescendingLabel?: string;
+  i18nUnsortedLabel?: string;
 }
 
 const DataGridHeaderSortIcon: React.FC<DataGridHeaderSortIconProps> = ({direction, element}) => {
   switch (direction) {
     case 'ascending':
-      return <ArrowUpIcon decorative={false} element={element} title="Sort ascending" />;
+      return <ArrowUpIcon decorative element={element} />;
     case 'descending':
-      return <ArrowDownIcon decorative={false} element={element} title="Sort descending" />;
+      return <ArrowDownIcon decorative element={element} />;
     case 'none':
-      return <UnsortedIcon decorative={false} element={element} title="Unsorted" />;
+      return <UnsortedIcon decorative element={element} />;
     default:
       return null;
   }
@@ -41,12 +45,21 @@ export const DataGridHeaderSort: React.FC<DataGridHeaderSortProps> = ({
   direction,
   onClick,
   element = 'DATA_GRID_HEADER_SORT',
+  i18nAscendingLabel = 'Sort ascending',
+  i18nDescendingLabel = 'Sort descending',
+  i18nUnsortedLabel = 'Unsorted',
   ...props
 }) => {
+  const i18nLabelDirectionMap = {
+    ascending: i18nAscendingLabel,
+    descending: i18nDescendingLabel,
+    none: i18nUnsortedLabel,
+  };
+
   return (
-    // @ts-ignore fixme when button accepts element
     <Button element={element} variant="reset" size="reset" onClick={onClick} {...props}>
       <DataGridHeaderSortIcon element={`${element}_ICON`} direction={direction} />
+      <ScreenReaderOnly>{i18nLabelDirectionMap[direction]}</ScreenReaderOnly>
     </Button>
   );
 };
