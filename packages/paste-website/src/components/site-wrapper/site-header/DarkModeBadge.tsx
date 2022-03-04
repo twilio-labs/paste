@@ -1,26 +1,35 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {DarkModeFAQModal} from './DarkModeFAQModal';
-import {DarkModeBadgeButton} from './DarkModeBadgeButton';
+import * as React from "react";
+import { Badge } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import {
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalHeading,
+} from "@twilio-paste/modal";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { DarkModeFAQModal } from "./DarkModeFAQModal";
 
 export const DarkModeBadge: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Box display="flex" alignItems="center" marginLeft="space40">
-      <DarkModeBadgeButton
+      <Badge
+        as="button"
+        variant="new"
         onClick={() => {
           setIsOpen(true);
         }}
       >
-        <Stack orientation="horizontal" spacing="space20">
-          Early preview
-          <InformationIcon size="sizeIcon10" decorative={false} title="Find out more" />
-        </Stack>
-      </DarkModeBadgeButton>
-      <Modal isOpen={isOpen} onDismiss={() => setIsOpen(false)} size="wide" ariaLabelledby="dark-mode-modal">
+        New
+        <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
+      </Badge>
+      <Modal
+        isOpen={isOpen}
+        onDismiss={() => setIsOpen(false)}
+        size="wide"
+        ariaLabelledby="dark-mode-modal"
+      >
         <ModalHeader>
           <ModalHeading id="dark-mode-modal">Dark Mode FAQs</ModalHeading>
         </ModalHeader>
