@@ -1,6 +1,6 @@
 import * as React from "react";
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
-import { Stack } from "@twilio-paste/stack";
 import {
   Modal,
   ModalBody,
@@ -9,22 +9,17 @@ import {
 } from "@twilio-paste/modal";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { DarkModeFAQModal } from "./DarkModeFAQModal";
-import { DarkModeBadgeButton } from "./DarkModeBadgeButton";
 
 export const DarkModeBadge: React.FC = () => {
+  // Modal properties
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <Box display="flex" alignItems="center" marginLeft="space40">
-      <DarkModeBadgeButton
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        <Stack orientation="horizontal" spacing="space20">
-          New
-          <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
-        </Stack>
-      </DarkModeBadgeButton>
+      <Badge as="button" variant="new" onClick={() => setIsOpen(true)}>
+        New
+        <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
+      </Badge>
       <Modal
         isOpen={isOpen}
         onDismiss={() => setIsOpen(false)}
