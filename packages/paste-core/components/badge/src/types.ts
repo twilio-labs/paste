@@ -1,22 +1,28 @@
-import type {ButtonProps} from '@twilio-paste/button';
 import type {BoxProps} from '@twilio-paste/box';
 
-export type BadgeVariants = 'info' | 'default' | 'warning' | 'error' | 'success' | 'new';
+export type BadgeVariants =
+  | 'neutral'
+  | 'warning'
+  | 'error'
+  | 'success'
+  | 'new'
+  | 'decorative10'
+  | 'decorative20'
+  | 'decorative30'
+  | 'decorative40'
+  | 'neutral_counter'
+  | 'error_counter'
+  // the following variants are outdated but still supported to prevent breaking changes
+  | 'default'
+  | 'info';
 
-type BadgeBaseProps = Pick<BoxProps, 'element'> & {
-  children: NonNullable<React.ReactNode>;
-  variant: BadgeVariants;
-};
-type BadgeAsSpanProps = React.HTMLAttributes<HTMLSpanElement> & {
-  as: 'span';
-};
-type BadgeAsButtonProps = Omit<ButtonProps, 'variant' | 'as' | 'fullWidth' | 'size' | 'children'> & {
-  as: 'button';
-  onClick: ButtonProps['onClick'];
-};
-type BadgeAsAnchorProps = Omit<ButtonProps, 'variant' | 'as' | 'fullWidth' | 'size' | 'children'> & {
-  as: 'a';
-  href: ButtonProps['href'];
-  onClick?: never;
-};
-export type BadgeProps = (BadgeAsSpanProps | BadgeAsButtonProps | BadgeAsAnchorProps) & BadgeBaseProps;
+type BadgeBaseProps = Pick<BoxProps, 'element'> &
+  React.HTMLAttributes<HTMLSpanElement> &
+  React.HTMLAttributes<HTMLButtonElement> &
+  React.HTMLAttributes<HTMLAnchorElement> & {
+    children: NonNullable<React.ReactNode>;
+    variant: BadgeVariants;
+    as: 'span' | 'button' | 'a';
+    href?: string;
+  };
+export type BadgeProps = BadgeBaseProps;
