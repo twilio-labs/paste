@@ -26,8 +26,15 @@ describe('Label required prop', () => {
   };
 
   it('should have a required indicator', () => {
-    render(<Label {...initialProps}>label</Label>);
-    expect(screen.getByText('Required:')).not.toBeNull();
+    render(
+      <Label data-testid="test-label" {...initialProps}>
+        label
+      </Label>
+    );
+    const label = screen.getByTestId('test-label');
+    const requiredDot = label.querySelector('[data-paste-element="REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 });
 

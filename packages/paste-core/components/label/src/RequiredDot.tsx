@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 export interface RequiredDotProps {
   element?: BoxProps['element'];
@@ -28,9 +27,7 @@ export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT
         height="4px"
         width="4px"
         element={element}
-      >
-        <ScreenReaderOnly>Required: </ScreenReaderOnly>
-      </Box>
+      />
     </Box>
   );
 };
