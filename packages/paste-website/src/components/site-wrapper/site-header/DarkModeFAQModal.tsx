@@ -68,7 +68,7 @@ export const DarkModeFAQModal: React.FC = () => {
       <Paragraph>
         Using the Dark theme should be a{" "}
         <SiteLink to="/core/changing-theme">
-          one-line update to the /<Theme.Provider />
+          one-line update to the Theme Provider
         </SiteLink>
         . Simply change it from “default” to “dark”.
       </Paragraph>
