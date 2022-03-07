@@ -402,7 +402,7 @@ var require_TextareaAutosize = __commonJS({
       return t;
     };
     exports.__esModule = true;
-    var React = (init_react(), __toCommonJS(react_exports));
+    var React2 = (init_react(), __toCommonJS(react_exports));
     var PropTypes = (init_prop_types(), __toCommonJS(prop_types_exports));
     var autosize = require_autosize();
     var _getLineHeight = require_line_height();
@@ -462,7 +462,7 @@ var require_TextareaAutosize = __commonJS({
         var _this = this;
         var _a = this, _b = _a.props, onResize = _b.onResize, maxRows = _b.maxRows, onChange = _b.onChange, style = _b.style, innerRef = _b.innerRef, children = _b.children, props = __rest(_b, [\\"onResize\\", \\"maxRows\\", \\"onChange\\", \\"style\\", \\"innerRef\\", \\"children\\"]), lineHeight = _a.state.lineHeight;
         var maxHeight = maxRows && lineHeight ? lineHeight * maxRows : null;
-        return React.createElement(\\"textarea\\", __assign({}, props, { onChange: this.onChange, style: maxHeight ? __assign({}, style, { maxHeight }) : style, ref: function(element) {
+        return React2.createElement(\\"textarea\\", __assign({}, props, { onChange: this.onChange, style: maxHeight ? __assign({}, style, { maxHeight }) : style, ref: function(element) {
           _this.textarea = element;
           if (typeof _this.props.innerRef === \\"function\\") {
             _this.props.innerRef(element);
@@ -486,9 +486,9 @@ var require_TextareaAutosize = __commonJS({
         async: PropTypes.bool
       };
       return TextareaAutosizeClass2;
-    }(React.Component);
-    exports.TextareaAutosize = React.forwardRef(function(props, ref) {
-      return React.createElement(TextareaAutosizeClass, __assign({}, props, { innerRef: ref }));
+    }(React2.Component);
+    exports.TextareaAutosize = React2.forwardRef(function(props, ref) {
+      return React2.createElement(TextareaAutosizeClass, __assign({}, props, { innerRef: ref }));
     });
   }
 });
@@ -1006,22 +1006,12 @@ var require_lodash = __commonJS({
 });
 
 // tools/build/__fixtures__/random_package/src/index.tsx
-init_react();
 var import_react_autosize_textarea = __toESM(require_lib());
-
-// esm-externals:@twilio-paste/design-tokens/dist/tokens.raw.json
-var tokens_raw_exports = {};
-__export(tokens_raw_exports, {
-  default: () => default4
-});
-__reExport(tokens_raw_exports, tokens_raw_star);
-import * as default4 from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
-import * as tokens_raw_star from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
-
-// tools/build/__fixtures__/random_package/src/index.tsx
 var import_use_clipboard_copy = __toESM(require_dist());
+import * as React from \\"react\\";
+import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
 var camelCase = require_lodash();
-var DEPRECATE_TOKENS = Object.values(default4.props).filter((token) => token.deprecated).map((deprecatedToken) => camelCase(deprecatedToken.name));
+var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => camelCase(deprecatedToken.name));
 var convertRawTokenJSONToArray = (rawTokens) => {
   const rawTokenNames = Object.keys(rawTokens);
   return rawTokenNames.reduce((tokens, token) => {
@@ -1030,11 +1020,11 @@ var convertRawTokenJSONToArray = (rawTokens) => {
 };
 var getTokensWithTextContrastRequirements = (rawTokens) => convertRawTokenJSONToArray(rawTokens).filter((token) => token.type === \\"color\\" && token.text_contrast_pairing != null);
 var getContrastRatingsOfTokensWithTextContrastRequirements = () => {
-  const defaultThemeRawJSON = default4.props;
+  const defaultThemeRawJSON = DefaultRawTokenJSON.props;
   const tokenWithTextContrastRequirements = getTokensWithTextContrastRequirements(defaultThemeRawJSON);
 };
 var RandomComponent = () => {
-  return /* @__PURE__ */ react_exports.createElement(import_react_autosize_textarea.default, null);
+  return /* @__PURE__ */ React.createElement(import_react_autosize_textarea.default, null);
 };
 var export_useClipboard = import_use_clipboard_copy.useClipboard;
 export {
