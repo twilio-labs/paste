@@ -33,14 +33,14 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
   ...props
 }) => {
   const [skewOffset] = useSlantedSkew(skewAngle);
-  const {backgroundColors} = useTheme();
+  const {backgroundColors, zIndices} = useTheme();
 
   return (
     <div
       css={css({
         '&:before': {
           content: `" "`,
-          zIndex: -1,
+          zIndex: zIndices.zIndex0,
           position: 'absolute',
           // Fixes anti-aliasing
           // https://stackoverflow.com/questions/6492027/css-transform-jagged-edges-in-chrome/36549674#36549674

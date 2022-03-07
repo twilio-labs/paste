@@ -43,6 +43,7 @@ const PopularComponentsBottomAngle: React.FC = () => {
       left={0}
       transform="skewY(-9deg)"
       transformOrigin="100% 0"
+      zIndex="zIndex10"
     />
   );
 };
@@ -58,6 +59,7 @@ const PopularComponentsAndPatterns: React.FC = () => {
         marginTop="spaceNegative90"
         marginLeft="auto"
         marginRight="auto"
+        zIndex="zIndex10"
       >
         <Box position="absolute" top={140} right={-22}>
           <DoodleCurve />
