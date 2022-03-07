@@ -6558,18 +6558,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild-plugins/esm-externals@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "@esbuild-plugins/esm-externals@npm:0.0.6"
-  dependencies:
-    debug: ^4.3.1
-    escape-string-regexp: ^4.0.0
-  peerDependencies:
-    esbuild: "*"
-  checksum: 72037fd4637a6511047572d7dbe57642796fbc9b06768bc3537b211f62aca8555f6137e036ba6b0dac09ebe8d0573b380986f774023a50a2556ec6aee9abf86d
-  languageName: node
-  linkType: hard
-
 "@eslint/eslintrc@npm:^0.4.0":
   version: 0.4.0
   resolution: "@eslint/eslintrc@npm:0.4.0"
@@ -39378,7 +39366,6 @@ is-whitespace@latest:
     "@commitlint/cli": 9.1.2
     "@commitlint/config-conventional": 8.0.0
     "@emotion/babel-preset-css-prop": ^10.0.14
-    "@esbuild-plugins/esm-externals": ^0.0.6
     "@expo/spawn-async": ^1.5.0
     "@manypkg/cli": 0.17.0
     "@netlify/functions": ^0.7.2

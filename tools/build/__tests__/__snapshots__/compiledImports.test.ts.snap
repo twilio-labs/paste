@@ -1,0 +1,1044 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`esbuild config should not have require statements for external deps, and should not have import * as foo from foo statements for JSON files in esm output 1`] = `
+"var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __markAsModule = (target) => __defProp(target, \\"__esModule\\", { value: true });
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __reExport = (target, module, copyDefault, desc) => {
+  if (module && typeof module === \\"object\\" || typeof module === \\"function\\") {
+    for (let key of __getOwnPropNames(module))
+      if (!__hasOwnProp.call(target, key) && (copyDefault || key !== \\"default\\"))
+        __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
+  }
+  return target;
+};
+var __toESM = (module, isNodeMode) => {
+  return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, \\"default\\", !isNodeMode && module && module.__esModule ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
+};
+var __toCommonJS = /* @__PURE__ */ ((cache) => {
+  return (module, temp) => {
+    return cache && cache.get(module) || (temp = __reExport(__markAsModule({}), module, 1), cache && cache.set(module, temp), temp);
+  };
+})(typeof WeakMap !== \\"undefined\\" ? /* @__PURE__ */ new WeakMap() : 0);
+
+// esm-externals:react
+var react_exports = {};
+__export(react_exports, {
+  default: () => default2
+});
+import * as default2 from \\"react\\";
+import * as react_star from \\"react\\";
+var init_react = __esm({
+  \\"esm-externals:react\\"() {
+    __reExport(react_exports, react_star);
+  }
+});
+
+// esm-externals:prop-types
+var prop_types_exports = {};
+__export(prop_types_exports, {
+  default: () => default3
+});
+import * as default3 from \\"prop-types\\";
+import * as prop_types_star from \\"prop-types\\";
+var init_prop_types = __esm({
+  \\"esm-externals:prop-types\\"() {
+    __reExport(prop_types_exports, prop_types_star);
+  }
+});
+
+// node_modules/autosize/dist/autosize.js
+var require_autosize = __commonJS({
+  \\"node_modules/autosize/dist/autosize.js\\"(exports, module) {
+    (function(global2, factory) {
+      if (typeof define === \\"function\\" && define.amd) {
+        define([\\"module\\", \\"exports\\"], factory);
+      } else if (typeof exports !== \\"undefined\\") {
+        factory(module, exports);
+      } else {
+        var mod = {
+          exports: {}
+        };
+        factory(mod, mod.exports);
+        global2.autosize = mod.exports;
+      }
+    })(exports, function(module2, exports2) {
+      \\"use strict\\";
+      var map = typeof Map === \\"function\\" ? /* @__PURE__ */ new Map() : function() {
+        var keys = [];
+        var values = [];
+        return {
+          has: function has(key) {
+            return keys.indexOf(key) > -1;
+          },
+          get: function get(key) {
+            return values[keys.indexOf(key)];
+          },
+          set: function set(key, value) {
+            if (keys.indexOf(key) === -1) {
+              keys.push(key);
+              values.push(value);
+            }
+          },
+          delete: function _delete(key) {
+            var index = keys.indexOf(key);
+            if (index > -1) {
+              keys.splice(index, 1);
+              values.splice(index, 1);
+            }
+          }
+        };
+      }();
+      var createEvent = function createEvent2(name) {
+        return new Event(name, { bubbles: true });
+      };
+      try {
+        new Event(\\"test\\");
+      } catch (e) {
+        createEvent = function createEvent2(name) {
+          var evt = document.createEvent(\\"Event\\");
+          evt.initEvent(name, true, false);
+          return evt;
+        };
+      }
+      function assign(ta) {
+        if (!ta || !ta.nodeName || ta.nodeName !== \\"TEXTAREA\\" || map.has(ta))
+          return;
+        var heightOffset = null;
+        var clientWidth = null;
+        var cachedHeight = null;
+        function init() {
+          var style = window.getComputedStyle(ta, null);
+          if (style.resize === \\"vertical\\") {
+            ta.style.resize = \\"none\\";
+          } else if (style.resize === \\"both\\") {
+            ta.style.resize = \\"horizontal\\";
+          }
+          if (style.boxSizing === \\"content-box\\") {
+            heightOffset = -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom));
+          } else {
+            heightOffset = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+          }
+          if (isNaN(heightOffset)) {
+            heightOffset = 0;
+          }
+          update2();
+        }
+        function changeOverflow(value) {
+          {
+            var width = ta.style.width;
+            ta.style.width = \\"0px\\";
+            ta.offsetWidth;
+            ta.style.width = width;
+          }
+          ta.style.overflowY = value;
+        }
+        function getParentOverflows(el) {
+          var arr = [];
+          while (el && el.parentNode && el.parentNode instanceof Element) {
+            if (el.parentNode.scrollTop) {
+              arr.push({
+                node: el.parentNode,
+                scrollTop: el.parentNode.scrollTop
+              });
+            }
+            el = el.parentNode;
+          }
+          return arr;
+        }
+        function resize() {
+          if (ta.scrollHeight === 0) {
+            return;
+          }
+          var overflows = getParentOverflows(ta);
+          var docTop = document.documentElement && document.documentElement.scrollTop;
+          ta.style.height = \\"\\";
+          ta.style.height = ta.scrollHeight + heightOffset + \\"px\\";
+          clientWidth = ta.clientWidth;
+          overflows.forEach(function(el) {
+            el.node.scrollTop = el.scrollTop;
+          });
+          if (docTop) {
+            document.documentElement.scrollTop = docTop;
+          }
+        }
+        function update2() {
+          resize();
+          var styleHeight = Math.round(parseFloat(ta.style.height));
+          var computed = window.getComputedStyle(ta, null);
+          var actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
+          if (actualHeight < styleHeight) {
+            if (computed.overflowY === \\"hidden\\") {
+              changeOverflow(\\"scroll\\");
+              resize();
+              actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+            }
+          } else {
+            if (computed.overflowY !== \\"hidden\\") {
+              changeOverflow(\\"hidden\\");
+              resize();
+              actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+            }
+          }
+          if (cachedHeight !== actualHeight) {
+            cachedHeight = actualHeight;
+            var evt = createEvent(\\"autosize:resized\\");
+            try {
+              ta.dispatchEvent(evt);
+            } catch (err) {
+            }
+          }
+        }
+        var pageResize = function pageResize2() {
+          if (ta.clientWidth !== clientWidth) {
+            update2();
+          }
+        };
+        var destroy2 = function(style) {
+          window.removeEventListener(\\"resize\\", pageResize, false);
+          ta.removeEventListener(\\"input\\", update2, false);
+          ta.removeEventListener(\\"keyup\\", update2, false);
+          ta.removeEventListener(\\"autosize:destroy\\", destroy2, false);
+          ta.removeEventListener(\\"autosize:update\\", update2, false);
+          Object.keys(style).forEach(function(key) {
+            ta.style[key] = style[key];
+          });
+          map.delete(ta);
+        }.bind(ta, {
+          height: ta.style.height,
+          resize: ta.style.resize,
+          overflowY: ta.style.overflowY,
+          overflowX: ta.style.overflowX,
+          wordWrap: ta.style.wordWrap
+        });
+        ta.addEventListener(\\"autosize:destroy\\", destroy2, false);
+        if (\\"onpropertychange\\" in ta && \\"oninput\\" in ta) {
+          ta.addEventListener(\\"keyup\\", update2, false);
+        }
+        window.addEventListener(\\"resize\\", pageResize, false);
+        ta.addEventListener(\\"input\\", update2, false);
+        ta.addEventListener(\\"autosize:update\\", update2, false);
+        ta.style.overflowX = \\"hidden\\";
+        ta.style.wordWrap = \\"break-word\\";
+        map.set(ta, {
+          destroy: destroy2,
+          update: update2
+        });
+        init();
+      }
+      function destroy(ta) {
+        var methods = map.get(ta);
+        if (methods) {
+          methods.destroy();
+        }
+      }
+      function update(ta) {
+        var methods = map.get(ta);
+        if (methods) {
+          methods.update();
+        }
+      }
+      var autosize = null;
+      if (typeof window === \\"undefined\\" || typeof window.getComputedStyle !== \\"function\\") {
+        autosize = function autosize2(el) {
+          return el;
+        };
+        autosize.destroy = function(el) {
+          return el;
+        };
+        autosize.update = function(el) {
+          return el;
+        };
+      } else {
+        autosize = function autosize2(el, options) {
+          if (el) {
+            Array.prototype.forEach.call(el.length ? el : [el], function(x) {
+              return assign(x, options);
+            });
+          }
+          return el;
+        };
+        autosize.destroy = function(el) {
+          if (el) {
+            Array.prototype.forEach.call(el.length ? el : [el], destroy);
+          }
+          return el;
+        };
+        autosize.update = function(el) {
+          if (el) {
+            Array.prototype.forEach.call(el.length ? el : [el], update);
+          }
+          return el;
+        };
+      }
+      exports2.default = autosize;
+      module2.exports = exports2[\\"default\\"];
+    });
+  }
+});
+
+// node_modules/computed-style/dist/computedStyle.commonjs.js
+var require_computedStyle_commonjs = __commonJS({
+  \\"node_modules/computed-style/dist/computedStyle.commonjs.js\\"(exports, module) {
+    var computedStyle = function(el, prop, getComputedStyle) {
+      getComputedStyle = window.getComputedStyle;
+      return (getComputedStyle ? getComputedStyle(el) : el.currentStyle)[prop.replace(/-(\\\\w)/gi, function(word, letter) {
+        return letter.toUpperCase();
+      })];
+    };
+    module.exports = computedStyle;
+  }
+});
+
+// node_modules/line-height/lib/line-height.js
+var require_line_height = __commonJS({
+  \\"node_modules/line-height/lib/line-height.js\\"(exports, module) {
+    var computedStyle = require_computedStyle_commonjs();
+    function lineHeight(node) {
+      var lnHeightStr = computedStyle(node, \\"line-height\\");
+      var lnHeight = parseFloat(lnHeightStr, 10);
+      if (lnHeightStr === lnHeight + \\"\\") {
+        var _lnHeightStyle = node.style.lineHeight;
+        node.style.lineHeight = lnHeightStr + \\"em\\";
+        lnHeightStr = computedStyle(node, \\"line-height\\");
+        lnHeight = parseFloat(lnHeightStr, 10);
+        if (_lnHeightStyle) {
+          node.style.lineHeight = _lnHeightStyle;
+        } else {
+          delete node.style.lineHeight;
+        }
+      }
+      if (lnHeightStr.indexOf(\\"pt\\") !== -1) {
+        lnHeight *= 4;
+        lnHeight /= 3;
+      } else if (lnHeightStr.indexOf(\\"mm\\") !== -1) {
+        lnHeight *= 96;
+        lnHeight /= 25.4;
+      } else if (lnHeightStr.indexOf(\\"cm\\") !== -1) {
+        lnHeight *= 96;
+        lnHeight /= 2.54;
+      } else if (lnHeightStr.indexOf(\\"in\\") !== -1) {
+        lnHeight *= 96;
+      } else if (lnHeightStr.indexOf(\\"pc\\") !== -1) {
+        lnHeight *= 16;
+      }
+      lnHeight = Math.round(lnHeight);
+      if (lnHeightStr === \\"normal\\") {
+        var nodeName = node.nodeName;
+        var _node = document.createElement(nodeName);
+        _node.innerHTML = \\"&nbsp;\\";
+        if (nodeName.toUpperCase() === \\"TEXTAREA\\") {
+          _node.setAttribute(\\"rows\\", \\"1\\");
+        }
+        var fontSizeStr = computedStyle(node, \\"font-size\\");
+        _node.style.fontSize = fontSizeStr;
+        _node.style.padding = \\"0px\\";
+        _node.style.border = \\"0px\\";
+        var body = document.body;
+        body.appendChild(_node);
+        var height = _node.offsetHeight;
+        lnHeight = height;
+        body.removeChild(_node);
+      }
+      return lnHeight;
+    }
+    module.exports = lineHeight;
+  }
+});
+
+// node_modules/react-autosize-textarea/lib/TextareaAutosize.js
+var require_TextareaAutosize = __commonJS({
+  \\"node_modules/react-autosize-textarea/lib/TextareaAutosize.js\\"(exports) {
+    \\"use strict\\";
+    var __extends = exports && exports.__extends || function() {
+      var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d, b) {
+        d.__proto__ = b;
+      } || function(d, b) {
+        for (var p in b)
+          if (b.hasOwnProperty(p))
+            d[p] = b[p];
+      };
+      return function(d, b) {
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __assign = exports && exports.__assign || Object.assign || function(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+      }
+      return t;
+    };
+    var __rest = exports && exports.__rest || function(s, e) {
+      var t = {};
+      for (var p in s)
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+          t[p] = s[p];
+      if (s != null && typeof Object.getOwnPropertySymbols === \\"function\\") {
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++)
+          if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+      }
+      return t;
+    };
+    exports.__esModule = true;
+    var React2 = (init_react(), __toCommonJS(react_exports));
+    var PropTypes = (init_prop_types(), __toCommonJS(prop_types_exports));
+    var autosize = require_autosize();
+    var _getLineHeight = require_line_height();
+    var getLineHeight = _getLineHeight;
+    var RESIZED = \\"autosize:resized\\";
+    var TextareaAutosizeClass = function(_super) {
+      __extends(TextareaAutosizeClass2, _super);
+      function TextareaAutosizeClass2() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+          lineHeight: null
+        };
+        _this.textarea = null;
+        _this.onResize = function(e) {
+          if (_this.props.onResize) {
+            _this.props.onResize(e);
+          }
+        };
+        _this.updateLineHeight = function() {
+          if (_this.textarea) {
+            _this.setState({
+              lineHeight: getLineHeight(_this.textarea)
+            });
+          }
+        };
+        _this.onChange = function(e) {
+          var onChange = _this.props.onChange;
+          _this.currentValue = e.currentTarget.value;
+          onChange && onChange(e);
+        };
+        return _this;
+      }
+      TextareaAutosizeClass2.prototype.componentDidMount = function() {
+        var _this = this;
+        var _a = this.props, maxRows = _a.maxRows, async = _a.async;
+        if (typeof maxRows === \\"number\\") {
+          this.updateLineHeight();
+        }
+        if (typeof maxRows === \\"number\\" || async) {
+          setTimeout(function() {
+            return _this.textarea && autosize(_this.textarea);
+          });
+        } else {
+          this.textarea && autosize(this.textarea);
+        }
+        if (this.textarea) {
+          this.textarea.addEventListener(RESIZED, this.onResize);
+        }
+      };
+      TextareaAutosizeClass2.prototype.componentWillUnmount = function() {
+        if (this.textarea) {
+          this.textarea.removeEventListener(RESIZED, this.onResize);
+          autosize.destroy(this.textarea);
+        }
+      };
+      TextareaAutosizeClass2.prototype.render = function() {
+        var _this = this;
+        var _a = this, _b = _a.props, onResize = _b.onResize, maxRows = _b.maxRows, onChange = _b.onChange, style = _b.style, innerRef = _b.innerRef, children = _b.children, props = __rest(_b, [\\"onResize\\", \\"maxRows\\", \\"onChange\\", \\"style\\", \\"innerRef\\", \\"children\\"]), lineHeight = _a.state.lineHeight;
+        var maxHeight = maxRows && lineHeight ? lineHeight * maxRows : null;
+        return React2.createElement(\\"textarea\\", __assign({}, props, { onChange: this.onChange, style: maxHeight ? __assign({}, style, { maxHeight }) : style, ref: function(element) {
+          _this.textarea = element;
+          if (typeof _this.props.innerRef === \\"function\\") {
+            _this.props.innerRef(element);
+          } else if (_this.props.innerRef) {
+            _this.props.innerRef.current = element;
+          }
+        } }), children);
+      };
+      TextareaAutosizeClass2.prototype.componentDidUpdate = function() {
+        this.textarea && autosize.update(this.textarea);
+      };
+      TextareaAutosizeClass2.defaultProps = {
+        rows: 1,
+        async: false
+      };
+      TextareaAutosizeClass2.propTypes = {
+        rows: PropTypes.number,
+        maxRows: PropTypes.number,
+        onResize: PropTypes.func,
+        innerRef: PropTypes.any,
+        async: PropTypes.bool
+      };
+      return TextareaAutosizeClass2;
+    }(React2.Component);
+    exports.TextareaAutosize = React2.forwardRef(function(props, ref) {
+      return React2.createElement(TextareaAutosizeClass, __assign({}, props, { innerRef: ref }));
+    });
+  }
+});
+
+// node_modules/react-autosize-textarea/lib/index.js
+var require_lib = __commonJS({
+  \\"node_modules/react-autosize-textarea/lib/index.js\\"(exports) {
+    \\"use strict\\";
+    exports.__esModule = true;
+    var TextareaAutosize_1 = require_TextareaAutosize();
+    exports[\\"default\\"] = TextareaAutosize_1.TextareaAutosize;
+  }
+});
+
+// node_modules/clipboard-copy/index.js
+var require_clipboard_copy = __commonJS({
+  \\"node_modules/clipboard-copy/index.js\\"(exports, module) {
+    module.exports = clipboardCopy;
+    function clipboardCopy(text) {
+      if (navigator.clipboard) {
+        return navigator.clipboard.writeText(text).catch(function(err) {
+          throw err !== void 0 ? err : new DOMException(\\"The request is not allowed\\", \\"NotAllowedError\\");
+        });
+      }
+      var span = document.createElement(\\"span\\");
+      span.textContent = text;
+      span.style.whiteSpace = \\"pre\\";
+      document.body.appendChild(span);
+      var selection = window.getSelection();
+      var range = window.document.createRange();
+      selection.removeAllRanges();
+      range.selectNode(span);
+      selection.addRange(range);
+      var success = false;
+      try {
+        success = window.document.execCommand(\\"copy\\");
+      } catch (err) {
+        console.log(\\"error\\", err);
+      }
+      selection.removeAllRanges();
+      window.document.body.removeChild(span);
+      return success ? Promise.resolve() : Promise.reject(new DOMException(\\"The request is not allowed\\", \\"NotAllowedError\\"));
+    }
+  }
+});
+
+// node_modules/use-clipboard-copy/dist/useTimedToggle.js
+var require_useTimedToggle = __commonJS({
+  \\"node_modules/use-clipboard-copy/dist/useTimedToggle.js\\"(exports) {
+    \\"use strict\\";
+    Object.defineProperty(exports, \\"__esModule\\", { value: true });
+    exports.useTimedToggle = void 0;
+    var react_1 = (init_react(), __toCommonJS(react_exports));
+    function useTimedToggle(initialValue) {
+      var _a = react_1.useState(false), value = _a[0], setValue = _a[1];
+      var timeoutRef = react_1.useRef();
+      var initialValueRef = react_1.useRef(initialValue);
+      var toggleValue = function(timeout) {
+        clearTimeout(timeoutRef.current);
+        setValue(!initialValueRef.current);
+        timeoutRef.current = window.setTimeout(function() {
+          return setValue(initialValueRef.current);
+        }, timeout);
+      };
+      react_1.useEffect(function() {
+        return function() {
+          return clearTimeout(timeoutRef.current);
+        };
+      }, []);
+      return [value, toggleValue];
+    }
+    exports.useTimedToggle = useTimedToggle;
+  }
+});
+
+// node_modules/use-clipboard-copy/dist/index.js
+var require_dist = __commonJS({
+  \\"node_modules/use-clipboard-copy/dist/index.js\\"(exports) {
+    \\"use strict\\";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { \\"default\\": mod };
+    };
+    Object.defineProperty(exports, \\"__esModule\\", { value: true });
+    exports.useClipboard = void 0;
+    var clipboard_copy_1 = __importDefault(require_clipboard_copy());
+    var react_1 = (init_react(), __toCommonJS(react_exports));
+    var useTimedToggle_1 = require_useTimedToggle();
+    function isInputLike(node) {
+      return node && (node.nodeName === \\"TEXTAREA\\" || node.nodeName === \\"INPUT\\");
+    }
+    function useClipboard2(options) {
+      if (options === void 0) {
+        options = {};
+      }
+      var _a = useTimedToggle_1.useTimedToggle(false), copied = _a[0], toggleCopied = _a[1];
+      var targetRef = react_1.useRef(null);
+      var optionsRef = react_1.useRef(options);
+      optionsRef.current = options;
+      function isSupported() {
+        return !!navigator.clipboard || typeof document.execCommand === \\"function\\" && typeof document.queryCommandSupported === \\"function\\" && document.queryCommandSupported(\\"copy\\");
+      }
+      var copyHandler = react_1.useCallback(function(text) {
+        var opts = optionsRef.current;
+        var target = targetRef.current;
+        function handleSuccess() {
+          if (opts.onSuccess) {
+            opts.onSuccess();
+          }
+          if (opts.copiedTimeout) {
+            toggleCopied(opts.copiedTimeout);
+          }
+          if (opts.selectOnCopy && isInputLike(target)) {
+            target.select();
+          }
+        }
+        function handleError() {
+          if (opts.onError) {
+            opts.onError();
+          }
+          if (opts.selectOnError !== false && isInputLike(target)) {
+            target.select();
+          }
+        }
+        function copy(value) {
+          clipboard_copy_1.default(value).then(handleSuccess).catch(handleError);
+        }
+        if (typeof text === \\"string\\") {
+          copy(text);
+        } else if (target) {
+          copy(target.value);
+        }
+      }, []);
+      return {
+        copied,
+        copy: copyHandler,
+        isSupported,
+        target: targetRef
+      };
+    }
+    exports.useClipboard = useClipboard2;
+  }
+});
+
+// node_modules/lodash.camelcase/index.js
+var require_lodash = __commonJS({
+  \\"node_modules/lodash.camelcase/index.js\\"(exports, module) {
+    var INFINITY = 1 / 0;
+    var symbolTag = \\"[object Symbol]\\";
+    var reAsciiWord = /[^\\\\x00-\\\\x2f\\\\x3a-\\\\x40\\\\x5b-\\\\x60\\\\x7b-\\\\x7f]+/g;
+    var reLatin = /[\\\\xc0-\\\\xd6\\\\xd8-\\\\xf6\\\\xf8-\\\\xff\\\\u0100-\\\\u017f]/g;
+    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
+    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\\\\\\\ufe20-\\\\\\\\ufe23\\";
+    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20f0\\";
+    var rsDingbatRange = \\"\\\\\\\\u2700-\\\\\\\\u27bf\\";
+    var rsLowerRange = \\"a-z\\\\\\\\xdf-\\\\\\\\xf6\\\\\\\\xf8-\\\\\\\\xff\\";
+    var rsMathOpRange = \\"\\\\\\\\xac\\\\\\\\xb1\\\\\\\\xd7\\\\\\\\xf7\\";
+    var rsNonCharRange = \\"\\\\\\\\x00-\\\\\\\\x2f\\\\\\\\x3a-\\\\\\\\x40\\\\\\\\x5b-\\\\\\\\x60\\\\\\\\x7b-\\\\\\\\xbf\\";
+    var rsPunctuationRange = \\"\\\\\\\\u2000-\\\\\\\\u206f\\";
+    var rsSpaceRange = \\" \\\\\\\\t\\\\\\\\x0b\\\\\\\\f\\\\\\\\xa0\\\\\\\\ufeff\\\\\\\\n\\\\\\\\r\\\\\\\\u2028\\\\\\\\u2029\\\\\\\\u1680\\\\\\\\u180e\\\\\\\\u2000\\\\\\\\u2001\\\\\\\\u2002\\\\\\\\u2003\\\\\\\\u2004\\\\\\\\u2005\\\\\\\\u2006\\\\\\\\u2007\\\\\\\\u2008\\\\\\\\u2009\\\\\\\\u200a\\\\\\\\u202f\\\\\\\\u205f\\\\\\\\u3000\\";
+    var rsUpperRange = \\"A-Z\\\\\\\\xc0-\\\\\\\\xd6\\\\\\\\xd8-\\\\\\\\xde\\";
+    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
+    var rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
+    var rsApos = \\"['\\\\u2019]\\";
+    var rsAstral = \\"[\\" + rsAstralRange + \\"]\\";
+    var rsBreak = \\"[\\" + rsBreakRange + \\"]\\";
+    var rsCombo = \\"[\\" + rsComboMarksRange + rsComboSymbolsRange + \\"]\\";
+    var rsDigits = \\"\\\\\\\\d+\\";
+    var rsDingbat = \\"[\\" + rsDingbatRange + \\"]\\";
+    var rsLower = \\"[\\" + rsLowerRange + \\"]\\";
+    var rsMisc = \\"[^\\" + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + \\"]\\";
+    var rsFitz = \\"\\\\\\\\ud83c[\\\\\\\\udffb-\\\\\\\\udfff]\\";
+    var rsModifier = \\"(?:\\" + rsCombo + \\"|\\" + rsFitz + \\")\\";
+    var rsNonAstral = \\"[^\\" + rsAstralRange + \\"]\\";
+    var rsRegional = \\"(?:\\\\\\\\ud83c[\\\\\\\\udde6-\\\\\\\\uddff]){2}\\";
+    var rsSurrPair = \\"[\\\\\\\\ud800-\\\\\\\\udbff][\\\\\\\\udc00-\\\\\\\\udfff]\\";
+    var rsUpper = \\"[\\" + rsUpperRange + \\"]\\";
+    var rsZWJ = \\"\\\\\\\\u200d\\";
+    var rsLowerMisc = \\"(?:\\" + rsLower + \\"|\\" + rsMisc + \\")\\";
+    var rsUpperMisc = \\"(?:\\" + rsUpper + \\"|\\" + rsMisc + \\")\\";
+    var rsOptLowerContr = \\"(?:\\" + rsApos + \\"(?:d|ll|m|re|s|t|ve))?\\";
+    var rsOptUpperContr = \\"(?:\\" + rsApos + \\"(?:D|LL|M|RE|S|T|VE))?\\";
+    var reOptMod = rsModifier + \\"?\\";
+    var rsOptVar = \\"[\\" + rsVarRange + \\"]?\\";
+    var rsOptJoin = \\"(?:\\" + rsZWJ + \\"(?:\\" + [rsNonAstral, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsOptVar + reOptMod + \\")*\\";
+    var rsSeq = rsOptVar + reOptMod + rsOptJoin;
+    var rsEmoji = \\"(?:\\" + [rsDingbat, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsSeq;
+    var rsSymbol = \\"(?:\\" + [rsNonAstral + rsCombo + \\"?\\", rsCombo, rsRegional, rsSurrPair, rsAstral].join(\\"|\\") + \\")\\";
+    var reApos = RegExp(rsApos, \\"g\\");
+    var reComboMark = RegExp(rsCombo, \\"g\\");
+    var reUnicode = RegExp(rsFitz + \\"(?=\\" + rsFitz + \\")|\\" + rsSymbol + rsSeq, \\"g\\");
+    var reUnicodeWord = RegExp([
+      rsUpper + \\"?\\" + rsLower + \\"+\\" + rsOptLowerContr + \\"(?=\\" + [rsBreak, rsUpper, \\"$\\"].join(\\"|\\") + \\")\\",
+      rsUpperMisc + \\"+\\" + rsOptUpperContr + \\"(?=\\" + [rsBreak, rsUpper + rsLowerMisc, \\"$\\"].join(\\"|\\") + \\")\\",
+      rsUpper + \\"?\\" + rsLowerMisc + \\"+\\" + rsOptLowerContr,
+      rsUpper + \\"+\\" + rsOptUpperContr,
+      rsDigits,
+      rsEmoji
+    ].join(\\"|\\"), \\"g\\");
+    var reHasUnicode = RegExp(\\"[\\" + rsZWJ + rsAstralRange + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + \\"]\\");
+    var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+    var deburredLetters = {
+      \\"\\\\xC0\\": \\"A\\",
+      \\"\\\\xC1\\": \\"A\\",
+      \\"\\\\xC2\\": \\"A\\",
+      \\"\\\\xC3\\": \\"A\\",
+      \\"\\\\xC4\\": \\"A\\",
+      \\"\\\\xC5\\": \\"A\\",
+      \\"\\\\xE0\\": \\"a\\",
+      \\"\\\\xE1\\": \\"a\\",
+      \\"\\\\xE2\\": \\"a\\",
+      \\"\\\\xE3\\": \\"a\\",
+      \\"\\\\xE4\\": \\"a\\",
+      \\"\\\\xE5\\": \\"a\\",
+      \\"\\\\xC7\\": \\"C\\",
+      \\"\\\\xE7\\": \\"c\\",
+      \\"\\\\xD0\\": \\"D\\",
+      \\"\\\\xF0\\": \\"d\\",
+      \\"\\\\xC8\\": \\"E\\",
+      \\"\\\\xC9\\": \\"E\\",
+      \\"\\\\xCA\\": \\"E\\",
+      \\"\\\\xCB\\": \\"E\\",
+      \\"\\\\xE8\\": \\"e\\",
+      \\"\\\\xE9\\": \\"e\\",
+      \\"\\\\xEA\\": \\"e\\",
+      \\"\\\\xEB\\": \\"e\\",
+      \\"\\\\xCC\\": \\"I\\",
+      \\"\\\\xCD\\": \\"I\\",
+      \\"\\\\xCE\\": \\"I\\",
+      \\"\\\\xCF\\": \\"I\\",
+      \\"\\\\xEC\\": \\"i\\",
+      \\"\\\\xED\\": \\"i\\",
+      \\"\\\\xEE\\": \\"i\\",
+      \\"\\\\xEF\\": \\"i\\",
+      \\"\\\\xD1\\": \\"N\\",
+      \\"\\\\xF1\\": \\"n\\",
+      \\"\\\\xD2\\": \\"O\\",
+      \\"\\\\xD3\\": \\"O\\",
+      \\"\\\\xD4\\": \\"O\\",
+      \\"\\\\xD5\\": \\"O\\",
+      \\"\\\\xD6\\": \\"O\\",
+      \\"\\\\xD8\\": \\"O\\",
+      \\"\\\\xF2\\": \\"o\\",
+      \\"\\\\xF3\\": \\"o\\",
+      \\"\\\\xF4\\": \\"o\\",
+      \\"\\\\xF5\\": \\"o\\",
+      \\"\\\\xF6\\": \\"o\\",
+      \\"\\\\xF8\\": \\"o\\",
+      \\"\\\\xD9\\": \\"U\\",
+      \\"\\\\xDA\\": \\"U\\",
+      \\"\\\\xDB\\": \\"U\\",
+      \\"\\\\xDC\\": \\"U\\",
+      \\"\\\\xF9\\": \\"u\\",
+      \\"\\\\xFA\\": \\"u\\",
+      \\"\\\\xFB\\": \\"u\\",
+      \\"\\\\xFC\\": \\"u\\",
+      \\"\\\\xDD\\": \\"Y\\",
+      \\"\\\\xFD\\": \\"y\\",
+      \\"\\\\xFF\\": \\"y\\",
+      \\"\\\\xC6\\": \\"Ae\\",
+      \\"\\\\xE6\\": \\"ae\\",
+      \\"\\\\xDE\\": \\"Th\\",
+      \\"\\\\xFE\\": \\"th\\",
+      \\"\\\\xDF\\": \\"ss\\",
+      \\"\\\\u0100\\": \\"A\\",
+      \\"\\\\u0102\\": \\"A\\",
+      \\"\\\\u0104\\": \\"A\\",
+      \\"\\\\u0101\\": \\"a\\",
+      \\"\\\\u0103\\": \\"a\\",
+      \\"\\\\u0105\\": \\"a\\",
+      \\"\\\\u0106\\": \\"C\\",
+      \\"\\\\u0108\\": \\"C\\",
+      \\"\\\\u010A\\": \\"C\\",
+      \\"\\\\u010C\\": \\"C\\",
+      \\"\\\\u0107\\": \\"c\\",
+      \\"\\\\u0109\\": \\"c\\",
+      \\"\\\\u010B\\": \\"c\\",
+      \\"\\\\u010D\\": \\"c\\",
+      \\"\\\\u010E\\": \\"D\\",
+      \\"\\\\u0110\\": \\"D\\",
+      \\"\\\\u010F\\": \\"d\\",
+      \\"\\\\u0111\\": \\"d\\",
+      \\"\\\\u0112\\": \\"E\\",
+      \\"\\\\u0114\\": \\"E\\",
+      \\"\\\\u0116\\": \\"E\\",
+      \\"\\\\u0118\\": \\"E\\",
+      \\"\\\\u011A\\": \\"E\\",
+      \\"\\\\u0113\\": \\"e\\",
+      \\"\\\\u0115\\": \\"e\\",
+      \\"\\\\u0117\\": \\"e\\",
+      \\"\\\\u0119\\": \\"e\\",
+      \\"\\\\u011B\\": \\"e\\",
+      \\"\\\\u011C\\": \\"G\\",
+      \\"\\\\u011E\\": \\"G\\",
+      \\"\\\\u0120\\": \\"G\\",
+      \\"\\\\u0122\\": \\"G\\",
+      \\"\\\\u011D\\": \\"g\\",
+      \\"\\\\u011F\\": \\"g\\",
+      \\"\\\\u0121\\": \\"g\\",
+      \\"\\\\u0123\\": \\"g\\",
+      \\"\\\\u0124\\": \\"H\\",
+      \\"\\\\u0126\\": \\"H\\",
+      \\"\\\\u0125\\": \\"h\\",
+      \\"\\\\u0127\\": \\"h\\",
+      \\"\\\\u0128\\": \\"I\\",
+      \\"\\\\u012A\\": \\"I\\",
+      \\"\\\\u012C\\": \\"I\\",
+      \\"\\\\u012E\\": \\"I\\",
+      \\"\\\\u0130\\": \\"I\\",
+      \\"\\\\u0129\\": \\"i\\",
+      \\"\\\\u012B\\": \\"i\\",
+      \\"\\\\u012D\\": \\"i\\",
+      \\"\\\\u012F\\": \\"i\\",
+      \\"\\\\u0131\\": \\"i\\",
+      \\"\\\\u0134\\": \\"J\\",
+      \\"\\\\u0135\\": \\"j\\",
+      \\"\\\\u0136\\": \\"K\\",
+      \\"\\\\u0137\\": \\"k\\",
+      \\"\\\\u0138\\": \\"k\\",
+      \\"\\\\u0139\\": \\"L\\",
+      \\"\\\\u013B\\": \\"L\\",
+      \\"\\\\u013D\\": \\"L\\",
+      \\"\\\\u013F\\": \\"L\\",
+      \\"\\\\u0141\\": \\"L\\",
+      \\"\\\\u013A\\": \\"l\\",
+      \\"\\\\u013C\\": \\"l\\",
+      \\"\\\\u013E\\": \\"l\\",
+      \\"\\\\u0140\\": \\"l\\",
+      \\"\\\\u0142\\": \\"l\\",
+      \\"\\\\u0143\\": \\"N\\",
+      \\"\\\\u0145\\": \\"N\\",
+      \\"\\\\u0147\\": \\"N\\",
+      \\"\\\\u014A\\": \\"N\\",
+      \\"\\\\u0144\\": \\"n\\",
+      \\"\\\\u0146\\": \\"n\\",
+      \\"\\\\u0148\\": \\"n\\",
+      \\"\\\\u014B\\": \\"n\\",
+      \\"\\\\u014C\\": \\"O\\",
+      \\"\\\\u014E\\": \\"O\\",
+      \\"\\\\u0150\\": \\"O\\",
+      \\"\\\\u014D\\": \\"o\\",
+      \\"\\\\u014F\\": \\"o\\",
+      \\"\\\\u0151\\": \\"o\\",
+      \\"\\\\u0154\\": \\"R\\",
+      \\"\\\\u0156\\": \\"R\\",
+      \\"\\\\u0158\\": \\"R\\",
+      \\"\\\\u0155\\": \\"r\\",
+      \\"\\\\u0157\\": \\"r\\",
+      \\"\\\\u0159\\": \\"r\\",
+      \\"\\\\u015A\\": \\"S\\",
+      \\"\\\\u015C\\": \\"S\\",
+      \\"\\\\u015E\\": \\"S\\",
+      \\"\\\\u0160\\": \\"S\\",
+      \\"\\\\u015B\\": \\"s\\",
+      \\"\\\\u015D\\": \\"s\\",
+      \\"\\\\u015F\\": \\"s\\",
+      \\"\\\\u0161\\": \\"s\\",
+      \\"\\\\u0162\\": \\"T\\",
+      \\"\\\\u0164\\": \\"T\\",
+      \\"\\\\u0166\\": \\"T\\",
+      \\"\\\\u0163\\": \\"t\\",
+      \\"\\\\u0165\\": \\"t\\",
+      \\"\\\\u0167\\": \\"t\\",
+      \\"\\\\u0168\\": \\"U\\",
+      \\"\\\\u016A\\": \\"U\\",
+      \\"\\\\u016C\\": \\"U\\",
+      \\"\\\\u016E\\": \\"U\\",
+      \\"\\\\u0170\\": \\"U\\",
+      \\"\\\\u0172\\": \\"U\\",
+      \\"\\\\u0169\\": \\"u\\",
+      \\"\\\\u016B\\": \\"u\\",
+      \\"\\\\u016D\\": \\"u\\",
+      \\"\\\\u016F\\": \\"u\\",
+      \\"\\\\u0171\\": \\"u\\",
+      \\"\\\\u0173\\": \\"u\\",
+      \\"\\\\u0174\\": \\"W\\",
+      \\"\\\\u0175\\": \\"w\\",
+      \\"\\\\u0176\\": \\"Y\\",
+      \\"\\\\u0177\\": \\"y\\",
+      \\"\\\\u0178\\": \\"Y\\",
+      \\"\\\\u0179\\": \\"Z\\",
+      \\"\\\\u017B\\": \\"Z\\",
+      \\"\\\\u017D\\": \\"Z\\",
+      \\"\\\\u017A\\": \\"z\\",
+      \\"\\\\u017C\\": \\"z\\",
+      \\"\\\\u017E\\": \\"z\\",
+      \\"\\\\u0132\\": \\"IJ\\",
+      \\"\\\\u0133\\": \\"ij\\",
+      \\"\\\\u0152\\": \\"Oe\\",
+      \\"\\\\u0153\\": \\"oe\\",
+      \\"\\\\u0149\\": \\"'n\\",
+      \\"\\\\u017F\\": \\"ss\\"
+    };
+    var freeGlobal = typeof global == \\"object\\" && global && global.Object === Object && global;
+    var freeSelf = typeof self == \\"object\\" && self && self.Object === Object && self;
+    var root = freeGlobal || freeSelf || Function(\\"return this\\")();
+    function arrayReduce(array, iteratee, accumulator, initAccum) {
+      var index = -1, length = array ? array.length : 0;
+      if (initAccum && length) {
+        accumulator = array[++index];
+      }
+      while (++index < length) {
+        accumulator = iteratee(accumulator, array[index], index, array);
+      }
+      return accumulator;
+    }
+    function asciiToArray(string) {
+      return string.split(\\"\\");
+    }
+    function asciiWords(string) {
+      return string.match(reAsciiWord) || [];
+    }
+    function basePropertyOf(object) {
+      return function(key) {
+        return object == null ? void 0 : object[key];
+      };
+    }
+    var deburrLetter = basePropertyOf(deburredLetters);
+    function hasUnicode(string) {
+      return reHasUnicode.test(string);
+    }
+    function hasUnicodeWord(string) {
+      return reHasUnicodeWord.test(string);
+    }
+    function stringToArray(string) {
+      return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
+    }
+    function unicodeToArray(string) {
+      return string.match(reUnicode) || [];
+    }
+    function unicodeWords(string) {
+      return string.match(reUnicodeWord) || [];
+    }
+    var objectProto = Object.prototype;
+    var objectToString = objectProto.toString;
+    var Symbol = root.Symbol;
+    var symbolProto = Symbol ? Symbol.prototype : void 0;
+    var symbolToString = symbolProto ? symbolProto.toString : void 0;
+    function baseSlice(array, start, end) {
+      var index = -1, length = array.length;
+      if (start < 0) {
+        start = -start > length ? 0 : length + start;
+      }
+      end = end > length ? length : end;
+      if (end < 0) {
+        end += length;
+      }
+      length = start > end ? 0 : end - start >>> 0;
+      start >>>= 0;
+      var result = Array(length);
+      while (++index < length) {
+        result[index] = array[index + start];
+      }
+      return result;
+    }
+    function baseToString(value) {
+      if (typeof value == \\"string\\") {
+        return value;
+      }
+      if (isSymbol(value)) {
+        return symbolToString ? symbolToString.call(value) : \\"\\";
+      }
+      var result = value + \\"\\";
+      return result == \\"0\\" && 1 / value == -INFINITY ? \\"-0\\" : result;
+    }
+    function castSlice(array, start, end) {
+      var length = array.length;
+      end = end === void 0 ? length : end;
+      return !start && end >= length ? array : baseSlice(array, start, end);
+    }
+    function createCaseFirst(methodName) {
+      return function(string) {
+        string = toString(string);
+        var strSymbols = hasUnicode(string) ? stringToArray(string) : void 0;
+        var chr = strSymbols ? strSymbols[0] : string.charAt(0);
+        var trailing = strSymbols ? castSlice(strSymbols, 1).join(\\"\\") : string.slice(1);
+        return chr[methodName]() + trailing;
+      };
+    }
+    function createCompounder(callback) {
+      return function(string) {
+        return arrayReduce(words(deburr(string).replace(reApos, \\"\\")), callback, \\"\\");
+      };
+    }
+    function isObjectLike(value) {
+      return !!value && typeof value == \\"object\\";
+    }
+    function isSymbol(value) {
+      return typeof value == \\"symbol\\" || isObjectLike(value) && objectToString.call(value) == symbolTag;
+    }
+    function toString(value) {
+      return value == null ? \\"\\" : baseToString(value);
+    }
+    var camelCase2 = createCompounder(function(result, word, index) {
+      word = word.toLowerCase();
+      return result + (index ? capitalize(word) : word);
+    });
+    function capitalize(string) {
+      return upperFirst(toString(string).toLowerCase());
+    }
+    function deburr(string) {
+      string = toString(string);
+      return string && string.replace(reLatin, deburrLetter).replace(reComboMark, \\"\\");
+    }
+    var upperFirst = createCaseFirst(\\"toUpperCase\\");
+    function words(string, pattern, guard) {
+      string = toString(string);
+      pattern = guard ? void 0 : pattern;
+      if (pattern === void 0) {
+        return hasUnicodeWord(string) ? unicodeWords(string) : asciiWords(string);
+      }
+      return string.match(pattern) || [];
+    }
+    module.exports = camelCase2;
+  }
+});
+
+// tools/build/__fixtures__/random_package/src/index.tsx
+var import_react_autosize_textarea = __toESM(require_lib());
+var import_use_clipboard_copy = __toESM(require_dist());
+import * as React from \\"react\\";
+import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
+var camelCase = require_lodash();
+var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => camelCase(deprecatedToken.name));
+var convertRawTokenJSONToArray = (rawTokens) => {
+  const rawTokenNames = Object.keys(rawTokens);
+  return rawTokenNames.reduce((tokens, token) => {
+    return [rawTokens[token], ...tokens];
+  }, []);
+};
+var getTokensWithTextContrastRequirements = (rawTokens) => convertRawTokenJSONToArray(rawTokens).filter((token) => token.type === \\"color\\" && token.text_contrast_pairing != null);
+var getContrastRatingsOfTokensWithTextContrastRequirements = () => {
+  const defaultThemeRawJSON = DefaultRawTokenJSON.props;
+  const tokenWithTextContrastRequirements = getTokensWithTextContrastRequirements(defaultThemeRawJSON);
+};
+var RandomComponent = () => {
+  return /* @__PURE__ */ React.createElement(import_react_autosize_textarea.default, null);
+};
+var export_useClipboard = import_use_clipboard_copy.useClipboard;
+export {
+  DEPRECATE_TOKENS,
+  RandomComponent,
+  convertRawTokenJSONToArray,
+  getContrastRatingsOfTokensWithTextContrastRequirements,
+  getTokensWithTextContrastRequirements,
+  export_useClipboard as useClipboard
+};
+/*!
+	autosize 4.0.2
+	license: MIT
+	http://www.jacklmoore.com/autosize
+*/
+"
+`;
