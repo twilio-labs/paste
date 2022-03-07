@@ -1,25 +1,6 @@
 const esbuild = require('esbuild');
-const {EsmExternalsPlugin} = require('@esbuild-plugins/esm-externals');
-
-/**
- * ESBuild plugin to fix CJS builds in Paste
- * - Replaces icon imports from /esm/IconName in src to /cjs/IconName in dist.
- * - Replaces design-tokens' theme src code from tokens.es6 to tokens.common in dist.
- */
-const PasteCJSResolverPlugin = {
-  name: 'PasteCJSResolver',
-  setup(build) {
-    // Change all ESM icon imports to CJS
-    build.onResolve({filter: /@twilio-paste\/icons\/esm\//}, ({path}) => {
-      return {path: path.replace('/esm/', '/cjs/'), external: true};
-    });
-
-    // Change all .es6 design-token imports to .common
-    build.onResolve({filter: /\/tokens.es6$/}, ({path}) => {
-      return {path: path.replace('.es6', '.common'), external: true};
-    });
-  },
-};
+const {PasteCJSResolverPlugin} = require('./plugins/PasteCJSResolver');
+const {EsmExternalsPlugin} = require('./plugins/EsmExternals');
 
 /**
  * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't
@@ -33,17 +14,19 @@ const PasteCJSResolverPlugin = {
  * @param {JSON} peerDeps
  * @returns {Array<string>} externals
  */
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const getWildcardExternalPeers = (peerDeps = {}) => {
   const externalDeps = Object.keys(peerDeps);
   const wildcardedExternalDeps = externalDeps.map((dep) => `${dep}/*`);
   return [...externalDeps, ...wildcardedExternalDeps];
 };
 
-function build(packageJson) {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+async function build(packageJson) {
   // Entry and Output file paths
   const entryPoints = [packageJson['main:dev']];
-  const outFileCJS = packageJson['main'];
-  const outFileESM = packageJson['module'];
+  const outFileCJS = packageJson.main;
+  const outFileESM = packageJson.module;
   // Things we don't want to bundle
   const external = getWildcardExternalPeers(packageJson.peerDependencies);
 
@@ -76,7 +59,7 @@ function build(packageJson) {
   };
 
   // Minified
-  esbuild
+  await esbuild
     .build({
       ...config,
       minify: true,
@@ -91,7 +74,7 @@ function build(packageJson) {
       return process.exit(1);
     });
 
-  esbuild
+  await esbuild
     .build({
       ...config,
       minify: true,
@@ -107,7 +90,7 @@ function build(packageJson) {
     });
 
   // Debug
-  esbuild
+  await esbuild
     .build({
       ...config,
       format: 'cjs',
@@ -121,7 +104,7 @@ function build(packageJson) {
       return process.exit(1);
     });
 
-  esbuild
+  await esbuild
     .build({
       ...config,
       format: 'esm',
