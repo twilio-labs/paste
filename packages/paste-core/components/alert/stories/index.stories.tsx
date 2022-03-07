@@ -199,3 +199,27 @@ export const CustomAlert = (): React.ReactNode => {
     </CustomizationProvider>
   );
 };
+
+export const I18nAlerts = (): React.ReactNode => {
+  const i18nStrings = {
+    i18nDismissLabel: "Fermez l'alerte",
+    i18nErrorLabel: '(erreur)',
+    i18nWarningLabel: '(avertissement)',
+    i18nNeutralLabel: '(information)',
+  };
+  return (
+    <>
+      <Alert variant="error" {...i18nStrings} onDismiss={action('dismiss')}>
+        <Text as="div">C&apos;est une alerte d&apos;erreur.</Text>
+      </Alert>
+      <Alert variant="warning" {...i18nStrings} onDismiss={action('dismiss')}>
+        <Text as="div">C&apos;est une alerte d&apos;avertissement.</Text>
+      </Alert>
+      <Alert variant="neutral" {...i18nStrings} onDismiss={action('dismiss')}>
+        <Text as="div">C&apos;est une alerte neutre.</Text>
+      </Alert>
+    </>
+  );
+};
+
+I18nAlerts.storyName = 'i18n Alerts';

@@ -1,24 +1,6 @@
 const esbuild = require('esbuild');
-
-/**
- * ESBuild plugin to fix CJS builds in Paste
- * - Replaces icon imports from /esm/IconName in src to /cjs/IconName in dist.
- * - Replaces design-tokens' theme src code from tokens.es6 to tokens.common in dist.
- */
-const PasteCJSResolverPlugin = {
-  name: 'PasteCJSResolver',
-  setup(build) {
-    // Change all ESM icon imports to CJS
-    build.onResolve({filter: /@twilio-paste\/icons\/esm\//}, ({path}) => {
-      return {path: path.replace('/esm/', '/cjs/'), external: true};
-    });
-
-    // Change all .es6 design-token imports to .common
-    build.onResolve({filter: /\/tokens.es6$/}, ({path}) => {
-      return {path: path.replace('.es6', '.common'), external: true};
-    });
-  },
-};
+const {PasteCJSResolverPlugin} = require('./plugins/PasteCJSResolver');
+const {EsmExternalsPlugin} = require('./plugins/EsmExternals');
 
 /**
  * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't
@@ -32,17 +14,19 @@ const PasteCJSResolverPlugin = {
  * @param {JSON} peerDeps
  * @returns {Array<string>} externals
  */
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const getWildcardExternalPeers = (peerDeps = {}) => {
   const externalDeps = Object.keys(peerDeps);
   const wildcardedExternalDeps = externalDeps.map((dep) => `${dep}/*`);
   return [...externalDeps, ...wildcardedExternalDeps];
 };
 
-function build(packageJson) {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+async function build(packageJson) {
   // Entry and Output file paths
   const entryPoints = [packageJson['main:dev']];
-  const outFileCJS = packageJson['main'];
-  const outFileESM = packageJson['module'];
+  const outFileCJS = packageJson.main;
+  const outFileESM = packageJson.module;
   // Things we don't want to bundle
   const external = getWildcardExternalPeers(packageJson.peerDependencies);
 
@@ -67,7 +51,7 @@ function build(packageJson) {
     bundle: true,
     // Sets the target environment so the code is changed into a format that
     // works  with node12 and the listed browsers
-    target: ['chrome58', 'firefox57', 'safari11', 'edge16', 'node12.19.0'],
+    target: ['chrome66', 'firefox58', 'safari11', 'edge79', 'node12.19.0'],
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },
@@ -75,7 +59,7 @@ function build(packageJson) {
   };
 
   // Minified
-  esbuild
+  await esbuild
     .build({
       ...config,
       minify: true,
@@ -90,12 +74,14 @@ function build(packageJson) {
       return process.exit(1);
     });
 
-  esbuild
+  await esbuild
     .build({
       ...config,
       minify: true,
       format: 'esm',
       outfile: outFileESM,
+      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+      plugins: [EsmExternalsPlugin({externals: external})],
     })
     .catch((error) => {
       console.error(error);
@@ -104,7 +90,7 @@ function build(packageJson) {
     });
 
   // Debug
-  esbuild
+  await esbuild
     .build({
       ...config,
       format: 'cjs',
@@ -118,11 +104,13 @@ function build(packageJson) {
       return process.exit(1);
     });
 
-  esbuild
+  await esbuild
     .build({
       ...config,
       format: 'esm',
       outfile: outFileESM.replace('.es.js', '.debug.es.js'),
+      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+      plugins: [EsmExternalsPlugin({externals: external})],
     })
     .catch((error) => {
       console.error(error);

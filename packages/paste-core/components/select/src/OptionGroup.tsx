@@ -18,7 +18,7 @@ const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
       {...safelySpreadBoxProps(props)}
       element={element}
       as="optgroup"
-      background="none"
+      backgroundColor="inherit"
       color="inherit"
       fontFamily="fontFamilyText"
       fontWeight="fontWeightMedium"

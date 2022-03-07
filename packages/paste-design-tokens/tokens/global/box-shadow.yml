@@ -83,17 +83,23 @@ props:
   shadow-border-error-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
     comment: Shadow border for error inputs hover.
+  shadow-border-error-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
+    comment: Shadow border for error inputs hover.
+  shadow-border-inverse-weakest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
+    comment: Weakest shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
     comment: Weaker shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-50}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
     comment: Shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
     comment: Strong shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-10}"
     comment: Stronger shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"

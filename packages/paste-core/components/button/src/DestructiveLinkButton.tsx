@@ -13,7 +13,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   textAlign: 'left',
   transition: 'none',
   _hover: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
-  _active: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
+  _active: {color: 'colorTextLinkDestructiveStrongest', textDecoration: 'underline'},
   _focus: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
 });
 

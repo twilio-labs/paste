@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`4aefbe75d`](https://github.com/twilio-labs/paste/commit/4aefbe75d7c34ebdab209be14073426c1632d8a9) [#2227](https://github.com/twilio-labs/paste/pull/2227) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] add i18nDismissLabel prop to support i18n
+
 ## 7.0.0
 
 ### Patch Changes

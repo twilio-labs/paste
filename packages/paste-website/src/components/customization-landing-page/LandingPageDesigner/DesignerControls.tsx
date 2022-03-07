@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useUID} from 'react-uid';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
-import {Option, Select} from '@twilio-paste/form';
+import {Option, Select} from '@twilio-paste/select';
 import {Stack} from '@twilio-paste/stack';
 import {Separator} from '@twilio-paste/separator';
 

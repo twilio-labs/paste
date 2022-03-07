@@ -208,4 +208,92 @@ describe('Alert', () => {
       );
     });
   });
+
+  describe('i18n', () => {
+    it('should have default dismiss button text', () => {
+      render(
+        <Alert variant="neutral" onDismiss={onDismissMock}>
+          This is an alert
+        </Alert>
+      );
+      const dismissButton = screen.getByRole('button', {name: 'Dismiss alert'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nDismissLabel for dismiss button text', () => {
+      render(
+        <Alert variant="neutral" i18nDismissLabel="Fermez l'alerte" onDismiss={onDismissMock}>
+          C&apos;est une alerte neutre.
+        </Alert>
+      );
+      const dismissButton = screen.getByRole('button', {name: "Fermez l'alerte"});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should have default error variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="error">
+          This is an alert
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(error)');
+    });
+
+    it('should have default neutral variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="neutral">
+          This is an alert
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(information)');
+    });
+
+    it('should have default warning variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="warning">
+          This is an alert
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(warning)');
+    });
+
+    it('should use the i18nErrorLabel for error variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="error" i18nErrorLabel="(erreur)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(erreur)');
+    });
+
+    it('should use the i18nNeutralLabel for neutral variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="neutral" i18nNeutralLabel="(information)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(information)');
+    });
+
+    it('should use the i18nWarningLabel for warning variant icon text', () => {
+      render(
+        <Alert data-testid="alert-i18n" variant="warning" i18nWarningLabel="(avertissement)">
+          C&apos;est une alerte.
+        </Alert>
+      );
+      const alert = screen.getByTestId('alert-i18n');
+      const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
+      expect(icon?.textContent).toEqual('(avertissement)');
+    });
+  });
 });

@@ -56,6 +56,117 @@ describe('Toast', () => {
     });
   });
 
+  describe('i18n', () => {
+    it('should have default dismiss button text', () => {
+      render(
+        <Toast variant="neutral" onDismiss={onDismissMock}>
+          This is a toast
+        </Toast>
+      );
+      const dismissButton = screen.getByRole('button', {name: 'Dismiss toast'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nDismissLabel for dismiss button text', () => {
+      render(
+        <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" onDismiss={onDismissMock}>
+          Esta es una notificacion
+        </Toast>
+      );
+      const dismissButton = screen.getByRole('button', {name: 'Cerrar notificacion'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should have default error variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="error">
+          This is a toast
+        </Toast>
+      );
+
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(error)');
+    });
+
+    it('should have default neutral variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="neutral">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(information)');
+    });
+
+    it('should have default success variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="success">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(success)');
+    });
+
+    it('should have default warning variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="warning">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(warning)');
+    });
+
+    it('should use i18n prop for error variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="error" i18nErrorLabel="(erreur)">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(erreur)');
+    });
+
+    it('should use i18n prop for neutral variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="neutral" i18nNeutralLabel="(informacion)">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(informacion)');
+    });
+
+    it('should use i18n prop for success variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="success" i18nSuccessLabel="(éxito)">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(éxito)');
+    });
+
+    it('should use i18n prop for warning variant icon text', () => {
+      render(
+        <Toast data-testid="toast-i18n" variant="warning" i18nWarningLabel="(aviso)">
+          This is a toast
+        </Toast>
+      );
+      const toast = screen.getByTestId('toast-i18n');
+      const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
+      expect(icon?.textContent).toEqual('(aviso)');
+    });
+  });
+
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(

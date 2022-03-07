@@ -92,3 +92,35 @@ render(
   <RemovableFormPillGroup />
 )
 `.trim();
+
+export const i18nExample = `
+const I18nFormPillGroup = () => {
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup
+        {...pillState}
+        aria-label="Votre sports favoris:"
+        i18nKeyboardControls="Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection."
+      >
+        <FormPill {...pillState}>
+          <CalendarIcon decorative size="sizeIcon10" />
+          Le tennis
+        </FormPill>
+        <FormPill {...pillState}>
+          Le football américain
+        </FormPill>
+        <FormPill {...pillState}>
+          Le ski
+        </FormPill>
+        <FormPill {...pillState}>Le football</FormPill>
+      </FormPillGroup>
+    </form>
+  );
+};
+
+render(
+  <I18nFormPillGroup />
+)
+`.trim();

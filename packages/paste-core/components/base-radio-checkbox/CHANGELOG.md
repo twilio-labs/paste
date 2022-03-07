@@ -1,5 +1,27 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [checkbox]
+
+  - Update the check icon to inherit color from `BaseRadioCheckbox`
+  - Update selectAll background color to default to `colorBackground`, and use `colorBackgroundPrimaryWeakest` when checked and not disabled or indeterminate and not disabled
+  - Update default color to `colorTextWeakest`
+  - Update hover text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update focus text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update active text color to `colorTextWeakest`
+  - Update checked text color to `colorTextInverse`
+  - Update invalid and hover border color to `colorBorderErrorStronger`
+  - Update checked and hover text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and focus text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and disabled text color to `colorTextWeakest`
+  - Update checked and invalid text color to `colorTextInverse`
+  - Update checked and invalid and hover background color to `colorBackgroundErrorStronger` and border color to `colorBorderErrorStronger`
+
 ## 7.0.0
 
 ### Patch Changes

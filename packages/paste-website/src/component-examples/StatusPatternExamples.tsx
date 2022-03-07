@@ -486,6 +486,14 @@ export const connectivityStatusExamples = `
     Unavailable
   </Box>
   <Box display="inherit">
+  <ConnectivityNeutralIcon
+    color="colorTextIconNeutral"
+    decorative={false}
+    title="neutral"
+  />
+  Neutral
+</Box>
+  <Box display="inherit">
     <ConnectivityOfflineIcon
       color="colorTextIconOffline"
       decorative={false}

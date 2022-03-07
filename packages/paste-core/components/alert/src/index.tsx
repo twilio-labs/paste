@@ -5,6 +5,7 @@ import type {ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Button} from '@twilio-paste/button';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
@@ -29,7 +30,7 @@ export const AlertBackgroundColors = {
 } as const;
 export const AlertBorderColors = {
   ERROR: 'colorBorderErrorWeak',
-  NEUTRAL: 'colorBorderNeutral',
+  NEUTRAL: 'colorBorderNeutralWeak',
   WARNING: 'colorBorderWarningWeak',
 } as const;
 
@@ -49,9 +50,13 @@ export interface AlertProps extends Pick<BoxProps, 'element'> {
   onDismiss?: () => void;
   role?: string;
   variant: AlertVariants;
+  i18nDismissLabel?: string;
+  i18nErrorLabel?: string;
+  i18nNeutralLabel?: string;
+  i18nWarningLabel?: string;
 }
 
-const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactElement => {
+const renderAlertIcon = (variant: AlertVariants, element: string, title: string): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
       return (
@@ -59,7 +64,7 @@ const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactEl
           element={`${element}_ICON`}
           color="colorTextIconError"
           decorative={false}
-          title="error: "
+          title={title}
           size="sizeIcon20"
         />
       );
@@ -69,7 +74,7 @@ const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactEl
           element={`${element}_ICON`}
           color="colorTextIconWarning"
           decorative={false}
-          title="warning: "
+          title={title}
           size="sizeIcon20"
         />
       );
@@ -80,7 +85,7 @@ const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactEl
           element={`${element}_ICON`}
           color="colorTextIconNeutral"
           decorative={false}
-          title="information: "
+          title={title}
           size="sizeIcon20"
         />
       );
@@ -88,7 +93,27 @@ const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactEl
 };
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({children, onDismiss, variant, role, element = 'ALERT', ...props}, ref) => {
+  (
+    {
+      children,
+      onDismiss,
+      variant,
+      role,
+      element = 'ALERT',
+      i18nDismissLabel = 'Dismiss alert',
+      i18nErrorLabel = '(error)',
+      i18nNeutralLabel = '(information)',
+      i18nWarningLabel = '(warning)',
+      ...props
+    },
+    ref
+  ) => {
+    const i18nLabelVariantMap = {
+      error: i18nErrorLabel,
+      neutral: i18nNeutralLabel,
+      warning: i18nWarningLabel,
+    };
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -107,19 +132,14 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       >
         <MediaObject as="div">
           <MediaFigure as="div" spacing="space30">
-            {renderAlertIcon(variant, element)}
+            {renderAlertIcon(variant, element, i18nLabelVariantMap[variant])}
           </MediaFigure>
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (
             <MediaFigure align="end" spacing="space60">
               <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
-                <CloseIcon
-                  element={`${element}_DISMISS_ICON`}
-                  color="colorTextIcon"
-                  decorative={false}
-                  title="Dismiss alert"
-                  size="sizeIcon20"
-                />
+                <CloseIcon element={`${element}_DISMISS_ICON`} color="colorTextIcon" decorative size="sizeIcon20" />
+                <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
               </Button>
             </MediaFigure>
           )}
@@ -136,6 +156,10 @@ Alert.propTypes = {
   role: PropTypes.string,
   variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
   element: PropTypes.string,
+  i18nDismissLabel: PropTypes.string,
+  i18nErrorLabel: PropTypes.string,
+  i18nNeutralLabel: PropTypes.string,
+  i18nWarningLabel: PropTypes.string,
 };
 
 export {Alert};

@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [toast]
+
+  - Update neutral Toast border left color to `colorBorderNeutralWeak`
+
+- [`b4abdd9a4`](https://github.com/twilio-labs/paste/commit/b4abdd9a4c6e168c5845e744591dc40ac635a67f) [#2234](https://github.com/twilio-labs/paste/pull/2234) Thanks [@gloriliale](https://github.com/gloriliale)! - [Toast] add i18n props for variants to support i18n
+
 ## 6.0.0
 
 ### Patch Changes

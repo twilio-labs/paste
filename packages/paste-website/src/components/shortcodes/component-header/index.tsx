@@ -7,8 +7,7 @@ import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
-import {STORYBOOK_DOMAIN} from '../../../constants';
-import type {SidebarCategoryRoutes} from '../../../constants';
+import {STORYBOOK_DOMAIN, SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
 import {getOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
@@ -64,15 +63,21 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     display: 'inline-block',
   };
 
+  const categoryName = getCategoryNameFromRoute(categoryRoute);
+  const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
+  const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
+    categoryRoute
+  );
+
   return (
     <Box>
-      {ogImagePath && (
+      {ogImagePath && shouldHavePreview && (
         <Helmet>
           <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
         </Helmet>
       )}
       <Box marginBottom="space50">
-        <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
+        {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
       </Box>
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
         <Box marginRight="space50">

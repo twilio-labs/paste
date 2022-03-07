@@ -1,4 +1,9 @@
-import {eyesAreEnabled, DEFAULT_CHECK_PARAMS, DEFAULT_OPEN_PARAMS} from '../../support/utils/applitools';
+import {
+  eyesAreEnabled,
+  prepareForEyes,
+  DEFAULT_CHECK_PARAMS,
+  DEFAULT_OPEN_PARAMS,
+} from '../../support/utils/applitools';
 
 // ℹ️ If we use anon functions instead of arrow functions, we can leverage Mocha's context and pull the test name directly from this
 describe('Token list filter', function () {
@@ -18,8 +23,11 @@ describe('Token list filter', function () {
   describe('Visual regression tests', () => {
     it('Basic VRT', () => {
       cy.log('[Applitools]: checking if eyes are enabled');
+
       if (eyesAreEnabled()) {
         cy.log('[Applitools]: Eyes are enabled, proceed with eyes check.');
+        prepareForEyes();
+
         const openParams: Partial<Eyes.Open.Options> = {
           ...DEFAULT_OPEN_PARAMS,
           testName: testSuiteName,

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {useUID} from '@twilio-paste/uid-library';
 import {Composite} from '@twilio-paste/reakit-library';
 import type {CompositeProps} from '@twilio-paste/reakit-library';
 
@@ -8,6 +10,7 @@ export interface FormPillGroupProps
   'aria-label': string;
   element?: string;
   children: React.ReactNode;
+  i18nKeyboardControls?: string;
 }
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
@@ -41,12 +44,18 @@ FormPillGroupStyles.displayName = 'StyledFormPillGroup';
  * </FormPillGroup>
  * @see http://paste.twilio.design/components/form-pill-group
  */
-export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupProps>((props, ref) => {
-  return (
-    <Composite as={FormPillGroupStyles} {...props} ref={ref}>
-      {props.children}
-    </Composite>
-  );
-});
+export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
+  ({i18nKeyboardControls = 'Press Delete or Backspace to remove. Press Enter to toggle selection.', ...props}, ref) => {
+    const keyboardControlsId = useUID();
+    return (
+      <>
+        <Composite as={FormPillGroupStyles} {...props} ref={ref} aria-describedby={keyboardControlsId}>
+          {props.children}
+        </Composite>
+        <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>
+      </>
+    );
+  }
+);
 
 FormPillGroup.displayName = 'FormPillGroup';

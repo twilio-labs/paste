@@ -1,5 +1,20 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+## 9.0.1
+
+### Patch Changes
+
+- [`72b2db53`](https://github.com/twilio-labs/paste/commit/72b2db538cf91e12867a7d0f64ef0736e60c37e6) [#2155](https://github.com/twilio-labs/paste/pull/2155) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox] Do not conditionally render the `useCombobox` hook inside the `Combobox` component.
+
+  - passing a state object from `useCombobox` via props to the component caused unexpected side effects
+  - introduces conditional render of the component with its' own hook invocation, or with the forwarded state object
+
 ## 9.0.0
 
 ### Patch Changes
