@@ -16,6 +16,7 @@ export interface InlineControlGroupProps
   orientation?: 'vertical' | 'horizontal';
   ref?: any;
   required?: boolean;
+  i18nRequiredLabel?: string;
 }
 
 const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGroupProps>(
@@ -29,6 +30,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
       legend,
       orientation = 'vertical',
       required,
+      i18nRequiredLabel,
       ...props
     },
     ref
@@ -51,6 +53,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
           required={required}
           marginBottom="space0"
           disabled={disabled}
+          i18nRequiredLabel={i18nRequiredLabel}
         >
           {legend}
         </Label>
