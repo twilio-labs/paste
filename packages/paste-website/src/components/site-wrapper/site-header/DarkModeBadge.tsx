@@ -1,14 +1,9 @@
-import * as React from "react";
-import { Badge } from "@twilio-paste/badge";
-import { Box } from "@twilio-paste/box";
-import {
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalHeading,
-} from "@twilio-paste/modal";
-import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
-import { DarkModeFAQModal } from "./DarkModeFAQModal";
+import * as React from 'react';
+import {Badge} from '@twilio-paste/badge';
+import {Box} from '@twilio-paste/box';
+import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {DarkModeFAQModal} from './DarkModeFAQModal';
 
 export const DarkModeBadge: React.FC = () => {
   // Modal properties
@@ -20,12 +15,7 @@ export const DarkModeBadge: React.FC = () => {
         <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
         New
       </Badge>
-      <Modal
-        isOpen={isOpen}
-        onDismiss={() => setIsOpen(false)}
-        size="wide"
-        ariaLabelledby="dark-mode-modal"
-      >
+      <Modal isOpen={isOpen} onDismiss={() => setIsOpen(false)} size="wide" ariaLabelledby="dark-mode-modal">
         <ModalHeader>
           <ModalHeading id="dark-mode-modal">Dark Mode FAQs</ModalHeading>
         </ModalHeader>
