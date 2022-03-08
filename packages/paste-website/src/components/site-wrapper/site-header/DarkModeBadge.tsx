@@ -12,7 +12,7 @@ export const DarkModeBadge: React.FC = () => {
   return (
     <Box display="flex" alignItems="center" marginLeft="space40">
       <Badge as="button" variant="new" onClick={() => setIsOpen(true)}>
-        <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
+        <NewIcon size="sizeIcon10" decorative />
         New
       </Badge>
       <Modal isOpen={isOpen} onDismiss={() => setIsOpen(false)} size="wide" ariaLabelledby="dark-mode-modal">
