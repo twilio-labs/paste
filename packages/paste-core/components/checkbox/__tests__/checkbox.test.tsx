@@ -75,12 +75,15 @@ describe('Checkbox', () => {
   });
 
   it('should render a required dot', () => {
-    const {getByText} = render(
+    render(
       <Checkbox {...defaultProps} required onChange={NOOP}>
         foo
       </Checkbox>
     );
-    expect(getByText('Required:')).not.toBeNull();
+    const label = screen.getByText('foo');
+    const requiredDot = label.querySelector('[data-paste-element="REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('should render as indeterminate', () => {
@@ -153,12 +156,16 @@ describe('Checkbox Group', () => {
   });
 
   it('should have a required a required dot in the legend', () => {
-    const {getByText} = render(
+    render(
       <CheckboxGroup {...defaultGroupProps} required>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
     );
-    expect(getByText('Required:')).not.toBeNull();
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('should render a name', () => {
@@ -418,5 +425,33 @@ describe('Accessibility', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+describe('i18n', () => {
+  it('Should have default text for the required dot in the legend', () => {
+    render(
+      <CheckboxGroup {...defaultGroupProps} required>
+        <Checkbox {...defaultProps}>foo</Checkbox>
+      </CheckboxGroup>
+    );
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot?.textContent).toEqual('(required)');
+  });
+
+  it('Should use the i18nRequiredLabel prop for the required dot in the legend', () => {
+    render(
+      <CheckboxGroup {...defaultGroupProps} required i18nRequiredLabel="(requis)">
+        <Checkbox {...defaultProps}>foo</Checkbox>
+      </CheckboxGroup>
+    );
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot?.textContent).toEqual('(requis)');
   });
 });
