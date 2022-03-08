@@ -94,6 +94,7 @@ if (process.env.NODE_ENV === 'development') {
     name: PropTypes.string.isRequired,
     orientation: PropTypes.oneOf(['vertical', 'horizontal']),
     required: PropTypes.bool,
+    i18nRequiredLabel: PropTypes.string,
   };
 }
 

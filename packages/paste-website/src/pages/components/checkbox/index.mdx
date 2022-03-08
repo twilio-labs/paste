@@ -213,6 +213,35 @@ You can provide additional information about the group with the use of help text
 </CheckboxDisclaimer>`}
 </LivePreview>
 
+### Internationalization
+
+To internationalize a checkbox, simply pass different text to the checkbox and checkbox group. The only exception to this is the required dot in the legend of a required checkbox group. To change the required dot's text, use the `i18nRequiredLabel` prop.
+
+<LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
+  {`<CheckboxGroup
+  name="days"
+  legend="Jours préférés"
+  i18nRequiredLabel="(requis)"
+  required
+>
+  <Checkbox id="monday" value="monday">
+    lundi
+  </Checkbox>
+  <Checkbox id="tuesday" value="tuesday">
+    mardi
+  </Checkbox>
+  <Checkbox id="wednesday" value="wednesday">
+    mercredi
+  </Checkbox>
+  <Checkbox id="thursday" value="thursday">
+    jeudi
+  </Checkbox>
+  <Checkbox id="friday" value="friday">
+    vendredi
+  </Checkbox>
+</CheckboxGroup>`}
+</LivePreview>
+
 ## States
 
 ### Unchecked, checked and indeterminate
