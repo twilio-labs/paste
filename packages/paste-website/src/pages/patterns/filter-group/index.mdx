@@ -7,11 +7,11 @@ slug: /patterns/filter-group/
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Grid, Column} from '@twilio-paste/grid';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
 
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -210,7 +210,9 @@ Always consider opportunities to reduce cognitive load by limiting the number of
 
 When the applied filters and/or search does not return any results, use the [empty state pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
 
-<Img fluid={props.data.emptyState.childImageSharp.fluid} />
+<Box marginBottom="space70">
+  <Img fluid={props.data.emptyState.childImageSharp.fluid} />
+</Box>
 
 #### Custom date range
 
