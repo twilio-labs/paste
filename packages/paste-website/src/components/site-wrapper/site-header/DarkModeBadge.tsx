@@ -17,8 +17,8 @@ export const DarkModeBadge: React.FC = () => {
   return (
     <Box display="flex" alignItems="center" marginLeft="space40">
       <Badge as="button" variant="new" onClick={() => setIsOpen(true)}>
-        New
         <NewIcon size="sizeIcon10" decorative={false} title="Find out more" />
+        New
       </Badge>
       <Modal
         isOpen={isOpen}
