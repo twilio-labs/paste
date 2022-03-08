@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e) [#2269](https://github.com/twilio-labs/paste/pull/2269) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a regression with the compilation script that caused incompatible ESM module importing of JSON files.
+
 ## 0.8.3
 
 ### Patch Changes
