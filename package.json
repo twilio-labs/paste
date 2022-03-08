@@ -105,7 +105,6 @@
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-conventional": "8.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.14",
-    "@esbuild-plugins/esm-externals": "^0.0.6",
     "@expo/spawn-async": "^1.5.0",
     "@manypkg/cli": "0.17.0",
     "@netlify/functions": "^0.7.2",

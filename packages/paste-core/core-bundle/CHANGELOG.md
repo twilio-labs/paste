@@ -1,5 +1,89 @@
 # Change Log
 
+## 11.1.2
+
+### Patch Changes
+
+- [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Toast] use title for i18n status labels
+
+* [`690a2d2a`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] use title for i18n status labels
+
+- [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Data Grid] add i18n props to support i18n
+
+* [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e) [#2269](https://github.com/twilio-labs/paste/pull/2269) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a regression with the compilation script that caused incompatible ESM module importing of JSON files.
+
+* Updated dependencies [[`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`690a2d2a`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e)]:
+  - @twilio-paste/toast@6.0.2
+  - @twilio-paste/alert@8.0.3
+  - @twilio-paste/data-grid@1.0.2
+  - @twilio-paste/color-contrast-utils@2.0.2
+  - @twilio-paste/alert-dialog@1.0.2
+  - @twilio-paste/anchor@6.0.2
+  - @twilio-paste/avatar@3.0.2
+  - @twilio-paste/badge@2.0.2
+  - @twilio-paste/base-radio-checkbox@7.0.2
+  - @twilio-paste/breadcrumb@5.0.2
+  - @twilio-paste/button@8.0.2
+  - @twilio-paste/card@4.0.2
+  - @twilio-paste/checkbox@7.0.2
+  - @twilio-paste/combobox@9.0.3
+  - @twilio-paste/date-picker@1.0.2
+  - @twilio-paste/disclosure@6.0.2
+  - @twilio-paste/display-pill-group@2.0.2
+  - @twilio-paste/form-pill-group@2.0.2
+  - @twilio-paste/heading@6.0.2
+  - @twilio-paste/help-text@7.0.2
+  - @twilio-paste/inline-control-group@7.0.2
+  - @twilio-paste/input@4.0.2
+  - @twilio-paste/input-box@5.0.2
+  - @twilio-paste/label@7.0.2
+  - @twilio-paste/list@3.0.2
+  - @twilio-paste/menu@8.0.2
+  - @twilio-paste/modal@8.0.2
+  - @twilio-paste/pagination@1.0.2
+  - @twilio-paste/paragraph@5.0.2
+  - @twilio-paste/popover@7.0.2
+  - @twilio-paste/radio-group@7.1.1
+  - @twilio-paste/screen-reader-only@7.0.2
+  - @twilio-paste/select@6.0.2
+  - @twilio-paste/separator@3.0.2
+  - @twilio-paste/skeleton-loader@1.0.2
+  - @twilio-paste/spinner@8.0.2
+  - @twilio-paste/table@3.0.2
+  - @twilio-paste/tabs@3.0.2
+  - @twilio-paste/textarea@4.0.2
+  - @twilio-paste/time-picker@1.0.2
+  - @twilio-paste/tooltip@5.0.2
+  - @twilio-paste/truncate@8.0.2
+  - @twilio-paste/aspect-ratio@5.0.2
+  - @twilio-paste/flex@3.0.2
+  - @twilio-paste/grid@3.0.2
+  - @twilio-paste/media-object@5.0.2
+  - @twilio-paste/stack@3.0.2
+  - @twilio-paste/box@5.0.2
+  - @twilio-paste/combobox-primitive@0.3.3
+  - @twilio-paste/disclosure-primitive@0.3.7
+  - @twilio-paste/menu-primitive@0.2.8
+  - @twilio-paste/modal-dialog-primitive@0.2.6
+  - @twilio-paste/non-modal-dialog-primitive@0.3.8
+  - @twilio-paste/sibling-box@4.0.2
+  - @twilio-paste/tabs-primitive@0.2.6
+  - @twilio-paste/text@5.0.2
+  - @twilio-paste/tooltip-primitive@0.2.7
+  - @twilio-paste/customization@3.0.2
+  - @twilio-paste/design-tokens@7.1.1
+  - @twilio-paste/animation-library@0.3.5
+  - @twilio-paste/clipboard-copy-library@1.0.3
+  - @twilio-paste/data-visualization-library@0.1.2
+  - @twilio-paste/dropdown-library@1.1.4
+  - @twilio-paste/reakit-library@0.8.4
+  - @twilio-paste/styling-library@0.3.7
+  - @twilio-paste/uid-library@0.2.4
+  - @twilio-paste/style-props@4.0.2
+  - @twilio-paste/theme@6.0.2
+  - @twilio-paste/types@3.1.5
+  - @twilio-paste/utils@1.1.3
+
 ## 11.1.1
 
 ### Patch Changes
