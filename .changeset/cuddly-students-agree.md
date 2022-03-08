@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Label] remove hardcoded strings for i18n
+[Label] add i18nRequiredLabel prop for i18n

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import {Customized} from '../stories/label.stories';
-import {Label} from '../src';
+import {Label, RequiredDot} from '../src';
 
 describe('Label for prop', () => {
   const initialProps = {
@@ -71,5 +71,19 @@ describe('Customization', () => {
     expect(customLabel).toHaveStyleRule('font-weight', '400');
     expect(customRequiredDot).toHaveStyleRule('background-color', 'rgb(117,12,12)');
     expect(customRequiredDotWrapper).toHaveStyleRule('cursor', 'help');
+  });
+});
+
+describe('RequiredDot', () => {
+  it('should not have text by default', () => {
+    render(<RequiredDot data-testid="test-dot" />);
+    const dot = screen.getByTestId('test-dot');
+    expect(dot?.textContent).toEqual('');
+  });
+
+  it('should use i18nLabel prop for the dot text', () => {
+    render(<RequiredDot data-testid="test-dot" i18nLabel="(required)" />);
+    const dot = screen.getByTestId('test-dot');
+    expect(dot?.textContent).toEqual('(required)');
   });
 });
