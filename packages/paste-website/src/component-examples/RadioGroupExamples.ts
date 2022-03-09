@@ -150,7 +150,7 @@ render(
 
 export const requiredExample = `
 const SslRadioGroup = () => {
-  const [value, setValue] = React.useState('enabled');
+  const [value, setValue] = React.useState('on');
   return (
     <RadioGroup
       name="ssl"
@@ -163,18 +163,18 @@ const SslRadioGroup = () => {
       required
     >
       <Radio
-        id="enabled"
-        value="enabled"
+        id="on"
+        value="on"
         name="ssl"
       >
-        Enabled
+        Validation on
       </Radio>
       <Radio
-        id="disabled"
-        value="disabled"
+        id="off"
+        value="off"
         name="ssl"
       >
-        Disabled
+        Validation off
       </Radio>
     </RadioGroup>
   );

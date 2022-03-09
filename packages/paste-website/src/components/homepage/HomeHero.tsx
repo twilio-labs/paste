@@ -62,7 +62,13 @@ const HomeHero: React.FC = () => {
       position="relative"
     >
       <SlantedBackgroundGradient skewAngle={0} startColor="colorBackgroundBrandStrong" endColor="colorBackgroundBrand">
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto" position="relative">
+        <Box
+          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          marginLeft="auto"
+          marginRight="auto"
+          position="relative"
+          zIndex="zIndex10"
+        >
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <Stack orientation="vertical" spacing="space40">
