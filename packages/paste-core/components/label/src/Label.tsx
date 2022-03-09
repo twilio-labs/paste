@@ -15,10 +15,24 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>,
   marginBottom?: 'space0';
   required?: boolean;
   variant?: LabelVariants;
+  i18nRequiredLabel?: string;
 }
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-  ({as = 'label', marginBottom, required, disabled, children, variant, element = 'LABEL', ...props}, ref) => {
+  (
+    {
+      as = 'label',
+      marginBottom,
+      required,
+      disabled,
+      children,
+      variant,
+      element = 'LABEL',
+      i18nRequiredLabel = '',
+      ...props
+    },
+    ref
+  ) => {
     let textColor = 'colorText' as TextColor;
     if (disabled && variant === 'inverse') {
       textColor = 'colorTextInverseWeak';
@@ -58,7 +72,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         <MediaObject verticalAlign="top">
           {required && (
             <MediaFigure spacing="space20">
-              <RequiredDot element={`${element}_REQUIRED_DOT`} />
+              <RequiredDot element={`${element}_REQUIRED_DOT`} i18nLabel={i18nRequiredLabel} />
             </MediaFigure>
           )}
           <MediaBody>{children}</MediaBody>
@@ -77,6 +91,7 @@ Label.propTypes = {
   htmlFor: PropTypes.string,
   marginBottom: PropTypes.oneOf(['space0']),
   required: PropTypes.bool,
+  i18nRequiredLabel: PropTypes.string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   variant: PropTypes.oneOf(['default', 'inverse']) as any,
 };

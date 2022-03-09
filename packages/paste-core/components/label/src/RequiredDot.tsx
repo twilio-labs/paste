@@ -6,9 +6,10 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 export interface RequiredDotProps {
   element?: BoxProps['element'];
+  i18nLabel?: string;
 }
 
-export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT', ...props}) => {
+export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT', i18nLabel = '', ...props}) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -29,7 +30,7 @@ export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT
         width="4px"
         element={element}
       >
-        <ScreenReaderOnly>Required: </ScreenReaderOnly>
+        <ScreenReaderOnly>{i18nLabel}</ScreenReaderOnly>
       </Box>
     </Box>
   );
