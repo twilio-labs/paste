@@ -9,14 +9,23 @@ import {
   styled,
   typography,
   verticalAlign,
+  createShouldForwardProp,
+  props,
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
 import {isDeprecatedBoxShadowTokenProp, isDeprecatedTextColorTokenProp} from '@twilio-paste/style-props';
 import type {TextProps, StyledTextProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
+import {customStyleProps} from './CustomStyleProps';
+import {PseudoPropStyles} from './PseudoPropStyles';
+
+const shouldForwardProp = createShouldForwardProp([
+  ...props,
+  ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
+]);
 
 // @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in TextProps
-export const StyledText = styled.div<StyledTextProps>(
+export const StyledText = styled<StyledTextProps>('div', {shouldForwardProp})(
   {
     margin: 0,
     padding: 0,

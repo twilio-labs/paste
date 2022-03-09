@@ -1,26 +1,13 @@
 import {css, system} from '@twilio-paste/styling-library';
-import type {CSSObject} from '@twilio-paste/styling-library';
+import type {CSSObject, Config} from '@twilio-paste/styling-library';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledTextProps} from './types';
+import {customStyleProps} from './CustomStyleProps';
 
 const merge = require('deepmerge');
 
-export const PasteStyleProps = system({
-  color: {
-    property: 'color',
-    scale: 'textColors',
-  },
-  cursor: true,
-  outline: true,
-  transition: true,
-  textDecoration: true,
-  textTransform: true,
-  whiteSpace: true,
-  wordBreak: true,
-  wordWrap: true,
-  fontVariantNumeric: true,
-});
+export const PasteStyleProps = system(customStyleProps as Config);
 
 /**
  * Take _ prefixed style props and convert them to custom style props for CSS pseudo selectors

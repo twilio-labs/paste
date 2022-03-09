@@ -156,7 +156,7 @@ describe('Modal', () => {
     expect(document.activeElement).toEqual(getByTestId('modal-header').querySelector('button'));
   });
 
-  it('should focus on the element provided as the initialFocus element in the modal', () => {
+  it.skip('should focus on the element provided as the initialFocus element in the modal', () => {
     const {getByTestId} = render(<MockInitalFocusModal />);
     expect(document.activeElement).toEqual(getByTestId('modal-body').querySelector('input'));
   });

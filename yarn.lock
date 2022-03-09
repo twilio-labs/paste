@@ -6682,7 +6682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.6":
+"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.1, @emotion/is-prop-valid@npm:^0.8.6":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
   dependencies:
@@ -6695,6 +6695,13 @@ __metadata:
   version: 0.7.4
   resolution: "@emotion/memoize@npm:0.7.4"
   checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:^0.7.1":
+  version: 0.7.5
+  resolution: "@emotion/memoize@npm:0.7.5"
+  checksum: 83da8d4a7649a92c72f960817692bc6be13cc13e107b9f7e878d63766525ed4402881bfeb3cda61145c050281e7e260f114a0a2870515527346f2ef896b915b3
   languageName: node
   linkType: hard
 
@@ -11682,6 +11689,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@styled-system/should-forward-prop@npm:5.1.5":
+  version: 5.1.5
+  resolution: "@styled-system/should-forward-prop@npm:5.1.5"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.1
+    "@emotion/memoize": ^0.7.1
+    styled-system: ^5.1.5
+  checksum: 49e383f114a72768a7c69d2986812b88f882cee81c96f7b58a1618162001168fce38f607acc6fd2af91fabe8e475a436f3f36c938dba249eadef631dcd3d26ad
+  languageName: node
+  linkType: hard
+
 "@styled-system/space@npm:^5.1.2":
   version: 5.1.2
   resolution: "@styled-system/space@npm:5.1.2"
@@ -14032,9 +14050,12 @@ __metadata:
     "@emotion/core": 10.0.28
     "@emotion/styled": 10.0.27
     "@styled-system/css": 5.1.5
+    "@styled-system/should-forward-prop": 5.1.5
     "@styled-system/theme-get": 5.1.2
     "@types/styled-system": ^5.1.9
     "@types/styled-system__css": ^5.0.5
+    "@types/styled-system__should-forward-prop": ^5.1.2
+    "@types/styled-system__theme-get": ^5.0.2
     emotion: 10.0.27
     emotion-theming: ^10.0.27
     react: ^17.0.2
@@ -15592,6 +15613,20 @@ __metadata:
   dependencies:
     csstype: ^2.6.6
   checksum: 6880f366457aad336adaa3fe8db2e1660232cc81aa57112ccbb56dc0bed0905fc817ec748c99460254374e044bd1cc7d44d6a4ac7b2dd715afbf98fba2656bfc
+  languageName: node
+  linkType: hard
+
+"@types/styled-system__should-forward-prop@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
+  checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
+  languageName: node
+  linkType: hard
+
+"@types/styled-system__theme-get@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@types/styled-system__theme-get@npm:5.0.2"
+  checksum: 73bfca8d75c3e9985fd8ee63602e9c7b00dda7ff1af563f74c5db84af50a3cd5155c2fdcaa1afd60762f5bcaabdc7bc69cdfa53e94ee64ee875536c575e9088c
   languageName: node
   linkType: hard
 
@@ -48228,7 +48263,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"styled-system@npm:5.1.5":
+"styled-system@npm:5.1.5, styled-system@npm:^5.1.5":
   version: 5.1.5
   resolution: "styled-system@npm:5.1.5"
   dependencies:
