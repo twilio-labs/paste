@@ -173,7 +173,7 @@ Be judicious in which filters you make available for your users to represent the
 
 ### Accessibility
 
-The filter group pattern relies on the accessibility features built into components included into the group.
+The filter group pattern relies on the accessibility features built into components included in the group.
 
 When using the filter group, ensure that users:
 
@@ -194,11 +194,11 @@ The following states/logic should be used in your filter group:
 
 - The default value for all filters should be the “All” option, and when the “Clear all” link style button is clicked it should revert all filter parameters back to this default state. The only filter that should have a different default would be the date / time select, which would instead show the default time range your team designated.
 - The filters would all be applied as a single call when the “Apply” button is clicked, instead of filtering the table each time a single filter parameter value is selected.
-- It is recommended to use the [skeleton loader](/components/skeleton-loader) when loading the results of the filters and/or search.
+- It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
 - The “Apply” and “Clear all” buttons should be in the disabled state on page load, and would enable when at least one of the filter parameters value is changed from the previous state.
 - When using the search input field, users can submit a search by hitting the “enter” key. If the search input is for live filtering, results should update immediately upon load without hitting enter, while being mindful of performance.
 
-Always consider opportunities to reduce cognitive load by limiting the number of filters presented. For the simple table filter group we recommend including no more than 5 filters. If you need to include more than 5 filters, please refer to the [Complex table filtering](#complex-table-filtering) variation.
+Always consider opportunities to reduce cognitive load by limiting the number of filters presented. For the simple table filter group we recommend including no more than 5 filters. If you need to include more than 5 filters, please refer to the [complex table filtering](#complex-table-filtering) variation.
 
 #### Default state
 
@@ -208,7 +208,7 @@ Always consider opportunities to reduce cognitive load by limiting the number of
 
 #### Empty state
 
-When the applied filters and/or search does not return any results, use the [empty state pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
+When the applied filters and/or search does not return any results, use the [Empty State pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
 
 <Box marginBottom="space70">
   <Img fluid={props.data.emptyState.childImageSharp.fluid} />
