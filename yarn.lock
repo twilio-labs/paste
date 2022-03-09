@@ -10147,62 +10147,70 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-spring/animated@npm:~9.1.2":
-  version: 9.1.2
-  resolution: "@react-spring/animated@npm:9.1.2"
+"@react-spring/animated@npm:~9.4.3-beta.0":
+  version: 9.4.3
+  resolution: "@react-spring/animated@npm:9.4.3"
   dependencies:
-    "@react-spring/shared": ~9.1.2
-    "@react-spring/types": ~9.1.2
+    "@react-spring/shared": ~9.4.3-beta.0
+    "@react-spring/types": ~9.4.3-beta.0
   peerDependencies:
-    react: ">=16.8"
-  checksum: 7a8776f352d2c2a430f9c1f0f70e8aa73167cf2ae990c6cc47e90c3e77ce888f095b177f7bb0a20e41afea40365d30ab739504d25ba9bf8642cf2a133641c647
+    react: ^16.8.0  || ^17.0.0
+  checksum: 91c1b8a4def3ae332f99a9d85ea8bc29882bd19e3a99f49ba0e0e0bf6568443dad61ebe82e1431f2df9eb6a2102809c8e4e3d06e01200b586a909de872bcc981
   languageName: node
   linkType: hard
 
-"@react-spring/core@npm:~9.1.2":
-  version: 9.1.2
-  resolution: "@react-spring/core@npm:9.1.2"
+"@react-spring/core@npm:~9.4.3-beta.0":
+  version: 9.4.3
+  resolution: "@react-spring/core@npm:9.4.3"
   dependencies:
-    "@react-spring/animated": ~9.1.2
-    "@react-spring/shared": ~9.1.2
-    "@react-spring/types": ~9.1.2
+    "@react-spring/animated": ~9.4.3-beta.0
+    "@react-spring/rafz": ~9.4.3-beta.0
+    "@react-spring/shared": ~9.4.3-beta.0
+    "@react-spring/types": ~9.4.3-beta.0
   peerDependencies:
-    react: ">=16.8"
-  checksum: d699cd7d70a58fbee17047278ed985fa97dd84d93cd22e6ccff5d7c89312ae95aa1426504c3e204360cf619eae6aeb0f2d67bc5b623fbb9c221aacbb67736da3
+    react: ^16.8.0  || ^17.0.0
+  checksum: d07be80502cdf7ad42b1bc3fc57870521658a767abcdff094d5c8571431a1b35f0060493d2cbdf00dcc49390088b5d4bad26f10139e4c3ced36b800395d179ee
   languageName: node
   linkType: hard
 
-"@react-spring/shared@npm:9.1.2, @react-spring/shared@npm:~9.1.2":
-  version: 9.1.2
-  resolution: "@react-spring/shared@npm:9.1.2"
-  dependencies:
-    "@react-spring/types": ~9.1.2
-    rafz: ^0.1.14
-  peerDependencies:
-    react: ">=16.8"
-  checksum: c90b60417ff5bb37f912e9b6e3a57b751ed7cce012057c4e8d9e8e04393a17eb5d5a2db2ecd21d7e4abd9b2f40f26d13b98d9340974bbfcffff6595026cc112f
+"@react-spring/rafz@npm:~9.4.3-beta.0":
+  version: 9.4.3
+  resolution: "@react-spring/rafz@npm:9.4.3"
+  checksum: b9a454941d5e47e73c83ef71db7f9acef2c1702e528453f0df64426c33d07b569a8789061afff19ba46ee5bc3c0ac69a5710003a2119f404a44638dc09ccf111
   languageName: node
   linkType: hard
 
-"@react-spring/types@npm:~9.1.2":
-  version: 9.1.2
-  resolution: "@react-spring/types@npm:9.1.2"
-  checksum: d0f055b319a83e07f548fbb60e9a9de4d1490d51ccd63cf075d304cf04f2762db786ba93c9d861b0463e5cc5065457ea9129bdd8b08a1c9d470334c4adf61013
+"@react-spring/shared@npm:9.4.3, @react-spring/shared@npm:~9.4.3-beta.0":
+  version: 9.4.3
+  resolution: "@react-spring/shared@npm:9.4.3"
+  dependencies:
+    "@react-spring/rafz": ~9.4.3-beta.0
+    "@react-spring/types": ~9.4.3-beta.0
+  peerDependencies:
+    react: ^16.8.0  || ^17.0.0
+  checksum: 436bb60c0662c6b6ccb850aa455cd8ccc227cdf5d79a0db80c4eab2d404fd07ad362a47d63c39d0bde7789b4fb672ea5817739d5972942fcdb8a54053f3c5e26
   languageName: node
   linkType: hard
 
-"@react-spring/web@npm:9.1.2":
-  version: 9.1.2
-  resolution: "@react-spring/web@npm:9.1.2"
+"@react-spring/types@npm:~9.4.3-beta.0":
+  version: 9.4.3
+  resolution: "@react-spring/types@npm:9.4.3"
+  checksum: e42f4ca1fce80b73ae157a3cbff7d5c7c4ca94139439fd8a841821e36d28b7f0927b33e528982d998a29a4ae1b93bca6fd9658f92acf584cb24ac230aad6cf64
+  languageName: node
+  linkType: hard
+
+"@react-spring/web@npm:9.4.3":
+  version: 9.4.3
+  resolution: "@react-spring/web@npm:9.4.3"
   dependencies:
-    "@react-spring/animated": ~9.1.2
-    "@react-spring/core": ~9.1.2
-    "@react-spring/shared": ~9.1.2
-    "@react-spring/types": ~9.1.2
+    "@react-spring/animated": ~9.4.3-beta.0
+    "@react-spring/core": ~9.4.3-beta.0
+    "@react-spring/shared": ~9.4.3-beta.0
+    "@react-spring/types": ~9.4.3-beta.0
   peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-  checksum: ee972d7f92b73e279b27b28b3248679fa164a80f1297432ebfa10d6cdb80c742b3874b6854f19cb0bceb4c9a6e728f5a8853ad9a7f45596e0d552125473e6cb4
+    react: ^16.8.0  || ^17.0.0
+    react-dom: ^16.8.0  || ^17.0.0
+  checksum: 786040a8b139bd7ad3cd7eda113de05dd1de18c2f02f4495c63fc21dffb9d33b07e93c94d6243cc774cf59dc1002062aba8d7677e4c02fab24c937ed7083b2a9
   languageName: node
   linkType: hard
 
@@ -12390,8 +12398,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/animation-library@workspace:packages/paste-libraries/animation"
   dependencies:
-    "@react-spring/shared": 9.1.2
-    "@react-spring/web": 9.1.2
+    "@react-spring/shared": 9.4.3
+    "@react-spring/web": 9.4.3
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -43239,13 +43247,6 @@ is-whitespace@latest:
   dependencies:
     performance-now: ^2.1.0
   checksum: 50ba284e481c8185dbcf45fc4618ba3aec580bb50c9121385d5698cb6012fe516d2015b1df6dd407a7b7c58d44be8086108236affbce1861edd6b44637c8cd52
-  languageName: node
-  linkType: hard
-
-"rafz@npm:^0.1.14":
-  version: 0.1.14
-  resolution: "rafz@npm:0.1.14"
-  checksum: 6ee25182e2041a33aa315dc60fda7737407a19aa476fd5accb480a2119497b125e32ff02e6fc31d00a9896702088fbc17073adf41e2e692f011786e58117733c
   languageName: node
   linkType: hard
 
