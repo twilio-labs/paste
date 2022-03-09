@@ -62,7 +62,7 @@ const getMutation = (key: string): MutationFunction => {
 
     case 'allAirtable': {
       return ({status, Figma, ...rest}) => ({
-        packageStatus: sentenceCase(status),
+        packageStatus: status ? sentenceCase(status) : undefined,
         figmaStatus: Figma,
         ..._.mapKeys(rest, (_noop, objKey) => _.camelCase(objKey)),
       });

@@ -256,3 +256,40 @@ render(
   <DisabledRadio />
 )
 `.trim();
+
+export const i18nExample = `
+const PaymentMethodRadioGroup = () => {
+  const [value, setValue] = React.useState('credit');
+  return (
+    <RadioGroup
+      name="payment"
+      value={value}
+      legend="Choisissez votre mode de paiement"
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+      required
+      i18nRequiredLabel="(requis)"
+    >
+      <Radio
+        id="credit"
+        value="credit"
+        name="payment"
+      >
+        Carte de crédit
+      </Radio>
+      <Radio
+        id="paypal"
+        value="paypal"
+        name="payment"
+      >
+        PayPal
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <PaymentMethodRadioGroup />
+)
+`.trim();
