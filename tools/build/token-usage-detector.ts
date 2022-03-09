@@ -1,3 +1,4 @@
+/* eslint-disable import/no-mutable-exports */
 import path from 'path';
 import {getTokenPackageMapping} from '../utils/token-usage/getTokenPackageMapping';
 import {getUnusedTokenList} from '../utils/token-usage/getUnusedTokenList';
@@ -8,14 +9,14 @@ import type {TokenPackageMap} from '../utils/token-usage/types';
 const CACHE_FILE_PATH = path.join(__dirname, '../.cache/token-usage.json');
 
 let tokenPackageMap: TokenPackageMap = {};
-let unusedTokenList;
-let minimalUsedPackageList;
+let unusedTokenList = [''];
+let minimalUsedPackageList = [''];
 
 (async () => {
   try {
     tokenPackageMap = await getTokenPackageMapping();
-  } catch (e) {
-    console.error('[token-usage-detector]: ', e);
+  } catch (error) {
+    console.error('[token-usage-detector]:', error);
   }
   unusedTokenList = getUnusedTokenList(tokenPackageMap);
   minimalUsedPackageList = getMinimalPackageList(tokenPackageMap);
@@ -25,7 +26,7 @@ let minimalUsedPackageList;
     {
       unusedTokenList,
       minimalUsedPackageList,
-      tokenPackageMap: tokenPackageMap,
+      tokenPackageMap,
     },
     {
       formatJson: true,
@@ -36,3 +37,4 @@ let minimalUsedPackageList;
 })();
 
 export {tokenPackageMap, unusedTokenList, minimalUsedPackageList};
+/* eslint-enable import/no-mutable-exports */

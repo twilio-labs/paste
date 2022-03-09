@@ -21,6 +21,7 @@ import {
   errorExample,
   disabledExample,
   disabledPreSelectedExample,
+  i18nExample,
 } from '../../../component-examples/RadioGroupExamples';
 
 export const pageQuery = graphql`
@@ -109,7 +110,7 @@ Radio groups should:
 - When in an error state, display an inline error message below the offending radio group that clearly describes the error.
 - Radio groups act as a single tab stop. When focused on a radio, use the arrow keys to navigate to the other radios.
 
-## Layout examples
+## Examples
 
 ### Vertically-stacked Radio Group
 
@@ -158,6 +159,14 @@ Use the required dot only when necessary to denote it is required. This goes bef
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {horizontalExample}
+</LivePreview>
+
+### Internationalization
+
+To internationalize a radio group, simply pass different text as children to the radios. The only exception to this is the required dot in the legend of a required radio group. To change the required dot's text, use the `i18nRequiredLabel` prop.
+
+<LivePreview scope={{Radio, RadioGroup}} noInline>
+  {i18nExample}
 </LivePreview>
 
 ## States
@@ -266,20 +275,21 @@ All the valid HTML attributes for `input[type=radio]` are supported including th
 
 #### RadioGroup props
 
-| Prop        | Type                                     | Description | Default  |
-| ----------- | ---------------------------------------- | ----------- | -------- |
-| children    | `ReactNode`                              |             | null     |
-| legend      | `string` or `ReactNode`                  |             | null     |
-| name        | `string`                                 |             | null     |
-| value       | `string`                                 |             | null     |
-| orientation | `oneOf(['vertical', 'horizontal'])`      |             | vertical |
-| errorText?  | `string` or `ReactNode`                  |             | null     |
-| helpText?   | `string` or `ReactNode`                  |             | null     |
-| disabled?   | `boolean`                                |             | false    |
-| required?   | `boolean`                                |             | false    |
-| onChange    | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
-| onFocus?    | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
-| onBlur?     | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
+| Prop               | Type                                     | Description                                   | Default      |
+| ------------------ | ---------------------------------------- | --------------------------------------------- | ------------ |
+| children           | `ReactNode`                              |                                               | null         |
+| legend             | `string` or `ReactNode`                  |                                               | null         |
+| name               | `string`                                 |                                               | null         |
+| value              | `string`                                 |                                               | null         |
+| orientation        | `oneOf(['vertical', 'horizontal'])`      |                                               | vertical     |
+| errorText?         | `string` or `ReactNode`                  |                                               | null         |
+| helpText?          | `string` or `ReactNode`                  |                                               | null         |
+| disabled?          | `boolean`                                |                                               | false        |
+| required?          | `boolean`                                |                                               | false        |
+| onChange           | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
+| onFocus?           | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
+| onBlur?            | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
+| i18nRequiredLabel? | `string`                                 | Label text for the required dot in the legend | '(required)' |
 
 <ChangelogRevealer>
   <Changelog />

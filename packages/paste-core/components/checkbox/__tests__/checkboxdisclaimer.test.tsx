@@ -25,7 +25,11 @@ describe('Checkbox Disclaimer', () => {
         foo
       </CheckboxDisclaimer>
     );
-    expect(getByText('Required:')).not.toBeNull();
+
+    const label = getByText('foo');
+    const requiredDot = label.querySelector('[data-paste-element="REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('renders a errorText message when errorText prop is present', () => {

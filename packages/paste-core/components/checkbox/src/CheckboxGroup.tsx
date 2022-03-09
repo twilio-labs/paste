@@ -8,6 +8,7 @@ export interface CheckboxGroupProps extends InlineControlGroupProps {
   isSelectAll?: boolean;
   name: string;
   onChange?: (checked: boolean) => void;
+  i18nRequiredLabel?: string;
 }
 
 const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
@@ -21,6 +22,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
       name,
       onChange,
       orientation = 'vertical',
+      i18nRequiredLabel = '(required)',
       ...props
     },
     ref
@@ -53,6 +55,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
           name={name}
           orientation={orientation}
           ref={ref}
+          i18nRequiredLabel={i18nRequiredLabel}
         >
           {React.Children.map(children, (child, index) => {
             return React.isValidElement(child)
@@ -80,6 +83,7 @@ if (process.env.NODE_ENV === 'development') {
     errorText: PropTypes.string,
     helpText: PropTypes.string,
     orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+    i18nRequiredLabel: PropTypes.string,
   };
 }
 
