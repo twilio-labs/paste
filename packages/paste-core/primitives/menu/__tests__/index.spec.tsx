@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
+import {render, fireEvent, screen, waitFor} from '@testing-library/react';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {
@@ -116,47 +116,57 @@ describe('Menu Primitive', () => {
   // annoying, commenting out for review but will investigate
   // eslint-disable-next-line jest/no-disabled-tests
   describe.skip('interaction', () => {
-    it('should control expanded attribute on the button', () => {
+    it('should control expanded attribute on the button', async () => {
       render(<MenuMock />);
       const renderedMenuButton = screen.getByRole('button');
       expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
       fireEvent.click(renderedMenuButton);
-      expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
+      await waitFor(() => {
+        expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
+      });
       if (document.activeElement != null) {
         fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
+        await waitFor(() => {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
+        });
       }
     });
 
-    it('should focus first menu item in the menu when open', () => {
+    it('should focus first menu item in the menu when open', async () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
-      }
+      await waitFor(() => {
+        if (document.activeElement != null) {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
+        }
+      });
     });
 
-    it('should move focus to the second menu item in the menu when down arrow pressed', () => {
+    it('should move focus to the second menu item in the menu when down arrow pressed', async () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
-      }
+      await waitFor(() => {
+        if (document.activeElement != null) {
+          fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
+        }
+      });
     });
 
-    it('should move focus to the first menu item in the menu when down up pressed', () => {
+    it('should move focus to the first menu item in the menu when down up pressed', async () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
-      }
+      await waitFor(() => {
+        if (document.activeElement != null) {
+          fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+          fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
+        }
+      });
     });
   });
 

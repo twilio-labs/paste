@@ -31,7 +31,7 @@ describe('Tooltip', () => {
       expect(renderedTooltip.getAttribute('role')).toEqual('tooltip');
     });
 
-    it('should render a tooltip and show/hide on button click', () => {
+    it('should render a tooltip and show/hide on button click', async () => {
       render(<StateHookExample />);
 
       const ButtonOne = screen.queryByTestId('show-button');
@@ -45,18 +45,22 @@ describe('Tooltip', () => {
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
       ButtonOne.click();
-      tooltip = screen.queryByTestId('state-hook-tooltip');
-      if (tooltip === null) {
-        return;
-      }
-      expect(tooltip.getAttribute('hidden')).toBeNull();
+      await waitFor(() => {
+        tooltip = screen.queryByTestId('state-hook-tooltip');
+        if (tooltip === null) {
+          return;
+        }
+        expect(tooltip.getAttribute('hidden')).toBeNull();
+      });
 
       ButtonTwo.click();
-      tooltip = screen.queryByTestId('state-hook-tooltip');
-      if (tooltip === null) {
-        return;
-      }
-      expect(tooltip.getAttribute('hidden')).not.toBeNull();
+      await waitFor(() => {
+        tooltip = screen.queryByTestId('state-hook-tooltip');
+        if (tooltip === null) {
+          return;
+        }
+        expect(tooltip.getAttribute('hidden')).not.toBeNull();
+      });
     });
   });
 
@@ -77,19 +81,17 @@ describe('Tooltip', () => {
 
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
+      screen.getByRole('button').focus();
       await waitFor(() => {
-        screen.getByRole('button').focus();
+        expect(tooltip.getAttribute('hidden')).toBeNull();
       });
 
-      expect(tooltip.getAttribute('hidden')).toBeNull();
-
+      // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
+      fireEvent.click(document.activeElement);
       await waitFor(() => {
-        // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
-        fireEvent.click(document.activeElement);
+        expect(focusHandlerMock).toHaveBeenCalled();
+        expect(clickHandlerMock).toHaveBeenCalled();
       });
-
-      expect(focusHandlerMock).toHaveBeenCalled();
-      expect(clickHandlerMock).toHaveBeenCalled();
     });
   });
 

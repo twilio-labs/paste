@@ -38,7 +38,7 @@ describe('Popover', () => {
       expect(renderedPopover.getAttribute('role')).toEqual('dialog');
     });
 
-    it('should render a popover and show/hide on external button click', () => {
+    it('should render a popover and show/hide on external button click', async () => {
       render(
         <Theme.Provider theme="default">
           <StateHookExample />
@@ -60,14 +60,18 @@ describe('Popover', () => {
       if (popover === null) {
         return;
       }
-      expect(popover).toBeVisible();
+      await waitFor(() => {
+        expect(popover).toBeVisible();
+      });
 
       ButtonTwo.click();
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
       }
-      expect(popover).not.toBeVisible();
+      await waitFor(() => {
+        expect(popover).not.toBeVisible();
+      });
     });
   });
 
