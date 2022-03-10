@@ -5,7 +5,7 @@ module.exports = {
     TestTheme,
   },
   verbose: true,
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts|tsx)?$',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/packages/(?:.+?)/dist/',
@@ -32,9 +32,9 @@ module.exports = {
   transformIgnorePatterns: ['node_modules/'],
   resolver: '<rootDir>/.jest/resolver.js',
   transform: {
-    '^.+\\.tsx?$': '<rootDir>/.jest/transform-typescript.js',
-    '^.+\\.js?$': '<rootDir>/.jest/transform-esm.js',
+    '^.+\\.(t|j)sx?$': '@swc/jest',
   },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
   snapshotSerializers: ['jest-emotion'],
 };

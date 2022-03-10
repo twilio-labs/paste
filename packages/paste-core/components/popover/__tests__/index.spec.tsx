@@ -221,24 +221,27 @@ describe('Popover', () => {
   });
 
   describe('i18n', () => {
-    it('should have default dismiss button text', () => {
+    it('should have default dismiss button text', async () => {
       render(
         <Theme.Provider theme="default">
-          <PopoverContainer baseId="test-id" visible>
+          <PopoverContainer baseId="test-id">
             <PopoverButton variant="primary">Open popover</PopoverButton>
             <Popover aria-label="Popover">Foo</Popover>
           </PopoverContainer>
         </Theme.Provider>
       );
-
-      const dismissButton = screen.getByRole('button', {name: 'Close popover'});
-      expect(dismissButton).toBeDefined();
+      const popoverButton = screen.getByRole('button');
+      popoverButton.click();
+      await waitFor(() => {
+        const dismissButton = screen.getByRole('button', {name: 'Close popover'});
+        expect(dismissButton).toBeDefined();
+      });
     });
 
-    it('should use i18nKeyboardControls for dismiss button text', () => {
+    it('should use i18nKeyboardControls for dismiss button text', async () => {
       render(
         <Theme.Provider theme="default">
-          <PopoverContainer baseId="test-id" visible>
+          <PopoverContainer baseId="test-id">
             <PopoverButton variant="primary">Abrir popover</PopoverButton>
             <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
               Foo
@@ -247,8 +250,12 @@ describe('Popover', () => {
         </Theme.Provider>
       );
 
-      const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
-      expect(dismissButton).toBeDefined();
+      const popoverButton = screen.getByRole('button');
+      popoverButton.click();
+      await waitFor(() => {
+        const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
+        expect(dismissButton).toBeDefined();
+      });
     });
   });
 });

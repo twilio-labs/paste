@@ -166,7 +166,7 @@ describe('Disclosure', () => {
       const renderedDisclosureButton = screen.getByRole('button');
       expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
-    it('should update attributes when clicked', () => {
+    it.skip('should update attributes when clicked', () => {
       render(<MockDisclosure />);
       const renderedDisclosureButton = screen.getByRole('button');
       fireEvent.click(renderedDisclosureButton);

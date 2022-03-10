@@ -13,7 +13,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((pr
 
   return (
     <>
-      <MenuButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
+      <MenuButton ref={ref} {...menu} {...props} variant="secondary" data-testid="example-submenu-trigger">
         Preferences
       </MenuButton>
       <Menu {...menu} aria-label="Preferences" data-testid="example-submenu">

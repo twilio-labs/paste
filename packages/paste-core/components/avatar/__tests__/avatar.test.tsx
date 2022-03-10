@@ -131,13 +131,25 @@ describe('Avatar', () => {
 
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
+
       // @ts-expect-error
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow(
+        '[Paste Avatar]: icon prop expected to be a Paste icon only.'
+      );
       // @ts-expect-error
       // eslint-disable-next-line react/jsx-boolean-value
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow(
+        '[Paste Avatar]: icon prop expected to be a Paste icon only.'
+      );
       // @ts-expect-error
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow(
+        '[Paste Avatar]: icon prop expected to be a Paste icon only.'
+      );
+
+      spy.mockRestore();
     });
   });
 
