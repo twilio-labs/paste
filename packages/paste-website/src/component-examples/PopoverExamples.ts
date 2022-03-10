@@ -110,7 +110,7 @@ const PopoverBadgeExample = () => {
   return (
     <Box display="flex" columnGap="space40">
       <PopoverContainer baseId="popover-example">
-        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
+        <PopoverBadgeButton variant="decorative10">Open popover</PopoverBadgeButton>
         <Popover aria-label="Popover">
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
@@ -118,7 +118,7 @@ const PopoverBadgeExample = () => {
         </Popover>
       </PopoverContainer>
       <PopoverContainer baseId="popover-example">
-        <PopoverBadgeButton variant="info">
+        <PopoverBadgeButton variant="neutral">
           <>
             <InformationIcon decorative={false} title="Information" />
             Open popover
