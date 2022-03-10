@@ -150,7 +150,7 @@ render(
 
 export const requiredExample = `
 const SslRadioGroup = () => {
-  const [value, setValue] = React.useState('enabled');
+  const [value, setValue] = React.useState('on');
   return (
     <RadioGroup
       name="ssl"
@@ -163,18 +163,18 @@ const SslRadioGroup = () => {
       required
     >
       <Radio
-        id="enabled"
-        value="enabled"
+        id="on"
+        value="on"
         name="ssl"
       >
-        Enabled
+        Validation on
       </Radio>
       <Radio
-        id="disabled"
-        value="disabled"
+        id="off"
+        value="off"
         name="ssl"
       >
-        Disabled
+        Validation off
       </Radio>
     </RadioGroup>
   );
@@ -254,5 +254,42 @@ const DisabledRadio = () => {
 
 render(
   <DisabledRadio />
+)
+`.trim();
+
+export const i18nExample = `
+const PaymentMethodRadioGroup = () => {
+  const [value, setValue] = React.useState('credit');
+  return (
+    <RadioGroup
+      name="payment"
+      value={value}
+      legend="Choisissez votre mode de paiement"
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+      required
+      i18nRequiredLabel="(requis)"
+    >
+      <Radio
+        id="credit"
+        value="credit"
+        name="payment"
+      >
+        Carte de crédit
+      </Radio>
+      <Radio
+        id="paypal"
+        value="paypal"
+        name="payment"
+      >
+        PayPal
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <PaymentMethodRadioGroup />
 )
 `.trim();

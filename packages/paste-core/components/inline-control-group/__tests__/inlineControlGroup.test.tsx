@@ -30,12 +30,16 @@ describe('InlineControlGroup', () => {
   });
 
   it('should have a required a required dot in the legend', () => {
-    const {getByText} = testRender(
+    testRender(
       <InlineControlGroup {...defaultGroupProps} required>
         <div />
       </InlineControlGroup>
     );
-    expect(getByText('Required:')).not.toBeNull();
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('renders a helpText message when helpText prop is present', () => {

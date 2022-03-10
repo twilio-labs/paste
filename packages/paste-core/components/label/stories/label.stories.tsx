@@ -49,6 +49,18 @@ export const Inverse = (): React.ReactNode => {
   );
 };
 
+export const I18n = (): React.ReactNode => {
+  return (
+    <>
+      <Label htmlFor="label" required i18nRequiredLabel="(requis)">
+        Prénom
+      </Label>
+    </>
+  );
+};
+
+I18n.storyName = 'i18n label';
+
 export const Customized: React.FC = () => {
   return (
     <Stack orientation="vertical" spacing="space20">

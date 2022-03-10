@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {matchers} from 'jest-emotion';
@@ -127,12 +127,16 @@ describe('Radio Group', () => {
   });
 
   it('should have a required a required dot in the legend', () => {
-    const {getByText} = render(
+    render(
       <RadioGroup {...defaultGroupProps} required>
         <Radio {...defaultProps}>foo</Radio>
       </RadioGroup>
     );
-    expect(getByText('Required:')).not.toBeNull();
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('should render a value', () => {
@@ -171,6 +175,34 @@ describe('Radio Group', () => {
       </RadioGroup>
     );
     expect(getByText(errorText)).toBeDefined();
+  });
+
+  describe('i18n', () => {
+    it('Should have default text for the required dot in the legend', () => {
+      render(
+        <RadioGroup {...defaultGroupProps} required>
+          <Radio {...defaultProps}>foo</Radio>
+        </RadioGroup>
+      );
+
+      const fieldset = screen.getByRole('group');
+      const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+      expect(requiredDot?.textContent).toEqual('(required)');
+    });
+
+    it('Should use the i18nRequiredLabel prop for the required dot in the legend', () => {
+      render(
+        <RadioGroup {...defaultGroupProps} required i18nRequiredLabel="(requis)">
+          <Radio {...defaultProps}>foo</Radio>
+        </RadioGroup>
+      );
+
+      const fieldset = screen.getByRole('group');
+      const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+      expect(requiredDot?.textContent).toEqual('(requis)');
+    });
   });
 });
 
