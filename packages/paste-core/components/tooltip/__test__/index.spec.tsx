@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {act, fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -77,15 +77,15 @@ describe('Tooltip', () => {
 
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      await act(async () => {
-        await screen.getByRole('button').focus();
+      await waitFor(() => {
+        screen.getByRole('button').focus();
       });
 
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      await act(async () => {
+      await waitFor(() => {
         // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
-        await fireEvent.click(document.activeElement);
+        fireEvent.click(document.activeElement);
       });
 
       expect(focusHandlerMock).toHaveBeenCalled();
