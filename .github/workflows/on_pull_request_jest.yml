@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build system packages
+    name: Test repo using Jest running React 16 and 17
     runs-on: ubuntu-latest
 
     steps:
