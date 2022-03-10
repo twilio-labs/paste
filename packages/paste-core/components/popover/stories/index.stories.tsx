@@ -139,7 +139,7 @@ export const BadgePopover: React.FC = () => {
   return (
     <Box height="300px">
       <PopoverContainer baseId="test-id">
-        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
+        <PopoverBadgeButton variant="neutral">Open popover</PopoverBadgeButton>
         <Popover aria-label="Popover" data-testid="badge-popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
