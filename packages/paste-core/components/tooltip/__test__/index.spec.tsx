@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {fireEvent, render, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -44,23 +45,23 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      ButtonOne.click();
       await waitFor(() => {
-        tooltip = screen.queryByTestId('state-hook-tooltip');
-        if (tooltip === null) {
-          return;
-        }
-        expect(tooltip.getAttribute('hidden')).toBeNull();
+        userEvent.click(ButtonOne);
       });
+      tooltip = screen.queryByTestId('state-hook-tooltip');
+      if (tooltip === null) {
+        return;
+      }
+      expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      ButtonTwo.click();
       await waitFor(() => {
-        tooltip = screen.queryByTestId('state-hook-tooltip');
-        if (tooltip === null) {
-          return;
-        }
-        expect(tooltip.getAttribute('hidden')).not.toBeNull();
+        userEvent.click(ButtonTwo);
       });
+      tooltip = screen.queryByTestId('state-hook-tooltip');
+      if (tooltip === null) {
+        return;
+      }
+      expect(tooltip.getAttribute('hidden')).not.toBeNull();
     });
   });
 
@@ -81,17 +82,16 @@ describe('Tooltip', () => {
 
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      screen.getByRole('button').focus();
       await waitFor(() => {
-        expect(tooltip.getAttribute('hidden')).toBeNull();
+        screen.getByRole('button').focus();
       });
+      expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
-      fireEvent.click(document.activeElement);
       await waitFor(() => {
-        expect(focusHandlerMock).toHaveBeenCalled();
-        expect(clickHandlerMock).toHaveBeenCalled();
+        userEvent.click(document.activeElement);
       });
+      expect(focusHandlerMock).toHaveBeenCalled();
+      expect(clickHandlerMock).toHaveBeenCalled();
     });
   });
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
@@ -88,14 +89,14 @@ describe('Tabs', () => {
       expect(activePanel.getAttribute('id')).toBe(panelOneId);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
-      TabTwo.click();
       await waitFor(() => {
-        activePanel = screen.queryByRole('tabpanel');
-        if (activePanel === null) return false;
-        expect(activePanel.getAttribute('aria-labelledby')).toBe(tabTwoId);
-        expect(activePanel.getAttribute('id')).toBe(panelTwoId);
-        expect(activePanel.getAttribute('tabindex')).toBe('0');
+        userEvent.click(TabTwo);
       });
+      activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
+      expect(activePanel.getAttribute('aria-labelledby')).toBe(tabTwoId);
+      expect(activePanel.getAttribute('id')).toBe(panelTwoId);
+      expect(activePanel.getAttribute('tabindex')).toBe('0');
     });
 
     it('should render tabs using the state prop and go to the next tab on button click', async () => {
@@ -109,14 +110,14 @@ describe('Tabs', () => {
       expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-3');
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
-      ButtonOne.click();
       await waitFor(() => {
-        activePanel = screen.queryByRole('tabpanel');
-        if (activePanel === null) return false;
-        expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-2');
-        expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-4');
-        expect(activePanel.getAttribute('tabindex')).toBe('0');
+        userEvent.click(ButtonOne);
       });
+      activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
+      expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-2');
+      expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-4');
+      expect(activePanel.getAttribute('tabindex')).toBe('0');
     });
   });
 

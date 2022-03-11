@@ -72,56 +72,58 @@ describe('FormPillGroup', () => {
 
       // Get the first pill
       const firstPill = getByTestId('form-pill-0');
-      // Click it and make sure it selected
-      fireEvent.click(firstPill);
       await waitFor(() => {
-        expect(firstPill.getAttribute('aria-selected')).toBe('true');
+        // Click it and make sure it selected
+        fireEvent.click(firstPill);
       });
+      expect(firstPill.getAttribute('aria-selected')).toBe('true');
 
-      // Make sure it deselects on click
-      fireEvent.click(firstPill);
       await waitFor(() => {
-        expect(firstPill.getAttribute('aria-selected')).toBe('false');
+        // Make sure it deselects on click
+        fireEvent.click(firstPill);
       });
+      expect(firstPill.getAttribute('aria-selected')).toBe('false');
 
-      // Make sure it selects on Enter key
-      fireEvent.keyDown(firstPill, {key: 'Enter', code: 'Enter'});
       await waitFor(() => {
-        expect(firstPill.getAttribute('aria-selected')).toBe('true');
+        // Make sure it selects on Enter key
+        fireEvent.keyDown(firstPill, {key: 'Enter', code: 'Enter'});
       });
+      expect(firstPill.getAttribute('aria-selected')).toBe('true');
 
-      // Make sure we can navigate with right arrow
-      fireEvent.keyDown(firstPill, {key: 'ArrowRight', code: 'ArrowRight'});
+      await waitFor(() => {
+        // Make sure we can navigate with right arrow
+        fireEvent.keyDown(firstPill, {key: 'ArrowRight', code: 'ArrowRight'});
+      });
       if (document.activeElement == null) {
         throw new Error('document.activeElement is null');
       }
-      await waitFor(() => {
-        expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
-        expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
-      });
+      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
+      expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
-      // Move right again and check for selection
-      fireEvent.keyDown(document.activeElement, {key: 'ArrowRight', code: 'ArrowRight'});
       await waitFor(() => {
-        expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-2');
+        // Move right again and check for selection
+        fireEvent.keyDown(document.activeElement, {key: 'ArrowRight', code: 'ArrowRight'});
       });
-      fireEvent.keyDown(document.activeElement, {key: 'Enter', code: 'Enter'});
+      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-2');
       await waitFor(() => {
-        expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
+        fireEvent.keyDown(document.activeElement, {key: 'Enter', code: 'Enter'});
       });
+      expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
-      // Try moving left this time
-      fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
       await waitFor(() => {
-        expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
+        // Try moving left this time
+        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
       });
+      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
 
       // Loop movement
-      fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
-      fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
       await waitFor(() => {
-        expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-3');
+        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
       });
+      await waitFor(() => {
+        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
+      });
+      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-3');
     });
 
     it('can remove pills', async () => {
@@ -130,23 +132,23 @@ describe('FormPillGroup', () => {
       /* Test click to remove */
       const firstPill = getByRole('option', {name: 'Tennis'});
       const firstPillX = firstPill.querySelector('[data-paste-element="BOX"]');
-      fireEvent.click(firstPillX as Element);
       await waitFor(() => {
-        expect(firstPill).not.toBeInTheDocument();
+        fireEvent.click(firstPillX as Element);
       });
+      expect(firstPill).not.toBeInTheDocument();
 
       /* Test keyboard to remove */
       const secondPill = getByRole('option', {name: 'Baseball'});
-      fireEvent.keyDown(secondPill, {key: 'Delete', code: 'Delete'});
       await waitFor(() => {
-        expect(secondPill).not.toBeInTheDocument();
+        fireEvent.keyDown(secondPill, {key: 'Delete', code: 'Delete'});
       });
+      expect(secondPill).not.toBeInTheDocument();
 
       const thirdPill = getByRole('option', {name: 'Football'});
-      fireEvent.keyDown(thirdPill, {key: 'Backspace', code: 'Backspace'});
       await waitFor(() => {
-        expect(thirdPill).not.toBeInTheDocument();
+        fireEvent.keyDown(thirdPill, {key: 'Backspace', code: 'Backspace'});
       });
+      expect(thirdPill).not.toBeInTheDocument();
     });
   });
 

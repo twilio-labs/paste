@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -148,25 +148,37 @@ describe('Menu', () => {
       expect(renderedMenuItem.getAttribute('aria-disabled')).toEqual('true');
     });
 
-    it('should fire onClick events using for menu item as a button', () => {
+    it('should fire onClick events using for menu item as a button', async () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-item');
-      fireEvent.click(renderedMenuItem);
+      await waitFor(() => {
+        fireEvent.click(renderedMenuItem);
+      });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      await waitFor(() => {
+        fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      await waitFor(() => {
+        fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      });
       expect(handleClickMock).toHaveBeenCalled();
     });
 
-    it('should fire onClick events using for menu item as an anchor', () => {
+    it('should fire onClick events using for menu item as an anchor', async () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-anchor');
-      fireEvent.click(renderedMenuItem);
+      await waitFor(() => {
+        fireEvent.click(renderedMenuItem);
+      });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      await waitFor(() => {
+        fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      await waitFor(() => {
+        fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      });
       expect(handleClickMock).toHaveBeenCalled();
     });
   });
