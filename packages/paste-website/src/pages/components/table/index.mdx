@@ -116,8 +116,7 @@ Accessibility recommendations:
   than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
   50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
   times to get past that table. If you do need to include interactive elements (such as linking to object details,
-  selecting rows, or deleting rows), use{' '}
-  {" "}
+  selecting rows, or deleting rows), use{" "}
   <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
 
 <Callout>
@@ -714,7 +713,20 @@ indicator of status.
 Refer to our Status Indicator pattern (coming soon!) for guidance on displaying statuses in your tables.
 
 <LivePreview
-  scope={{ Table, THead, TBody, Tr, Th, Td, Box, Stack, Text }}
+  scope={{
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Th,
+    Td,
+    Box,
+    Stack,
+    Text,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
+    ProcessErrorIcon,
+  }}
   language="jsx"
 >
   {`<Table>
