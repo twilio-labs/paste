@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, fireEvent, screen, waitFor} from '@testing-library/react';
-
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -72,27 +72,27 @@ describe('FormPillGroup', () => {
 
       // Get the first pill
       const firstPill = getByTestId('form-pill-0');
+      // Click it and make sure it selected
       await waitFor(() => {
-        // Click it and make sure it selected
-        fireEvent.click(firstPill);
+        userEvent.click(firstPill);
       });
       expect(firstPill.getAttribute('aria-selected')).toBe('true');
 
+      // Make sure it deselects on click
       await waitFor(() => {
-        // Make sure it deselects on click
-        fireEvent.click(firstPill);
+        userEvent.click(firstPill);
       });
       expect(firstPill.getAttribute('aria-selected')).toBe('false');
 
+      // Make sure it selects on Enter key
       await waitFor(() => {
-        // Make sure it selects on Enter key
-        fireEvent.keyDown(firstPill, {key: 'Enter', code: 'Enter'});
+        userEvent.keyboard('{enter}');
       });
       expect(firstPill.getAttribute('aria-selected')).toBe('true');
 
+      // Make sure we can navigate with right arrow
       await waitFor(() => {
-        // Make sure we can navigate with right arrow
-        fireEvent.keyDown(firstPill, {key: 'ArrowRight', code: 'ArrowRight'});
+        userEvent.keyboard('{arrowright}');
       });
       if (document.activeElement == null) {
         throw new Error('document.activeElement is null');
@@ -100,28 +100,25 @@ describe('FormPillGroup', () => {
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
       expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
+      // Move right again and check for selection
       await waitFor(() => {
-        // Move right again and check for selection
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowRight', code: 'ArrowRight'});
+        userEvent.keyboard('{arrowright}');
       });
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-2');
       await waitFor(() => {
-        fireEvent.keyDown(document.activeElement, {key: 'Enter', code: 'Enter'});
+        userEvent.keyboard('{enter}');
       });
       expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
+      // Try moving left this time
       await waitFor(() => {
-        // Try moving left this time
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
+        userEvent.keyboard('{arrowleft}');
       });
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
 
       // Loop movement
       await waitFor(() => {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
-      });
-      await waitFor(() => {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
+        userEvent.keyboard('{arrowleft}{arrowleft}');
       });
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-3');
     });
@@ -133,20 +130,22 @@ describe('FormPillGroup', () => {
       const firstPill = getByRole('option', {name: 'Tennis'});
       const firstPillX = firstPill.querySelector('[data-paste-element="BOX"]');
       await waitFor(() => {
-        fireEvent.click(firstPillX as Element);
+        userEvent.click(firstPillX as Element);
       });
       expect(firstPill).not.toBeInTheDocument();
 
       /* Test keyboard to remove */
       const secondPill = getByRole('option', {name: 'Baseball'});
       await waitFor(() => {
-        fireEvent.keyDown(secondPill, {key: 'Delete', code: 'Delete'});
+        secondPill.focus();
+        userEvent.keyboard('{del}');
       });
       expect(secondPill).not.toBeInTheDocument();
 
       const thirdPill = getByRole('option', {name: 'Football'});
       await waitFor(() => {
-        fireEvent.keyDown(thirdPill, {key: 'Backspace', code: 'Backspace'});
+        thirdPill.focus();
+        userEvent.keyboard('{backspace}');
       });
       expect(thirdPill).not.toBeInTheDocument();
     });

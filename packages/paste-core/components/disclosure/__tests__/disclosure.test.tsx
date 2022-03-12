@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -168,10 +169,10 @@ describe('Disclosure', () => {
     it('should update attributes when clicked', async () => {
       render(<MockDisclosure />);
       const renderedDisclosureButton = screen.getByRole('button');
-      fireEvent.click(renderedDisclosureButton);
       await waitFor(() => {
-        expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
+        userEvent.click(renderedDisclosureButton);
       });
+      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
     it('should render a disabled disclosure', () => {
       render(<MockDisclosure disabled />);
@@ -192,11 +193,11 @@ describe('Disclosure', () => {
       const disclosureContent = screen.getByTestId('disclosure-content');
       expect(disclosureButton.getAttribute('aria-expanded')).toEqual('false');
       expect(disclosureContent).not.toBeVisible();
-      fireEvent.click(toggleButton);
       await waitFor(() => {
-        expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
-        expect(disclosureContent).toBeVisible();
+        userEvent.click(toggleButton);
       });
+      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(disclosureContent).toBeVisible();
     });
   });
 

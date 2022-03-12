@@ -72,8 +72,8 @@ describe('useToaster', () => {
     });
 
     it('should set a timeOutId if dismissAfter is set', () => {
-      const setTimeoutSpy = jest.spyOn(window, 'setTimeout');
       const {result} = renderHook(() => useToaster());
+      const setTimeoutSpy = jest.spyOn(window, 'setTimeout');
 
       act(() => {
         result.current.push({
@@ -106,8 +106,8 @@ describe('useToaster', () => {
     });
 
     it('should clearTimeout when popping a toast with a timeout', () => {
-      const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout');
       const {result} = renderHook(() => useToaster());
+      const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout');
 
       act(() => {
         result.current.push({

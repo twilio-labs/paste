@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {fireEvent, render, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -151,16 +152,19 @@ describe('Menu', () => {
     it('should fire onClick events using for menu item as a button', async () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-item');
+
       await waitFor(() => {
-        fireEvent.click(renderedMenuItem);
+        userEvent.click(renderedMenuItem);
       });
       expect(handleClickMock).toHaveBeenCalled();
       await waitFor(() => {
-        fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+        renderedMenuItem.focus();
+        userEvent.keyboard('{space}');
       });
       expect(handleClickMock).toHaveBeenCalled();
       await waitFor(() => {
-        fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+        renderedMenuItem.focus();
+        userEvent.keyboard('{enter}');
       });
       expect(handleClickMock).toHaveBeenCalled();
     });
@@ -169,15 +173,17 @@ describe('Menu', () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-anchor');
       await waitFor(() => {
-        fireEvent.click(renderedMenuItem);
+        userEvent.click(renderedMenuItem);
       });
       expect(handleClickMock).toHaveBeenCalled();
       await waitFor(() => {
-        fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+        renderedMenuItem.focus();
+        userEvent.keyboard('{space}');
       });
       expect(handleClickMock).toHaveBeenCalled();
       await waitFor(() => {
-        fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+        renderedMenuItem.focus();
+        userEvent.keyboard('{enter}');
       });
       expect(handleClickMock).toHaveBeenCalled();
     });

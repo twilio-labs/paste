@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
@@ -113,10 +113,7 @@ describe('Menu Primitive', () => {
     });
   });
 
-  // an update to reakit broke these document.activeElements
-  // annoying, commenting out for review but will investigate
-  // eslint-disable-next-line jest/no-disabled-tests
-  describe.skip('interaction', () => {
+  describe('interaction', () => {
     it('should control expanded attribute on the button', async () => {
       render(<MenuMock />);
       const renderedMenuButton = screen.getByRole('button');
@@ -134,42 +131,26 @@ describe('Menu Primitive', () => {
       }
     });
 
-    it('should focus first menu item in the menu when open', async () => {
+    it('should focus menu when open', async () => {
       render(<MenuMock />);
       await waitFor(() => {
         userEvent.click(screen.getByRole('button'));
       });
       if (document.activeElement != null) {
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
+        expect(screen.getByRole('menu')).toEqual(document.activeElement);
       }
     });
 
-    it('should move focus to the second menu item in the menu when down arrow pressed', async () => {
+    it('should move focus menu item when using arrow keys', async () => {
       render(<MenuMock />);
       await waitFor(() => {
-        userEvent.click(screen.getByRole('button'));
+        screen.getByRole('button').focus();
+        userEvent.keyboard('{arrowdown}');
       });
       if (document.activeElement != null) {
-        await waitFor(() => {
-          userEvent.keyboard('{arrowdown}');
-        });
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
-      }
-    });
-
-    it('should move focus to the first menu item in the menu when down up pressed', async () => {
-      render(<MenuMock />);
-      await waitFor(() => {
-        userEvent.click(screen.getByRole('button'));
-      });
-      if (document.activeElement != null) {
-        await waitFor(() => {
-          userEvent.keyboard('{arrowdown}{arrowup}');
-        });
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
+        expect(document.activeElement).toEqual(screen.getByText('About Visual Studio Code'));
       }
     });
   });

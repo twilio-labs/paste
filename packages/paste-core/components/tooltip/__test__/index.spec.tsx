@@ -85,11 +85,14 @@ describe('Tooltip', () => {
       await waitFor(() => {
         screen.getByRole('button').focus();
       });
+
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
       await waitFor(() => {
+        // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
         userEvent.click(document.activeElement);
       });
+
       expect(focusHandlerMock).toHaveBeenCalled();
       expect(clickHandlerMock).toHaveBeenCalled();
     });
