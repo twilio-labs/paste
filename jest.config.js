@@ -4,6 +4,7 @@ module.exports = {
   globals: {
     TestTheme,
   },
+  verbose: true,
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)?$',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
@@ -29,9 +30,8 @@ module.exports = {
     },
   },
   transformIgnorePatterns: ['node_modules/'],
-  resolver: '<rootDir>/.jest/resolver.js',
   transform: {
-    '^.+\\.(t|j)sx?$': '@swc/jest',
+    '^.+\\.(js|jsx|ts|tsx)?$': '@swc/jest',
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],

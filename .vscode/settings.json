@@ -4,5 +4,6 @@
   "search.exclude": {
     "**/dist": true,
     "**/docs": true
-  }
+  },
+  "jest.jestCommandLine": "yarn jest"
 }

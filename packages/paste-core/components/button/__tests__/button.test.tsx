@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import {render as testRender} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {shallow} from 'enzyme';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -16,7 +15,7 @@ const HREF = 'https://twilio.paste.design';
 describe('Button', () => {
   describe('Button axe checker', () => {
     it('Primary has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
@@ -28,7 +27,7 @@ describe('Button', () => {
     });
 
     it('Secondary has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" type="submit" onClick={NOOP}>
             Submit
@@ -40,7 +39,7 @@ describe('Button', () => {
     });
 
     it('Destructive has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive" onClick={NOOP}>
             Delete
@@ -52,7 +51,7 @@ describe('Button', () => {
     });
 
     it('Destructive_secondary has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_secondary" onClick={NOOP}>
             Delete
@@ -64,7 +63,7 @@ describe('Button', () => {
     });
 
     it('Destructive_link has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
@@ -76,7 +75,7 @@ describe('Button', () => {
     });
 
     it('Link button has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="link" onClick={NOOP}>
             Go to Paste
@@ -88,7 +87,7 @@ describe('Button', () => {
     });
 
     it('Primary Icon button has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
@@ -100,7 +99,7 @@ describe('Button', () => {
     });
 
     it('Secondary Icon button has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
@@ -112,7 +111,7 @@ describe('Button', () => {
     });
 
     it('Destructive Icon button has no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive_icon" size="reset" onClick={NOOP}>
             <PlusIcon decorative={false} title="add more" />
@@ -124,7 +123,7 @@ describe('Button', () => {
     });
 
     it('Loading states have no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="primary" onClick={NOOP} loading>
             Submit
@@ -136,7 +135,7 @@ describe('Button', () => {
     });
 
     it('Disabled states have no accessibility violations', async () => {
-      const {container} = testRender(
+      const {container} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="destructive" onClick={NOOP} disabled>
             Undo
@@ -150,69 +149,88 @@ describe('Button', () => {
 
   describe('Button Errors', () => {
     it('Throws an error when a href is passed but an "a" tag is not', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button variant="primary" href={HREF}>
             Go to Paste
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed but a href is not', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button as="a" variant="primary">
             Go to Paste
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when the user should use an Anchor component instead', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button as="a" variant="link" href={HREF}>
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        render(
           <Button as="a" variant="inverse_link" href={HREF}>
             Go to Paste
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed but not using correct variant', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button as="a" href="#" variant="destructive">
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        render(
           <Button as="a" href="#" variant="destructive_secondary">
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        render(
           <Button as="a" href="#" variant="inverse">
             Go to Paste
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed with disabled or loading state', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button as="a" href="#" variant="primary" disabled>
             Go to Paste
           </Button>
@@ -220,62 +238,80 @@ describe('Button', () => {
       ).toThrow();
 
       expect(() =>
-        shallow(
+        render(
           <Button as="a" href="#" variant="primary" loading>
             Go to Paste
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when size=reset is not applied to variant=reset', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button variant="reset" size="small">
             Submit
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when using fullWidth with an icon sizing', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button variant="primary" fullWidth size="icon">
             X
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when using fullWidth with an icon_small sizing', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       expect(() =>
-        shallow(
+        render(
           <Button variant="primary" fullWidth size="icon_small">
             X
           </Button>
         )
       ).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when not passing children', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       // @ts-expect-error
-      expect(() => shallow(<Button variant="primary" />)).toThrow();
+      expect(() => render(<Button variant="primary" />)).toThrow();
+      spy.mockRestore();
     });
 
     it('Throws an error when passing an invalid tabIndex', () => {
-      const originalError = console.error;
-      console.error = jest.fn();
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
       // @ts-expect-error
-      expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
-      expect(console.error).toHaveBeenCalled();
-      console.error = originalError;
+      expect(() => render(<Button variant="primary" tabIndex="-2" />)).toThrow();
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
     });
   });
 
   describe('Button aria attributes', () => {
     it('Has an aria-expanded attribute', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button variant="secondary" aria-expanded="true">
           button
         </Button>
@@ -285,7 +321,7 @@ describe('Button', () => {
     });
 
     it('Has an aria-haspopup attribute', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button variant="secondary" aria-haspopup="true">
           button
         </Button>
@@ -295,7 +331,7 @@ describe('Button', () => {
     });
 
     it('Has an aria-controls attribute', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button variant="secondary" aria-controls="some-id">
           button
         </Button>
@@ -305,7 +341,7 @@ describe('Button', () => {
     });
 
     it('Has an aria-busy attribute when loading', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" loading>
             button
@@ -320,7 +356,7 @@ describe('Button', () => {
     });
 
     it('Has disabled set on HTML when disabled', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button variant="secondary" disabled>
           button
         </Button>
@@ -332,7 +368,7 @@ describe('Button', () => {
 
   describe('Button data attributes', () => {
     it('Has an data-foo attribute', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button variant="secondary" data-foo="test">
           button
         </Button>
@@ -344,7 +380,7 @@ describe('Button', () => {
 
   describe('Button render as', () => {
     it('Renders a button as a link', () => {
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button as="a" variant="secondary" href="/tests">
           button
         </Button>
@@ -356,7 +392,7 @@ describe('Button', () => {
 
   describe('Button margin styles', () => {
     it('Renders a button with margin: space0', () => {
-      const {getByTestId} = testRender(
+      const {getByTestId} = render(
         <Button variant="primary" data-testid="button-margin">
           button
         </Button>
@@ -367,11 +403,11 @@ describe('Button', () => {
 
   describe('Button inner padding', () => {
     it('should not set padding for buttons with only one child', () => {
-      const {getByText} = testRender(<Button variant="primary">Hello</Button>);
+      const {getByText} = render(<Button variant="primary">Hello</Button>);
       expect(getByText('Hello')).not.toHaveStyleRule('padding', 'undefined');
     });
     it('should set padding between rendered children', () => {
-      const {getByText} = testRender(
+      const {getByText} = render(
         <Button variant="primary">
           Hello
           <PlusIcon decorative />
@@ -391,7 +427,7 @@ describe('Button', () => {
       const onFocusMock: jest.Mock = jest.fn();
       const onBlurMock: jest.Mock = jest.fn();
 
-      const {getByRole} = testRender(
+      const {getByRole} = render(
         <Button
           variant="primary"
           onClick={onClickMock}
@@ -429,7 +465,7 @@ describe('Button', () => {
 
   describe('button default styles', () => {
     it('should have the correct styles for the primary variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="primary" data-testid="primary-styles">
           Primary
         </Button>
@@ -446,7 +482,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the primary_icon variant', () => {
-      const {getByTestId} = testRender(
+      const {getByTestId} = render(
         <Button variant="primary_icon" data-testid="primary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
         </Button>
@@ -459,7 +495,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the secondary variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="secondary" data-testid="secondary-styles">
           Secondary
         </Button>
@@ -476,7 +512,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the secondary_icon variant', () => {
-      const {getByTestId} = testRender(
+      const {getByTestId} = render(
         <Button variant="secondary_icon" data-testid="secondary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
         </Button>
@@ -489,7 +525,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="destructive" data-testid="destructive-styles">
           Destructive
         </Button>
@@ -506,7 +542,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_icon variant', () => {
-      const {getByTestId} = testRender(
+      const {getByTestId} = render(
         <Button variant="destructive_icon" data-testid="destructive-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
         </Button>
@@ -519,7 +555,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_secondary variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="destructive_secondary" data-testid="destructive_secondary-styles">
           Destructive secondary
         </Button>
@@ -535,7 +571,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_link variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="destructive_link" data-testid="destructive_link-styles">
           Destructive link
         </Button>
@@ -550,7 +586,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the link variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="link" data-testid="link-styles">
           Link
         </Button>
@@ -566,7 +602,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the reset variant', () => {
-      const {getByText, getByTestId} = testRender(
+      const {getByText, getByTestId} = render(
         <Button variant="reset" data-testid="reset-styles">
           Reset
         </Button>
@@ -577,7 +613,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, getByTestId} = testRender(
+      const {getByText, getByTestId} = render(
         <CustomizationProvider baseTheme="default" data-testid="wrapping-div">
           <Button variant="link" loading data-testid="loading-link-styles">
             Loading link
@@ -605,7 +641,7 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the link variant in disabled state', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId, getByText} = render(
         <Button variant="link" disabled data-testid="disabled-link-styles">
           Disabled link
         </Button>
