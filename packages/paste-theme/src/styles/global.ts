@@ -3,6 +3,27 @@ import {css} from '@twilio-paste/styling-library';
 export const pasteGlobalStyles = css({
   html: {
     fontSize: '100%',
+    fontFamily: 'fontFamilyText',
+  },
+  'html:lang(ja), html:lang(ja-JP)': {
+    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
+      fontFamily: 'fontFamilyTextJa',
+    },
+  },
+  'html:lang(zh-CN)': {
+    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
+      fontFamily: 'fontFamilyTextZhSimplified',
+    },
+  },
+  'html:lang(zh-TW), html:lang(zh-HK)': {
+    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
+      fontFamily: 'fontFamilyTextZhTraditional',
+    },
+  },
+  'html:lang(ko)': {
+    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
+      fontFamily: 'fontFamilyTextKo',
+    },
   },
   body: {
     backgroundColor: 'colorBackgroundBody',
