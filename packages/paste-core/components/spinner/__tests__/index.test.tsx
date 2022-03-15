@@ -1,17 +1,14 @@
 import * as React from 'react';
-
 import {Theme} from '@twilio-paste/theme';
 import {render, screen} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Spinner} from '../src';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 
 // eslint-disable-next-line react/display-name
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
+  <CustomizationProvider elements={elements} data-testid="test-wrapper">
     {children}
   </CustomizationProvider>
 );
@@ -96,17 +93,6 @@ describe('Spinner', () => {
       expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255,255,255)');
       expect(nodeNamedSpinner).toHaveStyleRule('align-self', 'flex-start');
       expect(nodeNamedSpinner).toHaveStyleRule('padding', '0.25rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<Spinner title="Loading" decorative />, {
-        // eslint-disable-next-line react/display-name
-        wrapper: ({children}) => <Theme.Provider theme="default">{children}</Theme.Provider>,
-      });
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

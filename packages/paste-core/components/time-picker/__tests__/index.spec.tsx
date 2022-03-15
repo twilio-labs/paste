@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {formatReturnTime} from '../src/utils';
 import {
   DefaultTimePicker,
@@ -114,7 +112,6 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             TIMEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
             TIMEPICKER_ELEMENT: {backgroundColor: 'colorBackgroundBrandHighlight'},
@@ -133,7 +130,6 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             TIMEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
             TIMEPICKER_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
@@ -152,7 +148,6 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM_TIME: {backgroundColor: 'colorBackgroundBusy'},
             CUSTOM_TIME_ELEMENT: {backgroundColor: 'colorBackgroundDestructive'},
@@ -171,7 +166,6 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM_TIME: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},
             CUSTOM_TIME_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundSuccess'}}},
@@ -184,38 +178,6 @@ describe('TimePicker', () => {
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
       expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(231,220,250)');
       expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(20,176,83)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<DefaultTimePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Disabled should have no accessibility violations', async () => {
-      const {container} = render(<DisabledTimePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Error case should have no accessibility violations', async () => {
-      const {container} = render(<ErrorTimePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Inverse case should have no accessibility violations', async () => {
-      const {container} = render(<InverseTimePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Read only case should have no accessibility violations', async () => {
-      const {container} = render(<ReadonlyTimePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

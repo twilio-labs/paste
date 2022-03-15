@@ -100,7 +100,6 @@ describe('Customization', () => {
   it('Should add custom styling to default Inline Control Group', (): void => {
     const {container} = testRender(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           INLINE_CONTROL_GROUP: {margin: 'space60'},
           INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
@@ -131,7 +130,6 @@ describe('Customization', () => {
   it('Should add custom styling to custom named Inline Control Group', (): void => {
     const {container} = testRender(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           MY_INLINE_CONTROL_GROUP: {margin: 'space60'},
           MY_INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},

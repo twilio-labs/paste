@@ -2,9 +2,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Heading} from '../src';
 
 describe('Heading', () => {
@@ -161,7 +158,6 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{HEADING: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Heading as="h1" variant="heading10">
@@ -178,7 +174,6 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             HEADING: {
               color: 'colorTextWeak',
@@ -207,7 +202,6 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Heading as="h1" variant="heading10" element="foo">
@@ -224,7 +218,6 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             foo: {
               color: 'colorTextWeak',
@@ -247,35 +240,6 @@ describe('Heading', () => {
       expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244,244,246)');
       expect(renderedHeading).toHaveStyleRule('color', 'rgb(2,99,224)');
       expect(renderedHeading).toHaveStyleRule('text-decoration', 'underline');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <Theme.Provider theme="default">
-          <Heading as="h1" variant="heading10">
-            This is an H1
-          </Heading>
-          <Heading as="h2" variant="heading20">
-            This is an H2
-          </Heading>
-          <Heading as="h3" variant="heading30">
-            This is an H3
-          </Heading>
-          <Heading as="h4" variant="heading40">
-            This is an H4
-          </Heading>
-          <Heading as="h5" variant="heading50">
-            This is an H5
-          </Heading>
-          <Heading as="h6" variant="heading60">
-            This is an H6
-          </Heading>
-        </Theme.Provider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Option} from '../src';
 import type {OptionProps} from '../src';
 import {createAttributeMap} from '../test-utils';
@@ -83,13 +81,6 @@ describe('Option', () => {
     warnSpy.mockRestore();
   });
 
-  it('should have no accessibility violations', async () => {
-    const {container} = render(<ExampleOption value="option-1">Option 1</ExampleOption>);
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Option (default)', () => {
       render(
@@ -117,7 +108,6 @@ describe('Option', () => {
     it('should add custom styles to Option', () => {
       render(
         <CustomizationProvider
-          theme={TestTheme}
           elements={{
             OPTION: {
               color: 'colorTextLinkDarker',
@@ -139,7 +129,6 @@ describe('Option', () => {
     it('should add custom styles to Option with a custom element data attribute', () => {
       render(
         <CustomizationProvider
-          theme={TestTheme}
           elements={{
             OPTION: {
               color: 'colorTextLinkDarker',

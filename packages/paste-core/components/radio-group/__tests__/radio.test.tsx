@@ -3,8 +3,6 @@ import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {matchers} from 'jest-emotion';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
 
 expect.extend(matchers);
@@ -372,7 +370,7 @@ describe('Customization', () => {
 
   it('should add custom styling to a default Radio', () => {
     const {container} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles()}>
+      <CustomizationProvider elements={getCustomizationStyles()}>
         <RadioGroup {...defaultGroupProps} errorText="error">
           <Radio helpText="help" {...defaultProps}>
             foo
@@ -409,7 +407,7 @@ describe('Customization', () => {
 
   it('should add custom styling to a custom element Radio', () => {
     const {container} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_RADIO')}>
+      <CustomizationProvider elements={getCustomizationStyles('MY_RADIO')}>
         <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
           <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
             foo
@@ -445,20 +443,5 @@ describe('Customization', () => {
       'margin-bottom',
       '1.25rem'
     );
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const helpText = "I'm help text";
-    const errorText = "I'm error text";
-
-    const {container} = render(
-      <RadioGroup {...defaultGroupProps} helpText={helpText} errorText={errorText} required>
-        <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

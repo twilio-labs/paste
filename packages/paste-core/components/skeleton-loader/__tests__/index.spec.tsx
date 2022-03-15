@@ -1,9 +1,6 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {SkeletonLoader} from '../src';
 import {Default} from '../stories/index.stories';
 
@@ -84,7 +81,6 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             SKELETON_LOADER: {
               margin: 'space80',
@@ -101,7 +97,6 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM_SKELETON_LOADER: {
               padding: 'space30',
@@ -112,14 +107,6 @@ describe('SkeletonLoader', () => {
         </CustomizationProvider>
       );
       expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('padding', '0.5rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<SkeletonLoader />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

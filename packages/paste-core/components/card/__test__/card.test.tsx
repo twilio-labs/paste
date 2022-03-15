@@ -2,14 +2,12 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Card} from '../src';
 
 describe('Card', () => {
   it('should render', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Card data-testid="card" />
       </CustomizationProvider>
     );
@@ -19,7 +17,7 @@ describe('Card', () => {
 
   it('should render default padding', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Card data-testid="card" />
       </CustomizationProvider>
     );
@@ -29,7 +27,7 @@ describe('Card', () => {
 
   it('should render custom padding values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Card
           data-testid="card"
           paddingTop="space20"
@@ -48,24 +46,12 @@ describe('Card', () => {
 
   it('should render children', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Card>I AM A JEDI!!!!</Card>
       </CustomizationProvider>
     );
     const renderedCardContent = screen.getByText('I AM A JEDI!!!!');
     expect(renderedCardContent).toBeDefined();
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
-        <Card>card content</Card>
-      </CustomizationProvider>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
 

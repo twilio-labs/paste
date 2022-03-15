@@ -39,7 +39,7 @@ describe('Button customization', () => {
 
   it('should add custom styles to Button', () => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={{BUTTON: customButtonStyles}}>
+      <CustomizationProvider elements={{BUTTON: customButtonStyles}}>
         <AnyButton variant="primary" />
       </CustomizationProvider>
     );
@@ -51,7 +51,7 @@ describe('Button customization', () => {
 
   it('should add custom styles to Button variants', () => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={{BUTTON: customButtonStyles}}>
+      <CustomizationProvider elements={{BUTTON: customButtonStyles}}>
         <AnyButton variant="destructive_link" />
       </CustomizationProvider>
     );
@@ -63,7 +63,7 @@ describe('Button customization', () => {
 
   it('should add custom styles to Button with custom element prop', () => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={{bar: customButtonStyles}}>
+      <CustomizationProvider elements={{bar: customButtonStyles}}>
         <AnyButton variant="secondary" element="bar" />
       </CustomizationProvider>
     );

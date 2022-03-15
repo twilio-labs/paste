@@ -8,7 +8,7 @@ import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 describe('Backgrounds', () => {
   it('should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box backgroundColor="colorBackgroundPrimary" data-testid="box">
           background single
         </Box>
@@ -20,7 +20,7 @@ describe('Backgrounds', () => {
 
   it('should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']} data-testid="box">
           background responsive
         </Box>
@@ -37,7 +37,7 @@ describe('Backgrounds', () => {
 describe('Color mappings', () => {
   it('should map single color values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           backgroundColor="colorBackgroundPrimary"
           borderColor="colorBorderStrong"
@@ -64,7 +64,7 @@ describe('Color mappings', () => {
 
   it('should map responsive color values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}
           borderColor={['colorBorderStrong', 'colorBorderDestructiveStrong']}
@@ -92,7 +92,7 @@ describe('Color mappings', () => {
 
   it('should map pseudo selector color values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           _hover={{
             backgroundColor: 'colorBackground',
@@ -113,7 +113,7 @@ describe('Color mappings', () => {
 
   it('should map responsive pseudo selector color values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           _hover={{
             backgroundColor: ['colorBackground', 'colorBackgroundBody'],
@@ -148,7 +148,7 @@ describe('Color mappings', () => {
 describe('Borders', () => {
   it('should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           borderStyle="solid"
           borderColor="colorBorderPrimaryStrong"
@@ -169,7 +169,7 @@ describe('Borders', () => {
 
   it('should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           borderStyle={['dashed', 'dotted', 'solid']}
           borderColor={['colorBorderPrimaryStrong', 'colorBorderPrimaryWeak']}
@@ -207,7 +207,7 @@ describe('Borders', () => {
 describe('Sizes', () => {
   it('should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           width="size10"
           minWidth="size0"
@@ -232,7 +232,7 @@ describe('Sizes', () => {
 
   it('should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           width={['size10', 'size20']}
           minWidth={['size0', 'size10']}
@@ -277,7 +277,7 @@ describe('Sizes', () => {
 describe('Spaces', () => {
   it('(A) it should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box margin="space20" data-testid="box">
           space single 1
         </Box>
@@ -289,7 +289,7 @@ describe('Spaces', () => {
 
   it('(A) it should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box margin={['space20', 'space30']} data-testid="box">
           space responsive 1
         </Box>
@@ -304,7 +304,7 @@ describe('Spaces', () => {
 
   it('(B) it should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box marginTop="space20" marginRight="space20" marginBottom="space30" marginLeft="space30" data-testid="box">
           space single 2
         </Box>
@@ -319,7 +319,7 @@ describe('Spaces', () => {
 
   it('(B)it should render responsive values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box
           marginTop={['space20', 'space30']}
           marginRight={['space20', 'space30']}
@@ -352,7 +352,7 @@ describe('Spaces', () => {
 
   it('(C) it should render single values for column and row gap', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box display="flex" columnGap="space10" rowGap="space10" data-testid="box">
           space single 3
         </Box>
@@ -365,7 +365,7 @@ describe('Spaces', () => {
 
   it('(C) it should render responsive values for column and row gap', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box display="flex" columnGap={['space20', 'space30']} rowGap={['space30', 'space40']} data-testid="box">
           space single 3
         </Box>
@@ -387,7 +387,7 @@ describe('Spaces', () => {
 describe('Shadows', () => {
   it('should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box boxShadow="shadowCard" data-testid="box">
           shadow single
         </Box>
@@ -399,7 +399,7 @@ describe('Shadows', () => {
 
   it('should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box boxShadow={['shadowCard', 'shadowFocus']} data-testid="box">
           shadow responsive
         </Box>
@@ -416,7 +416,7 @@ describe('Shadows', () => {
 describe('ZIndex', () => {
   it('should render single values', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box zIndex="zIndex10" data-testid="box">
           z-index single
         </Box>
@@ -428,7 +428,7 @@ describe('ZIndex', () => {
 
   it('should render responsive values', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <Box zIndex={['zIndex10', 'zIndex20']} data-testid="box">
           z-index responsive
         </Box>
@@ -444,7 +444,7 @@ describe('ZIndex', () => {
   describe('Pseudo-class props', () => {
     it('should generate pseudo-class CSS', (): void => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <Box
             _hover={{padding: 'space10'}}
             _active={{padding: 'space10'}}

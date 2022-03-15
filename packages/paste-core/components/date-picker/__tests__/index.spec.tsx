@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render, screen} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {formatReturnDate} from '../src';
 import {
   DefaultDatePicker,
@@ -105,7 +103,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             DATEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
             DATEPICKER_ELEMENT: {backgroundColor: 'colorBackgroundBrandHighlight'},
@@ -124,7 +121,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             DATEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
             DATEPICKER_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
@@ -143,7 +139,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOMDATE: {backgroundColor: 'colorBackgroundBusy'},
             CUSTOMDATE_ELEMENT: {backgroundColor: 'colorBackgroundDestructive'},
@@ -162,7 +157,6 @@ describe('DatePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOMDATE: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},
             CUSTOMDATE_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundSuccess'}}},
@@ -175,38 +169,6 @@ describe('DatePicker', () => {
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
       expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(231,220,250)');
       expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(20,176,83)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<DefaultDatePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Disabled should have no accessibility violations', async () => {
-      const {container} = render(<DisabledDatePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('hasError should have no accessibility violations', async () => {
-      const {container} = render(<ErrorDatePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('inverse should have no accessibility violations', async () => {
-      const {container} = render(<InverseDatePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('readOnly should have no accessibility violations', async () => {
-      const {container} = render(<ReadonlyDatePicker />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

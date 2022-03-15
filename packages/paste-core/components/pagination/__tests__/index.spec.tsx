@@ -1,8 +1,5 @@
 import * as React from 'react';
-
 import {render, fireEvent} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {PaginationArrow, PaginationNumber} from '../src';
 import {ArrowsPageLabelExample, NumbersExample, NumbersPageLabelExample} from '../stories/index.stories';
 
@@ -169,14 +166,6 @@ describe('Pagination', () => {
       expect(onFocusMock).toHaveBeenCalledTimes(1);
       fireEvent.blur(getByTestId('number-button'));
       expect(onBlurMock).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<NumbersExample />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

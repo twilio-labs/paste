@@ -6,7 +6,7 @@ import {SiblingBox} from '../src';
 describe('SiblingBox render', () => {
   it('should render', (): void => {
     const {asFragment} = render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <SiblingBox
           width="sizeSquare50"
           _hover={{
@@ -75,7 +75,6 @@ describe('SiblingBox render', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{SIBLING_BOX: {color: 'colorTextWeak', textDecoration: 'underline'}}}
         >
           <SiblingBox data-testid="customized-sibling-box">Custom Box</SiblingBox>

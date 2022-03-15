@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
 
 describe('Table', () => {
@@ -310,7 +308,6 @@ describe('Table', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             TABLE: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
             TH: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
@@ -382,7 +379,6 @@ describe('Table', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             dog: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
             cat: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
@@ -459,39 +455,6 @@ describe('Table', () => {
 
       expect(tHead).toHaveStyleRule('border-style', 'dotted');
       expect(tHead).toHaveStyleRule('font-weight', '500');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <Table>
-          <THead>
-            <Tr>
-              <Th>Column 1</Th>
-              <Th>Column 2</Th>
-            </Tr>
-          </THead>
-          <TBody>
-            <Tr>
-              <Td>1</Td>
-              <Td>Empty</Td>
-            </Tr>
-            <Tr>
-              <Td>2</Td>
-              <Td>Empty</Td>
-            </Tr>
-          </TBody>
-          <TFoot>
-            <Tr>
-              <Td>100</Td>
-              <Td>end</Td>
-            </Tr>
-          </TFoot>
-        </Table>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

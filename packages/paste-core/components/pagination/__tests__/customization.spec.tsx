@@ -86,7 +86,7 @@ describe('Customization for Pagination wrapper and arrows', () => {
 
   it('should add custom styles to Pagination wrapper and arrows', (): void => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles()}>
+      <CustomizationProvider elements={getCustomizedStyles()}>
         <WrapperAndArrows />
       </CustomizationProvider>
     );
@@ -102,7 +102,7 @@ describe('Customization for Pagination wrapper and arrows', () => {
 
   it('should add custom styles to Pagination wrapper and arrows when a custom element data attribute is used', (): void => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles('FOO')}>
+      <CustomizationProvider elements={getCustomizedStyles('FOO')}>
         <WrapperAndArrows element="FOO" />
       </CustomizationProvider>
     );
@@ -158,7 +158,7 @@ describe('Customization for Pagination numbers and label', () => {
 
   it('should add custom styles to Pagination numbers and label', (): void => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles()}>
+      <CustomizationProvider elements={getCustomizedStyles()}>
         <NumbersAndLabel />
       </CustomizationProvider>
     );
@@ -176,7 +176,7 @@ describe('Customization for Pagination numbers and label', () => {
 
   it('should add custom styles to Pagination numbers and label when a custom element data attribute is used', (): void => {
     const {getByTestId} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles('FOO')}>
+      <CustomizationProvider elements={getCustomizedStyles('FOO')}>
         <NumbersAndLabel element="FOO" />
       </CustomizationProvider>
     );

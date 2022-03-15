@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Breadcrumb, BreadcrumbItem} from '../src';
 
 describe('Breadcrumb', () => {
@@ -68,14 +66,6 @@ describe('Breadcrumb', () => {
     );
     const breadcrumbAnchor = screen.getByRole('listitem').firstChild as HTMLElement;
     expect(breadcrumbAnchor.getAttribute('data-testid')).toEqual('breadcrumb-anchor');
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<BreadcrumbExample />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
   });
 
   describe('Customization', () => {
@@ -177,7 +167,6 @@ describe('Breadcrumb', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
             BREADCRUMB_ITEM: {fontWeight: 'fontWeightMedium'},
@@ -234,7 +223,6 @@ describe('Breadcrumb', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM: {marginY: 'space60', fontVariantNumeric: 'ordinal'},
             CUSTOM_CHILD_ITEM: {fontWeight: 'fontWeightLight'},

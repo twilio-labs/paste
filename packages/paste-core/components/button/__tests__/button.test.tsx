@@ -4,149 +4,12 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
 
 const NOOP = (): void => {};
 const HREF = 'https://twilio.paste.design';
 
 describe('Button', () => {
-  describe('Button axe checker', () => {
-    it('Primary has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="primary" type="submit" onClick={NOOP}>
-            Submit
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Secondary has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="secondary" type="submit" onClick={NOOP}>
-            Submit
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Destructive has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="destructive" onClick={NOOP}>
-            Delete
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Destructive_secondary has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="destructive_secondary" onClick={NOOP}>
-            Delete
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Destructive_link has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="destructive_link" onClick={NOOP}>
-            Undo
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Link button has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="link" onClick={NOOP}>
-            Go to Paste
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Primary Icon button has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="primary_icon" size="reset" onClick={NOOP}>
-            <PlusIcon decorative={false} title="add more" />
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Secondary Icon button has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="secondary_icon" size="reset" onClick={NOOP}>
-            <PlusIcon decorative={false} title="add more" />
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Destructive Icon button has no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="destructive_icon" size="reset" onClick={NOOP}>
-            <PlusIcon decorative={false} title="add more" />
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Loading states have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="primary" onClick={NOOP} loading>
-            Submit
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Disabled states have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Button variant="destructive" onClick={NOOP} disabled>
-            Undo
-          </Button>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
-
   describe('Button Errors', () => {
     it('Throws an error when a href is passed but an "a" tag is not', () => {
       // hide console errors from terminal when throwing expected errors
@@ -342,7 +205,7 @@ describe('Button', () => {
 
     it('Has an aria-busy attribute when loading', () => {
       const {getByRole} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <Button variant="secondary" loading>
             button
           </Button>

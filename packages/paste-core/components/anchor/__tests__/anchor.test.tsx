@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Anchor} from '../src';
 
 describe('Anchor', () => {
@@ -164,21 +162,6 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('padding-left', 'space20');
   });
 
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <>
-          <Anchor href="/">This is an anchor</Anchor>
-          <Anchor href="https://twilio.com">
-            This is an anchor that links to Twilio.com with an external target and rel
-          </Anchor>
-        </>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
-
   describe('Customization', () => {
     it('should set a element data attribute for Anchor', () => {
       render(
@@ -203,7 +186,6 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >
           <Anchor href="https://paste.twilio.design" data-testid="customizable-anchor">
@@ -219,7 +201,6 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{FUNKY_ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >
           <Anchor element="FUNKY_ANCHOR" href="https://paste.twilio.design" data-testid="customizable-anchor">

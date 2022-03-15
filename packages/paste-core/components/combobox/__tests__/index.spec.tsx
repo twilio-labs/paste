@@ -6,8 +6,6 @@ import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import type {ComboboxProps} from '../src/types';
 import {getIndexedItems, getGroupedItems} from '../src/helpers';
@@ -298,23 +296,6 @@ describe('Combobox', () => {
       expect(screen.getByRole('textbox').value).toEqual('');
       expect(screen.getByTestId('input-value-span').textContent).toEqual('""');
       expect(screen.getByTestId('selected-item-span').textContent).toEqual('null');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<ComboboxMock />, {wrapper: ThemeWrapper});
-      const results = await axe(container, {
-        rules: {
-          // Incorrectly thinks our markup is bad for a11y.
-          // False negative, see:
-          // https://github.com/dequelabs/axe-core/issues/2505
-          // https://github.com/dequelabs/axe-core/issues/2523
-          'aria-required-parent': {enabled: false},
-          'aria-required-children': {enabled: false},
-        },
-      });
-      expect(results).toHaveNoViolations();
     });
   });
 });

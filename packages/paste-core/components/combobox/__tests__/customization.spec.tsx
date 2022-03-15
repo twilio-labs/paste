@@ -24,9 +24,7 @@ const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
 
 // eslint-disable-next-line react/display-name
 const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider theme={TestTheme} elements={getStyles(elementName)}>
-    {children}
-  </CustomizationProvider>
+  <CustomizationProvider elements={getStyles(elementName)}>{children}</CustomizationProvider>
 );
 
 const ComboboxToTest = ({element = 'COMBOBOX'}): React.ReactElement => (

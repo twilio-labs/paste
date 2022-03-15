@@ -1,15 +1,13 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
 describe('Ordered List', () => {
   describe('Render', () => {
     it('should render a plain ordered list wrapper', () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <OrderedList>Children</OrderedList>
         </CustomizationProvider>
       );
@@ -19,7 +17,7 @@ describe('Ordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
@@ -65,7 +63,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <OrderedList>Custom ordered list</OrderedList>
@@ -80,7 +77,6 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <OrderedList element="foo">Custom ordered list</OrderedList>
@@ -91,27 +87,13 @@ describe('Ordered List', () => {
       expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
     });
   });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <OrderedList>
-            <ListItem>item</ListItem>
-          </OrderedList>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
 });
 
 describe('Unordered List', () => {
   describe('Render', () => {
     it('should render a plain unordered list wrapper', () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <UnorderedList>Children</UnorderedList>
         </CustomizationProvider>
       );
@@ -121,7 +103,7 @@ describe('Unordered List', () => {
 
     it('should allow marginTop and marginBottom styling props', () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <UnorderedList marginTop="space40" marginBottom="space40">
             Children
           </UnorderedList>
@@ -167,7 +149,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <UnorderedList>Custom unordered list</UnorderedList>
@@ -182,7 +163,6 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <UnorderedList element="foo">Custom unordered list</UnorderedList>
@@ -193,27 +173,13 @@ describe('Unordered List', () => {
       expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
     });
   });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <UnorderedList>
-            <ListItem>item</ListItem>
-          </UnorderedList>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
 });
 
 describe('ListItem', () => {
   describe('Render', () => {
     it('should render a plain list item', () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <ListItem>Children</ListItem>
         </CustomizationProvider>
       );
@@ -256,7 +222,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <ListItem>Custom list item</ListItem>
@@ -271,7 +236,6 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <ListItem element="foo">Custom list item</ListItem>

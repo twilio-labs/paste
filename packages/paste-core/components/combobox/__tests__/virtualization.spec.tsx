@@ -32,7 +32,7 @@ jest.mock('react-virtual', () => {
 expect.extend(matchers);
 
 const CustomizationWrapper: RenderOptions['wrapper'] = ({children}) => (
-  <CustomizationProvider theme={TestTheme}>{children}</CustomizationProvider>
+  <CustomizationProvider>{children}</CustomizationProvider>
 );
 
 describe('Combobox - Virtualization', () => {

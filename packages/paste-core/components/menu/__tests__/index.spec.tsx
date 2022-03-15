@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {useMenuState, Menu, MenuItem, MenuButton, MenuGroup, MenuSeparator} from '../src';
 import type {MenuButtonProps} from '../src';
 
@@ -186,14 +184,6 @@ describe('Menu', () => {
         userEvent.keyboard('{enter}');
       });
       expect(handleClickMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<MenuMock />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

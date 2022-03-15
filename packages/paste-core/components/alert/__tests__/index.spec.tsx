@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore
-import axe from '../../../../../.jest/axe-helper';
 import {Alert} from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();
@@ -62,55 +60,10 @@ describe('Alert', () => {
     });
   });
 
-  describe('Variant neutral', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Alert variant="neutral">This is a neutral alert</Alert>
-          <Alert onDismiss={onDismissMock} variant="neutral">
-            This is a neutral alert
-          </Alert>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
-
-  describe('Variant error', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Alert variant="error">This is a error alert</Alert>
-          <Alert onDismiss={onDismissMock} variant="error">
-            This is a error alert
-          </Alert>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
-
-  describe('Variant warning', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <Alert variant="warning">This is a warning alert</Alert>
-          <Alert onDismiss={onDismissMock} variant="warning">
-            This is a warning alert
-          </Alert>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
-
   describe('Customization', () => {
     it('should set default data-paste-element attribute on Alert and customizable Alert children', (): void => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <Alert data-testid="alert-customization" variant="neutral" onDismiss={onDismissMock}>
             This is my test alert
           </Alert>

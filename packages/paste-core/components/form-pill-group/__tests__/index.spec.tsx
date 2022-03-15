@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
 import {Basic, SelectableAndRemovable, CustomFormPillGroup} from '../stories/index.stories';
 
@@ -182,7 +180,6 @@ describe('FormPillGroup', () => {
       const {getByTestId} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM_PILL_GROUP: {
               margin: 'space40',
@@ -202,20 +199,6 @@ describe('FormPillGroup', () => {
 
       const pill = getByTestId('form-pill');
       expect(pill).toHaveStyleRule('background-color', 'rgb(231,220,250)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations #1', async () => {
-      const {container} = render(<Basic />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('Should have no accessibility violations #2', async () => {
-      const {container} = render(<SelectableAndRemovable />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 

@@ -4,14 +4,11 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Select, Option, SelectElement} from '../src';
 import type {SelectProps} from '../src';
 import {createAttributeMap} from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
-
 interface ExampleSelectProps extends SelectProps {
   element?: string;
   dataPrefix?: string;
@@ -177,17 +174,6 @@ describe('Select', () => {
     expect(getByTestId('select-margin')).toHaveStyleRule('margin', 'space0');
   });
 
-  it('should have no accessibility violations', async () => {
-    const {container} = render(
-      <MockWrappedSelect {...defaultProps}>
-        <Option value="option-1">test</Option>
-      </MockWrappedSelect>
-    );
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Select (default)', () => {
       render(
@@ -217,7 +203,6 @@ describe('Select', () => {
   describe('Customization', () => {
     const CustomizationWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           SELECT: {
             color: 'colorTextLinkDarker',

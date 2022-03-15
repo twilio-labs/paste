@@ -3,9 +3,6 @@ import {render, screen} from '@testing-library/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
-
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
 import {
   getCorrespondingLineHeightFromSizeToken,
@@ -193,20 +190,6 @@ describe('Avatar', () => {
       );
       const renderedAvatar = screen.getByTestId('avatar');
       expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <>
-          <Avatar size="sizeIcon10" name="Simon Taggart" />
-          <Avatar size="sizeIcon10" name="avatar example" src="/avatars/avatar2.png" />
-          <Avatar size="sizeIcon10" name="Simon Taggart" icon={UserIcon} />
-        </>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

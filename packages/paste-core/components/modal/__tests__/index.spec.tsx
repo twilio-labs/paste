@@ -8,8 +8,6 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
 const handleCloseMock: jest.Mock = jest.fn();
@@ -17,7 +15,7 @@ const handleCloseMock: jest.Mock = jest.fn();
 const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
-    <CustomizationProvider baseTheme="default" theme={TestTheme}>
+    <CustomizationProvider baseTheme="default">
       <Modal
         data-testid="modal"
         aria-busy="true"
@@ -58,7 +56,7 @@ const MockInitalFocusModal: React.FC = () => {
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
   const inputID = useUID();
   return (
-    <CustomizationProvider baseTheme="default" theme={TestTheme}>
+    <CustomizationProvider baseTheme="default">
       <Modal
         data-testid="modal"
         ariaLabelledby={modalHeadingID}
@@ -100,7 +98,7 @@ const MockInitalFocusModal: React.FC = () => {
 const I18nMockModal: React.FC = () => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
-    <CustomizationProvider baseTheme="default" theme={TestTheme}>
+    <CustomizationProvider baseTheme="default">
       <Modal ariaLabelledby={modalHeadingID} isOpen onDismiss={handleCloseMock} size="default">
         <ModalHeader i18nDismissLabel="foo bar">
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -165,19 +163,6 @@ describe('Modal', () => {
     const {getByTestId} = render(<MockModal />);
     fireEvent.click(getByTestId('modal-header').querySelector('button') as HTMLButtonElement);
     expect(handleCloseMock).toHaveBeenCalled();
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<MockModal />);
-      const results = await axe(container, {
-        rules: {
-          // ignore the tabindex of the focus trap helper
-          tabindex: {enabled: false},
-        },
-      });
-      expect(results).toHaveNoViolations();
-    });
   });
 });
 

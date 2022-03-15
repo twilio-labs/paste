@@ -3,8 +3,6 @@ import {render} from 'react-dom';
 
 import {render as testRender} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
 
 const defaultProps = {
@@ -71,7 +69,6 @@ describe('Customization', () => {
   it('Should add custom styling to a default Checkbox Disclaimer', () => {
     const {container} = testRender(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
           CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
@@ -95,7 +92,6 @@ describe('Customization', () => {
   it('Should add custom styling to a custom named Checkbox Disclaimer', () => {
     const {container} = testRender(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           MY_CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
           MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
@@ -114,21 +110,5 @@ describe('Customization', () => {
       'margin-top',
       '1.25rem'
     );
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    const errorText = 'This is the error text.';
-    document.body.append(container);
-    render(
-      <CheckboxDisclaimer {...defaultProps} errorText={errorText}>
-        foo
-      </CheckboxDisclaimer>,
-      container
-    );
-    const results = await axe(document.body);
-    expect(results).toHaveNoViolations();
   });
 });

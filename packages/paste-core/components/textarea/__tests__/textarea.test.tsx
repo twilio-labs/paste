@@ -3,8 +3,6 @@ import * as React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
 import {CustomizedTextarea} from '../stories/textarea.stories';
 
@@ -157,43 +155,5 @@ describe('Textarea customization', () => {
     expect(renderedTextAreaElement).toHaveStyleRule('background-color', 'rgb(235,244,255)');
     expect(renderedTextAreaPrefix).toHaveStyleRule('background-color', 'rgb(235,244,255)');
     expect(renderedTextAreaSuffix).toHaveStyleRule('background-color', 'rgb(235,244,255)');
-  });
-});
-
-describe('Textarea Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <>
-        <Label htmlFor="foo">Foo</Label>
-        <TextArea id="foo" onChange={NOOP} />
-      </>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
-  });
-
-  it('disabled has no accessibility violations', async () => {
-    const {container} = render(
-      <>
-        <Label htmlFor="foo-disabled" disabled>
-          Foo
-        </Label>
-        <TextArea id="foo-disabled" onChange={NOOP} disabled />
-      </>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
-  });
-
-  it('hasError has no accessibility violations', async () => {
-    const {container} = render(
-      <>
-        <Label htmlFor="foo-error">Foo</Label>
-        <TextArea id="foo-error" onChange={NOOP} hasError />
-        <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
-      </>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

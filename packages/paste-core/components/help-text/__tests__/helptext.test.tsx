@@ -37,7 +37,6 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        theme={TestTheme}
         elements={{
           HELP_TEXT: {
             color: 'colorTextSuccess',
@@ -61,7 +60,6 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        theme={TestTheme}
         elements={{
           foo: {
             color: 'colorTextSuccess',

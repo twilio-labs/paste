@@ -4,7 +4,6 @@ module.exports = {
   globals: {
     TestTheme,
   },
-  verbose: true,
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)?$',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [

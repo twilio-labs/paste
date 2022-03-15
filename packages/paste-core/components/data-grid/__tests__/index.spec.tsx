@@ -2,9 +2,6 @@ import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
-
 import {DataGridHeaderSort} from '../src';
 import {ComposableCellsDataGrid} from '../stories/components/ComposableCellsDataGrid';
 import {SortableColumnsDataGrid} from '../stories/components/SortableColumnsDataGrid';
@@ -271,15 +268,6 @@ describe.skip('Data Grid', () => {
       await waitFor(() => {
         expect(header.getAttribute('aria-sort')).toBe('ascending');
       });
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<ComposableCellsDataGrid />);
-      // Because it is in a table, we don't need labels
-      const results = await axe(container, {rules: {label: {enabled: false}}});
-      expect(results).toHaveNoViolations();
     });
   });
 });

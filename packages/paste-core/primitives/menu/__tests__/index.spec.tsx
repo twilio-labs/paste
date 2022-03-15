@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// @ts-ignore
-import axe from '../../../../../.jest/axe-helper';
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
@@ -152,14 +150,6 @@ describe('Menu Primitive', () => {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(document.activeElement).toEqual(screen.getByText('About Visual Studio Code'));
       }
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<MenuMock />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

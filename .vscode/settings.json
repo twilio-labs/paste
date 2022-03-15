@@ -5,5 +5,10 @@
     "**/dist": true,
     "**/docs": true
   },
-  "jest.jestCommandLine": "yarn jest"
+  "jest.jestCommandLine": "yarn jest",
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file",
+    "onStartup": ["all-tests"]
+  }
 }

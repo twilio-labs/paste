@@ -69,7 +69,6 @@ describe('Base radio checkbox customization', () => {
   it('should add custom styles to base radio checkbox', () => {
     const screen = render(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           BASE_RADIO_CHECKBOX_CONTROL: {backgroundColor: 'colorBackgroundError'},
           BASE_RADIO_CHECKBOX_LABEL_TEXT: {color: 'colorTextSuccess'},
@@ -95,7 +94,6 @@ describe('Base radio checkbox customization', () => {
   it('should add custom styles to base radio checkbox with custom element prop', () => {
     const screen = render(
       <CustomizationProvider
-        theme={TestTheme}
         elements={{
           fi: {backgroundColor: 'colorBackgroundError'},
           fo: {color: 'colorTextSuccess'},

@@ -1,11 +1,8 @@
 import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
@@ -107,18 +104,6 @@ describe('Popover', () => {
       });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <Theme.Provider theme="default">
-          <PopoverTop />
-        </Theme.Provider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 

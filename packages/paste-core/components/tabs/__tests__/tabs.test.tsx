@@ -1,11 +1,7 @@
 import * as React from 'react';
-
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 import {getElementName} from '../src/utils';
@@ -280,7 +276,6 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             HORIZONTAL_TABS: {
               margin: 'space100',
@@ -346,7 +341,6 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             HORSE: {
               margin: 'space100',
@@ -431,14 +425,6 @@ describe('Tabs', () => {
       expect(screen.getByTestId('tab-panel-1')).toHaveStyleRule('padding-right', '0');
       expect(screen.getByTestId('tab-panel-2')).toHaveStyleRule('padding-left', '0.25rem');
       expect(screen.getByTestId('tab-panel-3')).toHaveStyleRule('padding-left', '0.75rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<HorizontalTabs />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

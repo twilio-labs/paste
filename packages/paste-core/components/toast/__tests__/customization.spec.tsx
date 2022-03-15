@@ -23,9 +23,7 @@ describe('Toast data-paste-element attribute', () => {
 describe('Toast customization', () => {
   it('should set styles on default Toast', () => {
     const {container} = render(
-      <CustomizationProvider theme={TestTheme} elements={getStyles()}>
-        {makeToast('warning')}
-      </CustomizationProvider>
+      <CustomizationProvider elements={getStyles()}>{makeToast('warning')}</CustomizationProvider>
     );
     expect(screen.getByTestId('toast_warning')).toHaveStyleRule('background-color', 'rgb(254,245,238)');
     expect(screen.getByTestId('toast_warning')).toHaveStyleRule('width', '18.5rem');
@@ -41,9 +39,7 @@ describe('Toast customization', () => {
   });
   it('should set styles on custom element Toast', () => {
     const {container} = render(
-      <CustomizationProvider theme={TestTheme} elements={getStyles('FOO')}>
-        {makeToast('error', 'FOO')}
-      </CustomizationProvider>
+      <CustomizationProvider elements={getStyles('FOO')}>{makeToast('error', 'FOO')}</CustomizationProvider>
     );
     expect(screen.getByTestId('toast_error')).toHaveStyleRule('background-color', 'rgb(254,236,236)');
     expect(screen.getByTestId('toast_error')).toHaveStyleRule('width', '18.5rem');

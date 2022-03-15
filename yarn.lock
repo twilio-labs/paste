@@ -14955,16 +14955,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest-axe@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "@types/jest-axe@npm:3.5.1"
-  dependencies:
-    "@types/jest": "*"
-    axe-core: ^3.5.5
-  checksum: 44fe4ed0b8be942e261586c408ff71faacce912221468440706fc7d72ef066aae2e5a590cf5d93a5d756716a961e6287a756aa34682667274d1919494b29369c
-  languageName: node
-  linkType: hard
-
 "@types/jest@npm:*":
   version: 25.2.1
   resolution: "@types/jest@npm:25.2.1"
@@ -18264,14 +18254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^3.5.5":
-  version: 3.5.5
-  resolution: "axe-core@npm:3.5.5"
-  checksum: e2bcd1d849b1d4a94e2106d9ec0be780e125c678c395a6aab3febfec08140703aa85a9d47dc9be9dc7b5b1ce301cf7a4832bc7cdb2650c0b8595c04ee8b6fb09
-  languageName: node
-  linkType: hard
-
-"axe-core@npm:^4.0.1, axe-core@npm:^4.0.2":
+"axe-core@npm:^4.0.2":
   version: 4.0.2
   resolution: "axe-core@npm:4.0.2"
   checksum: 56a0203d3e39091ff7886a8b22f7790187db88171863cbd487ee71b733143556ad2eb50c542dc1bd3f519de25cc3a238cf6627e5d00535483f2cd07aef7d27fb
@@ -33522,18 +33505,6 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "jest-axe@npm:4.1.0"
-  dependencies:
-    axe-core: ^4.0.1
-    chalk: ^4.0.0
-    jest-matcher-utils: ^26.0.1
-    lodash.merge: ^4.6.2
-  checksum: fdbd26c480785868d0c15769d50ff1e4f743dc078d7a5a3870a17ba07004e3d3deec407972b9417752c550a2983e31c71f82eaf3f105f5ea7c81b351d9a3fb20
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-changed-files@npm:26.6.2"
@@ -34040,7 +34011,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^26.0.1, jest-matcher-utils@npm:^26.6.0, jest-matcher-utils@npm:^26.6.2":
+"jest-matcher-utils@npm:^26.6.0, jest-matcher-utils@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-matcher-utils@npm:26.6.2"
   dependencies:
@@ -40639,7 +40610,6 @@ is-whitespace@latest:
     "@types/gulp-if": ^0.0.33
     "@types/gulp-terser": ^1.2.1
     "@types/jest": ^24.0.18
-    "@types/jest-axe": ^3.5.1
     "@types/node": ^14.14.16
     "@types/react": ^17.0.31
     "@types/react-16": "npm:@types/react@^16.0.0"
@@ -40696,7 +40666,6 @@ is-whitespace@latest:
     husky: ^3.0.0
     immutable: ^4.0.0-rc.12
     jest: 27.5.1
-    jest-axe: ^4.1.0
     jest-emotion: ^10.0.32
     lerna: ^4.0.0
     lodash: ^4.17.19

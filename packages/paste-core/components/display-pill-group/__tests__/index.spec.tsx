@@ -1,9 +1,6 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {DisplayPillGroup, DisplayPill} from '../src';
 import {Basic, CustomDisplayPillGroup} from '../stories/index.stories';
 
@@ -73,7 +70,6 @@ describe('DisplayPillGroup', () => {
       const {getByTestId} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={TestTheme}
           elements={{
             CUSTOM_PILL_GROUP: {
               margin: 'space40',
@@ -107,15 +103,6 @@ describe('DisplayPillGroup', () => {
 
       const pillStandard = getByTestId('display-pill-standard');
       expect(pillStandard).toHaveStyleRule('background-color', 'rgb(231,220,250)');
-    });
-  });
-
-  // Validates the accessibility of the component
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<Basic />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

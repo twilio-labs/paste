@@ -99,9 +99,7 @@ describe('Modal Customization', () => {
       render(<BaseModal size="default" />, {
         // eslint-disable-next-line react/display-name
         wrapper: ({children}) => (
-          <CustomizationProvider theme={TestTheme} elements={initStyles('MODAL')}>
-            {children}
-          </CustomizationProvider>
+          <CustomizationProvider elements={initStyles('MODAL')}>{children}</CustomizationProvider>
         ),
       });
 
@@ -142,9 +140,7 @@ describe('Modal Customization', () => {
       render(<BaseModal size="wide" />, {
         // eslint-disable-next-line react/display-name
         wrapper: ({children}) => (
-          <CustomizationProvider theme={TestTheme} elements={initStyles('MODAL')}>
-            {children}
-          </CustomizationProvider>
+          <CustomizationProvider elements={initStyles('MODAL')}>{children}</CustomizationProvider>
         ),
       });
 

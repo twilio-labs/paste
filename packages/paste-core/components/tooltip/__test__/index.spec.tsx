@@ -2,10 +2,7 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 
@@ -20,7 +17,7 @@ const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) =>
 describe('Tooltip', () => {
   describe('Render', () => {
     render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <CustomizationProvider baseTheme="default">
         <TooltipWithoutTheme />
       </CustomizationProvider>
     );
@@ -70,7 +67,7 @@ describe('Tooltip', () => {
       const focusHandlerMock: jest.Mock = jest.fn();
       const clickHandlerMock: jest.Mock = jest.fn();
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <Tooltip text="Welcome to Paste!" data-testid="tooltip-children-example">
             <Button variant="primary" onFocus={focusHandlerMock} onClick={clickHandlerMock}>
               Open Tooltip
@@ -101,7 +98,7 @@ describe('Tooltip', () => {
   describe('Customization', () => {
     it('should set a default element data attribute for Tooltip', (): void => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <TooltipWithoutTheme />
         </CustomizationProvider>
       );
@@ -114,7 +111,7 @@ describe('Tooltip', () => {
 
     it('should set a custom element data attribute for a custom element name on Tooltip', (): void => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <CustomizationProvider baseTheme="default">
           <TooltipWithoutTheme elementName="CUSTOM_TOOLTIP" />
         </CustomizationProvider>
       );
@@ -128,7 +125,6 @@ describe('Tooltip', () => {
     it('should add custom styling to default Tooltip', (): void => {
       render(
         <CustomizationProvider
-          theme={TestTheme}
           elements={{
             TOOLTIP: {
               backgroundColor: 'colorBackgroundErrorWeakest',
@@ -154,7 +150,6 @@ describe('Tooltip', () => {
     it('should add custom styling to custom named Tooltip', (): void => {
       render(
         <CustomizationProvider
-          theme={TestTheme}
           elements={{
             CUSTOM_TOOLTIP: {
               backgroundColor: 'colorBackgroundErrorWeakest',
@@ -174,18 +169,6 @@ describe('Tooltip', () => {
       const tooltipText = screen.getByText('Welcome to Paste!');
       expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
       expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <TooltipWithoutTheme />
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });
