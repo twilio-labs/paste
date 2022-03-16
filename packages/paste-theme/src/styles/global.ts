@@ -6,23 +6,23 @@ export const pasteGlobalStyles = css({
     fontFamily: 'fontFamilyText',
   },
   'html:lang(ja), html:lang(ja-JP)': {
-    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
-      fontFamily: 'fontFamilyTextJa',
+    '.paste-theme-provider': {
+      fontFamily: 'fontFamilyTextJapanese',
     },
   },
   'html:lang(zh-CN)': {
-    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
-      fontFamily: 'fontFamilyTextZhSimplified',
+    '.paste-theme-provider': {
+      fontFamily: 'fontFamilyTextChineseSimplified',
     },
   },
   'html:lang(zh-TW), html:lang(zh-HK)': {
-    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
-      fontFamily: 'fontFamilyTextZhTraditional',
+    '.paste-theme-provider': {
+      fontFamily: 'fontFamilyTextChineseTraditional',
     },
   },
   'html:lang(ko)': {
-    '.paste-theme-provider, .paste-theme-provider input, .paste-theme-provider button, .paste-theme-provider textarea, .paste-theme-provider select, .paste-theme-provider ::placeholder': {
-      fontFamily: 'fontFamilyTextKo',
+    '.paste-theme-provider': {
+      fontFamily: 'fontFamilyTextKorean',
     },
   },
   body: {
