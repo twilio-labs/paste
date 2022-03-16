@@ -8,11 +8,11 @@ props:
     value: "{!font-family-10}"
   font-family-code:
     value: "{!font-family-20}"
-  font-family-text-ja:
-    value: "{!font-family-ja}"
-  font-family-text-ko:
-    value: "{!font-family-ko}"
-  font-family-text-zh-traditional:
-    value: "{!font-family-zh-traditional}"
-  font-family-text-zh-simplified:
-    value: "{!font-family-zh-simplified}"
+  font-family-text-japanese:
+    value: "{!font-family-30}"
+  font-family-text-korean:
+    value: "{!font-family-40}"
+  font-family-text-chinese-traditional:
+    value: "{!font-family-50}"
+  font-family-text-chinese-simplified:
+    value: "{!font-family-60}"
