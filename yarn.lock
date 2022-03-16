@@ -13614,6 +13614,7 @@ __metadata:
     "@twilio-paste/types": ^3.1.5
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-helmet: ^6.1.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^2.0.0
