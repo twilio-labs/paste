@@ -56,12 +56,12 @@ export const JapaneseFontFamily = (): React.ReactNode => (
         <Button variant="primary" onClick={() => {}}>
           ダミーテキスト
         </Button>
-        <Input aria-label="Search" placeholder="ダミーテキスト" type="text" />
-        <Select aria-label="Options">
+        <Input aria-label="ダミーテキスト" placeholder="ダミーテキスト" type="text" />
+        <Select aria-label="ダミーテキスト">
           <Option value="option1">ダミーテキスト</Option>
         </Select>
         <TextArea
-          aria-label="Feedback"
+          aria-label="ダミーテキスト"
           value="「ヒラギノ角ゴシック体」は、「ヒラギノ明朝体」との混植を意識してデザインした角ゴシック体です。モダンでカウンターが広く明るいだけではなく、少しフトコロを締め気味にして、現代的な明るさを残しつつもオーソドックスなデザインになっています。文字のすき間を均等に配置することと画線両端のアクセントにより、可読性と存在感を両立させた角ゴシック体です。極小サイズの本文から、特大サイズの見出しまで、広い範囲をカバーできます。"
         />
       </Stack>
