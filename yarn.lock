@@ -13949,7 +13949,7 @@ __metadata:
     react-color: ^2.19.3
     react-dom: ^17.0.2
     react-github-button: ^0.1.11
-    react-helmet: ^5.2.1
+    react-helmet: ^6.1.0
     react-live: ^2.2.2
     react-scrollspy: ^3.4.0
     react-visibility-sensor: 5.1.1
@@ -41588,7 +41588,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.7.2, prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.4, prop-types@npm:^15.5.6, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:15.7.2, prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.6, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -42322,13 +42322,6 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-fast-compare@npm:^2.0.2":
-  version: 2.0.4
-  resolution: "react-fast-compare@npm:2.0.4"
-  checksum: 06046595f90a4e3e3a56f40a8078c00aa71bdb064ddb98343f577f546aa22e888831fd45f009c93b34707cc842b4c637737e956fd13d6f80607ee92fb9cf9a1c
-  languageName: node
-  linkType: hard
-
 "react-fast-compare@npm:^3.0.1":
   version: 3.0.2
   resolution: "react-fast-compare@npm:3.0.2"
@@ -42391,20 +42384,6 @@ is-whitespace@latest:
     react: ^16.6.0 || ^17.0.0
     react-dom: ^16.6.0 || ^17.0.0
   checksum: e7fbc5083437105044da626a48c0ca3a32a687ef249e9a1f74717dd29f44d6ebecb9a9f4ab6ae36e76a98d2d94fa2ae11bc46171fdc01138314eef945f5df2a6
-  languageName: node
-  linkType: hard
-
-"react-helmet@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "react-helmet@npm:5.2.1"
-  dependencies:
-    object-assign: ^4.1.1
-    prop-types: ^15.5.4
-    react-fast-compare: ^2.0.2
-    react-side-effect: ^1.1.0
-  peerDependencies:
-    react: ">=15.0.0"
-  checksum: dcdf69c31ab555501d3965684470b7bdcf077f1d7e4ff0cab616870821cc7238817b44fb5a451e4119182fa71ff463d50dbc7cbb661d927dcc3f542e7832c84b
   languageName: node
   linkType: hard
 
@@ -42742,17 +42721,6 @@ is-whitespace@latest:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
   checksum: 082c818369fb8c7ce50bbd51260b21794f58dd41e9df5e0798c10e10478fb44b9fd88247f24720d5b443d77a6ec8afa733ecdd15a7722fde85c27bb87c379962
-  languageName: node
-  linkType: hard
-
-"react-side-effect@npm:^1.1.0":
-  version: 1.2.0
-  resolution: "react-side-effect@npm:1.2.0"
-  dependencies:
-    shallowequal: ^1.0.1
-  peerDependencies:
-    react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
-  checksum: f84c99bc13999f632c7d341b2fe5e1a6cfbf1708ce10e80624535a5296a37359e8cb94c3cde5a3506dbe151fc712896132fae4f856e079fded638b0cb5a4a00e
   languageName: node
   linkType: hard
 
@@ -45290,7 +45258,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"shallowequal@npm:^1.0.1, shallowequal@npm:^1.1.0":
+"shallowequal@npm:^1.1.0":
   version: 1.1.0
   resolution: "shallowequal@npm:1.1.0"
   checksum: f4c1de0837f106d2dbbfd5d0720a5d059d1c66b42b580965c8f06bb1db684be8783538b684092648c981294bf817869f743a066538771dbecb293df78f765e00
