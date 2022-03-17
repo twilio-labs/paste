@@ -24,7 +24,7 @@ exports[`Separator Render should set horizontal margins 1`] = `
 }
 
 <div
-    class="emotion-1"
+    class="paste-theme-provider emotion-1"
   >
     <hr
       aria-orientation="horizontal"
@@ -74,7 +74,7 @@ exports[`Separator Render should set responsive horizontal margins 1`] = `
 }
 
 <div
-    class="emotion-1"
+    class="paste-theme-provider emotion-1"
   >
     <hr
       aria-orientation="horizontal"
@@ -124,7 +124,7 @@ exports[`Separator Render should set responsive vertical margins 1`] = `
 }
 
 <div
-    class="emotion-1"
+    class="paste-theme-provider emotion-1"
   >
     <hr
       aria-orientation="vertical"
@@ -160,7 +160,7 @@ exports[`Separator Render should set vertical margins 1`] = `
 }
 
 <div
-    class="emotion-1"
+    class="paste-theme-provider emotion-1"
   >
     <hr
       aria-orientation="vertical"
