@@ -57,8 +57,8 @@ describe('Color mappings', () => {
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96,107,133)');
     expect(renderedBox).toHaveStyleRule('border-bottom-color', 'rgb(117,12,12)');
     expect(renderedBox).toHaveStyleRule('border-left-color', 'rgb(117,12,12)');
-    expect(renderedBox).toHaveStyleRule('border-right-color', 'rgba(255,255,255,0.5)');
-    expect(renderedBox).toHaveStyleRule('border-top-color', 'rgba(255,255,255,0.5)');
+    expect(renderedBox).toHaveStyleRule('border-right-color', 'rgb(136,145,170)');
+    expect(renderedBox).toHaveStyleRule('border-top-color', 'rgb(136,145,170)');
     expect(renderedBox).toHaveStyleRule('color', 'rgb(18,28,45)');
   });
 
@@ -190,7 +190,7 @@ describe('Borders', () => {
       media: 'screen and (min-width:64rem)',
     });
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,20,137)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(102,179,255)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(153,205,255)', {
       media: 'screen and (min-width:25rem)',
     });
     expect(renderedBox).toHaveStyleRule('border-width', '1px');

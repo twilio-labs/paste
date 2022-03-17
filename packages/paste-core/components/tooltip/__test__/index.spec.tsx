@@ -41,20 +41,22 @@ describe('Tooltip', () => {
         return;
       }
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
+      userEvent.click(ButtonOne);
 
       await waitFor(() => {
-        userEvent.click(ButtonOne);
+        tooltip = screen.queryByTestId('state-hook-tooltip');
       });
-      tooltip = screen.queryByTestId('state-hook-tooltip');
+
       if (tooltip === null) {
         return;
       }
+
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
+      userEvent.click(ButtonTwo);
       await waitFor(() => {
-        userEvent.click(ButtonTwo);
+        tooltip = screen.queryByTestId('state-hook-tooltip');
       });
-      tooltip = screen.queryByTestId('state-hook-tooltip');
       if (tooltip === null) {
         return;
       }
@@ -77,20 +79,20 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-children-example');
 
-      expect(tooltip.getAttribute('hidden')).not.toBeNull();
+      expect(tooltip).not.toBeVisible();
+
+      screen.getByRole('button').focus();
 
       await waitFor(() => {
-        screen.getByRole('button').focus();
+        expect(tooltip).toBeVisible();
       });
 
-      expect(tooltip.getAttribute('hidden')).toBeNull();
+      userEvent.click(screen.getByRole('button'));
 
       await waitFor(() => {
-        userEvent.click(document.activeElement);
+        expect(focusHandlerMock).toHaveBeenCalled();
+        expect(clickHandlerMock).toHaveBeenCalled();
       });
-
-      expect(focusHandlerMock).toHaveBeenCalled();
-      expect(clickHandlerMock).toHaveBeenCalled();
     });
   });
 
