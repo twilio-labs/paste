@@ -40,7 +40,7 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
     [baseTheme, customBreakpoints, elements, theme]
   );
 
-  const prefersReducedMotion = true;
+  const prefersReducedMotion = useReducedMotion();
   React.useLayoutEffect(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,
