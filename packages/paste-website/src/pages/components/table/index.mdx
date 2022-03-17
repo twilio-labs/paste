@@ -1,32 +1,40 @@
 ---
 title: Table
-package: '@twilio-paste/table'
+package: "@twilio-paste/table"
 description: Tables are used to display information that is meant to be compared across columns and rows.
 slug: /components/table/
 ---
 
-import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
-import {Avatar} from '@twilio-paste/avatar';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
-import {Text} from '@twilio-paste/text';
-import {Tooltip} from '@twilio-paste/tooltip';
-import {Truncate} from '@twilio-paste/truncate';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import Changelog from '@twilio-paste/table/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {SidebarCategoryRoutes} from '../../../constants';
+import { graphql } from "gatsby";
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Card } from "@twilio-paste/card";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { Table, THead, TBody, TFoot, Tr, Th, Td } from "@twilio-paste/table";
+import { Text } from "@twilio-paste/text";
+import { Tooltip } from "@twilio-paste/tooltip";
+import { Truncate } from "@twilio-paste/truncate";
+import { UnorderedList, ListItem } from "@twilio-paste/list";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { ProcessErrorIcon } from "@twilio-paste/icons/esm/ProcessErrorIcon";
+import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import Changelog from "@twilio-paste/table/CHANGELOG.md";
+import {
+  Callout,
+  CalloutTitle,
+  CalloutText,
+} from "../../../components/callout";
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { SidebarCategoryRoutes } from "../../../constants";
+import { SiteLink } from "../../../components/SiteLink";
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/table"}}) {
+    allPasteComponent(filter: { name: { eq: "@twilio-paste/table" } }) {
       edges {
         node {
           name
@@ -36,7 +44,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/table/"}}) {
+    mdx(fields: { slug: { eq: "/components/table/" } }) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -47,7 +55,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(filter: {data: {Feature: {eq: "Table"}}}) {
+    allAirtable(filter: { data: { Feature: { eq: "Table" } } }) {
       edges {
         node {
           data {
@@ -107,45 +115,21 @@ Accessibility recommendations:
 - Any component can be placed in a Table, but tables should only contain static textual and numeric data, rather
   than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
   50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
-  times to get past that table.
+  times to get past that table. If you do need to include interactive elements (such as linking to object details,
+  selecting rows, or deleting rows), use <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
 
 <Callout>
-  <CalloutTitle>🦮 Accessibility insight: navigating tables with a screen reader</CalloutTitle>
+  <CalloutTitle>
+    Accessibility insight: navigating tables with a screen reader
+  </CalloutTitle>
   <CalloutText>
-    Learn more about why semantic table markup is important in{' '}
+    Learn more about why semantic table markup is important in{" "}
     <Anchor href="https://youtu.be/tlpQ0d2ADNo" showExternal>
       this demo video by Inclusive Components
-    </Anchor>{' '}
+    </Anchor>{" "}
     that shows what it's like to explore a data table with a screen reader.
   </CalloutText>
 </Callout>
-
-<Heading as="h5" variant="heading30">
-  So, why migrate to Table if you need to include actionable elements?
-</Heading>
-
-Our strong recommendation is to use Table over sticking with the legacy table, even if you need to include
-actionable elements, like buttons or anchors. While Table should only contain static information for
-the [accessibility reasons](#accessibility) we've outlined, Table _can_ support the inclusion of
-actionable components when needed, and it is the best option available to you today.
-
-Once we have a Data Grid component, our recommendation will be to use that whenever you need to include
-actions within a table (such as linking to object details, selecting rows, or deleting rows). Data Grid
-will be built on top of Table and will layer in some aria controls that make it easier to navigate with
-a keyboard (much like navigating through an Excel spreadsheet). However, until the Data Grid component
-is available, our recommendation is to use the Table component; we will just ask that you plan to switch
-to the Data Grid when it's ready. Here's why we recommend this over sticking with the legacy table:
-
-1. Using the Table component from Paste, even if it includes actionable elements, is much more accessible
-   than the legacy table.
-2. The visual design of the Paste Table component will be very similar to the Data Grid, so they will look
-   cohesive when used together in one product or feature, and there will be minimal customer impact when
-   upgrading from Table to Data Grid in the future.
-3. If you use the Table component from Paste, you will benefit from design and technical upgrades, whereas
-   the legacy table will not receive any updates.
-4. Migration from the Paste Table to Data Grid will be much easier than migrating from the legacy table
-   to Data Grid, as the underlying architecture of the Paste Table and Data Grid will be very similar.
-   In fact, Data Grid will be built using the Table component.
 
 ## Examples
 
@@ -155,7 +139,7 @@ to the Data Grid when it's ready. Here's why we recommend this over sticking wit
 
 The Default Table uses an automatic table layout algorithm dictated by the browser. The width of the table cells are adjusted to fit the content.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td, Text }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -209,7 +193,10 @@ The Default Table uses an automatic table layout algorithm dictated by the brows
 
 The Fixed Table variant sets equal column widths for the table.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, TFoot, Tr, Th, Td, Text }}
+  language="jsx"
+>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -249,7 +236,7 @@ The Fixed Table variant sets equal column widths for the table.
 
 THead cells (`Th`) can be given a width in order to fill a section of the Table row (`Tr`). Widths can be set with Paste Size Tokens or a number value, e.g. 120px.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -296,7 +283,7 @@ In general, text should be left-aligned, numbers should be right-aligned, and th
 Data should rarely ever be centered. Numbers only need to be right-aligned when they indicate size or are meant to be
 compared to each other. Numbers like ID numbers, phone numbers, etc. should stay left-aligned.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -337,7 +324,7 @@ compared to each other. Numbers like ID numbers, phone numbers, etc. should stay
 
 Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignment. By default they are middle-aligned.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -372,7 +359,10 @@ Tables can support a `borderless` variant, which can be useful in cases where th
 containing element, such as a [modal](/components/modal/) or a [card](/components/card/). Tables have borders by default, but these can optionally be
 turned off by setting `variant="borderless"` on `Table`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Card, Text}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, TFoot, Tr, Th, Td, Card, Text }}
+  language="jsx"
+>
   {`<Card>
   <Table variant="borderless">
     <THead>
@@ -418,7 +408,7 @@ name of an email campaign.
 
 Row headers can be added by including a `Th` as the first cell in each `Tr`, with `scope="row"`.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -472,7 +462,10 @@ the bottom of a table. In cases where you do want to show a summary or total, an
 importance to the user, you can place it above the table or at the top of the table in a regular table row,
 rather than using the `TFoot`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, TFoot, Tr, Th, Td, Text }}
+  language="jsx"
+>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -533,9 +526,6 @@ For the remaining columns, you will need to conduct usability testing to hone in
 best for your users and their particular needs. Generally, it is a good practice to put columns that are closely
 related to one another (such as a unit price, quantity purchased, and total price) near each other in a table.
 
-If you do have actions in your Table (see our [Accessibility Information](#accessibility) on this), they should
-generally be placed in the last column.
-
 ### Text alignment in cells
 
 In general, text should be left-aligned, numbers should be right-aligned, and the header should be aligned with
@@ -548,7 +538,10 @@ Tables can have zebra stripes (i.e. alternating row highlighting), which can imp
 large data sets. Tables have zebra stripes turned off by default, but these can optionally be turned on by
 setting `striped` on `Table`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, TFoot, Tr, Th, Td, Text }}
+  language="jsx"
+>
   {`<Table striped>
   <THead>
     <Tr>
@@ -599,7 +592,7 @@ description text. In this example, the send time is not being compared across ro
 click rates are; instead, the send time is used to add additional detail that helps the user identify and
 understand data in an individual row.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{ Table, THead, TBody, Tr, Th, Td, Text }} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -648,7 +641,10 @@ understand data in an individual row.
 Tables can be composed using Avatar, which can be used to make a table of user data more scannable.
 You can put an avatar next to a user's first and last name using `Stack` inside a single `Td`.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Avatar, Box, Stack}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, Tr, Th, Td, Text, Avatar, Box, Stack }}
+  language="jsx"
+>
   {`<Table>
   <THead>
     <Tr>
@@ -715,7 +711,23 @@ indicator of status.
 
 Refer to our Status Indicator pattern (coming soon!) for guidance on displaying statuses in your tables.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Box, Stack, Text}} language="jsx">
+<LivePreview
+  scope={{
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Th,
+    Td,
+    Box,
+    Stack,
+    Text,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
+    ProcessErrorIcon,
+  }}
+  language="jsx"
+>
   {`<Table>
   <THead>
     <Tr>
@@ -728,10 +740,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundSuccess" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Valid</Text>
+          <ProcessSuccessIcon
+            color="colorTextIconSuccess"
+            decorative={false}
+            title="valid" />
+          <Text as="p" marginLeft="space20">Valid</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -743,10 +758,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundWarning" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Risky</Text>
+          <ProcessWarningIcon
+            color="colorTextIconWarning"
+            decorative={false}
+            title="risky" />
+          <Text as="p" marginLeft="space20">Risky</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -758,10 +776,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundError" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Invalid</Text>
+          <ProcessErrorIcon
+            color="colorTextIconError"
+            decorative={false}
+            title="invalid" />
+          <Text as="p" marginLeft="space20">Invalid</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -779,7 +800,22 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
 A `Th` can be composed to include [icon buttons](/components/button#link-style-button), such as an information icon button with additional
 details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/popover/).
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Box, Button, Tooltip, InformationIcon}} language="jsx">
+<LivePreview
+  scope={{
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Th,
+    Td,
+    Text,
+    Box,
+    Button,
+    Tooltip,
+    InformationIcon,
+  }}
+  language="jsx"
+>
   {`<Table>
   <THead>
     <Tr>
@@ -843,7 +879,10 @@ details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/pop
 In rare cases, you may want to [truncate](/components/truncate) the text in a given cell. For example, when a table contains
 long URLs, and the user does not need to read the full URL.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Truncate}} language="jsx">
+<LivePreview
+  scope={{ Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Truncate }}
+  language="jsx"
+>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -896,8 +935,16 @@ Tables are used to represent static, tabular data. For example, a list of users'
 and email addresses.
 
 <DoDont>
-  <Do title="Do" body="Left-align textual table data, such as an email address." preview={false} />
-  <Dont title="Don't" body="Don't right- or center-align textual table data." preview={false} />
+  <Do
+    title="Do"
+    body="Left-align textual table data, such as an email address."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't right- or center-align textual table data."
+    preview={false}
+  />
 </DoDont>
 
 <DoDont>
@@ -927,8 +974,16 @@ and email addresses.
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Include supporting text when providing a status in a table row." preview={false} />
-  <Dont title="Don't" body="Don't use color as the only indicator of status in a table row." preview={false} />
+  <Do
+    title="Do"
+    body="Include supporting text when providing a status in a table row."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't use color as the only indicator of status in a table row."
+    preview={false}
+  />
 </DoDont>
 
 ## Anatomy
