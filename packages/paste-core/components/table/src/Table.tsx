@@ -5,7 +5,20 @@ import type {TableProps} from './types';
 import {TablePropTypes} from './proptypes';
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  ({element = 'TABLE', striped = false, tableLayout = 'auto', variant = 'default', ...props}, ref) => {
+  (
+    {
+      element = 'TABLE',
+      id,
+      isActionable,
+      isResponsive,
+      noWrap,
+      striped = false,
+      tableLayout = 'auto',
+      variant = 'default',
+      ...props
+    },
+    ref
+  ) => {
     const tableContext = {
       striped,
     };
@@ -13,18 +26,26 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     return (
       <TableContext.Provider value={tableContext}>
         <Box
-          {...safelySpreadBoxProps(props)}
-          ref={ref}
-          as="table"
-          borderCollapse="collapse"
-          borderColor="colorBorderWeaker"
-          borderSpacing="0"
-          borderStyle="solid"
-          borderWidth={variant === 'borderless' ? 'borderWidth0' : 'borderWidth10'}
-          element={element}
-          tableLayout={tableLayout === 'fixed' ? 'fixed' : 'auto'}
-          width="100%"
-        />
+          id={id}
+          element={`${element}_WRAPPER`}
+          overflowX={isResponsive ? 'auto' : null}
+          whiteSpace={noWrap ? 'nowrap' : null}
+          boxShadow={isActionable ? 'shadowFocus' : null}
+        >
+          <Box
+            {...safelySpreadBoxProps(props)}
+            ref={ref}
+            as="table"
+            borderCollapse="collapse"
+            borderColor="colorBorderWeaker"
+            borderSpacing="0"
+            borderStyle="solid"
+            borderWidth={variant === 'borderless' ? 'borderWidth0' : 'borderWidth10'}
+            element={element}
+            tableLayout={tableLayout === 'fixed' ? 'fixed' : 'auto'}
+            width="100%"
+          />
+        </Box>
       </TableContext.Provider>
     );
   }

@@ -24,6 +24,16 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
   striped?: boolean;
   tableLayout?: TableLayoutOptions;
   variant?: TableVariantOptions;
+  /**
+   * Controls a tables ability to be shown on smaller viewports
+   */
+  isResponsive?: boolean;
+  /**
+   * Controls table cell content line wrapping
+   */
+  noWrap?: boolean;
+  /** Displays table and data grid actionable mode */
+  isActionable?: boolean;
 }
 
 export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {

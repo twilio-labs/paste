@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -7,6 +8,9 @@ import {useTheme} from '@twilio-paste/theme';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
+import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
 import {Truncate} from '@twilio-paste/truncate';
 import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
 
@@ -1006,6 +1010,375 @@ export const Truncation = (): React.ReactNode => {
         </Tr>
       </TFoot>
     </Table>
+  );
+};
+
+export const Layouts = (): React.ReactNode => {
+  return (
+    <Box borderStyle="solid" borderColor="colorBorder" borderWidth="borderWidth10" padding="space40" maxWidth="800px">
+      <Stack orientation="vertical" spacing="space40">
+        <Heading as="h2" variant="heading40">
+          Default
+        </Heading>
+        <Table>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          Layout fixed
+        </Heading>
+        <Table tableLayout="fixed">
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          No wrap
+        </Heading>
+        <Table noWrap>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          Fixed layout, No wrap, truncate needed
+        </Heading>
+        <Table tableLayout="fixed" noWrap>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>
+                <Truncate title="16:24:28 UTC 2020-09-17">16:24:28 UTC 2020-09-17</Truncate>
+              </Td>
+              <Td>
+                <Truncate title="16:24:28 UTC 2020-09-17">16:24:28 UTC 2020-09-17</Truncate>
+              </Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          isResponsive
+        </Heading>
+        <Table isResponsive>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          isResponsive, fixed layout
+        </Heading>
+        <Table isResponsive tableLayout="fixed">
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          isResponsive, no wrap
+        </Heading>
+        <Table isResponsive noWrap>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>16:24:28 UTC 2020-09-17</Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+        <Heading as="h2" variant="heading40">
+          isResponsive, no wrap, fixed layout, truncate needed
+        </Heading>
+        <Table isResponsive tableLayout="fixed" noWrap>
+          <THead>
+            <Tr>
+              <Th>Flow</Th>
+              <Th>SID</Th>
+              <Th>Date created</Th>
+              <Th>Date updated</Th>
+              <Th>Logs</Th>
+              <Th>&nbsp;</Th>
+              <Th>&nbsp;</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="#">Flow link</Anchor>
+              </Td>
+              <Td>
+                <Text as="div" fontFamily="fontFamilyCode">
+                  <Truncate title="SM0yc4mxi6cn4z13bte7qmflc2drc85mlp">SM0yc4mxi6cn4z13bte7qmflc2drc85mlp</Truncate>
+                </Text>
+              </Td>
+              <Td>
+                <Truncate title="16:24:28 UTC 2020-09-17">16:24:28 UTC 2020-09-17</Truncate>
+              </Td>
+              <Td>
+                <Truncate title="16:24:28 UTC 2020-09-17">16:24:28 UTC 2020-09-17</Truncate>
+              </Td>
+              <Td>
+                <Anchor href="#">Logs</Anchor>
+              </Td>
+              <Td>
+                <Button variant="link">Duplicate flow</Button>
+              </Td>
+              <Td>
+                <Button variant="destructive_link">Delete flow</Button>
+              </Td>
+            </Tr>
+          </TBody>
+          <TFoot>
+            <Tr>
+              <Td colSpan={7}>&nbsp;</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+      </Stack>
+    </Box>
   );
 };
 
