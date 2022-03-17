@@ -86,7 +86,6 @@ describe('Tooltip', () => {
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
       await waitFor(() => {
-        // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
         userEvent.click(document.activeElement);
       });
 

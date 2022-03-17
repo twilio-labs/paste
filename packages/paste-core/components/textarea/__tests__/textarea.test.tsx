@@ -1,10 +1,309 @@
 import * as React from 'react';
 
 import {render, screen, fireEvent} from '@testing-library/react';
+import {useUID} from '@twilio-paste/uid-library';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import {Anchor} from '@twilio-paste/anchor';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {TextArea} from '../src';
-import {CustomizedTextarea} from '../stories/textarea.stories';
+
+const CustomizedTextarea: React.FC = () => {
+  const uidTwo = useUID();
+  const uidTwoVariant = useUID();
+  const uidThree = useUID();
+  const uidThreeVariant = useUID();
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={TestTheme}
+      elements={{
+        TEXTAREA: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          borderColor: 'colorBorderPrimary',
+        },
+        TEXTAREA_ELEMENT: {
+          color: 'colorTextLinkStronger',
+          padding: 'space50',
+          '::placeholder': {
+            color: 'colorTextLink',
+          },
+        },
+        TEXTAREA_PREFIX: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderTopLeftRadius: 'borderRadius30',
+          borderBottomLeftRadius: 'borderRadius30',
+          borderRightColor: 'colorBorderPrimary',
+          padding: 'space50',
+        },
+        TEXTAREA_SUFFIX: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderTopRightRadius: 'borderRadius30',
+          borderBottomRightRadius: 'borderRadius30',
+          borderLeftColor: 'colorBorderPrimary',
+          padding: 'space50',
+        },
+        TEXTAREA_VARIANT: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          borderColor: 'colorBorderPrimary',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderColor: 'colorBorderDestructive',
+            },
+          },
+        },
+        TEXTAREA_VARIANT_ELEMENT: {
+          color: 'colorTextLinkStronger',
+          padding: 'space50',
+          '::placeholder': {
+            color: 'colorTextLink',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+          },
+        },
+        TEXTAREA_VARIANT_PREFIX: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderTopLeftRadius: 'borderRadius30',
+          borderBottomLeftRadius: 'borderRadius30',
+          borderRightColor: 'colorBorderPrimary',
+          padding: 'space50',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderRightColor: 'colorBorderDestructive',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderRightColor: 'colorBorderDestructive',
+            },
+          },
+        },
+        TEXTAREA_VARIANT_SUFFIX: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderTopRightRadius: 'borderRadius30',
+          borderBottomRightRadius: 'borderRadius30',
+          borderLeftColor: 'colorBorderPrimary',
+          padding: 'space50',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderLeftColor: 'colorBorderDestructive',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderLeftColor: 'colorBorderDestructive',
+            },
+          },
+        },
+        NEW_TEXTAREA: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth20',
+          borderColor: 'colorBorderDestructive',
+        },
+        NEW_TEXTAREA_ELEMENT: {
+          color: 'colorTextLinkDestructive',
+          padding: 'space70',
+          '::placeholder': {
+            color: 'colorTextLinkDestructive',
+          },
+        },
+        NEW_TEXTAREA_PREFIX: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderTopLeftRadius: 'borderRadius30',
+          borderBottomLeftRadius: 'borderRadius30',
+          borderRightColor: 'colorBorderDestructive',
+          borderWidth: 'borderWidth20',
+          padding: 'space70',
+        },
+        NEW_TEXTAREA_SUFFIX: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderTopRightRadius: 'borderRadius30',
+          borderBottomRightRadius: 'borderRadius30',
+          borderLeftColor: 'colorBorderDestructive',
+          borderWidth: 'borderWidth20',
+          padding: 'space70',
+        },
+        NEW_TEXTAREA_VARIANT: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth20',
+          borderColor: 'colorBorderDestructive',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderColor: 'colorBorderPrimary',
+            },
+          },
+        },
+        NEW_TEXTAREA_VARIANT_ELEMENT: {
+          color: 'colorTextLinkDestructive',
+          padding: 'space70',
+          '::placeholder': {
+            color: 'colorTextLinkDestructive',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderRadius: 'borderRadius30',
+            },
+          },
+        },
+        NEW_TEXTAREA_VARIANT_PREFIX: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderTopLeftRadius: 'borderRadius30',
+          borderBottomLeftRadius: 'borderRadius30',
+          borderRightColor: 'colorBorderDestructive',
+          borderWidth: 'borderWidth20',
+          padding: 'space70',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderRightColor: 'colorBorderDestructive',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderRightColor: 'colorBorderPrimary',
+            },
+          },
+        },
+        NEW_TEXTAREA_VARIANT_SUFFIX: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderTopRightRadius: 'borderRadius30',
+          borderBottomRightRadius: 'borderRadius30',
+          borderLeftColor: 'colorBorderDestructive',
+          borderWidth: 'borderWidth20',
+          padding: 'space70',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderLeftColor: 'colorBorderDestructive',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderLeftColor: 'colorBorderPrimary',
+            },
+          },
+        },
+      }}
+    >
+      <Stack orientation="vertical" spacing="space60">
+        <Box>
+          <Label htmlFor={uidTwo}>Label</Label>
+          <TextArea
+            id={uidTwo}
+            data-testid="default-textarea"
+            placeholder="Customized"
+            insertBefore={
+              <Text as="span" fontWeight="fontWeightSemibold">
+                $10.99
+              </Text>
+            }
+            insertAfter={
+              <Anchor href="#" display="flex">
+                <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              </Anchor>
+            }
+          />
+        </Box>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+          <Label variant="inverse" htmlFor={uidTwoVariant}>
+            Label
+          </Label>
+          <TextArea
+            id={uidTwoVariant}
+            variant="inverse"
+            placeholder="Customized"
+            data-testid="inverse-textarea"
+            element="TEXTAREA_VARIANT"
+            insertBefore={
+              <Text as="span" fontWeight="fontWeightSemibold">
+                $10.99
+              </Text>
+            }
+            insertAfter={
+              <Anchor href="#" display="flex">
+                <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              </Anchor>
+            }
+          />
+        </Box>
+        <Box>
+          <Label htmlFor={uidThree}>Label</Label>
+          <TextArea
+            id={uidThree}
+            element="NEW_TEXTAREA"
+            placeholder="Customized Element"
+            data-testid="custom-default-textarea"
+            insertBefore={
+              <Text as="span" fontWeight="fontWeightSemibold">
+                $10.99
+              </Text>
+            }
+            insertAfter={
+              <Anchor href="#" display="flex">
+                <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              </Anchor>
+            }
+          />
+        </Box>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+          <Label variant="inverse" htmlFor={uidThreeVariant}>
+            Label
+          </Label>
+          <TextArea
+            id={uidThreeVariant}
+            element="NEW_TEXTAREA_VARIANT"
+            placeholder="Customized Element"
+            data-testid="custom-inverse-textarea"
+            variant="inverse"
+            insertBefore={
+              <Text as="span" fontWeight="fontWeightSemibold">
+                $10.99
+              </Text>
+            }
+            insertAfter={
+              <Anchor href="#" display="flex">
+                <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              </Anchor>
+            }
+          />
+        </Box>
+      </Stack>
+    </CustomizationProvider>
+  );
+};
 
 const NOOP = (): void => {};
 

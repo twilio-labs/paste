@@ -10,12 +10,12 @@ import {PlainDataGrid} from '../stories/components/PlainDataGrid';
 
 const checkTagName = (el: Element, name: string): void => expect(el.tagName).toBe(name.toUpperCase());
 
-describe.skip('Data Grid', () => {
+describe('Data Grid', () => {
   describe('Semantics', () => {
     // eslint-disable-next-line jest/expect-expect
     it('uses table elements in the DOM', () => {
-      const {getByTestId} = render(<PlainDataGrid />);
-      const dataGrid = getByTestId('data-grid');
+      render(<PlainDataGrid />);
+      const dataGrid = screen.getByTestId('data-grid');
       checkTagName(dataGrid, 'table');
 
       const thead = dataGrid.children[0];
@@ -34,8 +34,8 @@ describe.skip('Data Grid', () => {
     });
 
     it('has the correct aria label and role', () => {
-      const {getByTestId} = render(<PlainDataGrid />);
-      const dataGrid = getByTestId('data-grid');
+      render(<PlainDataGrid />);
+      const dataGrid = screen.getByTestId('data-grid');
       expect(dataGrid.getAttribute('aria-label')).toBeDefined();
       expect(dataGrid.getAttribute('role')).toBe('grid');
     });
@@ -43,12 +43,12 @@ describe.skip('Data Grid', () => {
 
   describe('Composable Cells functionality', () => {
     it('has proper keyboard navigation behavior', async () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
-      const wrapper = getByTestId('data-grid');
-      const headerCell = getByTestId('header-1');
-      const firstRowFirstInputCell = getByTestId('input-0-0');
-      const firstRowSecondInputCell = getByTestId('input-0-1');
-      const secondRowFirstInputCell = getByTestId('input-1-0');
+      render(<ComposableCellsDataGrid />);
+      const wrapper = screen.getByTestId('data-grid');
+      const headerCell = screen.getByTestId('header-1');
+      const firstRowFirstInputCell = screen.getByTestId('input-0-0');
+      const firstRowSecondInputCell = screen.getByTestId('input-0-1');
+      const secondRowFirstInputCell = screen.getByTestId('input-1-0');
       const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
 
       if (firstInputCell == null) {
@@ -59,48 +59,32 @@ describe.skip('Data Grid', () => {
       headerCell.focus();
 
       userEvent.keyboard('{arrowright}');
-      await waitFor(() => {
-        expect(document.activeElement?.innerHTML).toBe('Last Name');
-      });
+      expect(document.activeElement?.innerHTML).toBe('Last Name');
 
       userEvent.keyboard('{arrowleft}');
-      await waitFor(() => {
-        expect(headerCell).toHaveFocus();
-      });
+      expect(headerCell).toHaveFocus();
 
       userEvent.keyboard('{arrowdown}');
-      await waitFor(() => {
-        expect(headerCell.getAttribute('tabindex')).toBe('-1');
-        expect(firstInputCell).toHaveFocus();
-        expect(firstInputCell.getAttribute('tabindex')).toBe('0');
-      });
+      expect(headerCell.getAttribute('tabindex')).toBe('-1');
+      expect(firstInputCell).toHaveFocus();
+      expect(firstInputCell.getAttribute('tabindex')).toBe('0');
 
       userEvent.keyboard('{arrowup}');
-      await waitFor(() => {
-        expect(firstInputCell.getAttribute('tabindex')).toBe('-1');
-        expect(headerCell.getAttribute('tabindex')).toBe('0');
-        expect(headerCell).toHaveFocus();
-      });
+      expect(firstInputCell.getAttribute('tabindex')).toBe('-1');
+      expect(headerCell.getAttribute('tabindex')).toBe('0');
+      expect(headerCell).toHaveFocus();
 
       // TEST: toggles actionable mode with [enter] and [escape] keys
       headerCell.focus();
-      await waitFor(() => {
-        expect(wrapper.getAttribute('data-actionable')).toBe('false');
-      });
+      expect(wrapper.getAttribute('data-actionable')).toBe('false');
       userEvent.keyboard('{enter}');
-      await waitFor(() => {
-        expect(wrapper.getAttribute('data-actionable')).toBe('true');
-      });
+      expect(wrapper.getAttribute('data-actionable')).toBe('true');
       userEvent.keyboard('{esc}');
-      await waitFor(() => {
-        expect(wrapper.getAttribute('data-actionable')).toBe('false');
-      });
+      expect(wrapper.getAttribute('data-actionable')).toBe('false');
 
       // TEST: should enable Actionable mode when clicking into the DataGrid
       userEvent.click(headerCell);
-      await waitFor(() => {
-        expect(wrapper.getAttribute('data-actionable')).toBe('true');
-      });
+      expect(wrapper.getAttribute('data-actionable')).toBe('true');
 
       // TEST: should correctly tab through focusable elements in actionable mode
       headerCell.focus();
@@ -109,37 +93,27 @@ describe.skip('Data Grid', () => {
       userEvent.keyboard('{arrowdown}');
       // Swap to actionable
       userEvent.keyboard('{enter}');
-      await waitFor(() => {
-        expect(firstRowFirstInputCell).toHaveFocus();
-      });
+      expect(firstRowFirstInputCell).toHaveFocus();
       userEvent.tab();
-      await waitFor(() => {
-        expect(firstRowSecondInputCell).toHaveFocus();
-      });
+      expect(firstRowSecondInputCell).toHaveFocus();
       userEvent.tab();
       userEvent.tab();
       userEvent.tab();
-      await waitFor(() => {
-        expect(secondRowFirstInputCell).toHaveFocus();
-      });
+      expect(secondRowFirstInputCell).toHaveFocus();
 
       // TEST: handles entering actionable mode from a cell without focusable children correctly
       // I added this particular sequence because it was a reproducable bug in my manual tests
       headerCell.focus();
       userEvent.keyboard('{enter}');
       userEvent.keyboard('{arrowdown}');
-      await waitFor(() => {
-        expect(firstInputCell).toHaveFocus();
-      });
+      expect(firstInputCell).toHaveFocus();
       userEvent.keyboard('{enter}');
       userEvent.tab();
-      await waitFor(() => {
-        expect(firstRowSecondInputCell).toHaveFocus();
-      });
+      expect(firstRowSecondInputCell).toHaveFocus();
     });
 
     it('has one tab stop in navigational mode and remembers the last focus', async () => {
-      const {getByTestId} = render(
+      render(
         <div>
           <Button variant="primary" data-testid="before">
             Before
@@ -151,10 +125,10 @@ describe.skip('Data Grid', () => {
         </div>
       );
 
-      const beforeDataGridButton = getByTestId('before');
-      const headerCell = getByTestId('header-1');
-      const firstInputCell = getByTestId('input-0-0')?.parentElement?.parentElement;
-      const afterDataGridButton = getByTestId('after');
+      const beforeDataGridButton = screen.getByTestId('before');
+      const headerCell = screen.getByTestId('header-1');
+      const firstInputCell = screen.getByTestId('input-0-0')?.parentElement?.parentElement;
+      const afterDataGridButton = screen.getByTestId('after');
 
       if (firstInputCell == null) {
         throw new Error('cannot find firstInputCell');
@@ -192,9 +166,9 @@ describe.skip('Data Grid', () => {
     });
 
     it('should change the focus correctly when swapping to and from actionable mode', async () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
-      const headerCell = getByTestId('header-1');
-      const firstRowFirstInputCell = getByTestId('input-0-0');
+      render(<ComposableCellsDataGrid />);
+      const headerCell = screen.getByTestId('header-1');
+      const firstRowFirstInputCell = screen.getByTestId('input-0-0');
 
       // Focus doesnt change when no focusable children
       headerCell.focus();
@@ -221,9 +195,9 @@ describe.skip('Data Grid', () => {
 
   describe('Paginated data grid', () => {
     it('returns the first focused cell to the first cell in the datatable after pagination', async () => {
-      const {getByTestId} = render(<PaginatedDataGrid />);
-      const firstThCell = getByTestId('first-cell');
-      const firstTdCell = getByTestId('cell-0-0');
+      render(<PaginatedDataGrid />);
+      const firstThCell = screen.getByTestId('first-cell');
+      const firstTdCell = screen.getByTestId('cell-0-0');
 
       // I added this particular sequence because it was a reproducable bug in my manual tests
       firstThCell.focus();
@@ -255,9 +229,9 @@ describe.skip('Data Grid', () => {
 
   describe('Sorting', () => {
     it('should correctly set aria-sort on TH when sorting is enabled', async () => {
-      const {getByTestId} = render(<SortableColumnsDataGrid />);
-      const header = getByTestId('header');
-      const headerSort = getByTestId('header-sort');
+      render(<SortableColumnsDataGrid />);
+      const header = screen.getByTestId('header');
+      const headerSort = screen.getByTestId('header-sort');
 
       expect(header.getAttribute('aria-sort')).toBe('ascending');
       headerSort.click();
