@@ -67,9 +67,7 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
         ref={ref}
         {...badgeStyles}
       >
-        {variant === 'error_counter' ? (
-          <ErrorIcon element={`${element}_ICON`} color="colorTextIconError" decorative size="sizeIcon10" />
-        ) : null}
+        {variant === 'error_counter' ? <ErrorIcon element={`${element}_ICON`} decorative size="sizeIcon10" /> : null}
         {resizedChildren}
       </Box>
     );
