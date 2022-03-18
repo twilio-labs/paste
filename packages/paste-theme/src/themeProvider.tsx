@@ -64,7 +64,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
     <StyledThemeProvider theme={providerThemeProps}>
       <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
       <StylingGlobals styles={pasteFonts} />
-      <StyledBase {...props} />
+      <StyledBase className="paste-theme-provider" {...props} />
     </StyledThemeProvider>
   );
 };

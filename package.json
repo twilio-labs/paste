@@ -210,6 +210,7 @@
     "react-dom": "^17.0.2",
     "react-dom-16": "npm:react-dom@^16.8.6",
     "react-ga": "^3.3.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "6.2.1",
     "react-test-renderer": "^16.8.6",
     "regenerator-runtime": "^0.13.3",
