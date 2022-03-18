@@ -1,5 +1,44 @@
 # Change Log
 
+## 11.2.0
+
+### Minor Changes
+
+- [`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tokens] add i18n font family tokens
+
+* [`55d0528b`](https://github.com/twilio-labs/paste/commit/55d0528b2d967492aa6138c7bab7d1a7168d6e1b) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] Update Badge component to add decorative and counter variants, promote to stage 2
+
+- [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Design Tokens] added new background color, box shadow, text color, border color, border radius tokens to support badge styling
+
+### Patch Changes
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button, FormPillGroup, Menu, Pagination, Select] inherit fontFamily for i18n
+
+* [`554da9708`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf) [#2274](https://github.com/twilio-labs/paste/pull/2274) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] add i18nRequiredLabel prop for i18n
+
+- [`554da970`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf) [#2274](https://github.com/twilio-labs/paste/pull/2274) Thanks [@shleewhite](https://github.com/shleewhite)! - [checkbox, inline-control-group, radio-group] add i18nRequiredLabel prop for i18n
+
+* [`6a1f1190f`](https://github.com/twilio-labs/paste/commit/6a1f1190f81c7df0af785aefaeda0ac10d5cc8ae) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Popover] adjust typings for PopoverBadgeButton
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [ThemeProvider] use non-latin fonts based on the HTML lang attribute to support i18n.
+
+* [`30445063`](https://github.com/twilio-labs/paste/commit/304450633cf5d587cd9078681d60482502d5be8d) [#2302](https://github.com/twilio-labs/paste/pull/2302) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] adjust the error icon color for the error counter variant
+
+* Updated dependencies [[`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`554da9708`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf), [`55d0528b`](https://github.com/twilio-labs/paste/commit/55d0528b2d967492aa6138c7bab7d1a7168d6e1b), [`554da970`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf), [`6a1f1190f`](https://github.com/twilio-labs/paste/commit/6a1f1190f81c7df0af785aefaeda0ac10d5cc8ae), [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db), [`30445063`](https://github.com/twilio-labs/paste/commit/304450633cf5d587cd9078681d60482502d5be8d)]:
+  - @twilio-paste/design-tokens@7.2.0
+  - @twilio-paste/button@8.0.3
+  - @twilio-paste/form-pill-group@2.0.3
+  - @twilio-paste/menu@8.0.3
+  - @twilio-paste/pagination@1.0.3
+  - @twilio-paste/select@6.0.3
+  - @twilio-paste/label@7.0.3
+  - @twilio-paste/badge@2.1.0
+  - @twilio-paste/checkbox@7.0.3
+  - @twilio-paste/inline-control-group@7.0.3
+  - @twilio-paste/radio-group@7.1.2
+  - @twilio-paste/popover@7.0.3
+  - @twilio-paste/theme@6.0.3
+
 ## 11.1.2
 
 ### Patch Changes

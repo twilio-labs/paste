@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+- [`6a1f1190f`](https://github.com/twilio-labs/paste/commit/6a1f1190f81c7df0af785aefaeda0ac10d5cc8ae) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Popover] adjust typings for PopoverBadgeButton
+
 ## 7.0.2
 
 ### Patch Changes

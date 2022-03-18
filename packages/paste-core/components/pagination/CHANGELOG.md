@@ -1,5 +1,11 @@
 # @twilio-paste/pagination
 
+## 1.0.3
+
+### Patch Changes
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button, FormPillGroup, Menu, Pagination, Select] inherit fontFamily for i18n
+
 ## 1.0.2
 
 ### Patch Changes

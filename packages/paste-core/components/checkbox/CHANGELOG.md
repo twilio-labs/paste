@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+- [`554da970`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf) [#2274](https://github.com/twilio-labs/paste/pull/2274) Thanks [@shleewhite](https://github.com/shleewhite)! - [checkbox, inline-control-group, radio-group] add i18nRequiredLabel prop for i18n
+
 ## 7.0.2
 
 ### Patch Changes

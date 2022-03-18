@@ -11846,20 +11846,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/badge@^2.0.2, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
+"@twilio-paste/badge@^2.0.2, @twilio-paste/badge@^2.1.0, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/badge@workspace:packages/paste-core/components/badge"
   dependencies:
     "@twilio-paste/anchor": ^6.0.2
     "@twilio-paste/animation-library": ^0.3.5
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/spinner": ^8.0.2
     "@twilio-paste/stack": ^3.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -11988,20 +11988,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/button@^8.0.2, @twilio-paste/button@workspace:packages/paste-core/components/button":
+"@twilio-paste/button@^8.0.2, @twilio-paste/button@^8.0.3, @twilio-paste/button@workspace:packages/paste-core/components/button":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/button@workspace:packages/paste-core/components/button"
   dependencies:
     "@twilio-paste/anchor": ^6.0.2
     "@twilio-paste/animation-library": ^0.3.5
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/spinner": ^8.0.2
     "@twilio-paste/stack": ^3.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     deepmerge: 4.2.2
@@ -12053,24 +12053,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/checkbox@^7.0.2, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
+"@twilio-paste/checkbox@^7.0.2, @twilio-paste/checkbox@^7.0.3, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox"
   dependencies:
     "@twilio-paste/base-radio-checkbox": ^7.0.2
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/help-text": ^7.0.2
     "@twilio-paste/icons": ^6.2.1
-    "@twilio-paste/inline-control-group": ^7.0.2
-    "@twilio-paste/label": ^7.0.2
+    "@twilio-paste/inline-control-group": ^7.0.3
+    "@twilio-paste/label": ^7.0.3
     "@twilio-paste/media-object": ^5.0.2
     "@twilio-paste/screen-reader-only": ^7.0.2
     "@twilio-paste/sibling-box": ^4.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -12224,13 +12224,13 @@ __metadata:
     "@twilio-paste/animation-library": ^0.3.5
     "@twilio-paste/aspect-ratio": ^5.0.2
     "@twilio-paste/avatar": ^3.0.2
-    "@twilio-paste/badge": ^2.0.2
+    "@twilio-paste/badge": ^2.1.0
     "@twilio-paste/base-radio-checkbox": ^7.0.2
     "@twilio-paste/box": ^5.0.2
     "@twilio-paste/breadcrumb": ^5.0.2
-    "@twilio-paste/button": ^8.0.2
+    "@twilio-paste/button": ^8.0.3
     "@twilio-paste/card": ^4.0.2
-    "@twilio-paste/checkbox": ^7.0.2
+    "@twilio-paste/checkbox": ^7.0.3
     "@twilio-paste/clipboard-copy-library": ^1.0.3
     "@twilio-paste/color-contrast-utils": ^2.0.2
     "@twilio-paste/combobox": ^9.0.3
@@ -12239,35 +12239,35 @@ __metadata:
     "@twilio-paste/data-grid": ^1.0.2
     "@twilio-paste/data-visualization-library": ^0.1.2
     "@twilio-paste/date-picker": ^1.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/disclosure": ^6.0.2
     "@twilio-paste/disclosure-primitive": ^0.3.7
     "@twilio-paste/display-pill-group": ^2.0.2
     "@twilio-paste/dropdown-library": ^1.1.4
     "@twilio-paste/flex": ^3.0.2
-    "@twilio-paste/form-pill-group": ^2.0.2
+    "@twilio-paste/form-pill-group": ^2.0.3
     "@twilio-paste/grid": ^3.0.2
     "@twilio-paste/heading": ^6.0.2
     "@twilio-paste/help-text": ^7.0.2
     "@twilio-paste/icons": ^6.2.1
-    "@twilio-paste/inline-control-group": ^7.0.2
+    "@twilio-paste/inline-control-group": ^7.0.3
     "@twilio-paste/input": ^4.0.2
     "@twilio-paste/input-box": ^5.0.2
-    "@twilio-paste/label": ^7.0.2
+    "@twilio-paste/label": ^7.0.3
     "@twilio-paste/list": ^3.0.2
     "@twilio-paste/media-object": ^5.0.2
-    "@twilio-paste/menu": ^8.0.2
+    "@twilio-paste/menu": ^8.0.3
     "@twilio-paste/menu-primitive": ^0.2.8
     "@twilio-paste/modal": ^8.0.2
     "@twilio-paste/modal-dialog-primitive": ^0.2.6
     "@twilio-paste/non-modal-dialog-primitive": ^0.3.8
-    "@twilio-paste/pagination": ^1.0.2
+    "@twilio-paste/pagination": ^1.0.3
     "@twilio-paste/paragraph": ^5.0.2
-    "@twilio-paste/popover": ^7.0.2
-    "@twilio-paste/radio-group": ^7.1.1
+    "@twilio-paste/popover": ^7.0.3
+    "@twilio-paste/radio-group": ^7.1.2
     "@twilio-paste/reakit-library": ^0.8.4
     "@twilio-paste/screen-reader-only": ^7.0.2
-    "@twilio-paste/select": ^6.0.2
+    "@twilio-paste/select": ^6.0.3
     "@twilio-paste/separator": ^3.0.2
     "@twilio-paste/sibling-box": ^4.0.2
     "@twilio-paste/skeleton-loader": ^1.0.2
@@ -12280,7 +12280,7 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^0.2.6
     "@twilio-paste/text": ^5.0.2
     "@twilio-paste/textarea": ^4.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/time-picker": ^1.0.2
     "@twilio-paste/toast": ^6.0.2
     "@twilio-paste/tooltip": ^5.0.2
@@ -12442,7 +12442,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   languageName: unknown
@@ -12579,20 +12579,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form-pill-group@^2.0.2, @twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group":
+"@twilio-paste/form-pill-group@^2.0.2, @twilio-paste/form-pill-group@^2.0.3, @twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group"
   dependencies:
     "@twilio-paste/animation-library": ^0.3.5
     "@twilio-paste/box": ^5.0.2
     "@twilio-paste/customization": ^3.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/reakit-library": ^0.8.4
     "@twilio-paste/screen-reader-only": ^7.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -12727,21 +12727,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/inline-control-group@^7.0.2, @twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group":
+"@twilio-paste/inline-control-group@^7.0.2, @twilio-paste/inline-control-group@^7.0.3, @twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group"
   dependencies:
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/flex": ^3.0.2
     "@twilio-paste/help-text": ^7.0.2
     "@twilio-paste/icons": ^6.2.1
-    "@twilio-paste/label": ^7.0.2
+    "@twilio-paste/label": ^7.0.3
     "@twilio-paste/screen-reader-only": ^7.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -12825,17 +12825,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/label@^7.0.2, @twilio-paste/label@workspace:packages/paste-core/components/label":
+"@twilio-paste/label@^7.0.2, @twilio-paste/label@^7.0.3, @twilio-paste/label@workspace:packages/paste-core/components/label":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/label@workspace:packages/paste-core/components/label"
   dependencies:
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/media-object": ^5.0.2
     "@twilio-paste/screen-reader-only": ^7.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -12923,14 +12923,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/menu@^8.0.2, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
+"@twilio-paste/menu@^8.0.2, @twilio-paste/menu@^8.0.3, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/menu@workspace:packages/paste-core/components/menu"
   dependencies:
     "@twilio-paste/anchor": ^6.0.2
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/button": ^8.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/button": ^8.0.3
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/media-object": ^5.0.2
     "@twilio-paste/menu-primitive": ^0.2.8
@@ -12940,7 +12940,7 @@ __metadata:
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -13055,17 +13055,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/pagination@^1.0.2, @twilio-paste/pagination@workspace:packages/paste-core/components/pagination":
+"@twilio-paste/pagination@^1.0.2, @twilio-paste/pagination@^1.0.3, @twilio-paste/pagination@workspace:packages/paste-core/components/pagination":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/pagination@workspace:packages/paste-core/components/pagination"
   dependencies:
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -13113,14 +13113,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/popover@^7.0.2, @twilio-paste/popover@workspace:packages/paste-core/components/popover":
+"@twilio-paste/popover@^7.0.2, @twilio-paste/popover@^7.0.3, @twilio-paste/popover@workspace:packages/paste-core/components/popover":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/popover@workspace:packages/paste-core/components/popover"
   dependencies:
-    "@twilio-paste/badge": ^2.0.2
+    "@twilio-paste/badge": ^2.1.0
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/button": ^8.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/button": ^8.0.3
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/non-modal-dialog-primitive": ^0.3.8
     "@twilio-paste/reakit-library": ^0.8.4
@@ -13128,7 +13128,7 @@ __metadata:
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -13155,24 +13155,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/radio-group@^7.1.1, @twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group":
+"@twilio-paste/radio-group@^7.1.1, @twilio-paste/radio-group@^7.1.2, @twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group"
   dependencies:
     "@twilio-paste/base-radio-checkbox": ^7.0.2
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/flex": ^3.0.2
     "@twilio-paste/help-text": ^7.0.2
     "@twilio-paste/icons": ^6.2.1
-    "@twilio-paste/inline-control-group": ^7.0.2
-    "@twilio-paste/label": ^7.0.2
+    "@twilio-paste/inline-control-group": ^7.0.3
+    "@twilio-paste/label": ^7.0.3
     "@twilio-paste/screen-reader-only": ^7.0.2
     "@twilio-paste/sibling-box": ^4.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/text": ^5.0.2
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -13244,17 +13244,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/select@^6.0.2, @twilio-paste/select@workspace:packages/paste-core/components/select":
+"@twilio-paste/select@^6.0.2, @twilio-paste/select@^6.0.3, @twilio-paste/select@workspace:packages/paste-core/components/select":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/select@workspace:packages/paste-core/components/select"
   dependencies:
     "@twilio-paste/box": ^5.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/icons": ^6.2.1
     "@twilio-paste/input-box": ^5.0.2
     "@twilio-paste/style-props": ^4.0.2
     "@twilio-paste/styling-library": ^0.3.7
-    "@twilio-paste/theme": ^6.0.2
+    "@twilio-paste/theme": ^6.0.3
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
@@ -13601,13 +13601,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^6.0.2, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^6.0.2, @twilio-paste/theme@^6.0.3, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:
     "@twilio-paste/animation-library": ^0.3.5
     "@twilio-paste/color-contrast-utils": ^2.0.2
-    "@twilio-paste/design-tokens": ^7.1.1
+    "@twilio-paste/design-tokens": ^7.2.0
     "@twilio-paste/styling-library": ^0.3.7
     "@twilio-paste/types": ^3.1.5
     react: ^17.0.2

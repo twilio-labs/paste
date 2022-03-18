@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [ThemeProvider] use non-latin fonts based on the HTML lang attribute to support i18n.
+
 ## 6.0.2
 
 ### Patch Changes
