@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+- [`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tokens] add i18n font family tokens
+
+* [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Design Tokens] added new background color, box shadow, text color, border color, border radius tokens to support badge styling
+
 ## 7.1.1
 
 ### Patch Changes

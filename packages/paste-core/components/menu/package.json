@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "category": "interaction",
   "status": "production",
   "description": "A Menu is a button that presents a list of items that users can choose to trigger an action.",
@@ -48,8 +48,8 @@
   "devDependencies": {
     "@twilio-paste/anchor": "^6.0.2",
     "@twilio-paste/box": "^5.0.2",
-    "@twilio-paste/button": "^8.0.2",
-    "@twilio-paste/design-tokens": "^7.1.1",
+    "@twilio-paste/button": "^8.0.3",
+    "@twilio-paste/design-tokens": "^7.2.0",
     "@twilio-paste/icons": "^6.2.1",
     "@twilio-paste/media-object": "^5.0.2",
     "@twilio-paste/menu-primitive": "^0.2.8",
@@ -59,7 +59,7 @@
     "@twilio-paste/style-props": "^4.0.2",
     "@twilio-paste/styling-library": "^0.3.7",
     "@twilio-paste/text": "^5.0.2",
-    "@twilio-paste/theme": "^6.0.2",
+    "@twilio-paste/theme": "^6.0.3",
     "@twilio-paste/types": "^3.1.5",
     "@twilio-paste/uid-library": "^0.2.4",
     "prop-types": "^15.7.2",
