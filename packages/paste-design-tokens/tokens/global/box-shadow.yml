@@ -104,3 +104,32 @@ props:
   shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
     comment: Strongest shadow border on interactive elements on inverse backgrounds.
+
+  # Bottom borders
+  shadow-border-bottom-neutral-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-blue-20}"
+    comment: Weaker bottom shadow border for neutral status
+  shadow-border-bottom-warning-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-orange-20}"
+    comment: Weaker bottom shadow border for warning status
+  shadow-border-bottom-error-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-red-20}"
+    comment: Weaker bottom shadow border for error status
+  shadow-border-bottom-success-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-green-20}"
+    comment: Weaker bottom shadow border for success status
+  shadow-border-bottom-new-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-purple-20}"
+    comment: Weaker bottom shadow border for new status
+  shadow-border-bottom-decorative-10-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-gray-20}"
+    comment: Weaker bottom shadow border for decorative 10
+  shadow-border-bottom-decorative-20-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-blue-20}"
+    comment: Weaker bottom shadow border for decorative 20
+  shadow-border-bottom-decorative-30-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-green-20}"
+    comment: Weaker bottom shadow border for decorative 30
+  shadow-border-bottom-decorative-40-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-purple-20}"
+    comment: Weaker bottom shadow border for decorative 40

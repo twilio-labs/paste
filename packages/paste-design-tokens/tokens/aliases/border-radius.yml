@@ -4,3 +4,4 @@ aliases:
   border-radius-20: "4px"
   border-radius-30: "8px"
   border-radius-circle: "50%"
+  border-radius-pill: "100px"

@@ -28,7 +28,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
       popoverContent: StatusDescriptions.ALPHA,
     },
     Beta: {
-      badgeVariant: 'info',
+      badgeVariant: 'neutral',
       popoverContent: StatusDescriptions.BETA,
     },
   };
@@ -69,13 +69,13 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
       <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
         {packageStatus && <PackageStatusBadge status={packageStatus} />}
         {shouldShowFigma && (
-          <Badge as="span" variant="default">
+          <Badge as="span" variant="decorative10">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Design assets pending</Box>
           </Badge>
         )}
         {shouldShowPeerReview ? (
-          <Badge as="span" variant="default">
+          <Badge as="span" variant="decorative10">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Peer review pending</Box>
           </Badge>

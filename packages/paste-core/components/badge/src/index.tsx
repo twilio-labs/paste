@@ -1,49 +1,75 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {secureExternalLink} from '@twilio-paste/anchor';
+import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
 import type {BadgeProps, BadgeVariants} from './types';
 import {useResizeChildIcons} from './hooks';
-import {badgeFocusableStyles, badgeVariantStyles} from './styles';
-import {getBadgeSpanProps, isFocusableElement} from './utils';
-import {BadgeWrapper} from './BadgeWrapper';
+import {badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
 export type {BadgeProps};
 
+const handlePropValidation = ({as, href, onClick}: Partial<BadgeProps>): void => {
+  if (as === 'a') {
+    if (href === null || href === undefined)
+      throw new Error('[Paste: Badge] Badge is being used as an anchor (`as="a"`). Provide an href.');
+    if (onClick != null)
+      throw new Error('[Paste: Badge] An onClick was provided. To use as a button, use `as="button"`.');
+  }
+  if (as === 'button') {
+    if (onClick === null || onClick === undefined)
+      throw new Error('[Paste: Badge] Badge is being used as an button (`as="button"`). Provide an onClick.');
+    if (href === null) throw new Error('[Paste: Badge] An href was provided. To use as an anchor, use `as="a"`.');
+  }
+};
+
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
-  ({variant, children, element = 'BADGE', ...props}, ref) => {
+  ({as, href, variant, children, element = 'BADGE', ...props}, ref) => {
+    handlePropValidation({as, href, ...props});
+
     const resizedChildren = useResizeChildIcons(children);
 
-    const variantStyles = badgeVariantStyles[variant];
-    const spanProps = getBadgeSpanProps(props);
-    const isFocusable = isFocusableElement(props);
+    let badgeStyles = badgeVariantStyles[variant];
+
+    if (as === 'a') {
+      badgeStyles = {...badgeStyles, ...getBadgeAnchorStyles()};
+    }
+    if (as === 'button') {
+      badgeStyles = {...badgeStyles, ...getBadgeButtonStyles(variant)};
+    }
 
     return (
-      // @ts-expect-error we need to explore polymorphic types for this ref to work https://www.benmvp.com/blog/forwarding-refs-polymorphic-react-component-typescript/
-      <BadgeWrapper {...props} ref={isFocusable ? ref : null}>
-        <Box
-          {...spanProps}
-          alignItems="center"
-          as="span"
-          border="unset"
-          borderRadius="borderRadius30"
-          columnGap="space10"
-          display="flex"
-          element={element}
-          fontSize="fontSize20"
-          fontWeight="fontWeightSemibold"
-          lineHeight="lineHeight10"
-          maxWidth="max-content"
-          paddingX="space30"
-          paddingY="space20"
-          variant={variant}
-          ref={!isFocusable ? ref : null}
-          {...variantStyles}
-          {...(isFocusable && {...badgeFocusableStyles})}
-        >
-          {resizedChildren}
-        </Box>
-      </BadgeWrapper>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        {...(href ? secureExternalLink(href) : {})}
+        href={href}
+        alignItems="center"
+        as={as}
+        border="unset"
+        borderRadius="borderRadius30"
+        columnGap="space10"
+        display="flex"
+        element={element}
+        fontSize="fontSize20"
+        fontWeight="fontWeightSemibold"
+        lineHeight="lineHeight10"
+        maxWidth="max-content"
+        paddingX="space30"
+        paddingY="space20"
+        // these next props are from button-reset styles
+        appearance="none"
+        background="none"
+        outline="none"
+        fontFamily="inherit"
+        position="relative"
+        variant={variant}
+        ref={ref}
+        {...badgeStyles}
+      >
+        {variant === 'error_counter' ? <ErrorIcon element={`${element}_ICON`} decorative size="sizeIcon10" /> : null}
+        {resizedChildren}
+      </Box>
     );
   }
 );
@@ -53,10 +79,24 @@ Badge.displayName = 'Badge';
 Badge.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
-  variant: PropTypes.oneOf(['info', 'default', 'warning', 'error', 'success', 'new'] as BadgeVariants[]).isRequired,
+  variant: PropTypes.oneOf([
+    'neutral',
+    'warning',
+    'error',
+    'success',
+    'new',
+    'decorative10',
+    'decorative20',
+    'decorative30',
+    'decorative40',
+    'neutral_counter',
+    'error_counter',
+    // the following variants are outdated but still supported to prevent breaking changes
+    'default',
+    'info',
+  ] as BadgeVariants[]).isRequired,
   // @ts-expect-error type unions are a little too much for prop types inferred types to handle
   as: PropTypes.oneOf(['span', 'button', 'a']).isRequired,
   href: PropTypes.string,
-  // @ts-expect-error again type unions. This is required when a button but not when a span and banned when a link.
   onClick: PropTypes.func,
 };

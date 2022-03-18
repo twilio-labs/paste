@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
 
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -7,48 +7,11 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
-import {isFocusableElement, getBadgeSpanProps} from '../src/utils';
 import {useResizeChildIcons} from '../src/hooks';
 
 type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
 
 describe('Badge', () => {
-  describe('Utils', () => {
-    describe('isFocusableElement', () => {
-      it('should return true for a button', () => {
-        expect(isFocusableElement({as: 'button'})).toBeTruthy();
-      });
-      it('should return true for an anchor', () => {
-        expect(isFocusableElement({as: 'a'})).toBeTruthy();
-      });
-      it('should return false for a span', () => {
-        expect(isFocusableElement({as: 'span'})).toBeFalsy();
-      });
-    });
-
-    describe('getBadgeSpanProps', () => {
-      it('should return safe props to spread on the badge span when it is a span element', () => {
-        expect(
-          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
-          getBadgeSpanProps({as: 'span', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
-        ).toEqual({
-          'aria-labelledby': 'some-id',
-          as: 'span',
-        });
-      });
-      it('should return no props to spread on the badge span when it is a button or anchor element as they should be spread on the parent', () => {
-        expect(
-          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
-          getBadgeSpanProps({as: 'button', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
-        ).toEqual({});
-        expect(
-          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
-          getBadgeSpanProps({as: 'a', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
-        ).toEqual({});
-      });
-    });
-  });
-
   describe('Hooks', () => {
     describe('useResizeChildIcons', () => {
       it('should return return no modifications when child icon size is default', () => {
@@ -77,8 +40,8 @@ describe('Badge', () => {
     it('should set ref to a span element when rendered as a "span"', () => {
       const badgeRef = React.createRef<HTMLElement>();
       render(
-        <Badge as="span" variant="default" ref={badgeRef}>
-          Default
+        <Badge as="span" variant="neutral" ref={badgeRef}>
+          Neutral
         </Badge>
       );
       expect(badgeRef?.current?.tagName).toEqual('SPAN');
@@ -86,8 +49,8 @@ describe('Badge', () => {
     it('should set ref to a button element when rendered as a "button"', () => {
       const badgeRef = React.createRef<HTMLElement>();
       render(
-        <Badge as="button" onClick={() => {}} variant="default" ref={badgeRef}>
-          Default
+        <Badge as="button" onClick={() => {}} variant="neutral" ref={badgeRef}>
+          Neutral
         </Badge>
       );
       expect(badgeRef?.current?.tagName).toEqual('BUTTON');
@@ -95,8 +58,8 @@ describe('Badge', () => {
     it('should set ref to an anchor element when rendered as a "a"', () => {
       const badgeRef = React.createRef<HTMLElement>();
       render(
-        <Badge as="a" href="#" variant="default" ref={badgeRef}>
-          Default
+        <Badge as="a" href="#" variant="neutral" ref={badgeRef}>
+          Neutral
         </Badge>
       );
       expect(badgeRef?.current?.tagName).toEqual('A');
@@ -220,22 +183,38 @@ describe('Badge', () => {
         expect(getByRole('button')).toBeInTheDocument();
       });
 
+      it('should show an error if as is "button" but href is provided', () => {
+        expect(() =>
+          render(
+            <Badge as="button" variant="neutral" href="#">
+              test
+            </Badge>
+          )
+        ).toThrow();
+      });
+
+      it('should show an error if as is "button" and onClick is not given', () => {
+        expect(() =>
+          render(
+            <Badge as="button" variant="neutral">
+              test
+            </Badge>
+          )
+        ).toThrow();
+      });
+
       it('should render badge as button with correct styles', () => {
-        const {container} = render(
+        render(
           <Badge as="button" onClick={() => null} variant="success">
             Button
           </Badge>
         );
 
-        const badgeElement = container.querySelector(':nth-child(1) > span > span');
+        const badgeElement = screen.getByRole('button');
 
         // @TODO make sure all the style rules are accounted for here.
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextSuccess');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundSuccessWeakest');
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'underline');
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
         expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', {target: ':focus'});
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
+        expect(badgeElement).toHaveStyleRule('box-shadow', 'none', {target: ':hover'});
       });
     });
   });
@@ -327,18 +306,35 @@ describe('Badge', () => {
         expect(getByRole('link')).toBeInTheDocument();
       });
 
+      it('should show an error if as is "a" but onClick is provided', () => {
+        expect(() =>
+          render(
+            <Badge as="a" variant="neutral" onClick={() => {}}>
+              test
+            </Badge>
+          )
+        ).toThrow();
+      });
+
+      it('should show an error if as is "a" and href is not given', () => {
+        expect(() =>
+          render(
+            <Badge as="a" variant="neutral">
+              test
+            </Badge>
+          )
+        ).toThrow();
+      });
+
       it('should render badge as anchor with correct styles', () => {
-        const {container} = render(
+        render(
           <Badge href="#test" as="a" variant="success">
-            Not anchor
+            Anchor
           </Badge>
         );
 
-        const badgeElement = container.querySelector(':nth-child(1) > span > span');
+        const badgeElement = screen.getByRole('link');
 
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextSuccess');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundSuccessWeakest');
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'underline');
         expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
         expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', {target: ':focus'});
         expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
@@ -350,7 +346,7 @@ describe('Badge', () => {
     describe('Render', () => {
       it('should render as a span element if as is "span"', () => {
         const {getByTestId} = render(
-          <Badge as="span" variant="default" data-testid="badge-6">
+          <Badge as="span" variant="neutral" data-testid="badge-6">
             test
           </Badge>
         );
@@ -365,7 +361,7 @@ describe('Badge', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
         <>
-          <Badge as="span" data-testid="badge-1" variant="default">
+          <Badge as="span" data-testid="badge-1" variant="neutral">
             test
           </Badge>
           <Badge as="span" data-testid="badge-1" variant="success">
@@ -377,14 +373,29 @@ describe('Badge', () => {
           <Badge as="span" data-testid="badge-1" variant="error">
             test
           </Badge>
-          <Badge as="span" data-testid="badge-1" variant="info">
-            test
-          </Badge>
           <Badge as="span" data-testid="badge-1" variant="new">
             test
           </Badge>
+          <Badge as="span" data-testid="badge-1" variant="decorative10">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="decorative20">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="decorative30">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="decorative40">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="neutral_counter">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="error_counter">
+            test
+          </Badge>
 
-          <Badge as="a" href="#" data-testid="badge-1" variant="default">
+          <Badge as="a" href="#" data-testid="badge-1" variant="neutral">
             test
           </Badge>
           <Badge as="a" href="#" data-testid="badge-1" variant="success">
@@ -396,14 +407,29 @@ describe('Badge', () => {
           <Badge as="a" href="#" data-testid="badge-1" variant="error">
             test
           </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="info">
-            test
-          </Badge>
           <Badge as="a" href="#" data-testid="badge-1" variant="new">
             test
           </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="decorative10">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="decorative20">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="decorative30">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="decorative40">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="neutral_counter">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="error_counter">
+            test
+          </Badge>
 
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="default">
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="neutral">
             test
           </Badge>
           <Badge as="button" onClick={() => null} data-testid="badge-1" variant="success">
@@ -415,10 +441,25 @@ describe('Badge', () => {
           <Badge as="button" onClick={() => null} data-testid="badge-1" variant="error">
             test
           </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="info">
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="new">
             test
           </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="new">
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative10">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative20">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative30">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative40">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="neutral_counter">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="error_counter">
             test
           </Badge>
         </>
