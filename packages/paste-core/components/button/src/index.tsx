@@ -116,7 +116,13 @@ const handlePropValidation = ({
 
 const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
 
-const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
+const ButtonContents: React.FC<ButtonContentsProps> = ({
+  buttonState,
+  children,
+  showLoading,
+  variant,
+  i18nLoadingLabel,
+}) => {
   const buttonVariantHasBoundingBox = variant && variantsWithoutBoundingBox.has(variant);
 
   return (
@@ -146,7 +152,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
           alignItems="center"
           lineHeight="lineHeight30"
         >
-          <Spinner decorative={false} title="Loading, please wait." delay={0} />
+          <Spinner decorative={false} title={i18nLoadingLabel} delay={0} />
         </Box>
       ) : null}
     </>
@@ -185,7 +191,16 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
 
 // memo
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUTTON', ...props}, ref) => {
-  const {size, variant, children, disabled, loading, ...rest} = props;
+  const {
+    size,
+    variant,
+    children,
+    disabled,
+    loading,
+    i18nLoadingLabel = 'Loading, please wait',
+    i18nExternalLinkLabel,
+    ...rest
+  } = props;
   const [hovered, setHovered] = React.useState(false);
   const arrowIconStyles = useSpring({
     translateX: hovered ? '4px' : '0px',
@@ -215,7 +230,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUT
       <>
         {children}
         {externalLinkProps != null ? (
-          <LinkExternalIcon decorative={false} title="link takes you to an external page" />
+          // I feel like title=`(${children})` below is okay to do since we check for it to be a string above. Thoughts?
+          <LinkExternalIcon decorative={false} title={`(${i18nExternalLinkLabel || children})`} />
         ) : (
           <AnimatedBox style={arrowIconStyles}>
             <ArrowForwardIcon decorative />
@@ -251,7 +267,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUT
       style={undefined}
       ref={ref}
     >
-      <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
+      <ButtonContents
+        buttonState={buttonState}
+        showLoading={showLoading}
+        variant={variant}
+        i18nLoadingLabel={i18nLoadingLabel}
+      >
         {injectIconChildren}
       </ButtonContents>
     </ButtonComponent>
