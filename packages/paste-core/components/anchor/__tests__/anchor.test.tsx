@@ -232,4 +232,27 @@ describe('Anchor', () => {
       expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214,31,31)');
     });
   });
+
+  describe('i18n', () => {
+    it('should have showExternal icon text', () => {
+      render(
+        <Anchor showExternal href="#">
+          I am anchor
+        </Anchor>
+      );
+      const externalAnchor = screen.getByRole('link');
+      const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
+      expect(showExternalIcon.textContent).toEqual('(link takes you to an external page)');
+    });
+    it('should have showExternal icon text when i18nShowExternalLinkLabel prop is used', () => {
+      render(
+        <Anchor showExternal href="#" i18nExternalLinkLabel="(este enlace redirige a una página externa)">
+          Soy enlace
+        </Anchor>
+      );
+      const externalAnchor = screen.getByRole('link');
+      const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
+      expect(showExternalIcon.textContent).toEqual('(este enlace redirige a una página externa)');
+    });
+  });
 });

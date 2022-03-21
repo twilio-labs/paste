@@ -110,3 +110,30 @@ export const CustomAnchor = (): React.ReactNode => {
     </CustomizationProvider>
   );
 };
+
+export const i18nAnchor = (): React.ReactNode => {
+  return (
+    <>
+      <Anchor
+        href="https://paste.twilio.design"
+        showExternal
+        i18nExternalLinkLabel="(este enlace redirige a una página externa)"
+      >
+        Soy enlace externo
+      </Anchor>
+      <Heading as="h2" variant="heading10">
+        <Anchor
+          href="https://paste.twilio.design"
+          showExternal
+          i18nExternalLinkLabel="(este enlace redirige a una página externa)"
+        >
+          Soy enlace externo en un Heading
+        </Anchor>
+      </Heading>
+    </>
+  );
+};
+
+i18nAnchor.story = {
+  name: 'i18n Anchor',
+};
