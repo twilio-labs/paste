@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {act, fireEvent, render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -31,7 +32,7 @@ describe('Tooltip', () => {
       expect(renderedTooltip.getAttribute('role')).toEqual('tooltip');
     });
 
-    it('should render a tooltip and show/hide on button click', () => {
+    it('should render a tooltip and show/hide on button click', async () => {
       render(<StateHookExample />);
 
       const ButtonOne = screen.queryByTestId('show-button');
@@ -44,15 +45,23 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      ButtonOne.click();
-      tooltip = screen.queryByTestId('state-hook-tooltip');
+      userEvent.click(ButtonOne);
+
+      await waitFor(() => {
+        tooltip = screen.queryByTestId('state-hook-tooltip');
+      });
+
       if (tooltip === null) {
         return;
       }
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      ButtonTwo.click();
-      tooltip = screen.queryByTestId('state-hook-tooltip');
+      userEvent.click(ButtonTwo);
+
+      await waitFor(() => {
+        tooltip = screen.queryByTestId('state-hook-tooltip');
+      });
+
       if (tooltip === null) {
         return;
       }
@@ -75,21 +84,20 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-children-example');
 
-      expect(tooltip.getAttribute('hidden')).not.toBeNull();
+      expect(tooltip).not.toBeVisible();
 
-      await act(async () => {
-        await screen.getByRole('button').focus();
+      screen.getByRole('button').focus();
+
+      await waitFor(() => {
+        expect(tooltip).toBeVisible();
       });
 
-      expect(tooltip.getAttribute('hidden')).toBeNull();
+      userEvent.click(screen.getByRole('button'));
 
-      await act(async () => {
-        // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
-        await fireEvent.click(document.activeElement);
+      await waitFor(() => {
+        expect(focusHandlerMock).toHaveBeenCalled();
+        expect(clickHandlerMock).toHaveBeenCalled();
       });
-
-      expect(focusHandlerMock).toHaveBeenCalled();
-      expect(clickHandlerMock).toHaveBeenCalled();
     });
   });
 
@@ -167,7 +175,6 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
-      screen.debug();
       expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
       expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
     });

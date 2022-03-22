@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-
-import {render as testRender} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -15,12 +13,12 @@ const defaultProps = {
 
 describe('Checkbox Disclaimer', () => {
   it('should render', () => {
-    const {getByRole} = testRender(<CheckboxDisclaimer {...defaultProps}>foo</CheckboxDisclaimer>);
+    const {getByRole} = render(<CheckboxDisclaimer {...defaultProps}>foo</CheckboxDisclaimer>);
     expect(getByRole('checkbox')).not.toBeNull();
   });
 
   it('should render a required dot', () => {
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxDisclaimer {...defaultProps} required>
         foo
       </CheckboxDisclaimer>
@@ -34,7 +32,7 @@ describe('Checkbox Disclaimer', () => {
 
   it('renders a errorText message when errorText prop is present', () => {
     const errorText = 'This is the error text.';
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxDisclaimer {...defaultProps} errorText={errorText}>
         foo
       </CheckboxDisclaimer>
@@ -45,7 +43,7 @@ describe('Checkbox Disclaimer', () => {
 
 describe('Customization', () => {
   it('Should set a default element data attribute Checkbox Disclaimer', () => {
-    const {container} = testRender(
+    const {container} = render(
       <CheckboxDisclaimer {...defaultProps} errorText="error">
         foo
       </CheckboxDisclaimer>
@@ -57,7 +55,7 @@ describe('Customization', () => {
   });
 
   it('Should set a custom element data attribute for a custom named Checkbox Disclaimer', () => {
-    const {container} = testRender(
+    const {container} = render(
       <CheckboxDisclaimer element="MY_CHECKBOX_DISCLAIMER" {...defaultProps} errorText="error">
         foo
       </CheckboxDisclaimer>
@@ -69,7 +67,7 @@ describe('Customization', () => {
   });
 
   it('Should add custom styling to a default Checkbox Disclaimer', () => {
-    const {container} = testRender(
+    const {container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
@@ -93,7 +91,7 @@ describe('Customization', () => {
   });
 
   it('Should add custom styling to a custom named Checkbox Disclaimer', () => {
-    const {container} = testRender(
+    const {container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{

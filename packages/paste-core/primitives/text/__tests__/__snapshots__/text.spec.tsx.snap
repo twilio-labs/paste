@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -123,21 +124,23 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    PseudoBox
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      PseudoBox
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`as should render as a provided HTML element 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -155,21 +158,23 @@ exports[`as should render as a provided HTML element 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <label
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    background single
-  </label>
-</div>
+    <label
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      background single
+    </label>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`color should set a color property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -187,21 +192,23 @@ exports[`color should set a color property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    color single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      color single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`color should set a responsive color property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -225,26 +232,23 @@ exports[`color should set a responsive color property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color={
-      Array [
-        "colorTextError",
-        "colorTextSuccess",
-      ]
-    }
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    color responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorTextError,colorTextSuccess"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      color responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`display should set a display property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -263,22 +267,24 @@ exports[`display should set a display property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    display="inline-block"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    display single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      display="inline-block"
+      font-size="fontSize30"
+    >
+      display single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`display should set a responsive display property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -303,27 +309,24 @@ exports[`display should set a responsive display property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    display={
-      Array [
-        "inline-block",
-        "block",
-      ]
-    }
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    display responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      display="inline-block,block"
+      font-size="fontSize30"
+    >
+      display responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontFamily should set a font family property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -342,22 +345,24 @@ exports[`fontFamily should set a font family property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontFamily="fontFamilyCode"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    font family single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-family="fontFamilyCode"
+      font-size="fontSize30"
+    >
+      font family single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontFamily should set a responsive font family property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -382,27 +387,24 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontFamily={
-      Array [
-        "fontFamilyText",
-        "fontFamilyCode",
-      ]
-    }
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    font family responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-family="fontFamilyText,fontFamilyCode"
+      font-size="fontSize30"
+    >
+      font family responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontSize should set a font size property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -420,21 +422,23 @@ exports[`fontSize should set a font size property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize10"
+    class="emotion-1"
   >
-    font size single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize10"
+    >
+      font size single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontSize should set a responsive font size property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -458,26 +462,23 @@ exports[`fontSize should set a responsive font size property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize={
-      Array [
-        "fontSize20",
-        "fontSize30",
-      ]
-    }
+    class="emotion-1"
   >
-    font size responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize20,fontSize30"
+    >
+      font size responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontStyle should set a font style property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -496,22 +497,24 @@ exports[`fontStyle should set a font style property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    fontStyle="italic"
+    class="emotion-1"
   >
-    font style single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      font-style="italic"
+    >
+      font style single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontStyle should set a responsive font style property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -536,27 +539,24 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    fontStyle={
-      Array [
-        "italic",
-        "normal",
-      ]
-    }
+    class="emotion-1"
   >
-    font style responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      font-style="italic,normal"
+    >
+      font style responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontWeight should set a font weight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -575,22 +575,24 @@ exports[`fontWeight should set a font weight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    fontWeight="fontWeightBold"
+    class="emotion-1"
   >
-    font weight single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      font-weight="fontWeightBold"
+    >
+      font weight single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`fontWeight should set a responsive font weight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -615,27 +617,24 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    fontWeight={
-      Array [
-        "fontWeightLight",
-        "fontWeightSemibold",
-      ]
-    }
+    class="emotion-1"
   >
-    font weight responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      font-weight="fontWeightLight,fontWeightSemibold"
+    >
+      font weight responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`letterSpacing should set a letter spacing property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -657,22 +656,24 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    letterSpacing="1px"
+    class="emotion-1"
   >
-    letter spacing single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      letter-spacing="1px"
+    >
+      letter spacing single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`letterSpacing should set a responsive letter spacing property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -703,27 +704,24 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    letterSpacing={
-      Array [
-        "-2px",
-        "3px",
-      ]
-    }
+    class="emotion-1"
   >
-    letter spacing responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      letter-spacing="-2px,3px"
+    >
+      letter spacing responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`lineHeight should set a line height property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -741,21 +739,23 @@ exports[`lineHeight should set a line height property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    line height single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      line height single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`lineHeight should set a responsive line height property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -779,21 +779,23 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    line height responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      line height responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`margin should set a margin property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -811,21 +813,23 @@ exports[`margin should set a margin property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    margin single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      margin single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`margin should set a responsive margin property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -849,21 +853,23 @@ exports[`margin should set a responsive margin property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    margin responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      margin responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginBottom should set a marginBottom property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -882,21 +888,23 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginBottom single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginBottom single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginBottom should set a responsive marginBottom property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -921,21 +929,23 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginBottom responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginBottom responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginLeft should set a marginLeft property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -954,21 +964,23 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginLeft single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginLeft single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginLeft should set a responsive marginLeft property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -993,21 +1005,23 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginLeft responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginLeft responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginRight should set a marginRight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1026,21 +1040,23 @@ exports[`marginRight should set a marginRight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginRight single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginRight single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginRight should set a responsive marginRight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1065,21 +1081,23 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginRight responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginRight responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginTop should set a marginTop property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1098,21 +1116,23 @@ exports[`marginTop should set a marginTop property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginTop single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginTop single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`marginTop should set a responsive marginTop property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1137,21 +1157,23 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    marginTop responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      marginTop responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`padding should set a padding property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1169,21 +1191,23 @@ exports[`padding should set a padding property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    padding single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      padding single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`padding should set a responsive padding property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1207,21 +1231,23 @@ exports[`padding should set a responsive padding property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    padding responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      padding responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingBottom should set a paddingBottom property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1240,21 +1266,23 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingBottom single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingBottom single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1279,21 +1307,23 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingBottom responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingBottom responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingLeft should set a paddingLeft property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1312,21 +1342,23 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingLeft single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingLeft single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1351,21 +1383,23 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingLeft responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingLeft responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingRight should set a paddingRight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1384,21 +1418,23 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingRight single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingRight single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingRight should set a responsive paddingRight property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1423,21 +1459,23 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingRight responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingRight responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingTop should set a paddingTop property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1456,21 +1494,23 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingTop single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingTop single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`paddingTop should set a responsive paddingTop property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1495,21 +1535,23 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    paddingTop responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      paddingTop responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`textAlign should set a responsive textAlign property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1534,21 +1576,23 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    textAlign responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      textAlign responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`textAlign should set a textAlign property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1567,21 +1611,23 @@ exports[`textAlign should set a textAlign property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
+    class="emotion-1"
   >
-    textAlign single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+    >
+      textAlign single
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`textDecoration should set a responsive textDecoration property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1608,27 +1654,24 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    textDecoration={
-      Array [
-        "underline",
-        "normal",
-      ]
-    }
+    class="emotion-1"
   >
-    textDecoration responsive
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      text-decoration="underline,normal"
+    >
+      textDecoration responsive
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`textDecoration should set a textDecoration property 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -1648,16 +1691,17 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <span
-    className="emotion-0"
-    color="colorText"
-    data-paste-element="TEXT"
-    fontSize="fontSize30"
-    textDecoration="underline"
+    class="emotion-1"
   >
-    textDecoration single
-  </span>
-</div>
+    <span
+      class="emotion-0"
+      color="colorText"
+      data-paste-element="TEXT"
+      font-size="fontSize30"
+      text-decoration="underline"
+    >
+      textDecoration single
+    </span>
+  </div>
+</DocumentFragment>
 `;

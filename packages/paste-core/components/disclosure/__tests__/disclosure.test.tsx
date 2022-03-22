@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -53,27 +54,24 @@ const MockCustomElementDisclosure: React.FC = () => {
   );
 };
 
-const useVisibleDisclosureState = (): DisclosureStateReturn => {
-  const disclosure = useDisclosureState();
-  const [visible, setVisible] = React.useState(true);
-  return {
-    ...disclosure,
-    visible,
-    toggle: () => {
-      setVisible(false);
-    },
-  };
-};
-
 const StateHookMock: React.FC = () => {
-  const disclosure = useVisibleDisclosureState();
+  const disclosure = useDisclosureState();
   return (
     <Theme.Provider theme="default">
+      <button
+        onClick={() => {
+          disclosure.toggle();
+        }}
+        type="button"
+        data-testid="external-toggle"
+      >
+        Toggle disclosure
+      </button>
       <Disclosure variant="contained" state={disclosure}>
-        <DisclosureHeading as="h2" variant="heading20">
+        <DisclosureHeading as="h2" variant="heading20" data-testid="disclosure-button">
           Clickable heading
         </DisclosureHeading>
-        <DisclosureContent>Disclosure content</DisclosureContent>
+        <DisclosureContent data-testid="disclosure-content">Disclosure content</DisclosureContent>
       </Disclosure>
     </Theme.Provider>
   );
@@ -161,15 +159,19 @@ describe('Disclosure', () => {
       expect(renderedDisclosureButton.getAttribute('tabindex')).toEqual('0');
       expect(screen.getByTestId('disclosure').id).toEqual('disclosure');
     });
-    it('should render a disclosure open', () => {
-      render(<MockDisclosure visible />);
+    it('should render a disclosure open', async () => {
+      await waitFor(() => {
+        render(<MockDisclosure visible />);
+      });
       const renderedDisclosureButton = screen.getByRole('button');
       expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
-    it('should update attributes when clicked', () => {
+    it('should update attributes when clicked', async () => {
       render(<MockDisclosure />);
       const renderedDisclosureButton = screen.getByRole('button');
-      fireEvent.click(renderedDisclosureButton);
+      await waitFor(() => {
+        userEvent.click(renderedDisclosureButton);
+      });
       expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
     it('should render a disabled disclosure', () => {
@@ -184,12 +186,18 @@ describe('Disclosure', () => {
       expect(renderedDisclosureButton.getAttribute('aria-disabled')).toEqual('true');
       expect(renderedDisclosureButton.getAttribute('tabindex')).toEqual('0');
     });
-    it('should render a disclosure open and update attributes when clicked using a state hook', () => {
+    it('should render a disclosure open and update attributes when clicked using a state hook', async () => {
       render(<StateHookMock />);
-      const renderedDisclosureButton = screen.getByRole('button');
-      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
-      fireEvent.click(renderedDisclosureButton);
-      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('false');
+      const toggleButton = screen.getByTestId('external-toggle');
+      const disclosureButton = screen.getByTestId('disclosure-button');
+      const disclosureContent = screen.getByTestId('disclosure-content');
+      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('false');
+      expect(disclosureContent).not.toBeVisible();
+      await waitFor(() => {
+        userEvent.click(toggleButton);
+      });
+      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(disclosureContent).toBeVisible();
     });
   });
 
