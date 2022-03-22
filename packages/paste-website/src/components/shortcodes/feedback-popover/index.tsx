@@ -13,14 +13,15 @@ import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {SimpleStorage} from '../../../utils/SimpleStorage';
+import {useLocationPathname} from '../../../utils/RouteUtils';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
   dislikePage: (event: React.MouseEvent) => void;
-  pathname: string;
 };
 
-export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage, pathname}) => {
+export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
+  const pathname = useLocationPathname();
   return (
     <>
       <Heading as="h4" variant="heading40">
@@ -93,11 +94,8 @@ export const DislikedPage: React.FC<RatingProps> = () => (
   </>
 );
 
-interface FeedbackPopoverProps {
-  pathname: string;
-}
-
-export const FeedbackPopover: React.FC<FeedbackPopoverProps> = ({pathname}) => {
+export const FeedbackPopover: React.FC = () => {
+  const pathname = useLocationPathname();
   const localStorageKey = `page-rating${pathname}`;
   const popoverId = useUID();
   const [pageRating, setPageRating] = React.useState<string>(SimpleStorage.get(localStorageKey) || '');
@@ -136,7 +134,7 @@ export const FeedbackPopover: React.FC<FeedbackPopoverProps> = ({pathname}) => {
           <SupportIcon size="sizeIcon20" decorative /> Rate this page
         </PopoverButton>
         <Popover aria-label="Give us feedback popover panel">
-          <ShownComponent likePage={likePage} dislikePage={dislikePage} pathname={pathname} />
+          <ShownComponent likePage={likePage} dislikePage={dislikePage} />
         </Popover>
       </PopoverContainer>
     </Box>
