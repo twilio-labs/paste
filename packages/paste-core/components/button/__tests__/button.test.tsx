@@ -628,7 +628,7 @@ describe('Button', () => {
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
-      expect(showExternalIcon.textContent).toEqual('(link takes you to an external page)');
+      expect(showExternalIcon?.textContent).toEqual('(link takes you to an external page)');
     });
     it('should have showExternal icon text when i18nShowExternalLinkLabel prop is used', () => {
       testRender(
@@ -643,7 +643,7 @@ describe('Button', () => {
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
-      expect(showExternalIcon.textContent).toEqual('(este enlace redirige a una página externa)');
+      expect(showExternalIcon?.textContent).toEqual('(este enlace redirige a una página externa)');
     });
   });
 });
