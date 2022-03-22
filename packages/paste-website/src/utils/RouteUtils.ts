@@ -5,12 +5,12 @@ import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {
-  const {pathname} = useLocation();
+  const {pathname} = typeof window !== 'undefined' ? window.location : useLocation();
   return pathname;
 }
 
 export function useLocationOrigin(): string {
-  const {origin} = useLocation();
+  const {origin} = typeof window !== 'undefined' ? window.location : useLocation();
   // By default, assume the origin is our own domain
   return origin || 'https://paste.twilio.design';
 }
