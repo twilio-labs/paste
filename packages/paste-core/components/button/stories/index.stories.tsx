@@ -234,22 +234,12 @@ export const I18nButtons = (): React.ReactNode => {
   return (
     <>
       <Box padding="space30">
-        <Button as="a" href="https://twilio.com" variant="primary">
+        <Button as="a" href="https://twilio.com" variant="primary" i18nExternalLinkLabel="(página externa)">
           Ir a página externa
-        </Button>
-      </Box>
-      <Box padding="space30">
-        <Button as="a" href="https://twilio.com" variant="primary" i18nExternalLinkLabel="página externa">
-          Ir a página externa
-        </Button>
-      </Box>
-      <Box padding="space30">
-        <Button variant="primary" loading i18nLoadingLabel="Éste contenido está cargando">
-          primario
         </Button>
       </Box>
     </>
   );
 };
 
-I18nButtons.storyName = 'i18n Buttons';
+I18nButtons.storyName = 'i18n Button';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {render as testRender} from '@testing-library/react';
+import {render as testRender, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -591,7 +591,6 @@ describe('Button', () => {
 
       expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
 
-      expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
       expect(buttonContent).toHaveAttribute('opacity', '0');
 
       expect(loadingIconWrapper).toHaveStyleRule('position', 'absolute');
@@ -605,20 +604,46 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the link variant in disabled state', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByTestId} = testRender(
         <Button variant="link" disabled data-testid="disabled-link-styles">
           Disabled link
         </Button>
       );
 
       const buttonComponent = getByTestId('disabled-link-styles');
-      const buttonContent = getByText('Disabled link');
 
       expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
 
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');
-      expect(buttonContent).toHaveAttribute('aria-hidden', 'false');
+    });
+  });
+
+  describe('i18n', () => {
+    it('should have showExternal icon text', () => {
+      testRender(
+        <Button as="a" variant="primary" href="https://twilio.com">
+          I am anchor
+        </Button>
+      );
+      const externalAnchor = screen.getByRole('link');
+      const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
+      expect(showExternalIcon.textContent).toEqual('(link takes you to an external page)');
+    });
+    it('should have showExternal icon text when i18nShowExternalLinkLabel prop is used', () => {
+      testRender(
+        <Button
+          as="a"
+          href="https://twilio.com"
+          variant="primary"
+          i18nExternalLinkLabel="(este enlace redirige a una página externa)"
+        >
+          Ir a página externa
+        </Button>
+      );
+      const externalAnchor = screen.getByRole('link');
+      const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
+      expect(showExternalIcon.textContent).toEqual('(este enlace redirige a una página externa)');
     });
   });
 });

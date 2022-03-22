@@ -22,9 +22,6 @@ export interface ButtonContentsProps {
   buttonState: ButtonStates;
   showLoading: boolean;
   variant?: ButtonVariants;
-  i18nLoadingLabel: string;
-  // I kept i18nLoadingLabel as required since it'll always have the default value and typing for the
-  // icon's title prop won't let it be `string | undefined`.
 }
 
 export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
@@ -53,6 +50,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   type?: ButtonTypes;
   loading?: boolean;
   children: React.ReactNode;
-  i18nLoadingLabel?: string;
   i18nExternalLinkLabel?: string;
 }
