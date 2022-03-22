@@ -3,16 +3,10 @@ import {FeedbackPopover, UnratedPage, LikedPage, DislikedPage} from '../src/comp
 
 const NOOP = (): void => {};
 
-export const ButtonFeedbackPopover = (): React.ReactNode => <FeedbackPopover pathname="storybook" />;
-export const UnratedPageFeedbackPopover = (): React.ReactNode => (
-  <UnratedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
-);
-export const LikedPageFeedbackPopover = (): React.ReactNode => (
-  <LikedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
-);
-export const DislikedPageFeedbackPopover = (): React.ReactNode => (
-  <DislikedPage likePage={NOOP} dislikePage={NOOP} pathname="storybook" />
-);
+export const ButtonFeedbackPopover = (): React.ReactNode => <FeedbackPopover />;
+export const UnratedPageFeedbackPopover = (): React.ReactNode => <UnratedPage likePage={NOOP} dislikePage={NOOP} />;
+export const LikedPageFeedbackPopover = (): React.ReactNode => <LikedPage likePage={NOOP} dislikePage={NOOP} />;
+export const DislikedPageFeedbackPopover = (): React.ReactNode => <DislikedPage likePage={NOOP} dislikePage={NOOP} />;
 
 // eslint-disable-next-line import/no-default-export
 export default {
