@@ -3,14 +3,16 @@ import {kebabCase, startCase, toLower} from 'lodash';
 import {useLocation} from '@reach/router';
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
+const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
+
 // Gets the current browser pathname
 export function useLocationPathname(): string {
-  const {pathname} = typeof window !== 'undefined' ? window.location : useLocation();
+  const {pathname} = hasWindowObject() ? window.location : useLocation();
   return pathname;
 }
 
 export function useLocationOrigin(): string {
-  const {origin} = typeof window !== 'undefined' ? window.location : useLocation();
+  const {origin} = hasWindowObject() ? window.location : useLocation();
   // By default, assume the origin is our own domain
   return origin || 'https://paste.twilio.design';
 }
