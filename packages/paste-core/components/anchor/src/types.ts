@@ -18,4 +18,5 @@ export interface AnchorProps
   tabIndex?: AnchorTabIndexes;
   target?: AnchorTargets;
   variant?: AnchorVariants;
+  i18nExternalLinkLabel?: string;
 }
