@@ -17,6 +17,7 @@ import {filterByDateRange, filterByRoomType, filterBySearchString} from '../help
 import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 
+// Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType, defaultDateRange}) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
