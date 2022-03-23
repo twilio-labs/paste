@@ -126,7 +126,6 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         display="flex"
         textDecoration="inherit"
         opacity={buttonState === 'loading' ? '0' : '1'}
-        aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
         justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
         columnGap="space20"
         alignItems="center"
@@ -146,7 +145,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
           alignItems="center"
           lineHeight="lineHeight30"
         >
-          <Spinner decorative={false} title="Loading, please wait." delay={0} />
+          <Spinner decorative delay={0} />
         </Box>
       ) : null}
     </>
@@ -184,79 +183,81 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
 };
 
 // memo
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUTTON', ...props}, ref) => {
-  const {size, variant, children, disabled, loading, ...rest} = props;
-  const [hovered, setHovered] = React.useState(false);
-  const arrowIconStyles = useSpring({
-    translateX: hovered ? '4px' : '0px',
-    config: {
-      mass: 0.1,
-      tension: 275,
-      friction: 16,
-    },
-  });
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({element = 'BUTTON', i18nExternalLinkLabel = '(link takes you to an external page)', ...props}, ref) => {
+    const {size, variant, children, disabled, loading, ...rest} = props;
+    const [hovered, setHovered] = React.useState(false);
+    const arrowIconStyles = useSpring({
+      translateX: hovered ? '4px' : '0px',
+      config: {
+        mass: 0.1,
+        tension: 275,
+        friction: 16,
+      },
+    });
 
-  const smartDefaultSize = React.useMemo(() => {
-    return getButtonSize(variant, children, size);
-  }, [size, variant, children]);
+    const smartDefaultSize = React.useMemo(() => {
+      return getButtonSize(variant, children, size);
+    }, [size, variant, children]);
 
-  handlePropValidation({...props, size: smartDefaultSize});
+    handlePropValidation({...props, size: smartDefaultSize});
 
-  const buttonState = getButtonState(disabled, loading);
-  const showLoading = buttonState === 'loading';
-  const showDisabled = buttonState !== 'default';
-  const ButtonComponent = getButtonComponent(variant);
-  const externalLinkProps = props.href != null ? secureExternalLink(props.href) : null;
+    const buttonState = getButtonState(disabled, loading);
+    const showLoading = buttonState === 'loading';
+    const showDisabled = buttonState !== 'default';
+    const ButtonComponent = getButtonComponent(variant);
+    const externalLinkProps = props.href != null ? secureExternalLink(props.href) : null;
 
-  // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
-  let injectIconChildren = children;
-  if (props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset') {
-    injectIconChildren = (
-      <>
-        {children}
-        {externalLinkProps != null ? (
-          <LinkExternalIcon decorative={false} title="link takes you to an external page" />
-        ) : (
-          <AnimatedBox style={arrowIconStyles}>
-            <ArrowForwardIcon decorative />
-          </AnimatedBox>
-        )}
-      </>
+    // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
+    let injectIconChildren = children;
+    if (props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset') {
+      injectIconChildren = (
+        <>
+          {children}
+          {externalLinkProps != null ? (
+            <LinkExternalIcon decorative={false} title={i18nExternalLinkLabel} />
+          ) : (
+            <AnimatedBox style={arrowIconStyles}>
+              <ArrowForwardIcon decorative />
+            </AnimatedBox>
+          )}
+        </>
+      );
+    }
+
+    return (
+      <ButtonComponent
+        {...externalLinkProps}
+        {...rest}
+        onMouseEnter={(event) => {
+          if (typeof rest.onMouseEnter === 'function') {
+            rest.onMouseEnter(event);
+          }
+          setHovered(true);
+        }}
+        onMouseLeave={(event) => {
+          if (typeof rest.onMouseLeave === 'function') {
+            rest.onMouseLeave(event);
+          }
+          setHovered(false);
+        }}
+        buttonState={buttonState}
+        disabled={showDisabled}
+        element={element}
+        variant={variant}
+        size={smartDefaultSize as ButtonSizes}
+        aria-busy={buttonState === 'loading' ? 'true' : 'false'}
+        className={undefined}
+        style={undefined}
+        ref={ref}
+      >
+        <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
+          {injectIconChildren}
+        </ButtonContents>
+      </ButtonComponent>
     );
   }
-
-  return (
-    <ButtonComponent
-      {...externalLinkProps}
-      {...rest}
-      onMouseEnter={(event) => {
-        if (typeof rest.onMouseEnter === 'function') {
-          rest.onMouseEnter(event);
-        }
-        setHovered(true);
-      }}
-      onMouseLeave={(event) => {
-        if (typeof rest.onMouseLeave === 'function') {
-          rest.onMouseLeave(event);
-        }
-        setHovered(false);
-      }}
-      buttonState={buttonState}
-      disabled={showDisabled}
-      element={element}
-      variant={variant}
-      size={smartDefaultSize as ButtonSizes}
-      aria-busy={buttonState === 'loading' ? 'true' : 'false'}
-      className={undefined}
-      style={undefined}
-      ref={ref}
-    >
-      <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
-        {injectIconChildren}
-      </ButtonContents>
-    </ButtonComponent>
-  );
-});
+);
 
 Button.defaultProps = {
   as: 'button',

@@ -229,3 +229,17 @@ const IconSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
 export const PrimaryIconButton = (): React.ReactNode => <IconSizeOptions variant="primary_icon" />;
 export const SecondaryIconButton = (): React.ReactNode => <IconSizeOptions variant="secondary_icon" />;
 export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions variant="destructive_icon" />;
+
+export const I18nButtons = (): React.ReactNode => {
+  return (
+    <>
+      <Box padding="space30">
+        <Button as="a" href="https://twilio.com" variant="primary" i18nExternalLinkLabel="(página externa)">
+          Ir a página externa
+        </Button>
+      </Box>
+    </>
+  );
+};
+
+I18nButtons.storyName = 'i18n Button';
