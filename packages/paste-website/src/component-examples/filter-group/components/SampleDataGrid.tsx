@@ -1,21 +1,21 @@
 import * as React from 'react';
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '@twilio-paste/data-grid';
 
-import {tableHeaders} from '../constants';
+import {TABLE_HEADERS} from '../constants';
 import {formatDate} from '../helpers';
 import type {TableDataRow} from '../types';
 
-export const SampleDataGrid: React.FC<{tableData: TableDataRow[]}> = ({tableData}) => (
+export const SampleDataGrid: React.FC<{data: TableDataRow[]}> = ({data}) => (
   <DataGrid aria-label="Video rooms">
     <DataGridHead>
       <DataGridRow>
-        {tableHeaders.map((header) => (
+        {TABLE_HEADERS.map((header) => (
           <DataGridHeader key={header}>{header}</DataGridHeader>
         ))}
       </DataGridRow>
     </DataGridHead>
     <DataGridBody>
-      {tableData.map(({sid, uniqueName, roomType, participants, dateCompleted}) => (
+      {data.map(({sid, uniqueName, roomType, participants, dateCompleted}) => (
         <DataGridRow key={sid}>
           <DataGridCell>{sid}</DataGridCell>
           <DataGridCell>{uniqueName}</DataGridCell>

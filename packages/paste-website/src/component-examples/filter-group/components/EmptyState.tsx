@@ -25,7 +25,7 @@ export const EmptyState: React.FC<{handleClearAll: () => void}> = ({handleClearA
         No results found
       </Heading>
       <Paragraph>Try changing the filters or the search term.</Paragraph>
-      <Button variant="secondary" onClick={handleClearAll}>
+      <Button variant="secondary" onClick={handleClearAll} data-cy="filter-group-empty-state-clear-button">
         Clear all
       </Button>
     </Box>

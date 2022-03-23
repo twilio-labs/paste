@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {DefaultFilterGroup} from './components/DefaultFilterGroup';
 
 export const DefaultFilterGroupExample: React.FC = () => (
-  <Box marginBottom="space70">
+  <Box marginBottom="space70" data-cy="filter-group-default-example">
     <DefaultFilterGroup />
   </Box>
 );

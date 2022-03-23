@@ -1,13 +1,13 @@
 import type {TableDataRow} from './types';
 
-export const roomTypes = ['All', 'Group', 'WebRTC Go', 'Peer to Peer'];
-export const dateRanges = [
+export const ROOM_TYPES = ['All', 'Group', 'WebRTC Go', 'Peer to Peer'];
+export const DATE_RANGES = [
   {name: 'All', value: 'all'},
   {name: 'Last 24 hours', value: 'day'},
   {name: 'Last 7 days', value: 'oneWeek'},
   {name: 'Last 14 days', value: 'twoWeeks'},
 ];
-export const tableHeaders = ['Room SID', 'Unique Name', 'Room Type', 'Participants', 'Date Completed'];
+export const TABLE_HEADERS = ['Room SID', 'Unique Name', 'Room Type', 'Participants', 'Date Completed'];
 
 const today = new Date();
 const oneWeekAgo = new Date();
@@ -17,7 +17,7 @@ twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
 const fourWeeksAgo = new Date();
 fourWeeksAgo.setDate(fourWeeksAgo.getDate() - 28);
 
-export const tableData: TableDataRow[] = [
+export const TABLE_DATA: TableDataRow[] = [
   {
     sid: 'RM76426b3e9986878d6316a22bf02d6fc3',
     uniqueName: 'Test Room',

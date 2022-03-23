@@ -10,7 +10,7 @@ import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
 
-import {dateRanges, roomTypes, tableData} from '../constants';
+import {DATE_RANGES, ROOM_TYPES, TABLE_DATA} from '../constants';
 import type {RoomTypes, DateRanges, FilterGroupProps} from '../types';
 import {filterByDateRange, filterByRoomType, filterBySearchString} from '../helpers';
 
@@ -22,14 +22,14 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 
-  const [filteredTableData, setFilteredTableData] = React.useState(tableData);
+  const [filteredTableData, setFilteredTableData] = React.useState(TABLE_DATA);
   const [searchValue, setSearchValue] = React.useState('');
   const [filterRoomType, setFilterRoomType] = React.useState(defaultRoomType || 'All');
   const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || 'all');
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(!(defaultRoomType || defaultDateRange));
 
   const handleApplyFilters = (): void => {
-    const filtered = tableData.filter(({uniqueName, sid, roomType, dateCompleted}) => {
+    const filtered = TABLE_DATA.filter(({uniqueName, sid, roomType, dateCompleted}) => {
       return (
         filterBySearchString(uniqueName, sid, searchValue) &&
         filterByRoomType(roomType, filterRoomType) &&
@@ -44,7 +44,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
     setFilterDateRange('all');
     setFilterRoomType('All');
     setSearchValue('');
-    setFilteredTableData(tableData);
+    setFilteredTableData(TABLE_DATA);
     setAreButtonsDisabled(true);
   };
 
@@ -69,7 +69,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
             }}
             value={filterRoomType}
           >
-            {roomTypes.map((type) => (
+            {ROOM_TYPES.map((type) => (
               <Option value={type} key={type}>
                 {type}
               </Option>
@@ -86,7 +86,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
               setFilterDateRange(event.target.value as DateRanges);
             }}
           >
-            {dateRanges.map((range) => (
+            {DATE_RANGES.map((range) => (
               <Option value={range.value} key={range.value}>
                 {range.name}
               </Option>
@@ -99,11 +99,17 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
             aria-label="Apply filters"
             disabled={areButtonsDisabled}
             onClick={handleApplyFilters}
+            data-cy="filter-group-apply-button"
           >
             <FilterIcon decorative />
             Apply
           </Button>
-          <Button variant="link" disabled={areButtonsDisabled} onClick={handleClearAll}>
+          <Button
+            variant="link"
+            disabled={areButtonsDisabled}
+            onClick={handleClearAll}
+            data-cy="filter-group-clear-button"
+          >
             Clear all
           </Button>
         </Box>
@@ -124,12 +130,13 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
             aria-label="Search"
             type="text"
             placeholder="Search by SID or unique name"
+            name="search"
             value={searchValue}
             onChange={(event) => {
               setSearchValue(event.target.value);
             }}
             insertAfter={
-              <Button variant="link" onClick={handleApplyFilters}>
+              <Button variant="link" onClick={handleApplyFilters} data-cy="filter-group-search-button">
                 <SearchIcon decorative={false} title="Search" />
               </Button>
             }
@@ -142,7 +149,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
       </Box>
       <Box paddingTop="space50">
         {filteredTableData.length > 0 ? (
-          <SampleDataGrid tableData={filteredTableData} />
+          <SampleDataGrid data={filteredTableData} />
         ) : (
           <EmptyState handleClearAll={handleClearAll} />
         )}
