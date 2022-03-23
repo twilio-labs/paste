@@ -98,8 +98,12 @@ describe('ColorCombos', (): void => {
   });
 
   it('should return return false if not passed an array or object', (): void => {
-    // @ts-ignore
+    // hide console errors from terminal when throwing expected errors
+    const spy = jest.spyOn(console, 'error');
+    spy.mockImplementation(() => {});
+    // @ts-expect-error testing input validation
     expect(ColorCombos('#ddd')).toEqual(false);
+    spy.mockRestore();
   });
 
   it('should return a compact combo when passed compact', (): void => {
