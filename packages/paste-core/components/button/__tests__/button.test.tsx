@@ -657,7 +657,7 @@ describe('Button', () => {
 
   describe('i18n', () => {
     it('should have showExternal icon text', () => {
-      testRender(
+      render(
         <Button as="a" variant="primary" href="https://twilio.com">
           I am anchor
         </Button>
@@ -667,7 +667,7 @@ describe('Button', () => {
       expect(showExternalIcon?.textContent).toEqual('(link takes you to an external page)');
     });
     it('should have showExternal icon text when i18nShowExternalLinkLabel prop is used', () => {
-      testRender(
+      render(
         <Button
           as="a"
           href="https://twilio.com"
