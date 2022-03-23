@@ -7,7 +7,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
-import type {DisclosureHeadingProps, DisclosureProps, DisclosureStateReturn} from '../src';
+import type {DisclosureHeadingProps, DisclosureProps} from '../src';
 import {getIconHoverStyles} from '../src/utils';
 
 const MockDisclosure: React.FC<{

@@ -117,16 +117,13 @@ describe('Customization', () => {
 
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
-    const container = document.createElement('div');
     const errorText = 'This is the error text.';
-    document.body.append(container);
-    render(
+    const {container} = render(
       <CheckboxDisclaimer {...defaultProps} errorText={errorText}>
         foo
-      </CheckboxDisclaimer>,
-      container
+      </CheckboxDisclaimer>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
