@@ -9,25 +9,25 @@ import {SidebarDisclosureContent} from '../src/components/site-wrapper/sidebar/s
 
 export const ComplexSidebar = (): React.ReactNode => (
   <Box as="ul" listStyleType="none">
-    <SidebarAnchor level={0} to="https://www.google.com">
+    <SidebarAnchor level={0} to="/">
       Level 0 anchor
     </SidebarAnchor>
-    <SidebarAnchor level={0} to="https://www.google.com">
+    <SidebarAnchor level={0} to="/">
       Level 0 anchor
     </SidebarAnchor>
     <SidebarDisclosure categoryRoute="/introduction" visible>
       <SidebarDisclosureButton level={0}>Level 0 disclosure</SidebarDisclosureButton>
       <SidebarDisclosureContent>
-        <SidebarAnchor level={1} to="https://www.google.com">
+        <SidebarAnchor level={1} to="/">
           Level 1 anchor
         </SidebarAnchor>
         <SidebarDisclosure categoryRoute="/introduction/for-designers" visible>
           <SidebarDisclosureButton level={1}>Level 1 disclosure</SidebarDisclosureButton>
           <SidebarDisclosureContent>
-            <SidebarAnchor level={2} to="https://www.google.com">
+            <SidebarAnchor level={2} to="/">
               Level 2 anchor
             </SidebarAnchor>
-            <SidebarAnchor level={2} to="https://www.google.com">
+            <SidebarAnchor level={2} to="/">
               Level 2 anchor
             </SidebarAnchor>
           </SidebarDisclosureContent>
@@ -39,13 +39,13 @@ export const ComplexSidebar = (): React.ReactNode => (
 
 export const SidebarAnchorLevels = (): React.ReactNode => (
   <Box as="ul" listStyleType="none">
-    <SidebarAnchor level={0} to="https://www.google.com">
+    <SidebarAnchor level={0} to="/">
       Level 0 anchor
     </SidebarAnchor>
-    <SidebarAnchor level={1} to="https://www.google.com">
+    <SidebarAnchor level={1} to="/">
       Level 1 anchor
     </SidebarAnchor>
-    <SidebarAnchor level={2} to="https://www.google.com">
+    <SidebarAnchor level={2} to="/">
       Level 2 anchor
     </SidebarAnchor>
   </Box>
@@ -56,10 +56,10 @@ export const BasicSidebarDisclosure = (): React.ReactNode => (
     <SidebarDisclosure categoryRoute="/introduction" visible>
       <SidebarDisclosureButton level={0}>Level 0 disclosure</SidebarDisclosureButton>
       <SidebarDisclosureContent>
-        <SidebarAnchor level={1} to="https://www.google.com">
+        <SidebarAnchor level={1} to="/">
           Level 1 anchor
         </SidebarAnchor>
-        <SidebarAnchor level={1} to="https://www.google.com">
+        <SidebarAnchor level={1} to="/">
           Level 1 anchor
         </SidebarAnchor>
       </SidebarDisclosureContent>
@@ -72,10 +72,10 @@ export const NestedSidebarDisclosure = (): React.ReactNode => (
     <SidebarDisclosure categoryRoute="/introduction" visible>
       <SidebarDisclosureButton level={1}>Level 1 disclosure</SidebarDisclosureButton>
       <SidebarDisclosureContent>
-        <SidebarAnchor level={2} to="https://www.google.com">
+        <SidebarAnchor level={2} to="/">
           Level 2 anchor
         </SidebarAnchor>
-        <SidebarAnchor level={2} to="https://www.google.com">
+        <SidebarAnchor level={2} to="/">
           Level 2 anchor
         </SidebarAnchor>
       </SidebarDisclosureContent>
