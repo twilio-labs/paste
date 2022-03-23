@@ -56,6 +56,19 @@ describe('Sidebar navigation', () => {
   });
 });
 
+describe('Sidebar opens correct section on first load', () => {
+  it('opens the sidebar category and selects the page correctly on first load', () => {
+    cy.visit('/components/alert-dialog/');
+
+    const componentsCategoryButton = cy.get(`[data-cy="sidebar-disclosure-button-components"]`);
+    componentsCategoryButton.should('have.attr', 'aria-expanded', 'true');
+
+    const componentsCategoryList = cy.get(`[data-cy="sidebar-disclosure-content-components"]`);
+    const alertDialogLink = componentsCategoryList.contains('Alert Dialog');
+    alertDialogLink.should('have.attr', 'aria-current', 'page');
+  });
+});
+
 /**
  * Helper that goes through all the top level disclosure buttons. If their associated content has no unvisited disclosures within it, cypress closes the disclosure and expects the aria-expanded attribute to update accordingly.
  * @param visited {Set<string>} - set of the data-cy attribute values of disclosures that have aleady been tested
