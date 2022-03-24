@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
 import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
 import {Table} from '@twilio-paste/table';
@@ -130,27 +129,21 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
 
     return (
       <DataGridContext.Provider value={dataGridState}>
-        <Box
+        <Composite
+          {...props}
+          {...compositeState}
           id={dataGridId}
-          element={`${element}_WRAPPER`}
-          overflowX="auto"
-          whiteSpace="nowrap"
-          boxShadow={actionable ? 'shadowFocus' : null}
-        >
-          <Composite
-            {...props}
-            {...compositeState}
-            ref={ref}
-            as={Table}
-            element={element}
-            role="grid"
-            onKeyDown={handleKeypress}
-            onMouseDown={handleMouseDown}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            data-actionable={actionable}
-          />
-        </Box>
+          ref={ref}
+          as={Table}
+          element={element}
+          role="grid"
+          onKeyDown={handleKeypress}
+          onMouseDown={handleMouseDown}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          isActionable={actionable}
+          data-actionable={actionable}
+        />
       </DataGridContext.Provider>
     );
   }

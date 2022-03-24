@@ -99,7 +99,7 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-## About Data Grid
+### About Data Grid
 
 The Data Grid is an enhanced [Table](/components/table) component. It can be used to improve the way
 users scan and interact with tabular data. It can be used alongside other components in Paste to provide
@@ -210,6 +210,10 @@ in the cells to create a more pleasant loading experience.
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
+
+### Layouts
+
+The Data Grid inherits from the [Table component](/components/table/), so you can take advantage of all the same layout techniques found in the [Table examples](/components/table#layouts) to control how your Data Grids render on the page.
 
 ### Kitchen sink
 
@@ -347,12 +351,16 @@ const Component = () => (
 
 #### DataGrid Props
 
-| Prop       | Type        | Description                                             | Default     |
-| ---------- | ----------- | ------------------------------------------------------- | ----------- |
-| aria-label | `string`    | Defines a string value that labels the current element. | null        |
-| striped?   | `boolean`   | Toggles row zebra striping                              | false       |
-| element?   | `string`    | Override for customization element name                 | `DATA_GRID` |
-| children?  | `ReactNode` |                                                         | null        |
+| Prop                | Type                    | Description                                                     | Default     |
+| ------------------- | ----------------------- | --------------------------------------------------------------- | ----------- |
+| aria-label          | `string`                | Defines a string value that labels the current element.         | null        |
+| striped?            | `boolean`               | Toggles row zebra striping                                      | false       |
+| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.         | false       |
+| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                          | false       |
+| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`. | false       |
+| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.    | false       |
+| element?            | `string`                | Override for customization element name                         | `DATA_GRID` |
+| children?           | `ReactNode`             |                                                                 | null        |
 
 #### DataGridHead Props
 

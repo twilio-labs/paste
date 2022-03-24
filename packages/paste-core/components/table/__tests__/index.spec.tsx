@@ -222,6 +222,48 @@ describe('Table', () => {
     expect(renderedTd).toHaveStyleRule('text-align', 'right');
   });
 
+  it('should render responsive table styles', (): void => {
+    const {container} = render(
+      <Table scrollHorizontally>
+        <TBody>
+          <Tr verticalAlign="top" data-testid="mockTr">
+            <Td>Column 1</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
+    expect(renderWrapper).toHaveStyleRule('overflow-x', 'auto');
+  });
+
+  it('should render no wrap table styles', (): void => {
+    const {container} = render(
+      <Table noWrap>
+        <TBody>
+          <Tr verticalAlign="top" data-testid="mockTr">
+            <Td>Column 1</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
+    expect(renderWrapper).toHaveStyleRule('white-space', 'nowrap');
+  });
+
+  it('should render actionable table styles', (): void => {
+    const {container} = render(
+      <Table isActionable>
+        <TBody>
+          <Tr verticalAlign="top" data-testid="mockTr">
+            <Td>Column 1</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
+    expect(renderWrapper).toHaveStyleRule('box-shadow', 'shadowFocus');
+  });
+
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Table (default)', () => {
       render(
