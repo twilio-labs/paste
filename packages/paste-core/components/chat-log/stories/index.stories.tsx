@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ChatMessage} from '../src';
+import {ChatMessage, ChatBubble} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -9,8 +9,10 @@ export default {
 export const InboundChatMessage = (): React.ReactNode => {
   return (
     <ChatMessage variant="inbound">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.
+      <ChatBubble>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
+      </ChatBubble>
     </ChatMessage>
   );
 };
@@ -18,7 +20,9 @@ export const InboundChatMessage = (): React.ReactNode => {
 export const OutboundChatMessage = (): React.ReactNode => {
   return (
     <ChatMessage variant="outbound">
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <ChatBubble>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </ChatBubble>
     </ChatMessage>
   );
 };

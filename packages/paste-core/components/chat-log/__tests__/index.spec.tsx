@@ -1,22 +1,31 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {screen, render} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {ChatMessage} from '../src';
+import {ChatMessage, ChatBubble} from '../src';
 
 describe('ChatMessage', () => {
-  it('should render', () => {
-    const {getByText} = render(<ChatMessage variant="inbound">test</ChatMessage>);
-    expect(getByText('test')).toBeDefined();
+  it('should render a list element', () => {
+    render(
+      <ChatMessage variant="inbound">
+        <ChatBubble>test</ChatBubble>
+      </ChatMessage>
+    );
+    expect(screen.getByRole('listitem')).toBeDefined();
   });
 
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <>
-          <ChatMessage variant="inbound">test</ChatMessage>
-          <ChatMessage variant="outbound">test</ChatMessage>
-        </>
+        // todo: replace with ChatLog component
+        <ul>
+          <ChatMessage variant="inbound">
+            <ChatBubble>test</ChatBubble>
+          </ChatMessage>
+          <ChatMessage variant="outbound">
+            <ChatBubble>test</ChatBubble>
+          </ChatMessage>
+        </ul>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
