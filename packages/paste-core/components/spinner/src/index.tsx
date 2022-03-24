@@ -60,7 +60,7 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
 Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   delay: PropTypes.number,
   element: PropTypes.string,
   size: isIconSizeTokenProp,
