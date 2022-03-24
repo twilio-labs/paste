@@ -10,7 +10,7 @@ import {
   typography,
   verticalAlign,
   createShouldForwardProp,
-  props,
+  props as stylingProps,
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
 import {isDeprecatedBoxShadowTokenProp, isDeprecatedTextColorTokenProp} from '@twilio-paste/style-props';
@@ -20,7 +20,7 @@ import {customStyleProps} from './CustomStyleProps';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
 const shouldForwardProp = createShouldForwardProp([
-  ...props,
+  ...stylingProps,
   ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
 ]);
 
