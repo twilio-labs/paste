@@ -26,7 +26,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
 
   return (
     <Box marginTop="space60" marginBottom="space60">
-      <Table data-cy="overview-table">
+      <Table scrollHorizontally data-cy="overview-table">
         <THead>
           <Tr>
             <Th width="150px">Name</Th>
