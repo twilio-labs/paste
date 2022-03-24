@@ -197,7 +197,7 @@ export const DataGridLayouts = (): React.ReactNode => {
         <Heading as="h2" variant="heading40">
           isReponsive
         </Heading>
-        <DataGrid aria-label="Data grid layout example" isResponsive>
+        <DataGrid aria-label="Data grid layout example" scrollHorizontally>
           <DataGridHead>
             <DataGridRow>
               <DataGridHeader>Flow</DataGridHeader>
@@ -241,7 +241,7 @@ export const DataGridLayouts = (): React.ReactNode => {
         <Heading as="h2" variant="heading40">
           isReponsive, layout fixed
         </Heading>
-        <DataGrid aria-label="Data grid layout example" isResponsive tableLayout="fixed">
+        <DataGrid aria-label="Data grid layout example" scrollHorizontally tableLayout="fixed">
           <DataGridHead>
             <DataGridRow>
               <DataGridHeader>Flow</DataGridHeader>
@@ -285,7 +285,7 @@ export const DataGridLayouts = (): React.ReactNode => {
         <Heading as="h2" variant="heading40">
           isReponsive, whitespace no wrap
         </Heading>
-        <DataGrid aria-label="Data grid layout example" isResponsive noWrap>
+        <DataGrid aria-label="Data grid layout example" scrollHorizontally noWrap>
           <DataGridHead>
             <DataGridRow>
               <DataGridHeader>Flow</DataGridHeader>
@@ -329,7 +329,7 @@ export const DataGridLayouts = (): React.ReactNode => {
         <Heading as="h2" variant="heading40">
           isReponsive, whitespace no wrap, layout fixed, truncate needed
         </Heading>
-        <DataGrid aria-label="Data grid layout example" isResponsive tableLayout="fixed" noWrap>
+        <DataGrid aria-label="Data grid layout example" scrollHorizontally tableLayout="fixed" noWrap>
           <DataGridHead>
             <DataGridRow>
               <DataGridHeader>Flow</DataGridHeader>

@@ -10,7 +10,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       element = 'TABLE',
       id,
       isActionable,
-      isResponsive,
+      scrollHorizontally,
       noWrap,
       striped = false,
       tableLayout = 'auto',
@@ -28,7 +28,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         <Box
           id={id}
           element={`${element}_WRAPPER`}
-          overflowX={isResponsive ? 'auto' : null}
+          overflowX={scrollHorizontally ? 'auto' : null}
           whiteSpace={noWrap ? 'nowrap' : null}
           boxShadow={isActionable ? 'shadowFocus' : null}
         >

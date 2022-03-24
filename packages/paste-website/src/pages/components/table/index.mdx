@@ -266,10 +266,10 @@ THead cells (`Th`) can be given a width in order to fill a section of the Table 
 
 #### Responsive Layouts
 
-Tabular data can on small screens can be problematic. The data can often cause tables to overflow the browser window. If you need to support small screens, you can set `isResponsive` and the table will scroll horizontally when the data can no longer fit on the screen.
+Tabular data on small screens can be problematic. The data can often cause tables to overflow the browser window. If you need to support small screens, you can set `scrollHorizontally` and the table will scroll horizontally when the data can no longer fit on the screen.
 
 <LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
-  {`<Table isResponsive>
+  {`<Table scrollHorizontally>
   <THead>
     <Tr>
       <Th>Date</Th>
@@ -322,7 +322,7 @@ You can control a tables vertical density by setting `noWrap` on the table. This
 Coupled with a fixed table layout and [truncation](/components/table/#table-with-truncated-cells) you can increase the data density of a table dramatically. You should be extremely mindful of readability trade-offs when doing so.
 
 <LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
-  {`<Table isResponsive noWrap>
+  {`<Table scrollHorizontally noWrap>
   <THead>
     <Tr>
       <Th>Date</Th>
@@ -1093,7 +1093,7 @@ and email addresses.
 ##### Th
 
 <Box marginBottom="space60">
-  <Table isResponsive>
+  <Table scrollHorizontally>
     <THead>
       <Tr>
         <Th>Property</Th>
@@ -1136,7 +1136,7 @@ and email addresses.
 ##### Td
 
 <Box marginBottom="space60">
-  <Table isResponsive>
+  <Table scrollHorizontally>
     <THead>
       <Tr>
         <Th>Property</Th>
@@ -1237,7 +1237,7 @@ Sets the `table-layout` style of the Table. Defaults to `auto`.
 
 Sets the `border` style of the Table. Defaults to `default`.
 
-###### `isResponsive?: boolean`
+###### `scrollHorizontally?: boolean`
 
 Sets the table to scroll horizontally on small screens.
 

@@ -157,7 +157,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               </AnchoredHeading>
               {cat.info}
               <Box marginBottom="space160" data-cy="tokens-table-container">
-                <Table isResponsive>
+                <Table scrollHorizontally>
                   <THead>
                     <Tr>
                       <Th>Token</Th>

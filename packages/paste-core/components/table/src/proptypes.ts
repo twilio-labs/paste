@@ -7,7 +7,7 @@ export const TablePropTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
   isActionable: PropTypes.bool,
-  isResponsive: PropTypes.bool,
+  scrollHorizontally: PropTypes.bool,
   noWrap: PropTypes.bool,
   striped: PropTypes.bool,
   tableLayout: PropTypes.oneOf(Object.values(TableLayoutObject)),

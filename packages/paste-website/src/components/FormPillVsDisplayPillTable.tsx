@@ -10,7 +10,7 @@ export interface FormPillVsDisplayPillTableProps {
 const FormPillVsDisplayPillTable: React.FC<FormPillVsDisplayPillTableProps> = () => {
   return (
     <Box marginBottom="space70">
-      <Table isResponsive>
+      <Table scrollHorizontally>
         <THead>
           <Tr>
             <Th>&nbsp;</Th>

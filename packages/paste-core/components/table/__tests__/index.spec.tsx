@@ -224,7 +224,7 @@ describe('Table', () => {
 
   it('should render responsive table styles', (): void => {
     const {container} = render(
-      <Table isResponsive>
+      <Table scrollHorizontally>
         <TBody>
           <Tr verticalAlign="top" data-testid="mockTr">
             <Td>Column 1</Td>

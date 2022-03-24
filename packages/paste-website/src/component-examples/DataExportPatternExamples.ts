@@ -206,7 +206,7 @@ const ExportDownloadPage = () => (
     <Heading as="h2" variant="heading20">
       Active Exports
     </Heading>
-    <Table isResponsive>
+    <Table scrollHorizontally>
       <THead>
         <Tr>
           <Th>Status</Th>

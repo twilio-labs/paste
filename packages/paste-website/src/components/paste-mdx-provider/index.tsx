@@ -69,7 +69,7 @@ const MDXPoviderComponents = {
   blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
   table: (props: React.ComponentProps<typeof Table>): React.ReactElement => (
     <Box marginBottom="space60">
-      <Table isResponsive tableLayout="fixed" {...props} />
+      <Table scrollHorizontally tableLayout="fixed" {...props} />
     </Box>
   ),
   thead: (props: React.ComponentProps<typeof THead>): React.ReactElement => <THead {...props} />,

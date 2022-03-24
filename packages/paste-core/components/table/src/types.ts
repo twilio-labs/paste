@@ -27,7 +27,7 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
   /**
    * Controls a tables ability to be shown on smaller viewports
    */
-  isResponsive?: boolean;
+  scrollHorizontally?: boolean;
   /**
    * Controls table cell content line wrapping
    */

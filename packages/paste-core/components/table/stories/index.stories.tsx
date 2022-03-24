@@ -1198,9 +1198,9 @@ export const Layouts = (): React.ReactNode => {
           </TFoot>
         </Table>
         <Heading as="h2" variant="heading40">
-          isResponsive
+          scrollHorizontally
         </Heading>
-        <Table isResponsive>
+        <Table scrollHorizontally>
           <THead>
             <Tr>
               <Th>Flow</Th>
@@ -1242,9 +1242,9 @@ export const Layouts = (): React.ReactNode => {
           </TFoot>
         </Table>
         <Heading as="h2" variant="heading40">
-          isResponsive, fixed layout
+          scrollHorizontally, fixed layout
         </Heading>
-        <Table isResponsive tableLayout="fixed">
+        <Table scrollHorizontally tableLayout="fixed">
           <THead>
             <Tr>
               <Th>Flow</Th>
@@ -1286,9 +1286,9 @@ export const Layouts = (): React.ReactNode => {
           </TFoot>
         </Table>
         <Heading as="h2" variant="heading40">
-          isResponsive, no wrap
+          scrollHorizontally, no wrap
         </Heading>
-        <Table isResponsive noWrap>
+        <Table scrollHorizontally noWrap>
           <THead>
             <Tr>
               <Th>Flow</Th>
@@ -1330,9 +1330,9 @@ export const Layouts = (): React.ReactNode => {
           </TFoot>
         </Table>
         <Heading as="h2" variant="heading40">
-          isResponsive, no wrap, fixed layout, truncate needed
+          scrollHorizontally, no wrap, fixed layout, truncate needed
         </Heading>
-        <Table isResponsive tableLayout="fixed" noWrap>
+        <Table scrollHorizontally tableLayout="fixed" noWrap>
           <THead>
             <Tr>
               <Th>Flow</Th>

@@ -58,7 +58,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
               <AnchoredHeading as="h2" variant="heading20" existingSlug={releaseSlug}>
                 {release.release}
               </AnchoredHeading>
-              <Table isResponsive>
+              <Table scrollHorizontally>
                 <THead>
                   <Tr>
                     <Th width="200px">Feature</Th>
