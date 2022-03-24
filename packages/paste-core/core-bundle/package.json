@@ -36,6 +36,7 @@
     "@twilio-paste/breadcrumb": "^5.0.2",
     "@twilio-paste/button": "^8.1.0",
     "@twilio-paste/card": "^4.0.2",
+    "@twilio-paste/chat-log": "^0.0.0",
     "@twilio-paste/checkbox": "^7.0.3",
     "@twilio-paste/clipboard-copy-library": "^1.0.3",
     "@twilio-paste/color-contrast-utils": "^2.0.2",

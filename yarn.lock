@@ -12663,6 +12663,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
+  dependencies:
+    "@twilio-paste/box": ^5.0.0
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/box": ^5.0.0
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/checkbox@^7.0.2, @twilio-paste/checkbox@^7.0.3, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox"

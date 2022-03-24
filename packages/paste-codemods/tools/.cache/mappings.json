@@ -18,6 +18,7 @@
   "BreadcrumbItem": "@twilio-paste/core/breadcrumb",
   "Button": "@twilio-paste/core/button",
   "Card": "@twilio-paste/core/card",
+  "ChatMessage": "@twilio-paste/core/chat-log",
   "Checkbox": "@twilio-paste/core/checkbox",
   "CheckboxDisclaimer": "@twilio-paste/core/checkbox",
   "CheckboxGroup": "@twilio-paste/core/checkbox",
