@@ -2,16 +2,19 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
-import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
+import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
 import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUtils';
 
+type Sizes = 'default' | 'wide';
+
 export const ModalDialogOverlay = animated(
   /* eslint-disable emotion/syntax-preference */
-  styled(ModalDialogPrimitiveOverlay)(
+  // @ts-ignore Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
+  styled(ModalDialogPrimitiveOverlay)<{variant?: Sizes}>(
     css({
       position: 'fixed',
       top: 0,
@@ -31,12 +34,11 @@ export const ModalDialogOverlay = animated(
     // some of the base styles that we rely on inheriting from
     // such as font-family and line-height so that compositions
     // of paste components in the modal are styled correctly
-    pasteBaseStyles
+    pasteBaseStyles,
+    getCustomElementStyles
   )
   /* eslint-enable */
 );
-
-type Sizes = 'default' | 'wide';
 
 interface ModalDialogContentProps {
   size?: Sizes;
@@ -129,14 +131,12 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         {transitions(
           (styles, item) =>
             item && (
-              <Box
-                // @ts-expect-error Render overlay as box for customization
-                as={ModalDialogOverlay}
+              <ModalDialogOverlay
                 onDismiss={onDismiss}
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
                 style={{opacity: styles.opacity}}
-                element={`${element}_OVERLAY`}
+                data-paste-element={`${element}_OVERLAY`}
                 variant={size}
               >
                 <Box
@@ -152,7 +152,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                 >
                   {children}
                 </Box>
-              </Box>
+              </ModalDialogOverlay>
             )
         )}
       </ModalContext.Provider>
