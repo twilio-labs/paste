@@ -12668,11 +12668,19 @@ __metadata:
   resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
   dependencies:
     "@twilio-paste/box": ^5.0.0
+    "@twilio-paste/customization": ^3.0.0
+    "@twilio-paste/design-tokens": ^7.0.0
+    "@twilio-paste/style-props": ^4.0.0
+    "@twilio-paste/theme": ^6.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
     "@twilio-paste/box": ^5.0.0
+    "@twilio-paste/customization": ^3.0.0
+    "@twilio-paste/design-tokens": ^7.0.0
+    "@twilio-paste/style-props": ^4.0.0
+    "@twilio-paste/theme": ^6.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12933,7 +12941,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/customization@^3.0.2, @twilio-paste/customization@workspace:packages/paste-customization":
+"@twilio-paste/customization@^3.0.0, @twilio-paste/customization@^3.0.2, @twilio-paste/customization@workspace:packages/paste-customization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/customization@workspace:packages/paste-customization"
   dependencies:
@@ -13069,7 +13077,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^7.0.0, @twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   languageName: unknown
@@ -14043,7 +14051,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/style-props@^4.0.2, @twilio-paste/style-props@workspace:packages/paste-style-props":
+"@twilio-paste/style-props@^4.0.0, @twilio-paste/style-props@^4.0.2, @twilio-paste/style-props@workspace:packages/paste-style-props":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/style-props@workspace:packages/paste-style-props"
   dependencies:
@@ -14231,7 +14239,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^6.0.2, @twilio-paste/theme@^6.0.3, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^6.0.0, @twilio-paste/theme@^6.0.2, @twilio-paste/theme@^6.0.3, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:

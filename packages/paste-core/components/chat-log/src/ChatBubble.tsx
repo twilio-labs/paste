@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {ChatBubbleProps} from './types';
 import {MessageVariantContext} from './ChatMessage';
@@ -22,7 +22,7 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
         ref={ref}
         variant={variant}
         {...bubbleVariantStyles[variant]}
-        {...props}
+        {...safelySpreadBoxProps(props)}
       >
         {children}
       </Box>
