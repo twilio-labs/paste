@@ -11,7 +11,7 @@ import {
   position,
   flexbox,
   createShouldForwardProp,
-  props as stylingProps,
+  props as defaultStylingProps,
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
 import {
@@ -25,8 +25,11 @@ import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleF
 import {customStyleProps} from './CustomStyleProps';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
+// we need size to hit the DOM for <select /> elements
+const stylingPropsWithoutSize = defaultStylingProps.filter((item: string) => item !== 'size');
+
 const shouldForwardProp = createShouldForwardProp([
-  ...stylingProps,
+  ...stylingPropsWithoutSize,
   ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
 ]);
 
