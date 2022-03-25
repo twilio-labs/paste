@@ -17,7 +17,7 @@ describe('Customization', () => {
     expect(inboundMessage).toHaveStyleRule('margin-bottom', '2.25rem');
   });
 
-  it('should set element data attribute on Button', () => {
+  it('should set element data attribute on ChatMessage', () => {
     render(
       <CustomizationProvider baseTheme="default" elements={{CHAT_MESSAGE: {marginBottom: 'space100'}}}>
         <ChatMessage variant="inbound" data-testid="inbound-message">
@@ -92,7 +92,7 @@ describe('Customization', () => {
     expect(outboundBubble).toHaveStyleRule('color', 'rgb(255,255,255)');
   });
 
-  it('should set element data attribute on Button', () => {
+  it('should set element data attribute on ChatBubble', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
