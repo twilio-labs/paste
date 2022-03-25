@@ -6682,7 +6682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.6":
+"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.1, @emotion/is-prop-valid@npm:^0.8.6":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
   dependencies:
@@ -6695,6 +6695,13 @@ __metadata:
   version: 0.7.4
   resolution: "@emotion/memoize@npm:0.7.4"
   checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:^0.7.1":
+  version: 0.7.5
+  resolution: "@emotion/memoize@npm:0.7.5"
+  checksum: 83da8d4a7649a92c72f960817692bc6be13cc13e107b9f7e878d63766525ed4402881bfeb3cda61145c050281e7e260f114a0a2870515527346f2ef896b915b3
   languageName: node
   linkType: hard
 
@@ -10059,20 +10066,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/dialog@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/dialog@npm:0.15.0"
+"@reach/dialog@npm:0.16.2":
+  version: 0.16.2
+  resolution: "@reach/dialog@npm:0.16.2"
   dependencies:
-    "@reach/portal": 0.15.0
-    "@reach/utils": 0.15.0
+    "@reach/portal": 0.16.2
+    "@reach/utils": 0.16.0
     prop-types: ^15.7.2
-    react-focus-lock: ^2.5.0
-    react-remove-scroll: ^2.4.1
-    tslib: ^2.1.0
+    react-focus-lock: ^2.5.2
+    react-remove-scroll: ^2.4.3
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: a97dd294ccca1c7517b69ff35c3af40df5ebc130649d84fa03d719c250aeda4b7d82fb04257d9796525759d9fbf02c6a144452cb4f485f9fa0970fa89c6bd341
+  checksum: 1478ad3c4c0a86c30b02f4360fb06ead5b2e894c5e6ab96523970d45272298e2e31cb5278f861e4f92a90bcab0a30f4bac5572ab534f56529145619e7675497f
   languageName: node
   linkType: hard
 
@@ -10083,16 +10090,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/portal@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/portal@npm:0.15.0"
+"@reach/portal@npm:0.16.2":
+  version: 0.16.2
+  resolution: "@reach/portal@npm:0.16.2"
   dependencies:
-    "@reach/utils": 0.15.0
-    tslib: ^2.1.0
+    "@reach/utils": 0.16.0
+    tiny-warning: ^1.0.3
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 9cb6f00a9fb7e61efd811a4a56e50d7a5257c5e1ef9ebc3083f0340610b55a62688214a11313e0c93b4d631fe7a4854247d0e94bbc844941fbf06f3a48d4c49d
+  checksum: 7413dcd169cfb9854dd0d3a01f811ec19ef170558fcbd00118d676fc02c197d1c0bce1d1357508879d4775169561d103e13a8e4d74cc677eb0037cc7b04f7a1e
   languageName: node
   linkType: hard
 
@@ -10126,16 +10134,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/utils@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/utils@npm:0.15.0"
+"@reach/utils@npm:0.16.0":
+  version: 0.16.0
+  resolution: "@reach/utils@npm:0.16.0"
   dependencies:
     tiny-warning: ^1.0.3
-    tslib: ^2.1.0
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: f542b574955b7eb8bd8a0b33a145a3b5243976cd33c3e37098ef680bbb25a969c666e10019734a1fdf8f959456a6f4499b0450ee6304433242aa7484da5f068a
+  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
   languageName: node
   linkType: hard
 
@@ -11679,6 +11687,17 @@ __metadata:
   dependencies:
     "@styled-system/core": ^5.1.2
   checksum: bfb45737e9375a976b1e0ec2c4b548b0d4bcc3c78ab4cb69558a5d8c145adcf5fb623abb3c5e7704652c65bf2b7c0d8a80447adbda99d88be65517ab7c2367e4
+  languageName: node
+  linkType: hard
+
+"@styled-system/should-forward-prop@npm:5.1.5":
+  version: 5.1.5
+  resolution: "@styled-system/should-forward-prop@npm:5.1.5"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.1
+    "@emotion/memoize": ^0.7.1
+    styled-system: ^5.1.5
+  checksum: 49e383f114a72768a7c69d2986812b88f882cee81c96f7b58a1618162001168fce38f607acc6fd2af91fabe8e475a436f3f36c938dba249eadef631dcd3d26ad
   languageName: node
   linkType: hard
 
@@ -13564,7 +13583,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog"
   dependencies:
-    "@reach/dialog": 0.15.0
+    "@reach/dialog": 0.16.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -14032,9 +14051,12 @@ __metadata:
     "@emotion/core": 10.0.28
     "@emotion/styled": 10.0.27
     "@styled-system/css": 5.1.5
+    "@styled-system/should-forward-prop": 5.1.5
     "@styled-system/theme-get": 5.1.2
     "@types/styled-system": ^5.1.9
     "@types/styled-system__css": ^5.0.5
+    "@types/styled-system__should-forward-prop": ^5.1.2
+    "@types/styled-system__theme-get": ^5.0.2
     emotion: 10.0.27
     emotion-theming: ^10.0.27
     react: ^17.0.2
@@ -15592,6 +15614,20 @@ __metadata:
   dependencies:
     csstype: ^2.6.6
   checksum: 6880f366457aad336adaa3fe8db2e1660232cc81aa57112ccbb56dc0bed0905fc817ec748c99460254374e044bd1cc7d44d6a4ac7b2dd715afbf98fba2656bfc
+  languageName: node
+  linkType: hard
+
+"@types/styled-system__should-forward-prop@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@types/styled-system__should-forward-prop@npm:5.1.2"
+  checksum: ba99b5653136058baa9f4a510a6175da5ada14a4f104340979f93bd82c428ef3f733c51101e4f15a934d473d9041887d213516b99209b641ff4e715d2c5b4b60
+  languageName: node
+  linkType: hard
+
+"@types/styled-system__theme-get@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@types/styled-system__theme-get@npm:5.0.2"
+  checksum: 73bfca8d75c3e9985fd8ee63602e9c7b00dda7ff1af563f74c5db84af50a3cd5155c2fdcaa1afd60762f5bcaabdc7bc69cdfa53e94ee64ee875536c575e9088c
   languageName: node
   linkType: hard
 
@@ -27796,12 +27832,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-lock@npm:^0.9.1":
-  version: 0.9.1
-  resolution: "focus-lock@npm:0.9.1"
+"focus-lock@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "focus-lock@npm:0.10.2"
   dependencies:
     tslib: ^2.0.3
-  checksum: 1ae12a7c0884eeb3c92e4abc95a3ba0405da80d36f4928a21c687e564cfce04a7e71aef077286160250b4fb64f25671f9df219f86c65a17c4848063ae0b2eb51
+  checksum: 4be2cbc0217410413f617c03720df74c3c950983f5914aa8b82c6a7ce98fab873e22e5af0818f6832d1249f86ef33357c7dc344074a09206134657d1f53915d7
   languageName: node
   linkType: hard
 
@@ -43526,19 +43562,19 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-focus-lock@npm:^2.5.0":
-  version: 2.5.2
-  resolution: "react-focus-lock@npm:2.5.2"
+"react-focus-lock@npm:^2.5.2":
+  version: 2.8.1
+  resolution: "react-focus-lock@npm:2.8.1"
   dependencies:
     "@babel/runtime": ^7.0.0
-    focus-lock: ^0.9.1
+    focus-lock: ^0.10.2
     prop-types: ^15.6.2
     react-clientside-effect: ^1.2.5
     use-callback-ref: ^1.2.5
     use-sidecar: ^1.0.5
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-  checksum: 520b12a4496be21b3228bbf938657f6c33f868e486a0cd355d8bec918129d2c1bf7aabecb20aecdb446a1fbdb61b16f680b5d15b998f544f1b5c0dc5c8914c40
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 501c757b5dc742778389206c224d4f3a342008f3e4e2c346da40c0d2432642ccf555bdb2afc4ff6c0ac9f01b792ce9d1d3150fa43eceae4289174547b2412f51
   languageName: node
   linkType: hard
 
@@ -43760,9 +43796,9 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.4.1":
-  version: 2.4.3
-  resolution: "react-remove-scroll@npm:2.4.3"
+"react-remove-scroll@npm:^2.4.3":
+  version: 2.4.4
+  resolution: "react-remove-scroll@npm:2.4.4"
   dependencies:
     react-remove-scroll-bar: ^2.1.0
     react-style-singleton: ^2.1.0
@@ -43770,12 +43806,12 @@ is-whitespace@latest:
     use-callback-ref: ^1.2.3
     use-sidecar: ^1.0.1
   peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0
-    react: ^16.8.0 || ^17.0.0
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: c2f4277ee953b3905b8500c72b6f509f5138dc6eff157ff1160f7810cb6934ee148d13aef7f9fa3f4ed12372cc4564347ed6b16083ff1e4d241708bb1b8bf5a7
+  checksum: c3b9c57122541d16824d40ed744f12743e4855525e61ea2a6c50b673c1e20dc3f4dc59994f461f03d60f994ad46db7137f691ed8f7801b99b170c48235545ef9
   languageName: node
   linkType: hard
 
@@ -48228,7 +48264,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"styled-system@npm:5.1.5":
+"styled-system@npm:5.1.5, styled-system@npm:^5.1.5":
   version: 5.1.5
   resolution: "styled-system@npm:5.1.5"
   dependencies:
@@ -49672,7 +49708,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0":
+"tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
