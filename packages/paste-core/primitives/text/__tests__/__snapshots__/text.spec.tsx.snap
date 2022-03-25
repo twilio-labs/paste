@@ -128,9 +128,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       PseudoBox
     </span>
@@ -162,9 +160,7 @@ exports[`as should render as a provided HTML element 1`] = `
   >
     <label
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       background single
     </label>
@@ -196,9 +192,7 @@ exports[`color should set a color property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       color single
     </span>
@@ -236,9 +230,7 @@ exports[`color should set a responsive color property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorTextError,colorTextSuccess"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       color responsive
     </span>
@@ -271,10 +263,7 @@ exports[`display should set a display property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      display="inline-block"
-      font-size="fontSize30"
     >
       display single
     </span>
@@ -313,10 +302,7 @@ exports[`display should set a responsive display property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      display="inline-block,block"
-      font-size="fontSize30"
     >
       display responsive
     </span>
@@ -349,10 +335,7 @@ exports[`fontFamily should set a font family property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-family="fontFamilyCode"
-      font-size="fontSize30"
     >
       font family single
     </span>
@@ -391,10 +374,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-family="fontFamilyText,fontFamilyCode"
-      font-size="fontSize30"
     >
       font family responsive
     </span>
@@ -426,9 +406,7 @@ exports[`fontSize should set a font size property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize10"
     >
       font size single
     </span>
@@ -466,9 +444,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize20,fontSize30"
     >
       font size responsive
     </span>
@@ -501,10 +477,7 @@ exports[`fontStyle should set a font style property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      font-style="italic"
     >
       font style single
     </span>
@@ -543,10 +516,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      font-style="italic,normal"
     >
       font style responsive
     </span>
@@ -579,10 +549,7 @@ exports[`fontWeight should set a font weight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      font-weight="fontWeightBold"
     >
       font weight single
     </span>
@@ -621,10 +588,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      font-weight="fontWeightLight,fontWeightSemibold"
     >
       font weight responsive
     </span>
@@ -660,10 +624,7 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      letter-spacing="1px"
     >
       letter spacing single
     </span>
@@ -708,10 +669,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      letter-spacing="-2px,3px"
     >
       letter spacing responsive
     </span>
@@ -743,9 +701,7 @@ exports[`lineHeight should set a line height property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       line height single
     </span>
@@ -783,9 +739,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       line height responsive
     </span>
@@ -817,9 +771,7 @@ exports[`margin should set a margin property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       margin single
     </span>
@@ -857,9 +809,7 @@ exports[`margin should set a responsive margin property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       margin responsive
     </span>
@@ -892,9 +842,7 @@ exports[`marginBottom should set a marginBottom property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginBottom single
     </span>
@@ -933,9 +881,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginBottom responsive
     </span>
@@ -968,9 +914,7 @@ exports[`marginLeft should set a marginLeft property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginLeft single
     </span>
@@ -1009,9 +953,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginLeft responsive
     </span>
@@ -1044,9 +986,7 @@ exports[`marginRight should set a marginRight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginRight single
     </span>
@@ -1085,9 +1025,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginRight responsive
     </span>
@@ -1120,9 +1058,7 @@ exports[`marginTop should set a marginTop property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginTop single
     </span>
@@ -1161,9 +1097,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       marginTop responsive
     </span>
@@ -1195,9 +1129,7 @@ exports[`padding should set a padding property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       padding single
     </span>
@@ -1235,9 +1167,7 @@ exports[`padding should set a responsive padding property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       padding responsive
     </span>
@@ -1270,9 +1200,7 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingBottom single
     </span>
@@ -1311,9 +1239,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingBottom responsive
     </span>
@@ -1346,9 +1272,7 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingLeft single
     </span>
@@ -1387,9 +1311,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingLeft responsive
     </span>
@@ -1422,9 +1344,7 @@ exports[`paddingRight should set a paddingRight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingRight single
     </span>
@@ -1463,9 +1383,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingRight responsive
     </span>
@@ -1498,9 +1416,7 @@ exports[`paddingTop should set a paddingTop property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingTop single
     </span>
@@ -1539,9 +1455,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       paddingTop responsive
     </span>
@@ -1580,9 +1494,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       textAlign responsive
     </span>
@@ -1615,9 +1527,7 @@ exports[`textAlign should set a textAlign property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
     >
       textAlign single
     </span>
@@ -1658,10 +1568,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      text-decoration="underline,normal"
     >
       textDecoration responsive
     </span>
@@ -1695,10 +1602,7 @@ exports[`textDecoration should set a textDecoration property 1`] = `
   >
     <span
       class="emotion-0"
-      color="colorText"
       data-paste-element="TEXT"
-      font-size="fontSize30"
-      text-decoration="underline"
     >
       textDecoration single
     </span>

@@ -21,4 +21,5 @@ export type {
 } from '@styled-system/css';
 export {css} from './css-function';
 export {themeGet} from '@styled-system/theme-get';
+export {createShouldForwardProp, props} from '@styled-system/should-forward-prop';
 export * from 'styled-system';
