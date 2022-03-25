@@ -56,33 +56,3 @@ export const CustomizedMessages = (): React.ReactNode => {
     </CustomizationProvider>
   );
 };
-
-// it('should add custom styles to Card', (): void => {
-//   render(
-//     <CustomizationProvider
-//       baseTheme="default"
-//       elements={{CARD: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
-//     >
-//       <Card data-testid="customizable-card">Custom card</Card>
-//     </CustomizationProvider>
-//   );
-//   const renderedCard = screen.getByTestId('customizable-card');
-//   expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-//   expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214,31,31)');
-// });
-
-// it('should add custom styles to Card with a custom element data attribute', (): void => {
-//   render(
-//     <CustomizationProvider
-//       baseTheme="default"
-//       elements={{foo: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
-//     >
-//       <Card element="foo" data-testid="customizable-card">
-//         Custom card
-//       </Card>
-//     </CustomizationProvider>
-//   );
-//   const renderedCard = screen.getByTestId('customizable-card');
-//   expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-//   expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214,31,31)');
-// });
