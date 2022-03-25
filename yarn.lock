@@ -12663,7 +12663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
+"@twilio-paste/chat-log@^0.0.0, @twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
   dependencies:
@@ -12856,6 +12856,7 @@ __metadata:
     "@twilio-paste/breadcrumb": ^5.0.2
     "@twilio-paste/button": ^8.1.0
     "@twilio-paste/card": ^4.0.2
+    "@twilio-paste/chat-log": ^0.0.0
     "@twilio-paste/checkbox": ^7.0.3
     "@twilio-paste/clipboard-copy-library": ^1.0.3
     "@twilio-paste/color-contrast-utils": ^2.0.2
