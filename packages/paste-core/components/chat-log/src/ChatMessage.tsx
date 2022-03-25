@@ -8,10 +8,18 @@ import {messageVariantStyles} from './styles';
 export const MessageVariantContext = React.createContext<MessageVariants>('inbound');
 
 const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
-  ({children, variant, element = 'CHAT_MESSAGE'}, ref) => {
+  ({children, variant, element = 'CHAT_MESSAGE', ...props}, ref) => {
     return (
       <MessageVariantContext.Provider value={variant}>
-        <Box as="li" listStyleType="none" ref={ref} element={element} {...messageVariantStyles[variant]}>
+        <Box
+          as="li"
+          listStyleType="none"
+          ref={ref}
+          element={element}
+          variant={variant}
+          {...messageVariantStyles[variant]}
+          {...props}
+        >
           {children}
         </Box>
       </MessageVariantContext.Provider>
