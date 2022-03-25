@@ -10,7 +10,7 @@ import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
 
-import {DATE_RANGES, ROOM_TYPES, TABLE_DATA} from '../constants';
+import {DATE_RANGES, ROOM_TYPES} from '../constants';
 import type {RoomTypes, DateRanges, FilterGroupProps} from '../types';
 import {filterByDateRange, filterByRoomType, filterBySearchString} from '../helpers';
 
@@ -18,18 +18,18 @@ import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 
 // Note: update the codesandboxes if update this
-export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType, defaultDateRange}) => {
+export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoomType, defaultDateRange}) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 
-  const [filteredTableData, setFilteredTableData] = React.useState(TABLE_DATA);
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
   const [searchValue, setSearchValue] = React.useState('');
   const [filterRoomType, setFilterRoomType] = React.useState(defaultRoomType || 'All');
   const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || 'all');
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(!(defaultRoomType || defaultDateRange));
 
   const handleApplyFilters = (): void => {
-    const filtered = TABLE_DATA.filter(({uniqueName, sid, roomType, dateCompleted}) => {
+    const filtered = data.filter(({uniqueName, sid, roomType, dateCompleted}) => {
       return (
         filterBySearchString(uniqueName, sid, searchValue) &&
         filterByRoomType(roomType, filterRoomType) &&
@@ -44,7 +44,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
     setFilterDateRange('all');
     setFilterRoomType('All');
     setSearchValue('');
-    setFilteredTableData(TABLE_DATA);
+    setFilteredTableData(data);
     setAreButtonsDisabled(true);
   };
 
@@ -64,7 +64,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
           <Select
             id={roomTypesId}
             name="type"
-            onChange={(event) => {
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               setFilterRoomType(event.target.value as RoomTypes);
             }}
             value={filterRoomType}
@@ -82,7 +82,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({defaultRoomType,
             id={dateRangesId}
             name="range"
             value={filterDateRange}
-            onChange={(event) => {
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               setFilterDateRange(event.target.value as DateRanges);
             }}
           >
