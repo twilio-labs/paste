@@ -1,20 +1,21 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Label} from '@twilio-paste/label';
+import {Heading} from '@twilio-paste/heading';
+import {Card} from '@twilio-paste/card';
+import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import type {ThemeVariants} from '@twilio-paste/theme';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
-import {Callout, CalloutTitle, CalloutText} from '../callout';
 import {TokenExample} from './TokensExample';
 import {getTokenValue} from './getTokenValue';
 import {useDarkModeContext} from '../../context/DarkModeContext';
-
-const debounce = require('lodash/debounce');
+import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
+import type {Token, TokenCategory, TokensListProps} from './types';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -25,118 +26,35 @@ const sentenceCase = (catName: string): string => {
     });
 };
 
-interface Token {
-  name: string;
-  value: string;
-  comment: string;
-  category: string;
-  type: string;
-  deprecated: boolean;
-}
-
-interface TokenCategory {
-  categoryName: string;
-  info?: React.ReactNode;
-  tokens: Token[];
-}
-
-interface TokensShape {
-  node: {
-    tokens: TokenCategory[];
-  };
-}
-
-interface TokensListProps {
-  children?: React.ReactElement;
-  defaultTokens: TokensShape[];
-  darkTokens: TokensShape[];
-}
-
-const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
-  return tokens.map((category) => {
-    return {...category, tokens: [...category.tokens.filter((token) => !token.deprecated)]};
-  });
-};
-
-const getTokensByTheme = (props: TokensListProps, theme: ThemeVariants): TokenCategory[] => {
-  const unfilteredTokensBasedOnTheme =
-    theme === 'default' ? props.defaultTokens[0].node.tokens : props.darkTokens[0].node.tokens;
-  let tokens = [] as TokenCategory[];
-
-  if (unfilteredTokensBasedOnTheme != null) {
-    tokens = filterDeprecatedTokens(unfilteredTokensBasedOnTheme);
-  }
-
-  const fontSize = tokens.find((ele) => ele.categoryName === 'font-sizes');
-  if (fontSize) {
-    fontSize.info = (
-      <Callout>
-        <CalloutTitle as="h4">Heads up about font sizes in Paste!</CalloutTitle>
-        <CalloutText>
-          Font-sizes in our Paste tokens use rem values. Unlike em values which are relative to their parent element,
-          rem values are relative to the html element. If you aren&apos;t using the Theme.Provider component, you must
-          set font-size: 100%; on your page&apos;s html tag for the font-sizes to be sized correctly as 1rem=16px.
-        </CalloutText>
-      </Callout>
-    );
-  }
-
-  return tokens;
-};
-
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-
-const trackTokenFilterString = debounce((filter: string): void => {
-  if (filter !== '') {
-    trackCustomEvent({
-      category: 'Design Tokens',
-      action: 'filter',
-      label: filter,
-    });
-  }
-}, 500);
 
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
-  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
   const [filterString, setFilterString] = React.useState('');
+  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
 
+  // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
-    setTokens(getTokensByTheme(props, theme));
-  }, [theme]);
-
-  const filterTokenList = (): void => {
-    setTokens(() => {
-      const newTokenCategories = getTokensByTheme(props, theme).map(
-        (category): TokenCategory => {
-          const newTokens = category.tokens.filter((token) => {
-            return token.name.includes(filterString) || token.value.includes(filterString);
-          });
-          return {...category, tokens: newTokens};
-        }
-      );
-      const filteredCategories = newTokenCategories.filter((category) => {
-        return category.tokens.length > 0;
-      });
-      if (filteredCategories.length > 0) {
-        return filteredCategories;
-      }
-      return null;
-    });
-  };
+    setTokens(filterTokenList(filterString, props, theme));
+    trackTokenFilterString(filterString);
+  }, [filterString, props, theme]);
 
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
     const filter = e.currentTarget.value;
     setFilterString(filter);
-    filterTokenList();
-    trackTokenFilterString(filter);
   };
 
   const uid = useUID();
 
   return (
     <>
-      <Box as="form" marginTop="space100" marginBottom="space100" maxWidth="size40">
+      <Box
+        as="form"
+        marginTop="space100"
+        marginBottom="space100"
+        maxWidth="size40"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <Label htmlFor={uid}>Filter tokens</Label>
         <Input
           autoComplete="off"
@@ -148,7 +66,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
           name="tokens-filter"
         />
       </Box>
-      {tokens != null &&
+      {tokens != null ? (
         tokens.map((cat) => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
@@ -194,7 +112,37 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               </Box>
             </React.Fragment>
           );
-        })}
+        })
+      ) : (
+        <Card data-cy="tokens-empty-state" padding="space150">
+          <Stack orientation="horizontal" spacing="space110">
+            <Box
+              as="img"
+              src="/images/patterns/empty-no-results-found.png"
+              alt="No results found illustration"
+              size="size20"
+            />
+            <Stack orientation="vertical" spacing="space50">
+              <Heading as="h3" variant="heading30">
+                Oh no! We couldn&apos;t find any matches
+              </Heading>
+              <Stack orientation="vertical" spacing="space70">
+                <Text as="span">
+                  Try clearing your search and using another query to find the token you&apos;re looking for.
+                </Text>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    setFilterString('');
+                  }}
+                >
+                  Clear search
+                </Button>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Card>
+      )}
     </>
   );
 };
