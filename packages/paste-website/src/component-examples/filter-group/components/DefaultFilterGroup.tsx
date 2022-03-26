@@ -64,7 +64,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoo
           <Select
             id={roomTypesId}
             name="type"
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
               setFilterRoomType(event.target.value as RoomTypes);
             }}
             value={filterRoomType}
@@ -82,7 +82,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoo
             id={dateRangesId}
             name="range"
             value={filterDateRange}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
               setFilterDateRange(event.target.value as DateRanges);
             }}
           >
