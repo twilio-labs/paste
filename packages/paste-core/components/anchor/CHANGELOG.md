@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`badff092`](https://github.com/twilio-labs/paste/commit/badff092245be305f4696ea2999764ce931fea6d) [#2306](https://github.com/twilio-labs/paste/pull/2306) Thanks [@nkrantz](https://github.com/nkrantz)! - [Anchor] add `i18nshowExternalLinkLabel`prop to Anchor
+
 ## 6.0.2
 
 ### Patch Changes

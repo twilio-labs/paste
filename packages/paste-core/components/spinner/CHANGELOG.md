@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`68ee1a35e`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1) [#2304](https://github.com/twilio-labs/paste/pull/2304) Thanks [@gloriliale](https://github.com/gloriliale)! - [Spinner] make title an optional prop, throw an error when not decorative and no title
+
+### Patch Changes
+
+- [`dce15da77`](https://github.com/twilio-labs/paste/commit/dce15da77560a10be6a984a96519e68f958e4595) [#2315](https://github.com/twilio-labs/paste/pull/2315) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Spinner] title is no longer required. Matching prop types to typescript types
+
 ## 8.0.2
 
 ### Patch Changes

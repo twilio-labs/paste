@@ -1,5 +1,22 @@
 # Change Log
 
+## 2.23.15
+
+### Patch Changes
+
+- Updated dependencies [[`99e9550dc`](https://github.com/twilio-labs/paste/commit/99e9550dce78ecb58a7a47997885d27b0762fa8f), [`68ee1a35e`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1), [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85), [`68ee1a35`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1), [`dce15da77`](https://github.com/twilio-labs/paste/commit/dce15da77560a10be6a984a96519e68f958e4595), [`badff092`](https://github.com/twilio-labs/paste/commit/badff092245be305f4696ea2999764ce931fea6d), [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914)]:
+  - @twilio-paste/select@6.0.4
+  - @twilio-paste/spinner@8.1.0
+  - @twilio-paste/table@3.1.0
+  - @twilio-paste/button@8.1.0
+  - @twilio-paste/anchor@6.1.0
+  - @twilio-paste/modal-dialog-primitive@0.3.0
+  - @twilio-paste/modal@9.0.0
+  - @twilio-paste/styling-library@0.3.8
+  - @twilio-paste/box@5.1.0
+  - @twilio-paste/text@5.1.0
+  - @twilio-paste/alert-dialog@2.0.0
+
 ## 2.23.14
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.0.0
+
+### Patch Changes
+
+- [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914) [#2285](https://github.com/twilio-labs/paste/pull/2285) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal] Switch modal overlay to using a pure styled component and not Box
+
+- Updated dependencies [[`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914)]:
+  - @twilio-paste/modal-dialog-primitive@0.3.0
+
 ## 8.0.2
 
 ### Patch Changes

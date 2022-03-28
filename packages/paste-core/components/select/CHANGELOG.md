@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+- [`99e9550dc`](https://github.com/twilio-labs/paste/commit/99e9550dce78ecb58a7a47997885d27b0762fa8f) [#2309](https://github.com/twilio-labs/paste/pull/2309) Thanks [@nkrantz](https://github.com/nkrantz)! - [Select] set background color on Select to colorBackgroundBody
+
 ## 6.0.3
 
 ### Patch Changes

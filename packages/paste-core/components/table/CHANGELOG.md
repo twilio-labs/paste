@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85) [#2307](https://github.com/twilio-labs/paste/pull/2307) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Adds the ability to safely render tables for mobile screens using the `scrollHorizontally` prop. Also adds the `noWrap` prop to control cell density by preventing line wrapping.
+
 ## 3.0.2
 
 ### Patch Changes
