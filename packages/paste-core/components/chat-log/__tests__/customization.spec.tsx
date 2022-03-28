@@ -6,7 +6,11 @@ import {ChatMessage, ChatBubble} from '../src';
 describe('Customization', () => {
   it('should add custom styles to ChatMessage', () => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CHAT_MESSAGE: {marginBottom: 'space100'}}}>
+      <CustomizationProvider
+        baseTheme="default"
+        theme={TestTheme}
+        elements={{CHAT_MESSAGE: {marginBottom: 'space100'}}}
+      >
         <ChatMessage variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
@@ -19,7 +23,11 @@ describe('Customization', () => {
 
   it('should set element data attribute on ChatMessage', () => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CHAT_MESSAGE: {marginBottom: 'space100'}}}>
+      <CustomizationProvider
+        baseTheme="default"
+        theme={TestTheme}
+        elements={{CHAT_MESSAGE: {marginBottom: 'space100'}}}
+      >
         <ChatMessage variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
@@ -32,7 +40,7 @@ describe('Customization', () => {
 
   it('should add custom styles to ChatMessage with a custom element data attribute', () => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{foo: {marginBottom: 'space100'}}}>
+      <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo: {marginBottom: 'space100'}}}>
         <ChatMessage element="foo" variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
@@ -45,7 +53,7 @@ describe('Customization', () => {
 
   it('should set custom element data attribute on ChatMessage', () => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{foo: {marginBottom: 'space100'}}}>
+      <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo: {marginBottom: 'space100'}}}>
         <ChatMessage element="foo" variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
@@ -59,6 +67,7 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
+        theme={TestTheme}
         elements={{
           CHAT_BUBBLE: {
             variants: {
@@ -96,6 +105,7 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
+        theme={TestTheme}
         elements={{
           CHAT_BUBBLE: {
             variants: {
@@ -131,6 +141,7 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
+        theme={TestTheme}
         elements={{
           foo: {
             variants: {
@@ -172,6 +183,7 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
+        theme={TestTheme}
         elements={{
           foo: {
             variants: {
