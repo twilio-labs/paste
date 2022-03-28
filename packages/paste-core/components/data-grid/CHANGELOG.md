@@ -1,5 +1,11 @@
 # @twilio-paste/data-grid
 
+## 1.1.0
+
+### Minor Changes
+
+- [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85) [#2307](https://github.com/twilio-labs/paste/pull/2307) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data grid]: inherit more things from the base table component, including the new responsive and no line wrapping behaviours for better table rendering options.
+
 ## 1.0.2
 
 ### Patch Changes

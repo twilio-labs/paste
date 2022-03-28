@@ -1,5 +1,12 @@
 # @twilio-paste/alert-dialog
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914)]:
+  - @twilio-paste/modal@9.0.0
+
 ## 1.0.2
 
 ### Patch Changes
