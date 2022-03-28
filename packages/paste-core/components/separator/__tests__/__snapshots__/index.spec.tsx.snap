@@ -30,7 +30,6 @@ exports[`Separator Render should set horizontal margins 1`] = `
       aria-orientation="horizontal"
       class="emotion-0"
       data-paste-element="SEPARATOR"
-      width="auto"
     />
   </div>
 </DocumentFragment>
@@ -80,7 +79,6 @@ exports[`Separator Render should set responsive horizontal margins 1`] = `
       aria-orientation="horizontal"
       class="emotion-0"
       data-paste-element="SEPARATOR"
-      width="auto"
     />
   </div>
 </DocumentFragment>
@@ -130,7 +128,6 @@ exports[`Separator Render should set responsive vertical margins 1`] = `
       aria-orientation="vertical"
       class="emotion-0"
       data-paste-element="SEPARATOR"
-      height="auto"
     />
   </div>
 </DocumentFragment>
@@ -166,7 +163,6 @@ exports[`Separator Render should set vertical margins 1`] = `
       aria-orientation="vertical"
       class="emotion-0"
       data-paste-element="SEPARATOR"
-      height="auto"
     />
   </div>
 </DocumentFragment>

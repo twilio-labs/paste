@@ -1,21 +1,21 @@
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import type {TableOfContentsListItemProps} from './types';
 
-export const marginTopPartial = ({depth}: TableOfContentsListItemProps): string => {
+export const marginTopPartial = ({depth}: TableOfContentsListItemProps): any => {
   if (depth === '3' || depth === '4') {
     return themeGet('space.space30');
   }
   return themeGet('space.space50');
 };
 
-export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string => {
+export const fontSizePartial = ({depth}: TableOfContentsListItemProps): any => {
   if (depth === '3' || depth === '4') {
     return themeGet('fontSizes.fontSize20');
   }
   return themeGet('fontSizes.fontSize30');
 };
 
-export const lineHeightPartial = ({depth}: TableOfContentsListItemProps): string => {
+export const lineHeightPartial = ({depth}: TableOfContentsListItemProps): any => {
   if (depth === '3' || depth === '4') {
     return themeGet('lineHeights.lineHeight20');
   }

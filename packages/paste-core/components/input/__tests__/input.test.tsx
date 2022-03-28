@@ -159,11 +159,11 @@ describe('Input block props', () => {
   };
 
   it('should not pass width and classname props', () => {
-    // @ts-ignore this is on purpose
-    const {getByRole} = render(<Input {...initialProps} />);
-    const RenderedInput = getByRole('textbox');
+    // @ts-expect-error we are passing unexpected props on purpose
+    render(<Input {...initialProps} />);
+    const RenderedInput = screen.getByRole('textbox');
 
-    expect(RenderedInput.getAttribute('width')).toEqual('100%');
+    expect(RenderedInput).toHaveStyleRule('width', '100%');
 
     const classNames = RenderedInput.getAttribute('class');
     expect(classNames).toBeDefined();
