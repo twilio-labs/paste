@@ -1,0 +1,374 @@
+---
+title: Tabs
+package: '@twilio-paste/tabs'
+description: An accessible and styled tabs component.
+slug: /components/tabs/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Heading} from '@twilio-paste/heading';
+import {Card} from '@twilio-paste/card';
+import {Stack} from '@twilio-paste/stack';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {useTabState, Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {Text} from '@twilio-paste/text';
+import {useUID} from '@twilio-paste/uid-library';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  HorizontalTabsExample,
+  FittedTabsExample,
+  VerticalTabsExample,
+  StateHookTabsExample,
+} from '../../../component-examples/TabsExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/tabs"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/tabs/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Tabs"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/components/tabs"
+  storybookUrl="/?path=/story/components-tabs--horizontal-tabs"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Tabs
+
+The Tabs component allows a user to flip through multiple views within the same page.
+
+### Accessibility
+
+When the user is focused on a tab in a TabList, the following keyboard interactions apply:
+
+- Right and left arrow move the user between tabs and opens the currently focused tab's panel
+  - If the tabs are vertical, up and down arrows move between tabs instead of right and left
+  - If the currently focused tab is disabled, the tab panel does not open
+
+## Examples
+
+### Horizontal Tabs
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
+  }}
+  noInline
+>
+  {HorizontalTabsExample}
+</LivePreview>
+
+### Fitted Tabs
+
+Fitted tabs allow the tabs to expand and fit the width of a containing element.
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
+  }}
+  noInline
+>
+  {FittedTabsExample}
+</LivePreview>
+
+### Vertical Tabs
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
+  }}
+  noInline
+>
+  {VerticalTabsExample}
+</LivePreview>
+
+### Using state hooks
+
+The `state` prop allows you to hook into, and keep in sync the state of the Tabs and the state of your application.
+
+This will allow you to set initial state and merge the returned state from the hook with the application state,
+and keep it in sync with user interactions.
+
+You could use this if you want to add functionality to a button within the tab content. In the example below we're
+using the `select` function from the tab state to advance to the next tab, and go back to the previous tab.
+
+<LivePreview
+  scope={{
+    useTabState,
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    Button,
+    Paragraph,
+    Heading,
+    Card,
+    Box,
+    Stack,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookTabsExample}
+</LivePreview>
+
+## Anatomy
+
+<Box marginBottom="space60">
+  <Table scrollHorizontally>
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Tab label text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Always: $font-size-30, $font-weight-semibold, $line-height-20</ListItem>
+            <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
+            <ListItem>Selected: $color-text-link</ListItem>
+            <ListItem>Disabled: $color-text-weaker</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Tab Label box</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>
+              Horizontal Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-40</ListItem>
+                <ListItem>padding-right: $space-20</ListItem>
+                <ListItem>padding-bottom: $space-40</ListItem>
+                <ListItem>padding-left: $space-20</ListItem>
+                <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
+                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Fitted Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-40</ListItem>
+                <ListItem>padding-right: $space-20</ListItem>
+                <ListItem>padding-bottom: $space-40</ListItem>
+                <ListItem>padding-left: $space-20</ListItem>
+                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Vertical Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-30</ListItem>
+                <ListItem>padding-right: $space-50</ListItem>
+                <ListItem>padding-bottom: $space-30</ListItem>
+                <ListItem>padding-left: $space-50</ListItem>
+                <ListItem>margin-bottom: $space-40 (except for last tab)</ListItem>
+                <ListItem>border-left (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-left (on hover): $color-border-primary-stronger</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Tab List Border</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Always: $color-border-weak</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/tabs - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/core/tabs';
+
+const HorizontalTabsExample: React.FC = () => {
+  const selectedId = useUID();
+  return (
+    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
+      <TabList aria-label="My tabs">
+        <Tab>Tab 1</Tab>
+        <Tab disabled>Tab 2</Tab>
+        <Tab id={selectedId}>Tab 3</Tab>
+      </TabList>
+      <TabPanels paddingTop="space20">
+        <TabPanel>Tab 1</TabPanel>
+        <TabPanel>Tab 2</TabPanel>
+        <TabPanel>Tab 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+```
+
+#### Tabs Props
+
+##### `orientation?: 'horizontal' (default) | 'vertical' | undefined`
+
+Changes the Tabs' direction to either have the panels below or on the right side.
+
+##### `variant?: 'fitted' | undefined (default)`
+
+Changes the Tabs' to either fit the width of the containing element or not.
+
+##### `selectedId?: string | null`
+
+Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be
+a little delayed.
+
+##### `baseId?: string`
+
+Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.
+
+#### TabList Props
+
+##### `aria-label: string`
+
+Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+
+#### Tab Props
+
+##### `id?: string | undefined`
+
+Same as the HTML attribute.
+
+##### `focusable?: boolean | undefined`
+
+When an element is disabled, it may still be focusable.
+It works similarly to readOnly on form elements. In this case, only aria-disabled will be set.
+
+##### `disabled?: boolean | undefined`
+
+Same as the HTML attribute.
+
+#### TabPanels Props
+
+None available.
+
+#### TabPanel Props
+
+##### `id?: string | undefined`
+
+Same as the HTML attribute.
+
+##### `tabId?: string | undefined`
+
+The ID of the Tab component this Panel pairs with.
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

@@ -18,7 +18,7 @@ describe('danger utils', () => {
             name: '@twilio-paste/style-props',
             version: '3.1.0',
             private: false,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
         ])
       ).toEqual([
@@ -26,7 +26,7 @@ describe('danger utils', () => {
           name: '@twilio-paste/style-props',
           version: '3.1.0',
           private: false,
-          location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+          location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
         },
       ]);
 
@@ -36,13 +36,13 @@ describe('danger utils', () => {
             name: '@twilio-paste/private',
             version: '3.1.0',
             private: true,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
           {
             name: '@twilio-paste/public',
             version: '3.1.0',
             private: false,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
         ])
       ).toEqual([
@@ -50,7 +50,7 @@ describe('danger utils', () => {
           name: '@twilio-paste/public',
           version: '3.1.0',
           private: false,
-          location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+          location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
         },
       ]);
 
@@ -60,7 +60,7 @@ describe('danger utils', () => {
             name: '@twilio-paste/private',
             version: '3.1.0',
             private: true,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
         ])
       ).toEqual([]);
@@ -69,17 +69,17 @@ describe('danger utils', () => {
 
   describe('getRepoPackagePath', () => {
     it('should return a file path after and including the packages/', () => {
-      expect(getRepoPackagePath('/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props')).toEqual(
-        'packages/paste-style-props'
+      expect(getRepoPackagePath('/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props')).toEqual(
+        'packages/core/style-props'
       );
-      expect(getRepoPackagePath('/dev/twilio/design-systems/paste/packages/paste-style-props')).toEqual(
-        'packages/paste-style-props'
+      expect(getRepoPackagePath('/dev/twilio/design-systems/paste/packages/core/style-props')).toEqual(
+        'packages/core/style-props'
       );
-      expect(getRepoPackagePath('paste/packages/paste-style-props')).toEqual('packages/paste-style-props');
-      expect(getRepoPackagePath('/design-systems/paste/packages/paste-style-props/foo/bar')).toEqual(
-        'packages/paste-style-props/foo/bar'
+      expect(getRepoPackagePath('paste/packages/core/style-props')).toEqual('packages/core/style-props');
+      expect(getRepoPackagePath('/design-systems/paste/packages/core/style-props/foo/bar')).toEqual(
+        'packages/core/style-props/foo/bar'
       );
-      expect(getRepoPackagePath('packages/paste-style-props/foo/')).toEqual('packages/paste-style-props/foo/');
+      expect(getRepoPackagePath('packages/core/style-props/foo/')).toEqual('packages/core/style-props/foo/');
     });
   });
 
@@ -91,16 +91,16 @@ describe('danger utils', () => {
             name: '@twilio-paste/private',
             version: '3.1.0',
             private: true,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/box',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/components/box',
           },
           {
             name: '@twilio-paste/public',
             version: '3.1.0',
             private: false,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
         ])
-      ).toEqual(['packages/box', 'packages/paste-style-props']);
+      ).toEqual(['packages/core/components/box', 'packages/core/style-props']);
     });
   });
 
@@ -111,18 +111,18 @@ describe('danger utils', () => {
           [
             'package.json',
             'packages/box/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
-          ['packages/box', 'packages/paste-core/components/alert-dialog']
+          ['packages/box', 'packages/core/components/alert-dialog']
         )
-      ).toEqual(['packages/box/package.json', 'packages/paste-core/components/alert-dialog/stories/index.stories.tsx']);
+      ).toEqual(['packages/box/package.json', 'packages/core/components/alert-dialog/stories/index.stories.tsx']);
 
       expect(
         getPublicPackageFilesFromFiles(
           ['package.json', 'yarn.lock', '.changeset/pretty-cameras-burn.md'],
-          ['packages/box', 'packages/paste-core/components/alert-dialog']
+          ['packages/box', 'packages/core/components/alert-dialog']
         )
       ).toEqual([]);
     });
@@ -142,7 +142,7 @@ describe('danger utils', () => {
             name: '@twilio-paste/public',
             version: '3.1.0',
             private: false,
-            location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
           },
         ])
       ).toEqual('@twilio-paste/private');
@@ -156,7 +156,7 @@ describe('danger utils', () => {
           [
             'package.json',
             'packages/box/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
@@ -165,13 +165,13 @@ describe('danger utils', () => {
               name: '@twilio-paste/alert-dialog',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/components/alert-dialog',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/components/alert-dialog',
             },
             {
               name: '@twilio-paste/style-props',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
             },
           ]
         )
@@ -183,8 +183,8 @@ describe('danger utils', () => {
         getUnpublishedPackageNames(
           [
             'package.json',
-            'packages/paste-style-props/src/index.ts',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/style-props/src/index.ts',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
@@ -193,13 +193,13 @@ describe('danger utils', () => {
               name: '@twilio-paste/alert-dialog',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/components/alert-dialog',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/components/alert-dialog',
             },
             {
               name: '@twilio-paste/style-props',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
             },
           ]
         )
@@ -209,9 +209,9 @@ describe('danger utils', () => {
         getUnpublishedPackageNames(
           [
             'package.json',
-            'packages/paste-style-props/src/index.ts',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            'packages/paste-core/components/alert-dialog/src/index.tsx',
+            'packages/core/style-props/src/index.ts',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/src/index.tsx',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
@@ -220,13 +220,13 @@ describe('danger utils', () => {
               name: '@twilio-paste/alert-dialog',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/components/alert-dialog',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/components/alert-dialog',
             },
             {
               name: '@twilio-paste/style-props',
               version: '3.1.0',
               private: false,
-              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/style-props',
             },
           ]
         )
@@ -240,7 +240,7 @@ describe('danger utils', () => {
         getChangesetsFromFiles([
           'package.json',
           'packages/box/package.json',
-          'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+          'packages/core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
         ])
@@ -252,7 +252,7 @@ describe('danger utils', () => {
         getChangesetsFromFiles([
           'package.json',
           'packages/box/package.json',
-          'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+          'packages/core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
           '.changeset/pretty-silly-sheep.md',
@@ -266,7 +266,7 @@ describe('danger utils', () => {
       expect(
         getPackJsonsFromFiles([
           'package.json',
-          'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+          'packages/core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
         ])
@@ -278,7 +278,7 @@ describe('danger utils', () => {
         getPackJsonsFromFiles([
           'package.json',
           'packages/box/package.json',
-          'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+          'packages/core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
         ])

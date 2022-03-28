@@ -5,25 +5,22 @@
   - "*"
 
 "Area: Primitives":
-  - packages/paste-core/primitives/**/*
-
-"Area: Layout":
-  - packages/paste-core/layout/**/*
+  - packages/core/primitives/**/*
 
 "Area: Components":
-  - packages/paste-core/components/**/*
+  - packages/core/components/**/*
 
 "Area: Core bundle":
-  - packages/paste-core/core-bundle/**/*
+  - packages/core/core-bundle/**/*
 
 "Area: Doc Site":
-  - packages/paste-website/**/*
+  - apps/website/**/*
 
 "Area: Theme":
-  - packages/paste-theme/**/*
+  - packages/core/theme/**/*
 
 "Area: Tokens":
-  - packages/paste-design-tokens/**/*
+  - packages/core/design-tokens/**/*
 
 "Area: Storybook":
   - .storybook/**/*
@@ -36,7 +33,7 @@
   - tools/**/*
 
 "Type: Documentation":
-  - packages/paste-website/src/pages/**/*
+  - apps/website/src/pages/**/*
 
 "Type: Tests":
   - "**/__tests__/**/*"

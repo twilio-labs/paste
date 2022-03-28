@@ -1,0 +1,287 @@
+---
+title: Disclosure Primitive
+description: An accessible disclosure primitive for controlling the visibility of a content section.
+slug: /primitives/disclosure-primitive/
+---
+
+import {graphql} from 'gatsby';
+import {
+  useDisclosurePrimitiveState,
+  DisclosurePrimitive,
+  DisclosurePrimitiveContent,
+} from '@twilio-paste/disclosure-primitive';
+import Changelog from '@twilio-paste/disclosure-primitive/CHANGELOG.md';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {
+  BasicExample,
+  ConditionallyRenderingExample,
+  MultipleExample,
+} from '../../../component-examples/DisclosurePrimitiveExamples';
+
+export const pageQuery = graphql`
+  {
+    allPastePrimitive(filter: {name: {eq: "@twilio-paste/disclosure-primitive"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/primitives/disclosure-primitive/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Disclosure Primitive"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/primitives/disclosure"
+  storybookUrl="/?path=/story/primitives-disclosure"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About the Disclosure Primitive
+
+The Disclosure primitive is an unstyled, functional version of a Disclosure.
+It can be used to build a component following the [WAI-ARIA Disclosure](https://www.w3.org/TR/wai-aria-practices/#disclosure)
+pattern. Our Disclosure component is built on top of this primitive.
+
+These unstyled primitives are to be used when the styled Disclosure provided by Paste
+doesn’t meet the requirements needed to solve a unique customer problem. At that
+point, you are welcome to fallback to this functional primitive to roll your own
+styled disclosure while still providing a functional and accessible experience to
+your customers.
+
+This primitive should be used to compose all custom Disclosures to ensure
+accessibility and upgrade paths.
+
+<Callout variant="warning">
+  <CalloutTitle>Warning</CalloutTitle>
+  <CalloutText>
+    We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
+    goes through the UX Review process to ensure an excellent experience for our customers.
+  </CalloutText>
+</Callout>
+
+## Usage Guide
+
+This package is a wrapper around [Reakit's Disclosure](https://reakit.io/docs/menu/).
+If you’re wondering why we wrapped that package into our own, we reasoned that
+it would be best for our consumers’ developer experience. For example:
+
+- We can control which APIs we expose and how to expose them. For example, in this package we rename
+  and export only some of the source package's exports.
+- If we want to migrate the underlying nuts and bolts in the future, Twilio products that
+  depend on this primitive would need to replace all occurrences of `import … from ‘@reach/dialog’`
+  to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/disclosure-primitive`,
+  this refactor can be avoided. The only change would be a version bump in the package.json file.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we allow, to help reduce
+  potential bugs our consumers may face.
+
+### Installation
+
+This package is available individually or as part of `@twilio-paste/core`.
+
+```
+yarn add @twilio-paste/disclosure-primitive - or - yarn add @twilio-paste/core
+```
+
+### Examples
+
+#### Basic Example
+
+<LivePreview scope={{useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent}} language="jsx">
+  {BasicExample}
+</LivePreview>
+
+#### Conditional Rendering Example
+
+You shouldn't conditionally render the DisclosurePrimitiveContent component as
+this will make some Reakit features not work. Instead, you can use render
+props and conditionally render the underneath element:
+
+<LivePreview scope={{useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent}} language="jsx">
+  {ConditionallyRenderingExample}
+</LivePreview>
+
+#### Multiple Components
+
+Each DisclosurePrimitiveContent component should have its own `useDisclosureState`.
+This is also true for derivative modules like Dialog, Popover, Menu, Tooltip etc.
+
+If you want to have only one DisclosurePrimitive element controling multiple `DisclosurePrimitiveContent`
+components, you can use render props to apply the same state to different
+Disclosures that will result in a single element.
+
+<LivePreview scope={{useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent}} language="jsx">
+  {MultipleExample}
+</LivePreview>
+
+### API
+
+<Callout>
+  <CalloutText>
+    Much of the following is copied directly from{' '}
+    <Anchor href="https://reakit.io/docs/disclosure/#props">Reakit's docs</Anchor>. Because we may update at a different
+    cadence, we're duplicating the docs here to prevent information fragmentation.
+  </CalloutText>
+</Callout>
+
+#### useDisclosurePrimitiveState Props
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+| Prop      | Type              | Default |
+| --------- | ----------------- | ------- |
+| baseId?   | string            |         |
+| visible?  | bool              |         |
+| animated? | number or boolean |         |
+
+##### `baseId` prop
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible` prop
+
+Whether it's visible or not.
+
+##### `animated` prop
+
+If true, animating will be set to true when visible is updated. It'll wait
+for stopAnimation to be called or a CSS transition ends. If animated is set
+to a number, stopAnimation will be called only after the same number of
+milliseconds have passed.
+
+#### DisclosurePrimitive Props
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+| Prop       | Type    | Default |
+| ---------- | ------- | ------- |
+| disabled?  | boolean |         |
+| focusable? | boolean |         |
+
+##### `disabled` prop
+
+Same as the HTML attribute.
+
+##### `focusable` prop
+
+When an element is `disabled`, it may still be `focusable`. It works
+similarly to `readOnly` on form elements. In this case, only
+`aria-disabled` will be set.
+
+<Callout>
+  <CalloutTitle>State props</CalloutTitle>
+  <CalloutText>
+    These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
+    separately. You can also provide these props from your own state logic.
+  </CalloutText>
+</Callout>
+
+| Prop    | Type       | Default |
+| ------- | ---------- | ------- |
+| visible | boolean    |         |
+| baseId  | boolean    |         |
+| toggle  | () => void |         |
+
+##### `baseId` prop
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible` prop
+
+Whether it's visible or not.
+
+##### `toggle` prop
+
+Toggles the visible state
+
+#### DisclosurePrimitiveContent Props
+
+<Callout>
+  <CalloutTitle>State props</CalloutTitle>
+  <CalloutText>
+    These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
+    separately. You can also provide these props from your own state logic.
+  </CalloutText>
+</Callout>
+
+| Prop          | Type              | Default |
+| ------------- | ----------------- | ------- |
+| visible       | boolean           |         |
+| baseId        | boolean           |         |
+| animated      | number or boolean |         |
+| animating     | boolean           |         |
+| stopAnimation | () => void        |         |
+
+##### `baseId` prop
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible` prop
+
+Whether it's visible or not.
+
+##### `animated` prop
+
+If true, animating will be set to true when visible is updated. It'll wait
+for stopAnimation to be called or a CSS transition ends. If animated is set
+to a number, stopAnimation will be called only after the same number of
+milliseconds have passed.
+
+##### `animating` prop
+
+Whether it's animating or not.
+
+##### `stopAnimation` prop
+
+Stops animation. It's called automatically if there's a CSS transition.
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

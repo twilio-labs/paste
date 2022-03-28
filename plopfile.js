@@ -11,7 +11,7 @@ module.exports = function (plop) {
         type: 'list',
         name: 'component-type',
         message: 'What type of component package?',
-        choices: ['components', 'layout', 'primitives'],
+        choices: ['components', 'primitives'],
       },
       {
         type: 'input',
@@ -48,32 +48,32 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/src/index.tsx',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/src/index.tsx',
         templateFile: 'tools/plop-templates/component-index.hbs',
       },
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/__tests__/index.spec.tsx',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/__tests__/index.spec.tsx',
         templateFile: 'tools/plop-templates/component-tests.hbs',
       },
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/stories/index.stories.tsx',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/stories/index.stories.tsx',
         templateFile: 'tools/plop-templates/component-stories.hbs',
       },
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/build.js',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/build.js',
         templateFile: 'tools/plop-templates/build.hbs',
       },
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/package.json',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/package.json',
         templateFile: 'tools/plop-templates/package.hbs',
       },
       {
         type: 'add',
-        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/tsconfig.json',
+        path: 'packages/core/{{component-type}}/{{kebabCase component-name}}/tsconfig.json',
         templateFile: 'tools/plop-templates/tsconfig.hbs',
       },
     ],

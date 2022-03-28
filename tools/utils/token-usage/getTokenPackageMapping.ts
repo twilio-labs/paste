@@ -5,13 +5,13 @@ import tokenJson from '@twilio-paste/design-tokens/dist/tokens.json';
 import {convertFilePathsToPackageNames} from './convertFilePathsToPackageNames';
 import type {TokenPackageMap} from './types';
 
-const CORE_PACKAGES_PATH = path.join(__dirname, '../../../packages/paste-core');
+const CORE_PACKAGES_PATH = path.join(__dirname, '../../../packages/core');
 const tokenNames: string[] = Object.keys(tokenJson).map(lodash.camelCase);
 
 /**
  * Finds a given full word in all of paste's core packages (minus core-bundle)
  * Shell CLI version:
- * grep -rnw --include=\*.{ts,tsx} --exclude-dir={dist,core-bundle,stories,__tests__} 'packages/paste-core/' -e 'colorBackgroundBody'
+ * grep -rnw --include=\*.{ts,tsx} --exclude-dir={dist,core-bundle,stories,__tests__} 'packages/core/' -e 'colorBackgroundBody'
  */
 async function findFilesWithWord(word: string): Promise<string[]> {
   return fileSearch([CORE_PACKAGES_PATH], word, {
@@ -22,7 +22,7 @@ async function findFilesWithWord(word: string): Promise<string[]> {
 }
 
 /**
- * Returns an object that maps token name keys to a list of package names where that token is used in paste-core.
+ * Returns an object that maps token name keys to a list of package names where that token is used in core.
  * @returns {string[]} tokenPackageMap - {[tokenName]: packageNames[]}
  */
 export async function getTokenPackageMapping(): Promise<TokenPackageMap> {

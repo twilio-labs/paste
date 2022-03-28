@@ -1,0 +1,284 @@
+---
+title: Non-Modal Dialog - Primitives
+description: An unstyled and accessible base upon which to build a non-modal dialog.
+slug: /primitives/non-modal-dialog-primitive/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {useTheme, StyledBase} from '@twilio-paste/theme';
+import {Text} from '@twilio-paste/text';
+import Changelog from '@twilio-paste/non-modal-dialog-primitive/CHANGELOG.md';
+import {
+  useNonModalDialogPrimitiveState,
+  NonModalDialogPrimitive,
+  NonModalDialogDisclosurePrimitive,
+  NonModalDialogArrowPrimitive,
+} from '@twilio-paste/non-modal-dialog-primitive';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {
+  defaultExample,
+  rightExample,
+  gutterExample,
+  styledExample,
+} from '../../../component-examples/NonModalDialogPrimitiveExamples';
+
+export const pageQuery = graphql`
+  {
+    allPastePrimitive(filter: {name: {eq: "@twilio-paste/non-modal-dialog-primitive"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/primitives/non-modal-dialog-primitive/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Non-modal Dialog Primitive"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/primitives/non-modal-dialog"
+  storybookUrl="/?path=/story/primitives-non-modal-dialog--simple-non-modal-dialog"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Non-Modal Dialog Primitive
+
+The non-modal dialog primitive is an unstyled functional version of a non-modal dialog. Our [Popover](/components/popover) is built on top of this primitive.
+
+The purpose of providing these unstyled primitives is to cater for instances when the styled Popover provided by Paste doesn’t meet the requirements needed to solve a unique or individual customer problem. At that point you are welcome to fall back to this functional primitive to roll your own styled non-modal dialog while still providing a functional and accessible experience to your customers. However, we strongly recommend reviewing your design proposal with the Design Systems team before doing so.
+
+This primitive should be used to compose all custom non-modal dialogs or popoovers to ensure accessibility and upgrade paths.
+
+<Callout variant="warning">
+  <CalloutTitle as="h3">Before you roll your own non-modal dialogs...</CalloutTitle>
+  <CalloutText>
+    We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
+    go through the UX Review process to ensure an excellent experience for our customers.
+  </CalloutText>
+</Callout>
+
+## Examples
+
+### Basic Non-Modal Dialog
+
+<LivePreview
+  scope={{
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+    NonModalDialogArrowPrimitive,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### Right Non-Modal Dialog
+
+<LivePreview
+  scope={{
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+    NonModalDialogArrowPrimitive,
+  }}
+  noInline
+>
+  {rightExample}
+</LivePreview>
+
+### Non-Modal Dialog without Gutter
+
+<LivePreview
+  scope={{
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+  }}
+  noInline
+>
+  {gutterExample}
+</LivePreview>
+
+---
+
+## Styling a Custom Non-Modal Dialog
+
+The Non-Modal Dialog primitive can be styled using Paste components and tokens.
+
+By using the `as` prop, we can change the underlying element and combine it with another component. In the
+example below we're combiningthe `NonModalDialogDisclosurePrimitive` with the Button component.
+
+We're also using the `as` prop on the `NonModalDialogPrimitive` to create a styled `Box` with Paste
+token background color, border radius, and spacing values.
+
+Because the non-modal dialog lives outside of the main `body` tag, we need to provide the base Paste styles using
+`StyledBase` from our theme package. This gives the `Text` primitive the appropriate font stack and sizing.
+
+<LivePreview
+  scope={{
+    useTheme,
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+    NonModalDialogArrowPrimitive,
+    Box,
+    Button,
+    StyledBase,
+    Text,
+  }}
+  noInline
+>
+  {styledExample}
+</LivePreview>
+
+---
+
+## Usage Guide
+
+This package is a wrapper around the [Reakit Popover](https://reakit.io/docs/popover/). If you’re wondering why we wrapped that package into our own, we reasoned that it would be best for our consumers’ developer experience. For example:
+
+- If we want to migrate the underlying nuts and bolts in the future, Twilio products that depend on this primitive would need to replace all occurrences of `import … from ‘x-package’` to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/x-primitive`, this refactor can be avoided. The only change would be a version bump in the ‘package.json` file for the primitive.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we allow, to help reduce potential bugs our consumers may face.
+- We can control which APIs we expose. For example, we may chose to enable or disable usage of certain undocumented APIs.
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/non-modal-dialog-primitive - or - yarn add @twilio-paste/core
+```
+
+#### Props
+
+This props list is a scoped version of the properties available from the [Reakit Popover](https://reakit.io/docs/popover/) package.
+
+##### useNonModalDialogPrimitiveState
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the popover on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `visible?: boolean`
+
+Whether the dialog is visible or not.
+
+##### `animated?: number | boolean`
+
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
+
+##### `modal?: boolean`
+
+Sets the modal state.
+
+- Non-modal: preventBodyScroll doesn't work and focus is free.
+- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
+
+##### NonModalDialogPrimitive
+
+##### `hideOnEsc?: boolean | undefined`
+
+If enabled, the user can hide the dialog by pressing Escape.
+
+##### `hideOnClickOutside?: boolean | undefined`
+
+If enabled, the user can hide the dialog by clicking outside it.
+
+##### NonModalDialogArrowPrimitive
+
+##### `size?: string | number | undefined`
+
+The size of the arrow
+
+##### `fill?: string`
+
+Sets the fill color of the arrow svg path
+
+##### `stroke?: string`
+
+Sets the stroke color of the arrow svg path
+
+##### NonModalDialogDisclosurePrimitive
+
+##### `disabled boolean | undefined`
+
+Sets the disclosure to disabled.
+
+##### `focusable boolean | undefined`
+
+Sets the disclosure to be focusable or not.
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

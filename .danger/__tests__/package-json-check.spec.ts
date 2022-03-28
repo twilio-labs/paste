@@ -27,8 +27,8 @@ describe('packageJsonCheck()', () => {
         git: {
           modified_files: [
             'package.json',
-            'packages/paste-codemods/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/codemods/package.json',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
@@ -43,7 +43,7 @@ describe('packageJsonCheck()', () => {
         git: {
           modified_files: [
             'package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             '.changeset/pretty-cameras-burn.md',
           ],
           created_files: [],
@@ -56,8 +56,8 @@ describe('packageJsonCheck()', () => {
       global.danger = {
         git: {
           modified_files: [
-            'packages/paste-codemods/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/codemods/package.json',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             '.changeset/pretty-cameras-burn.md',
           ],
           created_files: [],
@@ -70,10 +70,10 @@ describe('packageJsonCheck()', () => {
       global.danger = {
         git: {
           modified_files: [
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             '.changeset/pretty-cameras-burn.md',
           ],
-          created_files: ['packages/paste-codemods/package.json'],
+          created_files: ['packages/codemods/package.json'],
         },
       };
       packageJsonCheck();
@@ -83,11 +83,11 @@ describe('packageJsonCheck()', () => {
       global.danger = {
         git: {
           modified_files: [
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/core/components/alert-dialog/stories/index.stories.tsx',
             '.changeset/pretty-cameras-burn.md',
             'yarn.lock',
           ],
-          created_files: ['packages/paste-codemods/package.json'],
+          created_files: ['packages/codemods/package.json'],
         },
       };
       packageJsonCheck();

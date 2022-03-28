@@ -1,0 +1,362 @@
+---
+title: List
+package: '@twilio-paste/list'
+description: The list component is used to render text as a list of items.
+slug: /components/list/
+---
+
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
+import {ListItem, OrderedList, UnorderedList} from '@twilio-paste/list';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/list/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/list"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/list/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "List"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/components/list"
+  storybookUrl="/?path=/story/components-list--default-ordered-list"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{UnorderedList, ListItem}} language="jsx">
+  {`<UnorderedList>
+
+  <ListItem>
+    Trans black lives matter
+  </ListItem>
+  <ListItem>
+    Queer black lives matter
+  </ListItem>
+  <ListItem>
+    Poor black lives matter
+  </ListItem>
+  <ListItem>
+    Young black lives matter
+  </ListItem>
+  <ListItem>
+    Old black lives matter
+  </ListItem>
+  <ListItem>
+    All black lives matter
+  </ListItem>
+  </UnorderedList>`}
+</LivePreview>
+
+## Guidelines
+
+Lists can be ordered or unordered. If the order of the list items matters for context to the user, an ordered list should be used. If the meaning of the list is not changed based on the order of the items, an unordered list should be used.
+
+### About Lists
+
+Lists are a number of connected list items that are printed consecutively, typically one after the other. Lists can be ordered, using numbers as an indicator to the reader, or unordered with bullet points.
+
+- Ordered lists are displayed with a preceding number
+- Unordered lists are displayed with a preceding bullet point
+- Lists can be nested as deeply as needed, and they may alternate between ordered and unordered
+- Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers
+- Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase
+
+### Accessibility
+
+- List text should meet AA requirements (4.5:1) for color contrast from itself and the background color
+- `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component
+- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component, e.g.
+
+```jsx
+<OrderedList>
+  <ListItem>
+    Text of the parent list item
+    <OrderedList>
+      <ListItem>Nested list item</ListItem>
+    </OrderedList>
+  </ListItem>
+</OrderedList>
+```
+
+## Examples
+
+### Unordered List
+
+Use unordered list to display a basic list of items. This is the default variant for List.
+
+<LivePreview scope={{UnorderedList, ListItem}} language="jsx">
+  {`<UnorderedList>
+  <ListItem>
+    Tamir Rice
+  </ListItem>
+  <ListItem>
+    Philando Castile
+  </ListItem>
+  <ListItem>
+    Trayvon Martin
+  </ListItem>
+  <ListItem>
+    Breonna Taylor
+  </ListItem>
+  <ListItem>
+    Shantel Davis
+  </ListItem>
+  <ListItem>
+    Walter Scott
+  </ListItem>
+  <ListItem>
+    Mario Gonzalez
+  </ListItem>
+</UnorderedList>`}
+</LivePreview>
+
+### Ordered List
+
+Use ordered list to display a numbered list of items.
+
+<LivePreview scope={{OrderedList, ListItem}} language="jsx">
+  {`<OrderedList>
+  <ListItem>
+    Tamir Rice
+  </ListItem>
+  <ListItem>
+    Philando Casitle
+  </ListItem>
+  <ListItem>
+    Trayvon Martin
+  </ListItem>
+  <ListItem>
+    Breonna Taylor
+  </ListItem>
+  <ListItem>
+    Shantel Davis
+  </ListItem>
+  <ListItem>
+    Walter Scott
+  </ListItem>
+  <ListItem>
+    Mario Gonzalez
+  </ListItem>
+</OrderedList>`}
+</LivePreview>
+
+### Nesting list items
+
+List items can be nested within other list items. To do so create a new list as a child to a `ListItem`.
+
+<LivePreview scope={{OrderedList, UnorderedList, ListItem}} language="jsx">
+  {`<div>
+  <OrderedList>
+    <ListItem>
+      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+      <UnorderedList marginBottom="space0">
+        <ListItem>
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+        </ListItem>
+        <ListItem>
+          Duis mollis, est non commodo luctus.
+        </ListItem>
+      </UnorderedList>
+    </ListItem>
+    <ListItem>
+      Duis mollis, est non commodo luctus.
+    </ListItem>
+  </OrderedList>
+  <UnorderedList>
+    <ListItem>
+      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+      <OrderedList marginBottom="space0">
+        <ListItem>
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+        </ListItem>
+        <ListItem>
+          Duis mollis, est non commodo luctus.
+        </ListItem>
+      </OrderedList>
+    </ListItem>
+    <ListItem>
+      Duis mollis, est non commodo luctus.
+    </ListItem>
+  </UnorderedList>
+</div>`}
+</LivePreview>
+
+## Composition Notes
+
+### When to Use a OrderedList and UnorderedList
+
+<DoDont>
+  <Do title="Do" body="Use a list when you have more than one item or point." center>
+    <UnorderedList>
+      <ListItem>Point one</ListItem>
+      <ListItem>Point two</ListItem>
+      <ListItem>Point three</ListItem>
+    </UnorderedList>
+  </Do>
+  <Dont title="Don't" body="Don’t use lists for a single item." center>
+    <UnorderedList>
+      <ListItem>Point one</ListItem>
+    </UnorderedList>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use nested lists to provide additional clarity or instruction on specific topics.">
+    <Box padding="space60">
+      <Heading as="h2" variant="heading30">
+        Animals
+      </Heading>
+      <UnorderedList>
+        <ListItem>
+          Mammals
+          <UnorderedList marginBottom="space0">
+            <ListItem>Cat</ListItem>
+            <ListItem>Dog</ListItem>
+          </UnorderedList>
+        </ListItem>
+        <ListItem>
+          Birds
+          <UnorderedList marginBottom="space0">
+            <ListItem>Chicken</ListItem>
+            <ListItem>Turkey</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </UnorderedList>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t nest lists if the nested content is unrelated to the higher level topic.">
+    <Box padding="space60">
+      <Heading as="h2" variant="heading30">
+        Animals
+      </Heading>
+      <UnorderedList>
+        <ListItem>
+          Mammals
+          <Heading as="h3" variant="heading40">
+            Groceries
+          </Heading>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Milk</ListItem>
+            <ListItem>Butter</ListItem>
+          </UnorderedList>
+        </ListItem>
+        <ListItem>
+          Birds
+          <UnorderedList marginBottom="space0">
+            <ListItem>Chicken</ListItem>
+            <ListItem>Turkey</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </UnorderedList>
+    </Box>
+  </Dont>
+</DoDont>
+
+## Anatomy
+
+| Property      | Default token      | Modifiable? |
+| ------------- | ------------------ | ----------- |
+| font-size     | font-size-30       | No          |
+| line-height   | line-height-30     | No          |
+| font-weight   | font-weight-normal | No          |
+| margin-top    | null               | Yes         |
+| margin-bottom | space-70           | Yes         |
+| color         | color-text         | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/core/list';
+
+const Component = () => (
+  <UnorderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </UnorderedList>
+);
+
+const Component = () => (
+  <OrderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </OrderedList>
+);
+```
+
+#### Props
+
+| Prop          | Type                                         | Description | Default   |
+| ------------- | -------------------------------------------- | ----------- | --------- |
+| children?     | `ReactNode`                                  |             | null      |
+| marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |             | null      |
+| marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |             | 'space70' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

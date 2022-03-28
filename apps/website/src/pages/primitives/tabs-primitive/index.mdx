@@ -1,0 +1,484 @@
+---
+title: Tabs - Primitives
+description: An unstyled and accessible basis upon which to style a tabset.
+slug: /primitives/tabs-primitive/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {StyledBase} from '@twilio-paste/theme';
+import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
+import Changelog from '@twilio-paste/tabs-primitive/CHANGELOG.md';
+import {
+  useTabPrimitiveState,
+  TabPrimitive,
+  TabPrimitiveList,
+  TabPrimitivePanel,
+  TabPrimitiveStateReturn,
+} from '@twilio-paste/tabs-primitive';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {horizontalExample, verticalExample, styledExample} from '../../../component-examples/TabsPrimitiveExamples';
+
+export const pageQuery = graphql`
+  {
+    allPastePrimitive(filter: {name: {eq: "@twilio-paste/tabs-primitive"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/primitives/tabs-primitive/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Tabs Primitive"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/primitives/tabs"
+  storybookUrl="/?path=/story/primitives-tabs--horizontal-tabs"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About the Tabs Primitive
+
+The Tabs primitive is an unstyled, functional version of a tabset component. It can be used to build a component following the [WAI-ARIA Tabs Pattern](https://www.w3.org/TR/wai-aria-practices/#tabpanel). Our Tabs component is built on top of this primitive.
+
+This unstyled primitive is to be used when the styled [Tabs](/components/tabs) provided by Paste doesn&rsquo;t meet the requirements needed to solve a unique customer problem. At that point, you are welcome to fall back to this functional primitive to roll your own styled Tabs while still providing a functional and accessible experience to your customers.
+
+This primitive should be used to compose all custom Tabs to ensure accessibility and upgrade paths.
+
+<Callout variant="warning">
+  <CalloutTitle as="h3">Before you roll your own tabset...</CalloutTitle>
+  <CalloutText>
+    We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
+    go through the UX Review process to ensure an excellent experience for our customers.
+  </CalloutText>
+</Callout>
+
+### Examples
+
+#### Horizontal Tabset
+
+<LivePreview
+  scope={{
+    useTabPrimitiveState,
+    TabPrimitiveList,
+    TabPrimitive,
+    TabPrimitivePanel,
+  }}
+  noInline
+>
+  {horizontalExample}
+</LivePreview>
+
+#### Vertical Tabset
+
+<LivePreview
+  scope={{
+    useTabPrimitiveState,
+    TabPrimitiveList,
+    TabPrimitive,
+    TabPrimitivePanel,
+    Stack,
+    Box,
+  }}
+  noInline
+>
+  {verticalExample}
+</LivePreview>
+
+---
+
+### Styling a Custom Tabset
+
+The tab primitive can be styled using Paste components and tokens. By using the `as` prop, we can
+change the underlying element and combine it with another component. In the example below we're combining
+the `TabPrimitive` with a custom `Box` component. We are rendering the `TabPrimitive` as `CustomTab`, passing down
+the necessary props from the state hook and combining those with `Box` styling props.
+
+<LivePreview
+  scope={{
+    useTabPrimitiveState,
+    TabPrimitiveList,
+    TabPrimitive,
+    TabPrimitivePanel,
+    Stack,
+    Box,
+  }}
+  noInline
+>
+  {styledExample}
+</LivePreview>
+
+---
+
+## Usage Guide
+
+This package is a wrapper around the [Reakit Tab](https://reakit.io/docs/tab/). If you&rsquo;re wondering why we wrapped that package into our own, we reasoned that it would be best for our consumers&rsquo; developer experience. For example:
+
+- By wrapping a library in `@twilio-paste/x-primitive`, any update or swap of the underlying library would only be a version bump in the `package.json` file for the primitive. Without this, if we want to migrate the underlying library in the future, Twilio products that depend on this primitive would need to replace all occurrences of`import … from 'x-package'`to`import … from '@some-new/package'`.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we allow, to help reduce potential bugs our consumers may face.
+- We can control which APIs we expose. For example, we may chose to enable or disable usage of certain undocumented APIs.
+
+### Installation
+
+```bash
+yarn add @twilio-paste/tabs-primitive - or - yarn add @twilio-paste/core
+```
+
+### Usage
+
+```jsx
+import {
+  useTabPrimitiveState,
+  TabPrimitiveList,
+  TabPrimitive,
+  TabPrimitivePanel,
+} from '@twilio-paste/core/tabs-primitive';
+
+const HorizontalExample = () => {
+  const tab = useTabPrimitiveState();
+  return (
+    <>
+      <TabPrimitiveList {...tab} aria-label="My tabs">
+        <TabPrimitive {...tab}>Tab 1</TabPrimitive>
+        <TabPrimitive {...tab} disabled>
+          Tab 2 (disabled)
+        </TabPrimitive>
+        <TabPrimitive {...tab}>Tab 3</TabPrimitive>
+      </TabPrimitiveList>
+      <TabPrimitivePanel {...tab}>Tab 1</TabPrimitivePanel>
+      <TabPrimitivePanel {...tab}>Tab 2</TabPrimitivePanel>
+      <TabPrimitivePanel {...tab}>Tab 3</TabPrimitivePanel>
+    </>
+  );
+};
+```
+
+### API
+
+This props list is a scoped version of the properties available from the [Reakit Tab](https://reakit.io/docs/tab/) package.
+
+#### useTabState
+
+##### baseId `string`
+
+ID that will serve as a base for all the items IDs.
+
+##### rtl `boolean`
+
+Determines how `next` and `previous` functions will behave. If `rtl` is
+set to `true`, they will be inverted. You still need to set `dir="rtl"` on
+HTML/CSS.
+
+##### orientation `"horizontal" | "vertical" | undefined`
+
+Defines the orientation of the composite widget. If the composite has a
+single row or column (one-dimensional), the `orientation` value determines
+which arrow keys can be used to move focus:
+
+It doesn't have any effect on two-dimensional composites.
+
+##### currentId `string | null | undefined`
+
+The current focused item `id`.
+
+##### loop `boolean | "horizontal" | "vertical"`
+
+Whether keyboard navigation loops back to the beginning.
+
+##### wrap `boolean | "horizontal" | "vertical"`
+
+If enabled, moving to the next item from the last one in a row or column
+will focus the first item in the next row or column and vice-versa.
+
+##### selectedId `string | null | undefined`
+
+The current selected tab's `id`.
+
+##### manual `boolean`
+
+Whether the tab selection should be manual.
+
+---
+
+#### Tab
+
+##### disabled `boolean | undefined`
+
+Same as the HTML attribute.
+
+##### focusable `boolean | undefined`
+
+When an element is `disabled`, it may still be `focusable`. It works
+similarly to `readOnly` on form elements. In this case, only
+`aria-disabled` will be set.
+
+##### id `string | undefined`
+
+Same as the HTML attribute.
+
+<Callout>
+  <CalloutTitle>State props</CalloutTitle>
+  <CalloutText>
+    These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
+    separately. You can also provide these props from your own state logic.
+  </CalloutText>
+</Callout>
+
+##### baseId `string`
+
+ID that will serve as a base for all the items IDs.
+
+##### orientation `"horizontal" | "vertical" | undefined`
+
+Defines the orientation of the composite widget. If the composite has a
+single row or column (one-dimensional), the `orientation` value determines
+which arrow keys can be used to move focus:
+
+It doesn't have any effect on two-dimensional composites.
+
+##### currentId `string | null | undefined`
+
+The current focused item `id`.
+
+##### items `Item[]`
+
+Lists all the composite items with their `id`, DOM `ref`, `disabled` state
+and `groupId` if any. This state is automatically updated when
+`registerItem` and `unregisterItem` are called.
+
+##### setCurrentId `(value: SetStateAction<string | null | undefined>) => void`
+
+Sets `currentId`.
+
+##### registerItem `(item: Item) => void`
+
+Registers a composite item.
+
+##### unregisterItem `(id: string) => void`
+
+Unregisters a composite item.
+
+##### next `(unstable_allTheWay?: boolean | undefined) => void`
+
+Moves focus to the next item.
+
+##### previous `(unstable_allTheWay?: boolean | undefined) => void`
+
+Moves focus to the previous item.
+
+##### up `(unstable_allTheWay?: boolean | undefined) => void`
+
+Moves focus to the item above.
+
+##### down `(unstable_allTheWay?: boolean | undefined) => void`
+
+Moves focus to the item below.
+
+##### first `() => void`
+
+Moves focus to the first item.
+
+##### last `() => void`
+
+Moves focus to the last item.
+
+##### manual `boolean`
+
+Whether the tab selection should be manual.
+
+##### selectedId `string | null | undefined`
+
+The current selected tab's `id`.
+
+##### panels `Item[]`
+
+Lists all the panels.
+
+##### select `(id: string | null) => void`
+
+Moves into and selects a tab by its `id`.
+
+---
+
+#### TabList
+
+##### disabled `boolean | undefined`
+
+Same as the HTML attribute.
+
+##### focusable `boolean | undefined`
+
+When an element is `disabled`, it may still be `focusable`. It works
+similarly to `readOnly` on form elements. In this case, only
+`aria-disabled` will be set.
+
+<Callout>
+  <CalloutTitle>State props</CalloutTitle>
+  <CalloutText>
+    These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
+    separately. You can also provide these props from your own state logic.
+  </CalloutText>
+</Callout>
+
+##### baseId `string`
+
+ID that will serve as a base for all the items IDs.
+
+##### orientation `"horizontal" | "vertical" | undefined`
+
+Defines the orientation of the composite widget. If the composite has a
+single row or column (one-dimensional), the `orientation` value determines
+which arrow keys can be used to move focus:
+
+##### currentId `string | null | undefined`
+
+The current focused item `id`.
+
+##### wrap `boolean | "horizontal" | "vertical"`
+
+If enabled, moving to the next item from the last one in a row or column
+will focus the first item in the next row or column and vice-versa.
+
+##### groups `Group[]`
+
+Lists all the composite groups with their `id` and DOM `ref`. This state
+is automatically updated when `registerGroup` and `unregisterGroup` are
+called.
+
+##### items `Item[]`
+
+Lists all the composite items with their `id`, DOM `ref`, `disabled` state
+and `groupId` if any. This state is automatically updated when
+`registerItem` and `unregisterItem` are called.
+
+##### move `(id: string | null) => void`
+
+Moves focus to a given item ID.
+
+##### setCurrentId `(value: SetStateAction<string | null | undefined>) => void`
+
+Sets `currentId`.
+
+##### first `() => void`
+
+Moves focus to the first item.
+
+##### last `() => void`
+
+Moves focus to the last item.
+
+---
+
+#### TabPanel
+
+##### id `string | undefined`
+
+Same as the HTML attribute.
+
+##### tabId `string | undefined`
+
+Tab's id
+
+<Callout>
+  <CalloutTitle>State props</CalloutTitle>
+  <CalloutText>
+    These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
+    separately. You can also provide these props from your own state logic.
+  </CalloutText>
+</Callout>
+
+##### baseId `string`
+
+ID that will serve as a base for all the items IDs.
+
+##### visible `boolean`
+
+Whether it's visible or not.
+
+##### animating `boolean`
+
+Whether it's animating or not.
+
+##### animated `number | boolean`
+
+If `true`, `animating` will be set to `true` when `visible` is updated.
+It'll wait for `stopAnimation` to be called or a CSS transition ends.
+If `animated` is set to a `number`, `stopAnimation` will be called only
+after the same number of milliseconds have passed.
+
+##### stopAnimation `() => void`
+
+Stops animation. It's called automatically if there's a CSS transition.
+
+##### selectedId `string | null | undefined`
+
+The current selected tab's `id`.
+
+##### items `Item[]`
+
+Lists all the composite items with their `id`, DOM `ref`, `disabled` state
+and `groupId` if any. This state is automatically updated when
+`registerItem` and `unregisterItem` are called.
+
+##### panels `Item[]`
+
+Lists all the panels.
+
+##### registerPanel `(item: Item) => void`
+
+Registers a tab panel.
+
+##### unregisterPanel `(id: string) => void`
+
+Unregisters a tab panel.
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

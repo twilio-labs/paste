@@ -56,11 +56,11 @@ jobs:
           name: compiled-js-and-types
           path: |
             packages/**/dist/**/*
-            packages/paste-core/core-bundle/**/*
-            packages/paste-icons/cjs/**/*
-            packages/paste-icons/esm/**/*
-            packages/paste-design-tokens/types/**/*
-            packages/paste-codemods/tools/.cache/mappings.json
+            packages/core/core-bundle/**/*
+            packages/icons/cjs/**/*
+            packages/icons/esm/**/*
+            packages/core/design-tokens/types/**/*
+            packages/codemods/tools/.cache/mappings.json
 
   version_or_publish:
     name: Version or publish the packages

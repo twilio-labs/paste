@@ -2,9 +2,9 @@
 
 ## Organization
 
-- All top level packages must be prefixed by the word `paste-` to distinguish them from sub-folders.
-- All system level packages should be placed at the top level (icons, theme, website)
-- All primitive elements should be placed within the `paste-core` folder.
+- The repo is split into apps, packages and templates.
+- Any package that is bundled into the core-bundle should be placed in the core package directory.
+- Components live in components, Primitives live in primitives and Libraries live in libraries, under core.
 
 ## Package Requirements
 

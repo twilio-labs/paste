@@ -1,0 +1,488 @@
+---
+title: Modal
+package: '@twilio-paste/modal'
+description: A modal displays content over the main page and blocks any interaction with the page.
+slug: /components/modal/
+---
+
+import {graphql} from 'gatsby';
+import {useUID} from '@twilio-paste/uid-library';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Button} from '@twilio-paste/button';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {Select, Option} from '@twilio-paste/select';
+import Changelog from '@twilio-paste/modal/CHANGELOG.md';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {defaultExample, initialFocusExample, wideExample, i18nExample} from '../../../component-examples/ModalExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/modal"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/modal/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Modal"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/components/modal"
+  storybookUrl="/?path=/story/components-modal--default"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Modals
+
+A Modal is a dialog that appears over the main content and moves the system into a special mode requiring user interaction. Modals are typically used to focus a user's attention for any of these scenarios:
+
+- When you want to capture information from the user without having them leave the parent page.
+- When you want to show additional information to the user without losing context of the parent page.
+
+If you need to _interrupt_ a user's current task in order to make them perform an action, use an [Alert Dialog](/components/alert-dialog) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
+
+Users cannot interact with content outside an active modal window until the user explicitly closes it. When the modal opens, focus moves to an element contained in it (by default, the first element that can be focused) in the modal, and the focus should stay in and cycle through the modal's content. Focus shouldn't return to the underlying page until the user closes the modal. This can happen in any of the following ways:
+
+- Presses the Esc key
+- Presses the close "x" button in the Modal header
+- Presses a "Cancel" button in the Modal footer
+- Clicks outside of the Modal
+- Performs another action that closes the Modal
+
+You can compose a Modal content area to support your use case, but elements such as Paragraph and Form Input are commonly used. See examples for common Modal patterns and dos/don'ts.
+
+### Accessibility
+
+- All elements required to interact with the modal, including closing or acknowledging it, are contained in the modal since they trap focus, and users can't interact with the underlying page.
+- Tabbing through a Modal will cycle through its content in the same way it does on a page. A Modal also supports pressing the Escape key to close the Modal.
+- The element that serves as the modal container has a role of dialog.
+- The modal must be labelled. It can be labelled either by:
+  - Setting a value for the `aria-labelledby` property that refers to a visible `ModalHeading`.
+  - Providing a label directly specifing by `aria-label` attribute on the Modal container.
+
+## Examples
+
+### Default Modal
+
+A modal is composed of:
+
+- **Header** — Headers include a Heading and close button. Heading text should be concise (2-4 words and no more than one line) and describe the information or action the modal is presenting.
+- **Body** — This container has no content requirements and allows you to compose a Modal as you need. Common components you might use include supporting body copy (with Paragraph) and form elements.
+- **Footer** — This contains all possible modal actions aligned to the right side of the modal (by default) to show users they're progressing through their task, whether that's on the parent page, on a new page, or in another step in the modal.
+
+<Callout>
+  <CalloutTitle>Provide an accessible label</CalloutTitle>
+  <CalloutText>
+    Be sure to assign the <inlineCode>aria-labelledby</inlineCode> property on the modal container to the id if the
+    modal heading.
+  </CalloutText>
+</Callout>
+
+A Modal has a default width of 608 px to allow for an optimal reading length at 70-75 characters per line at default Paragraph size at 100% magnification. At viewports smaller than 608 px, the Modal will fill the width of the viewport and pin to the bottom. The Modal will grow in height with the amount of content in it. Once the modal reaches 90% of the height of the viewport, the body will begin to scroll.
+
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    Label,
+    Select,
+    Option,
+    Paragraph,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### Wide Modal
+
+Use a wide modal (816px) when your content requires it. For example, you may need to place a two-column Grid layout or video player in a wide modal.
+
+At viewports smaller than 816 px, the Modal will shift to the default width (608px). The wide Modal follows all other sizing behavior as the default Modal.
+
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    Box,
+    Text,
+    Grid,
+    Column,
+    Label,
+    Input,
+  }}
+  noInline
+>
+  {wideExample}
+</LivePreview>
+
+### Setting initial focus
+
+When a Modal opens user focus is set inside the Modal. By default, user focus will be set on the first focusable element which is the close button. You can choose to explicitly set focus to any focusable UI control inside the modal.
+
+To set a different initial focus target, set the `initialFocusRef` prop on the `Modal` container to a `ref` of a focusable element inside the Modal.
+
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    Box,
+    Text,
+    Grid,
+    Column,
+    Label,
+    Input,
+  }}
+  noInline
+>
+  {initialFocusExample}
+</LivePreview>
+
+### Internationalization
+
+To internationalize the modal, simply pass different text as children to the Modal components. The only exception is the dismiss button in the `ModalHeader` component–to change the button’s text, use the `i18nDismissLabel` prop.
+
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    Label,
+    Select,
+    Option,
+    Paragraph,
+  }}
+  noInline
+>
+  {i18nExample}
+</LivePreview>
+
+## Composition Notes
+
+Include a Header, Body, and Footer in your modal.
+
+Modal Header text should be concise (2-4 words), start with a verb, and clearly describe the information or action the modal presents.
+
+Modal Body should have 1 main section of content that's described by the text in the Modal Header. If you do need to create multiple sections of content with Headings in Modal Body, use a [Heading with the `heading40` variant](/components/heading#heading-as-h-2-with-heading-40-variant).
+
+Modal Footers should include 1–2 actions aligned to the right side of the modal. Place the primary action farthest on the right to indicate to users they're progressing through their task.
+
+### Footer actions alignment
+
+By default the footer actions are aligned to the right of the modal using the Flexbox property `justify-content`. This should be the most common configuration you should choose.
+
+<LivePreview
+  scope={{
+    ModalFooter,
+    ModalFooterActions,
+    Button,
+  }}
+>
+  {`<ModalFooter>
+  <ModalFooterActions>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Save</Button>
+  </ModalFooterActions>
+</ModalFooter>`}
+</LivePreview>
+
+#### Footer actions left alignment
+
+Sometimes you may need to do left alignment of buttons. This is less common. To do so use the `justify` property on the `ModalFooterActions` component and set it to `start`.
+
+<LivePreview
+  scope={{
+    ModalFooter,
+    ModalFooterActions,
+    Button,
+  }}
+>
+  {`<ModalFooter>
+  <ModalFooterActions justify="start">
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Save</Button>
+  </ModalFooterActions>
+</ModalFooter>`}
+</LivePreview>
+
+#### Footer actions directional alignment
+
+By using both alignment types, you are able to create directional alignments of footer actions.
+
+<LivePreview
+  scope={{
+    ModalFooter,
+    ModalFooterActions,
+    Button,
+  }}
+>
+  {`<ModalFooter>
+  <ModalFooterActions justify="start">
+    <Button variant="secondary">Back</Button>
+  </ModalFooterActions>
+  <ModalFooterActions>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Save</Button>
+  </ModalFooterActions>
+</ModalFooter>`}
+</LivePreview>
+
+### When to use Modal
+
+Use Modals to
+
+- Request the user enter information to continue the current process.
+- Guide the user through a complex workflow with a series of steps, while still maintaining context of the task that initiated the modal.
+
+If you need to show an important warning to prevent or correct critical errors, use an [Alert Dialog](/components/alert-dialog) instead.
+
+<DoDont>
+  <Do title="Do" body="Use a clear and concise heading to describe the purpose of the Modal." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don't go into unnecessary detail in the heading about the purpose of the Modal."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Keep the main call to action in the footer. If you're asking the user to perform an action, use a primary action (primary button or destructive button). If you need only to give the user a way to close the Modal, use a secondary button or rely on the close 'x' button."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't put buttons that close the Modal, or confirm and submit content, in the body."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use at most one primary and one secondary action in a Modal. Make the secondary action a 'Cancel' button, especially when you want to give users an explicit choice to decline the primary action. This is especially useful when the primary action is a destructive action."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't put more than one primary action in the footer. Avoid using the secondary button for an action that isn't 'Close' or 'Cancel' since users will be used to pressing a secondary button that escapes the Modal. If you need to provide another action, add a third button to the footer, or consider showing it elsewhere."
+    preview={false}
+  />
+</DoDont>
+
+## Anatomy
+
+### General
+
+| Property         | Default token                   | Modifiable? |
+| ---------------- | ------------------------------- | ----------- |
+| background-color | color-background-body           | No          |
+| border-color     | color-border-weak               | No          |
+| border-radius    | border-radius-20                | No          |
+| drop-shadow      | shadow                          | No          |
+| modal-width      | default: size-60, wide: size-80 | No          |
+| overlay-color    | color-background-overlay        | No          |
+
+### ModalHeader
+
+| Property            | Default token/child | Modifiable? |
+| ------------------- | ------------------- | ----------- |
+| Heading             | h3                  | No          |
+| close-icon-color    | color-text-weak     | No          |
+| close-icon-size     | size-icon-60        | No          |
+| padding             | space-50            | No          |
+| bottom-border-width | border-width-10     | No          |
+| bottom-border-color | color-border-weaker | No          |
+
+### ModalBody
+
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| padding  | space-50      | No          |
+
+### ModalFooter
+
+| Property         | Default token       | Modifiable? |
+| ---------------- | ------------------- | ----------- |
+| padding          | space-50            | No          |
+| top-border-width | border-width-10     | No          |
+| top-border-color | color-border-weaker | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/modal - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {useUID} from '@twilio-paste/core/uid-library';
+import {Button} from '@twilio-paste/core/button';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
+
+const ModalTrigger = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  const modalHeadingID = useUID();
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        New Project
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader>
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Create new project
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody></ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary">Submit</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+```
+
+#### Modal Props
+
+| Prop              | Type                         | Description                                               | Default |
+| ----------------- | ---------------------------- | --------------------------------------------------------- | ------- |
+| children          | `ReactNode`                  |                                                           | null    |
+| isOpen            | `boolean`                    |                                                           | null    |
+| onDismiss         | `Function() => void`         |                                                           | null    |
+| allowPinchZoom?   | `boolean`                    |                                                           | true    |
+| size              | `oneOf(['default', 'wide'])` |                                                           | null    |
+| initialFocusRef?  | `RefObject`                  |                                                           | null    |
+| ariaLabelledby    | `string`                     |                                                           | null    |
+| `__console_patch` | `boolean`                    | Enable to fix Console's marginBottom bug when modal opens | null    |
+
+#### ModalHeader Props
+
+| Prop              | Type        | Description | Default       |
+| ----------------- | ----------- | ----------- | ------------- |
+| children          | `ReactNode` |             | null          |
+| i18nDismissLabel? | `string`    |             | 'Close modal' |
+
+#### ModalHeading Props
+
+| Prop     | Type                                          | Description | Default |
+| -------- | --------------------------------------------- | ----------- | ------- |
+| children | `ReactNode`                                   |             | null    |
+| as       | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |             | null    |
+
+#### ModalBody Props
+
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
+
+#### ModalFooter Props
+
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
+
+#### ModalFooterActions Props
+
+| Prop     | Type                      | Description | Default |
+| -------- | ------------------------- | ----------- | ------- |
+| children | `ReactNode`               |             | null    |
+| justify? | `oneOf(['start', 'end'])` |             | null    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

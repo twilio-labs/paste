@@ -1,0 +1,915 @@
+---
+title: Select - Components
+package: '@twilio-paste/select'
+description: A select allows users to select an option from a list in a form field.
+slug: /components/select/
+---
+
+import {graphql} from 'gatsby';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {Input} from '@twilio-paste/input';
+import {Select, Option, OptionGroup} from '@twilio-paste/select';
+import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Button} from '@twilio-paste/button';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/select/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/select"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/select/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Select"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/components/select"
+  storybookUrl="/?path=/story/components-select--select"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+A select allows users to select an option from a list in a form field. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
+
+### About Select
+
+Select allows a user to make a selection from a list of options in a form field. By default, it will show the first option in the list. However, you can also <Anchor href="#select-with-default-value">set a different pre-selected option</Anchor> from your list to show.
+
+### What's the difference between select and combobox?
+
+At its most basic, a Select has an options list that’s styled according to the browser default. A [Combobox](https://paste.twilio.design/components/combobox) has a Twilio-styled options list and can allow for additional functionality like typeahead.
+
+Use a Select when:
+
+<UnorderedList>
+  <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
+  <ListItem>
+    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>,
+    alphabetical list of states or countries).
+  </ListItem>
+  <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
+</UnorderedList>
+
+Use a [Combobox](https://paste.twilio.design/components/combobox) when:
+
+<UnorderedList>
+  <ListItem>You need a Twilio-styled options list.</ListItem>
+  <ListItem>
+    You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).
+  </ListItem>
+  <ListItem>
+    You need placeholder text in the field to show an example option, rather than a pre-selected option.
+  </ListItem>
+  <ListItem>
+    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may
+    be useful when users need to select from a list of more than 10 options.
+  </ListItem>
+  <ListItem>You need to lazy load a much longer list of options to improve page load performance.</ListItem>
+</UnorderedList>
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>
+    Include a visible label on <strong>all</strong> form fields.
+  </ListItem>
+  <ListItem>
+    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
+    associated input.
+  </ListItem>
+  <ListItem>
+    Use one of 3 ways to label a form field:
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
+      </ListItem>
+      <ListItem>
+        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
+      </ListItem>
+      <ListItem>
+        Label directly using <inlineCode>aria-label</inlineCode>
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Provide clear identification of required fields in the label or at the start of a form. If you use the required
+    field indicator, include the form key at the start of the form.
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Include inline error text with the error icon on any field that errors to make it visually clear that the field
+    changed.
+  </ListItem>
+  <ListItem>
+    If the input has assicated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
+    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
+  </ListItem>
+</UnorderedList>
+
+## Examples
+
+### Base Select
+
+The base Select is the input without any supporting elements (_e.g_., label, help text, etc).
+
+- **Options** — The list of items contained in a Select
+- **Selected value** — (Optional) The value that appears in the select on page load. By default, this is the first option in the list.
+
+The Select will fill the width of the container it’s placed in.
+
+<LivePreview scope={{Select, Option, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="author">Select an author</Label>
+  <Select id="author">
+    <Option value="baldwin">James Baldwin</Option>
+    <Option value="brown">adrienne maree brown</Option>
+    <Option value="butler">Octavia Butler</Option>
+    <Option value="coates">Ta-Nehisi Coates</Option>
+    <Option value="lorde">Audre Lorde</Option>
+    <Option value="nnedi">Nnedi Okorafor</Option>
+  </Select>
+</>`}
+</LivePreview>
+
+### Select
+
+The Select component should include the base Select, along with supporting elements to compose a Select form field that gives the user the context they need to successfully fill it out.
+
+- **Label** — A label should be included for every form field and provide a short title for its associated input.
+- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
+- **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing the optional fields.
+- **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
+
+<Callout>
+  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+  <CalloutText>
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with
+    the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.
+    Those two need to match.
+  </CalloutText>
+</Callout>
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="select_product_demo" required>Select a product</Label>
+  <Select id="select_product_demo" htmlFor="select_product_demo" required>
+    <Option value="messaging">SMS</Option>
+    <Option value="numbers">Phone Numbers</Option>
+    <Option value="video">Video</Option>
+  </Select>
+  <HelpText variant="default">Choose a Twilio product.</HelpText>
+</>`}
+</LivePreview>
+
+### Select with add-ons (prefix/suffix text or icons)
+
+- **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
+- **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
+
+<LivePreview scope={{Select, Option, HelpText, Label, Text}} language="jsx">
+  {`<>
+  <Label htmlFor="select_add_ons_prefix_demo">Phone number</Label>
+  <Select
+    id="select_add_ons_prefix_demo"
+    htmlFor="select_add_ons_prefix_demo"
+    insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
+  >
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
+  </Select>
+  <HelpText variant="default">Select with prefix.</HelpText>
+</>`}
+</LivePreview>
+
+<LivePreview scope={{Select, Option, HelpText, Label, InformationIcon, Button}} language="jsx">
+  {`<>
+  <Label htmlFor="select_add_ons_suffix_demo">Phone number</Label>
+  <Select
+    id="select_add_ons_suffix_demo"
+    htmlFor="select_add_ons_suffix_demo"
+    insertAfter={
+      <Button variant="link">
+        <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+      </Button>
+    }
+  >
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
+  </Select>
+  <HelpText variant="default">Select with suffix.</HelpText>
+</>`}
+</LivePreview>
+
+### Select with default value
+
+To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API.
+You can instead select a <inlineCode>defaultValue</inlineCode> property for the select.
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="default_value_demo" required>Phone number</Label>
+  <Select
+    id="default_value_demo"
+    htmlFor="default_value_demo"
+    defaultValue="dogs"
+  >
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
+  </Select>
+</>`}
+</LivePreview>
+
+### Select with option groups
+
+Use an `OptionGroup` to create groupings of options within the select element.
+
+- `label` - String that will be used as the group label, this is required.
+
+<LivePreview scope={{Select, Option, OptionGroup, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="option_group_demo" required>Product offering</Label>
+  <Select
+    id="option_group_demo"
+    htmlFor="option_group_demo"
+  >
+    <OptionGroup label="SMS">
+        <Option value="geomatch">Area-code geomatch</Option>
+        <Option value="channels">Channels</Option>
+        <Option value="short-codes">Short codes</Option>
+    </OptionGroup>
+    <OptionGroup label="Voice">
+        <Option value="conference">Conference</Option>
+        <Option value="recording">Recordings</Option>
+        <Option value="tts">Text to Speech</Option>
+    </OptionGroup>
+    <OptionGroup label="Video">
+        <Option value="hipaa">HIPAA eligibility</Option>
+        <Option value="p2p">Peer to peer</Option>
+        <Option value="recordings">Recordings</Option>
+    </OptionGroup>
+  </Select>
+  <HelpText variant="default">Select a product to learn more.</HelpText>
+</>`}
+</LivePreview>
+
+## States
+
+### Select with inline error
+
+Avoid errors on selects by removing or disabling invalid options from the list of options.
+
+If a user is able to choose an invalid option, change a select to its error state and add an inline error. An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="inline_error_demo">Emergency caller ID</Label>
+  <Select
+    id="inline_error_demo"
+    htmlFor="inline_error_demo"
+    hasError
+  >
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
+  </Select>
+  <HelpText variant="error">The number you have selected is not configured for emergency calling.</HelpText>
+</>`}
+</LivePreview>
+
+### Select with disabled options
+
+Use a disabled option as the default selected value if you have no valid option to safely default to and the field is required.
+
+Otherwise, use disabled options sparingly. Most browsers show disabled option text with low contrast, so consider other ways you could communicate that an option is unavailable, if you need to at all.
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="disabled_options_demo">Phone number capability</Label>
+  <Select
+    id="disabled_options_demo"
+    htmlFor="disabled_options_demo"
+  >
+    <Option disabled value="fax">Fax</Option>
+    <Option disabled value="voice">Voice</Option>
+    <Option value="sms">SMS</Option>
+  </Select>
+  <HelpText variant="default">Some options in this select are disabled.</HelpText>
+</>`}
+</LivePreview>
+
+### Disabled Select
+
+Use a disabled form field to show users that they can’t interact with the field.
+
+If you want to show information that can’t be edited, use a [read-only Input](/components/input#read-only-input) or consider another way of showing static information.
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="disabled_select_demo" disabled>Phone number capabilities</Label>
+  <Select
+    id="disabled_select_demo"
+    htmlFor="disabled_select_demo"
+    disabled
+  >
+    <Option value="fax">Fax</Option>
+    <Option value="voice">Voice</Option>
+    <Option value="sms">SMS</Option>
+  </Select>
+  <HelpText variant="default">This select is currently disabled.</HelpText>
+</>`}
+</LivePreview>
+
+## Composition notes
+
+A select field should be composed with at least a label and a select.
+
+### Positioning form fields
+
+Stack form fields vertically with `$space-80` spacing between each field.
+
+<LivePreview scope={{Select, Option, Input, Label, HelpText, Box}} language="jsx">
+  {`<>
+  <Box marginBottom="space80">
+    <Label htmlFor="voice_callback_method">HTTP method</Label>
+    <Select required id="voice_callback_method">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+    </Select>
+  </Box>
+  <Box>
+    <Label htmlFor="voice_callback">Primary Voice callback</Label>
+    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
+  </Box>
+</>`}
+</LivePreview>
+
+Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the <Anchor href="/components/grid">Grid component</Anchor> if you need to place form fields horizontally.
+
+### Options in a Select
+
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
+
+Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose category" as the default value if there’s no safe default.
+
+Use 4-10 options in a select, or a sorted list of highly familiar options (_e.g._, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (_e.g._, alphabetically, by value) or in an order that’s intuitive to your user.
+
+### Labels and help text
+
+Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+
+<UnorderedList>
+  <ListItem>
+    Use help text to provide instruction if needed. For example, don’t use “Choose a nickname for your reference only”
+    as label text. Instead, use “Nickname” as a label and “Nickname is for your reference only. This won’t be displayed
+    to recipients.” as help text.
+  </ListItem>
+  <ListItem>
+    Avoid articles (“a”, “the”) and punctuation. For example, use “SIM registration code” rather than “The SIM
+    registration code”.
+  </ListItem>
+</UnorderedList>
+
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use “Call log expiration date” or “How long should logs be stored?”. Don’t use “Remove logs after:”.
+
+Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
+
+If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead.
+
+### Required or optional field identifier
+
+Ask for information only when needed. Consider removing the field otherwise.
+
+In a form where there are fewer optional fields than required, use an optional indicator to show users which fields they don’t have to fill out. Otherwise, use required indicators to show users which fields they must fill out.
+
+If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (_e.g._, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
+
+### Validation
+
+Disable or remove any options in a select that would result in an error if possible. Validate form fields on form submission.
+
+Don’t prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+
+### Errors
+
+Disable or remove any options in a select that would result in an error if possible. If an error occurs, use inline error text to explain how to fix an error.
+
+Ideally, help text should have enough information to help users prevent errors. If you need to show an error and `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+
+Error text should:
+
+<UnorderedList>
+  <ListItem>
+    Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in
+    the future.
+  </ListItem>
+  <ListItem>Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.</ListItem>
+  <ListItem>
+    Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is
+    required.”
+  </ListItem>
+  <ListItem>
+    Use the active voice for system errors. For example, “Our systems are currently down. Please contact our support
+    team.”
+  </ListItem>
+</UnorderedList>
+
+### Optional compositional elements
+
+- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
+- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (_e.g._, popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
+
+## When to use a Select
+
+Use a select when:
+
+<UnorderedList>
+  <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
+  <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
+</UnorderedList>
+
+<DoDont>
+  <Do center title="Do" body="Sort options in a list logically (e.g., alphabetically, ascending, descending).">
+    <Box width="100%" padding="space60">
+      <Label htmlFor="sort_do">Ascending numbers</Label>
+      <Select id="sort_do" name="sort_do" onChange="">
+        <Option value="1">1</Option>
+        <Option value="100">100</Option>
+        <Option value="100000">100,000</Option>
+      </Select>
+    </Box>
+  </Do>
+  <Dont
+    center
+    title="Don't"
+    body="Don’t order options in a list randomly or in a “recommended” order that hasn’t been validated with users."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="sort_dont">Random numbers</Label>
+      <Select id="sort_dont" name="sort_dont" onChange="">
+        <Option value="100000">100,000</Option>
+        <Option value="1">1</Option>
+        <Option value="100">100</Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    center
+    title="Do"
+    body="Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. Prevent users from unintentionally submitting a default value in case they accidentally skip over a field."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="reversible_do">Caller ID</Label>
+      <Select id="reversible_do" name="reversible_do" onChange="">
+        <Option value="null">Choose a Caller ID</Option>
+        <Option value="+14155552287">+1(415) 555-CATS</Option>
+        <Option value="+14155553647">+1(415) 555-DOGS</Option>
+      </Select>
+    </Box>
+  </Do>
+  <Dont
+    center
+    title="Don't"
+    body="Don’t restrict users to options that unnecessarily reinforce biases and discrimination, such as gender binaries. Consider whether you need this information at all. If so, pair a select with an input or allow users to opt out."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="reversible_dont">Gender</Label>
+      <Select id="reversible_dont" name="reversible_dont" onChange="">
+        <Option value="male">Male</Option>
+        <Option value="female">Female</Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    center
+    title="Do"
+    body="Give users time to confirm their selection. Consider users who might select a wrong option accidentally."
+  />
+  <Dont
+    center
+    title="Don't"
+    body="Avoid triggering an action when a user selects an option. For example, don’t open a new page immediately after a user makes a selection. If they made the wrong selection, going back to the original page to make the right selection could be frustrating. Instead, allow users to make the selection, then confirm."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    center
+    title="Do"
+    body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a checkbox instead."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="option_text_do">HTTP method</Label>
+      <Select id="option_text_do" name="option_text_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Do>
+  <Dont
+    center
+    title="Don't"
+    body="Avoid long option text that may truncate if it’s longer than the width of the container."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="option_text_dont">Voice URL</Label>
+      <Select id="option_text_dont" name="option_text_dont" onChange="">
+        <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
+        <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
+        <Option value="test-two">
+          {'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing/still-continuing'}
+        </Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do center title="Do" body="Keep help text and error text concise and simple.">
+    <Box width="100%" padding="space60">
+      <Label htmlFor="help_text_length_do">HTTP method</Label>
+      <Select id="help_text_length_do" name="help_text_length_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <HelpText variant="default">HTTP action for voice webhook.</HelpText>
+    </Box>
+  </Do>
+  <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
+    <Box width="100%" padding="space60">
+      <Label htmlFor="help_text_length_dont">HTTP method</Label>
+      <Select id="help_text_length_dont" name="help_text_length_dont" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <HelpText variant="default">
+        HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback
+        url and method in case the primary handler fails.
+      </HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do center title="Do" body="Include a visible label on every form field.">
+    <Box width="100%" padding="space60">
+      <Label htmlFor="use_label_do">HTTP method</Label>
+      <Select id="use_label_do" name="use_label_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Do>
+  <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
+    <Box width="100%" padding="space60">
+      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    center
+    title="Do"
+    body="Use a disabled form field to show users that they can’t interact with the field, but that it could potentially be enabled through another UI element."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="disabled_do">HTTP method</Label>
+      <Select disabled id="disabled_do" name="disabled_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <HelpText variant="default">Sign in again to change the HTTP method.</HelpText>
+    </Box>
+  </Do>
+  <Dont
+    center
+    title="Don't"
+    body="Don’t use a disabled form field to show information that can’t be edited. Instead, use a read-only form field or consider another way of showing static information."
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="disabled_dont">Company</Label>
+      <Select disabled id="disabled_dont" name="disabled_dont" onChange="">
+        <Option value="get">Twilio</Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do center title="Do" body="Use a checkbox group to allow users to make multiple selections.">
+    <Box width="100%" padding="space60">
+      <CheckboxGroup name="multiple_do" legend="Select the clients you would like to test.">
+        <Checkbox id="apple_mail" value="apple_mail">
+          Apple Mail
+        </Checkbox>
+        <Checkbox id="g_mail" value="g_mail">
+          GMail
+        </Checkbox>
+        <Checkbox id="outlook" value="outlook">
+          Outlook
+        </Checkbox>
+      </CheckboxGroup>
+    </Box>
+  </Do>
+  <Dont center title="Don't" body="When possible, avoid allowing multiple selection on a select component.">
+    <Box width="100%" padding="space60">
+      <Label htmlFor="multiple_dont">Select the clients you would like to test</Label>
+      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
+        <Option value="apple_mail">Apple Mail</Option>
+        <Option value="g_mail">GMail</Option>
+        <Option value="outlook">Outlook</Option>
+      </Select>
+    </Box>
+  </Dont>
+</DoDont>
+
+## Anatomy
+
+<Box marginBottom="space60">
+  <Table scrollHorizontally>
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Label text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>$font-size-30</ListItem>
+            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
+            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Required field indicator</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>4px size (0.25rem)</ListItem>
+            <ListItem>Background: $color-background-required</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Box Shadow</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $shadow-border</ListItem>
+            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
+            <ListItem>Disabled: $shadow-border-weak</ListItem>
+            <ListItem>Error: $shadow-border-error</ListItem>
+            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Background</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $color-background-body</ListItem>
+            <ListItem>Disabled, Readonly: $color-background</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Prefix/suffix</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Background: $color-background</ListItem>
+            <ListItem>Border: $color-border-weaker</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Prefix/suffix text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $color-text</ListItem>
+            <ListItem>Disabled: $color-text-weak</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Help text</Td>
+        <Td>$color-text-weak, $font-size-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Inline error</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
+            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Spacing</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>
+              Label:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Bottom: $space-10</ListItem>
+                <ListItem>Between label and required indicator: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Input:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Left padding: $space-40</ListItem>
+                <ListItem>Top, right, bottom padding: $space-30</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>Prefix/suffix padding: $space-30</ListItem>
+            <ListItem>
+              Help text:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Top: $space-30</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Inline error:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Spacing between icon and text: $space-20</ListItem>
+                <ListItem>Top: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Chevron</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+---
+
+## Usage guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/select
+```
+
+#### Usage
+
+```jsx
+import {Select, Option} from '@twilio-paste/core/select';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+<Label htmlFor="foo" required>Foo</Label>
+<Select id="foo" name="foo" onChange={FOO} required>
+  <Option value="foo-bar">Foo Bar</Option>
+  <Option value="bar-foo">Bar Foo</Option>
+</Select>
+<HelpText variant="default">Select one</HelpText>
+```
+
+#### Select props
+
+All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
+
+| Prop          | Type                                            | Description                                                                | Default   |
+| ------------- | ----------------------------------------------- | -------------------------------------------------------------------------- | --------- |
+| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.             | null      |
+| name?         | string                                          | Sets the name of the select.                                               | null      |
+| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. | null      |
+| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                               | null      |
+| disabled?     | boolean                                         | Disables the input.                                                        | false     |
+| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                            | null      |
+| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                            | null      |
+| required?     | boolean                                         | Sets the input as required.                                                | false     |
+| hasError?     | boolean                                         | Sets the input to an error state.                                          | false     |
+| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                            | null      |
+| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
+| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
+| variant?      | 'default', 'inverse'                            |                                                                            | 'default' |
+
+#### Option props
+
+All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
+
+| Prop      | Type             | Description                                                                          | Default |
+| --------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
+| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.             | null    |
+| name      | string           | Sets the name of the select. Required.                                               | null    |
+| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
+| disabled? | boolean          | Disables the input.                                                                  | false   |
+
+#### OptionGroup props
+
+All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
+
+| Prop     | Type                           | Description                               | Default |
+| -------- | ------------------------------ | ----------------------------------------- | ------- |
+| label    | string                         | Sets the label of the optgroup. Required. | null    |
+| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.               | null    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

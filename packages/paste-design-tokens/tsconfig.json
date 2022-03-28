@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "dist/",
-    "esModuleInterop": true
-  },
-  "include": ["formatters/**/*", "types/**/*", "utils/**/*"],
-  "exclude": ["node_modules"]
-}

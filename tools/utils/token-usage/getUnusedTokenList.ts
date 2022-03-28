@@ -1,9 +1,9 @@
 import type {TokenPackageMap} from './types';
 
 /**
- * Returns a list of our unused tokens from within paste-core.
+ * Returns a list of our unused tokens from within core.
  * @param {Object} tokenPackageMap - A token to package mapping
- * @returns {string[]} unusedTokenList - a list of all the unused token names in paste-core.
+ * @returns {string[]} unusedTokenList - a list of all the unused token names in core.
  */
 export function getUnusedTokenList(tokenPackageMap: TokenPackageMap): string[] {
   const unusedTokenList = [];

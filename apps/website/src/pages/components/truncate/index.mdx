@@ -1,0 +1,205 @@
+---
+title: Truncate
+package: '@twilio-paste/truncate'
+description: The Truncate component can be used to shorten a string of text that overflows a defined area.
+slug: /components/truncate/
+---
+
+import {graphql} from 'gatsby';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
+import {Truncate} from '@twilio-paste/truncate';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import Changelog from '@twilio-paste/truncate/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/truncate"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/truncate/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Truncate"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/components/truncate"
+  storybookUrl="/?path=/story/components-truncate--default"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Truncate
+
+Truncation, or shortening, is typically used for text or links that exceed the size of their container.
+The Truncate component does all of the heavy lifting for you. You'll need to wrap the long
+text with Truncate, and wrap the Truncate component with an element with a set width. This will cut off the text based on
+the parent container's width, and append an ellipsis (`...`) at the end.
+
+Good use cases for truncation include:
+
+- Breadcrumbs
+- Long URL links
+- Long friendly names
+
+Truncation should generally not be used for page titles, labels, error messages,
+validation messages, notifications, or SIDs. A notable exception is when a long
+friendly name is used as a page title.
+
+Truncation can only happen on single lines of text and will never work on multiple lines.
+If you're looking for multiline truncation, that will need to be controlled with JavaScript.
+
+#### Accessibility
+
+By default, Truncate has no accessibility concerns. While using Truncate, it is up to you to manage the resulting
+accessibility implications. You may want to consider how Truncate affects readability since it will visually hide
+information on your page.
+
+## Examples
+
+### Basic Truncate
+
+Truncate must be used in a container with a set width. Without this container Truncate will have no effect since it
+spans the full width of a container.
+
+<LivePreview
+  scope={{
+    Truncate,
+    Box,
+    Text,
+  }}
+>
+  {`<Box maxWidth="size30">
+  <Text as="p">
+    <Truncate title="Black Lives Matter. We stand with the Black community.">Black Lives Matter. We stand with the Black community.</Truncate>
+  </Text>
+</Box>`}
+</LivePreview>
+
+### Truncate URL
+
+<LivePreview
+  scope={{
+    Truncate,
+    Anchor,
+    Box,
+  }}
+>
+  {`<Box maxWidth="size30">
+  <Anchor href="/introduction/about-paste">
+    <Truncate title="Learn more about Paste">https://paste.twilio.design/introduction/about-paste</Truncate>
+  </Anchor>
+</Box>`}
+</LivePreview>
+
+<DoDont>
+  <Do title="Do" body="Use Truncate to shorten text that doesn't fit in its parent container.">
+    <Box maxWidth="size20" padding="space60">
+      <Text as="p">
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+      </Text>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use Truncate to shorten page headings, titles, labels, error messages, validation messages, or notifications. One exception is when a long friendly name is used as a page title."
+  >
+    <Alert variant="error">
+      <Box maxWidth="size20">
+        <Text as="span">
+          <Truncate title="Your account balance is low and your credit card has expired. As a result we have suspended your account">
+            Your account balance is low and your credit card has expired. As a result we have suspended your account
+          </Truncate>
+        </Text>
+      </Box>
+    </Alert>
+  </Dont>
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/truncate - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Truncate} from '@twilio-paste/core/truncate';
+
+const Component: React.FC = () => {
+  return (
+    <Box maxWidth="size20">
+      <Text as="p">
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+      </Text>
+    </Box>
+  );
+};
+```
+
+#### Props
+
+| Prop     | Type        | Description                                                                                                         | Default |
+| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------- | ------- |
+| title    | `string`    | An accessible label that should match the content of the truncated text. Allows users to see the truncated content. | null    |
+| children | `ReactNode` |                                                                                                                     | null    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

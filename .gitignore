@@ -59,8 +59,8 @@ typings/
 .env.local
 
 # gatsby files
-packages/paste-website/.cache/
-packages/paste-website/public
+apps/website/.cache/
+apps/website/public
 
 # next.js build output
 .next
@@ -75,9 +75,9 @@ out/
 **/lib/*
 **/dist/*
 packages/**/docs
-**/paste-icons/cjs/*
-**/paste-icons/esm/*
-**/paste-icons/types/*
+**/icons/cjs/*
+**/icons/esm/*
+**/icons/types/*
 *.tsbuildinfo
 package-lock.json
 tools/.cache/packages.json

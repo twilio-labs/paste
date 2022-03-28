@@ -1,6 +1,6 @@
 import React from 'react';
 import isChromatic from 'chromatic/isChromatic';
-import {version} from '../packages/paste-core/core-bundle/package.json';
+import {version} from '../packages/core/core-bundle/package.json';
 
 const trackRenderPerformance = (data) => {
   const commitSha = process.env.STORYBOOK_GITHUB_SHA ? process.env.STORYBOOK_GITHUB_SHA : 'localdev';

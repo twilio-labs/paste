@@ -15,7 +15,7 @@ exports.interfaceVersion = 2;
  *     name: '@twilio-paste/button',
        version: '0.1.2',
        private: false,
-       location: '/Users/username/paste/packages/paste-core/components/button/dist/index.js'
+       location: '/Users/username/paste/packages/core/components/button/dist/index.js'
      }
  * }
  */

@@ -7,27 +7,27 @@ const mockPackList = [
     name: '@twilio-paste/avatar',
     version: '0.0.0',
     private: false,
-    location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/components/avatar',
+    location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/components/avatar',
   },
 
   {
     name: '@twilio-paste/icons',
     version: '0.0.0',
     private: false,
-    location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-icons',
+    location: '/Users/simon/dev/twilio/design-systems/paste/packages/icons',
   },
 
   {
     name: '@twilio-paste/core',
     version: '0.0.0',
     private: false,
-    location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/core-bundle',
+    location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/core-bundle',
   },
   {
     name: '@twilio-paste/box',
     version: '0.0.0',
     private: true,
-    location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/primitives/box',
+    location: '/Users/simon/dev/twilio/design-systems/paste/packages/core/primitives/box',
   },
 ];
 
@@ -88,10 +88,10 @@ describe('missingChangesetCheck()', () => {
       git: {
         modified_files: [
           'package.json',
-          'packages/paste-codemods/package.json',
-          'packages/paste-icons/src/index.tsx',
-          'packages/paste-core/components/avatar/src/index.tsx',
-          'packages/paste-core/primitives/box/src/index.tsx',
+          'packages/codemods/package.json',
+          'packages/icons/src/index.tsx',
+          'packages/core/components/avatar/src/index.tsx',
+          'packages/core/primitives/box/src/index.tsx',
           'yarn.lock',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
@@ -107,10 +107,10 @@ describe('missingChangesetCheck()', () => {
       git: {
         modified_files: [
           'package.json',
-          'packages/paste-codemods/package.json',
-          'packages/paste-icons/src/index.tsx',
-          'packages/paste-core/components/avatar/src/index.tsx',
-          'packages/paste-core/primitives/box/src/index.tsx',
+          'packages/codemods/package.json',
+          'packages/icons/src/index.tsx',
+          'packages/core/components/avatar/src/index.tsx',
+          'packages/core/primitives/box/src/index.tsx',
           'yarn.lock',
         ],
         created_files: [],
@@ -125,10 +125,10 @@ describe('missingChangesetCheck()', () => {
       git: {
         modified_files: [
           'package.json',
-          'packages/paste-codemods/package.json',
-          'packages/paste-icons/src/index.tsx',
-          'packages/paste-core/components/avatar/src/index.tsx',
-          'packages/paste-core/primitives/box/src/index.tsx',
+          'packages/codemods/package.json',
+          'packages/icons/src/index.tsx',
+          'packages/core/components/avatar/src/index.tsx',
+          'packages/core/primitives/box/src/index.tsx',
           'yarn.lock',
           './.danger/__fixtures__/changeset/heavy-peaches-repeat.md',
           './.danger/__fixtures__/changeset/pink-masks-walk.md',
@@ -146,8 +146,8 @@ describe('missingChangesetCheck()', () => {
     global.danger = {
       git: {
         modified_files: [
-          'packages/paste-icons/src/index.tsx',
-          'packages/paste-core/components/avatar/src/index.tsx',
+          'packages/icons/src/index.tsx',
+          'packages/core/components/avatar/src/index.tsx',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
         created_files: [],

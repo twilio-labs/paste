@@ -5,7 +5,7 @@
 
 [context.deploy-preview]
   # only do a preview deply when there is a website change
-  ignore = "git diff --quiet main...HEAD -- packages/paste-website packages/paste-theme-designer ':!packages/**/__tests__/*' ':!packages/paste-website/stories'"
+  ignore = "git diff --quiet main...HEAD -- apps/website apps/remix ':!packages/**/__tests__/*' ':!apps/website/stories'"
 
 [context.deploy-preview.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"
@@ -17,7 +17,7 @@
   GATSBY_ENVIRONMENT_CONTEXT = "production"
 
 [functions]
-  directory = "packages/paste-website/functions"
+  directory = "apps/website/functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
 
 # INTRODUCTION/

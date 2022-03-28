@@ -5,11 +5,13 @@ dist
 bin
 __testfixtures__
 
-packages/paste-icons/cjs
-packages/paste-icons/esm
-packages/paste-icons/json
-packages/paste-website/public
-packages/paste-theme-designer/public/
+packages/icons/cjs
+packages/icons/esm
+packages/icons/json
+apps/website/public
+apps/remix/public
+apps/remix/out
+apps/token-contrast-checker/public
 .cache
 .next
 .yarn

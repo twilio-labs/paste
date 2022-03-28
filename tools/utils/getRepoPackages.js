@@ -11,7 +11,7 @@ let repoPackages = null;
     name: '@twilio-paste/icons',
     version: '0.2.0',
     private: false,
-    location: '/.../paste/packages/paste-icons'
+    location: '/.../paste/packages/icons'
  }, ...]
 */
 async function getRepoPackages() {

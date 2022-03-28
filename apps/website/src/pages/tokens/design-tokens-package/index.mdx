@@ -1,0 +1,102 @@
+---
+title: Design Tokens Package
+package: '@twilio-paste/design-tokens'
+description: The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, etc.)
+slug: /tokens/design-tokens-package/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Link} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    allPasteDesignTokensPackage(filter: {name: {eq: "@twilio-paste/design-tokens"}}) {
+      edges {
+        node {
+          name
+          description
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/tokens/design-tokens-package/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<NormalizeComponentHeader
+  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/core/design-tokens"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+The Paste design tokens are available as a NPM package which acts as the central source of truth for Paste. By using this package correctly, you can rely on a well-maintained, up-to-date definition of Twilio's Design Language. A simple way to grab or view the latest files in this package is to visit [UNPKG - @twilio-paste/design-tokens](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/).
+
+## Supported Formats
+
+Paste Design Tokens are supported in the following formats within this package:
+
+- [JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.json)
+- [Less](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.less)
+- SCSS
+  - [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
+  - [as a SCSS map](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.map.scss)
+- [CSS custom properties](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.custom-properties.css)
+- [Android XML](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.android.xml)
+- [iOS JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.ios.json)
+- JavaScript
+  - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.js)
+  - [es2015](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.es6.js)
+- Typescript definitions
+  - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.d.ts)
+  - [es2015](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.es6.d.ts)
+- [Sketch Palette](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/sketch.sketchpalette)
+
+## Themes
+
+Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. This allows different parts of Twilio to have their own visual styles whilst still maintaining a consistent Twilio feel, coherent component behavior, and preventing Design System bloat.
+
+See our list of Tokens and their corresponding values in the <Link to="/tokens/">Token List</Link> page.
+
+Within themes, we presently have support for:
+
+- [Paste (Default)](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
+- [SendGrid](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/sendgrid/)
+
+## Give us Feedback on this Page
+
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
+
+- Is this page easy for me to consume?
+- Is the information supporting it sufficient / well-described?
+- What information is missing?
+- How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
