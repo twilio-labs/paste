@@ -52,7 +52,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
-  React.useLayoutEffect(() => {
+  React.useMemo(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,
     });
