@@ -100,10 +100,16 @@ describe('Customization', () => {
         <ChatMessage element="foo_message" variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
+        <ChatMessage element="foo_message" variant="outbound" data-testid="outbound-message">
+          test
+        </ChatMessage>
       </CustomizationProvider>
     );
     const inboundMessage = screen.getByTestId('inbound-message');
     expect(inboundMessage.getAttribute('data-paste-element')).toEqual('foo_message');
+
+    const outboundMessage = screen.getByTestId('outbound-message');
+    expect(outboundMessage.getAttribute('data-paste-element')).toEqual('foo_message');
   });
 
   it('should add custom styles to ChatBubble variants', () => {
