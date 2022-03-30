@@ -25,21 +25,21 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^5.0.0",
-    "@twilio-paste/customization": "^3.0.0",
-    "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/style-props": "^4.0.0",
-    "@twilio-paste/theme": "^6.0.0",
+    "@twilio-paste/box": "^5.0.2",
+    "@twilio-paste/customization": "^3.0.2",
+    "@twilio-paste/design-tokens": "^7.2.0",
+    "@twilio-paste/style-props": "^4.0.2",
+    "@twilio-paste/theme": "^6.0.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^5.0.0",
-    "@twilio-paste/customization": "^3.0.0",
-    "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/style-props": "^4.0.0",
-    "@twilio-paste/theme": "^6.0.0",
+    "@twilio-paste/box": "^5.0.2",
+    "@twilio-paste/customization": "^3.0.2",
+    "@twilio-paste/design-tokens": "^7.2.0",
+    "@twilio-paste/style-props": "^4.0.2",
+    "@twilio-paste/theme": "^6.0.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
