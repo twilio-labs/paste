@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.7
+
+### Patch Changes
+
+- [`3b467fd6`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22) [#2319](https://github.com/twilio-labs/paste/pull/2319) Thanks [@shleewhite](https://github.com/shleewhite)! - [Codemods] add ChatMessage and ChatBubble to the component map
+
 ## 0.2.6
 
 ### Patch Changes

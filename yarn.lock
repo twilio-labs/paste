@@ -12663,7 +12663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-log@^0.0.0, @twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
+"@twilio-paste/chat-log@^0.1.0, @twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
   dependencies:
@@ -12753,7 +12753,7 @@ __metadata:
     "@babel/core": ^7.11.4
     "@babel/plugin-proposal-object-rest-spread": ^7.8.3
     "@babel/preset-env": ^7.8.4
-    "@twilio-paste/core": ^11.1.2
+    "@twilio-paste/core": ^11.4.0
     chalk: ^2.4.2
     execa: ^3.2.0
     globby: ^10.0.1
@@ -12848,7 +12848,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^11.1.2, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^11.1.2, @twilio-paste/core@^11.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
@@ -12864,7 +12864,7 @@ __metadata:
     "@twilio-paste/breadcrumb": ^5.0.2
     "@twilio-paste/button": ^8.1.0
     "@twilio-paste/card": ^4.0.2
-    "@twilio-paste/chat-log": ^0.0.0
+    "@twilio-paste/chat-log": ^0.1.0
     "@twilio-paste/checkbox": ^7.0.3
     "@twilio-paste/clipboard-copy-library": ^1.0.3
     "@twilio-paste/color-contrast-utils": ^2.0.2
