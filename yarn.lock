@@ -12536,7 +12536,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/box@^5.0.2, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
+"@twilio-paste/box@^5.0.2, @twilio-paste/box@^5.1.0, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/box@workspace:packages/paste-core/primitives/box"
   dependencies:
