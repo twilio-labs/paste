@@ -133,7 +133,7 @@ Accessibility recommendations:
 
 The Default Table uses an automatic table layout algorithm dictated by the browser. The width of the table cells are adjusted to fit the content.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -187,7 +187,7 @@ The Default Table uses an automatic table layout algorithm dictated by the brows
 
 The Fixed Table variant sets equal column widths for the table.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx" overflowScroll>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -227,7 +227,7 @@ The Fixed Table variant sets equal column widths for the table.
 
 THead cells (`Th`) can be given a width in order to fill a section of the Table row (`Tr`). Widths can be set with Paste Size Tokens or a number value, e.g. 120px.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -268,7 +268,7 @@ THead cells (`Th`) can be given a width in order to fill a section of the Table 
 
 Tabular data on small screens can be problematic. The data can often cause tables to overflow the browser window. If you need to support small screens, you can set `scrollHorizontally` and the table will scroll horizontally when the data can no longer fit on the screen.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx" overflowScroll>
   {`<Table scrollHorizontally>
   <THead>
     <Tr>
@@ -321,7 +321,7 @@ You can control a tables vertical density by setting `noWrap` on the table. This
 
 Coupled with a fixed table layout and [truncation](/components/table/#table-with-truncated-cells) you can increase the data density of a table dramatically. You should be extremely mindful of readability trade-offs when doing so.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx" overflowScroll>
   {`<Table scrollHorizontally noWrap>
   <THead>
     <Tr>
@@ -378,7 +378,7 @@ In general, text should be left-aligned, numbers should be right-aligned, and th
 Data should rarely ever be centered. Numbers only need to be right-aligned when they indicate size or are meant to be
 compared to each other. Numbers like ID numbers, phone numbers, etc. should stay left-aligned.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -419,7 +419,7 @@ compared to each other. Numbers like ID numbers, phone numbers, etc. should stay
 
 Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignment. By default they are middle-aligned.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -454,7 +454,7 @@ Tables can support a `borderless` variant, which can be useful in cases where th
 containing element, such as a [modal](/components/modal/) or a [card](/components/card/). Tables have borders by default, but these can optionally be
 turned off by setting `variant="borderless"` on `Table`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Card, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Card, Text}} language="jsx" overflowScroll>
   {`<Card>
   <Table variant="borderless">
     <THead>
@@ -500,7 +500,7 @@ name of an email campaign.
 
 Row headers can be added by including a `Th` as the first cell in each `Tr`, with `scope="row"`.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -554,7 +554,7 @@ the bottom of a table. In cases where you do want to show a summary or total, an
 importance to the user, you can place it above the table or at the top of the table in a regular table row,
 rather than using the `TFoot`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx" overflowScroll>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -627,7 +627,7 @@ Tables can have zebra stripes (i.e. alternating row highlighting), which can imp
 large data sets. Tables have zebra stripes turned off by default, but these can optionally be turned on by
 setting `striped` on `Table`.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx" overflowScroll>
   {`<Table striped>
   <THead>
     <Tr>
@@ -678,7 +678,7 @@ description text. In this example, the send time is not being compared across ro
 click rates are; instead, the send time is used to add additional detail that helps the user identify and
 understand data in an individual row.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -727,7 +727,7 @@ understand data in an individual row.
 Tables can be composed using Avatar, which can be used to make a table of user data more scannable.
 You can put an avatar next to a user's first and last name using `Stack` inside a single `Td`.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Avatar, Box, Stack}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Avatar, Box, Stack}} language="jsx" overflowScroll>
   {`<Table>
   <THead>
     <Tr>
@@ -810,6 +810,7 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     ProcessErrorIcon,
   }}
   language="jsx"
+  overflowScroll
 >
   {`<Table>
   <THead>
@@ -898,6 +899,7 @@ details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/pop
     InformationIcon,
   }}
   language="jsx"
+  overflowScroll
 >
   {`<Table>
   <THead>
@@ -962,7 +964,7 @@ details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/pop
 In rare cases, you may want to [truncate](/components/truncate) the text in a given cell. For example, when a table contains
 long URLs, and the user does not need to read the full URL.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Truncate}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Truncate}} language="jsx" overflowScroll>
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
