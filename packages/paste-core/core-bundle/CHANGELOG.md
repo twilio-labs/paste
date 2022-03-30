@@ -1,5 +1,18 @@
 # Change Log
 
+## 11.4.0
+
+### Minor Changes
+
+- [`3b467fd60`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22) [#2319](https://github.com/twilio-labs/paste/pull/2319) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] create new package with ChatBubble and ChatMessage components
+
+### Patch Changes
+
+- [`3b467fd6`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22) [#2319](https://github.com/twilio-labs/paste/pull/2319) Thanks [@shleewhite](https://github.com/shleewhite)! - [Codemods] add ChatMessage and ChatBubble to the component map
+
+- Updated dependencies [[`3b467fd60`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22)]:
+  - @twilio-paste/chat-log@0.1.0
+
 ## 11.3.0
 
 ### Minor Changes
