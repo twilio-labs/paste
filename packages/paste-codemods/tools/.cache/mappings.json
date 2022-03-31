@@ -20,7 +20,6 @@
   "Card": "@twilio-paste/core/card",
   "ChatBubble": "@twilio-paste/core/chat-log",
   "ChatMessage": "@twilio-paste/core/chat-log",
-  "MessageVariantContext": "@twilio-paste/core/chat-log",
   "Checkbox": "@twilio-paste/core/checkbox",
   "CheckboxDisclaimer": "@twilio-paste/core/checkbox",
   "CheckboxGroup": "@twilio-paste/core/checkbox",
