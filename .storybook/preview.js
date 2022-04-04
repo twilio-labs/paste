@@ -8,6 +8,8 @@ import {Stack} from '@twilio-paste/stack';
 import {Grid, Column} from '@twilio-paste/grid';
 import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
 
+const disableAnimations = isChromatic();
+
 export const globalTypes = {
   theme: {
     name: 'Paste Theme',
@@ -80,7 +82,7 @@ export const decorators = [
         return (
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
             <GlobalStyles />
-            <Theme.Provider theme={theme} disableAnimations={isChromatic()}>
+            <Theme.Provider theme={theme} disableAnimations={disableAnimations}>
               <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                 <Story />
               </Box>
@@ -93,14 +95,14 @@ export const decorators = [
             <GlobalStyles />
             <Grid>
               <Column>
-                <Theme.Provider theme="default" disableAnimations={isChromatic()}>
+                <Theme.Provider theme="default" disableAnimations={disableAnimations}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
                 </Theme.Provider>
               </Column>
               <Column>
-                <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
+                <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
@@ -114,24 +116,24 @@ export const decorators = [
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
             <GlobalStyles />
             <Stack orientation="vertical">
-              <Theme.Provider theme="default" disableAnimations={isChromatic()}>
+              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="default" disableAnimations={isChromatic()}>
+              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
+              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
+              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />
