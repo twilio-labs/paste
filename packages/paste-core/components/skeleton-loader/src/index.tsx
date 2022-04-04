@@ -10,13 +10,16 @@ const AnimatedSkeleton = animated(Box);
 const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
   css({
     background: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.4) 60%, transparent)`,
+    transform: `translateX(-100%) skew(155deg)`,
   })
 );
 
 const animatedConfig = {
   loop: {delay: 700, reset: true},
   from: {translateX: '-100%', skew: '155deg'},
-  to: {translateX: '100%', skew: '155deg'},
+  // 105% because at 100% with this skew the highlight remains visible
+  // on the bottom right of the loader at the end state.
+  to: {translateX: '105%', skew: '155deg'},
   config: {
     mass: 0.1,
     tension: 80,
