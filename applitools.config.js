@@ -5,6 +5,7 @@ module.exports = {
     id: process.env.APPLITOOLS_BATCH_ID,
   },
   failCypressOnDiff: false,
+  testConcurrency: 20,
   appName: '[DSYS] - Paste Website',
   browser: {
     width: 1280,
