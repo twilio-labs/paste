@@ -327,7 +327,7 @@ export const TableLoading: React.FC = () => {
   );
 };
 
-export const CustomizedSkeletonLoader: React.FC = () => {
+export const CustomizedSkeletonLoader = (): React.ReactNode => {
   const activeTheme = useTheme();
   return (
     <CustomizationProvider
@@ -350,4 +350,9 @@ export const CustomizedSkeletonLoader: React.FC = () => {
       </Stack>
     </CustomizationProvider>
   );
+};
+
+CustomizedSkeletonLoader.parameters = {
+  // Sets the delay for a specific story.
+  chromatic: {delay: 3000},
 };
