@@ -118,7 +118,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                 size="reset"
                 element={`${element}_CLOSE_BUTTON`}
               >
-                <CloseIcon color="colorTextIcon" decorative size="sizeIcon20" element={`${element}_CLOSE_ICON`} />
+                <CloseIcon decorative size="sizeIcon20" element={`${element}_CLOSE_ICON`} />
                 <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
               </Button>
             </MediaFigure>
