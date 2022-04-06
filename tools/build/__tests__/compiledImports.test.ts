@@ -18,7 +18,7 @@ describe('esbuild config', () => {
       main: filePaths.main,
       module: filePaths.module,
       dependencies: {
-        csstype: '^2.6.10',
+        csstype: '^3.0.2',
         'lodash.camelcase': '^4.3.0',
         'react-autosize-textarea': '7.1.0',
         'use-clipboard-copy': '0.2.0',

@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -67,10 +67,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -115,10 +115,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -163,10 +163,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -211,10 +211,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -259,10 +259,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -312,10 +312,10 @@ jobs:
           # Chromatic needs the full git history to work
           fetch-depth: 0
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -367,10 +367,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -410,10 +410,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
