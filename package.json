@@ -235,6 +235,7 @@
   },
   "resolutions": {
     "@emotion/core": "10.0.28",
+    "@storybook/react/webpack": "^5",
     "react-hot-loader": "^4.13.0",
     "csstype": "^3.0.11"
   },
