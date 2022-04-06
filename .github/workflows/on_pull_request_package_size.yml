@@ -10,10 +10,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - uses: zahnster/compressed-size-action@2.4.2
         with:
