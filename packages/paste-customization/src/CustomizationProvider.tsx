@@ -29,6 +29,13 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
   disableAnimations = false,
   ...props
 }) => {
+  const prefersReducedMotion = useReducedMotion();
+  React.useMemo(() => {
+    AnimatedGlobals.assign({
+      skipAnimation: disableAnimations || prefersReducedMotion,
+    });
+  }, [disableAnimations, prefersReducedMotion]);
+
   const customTheme = React.useMemo(
     () =>
       createCustomTheme({
@@ -39,13 +46,6 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
       }),
     [baseTheme, customBreakpoints, elements, theme]
   );
-
-  const prefersReducedMotion = useReducedMotion();
-  React.useLayoutEffect(() => {
-    AnimatedGlobals.assign({
-      skipAnimation: disableAnimations || prefersReducedMotion,
-    });
-  }, [disableAnimations, prefersReducedMotion]);
 
   return (
     <StyledThemeProvider theme={customTheme}>
