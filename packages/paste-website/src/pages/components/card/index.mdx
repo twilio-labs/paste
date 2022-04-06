@@ -6,6 +6,7 @@ slug: /components/card/
 ---
 
 import {graphql} from 'gatsby';
+import {GatsbyImage} from 'gatsby-plugin-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -15,7 +16,6 @@ import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
-import Img from 'gatsby-image';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -34,23 +34,17 @@ export const pageQuery = graphql`
     }
     primaryButtonDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do1-primary-button.png"}) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     headingInCardDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do2-heading-in-card.png"}) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     multiplePrimaryDont: file(
@@ -58,12 +52,10 @@ export const pageQuery = graphql`
       relativePath: {eq: "images/dont2-multiple-primary.png"}
     ) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    mdx(fields: {slug: {eq: "/components/card/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/card/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -220,10 +212,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Have a clear call to action when including Buttons. Avoid including more than one primary and one secondary button."
     preview={false}
   >
-    <Img fluid={props.data.primaryButtonDo.childImageSharp.fluid} />
+    <GatsbyImage image={props.data.primaryButtonDo.childImageSharp.gatsbyImageData} />
   </Do>
   <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false}>
-    <Img fluid={props.data.primaryButtonDont.childImageSharp.fluid} />
+    <GatsbyImage image={props.data.primaryButtonDont.childImageSharp.gatsbyImageData} />
   </Dont>
 </DoDont>
 
@@ -233,10 +225,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Use a Heading in your Card that appropriately reflects the information architecture of the page."
     preview={false}
   >
-    <Img fluid={props.data.headingInCardDo.childImageSharp.fluid} />
+    <GatsbyImage image={props.data.headingInCardDo.childImageSharp.gatsbyImageData} />
   </Do>
   <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false}>
-    <Img fluid={props.data.multiplePrimaryDont.childImageSharp.fluid} />
+    <GatsbyImage image={props.data.multiplePrimaryDont.childImageSharp.gatsbyImageData} />
   </Dont>
 </DoDont>
 

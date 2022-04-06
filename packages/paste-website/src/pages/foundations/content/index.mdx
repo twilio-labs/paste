@@ -10,7 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/foundations/content/"}}) {
+    mdx(frontmatter: {slug: {eq: "/foundations/content/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

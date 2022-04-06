@@ -10,12 +10,11 @@ status: published
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Box} from '@twilio-paste/box';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/"}}) {
+    mdx(frontmatter: {slug: {eq: "/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -30,26 +29,6 @@ export const pageQuery = graphql`
       headings {
         depth
         value
-      }
-    }
-    overview1: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-1.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    overview2: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-2.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
       }
     }
   }
@@ -79,12 +58,11 @@ When integrating a library into a project, you’ll likely want to ensure that i
 
 When we first started releasing packages and documenting them on our website, we wanted to be upfront with our consumers about which components and patterns had design assets, complete docs, been through peer reviews, etc., in an effort to increase transparency. Each one of those steps is essential to creating a complete Paste package. We chose the terms _alpha_, _beta_ and _production_ to differentiate components that were standalone packages of code from ones that had been through more or all steps. Though we emphasized the fact that **all** of our components were stable, the terms _alpha_ and _beta_ still (understandably) caused some confusion.
 
-<Box marginBottom="space70">
-  <Img
-    fluid={props.data.overview1.childImageSharp.fluid}
-    alt="Screenshot of the Component Overview page before we changed our categorization system"
-  />
-</Box>
+<contentspacer>
+
+![Screenshot of the Component Overview page before we changed our categorization system](../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-1.png)
+
+</contentspacer>
 
 While our intention behind choosing _alpha_, _beta_ and _production_ was to use language familiar to engineers and designers, our usage wasn’t consistent with the usage our consumers expected. Typically, in the tech world, _alpha_ and _beta_ refer to software that’s not yet stable. So, it made sense when we noticed a hesitancy toward using (fully mature) components and patterns that weren’t in _production_ status.
 
@@ -96,12 +74,11 @@ Rest assured, all of the components and patterns currently in the system are _pr
 
 After making the switch to align our definitions of _alpha_, _beta_ and _production_ to indicate level of risk, we needed a way to transparently communicate which steps each component/pattern had completed. Rather than creating a new categorization system, we decided to just, well, tell you. You can now find a checklist of all packages on the [Components Overview](/components) and [Patterns Overview](/patterns) pages, as well as individual package status checklists at the top of each page of documentation.
 
-<Box marginBottom="space70">
-  <Img
-    fluid={props.data.overview2.childImageSharp.fluid}
-    alt="Screenshot of the Component Overview page after we updated our categorization system"
-  />
-</Box>
+<contentspacer>
+
+![Screenshot of the Component Overview page after we updated our categorization system](../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-2.png)
+
+</contentspacer>
 
 Here’s how we define each step:
 

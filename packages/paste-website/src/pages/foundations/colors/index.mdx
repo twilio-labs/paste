@@ -5,7 +5,6 @@ slug: /foundations/colors/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
@@ -34,37 +33,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    tokensDiagram: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/foundations/colors/tokens-diagram.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    interactingStates: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/foundations/colors/interacting-states.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    useOfColorExample: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/foundations/colors/use-of-color-example.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mdx(fields: {slug: {eq: "/foundations/colors/"}}) {
+    mdx(frontmatter: {slug: {eq: "/foundations/colors/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -132,7 +101,7 @@ Design tokens represent fundamental decisions of Paste’s design language, spec
 
 To learn more about design tokens, [check out our Tokens Overview](/tokens/).
 
-<Img fluid={props.data.tokensDiagram.childImageSharp.fluid} />
+![](../../../assets/images/foundations/colors/tokens-diagram.png)
 <TokensDiagramImgCaption />
 
 ## Color tokens
@@ -327,7 +296,8 @@ The following have no contrast requirements:
 
 As detailed in [WCAG Success Criterion 1.4.1 (Level A)](https://www.w3.org/TR/WCAG21/#use-of-color), it is important not to use color alone as a means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. Instead, convey such information with text and/or iconography, and use color only as a means to further enforce the meaning.
 
-<Img fluid={props.data.useOfColorExample.childImageSharp.fluid} />
+![](../../../assets/images/foundations/colors/use-of-color-example.png)
+
 <UseOfColorImgCaption />
 
 ### User Interface controls
@@ -342,7 +312,8 @@ As detailed in [WCAG Success Criterion 1.4.11 (Level AA)](https://www.w3.org/TR/
   - If you change the physical shape, i.e. adding a shadow, the shadow must meet 3:1 against adjacent color.
   - If you change the physical attributes outside of color alone, e.g., underline the text, color contrast requirements for the control is exempt.
 
-<Img fluid={props.data.interactingStates.childImageSharp.fluid} />
+![](../../../assets/images/foundations/colors/interacting-states.png)
+
 <InteractingStatesImgCaption />
 
 <Callout>

@@ -6,7 +6,6 @@ slug: /introduction/contributing/icons/
 
 import {graphql} from 'gatsby';
 import {Link} from 'gatsby';
-import Img from 'gatsby-image';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
@@ -17,7 +16,7 @@ import {Grid} from '../../../../components/grid';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/contributing/icons/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/contributing/icons/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

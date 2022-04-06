@@ -5,7 +5,6 @@ slug: /tokens/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
@@ -16,24 +15,7 @@ import {ImageCaption} from '../../components/ImageCaption';
 
 export const pageQuery = graphql`
   {
-    aliasTokens: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/tokens/alias-tokens.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    inputTokens: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/tokens/input-tokens-example.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mdx(fields: {slug: {eq: "/tokens/"}}) {
+    mdx(frontmatter: {slug: {eq: "/tokens/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -70,7 +52,8 @@ As the attributes of a design language are never hard-coded into any file, an ev
 
 All Paste components use design tokens. Additionally, [styling primitives with tokens unlocks the ability to create custom UI](/customization/composing-custom-components-with-design-tokens) that still uses Paste.
 
-<Img fluid={props.data.inputTokens.childImageSharp.fluid} />
+![](../../assets/images/tokens/input-tokens-example.png)
+
 <ImageCaption>
   For example, an Input in an error state is styled using a number of tokens that set styles such as border color and
   thickness, text color and size, padding, and margin.
@@ -178,7 +161,8 @@ Another benefit of the approach is that it enables flexibility. If there’s a n
 
 Alternatively, if we want to make a change to a design token, and not the alias, we can isolate the change to just the design token. For example, if we want to change the `$color-background-primary` token to use orange instead of blue, we can point that token at a different alias rather than changing the alias itself.
 
-<Img fluid={props.data.aliasTokens.childImageSharp.fluid} />
+![](../../assets/images/tokens/alias-tokens.png)
+
 <ImageCaption>
   In this example, the $color-background-primary and $color-text-link tokens reference the $color-palette-blue-60 alias
   to define the color of the token. However, each token is applied to a specific need for different components, such as

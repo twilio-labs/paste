@@ -30,7 +30,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/breadcrumb/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/breadcrumb/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

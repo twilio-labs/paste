@@ -2,10 +2,8 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-
-import type {FluidObject} from 'gatsby-image';
+import {StaticImage} from 'gatsby-plugin-image';
 import {SVGThumb} from './SVGThumb';
-import {ImageBox} from './ImageBox';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
 import {convertPositionToInputValue, clampValueToRange} from './utils';
 import {useSvgResize} from './useSvgResize';
@@ -13,10 +11,20 @@ import {useSvgResize} from './useSvgResize';
 const INPUT_ID = 'input-range-id';
 const CLIP_PATH_ID = 'clip-path-id';
 
-export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObject: FluidObject}> = ({
-  frontFluidObject,
-  backFluidObject,
-}) => {
+const imageContainerStyleProps: React.CSSProperties = {
+  pointerEvents: 'none',
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  maxWidth: '640px',
+};
+
+const imageStyleProps: React.CSSProperties = {
+  objectFit: 'scale-down',
+  objectPosition: 'center center',
+};
+
+export const ImageSlider: React.FC = () => {
   const uidSeed = useUIDSeed();
 
   // Set the initial state of the slider to be roughly at the 60% position.
@@ -27,9 +35,11 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
   const containerRef = React.useRef<HTMLElement>();
   const svgCircleRef = React.useRef<SVGCircleElement>();
 
-  const {width: containerWidth, x: containerX, height: containerHeight} = containerRef?.current
-    ? containerRef.current.getBoundingClientRect()
-    : {width: 0, height: 0, x: 0};
+  const {
+    width: containerWidth,
+    x: containerX,
+    height: containerHeight,
+  } = containerRef?.current ? containerRef.current.getBoundingClientRect() : {width: 0, height: 0, x: 0};
 
   const {svgOffset, svgHeight, svgWidth} = useSvgResize(containerHeight, containerWidth);
 
@@ -106,11 +116,21 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
           document.addEventListener('mousemove', handleMouseMove);
         }}
       >
-        <ImageBox label="Sample components with a customized Paste theme" fluid={backFluidObject} />
-        <ImageBox
-          label="Sample components with a default Paste theme"
-          clipPath={`url(#${uidSeed(CLIP_PATH_ID)})`}
-          fluid={frontFluidObject}
+        <StaticImage
+          src="../../../assets/images/customization/hero-back.png"
+          alt="Sample components with a customized Paste theme"
+          placeholder="blurred"
+          layout="fullWidth"
+          style={imageContainerStyleProps}
+          imgStyle={imageStyleProps}
+        />
+        <StaticImage
+          src="../../../assets/images/customization/hero-front.png"
+          alt="Sample components with a default Paste theme"
+          placeholder="blurred"
+          layout="fullWidth"
+          style={imageContainerStyleProps}
+          imgStyle={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
         />
 
         {typeof clip === 'number' && !Number.isNaN(clip) ? (

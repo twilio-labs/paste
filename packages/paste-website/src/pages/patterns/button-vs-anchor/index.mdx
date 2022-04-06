@@ -20,7 +20,7 @@ import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/button-vs-anchor/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/button-vs-anchor/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

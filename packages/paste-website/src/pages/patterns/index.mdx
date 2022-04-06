@@ -23,7 +23,7 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -27,10 +27,10 @@ export const PASTE_DOCS_SEARCH_INPUT_MOBILE = 'paste-docs-search-input-mobile';
 // env variables
 export const DATADOG_APPLICATION_ID = process.env.GATSBY_DATADOG_APPLICATION_ID || 'no env variable';
 export const DATADOG_CLIENT_TOKEN = process.env.GATSBY_DATADOG_CLIENT_TOKEN || 'no env variable';
-export const DOCSEARCH_APIKEY = process.env.GATSBY_DOCSEARCH_APIKEY;
-export const DOCSEARCHV3_APIKEY = process.env.GATSBY_DOCSEARCHV3_APIKEY;
-export const DOCSEARCHV3_INDEXNAME = process.env.GATSBY_DOCSEARCHV3_INDEXNAME;
-export const DOCSEARCHV3_APPID = process.env.GATSBY_DOCSEARCHV3_APPID;
+export const DOCSEARCH_APIKEY = process.env.GATSBY_DOCSEARCH_APIKEY || 'no env variable';
+export const DOCSEARCHV3_APIKEY = process.env.GATSBY_DOCSEARCHV3_APIKEY || 'no env variable';
+export const DOCSEARCHV3_INDEXNAME = process.env.GATSBY_DOCSEARCHV3_INDEXNAME || 'no env variable';
+export const DOCSEARCHV3_APPID = process.env.GATSBY_DOCSEARCHV3_APPID || 'no env variable';
 // Netlify provides an environment variable called CONTEXT which reflects their build context https://docs.netlify.com/site-deploys/overview/#deploy-contexts
 // We need to use this to know where the Gatsby site is being run for metrics tracking. Gatsby env variables all need
 // start with GATSBY_, so GATSBY_ENVIRONMENT_CONTEXT is just a re-implementation of Netlify's $CONTEXT
@@ -75,6 +75,5 @@ export const SiteMetaDefaults = {
 export const StatusDescriptions = {
   ALPHA:
     'An experimental component that isn’t ready for use in production. API will likely change. This component may be removed if it doesn’t test well.',
-  BETA:
-    'Component is almost mature, but may have some bugs. Needs production feedback and will experience very minimal API changes.',
+  BETA: 'Component is almost mature, but may have some bugs. Needs production feedback and will experience very minimal API changes.',
 };

@@ -23,7 +23,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/core/theme-package/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/theme-package/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

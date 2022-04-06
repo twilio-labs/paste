@@ -1,4 +1,6 @@
-import {kebabCase, startCase, toLower} from 'lodash';
+import kebabCase from 'lodash.kebabcase';
+import startCase from 'lodash.startcase';
+import toLower from 'lodash.tolower';
 // Gatsby uses @reach/router under the hood
 import {useLocation} from '@reach/router';
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';

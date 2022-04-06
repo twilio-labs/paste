@@ -9,11 +9,10 @@
     "start": "GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
     "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
+    "clean": "GATSBY_TELEMETRY_DISABLED=1 gatsby clean",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "clean": "rm -rf public && rm -rf .cache",
     "tsc": "tsc --noEmit",
-    "tsc:watch": "yarn type-check -- --watch",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "tsc:watch": "yarn type-check -- --watch"
   },
   "dependencies": {
     "@datadog/browser-rum": "^2.8.1",

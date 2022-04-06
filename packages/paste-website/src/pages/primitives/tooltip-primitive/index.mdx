@@ -32,7 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/tooltip-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/tooltip-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

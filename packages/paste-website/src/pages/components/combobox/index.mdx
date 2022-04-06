@@ -49,7 +49,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/combobox/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/combobox/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

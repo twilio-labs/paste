@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Option, Select} from '@twilio-paste/select';

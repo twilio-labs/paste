@@ -21,6 +21,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {ChromeImage, FirefoxImage, SafariImage} from '../../../components/images/DatePickerImages';
 import {
   RequiredDatePicker,
   DateRangePicker,
@@ -46,7 +47,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/date-picker/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/date-picker/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -120,17 +121,7 @@ Because browsers' implementations of the native date picker vary, this component
           </UnorderedList>
         </Td>
         <Td textAlign="right">
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/date-picker/chrome.png"
-            alt="Chrome/Edge implementation of date picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <ChromeImage />
         </Td>
       </Tr>
       <Tr verticalAlign="middle">
@@ -148,17 +139,7 @@ Because browsers' implementations of the native date picker vary, this component
           </UnorderedList>
         </Td>
         <Td>
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/date-picker/safari.png"
-            alt="Chrome/Edge implementation of date picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <SafariImage />
         </Td>
       </Tr>
       <Tr verticalAlign="middle">
@@ -174,17 +155,7 @@ Because browsers' implementations of the native date picker vary, this component
           </UnorderedList>
         </Td>
         <Td>
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/date-picker/firefox.png"
-            alt="Chrome/Edge implementation of date picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <FirefoxImage />
         </Td>
       </Tr>
     </TBody>

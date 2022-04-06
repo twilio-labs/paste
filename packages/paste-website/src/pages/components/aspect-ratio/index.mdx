@@ -6,7 +6,6 @@ slug: /components/aspect-ratio/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -26,14 +25,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/anchor-dont-1@4x.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mdx(fields: {slug: {eq: "/components/aspect-ratio/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/aspect-ratio/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -15,7 +15,7 @@ import {Link} from 'gatsby';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/inclusive-design/"}}) {
+    mdx(frontmatter: {slug: {eq: "/inclusive-design/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

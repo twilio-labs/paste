@@ -11,7 +11,7 @@ import {DoDont, Do, Dont} from '../../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/foundations/content/product-style-guide/"}}) {
+    mdx(frontmatter: {slug: {eq: "/foundations/content/product-style-guide/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

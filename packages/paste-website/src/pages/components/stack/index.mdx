@@ -29,7 +29,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/stack/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/stack/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -134,12 +134,12 @@ values to change the orientation based on the screen sizes supported by your [th
   <Card>
     <Heading as="h3" variant="heading30">1. Create a bot</Heading>
     <Label htmlFor="unique_name" required>Unique Name</Label>
-    <Input id="unique_name" name="unique_name" type="text" placeholder="Your bot name" onChange="" />
+    <Input id="unique_name" name="unique_name" type="text" placeholder="Your bot name" onChange={() => {}} />
   </Card>
   <Card>
     <Heading as="h3" variant="heading30">2. Copy messaging URL</Heading>
     <Label htmlFor="messaging_url" required>Messaging URL</Label>
-    <Input id="messaging_url" name="messaging_url" type="url" value="https://channel.autopilot.twilio.com..." onChange="" readOnly />
+    <Input id="messaging_url" name="messaging_url" type="text" value="https://channel.autopilot.twilio.com..." onChange={() => {}} readOnly />
   </Card>
 </Stack>`}
 </LivePreview>

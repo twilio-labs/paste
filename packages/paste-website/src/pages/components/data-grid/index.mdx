@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/data-grid/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/data-grid/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -43,7 +43,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/skeleton-loader/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/skeleton-loader/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

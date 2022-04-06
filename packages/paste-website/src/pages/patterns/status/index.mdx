@@ -63,7 +63,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/status/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/status/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

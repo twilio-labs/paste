@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as lodash from 'lodash';
+import camelCase from 'lodash.camelcase';
 import {ThemeShape, useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';
@@ -187,7 +187,7 @@ interface TokenExampleProps {
   };
 }
 export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
-  const tokenName = lodash.camelCase(token.name);
+  const tokenName = camelCase(token.name);
   switch (token.category) {
     case 'background-color':
       return <ColorBox backgroundColor={tokenName as keyof ThemeShape['backgroundColors']} />;

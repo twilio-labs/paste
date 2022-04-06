@@ -11,7 +11,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/core/libraries/codemods/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/libraries/codemods/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -33,7 +33,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/screen-reader-only/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/screen-reader-only/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

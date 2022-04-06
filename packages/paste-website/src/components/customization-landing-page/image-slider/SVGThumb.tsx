@@ -2,7 +2,7 @@ import * as React from 'react';
 import type {LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
-import {useUIDSeed} from 'react-uid';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 
 interface SVGThumbProps {
   left: number;

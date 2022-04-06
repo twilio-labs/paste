@@ -6,7 +6,6 @@ slug: /components/paragraph/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -27,7 +26,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/paragraph/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/paragraph/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

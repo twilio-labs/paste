@@ -18,7 +18,7 @@ import {Text} from '@twilio-paste/text';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/object-details/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/object-details/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

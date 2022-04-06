@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/checkbox/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/checkbox/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

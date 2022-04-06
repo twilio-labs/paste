@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import {StaticImage} from 'gatsby-plugin-image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';
@@ -13,28 +12,6 @@ import {ThemableIcon} from '../icons/ThemableIcon';
 import {useSlantedSkew} from '../SlantedBackgroundGradient';
 import {DoodleLoopArrowLarge} from '../../assets/illustrations/DoodleLoopArrowLarge';
 import {useDarkModeContext} from '../../context/DarkModeContext';
-
-const imageQuery = graphql`
-  query {
-    whyPaste: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/why-paste.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    whyPasteSmall: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/customization/why-paste-mobile.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const WhyPasteTopAngle: React.FC = () => {
   const [skewOffset] = useSlantedSkew();
@@ -79,8 +56,6 @@ const WhyPasteBottomAngle: React.FC = () => {
 };
 
 export const WhyPaste: React.FC = () => {
-  const imageData = useStaticQuery(imageQuery);
-
   return (
     <LandingPageSection
       backgroundColor="colorBackgroundPrimaryWeakest"
@@ -134,7 +109,12 @@ export const WhyPaste: React.FC = () => {
             </Column>
           </Grid>
           <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <Img fluid={imageData.whyPasteSmall.childImageSharp.fluid} />
+            <StaticImage
+              src="../../assets/images/customization/why-paste-mobile.png"
+              alt=""
+              placeholder="blurred"
+              layout="fullWidth"
+            />
           </Box>
           <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
             <DoodleLoopArrowLarge />
@@ -148,7 +128,12 @@ export const WhyPaste: React.FC = () => {
           width={['700px', '700px', '700px', '800px']}
           maxWidth="100%"
         >
-          <Img fluid={imageData.whyPaste.childImageSharp.fluid} />
+          <StaticImage
+            src="../../assets/images/customization/why-paste.png"
+            alt=""
+            placeholder="blurred"
+            layout="fullWidth"
+          />
         </Box>
       </Box>
     </LandingPageSection>

@@ -7,19 +7,27 @@ slug: /patterns/empty-state/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {
+  AwaitingDataImage,
+  ChangeRegionImage,
+  CreateObjectImage,
+  GenericDependencyImage,
+  NoPermissionsImage,
+  NoResultImage,
+} from '../../../components/images/EmptyStateImages';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/empty-state/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/empty-state/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -245,16 +253,7 @@ For all use cases:
         </Td>
         <Td>"Create an alpha sender"</Td>
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-create-an-object.png"
-            alt="Create an object illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <CreateObjectImage />
           <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=76338C93-160D-49BE-ABF66BA274D512FE">
             Download from the Brand library
           </Anchor>
@@ -265,16 +264,7 @@ For all use cases:
         <Td>Based on a customer's search or filter criteria, we're unable to give them any results.</Td>
         <Td>"No phone numbers found"</Td>
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-no-results-found.png"
-            alt="No results found illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <NoResultImage />
           <Anchor href="https://library.twilio.com/share/0B06AF02-1A85-41D6-8C712765E741B791/?mediaId=394526A8-0A5D-4C18-9A11AEBCED9ECAEE">
             Download from the Brand library
           </Anchor>
@@ -287,16 +277,7 @@ For all use cases:
         </Td>
         <Td />
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-awaiting-data.png"
-            alt="Awaiting data illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <AwaitingDataImage />
           <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=CCE495BC-0D72-4F3D-A7E4958ECA83A41B">
             Download from the Brand library
           </Anchor>
@@ -307,16 +288,7 @@ For all use cases:
         <Td>The customer needs to do something or go somewhere else to continue their workflow.</Td>
         <Td />
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-generic-dependency-state.png"
-            alt="Generic dependency state illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <GenericDependencyImage />
           <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=BCB4A8CB-6717-4041-B8F05F726C7AD6CA">
             Download from the Brand library
           </Anchor>
@@ -327,16 +299,7 @@ For all use cases:
         <Td>The customer doesn't have permissions to view the page.</Td>
         <Td>"Request access to WhatsApp"</Td>
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-no-permissions-to-view.png"
-            alt="No permissions to view illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <NoPermissionsImage />
           <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=8C1B7853-CB10-4C2E-89BF03871593BDC3">
             Download from the Brand library
           </Anchor>
@@ -347,16 +310,7 @@ For all use cases:
         <Td>The customer needs to swap regions to access the data.</Td>
         <Td>"View event logs in the United States region"</Td>
         <Td>
-          <Box
-            as="img"
-            src="/images/patterns/empty-change-regional-data-location.png"
-            alt="Change regional data location illustration"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="100px"
-            height="auto"
-          />
+          <ChangeRegionImage />
           <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=F44538E4-FD2E-45B2-806402557124153C">
             Download from the Brand library
           </Anchor>

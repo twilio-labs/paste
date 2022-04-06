@@ -2,7 +2,7 @@
 title: Button
 package: '@twilio-paste/button'
 description: A Button communicates that users can trigger an action.
-slug: /components/Button/
+slug: /components/button/
 ---
 
 import {graphql} from 'gatsby';
@@ -28,7 +28,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/button/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/button/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

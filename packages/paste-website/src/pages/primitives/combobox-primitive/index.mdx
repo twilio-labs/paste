@@ -36,7 +36,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/combobox-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/combobox-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

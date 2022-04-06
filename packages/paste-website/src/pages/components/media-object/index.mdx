@@ -31,7 +31,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/media-object/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/media-object/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
