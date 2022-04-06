@@ -1,4 +1,4 @@
-const getPresets = isDev => [
+const getPresets = (isDev) => [
   'babel-preset-gatsby',
   [
     '@emotion/babel-preset-css-prop',
@@ -11,7 +11,15 @@ const getPresets = isDev => [
   ],
 ];
 
-const BASE_PLUGINS = ['@babel/proposal-object-rest-spread'];
+const BASE_PLUGINS = [
+  'macros',
+  ['@babel/proposal-class-properties', {loose: true}],
+  '@babel/proposal-object-rest-spread',
+  ['@babel/proposal-private-methods', {loose: true}],
+  ['@babel/proposal-private-property-in-object', {loose: true}],
+  '@babel/plugin-transform-runtime',
+  '@babel/plugin-proposal-optional-chaining',
+];
 
 module.exports = {
   env: {
