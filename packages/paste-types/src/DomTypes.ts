@@ -6,7 +6,6 @@ import {DOMAttributes} from 'react';
 // Might want to come up with some way to prevent the injection of these types with js
 type AttributesToDrop = 'className' | 'style';
 
-/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
 export interface Events extends DOMAttributes<'div'> {}
 
 // Not a fan of having static interactiveX wish we could do

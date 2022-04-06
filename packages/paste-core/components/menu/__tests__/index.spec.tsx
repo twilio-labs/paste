@@ -8,7 +8,7 @@ import type {MenuButtonProps} from '../src';
 
 const handleClickMock: jest.Mock = jest.fn();
 
-const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
+const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>(function PreferencesMenu(props, ref) {
   const menu = useMenuState({baseId: 'sub-menu'});
 
   return (

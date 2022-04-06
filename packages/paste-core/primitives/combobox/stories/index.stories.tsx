@@ -167,13 +167,8 @@ export const BasicMultiCombobox: React.FC = () => {
 
   const formPillState = useFormPillState();
 
-  const {
-    getSelectedItemProps,
-    getDropdownProps,
-    addSelectedItem,
-    removeSelectedItem,
-    selectedItems,
-  } = useMultiSelectPrimitive({});
+  const {getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem, selectedItems} =
+    useMultiSelectPrimitive({});
 
   const handleSelectItemOnClick = React.useCallback(
     (selectedItem) => {
@@ -212,7 +207,7 @@ export const BasicMultiCombobox: React.FC = () => {
         handleSelectItemOnClick(selected);
       }
 
-      selectItem((null as unknown) as string);
+      selectItem(null as unknown as string);
     },
   });
   const uid = useUID();

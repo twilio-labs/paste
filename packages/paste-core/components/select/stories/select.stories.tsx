@@ -81,7 +81,7 @@ export const DefaultSelect = (): React.ReactNode => {
               // @ts-ignore implicit any issue with key
               const {selected, value: optionValue} = options[key];
               if (selected) {
-                return ([...optionTargetValues, optionValue] as unknown) as [];
+                return [...optionTargetValues, optionValue] as unknown as [];
               }
               return optionTargetValues;
             }, []);
@@ -341,7 +341,7 @@ export const SelectMultiple = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
@@ -620,7 +620,7 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
@@ -666,7 +666,7 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);

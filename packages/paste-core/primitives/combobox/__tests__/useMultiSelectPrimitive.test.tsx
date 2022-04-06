@@ -1206,16 +1206,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test(`arrow left should not change active item if it's the first one added`, () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItemAtIndex,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0], items[1]],
-              initialActiveIndex: 0,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0], items[1]],
+                initialActiveIndex: 0,
+              },
+            });
 
           focusSelectedItemAtIndex(0);
           keyDownOnSelectedItemAtIndex(0, 'ArrowLeft');
@@ -1287,17 +1284,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('backspace removes item and moves focus to next item if any', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0], items[1], items[2]],
-              initialActiveIndex: 1,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0], items[1], items[2]],
+                initialActiveIndex: 1,
+              },
+            });
 
           focusSelectedItemAtIndex(1);
           keyDownOnSelectedItemAtIndex(1, 'Backspace');
@@ -1308,17 +1301,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('backspace removes item and moves focus to input if no items left', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-            input,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0]],
-              initialActiveIndex: 0,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex, input} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0]],
+                initialActiveIndex: 0,
+              },
+            });
 
           focusSelectedItemAtIndex(0);
           keyDownOnSelectedItemAtIndex(0, 'Backspace');
@@ -1328,17 +1317,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('backspace removes item and moves focus to previous item if it was the last in the array', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0], items[1], items[2]],
-              initialActiveIndex: 2,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0], items[1], items[2]],
+                initialActiveIndex: 2,
+              },
+            });
 
           focusSelectedItemAtIndex(2);
           keyDownOnSelectedItemAtIndex(2, 'Backspace');
@@ -1349,17 +1334,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('delete removes item and moves focus to next item if any', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0], items[1], items[2]],
-              initialActiveIndex: 1,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0], items[1], items[2]],
+                initialActiveIndex: 1,
+              },
+            });
 
           focusSelectedItemAtIndex(1);
           keyDownOnSelectedItemAtIndex(1, 'Delete');
@@ -1370,17 +1351,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('delete removes item and moves focus to input if no items left', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-            input,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0]],
-              initialActiveIndex: 0,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex, input} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0]],
+                initialActiveIndex: 0,
+              },
+            });
 
           focusSelectedItemAtIndex(0);
           keyDownOnSelectedItemAtIndex(0, 'Delete');
@@ -1390,17 +1367,13 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test('delete removes item and moves focus to previous item if it was the last in the array', () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItemAtIndex,
-            getSelectedItems,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {
-              initialSelectedItems: [items[0], items[1], items[2]],
-              initialActiveIndex: 2,
-            },
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {
+                initialSelectedItems: [items[0], items[1], items[2]],
+                initialActiveIndex: 2,
+              },
+            });
 
           focusSelectedItemAtIndex(2);
           keyDownOnSelectedItemAtIndex(2, 'Delete');
@@ -1443,14 +1416,10 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         test("other than the ones supported don't affect anything", () => {
-          const {
-            keyDownOnSelectedItemAtIndex,
-            getSelectedItems,
-            getSelectedItemAtIndex,
-            focusSelectedItemAtIndex,
-          } = renderMultipleCombobox({
-            multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
-          });
+          const {keyDownOnSelectedItemAtIndex, getSelectedItems, getSelectedItemAtIndex, focusSelectedItemAtIndex} =
+            renderMultipleCombobox({
+              multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
+            });
 
           focusSelectedItemAtIndex(1);
           keyDownOnSelectedItemAtIndex(1, 'Alt');
