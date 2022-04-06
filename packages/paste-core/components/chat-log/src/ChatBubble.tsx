@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {ChatBubbleProps} from './types';
-import {MessageVariantContext} from './ChatMessage';
+import {MessageVariantContext} from './MessageVariantContext';
 import {bubbleVariantStyles} from './styles';
 
 const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
@@ -12,7 +12,7 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
 
     return (
       <Box
-        fontSize="fontSize40"
+        fontSize="fontSize30"
         lineHeight="lineHeight20"
         borderRadius="borderRadius30"
         paddingY="space30"
