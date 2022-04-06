@@ -226,8 +226,7 @@ describe('Data Grid', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<ComposableCellsDataGrid />);
-      // Because it is in a table, we don't need labels
-      const results = await axe(container, {rules: {label: {enabled: false}}});
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
   });
