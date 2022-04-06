@@ -11,7 +11,6 @@ excerpt: What's new in Paste in April 2022? i18n, dark theme, badge component up
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
@@ -21,7 +20,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/blog/2022-04-06-paste-newsletter/"}}) {
+    mdx(frontmatter: {slug: {eq: "/blog/2022-04-06-paste-newsletter/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

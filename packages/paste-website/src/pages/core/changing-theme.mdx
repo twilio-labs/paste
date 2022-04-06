@@ -9,7 +9,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/core/changing-theme/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/changing-theme"}}) {
       fileAbsolutePath
       frontmatter {
         slug

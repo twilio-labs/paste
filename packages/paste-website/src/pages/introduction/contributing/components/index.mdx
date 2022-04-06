@@ -8,7 +8,7 @@ import {graphql} from 'gatsby';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/contributing/components/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/contributing/components/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

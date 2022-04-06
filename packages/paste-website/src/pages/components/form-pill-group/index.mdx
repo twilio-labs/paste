@@ -41,7 +41,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/form-pill-group/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/form-pill-group/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

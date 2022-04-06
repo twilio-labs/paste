@@ -1,7 +1,7 @@
 ---
 title: Data visualization library
 description: A library that helps theme data visualizations with Paste tokens.
-slug: /core/libraries/data-visualizatioln/
+slug: /core/libraries/data-visualization/
 ---
 
 import {graphql} from 'gatsby';
@@ -15,7 +15,7 @@ import {SidebarCategoryRoutes} from '../../../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/core/libraries/data-visualization/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/libraries/data-visualization/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/select/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/select/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -399,7 +399,7 @@ Stack form fields vertically with `$space-80` spacing between each field.
   </Box>
   <Box>
     <Label htmlFor="voice_callback">Primary Voice callback</Label>
-    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
+    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange={() => {}} required/>
   </Box>
 </>`}
 </LivePreview>
@@ -492,7 +492,7 @@ Use a select when:
   <Do center title="Do" body="Sort options in a list logically (e.g., alphabetically, ascending, descending).">
     <Box width="100%" padding="space60">
       <Label htmlFor="sort_do">Ascending numbers</Label>
-      <Select id="sort_do" name="sort_do" onChange="">
+      <Select id="sort_do" name="sort_do" onChange={() => {}}>
         <Option value="1">1</Option>
         <Option value="100">100</Option>
         <Option value="100000">100,000</Option>
@@ -506,7 +506,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="sort_dont">Random numbers</Label>
-      <Select id="sort_dont" name="sort_dont" onChange="">
+      <Select id="sort_dont" name="sort_dont" onChange={() => {}}>
         <Option value="100000">100,000</Option>
         <Option value="1">1</Option>
         <Option value="100">100</Option>
@@ -523,7 +523,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="reversible_do">Caller ID</Label>
-      <Select id="reversible_do" name="reversible_do" onChange="">
+      <Select id="reversible_do" name="reversible_do" onChange={() => {}}>
         <Option value="null">Choose a Caller ID</Option>
         <Option value="+14155552287">+1(415) 555-CATS</Option>
         <Option value="+14155553647">+1(415) 555-DOGS</Option>
@@ -537,7 +537,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="reversible_dont">Gender</Label>
-      <Select id="reversible_dont" name="reversible_dont" onChange="">
+      <Select id="reversible_dont" name="reversible_dont" onChange={() => {}}>
         <Option value="male">Male</Option>
         <Option value="female">Female</Option>
       </Select>
@@ -566,7 +566,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="option_text_do">HTTP method</Label>
-      <Select id="option_text_do" name="option_text_do" onChange="">
+      <Select id="option_text_do" name="option_text_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -580,7 +580,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="option_text_dont">Voice URL</Label>
-      <Select id="option_text_dont" name="option_text_dont" onChange="">
+      <Select id="option_text_dont" name="option_text_dont" onChange={() => {}}>
         <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
         <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
         <Option value="test-two">
@@ -595,7 +595,7 @@ Use a select when:
   <Do center title="Do" body="Keep help text and error text concise and simple.">
     <Box width="100%" padding="space60">
       <Label htmlFor="help_text_length_do">HTTP method</Label>
-      <Select id="help_text_length_do" name="help_text_length_do" onChange="">
+      <Select id="help_text_length_do" name="help_text_length_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -606,7 +606,7 @@ Use a select when:
   <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
     <Box width="100%" padding="space60">
       <Label htmlFor="help_text_length_dont">HTTP method</Label>
-      <Select id="help_text_length_dont" name="help_text_length_dont" onChange="">
+      <Select id="help_text_length_dont" name="help_text_length_dont" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -623,7 +623,7 @@ Use a select when:
   <Do center title="Do" body="Include a visible label on every form field.">
     <Box width="100%" padding="space60">
       <Label htmlFor="use_label_do">HTTP method</Label>
-      <Select id="use_label_do" name="use_label_do" onChange="">
+      <Select id="use_label_do" name="use_label_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -632,7 +632,7 @@ Use a select when:
   </Do>
   <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
     <Box width="100%" padding="space60">
-      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="">
+      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -649,7 +649,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">HTTP method</Label>
-      <Select disabled id="disabled_do" name="disabled_do" onChange="">
+      <Select disabled id="disabled_do" name="disabled_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -664,7 +664,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
-      <Select disabled id="disabled_dont" name="disabled_dont" onChange="">
+      <Select disabled id="disabled_dont" name="disabled_dont" onChange={() => {}}>
         <Option value="get">Twilio</Option>
       </Select>
     </Box>
@@ -690,7 +690,7 @@ Use a select when:
   <Dont center title="Don't" body="When possible, avoid allowing multiple selection on a select component.">
     <Box width="100%" padding="space60">
       <Label htmlFor="multiple_dont">Select the clients you would like to test</Label>
-      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
+      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange={() => {}}>
         <Option value="apple_mail">Apple Mail</Option>
         <Option value="g_mail">GMail</Option>
         <Option value="outlook">Outlook</Option>

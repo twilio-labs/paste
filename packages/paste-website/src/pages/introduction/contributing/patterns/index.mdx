@@ -27,13 +27,13 @@ import {Toast} from '@twilio-paste/toast';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {Codeblock} from '../../../../components/codeblock';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {defaultExample, initialFocusExample, wideExample} from '../../../../component-examples/ModalExamples';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/contributing/patterns/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/contributing/patterns/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

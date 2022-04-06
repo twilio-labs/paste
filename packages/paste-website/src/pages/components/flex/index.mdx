@@ -26,7 +26,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/flex/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/flex/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

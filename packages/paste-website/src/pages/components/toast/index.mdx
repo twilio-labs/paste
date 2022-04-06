@@ -15,7 +15,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Alert} from '@twilio-paste/alert';
 import {Toast, ToastContainer, Toaster, useToaster} from '@twilio-paste/toast';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/toast/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/toast/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

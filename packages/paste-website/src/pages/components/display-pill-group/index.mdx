@@ -27,7 +27,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/display-pill-group/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/display-pill-group/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

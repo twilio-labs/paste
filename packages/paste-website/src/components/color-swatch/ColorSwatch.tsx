@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as lodash from 'lodash';
+import kebabCase from 'lodash.kebabcase';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -20,7 +20,7 @@ export const ColorSwatchText: React.FC<ColorSwatchTextProps> = ({
   shouldKebabText = true,
   ...props
 }) => {
-  const swatchText = shouldKebabText ? `$${lodash.kebabCase(children)}` : children;
+  const swatchText = shouldKebabText ? `$${kebabCase(children)}` : children;
 
   return (
     <Text as="span" fontFamily={fontFamily} fontSize={fontSize} {...props}>

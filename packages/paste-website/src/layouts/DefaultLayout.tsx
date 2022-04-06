@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
-import * as packageJSON from '../../../paste-core/core-bundle/package.json';
+import packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
 import {SiteMetaDefaults, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';

@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/label/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/label/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={() => {}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -126,7 +126,7 @@ To support internationalization, avoid starting a sentence with the label and us
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={() => {}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -180,7 +180,7 @@ To support internationalization, avoid starting a sentence with the label and us
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address">Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange=""/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={() => {}}/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -192,7 +192,7 @@ Use required indicators to show users which fields they must fill out.
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={() => {}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -204,7 +204,7 @@ Use the disabled prop if a the label is associated with a disabled form field to
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
-  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
+  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange={() => {}} disabled />
   <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -217,7 +217,7 @@ Use a Label to clearly describe the the form field.
   <Do title="Do" body="Use Label in composition with a form element." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="short_do">Name</Label>
-      <Input id="short_do" name="short_do" type="text" onChange="" />
+      <Input id="short_do" name="short_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use Label as a stand-alone component." center>
@@ -230,7 +230,7 @@ Use a Label to clearly describe the the form field.
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="label_do">Name</Label>
-      <Input id="label_do" name="label_do" type="text" onChange="" />
+      <Input id="label_do" name="label_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
@@ -239,7 +239,7 @@ Use a Label to clearly describe the the form field.
         id="label_dont"
         name="label_dont"
         type="text"
-        onChange=""
+        onChange={() => {}}
         insertBefore={
           <Text as="span" fontWeight="fontWeightSemibold">
             Name

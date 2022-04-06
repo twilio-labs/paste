@@ -101,7 +101,8 @@ render(
 )
 `.trim();
 
-export const multiSelectExample = `const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
+export const multiSelectExample =
+  `const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
 const BasicMultiCombobox = () => {
   const seed = useUIDSeed();

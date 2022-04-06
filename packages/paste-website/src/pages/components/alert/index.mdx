@@ -6,7 +6,6 @@ slug: /components/alert/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
@@ -34,7 +33,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/alert/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/alert/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

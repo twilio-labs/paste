@@ -36,7 +36,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/help-text/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/help-text/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -114,7 +114,7 @@ Text that's placed below the field to help users prevent an error and describe w
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -155,7 +155,7 @@ Give users enough information in Help Text to prevent input and formatting error
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_default_example">Email address</Label>
-  <Input aria-describedby="email_default_help_text" id="email_default_example" name="email_default_example" type="email" placeholder="example@twilio.com" onChange="" />
+  <Input aria-describedby="email_default_help_text" id="email_default_example" name="email_default_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} />
   <HelpText id="email_default_help_text" variant="default">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -174,7 +174,7 @@ Error text should:
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_error_example">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error_example" defaultValue="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <Input aria-describedby="email_error_help_text" id="email_error_example" defaultValue="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} hasError />
   <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -193,7 +193,7 @@ Use Help Text when users might need additional information to fill out a form fi
         name="email_do"
         type="email"
         placeholder="example@twilio.com"
-        onChange=""
+        onChange={() => {}}
       />
       <HelpText id="email_do_help_text">Use your work email address.</HelpText>
     </Box>
@@ -211,10 +211,10 @@ Use Help Text when users might need additional information to fill out a form fi
       <Input
         aria-describedby="phone_number_do_help_text"
         id="phone_number_do"
-        name="hone_number_do"
-        type="phone-number"
+        name="phone_number_do"
+        type="text"
         placeholder="(415) 888-CATS"
-        onChange=""
+        onChange={() => {}}
       />
       <HelpText id="phone_number_do_help_text">Enter a valid phone number.</HelpText>
     </Box>
@@ -225,9 +225,9 @@ Use Help Text when users might need additional information to fill out a form fi
       <Input
         id="phone_number_dont"
         name="phone_number_dont"
-        type="phone-number"
+        type="text"
         placeholder="Enter a valid phone number."
-        onChange=""
+        onChange={() => {}}
       />
     </Box>
   </Dont>
@@ -240,7 +240,13 @@ Use Help Text when users might need additional information to fill out a form fi
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_do">Job title</Label>
-      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
+      <Input
+        aria-describedby="limited_do_help_text"
+        id="limited_do"
+        name="limited_do"
+        type="text"
+        onChange={() => {}}
+      />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
   </Do>
@@ -251,7 +257,7 @@ Use Help Text when users might need additional information to fill out a form fi
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_dont">Abbreviated country</Label>
-      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
+      <Input id="limited_dont" name="limited_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -263,14 +269,14 @@ Use Help Text when users might need additional information to fill out a form fi
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Phone number</Label>
-      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange={() => {}} />
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in Help Text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Email address</Label>
-      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange={() => {}} />
       <HelpText id="help_dont_help_text">
         Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
         field.
@@ -348,7 +354,7 @@ const Component = () => (
     <Label htmlFor="foo" required>
       Foo
     </Label>
-    <Input id="foo" type="text" value="" onChange="" aria-describedby="foo_text" />
+    <Input id="foo" type="text" value="" onChange={() => {}} aria-describedby="foo_text" />
     <HelpText id="foo_text">Enter some text.</HelpText>
   </>
 );

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {kebabCase} from 'lodash';
+import {StaticImage} from 'gatsby-plugin-image';
+import kebabCase from 'lodash.kebabcase';
 
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -83,7 +84,14 @@ const SidebarNavigation: React.FC = () => {
           }}
         >
           <Box as="span">
-            <img src="/logo.svg" alt="" width="28px" height="28px" />
+            <StaticImage
+              src="../../../assets/logo.svg"
+              alt=""
+              placeholder="blurred"
+              layout="fixed"
+              width={28}
+              height={28}
+            />
           </Box>
           <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
             Paste Home
@@ -331,6 +339,9 @@ const SidebarNavigation: React.FC = () => {
           </SidebarAnchor>
           <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
             Theme package
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changing-theme`}>
+            Changing theme
           </SidebarAnchor>
           <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changelog`}>
             Core changelog

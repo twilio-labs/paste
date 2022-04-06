@@ -20,6 +20,9 @@
 [context.production.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "production"
 
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
 [functions]
   directory = "functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]

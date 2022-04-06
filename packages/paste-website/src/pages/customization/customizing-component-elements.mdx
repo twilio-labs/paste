@@ -1,7 +1,7 @@
 ---
 title: Customizing Component Elements
 description: A powerful concept for any programmable application is extending existing components and customizing their look and feel.
-slug: /customization/paste-for-programmable-apps/
+slug: /customization/customizing-component-elements/
 ---
 
 import {graphql} from 'gatsby';
@@ -10,7 +10,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/customization/customizing-component-elements/"}}) {
+    mdx(frontmatter: {slug: {eq: "/customization/customizing-component-elements/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

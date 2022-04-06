@@ -21,6 +21,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {ChromeImage, FirefoxImage, SafariImage} from '../../../components/images/TimePickerImages';
 import {
   RequiredTimePicker,
   TimeRangePicker,
@@ -45,7 +46,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/time-picker/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/time-picker/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -119,17 +120,7 @@ Because browsers' implementations of the native time picker vary, this component
           </UnorderedList>
         </Td>
         <Td textAlign="right">
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/time-picker/chrome.png"
-            alt="Chrome/Edge implementation of time picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <ChromeImage />
         </Td>
       </Tr>
       <Tr verticalAlign="middle">
@@ -142,17 +133,7 @@ Because browsers' implementations of the native time picker vary, this component
           </UnorderedList>
         </Td>
         <Td>
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/time-picker/safari.png"
-            alt="Chrome/Edge implementation of time picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <SafariImage />
         </Td>
       </Tr>
       <Tr verticalAlign="middle">
@@ -165,17 +146,7 @@ Because browsers' implementations of the native time picker vary, this component
           </UnorderedList>
         </Td>
         <Td>
-          <Box
-            margin="space20"
-            as="img"
-            src="/images/time-picker/firefox.png"
-            alt="Chrome/Edge implementation of time picker"
-            display="block"
-            marginLeft="auto"
-            marginRight="auto"
-            maxWidth="300px"
-            height="auto"
-          />
+          <FirefoxImage />
         </Td>
       </Tr>
     </TBody>

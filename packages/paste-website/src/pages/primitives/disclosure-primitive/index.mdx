@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/disclosure-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/disclosure-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -53,14 +53,12 @@ export const filterTokenList = (
   propsArg: TokensListProps,
   themeArg: string
 ): TokenCategory[] | null => {
-  const newTokenCategories = getTokensByTheme(propsArg, themeArg).map(
-    (category): TokenCategory => {
-      const newTokens = category.tokens.filter((token) => {
-        return token.name.includes(filter) || token.value.includes(filter);
-      });
-      return {...category, tokens: newTokens};
-    }
-  );
+  const newTokenCategories = getTokensByTheme(propsArg, themeArg).map((category): TokenCategory => {
+    const newTokens = category.tokens.filter((token) => {
+      return token.name.includes(filter) || token.value.includes(filter);
+    });
+    return {...category, tokens: newTokens};
+  });
   const filteredCategories = newTokenCategories.filter((category) => {
     return category.tokens.length > 0;
   });

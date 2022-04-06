@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {useUID} from '@twilio-paste/uid-library';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 import {ImageCaption} from '../components/ImageCaption';
 
@@ -87,7 +88,7 @@ export const BackgroundColorSwatches: React.FC = () => {
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
         {backgroundTokens.map((token) => (
-          <Box as="li" listStyleType="none">
+          <Box as="li" listStyleType="none" key={useUID()}>
             <ColorSwatch
               backgroundColor={token}
               borderColor={token === 'colorBackgroundBody' ? 'colorBorderWeaker' : undefined}
@@ -113,7 +114,7 @@ export const TextColorSwatches: React.FC = () => {
       <StyledSwatchGrid numberColumns={4}>
         {textTokens.map((token) => {
           return (
-            <Box as="li" listStyleType="none">
+            <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch color={token} backgroundColor={backgroundColorMap[token]}>
                 {token === 'colorTextIcon' && <InformationIcon decorative size="sizeIcon40" color="colorTextIcon" />}
               </ColorSwatch>
@@ -134,7 +135,7 @@ export const BorderColorSwatches: React.FC = () => {
           const isInverseBorder = token === 'colorBorderInverse';
 
           return (
-            <Box as="li" listStyleType="none">
+            <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch
                 borderColor={!isInverseBorder ? token : undefined}
                 backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
@@ -169,7 +170,7 @@ export const StandardPairingSwatches: React.FC = () => {
         {standardPairingTokens.map(({textToken, backgroundToken}) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
@@ -189,7 +190,7 @@ export const StatusPairingSwatches: React.FC = () => {
         {statusPairingTokens.map(({textToken, backgroundToken}) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
@@ -208,7 +209,7 @@ export const InversePairingSwatches: React.FC = () => {
       <StyledSwatchGrid numberColumns={3}>
         {inversePairingTokens.map(({textToken, backgroundToken}) => {
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>

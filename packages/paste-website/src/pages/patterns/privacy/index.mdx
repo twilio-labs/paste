@@ -26,7 +26,7 @@ import {Button} from '@twilio-paste/button';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/privacy/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/privacy/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

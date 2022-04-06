@@ -1,7 +1,7 @@
 {
   "viewportWidth": 1440,
   "viewportHeight": 1020,
-  "baseUrl": "http://localhost:9000",
+  "baseUrl": "http://localhost:8000",
   "projectId": "pe4h41",
   "retries": {
     "runMode": 2,

@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/badge/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/badge/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

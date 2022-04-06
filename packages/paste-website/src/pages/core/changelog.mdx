@@ -3,12 +3,13 @@ title: Core Package Changelog
 slug: /core/changelog
 ---
 
+import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/core/changelog/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/changelog/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/non-modal-dialog-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/non-modal-dialog-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

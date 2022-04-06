@@ -96,6 +96,9 @@ const MDXPoviderComponents = {
   contentwrapper: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
     <Box as="div" display={['block', 'block', 'flex']} {...props} />
   ),
+  contentspacer: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+    <Box as="div" marginBottom="space70" {...props} />
+  ),
 };
 
 /* eslint-disable no-shadow */

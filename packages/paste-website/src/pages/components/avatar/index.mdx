@@ -28,7 +28,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/avatar/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/avatar/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import uniq from 'lodash.uniq';
 
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');
@@ -74,7 +74,7 @@ const ColorCombos = (
       });
 
       if (combinedOptions.uniq) {
-        arr = lodash.uniq(arr);
+        arr = uniq(arr);
       }
     } else {
       console.error('Must provide an array or object');
@@ -83,7 +83,7 @@ const ColorCombos = (
   } else {
     let uniqueColors = colors;
     if (combinedOptions.uniq) {
-      uniqueColors = lodash.uniq(colors);
+      uniqueColors = uniq(colors);
     }
 
     if (uniqueColors != null) {
@@ -91,67 +91,63 @@ const ColorCombos = (
     }
   }
 
-  results = arr.map(
-    (color): ColorCombosTypes => {
-      const result: ColorCombosTypes = combinedOptions.compact
-        ? {
-            hex: '',
-            combinations: [],
-          }
-        : {
-            color: color.color,
-            model: color.model,
-            valpha: color.valpha,
-            hex: '',
-            combinations: [],
-          };
+  results = arr.map((color): ColorCombosTypes => {
+    const result: ColorCombosTypes = combinedOptions.compact
+      ? {
+          hex: '',
+          combinations: [],
+        }
+      : {
+          color: color.color,
+          model: color.model,
+          valpha: color.valpha,
+          hex: '',
+          combinations: [],
+        };
 
-      result.hex = color.hex();
+    result.hex = color.hex();
 
-      result.combinations = arr
-        .filter((bg): boolean => color !== bg)
-        .filter((bg): boolean => {
-          if (combinedOptions.threshold != null) {
-            return color.contrast(bg) > combinedOptions.threshold;
-          }
-          return true;
-        })
-        .map(
-          (bg): ColorCombinationTypes => {
-            let combination: ColorCombinationTypes = combinedOptions.compact
-              ? {
-                  accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
-                  hex: '',
-                  contrast: 0,
-                }
-              : {
-                  accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
-                  hex: '',
-                  contrast: 0,
-                  color: bg.color,
-                  model: bg.model,
-                  valpha: bg.valpha,
-                };
-
-            combination = Object.assign(combination, {
-              hex: bg.hex(),
-              contrast: color.contrast(bg),
-            });
-
-            combination.accessibility = {
-              aa: combination.contrast >= MINIMUMS.aa,
-              aaLarge: combination.contrast >= MINIMUMS.aaLarge,
-              aaa: combination.contrast >= MINIMUMS.aaa,
-              aaaLarge: combination.contrast >= MINIMUMS.aaaLarge,
+    result.combinations = arr
+      .filter((bg): boolean => color !== bg)
+      .filter((bg): boolean => {
+        if (combinedOptions.threshold != null) {
+          return color.contrast(bg) > combinedOptions.threshold;
+        }
+        return true;
+      })
+      .map((bg): ColorCombinationTypes => {
+        let combination: ColorCombinationTypes = combinedOptions.compact
+          ? {
+              accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
+              hex: '',
+              contrast: 0,
+            }
+          : {
+              accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
+              hex: '',
+              contrast: 0,
+              color: bg.color,
+              model: bg.model,
+              valpha: bg.valpha,
             };
 
-            return combination;
-          }
-        );
+        combination = Object.assign(combination, {
+          hex: bg.hex(),
+          contrast: color.contrast(bg),
+        });
 
-      return result;
-    }
-  );
+        combination.accessibility = {
+          aa: combination.contrast >= MINIMUMS.aa,
+          aaLarge: combination.contrast >= MINIMUMS.aaLarge,
+          aaa: combination.contrast >= MINIMUMS.aaa,
+          aaaLarge: combination.contrast >= MINIMUMS.aaaLarge,
+        };
+
+        return combination;
+      });
+
+    return result;
+  });
 
   return results;
 };

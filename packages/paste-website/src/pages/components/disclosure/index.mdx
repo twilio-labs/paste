@@ -32,7 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/disclosure/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/disclosure/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

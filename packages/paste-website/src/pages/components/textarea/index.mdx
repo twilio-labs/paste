@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/textarea/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/textarea/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -18,12 +18,9 @@ const pageQuery = graphql`
         node {
           path
           componentChunkName
-          componentPath
           id
           component
           internalComponentName
-          isCreatedByStatefulCreatePages
-          pluginCreatorId
         }
       }
     }

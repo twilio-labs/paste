@@ -19,7 +19,7 @@ import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

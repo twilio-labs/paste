@@ -44,7 +44,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/popover/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/popover/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

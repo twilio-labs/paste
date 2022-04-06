@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as _ from 'lodash';
+import merge from 'deepmerge';
 import {ComponentHeader} from '../component-header';
 import type {ComponentHeaderProps} from '../component-header';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
@@ -23,7 +23,7 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
     categoryRoute,
     githubUrl,
     storybookUrl,
-  } = _.merge(normalizedData, props);
+  } = merge(normalizedData, props);
 
   return (
     <ComponentHeader

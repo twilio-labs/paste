@@ -16,6 +16,7 @@ import {getTokenValue} from './getTokenValue';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
 import type {Token, TokenCategory, TokensListProps} from './types';
+import {NoResultImage} from '../images/EmptyStateImages';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -116,12 +117,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
       ) : (
         <Card data-cy="tokens-empty-state" padding="space150">
           <Stack orientation="horizontal" spacing="space110">
-            <Box
-              as="img"
-              src="/images/patterns/empty-no-results-found.png"
-              alt="No results found illustration"
-              size="size20"
-            />
+            <NoResultImage />
             <Stack orientation="vertical" spacing="space50">
               <Heading as="h3" variant="heading30">
                 Oh no! We couldn&apos;t find any matches

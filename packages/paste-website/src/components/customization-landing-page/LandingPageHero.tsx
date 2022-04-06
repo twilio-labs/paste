@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import {StaticImage} from 'gatsby-plugin-image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
@@ -11,51 +10,7 @@ import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 
 import {ImageSlider} from './image-slider';
 
-const imageQuery = graphql`
-  query {
-    sliderImage: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/hero-slider.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    sliderImageSmall: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/customization/hero-slider-mobile.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    heroFrontImage: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/customization/hero-front.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    heroBackImage: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/hero-back.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
 export const LandingPageHero: React.FC = () => {
-  const imageData = useStaticQuery(imageQuery);
-
-  const frontFluidObject = imageData.heroFrontImage.childImageSharp.fluid;
-  const backFluidObject = imageData.heroBackImage.childImageSharp.fluid;
-
   return (
     <Box overflow="hidden">
       <Box padding="space70">
@@ -105,10 +60,15 @@ export const LandingPageHero: React.FC = () => {
               </Button>
             </Box>
 
-            <ImageSlider frontFluidObject={frontFluidObject} backFluidObject={backFluidObject} />
+            <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <Img fluid={imageData.sliderImageSmall.childImageSharp.fluid} />
+              <StaticImage
+                src="../../assets/images/customization/hero-slider-mobile.png"
+                alt=""
+                placeholder="blurred"
+                layout="fullWidth"
+              />
             </Box>
           </LandingPageSectionContent>
         </Box>

@@ -14,11 +14,11 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/delete/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

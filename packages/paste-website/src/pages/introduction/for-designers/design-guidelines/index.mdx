@@ -20,7 +20,7 @@ import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/for-designers/design-guidelines/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/for-designers/design-guidelines/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

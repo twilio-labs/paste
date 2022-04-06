@@ -1,4 +1,6 @@
-import * as _ from 'lodash';
+import camelCase from 'lodash.camelcase';
+import get from 'lodash.get';
+import mapKeys from 'lodash.mapkeys';
 import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
 
@@ -64,7 +66,7 @@ const getMutation = (key: string): MutationFunction => {
       return ({status, Figma, ...rest}) => ({
         packageStatus: status ? sentenceCase(status) : undefined,
         figmaStatus: Figma,
-        ..._.mapKeys(rest, (_noop, objKey) => _.camelCase(objKey)),
+        ...mapKeys(rest, (_noop, objKey) => camelCase(objKey)),
       });
     }
 
@@ -79,7 +81,7 @@ const getNodeData = (data: GraphqlData, key: string): GraphqlData => {
   const joiner = path ? '.' : '';
   const finalPath = [key, path].join(joiner);
 
-  return _.get(data, finalPath, {});
+  return get(data, finalPath, {});
 };
 
 export const getNormalizedHeaderData = (data: GraphqlData): GraphqlData => {

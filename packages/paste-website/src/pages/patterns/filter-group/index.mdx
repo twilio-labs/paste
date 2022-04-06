@@ -5,7 +5,6 @@ slug: /patterns/filter-group/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -23,14 +22,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    customDate: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/patterns/filter-custom-date.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mdx(fields: {slug: {eq: "/patterns/filter-group/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/filter-group/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -202,9 +194,11 @@ While we don’t yet have an official custom date/time component, in the interim
 
 When the Custom option is selected, the Popover containing the Date Inputs and Time Inputs necessary would be displayed to allow customers to enter their desired range. Once the Apply button is clicked, the Popover would hide. If a customer wants to change their original selections, they must click on the Calendar link style button to open the Popover again.
 
-<Box marginBottom="space70">
-  <Img fluid={props.data.customDate.childImageSharp.fluid} />
-</Box>
+<contentspacer>
+
+![](../../../assets/images/patterns/filter-custom-date.png)
+
+</contentspacer>
 
 #### Dos and Don'ts
 

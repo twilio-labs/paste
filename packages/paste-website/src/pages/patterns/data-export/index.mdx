@@ -38,7 +38,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/data-export/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/data-export/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

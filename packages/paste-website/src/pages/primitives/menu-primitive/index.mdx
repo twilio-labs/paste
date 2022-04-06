@@ -5,7 +5,7 @@ slug: /primitives/menu-primitive/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
+import {GatsbyImage} from 'gatsby-plugin-image';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -39,12 +39,10 @@ export const pageQuery = graphql`
       relativePath: {eq: "images/menu-primitive-images/menubar.png"}
     ) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/menu-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/menu-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -183,7 +181,7 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
     desktop software menubar you see at the top of your screen. These have limited use cases on the web unless you're
     building a desktop replacement like Figma or Google Docs. We may reconsider this in the future if we see a good use
     for this.
-    <Img fluid={props.data.menuBarExample.childImageSharp.fluid} />
+    <GatsbyImage image={props.data.menuBarExample.childImageSharp.gatsbyImageData} />
   </CalloutText>
 </Callout>
 

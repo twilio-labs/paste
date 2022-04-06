@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {StaticQuery, graphql} from 'gatsby';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import Img from 'gatsby-image';
+import {StaticImage} from 'gatsby-plugin-image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -26,25 +25,15 @@ const ExperimentEmbed: React.FC = () => {
 
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
-      <StaticQuery
-        query={graphql`
-          query {
-            file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/home/codesandbox-mobile.png"}) {
-              childImageSharp {
-                fluid(maxWidth: 640) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        `}
-        render={(data) => (
-          <>
-            <Img fluid={data.file.childImageSharp.fluid} />
-            <ExperimentMobileButton />
-          </>
-        )}
-      />
+      <>
+        <StaticImage
+          src="../../assets/images/home/codesandbox-mobile.png"
+          alt=""
+          placeholder="blurred"
+          layout="fullWidth"
+        />
+        <ExperimentMobileButton />
+      </>
     );
   }
 
