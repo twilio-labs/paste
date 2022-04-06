@@ -5,12 +5,16 @@ import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-
 import type {PopoverBadgeButtonProps, ButtonBadgeProps} from './types';
 import {PopoverContext} from './PopoverContext';
 
-// eslint-disable-next-line react/display-name
-const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(({children, ...props}, ref) => (
-  <Badge {...props} as="button" ref={ref}>
-    {children}
-  </Badge>
-));
+const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(function ButtonBadge(
+  {children, ...props},
+  ref
+) {
+  return (
+    <Badge {...props} as="button" ref={ref}>
+      {children}
+    </Badge>
+  );
+});
 
 const PopoverBadgeButton = React.forwardRef<HTMLButtonElement, PopoverBadgeButtonProps>(
   ({children, element = 'POPOVER_BADGE', ...popoverButtonProps}, ref) => {

@@ -5,12 +5,13 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {makeBadge, getStyles} from '../stories/customization.stories';
 
 const makeCustomizationWrapper = (element: string | undefined = 'BADGE'): RenderOptions['wrapper'] =>
-  // eslint-disable-next-line react/display-name
-  ({children}) => (
-    <CustomizationProvider theme={TestTheme} elements={getStyles(element)}>
-      {children}
-    </CustomizationProvider>
-  );
+  function Wrapper({children}) {
+    return (
+      <CustomizationProvider theme={TestTheme} elements={getStyles(element)}>
+        {children}
+      </CustomizationProvider>
+    );
+  };
 
 describe('Badge data-paste-element attribute', () => {
   it('should set the correct default element prop on Badge', () => {

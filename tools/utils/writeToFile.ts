@@ -9,8 +9,10 @@ export function writeToFile(
     errorMessage,
     formatJson = false,
   }: {successMessage?: string; errorMessage?: string; formatJson?: boolean}
-) {
-  const output: string | ArrayBufferView = formatJson ? JSON.stringify(content, null, 2) : content;
+): void {
+  const output: string | NodeJS.ArrayBufferView = formatJson
+    ? JSON.stringify(content, null, 2)
+    : (content as NodeJS.ArrayBufferView);
 
   writeFile(filePath, output, 'utf8', (error) => {
     if (error) {

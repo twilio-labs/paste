@@ -14,8 +14,7 @@ export const lineChartWithAnnotationsOptions: Highcharts.Options = {
   },
 
   caption: {
-    text:
-      'This chart uses the Highcharts Annotations feature to place labels at various points of interest. The labels are responsive and will be hidden to avoid overlap on small screens.',
+    text: 'This chart uses the Highcharts Annotations feature to place labels at various points of interest. The labels are responsive and will be hidden to avoid overlap on small screens.',
   },
 
   title: {

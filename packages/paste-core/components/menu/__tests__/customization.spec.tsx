@@ -8,12 +8,14 @@ import {initStyles, BaseMenu} from '../stories/customization.stories';
 
 const PASTE_ELEMENT = 'data-paste-element';
 
-// eslint-disable-next-line react/display-name
-const initWrapper = (element: string): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider theme={TestTheme} elements={initStyles(element.toUpperCase())}>
-    {children}
-  </CustomizationProvider>
-);
+const initWrapper = (element: string): RenderOptions['wrapper'] =>
+  function Wrapper({children}) {
+    return (
+      <CustomizationProvider theme={TestTheme} elements={initStyles(element.toUpperCase())}>
+        {children}
+      </CustomizationProvider>
+    );
+  };
 
 describe('Menu Customization', () => {
   describe('"data-paste-element" HTML attributes', () => {

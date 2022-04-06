@@ -21825,9 +21825,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:42.0.0":
-  version: 42.0.0
-  resolution: "eslint-plugin-unicorn@npm:42.0.0"
+"eslint-plugin-unicorn@npm:40.1.0":
+  version: 40.1.0
+  resolution: "eslint-plugin-unicorn@npm:40.1.0"
   dependencies:
     "@babel/helper-validator-identifier": ^7.15.7
     ci-info: ^3.3.0
@@ -21844,8 +21844,8 @@ __metadata:
     semver: ^7.3.5
     strip-indent: ^3.0.0
   peerDependencies:
-    eslint: ">=8.8.0"
-  checksum: 03757cbf417d39691fe04048ac9352585162a4dd68c2f26f5bc0956409625c7c4841487f0fa623e0d6dd5ff9cc3e758b74e4d170e3b0a877bbd0114995310058
+    eslint: ">=7.32.0"
+  checksum: b15ffd075080e018da3e5fd2eee059f96fa9575d0218e0db28cc0c5584bc68600e20863f09991fe0a0cc35bf0fe96553cc8bcb844105f212c882808927cf1cb4
   languageName: node
   linkType: hard
 
@@ -34721,7 +34721,7 @@ fsevents@~2.1.2:
     dotenv: ^16.0.0
     emotion: 10.0.27
     esbuild: ^0.14.14
-    eslint: 8.12.0
+    eslint: ^7.32.0
     eslint-config-airbnb-typescript: 16.2.0
     eslint-config-prettier: 8.5.0
     eslint-plugin-cypress: 2.12.1
@@ -34734,7 +34734,7 @@ fsevents@~2.1.2:
     eslint-plugin-promise: 6.0.0
     eslint-plugin-react: 7.29.4
     eslint-plugin-react-hooks: 4.4.0
-    eslint-plugin-unicorn: 42.0.0
+    eslint-plugin-unicorn: 40.1.0
     git-branch-is: ^3.0.0
     graphql: ^14.6.0
     gulp: ^4.0.2

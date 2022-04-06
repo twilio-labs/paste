@@ -68,8 +68,8 @@ const defaultThemeUiControlColorContrastRatings = getContrastRatingsOfTokensWith
   textColors,
   zIndices,
 });
-const defaultThemeDataVisualizationColorContrastRatings = getContrastRatingsOfTokensWithDataVisualizationContrastRequirements(
-  {
+const defaultThemeDataVisualizationColorContrastRatings =
+  getContrastRatingsOfTokensWithDataVisualizationContrastRequirements({
     backgroundColors,
     borderColors,
     borderWidths,
@@ -84,8 +84,7 @@ const defaultThemeDataVisualizationColorContrastRatings = getContrastRatingsOfTo
     spacings,
     textColors,
     zIndices,
-  }
-);
+  });
 
 const darkThemeTextColorContrastRatings = getContrastRatingsOfTokensWithTextContrastRequirements({
   backgroundColors: darkBackgroundColors,
@@ -119,8 +118,8 @@ const darkThemeUiControlColorContrastRatings = getContrastRatingsOfTokensWithUIC
   textColors: darkTextColors,
   zIndices: darkZIndices,
 });
-const darkThemeDataVisualizationColorContrastRatings = getContrastRatingsOfTokensWithDataVisualizationContrastRequirements(
-  {
+const darkThemeDataVisualizationColorContrastRatings =
+  getContrastRatingsOfTokensWithDataVisualizationContrastRequirements({
     backgroundColors: darkBackgroundColors,
     borderColors: darkBorderColors,
     borderWidths: darkBorderWidths,
@@ -135,8 +134,7 @@ const darkThemeDataVisualizationColorContrastRatings = getContrastRatingsOfToken
     spacings: darkSpacings,
     textColors: darkTextColors,
     zIndices: darkZIndices,
-  }
-);
+  });
 
 describe('Default Theme', () => {
   describe('Text color contrast ratio for token pairs', () => {

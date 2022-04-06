@@ -2,6 +2,6 @@
   "extends": "../../.eslintrc.js",
   "rules": {
     "import/no-default-export": "off",
-    "react/display-name": 0
+    "react/display-name": "off"
   }
 }

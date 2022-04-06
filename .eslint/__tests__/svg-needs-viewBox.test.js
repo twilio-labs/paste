@@ -8,9 +8,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require('../rules/svg-needs-viewBox.js');
-
-const RuleTester = require('eslint').RuleTester;
+import rule from '../rules/svg-needs-viewBox';
+import {RuleTester} from 'eslint';
 
 RuleTester.setDefaultConfig({
   parserOptions: {

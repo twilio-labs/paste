@@ -3,11 +3,12 @@ const cachedPackages = require('./tools/.cache/packages.json');
 
 // Based on https://github.com/iamturns/create-exposed-app/blob/master/.eslintrc.js
 module.exports = {
+  root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion', 'import'],
+  plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion', 'import', 'jsx-a11y'],
   extends: [
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
@@ -16,9 +17,8 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
+    'plugin:react/recommended',
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
     'plugin:paste-internal/all',
   ],
   env: {
@@ -71,6 +71,10 @@ module.exports = {
     'unicorn/no-fn-reference-in-iterator': 'off',
     // weirdly specific
     'unicorn/import-style': 'off',
+    // Too big of a change
+    'unicorn/numeric-separators-style': 'off',
+    // Mixed ts and node code base
+    'unicorn/prefer-module': 'warn',
     // This rule tells people to do something (import foo = require('foo')) which doesn't work
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
@@ -105,5 +109,26 @@ module.exports = {
     ],
     // We don't use jasmine and this clashes with danger js
     'jest/no-jasmine-globals': 'off',
+    // New rules
+    'unicorn/no-array-reduce': 'warn',
+    'unicorn/no-array-for-each': 'warn',
+    'unicorn/prefer-dom-node-dataset': 'warn',
+    'unicorn/no-lonely-if': 'warn',
+    'unicorn/prefer-export-from': 'warn',
+    'unicorn/no-array-callback-reference': 'warn',
+    'unicorn/consistent-destructuring': 'warn',
+    'unicorn/prefer-number-properties': 'warn',
+    'unicorn/prefer-node-protocol': 'warn',
+    'unicorn/prefer-spread': 'warn',
+    'unicorn/prefer-regexp-test': 'warn',
+    'unicorn/no-new-array': 'warn',
+    'unicorn/prefer-object-from-entries': 'warn',
+    'react/jsx-key': 'warn',
+    'jest/no-conditional-expect': 'warn',
+  },
+  settings: {
+    react: {
+      version: '17.0.2',
+    },
   },
 };

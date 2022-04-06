@@ -27,11 +27,10 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     const {orientation: tabOrientation = orientation, ...tab} =
       state || useTabPrimitiveState({orientation, ...initialState});
     const elementName = getElementName(tabOrientation, 'TABS', element);
-    const value = React.useMemo(() => ({...tab, orientation: tabOrientation, variant}), [
-      ...Object.values(tab),
-      tabOrientation,
-      variant,
-    ]);
+    const value = React.useMemo(
+      () => ({...tab, orientation: tabOrientation, variant}),
+      [...Object.values(tab), tabOrientation, variant]
+    );
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
     if (tabOrientation === 'vertical') {

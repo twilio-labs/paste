@@ -35,7 +35,6 @@ jest.mock('@twilio-paste/modal-dialog-primitive', () => {
 describe('Alert Dialog `element` prop', () => {
   it('should set the default element prop on Alert Dialog', () => {
     const {container} = render(<CustomizedAlertDialog />, {
-      // eslint-disable-next-line react/display-name
       wrapper: ({children}) => <div id="test-container-wrapper">{children}</div>,
     });
     expect(screen.getByTestId('alert_dialog').getAttribute('data-paste-element')).toEqual('ALERT_DIALOG');

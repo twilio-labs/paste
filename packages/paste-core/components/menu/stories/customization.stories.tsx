@@ -100,97 +100,98 @@ export default {
   excludeStories: ['initStyles', 'BaseMenu'],
 };
 
-export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: string}> = React.memo(
-  ({menuButtonVariant = 'primary', element}) => {
-    const menu = useMenuState({
-      visible: true,
-      baseId: `${menuButtonVariant}-menu-customization-story`,
-    });
+export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: string}> = React.memo(function BaseMenu({
+  menuButtonVariant = 'primary',
+  element,
+}) {
+  const menu = useMenuState({
+    visible: true,
+    baseId: `${menuButtonVariant}-menu-customization-story`,
+  });
 
-    const subMenu = useMenuState({baseId: `${menuButtonVariant}-menu-submenu`});
-    const onClick = React.useCallback(() => {
-      menu.hide();
-    }, [menu.hide]);
-    return (
-      <>
-        <MenuButton
-          {...menu}
-          element={getElementName(element, 'BUTTON')}
-          variant={menuButtonVariant}
-          data-testid="menu-button"
+  const subMenu = useMenuState({baseId: `${menuButtonVariant}-menu-submenu`});
+  const onClick = React.useCallback(() => {
+    menu.hide();
+  }, [menu.hide]);
+  return (
+    <>
+      <MenuButton
+        {...menu}
+        element={getElementName(element, 'BUTTON')}
+        variant={menuButtonVariant}
+        data-testid="menu-button"
+      >
+        Preferences <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
+        <MenuGroup
+          element={getElementName(element, 'GROUP')}
+          icon={<ProductSettingsIcon decorative />}
+          label="Settings"
+          data-testid="menu-group-settings"
         >
-          Preferences <ChevronDownIcon decorative />
-        </MenuButton>
-        <Menu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
-          <MenuGroup
-            element={getElementName(element, 'GROUP')}
-            icon={<ProductSettingsIcon decorative />}
-            label="Settings"
-            data-testid="menu-group-settings"
-          >
-            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-1">
-              User info
+          <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-1">
+            User info
+          </MenuItem>
+          <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-2">
+            Extensions
+          </MenuItem>
+          {/* submenu */}
+          <SubMenuButton {...subMenu} element={getElementName(element, 'BUTTON', 'SUB')} data-testid="submenu-button">
+            Advanced settings
+          </SubMenuButton>
+          <Menu {...subMenu} aria-label="Advanced settings" element={getElementName(element)} data-testid="submenu">
+            <MenuItem {...subMenu} element={getElementName(element, 'ITEM')} data-testid="submenu-item-1">
+              Keyboard shortcuts
             </MenuItem>
-            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-2">
-              Extensions
-            </MenuItem>
-            {/* submenu */}
-            <SubMenuButton {...subMenu} element={getElementName(element, 'BUTTON', 'SUB')} data-testid="submenu-button">
-              Advanced settings
-            </SubMenuButton>
-            <Menu {...subMenu} aria-label="Advanced settings" element={getElementName(element)} data-testid="submenu">
-              <MenuItem {...subMenu} element={getElementName(element, 'ITEM')} data-testid="submenu-item-1">
-                Keyboard shortcuts
-              </MenuItem>
-            </Menu>
-            {/* submenu */}
-          </MenuGroup>
-          <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-1" />
-          <MenuGroup
-            element={getElementName(element, 'GROUP')}
-            icon={<SearchIcon decorative />}
-            label="Search Options"
-            data-testid="menu-group-search-options"
-          >
-            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-3">
-              Google
-            </MenuItem>
+          </Menu>
+          {/* submenu */}
+        </MenuGroup>
+        <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-1" />
+        <MenuGroup
+          element={getElementName(element, 'GROUP')}
+          icon={<SearchIcon decorative />}
+          label="Search Options"
+          data-testid="menu-group-search-options"
+        >
+          <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-3">
+            Google
+          </MenuItem>
 
-            <MenuItem {...menu} element={getElementName(element, 'ITEM')} disabled data-testid="menu-item-4">
-              Bing
-            </MenuItem>
-          </MenuGroup>
-          <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-2" />
-          <MenuGroup
-            element={getElementName(element, 'GROUP')}
-            icon={<SupportIcon decorative />}
-            label="Help"
-            data-testid="menu-group-help"
+          <MenuItem {...menu} element={getElementName(element, 'ITEM')} disabled data-testid="menu-item-4">
+            Bing
+          </MenuItem>
+        </MenuGroup>
+        <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-2" />
+        <MenuGroup
+          element={getElementName(element, 'GROUP')}
+          icon={<SupportIcon decorative />}
+          label="Help"
+          data-testid="menu-group-help"
+        >
+          <MenuItem
+            {...menu}
+            element={getElementName(element, 'ITEM')}
+            href=""
+            onClick={onClick}
+            data-testid="menu-item-5"
           >
-            <MenuItem
-              {...menu}
-              element={getElementName(element, 'ITEM')}
-              href=""
-              onClick={onClick}
-              data-testid="menu-item-5"
-            >
-              Contact support
-            </MenuItem>
-            <MenuItem
-              {...menu}
-              element={getElementName(element, 'ITEM')}
-              href=""
-              onClick={onClick}
-              data-testid="menu-item-6"
-            >
-              View FAQ
-            </MenuItem>
-          </MenuGroup>
-        </Menu>
-      </>
-    );
-  }
-);
+            Contact support
+          </MenuItem>
+          <MenuItem
+            {...menu}
+            element={getElementName(element, 'ITEM')}
+            href=""
+            onClick={onClick}
+            data-testid="menu-item-6"
+          >
+            View FAQ
+          </MenuItem>
+        </MenuGroup>
+      </Menu>
+    </>
+  );
+});
 
 export const WithDefaultElementName: React.FC = () => {
   const currentTheme = useTheme();
