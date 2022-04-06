@@ -17,17 +17,31 @@ module.exports = {
     // enable type checking
     check: true,
     checkOptions: {
-      // check all ts and tsx files, but not fixtures as they include errors on purpose
-      reportFiles: [
-        'packages/**/*.{ts,tsx}',
-        '!**/__testfixtures__/**/*',
-        '!**/__fixtures__/**/*',
-        // This has it's own type check
-        '!packages/paste-nextjs-template/**/*',
-        '!packages/paste-website/**/*',
-        // ignore the template files as they don't have dependencies to reference, hence the errors
-        '!packages/paste-cra-template/template/**/*',
-      ],
+      typescript: {
+        configFile: 'tsconfig.json',
+        configOverwrite: {
+          compilerOptions: {isolatedModules: false},
+          exclude: [
+            'node_modules',
+            'docs',
+            'dist',
+            'lib',
+            'bin',
+            'public',
+            '.cache',
+            '.jest-cache',
+            '.next',
+            '.yarn',
+            'cjs',
+            'esm',
+            '**/__testfixtures__/**/*',
+            '**/__fixtures__/**/*',
+            'packages/paste-nextjs-template/**/*',
+            'packages/paste-website/**/*',
+            'packages/paste-cra-template/template/**/*',
+          ],
+        },
+      },
     },
     // choose react-docgen-typescript to generate the prop tables
     reactDocgen: 'react-docgen-typescript',
@@ -36,6 +50,10 @@ module.exports = {
       // don't include node_module props as you'll cause the machine to run out of memory on our repo
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
+  },
+
+  core: {
+    builder: 'webpack5',
   },
 
   webpackFinal: async (config) => {
