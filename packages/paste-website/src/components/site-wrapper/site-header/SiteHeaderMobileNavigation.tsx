@@ -107,10 +107,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({isOpen, onClose}) =>
               <StyledModalDialogContent style={styles} aria-label="Website navigation">
                 <Box position="fixed" top="24px" right="24px" zIndex="zIndex10">
                   <Button aria-label="Close main navigation" variant="reset" size="reset" onClick={onClose}>
-                    <HamburgerToggle
-                      toggled={burgerOpen}
-                      color={burgerOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
-                    />
+                    <HamburgerToggle toggled={burgerOpen} color="colorTextIcon" />
                   </Button>
                 </Box>
                 <SidebarNavigation />
