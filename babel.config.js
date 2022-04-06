@@ -27,10 +27,10 @@ const getPresets = (isDev) => [
 
 const BASE_PLUGINS = [
   'macros',
-  '@babel/proposal-class-properties',
+  ['@babel/proposal-class-properties', {loose: true}],
   '@babel/proposal-object-rest-spread',
-  '@babel/proposal-private-methods',
-  '@babel/proposal-private-property-in-object',
+  ['@babel/proposal-private-methods', {loose: true}],
+  ['@babel/proposal-private-property-in-object', {loose: true}],
   '@babel/plugin-transform-runtime',
   '@babel/plugin-proposal-optional-chaining',
 ];
