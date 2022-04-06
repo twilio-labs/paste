@@ -40837,6 +40837,7 @@ is-whitespace@latest:
     precise-commits: ^1.0.2
     prettier: ^2.2.1
     prop-types: ^15.7.2
+    pseudo-localization: 2.1.1
     puppeteer-core: ^10.1.0
     react: ^17.0.2
     react-16: "npm:react@^16.8.6"
@@ -42945,6 +42946,18 @@ is-whitespace@latest:
   bin:
     ps-tree: ./bin/ps-tree.js
   checksum: e635dd00f53d30d31696cf5f95b3a8dbdf9b1aeb36d4391578ce8e8cd22949b7c5536c73b0dc18c78615ea3ddd4be96101166be59ca2e3e3cb1e2f79ba3c7f98
+  languageName: node
+  linkType: hard
+
+"pseudo-localization@npm:2.1.1":
+  version: 2.1.1
+  resolution: "pseudo-localization@npm:2.1.1"
+  dependencies:
+    get-stdin: ^7.0.0
+    yargs: ^13.3.0
+  bin:
+    pseudo-localization: ./bin/pseudo-localize
+  checksum: fd866ade5943e7768413507989925f08f437e6806e0110c6b6a0af54df41208810503f03c0c7b441bd75762bc0220a4b769d4d26585a1c71b31a5aa48aedfcf0
   languageName: node
   linkType: hard
 
@@ -53079,7 +53092,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^13.2.4, yargs@npm:^13.3.2":
+"yargs@npm:^13.2.4, yargs@npm:^13.3.0, yargs@npm:^13.3.2":
   version: 13.3.2
   resolution: "yargs@npm:13.3.2"
   dependencies:
