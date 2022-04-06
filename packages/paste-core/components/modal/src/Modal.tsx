@@ -40,7 +40,7 @@ export const ModalDialogOverlay = animated(
   /* eslint-enable */
 );
 
-interface ModalDialogContentProps {
+export interface ModalDialogContentProps {
   size?: Sizes;
   children: React.ReactNode;
   element?: BoxElementProps['element'];
