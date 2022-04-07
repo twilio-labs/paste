@@ -19,6 +19,7 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
+    'plugin:react/recommended',
   ],
   env: {
     node: true,
@@ -87,6 +88,10 @@ module.exports = {
     ],
     'react/jsx-curly-brace-presence': 0,
     'react/jsx-props-no-spreading': 0,
+    // disabled bc scope creep
+    'react/jsx-no-bind': 0,
+    // disabled bc scope creep
+    'react/no-unused-prop-types': 0,
     'react/display-name': 2,
     'no-useless-constructor': 'off',
     eqeqeq: ['error', 'smart'],
@@ -105,4 +110,21 @@ module.exports = {
     // We don't use jasmine and this clashes with danger js
     'jest/no-jasmine-globals': 'off',
   },
+  // We want this rule for i18n, so only packages in paste-core need it
+  overrides: [
+    {
+      files: ['packages/paste-core/**/*'],
+      excludedFiles: ['**/__tests__/**', '**/__test__/**', '**/stories/**', '**/__fixtures__/**'],
+      rules: {
+        'react/jsx-no-literals': [
+          2,
+          {
+            noStrings: true,
+            ignoreProps: false,
+            noAttributeStrings: true,
+          },
+        ],
+      },
+    },
+  ],
 };
