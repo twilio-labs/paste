@@ -4,8 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {MessageVariants, ChatMessageProps} from './types';
 import {messageVariantStyles} from './styles';
-
-export const MessageVariantContext = React.createContext<MessageVariants>('inbound');
+import {MessageVariantContext} from './MessageVariantContext';
 
 const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
   ({children, variant, element = 'CHAT_MESSAGE', ...props}, ref) => {
@@ -14,6 +13,7 @@ const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
         <Box
           as="li"
           listStyleType="none"
+          marginBottom="space80"
           ref={ref}
           element={element}
           variant={variant}

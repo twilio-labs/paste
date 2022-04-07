@@ -103,10 +103,13 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     });
 
     React.useEffect(() => {
-      if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
-        scrollToIndex(highlightedIndex);
+      const comboboxIsVirtualized = typeof groupItemsBy !== 'string';
+      if (comboboxIsVirtualized) {
+        if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
+          scrollToIndex(highlightedIndex);
+        }
       }
-    }, [highlightedIndex, scrollToIndex]);
+    }, [highlightedIndex, scrollToIndex, groupItemsBy]);
 
     if (
       getComboboxProps === undefined ||

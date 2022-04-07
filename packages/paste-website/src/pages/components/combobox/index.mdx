@@ -113,13 +113,13 @@ When the user is focused on a Combobox, the following keyboard interactions appl
 
 #### Basic Combobox
 
-<LivePreview scope={{Combobox}} noInline language="jsx">
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {defaultExample}
 </LivePreview>
 
 #### Autocomplete Combobox
 
-<LivePreview scope={{Combobox}} noInline language="jsx">
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {autoCompleteExample}
 </LivePreview>
 
@@ -127,7 +127,12 @@ When the user is focused on a Combobox, the following keyboard interactions appl
 
 The `optionTemplate` prop allows you to pass `jsx` in order to display more complex items in the list box.
 
-<LivePreview scope={{Combobox, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}} noInline language="jsx">
+<LivePreview
+  scope={{Combobox, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  noInline
+  language="jsx"
+  showOverflow
+>
   {optionTemplateExample}
 </LivePreview>
 
@@ -136,7 +141,7 @@ The `optionTemplate` prop allows you to pass `jsx` in order to display more comp
 - **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
 
-<LivePreview scope={{Combobox, Anchor, InformationIcon, Text}} noInline language="jsx">
+<LivePreview scope={{Combobox, Anchor, InformationIcon, Text}} noInline language="jsx" showOverflow>
   {prefixSuffixExample}
 </LivePreview>
 
@@ -146,7 +151,7 @@ The list of options shown to the user, known as the `Listbox`, can be grouped to
 
 In the example below we have a list of components and we are grouping them based on their type.
 
-<LivePreview scope={{Combobox}} noInline language="jsx">
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {groupedComboboxExample}
 </LivePreview>
 
@@ -160,6 +165,7 @@ In the example below we are checking the `groupName` and rendering an icon next 
   scope={{Combobox, ProductInsightsIcon, ProductAutopilotIcon, ProductStudioIcon, MediaObject, MediaFigure, MediaBody}}
   noInline
   language="jsx"
+  showOverflow
 >
   {groupedLabelComboboxExample}
 </LivePreview>
@@ -174,6 +180,7 @@ In the example below the value of the Combobox is stored in a piece of our appli
   scope={{Combobox, Box, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
   noInline
   language="jsx"
+  showOverflow
 >
   {controlledComboboxExample}
 </LivePreview>
@@ -200,7 +207,7 @@ It should be noted that when doing so, the `state` prop takes precident over the
 
 For full details on how to use the state hook, and what props to provide it, follow the [Combobox Primitive documentation](/primitives/combobox-primitive#usecomboboxprimitive-arguments). It's the same hook, just renamed.
 
-<LivePreview scope={{Button, Box, CloseIcon, SearchIcon, Combobox, useCombobox}} noInline language="jsx">
+<LivePreview scope={{Button, Box, CloseIcon, SearchIcon, Combobox, useCombobox}} noInline language="jsx" showOverflow>
   {stateHookCombobox}
 </LivePreview>
 
@@ -208,13 +215,13 @@ For full details on how to use the state hook, and what props to provide it, fol
 
 #### Disabled Combobox
 
-<LivePreview scope={{Combobox}} noInline language="jsx">
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {disabledExample}
 </LivePreview>
 
 #### Combobox with inline error
 
-<LivePreview scope={{Combobox}} noInline language="jsx">
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {errorExample}
 </LivePreview>
 

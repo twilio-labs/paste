@@ -1,16 +1,37 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {render, screen, fireEvent} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
+import {useVirtual as _useVirtual} from 'react-virtual';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import type {ComboboxProps} from '../src/types';
 import {getIndexedItems, getGroupedItems} from '../src/helpers';
+
+type UseVirtual = typeof _useVirtual;
+
+const mockScrollToIndex = jest.fn();
+
+jest.mock('react-virtual', () => {
+  const {useVirtual} = jest.requireActual('react-virtual');
+
+  return {
+    useVirtual: (config: Parameters<UseVirtual>) => {
+      const {scrollToIndex, ...returnValue} = useVirtual(config);
+
+      return {
+        ...returnValue,
+        scrollToIndex: mockScrollToIndex,
+      };
+    },
+  };
+});
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
@@ -147,6 +168,10 @@ const ControlledCombobox: React.FC = () => {
 };
 
 describe('Combobox', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe('Unit tests', () => {
     it('should return an indexed array of items', () => {
       expect(getIndexedItems(smallGroupedItems)).toStrictEqual([
@@ -207,6 +232,21 @@ describe('Combobox', () => {
       render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedTextbox = screen.getByRole('textbox');
       expect(renderedTextbox.getAttribute('required')).toEqual('');
+    });
+
+    it('should call scroll function when highlighted index changes', () => {
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
+
+      const targetIndex = 1;
+      const target = items[targetIndex];
+
+      userEvent.hover(screen.getByText(target));
+
+      expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
+        /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
+      );
+
+      expect(mockScrollToIndex).toHaveBeenCalledWith(1);
     });
   });
 
@@ -277,6 +317,22 @@ describe('Combobox', () => {
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
+
+    it('should not run react virtual\'s "scroll to" function when "groupItemsBy" is defined as a string', () => {
+      // bc grouped comboboxes are not yet virtualized
+      render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
+
+      const targetIndex = 1;
+      const target = groupedItems[targetIndex];
+
+      userEvent.hover(screen.getByText(target.label));
+
+      expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
+        /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
+      );
+
+      expect(mockScrollToIndex).not.toHaveBeenCalled();
+    });
   });
 
   describe('Controlled Combobox', () => {
@@ -298,6 +354,23 @@ describe('Combobox', () => {
       expect(screen.getByRole('textbox').value).toEqual('');
       expect(screen.getByTestId('input-value-span').textContent).toEqual('""');
       expect(screen.getByTestId('selected-item-span').textContent).toEqual('null');
+    });
+
+    it('should call scroll function when highlighted index changes', () => {
+      render(<ControlledCombobox />, {wrapper: ThemeWrapper});
+
+      userEvent.click(screen.getByRole('textbox'));
+
+      const targetIndex = 1;
+      const target = objectItems[targetIndex];
+
+      userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+
+      expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
+        /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
+      );
+
+      expect(mockScrollToIndex).toHaveBeenCalledWith(1);
     });
   });
 
