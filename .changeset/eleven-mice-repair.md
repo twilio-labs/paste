@@ -6,4 +6,4 @@
 '@twilio-paste/core': patch
 ---
 
-Adjust close icon's hover state color, which was previously being overwritten.
+[Alert, Modal, Popover, Toast] Adjust close icon's hover state color, which was previously being overwritten.
