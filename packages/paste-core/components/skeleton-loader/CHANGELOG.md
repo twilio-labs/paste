@@ -1,5 +1,11 @@
 # @twilio-paste/skeleton-loader
 
+## 1.0.3
+
+### Patch Changes
+
+- [`91d20b99f`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120) [#2328](https://github.com/twilio-labs/paste/pull/2328) Thanks [@TheSisb](https://github.com/TheSisb)! - [Skeleton-Loader]: Small animation tweak so that the highlight fully moves through the skeleton loader correctly at the end state.
+
 ## 1.0.2
 
 ### Patch Changes
