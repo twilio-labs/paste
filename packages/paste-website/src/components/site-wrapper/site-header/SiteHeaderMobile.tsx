@@ -38,11 +38,7 @@ const SiteHeaderMobile: React.FC = () => {
           size="icon_small"
           onClick={() => setNavigationOpen(!navigationOpen)}
         >
-          <HamburgerToggle
-            aria-hidden
-            toggled={navigationOpen}
-            color={navigationOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
-          />
+          <HamburgerToggle toggled={navigationOpen} color="colorTextInverse" />
         </Button>
         <MobileNavigation isOpen={navigationOpen} onClose={() => setNavigationOpen(false)} />
       </Box>
