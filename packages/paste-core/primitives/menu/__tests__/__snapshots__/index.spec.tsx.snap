@@ -17,7 +17,7 @@ exports[`Menu Primitive Render should render 1`] = `
     hidden=""
     id="menu-example"
     role="menu"
-    style="display: none;"
+    style="display: none; position: fixed; left: 100%; top: 100%;"
     tabindex="-1"
   >
     <button
@@ -60,7 +60,7 @@ exports[`Menu Primitive Render should render 1`] = `
       hidden=""
       id="sub-menu"
       role="menu"
-      style="display: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%;"
       tabindex="-1"
     >
       <button
