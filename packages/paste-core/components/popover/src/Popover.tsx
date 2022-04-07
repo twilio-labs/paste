@@ -57,7 +57,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
                 // https://reakit.io/docs/popover/#initial-focus
                 onClick={popover.hide}
               >
-                <CloseIcon element={`${element}_CLOSE_ICON`} decorative color="colorTextWeak" size="sizeIcon10" />
+                <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon10" />
                 <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
               </Button>
             </Box>
