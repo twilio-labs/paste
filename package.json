@@ -66,7 +66,7 @@
     "test": "jest",
     "test:react-16": "USE_REACT_16=true jest",
     "test:coverage": "jest --coverage",
-    "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn cypress run --record'",
+    "test:website": "yarn cypress run --record",
     "test:website-gui": "start-server-and-test 'yarn serve:website' http://localhost:9000  'yarn cypress open'",
     "serve:website": "yarn workspace @twilio-paste/website serve",
     "package-size-action-build": "yarn build",

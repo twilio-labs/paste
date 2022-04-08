@@ -403,25 +403,17 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
+      - name: Wait for Netlify
+        uses: hharnisc/wait-for-netlify-action@3.2.0
+        id: waitForDeployment
         with:
-          name: compiled-js-and-types
-          path: packages/
-
-      - name: Build website
-        run: yarn build:website
+          site_id: ${{ secrets.NETLIFY_SITE_ID }}
         env:
-          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
-          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
-          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
-          GATSBY_DOCSEARCHV3_APIKEY: ${{ secrets.GATSBY_DOCSEARCHV3_APIKEY }}
-          GATSBY_DOCSEARCHV3_INDEXNAME: ${{ secrets.GATSBY_DOCSEARCHV3_INDEXNAME }}
-          GATSBY_DOCSEARCHV3_APPID: ${{ secrets.GATSBY_DOCSEARCHV3_APPID }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Run cypress
         id: run-cypress-tests
-        run: yarn test:website
+        run: yarn test:website --config baseUrl=${{ steps.waitForDeployment.outputs.url }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
