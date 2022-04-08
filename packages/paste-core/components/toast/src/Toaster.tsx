@@ -76,8 +76,13 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
     <ToastPortal {...props}>
       {transitions((styles: unknown, item: any, state: {key: any}, index: number) => {
         return (
-          // type clash between spring styles and style object. Not sure how to type cast it
-          <AnimatedToast as="div" key={state.key} style={styles as any}>
+          <AnimatedToast
+            // eslint-disable-next-line react/jsx-no-literals
+            as="div"
+            key={state.key}
+            // type clash between spring styles and style object. Not sure how to type cast it
+            style={styles as any}
+          >
             <Toast
               key={item.id}
               {...item}

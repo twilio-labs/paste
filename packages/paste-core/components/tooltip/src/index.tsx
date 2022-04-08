@@ -13,18 +13,29 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, elemen
   return (
     <Box
       {...safelySpreadBoxProps(props)}
+      // eslint-disable-next-line react/jsx-no-literals
       backgroundColor="colorBackgroundBodyInverse"
+      // eslint-disable-next-line react/jsx-no-literals
       borderColor="colorBorderInverseWeaker"
+      // eslint-disable-next-line react/jsx-no-literals
       borderRadius="borderRadius20"
+      // eslint-disable-next-line react/jsx-no-literals
       borderStyle="solid"
+      // eslint-disable-next-line react/jsx-no-literals
       borderWidth="borderWidth10"
+      // eslint-disable-next-line react/jsx-no-literals
       boxShadow="shadow"
-      element={element}
+      // eslint-disable-next-line react/jsx-no-literals
       maxWidth="size30"
+      // eslint-disable-next-line react/jsx-no-literals
       padding="space30"
+      // eslint-disable-next-line react/jsx-no-literals
       paddingBottom="space20"
+      // eslint-disable-next-line react/jsx-no-literals
       paddingTop="space20"
+      // eslint-disable-next-line react/jsx-no-literals
       zIndex="zIndex90"
+      element={element}
       _focus={{outline: 'none'}}
       style={style}
       ref={ref}
@@ -63,7 +74,14 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
           {/* import Paste Theme Based Styles due to portal positioning. */}
           <StyledBase>
             <TooltipArrow {...tooltip} />
-            <Text element={`${element}_TEXT`} as="span" color="colorTextInverse">
+            <Text
+              // eslint-disable-next-line react/jsx-no-literals
+              element={`${element}_TEXT`}
+              // eslint-disable-next-line react/jsx-no-literals
+              as="span"
+              // eslint-disable-next-line react/jsx-no-literals
+              color="colorTextInverse"
+            >
               {text}
             </Text>
           </StyledBase>

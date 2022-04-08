@@ -93,6 +93,7 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
         {validChildren.map((child, index) => {
           return (
             <Box
+              // eslint-disable-next-line react/jsx-no-literals
               element={`${element}_CHILD`}
               {...(childrenCount !== index + 1 ? childMargins : null)}
               key={keySeed(`stack-${index}`)}

@@ -27,30 +27,39 @@ const renderToastIcon = (variant: ToastVariants, title: string, element?: string
     case ToastVariantObject.ERROR:
       return (
         <ErrorIcon
+          // eslint-disable-next-line react/jsx-no-literals
           color="colorTextIconError"
           decorative={false}
           title={title}
+          // eslint-disable-next-line react/jsx-no-literals
           element={`${element}_ICON`}
+          // eslint-disable-next-line react/jsx-no-literals
           size="sizeIcon20"
         />
       );
     case ToastVariantObject.SUCCESS:
       return (
         <SuccessIcon
+          // eslint-disable-next-line react/jsx-no-literals
           color="colorTextIconSuccess"
           decorative={false}
           title={title}
+          // eslint-disable-next-line react/jsx-no-literals
           element={`${element}_ICON`}
+          // eslint-disable-next-line react/jsx-no-literals
           size="sizeIcon20"
         />
       );
     case ToastVariantObject.WARNING:
       return (
         <WarningIcon
+          // eslint-disable-next-line react/jsx-no-literals
           color="colorTextIconWarning"
           decorative={false}
           title={title}
+          // eslint-disable-next-line react/jsx-no-literals
           element={`${element}_ICON`}
+          // eslint-disable-next-line react/jsx-no-literals
           size="sizeIcon20"
         />
       );
@@ -58,10 +67,13 @@ const renderToastIcon = (variant: ToastVariants, title: string, element?: string
     default:
       return (
         <NeutralIcon
+          // eslint-disable-next-line react/jsx-no-literals
           color="colorTextIconNeutral"
           decorative={false}
           title={title}
+          // eslint-disable-next-line react/jsx-no-literals
           element={`${element}_ICON`}
+          // eslint-disable-next-line react/jsx-no-literals
           size="sizeIcon20"
         />
       );
@@ -103,22 +115,42 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     };
 
     return (
-      <ToastComponent role="status" variant={variant} element={element} ref={ref} {...props}>
+      <ToastComponent
+        // eslint-disable-next-line react/jsx-no-literals
+        role="status"
+        variant={variant}
+        element={element}
+        ref={ref}
+        {...props}
+      >
+        {/* eslint-disable-next-line react/jsx-no-literals */}
         <MediaObject as="div">
+          {/* eslint-disable-next-line react/jsx-no-literals */}
           <MediaFigure as="div" spacing="space60">
             {renderToastIcon(variant, i18nVariants[variant], element)}
           </MediaFigure>
+          {/* eslint-disable-next-line react/jsx-no-literals */}
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (
+            // eslint-disable-next-line react/jsx-no-literals
             <MediaFigure align="end" spacing="space40">
               <Button
                 onClick={onDismiss}
+                // eslint-disable-next-line react/jsx-no-literals
                 variant="secondary_icon"
                 ref={buttonRef}
+                // eslint-disable-next-line react/jsx-no-literals
                 size="reset"
+                // eslint-disable-next-line react/jsx-no-literals
                 element={`${element}_CLOSE_BUTTON`}
               >
-                <CloseIcon decorative size="sizeIcon20" element={`${element}_CLOSE_ICON`} />
+                <CloseIcon
+                  decorative
+                  // eslint-disable-next-line react/jsx-no-literals
+                  size="sizeIcon20"
+                  // eslint-disable-next-line react/jsx-no-literals
+                  element={`${element}_CLOSE_ICON`}
+                />
                 <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
               </Button>
             </MediaFigure>

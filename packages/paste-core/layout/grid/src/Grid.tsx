@@ -69,11 +69,14 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         alignItems={equalColumnHeights ? 'stretch' : null}
         element={element}
         flexDirection={flexDirection}
+        // eslint-disable-next-line react/jsx-no-literals
         flexWrap="wrap"
+        // eslint-disable-next-line react/jsx-no-literals
         display="flex"
         {...gutterStyles}
         marginTop={marginTop}
         marginBottom={marginBottom}
+        // eslint-disable-next-line react/jsx-no-literals
         minWidth="size0"
       >
         {GridColumns}

@@ -7,7 +7,13 @@ import type {ToastContainerProps} from './types';
 const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({children, ...props}, ref) => {
   return (
     <ToastPortal {...props}>
-      <Stack orientation="vertical" spacing="space40" ref={ref}>
+      <Stack
+        // eslint-disable-next-line react/jsx-no-literals
+        orientation="vertical"
+        // eslint-disable-next-line react/jsx-no-literals
+        spacing="space40"
+        ref={ref}
+      >
         {children}
       </Stack>
     </ToastPortal>

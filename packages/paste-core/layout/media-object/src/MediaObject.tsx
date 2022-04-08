@@ -20,6 +20,7 @@ const MediaObject = React.forwardRef<HTMLElement, MediaObjectProps>(
         {...safelySpreadBoxProps(props)}
         alignItems={verticalAlign === 'top' ? 'flex-start' : 'center'}
         as={as}
+        // eslint-disable-next-line react/jsx-no-literals
         display="flex"
         element={element}
         marginBottom={marginBottom}

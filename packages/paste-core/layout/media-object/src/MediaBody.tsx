@@ -10,7 +10,15 @@ export interface MediaBodyProps extends React.HTMLAttributes<any>, Pick<BoxProps
 const MediaBody = React.forwardRef<HTMLElement, MediaBodyProps>(
   ({as = 'span', children, element = 'MEDIA_BODY', ...props}, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} as={as} element={element} flex={1} minWidth="size0" ref={ref}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as={as}
+        element={element}
+        flex={1}
+        // eslint-disable-next-line react/jsx-no-literals
+        minWidth="size0"
+        ref={ref}
+      >
         {children}
       </Box>
     );

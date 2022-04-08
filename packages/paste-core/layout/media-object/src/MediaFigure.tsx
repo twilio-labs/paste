@@ -17,6 +17,7 @@ const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         as={as}
+        // eslint-disable-next-line react/jsx-no-literals
         display="flex"
         element={element}
         flexShrink={0}

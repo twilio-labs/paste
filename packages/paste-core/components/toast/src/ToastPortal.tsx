@@ -12,9 +12,13 @@ const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({childre
       <StyledBase>
         <Box
           {...safelySpreadBoxProps(props)}
+          // eslint-disable-next-line react/jsx-no-literals
           position="fixed"
+          // eslint-disable-next-line react/jsx-no-literals
           right="space40"
+          // eslint-disable-next-line react/jsx-no-literals
           top="space90"
+          // eslint-disable-next-line react/jsx-no-literals
           zIndex="zIndex90"
           ref={ref}
           style={__console_patch ? {zIndex: 1999} : undefined}

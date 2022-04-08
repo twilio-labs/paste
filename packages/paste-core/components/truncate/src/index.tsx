@@ -12,12 +12,18 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ..
   return (
     <Box
       {...props}
+      // eslint-disable-next-line react/jsx-no-literals
       as="span"
+      // eslint-disable-next-line react/jsx-no-literals
       display="inline-block"
+      // eslint-disable-next-line react/jsx-no-literals
       maxWidth="100%"
+      // eslint-disable-next-line react/jsx-no-literals
       overflow="hidden"
       ref={ref}
+      // eslint-disable-next-line react/jsx-no-literals
       textOverflow="ellipsis"
+      // eslint-disable-next-line react/jsx-no-literals
       whiteSpace="nowrap"
     >
       {children}

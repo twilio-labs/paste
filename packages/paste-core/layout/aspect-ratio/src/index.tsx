@@ -47,7 +47,14 @@ const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>((props, r
 
   return (
     <AspectRatioContainer ref={ref} style={{paddingBottom: `${aspectPercent}%`}}>
-      <Box position="absolute" top={0} right={0} bottom={0} left={0}>
+      <Box
+        // eslint-disable-next-line react/jsx-no-literals
+        position="absolute"
+        top={0}
+        right={0}
+        bottom={0}
+        left={0}
+      >
         {props.children}
       </Box>
     </AspectRatioContainer>
