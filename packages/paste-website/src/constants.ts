@@ -46,7 +46,7 @@ export const SidebarCategoryRoutes = {
   ACCESSIBILITY: '/accessibility',
   FOUNDATIONS: '/foundations',
   CONTENT: '/foundations/content',
-  FOUNDATIONS_LOCALIZATION: '/foundations/localization', // @TODO would like to clean this up it is more manageable.
+  FOUNDATIONS_LOCALIZATION: '/foundations/localization',
   PATTERNS: '/patterns',
   EXPERIENCES: '/experiences',
   COMPONENTS: '/components',
