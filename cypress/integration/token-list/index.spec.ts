@@ -11,7 +11,7 @@ describe('Token list filter', function () {
   const testSuiteName = this.title;
 
   beforeEach(() => {
-    cy.visit('/tokens');
+    cy.visit('/tokens/list');
   });
 
   it('searches for a background color', () => {

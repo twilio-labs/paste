@@ -3,7 +3,8 @@ import {Box} from '@twilio-paste/box';
 import {ThemeContext, styled, themeGet} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {ColorSwatchText} from '../components/color-swatch/ColorSwatch';
-import {StyledSwatchGrid, ImgCaption} from './ColorsFoundationExamples';
+import {ImageCaption} from '../components/ImageCaption';
+import {StyledSwatchGrid} from './ColorsFoundationExamples';
 
 interface TokenData {
   name: string;
@@ -46,17 +47,17 @@ export const DataVizColorSwatches: React.FC = () => {
 };
 
 export const PieChartCaption: React.FC = () => (
-  <ImgCaption>
+  <ImageCaption>
     A white divider line is used between each section of the pie charts to create contrast and help distinguish the
     difference between the categories.
-  </ImgCaption>
+  </ImageCaption>
 );
 
 export const LineChartCaption: React.FC = () => (
-  <ImgCaption>
+  <ImageCaption>
     Different shapes are used at each point in the line charts to create additional visual distinction between each
     category.
-  </ImgCaption>
+  </ImageCaption>
 );
 
 export const LineChartOptions = {
