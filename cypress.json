@@ -8,6 +8,14 @@
     "openMode": 2
   },
   "video": false,
-  "blockHosts": "*.google-analytics.com",
-  "testFiles": ["**/sitemap-vrt/index.spec.ts"]
+  "blockHosts": [
+    "*.google-analytics.com",
+    "*.codesandbox.io",
+    "codesandbox.io",
+    "*.loom.com",
+    "*.youtube.com",
+    "*.github.com",
+    "*.googletagmanager.com"
+  ],
+  "testFiles": ["**/**/index.spec.ts"]
 }

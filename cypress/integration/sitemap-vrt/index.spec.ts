@@ -11,49 +11,40 @@ describe('Full Site VRT', function () {
   const testSuiteName = this.title;
 
   describe('Visual regression tests', () => {
+    before(() => {
+      cy.visit('/');
+      cy.wait(1000);
+    });
+
     it('Basic VRT', () => {
       cy.log('[Applitools]: checking if eyes are enabled');
+
+      // creates an alias for the nav links
+      cy.get('aside nav a').as('navLinks');
 
       if (eyesAreEnabled()) {
         cy.log('[Applitools]: Eyes are enabled, proceed with eyes check.');
 
-        // get all docs site pages from the sitemap
-        // WORK IN PROGRESS: Replace the pages/page vars with the mockup versions to test a limited set of data
-        cy.request('sitemap.xml').then((response) => {
-          const pages = cy.$$(response.body).find('loc').toArray();
-          // const pages = ['/', '/tokens/', '/components/data-grid/']; // mockup
+        const openParams: Partial<Eyes.Open.Options> = {
+          ...DEFAULT_OPEN_PARAMS,
+          testName: testSuiteName,
+        };
 
-          const openParams: Partial<Eyes.Open.Options> = {
-            ...DEFAULT_OPEN_PARAMS,
-            testName: testSuiteName,
-          };
+        const checkParams: Partial<Eyes.Check.Options> = {
+          ...DEFAULT_CHECK_PARAMS,
+          tag: `${testSuiteName}`,
+        };
 
-          const checkParams: Partial<Eyes.Check.Options> = {
-            ...DEFAULT_CHECK_PARAMS,
-            tag: `${testSuiteName}`,
-          };
+        cy.log(`[Applitools]: Opening eyes with these params: ${openParams}`);
+        cy.eyesOpen(openParams);
 
-          cy.log(`starting eyes with these params: ${openParams}`);
-          cy.eyesOpen(openParams);
+        cy.get('@navLinks').each((link, index) => {
+          cy.get(`nav a`).eq(index).click({force: true});
 
-          // iterate through the sitemap pages
-          pages.forEach((pageEl) => {
-            // get the current page in the sitemap
-            const page = pageEl.innerText.replace('https://paste.twilio.design', '');
-            // const page = pageEl; // mockup
+          prepareForEyes();
 
-            // perform the applitools check
-            cy.visit(page);
-            prepareForEyes();
-
-            // homepage animation delay
-            if (page === '/') {
-              cy.wait(3000);
-            }
-
-            cy.log(`[Applitools]: Checking window with these params: ${checkParams}`);
-            cy.eyesCheckWindow(checkParams);
-          });
+          cy.log(`[Applitools]: Checking window with these params: ${checkParams}`);
+          cy.eyesCheckWindow(checkParams);
         });
 
         cy.eyesClose();
