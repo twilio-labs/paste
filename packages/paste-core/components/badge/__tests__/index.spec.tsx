@@ -15,6 +15,7 @@ describe('Badge', () => {
   describe('Hooks', () => {
     describe('useResizeChildIcons', () => {
       it('should return return no modifications when child icon size is default', () => {
+        // eslint-disable-next-line react/jsx-key
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
 
         const icon = (result.current as ArrayLike<NamedChild>)[1];
@@ -25,6 +26,7 @@ describe('Badge', () => {
 
       it('should return the correct modifications when child icon size is not the default', () => {
         const {result} = renderHook(() =>
+          // eslint-disable-next-line react/jsx-key
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
 

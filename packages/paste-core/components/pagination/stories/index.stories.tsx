@@ -206,7 +206,7 @@ export const ControlledNumberPaginationExample: React.FC = () => {
         <PaginationNumbers pageLabel={`Page ${currentPage} of ${totalPages}`}>
           {pages.map((page) => {
             return (
-              <PaginationNumber label={`Go to page ${page}`} isCurrent={page === currentPage}>
+              <PaginationNumber label={`Go to page ${page}`} isCurrent={page === currentPage} key={page}>
                 {page}
               </PaginationNumber>
             );

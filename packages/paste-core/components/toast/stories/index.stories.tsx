@@ -254,7 +254,7 @@ export const ToastContainerStory = (): React.ReactNode => {
           <Text as="div">I am a toast</Text>
         </Toast>
         {toasts.map((toast) => (
-          <Toast variant={toast.variant} onDismiss={() => {}}>
+          <Toast variant={toast.variant} onDismiss={() => {}} key={toast.message}>
             <Text as="div">{toast.message}</Text>
           </Toast>
         ))}

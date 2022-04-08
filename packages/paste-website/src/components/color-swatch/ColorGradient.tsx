@@ -56,7 +56,7 @@ export const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) =>
   return (
     <Box borderRadius="borderRadius20" overflow="hidden">
       {aliasValues.map((aliasValue) => (
-        <StyledGradientSwatch backgroundColor={aliasValue} />
+        <StyledGradientSwatch key={aliasValue} backgroundColor={aliasValue} />
       ))}
     </Box>
   );
@@ -65,7 +65,7 @@ export const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) =>
 export const ColorGradientRainbow: React.FC = () => (
   <StyledGrid>
     {aliasPrefixes.map((prefix) => (
-      <ColorGradient aliasPrefix={prefix} />
+      <ColorGradient key={prefix} aliasPrefix={prefix} />
     ))}
   </StyledGrid>
 );

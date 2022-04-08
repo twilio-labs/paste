@@ -65,6 +65,7 @@ export const SideBar: React.FC = () => {
             foreground={rating.foreground}
             rating={rating.aa ? 'pass' : 'fail'}
             variant="text"
+            key={`${rating.background}-${rating.foreground}`}
           />
         );
       })}
@@ -83,6 +84,7 @@ export const SideBar: React.FC = () => {
             foreground={rating.foreground}
             rating={rating.aaLarge ? 'pass' : 'fail'}
             variant="control"
+            key={`${rating.background}-${rating.foreground}`}
           />
         );
       })}

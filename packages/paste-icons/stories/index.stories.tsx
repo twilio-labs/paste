@@ -40,7 +40,7 @@ export const Sizes = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       {SizeOptions.map((size: IconSizeOptions) => (
-        <CopyIcon size={size} decorative />
+        <CopyIcon size={size} decorative key={size} />
       ))}
     </Stack>
   );

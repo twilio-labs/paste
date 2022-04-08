@@ -141,6 +141,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
                   .filter((item) => !inputValue || item.includes(inputValue))
                   .map((item, index) => (
                     <li
+                      key={item}
                       {...getItemProps({
                         key: item,
                         index,
@@ -240,6 +241,7 @@ export const BasicMultiCombobox: React.FC = () => {
           <ComboboxListboxGroup>
             {filteredItems.map((filteredItem, index) => (
               <ComboboxListboxOption
+                key={seed(`filtered-item-${filteredItem}`)}
                 highlighted={highlightedIndex === index}
                 variant="default"
                 {...getItemProps({item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`)})}
@@ -254,6 +256,7 @@ export const BasicMultiCombobox: React.FC = () => {
         {selectedItems.map((item, index) => {
           return (
             <FormPill
+              key={`selected-item-${item}`}
               {...getSelectedItemProps({
                 selectedItem,
                 index,

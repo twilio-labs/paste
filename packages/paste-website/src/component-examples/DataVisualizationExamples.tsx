@@ -35,7 +35,7 @@ export const DataVizColorSwatches: React.FC = () => {
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={5}>
         {dataVizTokenValues.map(({name, value}) => (
-          <Box as="li" listStyleType="none">
+          <Box as="li" key={value} listStyleType="none">
             <StyledSwatch backgroundColor={value} />
             <ColorSwatchText>{name}</ColorSwatchText>
           </Box>
