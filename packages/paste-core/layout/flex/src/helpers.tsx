@@ -1,5 +1,5 @@
-import {ValueOf} from '@twilio-paste/types';
-import {
+import type {ValueOf} from '@twilio-paste/types';
+import type {
   Basis,
   BasisOptions,
   FlexProps,

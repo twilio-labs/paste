@@ -1,4 +1,4 @@
-import {DOMAttributes} from 'react';
+import type {DOMAttributes} from 'react';
 /* eslint-disable @typescript-eslint/no-empty-interface */
 // This rule complains when we omit even though our type is not equivalent to the supertype
 

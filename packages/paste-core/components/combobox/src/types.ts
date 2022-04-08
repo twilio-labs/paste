@@ -1,4 +1,4 @@
-import {BoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,

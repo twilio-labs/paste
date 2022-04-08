@@ -3,7 +3,8 @@ import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
-import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
+import type {TabPrimitiveStateReturn} from '../src';
+import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

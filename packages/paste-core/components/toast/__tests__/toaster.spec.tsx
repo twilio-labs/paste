@@ -5,7 +5,8 @@ import {loremIpsum} from 'lorem-ipsum';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
 import {Toaster} from '../src/Toaster';
-import {ToasterProps, ToasterToast, useToaster} from '../src';
+import type {ToasterProps, ToasterToast} from '../src';
+import {useToaster} from '../src';
 import {ToastVariantObject} from '../src/constants';
 
 jest.useFakeTimers();

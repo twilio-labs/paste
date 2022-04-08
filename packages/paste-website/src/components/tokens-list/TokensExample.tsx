@@ -1,11 +1,15 @@
 import * as React from 'react';
 import * as lodash from 'lodash';
-import {ThemeShape, useTheme} from '@twilio-paste/theme';
-import {Box, BoxProps} from '@twilio-paste/box';
-import {Text, TextProps} from '@twilio-paste/text';
+import type {ThemeShape} from '@twilio-paste/theme';
+import {useTheme} from '@twilio-paste/theme';
+import type {BoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import type {TextProps} from '@twilio-paste/text';
+import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {LineHeight, BoxShadowOptions} from '@twilio-paste/style-props';
-import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
+import type {LineHeight, BoxShadowOptions} from '@twilio-paste/style-props';
+import type {ColorCombinationAccessibility} from '../../utils/color-combos';
+import ColorCombos from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
 // Traditional import as the color package isn't exported and typed correctly

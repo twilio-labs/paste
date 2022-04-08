@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {IconObject} from './types';
+import type {IconObject} from './types';
 
 export interface IconTileProps {
   children?: React.ReactNode;

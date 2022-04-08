@@ -7,7 +7,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
-import {useVirtual as _useVirtual} from 'react-virtual';
+import type {useVirtual as _useVirtual} from 'react-virtual';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';

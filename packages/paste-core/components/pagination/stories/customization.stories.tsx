@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BoxElementProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';

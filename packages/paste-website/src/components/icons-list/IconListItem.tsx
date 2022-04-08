@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {CompositeItem} from '@twilio-paste/reakit-library';
 import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 import {IconTile} from './IconTile';
-import {IconObject} from './types';
+import type {IconObject} from './types';
 
 // Our Grid Columns don't wrap equal width columns with out a new grid row. The width calc is based on the number of columns as children.
 // But box doesn't take percentage widths.

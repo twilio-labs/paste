@@ -2,12 +2,12 @@ import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
+import type {MenuPrimitiveButtonProps} from '../src';
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
   MenuPrimitiveItem,
   MenuPrimitiveButton,
-  MenuPrimitiveButtonProps,
   MenuPrimitiveSeparator,
 } from '../src';
 

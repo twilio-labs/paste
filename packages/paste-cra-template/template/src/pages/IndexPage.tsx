@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {styled} from '@twilio-paste/core/styling-library';
-import {Box, BoxStyleProps} from '@twilio-paste/core/box';
+import type {BoxStyleProps} from '@twilio-paste/core/box';
+import {Box} from '@twilio-paste/core/box';
 import {Anchor} from '@twilio-paste/core/anchor';
 import {Button} from '@twilio-paste/core/button';
 import {Heading} from '@twilio-paste/core/heading';

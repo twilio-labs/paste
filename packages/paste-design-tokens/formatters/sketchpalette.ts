@@ -1,6 +1,6 @@
 import * as color from 'color';
 import * as Immutable from 'immutable';
-import {ImmutableStyleMap} from 'theo';
+import type {ImmutableStyleMap} from 'theo';
 
 interface SketchPaletteColor {
   name: string;

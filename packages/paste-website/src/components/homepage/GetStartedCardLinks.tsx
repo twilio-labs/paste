@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Grid, Column, GridProps} from '@twilio-paste/grid';
+import type {GridProps} from '@twilio-paste/grid';
+import {Grid, Column} from '@twilio-paste/grid';
 
 interface GetStartedCardLinksProps {
   children: NonNullable<React.ReactNode>;

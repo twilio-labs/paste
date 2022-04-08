@@ -1,4 +1,4 @@
-import {ImmutableStyleMap} from 'theo';
+import type {ImmutableStyleMap} from 'theo';
 
 export const getTokenCategories = (tokens: ImmutableStyleMap): any => {
   return tokens
