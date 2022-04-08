@@ -17,5 +17,5 @@
     "*.github.com",
     "*.googletagmanager.com"
   ],
-  "testFiles": ["**/**/index.spec.ts"]
+  "testFiles": ["**/**/*.spec.ts"]
 }
