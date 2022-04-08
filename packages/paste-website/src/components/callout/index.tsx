@@ -24,7 +24,7 @@ const CalloutText: React.FC = ({children}) => (
 );
 
 interface CalloutListProps {
-  as: 'ul' | 'ol';
+  as?: 'ul' | 'ol';
 }
 
 const CalloutList: React.FC<CalloutListProps> = ({as = 'ul', children}) => (
