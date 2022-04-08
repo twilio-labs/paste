@@ -1,0 +1,152 @@
+---
+title: UX Localization Guidelines
+description: Localization stands for adapting a product, service or content to fit a specific market or country.
+slug: /foundations/localization/
+---
+
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+
+import {Button} from '@twilio-paste/button';
+import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/foundations/localization/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  description={props.pageContext.frontmatter.description}
+  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Introduction
+
+Self-service tips on how to build experiences in a way that’s appropriate and meaningful to all our customers, no matter where they are in the world.
+
+### Definition of terms [Option 1]
+
+<div>
+  <h4 aria-describedby="internationalization">Internationalization</h4>
+  <p id="internationalization">
+    Internationalization is the design and development of a product or interface that enables easy localization for
+    target audiences that vary in culture, region, or language.
+  </p>
+  <h4 aria-describedby="internationalization">Localization</h4>
+  <p id="internationalization">
+    Localization refers to the adaptation of a product or interface to meet the language, cultural and other
+    requirements of a specific target market/locale.
+  </p>
+  <dt>Localization</dt>
+  <h4 aria-describedby="internationalization">Translation</h4>
+  <p id="internationalization">
+    Converting text from one language to another. Not to be confused with localization, translation is just one part of
+    localizing a product.
+  </p>
+  <h4 aria-describedby="internationalization">Locale</h4>
+  <p id="internationalization">
+    A linguistic region defined by both its language and country. Examples: French-France (fr-FR); French-Canada
+    (fr-CA); Portuguese-Brazil (pt-BR). Note that languages and countries won’t always have a 1:1 mapping.
+  </p>
+</div>
+
+### Definition of terms [Option 2]
+
+<dl>
+  <dt>Internationalization</dt>
+  <dd>
+    Internationalization is the design and development of a product or interface that enables easy localization for
+    target audiences that vary in culture, region, or language.
+  </dd>
+  <dt>Localization</dt>
+  <dd>
+    Localization refers to the adaptation of a product or interface to meet the language, cultural and other
+    requirements of a specific target market/locale.
+  </dd>
+  <dt>Translation</dt>
+  <dd>
+    Converting text from one language to another. Not to be confused with localization, translation is just one part of
+    localizing a product.
+  </dd>
+  <dt>Locale</dt>
+  <dd>
+    A linguistic region defined by both its language and country. Examples: French-France (fr-FR); French-Canada
+    (fr-CA); Portuguese-Brazil (pt-BR). Note that languages and countries won’t always have a 1:1 mapping.
+  </dd>
+</dl>
+
+## General guidelines for building localized UIs
+
+Self-service tips on how to build experiences in a way that’s appropriate and meaningful to all our customers, no matter where they are in the world.
+If you have any questions, please contact the Localization team at #help-localization.
+
+### Leave blank space around condensed UI components
+
+Leave blank space around condensed UI components, such as popovers, buttons, and tabs to prevent unexpected line breaks.
+
+- For some languages, text is up to 30% longer on average than English.
+- If text gets truncated or has line-breaks at wrong places could lead to grammatical errors and design breaks.
+- Make all UI components expandable (auto-layout).
+- Don’t assign fixed-width or height to UI components, unless there’s a strong.
+
+### Keep links short and descriptive
+
+- Don’t use full/long phrases as links, as these might break into different parts when translated.
+- Assume all words in a phrase or sentence will change order when translated.
+- Use only one, descriptive term or a short part of a phrase.
+
+### Order in components matter
+
+Avoid creating UI sentences. If the layout and functionality of your interface is dependent on a certain word order, it’s likely to break when localized.
+[Learn more here](https://paste.twilio.design/components/label/#about-label 'Learn more about how how to design layout and functionality that is resilient when localized.').
+
+### Avoid forced capitalization
+
+- Avoid setting a single capitalization design rule that fits all languages.
+  - In French, Italian, and Spanish (among others) only the first letter should be capitalized for certain words.
+  - In German (P1), certain types of nouns, gerunds, and names must start with upper-case.
+- Developers should avoid using CSS (text-transform: capitalize) to handle capitalization.
+
+### Avoid flags to represent languages
+
+- Use flags only to represent countries and not to represent languages.
+- Always write the name of the language instead of using a flag.
+
+### Avoid text on images
+
+- If text over images is needed, overlay it by code, using HTML and CSS.
+
+</content>
+
+</contentwrapper>
