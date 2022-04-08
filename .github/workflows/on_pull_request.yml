@@ -362,7 +362,6 @@ jobs:
 
   cypress:
     name: Website tests
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
