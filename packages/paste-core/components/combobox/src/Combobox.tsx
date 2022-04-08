@@ -195,6 +195,7 @@ Combobox.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   initialIsOpen: PropTypes.bool,
   initialSelectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  // eslint-disable-next-line react/forbid-prop-types
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
   itemToString: PropTypes.func,
   labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
