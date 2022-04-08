@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- [`ff7454a0`](https://github.com/twilio-labs/paste/commit/ff7454a0d7355654c42dbe39e2eca29c6ea6d8cb) [#2348](https://github.com/twilio-labs/paste/pull/2348) Thanks [@TheSisb](https://github.com/TheSisb)! - [reakit-library] update Reakit dependency to fix typings in TS 4.4.x
+
 ## 0.8.4
 
 ### Patch Changes

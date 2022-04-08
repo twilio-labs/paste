@@ -1,5 +1,35 @@
 # Change Log
 
+## 11.5.0
+
+### Minor Changes
+
+- [`f76b99d45`](https://github.com/twilio-labs/paste/commit/f76b99d455d587e7865515338f65d1a8d25c01ac) [#2334](https://github.com/twilio-labs/paste/pull/2334) Thanks [@shleewhite](https://github.com/shleewhite)! - [ChatLog] add ChatMessageMeta and ChatMessageMetaItem components
+
+* [`f5ce8b0c6`](https://github.com/twilio-labs/paste/commit/f5ce8b0c63154caa26a0e5174a040aa4dcc4154a) [#2335](https://github.com/twilio-labs/paste/pull/2335) Thanks [@andipants12](https://github.com/andipants12)! - [Fix] Remediate erratic scrolling behavior for grouped combobox. Scroll function for the virtualization library was being called even though grouped comboboxes are not virtualized. The jumping behavior on scroll was observed because the indices in the virtual list and the actual list did not match. Added guard to prevent the scroll function from the virtualization library from being called.
+
+### Patch Changes
+
+- [`b6ccaa266`](https://github.com/twilio-labs/paste/commit/b6ccaa266c8abc81820b77127da5abb0cf5308d4) [#2347](https://github.com/twilio-labs/paste/pull/2347) Thanks [@gloriliale](https://github.com/gloriliale)! - [Alert, Modal, Popover, Toast] Adjust close icon's hover state color, which was previously being overwritten.
+
+* [`91d20b99`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120) [#2328](https://github.com/twilio-labs/paste/pull/2328) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme & Customization] Fix an issue where animations would run once regardless of if animations should be disabled.
+
+- [`91d20b99f`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120) [#2328](https://github.com/twilio-labs/paste/pull/2328) Thanks [@TheSisb](https://github.com/TheSisb)! - [Skeleton-Loader]: Small animation tweak so that the highlight fully moves through the skeleton loader correctly at the end state.
+
+* [`ff7454a0`](https://github.com/twilio-labs/paste/commit/ff7454a0d7355654c42dbe39e2eca29c6ea6d8cb) [#2348](https://github.com/twilio-labs/paste/pull/2348) Thanks [@TheSisb](https://github.com/TheSisb)! - [reakit-library] update Reakit dependency to fix typings in TS 4.4.x
+
+* Updated dependencies [[`b6ccaa266`](https://github.com/twilio-labs/paste/commit/b6ccaa266c8abc81820b77127da5abb0cf5308d4), [`f76b99d45`](https://github.com/twilio-labs/paste/commit/f76b99d455d587e7865515338f65d1a8d25c01ac), [`f5ce8b0c6`](https://github.com/twilio-labs/paste/commit/f5ce8b0c63154caa26a0e5174a040aa4dcc4154a), [`91d20b99`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120), [`91d20b99f`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120), [`ff7454a0`](https://github.com/twilio-labs/paste/commit/ff7454a0d7355654c42dbe39e2eca29c6ea6d8cb)]:
+  - @twilio-paste/alert@8.0.4
+  - @twilio-paste/modal@9.0.1
+  - @twilio-paste/popover@7.0.4
+  - @twilio-paste/toast@6.0.3
+  - @twilio-paste/chat-log@0.2.0
+  - @twilio-paste/combobox@9.1.0
+  - @twilio-paste/customization@3.0.3
+  - @twilio-paste/theme@6.0.4
+  - @twilio-paste/skeleton-loader@1.0.3
+  - @twilio-paste/reakit-library@0.8.5
+
 ## 11.4.0
 
 ### Minor Changes

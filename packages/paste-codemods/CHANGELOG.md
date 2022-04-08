@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.8
+
+### Patch Changes
+
+- [`f76b99d45`](https://github.com/twilio-labs/paste/commit/f76b99d455d587e7865515338f65d1a8d25c01ac) [#2334](https://github.com/twilio-labs/paste/pull/2334) Thanks [@shleewhite](https://github.com/shleewhite)! - [Codemods] add ChatMessageMeta to component map
+
 ## 0.2.7
 
 ### Patch Changes
