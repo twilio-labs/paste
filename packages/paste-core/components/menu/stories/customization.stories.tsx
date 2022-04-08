@@ -100,6 +100,7 @@ export default {
   excludeStories: ['initStyles', 'BaseMenu'],
 };
 
+// eslint-disable-next-line react/display-name
 export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: string}> = React.memo(
   ({menuButtonVariant = 'primary', element}) => {
     const menu = useMenuState({

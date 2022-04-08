@@ -11,6 +11,7 @@ import {
   MenuPrimitiveSeparator,
 } from '../src';
 
+// eslint-disable-next-line react/display-name
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
   const menu = useMenuPrimitiveState({baseId: 'sub-menu'});
   return (

@@ -8,6 +8,7 @@ import type {MenuButtonProps} from '../src';
 
 const handleClickMock: jest.Mock = jest.fn();
 
+// eslint-disable-next-line react/display-name
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
   const menu = useMenuState({baseId: 'sub-menu'});
 
