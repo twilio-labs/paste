@@ -1,11 +1,29 @@
 import * as React from 'react';
 
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {SkeletonLoader} from '../src';
 import {Default} from '../stories/index.stories';
+
+jest.mock('@twilio-paste/animation-library', () => {
+  const {animated, useSpring, ...rest} = jest.requireActual('@twilio-paste/animation-library');
+  return {
+    ...rest,
+    useSpring: (config) => {
+      // set delay to 0 and do not loop the animation --> prevent effects from holding up test.
+      return useSpring({
+        ...config,
+        loop: {
+          delay: 0,
+          reset: false,
+        },
+      });
+    },
+    animated,
+  };
+});
 
 describe('SkeletonLoader', () => {
   it('should render', () => {
@@ -118,8 +136,10 @@ describe('SkeletonLoader', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<SkeletonLoader />);
+
       const results = await axe(container);
-      expect(results).toHaveNoViolations();
+
+      await waitFor(async () => expect(await results).toHaveNoViolations());
     });
   });
 });
