@@ -9,6 +9,7 @@ export * from '@twilio-paste/box';
 export * from '@twilio-paste/breadcrumb';
 export * from '@twilio-paste/button';
 export * from '@twilio-paste/card';
+export * from '@twilio-paste/chat-log';
 export * from '@twilio-paste/checkbox';
 export * from '@twilio-paste/combobox';
 export * from '@twilio-paste/combobox-primitive';

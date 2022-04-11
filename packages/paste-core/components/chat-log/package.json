@@ -1,0 +1,47 @@
+{
+  "name": "@twilio-paste/chat-log",
+  "version": "0.2.0",
+  "category": "data display",
+  "status": "alpha",
+  "description": "Chat log is a collection of components that allow users to read a series of messages over time.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "peerDependencies": {
+    "@twilio-paste/box": "^5.0.2",
+    "@twilio-paste/customization": "^3.0.2",
+    "@twilio-paste/design-tokens": "^7.2.0",
+    "@twilio-paste/style-props": "^4.0.2",
+    "@twilio-paste/theme": "^6.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/box": "^5.0.2",
+    "@twilio-paste/customization": "^3.0.3",
+    "@twilio-paste/design-tokens": "^7.2.0",
+    "@twilio-paste/style-props": "^4.0.2",
+    "@twilio-paste/theme": "^6.0.4",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

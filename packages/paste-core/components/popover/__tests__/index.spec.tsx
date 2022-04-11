@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
-
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
@@ -23,9 +23,11 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      renderedPopoverButton.click();
-      await waitFor(() => expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true'));
-      await waitFor(() => expect(renderedPopover).toBeVisible());
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
+      expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(renderedPopover).toBeVisible();
     });
 
     it('should render a popover', () => {
@@ -38,7 +40,7 @@ describe('Popover', () => {
       expect(renderedPopover.getAttribute('role')).toEqual('dialog');
     });
 
-    it('should render a popover and show/hide on external button click', () => {
+    it('should render a popover and show/hide on external button click', async () => {
       render(
         <Theme.Provider theme="default">
           <StateHookExample />
@@ -55,14 +57,19 @@ describe('Popover', () => {
       }
       expect(popover.getAttribute('hidden')).toBeDefined();
 
-      ButtonOne.click();
+      await waitFor(() => {
+        userEvent.click(ButtonOne);
+      });
+
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
       }
       expect(popover).toBeVisible();
 
-      ButtonTwo.click();
+      await waitFor(() => {
+        userEvent.click(ButtonTwo);
+      });
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
@@ -79,9 +86,7 @@ describe('Popover', () => {
         </Theme.Provider>
       );
       const popoverButton = screen.getByRole('button', {name: 'Open popover'});
-      expect(popoverButton).toHaveAttribute('data-paste-element', 'BUTTON');
-
-      expect(popoverButton.querySelector('[data-paste-element="POPOVER_BADGE"]')).toBeInTheDocument();
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BADGE');
     });
 
     it('should render a popover badge button with aria attributes', async () => {
@@ -96,9 +101,11 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      renderedPopoverButton.click();
-      await waitFor(() => expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true'));
-      await waitFor(() => expect(renderedPopover).toBeVisible());
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
+      expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(renderedPopover).toBeVisible();
     });
   });
 
@@ -217,6 +224,48 @@ describe('Popover', () => {
       );
 
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
+    });
+  });
+
+  describe('i18n', () => {
+    it('should have default dismiss button text', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverContainer baseId="test-id">
+            <PopoverButton variant="primary">Open popover</PopoverButton>
+            <Popover aria-label="Popover">Foo</Popover>
+          </PopoverContainer>
+        </Theme.Provider>
+      );
+
+      const popoverButton = screen.getByRole('button');
+      await waitFor(() => {
+        userEvent.click(popoverButton);
+      });
+
+      const dismissButton = screen.getByRole('button', {name: 'Close popover'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nKeyboardControls for dismiss button text', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverContainer baseId="test-id">
+            <PopoverButton variant="primary">Abrir popover</PopoverButton>
+            <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
+              Foo
+            </Popover>
+          </PopoverContainer>
+        </Theme.Provider>
+      );
+
+      const popoverButton = screen.getByRole('button');
+      await waitFor(() => {
+        userEvent.click(popoverButton);
+      });
+
+      const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
+      expect(dismissButton).toBeDefined();
     });
   });
 });

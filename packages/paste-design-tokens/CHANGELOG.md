@@ -1,5 +1,171 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+- [`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tokens] add i18n font family tokens
+
+* [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Design Tokens] added new background color, box shadow, text color, border color, border radius tokens to support badge styling
+
+## 7.1.1
+
+### Patch Changes
+
+- [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e) [#2269](https://github.com/twilio-labs/paste/pull/2269) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a regression with the compilation script that caused incompatible ESM module importing of JSON files.
+
+## 7.1.0
+
+### Minor Changes
+
+- [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [design-tokens] Update alias and add new tokens to be accessible in Dark theme
+
+  - Aliases
+    - Added a new alias `palette-gray-110`
+  - Global: background-color
+    - Updated `color-background-inverse` to gray-90
+    - Updated `color-background-inverse-strong` to gray-80
+  - Global: border color
+    - Added `color-border-inverse-weakest` token pointing to gray-90
+    - Updated `color-border-inverse-weaker` to gray-80
+    - Updated `color-border-inverse` to gray-50
+    - Updated `color-border-inverse-strong` to gray-20
+    - Updated `color-border-inverse-stronger` to gray-10
+    - Neutral
+      - Updated `color-border-neutral-weak` to blue-40
+    - Added `color-border-error-stronger` token pointing to red-90
+  - Global: box shadow
+    - Added `shadow-border-error-stronger` pointing to red-90
+    - Added `shadow-border-inverse-weakest` pointing to gray-90
+    - Updated `shadow-border-inverse-weaker` to gray-80
+    - Updated `shadow-border-inverse` to gray-50
+      - Updated `shadow-border-inverse-strong` to gray-20
+      - Updated `shadow-border-inverse-stronger` to gray-10
+  - Dark theme: background color
+    - Updated `color-background` to gray-100
+    - Updated `color-background-strong` to gray-90
+    - Updated `color-background-stronger` to gray-80
+    - Updated `color-background-inverse` to gray-90
+    - Updated `color-background-inverse-strong` to gray-80
+    - Updated `color-background-body` to new alias gray-110
+    - Updated `color-background-overlay` to palette-gray-100-transparent-90
+    - Updated `color-background-row-striped` to gray-100
+    - Updated `color-background-subaccount` to gray-90
+    - Updated `color-background-trial` to green-100
+    - Brand
+      - Updated `color-background-brand` to gray-100
+      - Updated `color-background-brand-strong` to gray-90
+    - Primary
+      - Updated `color-background-primary-strongest` to blue-10
+      - Updated `color-background-primary-stronger` to blue-20
+      - Updated `color-background-primary-strong` to blue-30
+      - Updated `color-background-primary` to blue-60
+      - Updated `color-background-primary-weak` to gray-80
+      - Updated `color-background-primary-weaker` to gray-90
+      - Updated `color-background-primary-weakest` to gray-100
+    - Destructive
+      - Updated `color-background-destructive-strongest` to red-10
+      - Updated `color-background-destructive-stronger` to red-20
+      - Updated `color-background-destructive-strong` to red-30
+      - Updated `color-background-destructive` to red-60
+      - Updated `color-background-destructive-weak` to gray-80
+      - Updated `color-background-destructive-weaker` to gray-90
+      - Updated `color-background-destructive-weakest` to gray-100
+    - Success
+      - Updated `color-background-success` to green-60
+    - Warning
+      - Updated `color-background-warning` to orange-60
+    - Error
+      - Added `color-background-error-stronger` pointing to red-20
+      - Updated `color-background-error-strong` to red-40
+      - Updated `color-background-error` to red-60
+  - Dark theme: border color
+    - Updated `color-border-weak` to gray-80
+    - Updated `color-border-weaker` to gray-90
+    - Inverse
+      - Removed `color-border-inverse-weaker`
+      - Removed `color-border-inverse`
+      - Removed `color-border-inverse-strong`
+      - Removed `color-border-inverse-stronger`
+      - Removed `color-border-inverse-strongest`
+    - Primary
+      - Updated `color-border-primary-strongest` to blue-10
+      - Updated `color-border-primary-stronger` to blue-20
+      - Updated `color-border-primary-strong` to blue-30
+      - Updated `color-border-primary` to blue-60
+      - Updated `color-border-primary-weak` to gray-80
+      - Updated `color-border-primary-weaker` to gray-90
+      - Updated `color-border-primary-weakest` to gray-100
+    - Destructive
+      - Updated `color-border-destructive-strongest` to red-10
+      - Updated `color-border-destructive-stronger` to red-20
+      - Updated `color-border-destructive-strong` to red-30
+      - Updated `color-border-destructive` to red-60
+      - Updated `color-border-destructive-weak` to gray-80
+      - Updated `color-border-destructive-weaker` to gray-90
+      - Updated `color-border-destructive-weakest` to gray-100
+    - Success
+      - Updated `color-border-success` to green-60
+      - Updated `color-border-success-weak` to green-70
+    - Warning
+      - Updated `color-border-warning` to orange-60
+      - Updated `color-border-warning-weak` to orange-70
+    - Error
+      - Added `color-border-error-stronger` pointing to red-20
+      - Updated `color-border-error-strong` to red-30
+      - Updated `color-border-error` to red-60
+      - Updated `color-border-error-weak` to red-70
+    - Neutral
+      - Updated `color-border-neutral` to blue-60
+      - Updated `color-border-neutral-weak` to blue-70
+  - Dark theme: box shadow
+    - Elevation
+      - Update `shadow-elevation-10` to `black-transparent-40`
+      - Update `shadow-elevation-20` to `black-transparent-50`
+      - Update `shadow-elevation-30` to `black-transparent-50`
+    - Focus
+      - Updated `shadow-focus` to gray-60
+      - Updated `shadow-focus-inverse` to gray-50
+      - Updated `shadow-focus-inset` to gray-60
+    - Primary
+      - Updated `shadow-border-primary` to blue-60
+    - Destructive
+      - Updated `shadow-border-destructive` to red-60
+      - Updated `shadow-border-destructive-strong` to red-30
+      - Updated `shadow-border-destructive-stronger` to red-20
+      - Updated `shadow-border-destructive-strongest` to red-10
+    - Error
+      - Updated `shadow-border-error` to red-60
+      - Updated `shadow-border-error-strong` to red-30
+    - Inverse
+      - Removed `shadow-border-inverse-weaker`
+      - Removed `shadow-border-inverse`
+      - Removed `shadow-border-inverse-strong`
+      - Removed `shadow-border-inverse-stronger`
+      - Removed `shadow-border-inverse-strongest`
+  - Dark theme: text color
+    - Updated `color-text-weak` to gray-50
+    - Updated `color-text-weaker` to gray-80
+    - Updated `color-text-weakest` to new alias gray-110
+    - Updated `color-text-inverse-weaker` to gray-70
+    - Link
+      - Updated `color-text-link-weak` to gray-80
+      - Updated `color-text-link-stronger` to gray-0
+      - Updated color-text-link-destructive-weak to gray-80
+      - Updated `color-text-link-destructive-stronger` to gray-0
+    - Success
+      - Updated `color-text-success` to green-30
+    - Neutral
+      - Updated `color-text-neutral` to blue-20
+    - New
+      - Updated `color-text-new` to purple-20
+    - Icon
+      - Updated `color-text-icon` to gray-50
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
 ## 7.0.0
 
 ### Major Changes

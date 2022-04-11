@@ -1,20 +1,15 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {DocSearch} from '@docsearch/react';
+import '@docsearch/css';
 import {HamburgerToggle} from './HamburgerToggle';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
-import {MobileSearch} from './SiteHeaderMobileSearch';
+import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME} from '../../../constants';
 
-interface SiteHeaderMobileProps {
-  searchValue: string;
-  onSearchChange: (newSearchValue: string) => void;
-}
-
-const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = ({searchValue, onSearchChange}) => {
+const SiteHeaderMobile: React.FC = () => {
   const [navigationOpen, setNavigationOpen] = React.useState(false);
-  const [searchOpen, setSearchOpen] = React.useState(false);
 
   return (
     <Box
@@ -28,16 +23,11 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = ({searchValue, onSearc
       zIndex="zIndex80"
     >
       <Box margin="space60">
-        <Button variant="inverse" size="icon_small" onClick={() => setSearchOpen(!searchOpen)}>
-          <Box paddingX="space20">
-            <SearchIcon size="sizeIcon50" decorative={false} title="Search all documentation" />
-          </Box>
-        </Button>
-        <MobileSearch
-          isOpen={searchOpen}
-          onClose={() => setSearchOpen(false)}
-          value={searchValue}
-          onChange={onSearchChange}
+        <DocSearch
+          placeholder={`Try "button" or "token"`}
+          appId={DOCSEARCHV3_APPID}
+          indexName={DOCSEARCHV3_INDEXNAME || ''}
+          apiKey={DOCSEARCHV3_APIKEY || ''}
         />
       </Box>
       <SiteHeaderLogo title="Paste" />
@@ -48,11 +38,7 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = ({searchValue, onSearc
           size="icon_small"
           onClick={() => setNavigationOpen(!navigationOpen)}
         >
-          <HamburgerToggle
-            aria-hidden
-            toggled={navigationOpen}
-            color={navigationOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
-          />
+          <HamburgerToggle toggled={navigationOpen} color="colorTextInverse" />
         </Button>
         <MobileNavigation isOpen={navigationOpen} onClose={() => setNavigationOpen(false)} />
       </Box>

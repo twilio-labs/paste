@@ -50,4 +50,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   type?: ButtonTypes;
   loading?: boolean;
   children: React.ReactNode;
+  i18nExternalLinkLabel?: string;
 }

@@ -19,12 +19,17 @@ export const getStyles = (element = 'BADGE'): {[key: string]: PasteCustomCSS} =>
     [element]: {
       cursor: 'help',
       variants: {
-        default: {paddingY: 'space30'},
-        info: {paddingY: 'space40'},
+        neutral: {paddingY: 'space30'},
         warning: {paddingY: 'space50'},
         error: {paddingY: 'space60'},
         success: {paddingY: 'space70'},
         new: {paddingY: 'space80'},
+        decorative10: {paddingY: 'space40'},
+        decorative20: {paddingY: 'space50'},
+        decorative30: {paddingY: 'space60'},
+        decorative40: {paddingY: 'space70'},
+        default: {paddingY: 'space30'},
+        info: {paddingY: 'space40'},
       },
     },
   };
@@ -61,12 +66,19 @@ const CustomizationWrapper: React.FC<{variant: BadgeVariants}> = ({variant}): Re
   );
 };
 
-export const Default = (): React.ReactElement => <CustomizationWrapper variant="default" />;
-export const Info = (): React.ReactElement => <CustomizationWrapper variant="info" />;
+export const Neutral = (): React.ReactElement => <CustomizationWrapper variant="neutral" />;
 export const Warning = (): React.ReactElement => <CustomizationWrapper variant="warning" />;
 export const Error = (): React.ReactElement => <CustomizationWrapper variant="error" />;
 export const Success = (): React.ReactElement => <CustomizationWrapper variant="success" />;
 export const New = (): React.ReactElement => <CustomizationWrapper variant="new" />;
+export const Decorative10 = (): React.ReactElement => <CustomizationWrapper variant="decorative10" />;
+export const Decorative20 = (): React.ReactElement => <CustomizationWrapper variant="decorative20" />;
+export const Decorativ30 = (): React.ReactElement => <CustomizationWrapper variant="decorative30" />;
+export const Decorativ40 = (): React.ReactElement => <CustomizationWrapper variant="decorative40" />;
+export const NeutralCounter = (): React.ReactElement => <CustomizationWrapper variant="neutral_counter" />;
+export const ErrorCounter = (): React.ReactElement => <CustomizationWrapper variant="error_counter" />;
+export const Default = (): React.ReactElement => <CustomizationWrapper variant="default" />;
+export const Info = (): React.ReactElement => <CustomizationWrapper variant="info" />;
 
 // eslint-disable-next-line import/no-default-export
 export default {

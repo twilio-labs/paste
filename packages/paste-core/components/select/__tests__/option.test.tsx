@@ -25,7 +25,6 @@ describe('Option', () => {
     const additionalAttributes = {
       disabled: true,
       label: 'option-1-label',
-      selected: true,
       'data-attr': 'test-attribute',
       title: 'test-title',
       spellCheck: true,
@@ -51,6 +50,12 @@ describe('Option', () => {
   });
 
   it('should filter blocklist props', () => {
+    // hide console errors from terminal when throwing expected errors
+    const errorSpy = jest.spyOn(console, 'error');
+    errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
+
     const blockListedPropsMap = {
       style: {},
       className: 'blocklisted',
@@ -73,6 +78,9 @@ describe('Option', () => {
     expect(attributeMap.hasOwnProperty('size')).toBe(false);
     expect(attributeMap.hasOwnProperty('selected')).toBe(false);
     expect(attributeMap.class).not.toBe('blocklisted');
+
+    errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should have no accessibility violations', async () => {

@@ -1,84 +1,13 @@
 import {css, system} from '@twilio-paste/styling-library';
-import type {CSSObject} from '@twilio-paste/styling-library';
+import type {CSSObject, Config} from '@twilio-paste/styling-library';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledBoxProps} from './types';
+import {customStyleProps} from './CustomStyleProps';
 
 const merge = require('deepmerge');
 
-export const PasteStyleProps = system({
-  color: {
-    property: 'color',
-    scale: 'textColors',
-  },
-  backgroundColor: {
-    property: 'backgroundColor',
-    scale: 'backgroundColors',
-  },
-  borderColor: {
-    property: 'borderColor',
-    scale: 'borderColors',
-  },
-  borderBottomColor: {
-    property: 'borderBottomColor',
-    scale: 'borderColors',
-  },
-  borderLeftColor: {
-    property: 'borderLeftColor',
-    scale: 'borderColors',
-  },
-  borderRightColor: {
-    property: 'borderRightColor',
-    scale: 'borderColors',
-  },
-  borderTopColor: {
-    property: 'borderTopColor',
-    scale: 'borderColors',
-  },
-  content: true,
-  cursor: true,
-  appearance: true,
-  transition: true,
-  transform: true,
-  animation: true,
-  transformOrigin: true,
-  visibility: true,
-  userSelect: true,
-  pointerEvents: true,
-  boxSizing: true,
-  resize: true,
-  listStyleType: true,
-  listStylePosition: true,
-  listStyleImage: true,
-  objectFit: true,
-  objectPosition: true,
-  outline: true,
-  float: true,
-  willChange: true,
-  clip: true,
-  backgroundAttachment: true,
-  textAlign: true,
-  textTransform: true,
-  textDecoration: true,
-  textOverflow: true,
-  whiteSpace: true,
-  wordBreak: true,
-  wordWrap: true,
-  overflowWrap: true,
-  opacity: true,
-  borderCollapse: true,
-  borderSpacing: true,
-  tableLayout: true,
-  fontVariantNumeric: true,
-  columnGap: {
-    property: 'columnGap',
-    scale: 'space',
-  },
-  rowGap: {
-    property: 'rowGap',
-    scale: 'space',
-  },
-});
+export const PasteStyleProps = system(customStyleProps as Config);
 
 /**
  * Take _ prefixed style props and convert them to custom style props for CSS pseudo selectors

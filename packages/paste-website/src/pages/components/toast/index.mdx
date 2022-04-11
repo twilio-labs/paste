@@ -24,7 +24,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {InlineCode} from '../../../components/Typography';
-import {ToasterExample} from '../../../component-examples/ToastExamples';
+import {ToasterExample, i18nExample} from '../../../component-examples/ToastExamples';
 import Changelog from '@twilio-paste/toast/CHANGELOG.md';
 
 export const pageQuery = graphql`
@@ -332,6 +332,24 @@ Be cautious when using an error alert because they can be stressful for a user t
 </Toast>`}
 </LivePreview>
 
+### Internationalization
+
+To internationalize a toast, simply pass different text as children to the toast.
+The only exceptions to this are the labels for both the dismiss button and the variant icons.
+To change the dismiss button&apos;s label text, use the `i18nDismissLabel` prop.
+To change the label of a variant's icon, use the matching i18n prop for the variant.
+For a `success` variant, for example, set the `i18nSuccessLabel` prop.
+
+<LivePreview
+  scope={{
+    Toast,
+    Text,
+  }}
+  noInline
+>
+  {i18nExample}
+</LivePreview>
+
 ## Composition Notes
 
 Keep toast text brief and scannable by placing only the highest priority information in it. Too much text in a toast can overwhelm a user. Aim for no more than 140 characters in a toast, and keep the text directly related to the user's current action. Success toasts generally run about 50 characters long, while all other alerts might run about 100 characters long. However, don't [sacrifice being direct and straightforward](/foundations/content/product-style-guide#be-direct-and-straightforward) for a shorter message.
@@ -457,11 +475,16 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### Toast Props
 
-| Prop       | Type         | Description                                                 | Default |
-| ---------- | ------------ | ----------------------------------------------------------- | ------- |
-| children   | `ReactNode`  |                                                             | null    |
-| onDismiss? | `() => void` | Create dismissable toast by providing an onDismiss callback | null    |
-| variant    | `string`     | `error` / `neutral` / `sucess` / `warning`                  | null    |
+| Prop             | Type         | Description                                                 | Default         |
+| ---------------- | ------------ | ----------------------------------------------------------- | --------------- |
+| children         | `ReactNode`  |                                                             | null            |
+| onDismiss?       | `() => void` | Create dismissable toast by providing an onDismiss callback | null            |
+| variant          | `string`     | `error` / `neutral` / `sucess` / `warning`                  | null            |
+| i18nDismissLabel | `string`     | Label for the dismiss button in a dismissable toast         | 'Dismiss toast' |
+| i18nErrorLabel   | `string`     | Icon label text for the `error` variant                     | '(error)'       |
+| i18nNeutralLabel | `string`     | Icon label text for the `neutral` variant                   | '(information)' |
+| i18nSuccessLabel | `string`     | Icon label text for the `success` variant                   | '(success)'     |
+| i18nWarningLabel | `string`     | Icon label text for the `warning` variant                   | '(warning)'     |
 
 #### useToaster return state
 

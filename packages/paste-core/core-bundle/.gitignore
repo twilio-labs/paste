@@ -12,6 +12,7 @@
 /breadcrumb
 /button
 /card
+/chat-log
 /checkbox
 /clipboard-copy-library
 /color-contrast-utils
@@ -19,6 +20,7 @@
 /combobox-primitive
 /customization
 /data-grid
+/data-visualization-library
 /date-picker
 /design-tokens
 /disclosure

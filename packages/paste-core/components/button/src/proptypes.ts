@@ -49,4 +49,5 @@ export const ButtonPropTypes = {
     'secondary_icon',
     'destructive_icon',
   ]).isRequired as any,
+  i18nExternalLinkLabel: PropTypes.string,
 };

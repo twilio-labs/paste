@@ -2,6 +2,8 @@ const {runCmd} = require('../runCmd');
 
 describe('runCmd', () => {
   it('receives output from completed processes', async () => {
+    const spy = jest.spyOn(console, 'log');
+    spy.mockImplementation(() => {});
     const result = await runCmd('echo', ['hi']);
     expect(typeof result.pid).toBe('number');
     expect(result.stdout).toBe('hi\n');
@@ -12,9 +14,12 @@ describe('runCmd', () => {
 
     expect(result.status).toBe(0);
     expect(result.signal).toBe(null);
+    spy.mockRestore();
   });
 
   it(`throws errors when processes return non-zero exit codes`, async () => {
+    const spy = jest.spyOn(console, 'log');
+    spy.mockImplementation(() => {});
     let didThrow = false;
     try {
       await runCmd('false');
@@ -25,9 +30,12 @@ describe('runCmd', () => {
       expect(error.signal).toBe(null);
     }
     expect(didThrow).toBe(true);
+    spy.mockRestore();
   });
 
   it(`throws errors when processes don't exist`, async () => {
+    const spy = jest.spyOn(console, 'log');
+    spy.mockImplementation(() => {});
     let didThrow = false;
     try {
       await runCmd('fake-app');
@@ -39,5 +47,6 @@ describe('runCmd', () => {
       expect(error.signal).toBe(null);
     }
     expect(didThrow).toBe(true);
+    spy.mockRestore();
   });
 });

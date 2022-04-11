@@ -130,6 +130,16 @@ You can show the link external icon by setting the `showExternal` prop.
 </Anchor>`}
 </LivePreview>
 
+### Internationalization
+
+To internationalize an Anchor, simply pass an `i18nExternalLinkLabel` prop to the Anchor, with the value wrapped in parentheses. The value should be a translation of the phrase "link takes you to an external page", to indicate that the `showExternal` link will open the link in a new URL.
+
+<LivePreview scope={{Anchor}} language="jsx">
+  {`<Anchor href="https://www.nlg-npap.org/donate/" showExternal i18nExternalLinkLabel="(este enlace redirige a una página externa)">
+Soy enlace externo
+</Anchor>`}
+</LivePreview>
+
 ## When to Use an Anchor
 
 You can use an anchor to navigate the user to another webpage.
@@ -188,17 +198,18 @@ const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</
 
 #### Props
 
-| Prop          | Type                                     | Description                                                                                             | Default   |
-| ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
-| href?         | string                                   | A URL to route to. Required.                                                                            | null      |
-| rel?          | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false     |
-| showExternal? | boolean                                  | Shows the link external icon.                                                                           | false     |
-| tabindex?     | AnchorTabIndexes                         | '0', '-1'                                                                                               | null      |
-| target?       | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null      |
-| variant?      | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default' |
-| onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null      |
-| onFocus?      | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
-| onBlur?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
+| Prop                  | Type                                     | Description                                                                                             | Default                                |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| href?                 | string                                   | A URL to route to. Required.                                                                            | null                                   |
+| rel?                  | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false                                  |
+| showExternal?         | boolean                                  | Shows the link external icon.                                                                           | false                                  |
+| tabindex?             | AnchorTabIndexes                         | '0', '-1'                                                                                               | null                                   |
+| target?               | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null                                   |
+| variant?              | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default'                              |
+| onClick?              | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null                                   |
+| onFocus?              | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
+| onBlur?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
+| i18nExternalLinkLabel | string                                   | Title for `showExternal` icon                                                                           | '(link takes you to an external page)' |
 
 <ChangelogRevealer>
   <Changelog />

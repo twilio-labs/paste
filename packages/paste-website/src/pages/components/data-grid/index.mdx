@@ -99,7 +99,7 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-## About Data Grid
+### About Data Grid
 
 The Data Grid is an enhanced [Table](/components/table) component. It can be used to improve the way
 users scan and interact with tabular data. It can be used alongside other components in Paste to provide
@@ -211,6 +211,10 @@ in the cells to create a more pleasant loading experience.
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
+### Layouts
+
+The Data Grid inherits from the [Table component](/components/table/), so you can take advantage of all the same layout techniques found in the [Table examples](/components/table#layouts) to control how your Data Grids render on the page.
+
 ### Kitchen sink
 
 This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
@@ -219,6 +223,21 @@ This example combines all the separate features displayed previously into one ex
   src="https://codesandbox.io/embed/kitchen-sink-datagrid-7w6pj?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
   title="Kitchen Sink data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Internationalization
+
+To internationalize an data grid, simply pass different text as children to the data grid sub-components.
+The only exceptions to this are the labels for the `DataGridHeaderSortIcon` component.
+To change the label of a sorting icons, use the matching i18n prop for the direction.
+For an `ascending` variant, for example, set the `i18nAscendingLabel` prop.
+
+<iframe
+  src="https://codesandbox.io/embed/internationalization-data-grid-s3uuul?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Internationalization Data Grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
@@ -332,12 +351,16 @@ const Component = () => (
 
 #### DataGrid Props
 
-| Prop       | Type        | Description                                             | Default     |
-| ---------- | ----------- | ------------------------------------------------------- | ----------- |
-| aria-label | `string`    | Defines a string value that labels the current element. | null        |
-| striped?   | `boolean`   | Toggles row zebra striping                              | false       |
-| element?   | `string`    | Override for customization element name                 | `DATA_GRID` |
-| children?  | `ReactNode` |                                                         | null        |
+| Prop                | Type                    | Description                                                     | Default     |
+| ------------------- | ----------------------- | --------------------------------------------------------------- | ----------- |
+| aria-label          | `string`                | Defines a string value that labels the current element.         | null        |
+| striped?            | `boolean`               | Toggles row zebra striping                                      | false       |
+| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.         | false       |
+| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                          | false       |
+| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`. | false       |
+| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.    | false       |
+| element?            | `string`                | Override for customization element name                         | `DATA_GRID` |
+| children?           | `ReactNode`             |                                                                 | null        |
 
 #### DataGridHead Props
 
@@ -371,11 +394,14 @@ const Component = () => (
 
 #### DataGridHeaderSort Props
 
-| Prop      | Type                              | Description                                                       | Default                 |
-| --------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
-| direction | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
-| onClick?  | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
-| element?  | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
+| Prop                 | Type                              | Description                                                       | Default                 |
+| -------------------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
+| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
+| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
+| element?             | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
+| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"            | `'Sort ascending'`      |
+| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"           | `'Sort descending'`     |
+| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                 | `'Unsorted'`            |
 
 #### DataGridRow Props
 

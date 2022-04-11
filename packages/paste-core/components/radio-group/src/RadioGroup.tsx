@@ -8,10 +8,24 @@ export interface RadioGroupProps extends InlineControlGroupProps {
   name: string;
   onChange: (value: string) => void;
   value?: string;
+  i18nRequiredLabel?: string;
 }
 
 const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
-  ({name, element = 'RADIO_GROUP', value, onChange, disabled = false, errorText, children, ...props}, ref) => {
+  (
+    {
+      name,
+      element = 'RADIO_GROUP',
+      value,
+      onChange,
+      disabled = false,
+      errorText,
+      children,
+      i18nRequiredLabel = '(required)',
+      ...props
+    },
+    ref
+  ) => {
     const onChangeHandler = React.useMemo(() => {
       return (event: React.ChangeEvent<HTMLInputElement>): void => {
         if (onChange != null) {
@@ -39,6 +53,7 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
           errorText={errorText}
           name={name}
           ref={ref}
+          i18nRequiredLabel={i18nRequiredLabel}
         >
           {children}
         </InlineControlGroup>
@@ -49,13 +64,12 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
 
 RadioGroup.displayName = 'RadioGroup';
 
-if (process.env.NODE_ENV === 'development') {
-  RadioGroup.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string,
-    element: PropTypes.string,
-  };
-}
+RadioGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  element: PropTypes.string,
+  i18nRequiredLabel: PropTypes.string,
+};
 
 export {RadioGroup};

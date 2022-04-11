@@ -13,107 +13,124 @@ props:
     value: "{!palette-gray-60}"
     comment: Default border color
   color-border-weak:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-80}"
     comment: Weak border color
   color-border-weaker:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-90}"
     comment: Weaker border color
-  color-border-inverse-weaker:
-    value: "{!palette-gray-0-transparent-20}"
-    comment: Weaker border on inverse backgrounds. Must be used on color-background-body-inverse.
-  color-border-inverse:
-    value: "{!palette-gray-0-transparent-50}"
-    comment: Border on inverse backgrounds. Must be used on color-background-body-inverse.
-  color-border-inverse-strong:
-    value: "{!palette-gray-0-transparent-70}"
-    comment: Strong border on inverse backgrounds. Must be used on color-background-body-inverse.
-  color-border-inverse-stronger:
-    value: "{!palette-gray-0-transparent-90}"
-    comment: Stronger border on inverse backgrounds. Must be used on color-background-body-inverse.
-  color-border-inverse-strongest:
-    value: "{!palette-gray-0}"
-    comment: Strongest border on inverse backgrounds. Must be used on color-background-body-inverse.
 
   # primary action borders
   color-border-primary-strongest:
-    value: "{!palette-gray-0}"
+    value: "{!palette-blue-10}"
     comment: Strongest primary border color
   color-border-primary-stronger:
-    value: "{!palette-blue-10}"
+    value: "{!palette-blue-20}"
     comment: Stronger primary border color
   color-border-primary-strong:
-    value: "{!palette-blue-20}"
+    value: "{!palette-blue-30}"
     comment: Strong primary border color
   color-border-primary:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-60}"
     comment: Primary border color
   color-border-primary-weak:
-    value: "{!palette-gray-0-transparent-30}"
+    value: "{!palette-gray-80}"
     comment: Weak primary border color
   color-border-primary-weaker:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-90}"
     comment: Weaker primary border color
   color-border-primary-weakest:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-100}"
     comment: Weakest primary border color
 
   # status borders
-  color-border-neutral-weak:
-    value: "{!palette-blue-60}"
-    comment: Weak neutral border color
   color-border-neutral:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-60}"
     comment: Neutral border color
+  color-border-neutral-weak:
+    value: "{!palette-blue-70}"
+    comment: Weak neutral border color
+  color-border-neutral-weaker:
+    value: "{!palette-blue-80}"
+    comment: Weaker neutral border color
   color-border-success:
-    value: "{!palette-green-40}"
+    value: "{!palette-green-60}"
     comment: Success border color
   color-border-success-weak:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-70}"
     comment: Weak success border color
-  color-border-success-weakest:
+  color-border-success-weaker:
     value: "{!palette-green-90}"
+    comment: Weaker success border color
+  color-border-success-weakest:
+    value: "{!palette-green-100}"
     comment: Weakest success border color
   color-border-warning:
-    value: "{!palette-orange-40}"
+    value: "{!palette-orange-60}"
     comment: Warning border color
   color-border-warning-weak:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-70}"
     comment: Weak warning border color
-  color-border-warning-weakest:
+  color-border-warning-weaker:
     value: "{!palette-orange-90}"
+    comment: Weaker warning border color
+  color-border-warning-weakest:
+    value: "{!palette-orange-100}"
     comment: Weakest warning border color
-  color-border-error-strong:
+  color-border-error-stronger:
     value: "{!palette-red-20}"
+    comment: Stronger error border color
+  color-border-error-strong:
+    value: "{!palette-red-30}"
     comment: Strong error border color
   color-border-error:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-60}"
     comment: Error border color
   color-border-error-weak:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-70}"
     comment: Weak error border color
+  color-border-error-weaker:
+    value: "{!palette-red-80}"
+    comment: Weaker error border color
   color-border-error-weakest:
-    value: "{!palette-red-90}"
+    value: "{!palette-red-100}"
     comment: Weakest error border color
+  color-border-new-weaker:
+    value: "{!palette-purple-70}"
+    comment: Weaker border color for something designated as new
 
   # destructive borders
   color-border-destructive-strongest:
-    value: "{!palette-gray-0}"
+    value: "{!palette-red-10}"
     comment: Strongest destructive hover border color
   color-border-destructive-stronger:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-20}"
     comment: Stronger destructive hover border color
   color-border-destructive-strong:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-30}"
     comment: Destructive focus border color
   color-border-destructive:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-60}"
     comment: Destructive border color
   color-border-destructive-weak:
-    value: "{!palette-gray-0-transparent-30}"
+    value: "{!palette-gray-80}"
     comment: Destructive focus border color
   color-border-destructive-weaker:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-90}"
     comment: Destructive focus border color
   color-border-destructive-weakest:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-100}"
     comment: Destructive focus border color
+
+  # decorative
+  color-border-decorative-10-weaker:
+    value: "{!palette-gray-90}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-20-weaker:
+    value: "{!palette-blue-80}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-30-weaker:
+    value: "{!palette-green-90}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-40-weaker:
+    value: "{!palette-purple-70}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.

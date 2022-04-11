@@ -18,6 +18,7 @@ interface LivePreviewProps {
   language?: Language;
   disabled?: boolean;
   noInline?: boolean;
+  showOverflow?: boolean;
 }
 
 const LivePreview: React.FC<LivePreviewProps> = ({
@@ -25,6 +26,7 @@ const LivePreview: React.FC<LivePreviewProps> = ({
   language = 'jsx',
   disabled = false,
   noInline = false,
+  showOverflow = false,
   scope,
 }) => {
   const [viewCode, setViewCode] = React.useState(false);
@@ -38,6 +40,8 @@ const LivePreview: React.FC<LivePreviewProps> = ({
   const handleToggleCodeEditor = (): void => {
     setViewCode(!viewCode);
   };
+
+  const overflow = showOverflow ? 'visible' : 'auto';
 
   return (
     <Box marginBottom="space110" data-cy="live-preview">
@@ -58,6 +62,7 @@ const LivePreview: React.FC<LivePreviewProps> = ({
           borderTopLeftRadius="borderRadius20"
           borderTopRightRadius="borderRadius20"
           position="relative"
+          overflow={overflow}
         >
           <ReactLivePreview />
         </Box>

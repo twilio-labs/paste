@@ -1,0 +1,53 @@
+{
+  "name": "@twilio-paste/data-visualization-library",
+  "version": "0.1.2",
+  "category": "library",
+  "status": "production",
+  "description": "A library that helps theme data visualizations with Paste tokens.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "deepmerge": "4.2.2"
+  },
+  "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
+    "@twilio-paste/color-contrast-utils": "^2.0.0",
+    "@twilio-paste/design-tokens": "^7.0.0",
+    "@twilio-paste/styling-library": "^0.3.5",
+    "@twilio-paste/theme": "^6.0.0",
+    "@twilio-paste/types": "^3.1.1",
+    "highcharts": "^9.3.3",
+    "react": "^16.8.6 || ^17.0.2",
+    "react-dom": "^16.8.6 || ^17.0.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/animation-library": "^0.3.5",
+    "@twilio-paste/color-contrast-utils": "^2.0.2",
+    "@twilio-paste/design-tokens": "^7.1.1",
+    "@twilio-paste/styling-library": "^0.3.7",
+    "@twilio-paste/theme": "^6.0.2",
+    "@twilio-paste/types": "^3.1.5",
+    "highcharts": "^9.3.3",
+    "highcharts-react-official": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

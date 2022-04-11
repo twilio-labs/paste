@@ -11,7 +11,7 @@ const ResetStyles: BoxStyleProps = {
   border: 'none',
   outline: 'none',
   transition: 'background-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in',
-  fontFamily: 'fontFamilyText',
+  fontFamily: 'inherit',
   fontWeight: 'fontWeightSemibold',
   textDecoration: 'none',
   position: 'relative',
@@ -71,5 +71,6 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     paddingBottom: 'space0',
     paddingLeft: 'space0',
     borderWidth: 'borderWidth0',
+    fontSize: 'inherit',
   },
 };

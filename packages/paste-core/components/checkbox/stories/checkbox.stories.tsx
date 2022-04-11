@@ -481,6 +481,17 @@ export const CheckboxIndeterminateGroupDisabled = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space70">
       <CheckboxGroup isSelectAll disabled name="bar" legend="Select your favourite">
+        <Checkbox id={useUID()} checked ref={checkboxRef}>
+          Select all
+        </Checkbox>
+        <Checkbox id={useUID()} checked onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}>
+          Snacks
+        </Checkbox>
+        <Checkbox id={useUID()} checked onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}>
+          Drinks
+        </Checkbox>
+      </CheckboxGroup>
+      <CheckboxGroup isSelectAll disabled name="bar" legend="Select your favourite">
         <Checkbox
           id={useUID()}
           checked={allChecked}

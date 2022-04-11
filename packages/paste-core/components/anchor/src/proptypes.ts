@@ -13,4 +13,5 @@ export const AnchorPropTypes = {
   variant: PropTypes.oneOf(['default', 'inverse']) as any,
   /** element identifier for customization */
   element: PropTypes.string,
+  i18nExternalLinkLabel: PropTypes.string,
 };

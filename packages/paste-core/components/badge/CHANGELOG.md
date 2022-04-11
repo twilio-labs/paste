@@ -1,5 +1,27 @@
 # @twilio-paste/badge
 
+## 2.1.0
+
+### Minor Changes
+
+- [`55d0528b`](https://github.com/twilio-labs/paste/commit/55d0528b2d967492aa6138c7bab7d1a7168d6e1b) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] Update Badge component to add decorative and counter variants, promote to stage 2
+
+### Patch Changes
+
+- [`30445063`](https://github.com/twilio-labs/paste/commit/304450633cf5d587cd9078681d60482502d5be8d) [#2302](https://github.com/twilio-labs/paste/pull/2302) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] adjust the error icon color for the error counter variant
+
+## 2.0.2
+
+### Patch Changes
+
+- [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e) [#2269](https://github.com/twilio-labs/paste/pull/2269) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a regression with the compilation script that caused incompatible ESM module importing of JSON files.
+
+## 2.0.1
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
 ## 2.0.0
 
 ### Patch Changes

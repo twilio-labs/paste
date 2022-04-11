@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/heading",
-  "version": "6.0.0",
+  "version": "6.0.2",
   "category": "typography",
   "status": "production",
   "description": "A Heading is text that gives hierarchical structure to a page.",
@@ -36,12 +36,12 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/style-props": "^4.0.0",
-    "@twilio-paste/styling-library": "^0.3.5",
-    "@twilio-paste/text": "^5.0.0",
-    "@twilio-paste/theme": "^6.0.0",
-    "@twilio-paste/types": "^3.1.3",
+    "@twilio-paste/design-tokens": "^7.1.1",
+    "@twilio-paste/style-props": "^4.0.2",
+    "@twilio-paste/styling-library": "^0.3.7",
+    "@twilio-paste/text": "^5.0.2",
+    "@twilio-paste/theme": "^6.0.2",
+    "@twilio-paste/types": "^3.1.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

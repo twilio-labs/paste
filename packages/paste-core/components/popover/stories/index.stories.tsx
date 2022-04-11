@@ -139,7 +139,7 @@ export const BadgePopover: React.FC = () => {
   return (
     <Box height="300px">
       <PopoverContainer baseId="test-id">
-        <PopoverBadgeButton variant="default">Open popover</PopoverBadgeButton>
+        <PopoverBadgeButton variant="neutral">Open popover</PopoverBadgeButton>
         <Popover aria-label="Popover" data-testid="badge-popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
@@ -202,3 +202,21 @@ export const Customization: React.FC = () => {
     </CustomizationProvider>
   );
 };
+
+export const I18n = (): React.ReactNode => {
+  return (
+    <Box height="300px">
+      <PopoverContainer baseId="test-id" visible>
+        <PopoverButton variant="primary">Abrir popover</PopoverButton>
+        <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
+          <Text as="span">
+            &quot;Vivir en las fronteras y en los márgenes, mantener intacta la identidad múltiple y la integridad, es
+            como tratar de nadar en un nuevo elemento, un elemento &apos;extranjero&apos;&quot; — Gloria E. Anzaldúa
+          </Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+I18n.storyName = 'i18n Prop';

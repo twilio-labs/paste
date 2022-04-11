@@ -8,8 +8,7 @@ export const DarkModeFAQModal: React.FC = () => {
   return (
     <>
       <Paragraph>
-        We&rsquo;re excited to show you an <strong>early preview</strong> of Dark Mode for Paste! We&rsquo;re doing this
-        work in partnership with
+        We&rsquo;re excited to release Dark theme in Paste! We&rsquo;ve done this work in partnership with{' '}
         <Anchor href="https://www.twilio.com/flex" showExternal>
           Flex
         </Anchor>
@@ -20,117 +19,102 @@ export const DarkModeFAQModal: React.FC = () => {
         </Anchor>
         .
       </Paragraph>
-      <Heading variant="heading20" as="h2">
-        Can I use Dark Mode in my product?
+      <Heading variant="heading30" as="h2">
+        Why did we make a Dark theme?
       </Heading>
       <Paragraph>
-        Eventually, yes! For now, this is an <strong>early preview</strong> and adoption of Dark Mode relies on a little
-        preparation:
+        Because Dark theme unlocks dark mode for our UIs, and dark mode is cool! Additionally, dark mode reduces eye
+        strain and improves readability for many people. Giving our users the ability to use Twilio products in dark
+        mode is key to building lovable products that support each of our users.
       </Paragraph>
       <Paragraph>
-        A great way to be an early adopter of dark mode is to ensure that the <strong>entire</strong> surface area of
-        your product UI is styled using Paste (whether that is components or design tokens). Once you&rsquo;ve done
-        this, you are ready for Dark Mode!
+        And with Paste&rsquo;s Dark theme, it&rsquo;s simple to enable dark mode in your products if your UIs are built
+        completely with Paste.
       </Paragraph>
+      <Heading variant="heading30" as="h2">
+        But wait, what&rsquo;s the difference between &ldquo;dark mode&rdquo; and the &ldquo;Dark theme&rdquo; in Paste?
+      </Heading>
       <Paragraph>
-        If there are any parts of your UI that are <strong>not styled with Paste</strong>, you{' '}
-        <strong>should not</strong> adopt. Dark Mode adoption requires complete Paste and Default theme usage. There is
-        no support for mixed UI states. In these cases, using dark mode may cause UI errors that will lead to a less
-        optimal customer experience.
+        We&rsquo;re so glad you asked! Light/dark mode is a user preference that can be set at the operating system,
+        browser, or application level, and which we can honor in our UIs. In both light and dark mode, you get to choose
+        what Paste theme is used for the UI. Paste&rsquo;s Dark theme allows you, our consumers, to enable light/dark
+        mode in your products with ease.
       </Paragraph>
+      <Heading variant="heading30" as="h2">
+        When can I start using Dark theme?
+      </Heading>
       <Paragraph>
-        Secondly, if you are a GA Twilio product, you <strong>should not</strong> use Paste Dark Mode yet. It&rsquo;s{' '}
-        <strong>not quite</strong> baked for prime time. Pilot or Beta products might be suitable if you are all in on
+        You can start using the Dark theme today, as long as your UIs are built fully with Paste and the Default theme.
+        You should not use the Dark theme if there are any surface areas within your product that aren&rsquo;t using
         Paste.
-      </Paragraph>
-      <Heading variant="heading20" as="h2">
-        My interface isn&rsquo;t 100% Paste, can I use Dark Mode?
-      </Heading>
-      <Paragraph>
-        If you try to adopt Dark Mode in a UI that is only partially using Paste and its Default theme, the areas that
-        are not using Paste will not be affected by the change in Mode. This will lead to visual inconsistencies within
-        your page.
       </Paragraph>
       <Paragraph>
         As an example, if you have built a form but are using a multi-select dropdown from another library, when you
-        switch into Dark Mode, that one component will remain light and look very much out of place.
+        switch into dark mode, that one component will remain light and look very much out of place.
       </Paragraph>
-      <Heading variant="heading20" as="h2">
-        What is the difference between Light/Dark Mode and Themes?
+      <Heading variant="heading30" as="h2">
+        How can I start using Dark theme?
       </Heading>
       <Paragraph>
-        Light/Dark Mode is a user preference that can be set at the operating system level, and which we can honour in
-        the browser. In both Light and Dark Mode we get to choose what theme we use in each Mode.
+        Using the Dark theme should be a{' '}
+        <SiteLink to="/core/changing-theme">one-line update to the Theme Provider</SiteLink>. Simply change it from
+        &ldquo;default&rdquo; to &ldquo;dark&rdquo;.
       </Paragraph>
-      <Paragraph>
-        Themes are an implementation of design language. Paste, by default, uses the new design language that was
-        specifically designed to unify all Twilio products. Paste also comes with the ability to support legacy design
-        languages.
-      </Paragraph>
-      <Paragraph>
-        The new, default design language is the only design language that supports Light and Dark Mode via the
-        &ldquo;default&rdquo; and &ldquo;dark&rdquo; themes. The Legacy SendGrid design language{' '}
-        <strong>does not support</strong> Light and Dark Modes.
-      </Paragraph>
-      <Heading variant="heading20" as="h2">
-        Has this been researched with customers?
+      <Heading variant="heading30" as="h2">
+        How can I start using Dark theme in Figma?
       </Heading>
       <Paragraph>
-        Customer research on Dark Mode is on our backlog. Since this is an <strong>early preview</strong>, our first
-        iteration was done in collaboration with the Flex BU to address their customer needs. We think the Flex team has
-        done an excellent job but acknowledge that we should talk to customers across our user base to ensure that
-        we&rsquo;re shipping a lovable project.
-      </Paragraph>
-      <Paragraph>
-        When we do get to it, our research plan will be similar to the thorough and rigorous work which was done for the
-        <Anchor
-          showExternal
-          href="https://docs.google.com/presentation/d/1X6SVjNPIlqcAnlsdiEXDAP953fquZRBMMx6qr5lSuDQ/edit#slide=id.p4"
-        >
-          UDL project
+        We have a{' '}
+        <Anchor href="https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme" showExternal>
+          Dark theme library
         </Anchor>
-        .
+        in Figma that you can turn on in your projects, which will give you access to all layer styles, text styles, and
+        effects in the Dark theme.
       </Paragraph>
-      <Heading variant="heading20" as="h2">
+      <Paragraph>
+        We are planning to provide documentation around the best way to use the Dark theme library in your work very
+        soon, but in the meantime, feel free to test out Figma&rsquo;s{' '}
+        <Anchor
+          href="https://help.figma.com/hc/en-us/articles/4404856784663-Swap-style-and-component-libraries"
+          showExternal
+        >
+          library swap feature
+        </Anchor>
+        , and swap your screens from the &ldquo;Paste Default Theme&rdquo; to the &ldquo;Paste Dark Theme&rdquo;.
+        We&rsquo;ve tested it out a bit on our side, and it works great as long as every part of your UI (even the white
+        background fill on your frames) is referencing tokens from the &ldquo;Paste Default Theme&rdquo; library in
+        Figma. The library swap won&rsquo;t work for raw hex codes, because Figma won&rsquo;t know what to swap them to.
+      </Paragraph>
+      <Heading variant="heading30" as="h2">
+        Where can I see the Dark theme in action?
+      </Heading>
+      <Paragraph>
+        Currently, you can see Dark theme in the Paste documentation site, Flex UI 2.0, and the new Billing interface,
+        Billio.
+      </Paragraph>
+      <Heading variant="heading30" as="h2">
+        When do we get to see Dark theme in Twilio Console?
+      </Heading>
+      <Paragraph>
+        Once all Twilio Console UIs are migrated to the new Console repo. Only then will we be able to unlock dark mode
+        in Console via Paste&rsquo;s Dark theme. Get migrating, Twilions!
+      </Paragraph>
+      <Heading variant="heading30" as="h2">
         Does it pass our accessibility standards?
       </Heading>
-      <Paragraph>
-        The early preview does not pass our accessibility standards yet. There are some gaps that we will be working on
-        in the coming weeks that will get the theme to being accessible in our most common use cases. When we graduate
-        from early preview, we expect dark mode to live up to the rest of our accessibility and inclusive design
-        benchmarks.
-      </Paragraph>
-      <Heading variant="heading20" as="h2">
-        Why are you releasing an unfinished dark mode?
+      <Paragraph>Dark theme now lives up to our inclusive design benchmarks and is fully accessible.</Paragraph>
+      <Heading variant="heading30" as="h2">
+        Where do I go with feedback?
       </Heading>
       <Paragraph>
-        In the spirit of <SiteLink to="/principles#think-big-and-take-small-steps">taking small steps</SiteLink> we are
-        releasing a solution that keeps us on track to meeting our long term goals (support Flex and our Programmable
-        Applications for Twilio customers) and giving us an opportunity to{' '}
-        <Anchor href="https://github.com/twilio-labs/paste/discussions/1527" showExternal>
-          seek early feedback
-        </Anchor>{' '}
-        from you, our consumers.
-      </Paragraph>
-      <Heading variant="heading20" as="h2">
-        Are there Figma libraries for Dark Mode?
-      </Heading>
-      <Paragraph>
-        The early preview does not have Figma library support. Figma support, as well as documentation on using Dark
-        Mode for new and existing design work, is coming soon. Stay tuned!
-      </Paragraph>
-      <Heading variant="heading20" as="h2">
-        What about icons?
-      </Heading>
-      <Paragraph>Paste icons are designed to work in both Light and Dark modes. </Paragraph>
-      <Heading variant="heading20" as="h2">
-        What about illustrations?
-      </Heading>
-      <Paragraph>
-        Our illustrations are designed for Light Mode. They don&rsquo;t adapt to dark backgrounds and as such they
-        don&rsquo;t look as good as we would like them to. To make illustrations work best in both Light and Dark Modes,
-        we will likely have to rethink how illustrations are built. We will share more details on that in the future and
-        will have guidance when we graduate from an early preview.
+        You can leave thoughts, questions, and feedback in our{' '}
+        <Anchor
+          href="https://help.figma.com/hc/en-us/articles/4404856784663-Swap-style-and-component-libraries"
+          showExternal
+        >
+          GitHub discussion
+        </Anchor>
+        .
       </Paragraph>
     </>
   );

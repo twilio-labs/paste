@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SiblingBox render should render 1`] = `
-.emotion-1 {
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -92,16 +93,15 @@ input[type=checkbox][aria-invalid=true] + label .emotion-0 {
 }
 
 <div
-  className="emotion-1"
->
-  <div
-    aria-hidden="true"
-    className="emotion-0"
-    data-paste-element="SIBLING_BOX"
-    display="inline-flex"
-    width="sizeSquare50"
+    class="emotion-1"
   >
-    child
+    <div
+      aria-hidden="true"
+      class="emotion-0"
+      data-paste-element="SIBLING_BOX"
+    >
+      child
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

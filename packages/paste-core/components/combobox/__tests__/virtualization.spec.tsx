@@ -59,23 +59,23 @@ describe('Combobox - Virtualization', () => {
 
       const [first, second, third, fourth, fifth] = optionElements;
 
-      expect(first).toHaveAttribute('transform', 'translateY(8px)');
+      expect(first).toHaveStyleRule('transform', 'translateY(8px)');
       expect(first).toHaveAttribute('aria-setsize', '5');
       expect(first).toHaveAttribute('aria-posinset', '1');
 
-      expect(second).toHaveAttribute('transform', 'translateY(44px)');
+      expect(second).toHaveStyleRule('transform', 'translateY(44px)');
       expect(second).toHaveAttribute('aria-setsize', '5');
       expect(second).toHaveAttribute('aria-posinset', '2');
 
-      expect(third).toHaveAttribute('transform', 'translateY(80px)');
+      expect(third).toHaveStyleRule('transform', 'translateY(80px)');
       expect(third).toHaveAttribute('aria-setsize', '5');
       expect(third).toHaveAttribute('aria-posinset', '3');
 
-      expect(fourth).toHaveAttribute('transform', 'translateY(116px)');
+      expect(fourth).toHaveStyleRule('transform', 'translateY(116px)');
       expect(fourth).toHaveAttribute('aria-setsize', '5');
       expect(fourth).toHaveAttribute('aria-posinset', '4');
 
-      expect(fifth).toHaveAttribute('transform', 'translateY(152px)');
+      expect(fifth).toHaveStyleRule('transform', 'translateY(152px)');
       expect(fifth).toHaveAttribute('aria-setsize', '5');
       expect(fifth).toHaveAttribute('aria-posinset', '5');
     });
@@ -151,23 +151,23 @@ describe('Combobox - Virtualization', () => {
 
       const [first, second, third, fourth, fifth] = optionElements;
 
-      expect(first).toHaveAttribute('transform', 'translateY(8px)');
+      expect(first).toHaveStyleRule('transform', 'translateY(8px)');
       expect(first).toHaveAttribute('aria-setsize', '5');
       expect(first).toHaveAttribute('aria-posinset', '1');
 
-      expect(second).toHaveAttribute('transform', 'translateY(44px)');
+      expect(second).toHaveStyleRule('transform', 'translateY(44px)');
       expect(second).toHaveAttribute('aria-setsize', '5');
       expect(second).toHaveAttribute('aria-posinset', '2');
 
-      expect(third).toHaveAttribute('transform', 'translateY(80px)');
+      expect(third).toHaveStyleRule('transform', 'translateY(80px)');
       expect(third).toHaveAttribute('aria-setsize', '5');
       expect(third).toHaveAttribute('aria-posinset', '3');
 
-      expect(fourth).toHaveAttribute('transform', 'translateY(116px)');
+      expect(fourth).toHaveStyleRule('transform', 'translateY(116px)');
       expect(fourth).toHaveAttribute('aria-setsize', '5');
       expect(fourth).toHaveAttribute('aria-posinset', '4');
 
-      expect(fifth).toHaveAttribute('transform', 'translateY(152px)');
+      expect(fifth).toHaveStyleRule('transform', 'translateY(152px)');
       expect(fifth).toHaveAttribute('aria-setsize', '5');
       expect(fifth).toHaveAttribute('aria-posinset', '5');
     });

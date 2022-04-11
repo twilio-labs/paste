@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {matchers} from 'jest-emotion';
@@ -16,6 +16,7 @@ const getCustomizationStyles = (element = 'RADIO'): {[key: string]: PasteCustomC
   [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
   [`${element}`]: {padding: 'space30'},
   [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
+  [`${element}_CONTROL_CIRCLE`]: {color: 'colorText'},
   [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
   [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
 });
@@ -126,12 +127,16 @@ describe('Radio Group', () => {
   });
 
   it('should have a required a required dot in the legend', () => {
-    const {getByText} = render(
+    render(
       <RadioGroup {...defaultGroupProps} required>
         <Radio {...defaultProps}>foo</Radio>
       </RadioGroup>
     );
-    expect(getByText('Required:')).not.toBeNull();
+
+    const fieldset = screen.getByRole('group');
+    const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+    expect(requiredDot).toBeDefined();
   });
 
   it('should render a value', () => {
@@ -170,6 +175,34 @@ describe('Radio Group', () => {
       </RadioGroup>
     );
     expect(getByText(errorText)).toBeDefined();
+  });
+
+  describe('i18n', () => {
+    it('Should have default text for the required dot in the legend', () => {
+      render(
+        <RadioGroup {...defaultGroupProps} required>
+          <Radio {...defaultProps}>foo</Radio>
+        </RadioGroup>
+      );
+
+      const fieldset = screen.getByRole('group');
+      const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+      expect(requiredDot?.textContent).toEqual('(required)');
+    });
+
+    it('Should use the i18nRequiredLabel prop for the required dot in the legend', () => {
+      render(
+        <RadioGroup {...defaultGroupProps} required i18nRequiredLabel="(requis)">
+          <Radio {...defaultProps}>foo</Radio>
+        </RadioGroup>
+      );
+
+      const fieldset = screen.getByRole('group');
+      const requiredDot = fieldset.querySelector('[data-paste-element="LEGEND_REQUIRED_DOT"]');
+
+      expect(requiredDot?.textContent).toEqual('(requis)');
+    });
   });
 });
 
@@ -312,6 +345,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
@@ -331,6 +365,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
@@ -358,6 +393,10 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
+      'color',
+      'rgb(18,28,45)'
+    );
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'
@@ -394,6 +433,10 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
+      'color',
+      'rgb(18,28,45)'
+    );
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'

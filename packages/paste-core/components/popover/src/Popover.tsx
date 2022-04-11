@@ -6,6 +6,7 @@ import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {PopoverArrow} from './PopoverArrow';
 import {PopoverContext} from './PopoverContext';
 
@@ -33,47 +34,46 @@ StyledPopover.displayName = 'StyledPopover';
 export interface PopoverProps extends Pick<BoxProps, 'element'> {
   'aria-label': string;
   children: React.ReactNode;
+  i18nDismissLabel?: string;
 }
 
-const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, element = 'POPOVER', ...props}, ref) => {
-  const popover = React.useContext(PopoverContext);
-  return (
-    <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref} preventBodyScroll={false}>
-      {/* import Paste Theme Based Styles due to portal positioning. */}
-      <StyledBase>
-        <PopoverArrow {...(popover as any)} />
-        <Box element={element} paddingX="space80" paddingY="space70">
-          <Box position="absolute" right={8} top={8}>
-            <Button
-              element={`${element}_CLOSE_BUTTON`}
-              variant="secondary_icon"
-              size="reset"
-              // @ts-ignore
-              // Property 'hide' does not exist on type 'Partial<PopoverState>'
-              // But reakit docs suggest using it
-              // https://reakit.io/docs/popover/#initial-focus
-              onClick={popover.hide}
-            >
-              <CloseIcon
-                element={`${element}_CLOSE_ICON`}
-                decorative={false}
-                color="colorTextWeak"
-                size="sizeIcon10"
-                title="Close popover"
-              />
-            </Button>
+const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
+  ({children, element = 'POPOVER', i18nDismissLabel = 'Close popover', ...props}, ref) => {
+    const popover = React.useContext(PopoverContext);
+    return (
+      <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref} preventBodyScroll={false}>
+        {/* import Paste Theme Based Styles due to portal positioning. */}
+        <StyledBase>
+          <PopoverArrow {...(popover as any)} />
+          <Box element={element} paddingX="space80" paddingY="space70">
+            <Box position="absolute" right={8} top={8}>
+              <Button
+                element={`${element}_CLOSE_BUTTON`}
+                variant="secondary_icon"
+                size="reset"
+                // @ts-ignore
+                // Property 'hide' does not exist on type 'Partial<PopoverState>'
+                // But reakit docs suggest using it
+                // https://reakit.io/docs/popover/#initial-focus
+                onClick={popover.hide}
+              >
+                <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon10" />
+                <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
+              </Button>
+            </Box>
+            {children}
           </Box>
-          {children}
-        </Box>
-      </StyledBase>
-    </NonModalDialogPrimitive>
-  );
-});
+        </StyledBase>
+      </NonModalDialogPrimitive>
+    );
+  }
+);
 
 Popover.propTypes = {
   'aria-label': PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
+  i18nDismissLabel: PropTypes.string,
 };
 
 Popover.displayName = 'Popover';

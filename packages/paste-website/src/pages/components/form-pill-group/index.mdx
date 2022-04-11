@@ -21,7 +21,12 @@ import {Input} from '@twilio-paste/input';
 import {FormPillVsDisplayPillTable} from '../../../components/FormPillVsDisplayPillTable';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {defaultExample, selectableExample, removableExample} from '../../../component-examples/FormPillGroup';
+import {
+  defaultExample,
+  selectableExample,
+  removableExample,
+  i18nExample,
+} from '../../../component-examples/FormPillGroup';
 import {multiSelectExample} from '../../../component-examples/ComboboxPrimitiveExamples';
 
 export const pageQuery = graphql`
@@ -184,6 +189,14 @@ Using Form Pill Group, along with the [Combobox Primitive](/primitives/combobox-
   {multiSelectExample}
 </LivePreview>
 
+### Internationalization
+
+To internationalize the form pill group, simply pass different text as children to the pills. The only exception is the visually hidden text that explains how to remove and select pills with a keyboard–to change this, use the `i18nKeyboardControls` prop.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon}} noInline>
+  {i18nExample}
+</LivePreview>
+
 ## Composition Notes
 
 ### When to use a Form Pill Group
@@ -300,6 +313,10 @@ The current focused item id.
 ###### `groups?: Group[]`
 
 Lists all the composite groups with their id and DOM ref. This state is automatically updated when registerGroup and unregisterGroup are called.
+
+###### `i18nKeyboardControls?: string`
+
+Visually hidden string that has instructions for how to remove and select pills with a keyboard. Default value is "Press Delete or Backspace to remove. Press Enter to toggle selection."
 
 ---
 

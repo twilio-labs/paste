@@ -74,7 +74,7 @@ const inversePairingTokens: TokenPair[] = [
   {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse'},
 ];
 
-const StyledSwatchGrid = styled.div<{numberColumns: number}>`
+export const StyledSwatchGrid = styled.div<{numberColumns: number}>`
   display: grid;
   column-gap: ${themeGet('space.space70')};
   row-gap: ${themeGet('space.space100')};
@@ -221,7 +221,7 @@ export const InversePairingSwatches: React.FC = () => {
   );
 };
 
-const ImgCaption: React.FC = ({children}) => (
+export const ImgCaption: React.FC = ({children}) => (
   <Box as="p" marginTop="space40" marginBottom="space110">
     <Text as="span" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">
       <Text as="span" fontWeight="fontWeightBold" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">

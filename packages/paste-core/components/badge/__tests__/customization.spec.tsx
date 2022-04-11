@@ -14,12 +14,12 @@ const makeCustomizationWrapper = (element: string | undefined = 'BADGE'): Render
 
 describe('Badge data-paste-element attribute', () => {
   it('should set the correct default element prop on Badge', () => {
-    render(makeBadge('default'));
-    expect(screen.getByTestId('default_badge').getAttribute('data-paste-element')).toEqual('BADGE');
+    render(makeBadge('neutral'));
+    expect(screen.getByTestId('neutral_badge').getAttribute('data-paste-element')).toEqual('BADGE');
   });
   it('should set the correct unique element prop on Badge', () => {
-    render(makeBadge('info', 'FOO'));
-    expect(screen.getByTestId('info_badge').getAttribute('data-paste-element')).toEqual('FOO');
+    render(makeBadge('neutral', 'FOO'));
+    expect(screen.getByTestId('neutral_badge').getAttribute('data-paste-element')).toEqual('FOO');
   });
 });
 

@@ -29,7 +29,7 @@ describe('Breadcrumb', () => {
 
   it('should render list items', () => {
     render(<BreadcrumbExample />);
-    const renderedListItem = screen.findByRole('listitem');
+    const renderedListItem = screen.getAllByRole('listitem');
     expect(renderedListItem).not.toBeNull();
   });
 
@@ -45,7 +45,7 @@ describe('Breadcrumb', () => {
         <BreadcrumbItem href="#">foo</BreadcrumbItem>
       </Breadcrumb>
     );
-    const renderedAnchor = screen.findByRole('link');
+    const renderedAnchor = screen.getAllByRole('link');
     expect(renderedAnchor).not.toBeNull();
   });
 

@@ -19,10 +19,14 @@ import {Tooltip} from '@twilio-paste/tooltip';
 import {Truncate} from '@twilio-paste/truncate';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
+import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {SiteLink} from '../../../components/SiteLink';
 
 export const pageQuery = graphql`
   {
@@ -107,10 +111,11 @@ Accessibility recommendations:
 - Any component can be placed in a Table, but tables should only contain static textual and numeric data, rather
   than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
   50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
-  times to get past that table.
+  times to get past that table. If you do need to include interactive elements (such as linking to object details,
+  selecting rows, or deleting rows), use <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
 
 <Callout>
-  <CalloutTitle>🦮 Accessibility insight: navigating tables with a screen reader</CalloutTitle>
+  <CalloutTitle>Accessibility insight: navigating tables with a screen reader</CalloutTitle>
   <CalloutText>
     Learn more about why semantic table markup is important in{' '}
     <Anchor href="https://youtu.be/tlpQ0d2ADNo" showExternal>
@@ -119,33 +124,6 @@ Accessibility recommendations:
     that shows what it's like to explore a data table with a screen reader.
   </CalloutText>
 </Callout>
-
-<Heading as="h5" variant="heading30">
-  So, why migrate to Table if you need to include actionable elements?
-</Heading>
-
-Our strong recommendation is to use Table over sticking with the legacy table, even if you need to include
-actionable elements, like buttons or anchors. While Table should only contain static information for
-the [accessibility reasons](#accessibility) we've outlined, Table _can_ support the inclusion of
-actionable components when needed, and it is the best option available to you today.
-
-Once we have a Data Grid component, our recommendation will be to use that whenever you need to include
-actions within a table (such as linking to object details, selecting rows, or deleting rows). Data Grid
-will be built on top of Table and will layer in some aria controls that make it easier to navigate with
-a keyboard (much like navigating through an Excel spreadsheet). However, until the Data Grid component
-is available, our recommendation is to use the Table component; we will just ask that you plan to switch
-to the Data Grid when it's ready. Here's why we recommend this over sticking with the legacy table:
-
-1. Using the Table component from Paste, even if it includes actionable elements, is much more accessible
-   than the legacy table.
-2. The visual design of the Paste Table component will be very similar to the Data Grid, so they will look
-   cohesive when used together in one product or feature, and there will be minimal customer impact when
-   upgrading from Table to Data Grid in the future.
-3. If you use the Table component from Paste, you will benefit from design and technical upgrades, whereas
-   the legacy table will not receive any updates.
-4. Migration from the Paste Table to Data Grid will be much easier than migrating from the legacy table
-   to Data Grid, as the underlying architecture of the Paste Table and Data Grid will be very similar.
-   In fact, Data Grid will be built using the Table component.
 
 ## Examples
 
@@ -281,6 +259,110 @@ THead cells (`Th`) can be given a width in order to fill a section of the Table 
     <Tr>
       <Td>Walter</Td>
       <Td>Scott</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+#### Responsive Layouts
+
+Tabular data on small screens can be problematic. The data can often cause tables to overflow the browser window. If you need to support small screens, you can set `scrollHorizontally` and the table will scroll horizontally when the data can no longer fit on the screen.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
+  {`<Table scrollHorizontally>
+  <THead>
+    <Tr>
+      <Th>Date</Th>
+      <Th>SID</Th>
+      <Th>From</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMl29llgoihx286uhxfb0yc5n0sg391x5n
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMxarke3v30fv17hauqn86a7nhgm3b5d87
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+#### Density
+
+You can control a tables vertical density by setting `noWrap` on the table. This will ensure table cell content stays on a single line.
+
+Coupled with a fixed table layout and [truncation](/components/table/#table-with-truncated-cells) you can increase the data density of a table dramatically. You should be extremely mindful of readability trade-offs when doing so.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Text, Truncate}} language="jsx">
+  {`<Table scrollHorizontally noWrap>
+  <THead>
+    <Tr>
+      <Th>Date</Th>
+      <Th>SID</Th>
+      <Th>From</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMl29llgoihx286uhxfb0yc5n0sg391x5n
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        16:24:28 PDT 2020-09-17
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMxarke3v30fv17hauqn86a7nhgm3b5d87
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
     </Tr>
   </TBody>
 </Table>`}
@@ -533,9 +615,6 @@ For the remaining columns, you will need to conduct usability testing to hone in
 best for your users and their particular needs. Generally, it is a good practice to put columns that are closely
 related to one another (such as a unit price, quantity purchased, and total price) near each other in a table.
 
-If you do have actions in your Table (see our [Accessibility Information](#accessibility) on this), they should
-generally be placed in the last column.
-
 ### Text alignment in cells
 
 In general, text should be left-aligned, numbers should be right-aligned, and the header should be aligned with
@@ -715,7 +794,23 @@ indicator of status.
 
 Refer to our Status Indicator pattern (coming soon!) for guidance on displaying statuses in your tables.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Box, Stack, Text}} language="jsx">
+<LivePreview
+  scope={{
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Th,
+    Td,
+    Box,
+    Stack,
+    Text,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
+    ProcessErrorIcon,
+  }}
+  language="jsx"
+>
   {`<Table>
   <THead>
     <Tr>
@@ -728,10 +823,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundSuccess" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Valid</Text>
+          <ProcessSuccessIcon
+            color="colorTextIconSuccess"
+            decorative={false}
+            title="valid" />
+          <Text as="p" marginLeft="space20">Valid</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -743,10 +841,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundWarning" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Risky</Text>
+          <ProcessWarningIcon
+            color="colorTextIconWarning"
+            decorative={false}
+            title="risky" />
+          <Text as="p" marginLeft="space20">Risky</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -758,10 +859,13 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
     <Tr>
       <Td>
         <Box display="flex" alignItems="center">
-          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundError" borderRadius="borderRadiusCircle" />
-          <Text as="p" marginLeft="space30">Invalid</Text>
+          <ProcessErrorIcon
+            color="colorTextIconError"
+            decorative={false}
+            title="invalid" />
+          <Text as="p" marginLeft="space20">Invalid</Text>
         </Box>
-        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+        <Text as="p" color="colorTextWeak" marginLeft="space70">2020-09-17</Text>
       </Td>
       <Td>
         <Text as="span" fontFamily="fontFamilyCode">
@@ -779,7 +883,22 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
 A `Th` can be composed to include [icon buttons](/components/button#link-style-button), such as an information icon button with additional
 details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/popover/).
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Box, Button, Tooltip, InformationIcon}} language="jsx">
+<LivePreview
+  scope={{
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Th,
+    Td,
+    Text,
+    Box,
+    Button,
+    Tooltip,
+    InformationIcon,
+  }}
+  language="jsx"
+>
   {`<Table>
   <THead>
     <Tr>
@@ -974,7 +1093,7 @@ and email addresses.
 ##### Th
 
 <Box marginBottom="space60">
-  <Table tableLayout="fixed">
+  <Table scrollHorizontally>
     <THead>
       <Tr>
         <Th>Property</Th>
@@ -1017,7 +1136,7 @@ and email addresses.
 ##### Td
 
 <Box marginBottom="space60">
-  <Table tableLayout="fixed">
+  <Table scrollHorizontally>
     <THead>
       <Tr>
         <Th>Property</Th>
@@ -1117,6 +1236,18 @@ Sets the `table-layout` style of the Table. Defaults to `auto`.
 ###### `variant?: "default" | "borderless"`
 
 Sets the `border` style of the Table. Defaults to `default`.
+
+###### `scrollHorizontally?: boolean`
+
+Sets the table to scroll horizontally on small screens.
+
+###### `noWrap?: boolean`
+
+Sets the table cells to not line wrap.
+
+###### `isActionable?: boolean`
+
+Sets the table to visually display the actionable state of an interactive table. Mainly used for Data Grid.
 
 ##### Tr Props
 

@@ -11,7 +11,7 @@ import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
 import {circleGeometry} from './constants';
 
 export interface SpinnerProps extends IconWrapperProps {
-  title: string;
+  title?: string;
   delay?: number;
   decorative: boolean;
   element?: BoxElementProps['element'];
@@ -25,6 +25,10 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
     } = useTheme();
 
     const [show, setShow] = React.useState(delay === 0);
+
+    if (!decorative && title == null) {
+      throw new Error('[Spinner]: Missing a title for non-decorative icon.');
+    }
 
     React.useEffect(() => {
       if (delay === 0) return;
@@ -56,7 +60,7 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
 Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   delay: PropTypes.number,
   element: PropTypes.string,
   size: isIconSizeTokenProp,

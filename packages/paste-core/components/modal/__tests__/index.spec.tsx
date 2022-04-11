@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 // @ts-ignore typescript doesn't like js imports
@@ -73,8 +74,8 @@ const MockInitalFocusModal: React.FC = () => {
         </ModalHeader>
         <ModalBody data-testid="modal-body">
           <Box as="form">
-            <FormLabel htmlFor={inputID}>Name</FormLabel>
-            <FormInput
+            <Label htmlFor={inputID}>Name</Label>
+            <Input
               id={inputID}
               value={name}
               ref={nameInputRef}
@@ -91,6 +92,21 @@ const MockInitalFocusModal: React.FC = () => {
             <Button variant="primary">Submit</Button>
           </ModalFooterActions>
         </ModalFooter>
+      </Modal>
+    </CustomizationProvider>
+  );
+};
+
+const I18nMockModal: React.FC = () => {
+  const modalHeadingID = `modal-${useUID()}`;
+  return (
+    <CustomizationProvider baseTheme="default" theme={TestTheme}>
+      <Modal ariaLabelledby={modalHeadingID} isOpen onDismiss={handleCloseMock} size="default">
+        <ModalHeader i18nDismissLabel="foo bar">
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Modal Heading
+          </ModalHeading>
+        </ModalHeader>
       </Modal>
     </CustomizationProvider>
   );
@@ -161,6 +177,22 @@ describe('Modal', () => {
         },
       });
       expect(results).toHaveNoViolations();
+    });
+  });
+});
+
+describe('i18n', () => {
+  describe('ModalHeading', () => {
+    it('should have default dismiss button text', () => {
+      render(<MockModal />);
+      const dismissButton = screen.getByRole('button', {name: 'Close modal'});
+      expect(dismissButton).toBeDefined();
+    });
+
+    it('should use i18nDismissLabel for dismiss button text', () => {
+      render(<I18nMockModal />);
+      const dismissButton = screen.getByRole('button', {name: 'foo bar'});
+      expect(dismissButton).toBeDefined();
     });
   });
 });

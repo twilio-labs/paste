@@ -14,6 +14,7 @@ const isElement = require('lodash.iselement');
 
 type CellType = 'th' | 'td';
 export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
+  colSpan?: number;
   as?: CellType;
   element?: BoxElementProps['element'];
 }

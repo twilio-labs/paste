@@ -55,6 +55,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
       paddingX = null,
       paddingY = null,
       verticalAlign,
+      i18nExternalLinkLabel = '(link takes you to an external page)',
       ...props
     },
     ref
@@ -97,7 +98,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
           <Box as="span">
             {props.children}
             <Box as="span" display="inline-block" flexShrink={0} verticalAlign="middle">
-              <LinkExternalIcon decorative={false} title="link takes you to an external page" />
+              <LinkExternalIcon decorative={false} title={i18nExternalLinkLabel} />
             </Box>
           </Box>
         ) : (
@@ -110,9 +111,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
 
 Anchor.displayName = 'Anchor';
 
-if (process.env.NODE_ENV === 'development') {
-  Anchor.propTypes = AnchorPropTypes;
-}
+Anchor.propTypes = AnchorPropTypes;
 
 export {Anchor};
 

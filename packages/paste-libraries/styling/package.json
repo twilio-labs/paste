@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/styling-library",
-  "version": "0.3.5",
+  "version": "0.3.8",
   "category": "library",
   "status": "production",
   "description": "Custom CSS-in-JS wrapper library for use in Paste.",
@@ -28,9 +28,12 @@
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "@styled-system/css": "5.1.5",
+    "@styled-system/should-forward-prop": "5.1.5",
     "@styled-system/theme-get": "5.1.2",
     "@types/styled-system": "^5.1.9",
     "@types/styled-system__css": "^5.0.5",
+    "@types/styled-system__should-forward-prop": "^5.1.2",
+    "@types/styled-system__theme-get": "^5.0.2",
     "emotion": "10.0.27",
     "emotion-theming": "^10.0.27",
     "styled-system": "5.1.5"

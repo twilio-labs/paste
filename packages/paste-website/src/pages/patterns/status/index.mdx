@@ -15,7 +15,9 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -35,6 +37,7 @@ import {ConnectivityAvailableIcon} from '@twilio-paste/icons/esm/ConnectivityAva
 import {ConnectivityBusyIcon} from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
 import {ConnectivityUnavailableIcon} from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
 import {ConnectivityOfflineIcon} from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
+import {ConnectivityNeutralIcon} from '@twilio-paste/icons/esm/ConnectivityNeutralIcon';
 
 import {
   ProcessDisabled,
@@ -204,7 +207,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
 
 #### Icon and token pairings
 
-<Table>
+<Table scrollHorizontally>
   <THead>
     <Tr>
       <Th>Icon</Th>
@@ -303,6 +306,7 @@ Connectivity statuses are used to show if a user, object, or system is online or
     ConnectivityBusyIcon,
     ConnectivityUnavailableIcon,
     ConnectivityOfflineIcon,
+    ConnectivityNeutralIcon,
   }}
   language="jsx"
 >
@@ -311,7 +315,7 @@ Connectivity statuses are used to show if a user, object, or system is online or
 
 #### Connectivity icon and token pairings
 
-<Table>
+<Table scrollHorizontally>
   <THead>
     <Tr>
       <Th>Icon</Th>
@@ -344,6 +348,14 @@ Connectivity statuses are used to show if a user, object, or system is online or
       <Td>ConnectivityUnavailableIcon</Td>
       <Td>$color-text-icon-unavailable</Td>
       <Td>Indicates that a person or entity is unavailable or at capacity.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <ConnectivityNeutralIcon title="neutral" color="colorTextIconNeutral" />
+      </Td>
+      <Td>ConnectivityNeutralIcon</Td>
+      <Td>$color-text-icon-neutral</Td>
+      <Td>Indicates that a person or entity is neutral.</Td>
     </Tr>
     <Tr>
       <Td>

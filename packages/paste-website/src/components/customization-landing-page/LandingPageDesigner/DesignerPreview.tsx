@@ -7,7 +7,7 @@ import {Stack} from '@twilio-paste/stack';
 import {useUID} from 'react-uid';
 import {Checkbox} from '@twilio-paste/checkbox';
 import {Column, Grid} from '@twilio-paste/grid';
-import {Option, Select} from '@twilio-paste/form';
+import {Option, Select} from '@twilio-paste/select';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {CustomizationProvider} from '@twilio-paste/customization';

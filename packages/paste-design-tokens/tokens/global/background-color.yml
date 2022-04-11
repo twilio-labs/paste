@@ -19,10 +19,10 @@ props:
     value: "{!palette-gray-70}"
     comment: Strongest background color used for containers.
   color-background-inverse:
-    value: "{!palette-gray-0-transparent-10}"
+    value: "{!palette-gray-90}"
     comment: Inverse background color used for containers.
   color-background-inverse-strong:
-    value: "{!palette-gray-0-transparent-20}"
+    value: "{!palette-gray-80}"
     comment: Strong inverse background color used for containers.
 
   # brand backgrounds
@@ -79,6 +79,9 @@ props:
   color-background-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest background color used for warning alerts and toasts.
+  color-background-error-stronger:
+    value: "{!palette-red-90}"
+    comment: Stronger error background color
   color-background-error-strong:
     value: "{!palette-red-80}"
     comment: Strongest background color used for error alerts and toasts.
@@ -92,7 +95,7 @@ props:
     value: "{!palette-red-50}"
     comment: Background color used to represent required form fields.
   color-background-new:
-    value: "{!palette-purple-20}"
+    value: "{!palette-purple-10}"
     comment: Background color used to represent a new status.
 
   # row backgrounds
@@ -164,3 +167,17 @@ props:
   color-background-offline:
     value: "{!palette-gray-40}"
     comment: Background color used to represent an entity or person as "offline".
+
+  #decorative
+  color-background-decorative-10-weakest:
+    value: "{!palette-gray-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-20-weakest:
+    value: "{!palette-blue-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-30-weakest:
+    value: "{!palette-green-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-40-weakest:
+    value: "{!palette-purple-10}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."

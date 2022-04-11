@@ -1,5 +1,542 @@
 # Change Log
 
+## 11.5.0
+
+### Minor Changes
+
+- [`f76b99d45`](https://github.com/twilio-labs/paste/commit/f76b99d455d587e7865515338f65d1a8d25c01ac) [#2334](https://github.com/twilio-labs/paste/pull/2334) Thanks [@shleewhite](https://github.com/shleewhite)! - [ChatLog] add ChatMessageMeta and ChatMessageMetaItem components
+
+* [`f5ce8b0c6`](https://github.com/twilio-labs/paste/commit/f5ce8b0c63154caa26a0e5174a040aa4dcc4154a) [#2335](https://github.com/twilio-labs/paste/pull/2335) Thanks [@andipants12](https://github.com/andipants12)! - [Fix] Remediate erratic scrolling behavior for grouped combobox. Scroll function for the virtualization library was being called even though grouped comboboxes are not virtualized. The jumping behavior on scroll was observed because the indices in the virtual list and the actual list did not match. Added guard to prevent the scroll function from the virtualization library from being called.
+
+### Patch Changes
+
+- [`b6ccaa266`](https://github.com/twilio-labs/paste/commit/b6ccaa266c8abc81820b77127da5abb0cf5308d4) [#2347](https://github.com/twilio-labs/paste/pull/2347) Thanks [@gloriliale](https://github.com/gloriliale)! - [Alert, Modal, Popover, Toast] Adjust close icon's hover state color, which was previously being overwritten.
+
+* [`91d20b99`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120) [#2328](https://github.com/twilio-labs/paste/pull/2328) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme & Customization] Fix an issue where animations would run once regardless of if animations should be disabled.
+
+- [`91d20b99f`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120) [#2328](https://github.com/twilio-labs/paste/pull/2328) Thanks [@TheSisb](https://github.com/TheSisb)! - [Skeleton-Loader]: Small animation tweak so that the highlight fully moves through the skeleton loader correctly at the end state.
+
+* [`ff7454a0`](https://github.com/twilio-labs/paste/commit/ff7454a0d7355654c42dbe39e2eca29c6ea6d8cb) [#2348](https://github.com/twilio-labs/paste/pull/2348) Thanks [@TheSisb](https://github.com/TheSisb)! - [reakit-library] update Reakit dependency to fix typings in TS 4.4.x
+
+* Updated dependencies [[`b6ccaa266`](https://github.com/twilio-labs/paste/commit/b6ccaa266c8abc81820b77127da5abb0cf5308d4), [`f76b99d45`](https://github.com/twilio-labs/paste/commit/f76b99d455d587e7865515338f65d1a8d25c01ac), [`f5ce8b0c6`](https://github.com/twilio-labs/paste/commit/f5ce8b0c63154caa26a0e5174a040aa4dcc4154a), [`91d20b99`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120), [`91d20b99f`](https://github.com/twilio-labs/paste/commit/91d20b99f5697b91c3e84d3aa778c94938677120), [`ff7454a0`](https://github.com/twilio-labs/paste/commit/ff7454a0d7355654c42dbe39e2eca29c6ea6d8cb)]:
+  - @twilio-paste/alert@8.0.4
+  - @twilio-paste/modal@9.0.1
+  - @twilio-paste/popover@7.0.4
+  - @twilio-paste/toast@6.0.3
+  - @twilio-paste/chat-log@0.2.0
+  - @twilio-paste/combobox@9.1.0
+  - @twilio-paste/customization@3.0.3
+  - @twilio-paste/theme@6.0.4
+  - @twilio-paste/skeleton-loader@1.0.3
+  - @twilio-paste/reakit-library@0.8.5
+
+## 11.4.0
+
+### Minor Changes
+
+- [`3b467fd60`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22) [#2319](https://github.com/twilio-labs/paste/pull/2319) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] create new package with ChatBubble and ChatMessage components
+
+### Patch Changes
+
+- [`3b467fd6`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22) [#2319](https://github.com/twilio-labs/paste/pull/2319) Thanks [@shleewhite](https://github.com/shleewhite)! - [Codemods] add ChatMessage and ChatBubble to the component map
+
+- Updated dependencies [[`3b467fd60`](https://github.com/twilio-labs/paste/commit/3b467fd60da812dacb0447533c5b7abb46822a22)]:
+  - @twilio-paste/chat-log@0.1.0
+
+## 11.3.0
+
+### Minor Changes
+
+- [`68ee1a35e`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1) [#2304](https://github.com/twilio-labs/paste/pull/2304) Thanks [@gloriliale](https://github.com/gloriliale)! - [Spinner] make title an optional prop, throw an error when not decorative and no title
+
+* [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85) [#2307](https://github.com/twilio-labs/paste/pull/2307) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Adds the ability to safely render tables for mobile screens using the `scrollHorizontally` prop. Also adds the `noWrap` prop to control cell density by preventing line wrapping.
+
+- [`68ee1a35`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1) [#2304](https://github.com/twilio-labs/paste/pull/2304) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] add i18n props to support i18n
+
+* [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85) [#2307](https://github.com/twilio-labs/paste/pull/2307) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data grid]: inherit more things from the base table component, including the new responsive and no line wrapping behaviours for better table rendering options.
+
+- [`badff092`](https://github.com/twilio-labs/paste/commit/badff092245be305f4696ea2999764ce931fea6d) [#2306](https://github.com/twilio-labs/paste/pull/2306) Thanks [@nkrantz](https://github.com/nkrantz)! - [Anchor] add `i18nshowExternalLinkLabel`prop to Anchor
+
+* [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914) [#2285](https://github.com/twilio-labs/paste/pull/2285) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal primitive] update to Reach Modal version number to v0.16.2
+
+- [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914) [#2285](https://github.com/twilio-labs/paste/pull/2285) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text] Prevented styling props from being forwarded to their HTML DOM nodes in the browser for a cleaner DOM inspector view
+
+### Patch Changes
+
+- [`99e9550dc`](https://github.com/twilio-labs/paste/commit/99e9550dce78ecb58a7a47997885d27b0762fa8f) [#2309](https://github.com/twilio-labs/paste/pull/2309) Thanks [@nkrantz](https://github.com/nkrantz)! - [Select] set background color on Select to colorBackgroundBody
+
+* [`dce15da77`](https://github.com/twilio-labs/paste/commit/dce15da77560a10be6a984a96519e68f958e4595) [#2315](https://github.com/twilio-labs/paste/pull/2315) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Spinner] title is no longer required. Matching prop types to typescript types
+
+- [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914) [#2285](https://github.com/twilio-labs/paste/pull/2285) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal] Switch modal overlay to using a pure styled component and not Box
+
+* [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914) [#2285](https://github.com/twilio-labs/paste/pull/2285) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Styling library] two new exports from styled system, `props` and `createShouldForwardProp`.
+
+* Updated dependencies [[`99e9550dc`](https://github.com/twilio-labs/paste/commit/99e9550dce78ecb58a7a47997885d27b0762fa8f), [`68ee1a35e`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1), [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85), [`68ee1a35`](https://github.com/twilio-labs/paste/commit/68ee1a35e5aed2bf099be01ceef0d4dbd608c8c1), [`b1359c95e`](https://github.com/twilio-labs/paste/commit/b1359c95ebbd0ec12eca3d72cfbcac72c06f6b85), [`dce15da77`](https://github.com/twilio-labs/paste/commit/dce15da77560a10be6a984a96519e68f958e4595), [`badff092`](https://github.com/twilio-labs/paste/commit/badff092245be305f4696ea2999764ce931fea6d), [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d82`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914), [`cf5878d8`](https://github.com/twilio-labs/paste/commit/cf5878d82bd552b22a49e5d4b4d0a6e85d829914)]:
+  - @twilio-paste/select@6.0.4
+  - @twilio-paste/spinner@8.1.0
+  - @twilio-paste/table@3.1.0
+  - @twilio-paste/button@8.1.0
+  - @twilio-paste/data-grid@1.1.0
+  - @twilio-paste/anchor@6.1.0
+  - @twilio-paste/modal-dialog-primitive@0.3.0
+  - @twilio-paste/modal@9.0.0
+  - @twilio-paste/styling-library@0.3.8
+  - @twilio-paste/box@5.1.0
+  - @twilio-paste/text@5.1.0
+  - @twilio-paste/alert-dialog@2.0.0
+
+## 11.2.0
+
+### Minor Changes
+
+- [`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tokens] add i18n font family tokens
+
+* [`55d0528b`](https://github.com/twilio-labs/paste/commit/55d0528b2d967492aa6138c7bab7d1a7168d6e1b) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] Update Badge component to add decorative and counter variants, promote to stage 2
+
+- [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Design Tokens] added new background color, box shadow, text color, border color, border radius tokens to support badge styling
+
+### Patch Changes
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button, FormPillGroup, Menu, Pagination, Select] inherit fontFamily for i18n
+
+* [`554da9708`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf) [#2274](https://github.com/twilio-labs/paste/pull/2274) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] add i18nRequiredLabel prop for i18n
+
+- [`554da970`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf) [#2274](https://github.com/twilio-labs/paste/pull/2274) Thanks [@shleewhite](https://github.com/shleewhite)! - [checkbox, inline-control-group, radio-group] add i18nRequiredLabel prop for i18n
+
+* [`6a1f1190f`](https://github.com/twilio-labs/paste/commit/6a1f1190f81c7df0af785aefaeda0ac10d5cc8ae) [#2286](https://github.com/twilio-labs/paste/pull/2286) Thanks [@gloriliale](https://github.com/gloriliale)! - [Popover] adjust typings for PopoverBadgeButton
+
+- [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220) [#2298](https://github.com/twilio-labs/paste/pull/2298) Thanks [@shleewhite](https://github.com/shleewhite)! - [ThemeProvider] use non-latin fonts based on the HTML lang attribute to support i18n.
+
+* [`30445063`](https://github.com/twilio-labs/paste/commit/304450633cf5d587cd9078681d60482502d5be8d) [#2302](https://github.com/twilio-labs/paste/pull/2302) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] adjust the error icon color for the error counter variant
+
+* Updated dependencies [[`8e5dfe1e`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`554da9708`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf), [`55d0528b`](https://github.com/twilio-labs/paste/commit/55d0528b2d967492aa6138c7bab7d1a7168d6e1b), [`554da970`](https://github.com/twilio-labs/paste/commit/554da970803cac28904177b606f5c86cf9c435bf), [`6a1f1190f`](https://github.com/twilio-labs/paste/commit/6a1f1190f81c7df0af785aefaeda0ac10d5cc8ae), [`8e5dfe1e6`](https://github.com/twilio-labs/paste/commit/8e5dfe1e68bd2fb62b2b04d3da41b88a0a9ce220), [`27528be7`](https://github.com/twilio-labs/paste/commit/27528be7aa25521655300c699f37575dab73a3db), [`30445063`](https://github.com/twilio-labs/paste/commit/304450633cf5d587cd9078681d60482502d5be8d)]:
+  - @twilio-paste/design-tokens@7.2.0
+  - @twilio-paste/button@8.0.3
+  - @twilio-paste/form-pill-group@2.0.3
+  - @twilio-paste/menu@8.0.3
+  - @twilio-paste/pagination@1.0.3
+  - @twilio-paste/select@6.0.3
+  - @twilio-paste/label@7.0.3
+  - @twilio-paste/badge@2.1.0
+  - @twilio-paste/checkbox@7.0.3
+  - @twilio-paste/inline-control-group@7.0.3
+  - @twilio-paste/radio-group@7.1.2
+  - @twilio-paste/popover@7.0.3
+  - @twilio-paste/theme@6.0.3
+
+## 11.1.2
+
+### Patch Changes
+
+- [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Toast] use title for i18n status labels
+
+* [`690a2d2a`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] use title for i18n status labels
+
+- [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad) [#2263](https://github.com/twilio-labs/paste/pull/2263) Thanks [@shleewhite](https://github.com/shleewhite)! - [Data Grid] add i18n props to support i18n
+
+* [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e) [#2269](https://github.com/twilio-labs/paste/pull/2269) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a regression with the compilation script that caused incompatible ESM module importing of JSON files.
+
+* Updated dependencies [[`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`690a2d2a`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`690a2d2a5`](https://github.com/twilio-labs/paste/commit/690a2d2a5657f4bdf5336451e9365aa8799934ad), [`73c596919`](https://github.com/twilio-labs/paste/commit/73c5969191c04b4721a059c9dee329126afc1a8e)]:
+  - @twilio-paste/toast@6.0.2
+  - @twilio-paste/alert@8.0.3
+  - @twilio-paste/data-grid@1.0.2
+  - @twilio-paste/color-contrast-utils@2.0.2
+  - @twilio-paste/alert-dialog@1.0.2
+  - @twilio-paste/anchor@6.0.2
+  - @twilio-paste/avatar@3.0.2
+  - @twilio-paste/badge@2.0.2
+  - @twilio-paste/base-radio-checkbox@7.0.2
+  - @twilio-paste/breadcrumb@5.0.2
+  - @twilio-paste/button@8.0.2
+  - @twilio-paste/card@4.0.2
+  - @twilio-paste/checkbox@7.0.2
+  - @twilio-paste/combobox@9.0.3
+  - @twilio-paste/date-picker@1.0.2
+  - @twilio-paste/disclosure@6.0.2
+  - @twilio-paste/display-pill-group@2.0.2
+  - @twilio-paste/form-pill-group@2.0.2
+  - @twilio-paste/heading@6.0.2
+  - @twilio-paste/help-text@7.0.2
+  - @twilio-paste/inline-control-group@7.0.2
+  - @twilio-paste/input@4.0.2
+  - @twilio-paste/input-box@5.0.2
+  - @twilio-paste/label@7.0.2
+  - @twilio-paste/list@3.0.2
+  - @twilio-paste/menu@8.0.2
+  - @twilio-paste/modal@8.0.2
+  - @twilio-paste/pagination@1.0.2
+  - @twilio-paste/paragraph@5.0.2
+  - @twilio-paste/popover@7.0.2
+  - @twilio-paste/radio-group@7.1.1
+  - @twilio-paste/screen-reader-only@7.0.2
+  - @twilio-paste/select@6.0.2
+  - @twilio-paste/separator@3.0.2
+  - @twilio-paste/skeleton-loader@1.0.2
+  - @twilio-paste/spinner@8.0.2
+  - @twilio-paste/table@3.0.2
+  - @twilio-paste/tabs@3.0.2
+  - @twilio-paste/textarea@4.0.2
+  - @twilio-paste/time-picker@1.0.2
+  - @twilio-paste/tooltip@5.0.2
+  - @twilio-paste/truncate@8.0.2
+  - @twilio-paste/aspect-ratio@5.0.2
+  - @twilio-paste/flex@3.0.2
+  - @twilio-paste/grid@3.0.2
+  - @twilio-paste/media-object@5.0.2
+  - @twilio-paste/stack@3.0.2
+  - @twilio-paste/box@5.0.2
+  - @twilio-paste/combobox-primitive@0.3.3
+  - @twilio-paste/disclosure-primitive@0.3.7
+  - @twilio-paste/menu-primitive@0.2.8
+  - @twilio-paste/modal-dialog-primitive@0.2.6
+  - @twilio-paste/non-modal-dialog-primitive@0.3.8
+  - @twilio-paste/sibling-box@4.0.2
+  - @twilio-paste/tabs-primitive@0.2.6
+  - @twilio-paste/text@5.0.2
+  - @twilio-paste/tooltip-primitive@0.2.7
+  - @twilio-paste/customization@3.0.2
+  - @twilio-paste/design-tokens@7.1.1
+  - @twilio-paste/animation-library@0.3.5
+  - @twilio-paste/clipboard-copy-library@1.0.3
+  - @twilio-paste/data-visualization-library@0.1.2
+  - @twilio-paste/dropdown-library@1.1.4
+  - @twilio-paste/reakit-library@0.8.4
+  - @twilio-paste/styling-library@0.3.7
+  - @twilio-paste/uid-library@0.2.4
+  - @twilio-paste/style-props@4.0.2
+  - @twilio-paste/theme@6.0.2
+  - @twilio-paste/types@3.1.5
+  - @twilio-paste/utils@1.1.3
+
+## 11.1.1
+
+### Patch Changes
+
+- [`2100371f`](https://github.com/twilio-labs/paste/commit/2100371f74c488f145b4d8bf0b814f6eaff609e4) [#2253](https://github.com/twilio-labs/paste/pull/2253) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add i18n props to support i18n
+
+* [`33c43687`](https://github.com/twilio-labs/paste/commit/33c436872f341abf473093ce48cd0b28a338dbed) [#2236](https://github.com/twilio-labs/paste/pull/2236) Thanks [@shleewhite](https://github.com/shleewhite)! - [Data Visualization] add changelog
+
+* Updated dependencies [[`2100371f`](https://github.com/twilio-labs/paste/commit/2100371f74c488f145b4d8bf0b814f6eaff609e4), [`33c43687`](https://github.com/twilio-labs/paste/commit/33c436872f341abf473093ce48cd0b28a338dbed)]:
+  - @twilio-paste/alert@8.0.2
+  - @twilio-paste/data-visualization-library@0.1.1
+
+## 11.1.0
+
+### Minor Changes
+
+- [`f696cb17e`](https://github.com/twilio-labs/paste/commit/f696cb17ec84bb315fc8672493800c044e866a1d) [#2200](https://github.com/twilio-labs/paste/pull/2200) Thanks [@TheSisb](https://github.com/TheSisb)! - [data-visualization] Add new package `@twilio-paste/data-visualization-library` which exports a React hook to theme Highcharts.
+
+* [`2e27b03a5`](https://github.com/twilio-labs/paste/commit/2e27b03a57b185021478534829f921278ad7f3ac) [#2215](https://github.com/twilio-labs/paste/pull/2215) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icon] add connectivity neutral icon
+
+- [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [design-tokens] Update alias and add new tokens to be accessible in Dark theme
+
+  - Aliases
+    - Added a new alias `palette-gray-110`
+  - Global: background-color
+    - Updated `color-background-inverse` to gray-90
+    - Updated `color-background-inverse-strong` to gray-80
+  - Global: border color
+    - Added `color-border-inverse-weakest` token pointing to gray-90
+    - Updated `color-border-inverse-weaker` to gray-80
+    - Updated `color-border-inverse` to gray-50
+    - Updated `color-border-inverse-strong` to gray-20
+    - Updated `color-border-inverse-stronger` to gray-10
+    - Neutral
+      - Updated `color-border-neutral-weak` to blue-40
+    - Added `color-border-error-stronger` token pointing to red-90
+  - Global: box shadow
+    - Added `shadow-border-error-stronger` pointing to red-90
+    - Added `shadow-border-inverse-weakest` pointing to gray-90
+    - Updated `shadow-border-inverse-weaker` to gray-80
+    - Updated `shadow-border-inverse` to gray-50
+      - Updated `shadow-border-inverse-strong` to gray-20
+      - Updated `shadow-border-inverse-stronger` to gray-10
+  - Dark theme: background color
+    - Updated `color-background` to gray-100
+    - Updated `color-background-strong` to gray-90
+    - Updated `color-background-stronger` to gray-80
+    - Updated `color-background-inverse` to gray-90
+    - Updated `color-background-inverse-strong` to gray-80
+    - Updated `color-background-body` to new alias gray-110
+    - Updated `color-background-overlay` to palette-gray-100-transparent-90
+    - Updated `color-background-row-striped` to gray-100
+    - Updated `color-background-subaccount` to gray-90
+    - Updated `color-background-trial` to green-100
+    - Brand
+      - Updated `color-background-brand` to gray-100
+      - Updated `color-background-brand-strong` to gray-90
+    - Primary
+      - Updated `color-background-primary-strongest` to blue-10
+      - Updated `color-background-primary-stronger` to blue-20
+      - Updated `color-background-primary-strong` to blue-30
+      - Updated `color-background-primary` to blue-60
+      - Updated `color-background-primary-weak` to gray-80
+      - Updated `color-background-primary-weaker` to gray-90
+      - Updated `color-background-primary-weakest` to gray-100
+    - Destructive
+      - Updated `color-background-destructive-strongest` to red-10
+      - Updated `color-background-destructive-stronger` to red-20
+      - Updated `color-background-destructive-strong` to red-30
+      - Updated `color-background-destructive` to red-60
+      - Updated `color-background-destructive-weak` to gray-80
+      - Updated `color-background-destructive-weaker` to gray-90
+      - Updated `color-background-destructive-weakest` to gray-100
+    - Success
+      - Updated `color-background-success` to green-60
+    - Warning
+      - Updated `color-background-warning` to orange-60
+    - Error
+      - Added `color-background-error-stronger` pointing to red-20
+      - Updated `color-background-error-strong` to red-40
+      - Updated `color-background-error` to red-60
+  - Dark theme: border color
+    - Updated `color-border-weak` to gray-80
+    - Updated `color-border-weaker` to gray-90
+    - Inverse
+      - Removed `color-border-inverse-weaker`
+      - Removed `color-border-inverse`
+      - Removed `color-border-inverse-strong`
+      - Removed `color-border-inverse-stronger`
+      - Removed `color-border-inverse-strongest`
+    - Primary
+      - Updated `color-border-primary-strongest` to blue-10
+      - Updated `color-border-primary-stronger` to blue-20
+      - Updated `color-border-primary-strong` to blue-30
+      - Updated `color-border-primary` to blue-60
+      - Updated `color-border-primary-weak` to gray-80
+      - Updated `color-border-primary-weaker` to gray-90
+      - Updated `color-border-primary-weakest` to gray-100
+    - Destructive
+      - Updated `color-border-destructive-strongest` to red-10
+      - Updated `color-border-destructive-stronger` to red-20
+      - Updated `color-border-destructive-strong` to red-30
+      - Updated `color-border-destructive` to red-60
+      - Updated `color-border-destructive-weak` to gray-80
+      - Updated `color-border-destructive-weaker` to gray-90
+      - Updated `color-border-destructive-weakest` to gray-100
+    - Success
+      - Updated `color-border-success` to green-60
+      - Updated `color-border-success-weak` to green-70
+    - Warning
+      - Updated `color-border-warning` to orange-60
+      - Updated `color-border-warning-weak` to orange-70
+    - Error
+      - Added `color-border-error-stronger` pointing to red-20
+      - Updated `color-border-error-strong` to red-30
+      - Updated `color-border-error` to red-60
+      - Updated `color-border-error-weak` to red-70
+    - Neutral
+      - Updated `color-border-neutral` to blue-60
+      - Updated `color-border-neutral-weak` to blue-70
+  - Dark theme: box shadow
+    - Elevation
+      - Update `shadow-elevation-10` to `black-transparent-40`
+      - Update `shadow-elevation-20` to `black-transparent-50`
+      - Update `shadow-elevation-30` to `black-transparent-50`
+    - Focus
+      - Updated `shadow-focus` to gray-60
+      - Updated `shadow-focus-inverse` to gray-50
+      - Updated `shadow-focus-inset` to gray-60
+    - Primary
+      - Updated `shadow-border-primary` to blue-60
+    - Destructive
+      - Updated `shadow-border-destructive` to red-60
+      - Updated `shadow-border-destructive-strong` to red-30
+      - Updated `shadow-border-destructive-stronger` to red-20
+      - Updated `shadow-border-destructive-strongest` to red-10
+    - Error
+      - Updated `shadow-border-error` to red-60
+      - Updated `shadow-border-error-strong` to red-30
+    - Inverse
+      - Removed `shadow-border-inverse-weaker`
+      - Removed `shadow-border-inverse`
+      - Removed `shadow-border-inverse-strong`
+      - Removed `shadow-border-inverse-stronger`
+      - Removed `shadow-border-inverse-strongest`
+  - Dark theme: text color
+    - Updated `color-text-weak` to gray-50
+    - Updated `color-text-weaker` to gray-80
+    - Updated `color-text-weakest` to new alias gray-110
+    - Updated `color-text-inverse-weaker` to gray-70
+    - Link
+      - Updated `color-text-link-weak` to gray-80
+      - Updated `color-text-link-stronger` to gray-0
+      - Updated color-text-link-destructive-weak to gray-80
+      - Updated `color-text-link-destructive-stronger` to gray-0
+    - Success
+      - Updated `color-text-success` to green-30
+    - Neutral
+      - Updated `color-text-neutral` to blue-20
+    - New
+      - Updated `color-text-new` to purple-20
+    - Icon
+      - Updated `color-text-icon` to gray-50
+
+* [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [radio-group]
+
+  - Add new customization element `RADIO_CONTROL_CIRCLE` to controls the styles of the circle within the radio button
+  - Update default color to `colorTextWeakest`
+  - Update hover text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update focus text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update active text color to `colorTextWeakest`
+  - Update checked text color to `colorTextInverse`
+  - Update invalid and hover border color to `colorBorderErrorStronger`
+  - Update checked and hover text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and focus text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and disabled text color to `colorTextWeakest`
+  - Update checked and invalid text color to `colorTextInverse`
+  - Update checked and invalid and hover background color to `colorBackgroundErrorStronger` and border color to `colorBorderErrorStronger`
+
+### Patch Changes
+
+- [`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf) [#2237](https://github.com/twilio-labs/paste/pull/2237) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Updated a build dependency (esbuild) which changes the output of our builds slightly, without materially changing anything about the code.
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [tooltip]
+
+  - Update tooltip arrow stroke to `colorBorderInverseWeaker`
+  - Update tooltip border color to `colorBorderInverseWeaker`
+
+- [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [toast]
+
+  - Update neutral Toast border left color to `colorBorderNeutralWeak`
+
+* [`b4abdd9a4`](https://github.com/twilio-labs/paste/commit/b4abdd9a4c6e168c5845e744591dc40ac635a67f) [#2234](https://github.com/twilio-labs/paste/pull/2234) Thanks [@gloriliale](https://github.com/gloriliale)! - [Toast] add i18n props for variants to support i18n
+
+- [`1f564a931`](https://github.com/twilio-labs/paste/commit/1f564a931b9a844a9d097edb2012c65692af9bd4) [#2242](https://github.com/twilio-labs/paste/pull/2242) Thanks [@shleewhite](https://github.com/shleewhite)! - [Style Props] add inherit as a background color option
+
+* [`64de05f55`](https://github.com/twilio-labs/paste/commit/64de05f5551c5ebc94cbf85028cfaf2a637c19d3) [#2194](https://github.com/twilio-labs/paste/pull/2194) Thanks [@zahnster](https://github.com/zahnster)! - Updates 'reset' styles to set inherited font size
+
+- [`4aefbe75d`](https://github.com/twilio-labs/paste/commit/4aefbe75d7c34ebdab209be14073426c1632d8a9) [#2227](https://github.com/twilio-labs/paste/pull/2227) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] add i18nDismissLabel prop to support i18n
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [display-pill-group]
+
+  - Update text color to `colorText`
+
+- [`c0de1aee6`](https://github.com/twilio-labs/paste/commit/c0de1aee6fd6f2e2963c663838ccaf9ab2058349) [#2221](https://github.com/twilio-labs/paste/pull/2221) Thanks [@shleewhite](https://github.com/shleewhite)! - [ScreenReaderOnly] add id prop
+
+* [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [alert]
+
+  - Update neutral Alert border to `colorBorderNeutralWeak`
+
+- [`9b0579415`](https://github.com/twilio-labs/paste/commit/9b0579415b3c7f392d088a136e08e3c45dfb2b53) [#2218](https://github.com/twilio-labs/paste/pull/2218) Thanks [@shleewhite](https://github.com/shleewhite)! - [Modal] add i18nDismissLabel prop to ModalHeader to support i18n
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [checkbox]
+
+  - Update the check icon to inherit color from `BaseRadioCheckbox`
+  - Update selectAll background color to default to `colorBackground`, and use `colorBackgroundPrimaryWeakest` when checked and not disabled or indeterminate and not disabled
+  - Update default color to `colorTextWeakest`
+  - Update hover text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update focus text color to `colorTextWeakest` and border color to `colorBorderPrimaryStronger`
+  - Update active text color to `colorTextWeakest`
+  - Update checked text color to `colorTextInverse`
+  - Update invalid and hover border color to `colorBorderErrorStronger`
+  - Update checked and hover text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and focus text color to `colorTextWeakest` and background color to `colorBackgroundPrimaryStronger`
+  - Update checked and disabled text color to `colorTextWeakest`
+  - Update checked and invalid text color to `colorTextInverse`
+  - Update checked and invalid and hover background color to `colorBackgroundErrorStronger` and border color to `colorBorderErrorStronger`
+
+- [`c0de1aee6`](https://github.com/twilio-labs/paste/commit/c0de1aee6fd6f2e2963c663838ccaf9ab2058349) [#2221](https://github.com/twilio-labs/paste/pull/2221) Thanks [@shleewhite](https://github.com/shleewhite)! - [FormPillGroup] add i18nKeyboardControls prop to support i18n
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [modal]
+
+  - Update modal header border bottom color to `colorBorderWeak`
+  - Update modal footer border top color to `colorBorderWeak`
+
+- [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [skeleton-loader]
+
+  - Update animated background color to use `rgba(255, 255, 255, 0.4)`
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [input-box]
+
+  - Update default box shadow hover to `shadowBorderPrimaryStronger`
+  - Update default box shadow hover when error and not hidden to `shadowBorderErrorStronger`
+  - Update inverse background color when disabled and not hidden to `colorBackgroundInverse`
+
+- [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [color-contrast-utils] Enable color contrast tests for Dark theme
+
+* [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7) [#2249](https://github.com/twilio-labs/paste/pull/2249) Thanks [@nkrantz](https://github.com/nkrantz)! - [button]
+
+  - Update `DestructiveButton` default text color to `colorTextInverse`
+  - Update `PrimaryButton` default text color to `colorTextInverse`
+  - Update `DestructiveLinkButton` active text color to `colorTextLinkDestructiveStrongest`
+  - Update `InverseButton` box shadow to `shadowBorderInverseWeakest`
+  - Update `LinkButton` active text color to `colorTextLinkStrongest`
+
+- [`1f564a931`](https://github.com/twilio-labs/paste/commit/1f564a931b9a844a9d097edb2012c65692af9bd4) [#2242](https://github.com/twilio-labs/paste/pull/2242) Thanks [@shleewhite](https://github.com/shleewhite)! - [Select] set the background color on the select, option, and optionGroup
+
+- Updated dependencies [[`c867e3f48`](https://github.com/twilio-labs/paste/commit/c867e3f48d739409d1f54fa18c4d2bee1d9242cf), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`f696cb17e`](https://github.com/twilio-labs/paste/commit/f696cb17ec84bb315fc8672493800c044e866a1d), [`b4abdd9a4`](https://github.com/twilio-labs/paste/commit/b4abdd9a4c6e168c5845e744591dc40ac635a67f), [`1f564a931`](https://github.com/twilio-labs/paste/commit/1f564a931b9a844a9d097edb2012c65692af9bd4), [`64de05f55`](https://github.com/twilio-labs/paste/commit/64de05f5551c5ebc94cbf85028cfaf2a637c19d3), [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c), [`4aefbe75d`](https://github.com/twilio-labs/paste/commit/4aefbe75d7c34ebdab209be14073426c1632d8a9), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`c0de1aee6`](https://github.com/twilio-labs/paste/commit/c0de1aee6fd6f2e2963c663838ccaf9ab2058349), [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c), [`9b0579415`](https://github.com/twilio-labs/paste/commit/9b0579415b3c7f392d088a136e08e3c45dfb2b53), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`c0de1aee6`](https://github.com/twilio-labs/paste/commit/c0de1aee6fd6f2e2963c663838ccaf9ab2058349), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c), [`563a76ba3`](https://github.com/twilio-labs/paste/commit/563a76ba31d60ee43c1e57907c83c502dc1ba5a7), [`1f564a931`](https://github.com/twilio-labs/paste/commit/1f564a931b9a844a9d097edb2012c65692af9bd4), [`0cd424df4`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c)]:
+  - @twilio-paste/modal@8.0.1
+  - @twilio-paste/color-contrast-utils@2.0.1
+  - @twilio-paste/alert@8.0.1
+  - @twilio-paste/alert-dialog@1.0.1
+  - @twilio-paste/anchor@6.0.1
+  - @twilio-paste/avatar@3.0.1
+  - @twilio-paste/badge@2.0.1
+  - @twilio-paste/base-radio-checkbox@7.0.1
+  - @twilio-paste/breadcrumb@5.0.1
+  - @twilio-paste/button@8.0.1
+  - @twilio-paste/card@4.0.1
+  - @twilio-paste/checkbox@7.0.1
+  - @twilio-paste/combobox@9.0.2
+  - @twilio-paste/data-grid@1.0.1
+  - @twilio-paste/date-picker@1.0.1
+  - @twilio-paste/disclosure@6.0.1
+  - @twilio-paste/display-pill-group@2.0.1
+  - @twilio-paste/form-pill-group@2.0.1
+  - @twilio-paste/heading@6.0.1
+  - @twilio-paste/help-text@7.0.1
+  - @twilio-paste/inline-control-group@7.0.1
+  - @twilio-paste/input@4.0.1
+  - @twilio-paste/input-box@5.0.1
+  - @twilio-paste/label@7.0.1
+  - @twilio-paste/list@3.0.1
+  - @twilio-paste/menu@8.0.1
+  - @twilio-paste/pagination@1.0.1
+  - @twilio-paste/paragraph@5.0.1
+  - @twilio-paste/popover@7.0.1
+  - @twilio-paste/radio-group@7.1.0
+  - @twilio-paste/screen-reader-only@7.0.1
+  - @twilio-paste/select@6.0.1
+  - @twilio-paste/separator@3.0.1
+  - @twilio-paste/skeleton-loader@1.0.1
+  - @twilio-paste/spinner@8.0.1
+  - @twilio-paste/table@3.0.1
+  - @twilio-paste/tabs@3.0.1
+  - @twilio-paste/textarea@4.0.1
+  - @twilio-paste/time-picker@1.0.1
+  - @twilio-paste/toast@6.0.1
+  - @twilio-paste/tooltip@5.0.1
+  - @twilio-paste/truncate@8.0.1
+  - @twilio-paste/aspect-ratio@5.0.1
+  - @twilio-paste/flex@3.0.1
+  - @twilio-paste/grid@3.0.1
+  - @twilio-paste/media-object@5.0.1
+  - @twilio-paste/stack@3.0.1
+  - @twilio-paste/box@5.0.1
+  - @twilio-paste/combobox-primitive@0.3.2
+  - @twilio-paste/disclosure-primitive@0.3.6
+  - @twilio-paste/menu-primitive@0.2.7
+  - @twilio-paste/modal-dialog-primitive@0.2.5
+  - @twilio-paste/non-modal-dialog-primitive@0.3.7
+  - @twilio-paste/sibling-box@4.0.1
+  - @twilio-paste/tabs-primitive@0.2.5
+  - @twilio-paste/text@5.0.1
+  - @twilio-paste/tooltip-primitive@0.2.6
+  - @twilio-paste/customization@3.0.1
+  - @twilio-paste/design-tokens@7.1.0
+  - @twilio-paste/animation-library@0.3.4
+  - @twilio-paste/clipboard-copy-library@1.0.2
+  - @twilio-paste/data-visualization-library@0.1.0
+  - @twilio-paste/dropdown-library@1.1.3
+  - @twilio-paste/reakit-library@0.8.3
+  - @twilio-paste/styling-library@0.3.6
+  - @twilio-paste/uid-library@0.2.3
+  - @twilio-paste/style-props@4.0.1
+  - @twilio-paste/theme@6.0.1
+  - @twilio-paste/types@3.1.4
+  - @twilio-paste/utils@1.1.2
+
 ## 11.0.1
 
 ### Patch Changes

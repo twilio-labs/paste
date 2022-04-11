@@ -7,12 +7,13 @@ import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {useWindowSize} from '../../hooks/useWindowSize';
 import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
-import {docSearchStyles} from '../../styles/docSearch';
+import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 
 /* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
+  background-color: ${themeGet('backgroundColors.colorBackgroundBody')};
   overflow: auto;
   /* note: needed for scrollspy, removing position breaks site layout  */
   position: relative;
@@ -37,7 +38,7 @@ export const SiteBody: React.FC = ({children}) => {
 
   return (
     <Box display="flex" flexDirection="column" height="100vh">
-      <StylingGlobals styles={docSearchStyles({theme: themeObject})} />
+      <StylingGlobals styles={{...docSearchStyles({theme: themeObject}), ...docSearchVariable(themeObject)}} />
       <SiteHeader />
       <StyledSiteBody id="styled-site-body">
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}

@@ -4,6 +4,7 @@ import {Link} from 'gatsby';
 import type {BoxStyleProps} from '@twilio-paste/box';
 
 import {SidebarItem} from './SidebarItem';
+import {useLocationPathname} from '../../../utils/RouteUtils';
 
 interface SidebarAnchorProps {
   children: NonNullable<React.ReactNode>;
@@ -67,12 +68,17 @@ const StyledSidebarAnchor = styled(Link, {
   })
 );
 
-const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, level, to}) => (
-  <SidebarItem>
-    <StyledSidebarAnchor level={level} to={to}>
-      {children}
-    </StyledSidebarAnchor>
-  </SidebarItem>
-);
+const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, level, to}) => {
+  const pathname = useLocationPathname();
+  const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  return (
+    <SidebarItem>
+      <StyledSidebarAnchor level={level} to={to} aria-current={pathnameWithoutTrailingSlash === to ? 'page' : false}>
+        {children}
+      </StyledSidebarAnchor>
+    </SidebarItem>
+  );
+};
 
 export {SidebarAnchor};

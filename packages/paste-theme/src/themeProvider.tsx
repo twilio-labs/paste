@@ -52,7 +52,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
-  React.useLayoutEffect(() => {
+  React.useMemo(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,
     });
@@ -64,7 +64,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
     <StyledThemeProvider theme={providerThemeProps}>
       <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
       <StylingGlobals styles={pasteFonts} />
-      <StyledBase {...props} />
+      <StyledBase className="paste-theme-provider" {...props} />
     </StyledThemeProvider>
   );
 };
