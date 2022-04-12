@@ -13,7 +13,7 @@ const TwilioLogo = React.memo(({title = 'Twilio Logo', decorative = true, classN
   const titleId = useUID();
   return (
     <span style={{color, width: size, height: size, display: 'inline-block'}} className={className}>
-      <svg role="img" aria-hidden={decorative} width="100%" height="100%" aria-labelledby={titleId}>
+      <svg role="img" aria-hidden={decorative} width="100%" height="100%" viewBox="0 0 88 24" aria-labelledby={titleId}>
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill="currentColor"
