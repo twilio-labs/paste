@@ -11,6 +11,12 @@ export function useLocationPathname(): string {
   return pathname;
 }
 
+// Gets the current url params
+export function useLocationSearch(): string {
+  const {search} = hasWindowObject() ? window.location : useLocation();
+  return search;
+}
+
 export function useLocationOrigin(): string {
   const {origin} = hasWindowObject() ? window.location : useLocation();
   // By default, assume the origin is our own domain

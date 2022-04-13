@@ -66,6 +66,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     display: 'inline-block',
   };
 
+  const githubIconColor = theme.textColors.colorTextIcon;
+
   const categoryName = getCategoryNameFromRoute(categoryRoute);
   const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
   const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
@@ -115,7 +117,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             {githubUrl && (
               <IconAnchor
                 href={githubUrl}
-                icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}
+                icon={<GithubIcon css={{...sharedIconStyles, color: githubIconColor}} decorative />}
               >
                 Github
               </IconAnchor>
