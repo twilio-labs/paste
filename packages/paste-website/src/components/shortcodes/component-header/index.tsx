@@ -35,6 +35,7 @@ export interface ComponentHeaderProps {
   packageStatus?: string;
   storybookUrl?: string;
   version?: string;
+  shouldShowBreadcrumbs?: boolean;
 }
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
@@ -49,6 +50,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   packageStatus,
   storybookUrl,
   version,
+  shouldShowBreadcrumbs = true,
 }) => {
   const theme = useTheme();
 
@@ -79,9 +81,11 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           <meta property="og:image" content={openGraphServiceUrl} />
         </Helmet>
       )}
-      <Box marginBottom="space50">
-        {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
-      </Box>
+      {shouldShowBreadcrumbs && (
+        <Box marginBottom="space50">
+          {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
+        </Box>
+      )}
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
         <Box marginRight="space50">
           <Heading as="h1" variant="heading10" marginBottom="space0">

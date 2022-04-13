@@ -1,76 +1,198 @@
 ---
-title: Design tokens
-description: List of visual attributes (background colors, spacing, etc.) that our design language is based on.
+title: Tokens
+description: Design tokens are named units that store visual design attributes.
 slug: /tokens/
 ---
 
 import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
+import Img from 'gatsby-image';
 import {Text} from '@twilio-paste/text';
-import {Blockquote} from '../../components/Blockquote';
-import {TokensList} from '../../components/tokens-list';
-
-# Design Tokens
-
-<Blockquote
-  name="Salesforce UX"
-  source="Lightning Design System"
-  sourceUrl="https://www.lightningdesignsystem.com/design-tokens/"
->
-  Design tokens are the visual design atoms of the design system — specifically, they are named entities that store
-  visual design attributes.
-</Blockquote>
-
-Tokens are named for their use case, rather than their value. For example
-`$color-background-error` is named to indicate the appropriate background
-color for an error, as opposed to `$color-background-red` which is less
-specific and could be used in a number of ways depending on cultural context
-and design language. This makes their intended use clear and intentional,
-and allows us to develop a scalable and consistent visual language.
-
-In Paste, **1 rem unit = 16 pixels**.
-
-<TokensList defaultTokens={props.data.allPasteTokenDefault.edges} darkTokens={props.data.allPasteTokenDark.edges} />
+import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import {ImageCaption} from '../../components/ImageCaption';
 
 export const pageQuery = graphql`
   {
-    allPasteTokenDefault {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-              deprecated
-            }
-          }
+    aliasTokens: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/tokens/alias-tokens.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
-    allPasteTokenDark {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-            }
-          }
+    inputTokens: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/tokens/input-tokens-example.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
         }
+      }
+    }
+    mdx(fields: {slug: {eq: "/tokens/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
       }
     }
   }
 `;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  description={props.pageContext.frontmatter.description}
+  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  shouldShowBreadcrumbs={false}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Introduction
+
+Design tokens make up the smallest base parts of a design language and help distribute it across different platforms and technologies. This helps to create a more seamless user experience across products and digital properties, no matter how they are built, by allowing that visual design language to be shared from a single source of truth.
+
+As the attributes of a design language are never hard-coded into any file, an evolution of the design language can be made with fewer updates to design assets and products by just updating the token values from that single central source.
+
+All Paste components use design tokens. Additionally, [styling primitives with tokens unlocks the ability to create custom UI](/customization/composing-custom-components-with-design-tokens) that still uses Paste.
+
+<Img fluid={props.data.inputTokens.childImageSharp.fluid} />
+<ImageCaption>
+  For example, an Input in an error state is styled using a number of tokens that set styles such as border color and
+  thickness, text color and size, padding, and margin.
+</ImageCaption>
+
+<Callout>
+  <CalloutTitle as="h3">Need a token that doesn't exist in Paste yet?</CalloutTitle>
+  <CalloutText>
+    We add new tokens every so often when there’s a strong semantic purpose that can exist across multiple products. If
+    you think you have a need for a new token, please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      start a GitHub discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+## Token Naming
+
+Design tokens represent fundamental decisions of Paste’s design language, specifying their intended usage with their semantic naming in a predictable and clear way. For example, **`$color-text-link-destructive`** is used for displaying link text that communicates an action is destructive. Using the appropriate token ensures that all destructive actions are styled consistently, appearing as red text in this case. Once a token name is created, it can never change, or be removed.
+
+Tokens are named semantically to specify their intended usage. The format of a design token name is:
+**`$type-category-instance-variant-state`**
+
+<DoDont>
+  <Do title="Do" body="Name a token based on its use case or purpose." center>
+    <Text fontFamily="fontFamilyCode">$color-background-success</Text>
+  </Do>
+  <Dont title="Don't" body="Don't name a token based on its value." center>
+    <Text fontFamily="fontFamilyCode">$color-background-green</Text>
+  </Dont>
+</DoDont>
+
+### Type
+
+Types are the high-level, foundational styles the token will be applied to, such as color, type, size, spacing.
+
+<Box display="flex" columnGap="space20" marginBottom="space70">
+  <Text>Example:</Text>
+  <Text fontFamily="fontFamilyCode">
+    {`$`}
+    <strong>color</strong>-background-primary
+  </Text>
+</Box>
+
+### Category
+
+Categories are the UI entities the token will be applied to, such as background, border, radius, font-size.
+
+<Box display="flex" columnGap="space20" marginBottom="space70">
+  <Text>Example:</Text>
+  <Text fontFamily="fontFamilyCode">
+    {`$`}color-<strong>background</strong>-primary
+  </Text>
+</Box>
+
+### Instance
+
+Instances are the occurrences in which the token might be used to express that instance in the UI, such as success, warning, error, link.
+
+<Box display="flex" columnGap="space20" marginBottom="space70">
+  <Text>Example:</Text>
+  <Text fontFamily="fontFamilyCode">
+    {`$`}color-background-<strong>success</strong>
+  </Text>
+</Box>
+
+### Variant
+
+The variant of an instance token, such as weak, weakest, strong, stronger.
+
+<Box display="flex" columnGap="space20" marginBottom="space70">
+  <Text>Example:</Text>
+  <Text fontFamily="fontFamilyCode">
+    {`$`}color-border-success-<strong>stronger</strong>
+  </Text>
+</Box>
+
+### State
+
+State in which the token should be used, such as hover, focus, selected.
+
+<Box display="flex" columnGap="space20" marginBottom="space70">
+  <Text>Example:</Text>
+  <Text fontFamily="fontFamilyCode">
+    {`$`}shadow-box-shadow-<strong>focus</strong>
+  </Text>
+</Box>
+
+## Aliases
+
+Some tokens in Paste leverage an additional layer of abstraction beneath tokens, called aliases. Paste’s design tokens point to an alias to define their value, while the aliases point to hard-coded values, such as hex codes or RGB values.
+
+### Color aliases
+
+Right now, Paste leverages aliases only for color. Paste’s color aliases are the primitive form of the colors in our palette. All of Paste’s color tokens reference our aliases. **Aliases are never directly used in the implementation of Paste UI; only tokens can be used.**
+
+### The alias + tokens approach
+
+We use aliases in Paste to help codify and systematize the desired value that can be referenced by our semantically-named design tokens.
+
+One benefit of this approach is that tokens will reference aliases instead of hard-coded values, which reduces the need to implement duplicate values. Sometimes a token may need to use the same value as another token; for example `$color-background-primary` uses the same hex value as `$color-border-neutral`, but both just reference the alias `$color-palette-blue-60` to define the color.
+
+Another benefit of the approach is that it enables flexibility. If there’s a need to make a change to an alias and have those changes applied system-wide, we only need to change that single alias for it to propagate to everything that references it. This reduces our need to “find and replace” on a large scale.
+
+Alternatively, if we want to make a change to a design token, and not the alias, we can isolate the change to just the design token. For example, if we want to change the `$color-background-primary` token to use orange instead of blue, we can point that token at a different alias rather than changing the alias itself.
+
+<Img fluid={props.data.aliasTokens.childImageSharp.fluid} />
+<ImageCaption>
+  In this example, the $color-background-primary and $color-text-link tokens reference the $color-palette-blue-60 alias
+  to define the color of the token. However, each token is applied to a specific need for different components, such as
+  the background color of a primary button or the color of the text in a link-style button or anchor.
+</ImageCaption>
+
+## Themes
+
+Themes are collections of design tokens that reference specific values. The values can change per theme.
+
+Themes can only change the values of properties that are **already set on a component**. For example, you might change the border or background color of a button per theme, but you can’t add the use of a new token type per theme, such as text decoration.
+
+We use themes to enable us to ship one design system and component library to serve multiple distinct visual design languages. Themes also enable the implementation of light and dark mode in your UIs by allowing end users to switch between the Default and Dark themes in Paste.
+
+</content>
+
+</contentwrapper>

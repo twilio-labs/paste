@@ -291,7 +291,10 @@ const SidebarNavigation: React.FC = () => {
             })
           }
         >
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/`}>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}`}>
+            Overview
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/list`}>
             Token list
           </SidebarAnchor>
           <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
