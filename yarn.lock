@@ -12267,9 +12267,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twilio-labs/svg-to-react@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@twilio-labs/svg-to-react@npm:2.1.0"
+"@twilio-labs/svg-to-react@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@twilio-labs/svg-to-react@npm:2.1.1"
   dependencies:
     "@svgr/babel-plugin-add-jsx-attribute": ^5.0.1
     "@svgr/babel-plugin-remove-jsx-attribute": ^5.0.1
@@ -12278,9 +12278,9 @@ __metadata:
     "@svgr/plugin-jsx": ^5.0.1
     "@svgr/plugin-prettier": ^5.0.1
     "@svgr/plugin-svgo": ^5.1.0
-    prettier: ^1.19.1
+    prettier: ^2.2.1
     tslib: ^1.10.0
-  checksum: 85899a15cbfcc245010f7c9ff8dceb4e9fe350f9ba8ef034bb2f499f14d41c06609f75b7bae0201dab5a5412488c1a3414f1ec562b2f43617732f58631cfb1c3
+  checksum: 16cb44a08256846dd5ed918c45a378cb196cf56d95cf52dd4e1069d6ff3df8040ab84ea2167b89d821f755bffbc9ba34a971cfbe3925eadbeca41a2e0ef30d31
   languageName: node
   linkType: hard
 
@@ -40765,7 +40765,7 @@ is-whitespace@latest:
     "@testing-library/react": ^12.1.4
     "@testing-library/react-hooks": ^7.0.2
     "@testing-library/user-event": ^13.5.0
-    "@twilio-labs/svg-to-react": ^2.1.0
+    "@twilio-labs/svg-to-react": ^2.1.1
     "@types/browser-sync": ^2.26.1
     "@types/color": ^3.0.0
     "@types/gulp": ^4.0.6

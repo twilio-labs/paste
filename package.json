@@ -119,7 +119,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "@twilio-labs/svg-to-react": "^2.1.0",
+    "@twilio-labs/svg-to-react": "^2.1.1",
     "@types/browser-sync": "^2.26.1",
     "@types/color": "^3.0.0",
     "@types/gulp": "^4.0.6",
