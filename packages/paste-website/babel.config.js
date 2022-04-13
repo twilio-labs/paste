@@ -4,7 +4,8 @@ const getPresets = (isDev) => [
     '@emotion/babel-preset-css-prop',
     {
       sourceMap: isDev,
-      autoLabel: isDev,
+      // @NOTE update for v11
+      autoLabel: 'dev-only',
       labelFormat: '[local]',
       cssPropOptimization: !isDev,
     },

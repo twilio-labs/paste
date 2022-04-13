@@ -52,7 +52,8 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
-  React.useMemo(() => {
+  // was causing error in storybook render.
+  React.useEffect(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,
     });

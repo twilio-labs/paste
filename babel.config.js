@@ -15,10 +15,13 @@ const getPresets = (isDev) => [
   '@babel/preset-typescript',
   [
     // Automatically includes the 'emotion' preset.
+    // @NOTE updated this to v11, configuration option schema changed slightly.
+    // when we upgrade our react to use the new JSX transformations with babel, we will need to replace this with the "@emotion/babel" plugin.
+    // when using this plugin, we need to reference the cssprop type in our ts configuraiton.
     '@emotion/babel-preset-css-prop',
     {
       sourceMap: isDev,
-      autoLabel: isDev,
+      autoLabel: 'dev-only',
       labelFormat: '[local]',
       cssPropOptimization: !isDev,
     },

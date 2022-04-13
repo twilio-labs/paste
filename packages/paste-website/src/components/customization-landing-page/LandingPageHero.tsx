@@ -27,7 +27,7 @@ export const LandingPageHero: React.FC = () => {
             backgroundColor: 'colorBackground',
             borderRadius: 'borderRadius20',
             position: 'absolute',
-            // @ts-expect-error
+            // @ts-expect-error @TODO not included in our types, but prob should be?
             clipPath: 'polygon(0 0, 100% 80px, 100% 100%, 0 100%)',
             transform: 'scaleY(-1)',
             top: 0,

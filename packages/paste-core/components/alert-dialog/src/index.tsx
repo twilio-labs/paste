@@ -10,6 +10,8 @@ import {AlertDialogBody} from './AlertDialogBody';
 import {AlertDialogContent} from './AlertDialogContent';
 import {AlertDialogFooter} from './AlertDialogFooter';
 
+/// <reference types="@emotion/react/types/css-prop" />
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
   from: {opacity: 0, transform: `scale(0.675)`},
@@ -59,6 +61,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
         {transitions(
           (styles, item) =>
             item && (
+              // @ts-expect-error @TODO debugging in emotion upgrade.
               <ModalDialogOverlay isOpen={isOpen} style={{opacity: styles.opacity}}>
                 <Box
                   // @ts-expect-error Render overlay as box for customization

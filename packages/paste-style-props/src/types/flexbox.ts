@@ -2,6 +2,7 @@
 import type {Properties, Globals} from 'csstype';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 
+type GlobalsNumber = Globals | number; // @TODO add doc comments, was removed from CSSType
 /**
  * The CSS align-items property sets the align-self value on all direct children as a group. The align-self
  * property sets the alignment of an item within its containing block.

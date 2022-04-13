@@ -2,7 +2,7 @@ import * as React from 'react';
 import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
+import {matchers} from '@emotion/jest';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';

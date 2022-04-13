@@ -9,6 +9,8 @@ const merge = require('deepmerge');
 
 export const PasteStyleProps = system(customStyleProps as Config);
 
+console.log('BOX: props', PasteStyleProps);
+
 /**
  * Take _ prefixed style props and convert them to custom style props for CSS pseudo selectors
  *

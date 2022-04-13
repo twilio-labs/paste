@@ -17,10 +17,11 @@
     [
       "@emotion/babel-preset-css-prop",
       {
-        "sourceMap": "true",
-        "autoLabel": "true",
+        "sourceMap": true,
+        // @NOTE v11 now always
+        "autoLabel": "always",
         "labelFormat": "[local]",
-        "cssPropOptimization": "false"
+        "cssPropOptimization": false
       }
     ]
   ],

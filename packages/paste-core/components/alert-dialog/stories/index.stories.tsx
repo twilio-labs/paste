@@ -25,6 +25,8 @@ export default {
 };
 
 export const AlertDialogWithTwoActions: React.FC = () => {
+  const theme = useTheme();
+  console.log({theme});
   return (
     <AlertDialog
       heading="Submit application"
@@ -218,6 +220,7 @@ DestructiveAlertDialogVRT.story = {
 
 export const CustomizedAlertDialog = (): React.ReactElement => {
   const theme = useTheme();
+  console.log({theme});
   return (
     <CustomizationProvider
       theme={theme}

@@ -63,6 +63,7 @@ const GlobalStyles = () => (
 export const decorators = [
   (Story, context) => {
     const theme = context.globals.theme;
+    console.log({theme});
     const layout = context.globals.theme_layout;
     const lang = context.globals.locale;
 

@@ -29,6 +29,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
+  "files": ["node_modules/@emotion/react/types/css-prop.d.ts"],
   "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts", "tools/**/*"],
   "exclude": [
     "node_modules",
