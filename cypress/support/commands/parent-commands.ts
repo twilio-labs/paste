@@ -1,4 +1,5 @@
 import '@applitools/eyes-cypress/commands';
+import {DEFAULT_CHECK_PARAMS, DEFAULT_OPEN_PARAMS, eyesAreEnabled, prepareForEyes} from 'support/utils/applitools';
 
 /**
  * @file Custom parent commands
@@ -91,4 +92,38 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     .then((height) => {
       return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
     });
+});
+
+Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
+  cy.visit(url);
+  cy.wait(1000);
+  cy.log('[Applitools]: checking if eyes are enabled');
+
+  if (eyesAreEnabled()) {
+    cy.log('[Applitools]: Eyes are enabled, proceed with eyes check.');
+
+    const openParams: Partial<Eyes.Open.Options> = {
+      ...DEFAULT_OPEN_PARAMS,
+      testName: testName,
+    };
+
+    const checkParams: Partial<Eyes.Check.Options> = {
+      ...DEFAULT_CHECK_PARAMS,
+      tag: `${testName}`,
+    };
+
+    cy.log(`[Applitools]: Opening eyes with these params: ${openParams}`);
+    cy.eyesOpen(openParams);
+
+    prepareForEyes();
+
+    cy.log(`[Applitools]: Checking window with these params: ${checkParams}`);
+    cy.eyesCheckWindow(checkParams);
+
+    cy.eyesClose();
+  } else {
+    cy.log('[Applitools]: Eyes not enabled, skipping eyes check');
+  }
+
+  expect(true).to.equal(true);
 });

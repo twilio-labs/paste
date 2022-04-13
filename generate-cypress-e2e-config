@@ -1,0 +1,23 @@
+cat > cypress-e2e.json <<EOF
+{
+  "viewportWidth": 1440,
+  "viewportHeight": 1020,
+  "baseUrl": "${CYPRESS_BASE_URL}",
+  "projectId": "pe4h41",
+  "retries": {
+    "runMode": 2,
+    "openMode": 2
+  },
+  "video": false,
+  "blockHosts": [
+    "*.google-analytics.com",
+    "*.codesandbox.io",
+    "codesandbox.io",
+    "*.loom.com",
+    "*.youtube.com",
+    "*.github.com",
+    "*.googletagmanager.com"
+  ],
+  "testFiles": ["**/**/*.spec.ts"]
+}
+EOF
