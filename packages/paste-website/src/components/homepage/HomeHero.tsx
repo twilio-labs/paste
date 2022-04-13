@@ -71,25 +71,46 @@ const HomeHero: React.FC = () => {
         >
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
-              <NewComponentBanner>
-                <Badge as="span" variant="new">
-                  New!
-                </Badge>
-                <NewComponentBannerText>We&apos;re hiring a Staff Product Designer!</NewComponentBannerText>
-                <NewComponentBannerLink
-                  showExternal
-                  to="https://boards.greenhouse.io/twilio/jobs/3823505"
-                  onClick={() =>
-                    trackCustomEvent({
-                      category: 'Hero',
-                      action: 'click-new-component-banner',
-                      label: 'Go to Staff Designer Position',
-                    })
-                  }
-                >
-                  Apply here
-                </NewComponentBannerLink>
-              </NewComponentBanner>
+              <Stack orientation="vertical" spacing="space40">
+                <NewComponentBanner>
+                  <Badge as="span" variant="new">
+                    New!
+                  </Badge>
+                  <NewComponentBannerText>We&apos;re hiring a Staff Product Designer!</NewComponentBannerText>
+                  <NewComponentBannerLink
+                    showExternal
+                    to="https://boards.greenhouse.io/twilio/jobs/3823505"
+                    onClick={() =>
+                      trackCustomEvent({
+                        category: 'Hero',
+                        action: 'click-new-component-banner',
+                        label: 'Go to Staff Designer Position',
+                      })
+                    }
+                  >
+                    Apply here
+                  </NewComponentBannerLink>
+                </NewComponentBanner>
+                <NewComponentBanner>
+                  <Badge as="span" variant="new">
+                    New!
+                  </Badge>
+                  <NewComponentBannerText>We&apos;re hiring a Staff UX Engineer!</NewComponentBannerText>
+                  <NewComponentBannerLink
+                    showExternal
+                    to="https://boards.greenhouse.io/twilio/jobs/3873421"
+                    onClick={() =>
+                      trackCustomEvent({
+                        category: 'Hero',
+                        action: 'click-new-component-banner',
+                        label: 'Go to Staff UX',
+                      })
+                    }
+                  >
+                    Apply here
+                  </NewComponentBannerLink>
+                </NewComponentBanner>
+              </Stack>
               <Text
                 as="h1"
                 color="colorTextInverse"
