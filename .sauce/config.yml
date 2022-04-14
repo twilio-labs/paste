@@ -26,7 +26,7 @@ suites:
   - name: "Chrome"
     browser: "chrome"
     platformName: "Windows 10"
-    shard: concurrency
+    shard: spec
     config:
       testFiles: ["**/**/*.spec.ts"] # Cypress native glob support.
 
