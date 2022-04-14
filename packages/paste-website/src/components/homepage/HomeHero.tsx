@@ -95,7 +95,7 @@ const HomeHero: React.FC = () => {
                   <Badge as="span" variant="new">
                     New!
                   </Badge>
-                  <NewComponentBannerText>We&apos;re hiring a Principal UX Engineer!</NewComponentBannerText>
+                  <NewComponentBannerText>We&apos;re hiring a Staff UX Engineer!</NewComponentBannerText>
                   <NewComponentBannerLink
                     showExternal
                     to="https://boards.greenhouse.io/twilio/jobs/3873421"
@@ -103,7 +103,7 @@ const HomeHero: React.FC = () => {
                       trackCustomEvent({
                         category: 'Hero',
                         action: 'click-new-component-banner',
-                        label: 'Go to Principal UX',
+                        label: 'Go to Staff UX',
                       })
                     }
                   >
