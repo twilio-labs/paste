@@ -109,6 +109,9 @@ describe('Full Site VRT', function () {
     it('vrt /tokens/', () => {
       cy.visualRegressionTestUrl({url: '/tokens/', testName: '/tokens/'});
     });
+    it('vrt /tokens/list/', () => {
+      cy.visualRegressionTestUrl({url: '/tokens/list/', testName: '/tokens/list/'});
+    });
     it('vrt /primitives/box/', () => {
       cy.visualRegressionTestUrl({url: '/primitives/box/', testName: '/primitives/box/'});
     });
