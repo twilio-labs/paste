@@ -88,8 +88,6 @@ docs
 cypress/videos
 cypress/screenshots
 cypress/downloads
-# Saucelabs cypress config
-cypress-e2e.json
 
 # Local Netlify folder
 .netlify

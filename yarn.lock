@@ -19266,7 +19266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bin-wrapper@npm:^4.0.0, bin-wrapper@npm:^4.0.1, bin-wrapper@npm:^4.1.0":
+"bin-wrapper@npm:^4.0.0, bin-wrapper@npm:^4.0.1":
   version: 4.1.0
   resolution: "bin-wrapper@npm:4.1.0"
   dependencies:
@@ -40886,7 +40886,6 @@ is-whitespace@latest:
     react-helmet: ^6.1.0
     react-router-dom: 6.2.1
     regenerator-runtime: ^0.13.3
-    saucectl: ^0.91.1
     search-in-file: ^1.2.2
     shelljs: ^0.8.3
     start-server-and-test: ^1.11.5
@@ -45983,17 +45982,6 @@ resolve@^1.17.0:
     sass:
       optional: true
   checksum: dbd4ba06e2a7de50db4588c9e84e38fb458ca4a44e1fccdf6eded728662b6fe0bd556249970876f13b47424e4285f5c6a8953933f83d47fd1448cad5884f84a5
-  languageName: node
-  linkType: hard
-
-"saucectl@npm:^0.91.1":
-  version: 0.91.1
-  resolution: "saucectl@npm:0.91.1"
-  dependencies:
-    bin-wrapper: ^4.1.0
-  bin:
-    saucectl: index.js
-  checksum: 428d5d462887a82d21dfd7f9101765ed7ad30b6e69cecb28d038e831ac342849cb7db6d4906dcefe5cc4e7ec24869984b356cfb467965b1fca962d96d305c28b
   languageName: node
   linkType: hard
 

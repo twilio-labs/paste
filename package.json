@@ -208,7 +208,6 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "6.2.1",
     "regenerator-runtime": "^0.13.3",
-    "saucectl": "^0.91.1",
     "search-in-file": "^1.2.2",
     "shelljs": "^0.8.3",
     "start-server-and-test": "^1.11.5",
