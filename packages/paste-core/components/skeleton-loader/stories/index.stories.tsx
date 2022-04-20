@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -18,7 +17,6 @@ import {SkeletonLoader} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Skeleton Loader',
-  decorators: [withKnobs],
   component: SkeletonLoader,
 };
 

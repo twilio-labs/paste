@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {withKnobs, text} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -36,7 +35,6 @@ export const StateHookExample: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Tooltip',
-  decorators: [withKnobs],
   excludeStories: ['StateHookExample'],
   component: Tooltip,
   parameters: {
@@ -48,7 +46,7 @@ export default {
 export const Default = (): React.ReactNode => {
   return (
     <Box as="div" minHeight="400px">
-      <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+      <Tooltip visible text="Welcome to Paste!">
         <Button variant="primary">Open tooltip</Button>
       </Tooltip>
     </Box>
@@ -197,10 +195,10 @@ export const CustomizedTooltip = (): React.ReactNode => {
       }}
     >
       <Box as="div" display="flex" columnGap="space80">
-        <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+        <Tooltip visible text="Welcome to Paste!">
           <Button variant="primary">Open tooltip</Button>
         </Tooltip>
-        <Tooltip element="CUSTOM_TOOLTIP" visible text={text('text', 'Welcome to Paste!')}>
+        <Tooltip element="CUSTOM_TOOLTIP" visible text="Welcome to Paste!">
           <Button variant="primary">Open tooltip</Button>
         </Tooltip>
       </Box>

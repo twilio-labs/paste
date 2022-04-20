@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {withKnobs, select, text} from '@storybook/addon-knobs';
-import {DefaultTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Separator} from '@twilio-paste/separator';
@@ -8,85 +6,46 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '../src';
 import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 
-const backgroundColorOptions = Object.keys(DefaultTheme.backgroundColors);
-const spaceOptions = Object.keys(DefaultTheme.space);
-const widthOptions = Object.keys(DefaultTheme.widths);
-const minWidthOptions = Object.keys(DefaultTheme.minWidths);
-const maxWidthOptions = Object.keys(DefaultTheme.maxWidths);
-const heightOptions = Object.keys(DefaultTheme.heights);
-const minHeightOptions = Object.keys(DefaultTheme.minHeights);
-const maxHeightOptions = Object.keys(DefaultTheme.maxHeights);
-const borderRadiusOptions = Object.keys(DefaultTheme.radii);
-const borderColorOptions = Object.keys(DefaultTheme.borderColors);
-const borderWidthOptions = Object.keys(DefaultTheme.borderWidths);
-const boxShadowOptions = Object.keys(DefaultTheme.shadows);
-const zIndexOptions = Object.keys(DefaultTheme.zIndices);
-
 const demoString = `I'm some text in a box`;
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Box',
-  decorators: [withKnobs],
   component: Box,
 };
 
 export const Default = (): React.ReactNode => {
-  const backgroudColorValue = select(
-    'backgroundColor',
-    backgroundColorOptions,
-    'colorBackgroundPrimaryWeak'
-  ) as keyof ThemeShape['backgroundColors'];
+  const backgroudColorValue = 'colorBackgroundPrimaryWeak' as keyof ThemeShape['backgroundColors'];
 
-  const borderRadiusValue = select('borderRadius', borderRadiusOptions, 'borderRadius20') as keyof ThemeShape['radii'];
-  const borderTopLeftRadiusValue = select('borderTopLeftRadius', borderRadiusOptions, '') as keyof ThemeShape['radii'];
-  const borderTopRightRadiusValue = select(
-    'borderTopRightRadius',
-    borderRadiusOptions,
-    ''
-  ) as keyof ThemeShape['radii'];
-  const borderBottomLeftRadiusValue = select(
-    'borderBottomLeftRadius',
-    borderRadiusOptions,
-    ''
-  ) as keyof ThemeShape['radii'];
+  const borderRadiusValue = 'borderRadius20' as keyof ThemeShape['radii'];
+  const borderTopLeftRadiusValue = '' as keyof ThemeShape['radii'];
+  const borderTopRightRadiusValue = '' as keyof ThemeShape['radii'];
+  const borderBottomLeftRadiusValue = '' as keyof ThemeShape['radii'];
 
-  const borderBottomRightRadiusValue = select(
-    'borderBottomRightRadius',
-    borderRadiusOptions,
-    ''
-  ) as keyof ThemeShape['radii'];
+  const borderBottomRightRadiusValue = '' as keyof ThemeShape['radii'];
 
-  const borderWidthValue = select('borderWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-  const borderTopWidthValue = select('borderTopWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-  const borderRightWidthValue = select('borderRightWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-  const borderBottomWidthValue = select(
-    'borderBottomWidth',
-    borderWidthOptions,
-    ''
-  ) as keyof ThemeShape['borderWidths'];
-  const borderLeftWidthValue = select('borderLeftWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-  const borderColorValue = select(
-    'borderColor',
-    borderColorOptions,
-    'colorBorderPrimaryStrong'
-  ) as keyof ThemeShape['borderColors'];
-  const borderStyleValue = text('borderStyle', 'solid');
+  const borderWidthValue = '' as keyof ThemeShape['borderWidths'];
+  const borderTopWidthValue = '' as keyof ThemeShape['borderWidths'];
+  const borderRightWidthValue = '' as keyof ThemeShape['borderWidths'];
+  const borderBottomWidthValue = '' as keyof ThemeShape['borderWidths'];
+  const borderLeftWidthValue = '' as keyof ThemeShape['borderWidths'];
+  const borderColorValue = 'colorBorderPrimaryStrong' as keyof ThemeShape['borderColors'];
+  const borderStyleValue = 'solid';
 
-  const paddingValue = select('padding', spaceOptions, 'space20') as keyof ThemeShape['space'];
-  const marginValue = select('margin', spaceOptions, 'space40') as keyof ThemeShape['space'];
+  const paddingValue = 'space20' as keyof ThemeShape['space'];
+  const marginValue = 'space40' as keyof ThemeShape['space'];
 
-  const widthValue = select('width', widthOptions, '') as keyof ThemeShape['widths'];
-  const minWidthValue = select('minWidth', minWidthOptions, '') as keyof ThemeShape['minWidths'];
-  const maxWidthValue = select('maxWidth', maxWidthOptions, '') as keyof ThemeShape['maxWidths'];
-  const heightValue = select('height', heightOptions, 'size10') as keyof ThemeShape['heights'];
-  const minHeightValue = select('minHeight', minHeightOptions, '') as keyof ThemeShape['minHeights'];
-  const maxHeightValue = select('maxHeight', maxHeightOptions, '') as keyof ThemeShape['maxHeights'];
+  const widthValue = '' as keyof ThemeShape['widths'];
+  const minWidthValue = '' as keyof ThemeShape['minWidths'];
+  const maxWidthValue = '' as keyof ThemeShape['maxWidths'];
+  const heightValue = 'size10' as keyof ThemeShape['heights'];
+  const minHeightValue = '' as keyof ThemeShape['minHeights'];
+  const maxHeightValue = '' as keyof ThemeShape['maxHeights'];
 
-  const boxShadowValue = select('boxShadow', boxShadowOptions, '') as keyof ThemeShape['shadows'];
-  const zIndexValue = select('zIndex', zIndexOptions, '') as keyof ThemeShape['zIndices'];
-  const displayValue = text('display', 'block');
-  const overflowValue = text('overflow', 'hidden');
+  const boxShadowValue = '' as keyof ThemeShape['shadows'];
+  const zIndexValue = '' as keyof ThemeShape['zIndices'];
+  const displayValue = 'block';
+  const overflowValue = 'hidden';
 
   return (
     <Box

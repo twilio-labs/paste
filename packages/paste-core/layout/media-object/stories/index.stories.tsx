@@ -1,9 +1,7 @@
 import * as React from 'react';
-import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
-import {DefaultTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {MediaObject, MediaFigure, MediaBody} from '../src';
@@ -11,22 +9,17 @@ import {MediaObject, MediaFigure, MediaBody} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Media Object',
-  decorators: [withKnobs],
   component: MediaObject,
   subcomponents: {MediaFigure, MediaBody},
   argTypes: {verticalAlign: {defaultValue: 'top'}},
 };
 
 export const Default = (): React.ReactNode => {
-  const spaceValue = select('spacing', Object.keys(DefaultTheme.space), 'space20') as keyof ThemeShape['space'];
-  const marginBottomValue = select(
-    'marginBottom',
-    Object.keys(DefaultTheme.space),
-    'space0'
-  ) as keyof ThemeShape['space'];
-  const marginTopValue = select('marginTop', Object.keys(DefaultTheme.space), 'space0') as keyof ThemeShape['space'];
-  const verticalAlignValue = select('verticalAlign', ['center', 'top'], 'top');
-  const asValue = text('as', 'span') as keyof JSX.IntrinsicElements;
+  const spaceValue = 'space20' as keyof ThemeShape['space'];
+  const marginBottomValue = 'space0' as keyof ThemeShape['space'];
+  const marginTopValue = 'space0' as keyof ThemeShape['space'];
+  const verticalAlignValue = 'top';
+  const asValue = 'span' as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
@@ -45,15 +38,11 @@ export const Default = (): React.ReactNode => {
 };
 
 export const DoubleFigure = (): React.ReactNode => {
-  const spaceValue = select('spacing', Object.keys(DefaultTheme.space), 'space20') as keyof ThemeShape['space'];
-  const marginBottomValue = select(
-    'marginBottom',
-    Object.keys(DefaultTheme.space),
-    'space0'
-  ) as keyof ThemeShape['space'];
-  const marginTopValue = select('marginTop', Object.keys(DefaultTheme.space), 'space0') as keyof ThemeShape['space'];
-  const verticalAlignValue = select('verticalAlign', ['center', 'top'], 'top');
-  const asValue = text('as', 'span') as keyof JSX.IntrinsicElements;
+  const spaceValue = 'space20' as keyof ThemeShape['space'];
+  const marginBottomValue = 'space0' as keyof ThemeShape['space'];
+  const marginTopValue = 'space0' as keyof ThemeShape['space'];
+  const verticalAlignValue = 'top';
+  const asValue = 'span' as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
