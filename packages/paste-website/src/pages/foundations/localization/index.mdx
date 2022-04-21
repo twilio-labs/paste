@@ -7,18 +7,32 @@ slug: /foundations/localization/
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Button} from '@twilio-paste/button';
-import {Anchor} from '@twilio-paste/anchor';
-import {Stack} from '@twilio-paste/stack';
-import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
-
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
   {
+    denseLayout: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/localization/dense-layout.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    textInImage: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/foundations/localization/text-in-image.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     mdx(fields: {slug: {eq: "/foundations/localization/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -50,6 +64,13 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
+<Callout>
+  <CalloutTitle>Have more questions?</CalloutTitle>
+  <CalloutText>
+    This page contains general guidance around best practices for localization. If you have any questions, please
+    contact the Localization team on Slack at #help-design-systems.
+  </CalloutText>
+</Callout>
 
 ## Introduction
 
@@ -98,6 +119,10 @@ Continue reading to learn how to build experiences in a way that’s appropriate
 - Make all UI components expandable (auto-layout).
 - Don’t assign fixed-width or height to UI components, unless there’s a compelling reason.
 
+<Img fluid={props.data.denseLayout.childImageSharp.fluid} />
+
+<br />
+
 ### Keep links short and descriptive
 
 - Don’t use full/long phrases as links, as these might break into different parts when translated.
@@ -124,6 +149,8 @@ Avoid creating UI sentences. If the layout and functionality of your interface i
 ### Avoid text on images
 
 - If text over images is needed, overlay it by code, using HTML and CSS.
+
+<Img fluid={props.data.textInImage.childImageSharp.fluid} />
 
 </content>
 
