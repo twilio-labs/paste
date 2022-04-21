@@ -123,7 +123,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
               width={svgWidth}
               height={svgHeight}
             />
-            <svg height="0" width="0">
+            <svg height="0" width="0" viewBox="0 0 0 0">
               <defs>
                 <clipPath id={uidSeed(CLIP_PATH_ID)}>
                   <rect

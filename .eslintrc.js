@@ -19,6 +19,7 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
+    'plugin:paste-internal/all',
   ],
   env: {
     node: true,

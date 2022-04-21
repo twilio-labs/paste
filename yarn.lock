@@ -26044,6 +26044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-paste-internal@link:./.eslint/rules::locator=paste%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "eslint-plugin-paste-internal@link:./.eslint/rules::locator=paste%40workspace%3A."
+  languageName: node
+  linkType: soft
+
 "eslint-plugin-promise@npm:4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-promise@npm:4.2.1"
@@ -40807,6 +40813,7 @@ is-whitespace@latest:
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: 24.1.0
     eslint-plugin-jsx-a11y: 6.3.0
+    eslint-plugin-paste-internal: "link:./.eslint/rules"
     eslint-plugin-promise: 4.2.1
     eslint-plugin-react: 7.20.0
     eslint-plugin-react-hooks: 4.2.0
