@@ -1,3 +1,5 @@
+/* DISCLAIMER: this is an example, not meant to be used in production */
+
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
