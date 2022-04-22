@@ -6,7 +6,7 @@ on:
 
 jobs:
   remove-test-label:
-    if: ${{ github.event.label.name == '🕵🏻‍♀️ Run website visual regression' }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
