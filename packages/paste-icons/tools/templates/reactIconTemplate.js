@@ -13,20 +13,21 @@ export interface ${componentName}Props extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ${componentName}: React.FC<${componentName}Props> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
-  const titleId = \`${componentName}-\${useUID()}\`;
+const ${componentName} = React.forwardRef<HTMLElement, ${componentName}Props>(
+  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+    const titleId = \`${componentName}-\${useUID()}\`;
 
-  if (!decorative && title == null) {
-    throw new Error('[${componentName}]: Missing a title for non-decorative icon.');
+    if (!decorative && title == null) {
+      throw new Error('[${componentName}]: Missing a title for non-decorative icon.');
+    }
+
+    return (
+      <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
+        ${svg}
+      </IconWrapper>
+    );
   }
-
-  return (
-    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
-      ${svg}
-    </IconWrapper>
-  );
-}
-
+);
 
 ${componentName}.displayName = '${componentName}';
 export {${componentName}};
