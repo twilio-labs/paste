@@ -1,83 +1,113 @@
-// ℹ️ If we use anon functions instead of arrow functions, we can leverage Mocha's context and pull the test name directly from this
+const SITEMAP = [
+  '/customization/',
+  '/',
+  '/blog/',
+  '/components/aspect-ratio/',
+  '/components/anchor/',
+  '/components/alert-dialog/',
+  '/components/avatar/',
+  '/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/',
+  '/components/breadcrumb/',
+  '/components/badge/',
+  '/components/card/',
+  '/components/checkbox/',
+  '/components/data-grid/',
+  '/components/display-pill-group/',
+  '/components/disclosure/',
+  '/components/button/',
+  '/components/flex/',
+  '/components/combobox/',
+  '/components/date-picker/',
+  '/components/grid/',
+  '/components/heading/',
+  '/components/form-pill-group/',
+  '/components/alert/',
+  '/components/help-text/',
+  '/components/icons/',
+  '/components/icons/usage-guidelines/',
+  '/components/',
+  '/components/input/',
+  '/components/label/',
+  '/components/list/',
+  '/components/media-object/',
+  '/components/pagination/',
+  '/components/modal/',
+  '/components/menu/',
+  '/components/paragraph/',
+  '/components/popover/',
+  '/components/radio-group/',
+  '/components/screen-reader-only/',
+  '/components/select/',
+  '/components/separator/',
+  '/components/stack/',
+  '/components/spinner/',
+  '/components/skeleton-loader/',
+  '/components/tabs/',
+  '/components/toast/',
+  '/components/time-picker/',
+  '/components/truncate/',
+  '/components/tooltip/',
+  '/components/textarea/',
+  '/core/changelog/',
+  '/core/changing-theme/',
+  '/components/table/',
+  '/core/libraries/',
+  '/core/libraries/data-visualization/',
+  '/core/libraries/codemods/',
+  '/core/theme-package/',
+  '/core/upgrade-guide/',
+  '/customization/composing-custom-components-with-design-tokens/',
+  '/customization/creating-a-custom-theme/',
+  '/core/libraries/uid-library/',
+  '/customization/customization-provider/',
+  '/customization/customizing-component-elements/',
+  '/foundations/colors/',
+  '/foundations/content/content-checklist/',
+  '/foundations/content/voice-and-tone/',
+  '/foundations/illustrations/',
+  '/foundations/data-visualization/',
+  '/inclusive-design/',
+  '/core/',
+  '/foundations/content/product-style-guide/',
+  '/introduction/about-paste/',
+  '/introduction/contributing/components/',
+  '/foundations/content/',
+  '/introduction/contributing/icons/',
+  '/introduction/contributing/patterns/',
+  '/introduction/for-designers/design-guidelines/',
+  '/introduction/for-engineers/manual-installation/',
+  '/introduction/for-engineers/quickstart/',
+  '/patterns/button-vs-anchor/',
+  '/introduction/working-with-us/',
+  '/patterns/delete/',
+  '/patterns/data-export/',
+  '/patterns/filter-group/',
+  '/patterns/',
+  '/patterns/empty-state/',
+  '/patterns/notifications-and-feedback/',
+  '/patterns/object-details/',
+  '/patterns/privacy/',
+  '/patterns/status/',
+  '/primitives/combobox-primitive/',
+  '/patterns/create/',
+  '/primitives/',
+  '/primitives/menu-primitive/',
+  '/primitives/disclosure-primitive/',
+  '/primitives/modal-dialog-primitive/',
+  '/primitives/non-modal-dialog-primitive/',
+  '/primitives/tabs-primitive/',
+  '/primitives/text/',
+  '/primitives/tooltip-primitive/',
+  '/roadmap/',
+  '/tokens/design-tokens-package/',
+  '/tokens/',
+  '/primitives/box/',
+];
+
 describe('Full Site VRT', function () {
-  describe('Visual regression tests', () => {
-    it('vrt homepage', () => {
-      cy.visualRegressionTestUrl({url: '/', testName: 'Homepage'});
-    });
-    it('vrt accessibility', () => {
-      cy.visualRegressionTestUrl({url: '/inclusive-design/', testName: 'Accessibility'});
-    });
-    it('vrt /customization/', () => {
-      cy.visualRegressionTestUrl({url: '/customization/', testName: '/customization/'});
-    });
-    it('vrt /blog/', () => {
-      cy.visualRegressionTestUrl({url: '/blog/', testName: '/blog/'});
-    });
-    it('vrt /components/aspect-ratio/', () => {
-      cy.visualRegressionTestUrl({url: '/components/aspect-ratio/', testName: '/components/aspect-ratio/'});
-    });
-    it('vrt /components/anchor/', () => {
-      cy.visualRegressionTestUrl({url: '/components/anchor/', testName: '/components/anchor/'});
-    });
-    it('vrt /components/alert-dialog/', () => {
-      cy.visualRegressionTestUrl({url: '/components/alert-dialog/', testName: '/components/alert-dialog/'});
-    });
-    it('vrt /components/avatar/', () => {
-      cy.visualRegressionTestUrl({url: '/components/avatar/', testName: '/components/avatar/'});
-    });
-    it('vrt /blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/', () => {
-      cy.visualRegressionTestUrl({
-        url: '/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/',
-        testName: '/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/',
-      });
-    });
-    it('vrt /components/breadcrumb/', () => {
-      cy.visualRegressionTestUrl({url: '/components/breadcrumb/', testName: '/components/breadcrumb/'});
-    });
-    it('vrt /components/badge/', () => {
-      cy.visualRegressionTestUrl({url: '/components/badge/', testName: '/components/badge/'});
-    });
-    it('vrt /components/card/', () => {
-      cy.visualRegressionTestUrl({url: '/components/card/', testName: '/components/card/'});
-    });
-    it('vrt /components/checkbox/', () => {
-      cy.visualRegressionTestUrl({url: '/components/checkbox/', testName: '/components/checkbox/'});
-    });
-    it('vrt /components/data-grid/', () => {
-      cy.visualRegressionTestUrl({url: '/components/data-grid/', testName: '/components/data-grid/'});
-    });
-    it('vrt /components/display-pill-group/', () => {
-      cy.visualRegressionTestUrl({url: '/components/display-pill-group/', testName: '/components/display-pill-group/'});
-    });
-    it('vrt /components/disclosure/', () => {
-      cy.visualRegressionTestUrl({url: '/components/disclosure/', testName: '/components/disclosure/'});
-    });
-    it('vrt /components/button/', () => {
-      cy.visualRegressionTestUrl({url: '/components/button/', testName: '/components/button/'});
-    });
-    it('vrt /components/flex/', () => {
-      cy.visualRegressionTestUrl({url: '/components/flex/', testName: '/components/flex/'});
-    });
-    it('vrt /components/combobox/', () => {
-      cy.visualRegressionTestUrl({url: '/components/combobox/', testName: '/components/combobox/'});
-    });
-    it('vrt /components/date-picker/', () => {
-      cy.visualRegressionTestUrl({url: '/components/date-picker/', testName: '/components/date-picker/'});
-    });
-    it('vrt /components/grid/', () => {
-      cy.visualRegressionTestUrl({url: '/components/grid/', testName: '/components/grid/'});
-    });
-    it('vrt /components/heading/', () => {
-      cy.visualRegressionTestUrl({url: '/components/heading/', testName: '/components/heading/'});
-    });
-    it('vrt /components/form-pill-group/', () => {
-      cy.visualRegressionTestUrl({url: '/components/form-pill-group/', testName: '/components/form-pill-group/'});
-    });
-    it('vrt /components/alert/', () => {
-      cy.visualRegressionTestUrl({url: '/components/alert/', testName: '/components/alert/'});
-    });
-    it('vrt /components/help-text/', () => {
-      cy.visualRegressionTestUrl({url: '/components/help-text/', testName: '/components/help-text/'});
+  SITEMAP.forEach((url) => {
+    it(`should vrt ${url}`, () => {
+      cy.visualRegressionTestUrl({url, testName: url});
     });
   });
 });
