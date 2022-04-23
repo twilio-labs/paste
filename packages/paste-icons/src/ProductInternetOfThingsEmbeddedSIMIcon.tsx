@@ -11,15 +11,10 @@ export interface ProductInternetOfThingsEmbeddedSIMIconProps extends IconWrapper
   decorative: boolean;
 }
 
-const ProductInternetOfThingsEmbeddedSIMIcon: React.FC<ProductInternetOfThingsEmbeddedSIMIconProps> = ({
-  as,
-  display,
-  element = 'ICON',
-  size,
-  color,
-  title,
-  decorative,
-}) => {
+const ProductInternetOfThingsEmbeddedSIMIcon = React.forwardRef<
+  HTMLElement,
+  ProductInternetOfThingsEmbeddedSIMIconProps
+>(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
   const titleId = `ProductInternetOfThingsEmbeddedSIMIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -27,7 +22,7 @@ const ProductInternetOfThingsEmbeddedSIMIcon: React.FC<ProductInternetOfThingsEm
   }
 
   return (
-    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
       <svg
         role="img"
         aria-hidden={decorative}
@@ -47,7 +42,7 @@ const ProductInternetOfThingsEmbeddedSIMIcon: React.FC<ProductInternetOfThingsEm
       </svg>
     </IconWrapper>
   );
-};
+});
 
 ProductInternetOfThingsEmbeddedSIMIcon.displayName = 'ProductInternetOfThingsEmbeddedSIMIcon';
 export {ProductInternetOfThingsEmbeddedSIMIcon};

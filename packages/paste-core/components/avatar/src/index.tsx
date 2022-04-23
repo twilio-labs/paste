@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import {isValidElementType} from 'react-is';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {isIconSizeTokenProp} from '@twilio-paste/style-props';
@@ -11,7 +12,7 @@ const DEFAULT_SIZE = 'sizeIcon70';
 const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE, src, icon: Icon}) => {
   const computedTokenNames = getComputedTokenNames(size);
   if (Icon != null) {
-    if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
+    if (!isValidElementType(Icon) || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
       throw new Error('[Paste Avatar]: icon prop expected to be a Paste icon only.');
     }
     return (

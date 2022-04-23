@@ -11,15 +11,10 @@ export interface ProductInternetOfThingsTrustOnboardIconProps extends IconWrappe
   decorative: boolean;
 }
 
-const ProductInternetOfThingsTrustOnboardIcon: React.FC<ProductInternetOfThingsTrustOnboardIconProps> = ({
-  as,
-  display,
-  element = 'ICON',
-  size,
-  color,
-  title,
-  decorative,
-}) => {
+const ProductInternetOfThingsTrustOnboardIcon = React.forwardRef<
+  HTMLElement,
+  ProductInternetOfThingsTrustOnboardIconProps
+>(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
   const titleId = `ProductInternetOfThingsTrustOnboardIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -27,7 +22,7 @@ const ProductInternetOfThingsTrustOnboardIcon: React.FC<ProductInternetOfThingsT
   }
 
   return (
-    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
       <svg
         role="img"
         aria-hidden={decorative}
@@ -47,7 +42,7 @@ const ProductInternetOfThingsTrustOnboardIcon: React.FC<ProductInternetOfThingsT
       </svg>
     </IconWrapper>
   );
-};
+});
 
 ProductInternetOfThingsTrustOnboardIcon.displayName = 'ProductInternetOfThingsTrustOnboardIcon';
 export {ProductInternetOfThingsTrustOnboardIcon};

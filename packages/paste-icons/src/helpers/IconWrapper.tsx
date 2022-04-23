@@ -7,15 +7,8 @@ export interface IconWrapperProps extends BoxElementProps, Pick<BoxStyleProps, '
   size?: IconSize;
 }
 
-const IconWrapper: React.FC<IconWrapperProps> = ({
-  as = 'span',
-  color = 'currentColor',
-  display = 'block',
-  element = 'ICON',
-  size = 'sizeIcon30',
-  ...props
-}) => {
-  return (
+const IconWrapper = React.forwardRef<HTMLElement, IconWrapperProps>(
+  ({as = 'span', color = 'currentColor', display = 'block', element = 'ICON', size = 'sizeIcon30', ...props}, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       as={as}
@@ -24,9 +17,10 @@ const IconWrapper: React.FC<IconWrapperProps> = ({
       display={display}
       color={color}
       size={size}
+      ref={ref}
     />
-  );
-};
+  )
+);
 
 IconWrapper.displayName = 'IconWrapper';
 export {IconWrapper};
