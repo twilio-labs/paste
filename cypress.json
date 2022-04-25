@@ -7,6 +7,15 @@
     "runMode": 2,
     "openMode": 2
   },
-  "blockHosts": "*.google-analytics.com",
+  "video": false,
+  "blockHosts": [
+    "*.google-analytics.com",
+    "*.codesandbox.io",
+    "codesandbox.io",
+    "*.loom.com",
+    "*.youtube.com",
+    "*.github.com",
+    "*.googletagmanager.com"
+  ],
   "testFiles": ["**/**/*.spec.ts"]
 }
