@@ -24,6 +24,10 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "@types/react-is": "17.0.3",
+    "react-is": "18.0.0"
+  },
   "peerDependencies": {
     "@twilio-paste/box": "^5.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",

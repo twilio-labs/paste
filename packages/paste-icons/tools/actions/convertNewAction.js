@@ -22,7 +22,13 @@ function performFileConversion(fileName, outputPath, options) {
     maybeHandleError('Invalid fileName provided', readFileError);
     const cleanedFileName = getOutputComponentName(fileName);
     // Convert the SVG into our ideal format
-    const generatedComponent = await convertSvgToReact(cleanedFileName, fileContents, options);
+    let generatedComponent;
+    try {
+      generatedComponent = await convertSvgToReact(cleanedFileName, fileContents, options);
+    } catch (error) {
+      maybeHandleError('Error occured while generating the component!', error);
+    }
+
     writeToFile(outputPath, generatedComponent, {
       errorMessage: `Couldn't write formatted SVG to disk`,
     });
@@ -41,7 +47,7 @@ async function convertNewAction() {
   // Normalize file names so we can run a diff
   const normalizedSourceFiles = sourceFiles
     // If it isn't in the source files list, it won't generate
-    .filter(fileName => !BLOCKLIST_FILES.includes(fileName))
+    .filter((fileName) => !BLOCKLIST_FILES.includes(fileName))
     .map(normalizeFileName);
   const normalizedDestinationFiles = destinationFiles.map(normalizeFileName);
 
@@ -49,10 +55,9 @@ async function convertNewAction() {
   const newReactSvgs = difference(normalizedSourceFiles, normalizedDestinationFiles);
 
   // Generate a component for each new SVG in source
-  newReactSvgs.forEach(normalizedFileName => {
+  newReactSvgs.forEach((normalizedFileName) => {
     // Since we normalized the filename, we need to get the original filename again.
     const fileName = sourceFiles[normalizedSourceFiles.indexOf(normalizedFileName)];
-
     performFileConversion(fileName, getReactOutputPath(fileName), {
       useHooks: false,
       template: reactIconTemplate,
