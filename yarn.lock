@@ -12267,9 +12267,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twilio-labs/svg-to-react@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@twilio-labs/svg-to-react@npm:2.1.0"
+"@twilio-labs/svg-to-react@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@twilio-labs/svg-to-react@npm:2.1.1"
   dependencies:
     "@svgr/babel-plugin-add-jsx-attribute": ^5.0.1
     "@svgr/babel-plugin-remove-jsx-attribute": ^5.0.1
@@ -12278,9 +12278,9 @@ __metadata:
     "@svgr/plugin-jsx": ^5.0.1
     "@svgr/plugin-prettier": ^5.0.1
     "@svgr/plugin-svgo": ^5.1.0
-    prettier: ^1.19.1
+    prettier: ^2.2.1
     tslib: ^1.10.0
-  checksum: 85899a15cbfcc245010f7c9ff8dceb4e9fe350f9ba8ef034bb2f499f14d41c06609f75b7bae0201dab5a5412488c1a3414f1ec562b2f43617732f58631cfb1c3
+  checksum: 16cb44a08256846dd5ed918c45a378cb196cf56d95cf52dd4e1069d6ff3df8040ab84ea2167b89d821f755bffbc9ba34a971cfbe3925eadbeca41a2e0ef30d31
   languageName: node
   linkType: hard
 
@@ -12438,9 +12438,11 @@ __metadata:
     "@twilio-paste/text": ^5.0.2
     "@twilio-paste/theme": ^6.0.2
     "@twilio-paste/types": ^3.1.5
+    "@types/react-is": 17.0.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-is: 18.0.0
   peerDependencies:
     "@twilio-paste/box": ^5.0.0
     "@twilio-paste/design-tokens": ^7.0.0
@@ -15457,6 +15459,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: b7341c3f8d9aa6cb612c030d770cd1a6987cec65bb11d697b301d48a3f0a7fb245eb71a46e1565af5104f2de7b78a39ff47f8a25a0e94423e09db41e94ed9c01
+  languageName: node
+  linkType: hard
+
+"@types/react-is@npm:17.0.3":
+  version: 17.0.3
+  resolution: "@types/react-is@npm:17.0.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 6abb7c47d54f012272650df8a962a28bd82f219291e5ef8b4dfa7fe0bb98ae243b060bf9fbe8ceff6213141794855a006db194b490b00ffd15842ae19d0ce1f0
   languageName: node
   linkType: hard
 
@@ -40797,7 +40808,7 @@ is-whitespace@latest:
     "@testing-library/react": ^12.1.4
     "@testing-library/react-hooks": ^7.0.2
     "@testing-library/user-event": ^13.5.0
-    "@twilio-labs/svg-to-react": ^2.1.0
+    "@twilio-labs/svg-to-react": ^2.1.1
     "@types/browser-sync": ^2.26.1
     "@types/color": ^3.0.0
     "@types/gulp": ^4.0.6
@@ -43750,6 +43761,13 @@ is-whitespace@latest:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-is@npm:18.0.0":
+  version: 18.0.0
+  resolution: "react-is@npm:18.0.0"
+  checksum: d38f6afee4d8d791cdd69c715841c01a503c9b06da6158e0893447cea6ba50cd262dca9bde84127720cf44fd05c58185eafc32accace4bb2deb03b3cdbeb6b6b
   languageName: node
   linkType: hard
 
