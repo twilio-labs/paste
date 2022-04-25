@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert-dialog",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "category": "overlay",
   "status": "production",
   "description": "An Alert Dialog is a page overlay that displays critical information, blocks interaction with the page, and only closes after an action is performed.",
@@ -27,9 +27,9 @@
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^5.0.0",
-    "@twilio-paste/button": "^8.0.0",
+    "@twilio-paste/button": "^9.0.0",
     "@twilio-paste/heading": "^6.0.0",
-    "@twilio-paste/modal": "^9.0.0",
+    "@twilio-paste/modal": "^10.0.0",
     "@twilio-paste/stack": "^3.0.0",
     "@twilio-paste/style-props": "^4.0.0",
     "@twilio-paste/styling-library": "^0.3.1",
@@ -43,9 +43,9 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.5",
     "@twilio-paste/box": "^5.1.0",
-    "@twilio-paste/button": "^8.1.0",
+    "@twilio-paste/button": "^9.0.0",
     "@twilio-paste/heading": "^6.0.2",
-    "@twilio-paste/modal": "^9.0.0",
+    "@twilio-paste/modal": "^10.0.0",
     "@twilio-paste/stack": "^3.0.2",
     "@twilio-paste/style-props": "^4.0.2",
     "@twilio-paste/styling-library": "^0.3.8",

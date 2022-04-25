@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "category": "interaction",
   "status": "production",
   "description": "A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state.",
@@ -27,9 +27,9 @@
   "peerDependencies": {
     "@twilio-paste/box": "^5.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/icons": "^6.0.0",
+    "@twilio-paste/icons": "^7.0.0",
     "@twilio-paste/reakit-library": "^0.8.1",
-    "@twilio-paste/spinner": "^8.0.0",
+    "@twilio-paste/spinner": "^9.0.0",
     "@twilio-paste/style-props": "^4.0.0",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/text": "^5.0.0",
@@ -43,10 +43,10 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^5.0.2",
-    "@twilio-paste/design-tokens": "^7.1.1",
-    "@twilio-paste/icons": "^6.2.1",
+    "@twilio-paste/design-tokens": "^7.2.1",
+    "@twilio-paste/icons": "^7.0.0",
     "@twilio-paste/reakit-library": "^0.8.4",
-    "@twilio-paste/spinner": "^8.0.2",
+    "@twilio-paste/spinner": "^9.0.0",
     "@twilio-paste/style-props": "^4.0.2",
     "@twilio-paste/styling-library": "^0.3.7",
     "@twilio-paste/text": "^5.0.2",
