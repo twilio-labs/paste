@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-Updates React Spring dependencies to resolve bug with RequestAnimationFrame calls
+[Animation Library] Updates React Spring dependencies to resolve bug with RequestAnimationFrame calls
