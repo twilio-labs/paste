@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "8.1.0",
+  "version": "9.0.0",
   "category": "interaction",
   "status": "production",
   "description": "A Button is a clickable element which communicates that users can trigger an action.",
@@ -28,12 +28,12 @@
     "deepmerge": "4.2.2"
   },
   "peerDependencies": {
-    "@twilio-paste/anchor": "^6.0.0",
+    "@twilio-paste/anchor": "^7.0.0",
     "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^5.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/icons": "^6.0.0",
-    "@twilio-paste/spinner": "^8.0.0",
+    "@twilio-paste/icons": "^7.0.0",
+    "@twilio-paste/spinner": "^9.0.0",
     "@twilio-paste/stack": "^3.0.0",
     "@twilio-paste/style-props": "^4.0.0",
     "@twilio-paste/styling-library": "^0.3.1",
@@ -45,12 +45,12 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/anchor": "^6.1.0",
+    "@twilio-paste/anchor": "^7.0.0",
     "@twilio-paste/animation-library": "^0.3.5",
     "@twilio-paste/box": "^5.1.0",
-    "@twilio-paste/design-tokens": "^7.2.0",
-    "@twilio-paste/icons": "^6.2.1",
-    "@twilio-paste/spinner": "^8.1.0",
+    "@twilio-paste/design-tokens": "^7.2.1",
+    "@twilio-paste/icons": "^7.0.0",
+    "@twilio-paste/spinner": "^9.0.0",
     "@twilio-paste/stack": "^3.0.2",
     "@twilio-paste/style-props": "^4.0.2",
     "@twilio-paste/styling-library": "^0.3.8",

@@ -1,5 +1,13 @@
 # @twilio-paste/display-pill-group
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/icons@7.0.0
+  - @twilio-paste/anchor@7.0.0
+
 ## 2.0.2
 
 ### Patch Changes

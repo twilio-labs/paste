@@ -1,5 +1,49 @@
 # Change Log
 
+## 12.0.0
+
+### Major Changes
+
+- [`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377) [#2363](https://github.com/twilio-labs/paste/pull/2363) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] add React.forwardRef to all icons
+
+### Patch Changes
+
+- [`3482db481`](https://github.com/twilio-labs/paste/commit/3482db4814aed77e7355c079ae931823da854f4b) [#2355](https://github.com/twilio-labs/paste/pull/2355) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design-Tokens] remove the 'Courier New' font from the code font family, falling back to 'Courier' instead.
+
+* [`10178f39`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377) [#2363](https://github.com/twilio-labs/paste/pull/2363) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] update icon prop to work with forwardRef icons
+
+* Updated dependencies [[`3482db481`](https://github.com/twilio-labs/paste/commit/3482db4814aed77e7355c079ae931823da854f4b), [`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377), [`10178f39`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/design-tokens@7.2.1
+  - @twilio-paste/icons@7.0.0
+  - @twilio-paste/avatar@4.0.0
+  - @twilio-paste/alert@9.0.0
+  - @twilio-paste/anchor@7.0.0
+  - @twilio-paste/badge@3.0.0
+  - @twilio-paste/base-radio-checkbox@8.0.0
+  - @twilio-paste/button@9.0.0
+  - @twilio-paste/checkbox@8.0.0
+  - @twilio-paste/combobox@10.0.0
+  - @twilio-paste/data-grid@2.0.0
+  - @twilio-paste/disclosure@7.0.0
+  - @twilio-paste/display-pill-group@3.0.0
+  - @twilio-paste/form-pill-group@3.0.0
+  - @twilio-paste/help-text@8.0.0
+  - @twilio-paste/inline-control-group@8.0.0
+  - @twilio-paste/menu@9.0.0
+  - @twilio-paste/modal@10.0.0
+  - @twilio-paste/pagination@2.0.0
+  - @twilio-paste/popover@8.0.0
+  - @twilio-paste/radio-group@8.0.0
+  - @twilio-paste/screen-reader-only@8.0.0
+  - @twilio-paste/select@7.0.0
+  - @twilio-paste/spinner@9.0.0
+  - @twilio-paste/toast@7.0.0
+  - @twilio-paste/tooltip@6.0.0
+  - @twilio-paste/truncate@9.0.0
+  - @twilio-paste/breadcrumb@6.0.0
+  - @twilio-paste/alert-dialog@3.0.0
+  - @twilio-paste/label@8.0.0
+
 ## 11.5.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/select",
-  "version": "6.0.4",
+  "version": "7.0.0",
   "category": "user input",
   "status": "production",
   "description": "A Select is an unstyled dropdown form element that allows users to select a value from a list.",
@@ -27,7 +27,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "^5.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/icons": "^6.0.0",
+    "@twilio-paste/icons": "^7.0.0",
     "@twilio-paste/input-box": "^5.0.0",
     "@twilio-paste/style-props": "^4.0.0",
     "@twilio-paste/styling-library": "^0.3.1",
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^5.1.0",
-    "@twilio-paste/design-tokens": "^7.2.0",
-    "@twilio-paste/icons": "^6.2.1",
+    "@twilio-paste/design-tokens": "^7.2.1",
+    "@twilio-paste/icons": "^7.0.0",
     "@twilio-paste/input-box": "^5.0.2",
     "@twilio-paste/style-props": "^4.0.2",
     "@twilio-paste/styling-library": "^0.3.8",

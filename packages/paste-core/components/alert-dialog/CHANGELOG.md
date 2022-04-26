@@ -1,5 +1,13 @@
 # @twilio-paste/alert-dialog
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/button@9.0.0
+  - @twilio-paste/modal@10.0.0
+
 ## 2.0.0
 
 ### Patch Changes
