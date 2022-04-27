@@ -445,51 +445,54 @@ const Component = () => (
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
-| Prop              | Type                                     | Description | Default |
-| ----------------- | ---------------------------------------- | ----------- | ------- |
-| children          | `ReactNode`                              |             | null    |
-| id?               | `string`                                 |             | null    |
-| checked?          | `boolean`                                |             | false   |
-| defaultChecked?   | `boolean`                                |             | null    |
-| hasError?         | `boolean`                                |             | false   |
-| helpText?         | `string` or `ReactNode`                  |             | null    |
-| indeterminate?    | `boolean`                                |             | false   |
-| isSelectAll?      | `boolean`                                |             | false   |
-| isSelectAllChild? | `boolean`                                |             | false   |
-| onChange?         | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| Prop              | Type                                     | Description                                                                               | Default    |
+| ----------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
+| children          | `ReactNode`                              |                                                                                           | null       |
+| id?               | `string`                                 |                                                                                           | null       |
+| checked?          | `boolean`                                |                                                                                           | false      |
+| defaultChecked?   | `boolean`                                |                                                                                           | null       |
+| hasError?         | `boolean`                                |                                                                                           | false      |
+| helpText?         | `string` or `ReactNode`                  |                                                                                           | null       |
+| indeterminate?    | `boolean`                                |                                                                                           | false      |
+| isSelectAll?      | `boolean`                                |                                                                                           | false      |
+| isSelectAllChild? | `boolean`                                |                                                                                           | false      |
+| onChange?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| element?          | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX' |
 
 #### CheckboxGroup props
 
-| Prop               | Type                                | Description                                   | Default      |
-| ------------------ | ----------------------------------- | --------------------------------------------- | ------------ |
-| children           | `ReactNode`                         |                                               | null         |
-| legend             | `string` or `ReactNode`             |                                               | null         |
-| name               | `string`                            |                                               | null         |
-| value              | `string`                            |                                               | null         |
-| orientation        | `oneOf(['vertical', 'horizontal'])` |                                               | vertical     |
-| errorText?         | `string` or `ReactNode`             |                                               | null         |
-| helpText?          | `string` or `ReactNode`             |                                               | null         |
-| disabled?          | `boolean`                           |                                               | false        |
-| required?          | `boolean`                           |                                               | false        |
-| isSelectAll?       | `boolean`                           |                                               | false        |
-| i18nRequiredLabel? | string                              | Label text for the required dot in the legend | '(required)' |
+| Prop               | Type                                | Description                                                                               | Default          |
+| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| children           | `ReactNode`                         |                                                                                           | null             |
+| legend             | `string` or `ReactNode`             |                                                                                           | null             |
+| name               | `string`                            |                                                                                           | null             |
+| value              | `string`                            |                                                                                           | null             |
+| orientation        | `oneOf(['vertical', 'horizontal'])` |                                                                                           | vertical         |
+| errorText?         | `string` or `ReactNode`             |                                                                                           | null             |
+| helpText?          | `string` or `ReactNode`             |                                                                                           | null             |
+| disabled?          | `boolean`                           |                                                                                           | false            |
+| required?          | `boolean`                           |                                                                                           | false            |
+| isSelectAll?       | `boolean`                           |                                                                                           | false            |
+| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'     |
+| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_GROUP' |
 
 #### CheckboxDisclaimer props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
-| Prop            | Type                                     | Description | Default |
-| --------------- | ---------------------------------------- | ----------- | ------- |
-| children        | `ReactNode`                              |             | null    |
-| id?             | `string`                                 |             | null    |
-| checked?        | `boolean`                                |             | false   |
-| defaultChecked? | `boolean`                                |             | null    |
-| errorText?      | `string` or `ReactNode`                  |             | null    |
-| onChange?       | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onFocus?        | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onBlur?         | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| Prop            | Type                                     | Description                                                                               | Default               |
+| --------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| children        | `ReactNode`                              |                                                                                           | null                  |
+| id?             | `string`                                 |                                                                                           | null                  |
+| checked?        | `boolean`                                |                                                                                           | false                 |
+| defaultChecked? | `boolean`                                |                                                                                           | null                  |
+| errorText?      | `string` or `ReactNode`                  |                                                                                           | null                  |
+| onChange?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
+| onFocus?        | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
+| onBlur?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
+| element?        | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_DISCLAIMER' |
 
 <ChangelogRevealer>
   <Changelog />
