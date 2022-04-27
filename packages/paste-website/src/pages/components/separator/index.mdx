@@ -179,13 +179,16 @@ import {Separator} from '@twilio-paste/core/separator';
 const Component = () => <Separator orientation="horizontal" />;
 ```
 
+#### Separator props
+
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
 
-| Prop               | Type                                               | Description                           | Default |
-| ------------------ | -------------------------------------------------- | ------------------------------------- | ------- |
-| orientation?       | 'horizontal', 'vertical'                           | Separator direction                   |         |
-| horizontalSpacing? | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space left and right of the separator |         |
-| verticalSpacing?   | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space top and bottom of the separator |         |
+| Prop               | Type                                               | Description                                                                               | Default     |
+| ------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| orientation?       | 'horizontal', 'vertical'                           | Separator direction                                                                       |             |
+| horizontalSpacing? | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space left and right of the separator                                                     |             |
+| verticalSpacing?   | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space top and bottom of the separator                                                     |             |
+| element?           | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'SEPARATOR' |
 
 <ChangelogRevealer>
   <Changelog />

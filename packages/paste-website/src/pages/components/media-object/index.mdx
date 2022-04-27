@@ -327,26 +327,29 @@ const Component = (props) => (
 
 #### MediaObject Props
 
-| Prop          | Type                              | Description                | Default |
-| ------------- | --------------------------------- | -------------------------- | ------- |
-| as            | keyof JSX.IntrinsicElements       |                            | 'span'  |
-| marginBottom  | [Spacing](/tokens/list/#spacings) |                            | null    |
-| marginTop     | [Spacing](/tokens/list/#spacings) |                            | null    |
-| verticalAlign | `center`, `top`                   | Aligns the figure and body | null    |
+| Prop          | Type                              | Description                                                                               | Default        |
+| ------------- | --------------------------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| as            | keyof JSX.IntrinsicElements       |                                                                                           | 'span'         |
+| marginBottom  | [Spacing](/tokens/list/#spacings) |                                                                                           | null           |
+| marginTop     | [Spacing](/tokens/list/#spacings) |                                                                                           | null           |
+| verticalAlign | `center`, `top`                   | Aligns the figure and body                                                                | null           |
+| element?      | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_OBJECT' |
 
 #### MediaFigure Props
 
-| Prop    | Type                              | Description                       | Default |
-| ------- | --------------------------------- | --------------------------------- | ------- |
-| align   | `start`, `end`                    |                                   | 'start' |
-| as      | keyof JSX.IntrinsicElements       |                                   | 'span'  |
-| spacing | [Spacing](/tokens/list/#spacings) | Space between the figure and body | null    |
+| Prop     | Type                              | Description                                                                               | Default        |
+| -------- | --------------------------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| align    | `start`, `end`                    |                                                                                           | 'start'        |
+| as       | keyof JSX.IntrinsicElements       |                                                                                           | 'span'         |
+| spacing  | [Spacing](/tokens/list/#spacings) | Space between the figure and body                                                         | null           |
+| element? | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_FIGURE' |
 
 #### MediaBody Props
 
-| Prop | Type                        | Description | Default |
-| ---- | --------------------------- | ----------- | ------- |
-| as   | keyof JSX.IntrinsicElements |             | 'span'  |
+| Prop     | Type                        | Description                                                                               | Default      |
+| -------- | --------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
+| as       | keyof JSX.IntrinsicElements |                                                                                           | 'span'       |
+| element? | `string`                    | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_BODY' |
 
 <ChangelogRevealer>
   <Changelog />

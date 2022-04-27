@@ -336,16 +336,17 @@ const Component = () => (
 
 All the valid HTML attributes for `label` are supported including the following props:
 
-| Prop               | Type                 | Description                                                          | Default   |
-| ------------------ | -------------------- | -------------------------------------------------------------------- | --------- |
-| as?                | 'label', 'legend'    | Choose the semantic HTML element the label is rendered as            | label     |
-| children?          | `ReactNode`          |                                                                      | null      |
-| htmlFor            | string               | Sets the for of the label. Should match the id of `Input`. Required. | null      |
-| disabled?          | boolean              | Shows the input is disabled.                                         | false     |
-| required?          | boolean              | Shows the input is required.                                         | false     |
-| marginBottom?      | 'space0', 'space10'  |                                                                      | 'space10' |
-| variant?           | 'default', 'inverse' |                                                                      | 'default' |
-| i18nRequiredLabel? | string               | Label text for the required dot                                      | ''        |
+| Prop               | Type                 | Description                                                                               | Default   |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | --------- |
+| as?                | 'label', 'legend'    | Choose the semantic HTML element the label is rendered as                                 | label     |
+| children?          | `ReactNode`          |                                                                                           | null      |
+| htmlFor            | string               | Sets the for of the label. Should match the id of `Input`. Required.                      | null      |
+| disabled?          | boolean              | Shows the input is disabled.                                                              | false     |
+| required?          | boolean              | Shows the input is required.                                                              | false     |
+| marginBottom?      | 'space0', 'space10'  |                                                                                           | 'space10' |
+| variant?           | 'default', 'inverse' |                                                                                           | 'default' |
+| i18nRequiredLabel? | string               | Label text for the required dot                                                           | ''        |
+| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'LABEL'   |
 
 <ChangelogRevealer>
   <Changelog />

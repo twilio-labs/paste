@@ -358,11 +358,12 @@ const Component = () => (
 
 All the [valid HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) (role, aria-\*, type, and so on) are supported including the following props:
 
-| Prop       | Type                                           | Description                               | Default   |
-| ---------- | ---------------------------------------------- | ----------------------------------------- | --------- |
-| children?  | `ReactNode`                                    |                                           | null      |
-| marginTop? | 'space0'                                       | Sets the top margin on the `div` element. | 'space30' |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the render state.                 | 'default' |
+| Prop       | Type                                           | Description                                                                               | Default     |
+| ---------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| children?  | `ReactNode`                                    |                                                                                           | null        |
+| marginTop? | 'space0'                                       | Sets the top margin on the `div` element.                                                 | 'space30'   |
+| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the render state.                                                                 | 'default'   |
+| element?   | `string`                                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HELP_TEXT' |
 
 <ChangelogRevealer>
   <Changelog />
