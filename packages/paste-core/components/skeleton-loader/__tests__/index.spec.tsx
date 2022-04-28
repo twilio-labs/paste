@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -118,7 +118,6 @@ describe('SkeletonLoader', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<SkeletonLoader />);
-
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
