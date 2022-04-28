@@ -8,6 +8,7 @@ slug: /components/radio-group/
 import {graphql} from 'gatsby';
 import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
+import {useUID} from '@twilio-paste/uid-library';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SiteLink} from '../../../components/SiteLink';
@@ -21,6 +22,8 @@ import {
   errorExample,
   disabledExample,
   disabledPreSelectedExample,
+  uncontrolledRadioGroup,
+  controlledRadioGroup,
   i18nExample,
 } from '../../../component-examples/RadioGroupExamples';
 
@@ -109,6 +112,22 @@ Radio groups should:
   - Ensure the radio label text includes wording that successfully describes the requirement to the user that they should select the radio
 - When in an error state, display an inline error message below the offending radio group that clearly describes the error.
 - Radio groups act as a single tab stop. When focused on a radio, use the arrow keys to navigate to the other radios.
+
+## Controlled vs. uncontrolled RadioGroup
+
+The radio and radio group components can either be controlled, meaning there is an external state that determines if it is checked, or uncontrolled, meaning the component manages its own state.
+
+To make an uncontrolled radio group, you do not pass the `value` or `onChange` props. If you need a radio to be checked by default, use the `defaultChecked` prop.
+
+<LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
+  {uncontrolledRadioGroup}
+</LivePreview>
+
+To make a controlled radio group, you must pass the `value` and `onChange` props.
+
+<LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
+  {controlledRadioGroup}
+</LivePreview>
 
 ## Examples
 
