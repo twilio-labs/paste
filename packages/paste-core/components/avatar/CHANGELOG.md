@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.0
+
+### Patch Changes
+
+- [`10178f39`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377) [#2363](https://github.com/twilio-labs/paste/pull/2363) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] update icon prop to work with forwardRef icons
+
+- Updated dependencies [[`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/icons@7.0.0
+
 ## 3.0.2
 
 ### Patch Changes

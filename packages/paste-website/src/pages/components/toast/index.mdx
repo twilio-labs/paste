@@ -475,16 +475,17 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### Toast Props
 
-| Prop             | Type         | Description                                                 | Default         |
-| ---------------- | ------------ | ----------------------------------------------------------- | --------------- |
-| children         | `ReactNode`  |                                                             | null            |
-| onDismiss?       | `() => void` | Create dismissable toast by providing an onDismiss callback | null            |
-| variant          | `string`     | `error` / `neutral` / `sucess` / `warning`                  | null            |
-| i18nDismissLabel | `string`     | Label for the dismiss button in a dismissable toast         | 'Dismiss toast' |
-| i18nErrorLabel   | `string`     | Icon label text for the `error` variant                     | '(error)'       |
-| i18nNeutralLabel | `string`     | Icon label text for the `neutral` variant                   | '(information)' |
-| i18nSuccessLabel | `string`     | Icon label text for the `success` variant                   | '(success)'     |
-| i18nWarningLabel | `string`     | Icon label text for the `warning` variant                   | '(warning)'     |
+| Prop             | Type         | Description                                                                               | Default         |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------------- | --------------- |
+| children         | `ReactNode`  |                                                                                           | null            |
+| onDismiss?       | `() => void` | Create dismissable toast by providing an onDismiss callback                               | null            |
+| variant          | `string`     | `error` / `neutral` / `sucess` / `warning`                                                | null            |
+| i18nDismissLabel | `string`     | Label for the dismiss button in a dismissable toast                                       | 'Dismiss toast' |
+| i18nErrorLabel   | `string`     | Icon label text for the `error` variant                                                   | '(error)'       |
+| i18nNeutralLabel | `string`     | Icon label text for the `neutral` variant                                                 | '(information)' |
+| i18nSuccessLabel | `string`     | Icon label text for the `success` variant                                                 | '(success)'     |
+| i18nWarningLabel | `string`     | Icon label text for the `warning` variant                                                 | '(warning)'     |
+| element?         | `string`     | Overrides the default element name to apply unique styles with the Customization Provider | 'TOAST'         |
 
 #### useToaster return state
 

@@ -574,21 +574,22 @@ const DatePickerExample = () => {
 
 All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
 
-| Prop      | Type                                     | Description                                                          | Default   |
-| --------- | ---------------------------------------- | -------------------------------------------------------------------- | --------- |
-| id?       | string                                   | Sets the id of the date picker. Should match the htmlFor of `Label`. | null      |
-| name?     | string                                   | Sets the name of the date picker.                                    | null      |
-| value?    | string                                   | Sets the value of the date picker.                                   | null      |
-| disabled? | boolean                                  | Disables the date picker.                                            | false     |
-| readOnly? | boolean                                  | Sets the date picker to readonly.                                    | false     |
-| required? | boolean                                  | Sets the date picker as required.                                    | false     |
-| hasError? | boolean                                  | Sets the date picker to an error state.                              | false     |
-| min?      | string                                   | Sets the earliest valid date value.                                  | null      |
-| max?      | string                                   | Sets the last valid date value.                                      | null      |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| variant?  | 'default', 'inverse'                     |                                                                      | 'default' |
+| Prop      | Type                                     | Description                                                                               | Default      |
+| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
+| id?       | string                                   | Sets the id of the date picker. Should match the htmlFor of `Label`.                      | null         |
+| name?     | string                                   | Sets the name of the date picker.                                                         | null         |
+| value?    | string                                   | Sets the value of the date picker.                                                        | null         |
+| disabled? | boolean                                  | Disables the date picker.                                                                 | false        |
+| readOnly? | boolean                                  | Sets the date picker to readonly.                                                         | false        |
+| required? | boolean                                  | Sets the date picker as required.                                                         | false        |
+| hasError? | boolean                                  | Sets the date picker to an error state.                                                   | false        |
+| min?      | string                                   | Sets the earliest valid date value.                                                       | null         |
+| max?      | string                                   | Sets the last valid date value.                                                           | null         |
+| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| variant?  | 'default', 'inverse'                     |                                                                                           | 'default'    |
+| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'DATEPICKER' |
 
 #### formatReturnDate() props
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.2.1
+
+### Patch Changes
+
+- [`3482db481`](https://github.com/twilio-labs/paste/commit/3482db4814aed77e7355c079ae931823da854f4b) [#2355](https://github.com/twilio-labs/paste/pull/2355) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design-Tokens] remove the 'Courier New' font from the code font family, falling back to 'Courier' instead.
+
 ## 7.2.0
 
 ### Minor Changes

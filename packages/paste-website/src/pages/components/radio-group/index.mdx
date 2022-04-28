@@ -262,34 +262,36 @@ const Component = () => (
 
 All the valid HTML attributes for `input[type=radio]` are supported including the following props:
 
-| Prop      | Type                                     | Description | Default |
-| --------- | ---------------------------------------- | ----------- | ------- |
-| children  | `ReactNode`                              |             | null    |
-| id?       | `string`                                 |             | null    |
-| value?    | `string`                                 |             | null    |
-| hasError? | `boolean`                                |             | false   |
-| helpText? | `string` or `ReactNode`                  |             | null    |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| Prop      | Type                                     | Description                                                                               | Default |
+| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| children  | `ReactNode`                              |                                                                                           | null    |
+| id?       | `string`                                 |                                                                                           | null    |
+| value?    | `string`                                 |                                                                                           | null    |
+| hasError? | `boolean`                                |                                                                                           | false   |
+| helpText? | `string` or `ReactNode`                  |                                                                                           | null    |
+| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
+| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
+| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
+| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO' |
 
 #### RadioGroup props
 
-| Prop               | Type                                     | Description                                   | Default      |
-| ------------------ | ---------------------------------------- | --------------------------------------------- | ------------ |
-| children           | `ReactNode`                              |                                               | null         |
-| legend             | `string` or `ReactNode`                  |                                               | null         |
-| name               | `string`                                 |                                               | null         |
-| value              | `string`                                 |                                               | null         |
-| orientation        | `oneOf(['vertical', 'horizontal'])`      |                                               | vertical     |
-| errorText?         | `string` or `ReactNode`                  |                                               | null         |
-| helpText?          | `string` or `ReactNode`                  |                                               | null         |
-| disabled?          | `boolean`                                |                                               | false        |
-| required?          | `boolean`                                |                                               | false        |
-| onChange           | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
-| onFocus?           | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
-| onBlur?            | `(event: React.MouseEvent<HTMLElement>)` |                                               | null         |
-| i18nRequiredLabel? | `string`                                 | Label text for the required dot in the legend | '(required)' |
+| Prop               | Type                                     | Description                                                                               | Default       |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| children           | `ReactNode`                              |                                                                                           | null          |
+| legend             | `string` or `ReactNode`                  |                                                                                           | null          |
+| name               | `string`                                 |                                                                                           | null          |
+| value              | `string`                                 |                                                                                           | null          |
+| orientation        | `oneOf(['vertical', 'horizontal'])`      |                                                                                           | vertical      |
+| errorText?         | `string` or `ReactNode`                  |                                                                                           | null          |
+| helpText?          | `string` or `ReactNode`                  |                                                                                           | null          |
+| disabled?          | `boolean`                                |                                                                                           | false         |
+| required?          | `boolean`                                |                                                                                           | false         |
+| onChange           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
+| onFocus?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
+| onBlur?            | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
+| i18nRequiredLabel? | `string`                                 | Label text for the required dot in the legend                                             | '(required)'  |
+| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_GROUP' |
 
 <ChangelogRevealer>
   <Changelog />
