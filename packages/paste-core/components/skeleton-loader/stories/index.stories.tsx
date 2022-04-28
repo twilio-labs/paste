@@ -351,8 +351,3 @@ export const CustomizedSkeletonLoader = (): React.ReactNode => {
     </CustomizationProvider>
   );
 };
-
-CustomizedSkeletonLoader.parameters = {
-  // Sets the delay for a specific story.
-  chromatic: {delay: 3000},
-};

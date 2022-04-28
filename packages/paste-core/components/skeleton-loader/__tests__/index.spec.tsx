@@ -120,8 +120,7 @@ describe('SkeletonLoader', () => {
       const {container} = render(<SkeletonLoader />);
 
       const results = await axe(container);
-
-      await waitFor(async () => expect(await results).toHaveNoViolations());
+      expect(results).toHaveNoViolations();
     });
   });
 });
