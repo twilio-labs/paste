@@ -24,9 +24,8 @@ export default {
   ],
 };
 
+// @TODO replace usage of "React.FC", "React.ReactNode", "React.ReactElement" with "StoryFn" from "@storybook/react";
 export const AlertDialogWithTwoActions: React.FC = () => {
-  const theme = useTheme();
-  console.log({theme});
   return (
     <AlertDialog
       heading="Submit application"
@@ -220,7 +219,6 @@ DestructiveAlertDialogVRT.story = {
 
 export const CustomizedAlertDialog = (): React.ReactElement => {
   const theme = useTheme();
-  console.log({theme});
   return (
     <CustomizationProvider
       theme={theme}

@@ -61,7 +61,6 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
         {transitions(
           (styles, item) =>
             item && (
-              // @ts-expect-error @TODO debugging in emotion upgrade.
               <ModalDialogOverlay isOpen={isOpen} style={{opacity: styles.opacity}}>
                 <Box
                   // @ts-expect-error Render overlay as box for customization

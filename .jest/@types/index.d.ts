@@ -5,7 +5,7 @@ declare global {
   const TestTheme: GenericThemeShape;
 }
 
-declare module '@emotion/jest' {
+declare module 'jest' {
   interface Jest {
     JestMatchers: EmotionMatchers;
   }
