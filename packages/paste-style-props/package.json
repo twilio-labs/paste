@@ -23,7 +23,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "csstype": "^2.6.10",
+    "csstype": "^3.0.11",
     "lodash.camelcase": "^4.3.0"
   },
   "peerDependencies": {
