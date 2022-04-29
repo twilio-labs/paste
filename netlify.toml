@@ -4,8 +4,7 @@
   framework = "#custom"
 
 [context.deploy-preview]
-  # only do a preview deply when there is a website change
-  ignore = "git diff --quiet main...HEAD -- packages/paste-website packages/paste-theme-designer ':!packages/**/__tests__/*' ':!packages/paste-website/stories'"
+  ignore = "git diff --quiet main...HEAD -- packages/paste-core packages/paste-website packages/paste-theme-designer ':!packages/**/__tests__/*' ':!packages/paste-website/stories'"
 
 [context.deploy-preview.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"

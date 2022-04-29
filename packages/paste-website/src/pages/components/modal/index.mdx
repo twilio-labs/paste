@@ -435,49 +435,55 @@ const ModalTrigger = () => {
 
 #### Modal Props
 
-| Prop              | Type                         | Description                                               | Default |
-| ----------------- | ---------------------------- | --------------------------------------------------------- | ------- |
-| children          | `ReactNode`                  |                                                           | null    |
-| isOpen            | `boolean`                    |                                                           | null    |
-| onDismiss         | `Function() => void`         |                                                           | null    |
-| allowPinchZoom?   | `boolean`                    |                                                           | true    |
-| size              | `oneOf(['default', 'wide'])` |                                                           | null    |
-| initialFocusRef?  | `RefObject`                  |                                                           | null    |
-| ariaLabelledby    | `string`                     |                                                           | null    |
-| `__console_patch` | `boolean`                    | Enable to fix Console's marginBottom bug when modal opens | null    |
+| Prop              | Type                         | Description                                                                               | Default |
+| ----------------- | ---------------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| children          | `ReactNode`                  |                                                                                           | null    |
+| isOpen            | `boolean`                    |                                                                                           | null    |
+| onDismiss         | `Function() => void`         |                                                                                           | null    |
+| allowPinchZoom?   | `boolean`                    |                                                                                           | true    |
+| size              | `oneOf(['default', 'wide'])` |                                                                                           | null    |
+| initialFocusRef?  | `RefObject`                  |                                                                                           | null    |
+| ariaLabelledby    | `string`                     |                                                                                           | null    |
+| `__console_patch` | `boolean`                    | Enable to fix Console's marginBottom bug when modal opens                                 | null    |
+| element?          | `string`                     | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL' |
 
 #### ModalHeader Props
 
-| Prop              | Type        | Description | Default       |
-| ----------------- | ----------- | ----------- | ------------- |
-| children          | `ReactNode` |             | null          |
-| i18nDismissLabel? | `string`    |             | 'Close modal' |
+| Prop              | Type        | Description                                                                               | Default        |
+| ----------------- | ----------- | ----------------------------------------------------------------------------------------- | -------------- |
+| children          | `ReactNode` |                                                                                           | null           |
+| i18nDismissLabel? | `string`    |                                                                                           | 'Close modal'  |
+| element?          | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_HEADER' |
 
 #### ModalHeading Props
 
-| Prop     | Type                                          | Description | Default |
-| -------- | --------------------------------------------- | ----------- | ------- |
-| children | `ReactNode`                                   |             | null    |
-| as       | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |             | null    |
+| Prop     | Type                                          | Description                                                                               | Default         |
+| -------- | --------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------- |
+| children | `ReactNode`                                   |                                                                                           | null            |
+| as       | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |                                                                                           | null            |
+| element? | `string`                                      | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_HEADING' |
 
 #### ModalBody Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop     | Type        | Description                                                                               | Default      |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
+| children | `ReactNode` |                                                                                           | null         |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_BODY' |
 
 #### ModalFooter Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop     | Type        | Description                                                                               | Default        |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | -------------- |
+| children | `ReactNode` |                                                                                           | null           |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_FOOTER' |
 
 #### ModalFooterActions Props
 
-| Prop     | Type                      | Description | Default |
-| -------- | ------------------------- | ----------- | ------- |
-| children | `ReactNode`               |             | null    |
-| justify? | `oneOf(['start', 'end'])` |             | null    |
+| Prop     | Type                      | Description                                                                               | Default                |
+| -------- | ------------------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| children | `ReactNode`               |                                                                                           | null                   |
+| justify? | `oneOf(['start', 'end'])` |                                                                                           | null                   |
+| element? | `string`                  | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_FOOTER_ACTIONS' |
 
 <ChangelogRevealer>
   <Changelog />

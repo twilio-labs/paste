@@ -563,21 +563,22 @@ const TimePickerExample = () => {
 
 All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
 
-| Prop      | Type                                     | Description                                                          | Default   |
-| --------- | ---------------------------------------- | -------------------------------------------------------------------- | --------- |
-| id?       | string                                   | Sets the id of the time picker. Should match the htmlFor of `Label`. | null      |
-| name?     | string                                   | Sets the name of the time picker.                                    | null      |
-| value?    | string                                   | Sets the value of the time picker.                                   | null      |
-| disabled? | boolean                                  | Disables the time picker.                                            | false     |
-| readOnly? | boolean                                  | Sets the time picker to readonly.                                    | false     |
-| required? | boolean                                  | Sets the time picker as required.                                    | false     |
-| hasError? | boolean                                  | Sets the time picker to an error state.                              | false     |
-| min?      | string                                   | Sets the earliest valid time value.                                  | null      |
-| max?      | string                                   | Sets the last valid time value.                                      | null      |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
-| variant?  | 'default', 'inverse'                     |                                                                      | 'default' |
+| Prop      | Type                                     | Description                                                                               | Default      |
+| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
+| id?       | string                                   | Sets the id of the time picker. Should match the htmlFor of `Label`.                      | null         |
+| name?     | string                                   | Sets the name of the time picker.                                                         | null         |
+| value?    | string                                   | Sets the value of the time picker.                                                        | null         |
+| disabled? | boolean                                  | Disables the time picker.                                                                 | false        |
+| readOnly? | boolean                                  | Sets the time picker to readonly.                                                         | false        |
+| required? | boolean                                  | Sets the time picker as required.                                                         | false        |
+| hasError? | boolean                                  | Sets the time picker to an error state.                                                   | false        |
+| min?      | string                                   | Sets the earliest valid time value.                                                       | null         |
+| max?      | string                                   | Sets the last valid time value.                                                           | null         |
+| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
+| variant?  | 'default', 'inverse'                     |                                                                                           | 'default'    |
+| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'TIMEPICKER' |
 
 #### formatReturnTime() props
 

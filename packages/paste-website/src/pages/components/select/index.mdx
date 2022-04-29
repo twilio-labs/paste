@@ -870,41 +870,44 @@ import {HelpText} from '@twilio-paste/core/help-text';
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
 
-| Prop          | Type                                            | Description                                                                | Default   |
-| ------------- | ----------------------------------------------- | -------------------------------------------------------------------------- | --------- |
-| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.             | null      |
-| name?         | string                                          | Sets the name of the select.                                               | null      |
-| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. | null      |
-| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                               | null      |
-| disabled?     | boolean                                         | Disables the input.                                                        | false     |
-| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                            | null      |
-| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                            | null      |
-| required?     | boolean                                         | Sets the input as required.                                                | false     |
-| hasError?     | boolean                                         | Sets the input to an error state.                                          | false     |
-| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                            | null      |
-| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
-| variant?      | 'default', 'inverse'                            |                                                                            | 'default' |
+| Prop          | Type                                            | Description                                                                               | Default   |
+| ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
+| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
+| name?         | string                                          | Sets the name of the select.                                                              | null      |
+| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present.                | null      |
+| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                              | null      |
+| disabled?     | boolean                                         | Disables the input.                                                                       | false     |
+| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                           | null      |
+| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                           | null      |
+| required?     | boolean                                         | Sets the input as required.                                                               | false     |
+| hasError?     | boolean                                         | Sets the input to an error state.                                                         | false     |
+| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                                           | null      |
+| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
+| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
+| variant?      | 'default', 'inverse'                            |                                                                                           | 'default' |
+| element?      | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'SELECT'  |
 
 #### Option props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
 
-| Prop      | Type             | Description                                                                          | Default |
-| --------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.             | null    |
-| name      | string           | Sets the name of the select. Required.                                               | null    |
-| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
-| disabled? | boolean          | Disables the input.                                                                  | false   |
+| Prop      | Type             | Description                                                                               | Default  |
+| --------- | ---------------- | ----------------------------------------------------------------------------------------- | -------- |
+| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.                  | null     |
+| name      | string           | Sets the name of the select. Required.                                                    | null     |
+| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required.      | null     |
+| disabled? | boolean          | Disables the input.                                                                       | false    |
+| element?  | `string`         | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION' |
 
 #### OptionGroup props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
 
-| Prop     | Type                           | Description                               | Default |
-| -------- | ------------------------------ | ----------------------------------------- | ------- |
-| label    | string                         | Sets the label of the optgroup. Required. | null    |
-| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.               | null    |
+| Prop     | Type                           | Description                                                                               | Default        |
+| -------- | ------------------------------ | ----------------------------------------------------------------------------------------- | -------------- |
+| label    | string                         | Sets the label of the optgroup. Required.                                                 | null           |
+| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.                                                               | null           |
+| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION_GROUP' |
 
 <ChangelogRevealer>
   <Changelog />

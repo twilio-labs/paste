@@ -351,74 +351,74 @@ const Component = () => (
 
 #### DataGrid Props
 
-| Prop                | Type                    | Description                                                     | Default     |
-| ------------------- | ----------------------- | --------------------------------------------------------------- | ----------- |
-| aria-label          | `string`                | Defines a string value that labels the current element.         | null        |
-| striped?            | `boolean`               | Toggles row zebra striping                                      | false       |
-| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.         | false       |
-| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                          | false       |
-| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`. | false       |
-| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.    | false       |
-| element?            | `string`                | Override for customization element name                         | `DATA_GRID` |
-| children?           | `ReactNode`             |                                                                 | null        |
+| Prop                | Type                    | Description                                                                               | Default     |
+| ------------------- | ----------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| aria-label          | `string`                | Defines a string value that labels the current element.                                   | null        |
+| striped?            | `boolean`               | Toggles row zebra striping                                                                | false       |
+| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.                                   | false       |
+| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                                                    | false       |
+| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`.                           | false       |
+| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.                              | false       |
+| element?            | `string`                | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID` |
+| children?           | `ReactNode`             |                                                                                           | null        |
 
 #### DataGridHead Props
 
-| Prop      | Type        | Description                             | Default          |
-| --------- | ----------- | --------------------------------------- | ---------------- |
-| element?  | `string`    | Override for customization element name | `DATA_GRID_HEAD` |
-| children? | `ReactNode` |                                         | null             |
+| Prop      | Type        | Description                                                                               | Default          |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEAD` |
+| children? | `ReactNode` |                                                                                           | null             |
 
 #### DataGridBody Props
 
-| Prop      | Type        | Description                             | Default          |
-| --------- | ----------- | --------------------------------------- | ---------------- |
-| element?  | `string`    | Override for customization element name | `DATA_GRID_BODY` |
-| children? | `ReactNode` |                                         | null             |
+| Prop      | Type        | Description                                                                               | Default          |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_BODY` |
+| children? | `ReactNode` |                                                                                           | null             |
 
 #### DataGridFoot Props
 
-| Prop      | Type        | Description                             | Default          |
-| --------- | ----------- | --------------------------------------- | ---------------- |
-| element?  | `string`    | Override for customization element name | `DATA_GRID_FOOT` |
-| children? | `ReactNode` |                                         | null             |
+| Prop      | Type        | Description                                                                               | Default          |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_FOOT` |
+| children? | `ReactNode` |                                                                                           | null             |
 
 #### DataGridHeader Props
 
-| Prop       | Type        | Description                                  | Default            |
-| ---------- | ----------- | -------------------------------------------- | ------------------ |
-| textAlign? | `string`    | CSS text align for this cell                 | `left`             |
-| width?     | `string`    | Allows setting column width programmatically | null               |
-| element?   | `string`    | Override for customization element name      | `DATA_GRID_HEADER` |
-| children?  | `ReactNode` |                                              | null               |
+| Prop       | Type        | Description                                                                               | Default            |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| textAlign? | `string`    | CSS text align for this cell                                                              | `left`             |
+| width?     | `string`    | Allows setting column width programmatically                                              | null               |
+| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER` |
+| children?  | `ReactNode` |                                                                                           | null               |
 
 #### DataGridHeaderSort Props
 
-| Prop                 | Type                              | Description                                                       | Default                 |
-| -------------------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
-| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
-| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
-| element?             | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
-| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"            | `'Sort ascending'`      |
-| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"           | `'Sort descending'`     |
-| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                 | `'Unsorted'`            |
+| Prop                 | Type                              | Description                                                                               | Default                 |
+| -------------------- | --------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                                         | null                    |
+| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting.                         | null                    |
+| element?             | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER_SORT` |
+| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"                                    | `'Sort ascending'`      |
+| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"                                   | `'Sort descending'`     |
+| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                                         | `'Unsorted'`            |
 
 #### DataGridRow Props
 
-| Prop      | Type        | Description                                                                    | Default         |
-| --------- | ----------- | ------------------------------------------------------------------------------ | --------------- |
-| selected? | `boolean`   | Visally displays a row highlight indicating selection and sets `aria-selected` | false           |
-| element?  | `string`    | Override for customization element name                                        | `DATA_GRID_ROW` |
-| children? | `ReactNode` |                                                                                | null            |
+| Prop      | Type        | Description                                                                               | Default         |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | --------------- |
+| selected? | `boolean`   | Visally displays a row highlight indicating selection and sets `aria-selected`            | false           |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_ROW` |
+| children? | `ReactNode` |                                                                                           | null            |
 
 #### DataGridCell Props
 
-| Prop       | Type        | Description                                             | Default          |
-| ---------- | ----------- | ------------------------------------------------------- | ---------------- |
-| as?        | "th", "td"  | Cells can either be th or td, so rows can have headers. | `td`             |
-| textAlign? | `string`    | CSS text align for this cell                            | `left`           |
-| element?   | `string`    | Override for customization element name                 | `DATA_GRID_CELL` |
-| children?  | `ReactNode` |                                                         | null             |
+| Prop       | Type        | Description                                                                               | Default          |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| as?        | "th", "td"  | Cells can either be th or td, so rows can have headers.                                   | `td`             |
+| textAlign? | `string`    | CSS text align for this cell                                                              | `left`           |
+| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_CELL` |
+| children?  | `ReactNode` |                                                                                           | null             |
 
 <ChangelogRevealer>
   <Changelog />

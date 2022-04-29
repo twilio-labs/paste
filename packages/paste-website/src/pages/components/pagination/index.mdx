@@ -611,56 +611,63 @@ const Component = () => {
 
 #### Pagination Props
 
-| Prop     | Type        | Description                                        | Default |
-| -------- | ----------- | -------------------------------------------------- | ------- |
-| children | `ReactNode` |                                                    | null    |
-| label    | `string`    | `aria-label` for the pagination navigation element | null    |
+| Prop     | Type        | Description                                                                               | Default      |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
+| children | `ReactNode` |                                                                                           | null         |
+| label    | `string`    | `aria-label` for the pagination navigation element                                        | null         |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION' |
 
 #### PaginationItems Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop     | Type        | Description                                                                               | Default            |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children | `ReactNode` |                                                                                           | null               |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ITEMS' |
 
 #### PaginationLabel Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop     | Type        | Description                                                                               | Default            |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children | `ReactNode` |                                                                                           | null               |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_LABEL' |
 
 #### PaginationArrow Props
 
-| Prop          | Type      | Description                                             | Default  |
-| ------------- | --------- | ------------------------------------------------------- | -------- |
-| as?           | `string`  | `a` / `button`                                          | `button` |
-| disabled?     | `boolean` | Sets `aria-hidden` to be true, and `visibility: hidden` | null     |
-| href?         | `string`  | href used when as `a`                                   | null     |
-| label         | `string`  | `aria-label` text                                       | null     |
-| variant       | `string`  | `back` / `forward`                                      | null     |
-| visibleLabel? | `string`  | Visible text of the button or anchor                    | null     |
+| Prop          | Type      | Description                                                                               | Default            |
+| ------------- | --------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| as?           | `string`  | `a` / `button`                                                                            | `button`           |
+| disabled?     | `boolean` | Sets `aria-hidden` to be true, and `visibility: hidden`                                   | null               |
+| href?         | `string`  | href used when as `a`                                                                     | null               |
+| label         | `string`  | `aria-label` text                                                                         | null               |
+| variant       | `string`  | `back` / `forward`                                                                        | null               |
+| visibleLabel? | `string`  | Visible text of the button or anchor                                                      | null               |
+| element?      | `string`  | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ARROW' |
 
 #### PaginationNumbers Props
 
-| Prop       | Type        | Description                               | Default |
-| ---------- | ----------- | ----------------------------------------- | ------- |
-| children   | `ReactNode` |                                           | null    |
-| pageLabel? | `string`    | Page label text used in `PaginationLabel` | null    |
+| Prop       | Type        | Description                                                                               | Default              |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------- | -------------------- |
+| children   | `ReactNode` |                                                                                           | null                 |
+| pageLabel? | `string`    | Page label text used in `PaginationLabel`                                                 | null                 |
+| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_NUMBERS' |
 
 #### PaginationNumber Props
 
-| Prop       | Type        | Description                        | Default  |
-| ---------- | ----------- | ---------------------------------- | -------- |
-| as?        | `string`    | `a` / `button`                     | `button` |
-| children?  | `ReactNode` |                                    | null     |
-| href?      | `string`    | href used when as `a`              | null     |
-| isCurrent? | `boolean`   | Sets the `aria-current` to be true | null     |
-| label      | `string`    | `aria-label` text                  | null     |
+| Prop       | Type        | Description                                                                               | Default             |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------- |
+| as?        | `string`    | `a` / `button`                                                                            | `button`            |
+| children?  | `ReactNode` |                                                                                           | null                |
+| href?      | `string`    | href used when as `a`                                                                     | null                |
+| isCurrent? | `boolean`   | Sets the `aria-current` to be true                                                        | null                |
+| label      | `string`    | `aria-label` text                                                                         | null                |
+| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_NUMBER' |
 
 #### PaginationEllipsis Props
 
-| Prop  | Type     | Description       | Default |
-| ----- | -------- | ----------------- | ------- |
-| label | `string` | `aria-label` text | null    |
+| Prop     | Type     | Description                                                                               | Default               |
+| -------- | -------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| label    | `string` | `aria-label` text                                                                         | null                  |
+| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ELLIPSIS' |
 
 <ChangelogRevealer>
   <Changelog />
