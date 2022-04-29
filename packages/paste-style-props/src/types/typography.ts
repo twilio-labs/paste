@@ -1,5 +1,5 @@
 // https://styled-system.com/api/#typography
-import type * as CSS from 'csstype';
+import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
 import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
@@ -17,16 +17,16 @@ export type LineHeight = ResponsiveValue<LineHeightOptions>;
 export type TextColor = ResponsiveValue<TextColorOptions>;
 
 // CSS native
-export type LetterSpacingOptions = CSS.LetterSpacingProperty<TLengthStyledSystem>;
-export type TextAlignOptions = CSS.TextAlignProperty;
-export type FontStyleOptions = CSS.FontStyleProperty;
-export type WhiteSpaceOptions = CSS.WhiteSpaceProperty;
-export type WordBreakOptions = CSS.WordBreakProperty;
-export type WordWrapOptions = CSS.WordWrapProperty;
-export type OverflowWrapOptions = CSS.OverflowWrapProperty;
-export type TextDecorationOptions = CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>;
-export type TextOverflowOptions = CSS.TextOverflowProperty;
-export type TextTransformOptions = CSS.TextTransformProperty;
+export type LetterSpacingOptions = Properties<TLengthStyledSystem>['letterSpacing'];
+export type TextAlignOptions = Properties<TLengthStyledSystem>['textAlign'];
+export type FontStyleOptions = Properties<TLengthStyledSystem>['fontStyle'];
+export type WhiteSpaceOptions = Properties<TLengthStyledSystem>['whiteSpace'];
+export type WordBreakOptions = Properties<TLengthStyledSystem>['wordBreak'];
+export type WordWrapOptions = Properties<TLengthStyledSystem>['wordWrap'];
+export type OverflowWrapOptions = Properties<TLengthStyledSystem>['overflowWrap'];
+export type TextDecorationOptions = Properties<TLengthStyledSystem>['textDecoration'];
+export type TextOverflowOptions = Properties<TLengthStyledSystem>['textOverflow'];
+export type TextTransformOptions = Properties<TLengthStyledSystem>['textTransform'];
 
 export type LetterSpacing = ResponsiveValue<LetterSpacingOptions>;
 export type TextAlign = ResponsiveValue<TextAlignOptions>;

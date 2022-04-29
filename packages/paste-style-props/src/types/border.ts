@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#border
-import type * as CSS from 'csstype';
+import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 import type {StyleReset} from './helpers';
 
 // Tokens
@@ -38,11 +38,12 @@ export interface BorderColorProps {
 }
 
 // CSS native
-export type BorderStyleOptions = CSS.BorderStyleProperty;
-export type BorderTopStyleOptions = CSS.BorderTopStyleProperty;
-export type BorderRightStyleOptions = CSS.BorderRightStyleProperty;
-export type BorderBottomStyleOptions = CSS.BorderBottomStyleProperty;
-export type BorderLeftStyleOptions = CSS.BorderLeftStyleProperty;
+export type BorderStyleOptions = Properties<TLengthStyledSystem>['borderStyle'];
+
+export type BorderTopStyleOptions = Properties<TLengthStyledSystem>['borderTop'];
+export type BorderRightStyleOptions = Properties<TLengthStyledSystem>['borderRight'];
+export type BorderBottomStyleOptions = Properties<TLengthStyledSystem>['borderBottom'];
+export type BorderLeftStyleOptions = Properties<TLengthStyledSystem>['borderLeft'];
 
 export type BorderStyle = ResponsiveValue<BorderStyleOptions>;
 export type BorderTopStyle = ResponsiveValue<BorderTopStyleOptions>;

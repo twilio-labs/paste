@@ -7,9 +7,6 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-} from '@twilio-paste/style-props';
-import type {CustomTheme} from '@twilio-paste/customization';
-import type {
   AnimationProperty,
   AppearanceProperty,
   BorderCollapseProperty,
@@ -35,7 +32,9 @@ import type {
   UserSelectProperty,
   VisibilityProperty,
   WillChangeProperty,
-} from 'csstype';
+} from '@twilio-paste/style-props';
+import type {CustomTheme} from '@twilio-paste/customization';
+
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
 export interface BoxBaseStyleProps
@@ -50,7 +49,7 @@ export interface BoxBaseStyleProps
   animation?: AnimationProperty;
   appearance?: AppearanceProperty;
   borderCollapse?: BorderCollapseProperty;
-  borderSpacing?: BorderSpacingProperty<string>;
+  borderSpacing?: BorderSpacingProperty;
   boxSizing?: BoxSizingProperty;
   clip?: ClipProperty;
   content?: string;
@@ -61,14 +60,14 @@ export interface BoxBaseStyleProps
   listStylePosition?: ListStylePositionProperty;
   listStyleType?: ListStyleTypeProperty;
   objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty<string>;
+  objectPosition?: ObjectPositionProperty;
   opacity?: OpacityProperty;
-  outline?: OutlineProperty<string>;
+  outline?: OutlineProperty;
   pointerEvents?: PointerEventsProperty;
   resize?: ResizeProperty;
   tableLayout?: TableLayoutProperty;
   transform?: TransformProperty;
-  transformOrigin?: TransformOriginProperty<string>;
+  transformOrigin?: TransformOriginProperty;
   transition?: TransitionProperty;
   userSelect?: UserSelectProperty;
   visibility?: VisibilityProperty;

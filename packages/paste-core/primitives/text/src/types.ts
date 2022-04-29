@@ -1,10 +1,3 @@
-import type {
-  CursorProperty,
-  OutlineProperty,
-  TextTransformProperty,
-  TransitionProperty,
-  FontVariantNumericProperty,
-} from 'csstype';
 import type {CustomTheme} from '@twilio-paste/customization';
 import type {
   Display,
@@ -14,6 +7,11 @@ import type {
   SpaceProps,
   TypographyProps,
   VerticalAlign,
+  CursorProperty,
+  OutlineProperty,
+  TextTransformProperty,
+  TransitionProperty,
+  FontVariantNumericProperty,
 } from '@twilio-paste/style-props';
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
@@ -21,7 +19,7 @@ export interface TextBaseStyleProps extends OverflowProps, PositionProps, Shadow
   content?: string;
   cursor?: CursorProperty;
   display?: Display;
-  outline?: OutlineProperty<string>;
+  outline?: OutlineProperty;
   // Do not document, we prefer if folks do not use this property for i18n.
   textTransform?: TextTransformProperty;
   transition?: TransitionProperty;

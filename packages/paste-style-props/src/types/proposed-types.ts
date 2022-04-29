@@ -1,0 +1,29 @@
+import type {TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {Properties} from 'csstype';
+
+export type AnimationProperty = Properties<TLengthStyledSystem>['animation'];
+export type AppearanceProperty = Properties<TLengthStyledSystem>['appearance'];
+export type BorderCollapseProperty = Properties<TLengthStyledSystem>['borderCollapse'];
+export type BorderSpacingProperty = Properties<TLengthStyledSystem>['borderSpacing'];
+export type BoxSizingProperty = Properties<TLengthStyledSystem>['boxSizing'];
+export type ClipProperty = Properties<TLengthStyledSystem>['clip']; // 'clip' is deprecated
+export type CursorProperty = Properties<TLengthStyledSystem>['cursor'];
+export type FloatProperty = Properties<TLengthStyledSystem>['float'];
+export type FontVariantNumericProperty = Properties<TLengthStyledSystem>['fontVariantNumeric'];
+export type ListStyleImageProperty = Properties<TLengthStyledSystem>['listStyleImage'];
+export type ListStylePositionProperty = Properties<TLengthStyledSystem>['listStylePosition'];
+export type ListStyleTypeProperty = Properties<TLengthStyledSystem>['listStyleType'];
+export type ObjectFitProperty = Properties<TLengthStyledSystem>['objectFit'];
+export type ObjectPositionProperty = Properties<TLengthStyledSystem>['objectPosition'];
+export type OpacityProperty = Properties<TLengthStyledSystem>['opacity'];
+export type OutlineProperty = Properties<TLengthStyledSystem>['outline'];
+export type PointerEventsProperty = Properties<TLengthStyledSystem>['pointerEvents'];
+export type ResizeProperty = Properties<TLengthStyledSystem>['resize'];
+export type TableLayoutProperty = Properties<TLengthStyledSystem>['tableLayout'];
+export type TextTransformProperty = Properties<TLengthStyledSystem>['textTransform'];
+export type TransformOriginProperty = Properties<TLengthStyledSystem>['transformOrigin'];
+export type TransformProperty = Properties<TLengthStyledSystem>['transform'];
+export type TransitionProperty = Properties<TLengthStyledSystem>['transitionProperty'];
+export type UserSelectProperty = Properties<TLengthStyledSystem>['userSelect'];
+export type VisibilityProperty = Properties<TLengthStyledSystem>['visibility'];
+export type WillChangeProperty = Properties<TLengthStyledSystem>['willChange'];
