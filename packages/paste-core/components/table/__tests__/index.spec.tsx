@@ -399,7 +399,7 @@ describe('Table', () => {
       const tFoot = screen.getByTestId('table-tfoot');
 
       expect(table).toHaveStyleRule('font-weight', '700');
-      expect(table).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(table).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
 
       expect(tr).toHaveStyleRule('font-weight', '400');
       expect(tr).toHaveStyleRule('border-style', 'dashed');
@@ -407,16 +407,16 @@ describe('Table', () => {
       expect(th).toHaveStyleRule('font-weight', '500');
       expect(th).toHaveStyleRule('border-style', 'dotted');
 
-      expect(td).toHaveStyleRule('border-color', 'rgb(202,205,216)');
+      expect(td).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
       expect(td).toHaveStyleRule('font-weight', '600');
 
-      expect(tBody).toHaveStyleRule('border-color', 'rgb(245,138,138)');
+      expect(tBody).toHaveStyleRule('border-color', 'rgb(245, 138, 138)');
       expect(tBody).toHaveStyleRule('font-weight', 'inherit');
 
-      expect(tFoot).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(tFoot).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
       expect(tFoot).toHaveStyleRule('font-weight', 'inherit');
 
-      expect(tHead).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+      expect(tHead).toHaveStyleRule('border-color', 'rgb(117, 12, 12)');
       expect(tHead).toHaveStyleRule('font-weight', '400');
     });
 
@@ -479,24 +479,24 @@ describe('Table', () => {
       const tFoot = screen.getByTestId('table-tfoot');
 
       expect(table).toHaveStyleRule('font-weight', '700');
-      expect(table).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(table).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
 
       expect(tr).toHaveStyleRule('font-weight', '400');
       expect(tr).toHaveStyleRule('border-style', 'dashed');
 
       expect(th).toHaveStyleRule('font-weight', 'inherit');
-      expect(th).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+      expect(th).toHaveStyleRule('border-color', 'rgb(117, 12, 12)');
 
       expect(th1).toHaveStyleRule('font-weight', 'inherit');
-      expect(th1).toHaveStyleRule('border-color', 'rgb(245,138,138)');
+      expect(th1).toHaveStyleRule('border-color', 'rgb(245, 138, 138)');
 
-      expect(td).toHaveStyleRule('border-color', 'rgb(202,205,216)');
+      expect(td).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
       expect(td).toHaveStyleRule('font-weight', '600');
 
-      expect(tBody).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(tBody).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
       expect(tBody).toHaveStyleRule('font-weight', 'inherit');
 
-      expect(tFoot).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+      expect(tFoot).toHaveStyleRule('border-color', 'rgb(117, 12, 12)');
       expect(tFoot).toHaveStyleRule('font-weight', 'inherit');
 
       expect(tHead).toHaveStyleRule('border-style', 'dotted');

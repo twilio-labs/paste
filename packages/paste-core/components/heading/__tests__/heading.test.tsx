@@ -170,8 +170,8 @@ describe('Heading', () => {
         </CustomizationProvider>
       );
       const renderedHeading = screen.getByRole('heading');
-      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedHeading).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to a Heading variant', (): void => {
@@ -198,8 +198,8 @@ describe('Heading', () => {
         </CustomizationProvider>
       );
       const renderedHeading = screen.getByRole('heading');
-      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedHeading).toHaveStyleRule('color', 'rgb(2,99,224)');
+      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedHeading).toHaveStyleRule('color', 'rgb(2, 99, 224)');
       expect(renderedHeading).toHaveStyleRule('text-decoration', 'underline');
     });
 
@@ -216,8 +216,8 @@ describe('Heading', () => {
         </CustomizationProvider>
       );
       const renderedHeading = screen.getByRole('heading');
-      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedHeading).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to a Heading variant with a custom element data attribute', (): void => {
@@ -244,8 +244,8 @@ describe('Heading', () => {
         </CustomizationProvider>
       );
       const renderedHeading = screen.getByRole('heading');
-      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedHeading).toHaveStyleRule('color', 'rgb(2,99,224)');
+      expect(renderedHeading).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedHeading).toHaveStyleRule('color', 'rgb(2, 99, 224)');
       expect(renderedHeading).toHaveStyleRule('text-decoration', 'underline');
     });
   });

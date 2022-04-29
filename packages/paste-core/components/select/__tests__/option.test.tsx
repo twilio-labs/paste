@@ -133,7 +133,7 @@ describe('Option', () => {
         </CustomizationProvider>
       );
 
-      expect(screen.getByTestId('option-custom-styles')).toHaveStyleRule('color', 'rgb(3,11,93)');
+      expect(screen.getByTestId('option-custom-styles')).toHaveStyleRule('color', 'rgb(3, 11, 93)');
     });
 
     it('should add custom styles to Option with a custom element data attribute', () => {
@@ -155,7 +155,7 @@ describe('Option', () => {
         </CustomizationProvider>
       );
 
-      expect(screen.getByTestId('option-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2,99,224)');
+      expect(screen.getByTestId('option-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2, 99, 224)');
     });
   });
 });

@@ -117,10 +117,10 @@ describe('Textarea customization', () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="TEXTAREA_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="TEXTAREA_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="TEXTAREA_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(235,244,255)');
-    expect(renderedTextAreaElement).toHaveStyleRule('color', 'rgb(3,11,93)');
+    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
+    expect(renderedTextAreaElement).toHaveStyleRule('color', 'rgb(3, 11, 93)');
     expect(renderedTextAreaPrefix).toHaveStyleRule('padding', '1rem');
-    expect(renderedTextAreaSuffix).toHaveStyleRule('border-left-color', 'rgb(2,99,224)');
+    expect(renderedTextAreaSuffix).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)');
   });
 
   it('should set custom CSS for customized textarea variant', () => {
@@ -129,10 +129,10 @@ describe('Textarea customization', () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-    expect(renderedTextAreaElement).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-    expect(renderedTextAreaPrefix).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-    expect(renderedTextAreaSuffix).toHaveStyleRule('background-color', 'rgb(254,236,236)');
+    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+    expect(renderedTextAreaElement).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+    expect(renderedTextAreaPrefix).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+    expect(renderedTextAreaSuffix).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
   });
 
   it('should set custom CSS for custom textarea', () => {
@@ -141,10 +141,10 @@ describe('Textarea customization', () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="NEW_TEXTAREA_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="NEW_TEXTAREA_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="NEW_TEXTAREA_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-    expect(renderedTextAreaElement).toHaveStyleRule('color', 'rgb(214,31,31)');
+    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+    expect(renderedTextAreaElement).toHaveStyleRule('color', 'rgb(214, 31, 31)');
     expect(renderedTextAreaPrefix).toHaveStyleRule('padding', '1.5rem');
-    expect(renderedTextAreaSuffix).toHaveStyleRule('border-left-color', 'rgb(214,31,31)');
+    expect(renderedTextAreaSuffix).toHaveStyleRule('border-left-color', 'rgb(214, 31, 31)');
   });
 
   it('should set custom CSS for custom textarea variant', () => {
@@ -153,10 +153,10 @@ describe('Textarea customization', () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(235,244,255)');
-    expect(renderedTextAreaElement).toHaveStyleRule('background-color', 'rgb(235,244,255)');
-    expect(renderedTextAreaPrefix).toHaveStyleRule('background-color', 'rgb(235,244,255)');
-    expect(renderedTextAreaSuffix).toHaveStyleRule('background-color', 'rgb(235,244,255)');
+    expect(renderedTextArea).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
+    expect(renderedTextAreaElement).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
+    expect(renderedTextAreaPrefix).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
+    expect(renderedTextAreaSuffix).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
   });
 });
 

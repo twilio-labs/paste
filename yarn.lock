@@ -3055,7 +3055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/css@npm:@emotion/css@11.9.0":
+"@emotion/css@npm:11.9.0":
   version: 11.9.0
   resolution: "@emotion/css@npm:11.9.0"
   dependencies:
@@ -9552,8 +9552,14 @@ __metadata:
     "@twilio-paste/types": ^3.1.6
 =======
     "@twilio-paste/types": ^3.1.5
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 >>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
+=======
+=======
+>>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
+>>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11183,8 +11189,14 @@ __metadata:
     "@twilio-paste/types": ^3.1.6
 =======
     "@twilio-paste/types": ^3.1.5
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 >>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
+=======
+=======
+>>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
+>>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -19224,7 +19236,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 
+=======
+"csstype@npm:^3.0.11":
+>>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
   version: 3.0.11
   resolution: "csstype@npm:3.0.11"
   checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f

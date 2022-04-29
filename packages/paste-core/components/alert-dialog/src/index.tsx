@@ -10,8 +10,6 @@ import {AlertDialogBody} from './AlertDialogBody';
 import {AlertDialogContent} from './AlertDialogContent';
 import {AlertDialogFooter} from './AlertDialogFooter';
 
-/// <reference types="@emotion/react/types/css-prop" />
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
   from: {opacity: 0, transform: `scale(0.675)`},

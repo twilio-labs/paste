@@ -53,8 +53,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     expect(screen.getByTestId('help_text')).toHaveStyleRule('font-weight', '700');
-    expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14,124,58)');
-    expect(screen.getByTestId('help_text_error')).toHaveStyleRule('color', 'rgb(141,49,24)');
+    expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
+    expect(screen.getByTestId('help_text_error')).toHaveStyleRule('color', 'rgb(141, 49, 24)');
   });
 
   it('should customize help text default and error variant with custom element name', (): void => {
@@ -79,7 +79,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     expect(screen.getByTestId('help_text')).toHaveStyleRule('font-weight', '700');
-    expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14,124,58)');
-    expect(screen.getByTestId('help_text_error')).toHaveStyleRule('color', 'rgb(141,49,24)');
+    expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
+    expect(screen.getByTestId('help_text_error')).toHaveStyleRule('color', 'rgb(141, 49, 24)');
   });
 });

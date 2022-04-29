@@ -2,8 +2,8 @@
 
 exports[`Separator Render should set horizontal margins 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -11,24 +11,24 @@ exports[`Separator Render should set horizontal margins 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   box-sizing: border-box;
   margin: 0;
   margin-left: 1rem;
   margin-right: 1rem;
   border-width: 0;
-  border-color: rgb(202,205,216);
+  border-color: rgb(202, 205, 216);
   border-style: solid;
   border-bottom-width: 1px;
   width: auto;
 }
 
 <div
-    class="paste-theme-provider emotion-1"
+    class="paste-theme-provider emotion-0"
   >
     <hr
       aria-orientation="horizontal"
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="SEPARATOR"
     />
   </div>
@@ -37,8 +37,8 @@ exports[`Separator Render should set horizontal margins 1`] = `
 
 exports[`Separator Render should set responsive horizontal margins 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -46,38 +46,38 @@ exports[`Separator Render should set responsive horizontal margins 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   box-sizing: border-box;
   margin: 0;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   border-width: 0;
-  border-color: rgb(202,205,216);
+  border-color: rgb(202, 205, 216);
   border-style: solid;
   border-bottom-width: 1px;
   width: auto;
 }
 
-@media screen and (min-width:40em) {
-  .emotion-0 {
+@media screen and (min-width: 40em) {
+  .emotion-1 {
     margin-left: 2.25rem;
     margin-right: 2.25rem;
   }
 }
 
-@media screen and (min-width:52em) {
-  .emotion-0 {
+@media screen and (min-width: 52em) {
+  .emotion-1 {
     margin-left: 4.5rem;
     margin-right: 4.5rem;
   }
 }
 
 <div
-    class="paste-theme-provider emotion-1"
+    class="paste-theme-provider emotion-0"
   >
     <hr
       aria-orientation="horizontal"
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="SEPARATOR"
     />
   </div>
@@ -86,8 +86,8 @@ exports[`Separator Render should set responsive horizontal margins 1`] = `
 
 exports[`Separator Render should set responsive vertical margins 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -95,38 +95,38 @@ exports[`Separator Render should set responsive vertical margins 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   box-sizing: border-box;
   margin: 0;
   margin-bottom: 0.25rem;
   margin-top: 0.25rem;
   border-width: 0;
-  border-color: rgb(202,205,216);
+  border-color: rgb(202, 205, 216);
   border-style: solid;
   border-left-width: 1px;
   height: auto;
 }
 
-@media screen and (min-width:40em) {
-  .emotion-0 {
+@media screen and (min-width: 40em) {
+  .emotion-1 {
     margin-bottom: 2.25rem;
     margin-top: 2.25rem;
   }
 }
 
-@media screen and (min-width:52em) {
-  .emotion-0 {
+@media screen and (min-width: 52em) {
+  .emotion-1 {
     margin-bottom: 4.5rem;
     margin-top: 4.5rem;
   }
 }
 
 <div
-    class="paste-theme-provider emotion-1"
+    class="paste-theme-provider emotion-0"
   >
     <hr
       aria-orientation="vertical"
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="SEPARATOR"
     />
   </div>
@@ -135,8 +135,8 @@ exports[`Separator Render should set responsive vertical margins 1`] = `
 
 exports[`Separator Render should set vertical margins 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -144,24 +144,24 @@ exports[`Separator Render should set vertical margins 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   box-sizing: border-box;
   margin: 0;
   margin-bottom: 2.25rem;
   margin-top: 2.25rem;
   border-width: 0;
-  border-color: rgb(202,205,216);
+  border-color: rgb(202, 205, 216);
   border-style: solid;
   border-left-width: 1px;
   height: auto;
 }
 
 <div
-    class="paste-theme-provider emotion-1"
+    class="paste-theme-provider emotion-0"
   >
     <hr
       aria-orientation="vertical"
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="SEPARATOR"
     />
   </div>

@@ -83,7 +83,7 @@ describe('SiblingBox render', () => {
       );
       const renderedSiblingBox = screen.getByTestId('customized-sibling-box');
       expect(renderedSiblingBox).toHaveStyleRule('text-decoration', 'underline');
-      expect(renderedSiblingBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedSiblingBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add styles when given a custom name', (): void => {

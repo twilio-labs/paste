@@ -77,7 +77,6 @@
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages",
     "type-check": "lerna run tsc",
-    "tsc:check": "node ./node_modules/.bin/tsc --project ./tsconfig.json --showConfig",
     "tsc": "echo 'Did you mean to run yarn type-check?'",
     "chromatic": "chromatic",
     "packages:check": "manypkg check",

@@ -497,8 +497,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('renderedFlexElement');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
   it('should add custom styles to Flex with custom element attributes', (): void => {
     render(
@@ -510,7 +510,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('renderedFlexElement');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });

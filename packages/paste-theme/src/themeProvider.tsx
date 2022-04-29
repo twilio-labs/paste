@@ -52,7 +52,8 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
-  // was causing error in storybook render.
+  // @TODO [emotion-upgrade] does "useMemo" here cause error in storybook?
+  // was causing error in storybook render, this was a quick simple fix to reduce noise
   React.useEffect(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,

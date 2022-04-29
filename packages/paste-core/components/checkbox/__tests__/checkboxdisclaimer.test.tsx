@@ -82,7 +82,7 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER"]')).toHaveStyleRule(
       'background-color',
-      'rgb(254,236,236)'
+      'rgb(254, 236, 236)'
     );
     expect(container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-top',
@@ -106,7 +106,7 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER"]')).toHaveStyleRule(
       'background-color',
-      'rgb(254,236,236)'
+      'rgb(254, 236, 236)'
     );
     expect(container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-top',

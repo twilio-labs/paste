@@ -95,9 +95,9 @@ describe('Customization for Pagination wrapper and arrows', () => {
     const paginationItems = getByTestId('pagination-items');
     const paginationBackArrow = getByTestId('pagination-back-arrow');
 
-    expect(pagination).toHaveStyleRule('border-color', 'rgb(136,145,170)');
-    expect(paginationItems).toHaveStyleRule('border-color', 'rgb(136,145,170)');
-    expect(paginationBackArrow).toHaveStyleRule('border-color', 'rgb(136,145,170)');
+    expect(pagination).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
+    expect(paginationItems).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
+    expect(paginationBackArrow).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
   });
 
   it('should add custom styles to Pagination wrapper and arrows when a custom element data attribute is used', (): void => {
@@ -111,9 +111,9 @@ describe('Customization for Pagination wrapper and arrows', () => {
     const paginationItems = getByTestId('pagination-items');
     const paginationBackArrow = getByTestId('pagination-back-arrow');
 
-    expect(pagination).toHaveStyleRule('border-color', 'rgb(136,145,170)');
-    expect(paginationItems).toHaveStyleRule('border-color', 'rgb(136,145,170)');
-    expect(paginationBackArrow).toHaveStyleRule('border-color', 'rgb(136,145,170)');
+    expect(pagination).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
+    expect(paginationItems).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
+    expect(paginationBackArrow).toHaveStyleRule('border-color', 'rgb(136, 145, 170)');
   });
 });
 
