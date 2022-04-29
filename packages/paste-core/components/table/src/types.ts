@@ -39,6 +39,7 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
 export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
+  stickyHeader?: boolean;
 }
 export interface TBodyProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
