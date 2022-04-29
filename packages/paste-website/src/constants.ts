@@ -49,6 +49,7 @@ export const SidebarCategoryRoutes = {
   FOUNDATIONS_LOCALIZATION: '/foundations/localization',
   PATTERNS: '/patterns',
   EXPERIENCES: '/experiences',
+  CONSOLE: '/experiences/console',
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
   TOKENS: '/tokens',

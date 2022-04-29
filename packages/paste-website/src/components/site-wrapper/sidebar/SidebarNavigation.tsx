@@ -231,6 +231,41 @@ const SidebarNavigation: React.FC = () => {
             </SidebarAnchor>
           ))}
         </NavigationDisclosure>
+
+        <NavigationDisclosure buttonText="Experiences" categoryRoute={SidebarCategoryRoutes.EXPERIENCES} level={0}>
+          <NavigationDisclosure
+            buttonText="Console"
+            categoryRoute={SidebarCategoryRoutes.CONSOLE}
+            level={1}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-console',
+                label: 'Console',
+              })
+            }
+          >
+            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONSOLE}`}>
+              Overview
+            </SidebarAnchor>
+            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONSOLE}/alarm-setup`}>
+              Alarm setup
+            </SidebarAnchor>
+          </NavigationDisclosure>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.EXPERIENCES}/flex`}>
+            Flex
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.EXPERIENCES}/mobile`}>
+            Mobile
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.EXPERIENCES}/segment`}>
+            Segment
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.EXPERIENCES}/sendgrid`}>
+            SendGrid
+          </SidebarAnchor>
+        </NavigationDisclosure>
+
         <SidebarSeparator />
         <NavigationDisclosure
           buttonText="Components"

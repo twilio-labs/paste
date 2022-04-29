@@ -1,0 +1,330 @@
+---
+title: Console
+description: An overview of the Console experience's design guidelines.
+slug: /experiences/console/
+---
+
+import {graphql} from 'gatsby';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/experiences/console/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<ComponentHeader name={props.pageContext.frontmatter.title} description={props.pageContext.frontmatter.description} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Base principles
+
+- Do not duplicate Console content in different places
+- Focus on the user journey, not just your product or feature
+- Rely on existing patterns before creating a new one
+- Use Paste with the Default theme for all new content
+- Console navigation is optimized for findability, not promoting products or features
+
+## Develop vs. Monitor
+
+In our research, we found that a majority of users expect content to be organized by
+the phases of their development lifecycle, not by product vertical.
+A user's journey in building an application on Twilio starts with **Developing**,
+then moves into **Monitoring** after they launch their application.
+
+<Box tableLayout="fixed" marginBottom="space40">
+<Table>
+<TBody>
+<Tr>
+<Td width="50%">
+<strong>
+Develop
+</strong>
+
+The customer is getting started, learning about how Twilio works, testing out Twilio product(s), prototyping a POC,
+buying and configuring numbers, setting up services, building their application, and integrating it into their own
+system.
+
+Primary Personas: Developers, Business and Product leaders
+
+</Td>
+<Td width="50%">
+<strong>
+Monitor
+</strong>
+
+The customer has "launched" their application into production and needs to monitor it's activity,
+coming back to Console to troubleshoot, debug, review logs and insights.
+
+Primary Personas: Customer support, Developers, and Product Managers
+
+</Td>
+</Tr>
+
+</TBody>
+</Table>
+</Box>
+
+When building your product, think about the journey your users will take.
+Within **Develop**, a user should be able to accomplish all tasks related to learning about the product,
+trying it out, developing and managing services, and applying product settings.
+Within **Monitor**, a user should be able to find all content related to monitoring their application,
+such as logs and insights.
+
+On a rare occasion, there are tasks that span between Develop and Monitor.
+For example, a user may learn that calls are not connecting in India through Voice Insights (in **Monitor**),
+and that they need to turn on India in their Voice Geo-permissions (in **Develop**). In cases like these,
+good interlinking between the relevant pages or contextual quick actions will provide a streamlined
+user experience. In addition, the tabs will hold the menu states so that less clicks are required to drill
+in and between menus under each tab.
+
+[image]
+
+### What goes in Develop
+
+In Console’s "Develop" tab, each product's navigation structure is organized into 4 categories:
+
+**1. Overview**
+
+This single page should provide information about what this product is, what customer problems it can help
+solve, how it works with other Twilio products, key features, available regions, link to pricing,
+and links to get started. Please utilize the [Overview Page Template](https://docs.google.com/document/d/1OA9JSj1KA8CqeFtArwcbyK2lKYV_4Oyx2CPOcqzGHRc/edit?usp=sharing)
+for this purpose.
+
+**2. Try it out (optional)**
+
+This page or section is optionally used in a product's navigation when an interactive setup flow or tutorial
+separate from twilio.com/docs is required in order to gain access to the product.
+(Example: Messaging > Try it out > Whatsapp). It can also be used if there is an interactive sandbox
+experience that allows you to interact with the APIs. This page should not be used to duplicate twilio.com/docs content.
+
+**3. Manage**
+
+This is the core of the product. All services that are required to run an application fall into this category.
+The "Manage" label is used when there are 3 or more pages related to the configuration and management of the
+product. (Example: Voice). If you have just 1-2 "Manage" pages, you do not need to use the ‘Manage' folder.
+(Example: Messaging which has just "Services" &amp; "Senders" pages).
+
+### What goes in Monitor
+
+The monitor tab is the destination for all pages related to (you guessed it!) monitoring your Twilio application.
+This includes the logs, and insights today. Logs and Insights pages appear under Monitor for the products
+you use or pin to your side navigation.
+
+#### Logs
+
+**Primary Personas:** Developers, Builders, Technical support managers
+
+Jobs to be done: Troubleshooting, debugging
+
+**Secondary Personas:** Business managers, Billing administrators
+
+Jobs to be done: Exporting CSV for reporting, billing-related tasks
+
+- If your product generates one or more types of logs, they should appear in the Monitoring/Logs area.
+- If your product uses Services to segment data and these services generate logs, you should provide a logs page that rolls up logs across all services. To show logs related to individual services, you should add a filter on the rolled up logs page that allows you to filter by service.
+- Individual logs pages should link to any and all correlated resources (the service or a specific phone number, for example).
+- Individual logs pages should link to any resources that are directly correlated (such as a conference log to a call leg log).
+- Ensure your product is publishing events to error logs.
+- Some log detail pages have contextual insight information as a tab.
+- Log page filters should be captured as URL parameters.
+
+#### Insights
+
+**Primary Personas:** Product owners, business managers
+
+Jobs to be done: Monitoring, analysis
+
+- Aggregated insights for the operation of your product go under this section.
+- Users should be able to start from the aggregated view and drill into a filtered view of corresponding logs in the log area.
+- Insights page filters should be captured as URL parameters.
+
+## When to use a Service navigation
+
+### About Services
+
+A Service is a segregated set of configuration that can be applied to a group of resources like a pool of
+numbers. A Service segregates data for a specific use case or campaign. Users can set up one or more services
+within a given product. Services are currently used in Messaging, Chat, Verify, Authy, Functions, Studio,
+SIP trunking, Voice BYOC, TaskRouter, Conversations, Notify, Proxy, Autopilot, Assets, and Sync.
+If you have services in your product, they fall under the "Manage" category in the "Develop" tab.
+
+### Service navigation guidelines
+
+A Service navigation pattern should only be used for actual services. They're designed to provide a focused view
+on just the pages relevant to that particular service. You get to a service from a list of services
+in your product nav under Develop.
+
+[image]
+
+## Account-level navigation
+
+With Console’s focus on jobs-to-be-done, Account-level menus are another important area. Account-level sections
+like "Account", "Billing", and "Support" provide designated areas to perform account administration separate
+from the products you may use in that account.
+
+**Primary personas:** Billing managers, IT Admins, Customer support
+
+Jobs to be done: Manage billing, add users to an account and assign roles, manage compliance
+
+We currently have 3 account-level areas:
+
+1. **Account:** Accessed from the masthead.
+2. **Billing:** Accessed from the masthead.
+3. **Support Center:** Accessed from Docs &amp; support menu in left nav.
+
+If there is a need to access a page in an account-level area from your product, such as API Keys or Credentials,
+link to the page from your product rather than duplicating the page inside of your product.
+This eliminates the need to duplicate content in multiple places.
+
+## Vertical sidebar navigation vs in-page horizontal tabs
+
+The left sidebar navigation should include all the highest-level primitives related to your product.
+Within a given page, horizontal tabs can be used to segment different categories of information related to
+that primitive, or different variations of that primitive.
+
+## When to use breadcrumbs
+
+Breadcrumbs are used sparingly. A breadcrumb is only visible when viewing a page that is secondary or tertiary
+to the page selected in the main navigation. The breadcrumb gives you the ability to link back to the primary page.
+It also helps to remind you where you are in the hierarchy of pages.
+
+If you were to navigate to a tertiary page, the breadcrumb would show both the primary and secondary breadcrumbs
+on the tertiary page ( Logs / Log detail / ). The first breadcrumb will always match the page
+highlighted in the nav.
+
+[image]
+
+## Hiding and showing pages in the navigation
+
+When a user views or pins a product to the navigation, all pages should be immediately visible.
+Pages should not be progressively shown based on user state or usage. Instead, the content of the page should
+evolve to help the user understand the feature and/or start using it. You can use an [empty state](/patterns/empty-state) with an
+illustration and information about the feature.
+
+Hiding a page in the nav (via an account flag) should be done only when you are limiting access to that feature.
+For example, the feature is in private beta or the feature is deprecated and supported only for existing users.
+Hiding and showing pages can also be done when you’re limiting access based on RBAC.
+
+## Beta tags
+
+Beta should appear in the nav under the product name when a product is in beta. It can also appear under a
+single page in a product nav when just that feature is in beta. In addition, you should add the beta badge
+next to the H1 in the page for the feature in beta. In the case where the entire product is in beta,
+include the badge next to the H1 on the first page in the nav. The “beta” is clickable and opens a modal
+describing what beta means.
+
+[image]
+
+## Product Explorer
+
+The Product Explorer is designed to be a catalog of Twilio products each with a short description,
+a link to the first page in the product in Console, and an external link to docs for that product
+(twilio.com/docs/&lt;product&gt;). This page provides a short description of what a product does, shows if the
+product is available in more than the US1 region, and allows you to pin them to the left navigation.
+
+The Product Explorer shows one card per product, regardless of how many different offerings exist in your
+product. There is a one-to-one relationship between the product card and the product that gets pinned to
+the left navigation.
+
+When introducing a new product to the Console, work closely with the Console team to determine the
+appropriate category to include your product in (testing may be required).
+
+Product description should be between 35-60 characters to fit (see checklist below).
+
+Products that appear in the explorer page should be products that you develop with and relate to your
+Twilio application. If you have questions about whether your product should be included here,
+reach out to the Console team.
+
+[image]
+
+## Search ("Jump to...")
+
+The "jump to" bar in the Console masthead area allows users to quickly jump to a specific page in the Console.
+The results will automatically populate with your published product pages. It is recommended that you also add
+keywords to help with findability of your product pages.
+
+- The JSON data driving search is located here: https://code.hq.twilio.com/twilio/console-navigation-backend/blob/main/json/consoleSearch.json
+- Update the search JSON and create a PR in the repository
+
+## Copy
+
+All Console copy should be presented in sentence case. For in-depth copy guidelines,
+see [Paste's Content Guidelines](/foundations/content/content-checklist).
+
+### Naming
+
+Partner with the Console team for support whenever you are creating navigation and menu names in Console to
+ensure they are maintaining a consistent experience and are meaningful to users.
+
+Naming should ideally be 22 characters or less to fit on a single line and cannot exceed 44 characters (2 lines).
+
+The H1 title of a page should correlate with the name in the sidebar navigation, although you can use a
+shortened version of the name in the sidebar navigation to save space, when necessary. Navigation items
+should be succinct and descriptive. Avoid using commonly shared terms like “Programmable” in the navigation
+as it inhibits scannability. It is ok, for example, to say “Messaging” in the navigation but
+“Programmable Messaging” in the H1 of the page.
+
+## Console product pre-launch checklist
+
+- Request a short product description for the Product Explorer page card (35-60 characters) by filing a jira in WEBREQ project and tagging Lauren Kaye
+- Review all copy in the nav and within your product at Content office hours
+- Review your designs with the Design Systems team for an accessibility check and ensure proper use of components, design language, and patterns.
+- Review your navigation structure with the Console team at Console team office hours (link)
+- File Jira with Marketing (MARK) to create new product logo
+  - Once it is ready, you need to add your product icon to Paste
+- Add key search terms for your pages to the search database
+- Your product's error events are being published to the error logs
+
+## Regional
+
+When a product appears in more than one region, the following changes should be made to the design:
+
+- On the product explorer page, the product card should have a dropdown caret next to the pin allowing the user to pin the product to the desired region.
+
+[image]
+
+- On the product explorer page, the product card should have a “Regional” badge and popover that signifies this product is available in more than one region.
+
+[image]
+
+- On the Side navigation, when an account has products pinned in more than one region, region headers, such as “United Statues (US1)” will appear above those products in both “Develop” and “Monitor”.
+
+[image-3-develop and image-3-monitor]
+
+- In a service nav, when a user has products pinned in more than one region, the shortened region name, such as “(US1)” will appear to the right of the product name.
+
+[image-4]
+
+- On the Product Overview and Services Pages, the regional badge and popover will appear to remind users of which region they are configuring their product in.
+
+[image-5]
+
+</content>
+
+</contentwrapper>

@@ -1,0 +1,31 @@
+---
+title: Segment
+description: An overview of the Segment experience's design guidelines.
+slug: /experiences/segment/
+---
+
+import {graphql} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/experiences/segment/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<ComponentHeader name={props.pageContext.frontmatter.title} description={props.pageContext.frontmatter.description} />
+
+</content>
+
+---

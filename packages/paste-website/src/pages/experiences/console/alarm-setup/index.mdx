@@ -1,0 +1,31 @@
+---
+title: About Paste
+description: An overview of what Paste is, is not, and how to use the platform.
+slug: /introduction/about-paste
+---
+
+import {graphql} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/introduction/about-paste/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+</content>

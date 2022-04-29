@@ -1,0 +1,31 @@
+---
+title: Mobile
+description: An overview of the Mobile experience's design guidelines.
+slug: /experiences/mobile/
+---
+
+import {graphql} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/experiences/mobile/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<ComponentHeader name={props.pageContext.frontmatter.title} description={props.pageContext.frontmatter.description} />
+
+</content>
+
+---
