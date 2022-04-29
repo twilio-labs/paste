@@ -125,6 +125,22 @@ describe('Table', () => {
     expect(renderedTr).toHaveStyleRule('vertical-align', 'bottom');
   });
 
+  it('should render thead with sticky header css if prop is passed', (): void => {
+    render(
+      <Table>
+        <THead stickyHeader={true} data-testid="mockTHead">
+          <Tr>
+            <Th>Column 1</Th>
+          </Tr>
+        </THead>
+      </Table>
+    );
+    const renderedTh = screen.getByTestId('mockTHead');
+    expect(renderedTh).toHaveStyleRule('position', 'sticky');
+    expect(renderedTh).toHaveStyleRule('top', '-1px');
+    expect(renderedTh).toHaveStyleRule('z-index', 'zIndex10');
+  });
+
   it('should render Th width and left textAlign styles', (): void => {
     render(
       <Table>
