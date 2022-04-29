@@ -1,31 +1,29 @@
 import * as React from 'react';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {css, styled} from '@twilio-paste/styling-library';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
+import {SkeletonLoaderKeyframes} from './keyframes';
 
-const AnimatedSkeleton = animated(Box);
-
-const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
-  css({
-    background: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.4) 60%, transparent)`,
-    transform: `translateX(-100%) skew(155deg)`,
-  })
-);
-
-const animatedConfig = {
-  loop: {delay: 700, reset: true},
-  from: {translateX: '-100%', skew: '155deg'},
-  // 105% because at 100% with this skew the highlight remains visible
-  // on the bottom right of the loader at the end state.
-  to: {translateX: '105%', skew: '155deg'},
-  config: {
-    mass: 0.1,
-    tension: 80,
-    friction: 50,
-  },
-};
+const SkeletonLoaderInner = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    ${themeGet('backgroundColors.colorBackground')} 40%,
+    ${themeGet('backgroundColors.colorBackground')} 60%,
+    transparent
+  );
+  transform: translateX(-100%) skew(155deg);
+  animation-timing-function: cubic-bezier(0.06, 0.42, 0.57, 0.89);
+  animation-name: ${SkeletonLoaderKeyframes};
+  animation-duration: 4.5s;
+  animation-iteration-count: infinite;
+`;
 
 export interface SkeletonLoaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -54,8 +52,6 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
     },
     ref
   ) => {
-    const animatedSkeletonStyles = useSpring(animatedConfig);
-
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -81,14 +77,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
         width={width}
         ref={ref}
       >
-        <StyledAnimatedSkeleton
-          bottom={0}
-          left={0}
-          position="absolute"
-          right={0}
-          top={0}
-          style={animatedSkeletonStyles}
-        />
+        <SkeletonLoaderInner />
       </Box>
     );
   }
