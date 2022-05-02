@@ -9,11 +9,11 @@ export type BackgroundColorOptions = keyof ThemeShape['backgroundColors'];
 export type BackgroundColor = ResponsiveValue<BackgroundColorOptions | 'none' | 'transparent' | 'inherit'>;
 
 // CSS native
-export type BackgroundImageOptions = Properties<TLengthStyledSystem>['backgroundImage'];
+export type BackgroundImageOptions = Properties['backgroundImage'];
 export type BackgroundSizeOptions = Properties<TLengthStyledSystem>['backgroundSize'];
-export type BackgroundPositionOptions = Properties<TLengthStyledSystem>['backgroundPosition'];
-export type BackgroundRepeatOptions = Properties<TLengthStyledSystem>['backgroundRepeat'];
-export type BackgroundAttachmentOptions = Properties<TLengthStyledSystem>['backgroundAttachment'];
+export type BackgroundPositionOptions = Properties['backgroundPosition'];
+export type BackgroundRepeatOptions = Properties['backgroundRepeat'];
+export type BackgroundAttachmentOptions = Properties['backgroundAttachment'];
 
 export type BackgroundImage = ResponsiveValue<BackgroundImageOptions>;
 export type BackgroundSize = ResponsiveValue<BackgroundSizeOptions>;

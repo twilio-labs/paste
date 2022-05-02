@@ -9,16 +9,10 @@ import type {
   TypographyProps,
   AnimationProperty,
   AppearanceProperty,
-  BorderCollapseProperty,
-  BorderSpacingProperty,
   BoxSizingProperty,
   ClipProperty,
   CursorProperty,
   FloatProperty,
-  FontVariantNumericProperty,
-  ListStyleImageProperty,
-  ListStylePositionProperty,
-  ListStyleTypeProperty,
   ObjectFitProperty,
   ObjectPositionProperty,
   OpacityProperty,
@@ -48,17 +42,11 @@ export interface BoxBaseStyleProps
     FlexboxProps {
   animation?: AnimationProperty;
   appearance?: AppearanceProperty;
-  borderCollapse?: BorderCollapseProperty;
-  borderSpacing?: BorderSpacingProperty;
   boxSizing?: BoxSizingProperty;
   clip?: ClipProperty;
   content?: string;
   cursor?: CursorProperty;
   float?: FloatProperty;
-  fontVariantNumeric?: FontVariantNumericProperty;
-  listStyleImage?: ListStyleImageProperty;
-  listStylePosition?: ListStylePositionProperty;
-  listStyleType?: ListStyleTypeProperty;
   objectFit?: ObjectFitProperty;
   objectPosition?: ObjectPositionProperty;
   opacity?: OpacityProperty;

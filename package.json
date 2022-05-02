@@ -224,7 +224,7 @@
   "resolutions": {
     "@emotion/core": "10.0.28",
     "react-hot-loader": "^4.13.0",
-    "csstype": "npm:csstype@3.0.11"
+    "csstype": "^3.0.11"
   },
   "husky": {
     "hooks": {

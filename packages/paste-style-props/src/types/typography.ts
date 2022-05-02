@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#typography
 import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
 
 // Tokens
 export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';
@@ -17,16 +17,20 @@ export type LineHeight = ResponsiveValue<LineHeightOptions>;
 export type TextColor = ResponsiveValue<TextColorOptions>;
 
 // CSS native
-export type LetterSpacingOptions = Properties<TLengthStyledSystem>['letterSpacing'];
-export type TextAlignOptions = Properties<TLengthStyledSystem>['textAlign'];
-export type FontStyleOptions = Properties<TLengthStyledSystem>['fontStyle'];
-export type WhiteSpaceOptions = Properties<TLengthStyledSystem>['whiteSpace'];
-export type WordBreakOptions = Properties<TLengthStyledSystem>['wordBreak'];
-export type WordWrapOptions = Properties<TLengthStyledSystem>['wordWrap'];
-export type OverflowWrapOptions = Properties<TLengthStyledSystem>['overflowWrap'];
-export type TextDecorationOptions = Properties<TLengthStyledSystem>['textDecoration'];
-export type TextOverflowOptions = Properties<TLengthStyledSystem>['textOverflow'];
-export type TextTransformOptions = Properties<TLengthStyledSystem>['textTransform'];
+export type LetterSpacingOptions = Properties['letterSpacing'];
+export type TextAlignOptions = Properties['textAlign'];
+export type FontStyleOptions = Properties['fontStyle'];
+export type WhiteSpaceOptions = Properties['whiteSpace'];
+export type WordBreakOptions = Properties['wordBreak'];
+export type WordWrapOptions = Properties['wordWrap'];
+export type OverflowWrapOptions = Properties['overflowWrap'];
+export type TextDecorationOptions = Properties['textDecoration'];
+export type TextOverflowOptions = Properties['textOverflow'];
+export type TextTransformOptions = Properties['textTransform'];
+export type FontVariantNumericProperty = Properties['fontVariantNumeric'];
+export type ListStyleImageProperty = Properties['listStyleImage'];
+export type ListStylePositionProperty = Properties['listStylePosition'];
+export type ListStyleTypeProperty = Properties['listStyleType'];
 
 export type LetterSpacing = ResponsiveValue<LetterSpacingOptions>;
 export type TextAlign = ResponsiveValue<TextAlignOptions>;
@@ -38,6 +42,10 @@ export type OverflowWrap = ResponsiveValue<OverflowWrapOptions>;
 export type TextDecoration = ResponsiveValue<TextDecorationOptions>;
 export type TextOverflow = ResponsiveValue<TextOverflowOptions>;
 export type TextTransform = ResponsiveValue<TextTransformOptions>;
+export type FontVariantNumeric = ResponsiveValue<FontVariantNumericProperty>;
+export type ListStyleImage = ResponsiveValue<ListStyleImageProperty>;
+export type ListStylePosition = ResponsiveValue<ListStylePositionProperty>;
+export type ListStyleType = ResponsiveValue<ListStyleTypeProperty>;
 
 /* Styled-system grouping
  * ---
@@ -48,6 +56,7 @@ export interface TypographyProps {
   fontFamily?: FontFamily;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
+  fontVariantNumeric?: FontVariantNumeric;
   lineHeight?: LineHeight;
   letterSpacing?: LetterSpacing;
   textAlign?: TextAlign;
@@ -56,9 +65,13 @@ export interface TypographyProps {
   // Our custom addition
   textDecoration?: TextDecoration;
   textOverflow?: TextOverflow;
+  // Do not document, we prefer if folks do not use this property for i18n.
   textTransform?: TextTransform;
   whiteSpace?: WhiteSpace;
   wordBreak?: WordBreak;
   wordWrap?: WordWrap;
   overflowWrap?: OverflowWrap;
+  listStyleImage?: ListStyleImage;
+  listStylePosition?: ListStylePosition;
+  listStyleType?: ListStyleType;
 }

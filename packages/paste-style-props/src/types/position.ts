@@ -9,7 +9,7 @@ export type ZIndex = ResponsiveValue<ZIndexOptions>;
 
 // CSS native
 
-export type PositionOptions = Properties<TLengthStyledSystem>['position'];
+export type PositionOptions = Properties['position'];
 export type TopOptions = Properties<TLengthStyledSystem>['top'];
 export type RightOptions = Properties<TLengthStyledSystem>['right'];
 export type BottomOptions = Properties<TLengthStyledSystem>['bottom'];

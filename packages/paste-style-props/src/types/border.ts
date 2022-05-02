@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#border
 import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {StyleReset} from './helpers';
 
 // Tokens
@@ -38,12 +38,12 @@ export interface BorderColorProps {
 }
 
 // CSS native
-export type BorderStyleOptions = Properties<TLengthStyledSystem>['borderStyle'];
+export type BorderStyleOptions = Properties['borderStyle'];
 
-export type BorderTopStyleOptions = Properties<TLengthStyledSystem>['borderTop'];
-export type BorderRightStyleOptions = Properties<TLengthStyledSystem>['borderRight'];
-export type BorderBottomStyleOptions = Properties<TLengthStyledSystem>['borderBottom'];
-export type BorderLeftStyleOptions = Properties<TLengthStyledSystem>['borderLeft'];
+export type BorderTopStyleOptions = Properties['borderStyle'];
+export type BorderRightStyleOptions = Properties['borderStyle'];
+export type BorderBottomStyleOptions = Properties['borderStyle'];
+export type BorderLeftStyleOptions = Properties['borderStyle'];
 
 export type BorderStyle = ResponsiveValue<BorderStyleOptions>;
 export type BorderTopStyle = ResponsiveValue<BorderTopStyleOptions>;
@@ -59,6 +59,12 @@ export interface BorderStyleProps {
   borderLeftStyle?: BorderLeftStyle;
 }
 
+export type BorderCollapseProperty = Properties['borderCollapse'];
+export type BorderCollapse = ResponsiveValue<BorderCollapseProperty>;
+
+export type BorderSpacingProperty = Properties['borderSpacing'];
+export type BorderSpacing = ResponsiveValue<BorderSpacingProperty>;
+
 // Styled-system grouping
 export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderColorProps, BorderRadiusProps {
   border?: StyleReset;
@@ -66,4 +72,6 @@ export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderC
   borderRight?: StyleReset;
   borderBottom?: StyleReset;
   borderLeft?: StyleReset;
+  borderCollapse?: BorderCollapse;
+  borderSpacing?: BorderSpacing;
 }

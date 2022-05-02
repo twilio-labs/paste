@@ -1,6 +1,6 @@
 // https://styled-system.com/api/#flexbox
 import type {Properties, Globals} from 'csstype';
-import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
 
 /**
  * The CSS align-items property sets the align-self value on all direct children as a group. The align-self
@@ -13,8 +13,8 @@ import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-l
  */
 export type AlignItemsOptions =
   | Globals
-  | Properties<TLengthStyledSystem>['alignSelf']
-  | Properties<TLengthStyledSystem>['position']
+  | Properties['alignSelf']
+  | Properties['position']
   | 'baseline'
   | 'normal'
   | 'stretch';
@@ -26,12 +26,7 @@ export type AlignItems = ResponsiveValue<AlignItemsOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
  */
-export type AlignContentOptions =
-  | Globals
-  | Properties<TLengthStyledSystem>['alignSelf']
-  | Properties<TLengthStyledSystem>['position']
-  | 'baseline'
-  | 'normal';
+export type AlignContentOptions = Globals | Properties['alignSelf'] | Properties['position'] | 'baseline' | 'normal';
 export type AlignContent = ResponsiveValue<AlignContentOptions>;
 
 /**
@@ -42,7 +37,7 @@ export type AlignContent = ResponsiveValue<AlignContentOptions>;
  */
 export type JustifyItemsOptions =
   | Globals
-  | Properties<TLengthStyledSystem>['justifySelf']
+  | Properties['justifySelf']
   | 'baseline'
   | 'left'
   | 'legacy'
@@ -59,8 +54,8 @@ export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
  */
 export type JustifyContentOptions =
   | Globals
-  | Properties<TLengthStyledSystem>['justifyContent']
-  | Properties<TLengthStyledSystem>['position']
+  | Properties['justifyContent']
+  | Properties['position']
   | 'left'
   | 'normal'
   | 'right';
@@ -72,14 +67,14 @@ export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
  */
-export type FlexWrapOptions = Properties<TLengthStyledSystem>['flexWrap'];
+export type FlexWrapOptions = Properties['flexWrap'];
 export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
 
 // TODO: The FlexBasisValue currently really only exists for documentation
 //       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
 //       Not sure there’s a way to still have the union values show up as
 //       auto-completion results.
-export type FlexBasisOptions = Properties<TLengthStyledSystem>['flexBasis'];
+export type FlexBasisOptions = Properties['flexBasis'];
 export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
 
 /**
@@ -88,7 +83,7 @@ export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
  */
-export type FlexDirectionOptions = Properties<TLengthStyledSystem>['flexDirection'];
+export type FlexDirectionOptions = Properties['flexDirection'];
 export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
 
 /**
@@ -97,7 +92,7 @@ export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
  */
-export type FlexOptions = Properties<TLengthStyledSystem>['flex'];
+export type FlexOptions = Properties['flex'];
 export type Flex = ResponsiveValue<FlexOptions>;
 
 /**
@@ -108,7 +103,7 @@ export type Flex = ResponsiveValue<FlexOptions>;
  */
 export type JustifySelfOptions =
   | Globals
-  | Properties<TLengthStyledSystem>['position']
+  | Properties['position']
   | 'auto'
   | 'baseline'
   | 'left'
@@ -117,16 +112,7 @@ export type JustifySelfOptions =
   | 'stretch'
   | string;
 export type JustifySelf =
-  | ResponsiveValue<
-      | Globals
-      | Properties<TLengthStyledSystem>['position']
-      | 'auto'
-      | 'baseline'
-      | 'left'
-      | 'normal'
-      | 'right'
-      | 'stretch'
-    >
+  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'left' | 'normal' | 'right' | 'stretch'>
   | ResponsiveValue<string>;
 
 /**
@@ -137,16 +123,9 @@ export type JustifySelf =
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
  */
-export type AlignSelfOptions =
-  | Globals
-  | Properties<TLengthStyledSystem>['position']
-  | 'auto'
-  | 'baseline'
-  | 'normal'
-  | 'stretch'
-  | string;
+export type AlignSelfOptions = Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch' | string;
 export type AlignSelf =
-  | ResponsiveValue<Globals | Properties<TLengthStyledSystem>['position'] | 'auto' | 'baseline' | 'normal' | 'stretch'>
+  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch'>
   | ResponsiveValue<string>;
 
 /**

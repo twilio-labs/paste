@@ -9,9 +9,7 @@ import type {
   VerticalAlign,
   CursorProperty,
   OutlineProperty,
-  TextTransformProperty,
   TransitionProperty,
-  FontVariantNumericProperty,
 } from '@twilio-paste/style-props';
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
@@ -20,11 +18,8 @@ export interface TextBaseStyleProps extends OverflowProps, PositionProps, Shadow
   cursor?: CursorProperty;
   display?: Display;
   outline?: OutlineProperty;
-  // Do not document, we prefer if folks do not use this property for i18n.
-  textTransform?: TextTransformProperty;
   transition?: TransitionProperty;
   verticalAlign?: VerticalAlign;
-  fontVariantNumeric?: FontVariantNumericProperty;
 }
 
 export type TextPseudoStyleProps = {

@@ -52,11 +52,11 @@ export type IconSize = ResponsiveValue<IconSizeOptions>;
 export type Size = Width | Height;
 
 // CSS native
-export type DisplayOptions = Properties<TLengthStyledSystem>['display'];
-export type VerticalAlignOptions = Properties<TLengthStyledSystem>['verticalAlign'];
-export type OverflowOptions = Properties<TLengthStyledSystem>['overflow'];
-export type OverflowXOptions = Properties<TLengthStyledSystem>['overflowX'];
-export type OverflowYOptions = Properties<TLengthStyledSystem>['overflowY'];
+export type DisplayOptions = Properties['display'];
+export type VerticalAlignOptions = Properties['verticalAlign'];
+export type OverflowOptions = Properties['overflow'];
+export type OverflowXOptions = Properties['overflowX'];
+export type OverflowYOptions = Properties['overflowY'];
 
 export type Display = ResponsiveValue<DisplayOptions>;
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
