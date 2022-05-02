@@ -188,6 +188,19 @@ const SidebarNavigation: React.FC = () => {
           >
             Illustrations
           </SidebarAnchor>
+          <SidebarAnchor
+            level={1}
+            to={`${SidebarCategoryRoutes.FOUNDATIONS}/localization`}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-localization',
+                label: 'Localization',
+              })
+            }
+          >
+            Localization
+          </SidebarAnchor>
         </NavigationDisclosure>
         <NavigationDisclosure
           buttonText="Patterns"
