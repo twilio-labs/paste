@@ -27,6 +27,7 @@ import type {
   VisibilityProperty,
   WillChangeProperty,
 } from '@twilio-paste/style-props';
+import type {Interpolation} from '@emotion/react';
 import type {CustomTheme} from '@twilio-paste/customization';
 
 import type {PseudoPropStyles} from './PseudoPropStyles';
@@ -96,4 +97,6 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
 
-export type StyledBoxProps = BoxProps & {'data-paste-element': string; theme: CustomTheme};
+export type StyledBoxProps = BoxProps & {'data-paste-element': string; theme?: CustomTheme}; // maybe?
+
+export type EmotionStyleFunction = Interpolation<Partial<StyledBoxProps>>;

@@ -25,8 +25,7 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   variant?: TextAreaVariants;
   width?: never;
 }
-
-/* eslint-disable emotion/syntax-preference */
+// @TODO [emotion-upgrade] use fix from box here too!
 // @ts-ignore Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
 const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
   (props) =>
@@ -70,7 +69,6 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
     }),
   getCustomElementStyles
 );
-/* eslint-enable */
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (

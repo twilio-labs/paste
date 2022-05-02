@@ -18,7 +18,7 @@ export {themeGet} from '@styled-system/theme-get';
 export {createShouldForwardProp, props} from '@styled-system/should-forward-prop';
 export * from 'styled-system';
 
-export type {StyledComponent} from '@emotion/styled';
+export type {StyledComponent, Interpolation} from '@emotion/styled';
 export type {SerializedStyles} from '@emotion/react';
 export {
   Global as StylingGlobals,

@@ -20,6 +20,7 @@ import {
   isDeprecatedBoxShadowTokenProp,
   isDeprecatedTextColorTokenProp,
 } from '@twilio-paste/style-props';
+
 import type {BoxProps, StyledBoxProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
 import {customStyleProps} from './CustomStyleProps';
@@ -33,18 +34,17 @@ const shouldForwardProp = createShouldForwardProp([
   ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
 ]);
 
-// @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
-export const StyledBox = styled<StyledBoxProps>('div', {shouldForwardProp})(
+const UncastStyledBox = styled('div', {shouldForwardProp})<StyledBoxProps>(
   {
     boxSizing: 'border-box',
   },
   compose(space, layout, flexbox, background, border, boxShadow, position, typography, PasteStyleProps),
   getPseudoStyles,
   getCustomElementStyles
-) as StyledComponent<
-  Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'color'>,
-  BoxProps,
-  Record<string, unknown>
+);
+
+export const StyledBox = UncastStyledBox as StyledComponent<
+  Omit<React.ComponentProps<typeof UncastStyledBox>, 'color'>
 >;
 
 const Box = React.forwardRef<HTMLElement, BoxProps>(({children, element = 'BOX', ...props}, ref) => {
