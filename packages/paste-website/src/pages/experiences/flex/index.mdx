@@ -15,6 +15,16 @@ import {graphql} from 'gatsby';
 
 export const pageQuery = graphql`
   {
+    emptyStateIllustration: file(
+      sourceInstanceName: {eq: "static"}
+      relativePath: {eq: "images/patterns/empty-awaiting-data.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     mdx(fields: {slug: {eq: "/experiences/flex/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -42,6 +52,8 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
+
+<Img fluid={props.data.emptyStateIllustration.childImageSharp.fluid} />
 
 We are currently working on these guidelines. Watch this space!
 
