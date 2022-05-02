@@ -3,6 +3,7 @@ export * from './border';
 export * from './flexbox';
 export * from './layout';
 export * from './position';
+export * from './css-props';
 export * from './shadow';
 export * from './space';
 export * from './typography';

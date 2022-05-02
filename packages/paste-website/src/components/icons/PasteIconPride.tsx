@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type * as CSS from 'csstype';
+import type {DisplayOptions, OpacityProperty, TransitionProperty} from '@twilio-paste/style-props';
 import {useUID} from '@twilio-paste/uid-library';
 
 export interface PasteIconPrideProps {
   decorative?: boolean;
   size?: number;
   title?: string;
-  display?: CSS.DisplayProperty;
-  opacity?: CSS.OpacityProperty;
-  transition?: CSS.TransitionProperty;
+  display?: DisplayOptions;
+  opacity?: OpacityProperty;
+  transition?: TransitionProperty;
 }
 
 const PasteIconPride = React.memo(
