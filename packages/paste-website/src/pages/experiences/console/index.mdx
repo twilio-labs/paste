@@ -5,7 +5,6 @@ slug: /experiences/console/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
@@ -17,104 +16,7 @@ import {ImageCaption} from '../../../components/ImageCaption';
 
 export const pageQuery = graphql`
   {
-    developOrMonitor: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/develop-or-monitor.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    betaTag: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/experiences/console/beta-tag.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    breadcrumbExample: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/breadcrumb-example.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    productExplorer: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/product-explorer.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    regional1: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/regional-1.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    regional2: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/regional-2.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    regional3: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/regional-3.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    regional4: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/regional-4.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    regional5: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/regional-5.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    serviceListServiceDetail: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/experiences/console/service-list-service-detail.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mdx(fields: {slug: {eq: "/experiences/console/"}}) {
+    mdx(frontmatter: {slug: {eq: "/experiences/console/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -209,7 +111,8 @@ good interlinking between the relevant pages or contextual quick actions will pr
 user experience. In addition, the tabs will hold the menu states so that less clicks are required to drill
 in and between menus under each tab.
 
-<Img fluid={props.data.developOrMonitor.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/develop-or-monitor.png)
+
 <ImageCaption>
   A diagram of the Console experience, showing the steps from left to right as Evaluate, Develop, Monitor, and Grow. An
   arrow points from Explore, a subsection below Grow, to Evaluate (Existing user), a subsection below Develop, an
@@ -293,7 +196,8 @@ A Service navigation pattern should only be used for actual services. They're de
 on just the pages relevant to that particular service. You get to a service from a list of services
 in your product nav under Develop.
 
-<Img fluid={props.data.serviceListServiceDetail.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/service-list-service-detail.png)
+
 <ImageCaption>
   When you choose a service from a list, it opens up a page focused on that service's details.
 </ImageCaption>
@@ -336,7 +240,8 @@ If you were to navigate to a tertiary page, the breadcrumb would show both the p
 on the tertiary page ( Logs / Log detail / ). The first breadcrumb will always match the page
 highlighted in the nav.
 
-<Img fluid={props.data.breadcrumbExample.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/breadcrumb-example.png)
+
 <ImageCaption>A screenshot of breadcrumbs being used on a Console page</ImageCaption>
 
 ---
@@ -360,7 +265,8 @@ next to the H1 in the page for the feature in beta. In the case where the entire
 include the badge next to the H1 on the first page in the nav. The “beta” is clickable and opens a modal
 describing what beta means.
 
-<Img fluid={props.data.betaTag.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/beta-tag.png)
+
 <ImageCaption>A beta tag being used in Console to identify and describe a beta-stage product.</ImageCaption>
 
 ---
@@ -385,7 +291,8 @@ Products that appear in the explorer page should be products that you develop wi
 Twilio application. If you have questions about whether your product should be included here,
 reach out to the Console team.
 
-<Img fluid={props.data.productExplorer.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/product-explorer.png)
+
 <ImageCaption>A screenshot of the Product Explorer page showing a catalog of Twilio products by category</ImageCaption>
 
 ---
@@ -434,33 +341,38 @@ When a product appears in more than one region, the following changes should be 
 
 - On the product explorer page, the product card should have a dropdown caret next to the pin allowing the user to pin the product to the desired region.
 
-  <Img fluid={props.data.regional1.childImageSharp.fluid} />
-  <ImageCaption>Example of a product with a pinned region</ImageCaption>
-  <br />
-  <br />
+![](../../../assets/images/experiences/console/regional-1.png)
+
+<ImageCaption>Example of a product with a pinned region</ImageCaption>
+<br />
+<br />
 
 - On the product explorer page, the product card should have a “Regional” badge and popover that signifies this product is available in more than one region.
 
-<Img fluid={props.data.regional2.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/regional-2.png)
+
 <ImageCaption>Example of popover explaining a product is regional</ImageCaption>
 
 - On the Side navigation, when an account has products pinned in more than one region, region headers, such as “United Statues (US1)” will appear above those products in both “Develop” and “Monitor”.
 
-<Img fluid={props.data.regional3.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/regional-3.png)
+
 <ImageCaption>Example of region headers in both Develop and Monitor</ImageCaption>
 <br />
 <br />
 
 - In a service nav, when a user has products pinned in more than one region, the shortened region name, such as “(US1)” will appear to the right of the product name.
 
-<Img fluid={props.data.regional4.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/regional-4.png)
+
 <ImageCaption>Example of a shortened region name shown for a product</ImageCaption>
 <br />
 <br />
 
 - On the Product Overview and Services Pages, the regional badge and popover will appear to remind users of which region they are configuring their product in.
 
-<Img fluid={props.data.regional5.childImageSharp.fluid} />
+![](../../../assets/images/experiences/console/regional-5.png)
+
 <ImageCaption>Example of a regional badge and popover to a product's region</ImageCaption>
 </content>
 
