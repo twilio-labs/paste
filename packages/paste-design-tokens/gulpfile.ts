@@ -237,7 +237,21 @@ gulp.task('tokens:gatsby', () =>
     .pipe(
       gulpTheo({
         transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.json'},
+        format: {type: 'gatsby.js'},
+      })
+    )
+    .on('error', (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(gulp.dest(paths.dist))
+);
+gulp.task('tokens:gatsby:dts', () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: {type: 'web', includeMeta: true},
+        format: {type: 'gatsby.d.ts'},
       })
     )
     .on('error', (err: string) => {
