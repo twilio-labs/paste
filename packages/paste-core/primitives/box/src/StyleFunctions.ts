@@ -1,6 +1,6 @@
 import {css, system} from '@twilio-paste/styling-library';
 import type {CSSObject, Config} from '@twilio-paste/styling-library';
-import type {Interpolation} from '@emotion/styled';
+import type {FunctionInterpolation} from '@emotion/styled';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledBoxProps} from './types';
@@ -17,7 +17,7 @@ export const PasteStyleProps = system(customStyleProps as Config);
  * @return {*}  {(((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never>)}
  */
 
-export const getPseudoStyles: Interpolation<Partial<StyledBoxProps>> = (props) => {
+export const getPseudoStyles: FunctionInterpolation<Partial<StyledBoxProps>> = (props) => {
   const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
     keyof typeof PseudoPropStyles
   >;
@@ -33,7 +33,9 @@ export const getPseudoStyles: Interpolation<Partial<StyledBoxProps>> = (props) =
     }
   });
 
-  return css(pseudoStyles);
+  const cssFn = css(pseudoStyles);
+
+  return cssFn as (args: Parameters<typeof cssFn>[0]) => PasteCustomCSS;
 };
 
 /**
