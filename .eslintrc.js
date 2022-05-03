@@ -71,6 +71,7 @@ module.exports = {
     'unicorn/no-fn-reference-in-iterator': 'off',
     // weirdly specific
     'unicorn/import-style': 'off',
+    'unicorn/prefer-ternary': 'off',
     // Too big of a change
     'unicorn/numeric-separators-style': 'off',
     // Mixed ts and node code base

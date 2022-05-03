@@ -44,6 +44,17 @@ CheckboxChecked.story = {
   name: 'Checkbox - Checked',
 };
 
+export const CheckboxDefaultChecked = (): React.ReactNode => {
+  return (
+    <Checkbox id={useUID()} value="label" name="foo" defaultChecked>
+      Label
+    </Checkbox>
+  );
+};
+CheckboxDefaultChecked.story = {
+  name: 'Checkbox - defaultChecked',
+};
+
 export const CheckboxRequired = (): React.ReactNode => {
   return (
     <Checkbox id={useUID()} value="label" name="foo" helpText="Some interesting help text" required>
@@ -122,6 +133,30 @@ export const CheckboxErrorChecked = (): React.ReactNode => {
 
 CheckboxErrorChecked.story = {
   name: 'Checkbox - Error & Checked',
+};
+
+export const CheckboxErrorDisabled = (): React.ReactNode => {
+  return (
+    <Checkbox id={useUID()} value="1" name="foo" hasError disabled>
+      Label
+    </Checkbox>
+  );
+};
+
+CheckboxErrorDisabled.story = {
+  name: 'Checkbox - Error & Disabled',
+};
+
+export const CheckboxErrorDisabledChecked = (): React.ReactNode => {
+  return (
+    <Checkbox id={useUID()} value="1" name="foo" hasError disabled checked>
+      Label
+    </Checkbox>
+  );
+};
+
+CheckboxErrorDisabledChecked.story = {
+  name: 'Checkbox - Error & Disabled & Checked',
 };
 
 export const CheckboxHelpTextString = (): React.ReactNode => {

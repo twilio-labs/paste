@@ -63,6 +63,9 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         _invalidAndHoverSibling={{
           borderColor: 'colorBorderErrorStronger',
         }}
+        _invalidAndDisabledSibling={{
+          borderColor: 'colorBorderWeaker',
+        }}
         _checkedAndHoverSibling={{
           borderColor: 'colorBorderPrimaryStronger',
           backgroundColor: 'colorBackgroundPrimaryStronger',
@@ -94,6 +97,11 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         _checkedAndInvalidAndHoverSibling={{
           borderColor: 'colorBorderErrorStronger',
           backgroundColor: 'colorBackgroundErrorStronger',
+        }}
+        _checkedAndInvalidAndDisabledSibling={{
+          borderColor: 'colorBorderWeaker',
+          backgroundColor: 'colorBackgroundStrong',
+          color: 'colorTextWeakest',
         }}
         {...props}
       >
