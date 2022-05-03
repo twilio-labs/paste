@@ -30,6 +30,7 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
+  // @TODO here.
   React.useMemo(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,

@@ -38,6 +38,7 @@ module.exports = {
             'packages/paste-nextjs-template/**/*',
             'packages/paste-website/**/*',
             'packages/paste-cra-template/template/**/*',
+            '**/__tests__/**',
           ],
         },
       },
@@ -74,6 +75,8 @@ module.exports = {
       'emotion-theming': path.resolve(__dirname, '../node_modules/@emotion/react'),
     };
     config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
+
+    console.log(config);
 
     return config;
   },

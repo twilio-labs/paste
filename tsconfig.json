@@ -14,9 +14,6 @@
     "noEmitOnError": false,
     "noImplicitAny": true,
     "noResolve": false,
-    "paths": {
-      "*": ["./@types/*"]
-    },
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es6",

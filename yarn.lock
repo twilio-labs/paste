@@ -1350,7 +1350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-jsx@npm:^7.16.7, @babel/plugin-syntax-jsx@npm:^7.2.0":
+"@babel/plugin-syntax-jsx@npm:^7.12.13, @babel/plugin-syntax-jsx@npm:^7.16.7, @babel/plugin-syntax-jsx@npm:^7.2.0":
   version: 7.16.7
   resolution: "@babel/plugin-syntax-jsx@npm:7.16.7"
   dependencies:
@@ -1771,7 +1771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-development@npm:^7.12.1, @babel/plugin-transform-react-jsx-development@npm:^7.16.7":
+"@babel/plugin-transform-react-jsx-development@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/plugin-transform-react-jsx-development@npm:7.16.7"
   dependencies:
@@ -2975,15 +2975,10 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.12.1
     "@babel/runtime": ^7.7.2
     "@emotion/babel-plugin": ^11.2.0
-
     "@emotion/babel-plugin-jsx-pragmatic": ^0.1.5
   peerDependencies:
     "@babel/core": ^7.0.0
-
-  checksum: 87ac0d0ea4531c65cd7f2d86efa6bcb34e027c6ae2ca44315fad94a0a7e0c3e7b85b09cb2aa0b84f7a5ce6272a2ab02a9ae5bc8055cf8213356af1c424cc11ce
-
   checksum: 211fb98cb5fb958ddaaeeb326595c4681f0d6a8ac626dec4499cbd1771909f9c6d9af174e6288ef444ad256c0cd96238ab1575a460aeb9be93277b521f891eb3
-
   languageName: node
   linkType: hard
 
@@ -9553,6 +9548,7 @@ __metadata:
 =======
     "@twilio-paste/types": ^3.1.5
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 >>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
@@ -9560,6 +9556,8 @@ __metadata:
 =======
 >>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
 >>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
+=======
+>>>>>>> a614456c (chore(monorepo): clean install)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11190,6 +11188,7 @@ __metadata:
 =======
     "@twilio-paste/types": ^3.1.5
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 >>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
@@ -11197,6 +11196,8 @@ __metadata:
 =======
 >>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
 >>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
+=======
+>>>>>>> a614456c (chore(monorepo): clean install)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -15423,7 +15424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-macros@npm:^2.0.0, babel-plugin-macros@npm:^2.8.0":
+"babel-plugin-macros@npm:^2.0.0, babel-plugin-macros@npm:^2.6.1, babel-plugin-macros@npm:^2.8.0":
   version: 2.8.0
   resolution: "babel-plugin-macros@npm:2.8.0"
   dependencies:
@@ -19236,11 +19237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-
-=======
 "csstype@npm:^3.0.11":
->>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
   version: 3.0.11
   resolution: "csstype@npm:3.0.11"
   checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f
@@ -21745,11 +21742,6 @@ __metadata:
 "eslint-plugin-eslint-comments@npm:3.2.0":
   version: 3.2.0
   resolution: "eslint-plugin-eslint-comments@npm:3.2.0"
-
-"eslint-plugin-eslint-comments@npm:3.1.2":
-  version: 3.1.2
-  resolution: "eslint-plugin-eslint-comments@npm:3.1.2"
-
   dependencies:
     escape-string-regexp: ^1.0.5
     ignore: ^5.0.5
@@ -28570,23 +28562,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-
-"jest-environment-jsdom@npm:^26.6.2":
-  version: 26.6.2
-  resolution: "jest-environment-jsdom@npm:26.6.2"
-  dependencies:
-    "@jest/environment": ^26.6.2
-    "@jest/fake-timers": ^26.6.2
-    "@jest/types": ^26.6.2
-    "@types/node": "*"
-    jest-mock: ^26.6.2
-    jest-util: ^26.6.2
-    jsdom: ^16.4.0
-  checksum: 8af9ffdf1b147362a19032bfe9ed51b709d43c74dc4b1c45e56d721808bf6cabdca8c226855b55a985ea196ce51cdb171bfe420ceec3daa2d13818d5c1915890
-
-  languageName: node
-  linkType: hard
-
 "jest-environment-jsdom@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-environment-jsdom@npm:27.5.1"
@@ -34839,17 +34814,14 @@ fsevents@~2.1.2:
     directory-named-webpack-plugin: ^4.0.1
     dotenv: ^16.0.0
     esbuild: ^0.14.14
-
     eslint: ^7.32.0
     eslint-config-airbnb-typescript: 16.2.0
     eslint-config-prettier: 8.5.0
     eslint-plugin-cypress: 2.12.1
-
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.25.4
     eslint-plugin-jest: 26.1.3
     eslint-plugin-jsx-a11y: 6.5.1
-
     eslint-plugin-paste-internal: "link:./.eslint/rules"
     eslint-plugin-promise: 6.0.0
     eslint-plugin-react: 7.29.4
@@ -41666,7 +41638,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-
 "stylis@npm:4.0.13":
   version: 4.0.13
   resolution: "stylis@npm:4.0.13"
@@ -41674,10 +41645,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"subscriptions-transport-ws@npm:^0.9.16":
-  version: 0.9.16
-  resolution: "subscriptions-transport-ws@npm:0.9.16"
-
+"subscriptions-transport-ws@npm:^0.9.18":
+  version: 0.9.19
+  resolution: "subscriptions-transport-ws@npm:0.9.19"
   dependencies:
     backo2: ^1.0.2
     eventemitter3: ^3.1.0
