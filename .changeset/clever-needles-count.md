@@ -5,4 +5,4 @@
 '@twilio-paste/core': minor
 ---
 
-[testing] adding changeset
+[Box, Text, Style-props] CSS types package dependency upgrade
