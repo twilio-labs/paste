@@ -14,10 +14,17 @@ const getPresets = (isDev) => [
   '@babel/preset-react',
   '@babel/preset-typescript',
   [
-    // Automatically includes the 'emotion' preset.
-    // @NOTE updated this to v11, configuration option schema changed slightly.
-    // when we upgrade our react to use the new JSX transformations with babel, we will need to replace this with the "@emotion/babel" plugin.
-    // when using this plugin, we need to reference the cssprop type in our ts configuraiton.
+    /** [@emotion/babel-preset-css-prop]
+     * This preset is used to automatically enable Emotion’s css prop when using the classic JSX runtime.
+     * This plugin is configurable with all options from the following plugins:
+     *  - `babel-plugin-transform-react-jsx`: https://babeljs.io/docs/en/babel-plugin-transform-react-jsx#options
+     * - `@emotion/babel-plugin`: https://github.com/emotion-js/emotion/tree/main/packages/babel-plugin
+     *
+     * React 17 introduced new JSX Transformations, which you can read about here: https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+     * @NOTE If/when we adopt these new transformations, we should:
+     * 1. remove this preset
+     * 2. add the `@emotion/babel` plugin to our plugin section.
+     */
     '@emotion/babel-preset-css-prop',
     {
       sourceMap: isDev,
