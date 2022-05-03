@@ -16,10 +16,10 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
   value?: string;
   name?: string;
   checked?: boolean;
+  defaultChecked?: boolean;
   disabled?: boolean;
   hasError?: boolean;
   helpText?: string | React.ReactNode;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
 }
@@ -47,17 +47,86 @@ const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props,
 
 HiddenRadio.displayName = 'HiddenRadio';
 
+type HiddenRadioState = {
+  name: string;
+  disabled: boolean;
+  hasError: boolean;
+  checked?: boolean;
+  defaultChecked?: boolean;
+};
+
+/*
+ * Usage scenarios permuted:
+ * A) defaultChecked is passed to Radio
+ * B) checked is passed to Radio
+ * C) both defaultChecked and checked is passed to Radio (throw error)
+ * D) value is passed down from context and neither (default)checked is set
+ * E) value is passed down from context and defaultChecked is set (context wins)
+ * F) value is passed down from context and checked is set (context wins)
+ * G) value is passed from context and both are set (context wins)
+ */
+
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({id, name, element = 'RADIO', value, checked, disabled, hasError, onChange, children, helpText, ...props}, ref) => {
-    const helpTextId = useUID();
+  (
+    {
+      id,
+      name,
+      element = 'RADIO',
+      value,
+      checked,
+      defaultChecked,
+      disabled,
+      hasError,
+      onChange,
+      children,
+      helpText,
+      ...props
+    },
+    ref
+  ) => {
+    if (checked != null && defaultChecked != null) {
+      throw new Error(
+        `[Paste Radio] Do not provide both 'defaultChecked' and 'checked' to Radio at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+      );
+    }
+
     const radioGroupContext = React.useContext(RadioContext);
-    const state = {
+    const helpTextId = useUID();
+    // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
+    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== '', []);
+
+    const handleChange = React.useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>): void => {
+        if (onChange) {
+          onChange(event);
+        } else {
+          radioGroupContext.onChange(event);
+        }
+      },
+      [onChange, radioGroupContext.onChange]
+    );
+
+    const state: HiddenRadioState = {
       name: name != null ? name : radioGroupContext.name,
-      checked: checked != null ? checked : radioGroupContext.value === value,
       disabled: disabled != null ? disabled : radioGroupContext.disabled,
       hasError: hasError != null ? hasError : radioGroupContext.hasError,
-      onChange: onChange != null ? onChange : radioGroupContext.onChange,
     };
+
+    /* We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
+     * So we conditionally provide the correct prop here.
+     */
+    if (isControlled) {
+      // Use context's value first
+      if (radioGroupContext.value !== '') {
+        state.checked = radioGroupContext.value === value;
+      } else {
+        // Then checked prop on this radio
+        state.checked = checked;
+      }
+    } else {
+      // Lastly fall back to default checked if state isn't controlled
+      state.defaultChecked = defaultChecked;
+    }
 
     return (
       <Box
@@ -74,6 +143,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           value={value}
           aria-describedby={helpTextId}
           aria-invalid={state.hasError}
+          onChange={handleChange}
           id={id}
           ref={ref}
         />
