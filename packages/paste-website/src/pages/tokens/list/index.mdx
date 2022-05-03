@@ -32,46 +32,6 @@ and allows us to develop a scalable and consistent visual language.
 
 In Paste, **1 rem unit = 16 pixels**.
 
-<TokensList defaultTokens={props.data.allPasteTokenDefault.edges} darkTokens={props.data.allPasteTokenDark.edges} />
+---
 
-export const pageQuery = graphql`
-  {
-    allPasteTokenDefault {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-              deprecated
-            }
-          }
-        }
-      }
-    }
-    allPasteTokenDark {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+<TokensList />

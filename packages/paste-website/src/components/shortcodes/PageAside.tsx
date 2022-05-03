@@ -3,6 +3,10 @@ import {Box} from '@twilio-paste/box';
 import {TableOfContents} from './table-of-contents';
 import {FeedbackPopover} from './feedback-popover';
 
+type ToCHeading = {
+  value: string;
+  depth: number;
+};
 interface PageAsideProps {
   data: {
     fileAbsolutePath: string;
@@ -10,12 +14,7 @@ interface PageAsideProps {
       slug: string;
       title: string;
     };
-    headings?: [
-      {
-        value: string;
-        depth: number;
-      }
-    ];
+    headings?: ToCHeading[];
   };
   hideFeedback?: boolean;
 }

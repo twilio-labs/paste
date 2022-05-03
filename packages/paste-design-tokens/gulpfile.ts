@@ -4,7 +4,6 @@ import gulpTheo from 'gulp-theo';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
-import {gatsbyJsonTokenFormat} from './formatters/gatsby.json';
 import {genericDTsTemplate} from './formatters/generic.d.ts';
 import {genericCommonJsTokenFormat} from './formatters/generic';
 import {es6TokenFormat} from './formatters/es6';
@@ -29,7 +28,6 @@ theo.registerFormat('es6.js', es6TokenFormat);
 theo.registerFormat('common.d.ts', dTSTokenFormat);
 theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
-theo.registerFormat('gatsby.json', gatsbyJsonTokenFormat);
 theo.registerFormat('generic.js', genericCommonJsTokenFormat);
 theo.registerFormat('generic.d.ts', genericDTsTemplate);
 theo.registerTransform('web', ['color/rgb']);
@@ -237,7 +235,21 @@ gulp.task('tokens:gatsby', () =>
     .pipe(
       gulpTheo({
         transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.json'},
+        format: {type: 'gatsby.js'},
+      })
+    )
+    .on('error', (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(gulp.dest(paths.dist))
+);
+gulp.task('tokens:gatsby:dts', () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: {type: 'web', includeMeta: true},
+        format: {type: 'gatsby.d.ts'},
       })
     )
     .on('error', (err: string) => {
