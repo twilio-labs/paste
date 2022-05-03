@@ -1,5 +1,45 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+- [`28d87c14b`](https://github.com/twilio-labs/paste/commit/28d87c14b8f58005b8bdc9691c86acc2cef6ad27) [#2383](https://github.com/twilio-labs/paste/pull/2383) Thanks [@andipants12](https://github.com/andipants12)! - [Box, Text, Style-props] CSS types package dependency upgrade
+
+### Patch Changes
+
+- [`13aad7aa7`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba) [#2375](https://github.com/twilio-labs/paste/pull/2375) Thanks [@TheSisb](https://github.com/TheSisb)! - [Checkbox] Minor code refactor
+
+* [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba) [#2282](https://github.com/twilio-labs/paste/pull/2282) Thanks [@zahnster](https://github.com/zahnster)! - [Skeleton Loader] Update Spring animation to CSS animation
+
+- [`13aad7aa7`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba) [#2375](https://github.com/twilio-labs/paste/pull/2375) Thanks [@TheSisb](https://github.com/TheSisb)! - [RadioGroup] Allows usage of uncontrolled Radios and RadioGroups
+
+* [`f7e6ac1f`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Alert Dialog] improved typing
+
+- [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba) [#2282](https://github.com/twilio-labs/paste/pull/2282) Thanks [@zahnster](https://github.com/zahnster)! - [Animation Library] Updates React Spring dependencies to resolve bug with RequestAnimationFrame calls
+
+* [`f7e6ac1f0`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal] export ModalDialogContentProps interface
+
+- [`13aad7aa`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba) [#2375](https://github.com/twilio-labs/paste/pull/2375) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sibling-box, Base-radio-checkbox] Add styles for when the element has an error while it is disabled
+
+- Updated dependencies [[`28d87c14b`](https://github.com/twilio-labs/paste/commit/28d87c14b8f58005b8bdc9691c86acc2cef6ad27), [`13aad7aa7`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba), [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba), [`13aad7aa7`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba), [`f7e6ac1f`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c), [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba), [`f7e6ac1f0`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c), [`dee7d9b01`](https://github.com/twilio-labs/paste/commit/dee7d9b01c0b7b2fee64f7a01cadd1238521ab8f), [`13aad7aa`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba)]:
+  - @twilio-paste/box@5.2.0
+  - @twilio-paste/text@5.2.0
+  - @twilio-paste/style-props@4.1.0
+  - @twilio-paste/checkbox@8.0.1
+  - @twilio-paste/skeleton-loader@1.0.4
+  - @twilio-paste/radio-group@8.0.1
+  - @twilio-paste/alert-dialog@3.0.1
+  - @twilio-paste/animation-library@0.3.6
+  - @twilio-paste/modal@10.0.1
+  - @twilio-paste/color-contrast-utils@2.0.3
+  - @twilio-paste/tabs@3.0.3
+  - @twilio-paste/popover@8.0.1
+  - @twilio-paste/styling-library@0.3.9
+  - @twilio-paste/types@3.1.6
+  - @twilio-paste/sibling-box@4.0.3
+  - @twilio-paste/base-radio-checkbox@8.0.1
+
 ## 12.0.0
 
 ### Major Changes
