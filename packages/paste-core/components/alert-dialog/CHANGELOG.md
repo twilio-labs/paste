@@ -1,5 +1,11 @@
 # @twilio-paste/alert-dialog
 
+## 3.0.1
+
+### Patch Changes
+
+- [`f7e6ac1f`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Alert Dialog] improved typing
+
 ## 3.0.0
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.9
+
+### Patch Changes
+
+- [`dee7d9b01`](https://github.com/twilio-labs/paste/commit/dee7d9b01c0b7b2fee64f7a01cadd1238521ab8f) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Color contrast utils, Tabs, Popover, Styling-library, Types] very minor code linting
+
 ## 0.3.8
 
 ### Patch Changes
