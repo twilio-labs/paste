@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {DefaultTheme} from '@twilio-paste/theme';
 import {Separator} from '@twilio-paste/separator';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {
@@ -25,51 +23,43 @@ import type {
 import {Text} from '../src';
 import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
 
-const fontSizeOptions = Object.keys(DefaultTheme.fontSizes);
-const fontFamilyOptions = [''].concat(Object.keys(DefaultTheme.fonts));
-const fontWeightOptions = [''].concat(Object.keys(DefaultTheme.fontWeights));
-const lineHeightOptions = Object.keys(DefaultTheme.lineHeights);
-const spaceOptions = [''].concat(Object.keys(DefaultTheme.space));
-const textColorOptions = Object.keys(DefaultTheme.textColors);
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Text',
-  decorators: [withKnobs],
   component: Text,
 };
 
 export const Default = (): React.ReactNode => {
-  const asValue = text('as', 'p') as keyof JSX.IntrinsicElements;
-  const displayValue = text('display', '') as Display;
+  const asValue = 'p' as keyof JSX.IntrinsicElements;
+  const displayValue = '' as Display;
 
-  const fontFamilyValue = select('fontFamily', fontFamilyOptions, '') as FontFamily;
-  const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as FontSize;
-  const fontStyleValue = text('fontStyle', '') as FontStyle;
-  const fontWeightValue = select('fontWeight', fontWeightOptions, '') as FontWeight;
-  const letterSpacingValue = text('letterSpacing', '') as LetterSpacing;
-  const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight30') as LineHeight;
-  const textAlignValue = text('textAlign', '') as TextAlign;
-  const textColorValue = select('color', textColorOptions, 'colorText') as TextColor;
-  const textDecorationValue = text('textDecoration', '') as TextDecoration;
+  const fontFamilyValue = '' as FontFamily;
+  const fontSizeValue = 'fontSize30' as FontSize;
+  const fontStyleValue = '' as FontStyle;
+  const fontWeightValue = '' as FontWeight;
+  const letterSpacingValue = '' as LetterSpacing;
+  const lineHeightValue = '' as LineHeight;
+  const textAlignValue = '' as TextAlign;
+  const textColorValue = 'colorText' as TextColor;
+  const textDecorationValue = '' as TextDecoration;
 
-  const overflowValue = text('overflow', '') as Overflow;
-  const overflowXValue = text('overflowX', '') as OverflowX;
-  const overflowYValue = text('overflowY', '') as OverflowY;
-  const textOverflowValue = text('textOverflow', '') as TextOverflow;
-  const whiteSpaceValue = text('whiteSpace', '') as WhiteSpace;
-  const fontVariantNumericValue = text('fontVariantNumeric', '');
+  const overflowValue = '' as Overflow;
+  const overflowXValue = '' as OverflowX;
+  const overflowYValue = '' as OverflowY;
+  const textOverflowValue = '' as TextOverflow;
+  const whiteSpaceValue = '' as WhiteSpace;
+  const fontVariantNumericValue = '';
 
-  const paddingValue = select('padding', spaceOptions, '') as Padding;
-  const paddingBottomValue = select('paddingBottom', spaceOptions, '') as Padding;
-  const paddingLeftValue = select('paddingLeft', spaceOptions, '') as Padding;
-  const paddingRightValue = select('paddingRight', spaceOptions, '') as Padding;
-  const paddingTopValue = select('paddingTop', spaceOptions, '') as Padding;
-  const marginValue = select('margin', spaceOptions, '') as Margin;
-  const marginBottomValue = select('marginBottom', spaceOptions, '') as Margin;
-  const marginLeftValue = select('marginLeft', spaceOptions, '') as Margin;
-  const marginRightValue = select('marginRight', spaceOptions, '') as Margin;
-  const marginTopValue = select('marginTop', spaceOptions, '') as Margin;
+  const paddingValue = '' as Padding;
+  const paddingBottomValue = '' as Padding;
+  const paddingLeftValue = '' as Padding;
+  const paddingRightValue = '' as Padding;
+  const paddingTopValue = '' as Padding;
+  const marginValue = '' as Margin;
+  const marginBottomValue = '' as Margin;
+  const marginLeftValue = '' as Margin;
+  const marginRightValue = '' as Margin;
+  const marginTopValue = '' as Margin;
   return (
     <Text
       as={asValue}

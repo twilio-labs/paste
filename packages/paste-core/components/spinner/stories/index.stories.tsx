@@ -4,9 +4,8 @@ import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
 import {useTheme, DefaultTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {withKnobs, text, select, boolean, number} from '@storybook/addon-knobs';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import type {IconSize, TextColor, TextColorOptions} from '@twilio-paste/style-props';
+import type {IconSize, TextColorOptions} from '@twilio-paste/style-props';
 import {styled} from '@twilio-paste/styling-library';
 
 import {Spinner} from '../src';
@@ -14,29 +13,8 @@ import {Spinner} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Spinner',
-  decorators: [withKnobs],
   component: Spinner,
   excludeStories: ['LoadingOverlay', 'StyledLoadingOverlay', 'StyledLoadingOverlayContent'],
-};
-
-export const SpinnerWithKnobs = (): React.ReactNode => {
-  const {textColors, iconSizes} = useTheme();
-  const colorOptions = React.useMemo(() => Object.keys(textColors), [textColors]);
-  const sizeOptions = React.useMemo(() => Object.keys(iconSizes), [iconSizes]);
-  const colorValue = select('color', colorOptions, 'currentColor') as TextColor;
-  const sizeValue = select('size', sizeOptions, 'sizeIcon40') as IconSize;
-  const decorativeValue = boolean('decorative', false);
-  const delay = number('delay', 250);
-
-  return (
-    <Spinner
-      color={colorValue as TextColorOptions}
-      size={sizeValue}
-      title={text('title', 'Now loading')}
-      decorative={decorativeValue}
-      delay={delay}
-    />
-  );
 };
 
 const {textColors: defaultThemeTextColors, iconSizes} = DefaultTheme;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
@@ -35,12 +34,7 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
-    <StyledModalDialogOverlay
-      isOpen={isOpen}
-      onDismiss={handleClose}
-      allowPinchZoom={boolean('allowPinchZoom', true)}
-      initialFocusRef={inputRef}
-    >
+    <StyledModalDialogOverlay isOpen={isOpen} onDismiss={handleClose} allowPinchZoom initialFocusRef={inputRef}>
       <StyledModalDialogContent>
         <input type="text" value="first" />
         <br />
@@ -56,7 +50,6 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/ModalDialog',
-  decorators: [withKnobs],
   component: ModalDialogPrimitiveOverlay,
   subcomponents: {ModalDialogPrimitiveContent},
 };

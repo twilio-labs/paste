@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+- [`13aad7aa`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba) [#2375](https://github.com/twilio-labs/paste/pull/2375) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sibling-box, Base-radio-checkbox] Add styles for when the element has an error while it is disabled
+
 ## 8.0.0
 
 ### Patch Changes

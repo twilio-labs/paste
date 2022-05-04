@@ -5,35 +5,40 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Flex} from '@twilio-paste/flex';
-import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 import {CopyIcon} from '../src/CopyIcon';
 
-const ColorOptions = Object.keys(DefaultTheme.textColors) as TextColorOptions[];
 const SizeOptions = Object.keys(DefaultTheme.iconSizes) as IconSizeOptions[];
+const ColorOptions = Object.keys(DefaultTheme.textColors) as TextColorOptions[];
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Icon',
-  decorators: [withKnobs],
   component: CopyIcon,
 };
 
 export const Default = (): React.ReactNode => {
-  const sizeValue = select('size', SizeOptions, 'sizeIcon30');
-  const colorValue = select('color', ColorOptions, 'currentColor');
+  const sizeValue = 'sizeIcon30';
+  const colorValue = 'currentColor';
 
-  return (
-    <CopyIcon
-      size={sizeValue}
-      color={colorValue}
-      title={text('title', 'Icon text')}
-      decorative={boolean('decorative', true)}
-    />
-  );
+  return <CopyIcon size={sizeValue} color={colorValue} title="Icon text" decorative />;
 };
 
 Default.story = {
   name: 'default',
+};
+
+export const Colors = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      {ColorOptions.map((color: TextColorOptions) => (
+        <CopyIcon color={color} decorative />
+      ))}
+    </Stack>
+  );
+};
+
+Colors.story = {
+  name: 'colors',
 };
 
 export const Sizes = (): React.ReactNode => {
