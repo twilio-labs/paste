@@ -160,7 +160,7 @@ const transforms = [
 
 export const responsive = (styles: {[key: string]: any}) => (theme: JSON) => {
   const next: {[key: string]: any} = {};
-  const breakpoints = (get(theme, 'breakpoints', defaultBreakpoints) as unknown) as [];
+  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints) as unknown as [];
   const mediaQueries = [null, ...breakpoints.map((n) => `@media screen and (min-width: ${n})`)];
 
   // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -191,51 +191,53 @@ export const responsive = (styles: {[key: string]: any}) => (theme: JSON) => {
   return next;
 };
 
-export const css = (args: any) => (props = {}): CSSObject => {
-  // @ts-ignore
-  const theme = {...defaultTheme, ...(props.theme || props)};
-  let result: {[key: string]: any} = {};
-  const obj = typeof args === 'function' ? args(theme) : args;
-  const styles = responsive(obj)(theme);
+export const css =
+  (args: any) =>
+  (props = {}): CSSObject => {
+    // @ts-ignore
+    const theme = {...defaultTheme, ...(props.theme || props)};
+    let result: {[key: string]: any} = {};
+    const obj = typeof args === 'function' ? args(theme) : args;
+    const styles = responsive(obj)(theme);
 
-  // eslint-disable-next-line guard-for-in,no-restricted-syntax
-  for (const key in styles) {
-    const x = styles[key];
-    const val = typeof x === 'function' ? x(theme) : x;
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const key in styles) {
+      const x = styles[key];
+      const val = typeof x === 'function' ? x(theme) : x;
 
-    if (key === 'variant') {
-      const variant = css(get(theme, val))(theme);
-      result = {...result, ...variant};
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (val && typeof val === 'object') {
-      result[key] = css(val)(theme);
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    const prop = get(aliases, key, key);
-    const scaleName = get(scales, prop);
-    const scale = get(theme, scaleName, get(theme, prop, {}));
-    const transform = get(transforms, prop, get);
-    const value = transform(scale, val, val);
-
-    if (multiples[prop]) {
-      const dirs = multiples[prop];
-
-      // eslint-disable-next-line unicorn/no-for-loop
-      for (let i = 0; i < dirs.length; i++) {
-        result[dirs[i]] = value;
+      if (key === 'variant') {
+        const variant = css(get(theme, val))(theme);
+        result = {...result, ...variant};
+        // eslint-disable-next-line no-continue
+        continue;
       }
-    } else {
-      result[prop] = value;
-    }
-  }
 
-  return result;
-};
+      if (val && typeof val === 'object') {
+        result[key] = css(val)(theme);
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      const prop = get(aliases, key, key);
+      const scaleName = get(scales, prop);
+      const scale = get(theme, scaleName, get(theme, prop, {}));
+      const transform = get(transforms, prop, get);
+      const value = transform(scale, val, val);
+
+      if (multiples[prop]) {
+        const dirs = multiples[prop];
+
+        // eslint-disable-next-line unicorn/no-for-loop
+        for (let i = 0; i < dirs.length; i++) {
+          result[dirs[i]] = value;
+        }
+      } else {
+        result[prop] = value;
+      }
+    }
+
+    return result;
+  };
 
 // eslint-disable-next-line import/no-default-export
 export default css;
