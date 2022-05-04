@@ -52,7 +52,6 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
-
   React.useMemo(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,

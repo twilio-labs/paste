@@ -2982,22 +2982,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"@emotion/cache@npm:^10.0.27":
-=======
-"@emotion/cache@npm:^10.0.9":
->>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
-  version: 10.0.29
-  resolution: "@emotion/cache@npm:10.0.29"
-  dependencies:
-    "@emotion/sheet": 0.9.4
-    "@emotion/stylis": 0.8.5
-    "@emotion/utils": 0.11.3
-    "@emotion/weak-memoize": 0.2.5
-  checksum: 78b37fb0c2e513c90143a927abef229e995b6738ef8a92ce17abe2ed409b38859ddda7c14d7f4854d6f4e450b6db50231532f53a7fec4903d7ae775b2ae3fd64
-  languageName: node
-  linkType: hard
-
 "@emotion/cache@npm:^11.7.1":
   version: 11.7.1
   resolution: "@emotion/cache@npm:11.7.1"
@@ -3034,15 +3018,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"@emotion/css@npm:^10.0.27":
-  version: 10.0.27
-  resolution: "@emotion/css@npm:10.0.27"
-=======
 "@emotion/css-prettifier@npm:^1.0.1":
   version: 1.0.1
   resolution: "@emotion/css-prettifier@npm:1.0.1"
->>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
   dependencies:
     "@emotion/memoize": ^0.7.4
     stylis: 4.0.13
@@ -3163,13 +3141,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/sheet@npm:0.9.4":
-  version: 0.9.4
-  resolution: "@emotion/sheet@npm:0.9.4"
-  checksum: 53bb833b4bb69ea2af04e1ecad164f78fb2614834d2820f584c909686a8e047c44e96a6e824798c5c558e6d95e10772454a9e5c473c5dbe0d198e50deb2815bc
-  languageName: node
-  linkType: hard
-
 "@emotion/sheet@npm:^1.0.3, @emotion/sheet@npm:^1.1.0":
   version: 1.1.0
   resolution: "@emotion/sheet@npm:1.1.0"
@@ -3224,13 +3195,6 @@ __metadata:
     "@emotion/core": ^10.0.27
     react: ">=16.3.0"
   checksum: 09e86fe47adbca1eabb34f36cee17289fbe1f2332c40051d4d5a6077eed1682612685663efb7fd68a8f290d20f9f5cb6ad1c9ca18dcdfc05ee51784d707d279c
-  languageName: node
-  linkType: hard
-
-"@emotion/stylis@npm:0.8.5":
-  version: 0.8.5
-  resolution: "@emotion/stylis@npm:0.8.5"
-  checksum: 67ff5958449b2374b329fb96e83cb9025775ffe1e79153b499537c6c8b2eb64b77f32d7b5d004d646973662356ceb646afd9269001b97c54439fceea3203ce65
   languageName: node
   linkType: hard
 
@@ -9543,21 +9507,7 @@ __metadata:
     "@twilio-paste/style-props": ^4.1.0
     "@twilio-paste/styling-library": ^0.3.9
     "@twilio-paste/theme": ^6.0.2
-<<<<<<< HEAD
     "@twilio-paste/types": ^3.1.6
-=======
-    "@twilio-paste/types": ^3.1.5
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-<<<<<<< HEAD
->>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
-=======
-=======
->>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
->>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
-=======
->>>>>>> a614456c (chore(monorepo): clean install)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11183,21 +11133,7 @@ __metadata:
     "@twilio-paste/style-props": ^4.1.0
     "@twilio-paste/styling-library": ^0.3.9
     "@twilio-paste/theme": ^6.0.2
-<<<<<<< HEAD
     "@twilio-paste/types": ^3.1.6
-=======
-    "@twilio-paste/types": ^3.1.5
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-<<<<<<< HEAD
->>>>>>> 1f4aaa24 (chore(styling-library): updated emotion deps)
-=======
-=======
->>>>>>> 822e383b (chore(monorepo): update jest emotion matcher args)
->>>>>>> f9bad324 (chore(monorepo): update jest emotion matcher args)
-=======
->>>>>>> a614456c (chore(monorepo): clean install)
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2

@@ -24,7 +24,6 @@ export default {
   ],
 };
 
-// @TODO replace usage of "React.FC", "React.ReactNode", "React.ReactElement" with "StoryFn" from "@storybook/react";
 export const AlertDialogWithTwoActions: React.FC = () => {
   return (
     <AlertDialog
