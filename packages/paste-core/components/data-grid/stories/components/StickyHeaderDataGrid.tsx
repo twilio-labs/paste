@@ -1,0 +1,35 @@
+import * as React from 'react';
+import type {BoxProps} from '@twilio-paste/box';
+import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
+
+export const StickyHeaderDataGrid: React.FC<{element?: BoxProps['element']}> = ({element = 'DATA_GRID'}) => {
+  /* eslint-disable react/no-array-index-key */
+  return (
+    <>
+      <DataGrid aria-label="User information table" data-testid="data-grid" element={element}>
+        <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`} stickyHeader={true}>
+          <DataGridRow element={`${element}_ROW`}>
+            <DataGridHeader element={`${element}_HEADER`}>
+              Header should stick on the top while scrolling
+            </DataGridHeader>
+          </DataGridRow>
+        </DataGridHead>
+        <DataGridBody data-testid="data-grid-body" element={`${element}_BODY`}>
+          {[...Array(100).keys()].map((rowIndex) => (
+            <DataGridRow key={`row-${rowIndex}`} data-testid={'data-grid-row'} element={`${element}_ROW`}>
+              <DataGridCell element={`${element}_CELL`} key={`col-0`} data-testid={'data-grid-cell'}>
+                content
+              </DataGridCell>
+            </DataGridRow>
+          ))}
+        </DataGridBody>
+        <DataGridFoot data-testid="data-grid-foot" element={`${element}_FOOT`}>
+          <DataGridRow>
+            <DataGridCell element={`${element}_CELL`}>Footer</DataGridCell>
+          </DataGridRow>
+        </DataGridFoot>
+      </DataGrid>
+    </>
+  );
+  /* eslint-enable react/no-array-index-key */
+};
