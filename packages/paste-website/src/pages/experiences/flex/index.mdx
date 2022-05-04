@@ -5,13 +5,14 @@ slug: /experiences/flex/
 ---
 
 import {graphql} from 'gatsby';
-// import {​Card} from "@twilio-paste/card";
-// import {Heading} from "@twilio-paste/heading";
-// import {Paragraph} from "@twilio-paste/paragraph";
-// import {Button} from "@twilio-paste/button";
-// import {​Anchor} from "@twilio-paste/anchor";
-// import {Flex} from "@twilio-paste/flex";
-// import illuSrc from "../../../static/images/patterns/empty-awaiting-data";
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Button} from '@twilio-paste/button';
+import {Anchor} from '@twilio-paste/anchor';
+import {Flex} from '@twilio-paste/flex';
+
+import {WatchThisSpace} from '../../../components/empty-state/WatchThisSpace';
 
 export const pageQuery = graphql`
   {
@@ -43,11 +44,7 @@ export const pageQuery = graphql`
 
 <content>
 
-![](../../../assets/images/patterns/empty-awaiting-data.png)
-
-We are currently working on these guidelines. Watch this space!
-
-Want to contribute or ask a question? Post on our [Github Discussions](https://github.com/twilio-labs/paste/discussions)
+<WatchThisSpace />
 
 </content>
 </contentwrapper>

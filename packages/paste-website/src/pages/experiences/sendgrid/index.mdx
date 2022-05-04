@@ -5,6 +5,7 @@ slug: /experiences/sendgrid/
 ---
 
 import {graphql} from 'gatsby';
+import {WatchThisSpace} from '../../../components/empty-state/WatchThisSpace';
 
 export const pageQuery = graphql`
   {
@@ -29,3 +30,14 @@ export const pageQuery = graphql`
 </content>
 
 ---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<WatchThisSpace />
+
+</content>
+</contentwrapper>
