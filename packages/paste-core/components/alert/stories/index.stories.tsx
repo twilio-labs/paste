@@ -1,27 +1,15 @@
 import * as React from 'react';
-import {withKnobs, boolean, select} from '@storybook/addon-knobs';
 import {action} from '@storybook/addon-actions';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Alert, AlertVariants} from '../src';
+import {Alert} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Alert',
-  decorators: [withKnobs],
   component: Alert,
-};
-
-export const AllVariant = (): React.ReactNode => {
-  const isDismissable = boolean('onDismiss', true);
-  const variantValule = select('variant', Object.keys(AlertVariants), AlertVariants.ERROR) as AlertVariants;
-  return (
-    <Alert onDismiss={isDismissable ? action('dismiss') : undefined} variant={variantValule}>
-      <Text as="div">I am an alert</Text>
-    </Alert>
-  );
 };
 
 export const Neutral = (): React.ReactNode => {

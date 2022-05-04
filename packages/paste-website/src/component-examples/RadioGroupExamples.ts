@@ -293,3 +293,85 @@ render(
   <PaymentMethodRadioGroup />
 )
 `.trim();
+
+export const uncontrolledRadioGroup = `
+const NetworkRadioGroup = () => {
+  return (
+    <RadioGroup
+      name="uncontrolled-radio-group"
+      legend="Choose Network Access Profile"
+      helpText="Network Access Profile specifies what networks your SIM's would connect to and how you will be billed."
+    >
+      <Radio
+        id={useUID()}
+        value="lowest"
+        name="uncontrolled-radio-group"
+      >
+        Select lowest priced networks globally
+      </Radio>
+      <Radio
+        id={useUID()}
+        value="existing"
+        name="uncontrolled-radio-group"
+      >
+        Select existing network access profile
+      </Radio>
+      <Radio
+        id={useUID()}
+        value="new"
+        name="uncontrolled-radio-group"
+        defaultChecked
+      >
+        Create new network access profile
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <NetworkRadioGroup />
+)
+`.trim();
+
+export const controlledRadioGroup = `
+const NetworkRadioGroup = () => {
+  const [value, setValue] = React.useState('lowest');
+  return (
+    <RadioGroup
+      name="controlled-radio-group"
+      legend="Choose Network Access Profile"
+      helpText="Network Access Profile specifies what networks your SIM's would connect to and how you will be billed."
+      value={value}
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+    >
+      <Radio
+        id={useUID()}
+        value="lowest"
+        name="controlled-radio-group"
+      >
+        Select lowest priced networks globally
+      </Radio>
+      <Radio
+        id={useUID()}
+        value="existing"
+        name="controlled-radio-group"
+      >
+        Select existing network access profile
+      </Radio>
+      <Radio
+        id={useUID()}
+        value="new"
+        name="controlled-radio-group"
+      >
+        Create new network access profile
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <NetworkRadioGroup />
+)
+`.trim();

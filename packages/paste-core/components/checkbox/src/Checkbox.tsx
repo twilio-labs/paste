@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import type {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {
@@ -15,6 +14,25 @@ import {
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {RequiredDot} from '@twilio-paste/label';
 import {CheckboxContext} from './CheckboxContext';
+
+const selectAllStyleProps = {
+  paddingTop: 'space20',
+  paddingRight: 'space30',
+  paddingBottom: 'space20',
+  paddingLeft: 'space20',
+  borderRadius: 'borderRadius10',
+  backgroundColor: 'colorBackground',
+};
+
+const selectAllActiveStyleProps = {
+  ...selectAllStyleProps,
+  backgroundColor: 'colorBackgroundPrimaryWeakest',
+};
+
+const selectAllChildStyleProps = {
+  paddingLeft: 'space30',
+  paddingRight: 'space30',
+};
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -30,7 +48,16 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
 
 type HiddenCheckboxProps = Pick<
   CheckboxProps,
-  'checked' | 'element' | 'disabled' | 'id' | 'indeterminate' | 'name' | 'onChange' | 'required' | 'value'
+  | 'checked'
+  | 'defaultChecked'
+  | 'element'
+  | 'disabled'
+  | 'id'
+  | 'indeterminate'
+  | 'name'
+  | 'onChange'
+  | 'required'
+  | 'value'
 > & {
   ref?: any | undefined;
 };
@@ -77,7 +104,8 @@ const CheckboxIcon: React.FC<{
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
-      checked: checkedProp,
+      checked,
+      defaultChecked,
       element = 'CHECKBOX',
       children,
       helpText,
@@ -86,71 +114,67 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       isSelectAll,
       isSelectAllChild,
       required,
+      onChange,
       ...props
     },
     ref
   ) => {
-    const helpTextId = useUID();
+    if (checked != null && defaultChecked != null) {
+      throw new Error(
+        `[Paste Checkbox] Do not provide both 'defaultChecked' and 'checked' to Checkbox at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+      );
+    }
+
+    // Keeps track of the `checked` state on uncontrolled Checkboxes
+    // in order to properly render the checkbox icon svg.
+    const [checkedState, setCheckedState] = React.useState(defaultChecked);
+
     const checkboxGroupContext = React.useContext(CheckboxContext);
+    const helpTextId = useUID();
+    // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
+    const isControlled = React.useMemo(() => checked !== undefined, []);
+
+    // Determines if the checkbox is checked in either controlled or uncontrolled environments
+    const mergedChecked = isControlled ? checked : checkedState;
+
+    const handleChange = React.useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>): void => {
+        if (!isControlled) {
+          setCheckedState(event.target.checked);
+        } else if (onChange) {
+          onChange(event);
+        } else {
+          checkboxGroupContext.onChange(event);
+        }
+      },
+      [onChange, checkboxGroupContext.onChange]
+    );
 
     // Prioritizing direct props values over whatever CheckboxGroupContext passes down
     const disabled = props.disabled != null ? props.disabled : checkboxGroupContext.disabled;
     const name = props.name != null ? props.name : checkboxGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : checkboxGroupContext.hasError;
 
-    // Manages what the value of checked is depending on if it is controlled or uncontrolled
-    const [checkedState, setCheckedState] = React.useState(!!props.defaultChecked);
-    const isControlled = checkedProp !== undefined;
-    const mergedChecked = isControlled ? checkedProp : checkedState;
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-      if (!isControlled) {
-        setCheckedState(event.target.checked);
-      } else if (props.onChange) {
-        props.onChange(event);
-      } else {
-        checkboxGroupContext.onChange(event);
-      }
-    };
-
-    let paddingLeft: SpaceOptions | null = null;
-    let checkboxBackground: BackgroundColorOptions | null = null;
-
+    // Custom checkbox styles if selectAll(Child)
+    let selectAllStyles = {};
     if (isSelectAll) {
-      paddingLeft = 'space20';
-
-      checkboxBackground = 'colorBackground';
-
-      if ((mergedChecked || indeterminate) && !disabled) {
-        checkboxBackground = 'colorBackgroundPrimaryWeakest';
-      }
+      selectAllStyles = !disabled && (mergedChecked || indeterminate) ? selectAllActiveStyleProps : selectAllStyleProps;
     }
     if (isSelectAllChild) {
-      paddingLeft = 'space30';
+      selectAllStyles = selectAllChildStyleProps;
     }
 
     return (
-      <Box
-        element={element}
-        backgroundColor={checkboxBackground}
-        borderRadius={isSelectAll ? 'borderRadius10' : null}
-        display="inline-flex"
-        position="relative"
-        flexDirection="column"
-        padding={isSelectAll ? 'space30' : null}
-        paddingBottom={isSelectAll ? 'space20' : null}
-        paddingLeft={paddingLeft}
-        paddingRight={isSelectAllChild ? 'space30' : null}
-        paddingTop={isSelectAll ? 'space20' : null}
-      >
+      <Box element={element} display="inline-flex" position="relative" flexDirection="column" {...selectAllStyles}>
         <HiddenCheckbox
           {...safelySpreadBoxProps(props)}
-          checked={checkedProp}
+          checked={checked}
+          defaultChecked={defaultChecked}
           disabled={disabled}
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
-          aria-checked={indeterminate ? 'mixed' : checkedProp}
+          aria-checked={indeterminate ? 'mixed' : checked}
           aria-invalid={hasError}
           id={id}
           required={required}

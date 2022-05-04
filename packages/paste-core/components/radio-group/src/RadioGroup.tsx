@@ -6,7 +6,7 @@ import {RadioContext} from './RadioContext';
 
 export interface RadioGroupProps extends InlineControlGroupProps {
   name: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   value?: string;
   i18nRequiredLabel?: string;
 }
@@ -26,13 +26,14 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
     },
     ref
   ) => {
-    const onChangeHandler = React.useMemo(() => {
-      return (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChangeHandler = React.useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>): void => {
         if (onChange != null) {
           onChange(event.target.value);
         }
-      };
-    }, [onChange]);
+      },
+      [onChange]
+    );
 
     const contextValue = React.useMemo(() => {
       return {
@@ -66,7 +67,7 @@ RadioGroup.displayName = 'RadioGroup';
 
 RadioGroup.propTypes = {
   name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   value: PropTypes.string,
   element: PropTypes.string,
   i18nRequiredLabel: PropTypes.string,

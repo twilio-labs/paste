@@ -1,24 +1,18 @@
 import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
-import {withKnobs, select} from '@storybook/addon-knobs';
 import {Paragraph} from '@twilio-paste/paragraph';
-import type {Padding} from '@twilio-paste/style-props';
 import {Stack} from '@twilio-paste/stack';
-import {DefaultTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '../src';
-
-const spaceOptions = Object.keys(DefaultTheme.space);
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Card',
-  decorators: [withKnobs],
   component: Card,
 };
 
 export const Default = (): React.ReactNode => (
-  <Card padding={select('padding', spaceOptions, 'space60') as Padding}>
+  <Card padding="space60">
     <Heading as="h2" variant="heading20">
       Notifications
     </Heading>

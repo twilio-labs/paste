@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {withKnobs, select, text} from '@storybook/addon-knobs';
 import type {ThemeShape} from '@twilio-paste/theme';
-import {DefaultTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
@@ -12,19 +10,16 @@ import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Grid, Column} from '../src';
 
-const spaceOptions = Object.keys(DefaultTheme.space);
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Grid',
-  decorators: [withKnobs],
   component: Grid,
   subcomponents: {Column},
 };
 
 export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
-  const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
-  const gutterValue = select('gutter', spaceOptions, 'space0') as keyof ThemeShape['space'];
+  const asValue = 'div' as keyof JSX.IntrinsicElements;
+  const gutterValue = 'space0' as keyof ThemeShape['space'];
   return (
     <Grid as={asValue} gutter={gutterValue}>
       <Column as={asValue}>

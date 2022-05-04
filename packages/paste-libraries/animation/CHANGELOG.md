@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.6
+
+### Patch Changes
+
+- [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba) [#2282](https://github.com/twilio-labs/paste/pull/2282) Thanks [@zahnster](https://github.com/zahnster)! - [Animation Library] Updates React Spring dependencies to resolve bug with RequestAnimationFrame calls
+
 ## 0.3.5
 
 ### Patch Changes
