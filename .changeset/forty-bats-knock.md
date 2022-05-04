@@ -1,6 +1,6 @@
 ---
 '@twilio-paste/modal': patch
-'@twilio-paste/modal': core
+'@twilio-paste/core': patch
 ---
 
 [Modal] Remove comment for obsolete ESLint rule.
