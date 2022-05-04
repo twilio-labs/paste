@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {withKnobs, select} from '@storybook/addon-knobs';
 import type {ThemeShape} from '@twilio-paste/theme';
-import {DefaultTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
@@ -10,19 +8,15 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import type {StackOrientation} from '../src';
 import {Stack} from '../src';
 
-const orientationOptions = ['horizontal', 'vertical'];
-const spaceOptions = Object.keys(DefaultTheme.space);
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Stack',
-  decorators: [withKnobs],
   component: Stack,
 };
 
 export const DefaultStack = (): React.ReactNode => {
-  const orientaionValue = select('orientation', orientationOptions, 'vertical') as StackOrientation;
-  const spaceValue = select('spacing', spaceOptions, 'space40') as keyof ThemeShape['space'];
+  const orientaionValue = 'vertical' as StackOrientation;
+  const spaceValue = 'space40' as keyof ThemeShape['space'];
   return (
     <Stack orientation={orientaionValue} spacing={spaceValue}>
       <Card>

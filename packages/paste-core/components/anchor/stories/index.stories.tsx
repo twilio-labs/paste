@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {action} from '@storybook/addon-actions';
-import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
@@ -8,50 +7,46 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Anchor} from '../src';
 import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
 
-const AnchorTargetOptions = ['_self', '_blank', '_parent', '_top'];
-const AnchorTabIndexOptions = [0, -1];
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Anchor',
-  decorators: [withKnobs],
   component: Anchor,
 };
 
 export const Default = (): React.ReactNode => {
-  const tabIndexOptions = select('tabIndex', AnchorTabIndexOptions, 0) as AnchorTabIndexes;
-  const targetOptions = select('target', AnchorTargetOptions, '_self') as AnchorTargets;
+  const tabIndexOptions = 0 as AnchorTabIndexes;
+  const targetOptions = '_self' as AnchorTargets;
   return (
     <Anchor
-      href={text('href', '/app')}
+      href="/app"
       onBlur={action('handleBlur')}
       onClick={action('handleClick')}
       onFocus={action('handleFocus')}
-      rel={text('rel', '')}
+      rel=""
       tabIndex={tabIndexOptions}
       target={targetOptions}
     >
-      {text('children', 'I am a text link')}
+      I am a text link
     </Anchor>
   );
 };
 
 export const Inverse = (): React.ReactNode => {
-  const tabIndexOptions = select('tabIndex', AnchorTabIndexOptions, 0) as AnchorTabIndexes;
-  const targetOptions = select('target', AnchorTargetOptions, '_self') as AnchorTargets;
+  const tabIndexOptions = 0 as AnchorTabIndexes;
+  const targetOptions = '_self' as AnchorTargets;
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Anchor
-        href={text('href', '/app')}
+        href="/app"
         onBlur={action('handleBlur')}
         onClick={action('handleClick')}
         onFocus={action('handleFocus')}
-        rel={text('rel', '')}
+        rel=""
         tabIndex={tabIndexOptions}
         target={targetOptions}
         variant="inverse"
       >
-        {text('children', 'I am an inverse text link')}
+        I am an inverse text link
       </Anchor>
     </Box>
   );

@@ -1,64 +1,22 @@
 import * as React from 'react';
-import {withKnobs, select, boolean, number, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Truncate} from '@twilio-paste/truncate';
 import {Flex} from '../src';
-import type {Display, VerticalAlign, HorizontalAlign} from '../src/types';
-
-const flexDisplayOptions = ['flex', 'inline-flex'];
-const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
-const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'between'];
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Flex',
-  decorators: [withKnobs],
   component: Flex,
-};
-
-export const FlexAlignmentOptions = (): React.ReactNode => {
-  const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
-  const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as Display;
-  const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as VerticalAlign;
-  const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as HorizontalAlign;
-  return (
-    <Box padding="space30" borderStyle="solid">
-      <Flex
-        as={asValue}
-        display={flexDisplayValue}
-        vertical={boolean('vertical', false)}
-        hAlignContent={flexHorizontalAlignValue}
-        vAlignContent={flexVerticalAlignValue}
-        wrap={boolean('wrap', false)}
-      >
-        <Flex shrink>
-          <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrand" minWidth="size30">
-            <Text as="span" color="colorTextInverse" textAlign="center">
-              Item 1
-            </Text>
-          </Box>
-        </Flex>
-        <Flex grow>
-          <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrandHighlight">
-            <Text as="span" color="colorTextInverse" textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc mi. Duis faucibus, quam id tempus
-              porta, libero sem faucibus odio, ut egestas massa dolor quis mi.
-            </Text>
-          </Box>
-        </Flex>
-      </Flex>
-    </Box>
-  );
 };
 
 export const FlexOptions = (): React.ReactNode => {
   return (
     <Box padding="space30" borderStyle="solid">
       <Flex display="flex">
-        <Flex grow={number('grow', 0)} shrink={number('shrink', 1)} basis={number('basis', 100)}>
+        <Flex grow={0} shrink={1} basis={100}>
           <Box backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
         </Flex>
         <Flex>

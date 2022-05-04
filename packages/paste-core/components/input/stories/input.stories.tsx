@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
-import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
@@ -9,55 +8,14 @@ import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-import type {HelpTextVariants} from '@twilio-paste/help-text';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Input} from '../src';
-import type {InputTypes} from '../src';
-
-const inputTypeOptions = ['text', 'email', 'hidden', 'number', 'password', 'search', 'tel'];
-const helpVariantOptions = ['default', 'error'];
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Input',
-  decorators: [withKnobs],
   component: Input,
-};
-
-export const InputOptions = (): React.ReactNode => {
-  const hasError = boolean('hasError', false);
-  const isDisabled = boolean('disabled', false);
-  const isReadOnly = boolean('readOnly', false);
-  const isRequired = boolean('required', false);
-  const inputTypeValue = select('type', inputTypeOptions, 'text') as InputTypes;
-  const helpVariantValue = select('help variant', helpVariantOptions, 'default') as HelpTextVariants;
-  const [value, setValue] = React.useState('Input Options');
-  return (
-    <>
-      <Label htmlFor={text('htmlFor', 'input_field')} disabled={isDisabled} required={isRequired}>
-        Label
-      </Label>
-      <Input
-        disabled={isDisabled}
-        hasError={hasError}
-        id={text('id', 'input_field')}
-        name={text('name', '')}
-        placeholder={text('placeholder', 'Placeholder')}
-        readOnly={isReadOnly}
-        required={isRequired}
-        type={inputTypeValue}
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-          action('handleChange');
-        }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
-      />
-      <HelpText variant={helpVariantValue}>{text('help text', 'Info that helps a user with this field.')}</HelpText>
-    </>
-  );
 };
 
 export const DefaultInput = (): React.ReactNode => {
