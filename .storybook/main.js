@@ -76,8 +76,6 @@ module.exports = {
     };
     config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
 
-    console.log(config);
-
     return config;
   },
 };
