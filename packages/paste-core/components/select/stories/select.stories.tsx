@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
-import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '@twilio-paste/box';
@@ -10,111 +9,37 @@ import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-import type {HelpTextVariants} from '@twilio-paste/help-text';
 import {Select, Option, OptionGroup} from '../src';
-
-const kebabCase = require('lodash/kebabCase');
-
-const helpVariantOptions = ['default', 'error'];
-const optionGroup = (idx: number): string => `option group ${idx}`;
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Select',
-  decorators: [withKnobs],
   component: Select,
   subcomponents: {Option, OptionGroup},
 };
 
 export const DefaultSelect = (): React.ReactNode => {
-  const selectGroupId = 'select group';
-  const id = text('id', 'select_input_field', selectGroupId);
-  const htmlFor = text('htmlFor', 'select_input_field', selectGroupId);
-  const hasError = boolean('hasError', false, selectGroupId);
-  const isDisabled = boolean('disabled', false, selectGroupId);
-  const isRequired = boolean('required', false, selectGroupId);
-  const isMultiple = boolean('multiple', false, selectGroupId);
-  const multiSelectSize = number('multiselect list size', 3, {}, selectGroupId);
-  const helpVariantValue = select('help variant', helpVariantOptions, 'default', selectGroupId) as HelpTextVariants;
-  const helpText = text('help text', 'Info that helps a user with this field.', selectGroupId);
-  const insertBefore = boolean('insertBefore', false, selectGroupId);
-  const insertAfter = boolean('insertAfter', false, selectGroupId);
-
-  const defaultOptions = ['Option 1', 'Option 2', 'Option 3'];
-  const optionValues = array('option values', defaultOptions, ', ', selectGroupId);
-
-  const KnobOption: React.FC<{idx: number; initialValue: string}> = ({idx, initialValue}) => {
-    const optionGroupId = optionGroup(idx);
-    const disabled = boolean('disabled', false, optionGroupId);
-    const optionValue = text('value', initialValue || `option-value-${idx}`, optionGroupId);
-    const label = text('label', `Option ${idx}`, optionGroupId);
-
-    return (
-      <>
-        <Option value={optionValue} disabled={disabled}>
-          {label}
-        </Option>
-      </>
-    );
-  };
-
-  const [value, setValue] = React.useState(isMultiple ? [] : 'Select | Options');
-
+  const uid = useUID();
+  const [value, setValue] = React.useState('Select');
   return (
     <>
-      <Label htmlFor={htmlFor} disabled={isDisabled} required={isRequired}>
-        Label
-      </Label>
+      <Label htmlFor={uid}>Label</Label>
       <Select
-        ref={React.createRef()}
-        disabled={isDisabled}
-        hasError={hasError}
-        id={id}
-        required={isRequired}
-        value={value}
+        id={uid}
         onChange={(event) => {
-          const {
-            target: {value: targetValue, options},
-          } = event;
-          if (isMultiple) {
-            const update: [] = Object.keys(options).reduce((optionTargetValues: [], key): [] => {
-              // @ts-ignore implicit any issue with key
-              const {selected, value: optionValue} = options[key];
-              if (selected) {
-                return [...optionTargetValues, optionValue] as unknown as [];
-              }
-              return optionTargetValues;
-            }, []);
-            setValue(update);
-          } else {
-            setValue(targetValue);
-          }
+          setValue(event.target.value);
           action('handleChange');
         }}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        multiple={isMultiple}
-        size={isMultiple ? multiSelectSize : undefined}
-        insertBefore={
-          insertBefore && (
-            <Text as="span" fontWeight="fontWeightSemibold">
-              $10.99
-            </Text>
-          )
-        }
-        insertAfter={
-          insertAfter && (
-            <Anchor href="#" display="flex">
-              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
-            </Anchor>
-          )
-        }
+        value={value}
       >
-        {optionValues.map((option, idx) => (
-          <KnobOption idx={idx + 1} initialValue={kebabCase(option)} key={useUID()} />
-        ))}
+        <Option value="option-1">Option 1</Option>
+        <Option value="option-2">Option 2</Option>
+        <Option value="option-3">Option 3</Option>
+        <Option value="option-4">Option 4</Option>
       </Select>
-      <HelpText variant={helpVariantValue}>{helpText}</HelpText>
+      <HelpText>Info that helps a user with this field.</HelpText>
     </>
   );
 };

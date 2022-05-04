@@ -1,33 +1,13 @@
 import * as React from 'react';
-import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
 import {Stack} from '@twilio-paste/stack';
-import type {asTags, HeadingVariants} from '../src';
 import {Heading} from '../src';
 
-const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Heading',
-  decorators: [withKnobs],
   component: Heading,
-};
-
-export const AllVariants = (): React.ReactNode => {
-  const asOptions = text('as', 'h2') as asTags;
-  const headingVariantValue = select('variant', headingVariantOptions, 'heading20') as HeadingVariants;
-  // eslint-disable-next-line unicorn/no-useless-undefined
-  const marginBottomValue = select('marginBottom', [undefined, 'space0'], undefined);
-  return (
-    <Heading as={asOptions} marginBottom={marginBottomValue} variant={headingVariantValue}>
-      I am a Very Large Heading
-    </Heading>
-  );
-};
-
-AllVariants.story = {
-  name: 'All variants',
 };
 
 export const Heading10 = (): React.ReactNode => {
