@@ -256,10 +256,10 @@ describe('Disclosure', () => {
       const renderedDisclosureContent = screen.getByTestId('disclosure-content');
 
       expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
-      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117,12,12)');
-      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214,31,31)');
-      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173,17,17)');
+      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255, 255, 255)');
+      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214, 31, 31)');
+      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173, 17, 17)');
     });
 
     it('should add custom styles to custom named Disclosure components', () => {
@@ -283,10 +283,10 @@ describe('Disclosure', () => {
       const renderedDisclosureContent = screen.getByTestId('disclosure-content');
 
       expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
-      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117,12,12)');
-      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214,31,31)');
-      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173,17,17)');
+      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255, 255, 255)');
+      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214, 31, 31)');
+      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173, 17, 17)');
     });
   });
 

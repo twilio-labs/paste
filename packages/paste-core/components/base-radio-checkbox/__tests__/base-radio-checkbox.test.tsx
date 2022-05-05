@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+
 import {
   BaseRadioCheckboxControl,
   BaseRadioCheckboxLabel,
@@ -12,7 +13,7 @@ import {
 
 describe('Base radio checkbox HTML attributes', () => {
   it('should set element data attribute on base radio checkbox components', () => {
-    const screen = render(
+    const {container} = render(
       <>
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label">
           <BaseRadioCheckboxControl data-testid="control">
@@ -28,17 +29,15 @@ describe('Base radio checkbox HTML attributes', () => {
     expect(screen.getByTestId('label_text').getAttribute('data-paste-element')).toEqual(
       'BASE_RADIO_CHECKBOX_LABEL_TEXT'
     );
-    expect(
-      screen.container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')
-    ).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(
       // @ts-ignore object isn't null
-      screen.container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]').firstElementChild
+      container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]').firstElementChild
     ).toHaveAttribute('data-paste-element', 'HELP_TEXT');
   });
 
   it('should set element data attribute on base radio checkbox components with custom element prop', () => {
-    const screen = render(
+    const {container} = render(
       <>
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label" element="fee">
           <BaseRadioCheckboxControl data-testid="control" element="fi">
@@ -56,9 +55,9 @@ describe('Base radio checkbox HTML attributes', () => {
     expect(screen.getByTestId('label').getAttribute('data-paste-element')).toEqual('fee');
     expect(screen.getByTestId('control').getAttribute('data-paste-element')).toEqual('fi');
     expect(screen.getByTestId('label_text').getAttribute('data-paste-element')).toEqual('fo');
-    expect(screen.container.querySelector('[data-paste-element="fum"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="fum"]')).toBeInTheDocument();
     // @ts-ignore object isn't null
-    expect(screen.container.querySelector('[data-paste-element="fum"]').firstElementChild).toHaveAttribute(
+    expect(container.querySelector('[data-paste-element="fum"]').firstElementChild).toHaveAttribute(
       'data-paste-element',
       'HELP_TEXT'
     );
@@ -67,7 +66,7 @@ describe('Base radio checkbox HTML attributes', () => {
 
 describe('Base radio checkbox customization', () => {
   it('should add custom styles to base radio checkbox', () => {
-    const screen = render(
+    const {container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
@@ -85,15 +84,21 @@ describe('Base radio checkbox customization', () => {
         <BaseRadioCheckboxHelpText helpTextId="help_text">Help Text</BaseRadioCheckboxHelpText>
       </CustomizationProvider>
     );
-    expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214,31,31)');
-    expect(screen.getByTestId('label_text')).toHaveStyleRule('color', 'rgb(14,124,58)');
-    expect(
-      screen.container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')
-    ).toHaveStyleRule('margin-left', '2rem');
+
+    // matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
+    // using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+    expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214, 31, 31)', {
+      target: new RegExp(`^.${screen.getByTestId('control').getAttribute('class')}$`),
+    });
+    expect(screen.getByTestId('label_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
+    expect(container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-left',
+      '2rem'
+    );
   });
 
   it('should add custom styles to base radio checkbox with custom element prop', () => {
-    const screen = render(
+    const {container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
@@ -115,8 +120,12 @@ describe('Base radio checkbox customization', () => {
         </BaseRadioCheckboxHelpText>
       </CustomizationProvider>
     );
-    expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214,31,31)');
-    expect(screen.getByTestId('label_text')).toHaveStyleRule('color', 'rgb(14,124,58)');
-    expect(screen.container.querySelector('[data-paste-element="fum"]')).toHaveStyleRule('margin-left', '2rem');
+    // matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
+    // using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+    expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214, 31, 31)', {
+      target: new RegExp(`^.${screen.getByTestId('control').getAttribute('class')}$`),
+    });
+    expect(screen.getByTestId('label_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
+    expect(container.querySelector('[data-paste-element="fum"]')).toHaveStyleRule('margin-left', '2rem');
   });
 });

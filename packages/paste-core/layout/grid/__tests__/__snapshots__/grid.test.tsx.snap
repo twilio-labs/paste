@@ -27,6 +27,7 @@ exports[`Grid render should render a Grid 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -52,6 +53,7 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -72,11 +74,12 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
 
 exports[`Grid render should render responsive css 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-0 {
   box-sizing: border-box;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -86,8 +89,8 @@ exports[`Grid render should render responsive css 1`] = `
   min-width: size0;
 }
 
-@media screen and (min-width:40em) {
-  .emotion-2 {
+@media screen and (min-width: 40em) {
+  .emotion-0 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -96,8 +99,8 @@ exports[`Grid render should render responsive css 1`] = `
   }
 }
 
-@media screen and (min-width:52em) {
-  .emotion-2 {
+@media screen and (min-width: 52em) {
+  .emotion-0 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -106,7 +109,7 @@ exports[`Grid render should render responsive css 1`] = `
   }
 }
 
-.emotion-0 {
+.emotion-1 {
   box-sizing: border-box;
   width: 16.666666666666664%;
   padding-top: space10;
@@ -116,8 +119,8 @@ exports[`Grid render should render responsive css 1`] = `
   margin-left: 66.66666666666666%;
 }
 
-@media screen and (min-width:40em) {
-  .emotion-0 {
+@media screen and (min-width: 40em) {
+  .emotion-1 {
     width: 33.33333333333333%;
     padding-top: space20;
     padding-bottom: space20;
@@ -127,8 +130,8 @@ exports[`Grid render should render responsive css 1`] = `
   }
 }
 
-@media screen and (min-width:52em) {
-  .emotion-0 {
+@media screen and (min-width: 52em) {
+  .emotion-1 {
     width: 16.666666666666664%;
     padding-top: space0;
     padding-bottom: space0;
@@ -138,7 +141,7 @@ exports[`Grid render should render responsive css 1`] = `
   }
 }
 
-.emotion-1 {
+.emotion-2 {
   box-sizing: border-box;
   width: 50%;
   padding-top: space10;
@@ -149,8 +152,8 @@ exports[`Grid render should render responsive css 1`] = `
   margin-left: space0;
 }
 
-@media screen and (min-width:40em) {
-  .emotion-1 {
+@media screen and (min-width: 40em) {
+  .emotion-2 {
     padding-top: space20;
     padding-bottom: space20;
     padding-right: space0;
@@ -159,8 +162,8 @@ exports[`Grid render should render responsive css 1`] = `
   }
 }
 
-@media screen and (min-width:52em) {
-  .emotion-1 {
+@media screen and (min-width: 52em) {
+  .emotion-2 {
     padding-top: space0;
     padding-bottom: space0;
     padding-right: space30;
@@ -170,15 +173,15 @@ exports[`Grid render should render responsive css 1`] = `
 }
 
 <div
-    class="emotion-2"
+    class="emotion-0"
     data-paste-element="GRID"
   >
     <div
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="COLUMN"
     />
     <div
-      class="emotion-1"
+      class="emotion-2"
       data-paste-element="COLUMN"
     />
   </div>

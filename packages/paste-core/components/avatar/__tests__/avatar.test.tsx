@@ -183,7 +183,7 @@ describe('Avatar', () => {
         </CustomizationProvider>
       );
       const renderedAvatar = screen.getByTestId('avatar');
-      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
     it('should add custom styles to custom element Avatar', () => {
       render(
@@ -192,7 +192,7 @@ describe('Avatar', () => {
         </CustomizationProvider>
       );
       const renderedAvatar = screen.getByTestId('avatar');
-      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 

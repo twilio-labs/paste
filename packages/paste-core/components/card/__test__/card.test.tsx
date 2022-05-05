@@ -91,8 +91,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('customizable-card');
-    expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+    expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
   });
 
   it('should add custom styles to Card with a custom element data attribute', (): void => {
@@ -107,7 +107,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('customizable-card');
-    expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+    expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
   });
 });

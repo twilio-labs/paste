@@ -120,7 +120,7 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
       'color',
-      'rgb(14,124,58)'
+      'rgb(14, 124, 58)'
     );
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-top',
@@ -156,7 +156,7 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
       'color',
-      'rgb(14,124,58)'
+      'rgb(14, 124, 58)'
     );
     expect(
       container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')

@@ -15,7 +15,7 @@ describe('Backgrounds', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
   });
 
   it('should render responsive values', () => {
@@ -27,8 +27,8 @@ describe('Backgrounds', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153,205,255)');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)', {
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -53,13 +53,13 @@ describe('Color mappings', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96,107,133)');
-    expect(renderedBox).toHaveStyleRule('border-bottom-color', 'rgb(117,12,12)');
-    expect(renderedBox).toHaveStyleRule('border-left-color', 'rgb(117,12,12)');
-    expect(renderedBox).toHaveStyleRule('border-right-color', 'rgba(255,255,255,0.5)');
-    expect(renderedBox).toHaveStyleRule('border-top-color', 'rgba(255,255,255,0.5)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(18,28,45)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
+    expect(renderedBox).toHaveStyleRule('border-bottom-color', 'rgb(117, 12, 12)');
+    expect(renderedBox).toHaveStyleRule('border-left-color', 'rgb(117, 12, 12)');
+    expect(renderedBox).toHaveStyleRule('border-right-color', 'rgba(255, 255, 255, 0.5)');
+    expect(renderedBox).toHaveStyleRule('border-top-color', 'rgba(255, 255, 255, 0.5)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(18, 28, 45)');
   });
 
   it('should map responsive color values', () => {
@@ -76,16 +76,16 @@ describe('Color mappings', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153,205,255)');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2,99,224)', {
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)', {
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96,107,133)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(18,28,45)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(255,255,255)', {
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(18, 28, 45)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(255, 255, 255)', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -106,9 +106,9 @@ describe('Color mappings', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(255,255,255)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(255, 255, 255)', {target: ':hover'});
   });
 
   it('should map responsive pseudo selector color values', () => {
@@ -127,18 +127,18 @@ describe('Color mappings', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(255,255,255)', {
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(255, 255, 255)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117,12,12)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(214,31,31)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(136,145,170)', {
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(214, 31, 31)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(136, 145, 170)', {
       target: ':hover',
       media: 'screen and (min-width:25rem)',
     });
@@ -162,7 +162,7 @@ describe('Borders', () => {
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'solid');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,20,137)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0, 20, 137)');
     expect(renderedBox).toHaveStyleRule('border-width', '1px');
     expect(renderedBox).toHaveStyleRule('border-radius', '4px');
   });
@@ -189,8 +189,8 @@ describe('Borders', () => {
     expect(renderedBox).toHaveStyleRule('border-style', 'solid', {
       media: 'screen and (min-width:64rem)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0,20,137)');
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(102,179,255)', {
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0, 20, 137)');
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(102, 179, 255)', {
       media: 'screen and (min-width:25rem)',
     });
     expect(renderedBox).toHaveStyleRule('border-width', '1px');
@@ -394,7 +394,7 @@ describe('Shadows', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18,28,45,0.1)');
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18, 28, 45, 0.1)');
   });
 
   it('should render responsive values', () => {
@@ -406,8 +406,8 @@ describe('Shadows', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18,28,45,0.1)');
-    expect(renderedBox).toHaveStyleRule('box-shadow', '0 0 0 4px rgba(2,99,224,0.7)', {
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18, 28, 45, 0.1)');
+    expect(renderedBox).toHaveStyleRule('box-shadow', '0 0 0 4px rgba(2, 99, 224, 0.7)', {
       media: 'screen and (min-width:25rem)',
     });
   });
@@ -532,7 +532,7 @@ describe('Customization', () => {
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('text-decoration', 'underline');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     expect(renderedBox).toHaveStyleRule('padding', '0.75rem');
   });
 
@@ -557,7 +557,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(14,124,58)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14, 124, 58)', {target: ':hover'});
   });
 
   it('should override existing pseudo selector styles when provided as element styles on the customization provider', (): void => {
@@ -572,7 +572,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
   });
 
   it('should add custom styles to a component variant provided as element styles on the customization provider', (): void => {
@@ -599,7 +599,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,124,34)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
   });
 
   it('should add custom styles to variant pseudo selectors when provided as element styles on the customization provider', (): void => {

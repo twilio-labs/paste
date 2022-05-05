@@ -152,10 +152,10 @@ describe('Customization', () => {
       const inboundBubble = screen.getByTestId('inbound-bubble');
       const outboundBubble = screen.getByTestId('outbound-bubble');
 
-      expect(inboundBubble).toHaveStyleRule('background-color', 'rgb(2,99,224)');
-      expect(inboundBubble).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(outboundBubble).toHaveStyleRule('background-color', 'rgb(3,11,93)');
-      expect(outboundBubble).toHaveStyleRule('color', 'rgb(255,255,255)');
+      expect(inboundBubble).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      expect(inboundBubble).toHaveStyleRule('color', 'rgb(255, 255, 255)');
+      expect(outboundBubble).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
+      expect(outboundBubble).toHaveStyleRule('color', 'rgb(255, 255, 255)');
     });
 
     it('should set element data attribute', () => {
@@ -198,10 +198,10 @@ describe('Customization', () => {
       const inboundBubble = screen.getByTestId('inbound-bubble');
       const outboundBubble = screen.getByTestId('outbound-bubble');
 
-      expect(inboundBubble).toHaveStyleRule('background-color', 'rgb(2,99,224)');
-      expect(inboundBubble).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(outboundBubble).toHaveStyleRule('background-color', 'rgb(3,11,93)');
-      expect(outboundBubble).toHaveStyleRule('color', 'rgb(255,255,255)');
+      expect(inboundBubble).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      expect(inboundBubble).toHaveStyleRule('color', 'rgb(255, 255, 255)');
+      expect(outboundBubble).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
+      expect(outboundBubble).toHaveStyleRule('color', 'rgb(255, 255, 255)');
     });
 
     it('should set custom element data attribute', () => {
@@ -344,7 +344,7 @@ describe('Customization', () => {
 
       const metaItem = screen.getByTestId('meta-item');
       expect(metaItem).toHaveStyleRule('column-gap', '0');
-      expect(metaItem).toHaveStyleRule('color', 'rgb(18,28,45)');
+      expect(metaItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
     });
 
     it('should set element data attribute', () => {
@@ -375,7 +375,7 @@ describe('Customization', () => {
 
       const metaItem = screen.getByTestId('meta-item');
       expect(metaItem).toHaveStyleRule('column-gap', '0');
-      expect(metaItem).toHaveStyleRule('color', 'rgb(18,28,45)');
+      expect(metaItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
     });
 
     it('should set custom element data attribute', () => {

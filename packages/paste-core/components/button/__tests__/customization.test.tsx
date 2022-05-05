@@ -44,8 +44,8 @@ describe('Button customization', () => {
       </CustomizationProvider>
     );
     const button = getByTestId('button_for_customization');
-    expect(button).toHaveStyleRule('background-color', 'rgb(244,124,34)');
-    expect(button).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+    expect(button).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
+    expect(button).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
     expect(button).toHaveStyleRule('font-weight', '400');
   });
 
@@ -56,7 +56,7 @@ describe('Button customization', () => {
       </CustomizationProvider>
     );
     const button = getByTestId('button_for_customization');
-    expect(button).toHaveStyleRule('background-color', 'rgb(246,177,177)');
+    expect(button).toHaveStyleRule('background-color', 'rgb(246, 177, 177)');
     expect(button).toHaveStyleRule('padding', '0.75rem');
     expect(button).toHaveStyleRule('font-weight', '700');
   });
@@ -68,7 +68,7 @@ describe('Button customization', () => {
       </CustomizationProvider>
     );
     const button = getByTestId('button_for_customization');
-    expect(button).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+    expect(button).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
     expect(button).toHaveStyleRule('border-width', '8px');
     expect(button).toHaveStyleRule('border-radius', '0');
   });

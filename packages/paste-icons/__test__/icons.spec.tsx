@@ -36,12 +36,12 @@ describe('Icons', () => {
       expect(container.querySelector('[data-paste-element="ICON"]')).toHaveStyleRule('border-radius', '4px');
       expect(container.querySelector('[data-paste-element="ICON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(20,176,83)'
+        'rgb(20, 176, 83)'
       );
       expect(container.querySelector('[data-paste-element="CUSTOM_ICON"]')).toHaveStyleRule('border-radius', '4px');
       expect(container.querySelector('[data-paste-element="CUSTOM_ICON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(214,31,31)'
+        'rgb(214, 31, 31)'
       );
     });
   });

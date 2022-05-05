@@ -84,7 +84,7 @@ describe('Separator', () => {
         </CustomizationProvider>
       );
       const renderedSeparator = screen.getByTestId('custom-separator');
-      expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
       expect(renderedSeparator).toHaveStyleRule('margin', '1rem');
     });
 
@@ -99,7 +99,7 @@ describe('Separator', () => {
         </CustomizationProvider>
       );
       const renderedSeparator = screen.getByTestId('custom-separator');
-      expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
       expect(renderedSeparator).toHaveStyleRule('margin', '1rem');
     });
   });

@@ -217,14 +217,14 @@ describe('Breadcrumb', () => {
       const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
       const separator1 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node1).toHaveStyleRule('text-decoration', 'underline wavy');
-      expect(node1).toHaveStyleRule('color', 'rgb(96,107,133)');
-      expect(separator1).toHaveStyleRule('color', 'rgb(242,47,70)');
+      expect(node1).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+      expect(separator1).toHaveStyleRule('color', 'rgb(242, 47, 70)');
 
       const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
       const separator2 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node2).toHaveStyleRule('text-decoration', 'underline wavy');
-      expect(node2).toHaveStyleRule('color', 'rgb(96,107,133)');
-      expect(separator2).toHaveStyleRule('color', 'rgb(242,47,70)');
+      expect(node2).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+      expect(separator2).toHaveStyleRule('color', 'rgb(242, 47, 70)');
 
       const node3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
       expect(node3).toHaveStyleRule('letter-spacing', '0.25rem');
@@ -280,12 +280,12 @@ describe('Breadcrumb', () => {
       const node1 = screen.getByTestId('breadcrumb-item-1') as HTMLElement;
       const separator1 = breadcrumbItem1.lastChild as HTMLElement;
       expect(node1).toHaveStyleRule('font-weight', '700');
-      expect(separator1).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(separator1).toHaveStyleRule('color', 'rgb(96, 107, 133)');
 
       const node2 = screen.getByTestId('breadcrumb-item-2') as HTMLElement;
       const separator2 = breadcrumbItem2.lastChild as HTMLElement;
       expect(node2).toHaveStyleRule('font-weight', '600');
-      expect(separator2).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(separator2).toHaveStyleRule('color', 'rgb(96, 107, 133)');
 
       const node3 = screen.getByTestId('breadcrumb-item-3') as HTMLElement;
       expect(node3).toHaveStyleRule('letter-spacing', '0.25rem');

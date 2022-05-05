@@ -170,8 +170,8 @@ describe('Stack Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-stack');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 
   it('should style Stack children according to the customization provider', (): void => {
@@ -187,7 +187,7 @@ describe('Stack Customization', () => {
       </CustomizationProvider>
     );
     const childNode = container.querySelector('[data-paste-element="STACK_CHILD"]');
-    expect(childNode).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(childNode).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(childNode).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(childNode).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });

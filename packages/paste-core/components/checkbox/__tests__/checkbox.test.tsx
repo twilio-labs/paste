@@ -355,10 +355,10 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="CHECKBOX"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="CHECKBOX_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
-    expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
     expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
@@ -401,11 +401,11 @@ describe('Customization', () => {
     );
     expect(container.querySelector('[data-paste-element="MY_CHECKBOX_ICON"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="MY_CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="MY_CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',

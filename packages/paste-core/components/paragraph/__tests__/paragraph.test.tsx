@@ -47,8 +47,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedParagraph = screen.getByText('Custom paragraph');
-    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 
   it('should add custom styles to Paragraph with a custom element data attribute', (): void => {
@@ -61,8 +61,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedParagraph = screen.getByText('Custom paragraph');
-    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });
 
