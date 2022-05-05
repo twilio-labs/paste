@@ -12,7 +12,6 @@ import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUt
 type Sizes = 'default' | 'wide';
 
 export const ModalDialogOverlay = animated(
-  // @TODO [emotion-upgrade] use fix from box here too!
   // @ts-ignore Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
   styled(ModalDialogPrimitiveOverlay)<{variant?: Sizes}>(
     css({
