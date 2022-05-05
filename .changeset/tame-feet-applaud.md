@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/styling-library': minor
-'@twilio-paste/core': minor
+'@twilio-paste/styling-library': major
+'@twilio-paste/core': major
 ---
 
 [Styling Library] Upgrade to Emotion v11
