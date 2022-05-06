@@ -1,5 +1,19 @@
 # Change Log
 
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/text@6.0.0
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/card@5.0.0
+  - @twilio-paste/heading@7.0.0
+  - @twilio-paste/icons@8.0.0
+  - @twilio-paste/style-props@5.0.0
+
 ## 7.0.0
 
 ### Patch Changes

@@ -1,5 +1,90 @@
 # Change Log
 
+## 13.0.0
+
+### Major Changes
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Styling Library] Upgrade to Emotion v11
+
+  - replace `@emotion/core` with `@emotion/react`
+  - bump `@emotion/styled` to v11
+  - remove `emotion`, remove `emotion-themeing`
+  - both packages now included with `@emotion/react`
+
+### Minor Changes
+
+- [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Text] Update tests to account for `stylis` parser change in jest emotion matchers.
+
+* [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Small updates to usage of `styled` to create the `Box` component. Small type updates (to adopt utility types).
+
+### Patch Changes
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Modal] Remove comment for obsolete ESLint rule.
+
+* [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Sibling Box] Remove obsolete eslint ignore statement; cosmetic change only.
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Theme] Small edit to cased named imports and usage of `keyof` in types.
+
+* [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Textarea] Remove comment for obsolete lint rule
+
+* Updated dependencies [[`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/modal@11.0.0
+  - @twilio-paste/text@6.0.0
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/sibling-box@5.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/textarea@5.0.0
+  - @twilio-paste/alert@10.0.0
+  - @twilio-paste/alert-dialog@4.0.0
+  - @twilio-paste/anchor@8.0.0
+  - @twilio-paste/avatar@5.0.0
+  - @twilio-paste/badge@4.0.0
+  - @twilio-paste/base-radio-checkbox@9.0.0
+  - @twilio-paste/breadcrumb@7.0.0
+  - @twilio-paste/button@10.0.0
+  - @twilio-paste/card@5.0.0
+  - @twilio-paste/checkbox@9.0.0
+  - @twilio-paste/combobox@11.0.0
+  - @twilio-paste/data-grid@3.0.0
+  - @twilio-paste/date-picker@2.0.0
+  - @twilio-paste/disclosure@8.0.0
+  - @twilio-paste/display-pill-group@4.0.0
+  - @twilio-paste/form-pill-group@4.0.0
+  - @twilio-paste/heading@7.0.0
+  - @twilio-paste/help-text@9.0.0
+  - @twilio-paste/inline-control-group@9.0.0
+  - @twilio-paste/input@5.0.0
+  - @twilio-paste/input-box@6.0.0
+  - @twilio-paste/label@9.0.0
+  - @twilio-paste/list@4.0.0
+  - @twilio-paste/menu@10.0.0
+  - @twilio-paste/pagination@3.0.0
+  - @twilio-paste/paragraph@6.0.0
+  - @twilio-paste/popover@9.0.0
+  - @twilio-paste/radio-group@9.0.0
+  - @twilio-paste/screen-reader-only@9.0.0
+  - @twilio-paste/select@8.0.0
+  - @twilio-paste/separator@4.0.0
+  - @twilio-paste/skeleton-loader@2.0.0
+  - @twilio-paste/spinner@10.0.0
+  - @twilio-paste/table@4.0.0
+  - @twilio-paste/tabs@4.0.0
+  - @twilio-paste/time-picker@2.0.0
+  - @twilio-paste/toast@8.0.0
+  - @twilio-paste/tooltip@7.0.0
+  - @twilio-paste/truncate@10.0.0
+  - @twilio-paste/aspect-ratio@6.0.0
+  - @twilio-paste/flex@4.0.0
+  - @twilio-paste/grid@4.0.0
+  - @twilio-paste/media-object@6.0.0
+  - @twilio-paste/stack@4.0.0
+  - @twilio-paste/customization@4.0.0
+  - @twilio-paste/icons@8.0.0
+  - @twilio-paste/data-visualization-library@1.0.0
+  - @twilio-paste/style-props@5.0.0
+  - @twilio-paste/chat-log@1.0.0
+
 ## 12.1.0
 
 ### Minor Changes

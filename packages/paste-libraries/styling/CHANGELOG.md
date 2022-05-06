@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Styling Library] Upgrade to Emotion v11
+
+  - replace `@emotion/core` with `@emotion/react`
+  - bump `@emotion/styled` to v11
+  - remove `emotion`, remove `emotion-themeing`
+  - both packages now included with `@emotion/react`
+
 ## 0.3.9
 
 ### Patch Changes
