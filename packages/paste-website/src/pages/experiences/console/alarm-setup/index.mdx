@@ -1,14 +1,16 @@
 ---
-title: About Paste
-description: An overview of what Paste is, is not, and how to use the platform.
-slug: /introduction/about-paste
+title: Alarm Setup
+description: Guidelines for the Alarm Setup experience in Console.
+slug: /experiences/console/alarm-setup
 ---
 
 import {graphql} from 'gatsby';
+import {SidebarCategoryRoutes} from '../../../../constants';
+import {WatchThisSpace} from '../../../../components/empty-state/WatchThisSpace';
 
 export const pageQuery = graphql`
   {
-    mdx(frontmatter: {slug: {eq: "/introduction/about-paste/"}}) {
+    mdx(frontmatter: {slug: {eq: "/experiences/console/alarm-setup"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -24,8 +26,21 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
-
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  description={props.pageContext.frontmatter.description}
+  categoryRoute={SidebarCategoryRoutes.EXPERIENCES}
+/>
 
 </content>
+
+---
+
+<contentwrapper>
+
+<content>
+
+<WatchThisSpace />
+
+</content>
+</contentwrapper>

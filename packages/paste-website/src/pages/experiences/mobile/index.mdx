@@ -1,10 +1,11 @@
 ---
 title: Mobile
-description: An overview of the Mobile experience's design guidelines.
+description: Guidelines for designing and building Mobile experiences.
 slug: /experiences/mobile/
 ---
 
 import {graphql} from 'gatsby';
+import {SidebarCategoryRoutes} from '../../../constants';
 import {WatchThisSpace} from '../../../components/empty-state/WatchThisSpace';
 
 export const pageQuery = graphql`
@@ -25,15 +26,17 @@ export const pageQuery = graphql`
 
 <content>
 
-<ComponentHeader name={props.pageContext.frontmatter.title} description={props.pageContext.frontmatter.description} />
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  description={props.pageContext.frontmatter.description}
+  categoryRoute={SidebarCategoryRoutes.EXPERIENCES}
+/>
 
 </content>
 
 ---
 
 <contentwrapper>
-
-<PageAside data={props.data.mdx} />
 
 <content>
 

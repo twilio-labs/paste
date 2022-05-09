@@ -70,6 +70,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
 
   const categoryName = getCategoryNameFromRoute(categoryRoute);
   const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
+  const isExperiences = categoryRoute === SidebarCategoryRoutes.EXPERIENCES;
   const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
     categoryRoute
   );
@@ -83,7 +84,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       )}
       {shouldShowBreadcrumbs && (
         <Box marginBottom="space50">
-          {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
+          {isFoundations || isExperiences ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
         </Box>
       )}
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">

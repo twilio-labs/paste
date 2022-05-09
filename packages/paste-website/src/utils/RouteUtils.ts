@@ -53,6 +53,8 @@ export const getCategoryNameFromRoute = (categoryRoute: string): string => {
   switch (categoryRoute) {
     case SidebarCategoryRoutes.FOUNDATIONS:
       return 'Foundations';
+    case SidebarCategoryRoutes.EXPERIENCES:
+      return 'Experiences';
     case SidebarCategoryRoutes.COMPONENTS:
       return 'Components';
     case SidebarCategoryRoutes.PRIMITIVES:
