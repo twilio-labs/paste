@@ -1,86 +1,86 @@
-name: Cypress PR Checks
+# name: Cypress PR Checks
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened, labeled]
 
-jobs:
-  cypress:
-    name: Website tests
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_CACHE_FOLDER: ./node_modules/cypress
-      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-      APPLITOOLS_SERVER_URL: "https://twilioeyesapi.applitools.com"
-      APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
-      APPLITOOLS_BATCH_ID: ${{ github.event.pull_request.head.sha }}
-      USE_CYPRESS_EYES: false
+# jobs:
+#   cypress:
+#     name: Website tests
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         containers: [1, 2, 3]
+#     env:
+#       CYPRESS_CACHE_FOLDER: ./node_modules/cypress
+#       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+#       APPLITOOLS_SERVER_URL: "https://twilioeyesapi.applitools.com"
+#       APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
+#       APPLITOOLS_BATCH_ID: ${{ github.event.pull_request.head.sha }}
+#       USE_CYPRESS_EYES: false
 
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repo
+#         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
+#       - name: Setup Node.js 12.x
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 12.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+#       - name: Get yarn cache directory path
+#         id: yarn-cache-dir-path
+#         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+#       - name: Load Yarn cache
+#         uses: actions/cache@v2
+#         id: yarn_cache_id
+#         with:
+#           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+#       - name: Node modules cache
+#         uses: actions/cache@v2
+#         id: node_modules_cache_id
+#         with:
+#           path: |
+#             node_modules
+#             */*/node_modules
+#           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+#       - name: Install Dependencies
+#         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+#         run: yarn install --immutable
 
-      - name: Wait for Netlify
-        uses: hharnisc/wait-for-netlify-action@3.2.0
-        id: waitForDeployment
-        with:
-          site_id: ${{ secrets.NETLIFY_SITE_ID }}
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+#       - name: Wait for Netlify
+#         uses: hharnisc/wait-for-netlify-action@3.2.0
+#         id: waitForDeployment
+#         with:
+#           site_id: ${{ secrets.NETLIFY_SITE_ID }}
+#         env:
+#           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        if: ${{ !contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
-        with:
-          record: true
-          parallel: true
-          group: "Paste Actions Parallel"
-          config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+#       - name: Cypress run
+#         uses: cypress-io/github-action@v2
+#         if: ${{ !contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
+#         with:
+#           record: true
+#           parallel: true
+#           group: "Paste Actions Parallel"
+#           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
 
-      - name: Cypress run with site VRT
-        uses: cypress-io/github-action@v2
-        if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
-        with:
-          record: true
-          parallel: true
-          group: "Paste Actions Parallel"
-          config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
-        env:
-          USE_CYPRESS_EYES: true
+#       - name: Cypress run with site VRT
+#         uses: cypress-io/github-action@v2
+#         if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
+#         with:
+#           record: true
+#           parallel: true
+#           group: "Paste Actions Parallel"
+#           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+#         env:
+#           USE_CYPRESS_EYES: true
