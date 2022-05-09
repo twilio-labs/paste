@@ -59,197 +59,197 @@ jobs:
             packages/paste-design-tokens/types/**/*
             packages/paste-codemods/tools/.cache/mappings.json
 
-  type_check:
-    name: Type check
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # type_check:
+  #   name: Type check
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+  #     - name: Setup Node.js 16.13
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run type checker
-        run: yarn type-check
+  #     - name: Run type checker
+  #       run: yarn type-check
 
-  eslint:
-    name: Lint repository
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # eslint:
+  #   name: Lint repository
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+  #     - name: Setup Node.js 16.13
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run eslint
-        run: yarn lint
+  #     - name: Run eslint
+  #       run: yarn lint
 
-  tests:
-    name: Test repository using React 17
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # tests:
+  #   name: Test repository using React 17
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+  #     - name: Setup Node.js 16.13
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run tests
-        run: yarn test
+  #     - name: Run tests
+  #       run: yarn test
 
-  react16_tests:
-    name: Test repository using React 16
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # react16_tests:
+  #   name: Test repository using React 16
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+  #     - name: Setup Node.js 16.13
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: compiled-js-and-types
+  #         path: packages/
 
-      - name: Run tests
-        run: yarn test:react-16
+  #     - name: Run tests
+  #       run: yarn test:react-16
 
   prettier:
     name: Prettier checks
@@ -403,45 +403,45 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
 
-  danger:
-    name: Danger checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+  # danger:
+  #   name: Danger checks
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+  #     - name: Setup Node.js 16.13
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+  #     - name: Load Yarn cache
+  #       uses: actions/cache@v2
+  #       id: yarn_cache_id
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Node modules cache
+  #       uses: actions/cache@v2
+  #       id: node_modules_cache_id
+  #       with:
+  #         path: |
+  #           node_modules
+  #           */*/node_modules
+  #         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+  #     - name: Install Dependencies
+  #       if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: yarn install --immutable
 
-      - name: Run DangerJS
-        run: yarn danger ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Run DangerJS
+  #       run: yarn danger ci
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

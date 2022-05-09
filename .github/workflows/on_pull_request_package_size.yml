@@ -1,24 +1,24 @@
-name: Package size
+# name: Package size
 
-on: pull_request
+# on: pull_request
 
-jobs:
-  package-size:
-    name: Check package sizes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+# jobs:
+#   package-size:
+#     name: Check package sizes
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Repo
+#         uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
+#       - name: Setup Node.js 16.13
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16.13.x
 
-      - uses: zahnster/compressed-size-action@2.4.2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          build-script: "build:js"
-          # only do common js files, no need to double count files
-          pattern: "{**/dist/**/*.js,./packages/paste-icons/cjs/**/*.js}"
-          exclude: "{**/*.map,**/node_modules/**,**/*.es.js,**/*.es6.js,**/*.debug.js,**/*.debug.es.js}"
+#       - uses: zahnster/compressed-size-action@2.4.2
+#         with:
+#           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+#           build-script: "build:js"
+#           # only do common js files, no need to double count files
+#           pattern: "{**/dist/**/*.js,./packages/paste-icons/cjs/**/*.js}"
+#           exclude: "{**/*.map,**/node_modules/**,**/*.es.js,**/*.es6.js,**/*.debug.js,**/*.debug.es.js}"
