@@ -6,11 +6,20 @@ slug: /experiences/flex/
 
 import {graphql} from 'gatsby';
 import {GatsbyImage} from 'gatsby-plugin-image';
+import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
-// import {WatchThisSpace} from '../../../components/empty-state/WatchThisSpace';
+import {WatchThisSpace} from '../../../components/empty-state/WatchThisSpace';
 
 export const pageQuery = graphql`
   {
+    EmptyAwaitingData: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/patterns/empty-awaiting-data.png"}
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
     mdx(frontmatter: {slug: {eq: "/experiences/flex/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -41,14 +50,9 @@ export const pageQuery = graphql`
 
 <content>
 
-<GatsbyImage
-  src="../../../assets/images/patterns/empty-awaiting-data.png"
-  layout="fullWidth"
-  alt=""
-  placeholder="blurred"
-/>
-
-<WatchThisSpace></WatchThisSpace>
+<WatchThisSpace>
+  <GatsbyImage image={props.data.EmptyAwaitingData.childImageSharp.gatsbyImageData} alt="" />
+</WatchThisSpace>
 
 </content>
 </contentwrapper>

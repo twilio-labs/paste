@@ -10,7 +10,9 @@ export const WatchThisSpace: React.FC = ({children}) => {
   return (
     <Card>
       <Flex vAlignContent="center">
-        <Box marginRight="space70">{children}</Box>
+        <Box marginRight="space70" width="100%">
+          {children}
+        </Box>
         <Box>
           <Heading as="h3" variant="heading30">
             We are currently working on this page. Watch this space!
