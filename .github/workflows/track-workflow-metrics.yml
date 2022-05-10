@@ -1,6 +1,6 @@
 name: Track workflow metrics
 
-# Controls when the workflow will run
+# Run when workflows complete, on pull request and on push
 on:
   workflow_run:
     workflows:
@@ -13,7 +13,7 @@ on:
 jobs:
   send:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: int128/datadog-actions-metrics@v1
         with:
