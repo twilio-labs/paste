@@ -3589,6 +3589,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/error-message@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@hookform/error-message@npm:2.0.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-hook-form: ^7.0.0
+  checksum: 84aa3a6cb5cc729581850dcbe2bb5dfa43431c148782b4e8676757f808cd81e220fbc4e709c4eee381b0168a991c3a3f5306acae2a09a9760859c9a188d591ec
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -5273,6 +5284,15 @@ __metadata:
   peerDependencies:
     react: ^16.13.1 || ^17.0.0
   checksum: bc84bd514bc127f898819a0c6f1a6915d9541011bd8aefa1fcc1c9bea8939f31051409e546bdec92babfa5b56092a16d05ef6d318304ac029299df5181dc94c8
+  languageName: node
+  linkType: hard
+
+"@mdx-js/tag@npm:^0.20.3":
+  version: 0.20.3
+  resolution: "@mdx-js/tag@npm:0.20.3"
+  peerDependencies:
+    react: ^0.14.x || ^15.x || ^16.x
+  checksum: 763f2295045fcee7d9fd98e0b647451cb0a734f85d5ac7b23dc0afafd95e90186f6bf78d25946411ffd9e16d25171379758ec64a8864b93545c4a9cc4141dd7c
   languageName: node
   linkType: hard
 
@@ -11440,8 +11460,10 @@ __metadata:
     "@datadog/browser-rum": ^2.8.1
     "@docsearch/css": ^3.0.0
     "@docsearch/react": ^3.0.0
+    "@hookform/error-message": 2.0.0
     "@mdx-js/mdx": ^1.6.22
     "@mdx-js/react": ^1.6.22
+    "@mdx-js/tag": ^0.20.3
     "@reach/router": ^1.3.4
     "@twilio-paste/alert": ^10.0.0
     "@twilio-paste/alert-dialog": ^4.0.0
@@ -11518,6 +11540,7 @@ __metadata:
     "@types/lodash.difference": ^4.5.6
     "@types/lodash.findindex": ^4.6.6
     "@types/lodash.get": ^4.4.6
+    "@types/lodash.isequal": ^4.5.6
     "@types/lodash.kebabcase": ^4.1.6
     "@types/lodash.mapkeys": ^4.6.6
     "@types/lodash.startcase": " ^4.4.6"
@@ -11525,6 +11548,7 @@ __metadata:
     "@types/lodash.uniq": " ^4.5.6"
     "@types/mdx-js__react": ^1.5.5
     color: ^3.1.2
+    date-fns: 2.21.3
     deepmerge: 4.2.2
     dotenv: ^16.0.0
     gatsby: ^4.11.1
@@ -11550,6 +11574,7 @@ __metadata:
     lodash.difference: ^4.5.0
     lodash.findindex: ^4.6.0
     lodash.get: ^4.4.2
+    lodash.isequal: ^4.5.0
     lodash.kebabcase: ^4.1.1
     lodash.mapkeys: ^4.6.0
     lodash.startcase: " ^4.4.0"
@@ -11565,6 +11590,7 @@ __metadata:
     react-dom: ^17.0.2
     react-github-button: ^0.1.11
     react-helmet: ^6.1.0
+    react-hook-form: ^7.30.0
     react-live: ^2.2.2
     react-scrollspy: ^3.4.0
     react-visibility-sensor: 5.1.1
@@ -12184,6 +12210,15 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 41bb672ce8ef3b6e4eec2bb93b75e902459438fbf00776d48e2467b4e1505d197c01a2c4c7c10a55b64fe5b226b798c87a23636d37493ad090f9cefb6a0ebef0
+  languageName: node
+  linkType: hard
+
+"@types/lodash.isequal@npm:^4.5.6":
+  version: 4.5.6
+  resolution: "@types/lodash.isequal@npm:4.5.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 0f065989408a9e0584e6c27495be2cd4602e62650f55266aa195812582444463c0c8570c674ae84f947c11748f49ab43fd5b482fa120e08eeee4c23b162edc38
   languageName: node
   linkType: hard
 
@@ -30392,6 +30427,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
 "lodash.isfinite@npm:^3.3.2":
   version: 3.3.2
   resolution: "lodash.isfinite@npm:3.3.2"
@@ -37418,6 +37460,15 @@ fsevents@~2.1.2:
   peerDependencies:
     react: ">=16.3.0"
   checksum: a4998479dab7fc1c2799eddefb1870a9d881b5f71cfdf97979a9882e42f4bb50402d55335f308f461e735e01a06f46b16cc7b4e6bcb22c7a4a6f85a753c5c106
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.30.0":
+  version: 7.30.0
+  resolution: "react-hook-form@npm:7.30.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 7af442c80e1d8e04b6345f4f46177974d82488e81cc12b165d6ff1c69ba0f6234bd2ef0f7b51dda34f77b36fe74464815bbb0f4c77dc2cd9793f8e89d528ae25
   languageName: node
   linkType: hard
 
