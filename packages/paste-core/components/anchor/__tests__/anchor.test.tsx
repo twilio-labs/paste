@@ -212,8 +212,8 @@ describe('Anchor', () => {
         </CustomizationProvider>
       );
       const renderedAnchor = screen.getByTestId('customizable-anchor');
-      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
     });
     it('should add custom styles to Anchor when a custom element data attribute is used', (): void => {
       render(
@@ -228,8 +228,8 @@ describe('Anchor', () => {
         </CustomizationProvider>
       );
       const renderedAnchor = screen.getByTestId('customizable-anchor');
-      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
     });
   });
 

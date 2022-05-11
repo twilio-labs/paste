@@ -64,9 +64,7 @@ export interface BoxBaseStyleProps
   '-webkit-opacity'?: string;
 }
 
-export type BoxPseudoStyleProps = {
-  [key in keyof typeof PseudoPropStyles]?: BoxBaseStyleProps;
-};
+export type BoxPseudoStyleProps = Partial<Record<keyof typeof PseudoPropStyles, BoxBaseStyleProps>>;
 
 export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 

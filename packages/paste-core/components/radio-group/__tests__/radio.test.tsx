@@ -2,7 +2,7 @@ import * as React from 'react';
 import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
+import {matchers} from '@emotion/jest';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
@@ -437,11 +437,11 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18,28,45)'
+      'rgb(18, 28, 45)'
     );
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
@@ -477,11 +477,11 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18,28,45)'
+      'rgb(18, 28, 45)'
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',

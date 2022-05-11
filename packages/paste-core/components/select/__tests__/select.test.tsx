@@ -296,7 +296,7 @@ describe('Select', () => {
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
-      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3,11,93)');
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3, 11, 93)');
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'help');
       expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #0263e0');
 
@@ -310,7 +310,7 @@ describe('Select', () => {
       expect(nodeNamedIconWrapper).toHaveStyleRule('transform', 'rotate(90deg) translateX(-50%) translateY(-20%)');
 
       const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
-      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174, 178, 193)');
     });
 
     it('should add custom styles to Select for inverse variant', () => {
@@ -326,13 +326,13 @@ describe('Select', () => {
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
-      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3,11,93)');
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3, 11, 93)');
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'help');
       expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #fccfcf');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
-      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141,49,24)');
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141, 49, 24)');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
 
       const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
@@ -340,7 +340,7 @@ describe('Select', () => {
       expect(nodeNamedIconWrapper).toHaveStyleRule('transform', 'rotate(90deg) translateX(-50%) translateY(-20%)');
 
       const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
-      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174, 178, 193)');
     });
 
     it('should add custom styles to Select with a custom element data attribute', () => {
@@ -356,7 +356,7 @@ describe('Select', () => {
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;
-      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214,31,31)');
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214, 31, 31)');
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
@@ -370,7 +370,7 @@ describe('Select', () => {
       expect(nodeNamedIconWrapper).toHaveStyleRule('display', 'inline-flex');
 
       const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
-      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to Select inverse variant with a custom element data attribute', () => {
@@ -386,12 +386,12 @@ describe('Select', () => {
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;
-      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214,31,31)');
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214, 31, 31)');
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
-      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141,49,24)');
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141, 49, 24)');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
 
       const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
@@ -399,7 +399,7 @@ describe('Select', () => {
       expect(nodeNamedIconWrapper).toHaveStyleRule('display', 'inline-flex');
 
       const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
-      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174, 178, 193)');
     });
   });
 });

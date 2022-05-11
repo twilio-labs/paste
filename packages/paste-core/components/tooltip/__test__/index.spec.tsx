@@ -150,8 +150,8 @@ describe('Tooltip', () => {
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
 
-      expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-      expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
+      expect(tooltip).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+      expect(tooltipText).toHaveStyleRule('color', 'rgb(173, 17, 17)');
     });
 
     it('should add custom styling to custom named Tooltip', (): void => {
@@ -175,8 +175,8 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
-      expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
-      expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
+      expect(tooltip).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+      expect(tooltipText).toHaveStyleRule('color', 'rgb(173, 17, 17)');
     });
   });
 

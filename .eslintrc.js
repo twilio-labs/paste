@@ -8,7 +8,16 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion', 'import', 'jsx-a11y'],
+  plugins: [
+    '@typescript-eslint',
+    'eslint-comments',
+    'jest',
+    'promise',
+    'unicorn',
+    '@emotion/eslint-plugin',
+    'import',
+    'jsx-a11y',
+  ],
   extends: [
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',

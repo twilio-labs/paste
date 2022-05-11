@@ -105,7 +105,7 @@ describe('OptionGroup', () => {
         </CustomizationProvider>
       );
 
-      expect(screen.getByTestId('optgroup-1-custom-styles')).toHaveStyleRule('color', 'rgb(14,124,58)');
+      expect(screen.getByTestId('optgroup-1-custom-styles')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
     });
 
     it('should add custom styles to OptionGroup with a custom element data attribute', () => {
@@ -126,7 +126,7 @@ describe('OptionGroup', () => {
         </CustomizationProvider>
       );
 
-      expect(screen.getByTestId('optgroup-1-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2,99,224)');
+      expect(screen.getByTestId('optgroup-1-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2, 99, 224)');
     });
   });
 });

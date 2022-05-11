@@ -29,7 +29,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputBox = screen.getByText('input-box');
-    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a InputBox variant', (): void => {
@@ -53,7 +53,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputBox = screen.getByText('input-box');
-    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 
   it('should add custom styles to InputBox with a custom element data attribute', (): void => {
@@ -68,7 +68,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputBox = screen.getByText('input-box');
-    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a InputBox variant with a custom element data attribute', (): void => {
@@ -92,6 +92,6 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputBox = screen.getByText('input-box');
-    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 });

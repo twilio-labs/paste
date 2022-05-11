@@ -175,8 +175,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-media-object');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 
   it('should add custom styles to MediaFigure', (): void => {
@@ -189,8 +189,8 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-media-figure');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 
   it('should add custom styles to MediaBody', (): void => {
@@ -203,7 +203,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-media-body');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });

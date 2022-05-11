@@ -2,8 +2,8 @@
 
 exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -11,123 +11,123 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.emotion-0:hover {
-  color: rgb(2,99,224);
+.emotion-1:hover {
+  color: rgb(2, 99, 224);
 }
 
-.emotion-0:active,
-.emotion-0[data-active=true] {
-  color: rgb(0,20,137);
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  color: rgb(0, 20, 137);
 }
 
-.emotion-0:focus {
-  color: rgb(3,11,93);
+.emotion-1:focus {
+  color: rgb(3, 11, 93);
 }
 
-.emotion-0:visited {
-  color: rgb(214,31,31);
+.emotion-1:visited {
+  color: rgb(214, 31, 31);
 }
 
-.emotion-0:nth-of-type(even) {
+.emotion-1:nth-of-type(even) {
   padding: 0.75rem;
 }
 
-.emotion-0:nth-of-type(odd) {
+.emotion-1:nth-of-type(odd) {
   margin: 0.5rem;
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
-.emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
   padding-top: 0.75rem;
 }
 
-.emotion-0:checked,
-.emotion-0[aria-checked=true] {
+.emotion-1:checked,
+.emotion-1[aria-checked=true] {
   padding-right: 0.75rem;
 }
 
-.emotion-0:indeterminate,
-.emotion-0[aria-checked=mixed] {
+.emotion-1:indeterminate,
+.emotion-1[aria-checked=mixed] {
   padding-bottom: 0.75rem;
 }
 
-.emotion-0[aria-selected=true] {
+.emotion-1[aria-selected=true] {
   padding-left: 0.75rem;
 }
 
-.emotion-0:invalid,
-.emotion-0[aria-invalid=true] {
+.emotion-1:invalid,
+.emotion-1[aria-invalid=true] {
   margin-top: 0.75rem;
 }
 
-.emotion-0[aria-pressed=true] {
+.emotion-1[aria-pressed=true] {
   margin-right: 0.75rem;
 }
 
-.emotion-0[aria-readonly=true],
-.emotion-0[readonly] {
+.emotion-1[aria-readonly=true],
+.emotion-1[readonly] {
   margin-bottom: 0.75rem;
 }
 
-.emotion-0:first-of-type {
+.emotion-1:first-of-type {
   margin-left: 0.75rem;
 }
 
-.emotion-0:last-of-type {
-  color: rgb(153,205,255);
+.emotion-1:last-of-type {
+  color: rgb(153, 205, 255);
 }
 
-.emotion-0[aria-expanded=true] {
-  color: rgb(174,178,193);
+.emotion-1[aria-expanded=true] {
+  color: rgb(174, 178, 193);
 }
 
-.emotion-0[aria-grabbed=true] {
-  color: rgb(14,124,58);
+.emotion-1[aria-grabbed=true] {
+  color: rgb(14, 124, 58);
 }
 
-.emotion-0:not(:first-of-type) {
-  color: rgb(141,49,24);
+.emotion-1:not(:first-of-type) {
+  color: rgb(141, 49, 24);
 }
 
-.emotion-0:not(:last-of-type) {
-  color: rgb(141,49,24);
+.emotion-1:not(:last-of-type) {
+  color: rgb(141, 49, 24);
 }
 
-.emotion-0:before {
+.emotion-1:before {
   content: "Before text";
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.emotion-0:after {
+.emotion-1:after {
   content: "After text";
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.emotion-0:focus-within {
-  color: rgb(96,107,133);
+.emotion-1:focus-within {
+  color: rgb(96, 107, 133);
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       PseudoBox
@@ -138,8 +138,8 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 
 exports[`as should render as a provided HTML element 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -147,19 +147,19 @@ exports[`as should render as a provided HTML element 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <label
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       background single
@@ -170,8 +170,8 @@ exports[`as should render as a provided HTML element 1`] = `
 
 exports[`color should set a color property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -179,19 +179,19 @@ exports[`color should set a color property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       color single
@@ -202,8 +202,8 @@ exports[`color should set a color property 1`] = `
 
 exports[`color should set a responsive color property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -211,25 +211,25 @@ exports[`color should set a responsive color property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(214,31,31);
+  color: rgb(214, 31, 31);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
-    color: rgb(14,124,58);
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
+    color: rgb(14, 124, 58);
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       color responsive
@@ -240,8 +240,8 @@ exports[`color should set a responsive color property 1`] = `
 
 exports[`display should set a display property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -249,20 +249,20 @@ exports[`display should set a display property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       display single
@@ -273,8 +273,8 @@ exports[`display should set a display property 1`] = `
 
 exports[`display should set a responsive display property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -282,26 +282,26 @@ exports[`display should set a responsive display property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     display: block;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       display responsive
@@ -312,8 +312,8 @@ exports[`display should set a responsive display property 1`] = `
 
 exports[`fontFamily should set a font family property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -321,20 +321,20 @@ exports[`fontFamily should set a font family property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-family: 'Fira Mono',Courier,monospace;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font family single
@@ -345,8 +345,8 @@ exports[`fontFamily should set a font family property 1`] = `
 
 exports[`fontFamily should set a responsive font family property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -354,26 +354,26 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     font-family: 'Fira Mono',Courier,monospace;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font family responsive
@@ -384,8 +384,8 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 
 exports[`fontSize should set a font size property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -393,19 +393,19 @@ exports[`fontSize should set a font size property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.625rem;
   line-height: 1.25rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font size single
@@ -416,8 +416,8 @@ exports[`fontSize should set a font size property 1`] = `
 
 exports[`fontSize should set a responsive font size property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -425,25 +425,25 @@ exports[`fontSize should set a responsive font size property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.75rem;
   line-height: 1.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     font-size: 0.875rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font size responsive
@@ -454,8 +454,8 @@ exports[`fontSize should set a responsive font size property 1`] = `
 
 exports[`fontStyle should set a font style property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -463,20 +463,20 @@ exports[`fontStyle should set a font style property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-style: italic;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font style single
@@ -487,8 +487,8 @@ exports[`fontStyle should set a font style property 1`] = `
 
 exports[`fontStyle should set a responsive font style property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -496,26 +496,26 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-style: italic;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     font-style: normal;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font style responsive
@@ -526,8 +526,8 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 
 exports[`fontWeight should set a font weight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -535,20 +535,20 @@ exports[`fontWeight should set a font weight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 700;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font weight single
@@ -559,8 +559,8 @@ exports[`fontWeight should set a font weight property 1`] = `
 
 exports[`fontWeight should set a responsive font weight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -568,26 +568,26 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     font-weight: 600;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       font weight responsive
@@ -598,8 +598,8 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 
 exports[`letterSpacing should set a letter spacing property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -607,23 +607,20 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       letter spacing single
@@ -634,8 +631,8 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 
 exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -643,32 +640,26 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  -webkit-letter-spacing: -2px;
-  -moz-letter-spacing: -2px;
-  -ms-letter-spacing: -2px;
   letter-spacing: -2px;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
-    -webkit-letter-spacing: 3px;
-    -moz-letter-spacing: 3px;
-    -ms-letter-spacing: 3px;
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     letter-spacing: 3px;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       letter spacing responsive
@@ -679,8 +670,8 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 
 exports[`lineHeight should set a line height property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -688,19 +679,19 @@ exports[`lineHeight should set a line height property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       line height single
@@ -711,8 +702,8 @@ exports[`lineHeight should set a line height property 1`] = `
 
 exports[`lineHeight should set a responsive line height property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -720,25 +711,25 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     line-height: 1.25rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       line height responsive
@@ -749,8 +740,8 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 
 exports[`margin should set a margin property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -758,19 +749,19 @@ exports[`margin should set a margin property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0.125rem;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       margin single
@@ -781,8 +772,8 @@ exports[`margin should set a margin property 1`] = `
 
 exports[`margin should set a responsive margin property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -790,25 +781,25 @@ exports[`margin should set a responsive margin property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0.25rem;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     margin: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       margin responsive
@@ -819,8 +810,8 @@ exports[`margin should set a responsive margin property 1`] = `
 
 exports[`marginBottom should set a marginBottom property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -828,20 +819,20 @@ exports[`marginBottom should set a marginBottom property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginBottom single
@@ -852,8 +843,8 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 
 exports[`marginBottom should set a responsive marginBottom property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -861,26 +852,26 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     margin-bottom: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginBottom responsive
@@ -891,8 +882,8 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 
 exports[`marginLeft should set a marginLeft property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -900,20 +891,20 @@ exports[`marginLeft should set a marginLeft property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-left: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginLeft single
@@ -924,8 +915,8 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 
 exports[`marginLeft should set a responsive marginLeft property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -933,26 +924,26 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-left: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     margin-left: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginLeft responsive
@@ -963,8 +954,8 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 
 exports[`marginRight should set a marginRight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -972,20 +963,20 @@ exports[`marginRight should set a marginRight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-right: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginRight single
@@ -996,8 +987,8 @@ exports[`marginRight should set a marginRight property 1`] = `
 
 exports[`marginRight should set a responsive marginRight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1005,26 +996,26 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-right: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     margin-right: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginRight responsive
@@ -1035,8 +1026,8 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 
 exports[`marginTop should set a marginTop property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1044,20 +1035,20 @@ exports[`marginTop should set a marginTop property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-top: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginTop single
@@ -1068,8 +1059,8 @@ exports[`marginTop should set a marginTop property 1`] = `
 
 exports[`marginTop should set a responsive marginTop property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1077,26 +1068,26 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-top: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     margin-top: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       marginTop responsive
@@ -1107,8 +1098,8 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 
 exports[`padding should set a padding property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1116,19 +1107,19 @@ exports[`padding should set a padding property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0.125rem;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       padding single
@@ -1139,8 +1130,8 @@ exports[`padding should set a padding property 1`] = `
 
 exports[`padding should set a responsive padding property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1148,25 +1139,25 @@ exports[`padding should set a responsive padding property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0.25rem;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     padding: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       padding responsive
@@ -1177,8 +1168,8 @@ exports[`padding should set a responsive padding property 1`] = `
 
 exports[`paddingBottom should set a paddingBottom property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1186,20 +1177,20 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-bottom: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingBottom single
@@ -1210,8 +1201,8 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 
 exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1219,26 +1210,26 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-bottom: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     padding-bottom: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingBottom responsive
@@ -1249,8 +1240,8 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 
 exports[`paddingLeft should set a paddingLeft property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1258,20 +1249,20 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-left: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingLeft single
@@ -1282,8 +1273,8 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 
 exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1291,26 +1282,26 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-left: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     padding-left: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingLeft responsive
@@ -1321,8 +1312,8 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 
 exports[`paddingRight should set a paddingRight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1330,20 +1321,20 @@ exports[`paddingRight should set a paddingRight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-right: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingRight single
@@ -1354,8 +1345,8 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 
 exports[`paddingRight should set a responsive paddingRight property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1363,26 +1354,26 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-right: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     padding-right: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingRight responsive
@@ -1393,8 +1384,8 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 
 exports[`paddingTop should set a paddingTop property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1402,20 +1393,20 @@ exports[`paddingTop should set a paddingTop property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-top: 0.125rem;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingTop single
@@ -1426,8 +1417,8 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 
 exports[`paddingTop should set a responsive paddingTop property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1435,26 +1426,26 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-top: 0.25rem;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     padding-top: 0.5rem;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       paddingTop responsive
@@ -1465,8 +1456,8 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 
 exports[`textAlign should set a responsive textAlign property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1474,26 +1465,26 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     text-align: left;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       textAlign responsive
@@ -1504,8 +1495,8 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 
 exports[`textAlign should set a textAlign property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1513,20 +1504,20 @@ exports[`textAlign should set a textAlign property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: right;
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       textAlign single
@@ -1537,8 +1528,8 @@ exports[`textAlign should set a textAlign property 1`] = `
 
 exports[`textDecoration should set a responsive textDecoration property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1546,28 +1537,28 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+@media screen and (min-width: 25rem) {
+  .emotion-1 {
     -webkit-text-decoration: normal;
     text-decoration: normal;
   }
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       textDecoration responsive
@@ -1578,8 +1569,8 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 
 exports[`textDecoration should set a textDecoration property 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  color: rgb(18,28,45);
+  .emotion-0 {
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1587,10 +1578,10 @@ exports[`textDecoration should set a textDecoration property 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
-  color: rgb(18,28,45);
+  color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
   -webkit-text-decoration: underline;
@@ -1598,10 +1589,10 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 }
 
 <div
-    class="emotion-1"
+    class="emotion-0"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
       data-paste-element="TEXT"
     >
       textDecoration single

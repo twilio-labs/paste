@@ -104,11 +104,11 @@ describe('Modal Customization', () => {
         ),
       });
 
-      expect(screen.getByTestId('mock-reach-dialog-overlay')).toHaveStyleRule('background-color', 'rgb(6,3,58)');
+      expect(screen.getByTestId('mock-reach-dialog-overlay')).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
 
       expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('border-radius', '8px');
-      expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18,28,45,0.2)');
-      expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
+      expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
 
       expect(screen.getByTestId('modal-header-test-id')).toHaveStyleRule('border-width', '0');
       expect(screen.getByTestId('modal-header-test-id')).toHaveStyleRule('border-style', 'none');
@@ -146,7 +146,7 @@ describe('Modal Customization', () => {
         ),
       });
 
-      expect(screen.getByTestId('mock-reach-dialog-overlay')).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(screen.getByTestId('mock-reach-dialog-overlay')).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
 
       expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('max-width', 'unset');
       expect(screen.getByTestId('modal-test-id')).toHaveStyleRule('width', '70%');

@@ -1,12 +1,13 @@
 import type { GenericThemeShape } from '@twilio-paste/theme';
-import type { EmotionMatchers } from 'jest-emotion'
+import type { EmotionMatchers } from '@emotion/jest';
 
 declare global {
   const TestTheme: GenericThemeShape;
 }
 
-declare module 'jest-emotion' {
-  interface Jest {
-    JestMatchers: EmotionMatchers;
-  }
+declare module '@emotion/jest' {
+    interface Jest {
+      JestMatchers: EmotionMatchers;
+    }
+
 }

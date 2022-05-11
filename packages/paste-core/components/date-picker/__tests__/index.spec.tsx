@@ -116,8 +116,8 @@ describe('DatePicker', () => {
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="DATEPICKER"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
-      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(6,3,58)');
-      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(242,47,70)');
+      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
+      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(242, 47, 70)');
     });
 
     it('should add custom styles to the DatePicker Component variant', () => {
@@ -135,8 +135,8 @@ describe('DatePicker', () => {
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="DATEPICKER"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
-      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     });
 
     it('should add custom styles to a custom DatePicker Component', () => {
@@ -154,8 +154,8 @@ describe('DatePicker', () => {
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="CUSTOMDATE"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
-      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(244,124,34)');
-      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(214,31,31)');
+      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
+      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
     });
 
     it('should add custom styles to a custom DatePicker Component variant', () => {
@@ -173,8 +173,8 @@ describe('DatePicker', () => {
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="CUSTOMDATE"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
-      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(231,220,250)');
-      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(renderedDatepicker).toHaveStyleRule('background-color', 'rgb(231, 220, 250)');
+      expect(renderedDatepickerElement).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 

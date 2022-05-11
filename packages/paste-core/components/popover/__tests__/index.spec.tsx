@@ -164,17 +164,17 @@ describe('Popover', () => {
       // applied style rules
       expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toHaveStyleRule(
         'background-color',
-        'rgb(244,244,246)'
+        'rgb(244, 244, 246)'
       );
       expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18,28,45)'
+        'rgb(18, 28, 45)'
       );
       expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255,255,255)'
+        'rgb(255, 255, 255)'
       );
-      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
     });
 
     it('should set a custom element name and properly apply styles to Popover and customizable children', (): void => {
@@ -212,18 +212,18 @@ describe('Popover', () => {
 
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER"]')).toHaveStyleRule(
         'background-color',
-        'rgb(244,244,246)'
+        'rgb(244, 244, 246)'
       );
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18,28,45)'
+        'rgb(18, 28, 45)'
       );
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255,255,255)'
+        'rgb(255, 255, 255)'
       );
 
-      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
     });
   });
 

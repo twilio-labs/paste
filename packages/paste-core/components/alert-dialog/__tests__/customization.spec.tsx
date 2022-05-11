@@ -64,17 +64,17 @@ describe('Alert Dialog `element` prop', () => {
 describe('Alert Dialog customization', () => {
   it('should apply styles to Alert Dialog', () => {
     const {container} = render(<CustomizedAlertDialog />);
-    expect(screen.getByTestId('alert_dialog')).toHaveStyleRule('background-color', 'rgb(255,241,179)');
+    expect(screen.getByTestId('alert_dialog')).toHaveStyleRule('background-color', 'rgb(255, 241, 179)');
     expect(container.querySelector('[data-paste-element="ALERT_DIALOG_HEADER_WRAPPER"]')).toHaveStyleRule(
       'border',
       'inherit'
     );
-    expect(screen.getByText('Alert Dialog')).toHaveStyleRule('background-color', 'rgb(235,244,255)');
+    expect(screen.getByText('Alert Dialog')).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
     expect(
       screen.getByText(
         'Are you sure you want to submit this application? No information can be changed after submitting.'
       )
-    ).toHaveStyleRule('background-color', 'rgb(237,253,243)');
+    ).toHaveStyleRule('background-color', 'rgb(237, 253, 243)');
     expect(container.querySelector('[data-paste-element="ALERT_DIALOG_FOOTER"]')).toHaveStyleRule(
       'padding-top',
       '1rem'
@@ -82,12 +82,12 @@ describe('Alert Dialog customization', () => {
   });
   it('should apply styles to Alert Dialog with custom element prop', () => {
     const {container} = render(<CustomizedDestructiveAlertDialog />);
-    expect(screen.getByTestId('destructive_alert_dialog')).toHaveStyleRule('background-color', 'rgb(214,31,31)');
+    expect(screen.getByTestId('destructive_alert_dialog')).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
     expect(container.querySelector('[data-paste-element="FOO_HEADER_WRAPPER"]')).toHaveStyleRule('border', 'inherit');
-    expect(screen.getByText('Alert Dialog')).toHaveStyleRule('background-color', 'rgb(235,244,255)');
+    expect(screen.getByText('Alert Dialog')).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
     expect(
       screen.getByText('Are you sure you want to delete this data? This action cannot be undone.')
-    ).toHaveStyleRule('background-color', 'rgb(237,253,243)');
+    ).toHaveStyleRule('background-color', 'rgb(237, 253, 243)');
     expect(container.querySelector('[data-paste-element="FOO_FOOTER"]')).toHaveStyleRule('padding-top', '1rem');
   });
 });

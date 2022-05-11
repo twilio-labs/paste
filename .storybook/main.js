@@ -38,6 +38,7 @@ module.exports = {
             'packages/paste-nextjs-template/**/*',
             'packages/paste-website/**/*',
             'packages/paste-cra-template/template/**/*',
+            '**/__tests__/**',
           ],
         },
       },
@@ -69,6 +70,9 @@ module.exports = {
     const customAlias = {
       'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
       'scheduler/tracing': 'scheduler/tracing-profiling',
+      '@emotion/core': path.resolve(__dirname, '../node_modules/@emotion/react'),
+      '@emotion/styled': path.resolve(__dirname, '../node_modules/@emotion/styled'),
+      'emotion-theming': path.resolve(__dirname, '../node_modules/@emotion/react'),
     };
     config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
 

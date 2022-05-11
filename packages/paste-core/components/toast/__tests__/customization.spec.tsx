@@ -27,16 +27,16 @@ describe('Toast customization', () => {
         {makeToast('warning')}
       </CustomizationProvider>
     );
-    expect(screen.getByTestId('toast_warning')).toHaveStyleRule('background-color', 'rgb(254,245,238)');
+    expect(screen.getByTestId('toast_warning')).toHaveStyleRule('background-color', 'rgb(254, 245, 238)');
     expect(screen.getByTestId('toast_warning')).toHaveStyleRule('width', '18.5rem');
-    expect(container.querySelector('[data-paste-element="TOAST_ICON"]')).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(container.querySelector('[data-paste-element="TOAST_ICON"]')).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     expect(container.querySelector('[data-paste-element="TOAST_CLOSE_BUTTON"]')).toHaveStyleRule(
       'cursor',
       'not-allowed'
     );
     expect(container.querySelector('[data-paste-element="TOAST_CLOSE_ICON"]')).toHaveStyleRule(
       'color',
-      'rgb(214,31,31)'
+      'rgb(214, 31, 31)'
     );
   });
   it('should set styles on custom element Toast', () => {
@@ -45,10 +45,13 @@ describe('Toast customization', () => {
         {makeToast('error', 'FOO')}
       </CustomizationProvider>
     );
-    expect(screen.getByTestId('toast_error')).toHaveStyleRule('background-color', 'rgb(254,236,236)');
+    expect(screen.getByTestId('toast_error')).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
     expect(screen.getByTestId('toast_error')).toHaveStyleRule('width', '18.5rem');
-    expect(container.querySelector('[data-paste-element="FOO_ICON"]')).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(container.querySelector('[data-paste-element="FOO_ICON"]')).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     expect(container.querySelector('[data-paste-element="FOO_CLOSE_BUTTON"]')).toHaveStyleRule('cursor', 'not-allowed');
-    expect(container.querySelector('[data-paste-element="FOO_CLOSE_ICON"]')).toHaveStyleRule('color', 'rgb(214,31,31)');
+    expect(container.querySelector('[data-paste-element="FOO_CLOSE_ICON"]')).toHaveStyleRule(
+      'color',
+      'rgb(214, 31, 31)'
+    );
   });
 });

@@ -29,7 +29,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');
-    expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to InputChevronWrapper with a custom element data attribute', (): void => {
@@ -44,6 +44,6 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');
-    expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 });

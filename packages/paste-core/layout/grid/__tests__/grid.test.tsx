@@ -369,8 +369,8 @@ describe('Grid', () => {
         </CustomizationProvider>
       );
       const renderedBox = screen.getByTestId('customizable-grid');
-      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to Grid with a custom element data attribute', (): void => {
@@ -386,8 +386,8 @@ describe('Grid', () => {
         </CustomizationProvider>
       );
       const renderedBox = screen.getByTestId('customizable-grid');
-      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to Column', (): void => {
@@ -401,8 +401,8 @@ describe('Grid', () => {
         </CustomizationProvider>
       );
       const renderedBox = screen.getByTestId('customizable-column');
-      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to Column with a custom element data attribute', (): void => {
@@ -418,8 +418,8 @@ describe('Grid', () => {
         </CustomizationProvider>
       );
       const renderedBox = screen.getByTestId('customizable-column');
-      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
   });
 });

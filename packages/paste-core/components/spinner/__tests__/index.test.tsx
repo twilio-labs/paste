@@ -74,7 +74,7 @@ describe('Spinner', () => {
 
       const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(14,124,58)');
+      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(14, 124, 58)');
     });
 
     it('should add custom styles to Spinner with a custom element data attribute', () => {
@@ -94,8 +94,8 @@ describe('Spinner', () => {
 
       expect(nodeNamedSpinner).toHaveStyleRule('height', '2.5rem');
       expect(nodeNamedSpinner).toHaveStyleRule('width', '2.5rem');
-      expect(nodeNamedSpinner).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255,255,255)');
+      expect(nodeNamedSpinner).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255, 255, 255)');
       expect(nodeNamedSpinner).toHaveStyleRule('align-self', 'flex-start');
       expect(nodeNamedSpinner).toHaveStyleRule('padding', '0.25rem');
     });
