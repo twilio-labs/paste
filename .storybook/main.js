@@ -1,8 +1,13 @@
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const path = require('path');
 
+const includePerfStories = process.env.INCLUDE_PERF_STORIES === 'true';
+
+const DEFAULT_STORIES_PATTERNS = ['../packages/**/*.stories.mdx', '../packages/**/*.(stories).@(js|jsx|ts|tsx)'];
+const PERFORMANCE_STORY_PATTERN = '../packages/**/*.stories.performance.@(js|jsx|ts|tsx)';
+
 module.exports = {
-  stories: ['../packages/**/*.stories.mdx', '../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: includePerfStories ? [...DEFAULT_STORIES_PATTERNS, PERFORMANCE_STORY_PATTERN] : DEFAULT_STORIES_PATTERNS,
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
