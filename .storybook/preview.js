@@ -60,6 +60,10 @@ const GlobalStyles = () => (
   />
 );
 
+RenderPerformanceProfiler.displayName = `PasteStorybook.${RenderPerformanceProfiler.name}`;
+
+Theme.Provider.displayName = 'PasteStorybook.ThemeProvider';
+
 export const decorators = [
   (Story, context) => {
     const theme = context.globals.theme;

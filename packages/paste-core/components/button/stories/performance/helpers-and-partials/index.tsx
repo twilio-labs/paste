@@ -179,3 +179,7 @@ export const getButtonComponent = (variant: ButtonVariants): React.FunctionCompo
       return PrimaryButton;
   }
 };
+
+export const StoryWrapper: React.FC = ({children}) => <>{children}</>;
+
+StoryWrapper.displayName = 'PasteStorybook.StoryWrapper';
