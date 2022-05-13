@@ -1,3 +1,4 @@
+import type {NextPage} from 'next';
 import Head from 'next/head';
 import {Anchor} from '@twilio-paste/core/anchor';
 import {Heading} from '@twilio-paste/core/heading';
@@ -6,7 +7,7 @@ import {Paragraph} from '@twilio-paste/core/paragraph';
 import {ListItem, UnorderedList} from '@twilio-paste/core/list';
 import {Separator} from '@twilio-paste/core/separator';
 
-const Home: React.FC = () => {
+const Home: NextPage = () => {
   return (
     <Box as="main" padding="space70">
       <Head>
