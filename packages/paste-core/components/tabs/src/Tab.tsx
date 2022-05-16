@@ -109,7 +109,13 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
   const elementName = getElementName(orientation, 'TAB', element);
 
   return (
-    <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
+    <TabPrimitive
+      {...(tab as any)}
+      {...tabProps}
+      // Setting orientation to undefined for vertical tabs enables up/down and left/right arrow key control
+      orientation={orientation === 'vertical' ? undefined : 'horizontal'}
+      ref={ref}
+    >
       {(props: TabProps) => {
         return (
           <Box
@@ -134,13 +140,11 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
   );
 });
 
-if (process.env.NODE_ENV === 'development') {
-  Tab.propTypes = {
-    id: PropTypes.string,
-    focusable: PropTypes.bool,
-    disabled: PropTypes.bool,
-  };
-}
+Tab.propTypes = {
+  id: PropTypes.string,
+  focusable: PropTypes.bool,
+  disabled: PropTypes.bool,
+};
 
 Tab.displayName = 'Tab';
 

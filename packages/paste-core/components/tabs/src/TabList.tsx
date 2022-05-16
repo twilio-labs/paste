@@ -56,14 +56,12 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, eleme
   );
 });
 
-if (process.env.NODE_ENV === 'development') {
-  TabList.propTypes = {
-    'aria-label': PropTypes.string.isRequired,
-    focusable: PropTypes.bool,
-    disabled: PropTypes.bool,
-    element: PropTypes.string,
-  };
-}
+TabList.propTypes = {
+  'aria-label': PropTypes.string.isRequired,
+  focusable: PropTypes.bool,
+  disabled: PropTypes.bool,
+  element: PropTypes.string,
+};
 
 TabList.displayName = 'TabList';
 export {TabList};

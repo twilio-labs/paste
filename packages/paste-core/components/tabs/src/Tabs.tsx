@@ -45,14 +45,12 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   }
 );
 
-if (process.env.NODE_ENV === 'development') {
-  Tabs.propTypes = {
-    element: PropTypes.string,
-    selectedId: PropTypes.string,
-    orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
-    variant: PropTypes.oneOf(['fitted', null]),
-  };
-}
+Tabs.propTypes = {
+  element: PropTypes.string,
+  selectedId: PropTypes.string,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
+  variant: PropTypes.oneOf(['fitted', null]),
+};
 
 Tabs.displayName = 'Tabs';
 export {Tabs};
