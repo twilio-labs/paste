@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {Title, Description, Primary} from '@storybook/addon-docs';
 import type {ButtonProps, ButtonStates} from '../../src/types';
 
 import {PrimaryButton} from '../../src/PrimaryButton';
-import {Wrapper} from './helpers-and-partials';
 
 const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
@@ -114,16 +114,8 @@ export default {
       ),
     },
   },
-  decorators: [
-    (Story: StoryFn) => {
-      return (
-        <Wrapper>
-          <Story />
-        </Wrapper>
-      );
-    },
-  ],
 };
 
 export const First: StoryFn = () => <Button variant="primary">Test</Button>;
 First.storyName = 'First test';
+(First as React.FC).displayName = 'TESTING AGINA';

@@ -179,7 +179,3 @@ export const getButtonComponent = (variant: ButtonVariants): React.FunctionCompo
       return PrimaryButton;
   }
 };
-
-export const Wrapper: React.FC = ({children}) => <>{children}</>;
-
-Wrapper.displayName = 'PASTE.TEST_WRAPPER';

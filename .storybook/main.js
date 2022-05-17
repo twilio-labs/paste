@@ -1,8 +1,11 @@
+const {isChromatic} = require('chromatic');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const path = require('path');
 
-const includePerfStories = process.env.INCLUDE_PERF_STORIES === 'true';
+const includePerfStories = process.env.STORYBOOK_PROFILER != null;
 
+// TODO invalid glob warning
+// https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#correct-globs-in-mainjs
 const DEFAULT_STORIES_PATTERNS = ['../packages/**/*.stories.mdx', '../packages/**/*.(stories).@(js|jsx|ts|tsx)'];
 const PERFORMANCE_STORY_PATTERN = '../packages/**/*.stories.performance.@(js|jsx|ts|tsx)';
 

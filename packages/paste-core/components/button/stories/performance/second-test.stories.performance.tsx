@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {Title, Description, Primary} from '@storybook/addon-docs';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import type {StoryFn} from '@storybook/react';
 import type {ButtonProps, ButtonStates} from '../../src/types';
 
 import {PrimaryButton} from '../../../button/src/PrimaryButton';
-import {Wrapper} from './helpers-and-partials';
 
 const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
@@ -162,15 +162,6 @@ export default {
       ),
     },
   },
-  decorators: [
-    (Story: StoryFn) => {
-      return (
-        <Wrapper>
-          <Story />
-        </Wrapper>
-      );
-    },
-  ],
 };
 
 export const Second: StoryFn = () => <Button variant="primary">Test</Button>;

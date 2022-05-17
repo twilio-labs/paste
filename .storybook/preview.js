@@ -1,12 +1,13 @@
 import React from 'react';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
+
 import isChromatic from 'chromatic/isChromatic';
 import {StylingGlobals} from '@twilio-paste/styling-library';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Grid, Column} from '@twilio-paste/grid';
-import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
+import {StoryWrapper} from './RenderPerformanceProfiler';
 
 const disableAnimations = isChromatic();
 
@@ -60,8 +61,21 @@ const GlobalStyles = () => (
   />
 );
 
+const formatSuffix = (str) => (str ? str.padStart(str.length + 2, '--') : '');
+const formatPrefix = (str) => (str ? str.padEnd(str.length + 2, '--') : '');
+const getUndecoratedStory = (context) => context.undecoratedStoryFn(context);
+const createProfilerId = (id, prefix, suffix) => `${formatPrefix(prefix)}${id}${formatSuffix(suffix)}`;
+
+const StorybookThemeProvider = ({children, theme, disableAnimations}) => (
+  <Theme.Provider theme={theme} disableAnimations={disableAnimations}>
+    {children}
+  </Theme.Provider>
+);
+
+StorybookThemeProvider.displayName = 'PasteStorybook.ThemeProvider';
+
 export const decorators = [
-  (Story, context) => {
+  (_noop, context) => {
     const theme = context.globals.theme;
     const layout = context.globals.theme_layout;
     const lang = context.globals.locale;
@@ -76,72 +90,112 @@ export const decorators = [
         break;
     }
 
+    // remove unnecessary fragment that wraps the decorated story.
+    const story = getUndecoratedStory(context);
+
     switch (layout) {
       default:
       case 'default':
         return (
-          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
+          <>
             <GlobalStyles />
-            <Theme.Provider theme={theme} disableAnimations={disableAnimations}>
+            <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
               <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                <Story />
+                <StoryWrapper
+                  id={createProfilerId(context.id, 'TEST', 'default-layout')}
+                  kind={context.kind}
+                  view="default"
+                >
+                  {story}
+                </StoryWrapper>
               </Box>
-            </Theme.Provider>
-          </RenderPerformanceProfiler>
+            </StorybookThemeProvider>
+          </>
         );
+
       case 'side-by-side':
         return (
-          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="side-by-side">
+          <>
             <GlobalStyles />
             <Grid>
               <Column>
-                <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+                <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                    <Story />
+                    <StoryWrapper
+                      id={createProfilerId(context.id, 'TEST', 'sbs-layout')}
+                      kind={context.kind}
+                      view="side-by-side"
+                    >
+                      {story}
+                    </StoryWrapper>
                   </Box>
-                </Theme.Provider>
+                </StorybookThemeProvider>
               </Column>
               <Column>
-                <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
-                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                    <Story />
-                  </Box>
-                </Theme.Provider>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <StorybookThemeProvider theme="dark" disableAnimations={disableAnimations}>
+                    {story}
+                  </StorybookThemeProvider>
+                </Box>
               </Column>
             </Grid>
-          </RenderPerformanceProfiler>
+          </>
         );
       case 'stacked':
         return (
-          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
+          <>
             <GlobalStyles />
             <Stack orientation="vertical">
-              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+              <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                  <Story />
+                  <StoryWrapper
+                    id={createProfilerId(context.id, 'TEST', 'stacked-layout--default-1')}
+                    kind={context.kind}
+                    view="stacked"
+                  >
+                    {story}
+                  </StoryWrapper>
                 </Box>
-              </Theme.Provider>
-              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+              </StorybookThemeProvider>
+              <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
-                    <Story />
+                    <StoryWrapper
+                      id={createProfilerId(context.id, 'TEST', 'stacked-layout--default-2')}
+                      kind={context.kind}
+                      view="stacked"
+                    >
+                      {story}
+                    </StoryWrapper>
                   </Box>
                 </Box>
-              </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
+              </StorybookThemeProvider>
+              <StorybookThemeProvider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                  <Story />
+                  <StoryWrapper
+                    id={createProfilerId(context.id, 'TEST', 'stacked-layout--dark-1')}
+                    kind={context.kind}
+                    view="stacked"
+                  >
+                    {story}
+                  </StoryWrapper>
                 </Box>
-              </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
+              </StorybookThemeProvider>
+              <StorybookThemeProvider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
-                    <Story />
+                    <StoryWrapper
+                      id={createProfilerId(context.id, 'TEST', 'stacked-layout--dark-2')}
+                      kind={context.kind}
+                      view="stacked"
+                    >
+                      {story}
+                    </StoryWrapper>
                   </Box>
                 </Box>
-              </Theme.Provider>
+              </StorybookThemeProvider>
             </Stack>
-          </RenderPerformanceProfiler>
+          </>
         );
     }
   },

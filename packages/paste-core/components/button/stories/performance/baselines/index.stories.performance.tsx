@@ -1,12 +1,11 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {Title, Description, Stories} from '@storybook/addon-docs';
 import {Alert} from '@twilio-paste/alert';
 
 import {Button} from '../../../src/index';
-
-import {Wrapper} from '../helpers-and-partials';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -37,15 +36,6 @@ ButtonElement.parameters = {
     },
   },
 };
-ButtonElement.decorators = [
-  (Story: StoryFn) => {
-    return (
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    );
-  },
-];
 
 export const NullBaseline: React.FC = () => null;
 (NullBaseline as StoryFn).storyName = 'Null render of canvas';
@@ -57,15 +47,6 @@ export const NullBaseline: React.FC = () => null;
     },
   },
 };
-(NullBaseline as StoryFn).decorators = [
-  (Story: StoryFn) => {
-    return (
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    );
-  },
-];
 
 export const PrimaryButton: StoryFn = () => <Button variant="primary">Primary btn</Button>;
 PrimaryButton.storyName = 'Single primary button';
@@ -76,15 +57,6 @@ PrimaryButton.parameters = {
     },
   },
 };
-PrimaryButton.decorators = [
-  (Story: StoryFn) => {
-    return (
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    );
-  },
-];
 
 export const BoxAsButton: StoryFn = () => <Box as="button">Box as btn</Box>;
 BoxAsButton.storyName = '"Box as button" element';
@@ -96,15 +68,6 @@ BoxAsButton.parameters = {
     },
   },
 };
-BoxAsButton.decorators = [
-  (Story: StoryFn) => {
-    return (
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    );
-  },
-];
 
 export const AlertBaseline: StoryFn = () => <Alert variant="neutral">Test test test</Alert>;
 AlertBaseline.storyName = 'Alert baseline';
@@ -116,12 +79,3 @@ AlertBaseline.parameters = {
     },
   },
 };
-AlertBaseline.decorators = [
-  (Story: StoryFn) => {
-    return (
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    );
-  },
-];
