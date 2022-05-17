@@ -7,7 +7,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Grid, Column} from '@twilio-paste/grid';
-import {StoryWrapper} from './RenderPerformanceProfiler';
+import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
 
 const disableAnimations = isChromatic();
 
@@ -34,6 +34,13 @@ export const globalTypes = {
         {value: 'default', title: 'default'},
         {value: 'side-by-side', title: 'side by side'},
         {value: 'stacked', title: 'stacked'},
+        // only include these options for the sake of demonstration and debugging
+        ...(process.env.STORYBOOK_PROFILER === 'debug'
+          ? [
+              {value: 'profiler-parent', title: 'Profiler wrapping everything'},
+              {value: 'profiler-children', title: 'Profiler wrapping story'},
+            ]
+          : []),
       ],
     },
   },
@@ -97,20 +104,58 @@ export const decorators = [
       default:
       case 'default':
         return (
-          <>
+          <RenderPerformanceProfiler
+            id={createProfilerId(context.id, 'TEST', 'default-layout')}
+            kind={context.kind}
+            view="default"
+          >
             <GlobalStyles />
             <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
               <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                <StoryWrapper
-                  id={createProfilerId(context.id, 'TEST', 'default-layout')}
-                  kind={context.kind}
-                  view="default"
-                >
-                  {story}
-                </StoryWrapper>
+                {story}
               </Box>
             </StorybookThemeProvider>
-          </>
+          </RenderPerformanceProfiler>
+        );
+
+      case 'profiler-parent':
+        return (
+          process.env.STORYBOOK_PROFILER === 'debug' && (
+            <>
+              <RenderPerformanceProfiler
+                id={createProfilerId(context.id, 'TEST', 'default-layout')}
+                kind={context.kind}
+                view="default"
+              >
+                <GlobalStyles />
+                <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
+                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                    {story}
+                  </Box>
+                </StorybookThemeProvider>
+              </RenderPerformanceProfiler>
+            </>
+          )
+        );
+
+      case 'profiler-children':
+        return (
+          process.env.STORYBOOK_PROFILER === 'debug' && (
+            <>
+              <GlobalStyles />
+              <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <RenderPerformanceProfiler
+                    id={createProfilerId(context.id, 'TEST', 'default-layout')}
+                    kind={context.kind}
+                    view="default"
+                  >
+                    {story}
+                  </RenderPerformanceProfiler>
+                </Box>
+              </StorybookThemeProvider>
+            </>
+          )
         );
 
       case 'side-by-side':
@@ -121,13 +166,13 @@ export const decorators = [
               <Column>
                 <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                    <StoryWrapper
+                    <RenderPerformanceProfiler
                       id={createProfilerId(context.id, 'TEST', 'sbs-layout')}
                       kind={context.kind}
                       view="side-by-side"
                     >
                       {story}
-                    </StoryWrapper>
+                    </RenderPerformanceProfiler>
                   </Box>
                 </StorybookThemeProvider>
               </Column>
@@ -148,49 +193,49 @@ export const decorators = [
             <Stack orientation="vertical">
               <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                  <StoryWrapper
+                  <RenderPerformanceProfiler
                     id={createProfilerId(context.id, 'TEST', 'stacked-layout--default-1')}
                     kind={context.kind}
                     view="stacked"
                   >
                     {story}
-                  </StoryWrapper>
+                  </RenderPerformanceProfiler>
                 </Box>
               </StorybookThemeProvider>
               <StorybookThemeProvider theme="default" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
-                    <StoryWrapper
+                    <RenderPerformanceProfiler
                       id={createProfilerId(context.id, 'TEST', 'stacked-layout--default-2')}
                       kind={context.kind}
                       view="stacked"
                     >
                       {story}
-                    </StoryWrapper>
+                    </RenderPerformanceProfiler>
                   </Box>
                 </Box>
               </StorybookThemeProvider>
               <StorybookThemeProvider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                  <StoryWrapper
+                  <RenderPerformanceProfiler
                     id={createProfilerId(context.id, 'TEST', 'stacked-layout--dark-1')}
                     kind={context.kind}
                     view="stacked"
                   >
                     {story}
-                  </StoryWrapper>
+                  </RenderPerformanceProfiler>
                 </Box>
               </StorybookThemeProvider>
               <StorybookThemeProvider theme="dark" disableAnimations={disableAnimations}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
-                    <StoryWrapper
+                    <RenderPerformanceProfiler
                       id={createProfilerId(context.id, 'TEST', 'stacked-layout--dark-2')}
                       kind={context.kind}
                       view="stacked"
                     >
                       {story}
-                    </StoryWrapper>
+                    </RenderPerformanceProfiler>
                   </Box>
                 </Box>
               </StorybookThemeProvider>

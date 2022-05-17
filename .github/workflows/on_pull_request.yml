@@ -359,7 +359,7 @@ jobs:
           exitOnceUploaded: true
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
-          INCLUDE_PERF_STORIES: true
+          STORYBOOK_PERF_STORIES: true
 
   pr-categorizer:
     name: Categorize the PR using labels

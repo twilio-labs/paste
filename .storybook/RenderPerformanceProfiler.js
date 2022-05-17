@@ -17,9 +17,8 @@ const makePostToPerfMetricsEndpoint = ({commitSha, version, data}) =>
   });
 
 const printDebugLogs = ({commitSha, version, data}, verbose = true) => {
-  console.info('[Profiler] running in debug mode.');
   if (verbose) {
-    console.group(`Profiling: ${data.componentName} \n`);
+    console.groupCollapsed(`Profiling: ${data.componentName} \n`);
     console.info('onRender invokes callback: trackRenderPerformance');
 
     console.group('Request config:');
@@ -53,7 +52,7 @@ const getChildName = ({type}) => {
 };
 
 const getFormattedChildNames = (children) =>
-  Array.isArray(children) ? children.map(getChildName) : getChildName(children);
+  Array.isArray(children) ? children.map(getChildName) : [getChildName(children)];
 const sentincify = (strings) => {
   if (strings.length === 2) {
     return strings.join(' & ');
@@ -74,10 +73,12 @@ const sentincify = (strings) => {
 };
 
 // === Components
-export const StoryWrapper = ({id, kind, view, children}) => {
+export const RenderPerformanceProfiler = ({id, kind, view, children}) => {
   const shouldRenderProfiler = isChromatic() || typeof process.env.STORYBOOK_PROFILER === 'string';
 
-  StoryWrapper.displayName = shouldRenderProfiler ? 'PasteStorybook.ReactProfiler' : 'PasteStorybook.IdentityComponent';
+  RenderPerformanceProfiler.displayName = shouldRenderProfiler
+    ? 'PasteStorybook.ReactProfiler'
+    : 'PasteStorybook.IdentityComponent';
 
   if (shouldRenderProfiler) {
     return (

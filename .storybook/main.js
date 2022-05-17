@@ -1,4 +1,4 @@
-const {isChromatic} = require('chromatic');
+const chalk = require('chalk');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const path = require('path');
 
@@ -8,6 +8,8 @@ const includePerfStories = process.env.STORYBOOK_PROFILER != null;
 // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#correct-globs-in-mainjs
 const DEFAULT_STORIES_PATTERNS = ['../packages/**/*.stories.mdx', '../packages/**/*.(stories).@(js|jsx|ts|tsx)'];
 const PERFORMANCE_STORY_PATTERN = '../packages/**/*.stories.performance.@(js|jsx|ts|tsx)';
+
+const makeLog = (str, separator = '') => `${chalk.green('info')} ${separator} ${str}`;
 
 module.exports = {
   stories: includePerfStories ? [...DEFAULT_STORIES_PATTERNS, PERFORMANCE_STORY_PATTERN] : DEFAULT_STORIES_PATTERNS,
@@ -58,6 +60,21 @@ module.exports = {
       // don't include node_module props as you'll cause the machine to run out of memory on our repo
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
+  },
+  env: (config) => {
+    if (config.NODE_ENV === 'development' || config.NODE_ENV === 'debug') {
+      const {STORYBOOK_PROFILER, STORYBOOK_PERF_STORIES} = config;
+      if (STORYBOOK_PROFILER != null) {
+        const suffix = STORYBOOK_PROFILER === 'debug' ? ' in DEBUG mode.' : '.';
+
+        console.info(makeLog(`Including React.Profiler story decorator${suffix}`, '=>'));
+      }
+
+      if (STORYBOOK_PERF_STORIES != null && JSON.parse(STORYBOOK_PERF_STORIES) === true) {
+        console.info(makeLog(`Including optional performance stories`, '=>'));
+      }
+    }
+    return config;
   },
 
   core: {
