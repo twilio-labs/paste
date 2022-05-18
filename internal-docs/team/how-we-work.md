@@ -85,11 +85,11 @@ We split backlog refinement into two parallel meetings as the team has grown ove
 
 At the end of each sprint, we spend some time reflecting on recent wins or kudos and observations around areas of improvement for our team. This is a good forum to make sure we're all on the same page and living up to our principles and working agreements. Continuous improvement requires moments of self-reflection.
 
+Read more: [Paste retro format](https://docs.google.com/document/d/1opkmpGTwdOl2kioMzEvGD-ib-F6hR9-J9zecuDliF90/edit?usp=sharing)
+
 ## Sprint Planning (1hr)
 
-We also spend the last 30mins of this meeting planning work for the next sprint. Sometimes this work is tweaked to address concerns brought up in the retrospective. Generally, we allocate a number of tickets that add up to our running point average for engineering and design.
-
-Read more: [Paste retro format](https://docs.google.com/document/d/1opkmpGTwdOl2kioMzEvGD-ib-F6hR9-J9zecuDliF90/edit?usp=sharing)
+Before the start of each sprint, we spend an hour planning work for the next sprint. Sometimes this work is tweaked to address concerns brought up in the retrospective. Generally, we allocate a number of tickets that add up to our running point average for engineering and design.
 
 ## Release Planning (1hr)
 
