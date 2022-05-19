@@ -9,12 +9,15 @@ const metricsPostBaseConfig = {method: 'POST', keepalive: true, mode: 'cors'};
 // ==== Utils ====
 
 // THIS ONLY RUNS IN CHROMATIC
-const makePostToPerfMetricsEndpoint = ({commitSha, version, data}) =>
-  fetch(metricsEndpoint, {
-    ...metricsPostBaseConfig,
-    // mix in the current git commit SHA, along with core bundle version number to profiler data. SHA is set via github actions when run in a PR
-    body: JSON.stringify({...data, commitSha, coreVersionNumber: version}),
-  });
+// const makePostToPerfMetricsEndpoint = ({commitSha, version, data}) =>
+//   fetch(metricsEndpoint, {
+//     ...metricsPostBaseConfig,
+//     // mix in the current git commit SHA, along with core bundle version number to profiler data. SHA is set via github actions when run in a PR
+//     body: JSON.stringify({...data, commitSha, coreVersionNumber: version}),
+//   });
+
+// place holder just in case.
+const makePostToPerfMetricsEndpoint = ({commitSha, version, data}) => console.log('ooops');
 
 const printDebugLogs = ({commitSha, version, data}, verbose = true) => {
   if (verbose) {
@@ -37,20 +40,10 @@ const trackRenderPerformance = (data) => {
   const commitSha = process.env.STORYBOOK_GITHUB_SHA ? process.env.STORYBOOK_GITHUB_SHA : 'localdev';
 
   // when process.env.STORYBOOK_PROFILER is "profile" it is default behavior.
-  let trackPerformanceCallback = makePostToPerfMetricsEndpoint;
+  const trackPerformanceCallback =
+    typeof process.env.STORYBOOK_PROFILER === 'string' ? printDebugLogs : makePostToPerfMetricsEndpoint;
 
-  if (process.env.STORYBOOK_PROFILER === 'verbose') {
-    trackPerformanceCallback = (config, debugStatus) => {
-      printDebugLogs(config, debugStatus);
-      makePostToPerfMetricsEndpoint(config, debugStatus);
-    };
-    // should make post and print the logs too.
-  } else if (process.env.STORYBOOK_PROFILER === 'debug') {
-    // should just print the logs, not make request.
-    trackPerformanceCallback = printDebugLogs;
-  }
-
-  return trackPerformanceCallback({commitSha, version, data}, process.env.STORYBOOK_PROFILER === 'verbose');
+  return trackPerformanceCallback({commitSha, version, data}, process.env.STORYBOOK_PROFILER === 'debug');
 };
 
 const formatForComponent = (componentName) => `<${componentName} />`;
