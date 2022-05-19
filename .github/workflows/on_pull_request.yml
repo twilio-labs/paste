@@ -360,6 +360,8 @@ jobs:
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
           STORYBOOK_PERF_STORIES: true
+          STORYBOOK_PROFILER: "verbose"
+          STORYBOOK_PROFILER_TEST: true
 
   pr-categorizer:
     name: Categorize the PR using labels

@@ -36,11 +36,21 @@ const printDebugLogs = ({commitSha, version, data}, verbose = true) => {
 const trackRenderPerformance = (data) => {
   const commitSha = process.env.STORYBOOK_GITHUB_SHA ? process.env.STORYBOOK_GITHUB_SHA : 'localdev';
 
-  // prevent running the profiler function from localdev.
-  const trackPerformanceCallback =
-    typeof process.env.STORYBOOK_PROFILER === 'string' ? printDebugLogs : makePostToPerfMetricsEndpoint;
+  // when process.env.STORYBOOK_PROFILER is "profile" it is default behavior.
+  let trackPerformanceCallback = makePostToPerfMetricsEndpoint;
 
-  return trackPerformanceCallback({commitSha, version, data}, process.env.STORYBOOK_PROFILER === 'debug');
+  if (process.env.STORYBOOK_PROFILER === 'verbose') {
+    trackPerformanceCallback = (config, debugStatus) => {
+      printDebugLogs(config, debugStatus);
+      makePostToPerfMetricsEndpoint(config, debugStatus);
+    };
+    // should make post and print the logs too.
+  } else if (process.env.STORYBOOK_PROFILER === 'debug') {
+    // should just print the logs, not make request.
+    trackPerformanceCallback = printDebugLogs;
+  }
+
+  return trackPerformanceCallback({commitSha, version, data}, process.env.STORYBOOK_PROFILER === 'verbose');
 };
 
 const formatForComponent = (componentName) => `<${componentName} />`;

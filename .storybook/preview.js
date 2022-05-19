@@ -35,7 +35,7 @@ export const globalTypes = {
         {value: 'side-by-side', title: 'side by side'},
         {value: 'stacked', title: 'stacked'},
         // only include these options for the sake of demonstration and debugging
-        ...(process.env.STORYBOOK_PROFILER === 'debug'
+        ...(process.env.STORYBOOK_PROFILER_TEST === 'true'
           ? [
               {value: 'profiler-parent', title: 'Profiler wrapping everything'},
               {value: 'profiler-children', title: 'Profiler wrapping story'},
@@ -120,42 +120,38 @@ export const decorators = [
 
       case 'profiler-parent':
         return (
-          process.env.STORYBOOK_PROFILER === 'debug' && (
-            <>
-              <RenderPerformanceProfiler
-                id={createProfilerId(context.id, 'TEST', 'default-layout')}
-                kind={context.kind}
-                view="default"
-              >
-                <GlobalStyles />
-                <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
-                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                    {story}
-                  </Box>
-                </StorybookThemeProvider>
-              </RenderPerformanceProfiler>
-            </>
-          )
+          <>
+            <RenderPerformanceProfiler
+              id={createProfilerId(context.id, 'TEST', 'default-layout')}
+              kind={context.kind}
+              view="default"
+            >
+              <GlobalStyles />
+              <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  {story}
+                </Box>
+              </StorybookThemeProvider>
+            </RenderPerformanceProfiler>
+          </>
         );
 
       case 'profiler-children':
         return (
-          process.env.STORYBOOK_PROFILER === 'debug' && (
-            <>
-              <GlobalStyles />
-              <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
-                  <RenderPerformanceProfiler
-                    id={createProfilerId(context.id, 'TEST', 'default-layout')}
-                    kind={context.kind}
-                    view="default"
-                  >
-                    {story}
-                  </RenderPerformanceProfiler>
-                </Box>
-              </StorybookThemeProvider>
-            </>
-          )
+          <>
+            <GlobalStyles />
+            <StorybookThemeProvider theme={theme} disableAnimations={disableAnimations}>
+              <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <RenderPerformanceProfiler
+                  id={createProfilerId(context.id, 'TEST', 'default-layout')}
+                  kind={context.kind}
+                  view="default"
+                >
+                  {story}
+                </RenderPerformanceProfiler>
+              </Box>
+            </StorybookThemeProvider>
+          </>
         );
 
       case 'side-by-side':
