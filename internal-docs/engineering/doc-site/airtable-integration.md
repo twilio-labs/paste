@@ -1,5 +1,10 @@
 # Airtable Integration
 
+- [Airtable Integration](#airtable-integration)
+  - [Overview tables](#overview-tables)
+  - [Component and pattern headers](#component-and-pattern-headers)
+  - [Future state](#future-state)
+
 ## Overview tables
 
 The overview tables and component/pattern headers all use an Airtable integration to gather the data displayed in each.

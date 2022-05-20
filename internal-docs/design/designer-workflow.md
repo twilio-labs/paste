@@ -31,12 +31,12 @@ These guidelines are specific to our testing and release workflow in Figma.
 
 When you are starting new work in the Paste Figma libraries, be sure to:
 
-- First, create a branch off of the file you want to make changes to. Scroll to this section for [branch naming conventions](#bookmark=id.d94womt6lw4m).
+- First, create a branch off of the file you want to make changes to. Scroll to this section for [branch naming conventions](#figma-branching).
 - If you’re working with library updates from another library, pull those updates into a new branch rather than the main branch.
 - Put a “🚧” emoji at the start of the page name for any in-progress component (e.g. “🚧 Button”).
 - If you are making a large architectural change to an existing component, you may want to duplicate it and rename it as a v2 (e.g. “. Button v2”). This will help us revert back to or reference the previous version if needed.
   - _We can update this guidance once Figma rolls out branching/merging._
-- Be sure you are keeping our [library standards](https://docs.google.com/document/d/1w7ASpxuUzBVZGWV3kjGha8_PG1DQCzNk79164BcIEl4/edit#heading=h.ykcg0cfs5kr1) in mind when you are working in any Paste Figma libraries.
+- Be sure you are keeping our [library standards](./design-library-standards.md) in mind when you are working in any Paste Figma libraries.
 - For particularly complex components, consider drafting a blueprint (directly on the component page in Figma) to map out what component parts you will need, what props will be available at each layer of the component, and what other components in the library this component might be used in.
 
 ## Requesting review
@@ -54,7 +54,7 @@ When you have been tagged in to review a component:
 
 - Check that token usage, heights, widths, and auto-layout configuration match the styles and functionality of the coded component as closely as possible.
 - Ensure all styles are using text and layer styles from the Paste Default Theme library.
-- Review prop naming and functionality, layer names, descriptions, and documentation links to ensure that all adhere to [our standards](https://docs.google.com/document/d/1w7ASpxuUzBVZGWV3kjGha8_PG1DQCzNk79164BcIEl4/edit#heading=h.ykcg0cfs5kr1).
+- Review prop naming and functionality, layer names, descriptions, and documentation links to ensure that all adhere to [our standards](./design-library-standards.md).
 - Stress test with unhappy cases. Try to break it. Test with extra long and extra short blocks of text, switch back and forth between all variants, go wild resizing it.
 - Ensure any text or size overrides remain when switching back and forth between variants.
 - If this component is used in other components in the library, test those components too (e.g. Button is used in Modal, so Button changes should be tested on Modal).
@@ -76,15 +76,15 @@ When work is final, it’s time to publish!
 
 - If the component is not for publishing (i.e. a sub-component), add a period `. `before the component layer’s name to hide it from the publishing modal. ([ref](https://help.figma.com/hc/en-us/articles/360025508373-Publish-styles-and-components#private))
 - Be sure only to publish the changes that you’ve been working on. Uncheck any other changes, as the work may still be in progress.
-- In the optional description, include a bulleted list of the changes that are being published using [the template](#heading=h.nm51qcuxus09). This will appear for designers when updating the library in their projects.
+- In the optional description, include a bulleted list of the changes that are being published using [the template](#release-notes-template). This will appear for designers when updating the library in their projects.
 
 ## Announcing releases
 
 After the new work has been published:
 
-- Post in **#ux-product-design** that a new version of the library has been published with a summary of the changes using the [template](#heading=h.nm51qcuxus09). _We can update this guidance if/when we automate a Slackbot to post these updates for us._
+- Post in **#ux-product-design** that a new version of the library has been published with a summary of the changes using the [template](#release-notes-template). _We can update this guidance if/when we automate a Slackbot to post these updates for us._
 
-- Copy/paste the release notes into the [running Paste Newsletter doc](https://drive.google.com/drive/folders/1aaXiZusH0mSikC3Dw7sQ_CH-OVNI1i_f?usp=sharing) for the given time period.
+- Copy/paste the release notes into the [running Paste Newsletter doc](https://drive.google.com/drive/folders/1sRSUjL-ZVl3V7excTSNVBD9y3GMiFLDF) for the given time period.
 
 ## Publishing to Figma
 
@@ -156,7 +156,7 @@ Release date
 
 ## Figma branching
 
-[Figma](https://www.figma.com/best-practices/branching-in-figma/best-practices-when-branching/) suggests following similar branch naming conventions to your development team. Since merged branches are visible in the file version history, it’d be nice to closely follow the commit naming conventions in our [developer workflow](https://docs.google.com/document/d/1w1JxZWCNwi0x8Xi0non-gIb8qL7OkmBUADmxdp_qejg/edit#).
+[Figma](https://www.figma.com/best-practices/branching-in-figma/best-practices-when-branching/) suggests following similar branch naming conventions to your development team. Since merged branches are visible in the file version history, it’d be nice to closely follow the commit naming conventions in our [developer workflow](../engineering/developer-workflow.md).
 
 ### Format
 

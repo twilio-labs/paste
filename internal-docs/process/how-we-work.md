@@ -32,7 +32,7 @@ We work in a structured and deliberate manner. We do this by assigning ourselves
 
 ## Sprint Rituals (~6.5hrs/sprint)
 
-- [Daily Standup](#bookmark=kix.q5409jhrfd3u) every Monday, Wednesday, Thursday and every other Tuesday (30mins each).
+- [Daily Standup](#daily-standup-05hrs) every Monday, Wednesday, Thursday and every other Tuesday (30mins each).
 - [Backlog Alignment](#backlog-alignment) every other Monday (30mins).
 - [Backlog Refinement](#backlog-refinement) every other Monday (1hr).
 - [Sprint Planning](#sprint-planning-1hr) every other Wednesday (1hr)
@@ -46,7 +46,7 @@ We work in a structured and deliberate manner. We do this by assigning ourselves
 - Helper handoff every Wednesday (15min).
 - [Engineering Focus Time](#engineer--designer-focus-times) every Monday, Wednesday and Thursday (1hr each)
 - [Designer Focus Time](#engineer--designer-focus-times) every Thursdays (1hr each)
-- [Design Crit](#bookmark=id.gllq9r5j204e) every Monday and Wednsday (1hr each)
+- [Design Crit](#engineer--designer-focus-times) every Monday and Wednsday (1hr each)
 - [Design Systems Committee](#design-systems-committee) alternating Tuesday and Wednesday (1hr each)
 - [Release Planning](#release-planning-1hr) every 6 weeks (1hr each)
 - “Fun” every 2 weeks (1hr each)
@@ -85,7 +85,7 @@ We split backlog refinement into two parallel meetings as the team has grown ove
 
 At the end of each sprint, we spend some time reflecting on recent wins or kudos and observations around areas of improvement for our team. This is a good forum to make sure we're all on the same page and living up to our principles and working agreements. Continuous improvement requires moments of self-reflection.
 
-Read more: [Paste retro format](https://docs.google.com/document/d/1opkmpGTwdOl2kioMzEvGD-ib-F6hR9-J9zecuDliF90/edit?usp=sharing)
+Read more: [Paste retro format](./retros.md)
 
 ## Sprint Planning (1hr)
 
@@ -113,7 +113,7 @@ Although we work together often and see each other in many meetings throughout t
 
 The purpose of the Design Systems committee is to ensure we're collecting feedback from across Twilio teams in a consistent and actionable way. The committee includes Product Designers and Front-end Engineers from a cross-section of Twilio product subgroups, teams, and UX groups. New component, API, and pattern designs are shared with committee members for feedback and customer risk assessment.
 
-Read more: [Design Systems Committee Overview](https://docs.google.com/document/d/1-FtTauW4gpbzxuzuD47bphQPkBix7Y7i-Keyx5XWFow/edit?usp=sharing), [Design Systems Research Strategy](https://docs.google.com/document/d/18-Ay0lo0ha19ymMGbrz7BL0-lmbqIqWHDgjk7rwt_Kw/edit?usp=sharing)
+Read more: [Design Systems Committee Overview](./design-system-committee.md), [Design Systems Research Strategy](../design/research-strategy.md)
 
 # An overview of our project lifecycle
 

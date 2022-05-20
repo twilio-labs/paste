@@ -44,25 +44,25 @@ Once you have the prerequisites installed you will need to clone the repo, insta
 
 First things first, you need to clone the [Paste repo](https://github.com/twilio-labs/paste) to your local machine using git. Using your terminal find somewhere where you’d like to install the code base to and then run:
 
-```
+```bash
 git clone git@github.com:twilio-labs/paste.git
 ```
 
 Then you are going to want to move into that directory or, change directory:
 
-```
+```bash
 cd paste/
 ```
 
 Once in the Paste repo you are going to need to install all the dependencies that we need for our tools. Using yarn type into the terminal
 
-```
+```bash
 yarn
 ```
 
 You should now have everything installed that is needed to run our tools. You’ll need to run the initial build of our packages to be able to develop locally. Type into the terminal:
 
-```
+```bash
 yarn build
 ```
 
@@ -76,7 +76,7 @@ You will need to request a login to Netlify via a Service Now ticket.
 
 [Log into Netlify](https://cli.netlify.com/commands/login) via the CLI. Run:
 
-```
+```bash
 yarn netlify login
 ```
 
@@ -84,11 +84,11 @@ yarn netlify login
 
 Link the Website and Theme Designer directories to the Netlity projects:
 
-```
+```bash
 yarn workspace @twilio-paste/theme-designer netlify link
 ```
 
-```
+```bash
 yarn workspace @twilio-paste/website netlify link
 ```
 
@@ -98,7 +98,7 @@ Use the Netlify CLI to list the environment variables used by each website by ru
 
 #### Theme designer
 
-```
+```bash
 yarn workspace @twilio-paste/theme-designer netlify env:list
 ```
 
@@ -106,7 +106,7 @@ Create a `.env.local` file at the root of packages/paste-theme-designer/
 
 Then add each environment variable with it’s value to the env file in the format of
 
-```
+```bash
 DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
@@ -133,7 +133,7 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 
 #### Website
 
-```
+```bash
 yarn workspace @twilio-paste/website netlify env:list
 ```
 
@@ -141,7 +141,7 @@ Create a `.env` (specifically different from theme designer) file at the root of
 
 Then add each environment variable with it’s value to the env file in the format of
 
-```
+```bash
 DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
@@ -204,13 +204,13 @@ Each package must have a “build” yarn script.
 
 To run a build of every package, run the following command from the root paste directory:
 
-```
+```bash
 yarn build
 ```
 
 As we use yarn workspaces you can run a workspace command on a single package without building all packages in the repo. Run:
 
-```
+```bash
 yarn workspace name-of-package build
 ```
 
@@ -313,7 +313,7 @@ If you don’t, you'll see the effect of the old compiled code and nothing will 
 
 To build a single package, run the workspace build command:
 
-```
+```bash
 yarn workspace name-of-package build
 ```
 
@@ -321,7 +321,7 @@ yarn workspace name-of-package build
 
 To work on components you will need to work under the paste-core directory under packages, and run [Storybook](https://storybook.js.org/) locally. To start storybook run:
 
-```
+```bash
 yarn start:storybook
 ```
 
@@ -337,7 +337,7 @@ To run the documentation website you will be working in the paste-website direct
 
 Then run:
 
-```
+```bash
 yarn start:website
 ```
 
@@ -347,6 +347,6 @@ To run the Theme Designer web application you will be working in the paste-theme
 
 Then run:
 
-```
+```bash
 yarn start:theme-designer
 ```

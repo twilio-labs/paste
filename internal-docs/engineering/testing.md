@@ -82,7 +82,7 @@ VRT is run on every commit, across the entire system so we never miss a visual c
 
 We use [Chromatic](https://www.chromatic.com/) to run our VRT, which uses [our storybook stories](https://twilio-labs.github.io/paste/?path=/story/components-alert--all-variant) to create the snapshots of each component. We try to have a story for each component, in every variant and every state, to ensure we capture every possible change.
 
-We use [Applitools]() to run VRT on the docs site, which is powered by
+We use [Applitools](https://applitools.com/) to run VRT on the docs site, which is powered by Cypress tests. Tests are split across multiple test suites so that they can run in parallel.
 
 ## Linting
 

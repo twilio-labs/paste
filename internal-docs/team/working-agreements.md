@@ -46,8 +46,8 @@ Aayush Iyer, Andi Oneto, Glorilí Alejandro, Jade Pennig, Katie Porter, Kelsey C
 
 ## References
 
-1. [Definitions of Ready and Done](https://docs.google.com/document/d/1_6SnJY2FrjEXyyKX6PZCog6deerzCr8iXLvjuvotLAk/edit#heading=h.k7ef1c9g7h9x)
-2. [DSYS Distributed Work Code of Conduct](https://docs.google.com/document/d/1CZ9-NhUEvFIaQX2ljulDrVWsWbWA3YP439zjYyluRZw/edit?ts=5d2ce8e7#)
+1. [Definitions of Ready](./../process/definition-of-ready.md) and [Done](./../process/definition-of-done.md)
+2. [DSYS Distributed Work Code of Conduct](./distributed-work-code-of-conduct.md)
 3. Consider some ideas from [this article](https://highgrowthengineering.substack.com/p/taming-slack-) (for our team) Aayush posted about slack:
    1. Turn off notifications 🔕
       1. First, Slack should not be used as a time-sensitive method of communication. Second, if other people want your synchronous attention, you are not beholden to give it to them.

@@ -58,9 +58,9 @@ _Create this as a placeholder. Add details as they come to light, or close the t
 ### Publish Figma component
 
 1. Finalize the design based on the peer reviewed spec, and create the Figma component. Make sure the component is suffixed with “(dev)” if it’s not yet in code.
-2. Test Figma implementation: [https://docs.google.com/document/d/1b6Y8SPspBPCvKiiCr4HrOcrq6JeF7CmsW2JR020jAQY/edit#bookmark=id.il3bkgs60aof](https://docs.google.com/document/d/1b6Y8SPspBPCvKiiCr4HrOcrq6JeF7CmsW2JR020jAQY/edit#bookmark=id.il3bkgs60aof)
+2. Test Figma implementation: [Testing work](../design/designer-workflow.md#testing-work)
 3. Review with DSYS designers.
-4. Publish the component: [https://docs.google.com/document/d/1b6Y8SPspBPCvKiiCr4HrOcrq6JeF7CmsW2JR020jAQY/edit#bookmark=id.lofca81dqfco](https://docs.google.com/document/d/1b6Y8SPspBPCvKiiCr4HrOcrq6JeF7CmsW2JR020jAQY/edit#bookmark=id.lofca81dqfco)
+4. Publish the component: [Finalizing work](../design/designer-workflow.md#finalizing-work)
 5. Create a Loom video showing how to use the Figma component. Add it to the component spec.
 6. Update Airtable to reflect the component has design assets.
 
@@ -88,7 +88,7 @@ _If the full component can’t be completed in one sprint, split this ticket up 
   - Box is used for each node.
   - Allow element prop to be set on the component. Set the default to be the name of the component. e.g. element = 'ALERT'
   - Each customizable element inside a component should use the passed in element name to compose their names e.g `${element}`,`${element}_CHILD`,`${element}_CHILD2`. This allows for Paste-defined element names, and unique custom instances of the component when used by a consumer.
-  - See a checklist with more details [here](https://docs.google.com/document/d/1NqsALC3lt-oAyTMua54ve9lxZIA6P91urcQO98iAc8I/edit)
+  - See a checklist with more details [here](../engineering/core/adding-customization-to-components.md)
 - Write tests
   - Write snapshot tests to cover all rendering APIs
   - Write unit tests to cover all functionality

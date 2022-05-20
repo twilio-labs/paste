@@ -17,6 +17,7 @@
   - [Pull Requests](#pull-requests)
     - [Draft PRs](#draft-prs)
     - [Merging your work](#merging-your-work)
+      - [Kodiak](#kodiak)
       - [Avoid merge commits.](#avoid-merge-commits)
       - [Rebase and merge](#rebase-and-merge)
       - [Squash and merge](#squash-and-merge)
@@ -25,7 +26,7 @@ Here on the Design Systems Engineering team we have a pretty well defined way of
 
 ## Assigning work
 
-All our work is stored in Jira and we have an [active sprint](https://issues.corp.twilio.com/secure/RapidBoard.jspa?rapidView=748&projectKey=DSYS) with stories for you to pick up in the “To Do” column. We aim for our stories to be well defined that meet our [“definition of ready”](https://docs.google.com/document/d/1_6SnJY2FrjEXyyKX6PZCog6deerzCr8iXLvjuvotLAk/edit#heading=h.k7ef1c9g7h9x) and can be worked on by anyone on the team.
+All our work is stored in Jira and we have an [active sprint](https://issues.corp.twilio.com/secure/RapidBoard.jspa?rapidView=748&projectKey=DSYS) with stories for you to pick up in the “To Do” column. We aim for our stories to be well defined that meet our [“definition of ready”](../process/definition-of-ready.md) and can be worked on by anyone on the team.
 
 We work in 2 week sprints.
 
@@ -133,7 +134,7 @@ By tagging Core onto each changeset of a package that is bundled into Core, we c
 
 Your changeset might look something like:
 
-```
+```yml
 ---
 '@twilio-paste/radio-group': patch
 '@twilio-paste/core': patch
@@ -167,6 +168,14 @@ Once you have two approving reviews (✅) from the review team, including one Le
 The goal when merging into the main branch is to create a clear history of exactly what happened, to what package, in small increments. No one needs to understand how you got there, so don’t include all the commits and working history. We only need to know what the result of the PR was.
 
 To merge your branch into the main branch it must first be up to date with the latest commits on main. This is so our tests are re-run against the last changes made, and we ensure a clean new version of our packages.
+
+#### Kodiak
+
+To help you with this, we use a tool called Kodiak to manage the merge queue. Kodiak honors all of our branch protection rules before it is allowed to merge a PR.
+
+By default, a PR is created with the label `Do not merge`. If this label is present Kodiak will not be allowed to merge.
+
+Once you have all your reviews and are ready to merge your work, you can add the `🚀 merge it` label. Kodiak will then handle keeping the branch up to date, and waiting for CI checks to pass, before merging safely into the main branch.
 
 #### Avoid merge commits.
 

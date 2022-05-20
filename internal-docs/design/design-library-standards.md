@@ -21,7 +21,7 @@ These guidelines are specific to our workflow in Figma.
 - _But_, don’t silo your work. Be ready to, at least, acknowledge comments and ideas when there’s visible work.
 - If a feedback thread grows long, proactively set up a meeting to address disagreements or hash out points of confusion.
 - Keep feedback relevant to what stage the work is in.
-- See more detail on our review process in our [Release and Testing Guidelines](https://docs.google.com/document/d/1b6Y8SPspBPCvKiiCr4HrOcrq6JeF7CmsW2JR020jAQY/edit?usp=sharing).
+- See more detail on our review process in our [Release and Testing Guidelines](./designer-workflow.md).
 
 ## Library standards
 

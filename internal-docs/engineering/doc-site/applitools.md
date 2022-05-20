@@ -1,5 +1,17 @@
 # Applitools
 
+- [Applitools](#applitools)
+  - [Background](#background)
+  - [Getting Started](#getting-started)
+    - [Finding your personal Applitools API key](#finding-your-personal-applitools-api-key)
+    - [Add local environment variables](#add-local-environment-variables)
+  - [Run locally](#run-locally)
+  - [CI workflow](#ci-workflow)
+  - [Resources](#resources)
+    - [Current configuration](#current-configuration)
+    - [Definitions](#definitions)
+    - [Helpful links](#helpful-links)
+
 ## Background
 
 We recently added starter infrastructure for running visual regression tests (e.g. VRT) on the [Paste documentation website](https://paste.twilio.design/) using [Applitools](https://applitools.com/).
