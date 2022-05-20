@@ -25,7 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "lodash.groupby": "^4.6.0",
+    "lodash": "^4.6.0",
     "react-virtual": "^2.8.2"
   },
   "peerDependencies": {

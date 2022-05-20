@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {StaticImage} from 'gatsby-plugin-image';
-import kebabCase from 'lodash.kebabcase';
+import kebabCase from 'lodash/kebabcase';
 
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';

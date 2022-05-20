@@ -1,5 +1,5 @@
 import * as React from 'react';
-import camelCase from 'lodash.camelcase';
+import camelCase from 'lodash/camelcase';
 import {ThemeShape, useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';

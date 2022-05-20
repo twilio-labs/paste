@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import camelCase from 'lodash/camelCase';
 import type {ImmutableStyleMap} from 'theo';
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
@@ -6,13 +6,11 @@ import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTem
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
 export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
-  `const ${lodash.camelCase(name)} = "${value.replace(/"/g, '\\"')}";`;
+  `const ${camelCase(name)} = "${value.replace(/"/g, '\\"')}";`;
 
-export const tokenExportTemplate = ({name}: {name: string; value: string}): string => `${lodash.camelCase(name)},`;
-export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => `${lodash.camelCase(
-  categoryName
-)}: {
-${props.map((prop) => `${lodash.camelCase(prop.name)},`).join('\n')}
+export const tokenExportTemplate = ({name}: {name: string; value: string}): string => `${camelCase(name)},`;
+export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => `${camelCase(categoryName)}: {
+${props.map((prop) => `${camelCase(prop.name)},`).join('\n')}
 },`;
 
 export const commonTokenFormat = (result: ImmutableStyleMap): string => {

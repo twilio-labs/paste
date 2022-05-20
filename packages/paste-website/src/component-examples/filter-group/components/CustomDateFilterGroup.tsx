@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {useForm, useFormState} from 'react-hook-form';
-import isEqual from 'lodash.isequal';
+import isEqual from 'lodash/isequal';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';

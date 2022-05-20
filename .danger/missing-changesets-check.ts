@@ -13,7 +13,7 @@ import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
-const difference = require('lodash.difference');
+const difference = require('lodash/difference');
 
 /**
  * Utility to return the difference between the packages we know were changed in the PR based on files, and the packages

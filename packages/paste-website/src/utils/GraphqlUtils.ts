@@ -1,6 +1,6 @@
-import camelCase from 'lodash.camelcase';
-import get from 'lodash.get';
-import mapKeys from 'lodash.mapkeys';
+import camelCase from 'lodash/camelcase';
+import get from 'lodash/get';
+import mapKeys from 'lodash/mapkeys';
 import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
 

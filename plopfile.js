@@ -1,5 +1,5 @@
-const camelCase = require('lodash.camelCase');
-const startCase = require('lodash.startCase');
+const camelCase = require('lodash/camelCase');
+const startCase = require('lodash/startCase');
 
 module.exports = function (plop) {
   plop.setHelper('export', (txt) => `export {${startCase(camelCase(txt)).replace(/ /g, '')}}`);

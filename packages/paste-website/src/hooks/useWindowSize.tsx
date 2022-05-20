@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useTheme} from '@twilio-paste/theme';
-import findIndex from 'lodash.findindex';
-import debounce from 'lodash.debounce';
+import findIndex from 'lodash/findindex';
+import debounce from 'lodash/debounce';
 
 interface WindowSizeState {
   width: number | undefined;

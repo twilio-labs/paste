@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const debounce = require('lodash.debounce');
+const debounce = require('lodash/debounce');
 
 type Options = {
   config?: {

@@ -1,4 +1,4 @@
-import uniq from 'lodash.uniq';
+import uniq from 'lodash/uniq';
 
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');

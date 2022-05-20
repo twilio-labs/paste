@@ -632,63 +632,358 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/lodash.camelcase/index.js
-var require_lodash = __commonJS({
-  \\"node_modules/lodash.camelcase/index.js\\"(exports, module) {
-    var INFINITY = 1 / 0;
+// node_modules/lodash/_freeGlobal.js
+var require_freeGlobal = __commonJS({
+  \\"node_modules/lodash/_freeGlobal.js\\"(exports, module) {
+    var freeGlobal = typeof global == \\"object\\" && global && global.Object === Object && global;
+    module.exports = freeGlobal;
+  }
+});
+
+// node_modules/lodash/_root.js
+var require_root = __commonJS({
+  \\"node_modules/lodash/_root.js\\"(exports, module) {
+    var freeGlobal = require_freeGlobal();
+    var freeSelf = typeof self == \\"object\\" && self && self.Object === Object && self;
+    var root = freeGlobal || freeSelf || Function(\\"return this\\")();
+    module.exports = root;
+  }
+});
+
+// node_modules/lodash/_Symbol.js
+var require_Symbol = __commonJS({
+  \\"node_modules/lodash/_Symbol.js\\"(exports, module) {
+    var root = require_root();
+    var Symbol = root.Symbol;
+    module.exports = Symbol;
+  }
+});
+
+// node_modules/lodash/_arrayMap.js
+var require_arrayMap = __commonJS({
+  \\"node_modules/lodash/_arrayMap.js\\"(exports, module) {
+    function arrayMap(array, iteratee) {
+      var index = -1, length = array == null ? 0 : array.length, result = Array(length);
+      while (++index < length) {
+        result[index] = iteratee(array[index], index, array);
+      }
+      return result;
+    }
+    module.exports = arrayMap;
+  }
+});
+
+// node_modules/lodash/isArray.js
+var require_isArray = __commonJS({
+  \\"node_modules/lodash/isArray.js\\"(exports, module) {
+    var isArray = Array.isArray;
+    module.exports = isArray;
+  }
+});
+
+// node_modules/lodash/_getRawTag.js
+var require_getRawTag = __commonJS({
+  \\"node_modules/lodash/_getRawTag.js\\"(exports, module) {
+    var Symbol = require_Symbol();
+    var objectProto = Object.prototype;
+    var hasOwnProperty = objectProto.hasOwnProperty;
+    var nativeObjectToString = objectProto.toString;
+    var symToStringTag = Symbol ? Symbol.toStringTag : void 0;
+    function getRawTag(value) {
+      var isOwn = hasOwnProperty.call(value, symToStringTag), tag = value[symToStringTag];
+      try {
+        value[symToStringTag] = void 0;
+        var unmasked = true;
+      } catch (e) {
+      }
+      var result = nativeObjectToString.call(value);
+      if (unmasked) {
+        if (isOwn) {
+          value[symToStringTag] = tag;
+        } else {
+          delete value[symToStringTag];
+        }
+      }
+      return result;
+    }
+    module.exports = getRawTag;
+  }
+});
+
+// node_modules/lodash/_objectToString.js
+var require_objectToString = __commonJS({
+  \\"node_modules/lodash/_objectToString.js\\"(exports, module) {
+    var objectProto = Object.prototype;
+    var nativeObjectToString = objectProto.toString;
+    function objectToString(value) {
+      return nativeObjectToString.call(value);
+    }
+    module.exports = objectToString;
+  }
+});
+
+// node_modules/lodash/_baseGetTag.js
+var require_baseGetTag = __commonJS({
+  \\"node_modules/lodash/_baseGetTag.js\\"(exports, module) {
+    var Symbol = require_Symbol();
+    var getRawTag = require_getRawTag();
+    var objectToString = require_objectToString();
+    var nullTag = \\"[object Null]\\";
+    var undefinedTag = \\"[object Undefined]\\";
+    var symToStringTag = Symbol ? Symbol.toStringTag : void 0;
+    function baseGetTag(value) {
+      if (value == null) {
+        return value === void 0 ? undefinedTag : nullTag;
+      }
+      return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+    }
+    module.exports = baseGetTag;
+  }
+});
+
+// node_modules/lodash/isObjectLike.js
+var require_isObjectLike = __commonJS({
+  \\"node_modules/lodash/isObjectLike.js\\"(exports, module) {
+    function isObjectLike(value) {
+      return value != null && typeof value == \\"object\\";
+    }
+    module.exports = isObjectLike;
+  }
+});
+
+// node_modules/lodash/isSymbol.js
+var require_isSymbol = __commonJS({
+  \\"node_modules/lodash/isSymbol.js\\"(exports, module) {
+    var baseGetTag = require_baseGetTag();
+    var isObjectLike = require_isObjectLike();
     var symbolTag = \\"[object Symbol]\\";
-    var reAsciiWord = /[^\\\\x00-\\\\x2f\\\\x3a-\\\\x40\\\\x5b-\\\\x60\\\\x7b-\\\\x7f]+/g;
-    var reLatin = /[\\\\xc0-\\\\xd6\\\\xd8-\\\\xf6\\\\xf8-\\\\xff\\\\u0100-\\\\u017f]/g;
+    function isSymbol(value) {
+      return typeof value == \\"symbol\\" || isObjectLike(value) && baseGetTag(value) == symbolTag;
+    }
+    module.exports = isSymbol;
+  }
+});
+
+// node_modules/lodash/_baseToString.js
+var require_baseToString = __commonJS({
+  \\"node_modules/lodash/_baseToString.js\\"(exports, module) {
+    var Symbol = require_Symbol();
+    var arrayMap = require_arrayMap();
+    var isArray = require_isArray();
+    var isSymbol = require_isSymbol();
+    var INFINITY = 1 / 0;
+    var symbolProto = Symbol ? Symbol.prototype : void 0;
+    var symbolToString = symbolProto ? symbolProto.toString : void 0;
+    function baseToString(value) {
+      if (typeof value == \\"string\\") {
+        return value;
+      }
+      if (isArray(value)) {
+        return arrayMap(value, baseToString) + \\"\\";
+      }
+      if (isSymbol(value)) {
+        return symbolToString ? symbolToString.call(value) : \\"\\";
+      }
+      var result = value + \\"\\";
+      return result == \\"0\\" && 1 / value == -INFINITY ? \\"-0\\" : result;
+    }
+    module.exports = baseToString;
+  }
+});
+
+// node_modules/lodash/toString.js
+var require_toString = __commonJS({
+  \\"node_modules/lodash/toString.js\\"(exports, module) {
+    var baseToString = require_baseToString();
+    function toString(value) {
+      return value == null ? \\"\\" : baseToString(value);
+    }
+    module.exports = toString;
+  }
+});
+
+// node_modules/lodash/_baseSlice.js
+var require_baseSlice = __commonJS({
+  \\"node_modules/lodash/_baseSlice.js\\"(exports, module) {
+    function baseSlice(array, start, end) {
+      var index = -1, length = array.length;
+      if (start < 0) {
+        start = -start > length ? 0 : length + start;
+      }
+      end = end > length ? length : end;
+      if (end < 0) {
+        end += length;
+      }
+      length = start > end ? 0 : end - start >>> 0;
+      start >>>= 0;
+      var result = Array(length);
+      while (++index < length) {
+        result[index] = array[index + start];
+      }
+      return result;
+    }
+    module.exports = baseSlice;
+  }
+});
+
+// node_modules/lodash/_castSlice.js
+var require_castSlice = __commonJS({
+  \\"node_modules/lodash/_castSlice.js\\"(exports, module) {
+    var baseSlice = require_baseSlice();
+    function castSlice(array, start, end) {
+      var length = array.length;
+      end = end === void 0 ? length : end;
+      return !start && end >= length ? array : baseSlice(array, start, end);
+    }
+    module.exports = castSlice;
+  }
+});
+
+// node_modules/lodash/_hasUnicode.js
+var require_hasUnicode = __commonJS({
+  \\"node_modules/lodash/_hasUnicode.js\\"(exports, module) {
     var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
-    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\\\\\\\ufe20-\\\\\\\\ufe23\\";
-    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20f0\\";
-    var rsDingbatRange = \\"\\\\\\\\u2700-\\\\\\\\u27bf\\";
-    var rsLowerRange = \\"a-z\\\\\\\\xdf-\\\\\\\\xf6\\\\\\\\xf8-\\\\\\\\xff\\";
-    var rsMathOpRange = \\"\\\\\\\\xac\\\\\\\\xb1\\\\\\\\xd7\\\\\\\\xf7\\";
-    var rsNonCharRange = \\"\\\\\\\\x00-\\\\\\\\x2f\\\\\\\\x3a-\\\\\\\\x40\\\\\\\\x5b-\\\\\\\\x60\\\\\\\\x7b-\\\\\\\\xbf\\";
-    var rsPunctuationRange = \\"\\\\\\\\u2000-\\\\\\\\u206f\\";
-    var rsSpaceRange = \\" \\\\\\\\t\\\\\\\\x0b\\\\\\\\f\\\\\\\\xa0\\\\\\\\ufeff\\\\\\\\n\\\\\\\\r\\\\\\\\u2028\\\\\\\\u2029\\\\\\\\u1680\\\\\\\\u180e\\\\\\\\u2000\\\\\\\\u2001\\\\\\\\u2002\\\\\\\\u2003\\\\\\\\u2004\\\\\\\\u2005\\\\\\\\u2006\\\\\\\\u2007\\\\\\\\u2008\\\\\\\\u2009\\\\\\\\u200a\\\\\\\\u202f\\\\\\\\u205f\\\\\\\\u3000\\";
-    var rsUpperRange = \\"A-Z\\\\\\\\xc0-\\\\\\\\xd6\\\\\\\\xd8-\\\\\\\\xde\\";
+    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
+    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
+    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+    var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
     var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
-    var rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
-    var rsApos = \\"['\\\\u2019]\\";
+    var rsZWJ = \\"\\\\\\\\u200d\\";
+    var reHasUnicode = RegExp(\\"[\\" + rsZWJ + rsAstralRange + rsComboRange + rsVarRange + \\"]\\");
+    function hasUnicode(string) {
+      return reHasUnicode.test(string);
+    }
+    module.exports = hasUnicode;
+  }
+});
+
+// node_modules/lodash/_asciiToArray.js
+var require_asciiToArray = __commonJS({
+  \\"node_modules/lodash/_asciiToArray.js\\"(exports, module) {
+    function asciiToArray(string) {
+      return string.split(\\"\\");
+    }
+    module.exports = asciiToArray;
+  }
+});
+
+// node_modules/lodash/_unicodeToArray.js
+var require_unicodeToArray = __commonJS({
+  \\"node_modules/lodash/_unicodeToArray.js\\"(exports, module) {
+    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
+    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
+    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
+    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+    var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
+    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
     var rsAstral = \\"[\\" + rsAstralRange + \\"]\\";
-    var rsBreak = \\"[\\" + rsBreakRange + \\"]\\";
-    var rsCombo = \\"[\\" + rsComboMarksRange + rsComboSymbolsRange + \\"]\\";
-    var rsDigits = \\"\\\\\\\\d+\\";
-    var rsDingbat = \\"[\\" + rsDingbatRange + \\"]\\";
-    var rsLower = \\"[\\" + rsLowerRange + \\"]\\";
-    var rsMisc = \\"[^\\" + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + \\"]\\";
+    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
     var rsFitz = \\"\\\\\\\\ud83c[\\\\\\\\udffb-\\\\\\\\udfff]\\";
     var rsModifier = \\"(?:\\" + rsCombo + \\"|\\" + rsFitz + \\")\\";
     var rsNonAstral = \\"[^\\" + rsAstralRange + \\"]\\";
     var rsRegional = \\"(?:\\\\\\\\ud83c[\\\\\\\\udde6-\\\\\\\\uddff]){2}\\";
     var rsSurrPair = \\"[\\\\\\\\ud800-\\\\\\\\udbff][\\\\\\\\udc00-\\\\\\\\udfff]\\";
-    var rsUpper = \\"[\\" + rsUpperRange + \\"]\\";
     var rsZWJ = \\"\\\\\\\\u200d\\";
-    var rsLowerMisc = \\"(?:\\" + rsLower + \\"|\\" + rsMisc + \\")\\";
-    var rsUpperMisc = \\"(?:\\" + rsUpper + \\"|\\" + rsMisc + \\")\\";
-    var rsOptLowerContr = \\"(?:\\" + rsApos + \\"(?:d|ll|m|re|s|t|ve))?\\";
-    var rsOptUpperContr = \\"(?:\\" + rsApos + \\"(?:D|LL|M|RE|S|T|VE))?\\";
     var reOptMod = rsModifier + \\"?\\";
     var rsOptVar = \\"[\\" + rsVarRange + \\"]?\\";
     var rsOptJoin = \\"(?:\\" + rsZWJ + \\"(?:\\" + [rsNonAstral, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsOptVar + reOptMod + \\")*\\";
     var rsSeq = rsOptVar + reOptMod + rsOptJoin;
-    var rsEmoji = \\"(?:\\" + [rsDingbat, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsSeq;
     var rsSymbol = \\"(?:\\" + [rsNonAstral + rsCombo + \\"?\\", rsCombo, rsRegional, rsSurrPair, rsAstral].join(\\"|\\") + \\")\\";
-    var reApos = RegExp(rsApos, \\"g\\");
-    var reComboMark = RegExp(rsCombo, \\"g\\");
     var reUnicode = RegExp(rsFitz + \\"(?=\\" + rsFitz + \\")|\\" + rsSymbol + rsSeq, \\"g\\");
-    var reUnicodeWord = RegExp([
-      rsUpper + \\"?\\" + rsLower + \\"+\\" + rsOptLowerContr + \\"(?=\\" + [rsBreak, rsUpper, \\"$\\"].join(\\"|\\") + \\")\\",
-      rsUpperMisc + \\"+\\" + rsOptUpperContr + \\"(?=\\" + [rsBreak, rsUpper + rsLowerMisc, \\"$\\"].join(\\"|\\") + \\")\\",
-      rsUpper + \\"?\\" + rsLowerMisc + \\"+\\" + rsOptLowerContr,
-      rsUpper + \\"+\\" + rsOptUpperContr,
-      rsDigits,
-      rsEmoji
-    ].join(\\"|\\"), \\"g\\");
-    var reHasUnicode = RegExp(\\"[\\" + rsZWJ + rsAstralRange + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + \\"]\\");
-    var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+    function unicodeToArray(string) {
+      return string.match(reUnicode) || [];
+    }
+    module.exports = unicodeToArray;
+  }
+});
+
+// node_modules/lodash/_stringToArray.js
+var require_stringToArray = __commonJS({
+  \\"node_modules/lodash/_stringToArray.js\\"(exports, module) {
+    var asciiToArray = require_asciiToArray();
+    var hasUnicode = require_hasUnicode();
+    var unicodeToArray = require_unicodeToArray();
+    function stringToArray(string) {
+      return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
+    }
+    module.exports = stringToArray;
+  }
+});
+
+// node_modules/lodash/_createCaseFirst.js
+var require_createCaseFirst = __commonJS({
+  \\"node_modules/lodash/_createCaseFirst.js\\"(exports, module) {
+    var castSlice = require_castSlice();
+    var hasUnicode = require_hasUnicode();
+    var stringToArray = require_stringToArray();
+    var toString = require_toString();
+    function createCaseFirst(methodName) {
+      return function(string) {
+        string = toString(string);
+        var strSymbols = hasUnicode(string) ? stringToArray(string) : void 0;
+        var chr = strSymbols ? strSymbols[0] : string.charAt(0);
+        var trailing = strSymbols ? castSlice(strSymbols, 1).join(\\"\\") : string.slice(1);
+        return chr[methodName]() + trailing;
+      };
+    }
+    module.exports = createCaseFirst;
+  }
+});
+
+// node_modules/lodash/upperFirst.js
+var require_upperFirst = __commonJS({
+  \\"node_modules/lodash/upperFirst.js\\"(exports, module) {
+    var createCaseFirst = require_createCaseFirst();
+    var upperFirst = createCaseFirst(\\"toUpperCase\\");
+    module.exports = upperFirst;
+  }
+});
+
+// node_modules/lodash/capitalize.js
+var require_capitalize = __commonJS({
+  \\"node_modules/lodash/capitalize.js\\"(exports, module) {
+    var toString = require_toString();
+    var upperFirst = require_upperFirst();
+    function capitalize(string) {
+      return upperFirst(toString(string).toLowerCase());
+    }
+    module.exports = capitalize;
+  }
+});
+
+// node_modules/lodash/_arrayReduce.js
+var require_arrayReduce = __commonJS({
+  \\"node_modules/lodash/_arrayReduce.js\\"(exports, module) {
+    function arrayReduce(array, iteratee, accumulator, initAccum) {
+      var index = -1, length = array == null ? 0 : array.length;
+      if (initAccum && length) {
+        accumulator = array[++index];
+      }
+      while (++index < length) {
+        accumulator = iteratee(accumulator, array[index], index, array);
+      }
+      return accumulator;
+    }
+    module.exports = arrayReduce;
+  }
+});
+
+// node_modules/lodash/_basePropertyOf.js
+var require_basePropertyOf = __commonJS({
+  \\"node_modules/lodash/_basePropertyOf.js\\"(exports, module) {
+    function basePropertyOf(object) {
+      return function(key) {
+        return object == null ? void 0 : object[key];
+      };
+    }
+    module.exports = basePropertyOf;
+  }
+});
+
+// node_modules/lodash/_deburrLetter.js
+var require_deburrLetter = __commonJS({
+  \\"node_modules/lodash/_deburrLetter.js\\"(exports, module) {
+    var basePropertyOf = require_basePropertyOf();
     var deburredLetters = {
       \\"\\\\xC0\\": \\"A\\",
       \\"\\\\xC1\\": \\"A\\",
@@ -879,120 +1174,121 @@ var require_lodash = __commonJS({
       \\"\\\\u0152\\": \\"Oe\\",
       \\"\\\\u0153\\": \\"oe\\",
       \\"\\\\u0149\\": \\"'n\\",
-      \\"\\\\u017F\\": \\"ss\\"
+      \\"\\\\u017F\\": \\"s\\"
     };
-    var freeGlobal = typeof global == \\"object\\" && global && global.Object === Object && global;
-    var freeSelf = typeof self == \\"object\\" && self && self.Object === Object && self;
-    var root = freeGlobal || freeSelf || Function(\\"return this\\")();
-    function arrayReduce(array, iteratee, accumulator, initAccum) {
-      var index = -1, length = array ? array.length : 0;
-      if (initAccum && length) {
-        accumulator = array[++index];
-      }
-      while (++index < length) {
-        accumulator = iteratee(accumulator, array[index], index, array);
-      }
-      return accumulator;
-    }
-    function asciiToArray(string) {
-      return string.split(\\"\\");
-    }
-    function asciiWords(string) {
-      return string.match(reAsciiWord) || [];
-    }
-    function basePropertyOf(object) {
-      return function(key) {
-        return object == null ? void 0 : object[key];
-      };
-    }
     var deburrLetter = basePropertyOf(deburredLetters);
-    function hasUnicode(string) {
-      return reHasUnicode.test(string);
-    }
-    function hasUnicodeWord(string) {
-      return reHasUnicodeWord.test(string);
-    }
-    function stringToArray(string) {
-      return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
-    }
-    function unicodeToArray(string) {
-      return string.match(reUnicode) || [];
-    }
-    function unicodeWords(string) {
-      return string.match(reUnicodeWord) || [];
-    }
-    var objectProto = Object.prototype;
-    var objectToString = objectProto.toString;
-    var Symbol = root.Symbol;
-    var symbolProto = Symbol ? Symbol.prototype : void 0;
-    var symbolToString = symbolProto ? symbolProto.toString : void 0;
-    function baseSlice(array, start, end) {
-      var index = -1, length = array.length;
-      if (start < 0) {
-        start = -start > length ? 0 : length + start;
-      }
-      end = end > length ? length : end;
-      if (end < 0) {
-        end += length;
-      }
-      length = start > end ? 0 : end - start >>> 0;
-      start >>>= 0;
-      var result = Array(length);
-      while (++index < length) {
-        result[index] = array[index + start];
-      }
-      return result;
-    }
-    function baseToString(value) {
-      if (typeof value == \\"string\\") {
-        return value;
-      }
-      if (isSymbol(value)) {
-        return symbolToString ? symbolToString.call(value) : \\"\\";
-      }
-      var result = value + \\"\\";
-      return result == \\"0\\" && 1 / value == -INFINITY ? \\"-0\\" : result;
-    }
-    function castSlice(array, start, end) {
-      var length = array.length;
-      end = end === void 0 ? length : end;
-      return !start && end >= length ? array : baseSlice(array, start, end);
-    }
-    function createCaseFirst(methodName) {
-      return function(string) {
-        string = toString(string);
-        var strSymbols = hasUnicode(string) ? stringToArray(string) : void 0;
-        var chr = strSymbols ? strSymbols[0] : string.charAt(0);
-        var trailing = strSymbols ? castSlice(strSymbols, 1).join(\\"\\") : string.slice(1);
-        return chr[methodName]() + trailing;
-      };
-    }
-    function createCompounder(callback) {
-      return function(string) {
-        return arrayReduce(words(deburr(string).replace(reApos, \\"\\")), callback, \\"\\");
-      };
-    }
-    function isObjectLike(value) {
-      return !!value && typeof value == \\"object\\";
-    }
-    function isSymbol(value) {
-      return typeof value == \\"symbol\\" || isObjectLike(value) && objectToString.call(value) == symbolTag;
-    }
-    function toString(value) {
-      return value == null ? \\"\\" : baseToString(value);
-    }
-    var camelCase2 = createCompounder(function(result, word, index) {
-      word = word.toLowerCase();
-      return result + (index ? capitalize(word) : word);
-    });
-    function capitalize(string) {
-      return upperFirst(toString(string).toLowerCase());
-    }
+    module.exports = deburrLetter;
+  }
+});
+
+// node_modules/lodash/deburr.js
+var require_deburr = __commonJS({
+  \\"node_modules/lodash/deburr.js\\"(exports, module) {
+    var deburrLetter = require_deburrLetter();
+    var toString = require_toString();
+    var reLatin = /[\\\\xc0-\\\\xd6\\\\xd8-\\\\xf6\\\\xf8-\\\\xff\\\\u0100-\\\\u017f]/g;
+    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
+    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
+    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+    var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
+    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
+    var reComboMark = RegExp(rsCombo, \\"g\\");
     function deburr(string) {
       string = toString(string);
       return string && string.replace(reLatin, deburrLetter).replace(reComboMark, \\"\\");
     }
-    var upperFirst = createCaseFirst(\\"toUpperCase\\");
+    module.exports = deburr;
+  }
+});
+
+// node_modules/lodash/_asciiWords.js
+var require_asciiWords = __commonJS({
+  \\"node_modules/lodash/_asciiWords.js\\"(exports, module) {
+    var reAsciiWord = /[^\\\\x00-\\\\x2f\\\\x3a-\\\\x40\\\\x5b-\\\\x60\\\\x7b-\\\\x7f]+/g;
+    function asciiWords(string) {
+      return string.match(reAsciiWord) || [];
+    }
+    module.exports = asciiWords;
+  }
+});
+
+// node_modules/lodash/_hasUnicodeWord.js
+var require_hasUnicodeWord = __commonJS({
+  \\"node_modules/lodash/_hasUnicodeWord.js\\"(exports, module) {
+    var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+    function hasUnicodeWord(string) {
+      return reHasUnicodeWord.test(string);
+    }
+    module.exports = hasUnicodeWord;
+  }
+});
+
+// node_modules/lodash/_unicodeWords.js
+var require_unicodeWords = __commonJS({
+  \\"node_modules/lodash/_unicodeWords.js\\"(exports, module) {
+    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
+    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
+    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
+    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+    var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
+    var rsDingbatRange = \\"\\\\\\\\u2700-\\\\\\\\u27bf\\";
+    var rsLowerRange = \\"a-z\\\\\\\\xdf-\\\\\\\\xf6\\\\\\\\xf8-\\\\\\\\xff\\";
+    var rsMathOpRange = \\"\\\\\\\\xac\\\\\\\\xb1\\\\\\\\xd7\\\\\\\\xf7\\";
+    var rsNonCharRange = \\"\\\\\\\\x00-\\\\\\\\x2f\\\\\\\\x3a-\\\\\\\\x40\\\\\\\\x5b-\\\\\\\\x60\\\\\\\\x7b-\\\\\\\\xbf\\";
+    var rsPunctuationRange = \\"\\\\\\\\u2000-\\\\\\\\u206f\\";
+    var rsSpaceRange = \\" \\\\\\\\t\\\\\\\\x0b\\\\\\\\f\\\\\\\\xa0\\\\\\\\ufeff\\\\\\\\n\\\\\\\\r\\\\\\\\u2028\\\\\\\\u2029\\\\\\\\u1680\\\\\\\\u180e\\\\\\\\u2000\\\\\\\\u2001\\\\\\\\u2002\\\\\\\\u2003\\\\\\\\u2004\\\\\\\\u2005\\\\\\\\u2006\\\\\\\\u2007\\\\\\\\u2008\\\\\\\\u2009\\\\\\\\u200a\\\\\\\\u202f\\\\\\\\u205f\\\\\\\\u3000\\";
+    var rsUpperRange = \\"A-Z\\\\\\\\xc0-\\\\\\\\xd6\\\\\\\\xd8-\\\\\\\\xde\\";
+    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
+    var rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
+    var rsApos = \\"['\\\\u2019]\\";
+    var rsBreak = \\"[\\" + rsBreakRange + \\"]\\";
+    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
+    var rsDigits = \\"\\\\\\\\d+\\";
+    var rsDingbat = \\"[\\" + rsDingbatRange + \\"]\\";
+    var rsLower = \\"[\\" + rsLowerRange + \\"]\\";
+    var rsMisc = \\"[^\\" + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + \\"]\\";
+    var rsFitz = \\"\\\\\\\\ud83c[\\\\\\\\udffb-\\\\\\\\udfff]\\";
+    var rsModifier = \\"(?:\\" + rsCombo + \\"|\\" + rsFitz + \\")\\";
+    var rsNonAstral = \\"[^\\" + rsAstralRange + \\"]\\";
+    var rsRegional = \\"(?:\\\\\\\\ud83c[\\\\\\\\udde6-\\\\\\\\uddff]){2}\\";
+    var rsSurrPair = \\"[\\\\\\\\ud800-\\\\\\\\udbff][\\\\\\\\udc00-\\\\\\\\udfff]\\";
+    var rsUpper = \\"[\\" + rsUpperRange + \\"]\\";
+    var rsZWJ = \\"\\\\\\\\u200d\\";
+    var rsMiscLower = \\"(?:\\" + rsLower + \\"|\\" + rsMisc + \\")\\";
+    var rsMiscUpper = \\"(?:\\" + rsUpper + \\"|\\" + rsMisc + \\")\\";
+    var rsOptContrLower = \\"(?:\\" + rsApos + \\"(?:d|ll|m|re|s|t|ve))?\\";
+    var rsOptContrUpper = \\"(?:\\" + rsApos + \\"(?:D|LL|M|RE|S|T|VE))?\\";
+    var reOptMod = rsModifier + \\"?\\";
+    var rsOptVar = \\"[\\" + rsVarRange + \\"]?\\";
+    var rsOptJoin = \\"(?:\\" + rsZWJ + \\"(?:\\" + [rsNonAstral, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsOptVar + reOptMod + \\")*\\";
+    var rsOrdLower = \\"\\\\\\\\d*(?:1st|2nd|3rd|(?![123])\\\\\\\\dth)(?=\\\\\\\\b|[A-Z_])\\";
+    var rsOrdUpper = \\"\\\\\\\\d*(?:1ST|2ND|3RD|(?![123])\\\\\\\\dTH)(?=\\\\\\\\b|[a-z_])\\";
+    var rsSeq = rsOptVar + reOptMod + rsOptJoin;
+    var rsEmoji = \\"(?:\\" + [rsDingbat, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsSeq;
+    var reUnicodeWord = RegExp([
+      rsUpper + \\"?\\" + rsLower + \\"+\\" + rsOptContrLower + \\"(?=\\" + [rsBreak, rsUpper, \\"$\\"].join(\\"|\\") + \\")\\",
+      rsMiscUpper + \\"+\\" + rsOptContrUpper + \\"(?=\\" + [rsBreak, rsUpper + rsMiscLower, \\"$\\"].join(\\"|\\") + \\")\\",
+      rsUpper + \\"?\\" + rsMiscLower + \\"+\\" + rsOptContrLower,
+      rsUpper + \\"+\\" + rsOptContrUpper,
+      rsOrdUpper,
+      rsOrdLower,
+      rsDigits,
+      rsEmoji
+    ].join(\\"|\\"), \\"g\\");
+    function unicodeWords(string) {
+      return string.match(reUnicodeWord) || [];
+    }
+    module.exports = unicodeWords;
+  }
+});
+
+// node_modules/lodash/words.js
+var require_words = __commonJS({
+  \\"node_modules/lodash/words.js\\"(exports, module) {
+    var asciiWords = require_asciiWords();
+    var hasUnicodeWord = require_hasUnicodeWord();
+    var toString = require_toString();
+    var unicodeWords = require_unicodeWords();
     function words(string, pattern, guard) {
       string = toString(string);
       pattern = guard ? void 0 : pattern;
@@ -1001,6 +1297,36 @@ var require_lodash = __commonJS({
       }
       return string.match(pattern) || [];
     }
+    module.exports = words;
+  }
+});
+
+// node_modules/lodash/_createCompounder.js
+var require_createCompounder = __commonJS({
+  \\"node_modules/lodash/_createCompounder.js\\"(exports, module) {
+    var arrayReduce = require_arrayReduce();
+    var deburr = require_deburr();
+    var words = require_words();
+    var rsApos = \\"['\\\\u2019]\\";
+    var reApos = RegExp(rsApos, \\"g\\");
+    function createCompounder(callback) {
+      return function(string) {
+        return arrayReduce(words(deburr(string).replace(reApos, \\"\\")), callback, \\"\\");
+      };
+    }
+    module.exports = createCompounder;
+  }
+});
+
+// node_modules/lodash/camelCase.js
+var require_camelCase = __commonJS({
+  \\"node_modules/lodash/camelCase.js\\"(exports, module) {
+    var capitalize = require_capitalize();
+    var createCompounder = require_createCompounder();
+    var camelCase2 = createCompounder(function(result, word, index) {
+      word = word.toLowerCase();
+      return result + (index ? capitalize(word) : word);
+    });
     module.exports = camelCase2;
   }
 });
@@ -1010,7 +1336,7 @@ var import_react_autosize_textarea = __toESM(require_lib());
 var import_use_clipboard_copy = __toESM(require_dist());
 import * as React from \\"react\\";
 import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
-var camelCase = require_lodash();
+var camelCase = require_camelCase();
 var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => camelCase(deprecatedToken.name));
 var convertRawTokenJSONToArray = (rawTokens) => {
   const rawTokenNames = Object.keys(rawTokens);
