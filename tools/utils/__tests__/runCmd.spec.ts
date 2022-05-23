@@ -1,4 +1,4 @@
-const {runCmd} = require('../runCmd');
+import {runCmd} from '../runCmd';
 
 describe('runCmd', () => {
   it('receives output from completed processes', async () => {
@@ -23,7 +23,7 @@ describe('runCmd', () => {
     let didThrow = false;
     try {
       await runCmd('false');
-    } catch (error) {
+    } catch (error: any) {
       didThrow = true;
       expect(typeof error.pid).toBe('number');
       expect(error.status).toBe(1);
@@ -39,7 +39,7 @@ describe('runCmd', () => {
     let didThrow = false;
     try {
       await runCmd('fake-app');
-    } catch (error) {
+    } catch (error: any) {
       didThrow = true;
       expect(error.pid).not.toBeDefined();
       expect(error.code).toBe('ENOENT');

@@ -1,15 +1,16 @@
-const spawnAsync = require('@expo/spawn-async');
-const chalk = require('chalk');
+import spawnAsync from '@expo/spawn-async';
+import type {SpawnResult} from '@expo/spawn-async';
+import chalk from 'chalk';
 
 /**
  * Simple wrapper for spawnSync to handle failures
  *
  * @param {string} cmd command
- * @param {Array<T>} args arguments for command
+ * @param {Array<string>} args arguments for command
  * @param {SpawnOptions} options spawn options
- * @return {Object} spawn result
+ * @return {SpawnResult} spawn result
  */
-async function runCmd(cmd, args = [], options = {}) {
+export async function runCmd(cmd: string, args: Array<string> = [], options = {}) {
   // eslint-disable-next-line no-console
   console.log(chalk.yellow(`>> Running command: ${cmd} ${args.join(' ')}`));
   const result = await spawnAsync(cmd, args, options);
@@ -17,7 +18,7 @@ async function runCmd(cmd, args = [], options = {}) {
 }
 
 // Takes a shell commands output and gets the JSON from stdout safely
-function getJsonFromCmdResults(result) {
+export function getJsonFromCmdResults(result: SpawnResult) {
   if (result == null || result.stdout == null || result.stdout === '') {
     throw new Error(`Invalid result passed to processCmdJsonOutput.  Provided: ${JSON.stringify(result)}`);
   }
@@ -30,8 +31,6 @@ function getJsonFromCmdResults(result) {
 }
 
 // Combines the above two functions into a single function
-async function runCmdJson(cmd, args = [], options = {}) {
+export async function runCmdJson(cmd: string, args: Array<string> = [], options = {}) {
   return getJsonFromCmdResults(await runCmd(cmd, args, options));
 }
-
-module.exports = {runCmd, getJsonFromCmdResults, runCmdJson};

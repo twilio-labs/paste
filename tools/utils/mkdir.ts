@@ -1,10 +1,14 @@
-const chalk = require('chalk');
-const {writeFile} = require('fs');
+import fs from 'fs';
+import chalk from 'chalk';
 
-function writeToFile(filePath, content, {successMessage, errorMessage, formatJson = false}) {
-  const output = formatJson ? JSON.stringify(content, null, 2) : content;
+interface mkdirArgs {
+  callback: () => unknown;
+  successMessage?: string | null;
+  errorMessage?: string | null;
+}
 
-  writeFile(filePath, output, 'utf8', error => {
+export function mkdir(folderPath: string, {callback, successMessage, errorMessage}: mkdirArgs) {
+  fs.mkdir(folderPath, {recursive: true}, (error) => {
     if (error) {
       if (errorMessage != null) {
         // eslint-disable-next-line no-console
@@ -18,7 +22,6 @@ function writeToFile(filePath, content, {successMessage, errorMessage, formatJso
       // eslint-disable-next-line no-console
       console.log(chalk.green(successMessage));
     }
+    callback && callback();
   });
 }
-
-module.exports = {writeToFile};

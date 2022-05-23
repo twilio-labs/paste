@@ -3,7 +3,7 @@ import {writeFile} from 'fs';
 
 export function writeToFile(
   filePath: string,
-  content: string | object,
+  content: string | object | Array<unknown>,
   {
     successMessage,
     errorMessage,
