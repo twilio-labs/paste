@@ -1,4 +1,4 @@
-import {PackageShape} from './types';
+import type {PackageShape} from '../tools/utils/getRepoPackages';
 
 /**
  * Returns a list of public packages by filtering out the private ones

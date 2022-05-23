@@ -6,7 +6,7 @@ import {
   getPublicPackages,
   getUnpublishedPackageNames,
 } from './utils';
-import {PackageShape} from './types';
+import type {PackageShape} from '../tools/utils/getRepoPackages';
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
 import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
