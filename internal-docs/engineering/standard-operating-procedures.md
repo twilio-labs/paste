@@ -1,5 +1,12 @@
 # Standard Operating Procedures
 
+- [Standard Operating Procedures](#standard-operating-procedures)
+  - [Terminology](#terminology)
+  - [Checklist](#checklist)
+    - [Is this manner of consuming the product ergonomic and consistent?](#is-this-manner-of-consuming-the-product-ergonomic-and-consistent)
+    - [Is this manner of developing the product maintainable?](#is-this-manner-of-developing-the-product-maintainable)
+    - [Component Library specific](#component-library-specific)
+
 These questions are ordered for a more natural progression.
 
 ## Terminology
