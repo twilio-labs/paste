@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "csstype": "^3.0.11",
-    "lodash": "^4.3.0"
+    "lodash": "^4.17.19"
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^7.0.0",

@@ -23,7 +23,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.136",
+    "@types/lodash": "^4.17.19",
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10"
   },

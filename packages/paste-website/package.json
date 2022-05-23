@@ -93,7 +93,7 @@
     "@twilio-paste/types": "^3.1.5",
     "@twilio-paste/uid-library": "^0.2.4",
     "@twilio-paste/utils": "^1.1.1",
-    "@types/lodash": "^4.3.6",
+    "@types/lodash": "^4.17.19",
     "@types/mdx-js__react": "^1.5.5",
     "color": "^3.1.2",
     "date-fns": "2.21.3",
