@@ -1,7 +1,7 @@
-const {sortBy} = require('lodash');
+import sortBy from 'lodash/sortBy';
 
-const {CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH} = require('./constants');
-const {
+import {CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH} from './constants';
+import {
   getRepoPackages,
   writeToFile,
   generateIndexFromPackageList,
@@ -11,14 +11,14 @@ const {
   createRelativePackageFolders,
   createGitIgnore,
   createCodeSandboxCIjson,
-} = require('./utils');
+} from './utils';
 
 // Main
 (async () => {
   // Use lerna to get all packages and their version info
   const packageList = await getRepoPackages();
   // Filter to all public packages
-  const filteredPublicPackages = getCoreRelevantPackages(packageList);
+  const filteredPublicPackages = packageList !== null ? getCoreRelevantPackages(packageList) : [];
   // Sort the list so we don't get inconsistent ordering each rebuild
   const sortedPackageList = sortBy(filteredPublicPackages, ['name']);
   // Filter to all production ready core packages

@@ -17,10 +17,10 @@
     "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",
     "build:js": "yarn clean && yarn generate-packages && yarn compile",
     "build:types": "./tools/build-types.sh",
-    "generate-packages": "node ./tools/generate.js",
+    "generate-packages": "ts-node ./tools/generate.ts",
     "clean": "yarn clean:packages && rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",
     "clean:packages": "./tools/clean-packages.sh",
-    "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx' && node ./tools/minify",
+    "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx' && ts-node ./tools/minify",
     "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'"
   },
   "dependencies": {

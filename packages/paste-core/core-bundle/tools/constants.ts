@@ -1,4 +1,6 @@
-const {join} = require('path');
+import {join} from 'path';
+
+import type {PackageShape} from './types';
 
 // Adding the website package for redundancy only, because
 // it's a private package and won't be included anyways
@@ -24,11 +26,11 @@ const CORE_BUNDLE_INDEX_PATH = join(CORE_BUNDLE_PATH, 'src/index.tsx');
 const CORE_BUNDLE_PACKAGE_PATH = join(CORE_BUNDLE_PATH, 'package.json');
 const CORE_BUNDLE_OUTPUT_PATH = join(CORE_BUNDLE_PATH, 'dist/');
 
-const getPackageName = (package) => package.name.replace('@twilio-paste/', '');
-const getUnbarreledFilePath = (package) => `src/${getPackageName(package)}.tsx`;
-const getUnbarreledFileFullPath = (package) => join(CORE_BUNDLE_PATH, getUnbarreledFilePath(package));
+const getPackageName = (pkg: PackageShape): string => pkg.name.replace('@twilio-paste/', '');
+const getUnbarreledFilePath = (pkg: PackageShape): string => `src/${getPackageName(pkg)}.tsx`;
+const getUnbarreledFileFullPath = (pkg: PackageShape): string => join(CORE_BUNDLE_PATH, getUnbarreledFilePath(pkg));
 
-module.exports = {
+export {
   BLOCKLIST,
   BASE_CODESANDBOX_CI,
   PACKAGES_ROOT_PATH,
@@ -37,7 +39,6 @@ module.exports = {
   CORE_BUNDLE_INDEX_PATH,
   CORE_BUNDLE_PACKAGE_PATH,
   CORE_BUNDLE_OUTPUT_PATH,
-
   getPackageName,
   getUnbarreledFilePath,
   getUnbarreledFileFullPath,
