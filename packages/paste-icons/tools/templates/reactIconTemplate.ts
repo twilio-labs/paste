@@ -1,5 +1,10 @@
+interface ReactIconTemplateArgs {
+  componentName: string;
+  svg: string;
+}
+
 // Note on a11y: https://css-tricks.com/can-make-icon-system-accessible/
-const reactIconTemplate = ({componentName, svg}) => `
+export const reactIconTemplate = ({componentName, svg}: ReactIconTemplateArgs): string => `
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
@@ -32,7 +37,3 @@ const ${componentName} = React.forwardRef<HTMLElement, ${componentName}Props>(
 ${componentName}.displayName = '${componentName}';
 export {${componentName}};
 `;
-
-module.exports = {
-  reactIconTemplate,
-};

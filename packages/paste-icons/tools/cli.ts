@@ -1,9 +1,10 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-const program = require('commander');
-const {listIconsAction} = require('./actions/listIconsAction');
-const {convertNewAction} = require('./actions/convertNewAction');
-const {convertAllAction} = require('./actions/convertAllAction');
+import program from 'commander';
+
+import {listIconsAction} from './actions/listIconsAction';
+import {convertNewAction} from './actions/convertNewAction';
+import {convertAllAction} from './actions/convertAllAction';
 
 program.version('0.1.0');
 program
@@ -22,8 +23,9 @@ program
   .action(convertAllAction);
 
 // Assert that a VALID command is provided
-if (process.argv.slice(2).length <= 0 || !/[arudl]/.test(process.argv.slice(2))) {
+if (process.argv.slice(2).length <= 0 || !/[adlru]/.test(`${process.argv.slice(2)}`)) {
   program.outputHelp();
+  // eslint-disable-next-line unicorn/no-process-exit
   process.exit();
 }
 program.parse(process.argv);

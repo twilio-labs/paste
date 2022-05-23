@@ -1,20 +1,22 @@
-const fs = require('fs');
+import fs from 'fs';
+import difference from 'lodash/difference';
+
 const {convertSvgToReact} = require('@twilio-labs/svg-to-react');
-const difference = require('lodash.difference');
-const {
+
+import {
   getInputPath,
   getReactOutputPath,
   normalizeFileName,
   readdirAsync,
   getOutputComponentName,
   maybeHandleError,
-} = require('../utils');
-const {SVG_PATH, REACT_PATH, BLOCKLIST_FILES} = require('../constants');
-const {reactIconTemplate} = require('../templates/reactIconTemplate');
-const {writeToFile} = require('../../../../tools/utils/writeToFile');
+} from '../utils';
+import {SVG_PATH, REACT_PATH, BLOCKLIST_FILES} from '../constants';
+import {reactIconTemplate} from '../templates/reactIconTemplate';
+import {writeToFile} from '../../../../tools/utils/writeToFile';
 
 // Converts raw svg to react component
-function performFileConversion(fileName, outputPath, options) {
+function performFileConversion(fileName: string, outputPath: string, options: Record<string, unknown>): void {
   // eslint-disable-next-line no-console
   console.log(`Converting ${fileName}.`);
   // Read the SVG file
@@ -35,15 +37,10 @@ function performFileConversion(fileName, outputPath, options) {
   });
 }
 
-async function convertNewAction() {
-  let sourceFiles;
-  let destinationFiles;
-  try {
-    sourceFiles = await readdirAsync(SVG_PATH);
-    destinationFiles = await readdirAsync(REACT_PATH);
-  } catch (error) {
-    maybeHandleError('Error occured while reading directory!', error);
-  }
+export async function convertNewAction(): Promise<void> {
+  const sourceFiles = await readdirAsync(SVG_PATH);
+  const destinationFiles = await readdirAsync(REACT_PATH);
+
   // Normalize file names so we can run a diff
   const normalizedSourceFiles = sourceFiles
     // If it isn't in the source files list, it won't generate
@@ -64,7 +61,3 @@ async function convertNewAction() {
     });
   });
 }
-
-module.exports = {
-  convertNewAction,
-};
