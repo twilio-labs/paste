@@ -1,6 +1,7 @@
-const path = require('path');
-const {writeToFile} = require('../../../tools/utils/writeToFile');
-const {generatePackageExportsMap} = require('./generatePackageExportsMap');
+import path from 'path';
+
+import {writeToFile} from '../../../tools/utils/writeToFile';
+import {generatePackageExportsMap} from './generatePackageExportsMap';
 
 (async () => {
   const mapping = await generatePackageExportsMap();

@@ -1,21 +1,21 @@
-const {getRepoPackages} = require('../../../tools/utils/getRepoPackages');
+import {getRepoPackages} from '../../../tools/utils/getRepoPackages';
 
-async function generatePackageExportsMap(getPackages = getRepoPackages) {
+export async function generatePackageExportsMap(getPackages = getRepoPackages): Promise<Record<string, string>> {
   // Object to store all the generated mappings for our codemod
-  const mapping = {};
+  const mapping: Record<string, string> = {};
 
   // Get all Paste packages
   const allPastePackages = await getPackages();
 
   // Remove irrelevant packages
-  const filteredPastePackages = allPastePackages.filter((pkg) => {
+  const filteredPastePackages = allPastePackages?.filter((pkg) => {
     if (pkg.private) return false;
     // Only include Paste core packages (except core-bundle!)
     if (!pkg.location.includes('/paste-core/') || pkg.location.includes('/paste-core/core-bundle')) return false;
     return true;
   });
 
-  filteredPastePackages.forEach(({name}) => {
+  filteredPastePackages?.forEach(({name}) => {
     // convert package name to core name
     const corePackageName = `@twilio-paste/core/${name.split('/')[1]}`;
 
@@ -24,9 +24,9 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       packageExports = require(name);
-    } catch (err) {
-      console.log(`Failed to dynamically require package: ${name}`, err);
-      throw err;
+    } catch (error) {
+      console.log(`Failed to dynamically require package: ${name}`, error);
+      throw error;
     }
 
     // Now we create a mapping for every export to the core-bundle unbarreled package
@@ -37,5 +37,3 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
 
   return mapping;
 }
-
-module.exports = {generatePackageExportsMap};
