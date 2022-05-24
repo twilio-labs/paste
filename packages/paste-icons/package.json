@@ -20,9 +20,9 @@
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",
-    "list-icons": "node ./tools/cli.js list-icons",
-    "convert-new": "node ./tools/cli.js convert-new",
-    "convert": "node ./tools/cli.js convert"
+    "list-icons": "ts-node ./tools/cli.ts list-icons",
+    "convert-new": "ts-node ./tools/cli.ts convert-new",
+    "convert": "ts-node ./tools/cli.ts convert"
   },
   "peerDependencies": {
     "@twilio-paste/box": "^6.0.0",
