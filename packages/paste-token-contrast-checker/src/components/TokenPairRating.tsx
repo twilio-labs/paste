@@ -8,7 +8,7 @@ import {SuccessIcon} from '@twilio-paste/icons/cjs/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/cjs/ErrorIcon';
 import {InformationIcon} from '@twilio-paste/icons/cjs/InformationIcon';
 
-const camelCase = require('lodash/camelcase');
+import camelCase from 'lodash/camelCase';
 
 interface ContrastRatioProps {
   ratio: number;

@@ -5,7 +5,7 @@ import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.jso
 
 export {useClipboard} from 'use-clipboard-copy';
 
-const camelCase = require('lodash/camelCase');
+import camelCase from 'lodash/camelCase';
 
 export const DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props)
   // @ts-ignore

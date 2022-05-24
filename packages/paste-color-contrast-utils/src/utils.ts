@@ -4,7 +4,7 @@ import type {GenericTokensShape, AllGenericTokens} from '@twilio-paste/design-to
 import type {DesignToken, DesignTokensJSON, TokenPairContrastRating} from '@twilio-paste/design-tokens/types';
 import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
 
-const camelCase = require('lodash/camelcase');
+import camelCase from 'lodash/camelCase';
 
 /**
  * Filter out any ratings that are not at least aa for text color contrast requirements

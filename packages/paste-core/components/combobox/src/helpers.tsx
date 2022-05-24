@@ -2,7 +2,7 @@ import type {Item as ItemType} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 // https://lodash.com/docs/4.17.15#groupBy
-const groupBy = require('lodash/groupby');
+import groupBy from 'lodash/groupBy';
 
 // Converts items into an array of objects with a key for the index
 // Examples:

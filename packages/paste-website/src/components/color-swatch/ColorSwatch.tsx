@@ -1,5 +1,5 @@
 import * as React from 'react';
-import kebabCase from 'lodash/kebabcase';
+import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';

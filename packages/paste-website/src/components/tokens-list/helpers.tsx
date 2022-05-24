@@ -4,7 +4,7 @@ import type {ThemeVariants} from '@twilio-paste/theme';
 import type {TokenCategory, TokensListProps} from './types';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
 
-const debounce = require('lodash/debounce');
+import debounce from 'lodash/debounce';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
   if (filter !== '') {

@@ -10,7 +10,7 @@ import {Th} from './table/Th';
 import type {TdProps} from './table/Td';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const isElement = require('lodash/iselement');
+import isElement from 'lodash/isElement';
 
 type CellType = 'th' | 'td';
 export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
