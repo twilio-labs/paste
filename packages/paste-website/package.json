@@ -135,5 +135,8 @@
   },
   "devDependencies": {
     "netlify-cli": "^6.13.1"
+  },
+  "resolutions": {
+    "@types/lodash": "^4.14.182"
   }
 }
