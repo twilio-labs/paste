@@ -48,10 +48,10 @@ const trackRenderPerformance = (data) => {
 
 const formatForComponent = (componentName) => `<${componentName} />`;
 
-const getChildName = ({type}) => {
+const getChildName = ({type, ...rest}) => {
   const {displayName, name} = type?.render || type;
 
-  return formatForComponent(displayName || name || 'Anonymous');
+  return formatForComponent(displayName || name || type?.displayName || 'Anonymous');
 };
 
 const getFormattedChildNames = (children) =>
