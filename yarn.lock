@@ -10059,6 +10059,8 @@ __metadata:
 "@twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@^7.2.1, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
+  dependencies:
+    lodash: ^4.17.21
   languageName: unknown
   linkType: soft
 
@@ -11413,7 +11415,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/lodash": ^4.14.182
     "@types/react": ^17.0.31
     "@types/react-dom": ^17.0.10
     react: ^17.0.2

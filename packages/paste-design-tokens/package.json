@@ -19,5 +19,8 @@
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
     "test": "jest"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }
