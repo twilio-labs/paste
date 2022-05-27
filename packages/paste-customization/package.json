@@ -23,8 +23,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "deepmerge": "4.2.2",
-    "lodash.merge": "^4.6.2"
+    "deepmerge": "4.2.2"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",

@@ -1,12 +1,12 @@
 import path from 'path';
-import lodash from 'lodash';
+import camelCase from 'lodash/camelCase';
 import {fileSearch} from 'search-in-file';
 import tokenJson from '@twilio-paste/design-tokens/dist/tokens.json';
 import {convertFilePathsToPackageNames} from './convertFilePathsToPackageNames';
 import type {TokenPackageMap} from './types';
 
 const CORE_PACKAGES_PATH = path.join(__dirname, '../../../packages/paste-core');
-const tokenNames: string[] = Object.keys(tokenJson).map(lodash.camelCase);
+const tokenNames: string[] = Object.keys(tokenJson).map(camelCase);
 
 /**
  * Finds a given full word in all of paste's core packages (minus core-bundle)

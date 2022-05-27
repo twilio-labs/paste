@@ -4,7 +4,7 @@
  */
 
 import chalk from 'chalk';
-import difference from 'lodash.difference';
+import difference from 'lodash/difference';
 import {existsSync} from 'fs';
 import {resolve, relative} from 'path';
 

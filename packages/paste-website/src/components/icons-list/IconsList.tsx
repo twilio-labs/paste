@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';

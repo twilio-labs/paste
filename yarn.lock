@@ -9752,7 +9752,7 @@ __metadata:
   dependencies:
     "@twilio-paste/design-tokens": ^7.1.1
     color-combos: ^1.0.12
-    lodash.camelcase: ^4.3.0
+    lodash: ^4.17.21
   peerDependencies:
     "@twilio-paste/design-tokens": ^7.0.0
   languageName: unknown
@@ -9797,7 +9797,7 @@ __metadata:
     "@twilio-paste/theme": ^7.0.0
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
-    lodash.groupby: ^4.6.0
+    lodash: ^4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -9932,7 +9932,6 @@ __metadata:
     "@twilio-paste/theme": ^7.0.0
     "@twilio-paste/types": ^3.1.5
     deepmerge: 4.2.2
-    lodash.merge: ^4.6.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -9968,7 +9967,7 @@ __metadata:
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     "@twilio-paste/utils": ^1.1.3
-    lodash.iselement: ^4.1.1
+    lodash: ^4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -10060,6 +10059,8 @@ __metadata:
 "@twilio-paste/design-tokens@^7.1.1, @twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@^7.2.1, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
+  dependencies:
+    lodash: ^4.17.21
   languageName: unknown
   linkType: soft
 
@@ -10325,6 +10326,7 @@ __metadata:
     "@twilio-paste/theme": ^7.0.0
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
+    lodash: ^4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11039,7 +11041,7 @@ __metadata:
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^7.0.0
     csstype: ^3.0.11
-    lodash.camelcase: ^4.3.0
+    lodash: ^4.17.21
     prop-types: ^15.7.2
   peerDependencies:
     "@twilio-paste/design-tokens": ^7.0.0
@@ -11320,7 +11322,7 @@ __metadata:
   dependencies:
     "@twilio-paste/core": ^13.0.0
     "@twilio-paste/icons": ^8.0.0
-    lodash.camelcase: ^4.3.0
+    lodash: ^4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11413,10 +11415,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/lodash": ^4.14.136
-    "@types/lodash.debounce": ^4.0.6
-    "@types/lodash.groupby": ^4.6.6
-    "@types/lodash.iselement": ^4.1.6
     "@types/react": ^17.0.31
     "@types/react-dom": ^17.0.10
     react: ^17.0.2
@@ -11443,7 +11441,7 @@ __metadata:
   resolution: "@twilio-paste/utils@workspace:packages/paste-utils"
   dependencies:
     "@twilio-paste/types": ^3.1.5
-    lodash.debounce: ^4.0.8
+    lodash: ^4.17.21
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -11535,17 +11533,7 @@ __metadata:
     "@twilio-paste/types": ^3.1.5
     "@twilio-paste/uid-library": ^0.2.4
     "@twilio-paste/utils": ^1.1.1
-    "@types/lodash.camelcase": ^4.3.6
-    "@types/lodash.debounce": ^4.0.6
-    "@types/lodash.difference": ^4.5.6
-    "@types/lodash.findindex": ^4.6.6
-    "@types/lodash.get": ^4.4.6
-    "@types/lodash.isequal": ^4.5.6
-    "@types/lodash.kebabcase": ^4.1.6
-    "@types/lodash.mapkeys": ^4.6.6
-    "@types/lodash.startcase": " ^4.4.6"
-    "@types/lodash.tolower": " ^4.1.6"
-    "@types/lodash.uniq": " ^4.5.6"
+    "@types/lodash": ^4.14.182
     "@types/mdx-js__react": ^1.5.5
     color: ^3.1.2
     date-fns: 2.21.3
@@ -11569,17 +11557,7 @@ __metadata:
     gatsby-transformer-sharp: ^4.11.0
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
-    lodash.camelcase: ^4.3.0
-    lodash.debounce: ^4.0.8
-    lodash.difference: ^4.5.0
-    lodash.findindex: ^4.6.0
-    lodash.get: ^4.4.2
-    lodash.isequal: ^4.5.0
-    lodash.kebabcase: ^4.1.1
-    lodash.mapkeys: ^4.6.0
-    lodash.startcase: " ^4.4.0"
-    lodash.tolower: " ^4.1.2"
-    lodash.uniq: " ^4.5.0"
+    lodash: ^4.17.21
     lottie-web: ^5.7.4
     netlify-cli: ^6.13.1
     pretty-format: ^24.9.0
@@ -12150,124 +12128,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.camelcase@npm:^4.3.6":
-  version: 4.3.6
-  resolution: "@types/lodash.camelcase@npm:4.3.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 4bd62ac2254088d91a39d1e1fd951fe37c4dd90901dbd70975a6ef1fecf03355483f699533f0f112401c84da8d5b4471fe2a798a9678af3f884075a987431486
+"@types/lodash@npm:^4.14.182":
+  version: 4.14.182
+  resolution: "@types/lodash@npm:4.14.182"
+  checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4.0.6":
-  version: 4.0.6
-  resolution: "@types/lodash.debounce@npm:4.0.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 54b181c65009d2523ad13a608e1db22950467573bf6e10adaccdf46b5c2c68e7d109ff352e7e95c0035a6dd30eafd06f59356c893373098c4fb60db368158595
-  languageName: node
-  linkType: hard
-
-"@types/lodash.difference@npm:^4.5.6":
-  version: 4.5.6
-  resolution: "@types/lodash.difference@npm:4.5.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 21ac03470b408ee04b97922f475cfbbc30f248c726274494d9484a92d7aa73034752f00daeaeb2651d41feb0e90bc88824d12c5b60f3be9d29fb3d81bf40905c
-  languageName: node
-  linkType: hard
-
-"@types/lodash.findindex@npm:^4.6.6":
-  version: 4.6.6
-  resolution: "@types/lodash.findindex@npm:4.6.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: ef8f2ecbc4572444b34ddc546fada29dbe7dfbc35ad0c2b7f932c45238e15f293c9cb62fd923c19f2acf14e49c063f7de5576a8a1b21e843934fb00fcf38926f
-  languageName: node
-  linkType: hard
-
-"@types/lodash.get@npm:^4.4.6":
-  version: 4.4.6
-  resolution: "@types/lodash.get@npm:4.4.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 1f0f11a3fde2b7347482550cff4d1ba4d109c53e3f374dbe8a243f01b50e50446dd6b4d4bc897890caea50eac1157cdd0d627fb7390202b1aa5376cc27c077e6
-  languageName: node
-  linkType: hard
-
-"@types/lodash.groupby@npm:^4.6.6":
-  version: 4.6.6
-  resolution: "@types/lodash.groupby@npm:4.6.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: d1c3bf09b5da403d4c8923422d4aba1b1747d0233d1fdcdbb7f179e34a022c50e7dc0993ec7fea049a09f7913cbfd9494dea7d5ae2a5b404bbc83eb8b0a2ab30
-  languageName: node
-  linkType: hard
-
-"@types/lodash.iselement@npm:^4.1.6":
-  version: 4.1.6
-  resolution: "@types/lodash.iselement@npm:4.1.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 41bb672ce8ef3b6e4eec2bb93b75e902459438fbf00776d48e2467b4e1505d197c01a2c4c7c10a55b64fe5b226b798c87a23636d37493ad090f9cefb6a0ebef0
-  languageName: node
-  linkType: hard
-
-"@types/lodash.isequal@npm:^4.5.6":
-  version: 4.5.6
-  resolution: "@types/lodash.isequal@npm:4.5.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 0f065989408a9e0584e6c27495be2cd4602e62650f55266aa195812582444463c0c8570c674ae84f947c11748f49ab43fd5b482fa120e08eeee4c23b162edc38
-  languageName: node
-  linkType: hard
-
-"@types/lodash.kebabcase@npm:^4.1.6":
-  version: 4.1.6
-  resolution: "@types/lodash.kebabcase@npm:4.1.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: abda959203deb70ca7d2fb977cb5a35a79287a48f5cf60bf4c8333fa39e862e64efcdf2f0ac78ca971a0503d0a554ee3ce3d238ada959e11287cff892b6b550d
-  languageName: node
-  linkType: hard
-
-"@types/lodash.mapkeys@npm:^4.6.6":
-  version: 4.6.6
-  resolution: "@types/lodash.mapkeys@npm:4.6.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 45baf1b03121dcf6fe0a8e4de0782f4ee960cc17601325269aaf3a86c6b6f48e29e5c32d0accc90657c0b734362efa8b196f4dc135151fa04fa44c45ac4a970f
-  languageName: node
-  linkType: hard
-
-"@types/lodash.startcase@npm: ^4.4.6":
-  version: 4.4.6
-  resolution: "@types/lodash.startcase@npm:4.4.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: c6bdf79b6f2c7caa7c78f1dbde9a4af41acfc75061b774653ca166efc570a94d87bb67fd6794c136aef28e0c7d297937b496fad006742ddcd7bc053341df4a1b
-  languageName: node
-  linkType: hard
-
-"@types/lodash.tolower@npm: ^4.1.6":
-  version: 4.1.6
-  resolution: "@types/lodash.tolower@npm:4.1.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: ca4680a9f00f5eaf638cc5ece95d47996a823a067efed56e52b009302f56047b0f5b2a37b2a338b7aa97729e9733c42617797378e5f9c770382d5ac80f75c4bd
-  languageName: node
-  linkType: hard
-
-"@types/lodash.uniq@npm: ^4.5.6":
-  version: 4.5.6
-  resolution: "@types/lodash.uniq@npm:4.5.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: cbc8d8f19d249dc708ec9cd2d618aa3ca50c21d6e66692579fcb0ef0153c4add918c5d9075686f66d140fa276ae5043eed64e09477a80be3720f9104410fdcab
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.136, @types/lodash@npm:^4.14.92":
+"@types/lodash@npm:^4.14.92":
   version: 4.14.161
   resolution: "@types/lodash@npm:4.14.161"
   checksum: 3b03bde2b0cd8282f864951b70698115a8d9534110b12cc1cf85eef9caa2ea51a58ea790b5568a828406935966d3a23834d487a30774ed51a77eac271f7d97e9
@@ -30360,13 +30228,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.findindex@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.findindex@npm:4.6.0"
-  checksum: 94a52c6dc6d7427e5a2cc7a66550a20815caf77a95ef107b86b35591dc81499ffd9fcf4fbdeeafa5c7eae74b30c5743dd0e05a7c3a4c00d103a06f55151be3ee
-  languageName: node
-  linkType: hard
-
 "lodash.flatten@npm:4.4.0, lodash.flatten@npm:^4.2.0, lodash.flatten@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.flatten@npm:4.4.0"
@@ -30395,13 +30256,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.groupby@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.groupby@npm:4.6.0"
-  checksum: e2d4d13d12790a1cacab3f5f120b7c072a792224e83b2f403218866d18efde76024b2579996dfebb230a61ce06469332e16639103669a35a605287e19ced6b9b
-  languageName: node
-  linkType: hard
-
 "lodash.has@npm:^4.0":
   version: 4.5.2
   resolution: "lodash.has@npm:4.5.2"
@@ -30423,24 +30277,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.iselement@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.iselement@npm:4.1.1"
-  checksum: 9faa0e4fbbedbd23e8021ab99e1d9f03fb8f0d3bbe86ccb169e58f0a09faac2eb641433e2850cc1894eea8bea14f00a87d575a6530dd6bd77ddffd5349d13b7a
-  languageName: node
-  linkType: hard
-
 "lodash.isempty@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.isempty@npm:4.4.0"
   checksum: a8118f23f7ed72a1dbd176bf27f297d1e71aa1926288449cb8f7cef99ba1bc7527eab52fe7899ab080fa1dc150aba6e4a6367bf49fa4e0b78da1ecc095f8d8c5
-  languageName: node
-  linkType: hard
-
-"lodash.isequal@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.isequal@npm:4.5.0"
-  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
   languageName: node
   linkType: hard
 
@@ -30514,7 +30354,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.mapkeys@npm:4.6.0, lodash.mapkeys@npm:^4.6.0":
+"lodash.mapkeys@npm:4.6.0":
   version: 4.6.0
   resolution: "lodash.mapkeys@npm:4.6.0"
   checksum: d433d377b3944c39366741f94ca4be4fb591a6df483fd9e3458da46904d94e2b2471fd7e2d42345e05deb1dc188614ce05cd5b2979a74a7a0f3fbc2cb367c3ca
@@ -30598,7 +30438,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.startcase@npm: ^4.4.0, lodash.startcase@npm:^4.4.0":
+"lodash.startcase@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.startcase@npm:4.4.0"
   checksum: c03a4a784aca653845fe09d0ef67c902b6e49288dc45f542a4ab345a9c406a6dc194c774423fa313ee7b06283950301c1221dd2a1d8ecb2dac8dfbb9ed5606b5
@@ -30624,13 +30464,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.tolower@npm: ^4.1.2":
-  version: 4.1.2
-  resolution: "lodash.tolower@npm:4.1.2"
-  checksum: c51f78e3ccfbdc22d1de55062f0d8121476edf5bb8239f6c0a048d5aa9f7b4eb0ebdcfa2f41c744e5eebef867aa97f8604a8370862ee52f269d900bd99c3ee68
-  languageName: node
-  linkType: hard
-
 "lodash.transform@npm:^4.6.0":
   version: 4.6.0
   resolution: "lodash.transform@npm:4.6.0"
@@ -30652,7 +30485,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash.uniq@npm: ^4.5.0, lodash.uniq@npm:4.5.0, lodash.uniq@npm:^4.5.0":
+"lodash.uniq@npm:4.5.0, lodash.uniq@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.uniq@npm:4.5.0"
   checksum: a4779b57a8d0f3c441af13d9afe7ecff22dd1b8ce1129849f71d9bbc8e8ee4e46dfb4b7c28f7ad3d67481edd6e51126e4e2a6ee276e25906d10f7140187c392d
@@ -34830,16 +34663,7 @@ fsevents@~2.1.2:
     jest: 27.5.1
     jest-axe: ^4.1.0
     lerna: ^4.0.0
-    lodash: ^4.17.19
-    lodash.camelcase: ^4.3.0
-    lodash.debounce: ^4.0.8
-    lodash.difference: ^4.5.0
-    lodash.findindex: ^4.6.0
-    lodash.kebabcase: ^4.1.1
-    lodash.mapkeys: ^4.6.0
-    lodash.startcase: " ^4.4.0"
-    lodash.tolower: " ^4.1.2"
-    lodash.uniq: " ^4.5.0"
+    lodash: ^4.17.21
     lorem-ipsum: ^2.0.3
     netlify-cli: ^6.13.1
     plop: ^2.7.4
