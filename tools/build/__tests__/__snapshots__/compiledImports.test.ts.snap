@@ -1334,10 +1334,10 @@ var require_camelCase = __commonJS({
 // tools/build/__fixtures__/random_package/src/index.tsx
 var import_react_autosize_textarea = __toESM(require_lib());
 var import_use_clipboard_copy = __toESM(require_dist());
+var import_camelCase = __toESM(require_camelCase());
 import * as React from \\"react\\";
 import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
-var camelCase = require_camelCase();
-var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => camelCase(deprecatedToken.name));
+var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => (0, import_camelCase.default)(deprecatedToken.name));
 var convertRawTokenJSONToArray = (rawTokens) => {
   const rawTokenNames = Object.keys(rawTokens);
   return rawTokenNames.reduce((tokens, token) => {
