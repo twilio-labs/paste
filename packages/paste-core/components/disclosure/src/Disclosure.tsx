@@ -40,4 +40,4 @@ if (process.env.NODE_ENV === 'development') {
 }
 export {Disclosure};
 
-export {useDisclosurePrimitiveState as useDisclosureState};
+export {useDisclosurePrimitiveState as useDisclosureState} from '@twilio-paste/disclosure-primitive';

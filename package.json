@@ -62,8 +62,9 @@
     "release:next": "yarn lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
     "version": "yarn changeset version && yarn install --mode=update-lockfile",
     "sync-internal-peer-dependencies": "ts-node ./tools/build/version.ts",
-    "clean": "ts-node ./tools/build/clean-repo.ts && lerna clean --yes && lerna run clean && yarn",
-    "clean:full": "ts-node ./tools/build/clean-repo.ts && lerna clean --yes && lerna run clean && rm -rf node_modules/ && yarn",
+    "clean:tsbuild": "ts-node ./tools/build/clean-repo.ts",
+    "clean": "yarn run clean:tsbuild && lerna clean --yes && lerna run clean && yarn",
+    "clean:full": "yarn run clean:tsbuild && lerna clean --yes && lerna run clean && rm -rf node_modules/ && yarn",
     "clean:core": "yarn workspace @twilio-paste/core clean",
     "pre-test": "ts-node ./tools/build/pre-test.ts",
     "test": "jest",
@@ -75,7 +76,7 @@
     "package-size-action-build": "yarn build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
-    "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages",
+    "lint": "eslint --ext .tsx,.ts ./packages",
     "type-check": "lerna run tsc",
     "tsc": "echo 'Did you mean to run yarn type-check?'",
     "chromatic": "chromatic",
@@ -230,7 +231,15 @@
     "csstype": "^3.0.11",
     "@emotion/core": "npm:@emotion/react@11.9.0",
     "@emotion/css": "11.9.0",
-    "@storybook/theming/emotion-theming": "npm:@emotion/react@11.9.0"
+    "@storybook/theming/emotion-theming": "npm:@emotion/react@11.9.0",
+    "react": "npm:react@^17.0.2",
+    "@types/react": "npm:@types/react@^17.0.31",
+    "react-dom": "npm:react-dom@^17.0.2",
+    "@types/react-dom": "npm:@types/react-dom@^17.0.2",
+    "react@^16.8.6": "npm:react@^16.8.6",
+    "@types/react@^16.8.6": "npm:@types/react@^16.8.6",
+    "react-dom@^16.8.6": "npm:react-dom@^16.8.6",
+    "@types/react-dom@16": "@types/react-dom-16"
   },
   "husky": {
     "hooks": {

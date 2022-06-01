@@ -1,8 +1,6 @@
-// Base styling system (emotion)
-import styled from '@emotion/styled';
-
 // Custom styling application (styled-system)
 // https://github.com/styled-system/styled-system/tree/master/
+import './types';
 export type {
   SystemStyleObject,
   SystemCssProperties,
@@ -29,4 +27,4 @@ export {
   withTheme,
 } from '@emotion/react';
 
-export {styled};
+export {default as styled} from '@emotion/styled';
