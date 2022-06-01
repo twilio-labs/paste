@@ -13,9 +13,9 @@
       "@styled-system/theme-get",
       "@types/styled-system"
     ],
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "declarationDir": "dist/"
   },
-  "files": ["../../../node_modules/@emotion/react/types/css-prop.d.ts"],
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/__tests__/**", "*.test.*", "*.spec.*"]
 }

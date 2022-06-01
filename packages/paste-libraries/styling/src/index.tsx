@@ -1,6 +1,7 @@
+/// <reference path="../../../../node_modules/@emotion/react/types/css-prop.d.ts" />
+
 // Custom styling application (styled-system)
 // https://github.com/styled-system/styled-system/tree/master/
-import './types';
 export type {
   SystemStyleObject,
   SystemCssProperties,
