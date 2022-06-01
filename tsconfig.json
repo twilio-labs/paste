@@ -24,15 +24,7 @@
     "noUnusedParameters": true,
     "strict": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "paths": {
-      "@twilio-paste/*$": [
-        "./packages/paste-core/components/*/dist",
-        "./packages/paste-core/primitives/*/dist",
-        "./packages/paste-libraries/*/dist",
-        "./packages/paste-*/dist"
-      ]
-    }
+    "esModuleInterop": true
   },
   "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts", "tools/**/*"],
   "exclude": [
