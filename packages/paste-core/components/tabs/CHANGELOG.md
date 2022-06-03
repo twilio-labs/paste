@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`12a5e83e`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5) [#2449](https://github.com/twilio-labs/paste/pull/2449) Thanks [@shleewhite](https://github.com/shleewhite)! - Made a slight improvement to the TypeScript typings of several packages for better interoperability.
+
+* [`81fb5944`](https://github.com/twilio-labs/paste/commit/81fb5944168dbbb5579a6d0ebf2cff37d2455cd8) [#2410](https://github.com/twilio-labs/paste/pull/2410) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Enable left/right arrow key tab switching on vertical tabs in addition to up/down
+
 ## 4.0.0
 
 ### Patch Changes

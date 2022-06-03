@@ -1,5 +1,15 @@
 # @twilio-paste/token-contrast-checker
 
+## 0.1.6
+
+### Patch Changes
+
+- [`9983b52e9`](https://github.com/twilio-labs/paste/commit/9983b52e92d15373824e4b3cc10572b2f51d58f8) [#2419](https://github.com/twilio-labs/paste/pull/2419) Thanks [@gloriliale](https://github.com/gloriliale)! - [Combobox, Data grid, Color contrast utils, Customization, Design tokens, Icons, Style props, Token contrast checker, Types, Utils, Website] Consolidate and update lodash dependencies and the way lodash is imported in our files, per lodash's guidance. Details: https://lodash.com/per-method-packages
+
+- Updated dependencies [[`12a5e83e`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5), [`81fb5944`](https://github.com/twilio-labs/paste/commit/81fb5944168dbbb5579a6d0ebf2cff37d2455cd8), [`12a5e83ed`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5), [`9983b52e9`](https://github.com/twilio-labs/paste/commit/9983b52e92d15373824e4b3cc10572b2f51d58f8)]:
+  - @twilio-paste/core@13.0.1
+  - @twilio-paste/icons@8.0.1
+
 ## 0.1.5
 
 ### Patch Changes
