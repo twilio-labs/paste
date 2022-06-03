@@ -12,6 +12,10 @@
     },
     "lint": {
       "outputs": []
+    },
+    "tsc": {
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     }
   }
 }
