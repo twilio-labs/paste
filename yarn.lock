@@ -2989,6 +2989,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/css-prettifier@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@emotion/css-prettifier@npm:1.0.1"
+  dependencies:
+    "@emotion/memoize": ^0.7.4
+    stylis: 4.0.13
+  checksum: 3c75e59b072fc4c6d1e555696ac01e41a02d29324c2e95795b6c1b2caae765f1967f561b64cf19522a06ec0d7bf89948ccf9ba8c000335a6693b6a4b43b74b92
+  languageName: node
+  linkType: hard
+
 "@emotion/css@npm:^10.0.27":
   version: 10.0.27
   resolution: "@emotion/css@npm:10.0.27"
@@ -3025,6 +3035,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/jest@npm:^11.9.1":
+  version: 11.9.1
+  resolution: "@emotion/jest@npm:11.9.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@emotion/css-prettifier": ^1.0.1
+    chalk: ^4.1.0
+    specificity: ^0.4.1
+    stylis: 4.0.13
+  peerDependencies:
+    "@types/jest": ^26.0.14 || ^27.0.0
+    enzyme-to-json: ^3.2.1
+  peerDependenciesMeta:
+    "@types/jest":
+      optional: true
+    enzyme-to-json:
+      optional: true
+  checksum: 97fef9ea53c1165e709d9b72ac0a37ac989c0337249b23ad7187c23b6459f243ddb7d0fe43b331e6eca2c3629458c3e428fd3b12d2e367bdb9f3b72cb780f8ba
+  languageName: node
+  linkType: hard
+
 "@emotion/memoize@npm:0.7.4":
   version: 0.7.4
   resolution: "@emotion/memoize@npm:0.7.4"
@@ -3032,7 +3063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/memoize@npm:^0.7.1":
+"@emotion/memoize@npm:^0.7.1, @emotion/memoize@npm:^0.7.4":
   version: 0.7.5
   resolution: "@emotion/memoize@npm:0.7.5"
   checksum: 83da8d4a7649a92c72f960817692bc6be13cc13e107b9f7e878d63766525ed4402881bfeb3cda61145c050281e7e260f114a0a2870515527346f2ef896b915b3
@@ -11976,13 +12007,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^23.0.2":
-  version: 23.3.14
-  resolution: "@types/jest@npm:23.3.14"
-  checksum: 0f8ec7c7ef16c35afb17bb1c83167bb847b2a577e0298caf3d828c43026f7544eb831d63fe71bb0eee28c8724389cbf57402e5b9fe87a22b255bd79ece2c3152
-  languageName: node
-  linkType: hard
-
 "@types/jest@npm:^24.0.18":
   version: 24.9.1
   resolution: "@types/jest@npm:24.9.1"
@@ -18837,7 +18861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css@npm:2.2.4, css@npm:^2.0.0, css@npm:^2.2.1":
+"css@npm:2.2.4, css@npm:^2.0.0":
   version: 2.2.4
   resolution: "css@npm:2.2.4"
   dependencies:
@@ -28331,18 +28355,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"jest-emotion@npm:^10.0.32":
-  version: 10.0.32
-  resolution: "jest-emotion@npm:10.0.32"
-  dependencies:
-    "@babel/runtime": ^7.5.5
-    "@types/jest": ^23.0.2
-    chalk: ^2.4.1
-    css: ^2.2.1
-  checksum: 9e7cb48bd71c24059d4d6575901ce23f7200d2b6b4b7ea5fe27818fb52bac2adfbe60398be12dc80d51cc5ca8d6d42933a33d118d651acea6793a60ed0b25c94
-  languageName: node
-  linkType: hard
-
 "jest-environment-jsdom@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-environment-jsdom@npm:27.5.1"
@@ -34507,6 +34519,7 @@ fsevents@~2.1.2:
     "@commitlint/config-conventional": 16.2.1
     "@emotion/babel-preset-css-prop": ^10.0.14
     "@emotion/eslint-plugin": ^11.7.0
+    "@emotion/jest": ^11.9.1
     "@expo/spawn-async": ^1.5.0
     "@manypkg/cli": 0.17.0
     "@netlify/functions": ^0.7.2
@@ -34593,7 +34606,6 @@ fsevents@~2.1.2:
     immutable: ^4.0.0-rc.12
     jest: 27.5.1
     jest-axe: ^4.1.0
-    jest-emotion: ^10.0.32
     lerna: ^4.0.0
     lodash: ^4.17.21
     lorem-ipsum: ^2.0.3
@@ -40445,6 +40457,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"specificity@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "specificity@npm:0.4.1"
+  bin:
+    specificity: ./bin/specificity
+  checksum: e558f1098f85aa54a8e90277309ac0d1913c84812c0bd349aa449076aa700964f71ab69f04f5fda9b7898bef9b7da3faa1cad9caedfd3f1a1ebfebedc18604ab
+  languageName: node
+  linkType: hard
+
 "speedometer@npm:~1.0.0":
   version: 1.0.0
   resolution: "speedometer@npm:1.0.0"
@@ -41380,6 +41401,13 @@ fsevents@~2.1.2:
   version: 3.5.4
   resolution: "stylis@npm:3.5.4"
   checksum: 3673a748ad236219bd77ca9c0a8730b8726812e612cbc844aa6f029f13666a10cf2825a5f8d41f05e8af02b5987d31b7d3ebe995e4b42e0255366fec23489b77
+  languageName: node
+  linkType: hard
+
+"stylis@npm:4.0.13":
+  version: 4.0.13
+  resolution: "stylis@npm:4.0.13"
+  checksum: 8ea7a87028b6383c6a982231c4b5b6150031ce028e0fdaf7b2ace82253d28a8af50cc5a9da8a421d3c7c4441592f393086e332795add672aa4a825f0fe3713a3
   languageName: node
   linkType: hard
 

@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es6",
-    "typeRoots": ["./@types", "node_modules/@types"],
+    "typeRoots": ["./@types", "node_modules/@types", "node_modules/@emotion/jest/types"],
     "forceConsistentCasingInFileNames": true,
     "newLine": "lf",
     "noUnusedLocals": true,
