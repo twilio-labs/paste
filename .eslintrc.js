@@ -26,9 +26,9 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
-    'plugin:react/recommended',
+    // 'plugin:react/recommended',
     'prettier',
-    'plugin:paste-internal/all',
+    // 'plugin:paste-internal/all',
   ],
   env: {
     node: true,

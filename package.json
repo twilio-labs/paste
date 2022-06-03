@@ -104,10 +104,8 @@
     "@changesets/cli": "^2.13.1",
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
-    "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@emotion/css": "^11.9.0",
+    "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/eslint-plugin": "^11.7.0",
-    "@emotion/jest": "^11.9.1",
     "@expo/spawn-async": "^1.5.0",
     "@manypkg/cli": "0.17.0",
     "@netlify/functions": "^0.7.2",
@@ -166,6 +164,7 @@
     "del": "^5.1.0",
     "directory-named-webpack-plugin": "^4.0.1",
     "dotenv": "^16.0.0",
+    "emotion": "10.0.27",
     "esbuild": "^0.14.14",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "16.2.0",
@@ -193,6 +192,7 @@
     "immutable": "^4.0.0-rc.12",
     "jest": "27.5.1",
     "jest-axe": "^4.1.0",
+    "jest-emotion": "^10.0.32",
     "lerna": "^4.0.0",
     "lodash": "^4.17.21",
     "lorem-ipsum": "^2.0.3",
@@ -225,12 +225,10 @@
     "webpack": "^5.70.0"
   },
   "resolutions": {
+    "@emotion/core": "10.0.28",
     "@storybook/react/webpack": "^5",
     "react-hot-loader": "^4.13.0",
-    "csstype": "^3.0.11",
-    "@emotion/core": "npm:@emotion/react@11.9.0",
-    "@emotion/css": "11.9.0",
-    "@storybook/theming/emotion-theming": "npm:@emotion/react@11.9.0"
+    "csstype": "^3.0.11"
   },
   "husky": {
     "hooks": {
