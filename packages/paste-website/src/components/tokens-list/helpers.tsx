@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import type {ThemeVariants} from '@twilio-paste/theme';
 import type {TokenCategory, TokensListProps} from './types';
