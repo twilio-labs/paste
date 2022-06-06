@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- [`12a5e83ed`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5) [#2449](https://github.com/twilio-labs/paste/pull/2449) Thanks [@shleewhite](https://github.com/shleewhite)! - [Styling] Downgrade `emotion` libraries by one minor version to resolve a bug in the newest version. [#2429](https://github.com/twilio-labs/paste/issues/2429)
+
 ## 1.0.0
 
 ### Major Changes

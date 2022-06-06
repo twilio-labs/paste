@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/modal-dialog-primitive",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "category": "overlay",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build Modal Dialogs.",
