@@ -11,7 +11,7 @@ const CheckboxChecked = () => {
         setChecked(event.target.checked);
       }}
     >
-      Black lives matter
+      Enable SSL certificate validation
     </Checkbox>
   );
 };
@@ -88,14 +88,14 @@ const Results = () => {
         checked={checkedItems[0]}
         onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
       >
-        Identity Carrier
+        Identity carrier
       </Checkbox>
       <Checkbox
         id="caller_name"
         checked={checkedItems[1]}
         onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
       >
-        Caller Name
+        Caller name
       </Checkbox>
     </CheckboxGroup>
   );
