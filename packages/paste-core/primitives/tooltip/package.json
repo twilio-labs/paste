@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip-primitive",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tooltip.",

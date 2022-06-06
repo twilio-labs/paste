@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import type {ThemeVariants} from '@twilio-paste/theme';
 import type {TokenCategory, TokensListProps} from './types';
@@ -67,3 +67,4 @@ export const filterTokenList = (
   }
   return null;
 };
+/* eslint-enable react/react-in-jsx-scope */
