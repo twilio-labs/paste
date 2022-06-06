@@ -43,7 +43,8 @@ _Always create this as a placeholder, add details as they come to light or close
 
 1. Iterate on spec based on feedback from internal review, crits, and design systems committee review:
    - [Add details]
-2. Schedule final committee review
+2. Schedule final team review
+3. Schedule final committee review
 
 ### Finalize spec and design beta based on final reviewal-review}
 
