@@ -191,7 +191,7 @@ const GroupedCombobox = () => {
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(
-            _.filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
           );
         }
       }}
@@ -268,7 +268,7 @@ const GroupedCombobox = () => {
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(
-            _.filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
           );
         }
       }}
@@ -387,7 +387,7 @@ const ComboboxControlledUsingState = () => {
     onInputValueChange: ({inputValue}) => {
       if (inputValue !== undefined) {
         setInputItems(
-          _.filter(objectItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          filter(objectItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
         );
         setValue(inputValue);
       }
