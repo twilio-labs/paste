@@ -119,7 +119,10 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
 
 <Callout>
   <CalloutTitle>A note about Avatar contents</CalloutTitle>
-  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
+  <CalloutText>
+    The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
+    display the icon.
+  </CalloutText>
 </Callout>
 
 <LivePreview
@@ -147,7 +150,10 @@ Provide the Avatar with an `icon` prop to display an icon. You must import the i
 
 <Callout>
   <CalloutTitle>A note about Avatar contents</CalloutTitle>
-  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
+  <CalloutText>
+    The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
+    display the icon.
+  </CalloutText>
 </Callout>
 
 <LivePreview
@@ -198,6 +204,10 @@ The Avatar `size` can be set as a responsive array of sizes.
   />
 </Stack>`}
 </LivePreview>
+
+## Composition Notes
+
+The Avatar displays its contents in this priority: icon, then image, then initials.
 
 ## Anatomy
 
