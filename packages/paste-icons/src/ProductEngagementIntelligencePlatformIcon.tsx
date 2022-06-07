@@ -11,15 +11,10 @@ export interface ProductEngagementIntelligencePlatformIconProps extends IconWrap
   decorative: boolean;
 }
 
-const ProductEngagementIntelligencePlatformIcon: React.FC<ProductEngagementIntelligencePlatformIconProps> = ({
-  as,
-  display,
-  element = 'ICON',
-  size,
-  color,
-  title,
-  decorative,
-}) => {
+const ProductEngagementIntelligencePlatformIcon = React.forwardRef<
+  HTMLElement,
+  ProductEngagementIntelligencePlatformIconProps
+>(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
   const titleId = `ProductEngagementIntelligencePlatformIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -27,7 +22,7 @@ const ProductEngagementIntelligencePlatformIcon: React.FC<ProductEngagementIntel
   }
 
   return (
-    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
       <svg
         role="img"
         aria-hidden={decorative}
@@ -47,7 +42,7 @@ const ProductEngagementIntelligencePlatformIcon: React.FC<ProductEngagementIntel
       </svg>
     </IconWrapper>
   );
-};
+});
 
 ProductEngagementIntelligencePlatformIcon.displayName = 'ProductEngagementIntelligencePlatformIcon';
 export {ProductEngagementIntelligencePlatformIcon};

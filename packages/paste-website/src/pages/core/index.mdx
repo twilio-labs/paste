@@ -12,14 +12,14 @@ import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import PackageJSON from '@twilio-paste/core/package.json';
 import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
-import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
+import CorePkgJson from '@twilio-paste/core/package.json';
 import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/core/"}}) {
+    mdx(frontmatter: {slug: {eq: "/core/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -70,11 +70,11 @@ export const pageQuery = graphql`
           </Tr>
         </THead>
         <TBody>
-          {Object.keys(coreDependencies).map((dependency, index) => {
+          {Object.keys(CorePkgJson.dependencies).map((dependency, index) => {
             return (
               <Tr key={`core-dep-${dependency}-${index}`}>
                 <Td>{dependency}</Td>
-                <Td>{coreDependencies[dependency]}</Td>
+                <Td>{CorePkgJson.dependencies[dependency]}</Td>
               </Tr>
             );
           })}

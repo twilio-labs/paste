@@ -23,7 +23,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/box/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/box/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

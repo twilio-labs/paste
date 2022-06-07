@@ -1,5 +1,44 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`12a5e83e`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5) [#2449](https://github.com/twilio-labs/paste/pull/2449) Thanks [@shleewhite](https://github.com/shleewhite)! - Made a slight improvement to the TypeScript typings of several packages for better interoperability.
+
+## 11.0.0
+
+### Patch Changes
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Modal] Remove comment for obsolete ESLint rule.
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/text@6.0.0
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/button@10.0.0
+  - @twilio-paste/heading@7.0.0
+  - @twilio-paste/spinner@10.0.0
+  - @twilio-paste/flex@4.0.0
+  - @twilio-paste/icons@8.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 10.0.1
+
+### Patch Changes
+
+- [`f7e6ac1f0`](https://github.com/twilio-labs/paste/commit/f7e6ac1f01f63c97fce0a45978f1a8d2d072405c) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal] export ModalDialogContentProps interface
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/icons@7.0.0
+  - @twilio-paste/button@9.0.0
+  - @twilio-paste/spinner@9.0.0
+
 ## 9.0.1
 
 ### Patch Changes

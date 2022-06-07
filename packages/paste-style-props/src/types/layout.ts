@@ -1,5 +1,5 @@
 // https://styled-system.com/api/#layout
-import type * as CSS from 'csstype';
+import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
 import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
@@ -9,37 +9,37 @@ export type WidthOptions =
   | '100%'
   | '100vw'
   | 'auto'
-  | CSS.WidthProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['width'];
 export type MinWidthOptions =
   | keyof ThemeShape['minWidths']
   | '100%'
   | '100vw'
   | 'auto'
-  | CSS.WidthProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['minWidth'];
 export type MaxWidthOptions =
   | keyof ThemeShape['maxWidths']
   | '100%'
   | '100vw'
   | 'auto'
-  | CSS.WidthProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['maxWidth'];
 export type HeightOptions =
   | keyof ThemeShape['heights']
   | '100%'
   | '100vh'
   | 'auto'
-  | CSS.HeightProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['height'];
 export type MinHeightOptions =
   | keyof ThemeShape['minHeights']
   | '100%'
   | '100vh'
   | 'auto'
-  | CSS.HeightProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['minHeight'];
 export type MaxHeightOptions =
   | keyof ThemeShape['maxHeights']
   | '100%'
   | '100vh'
   | 'auto'
-  | CSS.HeightProperty<TLengthStyledSystem>;
+  | Properties<TLengthStyledSystem>['maxHeight'];
 export type IconSizeOptions = keyof ThemeShape['iconSizes'];
 
 export type Width = ResponsiveValue<WidthOptions>;
@@ -52,11 +52,11 @@ export type IconSize = ResponsiveValue<IconSizeOptions>;
 export type Size = Width | Height;
 
 // CSS native
-export type DisplayOptions = CSS.DisplayProperty;
-export type VerticalAlignOptions = CSS.VerticalAlignProperty<TLengthStyledSystem>;
-export type OverflowOptions = CSS.OverflowProperty;
-export type OverflowXOptions = CSS.OverflowXProperty;
-export type OverflowYOptions = CSS.OverflowYProperty;
+export type DisplayOptions = Properties['display'];
+export type VerticalAlignOptions = Properties['verticalAlign'];
+export type OverflowOptions = Properties['overflow'];
+export type OverflowXOptions = Properties['overflowX'];
+export type OverflowYOptions = Properties['overflowY'];
 
 export type Display = ResponsiveValue<DisplayOptions>;
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;

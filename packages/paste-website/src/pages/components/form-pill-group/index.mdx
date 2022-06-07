@@ -41,7 +41,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/form-pill-group/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/form-pill-group/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -288,7 +288,7 @@ Lists all the pill items with their id, DOM ref, disabled state and groupId if a
 
 ###### `element?: string`
 
-Set a custom element name. Default: `FORM_PILL_GROUP`
+Overrides the default element name ('FORM_PILL_GROUP') to apply unique styles with the Customization Provider
 
 ###### `focusable?: boolean`
 
@@ -448,7 +448,7 @@ Set if a pill is in a selected state.
 
 ###### `element?: string`
 
-Set a custom element name. Default: `FORM_PILL`
+Overrides the default element name ('FORM_PILL') to apply unique styles with the Customization Provider
 
 ###### `onSelect?: () => void`
 

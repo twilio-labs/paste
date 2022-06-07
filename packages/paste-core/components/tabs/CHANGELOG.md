@@ -1,5 +1,30 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`12a5e83e`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5) [#2449](https://github.com/twilio-labs/paste/pull/2449) Thanks [@shleewhite](https://github.com/shleewhite)! - Made a slight improvement to the TypeScript typings of several packages for better interoperability.
+
+* [`81fb5944`](https://github.com/twilio-labs/paste/commit/81fb5944168dbbb5579a6d0ebf2cff37d2455cd8) [#2410](https://github.com/twilio-labs/paste/pull/2410) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Enable left/right arrow key tab switching on vertical tabs in addition to up/down
+
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/flex@4.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 3.0.3
+
+### Patch Changes
+
+- [`dee7d9b01`](https://github.com/twilio-labs/paste/commit/dee7d9b01c0b7b2fee64f7a01cadd1238521ab8f) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Color contrast utils, Tabs, Popover, Styling-library, Types] very minor code linting
+
 ## 3.0.2
 
 ### Patch Changes

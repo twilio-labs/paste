@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/badge/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/badge/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -605,6 +605,7 @@ const BadgeExample = () => (
 | as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                 | `null`      |
 | href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                         | `undefined` |
 | onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                  | `undefined` |
+| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                           | 'BADGE'     |
 
 <ChangelogRevealer>
   <Changelog />

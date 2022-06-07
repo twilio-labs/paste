@@ -1,12 +1,14 @@
+/* DISCLAIMER: this is an example, not meant to be used in production */
+
 import * as React from 'react';
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '@twilio-paste/data-grid';
 
 import {TABLE_HEADERS} from '../constants';
-import {formatDate} from '../helpers';
-import type {TableDataRow} from '../types';
+import {formatDate, formatDateTime} from '../helpers';
+import type {SampleDataGridProps} from '../types';
 
-export const SampleDataGrid: React.FC<{data: TableDataRow[]}> = ({data}) => (
-  <DataGrid aria-label="Video rooms">
+export const SampleDataGrid: React.FC<SampleDataGridProps> = ({data, showDateTime = false}) => (
+  <DataGrid aria-label="Video rooms" scrollHorizontally noWrap>
     <DataGridHead>
       <DataGridRow>
         {TABLE_HEADERS.map((header) => (
@@ -21,7 +23,7 @@ export const SampleDataGrid: React.FC<{data: TableDataRow[]}> = ({data}) => (
           <DataGridCell>{uniqueName}</DataGridCell>
           <DataGridCell>{roomType}</DataGridCell>
           <DataGridCell>{participants}</DataGridCell>
-          <DataGridCell>{formatDate(dateCompleted)}</DataGridCell>
+          <DataGridCell>{showDateTime ? formatDateTime(dateCompleted) : formatDate(dateCompleted)}</DataGridCell>
         </DataGridRow>
       ))}
     </DataGridBody>

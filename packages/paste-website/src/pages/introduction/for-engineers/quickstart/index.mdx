@@ -11,7 +11,7 @@ import {Callout, CalloutText} from '../../../../components/callout';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/for-engineers/quickstart/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/quickstart/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -44,7 +44,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/popover/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/popover/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -470,6 +470,10 @@ Required label for this Popover component. Titles the entire popover context for
 ##### `i18nDismissLabel: string`
 
 Label for the dismiss button in the popover. The default value is 'Close popover'.
+
+###### `element?: string`
+
+Overrides the default element name ('POPOVER') to apply unique styles with the Customization Provider
 
 <ChangelogRevealer>
   <Changelog />

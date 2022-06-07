@@ -39,7 +39,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/menu/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/menu/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -394,64 +394,36 @@ These props are returned by the state hook. You can spread them into this compon
 
 ##### Menu
 
-| Prop               | Type                 | Description                                                    | Default |
-| ------------------ | -------------------- | -------------------------------------------------------------- | ------- |
-| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it. |         |
-| disabled           | `boolean, undefined` | Same as the HTML attribute.                                    |         |
-
-##### MenuArrow
-
-| Prop | Type                        | Description | Default |
-| ---- | --------------------------- | ----------- | ------- |
-| size | `string, number, undefined` |             |         |
+| Prop               | Type                 | Description                                                                               | Default |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it.                            |         |
+| disabled           | `boolean, undefined` | Same as the HTML attribute.                                                               |         |
+| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU'  |
 
 ##### MenuButton
 
-| Prop     | Type                 | Description                 | Default |
-| -------- | -------------------- | --------------------------- | ------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute. |         |
-
-##### MenuDisclosure
-
-| Prop     | Type                 | Description                 | Default |
-| -------- | -------------------- | --------------------------- | ------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute. |         |
+| Prop     | Type                 | Description                                                                               | Default       |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |               |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_BUTTON' |
 
 ##### MenuGroup
 
-| Prop  | Type              | Description                                     | Default |
-| ----- | ----------------- | ----------------------------------------------- | ------- |
-| label | `string`          | Names the grouping                              |         |
-| icon  | `React.ReactNode` | One of our icon components. Must be decorative. |         |
+| Prop     | Type              | Description                                                                               | Default      |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------ |
+| label    | `string`          | Names the grouping                                                                        |              |
+| icon     | `React.ReactNode` | One of our icon components. Must be decorative.                                           |              |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_GROUP' |
 
 ##### MenuItem
 
-| Prop     | Type                 | Description                 | Default |
-| -------- | -------------------- | --------------------------- | ------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute. |         |
-| id       | `string, undefined`  | Same as the HTML attribute. |         |
-| onClick  | `() => void`         | Same as the HTML attribute. |         |
-| href     | `string, undefined`  | Same as the HTML attribute. |         |
-
-##### MenuItemCheckbox
-
-| Prop     | Type                        | Description                                                                                                                                        | Default |
-| -------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| disabled | `boolean, undefined`        | Same as the HTML attribute.                                                                                                                        |         |
-| value    | `string, number, undefined` | Checkbox's value is going to be used when multiple checkboxes share the same state. Checking a checkbox with value will add it to the state array. |         |
-| checked  | `boolean, undefined`        | Checkbox's checked state. If present, it's used instead of `state`.                                                                                |         |
-| id       | `string, undefined`         | Same as the HTML attribute.                                                                                                                        |         |
-| name     | `string`                    | MenuItemCheckbox's name as in `menu.values`.                                                                                                       |         |
-
-##### MenuItemRadio
-
-| Prop     | Type                        | Description                                                                                                                                        | Default |
-| -------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| disabled | `boolean, undefined`        | Same as the HTML attribute.                                                                                                                        |         |
-| value    | `string, number, undefined` | Checkbox's value is going to be used when multiple checkboxes share the same state. Checking a checkbox with value will add it to the state array. |         |
-| checked  | `boolean, undefined`        | Checkbox's checked state. If present, it's used instead of `state`.                                                                                |         |
-| id       | `string, undefined`         | Same as the HTML attribute.                                                                                                                        |         |
-| name     | `string`                    | MenuItemRadio's name as in `menu.values`.                                                                                                          |         |
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
 
 <ChangelogRevealer>
   <Changelog />

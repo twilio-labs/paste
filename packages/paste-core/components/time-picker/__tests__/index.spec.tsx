@@ -125,8 +125,8 @@ describe('TimePicker', () => {
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="TIMEPICKER"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
-      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(6,3,58)');
-      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(242,47,70)');
+      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
+      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(242, 47, 70)');
     });
 
     it('should add custom styles to the TimePicker Component variant', () => {
@@ -144,8 +144,8 @@ describe('TimePicker', () => {
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="TIMEPICKER"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
-      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     });
 
     it('should add custom styles to a custom TimePicker Component', () => {
@@ -163,8 +163,8 @@ describe('TimePicker', () => {
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="CUSTOM_TIME"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
-      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(244,124,34)');
-      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(214,31,31)');
+      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
+      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
     });
 
     it('should add custom styles to a custom TimePicker Component variant', () => {
@@ -182,8 +182,8 @@ describe('TimePicker', () => {
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="CUSTOM_TIME"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
-      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(231,220,250)');
-      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(renderedTimepicker).toHaveStyleRule('background-color', 'rgb(231, 220, 250)');
+      expect(renderedTimepickerElement).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 

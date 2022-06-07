@@ -43,7 +43,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/tabs/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/tabs/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -323,18 +323,25 @@ Changes the Tabs' to either fit the width of the containing element or not.
 
 ##### `selectedId?: string | null`
 
-Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be
-a little delayed.
+Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed.
 
 ##### `baseId?: string`
 
 Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.
+
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TABS') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TABS'.
 
 #### TabList Props
 
 ##### `aria-label: string`
 
 Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TAB_LIST') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_LIST'.
 
 #### Tab Props
 
@@ -351,9 +358,15 @@ It works similarly to readOnly on form elements. In this case, only aria-disable
 
 Same as the HTML attribute.
 
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TAB') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB'.
+
 #### TabPanels Props
 
-None available.
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TAB_PANELS') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_PANELS'.
 
 #### TabPanel Props
 
@@ -364,6 +377,10 @@ Same as the HTML attribute.
 ##### `tabId?: string | undefined`
 
 The ID of the Tab component this Panel pairs with.
+
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TAB_PANEL') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_PANEL'.
 
 <ChangelogRevealer>
   <Changelog />

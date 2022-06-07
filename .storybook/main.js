@@ -7,7 +7,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-knobs',
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
     'storybook-addon-gatsby',
@@ -17,17 +16,32 @@ module.exports = {
     // enable type checking
     check: true,
     checkOptions: {
-      // check all ts and tsx files, but not fixtures as they include errors on purpose
-      reportFiles: [
-        'packages/**/*.{ts,tsx}',
-        '!**/__testfixtures__/**/*',
-        '!**/__fixtures__/**/*',
-        // This has it's own type check
-        '!packages/paste-nextjs-template/**/*',
-        '!packages/paste-website/**/*',
-        // ignore the template files as they don't have dependencies to reference, hence the errors
-        '!packages/paste-cra-template/template/**/*',
-      ],
+      typescript: {
+        configFile: 'tsconfig.json',
+        configOverwrite: {
+          compilerOptions: {isolatedModules: false},
+          exclude: [
+            'node_modules',
+            'docs',
+            'dist',
+            'lib',
+            'bin',
+            'public',
+            '.cache',
+            '.jest-cache',
+            '.next',
+            '.yarn',
+            'cjs',
+            'esm',
+            '**/__testfixtures__/**/*',
+            '**/__fixtures__/**/*',
+            'packages/paste-nextjs-template/**/*',
+            'packages/paste-website/**/*',
+            'packages/paste-cra-template/template/**/*',
+            '**/__tests__/**',
+          ],
+        },
+      },
     },
     // choose react-docgen-typescript to generate the prop tables
     reactDocgen: 'react-docgen-typescript',
@@ -36,6 +50,10 @@ module.exports = {
       // don't include node_module props as you'll cause the machine to run out of memory on our repo
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
+  },
+
+  core: {
+    builder: 'webpack5',
   },
 
   webpackFinal: async (config) => {
@@ -52,6 +70,9 @@ module.exports = {
     const customAlias = {
       'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
       'scheduler/tracing': 'scheduler/tracing-profiling',
+      '@emotion/core': path.resolve(__dirname, '../node_modules/@emotion/react'),
+      '@emotion/styled': path.resolve(__dirname, '../node_modules/@emotion/styled'),
+      'emotion-theming': path.resolve(__dirname, '../node_modules/@emotion/react'),
     };
     config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
 

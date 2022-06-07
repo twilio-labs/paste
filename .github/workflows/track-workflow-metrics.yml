@@ -1,0 +1,22 @@
+name: Track workflow metrics
+
+# Run when workflows complete, on pull request and on push
+on:
+  workflow_run:
+    workflows:
+      - "**"
+    types:
+      - completed
+  pull_request:
+  push:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: int128/datadog-actions-metrics@v1
+        with:
+          # create an API key in https://docs.datadoghq.com/account_management/api-app-keys/
+          datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+          collect-job-metrics: true

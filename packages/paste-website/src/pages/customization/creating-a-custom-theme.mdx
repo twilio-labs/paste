@@ -1,7 +1,7 @@
 ---
 title: Creating a Custom Theme
 description: Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.
-slug: /customization/customization-provider/
+slug: /customization/creating-a-custom-theme/
 ---
 
 import {graphql} from 'gatsby';
@@ -15,7 +15,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
+    mdx(frontmatter: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

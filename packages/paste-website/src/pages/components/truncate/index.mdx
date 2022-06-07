@@ -29,7 +29,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/truncate/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/truncate/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

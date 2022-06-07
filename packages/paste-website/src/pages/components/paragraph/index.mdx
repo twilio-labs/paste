@@ -6,7 +6,6 @@ slug: /components/paragraph/
 ---
 
 import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -27,7 +26,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/paragraph/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/paragraph/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -245,16 +244,11 @@ const Component = () => (
 
 #### Props
 
-| Prop         | Type        | Default |
-| ------------ | ----------- | ------- |
-| marginBottom | 'space0'    |         |
-| children?    | `ReactNode` | null    |
-
-##### marginBottom prop
-
-Only allows passing 'space0' to unset the bottom margin. Useful
-when using Paragraph as the last child of a wrapping component, like
-a Card.
+| Prop         | Type        | Default                                                                                                                                      |
+| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| marginBottom | 'space0'    | Only allows passing 'space0' to unset the bottom margin. Useful when using Paragraph as the last child of a wrapping component, like a Card. |             |
+| children?    | `ReactNode` | null                                                                                                                                         |             |
+| element?     | `string`    | Overrides the default element name to apply unique styles with the Customization Provider                                                    | 'PARAGRAPH' |
 
 <ChangelogRevealer>
   <Changelog />

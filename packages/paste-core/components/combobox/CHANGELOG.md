@@ -1,5 +1,44 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`9983b52e9`](https://github.com/twilio-labs/paste/commit/9983b52e92d15373824e4b3cc10572b2f51d58f8) [#2419](https://github.com/twilio-labs/paste/pull/2419) Thanks [@gloriliale](https://github.com/gloriliale)! - [Combobox, Data grid, Color contrast utils, Customization, Design tokens, Icons, Style props, Token contrast checker, Types, Utils, Website] Consolidate and update lodash dependencies and the way lodash is imported in our files, per lodash's guidance. Details: https://lodash.com/per-method-packages
+
+## 11.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/text@6.0.0
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/button@10.0.0
+  - @twilio-paste/help-text@9.0.0
+  - @twilio-paste/input@5.0.0
+  - @twilio-paste/input-box@6.0.0
+  - @twilio-paste/label@9.0.0
+  - @twilio-paste/screen-reader-only@9.0.0
+  - @twilio-paste/spinner@10.0.0
+  - @twilio-paste/flex@4.0.0
+  - @twilio-paste/stack@4.0.0
+  - @twilio-paste/icons@8.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/icons@7.0.0
+  - @twilio-paste/button@9.0.0
+  - @twilio-paste/help-text@8.0.0
+  - @twilio-paste/screen-reader-only@8.0.0
+  - @twilio-paste/spinner@9.0.0
+  - @twilio-paste/label@8.0.0
+
 ## 9.1.0
 
 ### Minor Changes

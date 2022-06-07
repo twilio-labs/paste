@@ -212,7 +212,6 @@ describe('Badge', () => {
 
         const badgeElement = screen.getByRole('button');
 
-        // @TODO make sure all the style rules are accounted for here.
         expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', {target: ':focus'});
         expect(badgeElement).toHaveStyleRule('box-shadow', 'none', {target: ':hover'});
       });

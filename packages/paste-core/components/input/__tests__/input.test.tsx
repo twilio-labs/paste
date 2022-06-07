@@ -247,10 +247,10 @@ describe('Customization', () => {
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a Input variant', (): void => {
@@ -307,10 +307,10 @@ describe('Customization', () => {
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 
   it('should add custom styles to Input with a custom element data attribute', (): void => {
@@ -339,10 +339,10 @@ describe('Customization', () => {
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a Input variant with a custom element data attribute', (): void => {
@@ -400,9 +400,9 @@ describe('Customization', () => {
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 });

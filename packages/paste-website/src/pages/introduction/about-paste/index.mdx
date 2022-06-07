@@ -14,7 +14,7 @@ import {InlineCode} from '../../../components/Typography';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/about-paste/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/about-paste"}}) {
       fileAbsolutePath
       frontmatter {
         slug

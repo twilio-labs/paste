@@ -18,8 +18,8 @@ describe('esbuild config', () => {
       main: filePaths.main,
       module: filePaths.module,
       dependencies: {
-        csstype: '^2.6.10',
-        'lodash.camelcase': '^4.3.0',
+        csstype: '^3.0.2',
+        lodash: '^4.17.21',
         'react-autosize-textarea': '7.1.0',
         'use-clipboard-copy': '0.2.0',
       },

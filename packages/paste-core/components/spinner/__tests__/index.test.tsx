@@ -9,12 +9,14 @@ import {Spinner} from '../src';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 
-// eslint-disable-next-line react/display-name
-const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
-    {children}
-  </CustomizationProvider>
-);
+const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] =>
+  function Wrapper({children}) {
+    return (
+      <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
+        {children}
+      </CustomizationProvider>
+    );
+  };
 
 describe('Spinner', () => {
   describe('HTML Attribute', () => {
@@ -72,7 +74,7 @@ describe('Spinner', () => {
 
       const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(14,124,58)');
+      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(14, 124, 58)');
     });
 
     it('should add custom styles to Spinner with a custom element data attribute', () => {
@@ -92,8 +94,8 @@ describe('Spinner', () => {
 
       expect(nodeNamedSpinner).toHaveStyleRule('height', '2.5rem');
       expect(nodeNamedSpinner).toHaveStyleRule('width', '2.5rem');
-      expect(nodeNamedSpinner).toHaveStyleRule('background-color', 'rgb(0,20,137)');
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255,255,255)');
+      expect(nodeNamedSpinner).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255, 255, 255)');
       expect(nodeNamedSpinner).toHaveStyleRule('align-self', 'flex-start');
       expect(nodeNamedSpinner).toHaveStyleRule('padding', '0.25rem');
     });
@@ -102,7 +104,6 @@ describe('Spinner', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<Spinner title="Loading" decorative />, {
-        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => <Theme.Provider theme="default">{children}</Theme.Provider>,
       });
       const results = await axe(container);

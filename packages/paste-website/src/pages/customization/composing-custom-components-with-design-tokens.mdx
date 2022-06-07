@@ -13,7 +13,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
+    mdx(frontmatter: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

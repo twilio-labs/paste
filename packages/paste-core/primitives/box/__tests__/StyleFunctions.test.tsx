@@ -4,18 +4,7 @@ import {getPseudoStyles, getCustomElementStyles} from '../src/StyleFunctions';
 // which is where the css and variant style functions look for their values
 const mockTheme = {
   theme: {
-    space: {
-      space10: '10px',
-    },
-    backgroundColors: {
-      colorBackgroundPrimary: 'blue',
-    },
-    borderColors: {
-      colorBorderError: 'red',
-    },
-    textColors: {
-      colorTextSuccess: 'green',
-    },
+    ...TestTheme,
     elements: {
       CARD: {
         color: 'colorTextSuccess',
@@ -53,7 +42,7 @@ describe('getPseudoStyles', () => {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cssFunc(mockTheme)).toEqual({
         '&:hover': {
-          padding: '10px',
+          padding: '0.125rem',
           textDecoration: 'underline',
         },
       });
@@ -78,7 +67,7 @@ describe('getCustomElementStyles', () => {
       'data-paste-element': 'FOO',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     expect(getCustomElementStyles(cardProps)).toEqual({});
   });
 
@@ -88,7 +77,7 @@ describe('getCustomElementStyles', () => {
       variant: 'bar',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     expect(getCustomElementStyles(cardProps)).toEqual({});
   });
 
@@ -97,7 +86,7 @@ describe('getCustomElementStyles', () => {
       'data-paste-element': 'CARD',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     expect(typeof getCustomElementStyles(cardProps)).toEqual('function');
   });
 
@@ -106,12 +95,12 @@ describe('getCustomElementStyles', () => {
       'data-paste-element': 'CARD',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     const cardCSSFunc = getCustomElementStyles(cardProps);
     if (typeof cardCSSFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cardCSSFunc()).toEqual({
-        color: 'green',
+        color: 'rgb(14, 124, 58)',
         borderColor: 'purple',
         ':hover': {
           cursor: 'pointer',
@@ -123,12 +112,12 @@ describe('getCustomElementStyles', () => {
       'data-paste-element': 'ALERT',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     const alertCSSFunc = getCustomElementStyles(alertProps);
     if (typeof alertCSSFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(alertCSSFunc()).toEqual({
-        padding: '10px',
+        padding: '0.125rem',
         textDecoration: 'underline',
       });
     }
@@ -140,18 +129,18 @@ describe('getCustomElementStyles', () => {
       variant: 'primary',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     const cardCSSFunc = getCustomElementStyles(primaryCardProps);
     if (typeof cardCSSFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cardCSSFunc()).toEqual({
-        color: 'green',
+        color: 'rgb(14, 124, 58)',
         borderColor: 'purple',
-        backgroundColor: 'blue',
+        backgroundColor: 'rgb(2, 99, 224)',
         ':hover': {
           cursor: 'pointer',
           textDecoration: 'underline',
-          margin: '10px',
+          margin: '0.125rem',
         },
       });
     }
@@ -160,13 +149,13 @@ describe('getCustomElementStyles', () => {
       variant: 'foo',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     const alertCSSFun = getCustomElementStyles(primaryAlertProps);
     if (typeof alertCSSFun === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(alertCSSFun()).toEqual({
-        padding: '10px',
-        borderColor: 'red',
+        padding: '0.125rem',
+        borderColor: 'rgb(214, 31, 31)',
         textDecoration: 'underline',
       });
     }
@@ -181,12 +170,12 @@ describe('getCustomElementStyles', () => {
       variant: 'noneexistantvariant',
       ...mockTheme,
     };
-    // @ts-expect-error because I'm not setting the whole theme
+
     const cardCSSFunc = getCustomElementStyles(primaryCardProps);
     if (typeof cardCSSFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cardCSSFunc()).toEqual({
-        color: 'green',
+        color: 'rgb(14, 124, 58)',
         borderColor: 'purple',
         ':hover': {
           cursor: 'pointer',

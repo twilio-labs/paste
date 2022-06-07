@@ -31,7 +31,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/tooltip/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/tooltip/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -392,6 +392,10 @@ Sets the placement of tooltip in relation to the child element. Available option
 ##### `text: string`
 
 The text content of the Tooltip.
+
+###### `element?: string`
+
+Overrides the default element name ('TOOLTIP') to apply unique styles with the Customization Provider
 
 <ChangelogRevealer>
   <Changelog />

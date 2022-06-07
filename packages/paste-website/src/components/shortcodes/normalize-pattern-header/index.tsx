@@ -1,9 +1,9 @@
 import * as React from 'react';
-import * as _ from 'lodash';
+import merge from 'deepmerge';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import {ProductBadge} from '../../ProductBadge';
+import {Badge} from '@twilio-paste/badge';
 import {ComponentHeader} from '../component-header';
 import type {ComponentHeaderProps} from '../component-header';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -40,7 +40,7 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
     designCommitteeReview,
     engineerCommitteeReview,
     productSuitability,
-  } = _.merge(normalizedData, props);
+  } = merge(normalizedData, props);
 
   return (
     <>
@@ -59,7 +59,9 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
           <PackageValue>
             <Stack orientation="horizontal" spacing="space20">
               {productSuitability.map((product: string) => (
-                <ProductBadge key={product}>{product}</ProductBadge>
+                <Badge as="span" variant="decorative10" key={product}>
+                  {product}
+                </Badge>
               ))}
             </Stack>
           </PackageValue>

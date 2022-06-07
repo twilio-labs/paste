@@ -1,5 +1,5 @@
 // https://styled-system.com/api/#border
-import type * as CSS from 'csstype';
+import type {Properties} from 'csstype';
 import type {ThemeShape} from '@twilio-paste/theme';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {StyleReset} from './helpers';
@@ -38,11 +38,12 @@ export interface BorderColorProps {
 }
 
 // CSS native
-export type BorderStyleOptions = CSS.BorderStyleProperty;
-export type BorderTopStyleOptions = CSS.BorderTopStyleProperty;
-export type BorderRightStyleOptions = CSS.BorderRightStyleProperty;
-export type BorderBottomStyleOptions = CSS.BorderBottomStyleProperty;
-export type BorderLeftStyleOptions = CSS.BorderLeftStyleProperty;
+export type BorderStyleOptions = Properties['borderStyle'];
+
+export type BorderTopStyleOptions = Properties['borderStyle'];
+export type BorderRightStyleOptions = Properties['borderStyle'];
+export type BorderBottomStyleOptions = Properties['borderStyle'];
+export type BorderLeftStyleOptions = Properties['borderStyle'];
 
 export type BorderStyle = ResponsiveValue<BorderStyleOptions>;
 export type BorderTopStyle = ResponsiveValue<BorderTopStyleOptions>;
@@ -58,6 +59,12 @@ export interface BorderStyleProps {
   borderLeftStyle?: BorderLeftStyle;
 }
 
+export type BorderCollapseProperty = Properties['borderCollapse'];
+export type BorderCollapse = ResponsiveValue<BorderCollapseProperty>;
+
+export type BorderSpacingProperty = Properties['borderSpacing'];
+export type BorderSpacing = ResponsiveValue<BorderSpacingProperty>;
+
 // Styled-system grouping
 export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderColorProps, BorderRadiusProps {
   border?: StyleReset;
@@ -65,4 +72,6 @@ export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderC
   borderRight?: StyleReset;
   borderBottom?: StyleReset;
   borderLeft?: StyleReset;
+  borderCollapse?: BorderCollapse;
+  borderSpacing?: BorderSpacing;
 }

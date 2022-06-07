@@ -152,15 +152,15 @@ describe('Alert', () => {
 
       const alert = screen.getByTestId('alert-customization');
 
-      expect(alert).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(alert.querySelector('[data-paste-element="ALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+      expect(alert).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(alert.querySelector('[data-paste-element="ALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
       expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18,28,45)'
+        'rgb(18, 28, 45)'
       );
       expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255,255,255)'
+        'rgb(255, 255, 255)'
       );
     });
 
@@ -196,15 +196,15 @@ describe('Alert', () => {
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_BUTTON"]')).toBeInTheDocument();
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_ICON"]')).toBeInTheDocument();
 
-      expect(alert).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(alert.querySelector('[data-paste-element="MYALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+      expect(alert).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(alert.querySelector('[data-paste-element="MYALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18,28,45)'
+        'rgb(18, 28, 45)'
       );
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255,255,255)'
+        'rgb(255, 255, 255)'
       );
     });
   });

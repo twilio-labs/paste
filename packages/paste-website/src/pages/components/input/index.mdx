@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/input/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/input/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
 <NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input"
-  storybookUrl="/?path=/story/components-input--input-options"
+  storybookUrl="/?path=/story/components-input--"
   data={props.data}
 />
 
@@ -216,6 +216,8 @@ An input that is not displayed but whose value is submitted to the server.
 #### number
 
 An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
+
+**Note:** We do not support the native HTML `input[type="number"]` element due to some accessibility concerns. These are best described in the following [research article from the gov.uk digital team](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
 
 #### password
 
@@ -694,21 +696,22 @@ const Component = () => (
 
 All the valid HTML attributes for `input` are supported including the following props:
 
-| Prop         | Type                                                             | Description                                                    | Default   |
-| ------------ | ---------------------------------------------------------------- | -------------------------------------------------------------- | --------- |
-| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`. | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                          | null      |
-| name?        | string                                                           | Sets the name of the input.                                    | null      |
-| value?       | string                                                           | Sets the value of the input.                                   | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                             | null      |
-| disabled?    | boolean                                                          | Disables the input.                                            | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                    | false     |
-| required?    | boolean                                                          | Sets the input as required.                                    | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                              | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                | 'default' |
+| Prop         | Type                                                             | Description                                                                               | Default   |
+| ------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
+| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
+| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                     | null      |
+| name?        | string                                                           | Sets the name of the input.                                                               | null      |
+| value?       | string                                                           | Sets the value of the input.                                                              | null      |
+| placeholder? | string                                                           | Sets the placeholder of the input.                                                        | null      |
+| disabled?    | boolean                                                          | Disables the input.                                                                       | false     |
+| readOnly?    | boolean                                                          | Sets the input to readonly.                                                               | false     |
+| required?    | boolean                                                          | Sets the input as required.                                                               | false     |
+| hasError?    | boolean                                                          | Sets the input to an error state.                                                         | false     |
+| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
+| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
+| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
+| variant?     | 'default', 'inverse'                                             |                                                                                           | 'default' |
+| element?     | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider | 'INPUT'   |
 
 <ChangelogRevealer>
   <Changelog />

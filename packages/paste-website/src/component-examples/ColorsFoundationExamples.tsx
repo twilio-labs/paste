@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
 import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {useUID} from '@twilio-paste/uid-library';
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
+import {ImageCaption} from '../components/ImageCaption';
 
 const backgroundTokens: BackgroundColorOptions[] = [
   'colorBackgroundBody',
@@ -87,7 +88,7 @@ export const BackgroundColorSwatches: React.FC = () => {
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
         {backgroundTokens.map((token) => (
-          <Box as="li" listStyleType="none">
+          <Box as="li" listStyleType="none" key={useUID()}>
             <ColorSwatch
               backgroundColor={token}
               borderColor={token === 'colorBackgroundBody' ? 'colorBorderWeaker' : undefined}
@@ -113,7 +114,7 @@ export const TextColorSwatches: React.FC = () => {
       <StyledSwatchGrid numberColumns={4}>
         {textTokens.map((token) => {
           return (
-            <Box as="li" listStyleType="none">
+            <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch color={token} backgroundColor={backgroundColorMap[token]}>
                 {token === 'colorTextIcon' && <InformationIcon decorative size="sizeIcon40" color="colorTextIcon" />}
               </ColorSwatch>
@@ -134,7 +135,7 @@ export const BorderColorSwatches: React.FC = () => {
           const isInverseBorder = token === 'colorBorderInverse';
 
           return (
-            <Box as="li" listStyleType="none">
+            <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch
                 borderColor={!isInverseBorder ? token : undefined}
                 backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
@@ -169,7 +170,7 @@ export const StandardPairingSwatches: React.FC = () => {
         {standardPairingTokens.map(({textToken, backgroundToken}) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
@@ -189,7 +190,7 @@ export const StatusPairingSwatches: React.FC = () => {
         {statusPairingTokens.map(({textToken, backgroundToken}) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
@@ -208,7 +209,7 @@ export const InversePairingSwatches: React.FC = () => {
       <StyledSwatchGrid numberColumns={3}>
         {inversePairingTokens.map(({textToken, backgroundToken}) => {
           return (
-            <Box aria-hidden="true">
+            <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
@@ -221,38 +222,27 @@ export const InversePairingSwatches: React.FC = () => {
   );
 };
 
-export const ImgCaption: React.FC = ({children}) => (
-  <Box as="p" marginTop="space40" marginBottom="space110">
-    <Text as="span" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">
-      <Text as="span" fontWeight="fontWeightBold" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight20">
-        Image caption:
-      </Text>{' '}
-      {children}
-    </Text>
-  </Box>
-);
-
 export const TokensDiagramImgCaption: React.FC = () => (
-  <ImgCaption>
+  <ImageCaption>
     Aliases in Paste contain the hard-coded values that are the primitive form of the colors in our palette. All design
     tokens reference an alias. In this example, the $color-background-primary and $color-text-link tokens reference the
     $color-palette-blue-60 alias to define the color of the token. However, each token is applied to a specific need for
     different components, such as the background color of a primary button or the color of the anchor.
-  </ImgCaption>
+  </ImageCaption>
 );
 
 export const InteractingStatesImgCaption: React.FC = () => (
-  <ImgCaption>
+  <ImageCaption>
     In this example, we are using a combination of color and shadow to help users identify the primary button while in
     its different states.
-  </ImgCaption>
+  </ImageCaption>
 );
 
 export const UseOfColorImgCaption: React.FC = () => (
-  <ImgCaption>
+  <ImageCaption>
     In this example, a success toast uses multiple distinguishing visual elements—the thick left border and the
     icon—along with green colors to further convey to a user that an action they just took was successful.
-  </ImgCaption>
+  </ImageCaption>
 );
 
 export const PrimaryColorExample = `

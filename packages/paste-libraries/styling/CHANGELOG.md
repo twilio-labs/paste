@@ -1,5 +1,28 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- [`12a5e83ed`](https://github.com/twilio-labs/paste/commit/12a5e83ed7bb998dfbf855072f9f38140f2f87a5) [#2449](https://github.com/twilio-labs/paste/pull/2449) Thanks [@shleewhite](https://github.com/shleewhite)! - [Styling] Downgrade `emotion` libraries by one minor version to resolve a bug in the newest version. [#2429](https://github.com/twilio-labs/paste/issues/2429)
+
+## 1.0.0
+
+### Major Changes
+
+- [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Styling Library] Upgrade to Emotion v11
+
+  - replace `@emotion/core` with `@emotion/react`
+  - bump `@emotion/styled` to v11
+  - remove `emotion`, remove `emotion-themeing`
+  - both packages now included with `@emotion/react`
+
+## 0.3.9
+
+### Patch Changes
+
+- [`dee7d9b01`](https://github.com/twilio-labs/paste/commit/dee7d9b01c0b7b2fee64f7a01cadd1238521ab8f) [#2233](https://github.com/twilio-labs/paste/pull/2233) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Color contrast utils, Tabs, Popover, Styling-library, Types] very minor code linting
+
 ## 0.3.8
 
 ### Patch Changes

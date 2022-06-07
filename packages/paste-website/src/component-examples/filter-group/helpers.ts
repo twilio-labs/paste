@@ -1,6 +1,11 @@
-import type {RoomTypes, DateRanges} from './types';
+/* DISCLAIMER: this is an example, not meant to be used in production */
 
-export const formatDate = (date: Date): string => date.toISOString().slice(0, 10);
+import {format, isBefore, isAfter, add} from 'date-fns';
+import type {Duration} from 'date-fns';
+import type {RoomTypes, DateRanges, DateTimeRanges} from './types';
+
+export const formatDate = (date: Date): string => format(date, 'yyyy-MM-dd');
+export const formatDateTime = (date: Date): string => format(date, "HH:mm:ss 'UTC' yyyy-MM-dd");
 
 export const filterBySearchString = (uniqueName: string, sid: string, searchValue: string): boolean => {
   const lowerCaseName = uniqueName.toLocaleLowerCase();
@@ -27,4 +32,42 @@ export const filterByDateRange = (dateCompleted: Date, filterValue: DateRanges):
   };
 
   return dateDifference(today, dateCompleted) <= rangeMap[filterValue];
+};
+
+export const filterByDateTimeRange = (
+  dateCompleted: Date,
+  filterValue: DateTimeRanges,
+  startDate: string,
+  startTime: string,
+  endDate: string,
+  endTime: string
+): boolean => {
+  if (filterValue === 'all') return true;
+  if (filterValue !== 'custom') {
+    const rangeMap: Record<'12hours' | 'day' | 'threeDays', Duration> = {
+      '12hours': {hours: -12},
+      day: {days: -1},
+      threeDays: {days: -3},
+    };
+    const computedStart = add(new Date(), rangeMap[filterValue]);
+
+    return isAfter(dateCompleted, computedStart);
+  }
+
+  const computedCustomStart = new Date(`${startDate}T${startTime}`);
+  const computedCustomEnd = new Date(`${endDate}T${endTime}`);
+
+  return isAfter(dateCompleted, computedCustomStart) && isBefore(dateCompleted, computedCustomEnd);
+};
+
+export const isEndDateBeforeStartDate = (
+  startDate: string,
+  startTime: string,
+  endDate: string,
+  endTime: string
+): boolean => {
+  const computedStart = new Date(`${startDate}T${startTime}`);
+  const computedEnd = new Date(`${endDate}T${endTime}`);
+
+  return isBefore(computedEnd, computedStart);
 };

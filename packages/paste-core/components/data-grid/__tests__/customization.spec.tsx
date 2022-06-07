@@ -30,15 +30,15 @@ describe('Data Grid Customization', () => {
     expect(datagridCell.getAttribute('data-paste-element')).toBe('DATA_GRID_CELL');
 
     // Style overrides
-    expect(datagridRow).toHaveStyleRule('border-color', 'rgb(96,107,133)');
-    expect(datagrid).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridRow).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
+    expect(datagrid).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagrid).toHaveStyleRule('font-size', '0.75rem');
     expect(datagridHead).toHaveStyleRule('font-weight', '600');
-    expect(datagridHead).toHaveStyleRule('background-color', 'rgb(225,227,234)');
-    expect(datagridHead).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridHead).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
+    expect(datagridHead).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagridFoot).toHaveStyleRule('font-weight', '600');
-    expect(datagridFoot).toHaveStyleRule('background-color', 'rgb(225,227,234)');
-    expect(datagridFoot).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridFoot).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
+    expect(datagridFoot).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagridHeader).toHaveStyleRule('padding', '0.125rem');
     expect(datagridCell).toHaveStyleRule('padding', '0.125rem');
   });
@@ -68,15 +68,15 @@ describe('Data Grid Customization', () => {
     expect(datagridCell.getAttribute('data-paste-element')).toBe('FOO_CELL');
 
     // Style overrides
-    expect(datagridRow).toHaveStyleRule('border-color', 'rgb(96,107,133)');
-    expect(datagrid).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridRow).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
+    expect(datagrid).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagrid).toHaveStyleRule('font-size', '0.75rem');
     expect(datagridHead).toHaveStyleRule('font-weight', '600');
-    expect(datagridHead).toHaveStyleRule('background-color', 'rgb(225,227,234)');
-    expect(datagridHead).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridHead).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
+    expect(datagridHead).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagridFoot).toHaveStyleRule('font-weight', '600');
-    expect(datagridFoot).toHaveStyleRule('background-color', 'rgb(225,227,234)');
-    expect(datagridFoot).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+    expect(datagridFoot).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
+    expect(datagridFoot).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(datagridHeader).toHaveStyleRule('padding', '0.125rem');
     expect(datagridCell).toHaveStyleRule('padding', '0.125rem');
   });

@@ -10,7 +10,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/foundations/content/content-checklist/"}}) {
+    mdx(frontmatter: {slug: {eq: "/foundations/content/content-checklist/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

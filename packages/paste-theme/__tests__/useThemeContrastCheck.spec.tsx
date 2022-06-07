@@ -6,7 +6,6 @@ import {useThemeContrastCheck} from '../src/useThemeContrastCheck';
 describe('useThemeContrastCheck', () => {
   test('should return the results of the contrast check when inside a theme', () => {
     const {result} = renderHook(() => useThemeContrastCheck(), {
-      // eslint-disable-next-line react/display-name
       wrapper: (props) => (
         <ThemeProvider
           theme={{

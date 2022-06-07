@@ -1,12 +1,6 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 require('dotenv').config();
 
-const gatsbyConfig = {
+module.exports = {
   siteMetadata: {
     title: 'Paste',
     description: 'Paste: The Design System for building Twilio customer experiences.',
@@ -23,8 +17,24 @@ const gatsbyConfig = {
         respectDNT: true,
       },
     },
-    'gatsby-plugin-typescript',
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'assets',
+        path: `${__dirname}/src/assets/`,
+      },
+      __key: 'assets',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages/`,
+      },
+      __key: 'pages',
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -40,6 +50,7 @@ const gatsbyConfig = {
           '**/__fixtures__/**',
           '**/__tests__/**',
           '**/paste-website/**/*',
+          '**/paste-website-new/**/*',
           '**/paste-theme-designer/**/*',
           '**/README.md',
           '**/*.js',
@@ -50,53 +61,19 @@ const gatsbyConfig = {
           '**/tsconfig.json',
         ],
       },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'assets',
-        path: `${__dirname}/src/assets`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'websiteCore',
-        path: `${__dirname}/`,
-        ignore: ['**/.cache/**', '**/public/**', '**/src/**/*', '**/static/**', '**/types/**'],
-      },
+      __key: 'packages',
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1632,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
-    },
+    'gatsby-plugin-netlify',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          default: require.resolve('./src/layouts/DefaultLayout.tsx'),
           packages: require.resolve('./src/layouts/ChangelogLayout.tsx'),
-          websiteCore: require.resolve('./src/layouts/GenericLayout.tsx'),
+          default: require.resolve(`${__dirname}/src/layouts/DefaultLayout.tsx`),
         },
         gatsbyRemarkPlugins: [
           {
@@ -193,5 +170,3 @@ const gatsbyConfig = {
     },
   ],
 };
-
-module.exports = gatsbyConfig;

@@ -29,7 +29,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedPrefix = screen.getByText('prefix');
-    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a Prefix variant', (): void => {
@@ -53,7 +53,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedPrefix = screen.getByText('prefix');
-    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 
   it('should add custom styles to Prefix with a custom element data attribute', (): void => {
@@ -68,7 +68,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedPrefix = screen.getByText('prefix');
-    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
   });
 
   it('should add custom styles to a Prefix variant with a custom element data attribute', (): void => {
@@ -92,6 +92,6 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedPrefix = screen.getByText('prefix');
-    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
   });
 });

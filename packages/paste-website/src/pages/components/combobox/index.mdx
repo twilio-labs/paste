@@ -21,6 +21,7 @@ import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import filter from 'lodash/filter';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
@@ -49,7 +50,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/combobox/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/combobox/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -151,7 +152,7 @@ The list of options shown to the user, known as the `Listbox`, can be grouped to
 
 In the example below we have a list of components and we are grouping them based on their type.
 
-<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
+<LivePreview scope={{Combobox, filter}} noInline language="jsx" showOverflow>
   {groupedComboboxExample}
 </LivePreview>
 
@@ -162,7 +163,16 @@ You can control the contents of the group label is a similar way to options, by 
 In the example below we are checking the `groupName` and rendering an icon next to it based on the name.
 
 <LivePreview
-  scope={{Combobox, ProductInsightsIcon, ProductAutopilotIcon, ProductStudioIcon, MediaObject, MediaFigure, MediaBody}}
+  scope={{
+    Combobox,
+    ProductInsightsIcon,
+    ProductAutopilotIcon,
+    ProductStudioIcon,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    filter,
+  }}
   noInline
   language="jsx"
   showOverflow
@@ -207,7 +217,12 @@ It should be noted that when doing so, the `state` prop takes precident over the
 
 For full details on how to use the state hook, and what props to provide it, follow the [Combobox Primitive documentation](/primitives/combobox-primitive#usecomboboxprimitive-arguments). It's the same hook, just renamed.
 
-<LivePreview scope={{Button, Box, CloseIcon, SearchIcon, Combobox, useCombobox}} noInline language="jsx" showOverflow>
+<LivePreview
+  scope={{Button, Box, CloseIcon, SearchIcon, Combobox, useCombobox, filter}}
+  noInline
+  language="jsx"
+  showOverflow
+>
   {stateHookCombobox}
 </LivePreview>
 
@@ -466,6 +481,10 @@ Used to set the Selected Item of the Combobox.
 ##### `state?: Partial<UseComboboxPrimitiveReturnValue<Item>>`
 
 Used as a replacement the state props when coupled with using the `useCombobox` hook. When using this prop, all other state props are **ignored**. They must be passed to `useCombobox` as arguments instead.
+
+##### `element?: string`
+
+Overrides the default element name ('COMBOBOX') to apply unique styles with the Customization Provider
 
 #### useCombobox arguments
 

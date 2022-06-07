@@ -71,5 +71,10 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
+
+    /**
+     * Navigates to a URL and takes a snapshot with Applitools.
+     */
+    visualRegressionTestUrl({url, testName}: {url: string, testName: string}): void;
   }
 }

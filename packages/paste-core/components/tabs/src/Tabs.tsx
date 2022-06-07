@@ -27,11 +27,10 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     const {orientation: tabOrientation = orientation, ...tab} =
       state || useTabPrimitiveState({orientation, ...initialState});
     const elementName = getElementName(tabOrientation, 'TABS', element);
-    const value = React.useMemo(() => ({...tab, orientation: tabOrientation, variant}), [
-      ...Object.values(tab),
-      tabOrientation,
-      variant,
-    ]);
+    const value = React.useMemo(
+      () => ({...tab, orientation: tabOrientation, variant}),
+      [...Object.values(tab), tabOrientation, variant]
+    );
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
     if (tabOrientation === 'vertical') {
@@ -46,14 +45,12 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   }
 );
 
-if (process.env.NODE_ENV === 'development') {
-  Tabs.propTypes = {
-    element: PropTypes.string,
-    selectedId: PropTypes.string,
-    orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
-    variant: PropTypes.oneOf(['fitted', null]),
-  };
-}
+Tabs.propTypes = {
+  element: PropTypes.string,
+  selectedId: PropTypes.string,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
+  variant: PropTypes.oneOf(['fitted', null]),
+};
 
 Tabs.displayName = 'Tabs';
 export {Tabs};

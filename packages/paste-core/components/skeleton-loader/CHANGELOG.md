@@ -1,5 +1,21 @@
 # @twilio-paste/skeleton-loader
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 1.0.4
+
+### Patch Changes
+
+- [`322400c6`](https://github.com/twilio-labs/paste/commit/322400c659678e71afe9e6fc2db543ec7e3046ba) [#2282](https://github.com/twilio-labs/paste/pull/2282) Thanks [@zahnster](https://github.com/zahnster)! - [Skeleton Loader] Update Spring animation to CSS animation
+
 ## 1.0.3
 
 ### Patch Changes

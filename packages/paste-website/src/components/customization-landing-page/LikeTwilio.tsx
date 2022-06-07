@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import {StaticImage} from 'gatsby-plugin-image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -12,21 +11,6 @@ import {LandingPageDesigner} from './LandingPageDesigner';
 import {DoodleBurst} from '../../assets/illustrations/DoodleBurst';
 import {DoodleLoopMedium} from '../../assets/illustrations/DoodleLoopMedium';
 import {DoodleLoopTiny} from '../../assets/illustrations/DoodleLoopTiny';
-
-const pageQuery = graphql`
-  query {
-    themeDesignerScreenshot: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/customization/theme-designer-mobile-screenshot.png"}
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 640) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const LikeTwilioHeadline: React.FC = () => {
   return (
@@ -64,7 +48,6 @@ const DesktopDesigner: React.FC = () => {
 };
 
 const MobileDesigner: React.FC = () => {
-  const imageData = useStaticQuery(pageQuery);
   return (
     <>
       <Box
@@ -82,7 +65,12 @@ const MobileDesigner: React.FC = () => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <Img fluid={imageData.themeDesignerScreenshot.childImageSharp.fluid} />
+      <StaticImage
+        src="../../assets/images/customization/theme-designer-mobile-screenshot.png"
+        alt=""
+        placeholder="blurred"
+        layout="fullWidth"
+      />
     </>
   );
 };

@@ -26,7 +26,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/heading/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/heading/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
 <NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading"
-  storybookUrl="/?path=/story/components-heading--all-variants"
+  storybookUrl="/?path=/story/components-heading--"
   data={props.data}
 />
 
@@ -235,13 +235,14 @@ const Component = () => (
 
 #### Props
 
-| Prop          | Type                           | Description                                                                               | Default |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ------- |
-| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null    |
-| id?           | `string`                       |                                                                                           | null    |
-| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null    |
-| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null    |
-| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block" |
+| Prop          | Type                           | Description                                                                               | Default   |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | --------- |
+| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null      |
+| id?           | `string`                       |                                                                                           | null      |
+| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null      |
+| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null      |
+| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"   |
+| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HEADING' |
 
 <ChangelogRevealer>
   <Changelog />

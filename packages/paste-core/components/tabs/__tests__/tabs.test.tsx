@@ -323,16 +323,16 @@ describe('Tabs', () => {
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('padding', '2.25rem');
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-style', 'solid');
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-width', '4px');
-      expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-color', 'rgb(2,99,224)');
+      expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
 
       expect(screen.getByTestId('tab-list')).toHaveStyleRule('margin-top', '2.25rem');
       expect(screen.getByTestId('tab-list')).toHaveStyleRule('margin-bottom', '2.25rem');
 
-      expect(screen.getByTestId('tab-list').firstChild).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(screen.getByTestId('tab-list').firstChild).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
 
-      expect(screen.getByTestId('tab-1')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
-      expect(screen.getByTestId('tab-2')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
-      expect(screen.getByTestId('tab-3')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(screen.getByTestId('tab-1')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(screen.getByTestId('tab-2')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(screen.getByTestId('tab-3')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
 
       expect(screen.getByTestId('tab-panels')).toHaveStyleRule('margin-top', '0.125rem');
       expect(screen.getByTestId('tab-panels')).toHaveStyleRule('margin-bottom', '0.125rem');
@@ -413,16 +413,16 @@ describe('Tabs', () => {
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('padding', '2.25rem');
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-style', 'solid');
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-width', '4px');
-      expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-color', 'rgb(2,99,224)');
+      expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
 
       expect(screen.getByTestId('tab-list')).toHaveStyleRule('margin-top', '2.25rem');
       expect(screen.getByTestId('tab-list')).toHaveStyleRule('margin-bottom', '2.25rem');
 
-      expect(screen.getByTestId('tab-list').firstChild).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+      expect(screen.getByTestId('tab-list').firstChild).toHaveStyleRule('border-color', 'rgb(214, 31, 31)');
 
-      expect(screen.getByTestId('tab-1')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
-      expect(screen.getByTestId('tab-2')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
-      expect(screen.getByTestId('tab-3')).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(screen.getByTestId('tab-1')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(screen.getByTestId('tab-2')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(screen.getByTestId('tab-3')).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
 
       expect(screen.getByTestId('tab-panels')).toHaveStyleRule('margin-top', '0.125rem');
       expect(screen.getByTestId('tab-panels')).toHaveStyleRule('margin-bottom', '0.125rem');

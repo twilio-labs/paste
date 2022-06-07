@@ -23,7 +23,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/tokens/design-tokens-package/"}}) {
+    mdx(frontmatter: {slug: {eq: "/tokens/design-tokens-package/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

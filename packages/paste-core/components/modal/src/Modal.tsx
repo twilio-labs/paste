@@ -12,8 +12,7 @@ import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUt
 type Sizes = 'default' | 'wide';
 
 export const ModalDialogOverlay = animated(
-  /* eslint-disable emotion/syntax-preference */
-  // @ts-ignore Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
+  // @ts-expect-error Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
   styled(ModalDialogPrimitiveOverlay)<{variant?: Sizes}>(
     css({
       position: 'fixed',
@@ -37,17 +36,15 @@ export const ModalDialogOverlay = animated(
     pasteBaseStyles,
     getCustomElementStyles
   )
-  /* eslint-enable */
 );
 
-interface ModalDialogContentProps {
+export interface ModalDialogContentProps {
   size?: Sizes;
   children: React.ReactNode;
   element?: BoxElementProps['element'];
 }
 
 export const ModalDialogContent = animated(
-  /* eslint-disable emotion/syntax-preference */
   styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
     css({
       width: '100%',
@@ -64,7 +61,6 @@ export const ModalDialogContent = animated(
       flexDirection: 'column',
     })
   )
-  /* eslint-enable */
 );
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {

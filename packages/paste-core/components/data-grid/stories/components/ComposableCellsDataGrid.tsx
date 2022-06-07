@@ -50,6 +50,7 @@ export const ComposableCellsDataGrid: React.FC = () => {
                 return (
                   <DataGridCell key={`col-${colIndex}`}>
                     <Input
+                      aria-label={TableHeaderData[colIndex]}
                       data-testid={`input-${rowIndex}-${colIndex}`}
                       value={col || ''}
                       type="text"
@@ -61,7 +62,7 @@ export const ComposableCellsDataGrid: React.FC = () => {
               if (colIndex === 4) {
                 return (
                   <DataGridCell key={`col-${colIndex}`}>
-                    <Select defaultValue="dogs">
+                    <Select defaultValue="dogs" aria-label="Phone">
                       <Option value="cats">(415) 555-CATS</Option>
                       <Option value="dogs">(415) 555-DOGS</Option>
                       <Option value="mice">(415) 555-MICE</Option>

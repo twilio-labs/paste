@@ -27,7 +27,7 @@ import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/notifications-and-feedback/"}}) {
+    mdx(frontmatter: {slug: {eq: "/patterns/notifications-and-feedback/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

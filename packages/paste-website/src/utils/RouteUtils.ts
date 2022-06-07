@@ -1,4 +1,6 @@
-import {kebabCase, startCase, toLower} from 'lodash';
+import kebabCase from 'lodash/kebabCase';
+import startCase from 'lodash/startCase';
+import toLower from 'lodash/toLower';
 // Gatsby uses @reach/router under the hood
 import {useLocation} from '@reach/router';
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
@@ -9,6 +11,12 @@ const hasWindowObject = (): boolean => typeof window !== `undefined` && window.l
 export function useLocationPathname(): string {
   const {pathname} = hasWindowObject() ? window.location : useLocation();
   return pathname;
+}
+
+// Gets the current url params
+export function useLocationSearch(): string {
+  const {search} = hasWindowObject() ? window.location : useLocation();
+  return search;
 }
 
 export function useLocationOrigin(): string {

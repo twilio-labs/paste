@@ -1,4 +1,5 @@
-import lodash from 'lodash';
+import omitBy from 'lodash/omitBy';
+import isEmpty from 'lodash/isEmpty';
 import type {PackageList, BestGuessMapper, TokenPackageMap} from './types';
 
 /**
@@ -23,14 +24,11 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
   const minimalUsedPackageSet: Set<string> = new Set();
 
   // Step 1
-  const ONE_ITEM_RESULT_MAP: TokenPackageMap = lodash.omitBy(
+  const ONE_ITEM_RESULT_MAP: TokenPackageMap = omitBy(
     tokenPackageMap,
     (value: PackageList) => value.length === 0 || value.length > 1
   );
-  const MULTI_ITEM_RESULT_MAP: TokenPackageMap = lodash.omitBy(
-    tokenPackageMap,
-    (value: PackageList) => value.length < 2
-  );
+  const MULTI_ITEM_RESULT_MAP: TokenPackageMap = omitBy(tokenPackageMap, (value: PackageList) => value.length < 2);
 
   // Step 2
   Object.values(ONE_ITEM_RESULT_MAP).forEach((packageList: string[]) => {
@@ -60,7 +58,7 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
     });
 
     // Step 4
-    if (!lodash.isEmpty(bestGuessMapper)) {
+    if (!isEmpty(bestGuessMapper)) {
       const sortedEntriesByVal = Object.entries(bestGuessMapper).sort(([, v1], [, v2]) => v2 - v1);
       // first zero for first array entry which is sorted to the largest value
       // second zero for the array index of the key (i.e.: ["@twilio-core/button", 5]), which is the package name
@@ -68,7 +66,7 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
       minimalUsedPackageSet.add(mostUsedPackage);
     }
     // Step 5
-  } while (!lodash.isEmpty(bestGuessMapper));
+  } while (!isEmpty(bestGuessMapper));
 
   return [...minimalUsedPackageSet];
 }

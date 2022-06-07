@@ -6,14 +6,14 @@ import {
   getPublicPackages,
   getUnpublishedPackageNames,
 } from './utils';
-import {PackageShape} from './types';
+import type {PackageShape} from '../tools/utils/getRepoPackages';
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
 import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
-const difference = require('lodash.difference');
+const difference = require('lodash/difference');
 
 /**
  * Utility to return the difference between the packages we know were changed in the PR based on files, and the packages

@@ -604,7 +604,7 @@ describe('Customization', () => {
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('text-decoration', 'underline');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     expect(renderedBox).toHaveStyleRule('padding', '0.75rem');
   });
 
@@ -633,7 +633,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(14,124,58)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14, 124, 58)', {target: ':hover'});
   });
 
   it('should override existing pseudo selector styles when provided as element styles on the customization provider', (): void => {
@@ -681,7 +681,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(14,124,58)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14, 124, 58)');
   });
 
   it('should add custom styles to variant pseudo selectors when provided as element styles on the customization provider', (): void => {

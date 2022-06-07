@@ -72,8 +72,8 @@ describe('Ordered List', () => {
         </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
-      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to OrderedList with a custom element data attribute', (): void => {
@@ -87,8 +87,8 @@ describe('Ordered List', () => {
         </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
-      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
   });
 
@@ -174,8 +174,8 @@ describe('Unordered List', () => {
         </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
-      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to UnorderedList with a custom element data attribute', (): void => {
@@ -189,8 +189,8 @@ describe('Unordered List', () => {
         </CustomizationProvider>
       );
       const renderedList = screen.getByRole('list');
-      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
   });
 
@@ -263,8 +263,8 @@ describe('ListItem', () => {
         </CustomizationProvider>
       );
       const renderedListItem = screen.getByRole('listitem');
-      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
 
     it('should add custom styles to ListItem with a custom element data attribute', (): void => {
@@ -278,8 +278,8 @@ describe('ListItem', () => {
         </CustomizationProvider>
       );
       const renderedListItem = screen.getByRole('listitem');
-      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244,244,246)');
-      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96,107,133)');
+      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
   });
 });

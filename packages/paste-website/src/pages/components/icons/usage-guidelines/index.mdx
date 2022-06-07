@@ -19,7 +19,7 @@ import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -124,7 +124,7 @@ interactive element such as [Button](/components/button) and [Anchor](/component
 
 #### Adapting the icon's color
 
-We can change the icon color directly using [text color tokens](/tokens/#text-colors).
+We can change the icon color directly using [text color tokens](/tokens/list/#text-colors).
 
 <LivePreview scope={{LoadingIcon}} language="jsx">
   {`<LoadingIcon decorative={true} color="colorTextError" />`}
@@ -143,7 +143,7 @@ Alternatively, icons can inherit the current text color.
 
 #### Resizing icons
 
-Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
+Icons accept one of our `sizeIcon` [tokens](/tokens/list/#sizings).
 
 <LivePreview scope={{Box, Text, PlusIcon}} language="jsx">
   {`<Text as="p">
@@ -199,6 +199,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 | decorative | boolean                                | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
 | size?      | IconSize                               | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                   | `sizeIcon20`   |
 | color?     | TextColor                              | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
+| element?   | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                             | 'ICON'         |
 
 ---
 

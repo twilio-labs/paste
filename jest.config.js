@@ -34,7 +34,7 @@ module.exports = {
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
-  snapshotSerializers: ['jest-emotion'],
+  snapshotSerializers: ['@emotion/jest/serializer'],
 };
 
 if (process.env.USE_REACT_16 === 'true') {

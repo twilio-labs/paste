@@ -22,12 +22,14 @@ const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_SUFFIX`]: {backgroundColor: 'colorBackgroundSubaccount', borderRadius: 'borderRadiusCircle'},
 });
 
-// eslint-disable-next-line react/display-name
-const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] => ({children}) => (
-  <CustomizationProvider theme={TestTheme} elements={getStyles(elementName)}>
-    {children}
-  </CustomizationProvider>
-);
+const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] =>
+  function Wrapper({children}) {
+    return (
+      <CustomizationProvider theme={TestTheme} elements={getStyles(elementName)}>
+        {children}
+      </CustomizationProvider>
+    );
+  };
 
 const ComboboxToTest = ({element = 'COMBOBOX'}): React.ReactElement => (
   <Combobox
@@ -88,29 +90,29 @@ describe('Combobox customization', () => {
     const {container} = render(<ComboboxToTest />, {wrapper: initCustomizationWrapper('COMBOBOX')});
     expect(container.querySelector('[data-paste-element="COMBOBOX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(235,244,255)'
+      'rgb(235, 244, 255)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_WRAPPER"]')).toHaveStyleRule(
       'background-color',
-      'rgb(225,227,234)'
+      'rgb(225, 227, 234)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_ELEMENT"]')).toHaveStyleRule('cursor', 'pointer');
     expect(container.querySelector('[data-paste-element="COMBOBOX_CHEVRON_WRAPPER"]')).toHaveStyleRule(
       'background-color',
-      'rgba(242,47,70,0.1)'
+      'rgba(242, 47, 70, 0.1)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_LISTBOX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(204,228,255)'
+      'rgb(204, 228, 255)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_LIST"]')).toHaveStyleRule(
       'background-color',
-      'rgb(153,205,255)'
+      'rgb(153, 205, 255)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
     expect(container.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM_TEXT"]')).toHaveStyleRule(
       'font-weight',
@@ -118,11 +120,11 @@ describe('Combobox customization', () => {
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_PREFIX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(235,86,86)'
+      'rgb(235, 86, 86)'
     );
     expect(container.querySelector('[data-paste-element="COMBOBOX_SUFFIX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(255,241,179)'
+      'rgb(255, 241, 179)'
     );
   });
 
@@ -130,38 +132,38 @@ describe('Combobox customization', () => {
     const {container} = render(<ComboboxToTest element="FOO" />, {wrapper: initCustomizationWrapper('FOO')});
     expect(container.querySelector('[data-paste-element="FOO"]')).toHaveStyleRule(
       'background-color',
-      'rgb(235,244,255)'
+      'rgb(235, 244, 255)'
     );
     expect(container.querySelector('[data-paste-element="FOO_WRAPPER"]')).toHaveStyleRule(
       'background-color',
-      'rgb(225,227,234)'
+      'rgb(225, 227, 234)'
     );
     expect(container.querySelector('[data-paste-element="FOO_ELEMENT"]')).toHaveStyleRule('cursor', 'pointer');
     expect(container.querySelector('[data-paste-element="FOO_CHEVRON_WRAPPER"]')).toHaveStyleRule(
       'background-color',
-      'rgba(242,47,70,0.1)'
+      'rgba(242, 47, 70, 0.1)'
     );
     expect(container.querySelector('[data-paste-element="FOO_LISTBOX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(204,228,255)'
+      'rgb(204, 228, 255)'
     );
     expect(container.querySelector('[data-paste-element="FOO_LIST"]')).toHaveStyleRule(
       'background-color',
-      'rgb(153,205,255)'
+      'rgb(153, 205, 255)'
     );
     expect(container.querySelector('[data-paste-element="FOO_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
     expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveStyleRule('font-weight', '700');
     expect(container.querySelector('[data-paste-element="FOO_PREFIX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(235,86,86)'
+      'rgb(235, 86, 86)'
     );
     expect(container.querySelector('[data-paste-element="FOO_SUFFIX"]')).toHaveStyleRule(
       'background-color',
-      'rgb(255,241,179)'
+      'rgb(255, 241, 179)'
     );
   });
 });

@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/textarea/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/textarea/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
 <NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
-  storybookUrl="/?path=/story/components-textarea--textarea-options"
+  storybookUrl="/?path=/story/components-textarea--"
   data={props.data}
 />
 
@@ -632,19 +632,20 @@ const Component = () => (
 
 All the valid HTML attributes for `textarea` are supported including the following props:
 
-| Prop         | Type                                     | Description                                                       | Default   |
-| ------------ | ---------------------------------------- | ----------------------------------------------------------------- | --------- |
-| id?          | string                                   | Sets the id of the textarea. Should match the htmlFor of `Label`. | null      |
-| name?        | string                                   | Sets the name of the textarea.                                    | null      |
-| placeholder? | string                                   | Sets the placeholder of the textarea.                             | null      |
-| disabled?    | boolean                                  | Disables the textarea.                                            | false     |
-| readOnly?    | boolean                                  | Sets the textarea to readonly.                                    | false     |
-| required?    | boolean                                  | Sets the textarea as required.                                    | false     |
-| hasError?    | boolean                                  | Sets the textarea to an error state.                              | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                   | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                   | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                   | null      |
-| variant?     | 'default', 'inverse'                     |                                                                   | 'default' |
+| Prop         | Type                                     | Description                                                                               | Default    |
+| ------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
+| id?          | string                                   | Sets the id of the textarea. Should match the htmlFor of `Label`.                         | null       |
+| name?        | string                                   | Sets the name of the textarea.                                                            | null       |
+| placeholder? | string                                   | Sets the placeholder of the textarea.                                                     | null       |
+| disabled?    | boolean                                  | Disables the textarea.                                                                    | false      |
+| readOnly?    | boolean                                  | Sets the textarea to readonly.                                                            | false      |
+| required?    | boolean                                  | Sets the textarea as required.                                                            | false      |
+| hasError?    | boolean                                  | Sets the textarea to an error state.                                                      | false      |
+| onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
+| variant?     | 'default', 'inverse'                     |                                                                                           | 'default'  |
+| element?     | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'TEXTAREA' |
 
 <ChangelogRevealer>
   <Changelog />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+import {matchers} from '@emotion/jest';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {useVirtual as UseVirtual, VirtualItem} from 'react-virtual/types';
 

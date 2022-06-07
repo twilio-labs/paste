@@ -4,7 +4,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Stack} from '@twilio-paste/stack';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Checkbox} from '@twilio-paste/checkbox';
 import {Column, Grid} from '@twilio-paste/grid';
 import {Option, Select} from '@twilio-paste/select';

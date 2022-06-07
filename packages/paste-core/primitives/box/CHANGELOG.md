@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.0.0
+
+### Minor Changes
+
+- [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c) [#2376](https://github.com/twilio-labs/paste/pull/2376) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Small updates to usage of `styled` to create the `Box` component. Small type updates (to adopt utility types).
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/customization@4.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 5.2.0
+
+### Minor Changes
+
+- [`28d87c14b`](https://github.com/twilio-labs/paste/commit/28d87c14b8f58005b8bdc9691c86acc2cef6ad27) [#2383](https://github.com/twilio-labs/paste/pull/2383) Thanks [@andipants12](https://github.com/andipants12)! - [Box, Text, Style-props] CSS types package dependency upgrade
+
 ## 5.1.0
 
 ### Minor Changes

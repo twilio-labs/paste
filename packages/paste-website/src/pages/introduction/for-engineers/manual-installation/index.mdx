@@ -8,14 +8,14 @@ import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import {version as coreVersion} from '@twilio-paste/core/package.json';
-import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import CorePkgJson from '@twilio-paste/core/package.json';
+import IconsPkgJson from '@twilio-paste/icons/package.json';
 import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
 import Package from '../../../../../../../package.json';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/introduction/for-engineers/manual-installation/"}}) {
+    mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/manual-installation/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -102,11 +102,11 @@ A key distinction with Paste Core is that we _include_ - not _bundle_ - all of P
     <TBody>
       <Tr>
         <Td>@twilio-paste/core</Td>
-        <Td>{coreVersion}</Td>
+        <Td>{CorePkgJson.version}</Td>
       </Tr>
       <Tr>
         <Td>@twilio-paste/icons</Td>
-        <Td>{iconsVersion}</Td>
+        <Td>{IconsPkgJson.version}</Td>
       </Tr>
     </TBody>
   </Table>

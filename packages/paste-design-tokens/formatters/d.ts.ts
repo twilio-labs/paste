@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import camelCase from 'lodash/camelCase';
 import type {ImmutableStyleMap} from 'theo';
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
@@ -8,20 +8,19 @@ import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTempl
 const isNumeric = (value: string): boolean => {
   // To check if a string is a number, we check if it isn't a number
   // eslint-disable-next-line no-restricted-globals,unicorn/prefer-number-properties
-  return !isNaN((value as unknown) as number);
+  return !isNaN(value as unknown as number);
 };
 
 export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
-  `export declare const ${lodash.camelCase(name)} = "${value}";`;
+  `export declare const ${camelCase(name)} = "${value}";`;
 
-const categoryTemplate = (
-  categoryName: string,
-  props: DesignToken[]
-): string => `export declare const ${lodash.camelCase(categoryName)}: {
+const categoryTemplate = (categoryName: string, props: DesignToken[]): string => `export declare const ${camelCase(
+  categoryName
+)}: {
 ${props
   .map((prop) => {
     const value = isNumeric(prop.value) ? prop.value : `"${prop.value}"`;
-    return `  ${lodash.camelCase(prop.name)}: ${value};`;
+    return `  ${camelCase(prop.name)}: ${value};`;
   })
   .join('\n')}
 };`;

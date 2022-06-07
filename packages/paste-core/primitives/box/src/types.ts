@@ -7,21 +7,12 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-} from '@twilio-paste/style-props';
-import type {CustomTheme} from '@twilio-paste/customization';
-import type {
   AnimationProperty,
   AppearanceProperty,
-  BorderCollapseProperty,
-  BorderSpacingProperty,
   BoxSizingProperty,
   ClipProperty,
   CursorProperty,
   FloatProperty,
-  FontVariantNumericProperty,
-  ListStyleImageProperty,
-  ListStylePositionProperty,
-  ListStyleTypeProperty,
   ObjectFitProperty,
   ObjectPositionProperty,
   OpacityProperty,
@@ -35,7 +26,9 @@ import type {
   UserSelectProperty,
   VisibilityProperty,
   WillChangeProperty,
-} from 'csstype';
+} from '@twilio-paste/style-props';
+import type {CustomTheme} from '@twilio-paste/customization';
+
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
 export interface BoxBaseStyleProps
@@ -49,26 +42,20 @@ export interface BoxBaseStyleProps
     FlexboxProps {
   animation?: AnimationProperty;
   appearance?: AppearanceProperty;
-  borderCollapse?: BorderCollapseProperty;
-  borderSpacing?: BorderSpacingProperty<string>;
   boxSizing?: BoxSizingProperty;
   clip?: ClipProperty;
   content?: string;
   cursor?: CursorProperty;
   float?: FloatProperty;
-  fontVariantNumeric?: FontVariantNumericProperty;
-  listStyleImage?: ListStyleImageProperty;
-  listStylePosition?: ListStylePositionProperty;
-  listStyleType?: ListStyleTypeProperty;
   objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty<string>;
+  objectPosition?: ObjectPositionProperty;
   opacity?: OpacityProperty;
-  outline?: OutlineProperty<string>;
+  outline?: OutlineProperty;
   pointerEvents?: PointerEventsProperty;
   resize?: ResizeProperty;
   tableLayout?: TableLayoutProperty;
   transform?: TransformProperty;
-  transformOrigin?: TransformOriginProperty<string>;
+  transformOrigin?: TransformOriginProperty;
   transition?: TransitionProperty;
   userSelect?: UserSelectProperty;
   visibility?: VisibilityProperty;
@@ -77,9 +64,7 @@ export interface BoxBaseStyleProps
   '-webkit-opacity'?: string;
 }
 
-export type BoxPseudoStyleProps = {
-  [key in keyof typeof PseudoPropStyles]?: BoxBaseStyleProps;
-};
+export type BoxPseudoStyleProps = Partial<Record<keyof typeof PseudoPropStyles, BoxBaseStyleProps>>;
 
 export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 

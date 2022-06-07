@@ -1,5 +1,42 @@
 # Change Log
 
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c), [`09762f0f1`](https://github.com/twilio-labs/paste/commit/09762f0f1bcfd42d901bd90c33279be68464c68c)]:
+  - @twilio-paste/text@6.0.0
+  - @twilio-paste/box@6.0.0
+  - @twilio-paste/styling-library@1.0.0
+  - @twilio-paste/sibling-box@5.0.0
+  - @twilio-paste/theme@7.0.0
+  - @twilio-paste/base-radio-checkbox@9.0.0
+  - @twilio-paste/help-text@9.0.0
+  - @twilio-paste/inline-control-group@9.0.0
+  - @twilio-paste/label@9.0.0
+  - @twilio-paste/screen-reader-only@9.0.0
+  - @twilio-paste/media-object@6.0.0
+  - @twilio-paste/icons@8.0.0
+  - @twilio-paste/style-props@5.0.0
+
+## 8.0.1
+
+### Patch Changes
+
+- [`13aad7aa7`](https://github.com/twilio-labs/paste/commit/13aad7aa748399bb850a0bc9b738914622e579ba) [#2375](https://github.com/twilio-labs/paste/pull/2375) Thanks [@TheSisb](https://github.com/TheSisb)! - [Checkbox] Minor code refactor
+
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`10178f39d`](https://github.com/twilio-labs/paste/commit/10178f39dd8a317f3544cf982706ba50d2c7d377)]:
+  - @twilio-paste/icons@7.0.0
+  - @twilio-paste/base-radio-checkbox@8.0.0
+  - @twilio-paste/help-text@8.0.0
+  - @twilio-paste/inline-control-group@8.0.0
+  - @twilio-paste/screen-reader-only@8.0.0
+  - @twilio-paste/label@8.0.0
+
 ## 7.0.3
 
 ### Patch Changes

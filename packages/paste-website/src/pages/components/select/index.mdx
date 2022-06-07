@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/select/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/select/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -90,7 +90,7 @@ Select allows a user to make a selection from a list of options in a form field.
 
 ### What's the difference between select and combobox?
 
-At its most basic, a Select has an options list that’s styled according to the browser default. A [Combobox](https://paste.twilio.design/components/combobox) has a Twilio-styled options list and can allow for additional functionality like typeahead.
+At its most basic, a Select has an options list that’s styled according to the browser default. A [Combobox](/components/combobox) has a Twilio-styled options list and can allow for additional functionality like typeahead.
 
 Use a Select when:
 
@@ -103,7 +103,7 @@ Use a Select when:
   <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
 </UnorderedList>
 
-Use a [Combobox](https://paste.twilio.design/components/combobox) when:
+Use a [Combobox](/components/combobox) when:
 
 <UnorderedList>
   <ListItem>You need a Twilio-styled options list.</ListItem>
@@ -399,7 +399,7 @@ Stack form fields vertically with `$space-80` spacing between each field.
   </Box>
   <Box>
     <Label htmlFor="voice_callback">Primary Voice callback</Label>
-    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
+    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange={() => {}} required/>
   </Box>
 </>`}
 </LivePreview>
@@ -408,7 +408,7 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 ### Options in a Select
 
-Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/radio-group/">Radio Group</Anchor> instead and add help text for each option, or give more explanation through help text.
 
 Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose category" as the default value if there’s no safe default.
 
@@ -492,7 +492,7 @@ Use a select when:
   <Do center title="Do" body="Sort options in a list logically (e.g., alphabetically, ascending, descending).">
     <Box width="100%" padding="space60">
       <Label htmlFor="sort_do">Ascending numbers</Label>
-      <Select id="sort_do" name="sort_do" onChange="">
+      <Select id="sort_do" name="sort_do" onChange={() => {}}>
         <Option value="1">1</Option>
         <Option value="100">100</Option>
         <Option value="100000">100,000</Option>
@@ -506,7 +506,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="sort_dont">Random numbers</Label>
-      <Select id="sort_dont" name="sort_dont" onChange="">
+      <Select id="sort_dont" name="sort_dont" onChange={() => {}}>
         <Option value="100000">100,000</Option>
         <Option value="1">1</Option>
         <Option value="100">100</Option>
@@ -523,7 +523,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="reversible_do">Caller ID</Label>
-      <Select id="reversible_do" name="reversible_do" onChange="">
+      <Select id="reversible_do" name="reversible_do" onChange={() => {}}>
         <Option value="null">Choose a Caller ID</Option>
         <Option value="+14155552287">+1(415) 555-CATS</Option>
         <Option value="+14155553647">+1(415) 555-DOGS</Option>
@@ -537,7 +537,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="reversible_dont">Gender</Label>
-      <Select id="reversible_dont" name="reversible_dont" onChange="">
+      <Select id="reversible_dont" name="reversible_dont" onChange={() => {}}>
         <Option value="male">Male</Option>
         <Option value="female">Female</Option>
       </Select>
@@ -562,11 +562,11 @@ Use a select when:
   <Do
     center
     title="Do"
-    body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a checkbox instead."
+    body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a Radio Group instead."
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="option_text_do">HTTP method</Label>
-      <Select id="option_text_do" name="option_text_do" onChange="">
+      <Select id="option_text_do" name="option_text_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -580,7 +580,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="option_text_dont">Voice URL</Label>
-      <Select id="option_text_dont" name="option_text_dont" onChange="">
+      <Select id="option_text_dont" name="option_text_dont" onChange={() => {}}>
         <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
         <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
         <Option value="test-two">
@@ -595,7 +595,7 @@ Use a select when:
   <Do center title="Do" body="Keep help text and error text concise and simple.">
     <Box width="100%" padding="space60">
       <Label htmlFor="help_text_length_do">HTTP method</Label>
-      <Select id="help_text_length_do" name="help_text_length_do" onChange="">
+      <Select id="help_text_length_do" name="help_text_length_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -606,7 +606,7 @@ Use a select when:
   <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
     <Box width="100%" padding="space60">
       <Label htmlFor="help_text_length_dont">HTTP method</Label>
-      <Select id="help_text_length_dont" name="help_text_length_dont" onChange="">
+      <Select id="help_text_length_dont" name="help_text_length_dont" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -623,7 +623,7 @@ Use a select when:
   <Do center title="Do" body="Include a visible label on every form field.">
     <Box width="100%" padding="space60">
       <Label htmlFor="use_label_do">HTTP method</Label>
-      <Select id="use_label_do" name="use_label_do" onChange="">
+      <Select id="use_label_do" name="use_label_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -632,7 +632,7 @@ Use a select when:
   </Do>
   <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
     <Box width="100%" padding="space60">
-      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="">
+      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -649,7 +649,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">HTTP method</Label>
-      <Select disabled id="disabled_do" name="disabled_do" onChange="">
+      <Select disabled id="disabled_do" name="disabled_do" onChange={() => {}}>
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -664,7 +664,7 @@ Use a select when:
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
-      <Select disabled id="disabled_dont" name="disabled_dont" onChange="">
+      <Select disabled id="disabled_dont" name="disabled_dont" onChange={() => {}}>
         <Option value="get">Twilio</Option>
       </Select>
     </Box>
@@ -690,7 +690,7 @@ Use a select when:
   <Dont center title="Don't" body="When possible, avoid allowing multiple selection on a select component.">
     <Box width="100%" padding="space60">
       <Label htmlFor="multiple_dont">Select the clients you would like to test</Label>
-      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
+      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange={() => {}}>
         <Option value="apple_mail">Apple Mail</Option>
         <Option value="g_mail">GMail</Option>
         <Option value="outlook">Outlook</Option>
@@ -870,41 +870,44 @@ import {HelpText} from '@twilio-paste/core/help-text';
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
 
-| Prop          | Type                                            | Description                                                                | Default   |
-| ------------- | ----------------------------------------------- | -------------------------------------------------------------------------- | --------- |
-| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.             | null      |
-| name?         | string                                          | Sets the name of the select.                                               | null      |
-| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. | null      |
-| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                               | null      |
-| disabled?     | boolean                                         | Disables the input.                                                        | false     |
-| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                            | null      |
-| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                            | null      |
-| required?     | boolean                                         | Sets the input as required.                                                | false     |
-| hasError?     | boolean                                         | Sets the input to an error state.                                          | false     |
-| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                            | null      |
-| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
-| variant?      | 'default', 'inverse'                            |                                                                            | 'default' |
+| Prop          | Type                                            | Description                                                                               | Default   |
+| ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
+| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
+| name?         | string                                          | Sets the name of the select.                                                              | null      |
+| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present.                | null      |
+| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                              | null      |
+| disabled?     | boolean                                         | Disables the input.                                                                       | false     |
+| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                           | null      |
+| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                           | null      |
+| required?     | boolean                                         | Sets the input as required.                                                               | false     |
+| hasError?     | boolean                                         | Sets the input to an error state.                                                         | false     |
+| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                                           | null      |
+| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
+| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
+| variant?      | 'default', 'inverse'                            |                                                                                           | 'default' |
+| element?      | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'SELECT'  |
 
 #### Option props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
 
-| Prop      | Type             | Description                                                                          | Default |
-| --------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.             | null    |
-| name      | string           | Sets the name of the select. Required.                                               | null    |
-| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
-| disabled? | boolean          | Disables the input.                                                                  | false   |
+| Prop      | Type             | Description                                                                               | Default  |
+| --------- | ---------------- | ----------------------------------------------------------------------------------------- | -------- |
+| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.                  | null     |
+| name      | string           | Sets the name of the select. Required.                                                    | null     |
+| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required.      | null     |
+| disabled? | boolean          | Disables the input.                                                                       | false    |
+| element?  | `string`         | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION' |
 
 #### OptionGroup props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
 
-| Prop     | Type                           | Description                               | Default |
-| -------- | ------------------------------ | ----------------------------------------- | ------- |
-| label    | string                         | Sets the label of the optgroup. Required. | null    |
-| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.               | null    |
+| Prop     | Type                           | Description                                                                               | Default        |
+| -------- | ------------------------------ | ----------------------------------------------------------------------------------------- | -------------- |
+| label    | string                         | Sets the label of the optgroup. Required.                                                 | null           |
+| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.                                                               | null           |
+| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION_GROUP' |
 
 <ChangelogRevealer>
   <Changelog />

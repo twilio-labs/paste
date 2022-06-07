@@ -2,7 +2,7 @@ import * as React from 'react';
 import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
+import {matchers} from '@emotion/jest';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
@@ -52,9 +52,18 @@ describe('Radio', () => {
     expect(getByRole('radio').getAttribute('aria-invalid')).toBeTruthy();
   });
 
-  it('should render as checked', () => {
+  it('should render as checked (controlled)', () => {
     const {getByLabelText} = render(
       <Radio {...defaultProps} checked>
+        foo
+      </Radio>
+    );
+    expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
+  });
+
+  it('should render as checked (uncontrolled)', () => {
+    const {getByLabelText} = render(
+      <Radio {...defaultProps} defaultChecked>
         foo
       </Radio>
     );
@@ -265,9 +274,9 @@ describe('Radio Group event handlers', () => {
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 
-  it('Should check the selected radio', () => {
+  it('Should check the selected radio (controlled)', () => {
     const MockRadioGroup: React.FC = () => {
-      const [value, setValue] = React.useState('');
+      const [value, setValue] = React.useState('2');
       return (
         <RadioGroup
           legend="foo"
@@ -278,10 +287,13 @@ describe('Radio Group event handlers', () => {
             setValue(newVal);
           }}
         >
-          <Radio data-testid="radio-button" id="bar" name="bar" value="1">
+          <Radio data-testid="radio-button" id="bar" name="bar" value="1" checked>
             bar
           </Radio>
           <Radio data-testid="radio-button1" id="bar" name="bar" value="2">
+            bar
+          </Radio>
+          <Radio data-testid="radio-button2" id="bar" name="bar" value="3" defaultChecked>
             bar
           </Radio>
         </RadioGroup>
@@ -291,12 +303,42 @@ describe('Radio Group event handlers', () => {
     const {getByTestId} = render(<MockRadioGroup />);
 
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+    expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
     fireEvent.click(getByTestId('radio-button'));
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
-    fireEvent.click(getByTestId('radio-button1'));
-    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
+    fireEvent.click(getByTestId('radio-button2'));
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(true);
+  });
+
+  it('Should check the selected radio (uncontrolled)', () => {
+    const MockRadioGroup: React.FC = () => {
+      return (
+        <RadioGroup legend="foo" id="foo" name="foo">
+          <Radio data-testid="radio-button" id="bar" name="bar" value="1">
+            bar
+          </Radio>
+          <Radio data-testid="radio-button1" id="bar" name="bar" value="2" defaultChecked>
+            bar
+          </Radio>
+        </RadioGroup>
+      );
+    };
+
+    const {getByTestId} = render(<MockRadioGroup />);
+
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+    fireEvent.click(getByTestId('radio-button'));
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+    fireEvent.click(getByTestId('radio-button1'));
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
   });
 
   it('Should check the selected value on initial', () => {
@@ -395,11 +437,11 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18,28,45)'
+      'rgb(18, 28, 45)'
     );
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
@@ -435,11 +477,11 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18,28,45)'
+      'rgb(18, 28, 45)'
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0,20,137)'
+      'rgb(0, 20, 137)'
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',

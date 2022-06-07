@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.2.2
+
+### Patch Changes
+
+- [`9983b52e9`](https://github.com/twilio-labs/paste/commit/9983b52e92d15373824e4b3cc10572b2f51d58f8) [#2419](https://github.com/twilio-labs/paste/pull/2419) Thanks [@gloriliale](https://github.com/gloriliale)! - [Combobox, Data grid, Color contrast utils, Customization, Design tokens, Icons, Style props, Token contrast checker, Types, Utils, Website] Consolidate and update lodash dependencies and the way lodash is imported in our files, per lodash's guidance. Details: https://lodash.com/per-method-packages
+
+## 7.2.1
+
+### Patch Changes
+
+- [`3482db481`](https://github.com/twilio-labs/paste/commit/3482db4814aed77e7355c079ae931823da854f4b) [#2355](https://github.com/twilio-labs/paste/pull/2355) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design-Tokens] remove the 'Courier New' font from the code font family, falling back to 'Courier' instead.
+
 ## 7.2.0
 
 ### Minor Changes

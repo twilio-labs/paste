@@ -11,13 +11,7 @@ import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/tabs-primitive/CHANGELOG.md';
-import {
-  useTabPrimitiveState,
-  TabPrimitive,
-  TabPrimitiveList,
-  TabPrimitivePanel,
-  TabPrimitiveStateReturn,
-} from '@twilio-paste/tabs-primitive';
+import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {horizontalExample, verticalExample, styledExample} from '../../../component-examples/TabsPrimitiveExamples';
@@ -34,7 +28,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/primitives/tabs-primitive/"}}) {
+    mdx(frontmatter: {slug: {eq: "/primitives/tabs-primitive/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

@@ -2,7 +2,7 @@
 title: Button
 package: '@twilio-paste/button'
 description: A Button communicates that users can trigger an action.
-slug: /components/Button/
+slug: /components/button/
 ---
 
 import {graphql} from 'gatsby';
@@ -28,7 +28,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/button/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/button/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -575,6 +575,7 @@ All the valid HTML attributes for `Button` are supported including the following
 | onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
 | onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
 | onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'BUTTON'                               |
 
 <ChangelogRevealer>
   <Changelog />

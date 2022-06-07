@@ -100,3 +100,7 @@ cypress/downloads
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+# turborepo
+.turbo

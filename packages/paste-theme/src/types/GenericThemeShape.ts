@@ -1,34 +1,34 @@
 import type {
-  backgroundColors as BackgroundColors,
-  borderColors as BorderColors,
-  borderWidths as BorderWidths,
-  radii as Radii,
-  fonts as Fonts,
-  fontSizes as FontSizes,
-  fontWeights as FontWeights,
-  lineHeights as LineHeights,
-  boxShadows as BoxShadows,
-  sizings as Sizings,
-  spacings as Spacings,
-  textColors as TextColors,
-  zIndices as ZIndices,
-  colors as Colors,
+  backgroundColors,
+  borderColors,
+  borderWidths,
+  radii,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  boxShadows,
+  sizings,
+  spacings,
+  textColors,
+  zIndices,
+  colors,
 } from '@twilio-paste/design-tokens';
 
-export type BackgroundColorsKeys = keyof typeof BackgroundColors;
-export type BorderColorsKeys = keyof typeof BorderColors;
-export type BorderWidthsKeys = keyof typeof BorderWidths;
-export type ColorsKeys = keyof typeof Colors;
-export type FontSizesKeys = keyof typeof FontSizes;
-export type FontWeightsKeys = keyof typeof FontWeights;
-export type FontsKeys = keyof typeof Fonts;
-export type SizingKeys = keyof typeof Sizings;
-export type LineHeightsKeys = keyof typeof LineHeights;
-export type RadiiKeys = keyof typeof Radii;
-export type BoxShadowsKeys = keyof typeof BoxShadows;
-export type SpacingsKeys = keyof typeof Spacings;
-export type TextColorsKeys = keyof typeof TextColors;
-export type ZIndicesKeys = keyof typeof ZIndices;
+export type BackgroundColorsKeys = keyof typeof backgroundColors;
+export type BorderColorsKeys = keyof typeof borderColors;
+export type BorderWidthsKeys = keyof typeof borderWidths;
+export type ColorsKeys = keyof typeof colors;
+export type FontSizesKeys = keyof typeof fontSizes;
+export type FontWeightsKeys = keyof typeof fontWeights;
+export type FontsKeys = keyof typeof fonts;
+export type SizingKeys = keyof typeof sizings;
+export type LineHeightsKeys = keyof typeof lineHeights;
+export type RadiiKeys = keyof typeof radii;
+export type BoxShadowsKeys = keyof typeof boxShadows;
+export type SpacingsKeys = keyof typeof spacings;
+export type TextColorsKeys = keyof typeof textColors;
+export type ZIndicesKeys = keyof typeof zIndices;
 
 // TODO Dynamically type this
 export interface GenericThemeShape {
@@ -76,17 +76,17 @@ export interface GenericThemeShape {
     }
   >;
   iconSizes: {
-    sizeIcon10: typeof Sizings['sizeIcon10'];
-    sizeIcon20: typeof Sizings['sizeIcon20'];
-    sizeIcon30: typeof Sizings['sizeIcon30'];
-    sizeIcon40: typeof Sizings['sizeIcon40'];
-    sizeIcon50: typeof Sizings['sizeIcon50'];
-    sizeIcon60: typeof Sizings['sizeIcon60'];
-    sizeIcon70: typeof Sizings['sizeIcon70'];
-    sizeIcon80: typeof Sizings['sizeIcon80'];
-    sizeIcon90: typeof Sizings['sizeIcon90'];
-    sizeIcon100: typeof Sizings['sizeIcon100'];
-    sizeIcon110: typeof Sizings['sizeIcon110'];
+    sizeIcon10: typeof sizings['sizeIcon10'];
+    sizeIcon20: typeof sizings['sizeIcon20'];
+    sizeIcon30: typeof sizings['sizeIcon30'];
+    sizeIcon40: typeof sizings['sizeIcon40'];
+    sizeIcon50: typeof sizings['sizeIcon50'];
+    sizeIcon60: typeof sizings['sizeIcon60'];
+    sizeIcon70: typeof sizings['sizeIcon70'];
+    sizeIcon80: typeof sizings['sizeIcon80'];
+    sizeIcon90: typeof sizings['sizeIcon90'];
+    sizeIcon100: typeof sizings['sizeIcon100'];
+    sizeIcon110: typeof sizings['sizeIcon110'];
   };
   lineHeights: Partial<
     {

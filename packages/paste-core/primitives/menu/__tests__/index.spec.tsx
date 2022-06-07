@@ -11,7 +11,10 @@ import {
   MenuPrimitiveSeparator,
 } from '../src';
 
-const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
+const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>(function PreferencesMenu(
+  props,
+  ref
+) {
   const menu = useMenuPrimitiveState({baseId: 'sub-menu'});
   return (
     <>

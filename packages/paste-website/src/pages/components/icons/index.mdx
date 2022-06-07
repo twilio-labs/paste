@@ -10,7 +10,7 @@ import {P} from '../../../components/Typography';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/components/icons/"}}) {
+    mdx(frontmatter: {slug: {eq: "/components/icons/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
