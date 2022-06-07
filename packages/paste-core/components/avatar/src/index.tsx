@@ -46,10 +46,6 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     if (name === undefined) {
       console.error('[Paste Avatar]: name prop is required');
     }
-    if (src && icon) {
-      console.error('[Paste Avatar]: do not set both src and icon on Avatar');
-      return null;
-    }
 
     return (
       <Box
@@ -79,17 +75,8 @@ Avatar.propTypes = {
   size: isIconSizeTokenProp,
   name: PropTypes.string.isRequired,
   element: PropTypes.string,
-  src: (props) => {
-    // eslint-disable-next-line no-new
-    if (props.src && props.icon) new Error('[Paste Avatar]: do not set both src and icon on Avatar');
-    // eslint-disable-next-line no-new
-    if (typeof props.src !== 'string') new Error('[Paste Avatar]: src prop must be a string');
-    return null;
-  },
+  src: PropTypes.string,
   icon: (props) => {
-    // eslint-disable-next-line no-new
-    if (props.src && props.icon) new Error('[Paste Avatar]: do not set both src and icon on Avatar');
-    // eslint-disable-next-line no-new
     if (typeof props.icon !== 'function') new Error('[Paste Avatar]: icon prop must be a Paste Icon');
     return null;
   },
