@@ -11,6 +11,9 @@ const DEFAULT_SIZE = 'sizeIcon70';
 
 const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE, src, icon: Icon}) => {
   const computedTokenNames = getComputedTokenNames(size);
+  if (src != null) {
+    return <Box as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} />;
+  }
   if (Icon != null) {
     if (!isValidElementType(Icon) || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
       throw new Error('[Paste Avatar]: icon prop expected to be a Paste icon only.');
@@ -20,9 +23,6 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
         <Icon decorative={false} title={name} size={computedTokenNames.iconSize} />
       </Box>
     );
-  }
-  if (src != null) {
-    return <Box as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} />;
   }
   return (
     <Text
@@ -59,11 +59,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         size={size}
         color="colorText"
       >
-        {src ? (
-          <AvatarContents name={name} size={size} src={src} />
-        ) : (
-          <AvatarContents name={name} size={size} icon={icon} />
-        )}
+        <AvatarContents name={name} size={size} icon={icon} src={src} />
       </Box>
     );
   }
