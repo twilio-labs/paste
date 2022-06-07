@@ -27,5 +27,4 @@ const App: React.FC = ({children}) => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default App;
