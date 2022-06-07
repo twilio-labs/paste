@@ -6,7 +6,7 @@ import {HelpText} from '@twilio-paste/help-text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
-import {CustomizedTextarea} from '../stories/textarea.stories';
+import {CustomizedTextarea, MultipleTextareas} from '../stories/textarea.stories';
 
 const NOOP = (): void => {};
 
@@ -21,6 +21,11 @@ describe('TextArea render', () => {
   it('should render', () => {
     const {getByRole} = render(<TextArea {...initialProps} />);
     expect(getByRole('textbox')).not.toBeNull();
+  });
+
+  it('should render a hidden textarea', () => {
+    render(<TextArea {...initialProps} />);
+    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(2);
   });
 
   it('should render as readOnly', () => {
@@ -70,6 +75,27 @@ describe('TextArea render', () => {
     expect(screen.getByRole('textbox').getAttribute('height')).toBeNull();
     expect(screen.getByRole('textbox').getAttribute('size')).toBeNull();
     expect(screen.getByRole('textbox').getAttribute('width')).toBeNull();
+  });
+});
+
+describe('Multiple textareas', () => {
+  it('handles adding and removing multiple textareas', () => {
+    render(<MultipleTextareas />);
+    const pushButton = screen.getByRole('button', {name: 'Push textarea'});
+    const popButton = screen.getByRole('button', {name: 'Pop textarea'});
+    const toggleButton = screen.getByRole('button', {name: 'Toggle textarea visibility'});
+
+    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(2);
+
+    fireEvent.click(pushButton);
+    fireEvent.click(pushButton);
+    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(6);
+
+    fireEvent.click(popButton);
+    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(4);
+
+    fireEvent.click(toggleButton);
+    expect(screen.queryAllByRole('textbox', {hidden: true})).toHaveLength(0);
   });
 });
 

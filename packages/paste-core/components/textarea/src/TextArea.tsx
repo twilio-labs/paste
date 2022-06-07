@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import TextareaAutosize from 'react-autosize-textarea';
+import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
 import {styled, css} from '@twilio-paste/styling-library';
 import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -20,11 +20,13 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   placeholder?: string;
   readOnly?: boolean;
   required?: boolean;
+  resize?: 'none' | 'vertical';
   size?: never;
   style?: never;
   variant?: TextAreaVariants;
   width?: never;
 }
+
 // @ts-expect-error can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
 const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
   (props) =>
@@ -40,13 +42,13 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
       fontSize: 'fontSize30',
       fontWeight: 'fontWeightMedium',
       lineHeight: 'lineHeight20',
-      maxHeight: 'size30',
+      maxHeight: props.resize === 'vertical' ? 'none' : 'size30',
       outline: 'none',
       paddingBottom: 'space30',
       paddingLeft: 'space40',
       paddingRight: 'space40',
       paddingTop: 'space30',
-      resize: 'vertical',
+      resize: props.resize,
       width: '100%',
 
       '&::placeholder': {
@@ -80,6 +82,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       insertAfter,
       readOnly,
       variant,
+      resize = 'none',
       // size, height and width should not be passed down
       size,
       height,
@@ -100,7 +103,6 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       >
         <TextAreaElement
           {...safelySpreadBoxProps(props)}
-          async
           aria-invalid={hasError}
           aria-readonly={readOnly}
           disabled={disabled}
@@ -108,7 +110,9 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           readOnly={readOnly}
           ref={ref}
           rows={3}
+          minRows={3}
           spellCheck
+          resize={resize}
           variant={variant}
         >
           {children}

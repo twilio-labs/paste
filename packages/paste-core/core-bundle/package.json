@@ -71,6 +71,7 @@
     "@twilio-paste/paragraph": "^6.0.0",
     "@twilio-paste/popover": "^9.0.1",
     "@twilio-paste/radio-group": "^9.0.0",
+    "@twilio-paste/react-textarea-autosize-library": "^0.0.1",
     "@twilio-paste/reakit-library": "^0.8.5",
     "@twilio-paste/screen-reader-only": "^9.0.0",
     "@twilio-paste/select": "^8.0.0",

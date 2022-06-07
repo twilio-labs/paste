@@ -196,6 +196,18 @@ The textarea should include the base textarea, along with supporting elements to
 </>`}
 </LivePreview>
 
+### Resizeable Textarea
+
+By default, the textarea is not resizeable. To change this, add the prop `resize='vertical'`.
+
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+  {`<>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" resize="vertical" required />
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
+</>`}
+</LivePreview>
+
 ## States
 
 ### Textarea with inline error
@@ -640,6 +652,7 @@ All the valid HTML attributes for `textarea` are supported including the followi
 | disabled?    | boolean                                  | Disables the textarea.                                                                    | false      |
 | readOnly?    | boolean                                  | Sets the textarea to readonly.                                                            | false      |
 | required?    | boolean                                  | Sets the textarea as required.                                                            | false      |
+| resize?      | 'none', 'vertical'                       | Sets if the textarea can be resized.                                                      | 'none'     |
 | hasError?    | boolean                                  | Sets the textarea to an error state.                                                      | false      |
 | onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
 | onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
