@@ -12,25 +12,11 @@ import {Blockquote} from '../../../components/Blockquote';
 import {TokensList} from '../../../components/tokens-list';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-<ComponentHeader name="Design Tokens" categoryRoute={SidebarCategoryRoutes.TOKENS} />
-
-<Blockquote
-  name="Salesforce UX"
-  source="Lightning Design System"
-  sourceUrl="https://www.lightningdesignsystem.com/design-tokens/"
->
-  Design tokens are the visual design atoms of the design system — specifically, they are named entities that store
-  visual design attributes.
-</Blockquote>
-
-Tokens are named for their use case, rather than their value. For example
-`$color-background-error` is named to indicate the appropriate background
-color for an error, as opposed to `$color-background-red` which is less
-specific and could be used in a number of ways depending on cultural context
-and design language. This makes their intended use clear and intentional,
-and allows us to develop a scalable and consistent visual language.
-
-In Paste, **1 rem unit = 16 pixels**.
+<ComponentHeader
+  name="Design Tokens"
+  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  description="All tokens that are available in the Paste token system."
+/>
 
 ---
 

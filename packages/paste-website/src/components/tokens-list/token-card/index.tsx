@@ -24,12 +24,29 @@ const PreviewComponent: React.FC<TokenExampleProps> = ({category, name, value}) 
   }
 };
 
+interface AltValueProps {
+  category: string;
+  value: string;
+}
+
+const AltValue: React.FC<AltValueProps> = ({category, value}) => {
+  switch (category) {
+    case 'background-colors':
+    case 'border-colors':
+    case 'text-colors':
+      return rgbToHex(value);
+    default:
+      return null;
+  }
+};
+
 export interface TokenCardProps {
   category: string;
   name: string;
   value: string;
   comment: string;
 }
+
 export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comment}) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
@@ -70,6 +87,8 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
       borderStyle="solid"
       borderRadius="borderRadius30"
       minHeight="sizeSquare170"
+      marginTop="space30"
+      marginBottom="space30"
     >
       <Box margin="space40" width="sizeSquare200" justifyContent="center" alignItems="center" display="flex">
         <PreviewComponent category={category} name={camelCaseName} value={value} />
@@ -123,7 +142,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
               {value}
             </Text>
             <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              {rgbToHex(value)}
+              <AltValue category={category} value={value} />
             </Text>
           </Box>
         </Box>
