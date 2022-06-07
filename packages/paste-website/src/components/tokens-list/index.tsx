@@ -21,6 +21,9 @@ import type {Token, TokenCategory, TokensListProps} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {BackgroundColor} from './token-box/BackgroundColor';
+import {NoResultImage} from '../images/EmptyStateImages';
+import {TokenCard} from './token-card';
+import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 
 const PreviewComponentMap: {[key: string]: React.ReactNode} = {
   'background-colors': BackgroundColor,
@@ -29,7 +32,6 @@ const PreviewComponentMap: {[key: string]: React.ReactNode} = {
 console.log(Tokens);
 const TokenKeys = Object.keys(Tokens);
 
-const EmptyDiv = (): React.FC => <div />;
 const ContentWrapper = (props): React.FC => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
 const Content = (props): React.FC => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
 
@@ -62,7 +64,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
 
   const uid = useUID();
 
-  if (Tokens == null) {
+  if (Tokens === null) {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
@@ -76,39 +78,29 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         }}
       />
       <Content>
+        <Box paddingBottom="space80">
+          <Label htmlFor="test" id="test-label">
+            Filter tokens
+          </Label>
+          <Input
+            type="text"
+            id="test"
+            aria-labelledby="test-label"
+            onChange={handleInput}
+            insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
+          />
+        </Box>
+
         {TokenKeys.map((tokenKey: string) => (
           <React.Fragment key={`catname-${tokenKey}`}>
             <AnchoredHeading as="h2" variant="heading20">
               {sentenceCase(tokenKey)}
             </AnchoredHeading>
-            {/* cat.info */}
             <Box marginBottom="space160" data-cy="tokens-table-container">
               {Tokens[tokenKey].map(({name, value, comment}: {name: string; value: string; comment: string}) => {
-                const PreviewComponent = PreviewComponentMap[tokenKey] || EmptyDiv;
+                console.log('key', tokenKey);
                 return (
-                  <Box
-                    key={name}
-                    display="flex"
-                    alignItems="center"
-                    backgroundColor="colorBackgroundBody"
-                    borderColor="colorBorderWeaker"
-                    borderWidth="borderWidth10"
-                    borderStyle="solid"
-                    borderRadius="borderRadius10"
-                    marginBottom="space100"
-                  >
-                    <Box borderRightColor="colorBorderWeaker" borderRightWidth="borderWidth10" borderRightStyle="solid">
-                      <Box padding="space40" minHeight="sizeSquare170" width="sizeSquare200">
-                        <PreviewComponent value="value" />
-                      </Box>
-                    </Box>
-                    <Box paddingY="space60" paddingLeft="space70" paddingRight="space110">
-                      {name}
-                      <br />
-                      {comment}
-                    </Box>
-                    <Box>{value}</Box>
-                  </Box>
+                  <TokenCard key={`token${name}`} category={tokenKey} name={name} value={value} comment={comment} />
                 );
               })}
             </Box>
