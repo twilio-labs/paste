@@ -1,7 +1,7 @@
 import type {AppProps, NextWebVitalsMetric} from 'next/app';
 import {Theme} from '@twilio-paste/core/theme';
 
-export const MyApp: React.FC<AppProps> = ({Component, pageProps}) => {
+const MyApp: React.FC<AppProps> = ({Component, pageProps}) => {
   return (
     <Theme.Provider theme="default">
       <Component {...pageProps} />
