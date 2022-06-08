@@ -15,7 +15,11 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({onChange, themes, v
       <Label htmlFor={selectID}>Selected Theme</Label>
       <Select id={selectID} value={value} onChange={onChange}>
         {themes.map((themeName) => {
-          return <Option value={ThemeVariants[themeName]}>{ThemeVariants[themeName]}</Option>;
+          return (
+            <Option key={themeName} value={ThemeVariants[themeName]}>
+              {ThemeVariants[themeName]}
+            </Option>
+          );
         })}
       </Select>
     </>
