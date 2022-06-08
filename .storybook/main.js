@@ -38,6 +38,7 @@ module.exports = {
             'packages/paste-nextjs-template/**/*',
             'packages/paste-website/**/*',
             'packages/paste-cra-template/template/**/*',
+            'packages/paste-token-contrast-checker/**/*',
             '**/__tests__/**',
           ],
         },

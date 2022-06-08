@@ -14,9 +14,9 @@ const BLOCKLIST = [
 
 const BASE_CODESANDBOX_CI = {
   buildCommand: 'build',
-  node: '12',
+  node: '16',
   packages: ['/packages/paste-icons', '/packages/paste-core/core-bundle'],
-  sandboxes: ['/packages/paste-nextjs-template'],
+  sandboxes: ['/packages/paste-nextjs-template', '/packages/paste-token-contrast-checker'],
 };
 
 const PACKAGES_ROOT_PATH = join(__dirname, '../../../..');

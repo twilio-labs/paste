@@ -60,6 +60,7 @@ export const SideBar: React.FC = () => {
       {textContrastRating.map((rating) => {
         return (
           <TokenPairRating
+            key={`text-${rating.background}-${rating.foreground}`}
             contrast={rating.contrast}
             background={rating.background}
             foreground={rating.foreground}
@@ -78,6 +79,7 @@ export const SideBar: React.FC = () => {
       {uiControlContrastRating.map((rating) => {
         return (
           <TokenPairRating
+            key={`control-${rating.background}-${rating.foreground}`}
             contrast={rating.contrast}
             background={rating.background}
             foreground={rating.foreground}
