@@ -127,6 +127,22 @@ describe('Avatar', () => {
       );
       expect(asFragment()).toMatchSnapshot();
     });
+
+    it('should render an image if src and icon are passed', () => {
+      render(
+        <Avatar
+          data-testid="avatar"
+          size="sizeIcon20"
+          name="avatar example"
+          icon={UserIcon}
+          src="/avatars/avatar2.png"
+        />
+      );
+
+      expect(screen.getByRole('img').getAttribute('src')).toEqual('/avatars/avatar2.png');
+      expect(screen.getByRole('img').getAttribute('alt')).toEqual('avatar example');
+      expect(screen.getByTestId('avatar').querySelectorAll('svg').length).toEqual(0);
+    });
   });
 
   describe('ensure icon is a Paste Icon', () => {
