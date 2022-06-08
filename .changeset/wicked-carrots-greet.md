@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Avatar] prefer image over icon
+[Avatar] simplify logic for when to show image or icon
