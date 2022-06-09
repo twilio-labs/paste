@@ -7,7 +7,7 @@ import {BoxExample} from './BoxExample';
 import {TextExample} from './TextExample';
 import {BorderExample} from './BorderExample';
 import {LineHeightExample} from './LineHeightExample';
-// import {SpacingExample} from './SpacingExample';
+import {SpacingExample} from './SpacingExample';
 // import {SizingExample} from './SizingExample';
 
 type TokenExampleProps = {
@@ -62,8 +62,9 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
     case 'box-shadows':
       tokenExampleRender = <BoxExample boxShadow={value as keyof ThemeShape['shadows']} />;
       break;
-    // case 'spacing':
-    //   return <SpacingBox padding={tokenName as keyof ThemeShape['space']} />;
+    case 'spacings':
+      tokenExampleRender = <SpacingExample tokenName={name} spacing={value} />;
+      break;
     case 'text-colors':
       tokenExampleRender = (
         <Box display="flex" flexDirection="column" alignItems="center">
