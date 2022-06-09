@@ -4,17 +4,16 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     },
-    "test": {
-      "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
-    },
-    "lint": {
-      "outputs": []
+    "build:js": {
+      "dependsOn": ["^build:js"],
+      "outputs": ["dist/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     },
     "tsc": {
-      "outputs": [],
+      "outputs": ["dist/**"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     }
   }
