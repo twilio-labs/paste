@@ -28,11 +28,11 @@ Aayush Iyer, Andi Oneto, Glorilí Alejandro, Jade Pennig, Katie Porter, Kelsey C
 
 ## Agreed Processes/Actions
 
-- The team will spend mornings reviewing items that have been requested in #plz-design-systems. Delete your own review request when done. Review requests follow this [format](https://twilio.slack.com/archives/G01B9PT1P1R/p1600896291009000):
+- The team will spend mornings reviewing items that have been requested in #plz-design-systems. Unpin your own review request when done. Review requests follow this [format](https://twilio.slack.com/archives/G01B9PT1P1R/p1600896291009000):
 
-```
+```md
 🔴, or 🔵, or ⚪ **[Request name]**
-✏️ **Description:** [Description of the review you would like, the type of feedback you are looking for]
+📝 **Description:** [Description of the review you would like, the type of feedback you are looking for]
 👩🏻‍⚖️ **Review size:** [Small/Medium/Large]
 📆 **Needed by:** [Date you need it by]
 🕵🏻‍♂️ **Who:** [tag the folks you must get a review from]
@@ -43,6 +43,33 @@ Aayush Iyer, Andi Oneto, Glorilí Alejandro, Jade Pennig, Katie Porter, Kelsey C
 - When a teammate is requesting a review they are effectively blocked. As a teammate it is important to understand your role in unblocking your fellow team members to complete their work.
 - As a general rule, everything that has an epic in Jira should have a doc. At project kickoff work, we should write down an engineering spec. This will help us draw the owl, but not wing it.
 - We will allocate some time in our retrospectives to assess if we have any Single Points of Failure: What is a potential SPoF? What should we do about it?
+
+### Helper duty
+
+- Every week we rotate a new helper who's duty is to triage incoming support requests on [Github Issues](https://github.com/twilio-labs/paste/issues) and [Github Discussions](https://github.com/twilio-labs/paste/discussions).
+- The helper should strive to uphold our 3 business day response SLA. This means we will respond with at least an acknowledgement within 3 business days of the last thread opening or message received in the thread.
+- The helper may choose to answer immediately or share the question for additional feedback with the rest of the team.
+
+#### Support discussion template
+
+Not sure which severity to pick? See our [severity classification](https://github.com/twilio-labs/paste/blob/main/internal-docs/engineering/runbooks/firehydrant.md#severity-classification).
+
+```md
+:github-5055: **[Thread title, hyperlinked]**
+📝 **Description:** [Provide a summary of the problem/question]
+💭 **Thoughts:** [Provide your initial take on the solution. Providing a well thought out opinion before team responses will lead to learning moments and our team knowledge being strengthened.]
+📆 **Needed by:** [Date you need it by, for the SLA. This is the date the question was asked + 3 business days]
+🕵🏻‍♂️ **Who:** [Tag the folks that may have input on the problem, usually dsys-eng, dsys-pd, or dsys]
+🌡️ **Severity:** [How serious we think this issue is, either: :dsys_sev3: Sev3, :dsys_sev2: Sev2, :dsys_sev1: Sev1]
+```
+
+**SEVERITY**
+
+This new field in our template will help us calibrate how much focus to provide to issues and strengthen our team knowledge around how we classify issues.
+
+- :dsys_sev3: Sev3 - one customer affected or workaround possible
+- :dsys_sev2: Sev2 - group of customers affected (such as a product team) or paste is degraded but usable
+- :dsys_sev1: Sev1 - Anything more severe than Sev1 and Sev2
 
 ## References
 
