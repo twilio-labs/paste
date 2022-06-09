@@ -24,12 +24,13 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   });
   let themeCategory: string;
 
-  console.log(categoryTokens);
-
   // todo: what is the mapping between pure tokens and theme tokens? category names are diff in some cases.
   switch (category) {
     case 'box-shadows':
       themeCategory = 'shadows';
+      break;
+    case 'spacings':
+      themeCategory = 'space';
       break;
     default:
       themeCategory = camelCase(category);
@@ -122,6 +123,24 @@ export const LineHeightTokenSmall = Template.bind({});
 LineHeightTokenSmall.args = {
   category: 'line-heights',
   name: 'line-height-10',
+};
+
+export const SpacingToken = Template.bind({});
+SpacingToken.args = {
+  category: 'spacings',
+  name: 'space-150',
+};
+
+export const SpacingTokenNegative = Template.bind({});
+SpacingTokenNegative.args = {
+  category: 'spacings',
+  name: 'space-negative-50',
+};
+
+export const SpacingTokenZero = Template.bind({});
+SpacingTokenZero.args = {
+  category: 'spacings',
+  name: 'space-0',
 };
 
 export const TextColorToken = Template.bind({});
