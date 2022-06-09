@@ -8,19 +8,21 @@ import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {rgbToHex} from '../../../utils/rgbToHex';
-import {BackgroundColor} from './preview/BackgroundColor';
+import {TokenExample} from './token-example';
 
-interface TokenExampleProps {
+interface AltValueProps {
   category: string;
-  name: string;
   value: string;
 }
-const PreviewComponent: React.FC<TokenExampleProps> = ({category, name, value}) => {
+
+const AltValue: React.FC<AltValueProps> = ({category, value}) => {
   switch (category) {
     case 'background-colors':
-      return <BackgroundColor name={name} value={value} />;
+    case 'border-colors':
+    case 'text-colors':
+      return rgbToHex(value);
     default:
-      return <Box>{value}</Box>;
+      return null;
   }
 };
 
@@ -37,7 +39,6 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
   const isFirstRender = React.useRef(true);
   const clipboard = useClipboard({copiedTimeout: 2000});
   const camelCaseName = camelCase(name.replace('$', ''));
-
   const handleCopyName = React.useCallback(() => {
     clipboard.copy(camelCaseName);
   }, [camelCaseName]);
@@ -63,17 +64,18 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
     <Box
       key={name}
       display="flex"
-      alignItems="center"
+      alignItems="stretch"
       backgroundColor="colorBackgroundBody"
       borderColor="colorBorderWeaker"
       borderWidth="borderWidth10"
       borderStyle="solid"
       borderRadius="borderRadius30"
       minHeight="sizeSquare170"
+      marginTop="space30"
+      marginBottom="space30"
+      overflow="hidden"
     >
-      <Box margin="space40" width="sizeSquare200" justifyContent="center" alignItems="center" display="flex">
-        <PreviewComponent category={category} name={camelCaseName} value={value} />
-      </Box>
+      <TokenExample category={category} name={camelCaseName} value={value} />
       <Box
         paddingY="space60"
         paddingX="space70"
@@ -123,7 +125,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
               {value}
             </Text>
             <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              {rgbToHex(value)}
+              <AltValue category={category} value={value} />
             </Text>
           </Box>
         </Box>
