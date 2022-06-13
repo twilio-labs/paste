@@ -1,0 +1,737 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gatsby declaration file formatter should return typescript definitions formatted tokens 1`] = `
+"declare const Tokens: {
+readonly \\"background-colors\\": readonly [
+    {
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(255, 255, 255)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!white}\\";
+   readonly name: \\"color_background_body\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(242, 47, 70)\\";
+   readonly comment: \\"Primary brand background, accessible with black text\\";
+   readonly originalValue: \\"{!amaranth}\\";
+   readonly name: \\"color_background_brand_highlight\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(235, 15, 41)\\";
+   readonly comment: \\"Dark Primary brand background, accessible with black and white text\\";
+   readonly originalValue: \\"{!red_ribbon}\\";
+   readonly name: \\"color_background_brand_highlight_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(194, 37, 55)\\";
+   readonly comment: \\"Darker Primary brand background, accessible with black and white text\\";
+   readonly originalValue: \\"{!palette_red_50}\\";
+   readonly name: \\"color_background_brand_highlight_darker\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(13, 18, 43)\\";
+   readonly comment: \\"Primary brand background, accessible with black text\\";
+   readonly originalValue: \\"{!haiti}\\";
+   readonly name: \\"color_background_brand_primary\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(246, 246, 246)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_20}\\";
+   readonly name: \\"color_background_default\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(236, 187, 193)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_red_20}\\";
+   readonly name: \\"color_background_element_selection\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(206, 80, 95)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_red_40}\\";
+   readonly name: \\"color_background_error\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(174, 33, 49)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_red_60}\\";
+   readonly name: \\"color_background_error_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(194, 37, 55)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_red_50}\\";
+   readonly name: \\"color_background_error_light\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(230, 230, 230)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_40}\\";
+   readonly name: \\"color_background_row_active\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(214, 214, 214)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_50}\\";
+   readonly name: \\"color_background_row_focus\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(214, 214, 214)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_50}\\";
+   readonly name: \\"color_background_row_hover\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(230, 230, 230)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_40}\\";
+   readonly name: \\"color_background_row_selected\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(235, 235, 235)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_gray_30}\\";
+   readonly name: \\"color_background_row_striped\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(100, 209, 138)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_green_50}\\";
+   readonly name: \\"color_background_success\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(80, 167, 110)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_green_70}\\";
+   readonly name: \\"color_background_success_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(162, 227, 184)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_green_30}\\";
+   readonly name: \\"color_background_success_light\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(251, 208, 144)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_orange_30}\\";
+   readonly name: \\"color_background_warning\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(199, 141, 56)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_orange_70}\\";
+   readonly name: \\"color_background_warning_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"background-color\\";
+   readonly value: \\"rgb(249, 177, 71)\\";
+   readonly comment: \\"Some background\\";
+   readonly originalValue: \\"{!palette_orange_50}\\";
+   readonly name: \\"color_background_warning_light\\";
+}
+],
+readonly \\"colors\\": readonly [
+    {
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(242, 47, 70)\\";
+   readonly comment: \\"Twilio brand red\\";
+   readonly originalValue: \\"{!amaranth}\\";
+   readonly name: \\"color_brand_highlight\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(235, 15, 41)\\";
+   readonly comment: \\"Twilio accessible brand red\\";
+   readonly originalValue: \\"{!red_ribbon}\\";
+   readonly name: \\"color_brand_highlight_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(13, 18, 43)\\";
+   readonly comment: \\"Primary branding color\\";
+   readonly originalValue: \\"{!haiti}\\";
+   readonly name: \\"color_brand_primary\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(255, 255, 255)\\";
+   readonly comment: \\"Gray Color 1\\";
+   readonly originalValue: \\"{!palette_gray_10}\\";
+   readonly name: \\"color_gray_1\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(34, 34, 34)\\";
+   readonly comment: \\"Gray Color 10\\";
+   readonly originalValue: \\"{!palette_gray_100}\\";
+   readonly name: \\"color_gray_10\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(246, 246, 246)\\";
+   readonly comment: \\"Gray Color 2\\";
+   readonly originalValue: \\"{!palette_gray_20}\\";
+   readonly name: \\"color_gray_2\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(235, 235, 235)\\";
+   readonly comment: \\"Gray Color 3\\";
+   readonly originalValue: \\"{!palette_gray_30}\\";
+   readonly name: \\"color_gray_3\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(230, 230, 230)\\";
+   readonly comment: \\"Gray Color 4\\";
+   readonly originalValue: \\"{!palette_gray_40}\\";
+   readonly name: \\"color_gray_4\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(214, 214, 214)\\";
+   readonly comment: \\"Gray Color 5\\";
+   readonly originalValue: \\"{!palette_gray_50}\\";
+   readonly name: \\"color_gray_5\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(204, 204, 204)\\";
+   readonly comment: \\"Gray Color 6\\";
+   readonly originalValue: \\"{!palette_gray_60}\\";
+   readonly name: \\"color_gray_6\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(153, 153, 153)\\";
+   readonly comment: \\"Gray Color 7\\";
+   readonly originalValue: \\"{!palette_gray_70}\\";
+   readonly name: \\"color_gray_7\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(102, 102, 102)\\";
+   readonly comment: \\"Gray Color 8\\";
+   readonly originalValue: \\"{!palette_gray_80}\\";
+   readonly name: \\"color_gray_8\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"color\\";
+   readonly value: \\"rgb(68, 68, 68)\\";
+   readonly comment: \\"Gray Color 9\\";
+   readonly originalValue: \\"{!palette_gray_90}\\";
+   readonly name: \\"color_gray_9\\";
+}
+],
+readonly \\"font-sizes\\": readonly [
+    {
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"0.6875rem\\";
+   readonly comment: \\"Constant typography token for font size 0\\";
+   readonly originalValue: \\"{!font_size_0}\\";
+   readonly name: \\"font_size_0\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"0.75rem\\";
+   readonly comment: \\"Constant typography token for font size 1\\";
+   readonly originalValue: \\"{!font_size_1}\\";
+   readonly name: \\"font_size_1\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"0.8125rem\\";
+   readonly comment: \\"Constant typography token for font size 2\\";
+   readonly originalValue: \\"{!font_size_2}\\";
+   readonly name: \\"font_size_2\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"0.875rem\\";
+   readonly comment: \\"Constant typography token for font size 3\\";
+   readonly originalValue: \\"{!font_size_3}\\";
+   readonly name: \\"font_size_3\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"0.9375rem\\";
+   readonly comment: \\"Constant typography token for font size 4\\";
+   readonly originalValue: \\"{!font_size_4}\\";
+   readonly name: \\"font_size_4\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"1rem\\";
+   readonly comment: \\"Constant typography token for font size 5\\";
+   readonly originalValue: \\"{!font_size_5}\\";
+   readonly name: \\"font_size_5\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"1.125rem\\";
+   readonly comment: \\"Constant typography token for font size 6\\";
+   readonly originalValue: \\"{!font_size_6}\\";
+   readonly name: \\"font_size_6\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"1.25rem\\";
+   readonly comment: \\"Constant typography token for font size 7\\";
+   readonly originalValue: \\"{!font_size_7}\\";
+   readonly name: \\"font_size_7\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"1.875rem\\";
+   readonly comment: \\"Constant typography token for font size 8\\";
+   readonly originalValue: \\"{!font_size_8}\\";
+   readonly name: \\"font_size_8\\";
+},
+{
+   readonly category: \\"font-size\\";
+   readonly type: \\"font-size\\";
+   readonly value: \\"2.25rem\\";
+   readonly comment: \\"Constant typography token for font size 9\\";
+   readonly originalValue: \\"{!font_size_9}\\";
+   readonly name: \\"font_size_9\\";
+}
+],
+readonly \\"spacings\\": readonly [
+    {
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"0.25rem\\";
+   readonly originalValue: \\"{!space_0}\\";
+   readonly name: \\"space_0\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"0.5rem\\";
+   readonly originalValue: \\"{!space_1}\\";
+   readonly name: \\"space_1\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"2.75rem\\";
+   readonly originalValue: \\"{!space_10}\\";
+   readonly name: \\"space_10\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"3rem\\";
+   readonly originalValue: \\"{!space_11}\\";
+   readonly name: \\"space_11\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"3.25rem\\";
+   readonly originalValue: \\"{!space_12}\\";
+   readonly name: \\"space_12\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"3.5rem\\";
+   readonly originalValue: \\"{!space_13}\\";
+   readonly name: \\"space_13\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"3.75rem\\";
+   readonly originalValue: \\"{!space_14}\\";
+   readonly name: \\"space_14\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"4rem\\";
+   readonly originalValue: \\"{!space_15}\\";
+   readonly name: \\"space_15\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"0.75rem\\";
+   readonly originalValue: \\"{!space_2}\\";
+   readonly name: \\"space_2\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"1rem\\";
+   readonly originalValue: \\"{!space_3}\\";
+   readonly name: \\"space_3\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"1.25rem\\";
+   readonly originalValue: \\"{!space_4}\\";
+   readonly name: \\"space_4\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"1.5rem\\";
+   readonly originalValue: \\"{!space_5}\\";
+   readonly name: \\"space_5\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"1.75rem\\";
+   readonly originalValue: \\"{!space_6}\\";
+   readonly name: \\"space_6\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"2rem\\";
+   readonly originalValue: \\"{!space_7}\\";
+   readonly name: \\"space_7\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"2.25rem\\";
+   readonly originalValue: \\"{!space_8}\\";
+   readonly name: \\"space_8\\";
+},
+{
+   readonly category: \\"spacing\\";
+   readonly type: \\"size\\";
+   readonly value: \\"2.5rem\\";
+   readonly originalValue: \\"{!space_9}\\";
+   readonly name: \\"space_9\\";
+}
+],
+readonly \\"text-colors\\": readonly [
+    {
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(242, 47, 70)\\";
+   readonly comment: \\"Twilio brand red, accessible on large text only.\\";
+   readonly originalValue: \\"{!amaranth}\\";
+   readonly name: \\"color_text_brand_highlight\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(235, 15, 41)\\";
+   readonly comment: \\"Accessible Twilio brand red.\\";
+   readonly originalValue: \\"{!red_ribbon}\\";
+   readonly name: \\"color_text_brand_highlight_dark\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(255, 255, 255)\\";
+   readonly comment: \\"Text color used on any brand color\\";
+   readonly originalValue: \\"{!white}\\";
+   readonly name: \\"color_text_brand_primary\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(68, 68, 68)\\";
+   readonly comment: \\"Body text color\\";
+   readonly originalValue: \\"{!palette_gray_90}\\";
+   readonly name: \\"color_text_default\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(194, 37, 55)\\";
+   readonly comment: \\"Error text for inputs and error misc\\";
+   readonly originalValue: \\"{!palette_red_50}\\";
+   readonly name: \\"color_text_error\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(68, 68, 68)\\";
+   readonly comment: \\"Default icon color.\\";
+   readonly originalValue: \\"{!palette_gray_90}\\";
+   readonly name: \\"color_text_icon_default\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(255, 255, 255)\\";
+   readonly comment: \\"Inverse text color for dark backgrounds\\";
+   readonly originalValue: \\"{!white}\\";
+   readonly name: \\"color_text_inverse\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(235, 235, 235)\\";
+   readonly comment: \\"Weak inverse text color for dark backgrounds\\";
+   readonly originalValue: \\"{!palette_gray_30}\\";
+   readonly name: \\"color_text_inverse_weak\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(68, 68, 68)\\";
+   readonly comment: \\"Text color for field labels.\\";
+   readonly originalValue: \\"{!palette_gray_90}\\";
+   readonly name: \\"color_text_label\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(0, 112, 204)\\";
+   readonly comment: \\"Link text\\";
+   readonly originalValue: \\"{!palette_blue_50}\\";
+   readonly name: \\"color_text_link\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(0, 89, 163)\\";
+   readonly comment: \\"Active link text\\";
+   readonly originalValue: \\"{!palette_blue_70}\\";
+   readonly name: \\"color_text_link_active\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(194, 37, 55)\\";
+   readonly comment: \\"Destructive link text\\";
+   readonly originalValue: \\"{!palette_red_50}\\";
+   readonly name: \\"color_text_link_destructive\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(155, 29, 44)\\";
+   readonly comment: \\"Active destructive link text\\";
+   readonly originalValue: \\"{!palette_red_70}\\";
+   readonly name: \\"color_text_link_destructive_active\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(236, 187, 193)\\";
+   readonly comment: \\"Disabled destructive link text\\";
+   readonly originalValue: \\"{!palette_red_20}\\";
+   readonly name: \\"color_text_link_destructive_disabled\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(174, 33, 49)\\";
+   readonly comment: \\"Focus destructive link text\\";
+   readonly originalValue: \\"{!palette_red_60}\\";
+   readonly name: \\"color_text_link_destructive_focus\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(174, 33, 49)\\";
+   readonly comment: \\"Hover destructive link text\\";
+   readonly originalValue: \\"{!palette_red_60}\\";
+   readonly name: \\"color_text_link_destructive_hover\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(102, 169, 224)\\";
+   readonly comment: \\"Disabled link text\\";
+   readonly originalValue: \\"{!palette_blue_30}\\";
+   readonly name: \\"color_text_link_disabled\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(0, 97, 192)\\";
+   readonly comment: \\"Focus link text\\";
+   readonly originalValue: \\"{!palette_blue_60}\\";
+   readonly name: \\"color_text_link_focus\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(0, 97, 192)\\";
+   readonly comment: \\"Hover link text\\";
+   readonly originalValue: \\"{!palette_blue_60}\\";
+   readonly name: \\"color_text_link_hover\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(102, 102, 102)\\";
+   readonly comment: \\"Input placeholder text.\\";
+   readonly originalValue: \\"{!palette_gray_80}\\";
+   readonly name: \\"color_text_placeholder\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(100, 209, 138)\\";
+   readonly comment: \\"Text color for success text.\\";
+   readonly originalValue: \\"{!palette_green_50}\\";
+   readonly name: \\"color_text_success\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(249, 177, 71)\\";
+   readonly comment: \\"Color for texts or icons that are related to warnings on a dark background.\\";
+   readonly originalValue: \\"{!palette_orange_50}\\";
+   readonly name: \\"color_text_warning\\";
+},
+{
+   readonly type: \\"color\\";
+   readonly category: \\"text-color\\";
+   readonly value: \\"rgb(230, 230, 230)\\";
+   readonly comment: \\"Weak body text for visual hierarchy.\\";
+   readonly originalValue: \\"{!palette_gray_40}\\";
+   readonly name: \\"color_text_weak\\";
+}
+],
+readonly \\"z-indices\\": readonly [
+    {
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 0;
+   readonly originalValue: \\"{!z-index-0}\\";
+   readonly name: \\"z-index-0\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 10;
+   readonly originalValue: \\"{!z-index-10}\\";
+   readonly name: \\"z-index-10\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 20;
+   readonly originalValue: \\"{!z-index-20}\\";
+   readonly name: \\"z-index-20\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 30;
+   readonly originalValue: \\"{!z-index-30}\\";
+   readonly name: \\"z-index-30\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 40;
+   readonly originalValue: \\"{!z-index-40}\\";
+   readonly name: \\"z-index-40\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 50;
+   readonly originalValue: \\"{!z-index-50}\\";
+   readonly name: \\"z-index-50\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 60;
+   readonly originalValue: \\"{!z-index-60}\\";
+   readonly name: \\"z-index-60\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 70;
+   readonly originalValue: \\"{!z-index-70}\\";
+   readonly name: \\"z-index-70\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 80;
+   readonly originalValue: \\"{!z-index-80}\\";
+   readonly name: \\"z-index-80\\";
+},
+{
+   readonly type: \\"z-index\\";
+   readonly category: \\"z-index\\";
+   readonly value: 90;
+   readonly originalValue: \\"{!z-index-90}\\";
+   readonly name: \\"z-index-90\\";
+}
+]
+};
+export default Tokens;"
+`;
