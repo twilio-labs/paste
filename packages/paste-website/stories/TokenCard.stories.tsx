@@ -1,51 +1,56 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
+// import {useTheme} from '@twilio-paste/theme';
 import camelCase from 'lodash/camelCase';
 import {TokenCard} from '../src/components/tokens-list/token-card';
-import Tokens from '@twilio-paste/design-tokens/dist/tokens.gatsby';
-import type {ComponentStory, ComponentMeta} from '@storybook/react';
+
+import type {DecoratorFn, StoryFn} from '@storybook/react';
+
+import {ThemeTokens as themeTokens} from '../src/components/tokens-list/tokenData';
+
+type ThemeTokensType = typeof themeTokens['default'];
 
 export default {
   title: 'Website/Token Card',
   component: TokenCard,
-} as ComponentMeta<typeof TokenCard>;
+  decorators: [
+    ((Story, context) => {
+      const {globals, args} = context;
+
+      const {theme} = globals;
+
+      const tokens = themeTokens[theme as keyof typeof themeTokens];
+      context.args = {...args, tokens};
+
+      return <Story tokens={tokens} />;
+    }) as DecoratorFn,
+  ],
+};
 
 interface Token {
   name: string;
 }
 
-const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
-  const theme = useTheme();
-  const categoryTokens = Tokens[category];
-  console.log(Tokens);
+type TokenCardProps = React.ComponentProps<typeof TokenCard>;
+const Template: StoryFn<{name: TokenCardProps['name']; category: TokenCardProps['category']; tokens: ThemeTokensType}> =
+  ({name, category, tokens}) => {
+    const categoryTokens = tokens[category];
 
-  const {comment} = categoryTokens.find((token: Token) => {
-    return token.name === name;
-  });
-  let themeCategory: string;
+    const result = categoryTokens.find((token: Token) => {
+      return token.name === name;
+    });
 
-  // todo: what is the mapping between pure tokens and theme tokens? category names are diff in some cases.
-  switch (category) {
-    case 'box-shadows':
-      themeCategory = 'shadows';
-      break;
-    case 'spacings':
-      themeCategory = 'space';
-      break;
-    default:
-      themeCategory = camelCase(category);
-      break;
-  }
+    const {comment, value, contrastRating} = result;
 
-  return (
-    <TokenCard
-      category={category}
-      name={camelCase(name)}
-      value={theme[themeCategory][camelCase(name)]}
-      comment={comment}
-    />
-  );
-};
+    return (
+      <TokenCard
+        category={category}
+        name={camelCase(name)}
+        value={value}
+        comment={comment}
+        contrastRating={contrastRating}
+      />
+    );
+  };
 
 export const BackgroundColorToken = Template.bind({});
 BackgroundColorToken.args = {

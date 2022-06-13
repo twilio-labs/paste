@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
 import type {ThemeShape} from '@twilio-paste/theme';
 
 import {BoxExample} from './BoxExample';
@@ -8,6 +7,7 @@ import {TextExample} from './TextExample';
 import {BorderExample} from './BorderExample';
 import {LineHeightExample} from './LineHeightExample';
 import {SpacingExample} from './SpacingExample';
+import {TextColorExample} from './TextColorExample';
 // import {SizingExample} from './SizingExample';
 
 type TokenExampleProps = {
@@ -25,7 +25,7 @@ type TokenExampleProps = {
 // SizingExample: this one will be trickier...
 // ..more?
 
-export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value}) => {
+export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value, contrastRating}) => {
   const exampleBackground = name.toLowerCase().includes('inverse')
     ? 'colorBackgroundBodyInverse'
     : 'colorBackgroundBody';
@@ -66,14 +66,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
       tokenExampleRender = <SpacingExample tokenName={name} spacing={value} />;
       break;
     case 'text-colors':
-      tokenExampleRender = (
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <TextExample color={value as keyof ThemeShape['textColors']} />
-          <Text as="span" fontSize="fontSize10" lineHeight="lineHeight10" marginTop="space20">
-            AAA
-          </Text>
-        </Box>
-      );
+      tokenExampleRender = <TextColorExample value={value} contrastRating={contrastRating} />;
   }
 
   return tokenExampleRender ? (
