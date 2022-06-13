@@ -10,12 +10,7 @@ import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 
-interface AltValueProps {
-  category: string;
-  value: string;
-}
-
-const AltValue: React.FC<AltValueProps> = ({category, value}) => {
+const getTokenAltValue = ({category, value}: {category: string; value: string}): string | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
@@ -31,8 +26,9 @@ export interface TokenCardProps {
   name: string;
   value: string;
   comment: string;
+  contrastRating: string;
 }
-export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comment}) => {
+export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comment, contrastRating = null}) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
@@ -75,7 +71,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
       marginBottom="space30"
       overflow="hidden"
     >
-      <TokenExample category={category} name={camelCaseName} value={value} />
+      <TokenExample category={category} name={camelCaseName} value={value} contrastRating={contrastRating} />
       <Box
         paddingY="space60"
         paddingX="space70"
@@ -125,7 +121,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
               {value}
             </Text>
             <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              <AltValue category={category} value={value} />
+              {getTokenAltValue({category, value})}
             </Text>
           </Box>
         </Box>
