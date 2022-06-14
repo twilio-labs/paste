@@ -2,6 +2,7 @@
 
 exports[`gatsby declaration file formatter should return typescript definitions formatted tokens 1`] = `
 "declare const Tokens: {
+\\"tokens\\":{{
 readonly \\"background-colors\\": readonly [
     {
    readonly type: \\"color\\";
@@ -732,6 +733,7 @@ readonly \\"z-indices\\": readonly [
    readonly name: \\"z-index-90\\";
 }
 ]
-};
+};}
+}
 export default Tokens;"
 `;

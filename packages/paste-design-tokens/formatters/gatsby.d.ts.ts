@@ -65,7 +65,7 @@ export const formatGroupTokensWithTemplate = (
 export const gatsbyDTSTemplate = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
-  const groupedTokens = formatGroupTokensWithTemplate(result, categories, categoryTemplate);
+  const groupedTokens = `{\n"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}\n}`;
 
   return `declare const Tokens: ${groupedTokens}\nexport default Tokens;`;
 };
