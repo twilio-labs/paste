@@ -9,7 +9,6 @@ import {HelpText} from '@twilio-paste/core/help-text';
 import {Stack} from '@twilio-paste/core/stack';
 import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
 import {Select, Option} from '@twilio-paste/core/select';
-import {TextArea} from '@twilio-paste/core/textarea';
 
 const FormPreview: React.FC = () => {
   const [inputValue, setInputValue] = React.useState('input');
@@ -35,11 +34,6 @@ const FormPreview: React.FC = () => {
             }}
           />
           <HelpText id={inputId('input-help-text')}>This is help text.</HelpText>
-        </Box>
-        <Box>
-          <Label htmlFor={inputId('textarea')}>Textarea input</Label>
-          <TextArea aria-describedby={inputId('textarea-help-text')} id={inputId('textarea')} onChange={() => {}} />
-          <HelpText id={inputId('textarea-help-text')}>This is help text.</HelpText>
         </Box>
         <Box>
           <Label htmlFor={inputId('select')}>Select input</Label>

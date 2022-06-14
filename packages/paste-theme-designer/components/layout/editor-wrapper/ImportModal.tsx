@@ -12,7 +12,8 @@ type ImportModalProps = {
   isOpen: ModalProps['isOpen'];
   onDismiss: ModalProps['onDismiss'];
 };
-const ImportModal: React.FC<ImportModalProps> = ({isOpen, onDismiss}) => {
+
+export const ImportModal: React.FC<ImportModalProps> = ({isOpen, onDismiss}) => {
   const toaster = useToaster();
   const {loadTokens} = React.useContext(TokenContext);
   const importModalHeadingID = useUID();
@@ -84,5 +85,3 @@ const ImportModal: React.FC<ImportModalProps> = ({isOpen, onDismiss}) => {
     </>
   );
 };
-
-export {ImportModal};
