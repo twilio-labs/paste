@@ -19,7 +19,6 @@ const STORAGE_SHIM: Storage = {
 let storage: Storage;
 try {
   storage = window.localStorage;
-  // eslint-disable-next-line unicorn/prefer-optional-catch-binding
 } catch (error) {
   storage = STORAGE_SHIM;
 }
