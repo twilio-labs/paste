@@ -9,6 +9,7 @@
     "build": "next build && next export",
     "start": "next start",
     "clean": "rm -rf .next",
+    "lint": "next lint",
     "type-check": "tsc"
   },
   "dependencies": {
