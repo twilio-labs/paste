@@ -1,11 +1,10 @@
-import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
+import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
 
-import type {Token} from '../../../types/design-tokens';
 import {isLightToken, getContrastRating} from '../../utils/color-contrast';
 
 export const checkIsInverse = {
-  'box-shadows': (name: Token['name']): boolean => {
+  'box-shadows': (name: GatsbyTokens.TokenDTO['name']): boolean => {
     return (
       name.includes('inverse') ||
       name.includes('light') ||
@@ -14,24 +13,44 @@ export const checkIsInverse = {
       name.includes('weaker')
     );
   },
-  'text-colors': (name: Token['name'], value: Token['value']): boolean => isLightToken(name, value),
-  'border-color': (name: Token['name']): boolean => name.includes('inverse'),
+  'text-colors': (name: GatsbyTokens.TokenDTO['name'], value: GatsbyTokens.TokenDTO['value']): boolean =>
+    isLightToken(name, value),
+  'border-color': (name: GatsbyTokens.TokenDTO['name']): boolean => name.includes('inverse'),
 };
 
-export const getTokensFromTheme = (theme, path = '') => get(theme, path, theme);
+export const getTokensFromTheme = (
+  theme: GatsbyTokens.ThemeTokens,
+  path = 'tokens'
+): GatsbyTokens.ThemeTokens['tokens'] => get(theme, path, theme);
 
-const getCategoryKeys = (theme) => Object.keys(getTokensFromTheme(theme));
+const getCategoryKeys = (theme: GatsbyTokens.ThemeTokens['tokens']): (keyof GatsbyTokens.ThemeTokens['tokens'])[] =>
+  Object.keys(theme).map((key) => key as keyof GatsbyTokens.ThemeTokens['tokens']);
 
-export const backgroundColors = (themeTokens) =>
-  themeTokens['background-colors']
-    .filter(({name}) => name.includes('body'))
-    .reduce((accum, {name, value}) => ({...accum, [camelCase(name)]: value}), {});
+export const backgroundColors = (
+  theme: GatsbyTokens.ThemeTokens['tokens']
+): {'color-background-body': string; 'color-background-body-inverse': string} =>
+  theme['background-colors']
+    .filter(({name}) => Boolean(name === 'color-background-body' || name === 'color-background-body-inverse'))
+    .reduce(
+      (accum, {name, value}) => ({
+        ...accum,
+        [name]: value,
+      }),
+      {} as {'color-background-body': string; 'color-background-body-inverse': string}
+    );
 
-export const annotate = (theme) =>
-  getCategoryKeys(theme).reduce((accum, cat: string) => {
-    const tokens = theme[cat]
+export const annotate = (theme: GatsbyTokens.ThemeTokens): GatsbyTokens.DecoratedThemeTokens => {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const _theme = getTokensFromTheme(theme);
+
+  return getCategoryKeys(_theme).reduce((accum, cat) => {
+    const tokens = _theme[cat]
+
       .filter(({deprecated = false}) => !deprecated)
-      .map(({name, value, ...rest}) => {
+      .map(({name, value, ...rest}: GatsbyTokens.TokenDTO): Omit<
+        GatsbyTokens.DecoratedToken,
+        'backgroundColor' | 'contrastRating'
+      > => {
         return {
           name,
           value,
@@ -41,12 +60,13 @@ export const annotate = (theme) =>
           ...rest,
         };
       })
-      .map(({isInverse, ...rest}) => {
-        const key = isInverse ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
-        const backgroundColor = backgroundColors(theme)[key];
+      .map(({isInverse, ...rest}: Omit<GatsbyTokens.DecoratedToken, 'backgroundColor' | 'contrastRating'>) => {
+        const key = isInverse ? 'color-background-body-inverse' : 'color-background-body';
+        console.log(backgroundColors(_theme));
+        const backgroundColor = backgroundColors(_theme)[key];
         return {...rest, isInverse, backgroundColor};
       })
-      .map(({value, backgroundColor, ...rest}) => {
+      .map(({value, backgroundColor, ...rest}: Omit<GatsbyTokens.DecoratedToken, 'contrastRating'>) => {
         return {
           ...rest,
           value,
@@ -55,5 +75,8 @@ export const annotate = (theme) =>
         };
       });
 
+    console.log(tokens);
+
     return {...accum, [cat]: tokens};
-  }, {});
+  }, {} as GatsbyTokens.DecoratedThemeTokens);
+};

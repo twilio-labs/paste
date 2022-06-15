@@ -6,7 +6,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import type {AnchorProps} from '@twilio-paste/anchor';
 import {SiteLink} from './SiteLink';
 import {ArticleAuthor} from './ArticleAuthor';
-import type {ArticleFrontMatter, ArticleNode} from '../../types/Article';
+import type {ArticleFrontMatter, ArticleNode} from '../../@types/Article';
 
 export interface ArticleProps {
   article: ArticleNode;

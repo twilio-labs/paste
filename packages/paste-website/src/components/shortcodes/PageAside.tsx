@@ -10,12 +10,10 @@ interface PageAsideProps {
       slug: string;
       title: string;
     };
-    headings?: [
-      {
-        value: string;
-        depth: number;
-      }
-    ];
+    headings?: {
+      value: string;
+      depth: number;
+    }[];
   };
   hideFeedback?: boolean;
 }

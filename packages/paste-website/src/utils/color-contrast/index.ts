@@ -1,12 +1,14 @@
 import Color from 'color';
+import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
 
 import type {ColorCombinationAccessibility} from '../../utils/color-combos';
 import ColorCombos from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
-import type {Token} from '../../../types/design-tokens';
-
-export const isLightToken = (tokenName: Token['name'], tokenValue: Token['value']): boolean => {
+export const isLightToken = (
+  tokenName: GatsbyTokens.Token['name'],
+  tokenValue: GatsbyTokens.Token['value']
+): boolean => {
   const colorFn = Color(tokenValue);
 
   return tokenName === 'color-text-weaker' ? false : colorFn.isLight();
