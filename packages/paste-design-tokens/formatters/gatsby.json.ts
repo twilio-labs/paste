@@ -4,17 +4,18 @@ import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
 export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
-  const tokenPairs = props.map(({category, ...rest}) => rest);
-
-  return `
-    "${categoryName}": ${JSON.stringify(tokenPairs)},
-  `;
+  return `{
+    "categoryName": "${categoryName}",
+    "tokens": ${JSON.stringify(props)}
+  },`;
 };
 
-export const newGatsbyJsonTokenFormat = (result: ImmutableStyleMap): string => {
+export const gatsbyJsonTokenFormat = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
-  const groupedTokens = `"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}`;
+  const groupedTokens = formatGroupTokensWithTemplate(result, categories, categoryTemplate);
 
-  return `module.exports = {\n${groupedTokens}\n}`;
+  return `{
+    "tokens": [${groupedTokens.slice(0, Math.max(0, groupedTokens.length - 1))}]
+  }`;
 };

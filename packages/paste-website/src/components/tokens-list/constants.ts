@@ -1,17 +1,17 @@
-// @ts-expect-error @TODO this is fixed in a following pull request.
 import darkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.gatsby';
-// these files are not (currently) built with declaration files.
-// @ts-expect-error @TODO this is fixed in a following pull request.
 import defaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.gatsby';
 
 import type {ThemeTokens, TokensByCategory} from './types';
 
 import {sentenceCase} from './utils';
 
-export const filterDeprecated = (categoryTokens: TokensByCategory): TokensByCategory =>
+export const filterDeprecated = (
+  categoryTokens: typeof darkThemeTokens.tokens | typeof defaultThemeTokens.tokens
+): TokensByCategory =>
   Object.entries(categoryTokens).reduce(
     (result, [key, tokens]) => ({
       ...result,
+      // @ts-ignore
       [key]: tokens.filter(({deprecated = false}) => {
         return !deprecated;
       }),
@@ -19,11 +19,9 @@ export const filterDeprecated = (categoryTokens: TokensByCategory): TokensByCate
     {} as TokensByCategory
   );
 
-console.log(darkThemeTokens);
-
 export const TOKENS_BY_THEME: ThemeTokens = {
-  dark: filterDeprecated(darkThemeTokens),
-  default: filterDeprecated(defaultThemeTokens),
+  dark: filterDeprecated(darkThemeTokens.tokens),
+  default: filterDeprecated(defaultThemeTokens.tokens),
 };
 
 // assumption: categoriy tokens are the same.
