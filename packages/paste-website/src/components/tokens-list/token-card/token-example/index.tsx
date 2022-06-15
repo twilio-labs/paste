@@ -8,22 +8,14 @@ import {BorderExample} from './BorderExample';
 import {LineHeightExample} from './LineHeightExample';
 import {SpacingExample} from './SpacingExample';
 import {TextColorExample} from './TextColorExample';
-// import {SizingExample} from './SizingExample';
+import {IconSizeExample} from './IconSizeExample';
 
 type TokenExampleProps = {
   category: string;
   name: string;
   value: string;
+  contrastRating: string;
 };
-
-// Notes:
-// make the following generic example types:
-// BoxExample: covers background-colors, border-colors, box-shadows, border-radius
-// TextExample: covers fonts, font-sizes, font-weights, text-colors
-// BorderExample: covers border widths
-// SpacingExample: covers spacing tokens
-// SizingExample: this one will be trickier...
-// ..more?
 
 export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value, contrastRating}) => {
   const exampleBackground = name.toLowerCase().includes('inverse')
@@ -64,6 +56,19 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
       break;
     case 'spacings':
       tokenExampleRender = <SpacingExample tokenName={name} spacing={value} />;
+      break;
+    case 'sizings':
+      // only render a preview for icons or squares
+      if (name.toLowerCase().match('icon')) {
+        tokenExampleRender = <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
+      }
+
+      if (name.toLowerCase().match('square')) {
+        tokenExampleRender = (
+          <BoxExample backgroundColor="colorBackgroundStrong" size={value as keyof ThemeShape['sizes']} />
+        );
+      }
+
       break;
     case 'text-colors':
       tokenExampleRender = <TextColorExample value={value} contrastRating={contrastRating} />;

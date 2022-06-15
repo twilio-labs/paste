@@ -2,9 +2,7 @@ import * as React from 'react';
 // import {useTheme} from '@twilio-paste/theme';
 import camelCase from 'lodash/camelCase';
 import {TokenCard} from '../src/components/tokens-list/token-card';
-
 import type {DecoratorFn, StoryFn} from '@storybook/react';
-
 import {ThemeTokens as themeTokens} from '../src/components/tokens-list/tokenData';
 
 type ThemeTokensType = typeof themeTokens['default'];
@@ -128,6 +126,24 @@ export const LineHeightTokenSmall = Template.bind({});
 LineHeightTokenSmall.args = {
   category: 'line-heights',
   name: 'line-height-10',
+};
+
+export const SizingToken = Template.bind({});
+SizingToken.args = {
+  category: 'sizings',
+  name: 'size-110',
+};
+
+export const SizingTokenIcon = Template.bind({});
+SizingTokenIcon.args = {
+  category: 'sizings',
+  name: 'size-icon-110',
+};
+
+export const SizingTokenSquare = Template.bind({});
+SizingTokenSquare.args = {
+  category: 'sizings',
+  name: 'size-square-200',
 };
 
 export const SpacingToken = Template.bind({});
