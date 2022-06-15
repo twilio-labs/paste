@@ -5,8 +5,9 @@ import {Box} from '@twilio-paste/core/box';
 import {Paragraph} from '@twilio-paste/core/paragraph';
 import {ListItem, UnorderedList} from '@twilio-paste/core/list';
 import {Separator} from '@twilio-paste/core/separator';
+import type {NextPage} from 'next';
 
-const Home: React.FC = () => {
+const Home: NextPage = () => {
   return (
     <Box as="main" padding="space70">
       <Head>
@@ -15,17 +16,13 @@ const Home: React.FC = () => {
       </Head>
 
       <Heading as="h1" variant="heading10">
-        Welcome to the{' '}
-        <Anchor href="https://paste.twilio.design" showExternal>
-          Paste Next.js App!
-        </Anchor>
+        Welcome to the the Paste Next.JS App!
       </Heading>
 
       <Paragraph>
         Everything you need to get started using Paste in a Production app. Start by editing{' '}
         <code>pages/index.tsx</code>
       </Paragraph>
-
       <Separator orientation="horizontal" verticalSpacing="space120" />
 
       <Heading as="h2" variant="heading20">

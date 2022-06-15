@@ -1,4 +1,6 @@
 {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
   "rules": {
     "import/prefer-default-export": "off",
     "import/no-default-export": "off",

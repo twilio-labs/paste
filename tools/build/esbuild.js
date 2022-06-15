@@ -62,7 +62,9 @@ async function build(packageJson) {
   await esbuild
     .build({
       ...config,
-      minify: true,
+      minifyWhitespace: true,
+      minifyIdentifiers: false,
+      minifySyntax: true,
       format: 'cjs',
       outfile: outFileCJS,
       // Needed to fix ES6 module import paths for CJS builds
@@ -77,7 +79,9 @@ async function build(packageJson) {
   await esbuild
     .build({
       ...config,
-      minify: true,
+      minifyWhitespace: true,
+      minifyIdentifiers: false,
+      minifySyntax: true,
       format: 'esm',
       outfile: outFileESM,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566

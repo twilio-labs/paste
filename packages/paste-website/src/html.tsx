@@ -2,9 +2,9 @@ import * as React from 'react';
 
 interface HTMLProps {
   children?: React.ReactElement;
-  htmlAttributes: unknown;
+  htmlAttributes: Record<string, unknown>;
   headComponents: [];
-  bodyAttributes: unknown;
+  bodyAttributes: Record<string, unknown>;
   preBodyComponents: [];
   body: string;
   postBodyComponents: [];

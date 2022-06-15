@@ -54,7 +54,6 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
           />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL02YG9W9H" />
           <script
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];

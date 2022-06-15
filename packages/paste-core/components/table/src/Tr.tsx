@@ -9,7 +9,6 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
     const {striped} = React.useContext(TableContext);
     return (
       <Box
-        {...striped}
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="tr"
