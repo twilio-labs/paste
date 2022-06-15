@@ -9,7 +9,7 @@ import {AnchoredHeading} from '../../Heading';
 import {TokenCard} from '../token-card';
 import {isMatch, sentenceCase} from '../utils';
 
-import type {TokenCategoryKeys} from '../types';
+import type {TokenCategoryKeys, TokenValueFormatter} from '../types';
 
 import {TOKENS_BY_THEME} from '../constants';
 
@@ -30,13 +30,14 @@ const useVirtualizedList = (
 };
 
 export const CategorySection: React.FC<{
-  value: string;
+  filterString: string;
   themeKey: 'default' | 'dark';
   categoryKey: TokenCategoryKeys;
   setNoResults: VoidFunction;
+  tokenFormatter: TokenValueFormatter;
   // sortTokenFn = sortTokens // @TODO add in when add sort.
   // sortTokenFn?: typeof sortTokens;
-}> = ({value, categoryKey, themeKey, setNoResults}) => {
+}> = ({filterString, categoryKey, themeKey, setNoResults, tokenFormatter}) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
   const seed = useUIDSeed();
   const tokens = TOKENS_BY_THEME[themeKey][categoryKey]; // this is the default for our token state.
@@ -50,18 +51,18 @@ export const CategorySection: React.FC<{
     // instead should maniuplate the virtualized items
     // needs werk
     // @ts-expect-error @TODO fix this typoe
-    const filtered = categoryTokens.filter((token) => isMatch(value, token));
+    const filtered = categoryTokens.filter((token) => isMatch(filterString, token));
 
     if (!isEqual(filtered, categoryTokens)) {
       setCategoryTokens(filtered);
     }
-  }, [value, categoryTokens]);
+  }, [filterString, categoryTokens]);
 
   React.useEffect(() => {
-    if (value === '') {
+    if (filterString === '') {
       setCategoryTokens(tokens);
     }
-  }, [value]);
+  }, [filterString]);
 
   React.useEffect(() => {
     if (categoryTokens.length === 0) {
@@ -82,7 +83,7 @@ export const CategorySection: React.FC<{
           return (
             <TokenCard
               key={seed(token.name)}
-              name={token.name}
+              name={tokenFormatter(token.name)}
               // @ts-expect-error @TODO fix after PR for token card.
               value={token.value}
               category={token.category}

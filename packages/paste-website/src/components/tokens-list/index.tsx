@@ -4,26 +4,26 @@ import debounce from 'lodash/debounce';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
+import {Select, Option} from '@twilio-paste/select';
 import {Input} from '@twilio-paste/input';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 
 import {CategorySection} from './category-section';
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import {trackTokenFilterString} from './utils';
+// import {trackTokenFilterString} from './utils';
 
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TOKEN_CATEGORIES, pageAsideData} from './constants';
 import type {TokenCategoryKeys} from './types';
 
-const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
+import {useThemeSettings, useTokenValueFormatter} from './hooks';
 
 // @TODO add sorting.
 // const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 export const TokensList: React.FC = () => {
   const seed = useUIDSeed();
-  const {theme: themeKey} = useDarkModeContext();
+  const {themeKey, handleChangeTheme} = useThemeSettings();
+  const {updateTokenDisplay, tokenFormatKey, tokenFormatter} = useTokenValueFormatter();
 
   const [filterString, setFilterString] = React.useState('');
   const [noResults, setNoResults] = React.useState(0);
@@ -32,7 +32,7 @@ export const TokensList: React.FC = () => {
 
   const showNullState = noResults === TOKEN_CATEGORIES.length;
 
-  React.useEffect(() => trackTokenFilterString(filterString), [filterString]);
+  // @TODO add tracking back.
 
   React.useEffect(() => {
     if (filterString === '') {
@@ -51,37 +51,68 @@ export const TokensList: React.FC = () => {
     setNoResults(0);
   };
 
-  if (showNullState) {
-    return <NoTokensFound onClearSearch={handleOnClearSearch} />;
-  }
-
   return (
-    <ContentWrapper>
+    <Box as="div" display={['block', 'block', 'flex']}>
       <PageAside data={pageAsideData} />
-      <Content>
-        <Box paddingBottom="space80">
-          <Label htmlFor={seed('filter-string')} id={seed('filter-string-label')}>
-            Filter tokens
-          </Label>
-          <Input
-            type="text"
-            id={seed('filter-string')}
-            aria-labelledby={seed('filter-string-label')}
-            onChange={handleOnChange}
-            insertBefore={<FilterIcon decorative={false} title="TODO" />}
-          />
+      <Box as="div" maxWidth="size70" minWidth="0">
+        <Box display={['block', 'block', 'flex']} flexDirection="row" columnGap="space40">
+          <Box paddingBottom="space80" width="100%">
+            <Label htmlFor={seed('filter-string')} id={seed('filter-string-label')}>
+              Filter tokens
+            </Label>
+            <Input
+              type="text"
+              id={seed('filter-string')}
+              aria-labelledby={seed('filter-string-label')}
+              onChange={handleOnChange}
+              insertBefore={<FilterIcon decorative={false} title="TODO" />}
+            />
+          </Box>
+          <Box paddingBottom="space80" width={['100%', '100%', '40%']}>
+            <Label htmlFor={seed('select-theme')} id={seed('select-theme-label')}>
+              Select theme
+            </Label>
+            <Select
+              id={seed('select-theme')}
+              aria-labelledby={seed('select-theme-label')}
+              onChange={handleChangeTheme}
+              value={themeKey}
+            >
+              <Option value="default">Default</Option>
+              <Option value="dark">Dark</Option>
+            </Select>
+          </Box>
+          <Box paddingBottom="space80" width={['100%', '100%', '40%']}>
+            <Label htmlFor={seed('select-format')} id={seed('select-format-label')}>
+              Select format
+            </Label>
+            <Select
+              id={seed('select-format')}
+              aria-labelledby={seed('select-format-label')}
+              onChange={updateTokenDisplay}
+              value={tokenFormatKey}
+            >
+              <Option value="css">CSS</Option>
+              <Option value="js">JavaScript</Option>
+            </Select>
+          </Box>
         </Box>
 
-        {TOKEN_CATEGORIES.map((categoryKey) => (
-          <CategorySection
-            categoryKey={categoryKey as TokenCategoryKeys}
-            value={filterString}
-            themeKey={themeKey}
-            key={seed(categoryKey)}
-            setNoResults={handleSetNoResults}
-          />
-        ))}
-      </Content>
-    </ContentWrapper>
+        {showNullState ? (
+          <NoTokensFound onClearSearch={handleOnClearSearch} />
+        ) : (
+          TOKEN_CATEGORIES.map((categoryKey) => (
+            <CategorySection
+              categoryKey={categoryKey as TokenCategoryKeys}
+              filterString={filterString}
+              themeKey={themeKey}
+              key={seed(categoryKey)}
+              setNoResults={handleSetNoResults}
+              tokenFormatter={tokenFormatter}
+            />
+          ))
+        )}
+      </Box>
+    </Box>
   );
 };

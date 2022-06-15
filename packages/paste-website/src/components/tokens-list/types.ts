@@ -15,6 +15,27 @@ import type {
   zIndices,
 } from '@twilio-paste/design-tokens';
 
+export type ThemeKeys = 'default' | 'dark';
+
+export type TokenFormats = 'js' | 'css';
+
+export type TokenValueFormatter = (name: string) => string;
+
+export type BackgroundColors = Readonly<typeof backgroundColors>;
+export type BorderColors = Readonly<typeof borderColors>;
+export type BorderWidths = Readonly<typeof borderWidths>;
+export type BoxShadows = Readonly<typeof boxShadows>;
+export type Colors = Readonly<typeof colors>;
+export type Fonts = Readonly<typeof fonts>;
+export type FontSizes = Readonly<typeof fontSizes>;
+export type FontWeights = Readonly<typeof fontWeights>;
+export type LineHeights = Readonly<typeof lineHeights>;
+export type Radii = Readonly<typeof radii>;
+export type Sizings = Readonly<typeof sizings>;
+export type Spacings = Readonly<typeof spacings>;
+export type TextColors = Readonly<typeof textColors>;
+export type ZIndeces = Readonly<typeof zIndices>;
+
 export interface Token<TokenKey = string, TokenValue = string> {
   name: TokenKey;
   value: TokenValue;
@@ -24,7 +45,16 @@ export interface Token<TokenKey = string, TokenValue = string> {
   deprecated: boolean;
 }
 
-export type BackgroundColors = Readonly<typeof backgroundColors>;
+export type DecoratedToken = {
+  name: Token['name'];
+  value: Token['value'];
+  comment: Token['comment'];
+  category: Token['category'];
+  type?: Token['type'] | undefined;
+  deprecated?: Token['deprecated'] | undefined;
+  contrastRating: string | null;
+  backgroundColor: BackgroundColors['colorBackgroundBody'] | BackgroundColors['colorBackgroundBodyInverse'];
+};
 
 export const TokenCategories = {
   BorderColors: 'borderColors',
@@ -41,20 +71,6 @@ export const TokenCategories = {
   TextColors: 'textColors',
   ZIndeces: 'zIndeces',
 } as const;
-
-export type BorderColors = Readonly<typeof borderColors>;
-export type BorderWidths = Readonly<typeof borderWidths>;
-export type BoxShadows = Readonly<typeof boxShadows>;
-export type Colors = Readonly<typeof colors>;
-export type Fonts = Readonly<typeof fonts>;
-export type FontSizes = Readonly<typeof fontSizes>;
-export type FontWeights = Readonly<typeof fontWeights>;
-export type LineHeights = Readonly<typeof lineHeights>;
-export type Radii = Readonly<typeof radii>;
-export type Sizings = Readonly<typeof sizings>;
-export type Spacings = Readonly<typeof spacings>;
-export type TextColors = Readonly<typeof textColors>;
-export type ZIndeces = Readonly<typeof zIndices>;
 
 export interface TokensByCategory {
   [TokenCategories.BorderColors]: Token<typeof TokenCategories['BorderColors'], BorderColors>[];

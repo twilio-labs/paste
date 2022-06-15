@@ -53,11 +53,10 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
   // Prevents tooltip being visible on first render due to reakit positioning bug code
   const isFirstRender = React.useRef(true);
   const clipboard = useClipboard({copiedTimeout: 2000});
-  const camelCaseName = camelCase(name.replace('$', ''));
 
   const handleCopyName = React.useCallback(() => {
-    clipboard.copy(camelCaseName);
-  }, [camelCaseName]);
+    clipboard.copy(name);
+  }, [name]);
 
   React.useEffect(() => {
     setTooltipText(clipboard.copied ? 'Copied!' : 'Copy token name');
@@ -91,7 +90,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
       marginBottom="space30"
     >
       <Box margin="space40" width="sizeSquare200" justifyContent="center" alignItems="center" display="flex">
-        <PreviewComponent category={category} name={camelCaseName} value={value} />
+        <PreviewComponent category={category} name={name} value={value} />
       </Box>
       <Box
         paddingY="space60"
@@ -113,7 +112,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
                 marginRight="space20"
                 wordBreak="break-word"
               >
-                {camelCaseName}
+                {name}
               </Text>
               <Tooltip text={tooltipText} state={tooltipState}>
                 <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
