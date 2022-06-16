@@ -9328,7 +9328,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/anchor@^8.0.1, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
+"@twilio-paste/anchor@^8.0.0, @twilio-paste/anchor@^8.0.1, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/anchor@workspace:packages/paste-core/components/anchor"
   dependencies:
@@ -9510,7 +9510,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/box@^6.0.1, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
+"@twilio-paste/box@^6.0.0, @twilio-paste/box@^6.0.1, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/box@workspace:packages/paste-core/primitives/box"
   dependencies:
@@ -9571,7 +9571,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/button@^10.0.1, @twilio-paste/button@workspace:packages/paste-core/components/button":
+"@twilio-paste/button@^10.0.0, @twilio-paste/button@^10.0.1, @twilio-paste/button@workspace:packages/paste-core/components/button":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/button@workspace:packages/paste-core/components/button"
   dependencies:
@@ -9640,20 +9640,34 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
   dependencies:
-    "@twilio-paste/box": ^6.0.1
-    "@twilio-paste/customization": ^4.0.2
-    "@twilio-paste/design-tokens": ^7.3.0
-    "@twilio-paste/style-props": ^5.0.2
-    "@twilio-paste/theme": ^7.0.1
+    "@twilio-paste/anchor": ^8.0.0
+    "@twilio-paste/box": ^6.0.0
+    "@twilio-paste/button": ^10.0.0
+    "@twilio-paste/customization": ^4.0.0
+    "@twilio-paste/design-tokens": ^7.2.0
+    "@twilio-paste/icons": ^8.0.0
+    "@twilio-paste/media-object": ^6.0.0
+    "@twilio-paste/screen-reader-only": ^9.0.0
+    "@twilio-paste/style-props": ^5.0.0
+    "@twilio-paste/text": ^6.0.0
+    "@twilio-paste/theme": ^7.0.0
+    "@twilio-paste/truncate": ^10.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
+    "@twilio-paste/anchor": ^8.0.0
     "@twilio-paste/box": ^6.0.0
+    "@twilio-paste/button": ^10.0.0
     "@twilio-paste/customization": ^4.0.0
     "@twilio-paste/design-tokens": ^7.2.0
+    "@twilio-paste/icons": ^8.0.0
+    "@twilio-paste/media-object": ^6.0.0
+    "@twilio-paste/screen-reader-only": ^9.0.0
     "@twilio-paste/style-props": ^5.0.0
+    "@twilio-paste/text": ^6.0.0
     "@twilio-paste/theme": ^7.0.0
+    "@twilio-paste/truncate": ^10.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -9915,7 +9929,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/customization@^4.0.2, @twilio-paste/customization@workspace:packages/paste-customization":
+"@twilio-paste/customization@^4.0.0, @twilio-paste/customization@^4.0.2, @twilio-paste/customization@workspace:packages/paste-customization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/customization@workspace:packages/paste-customization"
   dependencies:
@@ -10050,7 +10064,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^7.3.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^7.2.0, @twilio-paste/design-tokens@^7.3.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   dependencies:
@@ -10317,7 +10331,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@^8.0.2, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@^8.0.0, @twilio-paste/icons@^8.0.2, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
@@ -10503,7 +10517,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/media-object@^6.0.1, @twilio-paste/media-object@workspace:packages/paste-core/layout/media-object":
+"@twilio-paste/media-object@^6.0.0, @twilio-paste/media-object@^6.0.1, @twilio-paste/media-object@workspace:packages/paste-core/layout/media-object":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/media-object@workspace:packages/paste-core/layout/media-object"
   dependencies:
@@ -10851,7 +10865,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/screen-reader-only@^9.0.1, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
+"@twilio-paste/screen-reader-only@^9.0.0, @twilio-paste/screen-reader-only@^9.0.1, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only"
   dependencies:
@@ -11051,7 +11065,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/style-props@^5.0.2, @twilio-paste/style-props@workspace:packages/paste-style-props":
+"@twilio-paste/style-props@^5.0.0, @twilio-paste/style-props@^5.0.2, @twilio-paste/style-props@workspace:packages/paste-style-props":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/style-props@workspace:packages/paste-style-props"
   dependencies:
@@ -11163,7 +11177,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/text@^6.0.1, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
+"@twilio-paste/text@^6.0.0, @twilio-paste/text@^6.0.1, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/text@workspace:packages/paste-core/primitives/text"
   dependencies:
@@ -11237,7 +11251,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^7.0.1, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^7.0.0, @twilio-paste/theme@^7.0.1, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:
@@ -11402,7 +11416,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/truncate@^10.0.1, @twilio-paste/truncate@workspace:packages/paste-core/components/truncate":
+"@twilio-paste/truncate@^10.0.0, @twilio-paste/truncate@^10.0.1, @twilio-paste/truncate@workspace:packages/paste-core/components/truncate":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/truncate@workspace:packages/paste-core/components/truncate"
   dependencies:
