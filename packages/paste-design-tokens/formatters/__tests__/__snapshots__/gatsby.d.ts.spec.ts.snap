@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`gatsby declaration file formatter should return typescript definitions formatted tokens 1`] = `
+exports[`generic declaration file formatter should return typescript definitions formatted tokens 1`] = `
 "declare const Tokens: {
 \\"tokens\\":{\\"background-colors\\": [
     {

@@ -1,11 +1,11 @@
 import * as theo from 'theo';
 import {resolve} from 'path';
-import {newGatsbyJsonTokenFormat} from '../gatsby';
+import {genericCommonJsTokenFormat} from '../generic';
 
-theo.registerFormat('gatsby.js', newGatsbyJsonTokenFormat);
+theo.registerFormat('generic.js', genericCommonJsTokenFormat);
 
-describe('gatsby JS formatter', () => {
-  it('should return commonjs formatted tokens for gatsby', () => {
+describe('generic JS formatter', () => {
+  it('should return commonjs formatted tokens', () => {
     return theo
       .convert({
         transform: {
@@ -14,11 +14,11 @@ describe('gatsby JS formatter', () => {
         },
         format: {
           // @ts-ignore Theo isn't typed for custom format types
-          type: 'gatsby.js',
+          type: 'generic.js',
         },
       })
-      .then((gatsbyJs: string) => {
-        return expect(gatsbyJs).toMatchSnapshot();
+      .then((genericJS: string) => {
+        return expect(genericJS).toMatchSnapshot();
       })
       .catch((error: string) => {
         console.log(`Something  went wrong: ${error}`);
