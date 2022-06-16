@@ -1,5 +1,105 @@
 # Change Log
 
+## 14.0.0
+
+### Major Changes
+
+- [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002) [#2454](https://github.com/twilio-labs/paste/pull/2454) Thanks [@shleewhite](https://github.com/shleewhite)! - [Textarea] Update textarea to use @twilio-paste/react-autosize-textarea library and add the resize prop which allows users to resize the textarea height.
+
+* [`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002) [#2454](https://github.com/twilio-labs/paste/pull/2454) Thanks [@shleewhite](https://github.com/shleewhite)! - [react-textarea-autosize-library] add react-textarea-autosize library
+
+### Minor Changes
+
+- [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d) [#2467](https://github.com/twilio-labs/paste/pull/2467) Thanks [@andipants12](https://github.com/andipants12)! - [Design tokens] Add a new generic export featuring additional metadata. This can be used in documentation or software tooling.
+
+  - CommonJS export `tokens.gatsby.js`
+  - complimentary declaration file included `tokens.gatsby.d.ts`
+  - Maps token buckets/categories (e.g. "background-colors") to a list of token objects.
+
+### Patch Changes
+
+- [`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c) [#2452](https://github.com/twilio-labs/paste/pull/2452) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] allow both src and icon props at the same
+
+* [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table] removed uneccessarily spread prop on Tr component and set an initial value correctly for the context provider
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+* [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282) [#2456](https://github.com/twilio-labs/paste/pull/2456) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] simplify logic for when to show image or icon
+
+* Updated dependencies [[`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c), [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282)]:
+  - @twilio-paste/avatar@5.0.1
+  - @twilio-paste/textarea@6.0.0
+  - @twilio-paste/table@4.0.1
+  - @twilio-paste/react-textarea-autosize-library@1.0.0
+  - @twilio-paste/design-tokens@7.3.0
+  - @twilio-paste/color-contrast-utils@2.0.5
+  - @twilio-paste/alert@10.0.1
+  - @twilio-paste/alert-dialog@4.0.1
+  - @twilio-paste/anchor@8.0.1
+  - @twilio-paste/badge@4.0.1
+  - @twilio-paste/base-radio-checkbox@9.0.1
+  - @twilio-paste/breadcrumb@7.0.1
+  - @twilio-paste/button@10.0.1
+  - @twilio-paste/card@5.0.1
+  - @twilio-paste/chat-log@1.0.1
+  - @twilio-paste/checkbox@9.0.1
+  - @twilio-paste/combobox@11.0.2
+  - @twilio-paste/data-grid@3.0.2
+  - @twilio-paste/date-picker@2.0.1
+  - @twilio-paste/disclosure@8.0.2
+  - @twilio-paste/display-pill-group@4.0.1
+  - @twilio-paste/form-pill-group@4.0.2
+  - @twilio-paste/heading@7.0.1
+  - @twilio-paste/help-text@9.0.1
+  - @twilio-paste/inline-control-group@9.0.1
+  - @twilio-paste/input@5.0.1
+  - @twilio-paste/input-box@6.0.1
+  - @twilio-paste/label@9.0.1
+  - @twilio-paste/list@4.0.1
+  - @twilio-paste/menu@10.0.2
+  - @twilio-paste/modal@11.0.2
+  - @twilio-paste/pagination@3.0.1
+  - @twilio-paste/paragraph@6.0.1
+  - @twilio-paste/popover@9.0.2
+  - @twilio-paste/radio-group@9.0.1
+  - @twilio-paste/screen-reader-only@9.0.1
+  - @twilio-paste/select@8.0.1
+  - @twilio-paste/separator@4.0.1
+  - @twilio-paste/skeleton-loader@2.0.1
+  - @twilio-paste/spinner@10.0.1
+  - @twilio-paste/tabs@4.0.2
+  - @twilio-paste/time-picker@2.0.1
+  - @twilio-paste/toast@8.0.1
+  - @twilio-paste/tooltip@7.0.2
+  - @twilio-paste/truncate@10.0.1
+  - @twilio-paste/aspect-ratio@6.0.1
+  - @twilio-paste/flex@4.0.1
+  - @twilio-paste/grid@4.0.1
+  - @twilio-paste/media-object@6.0.1
+  - @twilio-paste/stack@4.0.1
+  - @twilio-paste/box@6.0.1
+  - @twilio-paste/combobox-primitive@0.3.4
+  - @twilio-paste/disclosure-primitive@0.3.9
+  - @twilio-paste/menu-primitive@0.2.10
+  - @twilio-paste/modal-dialog-primitive@0.3.2
+  - @twilio-paste/non-modal-dialog-primitive@0.3.10
+  - @twilio-paste/sibling-box@5.0.1
+  - @twilio-paste/tabs-primitive@0.2.8
+  - @twilio-paste/text@6.0.1
+  - @twilio-paste/tooltip-primitive@0.2.9
+  - @twilio-paste/customization@4.0.2
+  - @twilio-paste/animation-library@0.3.7
+  - @twilio-paste/clipboard-copy-library@1.0.4
+  - @twilio-paste/data-visualization-library@1.0.1
+  - @twilio-paste/dropdown-library@1.1.5
+  - @twilio-paste/reakit-library@0.8.6
+  - @twilio-paste/styling-library@1.0.2
+  - @twilio-paste/uid-library@0.2.5
+  - @twilio-paste/style-props@5.0.2
+  - @twilio-paste/theme@7.0.1
+  - @twilio-paste/types@3.1.8
+  - @twilio-paste/utils@1.1.5
+
 ## 13.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/non-modal-dialog-primitive",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible base upon which to build a non-modal dialog.",
@@ -30,7 +30,7 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.4",
+    "@twilio-paste/reakit-library": "^0.8.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

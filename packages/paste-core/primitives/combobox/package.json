@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox-primitive",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "category": "user input",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build a combobox.",
@@ -31,7 +31,7 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/dropdown-library": "^1.1.4",
+    "@twilio-paste/dropdown-library": "^1.1.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

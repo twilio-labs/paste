@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- [`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c) [#2452](https://github.com/twilio-labs/paste/pull/2452) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] allow both src and icon props at the same
+
+* [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+- [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282) [#2456](https://github.com/twilio-labs/paste/pull/2456) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] simplify logic for when to show image or icon
+
 ## 5.0.0
 
 ### Patch Changes
