@@ -9873,6 +9873,7 @@ __metadata:
     "@twilio-paste/paragraph": ^6.0.0
     "@twilio-paste/popover": ^9.0.1
     "@twilio-paste/radio-group": ^9.0.0
+    "@twilio-paste/react-textarea-autosize-library": ^0.0.1
     "@twilio-paste/reakit-library": ^0.8.5
     "@twilio-paste/screen-reader-only": ^9.0.0
     "@twilio-paste/select": ^8.0.0
@@ -10820,6 +10821,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/react-textarea-autosize-library@^0.0.1, @twilio-paste/react-textarea-autosize-library@workspace:packages/paste-libraries/react-textarea-autosize":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/react-textarea-autosize-library@workspace:packages/paste-libraries/react-textarea-autosize"
+  dependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    use-composed-ref: ^1.3.0
+    use-latest: ^1.2.1
+  peerDependencies:
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/reakit-library@^0.8.4, @twilio-paste/reakit-library@^0.8.5, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
@@ -11183,6 +11198,7 @@ __metadata:
     "@twilio-paste/box": ^6.0.0
     "@twilio-paste/design-tokens": ^7.1.1
     "@twilio-paste/input-box": ^6.0.0
+    "@twilio-paste/react-textarea-autosize-library": ^0.0.1
     "@twilio-paste/style-props": ^5.0.0
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^7.0.0
@@ -11190,12 +11206,12 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.4
     prop-types: ^15.7.2
     react: ^17.0.2
-    react-autosize-textarea: 7.1.0
     react-dom: ^17.0.2
   peerDependencies:
     "@twilio-paste/box": ^6.0.0
     "@twilio-paste/design-tokens": ^7.0.0
     "@twilio-paste/input-box": ^6.0.0
+    "@twilio-paste/react-textarea-autosize-library": ^0.0.1
     "@twilio-paste/style-props": ^5.0.0
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^7.0.0
@@ -15023,13 +15039,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autosize@npm:^4.0.2":
-  version: 4.0.4
-  resolution: "autosize@npm:4.0.4"
-  checksum: da3a53a699ef8a4cfea8f0eea2303459b3986754278d506f60c08084b3a0a34bd6fa525becaf1edcffe4eb9517b67a6442aacf6b02aee1d406e5a794ec47d4ce
-  languageName: node
-  linkType: hard
-
 "aws-sign2@npm:~0.7.0":
   version: 0.7.0
   resolution: "aws-sign2@npm:0.7.0"
@@ -17757,13 +17766,6 @@ __metadata:
   version: 1.0.17
   resolution: "compute-scroll-into-view@npm:1.0.17"
   checksum: b20c05a10c37813c5a6e4bf053c00f65c88d23afed7a6bd7a2a69e05e2ffc2df3483ecfe407d36bf16b8cec8be21ae1966c9c523093a03117e567156cd79a51e
-  languageName: node
-  linkType: hard
-
-"computed-style@npm:~0.1.3":
-  version: 0.1.4
-  resolution: "computed-style@npm:0.1.4"
-  checksum: 18957a36c96abf1ea6ad97241d6c88a70b192076a9d176d489a2e6d5e5d93968bb9fbb51a70a8399c4de5ec87e4465a737718cf9106bf1fb8037f0433b8fb255
   languageName: node
   linkType: hard
 
@@ -29571,15 +29573,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"line-height@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "line-height@npm:0.3.1"
-  dependencies:
-    computed-style: ~0.1.3
-  checksum: 99acec832fd29fe50bea7c5dd2fb56c53b9e60c8da93384f6e1780d68018440b952c62578f34168e78bacdd9c6c3fd4fb3b8989c7b9976b3d74c16563c9182a3
-  languageName: node
-  linkType: hard
-
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -36215,7 +36208,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.6, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -36651,20 +36644,6 @@ fsevents@^1.2.7:
     regenerator-runtime: ^0.13.9
     whatwg-fetch: ^3.6.2
   checksum: 1bb031080af15397d6eb9c69a0c2e93799991f7197a086e4409ba719398f1256b542a3d6c9a34673d516c684eef3e8226c99b335982593851f58f65f6e43571b
-  languageName: node
-  linkType: hard
-
-"react-autosize-textarea@npm:7.1.0":
-  version: 7.1.0
-  resolution: "react-autosize-textarea@npm:7.1.0"
-  dependencies:
-    autosize: ^4.0.2
-    line-height: ^0.3.1
-    prop-types: ^15.5.6
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0
-    react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
-  checksum: 1292d8867151f19ae8668b5bf93a3fa70dfd37d1888330d317b4e55fdace2696526d3fcf68581a06ec29e3601b992f6d23ec3cf271980877168441425abe7a5e
   languageName: node
   linkType: hard
 
@@ -43419,6 +43398,15 @@ typescript@^4.6.4:
   languageName: node
   linkType: hard
 
+"use-composed-ref@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "use-composed-ref@npm:1.3.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: f771cbadfdc91e03b7ab9eb32d0fc0cc647755711801bf507e891ad38c4bbc5f02b2509acadf9c965ec9c5f2f642fd33bdfdfb17b0873c4ad0a9b1f5e5e724bf
+  languageName: node
+  linkType: hard
+
 "use-isomorphic-layout-effect@npm:^1.0.0":
   version: 1.1.1
   resolution: "use-isomorphic-layout-effect@npm:1.1.1"
@@ -43428,6 +43416,18 @@ typescript@^4.6.4:
     "@types/react":
       optional: true
   checksum: fd9061817d4945af37fd79866b1fe96a09cafe873169a66ec699140b609c64db6c60512d94ec3ca90967837026ea6e6d003901c557693708aeee11d392418a9e
+  languageName: node
+  linkType: hard
+
+"use-isomorphic-layout-effect@npm:^1.1.1":
+  version: 1.1.2
+  resolution: "use-isomorphic-layout-effect@npm:1.1.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: a6532f7fc9ae222c3725ff0308aaf1f1ddbd3c00d685ef9eee6714fd0684de5cb9741b432fbf51e61a784e2955424864f7ea9f99734a02f237b17ad3e18ea5cb
   languageName: node
   linkType: hard
 
@@ -43442,6 +43442,20 @@ typescript@^4.6.4:
     "@types/react":
       optional: true
   checksum: f0cb3a49119e14ed46db8a946b1aa17b838b8834c8a652bde314877ede6057c55b50654a97ee802597a5839c070180195e58ea3a756b7c33db7f540642f0ddea
+  languageName: node
+  linkType: hard
+
+"use-latest@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "use-latest@npm:1.2.1"
+  dependencies:
+    use-isomorphic-layout-effect: ^1.1.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: ed3f2ddddf6f21825e2ede4c2e0f0db8dcce5129802b69d1f0575fc1b42380436e8c76a6cd885d4e9aa8e292e60fb8b959c955f33c6a9123b83814a1a1875367
   languageName: node
   linkType: hard
 

@@ -24,13 +24,11 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
-  "dependencies": {
-    "react-autosize-textarea": "7.1.0"
-  },
   "peerDependencies": {
     "@twilio-paste/box": "^6.0.0",
     "@twilio-paste/design-tokens": "^7.0.0",
     "@twilio-paste/input-box": "^6.0.0",
+    "@twilio-paste/react-textarea-autosize-library": "^0.0.1",
     "@twilio-paste/style-props": "^5.0.0",
     "@twilio-paste/styling-library": "^1.0.0",
     "@twilio-paste/theme": "^7.0.0",
@@ -44,6 +42,7 @@
     "@twilio-paste/box": "^6.0.0",
     "@twilio-paste/design-tokens": "^7.1.1",
     "@twilio-paste/input-box": "^6.0.0",
+    "@twilio-paste/react-textarea-autosize-library": "^0.0.1",
     "@twilio-paste/style-props": "^5.0.0",
     "@twilio-paste/styling-library": "^1.0.0",
     "@twilio-paste/theme": "^7.0.0",
