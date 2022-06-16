@@ -8,7 +8,7 @@ import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 type CalloutVariants = 'info' | 'warning';
 
 interface CalloutTitleProps {
-  as: HeadingAsTags;
+  as?: HeadingAsTags;
 }
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (

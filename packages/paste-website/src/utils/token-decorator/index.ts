@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+
 import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
 
 import {isLightToken, getContrastRating} from '../../utils/color-contrast';
@@ -39,43 +40,50 @@ export const backgroundColors = (
       {} as {'color-background-body': string; 'color-background-body-inverse': string}
     );
 
+type DecoratedToken = GatsbyTokens.DecoratedToken<string, string | number>;
+
 export const annotate = (theme: GatsbyTokens.ThemeTokens): GatsbyTokens.DecoratedThemeTokens => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const _theme = getTokensFromTheme(theme);
 
   return getCategoryKeys(_theme).reduce((accum, cat) => {
     const tokens = _theme[cat]
-
       .filter(({deprecated = false}) => !deprecated)
       .map(({name, value, ...rest}: GatsbyTokens.TokenDTO): Omit<
-        GatsbyTokens.DecoratedToken,
+        DecoratedToken,
         'backgroundColor' | 'contrastRating'
       > => {
         return {
+          ...rest,
+          category: cat,
           name,
           value,
           isInverse: checkIsInverse.hasOwnProperty(cat)
             ? checkIsInverse[cat as keyof typeof checkIsInverse](name, value)
             : false,
-          ...rest,
         };
       })
-      .map(({isInverse, ...rest}: Omit<GatsbyTokens.DecoratedToken, 'backgroundColor' | 'contrastRating'>) => {
+      .map(({isInverse, ...rest}: Omit<DecoratedToken, 'backgroundColor' | 'contrastRating'>) => {
         const key = isInverse ? 'color-background-body-inverse' : 'color-background-body';
-        console.log(backgroundColors(_theme));
+
         const backgroundColor = backgroundColors(_theme)[key];
         return {...rest, isInverse, backgroundColor};
       })
-      .map(({value, backgroundColor, ...rest}: Omit<GatsbyTokens.DecoratedToken, 'contrastRating'>) => {
+      .map(({value, backgroundColor, ...rest}: Omit<DecoratedToken, 'contrastRating'>) => {
         return {
           ...rest,
           value,
           backgroundColor,
-          contrastRating: cat === 'text-colors' ? getContrastRating(value, backgroundColor) : null,
+          contrastRating: cat === 'text-colors' ? getContrastRating(value as string, backgroundColor) : null,
         };
+      })
+      .sort((a, b) => {
+        const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+        if (cat === 'font-weights') {
+          return collator.compare(a.value as string, b.value as string);
+        }
+        return collator.compare(a.name, b.name);
       });
-
-    console.log(tokens);
 
     return {...accum, [cat]: tokens};
   }, {} as GatsbyTokens.DecoratedThemeTokens);

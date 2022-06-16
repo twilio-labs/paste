@@ -9,29 +9,37 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 
 import {BackgroundColor} from './preview/BackgroundColor';
+import type {DecoratedToken} from '../types';
 
-interface TokenExampleProps {
-  category: string;
-  name: string;
-  value: string;
-}
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const TokenExample_Placeholder: React.FC<TokenExampleProps> = ({
-  category,
-  name,
-  value,
-  backgroundColor,
-  contrastRating,
-}) => {
+const TokenExample: React.FC<{
+  category: DecoratedToken['category'];
+  name: DecoratedToken['name'];
+  value: DecoratedToken['value'];
+  backgroundColor: DecoratedToken['backgroundColor'];
+  contrastRating: DecoratedToken['contrastRating'];
+}> = ({category, name, value, backgroundColor, contrastRating}) => {
   switch (category) {
     case 'background-colors':
-      return <BackgroundColor name={name} value={value} />;
+      return <BackgroundColor name={name} value={value as string} />;
     default:
-      return <Box>{value}</Box>;
+      return (
+        <Box>
+          {value}
+          {backgroundColor} {contrastRating}
+        </Box>
+      );
   }
 };
 
-const useCopyTooltip = (name) => {
+const useCopyTooltip = (
+  name: DecoratedToken['name']
+): {
+  isCopied: boolean;
+  handleCopyName: VoidFunction;
+  tooltipState: ReturnType<typeof useTooltipState>;
+  tooltipText: string;
+} => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
@@ -67,7 +75,7 @@ const useCopyTooltip = (name) => {
   };
 };
 
-const CopyIconWithTooltip = ({name}) => {
+const CopyIconWithTooltip: React.FC<{name: DecoratedToken['name']}> = ({name}) => {
   const {tooltipText, tooltipState, isCopied, handleCopyName} = useCopyTooltip(name);
   return (
     <Tooltip text={tooltipText} state={tooltipState}>
@@ -83,20 +91,14 @@ const CopyIconWithTooltip = ({name}) => {
   );
 };
 
-export interface TokenCardProps {
-  category: string;
-  name: string;
-  value: string;
-  comment: string;
-}
-export const TokenCard: React.FC<TokenCardProps> = ({
-  category,
-  name,
-  value,
-  comment,
-  backgroundColor,
-  contrastRating,
-}) => {
+export const TokenCard: React.FC<{
+  category: DecoratedToken['category'];
+  name: DecoratedToken['name'];
+  comment: DecoratedToken['comment'];
+  value: DecoratedToken['value'];
+  backgroundColor: DecoratedToken['backgroundColor'];
+  contrastRating: DecoratedToken['contrastRating'];
+}> = ({category, name, value, comment, backgroundColor, contrastRating}) => {
   return (
     <Box
       key={name}
@@ -110,7 +112,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({
       minHeight="sizeSquare170"
     >
       <Box margin="space40" width="sizeSquare200" justifyContent="center" alignItems="center" display="flex">
-        <TokenExample_Placeholder
+        <TokenExample
           category={category}
           name={name}
           value={value}

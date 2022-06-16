@@ -1,26 +1,28 @@
 import * as React from 'react';
-import {useVirtual} from 'react-virtual';
 
 import isEqual from 'lodash/isEqual';
-import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
+import {useVirtual} from 'react-virtual';
 
 import {AnchoredHeading} from '../../Heading';
 import {TokenCard} from '../token-card';
 import {isMatch, sentenceCase} from '../utils';
-
-import type {TokenCategoryKeys, TokenValueFormatter} from '../types';
-
+import type {TokenValueFormatter, CategoryKeys} from '../types';
 import {TOKENS_BY_THEME} from '../constants';
+import {Description} from './Description';
+
+import type {DecoratedToken} from '../types';
+import {useUIDSeed} from 'react-uid';
 
 const useVirtualizedList = (
-  // @TODO no any
-  items: any[],
+  items: DecoratedToken[],
   parentRef: React.MutableRefObject<HTMLDivElement | HTMLElement | null>
 ): Pick<ReturnType<typeof useVirtual>, 'scrollToIndex' | 'virtualItems' | 'totalSize'> => {
+  const seed = useUIDSeed();
   const {scrollToIndex, virtualItems, totalSize} = useVirtual({
     size: items.length,
     parentRef,
+    keyExtractor: React.useCallback((idx) => seed(items[idx]), []),
     estimateSize: React.useCallback(() => 36, []),
     overscan: 4,
     paddingStart: 10,
@@ -31,32 +33,24 @@ const useVirtualizedList = (
 
 export const CategorySection: React.FC<{
   filterString: string;
-  themeKey: 'default' | 'dark';
-  categoryKey: TokenCategoryKeys;
+  themeKey: ('default' | 'dark') & keyof typeof TOKENS_BY_THEME;
+  categoryKey: string & CategoryKeys;
   setNoResults: VoidFunction;
   tokenFormatter: TokenValueFormatter;
-  // sortTokenFn = sortTokens // @TODO add in when add sort.
-  // sortTokenFn?: typeof sortTokens;
 }> = ({filterString, categoryKey, themeKey, setNoResults, tokenFormatter}) => {
-  const parentRef = React.useRef<HTMLDivElement>(null);
-  const seed = useUIDSeed();
-  const tokens = TOKENS_BY_THEME[themeKey][categoryKey]; // this is the default for our token state.
+  const tokens = React.useMemo(() => TOKENS_BY_THEME[themeKey][categoryKey], [themeKey]);
   const categoryHeading = React.useMemo(() => sentenceCase(categoryKey), [categoryKey]);
   const [categoryTokens, setCategoryTokens] = React.useState<typeof tokens>(tokens);
 
-  // @TODO narroriwng for undefined.
+  const parentRef = React.useRef<HTMLDivElement>(null);
   const {virtualItems} = useVirtualizedList(categoryTokens, parentRef);
 
   React.useEffect(() => {
-    // instead should maniuplate the virtualized items
-    // needs werk
-    // @ts-expect-error @TODO fix this typoe
-    const filtered = categoryTokens.filter((token) => isMatch(filterString, token));
-
-    if (!isEqual(filtered, categoryTokens)) {
-      setCategoryTokens(filtered);
-    }
-  }, [filterString, categoryTokens]);
+    const filtered = tokens.filter((token) => isMatch(filterString, token));
+    setCategoryTokens((current) => {
+      return !isEqual(current, filtered) ? filtered : current;
+    });
+  }, [filterString, tokens]);
 
   React.useEffect(() => {
     if (filterString === '') {
@@ -71,22 +65,31 @@ export const CategorySection: React.FC<{
   }, [categoryTokens.length]);
 
   return (
-    <Box as="section" display={categoryTokens.length > 0 ? 'auto' : 'none'}>
+    <Box
+      as="section"
+      paddingTop="space60"
+      paddingBottom="space60"
+      display={categoryTokens.length > 0 ? 'auto' : 'none'}
+    >
       <AnchoredHeading as="h2" variant="heading40">
         {categoryHeading}
       </AnchoredHeading>
 
+      <Description categoryKey={categoryKey} />
+
       <Box ref={parentRef}>
-        {virtualItems.map(({index}) => {
+        {virtualItems.map(({index, key}) => {
           const token = categoryTokens[index];
 
           return (
             <TokenCard
-              key={seed(token.name)}
+              key={key}
               name={tokenFormatter(token.name)}
               value={token.value}
               category={token.category}
               comment={token.comment}
+              contrastRating={token.contrastRating}
+              backgroundColor={token.backgroundColor}
             />
           );
         })}

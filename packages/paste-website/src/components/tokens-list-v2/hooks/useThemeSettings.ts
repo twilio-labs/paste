@@ -16,6 +16,7 @@ export const useThemeSettings = (): {
     setThemeKey(theme);
   }, [theme]);
 
+  // const handleChangeTheme = React.useCallback(({target: {value}}) => setThemeKey(value), []);
   const handleChangeTheme = React.useCallback(({target: {value}}) => setThemeKey(value), []);
 
   return {themeKey, handleChangeTheme};

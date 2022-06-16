@@ -9,20 +9,20 @@ import {Input} from '@twilio-paste/input';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 
 import {CategorySection} from './category-section';
-// import {trackTokenFilterString} from './utils';
+import {trackTokenFilterString} from './utils';
 
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TOKEN_CATEGORIES, pageAsideData} from './constants';
-import type {TokenCategoryKeys} from './types';
+import type {CategoryKeys} from './types';
 
 import {useThemeSettings, useTokenValueFormatter} from './hooks';
 
-// @TODO add sorting.
-// const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 export const TokensList: React.FC = () => {
   const seed = useUIDSeed();
+
   const {themeKey, handleChangeTheme} = useThemeSettings();
+
   const {updateTokenDisplay, tokenFormatKey, tokenFormatter} = useTokenValueFormatter();
 
   const [filterString, setFilterString] = React.useState('');
@@ -32,19 +32,34 @@ export const TokensList: React.FC = () => {
 
   const showNullState = noResults === TOKEN_CATEGORIES.length;
 
-  // @TODO add tracking back.
-
   React.useEffect(() => {
     if (filterString === '') {
       setNoResults(0);
     }
   }, [filterString]);
 
-  const onChangeCallback: React.ChangeEventHandler<HTMLInputElement> = React.useCallback(({target: {value}}) => {
-    setFilterString(value);
-  }, []);
+  React.useEffect(() => {
+    trackTokenFilterString(filterString);
+  }, [filterString]);
 
-  const handleOnChange = React.useMemo(() => debounce(onChangeCallback, 150), []);
+  React.useEffect(() => {
+    if (filterString.length > 0) {
+      setNoResults((curr) => {
+        if (curr === TOKEN_CATEGORIES.length) {
+          return 0;
+        }
+        return curr;
+      });
+    }
+  }, [filterString]);
+
+  const handleOnChange = React.useMemo(
+    () =>
+      debounce(({target: {value}}) => {
+        setFilterString(value);
+      }, 250),
+    []
+  );
 
   const handleOnClearSearch: VoidFunction = () => {
     setFilterString('');
@@ -54,9 +69,15 @@ export const TokensList: React.FC = () => {
   return (
     <Box as="div" display={['block', 'block', 'flex']}>
       <PageAside data={pageAsideData} />
-      <Box as="div" maxWidth="size70" minWidth="0">
-        <Box display={['block', 'block', 'flex']} flexDirection="row" columnGap="space40">
-          <Box paddingBottom="space80" width="100%">
+      <Box as="div" maxWidth="size70" minWidth="0" paddingTop="space100">
+        <Box
+          as="form"
+          display={['block', 'block', 'flex']}
+          flexDirection="row"
+          columnGap="space40"
+          paddingBottom="space30"
+        >
+          <Box width="100%">
             <Label htmlFor={seed('filter-string')} id={seed('filter-string-label')}>
               Filter tokens
             </Label>
@@ -68,23 +89,23 @@ export const TokensList: React.FC = () => {
               insertBefore={<FilterIcon decorative={false} title="TODO" />}
             />
           </Box>
-          <Box paddingBottom="space80" width={['100%', '100%', '40%']}>
+          <Box width={['100%', '100%', '40%']}>
             <Label htmlFor={seed('select-theme')} id={seed('select-theme-label')}>
-              Select theme
+              Theme
             </Label>
             <Select
               id={seed('select-theme')}
               aria-labelledby={seed('select-theme-label')}
-              onChange={handleChangeTheme}
               value={themeKey}
+              onChange={handleChangeTheme}
             >
               <Option value="default">Default</Option>
               <Option value="dark">Dark</Option>
             </Select>
           </Box>
-          <Box paddingBottom="space80" width={['100%', '100%', '40%']}>
+          <Box width={['100%', '100%', '40%']}>
             <Label htmlFor={seed('select-format')} id={seed('select-format-label')}>
-              Select format
+              Format
             </Label>
             <Select
               id={seed('select-format')}
@@ -98,20 +119,22 @@ export const TokensList: React.FC = () => {
           </Box>
         </Box>
 
-        {showNullState ? (
+        <Box paddingTop="space100" display={showNullState ? 'block' : 'none'}>
           <NoTokensFound onClearSearch={handleOnClearSearch} />
-        ) : (
-          TOKEN_CATEGORIES.map((categoryKey) => (
+        </Box>
+
+        <Box display={showNullState ? 'none' : null}>
+          {TOKEN_CATEGORIES.map((categoryKey) => (
             <CategorySection
-              categoryKey={categoryKey as TokenCategoryKeys}
+              categoryKey={categoryKey as CategoryKeys}
               filterString={filterString}
               themeKey={themeKey}
               key={seed(categoryKey)}
               setNoResults={handleSetNoResults}
               tokenFormatter={tokenFormatter}
             />
-          ))
-        )}
+          ))}
+        </Box>
       </Box>
     </Box>
   );

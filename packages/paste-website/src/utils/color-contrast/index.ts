@@ -6,8 +6,8 @@ import ColorCombos from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
 export const isLightToken = (
-  tokenName: GatsbyTokens.Token['name'],
-  tokenValue: GatsbyTokens.Token['value']
+  tokenName: GatsbyTokens.TokenDTO['name'],
+  tokenValue: GatsbyTokens.TokenDTO['value']
 ): boolean => {
   const colorFn = Color(tokenValue);
 
