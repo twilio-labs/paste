@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-
 import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
 
 import {isLightToken, getContrastRating} from '../../utils/color-contrast';
@@ -22,16 +20,19 @@ export const checkIsInverse = {
 export const getTokensFromTheme = (
   theme: GatsbyTokens.ThemeTokens,
   path = 'tokens'
-): GatsbyTokens.ThemeTokens['tokens'] => get(theme, path, theme);
+): GatsbyTokens.ThemeTokens['tokens'] => theme[path as 'tokens'];
 
 const getCategoryKeys = (theme: GatsbyTokens.ThemeTokens['tokens']): (keyof GatsbyTokens.ThemeTokens['tokens'])[] =>
   Object.keys(theme).map((key) => key as keyof GatsbyTokens.ThemeTokens['tokens']);
 
 export const backgroundColors = (
   theme: GatsbyTokens.ThemeTokens['tokens']
-): {'color-background-body': string; 'color-background-body-inverse': string} =>
-  theme['background-colors']
-    .filter(({name}) => Boolean(name === 'color-background-body' || name === 'color-background-body-inverse'))
+): {'color-background-body': string; 'color-background-body-inverse': string} => {
+  return theme['background-colors']
+    .filter(({name, ...rest}) => {
+      console.log({name, rest});
+      return Boolean(name === 'color-background-body' || name === 'color-background-body-inverse');
+    })
     .reduce(
       (accum, {name, value}) => ({
         ...accum,
@@ -39,6 +40,7 @@ export const backgroundColors = (
       }),
       {} as {'color-background-body': string; 'color-background-body-inverse': string}
     );
+};
 
 type DecoratedToken = GatsbyTokens.DecoratedToken<string, string | number>;
 
@@ -47,6 +49,7 @@ export const annotate = (theme: GatsbyTokens.ThemeTokens): GatsbyTokens.Decorate
   const _theme = getTokensFromTheme(theme);
 
   return getCategoryKeys(_theme).reduce((accum, cat) => {
+    console.log({cat});
     const tokens = _theme[cat]
       .filter(({deprecated = false}) => !deprecated)
       .map(({name, value, ...rest}: GatsbyTokens.TokenDTO): Omit<

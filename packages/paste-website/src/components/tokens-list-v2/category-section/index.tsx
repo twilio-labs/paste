@@ -38,38 +38,39 @@ export const CategorySection: React.FC<{
   setNoResults: VoidFunction;
   tokenFormatter: TokenValueFormatter;
 }> = ({filterString, categoryKey, themeKey, setNoResults, tokenFormatter}) => {
-  const tokens = React.useMemo(() => TOKENS_BY_THEME[themeKey][categoryKey], [themeKey]);
+  React.useEffect(() => {}, []);
+  const categoryTokens = React.useMemo(() => TOKENS_BY_THEME[themeKey][categoryKey], [themeKey]);
   const categoryHeading = React.useMemo(() => sentenceCase(categoryKey), [categoryKey]);
-  const [categoryTokens, setCategoryTokens] = React.useState<typeof tokens>(tokens);
+  const [filteredTokens, setFilteredTokens] = React.useState<typeof categoryTokens>(categoryTokens);
 
   const parentRef = React.useRef<HTMLDivElement>(null);
-  const {virtualItems} = useVirtualizedList(categoryTokens, parentRef);
+  const {virtualItems} = useVirtualizedList(filteredTokens, parentRef);
 
   React.useEffect(() => {
-    const filtered = tokens.filter((token) => isMatch(filterString, token));
-    setCategoryTokens((current) => {
+    if (filteredTokens.length === 0) {
+      setNoResults();
+    }
+  }, [filteredTokens.length]);
+
+  React.useEffect(() => {
+    const filtered = categoryTokens.filter((token) => isMatch(filterString, token));
+    setFilteredTokens((current) => {
       return !isEqual(current, filtered) ? filtered : current;
     });
-  }, [filterString, tokens]);
+  }, [filterString, categoryTokens]);
 
   React.useEffect(() => {
     if (filterString === '') {
-      setCategoryTokens(tokens);
+      setFilteredTokens(categoryTokens);
     }
   }, [filterString]);
-
-  React.useEffect(() => {
-    if (categoryTokens.length === 0) {
-      setNoResults();
-    }
-  }, [categoryTokens.length]);
 
   return (
     <Box
       as="section"
       paddingTop="space60"
       paddingBottom="space60"
-      display={categoryTokens.length > 0 ? 'auto' : 'none'}
+      display={filteredTokens.length > 0 ? 'auto' : 'none'}
     >
       <AnchoredHeading as="h2" variant="heading40">
         {categoryHeading}
@@ -79,7 +80,7 @@ export const CategorySection: React.FC<{
 
       <Box ref={parentRef}>
         {virtualItems.map(({index, key}) => {
-          const token = categoryTokens[index];
+          const token = filteredTokens[index];
 
           return (
             <TokenCard

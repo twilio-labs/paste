@@ -1,17 +1,18 @@
-import darkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.gatsby';
-import defaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.gatsby';
+import darkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
+import defaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 
 import {annotate} from '../../utils/token-decorator';
-
 import {sentenceCase} from './utils';
 
-// @TODO fix types please
 export const TOKENS_BY_THEME = {
   dark: annotate(darkThemeTokens),
   default: annotate(defaultThemeTokens),
 };
 
-// assumption: categoriy tokens are the same.
+// Note: this assumes categoriy tokens are the same.
+// Currently this is the case, a potential betterment to make this more resilient would be to:
+// - compare the categories in the theme shapes
+// - add handling for the case where they are not the same
 export const TOKEN_CATEGORIES = Object.keys(TOKENS_BY_THEME.dark);
 
 export const pageAsideHeadings = TOKEN_CATEGORIES.map((value) => ({value: sentenceCase(value), depth: 2}));

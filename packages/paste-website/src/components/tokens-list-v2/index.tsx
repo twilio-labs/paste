@@ -18,15 +18,19 @@ import type {CategoryKeys} from './types';
 
 import {useThemeSettings, useTokenValueFormatter} from './hooks';
 
+// - Intentionally using this casing to be very clear that this submit handler is a-typical
+// - declaring outside of the render body since it has no dependencies on the component state.
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _preventDefaultFormSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  e.preventDefault();
+};
+
 export const TokensList: React.FC = () => {
   const seed = useUIDSeed();
-
-  const {themeKey, handleChangeTheme} = useThemeSettings();
-
-  const {updateTokenDisplay, tokenFormatKey, tokenFormatter} = useTokenValueFormatter();
-
   const [filterString, setFilterString] = React.useState('');
   const [noResults, setNoResults] = React.useState(0);
+  const {themeKey, handleChangeTheme} = useThemeSettings();
+  const {updateTokenDisplay, tokenFormatKey, tokenFormatter} = useTokenValueFormatter();
 
   const handleSetNoResults = React.useCallback(() => setNoResults((total) => total + 1), []);
 
@@ -72,6 +76,7 @@ export const TokensList: React.FC = () => {
       <Box as="div" maxWidth="size70" minWidth="0" paddingTop="space100">
         <Box
           as="form"
+          onSubmit={_preventDefaultFormSubmit}
           display={['block', 'block', 'flex']}
           flexDirection="row"
           columnGap="space40"
