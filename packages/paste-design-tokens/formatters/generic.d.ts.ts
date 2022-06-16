@@ -62,7 +62,7 @@ export const formatGroupTokensWithTemplate = (
   return content;
 };
 
-export const gatsbyDTSTemplate = (result: ImmutableStyleMap): string => {
+export const genericDTsTemplate = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
   const groupedTokens = `{\n"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}\n}`;
