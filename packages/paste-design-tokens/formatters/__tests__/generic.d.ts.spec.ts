@@ -1,10 +1,10 @@
 import * as theo from 'theo';
 import {resolve} from 'path';
-import {gatsbyDTSTemplate} from '../gatsby.d.ts';
+import {genericDTsTemplate} from '../generic.d.ts';
 
-theo.registerFormat('gatsby.d.ts', gatsbyDTSTemplate);
+theo.registerFormat('generic.d.ts', genericDTsTemplate);
 
-describe('gatsby declaration file formatter', () => {
+describe('generic declaration file formatter', () => {
   it('should return typescript definitions formatted tokens', () => {
     return theo
       .convert({
@@ -14,7 +14,7 @@ describe('gatsby declaration file formatter', () => {
         },
         format: {
           // @ts-ignore Theo isn't typed for custom format types
-          type: 'gatsby.d.ts',
+          type: 'generic.d.ts',
         },
       })
       .then((dTS: string) => {
