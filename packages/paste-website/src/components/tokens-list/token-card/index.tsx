@@ -7,15 +7,27 @@ import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
+import {remToPx} from '@twilio-paste/theme';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 
-const getTokenAltValue = ({category, value}: {category: string; value: string}): string | null => {
+const getTokenAltValue = ({
+  category,
+  value,
+}: {
+  category: string;
+  value: 'string' | 'number';
+}): string | number | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
     case 'text-colors':
       return rgbToHex(value);
+    case 'font-sizes':
+    case 'line-heights':
+    case 'sizings':
+    case 'spacings':
+      return remToPx(value, 'string');
     default:
       return null;
   }
@@ -73,27 +85,29 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
     >
       <TokenExample category={category} name={camelCaseName} value={value} contrastRating={contrastRating} />
       <Box
-        paddingY="space60"
-        paddingX="space70"
+        display={['block', 'block', 'flex']}
+        alignItems="center"
+        paddingY={['space50', 'space60']}
+        paddingX={['space50', 'space70']}
         borderLeftColor="colorBorderWeaker"
         borderLeftWidth="borderWidth10"
         borderLeftStyle="solid"
         width="100%"
       >
-        <Box display={['block', 'flex']} columnGap="space110">
-          <Box marginBottom={['space40', 'space0']} flexGrow={1}>
-            <Box display="flex" alignItems="center" flexWrap="wrap">
-              <Text
-                as="span"
-                fontFamily="fontFamilyCode"
-                fontWeight="fontWeightBold"
-                fontSize="fontSize30"
-                lineHeight="lineHeight40"
-                marginRight="space20"
-                wordBreak="break-word"
-              >
-                {camelCaseName}
-              </Text>
+        <Box marginBottom={['space40', 'space0']} flexGrow={1}>
+          <Box display="flex" alignItems="center" flexWrap="wrap">
+            <Text
+              as="span"
+              fontFamily="fontFamilyCode"
+              fontWeight="fontWeightBold"
+              fontSize="fontSize30"
+              lineHeight="lineHeight40"
+              marginRight="space20"
+              wordBreak="break-word"
+            >
+              {camelCaseName}
+            </Text>
+            <Box display={['none', 'block']}>
               <Tooltip text={tooltipText} state={tooltipState}>
                 <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
                   <span>
@@ -105,25 +119,24 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
                 </Button>
               </Tooltip>
             </Box>
-            <Text as="div" fontSize="fontSize30" lineHeight="lineHeight40">
-              {comment}
-            </Text>
           </Box>
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems={['flex-start', 'flex-end']}
-            textAlign="right"
-            flexShrink={0}
-          >
-            <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              {value}
-            </Text>
-            <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              {getTokenAltValue({category, value})}
-            </Text>
-          </Box>
+          <Text as="div">{comment}</Text>
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems={['flex-start', 'flex-start', 'flex-end']}
+          textAlign={['left', 'left', 'right']}
+          marginTop={['space30', 'space30', 'space0']}
+          flexShrink={0}
+        >
+          <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
+            {value}
+          </Text>
+          <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
+            {getTokenAltValue({category, value})}
+          </Text>
         </Box>
       </Box>
     </Box>

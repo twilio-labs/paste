@@ -14,7 +14,7 @@ type TokenExampleProps = {
   category: string;
   name: string;
   value: string;
-  contrastRating: string;
+  contrastRating: string | null;
 };
 
 export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value, contrastRating}) => {
@@ -77,7 +77,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
   return tokenExampleRender ? (
     <Box
       boxSizing="content-box"
-      padding="space40"
+      padding={['space30', 'space40']}
       width="sizeSquare200"
       minHeight="sizeSquare170"
       justifyContent="center"
