@@ -5,9 +5,9 @@ import {getTokenCategories} from '../utils/getTokenCategories';
 import {isNumeric, pluralCategoryMap} from './utils';
 
 const tokenLineTemplate = (key: string, value: string): string =>
-  `   readonly ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
+  `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
 const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
-  return `readonly "${categoryName}": readonly [
+  return `"${categoryName}": [
     ${props
       .map((prop) => {
         const results = [];
@@ -59,10 +59,10 @@ export const formatGroupTokensWithTemplate = (
     })
     .join(',\n');
 
-  return `{\n${content}\n};`;
+  return content;
 };
 
-export const gatsbyDTSTemplate = (result: ImmutableStyleMap): string => {
+export const genericDTsTemplate = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
   const groupedTokens = `{\n"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}\n}`;

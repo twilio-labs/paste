@@ -11,7 +11,7 @@ export const categoryTemplate = (categoryName: string, props: DesignToken[]): st
   `;
 };
 
-export const newGatsbyJsonTokenFormat = (result: ImmutableStyleMap): string => {
+export const genericCommonJsTokenFormat = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
   const groupedTokens = `"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}`;

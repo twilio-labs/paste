@@ -5,8 +5,8 @@ import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
 import {gatsbyJsonTokenFormat} from './formatters/gatsby.json';
-import {gatsbyDTSTemplate} from './formatters/gatsby.d.ts';
-import {newGatsbyJsonTokenFormat} from './formatters/gatsby';
+import {genericDTsTemplate} from './formatters/generic.d.ts';
+import {genericCommonJsTokenFormat} from './formatters/generic';
 import {es6TokenFormat} from './formatters/es6';
 import {dTSTokenFormat} from './formatters/d.ts';
 import {commonTokenFormat} from './formatters/common';
@@ -30,8 +30,8 @@ theo.registerFormat('common.d.ts', dTSTokenFormat);
 theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
 theo.registerFormat('gatsby.json', gatsbyJsonTokenFormat);
-theo.registerFormat('gatsby.js', newGatsbyJsonTokenFormat);
-theo.registerFormat('gatsby.d.ts', gatsbyDTSTemplate);
+theo.registerFormat('generic.js', genericCommonJsTokenFormat);
+theo.registerFormat('generic.d.ts', genericDTsTemplate);
 theo.registerTransform('web', ['color/rgb']);
 
 gulp.task('tokens:less', () =>
@@ -246,13 +246,13 @@ gulp.task('tokens:gatsby', () =>
     .pipe(gulp.dest(paths.dist))
 );
 
-gulp.task('tokens:gatsby:js', () =>
+gulp.task('tokens:generic:js', () =>
   gulp
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
         transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.js'},
+        format: {type: 'generic.js'},
       })
     )
     .on('error', (err: string) => {
@@ -261,13 +261,13 @@ gulp.task('tokens:gatsby:js', () =>
     .pipe(gulp.dest(paths.dist))
 );
 
-gulp.task('tokens:gatsby:d:ts', () =>
+gulp.task('tokens:generic:d:ts', () =>
   gulp
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
         transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.d.ts'},
+        format: {type: 'generic.d.ts'},
       })
     )
     .on('error', (err: string) => {
@@ -308,8 +308,8 @@ gulp.task(
     'tokens:raw',
     'tokens:sketchpalette',
     'tokens:gatsby',
-    'tokens:gatsby:js',
-    'tokens:gatsby:d:ts'
+    'tokens:generic:js',
+    'tokens:generic:d:ts'
   )
 );
 
