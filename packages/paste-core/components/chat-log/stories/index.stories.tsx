@@ -4,8 +4,19 @@ import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
 import {Button} from '@twilio-paste/button';
+import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
+
 import type {StoryFn} from '@storybook/react';
-import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} from '../src';
+import {
+  ChatMessage,
+  ChatBubble,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  ChatAttachment,
+  ChatAttachmentLink,
+  ChatAttachmentDescription,
+  ChatLog,
+} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -135,6 +146,17 @@ export const ScrollingChatLog: StoryFn = () => (
 
 export const KitchenSink: StoryFn = () => (
   <ChatLog>
+    <ChatMessage variant="outbound">
+      <ChatBubble>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
+          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
+          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+        </ChatAttachment>
+      </ChatBubble>
+      <ChatMessageMeta aria-label="said by you at 4:32pm">
+        <ChatMessageMetaItem>4:25 PM</ChatMessageMetaItem>
+      </ChatMessageMeta>
+    </ChatMessage>
     <ChatMessage variant="inbound">
       <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
@@ -165,6 +187,12 @@ export const KitchenSink: StoryFn = () => (
         Quisque ullamcorper ipsum vitae lorem euismod sodales. Donec a nisi eget eros laoreet pellentesque. Donec sed
         bibendum justo, at ornare mi. Sed eget tempor metus, sed sagittis lacus. Donec commodo nisi in ligula accumsan
         euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{' '}
+      </ChatBubble>
+      <ChatBubble>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
+          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
+          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+        </ChatAttachment>
       </ChatBubble>
       <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
