@@ -5,7 +5,7 @@ slug: /foundations/localization/
 ---
 
 import {graphql} from 'gatsby';
-
+import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -48,7 +48,10 @@ export const pageQuery = graphql`
   <CalloutText>
     This page contains general guidance around best practices for localization. If you are a Twilion and have any questions, please
     visit the{' '}
-    <Anchor href="https://internal-product-docs.twilio.com/docs/internationalization/">Global team's product docs</Anchor>, or contact them on Slack at #help-localization.
+    <Anchor href="https://internal-product-docs.twilio.com/docs/internationalization/" showExternal>
+       Global team's product docs
+    </Anchor>
+    , or contact them on Slack at #help-localization.
   </CalloutText>
 </Callout>
 
