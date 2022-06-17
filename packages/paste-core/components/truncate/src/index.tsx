@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
-
+import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 export interface TruncateProps extends Omit<React.HtmlHTMLAttributes<HTMLSpanElement>, 'color'>, Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;
   title: string;
@@ -13,6 +13,8 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ..
       {...props}
       as="span"
       display="inline-block"
+      verticalAlign="bottom"
+      textDecoration="inherit"
       maxWidth="100%"
       overflow="hidden"
       ref={ref}
