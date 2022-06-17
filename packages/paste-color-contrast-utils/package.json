@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/color-contrast-utils",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Shared utilities for checking color contrast in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -29,6 +29,6 @@
     "@twilio-paste/design-tokens": "^7.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^7.2.2"
+    "@twilio-paste/design-tokens": "^7.3.0"
   }
 }
