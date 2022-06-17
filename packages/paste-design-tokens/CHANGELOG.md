@@ -6,8 +6,8 @@
 
 - [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d) [#2467](https://github.com/twilio-labs/paste/pull/2467) Thanks [@andipants12](https://github.com/andipants12)! - [Design tokens] Add a new generic export featuring additional metadata. This can be used in documentation or software tooling.
 
-  - CommonJS export `tokens.gatsby.js`
-  - complimentary declaration file included `tokens.gatsby.d.ts`
+  - CommonJS export `tokens.generic.js`
+  - complimentary declaration file included `tokens.generic.d.ts`
   - Maps token buckets/categories (e.g. "background-colors") to a list of token objects.
 
 ### Patch Changes
