@@ -86,7 +86,7 @@ const HomeHero: React.FC = () => {
                     })
                   }
                 >
-                  Apply here
+                  Try it out
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
