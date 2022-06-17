@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.3.0
+
+### Minor Changes
+
+- [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d) [#2467](https://github.com/twilio-labs/paste/pull/2467) Thanks [@andipants12](https://github.com/andipants12)! - [Design tokens] Add a new generic export featuring additional metadata. This can be used in documentation or software tooling.
+
+  - CommonJS export `tokens.generic.js`
+  - complimentary declaration file included `tokens.generic.d.ts`
+  - Maps token buckets/categories (e.g. "background-colors") to a list of token objects.
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 7.2.2
 
 ### Patch Changes

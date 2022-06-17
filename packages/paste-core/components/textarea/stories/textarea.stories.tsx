@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -18,21 +19,75 @@ export default {
   component: TextArea,
 };
 
-export const Textarea = (): React.ReactNode => {
+export const Textarea = (): React.ReactElement => {
   const uid = useUID();
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <TextArea
         id={uid}
+        aria-describedby={`help-text-${uid}`}
         placeholder="Placeholder"
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
+};
+
+export const MultipleTextareas = (): React.ReactElement => {
+  const [shouldDisplayTextareas, setShouldDisplayTextareas] = React.useState(true);
+  const [textareas, setTextareas] = React.useState<React.ReactNode[]>([]);
+
+  const push = (): void => {
+    setTextareas([...textareas, <Textarea key={textareas.length + 1} />]);
+  };
+
+  const pop = (): void => {
+    const updated = [...textareas];
+    updated.shift();
+    setTextareas(updated);
+  };
+
+  React.useEffect(() => {
+    push();
+  }, []);
+
+  return (
+    <>
+      {shouldDisplayTextareas && (
+        <Box display="flex" flexDirection="column" rowGap="space50" paddingBottom="space100">
+          {textareas.map((textarea, i) => (
+            <Box key={i}>{textarea}</Box>
+          ))}
+        </Box>
+      )}
+      <Box display="flex" columnGap="space100" flexDirection="row">
+        <Button
+          variant="secondary"
+          onClick={() => {
+            setShouldDisplayTextareas(!shouldDisplayTextareas);
+          }}
+        >
+          Toggle textarea visibility
+        </Button>
+        <Button variant="secondary" onClick={push}>
+          Push textarea
+        </Button>
+        <Button variant="secondary" onClick={pop}>
+          Pop textarea
+        </Button>
+      </Box>
+    </>
+  );
+};
+
+MultipleTextareas.story = {
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
 };
 
 export const TextareaInverse = (): React.ReactNode => {
@@ -45,18 +100,46 @@ export const TextareaInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
 TextareaInverse.story = {
   name: 'Textarea - inverse',
+};
+
+export const TextareaResizeVertical = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid} required>
+        Label
+      </Label>
+      <TextArea
+        id={uid}
+        placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
+        resize="vertical"
+        onChange={action('handleFocus')}
+        onFocus={action('handleFocus')}
+        onBlur={action('handleBlur')}
+      />
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
+    </>
+  );
+};
+
+TextareaResizeVertical.story = {
+  name: 'Textarea - Resize Vertical',
 };
 
 export const TextareaRequired = (): React.ReactNode => {
@@ -70,11 +153,12 @@ export const TextareaRequired = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         required
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -94,12 +178,15 @@ export const TextareaRequiredInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         required
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -117,11 +204,14 @@ export const TextareaError = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         hasError
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
+      <HelpText variant="error" id={`help-text-${uid}`}>
+        Error info. Explains why the input has an error.
+      </HelpText>
     </>
   );
 };
@@ -141,12 +231,15 @@ export const TextareaErrorInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         hasError
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">Error info. Explains why the input has an error.</HelpText>
+      <HelpText variant="error_inverse" id={`help-text-${uid}`}>
+        Error info. Explains why the input has an error.
+      </HelpText>
     </Box>
   );
 };
@@ -165,13 +258,14 @@ export const TextareaDisabled = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         value="Disabled text content..."
         disabled
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -190,6 +284,7 @@ export const TextareaDisabledInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         value="Disabled text content..."
         disabled
         onChange={action('handleFocus')}
@@ -197,7 +292,9 @@ export const TextareaDisabledInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -215,11 +312,12 @@ export const TextareaReadOnly = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         readOnly
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -239,12 +337,15 @@ export const TextareaReadOnlyInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         readOnly
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -261,6 +362,7 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
@@ -275,7 +377,7 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -294,6 +396,7 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
@@ -309,7 +412,7 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -328,6 +431,7 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
@@ -343,7 +447,9 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
         }
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -362,6 +468,7 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
@@ -378,7 +485,9 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
         variant="inverse"
         disabled
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/uid-library",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "category": "library",
   "status": "production",
   "description": "A library to generate unique IDs for use in user interfaces such as forms.",
