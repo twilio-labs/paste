@@ -74,7 +74,7 @@ const HomeHero: React.FC = () => {
                 <Badge as="span" variant="new">
                   New!
                 </Badge>
-                <NewComponentBannerText>We've released a Figma plugin, Twilio Ipsum!</NewComponentBannerText>
+                <NewComponentBannerText>We&apos;ve released a Figma plugin, Twilio Ipsum!</NewComponentBannerText>
                 <NewComponentBannerLink
                   showExternal
                   to="https://www.figma.com/community/plugin/1040423794729523647/Twilio-Ipsum"
