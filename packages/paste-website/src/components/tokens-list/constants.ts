@@ -9,7 +9,7 @@ export const TOKENS_BY_THEME = {
   default: annotate(defaultThemeTokens),
 };
 
-// Note: this assumes categoriy tokens are the same.
+// Note: this assumes that token categories are the same for all themes.
 // Currently this is the case, a potential betterment to make this more resilient would be to:
 // - compare the categories in the theme shapes
 // - add handling for the case where they are not the same

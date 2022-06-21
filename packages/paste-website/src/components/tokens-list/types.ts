@@ -1,26 +1,10 @@
-export interface Token {
-  name: string;
-  value: string;
-  comment: string;
-  category: string;
-  type: string;
-  deprecated: boolean;
-}
+import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
 
-export interface TokenCategory {
-  categoryName: string;
-  info?: React.ReactNode;
-  tokens: Token[];
-}
+export type TokenFormats = 'js' | 'css';
+export type TokenValueFormatter = (name: string) => string;
 
-export interface TokensShape {
-  node: {
-    tokens: TokenCategory[];
-  };
-}
+export type ThemeKeys = 'default' | 'dark';
 
-export interface TokensListProps {
-  children?: React.ReactElement;
-  defaultTokens: TokensShape[];
-  darkTokens: TokensShape[];
-}
+export type Token<Name = string, Val = string | number> = GatsbyTokens.TokenDTO<Name, Val>;
+export type DecoratedToken<Name = string, Val = string | number> = GatsbyTokens.DecoratedToken<Name, Val>;
+export type CategoryKeys = GatsbyTokens.CategoryKeys;

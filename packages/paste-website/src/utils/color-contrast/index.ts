@@ -19,7 +19,6 @@ export const computeContrastRating = (acc: ColorCombinationAccessibility): strin
   return rating.small;
 };
 
-// @TODO
 export const getAccessibilityData = (
   textColor: string,
   backgroundColor: string

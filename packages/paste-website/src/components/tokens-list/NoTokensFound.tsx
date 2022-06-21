@@ -15,7 +15,7 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
     <Stack orientation="horizontal" spacing="space110">
       <Box
         as="img"
-        src="/images/patterns/empty-no-results-found.png"
+        src="../../assets/images/patterns/empty-no-results-found.png"
         alt="No results found illustration"
         size="size20"
       />

@@ -44,5 +44,10 @@ declare module '@twilio-paste/website__tokens-list' {
     };
     export type DecoratedThemeTokens = TokensGeneric<DecoratedToken>;
 
+    export type CamelizeString<T extends PropertyKey> = T extends string ? string extends T ? string : T extends `${infer F}-${infer R}` ? `${F}${Capitalize<CamelizeString<R>>}` : T : T;
+
+    export type CamelizeKeys<Obj> = {
+      [Property in CamelizeString<keyof Obj>]: Obj[keyof Obj];
+    }
   }
 }

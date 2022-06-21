@@ -1,5 +1,5 @@
 import * as React from 'react';
-import camelCase from 'lodash/camelCase';
+
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
@@ -7,40 +7,48 @@ import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-import {rgbToHex} from '../../../utils/rgbToHex';
-import {BackgroundColor} from './preview/BackgroundColor';
 
-interface TokenExampleProps {
-  category: string;
-  name: string;
-  value: string;
-}
-const PreviewComponent: React.FC<TokenExampleProps> = ({category, name, value}) => {
+import {BackgroundColor} from './preview/BackgroundColor';
+import type {DecoratedToken} from '../types';
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const TokenExample: React.FC<{
+  category: DecoratedToken['category'];
+  name: DecoratedToken['name'];
+  value: DecoratedToken['value'];
+  backgroundColor: DecoratedToken['backgroundColor'];
+  contrastRating: DecoratedToken['contrastRating'];
+}> = ({category, name, value, backgroundColor, contrastRating}) => {
   switch (category) {
     case 'background-colors':
-      return <BackgroundColor name={name} value={value} />;
+      return <BackgroundColor name={name} value={value as string} />;
     default:
-      return <Box>{value}</Box>;
+      return (
+        <Box>
+          {value}
+          {backgroundColor} {contrastRating}
+        </Box>
+      );
   }
 };
 
-export interface TokenCardProps {
-  category: string;
-  name: string;
-  value: string;
-  comment: string;
-}
-export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comment}) => {
+const useCopyTooltip = (
+  name: DecoratedToken['name']
+): {
+  isCopied: boolean;
+  handleCopyName: VoidFunction;
+  tooltipState: ReturnType<typeof useTooltipState>;
+  tooltipText: string;
+} => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
   const isFirstRender = React.useRef(true);
   const clipboard = useClipboard({copiedTimeout: 2000});
-  const camelCaseName = camelCase(name.replace('$', ''));
 
   const handleCopyName = React.useCallback(() => {
-    clipboard.copy(camelCaseName);
-  }, [camelCaseName]);
+    clipboard.copy(name);
+  }, [name]);
 
   React.useEffect(() => {
     setTooltipText(clipboard.copied ? 'Copied!' : 'Copy token name');
@@ -59,6 +67,38 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
     setTimeout(() => tooltipState.show(), 0);
   }, [tooltipText]);
 
+  return {
+    isCopied: clipboard.copied,
+    handleCopyName,
+    tooltipState,
+    tooltipText,
+  };
+};
+
+const CopyIconWithTooltip: React.FC<{name: DecoratedToken['name']}> = ({name}) => {
+  const {tooltipText, tooltipState, isCopied, handleCopyName} = useCopyTooltip(name);
+  return (
+    <Tooltip text={tooltipText} state={tooltipState}>
+      <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
+        <span>
+          <CopyIcon decorative />
+          <span aria-live="polite">
+            <ScreenReaderOnly>{isCopied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
+          </span>
+        </span>
+      </Button>
+    </Tooltip>
+  );
+};
+
+export const TokenCard: React.FC<{
+  category: DecoratedToken['category'];
+  name: DecoratedToken['name'];
+  comment: DecoratedToken['comment'];
+  value: DecoratedToken['value'];
+  backgroundColor: DecoratedToken['backgroundColor'];
+  contrastRating: DecoratedToken['contrastRating'];
+}> = ({category, name, value, comment, backgroundColor, contrastRating}) => {
   return (
     <Box
       key={name}
@@ -72,7 +112,13 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
       minHeight="sizeSquare170"
     >
       <Box margin="space40" width="sizeSquare200" justifyContent="center" alignItems="center" display="flex">
-        <PreviewComponent category={category} name={camelCaseName} value={value} />
+        <TokenExample
+          category={category}
+          name={name}
+          value={value}
+          backgroundColor={backgroundColor}
+          contrastRating={contrastRating}
+        />
       </Box>
       <Box
         paddingY="space60"
@@ -94,18 +140,9 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
                 marginRight="space20"
                 wordBreak="break-word"
               >
-                {camelCaseName}
+                {name}
               </Text>
-              <Tooltip text={tooltipText} state={tooltipState}>
-                <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
-                  <span>
-                    <CopyIcon decorative />
-                    <span aria-live="polite">
-                      <ScreenReaderOnly>{clipboard.copied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
-                    </span>
-                  </span>
-                </Button>
-              </Tooltip>
+              <CopyIconWithTooltip name={name} />
             </Box>
             <Text as="div" fontSize="fontSize30" lineHeight="lineHeight40">
               {comment}
@@ -123,7 +160,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
               {value}
             </Text>
             <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-              {rgbToHex(value)}
+              {value}
             </Text>
           </Box>
         </Box>

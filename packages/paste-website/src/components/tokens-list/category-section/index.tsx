@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import isEqual from 'lodash/isEqual';
 import {Box} from '@twilio-paste/box';
-import {useVirtual} from 'react-virtual';
 
 import {AnchoredHeading} from '../../Heading';
 import {TokenCard} from '../token-card';
@@ -11,25 +10,7 @@ import type {TokenValueFormatter, CategoryKeys} from '../types';
 import {TOKENS_BY_THEME} from '../constants';
 import {Description} from './Description';
 
-import type {DecoratedToken} from '../types';
-import {useUIDSeed} from 'react-uid';
-
-const useVirtualizedList = (
-  items: DecoratedToken[],
-  parentRef: React.MutableRefObject<HTMLDivElement | HTMLElement | null>
-): Pick<ReturnType<typeof useVirtual>, 'scrollToIndex' | 'virtualItems' | 'totalSize'> => {
-  const seed = useUIDSeed();
-  const {scrollToIndex, virtualItems, totalSize} = useVirtual({
-    size: items.length,
-    parentRef,
-    keyExtractor: React.useCallback((idx) => seed(items[idx]), []),
-    estimateSize: React.useCallback(() => 36, []),
-    overscan: 4,
-    paddingStart: 10,
-  });
-
-  return {scrollToIndex, virtualItems, totalSize};
-};
+import {useVirtualizedTokensList} from '../hooks';
 
 export const CategorySection: React.FC<{
   filterString: string;
@@ -44,7 +25,7 @@ export const CategorySection: React.FC<{
   const [filteredTokens, setFilteredTokens] = React.useState<typeof categoryTokens>(categoryTokens);
 
   const parentRef = React.useRef<HTMLDivElement>(null);
-  const {virtualItems} = useVirtualizedList(filteredTokens, parentRef);
+  const {virtualItems} = useVirtualizedTokensList(filteredTokens, parentRef);
 
   React.useEffect(() => {
     if (filteredTokens.length === 0) {

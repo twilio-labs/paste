@@ -1,144 +1,146 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Label} from '@twilio-paste/label';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
-import {Text} from '@twilio-paste/text';
-import {useUID} from '@twilio-paste/uid-library';
-import {InlineCode} from '../Typography';
-import {AnchoredHeading} from '../Heading';
-import {TokenExample} from './TokensExample';
-import {getTokenValue} from './getTokenValue';
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
-import type {Token, TokenCategory, TokensListProps} from './types';
-import {NoResultImage} from '../images/EmptyStateImages';
 
-const sentenceCase = (catName: string): string => {
-  return catName
-    .split('-')
-    .join(' ')
-    .replace(/[a-z]/i, (letter): string => {
-      return letter.toUpperCase();
-    });
+import debounce from 'lodash/debounce';
+import {useUIDSeed} from '@twilio-paste/uid-library';
+import {Box} from '@twilio-paste/box';
+import {Label} from '@twilio-paste/label';
+import {Select, Option} from '@twilio-paste/select';
+import {Input} from '@twilio-paste/input';
+import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
+
+import {CategorySection} from './category-section';
+import {trackTokenFilterString} from './utils';
+
+import {PageAside} from '../shortcodes/PageAside';
+import {NoTokensFound} from './NoTokensFound';
+import {TOKEN_CATEGORIES, pageAsideData} from './constants';
+import type {CategoryKeys} from './types';
+
+import {useThemeSettings, useTokenValueFormatter} from './hooks';
+
+// - Intentionally using this casing to be very clear that this submit handler is a-typical
+// - declaring outside of the render body since it has no dependencies on the component state.
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _preventDefaultFormSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  e.preventDefault();
 };
 
-const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-
-export const TokensList: React.FC<TokensListProps> = (props) => {
-  const {theme} = useDarkModeContext();
+export const TokensList: React.FC = () => {
+  const seed = useUIDSeed();
   const [filterString, setFilterString] = React.useState('');
-  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
+  const [noResults, setNoResults] = React.useState(0);
+  const {themeKey, handleChangeTheme} = useThemeSettings();
+  const {updateTokenDisplay, tokenFormatKey, tokenFormatter} = useTokenValueFormatter();
 
-  // The rendered tokens should update every time the filterString, props, or theme changes
+  const handleSetNoResults = React.useCallback(() => setNoResults((total) => total + 1), []);
+
+  const showNullState = noResults === TOKEN_CATEGORIES.length;
+
   React.useEffect(() => {
-    setTokens(filterTokenList(filterString, props, theme));
-    trackTokenFilterString(filterString);
-  }, [filterString, props, theme]);
+    if (filterString === '') {
+      setNoResults(0);
+    }
+  }, [filterString]);
 
-  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const filter = e.currentTarget.value;
-    setFilterString(filter);
+  React.useEffect(() => {
+    trackTokenFilterString(filterString);
+  }, [filterString]);
+
+  React.useEffect(() => {
+    if (filterString.length > 0) {
+      setNoResults((curr) => {
+        if (curr === TOKEN_CATEGORIES.length) {
+          return 0;
+        }
+        return curr;
+      });
+    }
+  }, [filterString]);
+
+  const handleOnChange = React.useMemo(
+    () =>
+      debounce(({target: {value}}) => {
+        setFilterString(value);
+      }, 250),
+    []
+  );
+
+  const handleOnClearSearch: VoidFunction = () => {
+    setFilterString('');
+    setNoResults(0);
   };
 
-  const uid = useUID();
-
   return (
-    <>
-      <Box
-        as="form"
-        marginTop="space100"
-        marginBottom="space100"
-        maxWidth="size40"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <Label htmlFor={uid}>Filter tokens</Label>
-        <Input
-          autoComplete="off"
-          id={uid}
-          onChange={handleInput}
-          placeholder="filter by name or value"
-          type="text"
-          value={filterString}
-          name="tokens-filter"
-        />
+    <Box as="div" display={['block', 'block', 'flex']}>
+      <PageAside data={pageAsideData} />
+      <Box as="div" maxWidth="size70" minWidth="0" paddingTop="space100">
+        <Box
+          as="form"
+          onSubmit={_preventDefaultFormSubmit}
+          display={['block', 'block', 'flex']}
+          flexDirection="row"
+          columnGap="space40"
+          paddingBottom="space30"
+        >
+          <Box width="100%">
+            <Label htmlFor={seed('filter-string')} id={seed('filter-string-label')}>
+              Filter tokens
+            </Label>
+            <Input
+              type="text"
+              id={seed('filter-string')}
+              aria-labelledby={seed('filter-string-label')}
+              onChange={handleOnChange}
+              insertBefore={<FilterIcon decorative={false} title="TODO" />}
+            />
+          </Box>
+          <Box width={['100%', '100%', '40%']}>
+            <Label htmlFor={seed('select-theme')} id={seed('select-theme-label')}>
+              Theme
+            </Label>
+            <Select
+              id={seed('select-theme')}
+              aria-labelledby={seed('select-theme-label')}
+              value={themeKey}
+              onChange={handleChangeTheme}
+            >
+              <Option value="default">Default</Option>
+              <Option value="dark">Dark</Option>
+            </Select>
+          </Box>
+          <Box width={['100%', '100%', '40%']}>
+            <Label htmlFor={seed('select-format')} id={seed('select-format-label')}>
+              Format
+            </Label>
+            <Select
+              id={seed('select-format')}
+              aria-labelledby={seed('select-format-label')}
+              onChange={updateTokenDisplay}
+              value={tokenFormatKey}
+            >
+              <Option value="css">CSS</Option>
+              <Option value="js">JavaScript</Option>
+            </Select>
+          </Box>
+        </Box>
+
+        <Box paddingTop="space100" display={showNullState ? 'block' : 'none'}>
+          <NoTokensFound onClearSearch={handleOnClearSearch} />
+        </Box>
+
+        <Box display={showNullState ? 'none' : null}>
+          {TOKEN_CATEGORIES.map((categoryKey) => (
+            <CategorySection
+              categoryKey={categoryKey as CategoryKeys}
+              filterString={filterString}
+              themeKey={themeKey}
+              key={seed(categoryKey)}
+              setNoResults={handleSetNoResults}
+              tokenFormatter={tokenFormatter}
+            />
+          ))}
+        </Box>
       </Box>
-      {tokens != null ? (
-        tokens.map((cat) => {
-          return (
-            <React.Fragment key={`catname${cat.categoryName}`}>
-              <AnchoredHeading as="h2" variant="heading20">
-                {sentenceCase(cat.categoryName)}
-              </AnchoredHeading>
-              {cat.info}
-              <Box marginBottom="space160" data-cy="tokens-table-container">
-                <Table scrollHorizontally>
-                  <THead>
-                    <Tr>
-                      <Th>Token</Th>
-                      <Th width="250px">Value</Th>
-                      <Th width="250px">Example</Th>
-                    </Tr>
-                  </THead>
-                  <TBody>
-                    {cat.tokens
-                      .sort((a, b) => {
-                        if (cat.categoryName === 'font-weights') {
-                          return collator.compare(a.value, b.value);
-                        }
-                        return collator.compare(a.name, b.name);
-                      })
-                      .map((token: Token) => {
-                        return (
-                          <Tr key={`token${token.name}`}>
-                            <Td>
-                              <Text as="p" marginBottom="space30">
-                                <InlineCode>${token.name}</InlineCode>
-                              </Text>
-                              <Text as="p">{token.comment}</Text>
-                            </Td>
-                            <Td>{getTokenValue(token)}</Td>
-                            <Td>
-                              <TokenExample token={token} />
-                            </Td>
-                          </Tr>
-                        );
-                      })}
-                  </TBody>
-                </Table>
-              </Box>
-            </React.Fragment>
-          );
-        })
-      ) : (
-        <Card data-cy="tokens-empty-state" padding="space150">
-          <Stack orientation="horizontal" spacing="space110">
-            <NoResultImage />
-            <Stack orientation="vertical" spacing="space50">
-              <Heading as="h3" variant="heading30">
-                Oh no! We couldn&apos;t find any matches
-              </Heading>
-              <Stack orientation="vertical" spacing="space70">
-                <Text as="span">
-                  Try clearing your search and using another query to find the token you&apos;re looking for.
-                </Text>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    setFilterString('');
-                  }}
-                >
-                  Clear search
-                </Button>
-              </Stack>
-            </Stack>
-          </Stack>
-        </Card>
-      )}
-    </>
+    </Box>
   );
 };
