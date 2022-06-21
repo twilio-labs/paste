@@ -4,7 +4,7 @@ import {Button} from '@twilio-paste/button';
 import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 
-import type {DecoratedToken} from '../../types';
+import type {DecoratedToken} from '../types';
 
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';

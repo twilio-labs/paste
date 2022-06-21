@@ -2,44 +2,28 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {Tooltip} from '@twilio-paste/tooltip';
+import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 
 import {rgbToHex} from '../../../utils/rgbToHex';
-// @TODO probably need to modify the other inerface.
-// import {remToPx} from '@twilio-paste/theme';
-import {TokenExample} from './token-example';
-import {useCopyIconName} from './hooks';
+import {TokenExample} from './token-examples';
 import type {DecoratedToken} from '../types';
 
-// Based on root font-size being 16px
-const PX_PER_REM = 16;
-const numberIsString = (nm: string | number): nm is string => typeof nm === 'string';
+import {remToPx, ReturnValueType} from '../remToPx';
 
-type UnitValue = string | number;
-export const remToPx = (rem: UnitValue, stringify?: false | true | undefined): UnitValue => {
-  const remValue = numberIsString(rem) ? Number.parseFloat(rem.replace('rem', '')) : rem;
-  // We round because decimal px values can cause issues.
-  const pxValue = Math.round(remValue * PX_PER_REM);
-
-  return stringify != null ? `${pxValue}px` : pxValue;
-};
-
-// @TODO
 const getTokenAltValue = ({category, value}: {category: string; value: DecoratedToken['value']}): string | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
     case 'text-colors':
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      const _value = value as string;
-      return rgbToHex(_value);
+      return rgbToHex(value as string);
     case 'font-sizes':
     case 'line-heights':
     case 'sizings':
     case 'spacings':
-      return remToPx(value, true) as string;
+      return remToPx(value, ReturnValueType.STRING) as string;
     default:
       return null;
   }
@@ -53,7 +37,32 @@ export const TokenCard: React.FC<{
   backgroundColor: DecoratedToken['backgroundColor'];
   contrastRating: DecoratedToken['contrastRating'];
 }> = ({category, name, value, comment, contrastRating, backgroundColor}) => {
-  const {tooltipState, handleCopyName, isCopied, tooltipText} = useCopyIconName(name);
+  const tooltipState = useTooltipState();
+  const [tooltipText, setTooltipText] = React.useState('Copy token name');
+  // Prevents tooltip being visible on first render due to reakit positioning bug code
+  const isFirstRender = React.useRef(true);
+  const clipboard = useClipboard({copiedTimeout: 2000});
+
+  const handleCopyName = React.useCallback(() => {
+    clipboard.copy(name);
+  }, [name]);
+
+  React.useEffect(() => {
+    setTooltipText(clipboard.copied ? 'Copied!' : 'Copy token name');
+  }, [clipboard.copied]);
+
+  // Reakit has a bug where the tooltip doesn't recalc position on content changes
+  // This is a workaround until we upgrade to Ariakit with Floating UI fixes
+  // https://github.com/twilio-labs/paste/discussions/2037
+  React.useEffect(() => {
+    // This prevents the tooltip from showing up on mount
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    tooltipState.hide();
+    setTimeout(() => tooltipState.show(), 0);
+  }, [tooltipText]);
 
   return (
     <Box
@@ -106,7 +115,7 @@ export const TokenCard: React.FC<{
                   <span>
                     <CopyIcon decorative />
                     <span aria-live="polite">
-                      <ScreenReaderOnly>{isCopied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
+                      <ScreenReaderOnly>{clipboard.copied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
                     </span>
                   </span>
                 </Button>

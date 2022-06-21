@@ -37,11 +37,16 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
 
+  const contrastRating = category === 'text-colors' ? 'AAA' : null;
+  const backgroundColor = name.toLowerCase().includes('inverse') ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
+
   const {comment} =
     ((categoryTokens as unknown) as DecoratedToken[]).find((token) => {
       return token.name === name;
     }) || {};
   let themeCategory: string;
+
+  console.log({name: name.includes('icon')});
 
   // todo: what is the mapping between pure tokens and theme tokens? category names are diff in some cases.
   switch (category) {
@@ -51,6 +56,13 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
     case 'spacings':
       themeCategory = 'space';
       break;
+    case 'sizings':
+      if (name.includes('icon')) {
+        themeCategory = 'iconSizes';
+      }
+      themeCategory = 'sizes';
+      break;
+
     default:
       themeCategory = camelCase(category);
       break;
@@ -58,10 +70,9 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
 
   const themeCategoryTokens = theme[themeCategory as keyof typeof theme];
   type CategoryTokens = typeof themeCategoryTokens;
+
   const themeTokenValue = themeCategoryTokens[(camelCase(name) as unknown) as keyof CategoryTokens];
 
-  const backgroundColor = name.toLowerCase().includes('inverse') ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
-  const contrastRating = category === 'text-colors' ? 'AAA' : null;
   return (
     <TokenCard
       category={category}

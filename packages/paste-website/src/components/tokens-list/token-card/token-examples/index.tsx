@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 import type {DecoratedToken} from '../../types';
 
@@ -13,7 +12,45 @@ import {SpacingExample} from './SpacingExample';
 import {TextColorExample} from './TextColorExample';
 import {IconSizeExample} from './IconSizeExample';
 
+import type {CategoryKeys} from '../../types';
+
 type BgColor = Exclude<React.ComponentProps<typeof Box>['backgroundColor'], undefined>;
+
+const tokenPreviews: Record<
+  CategoryKeys,
+  React.FC<{
+    value: DecoratedToken['value'];
+    name?: DecoratedToken['name'];
+    contrastRating: DecoratedToken['contrastRating'];
+  }>
+> = {
+  'background-colors': ({value}) => <BoxExample backgroundColor={value as keyof ThemeShape['backgroundColors']} />,
+  'border-colors': ({value}) => <BoxExample borderColor={value as keyof ThemeShape['borderColors']} />,
+  'border-widths': ({value}) => <BorderExample borderWidth={value as keyof ThemeShape['borderWidths']} />,
+  fonts: ({value}) => <TextExample fontFamily={value as keyof ThemeShape['fonts']} />,
+  'font-sizes': ({value}) => <TextExample fontSize={value as keyof ThemeShape['fontSizes']} />,
+  'font-weights': ({value}) => <TextExample fontWeight={value as keyof ThemeShape['fontWeights']} />,
+  'line-heights': ({value, name}) => (
+    <LineHeightExample tokenName={name} lineHeight={value as keyof ThemeShape['lineHeights']} />
+  ),
+  radii: ({value}) => (
+    <BoxExample borderRadius={value as keyof ThemeShape['radii']} backgroundColor="colorBackgroundStrong" />
+  ),
+  'box-shadows': ({value}) => <BoxExample boxShadow={value as keyof ThemeShape['shadows']} />,
+  spacings: ({value, name}) => <SpacingExample tokenName={name} spacing={value as string} />,
+  sizings: ({value, name}) => {
+    console.log({value, name});
+    if (name.toLowerCase().match('icon')) {
+      return <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
+    }
+    if (name.toLowerCase().match('square')) {
+      return <BoxExample backgroundColor="colorBackgroundStrong" size={value as keyof ThemeShape['sizes']} />;
+    }
+
+    return null;
+  },
+  'text-color': ({value, contrastRating}) => <TextColorExample value={value} contrastRating={contrastRating} />,
+};
 
 export const TokenExample: React.FC<{
   category: DecoratedToken['category'];
@@ -22,67 +59,9 @@ export const TokenExample: React.FC<{
   backgroundColor: DecoratedToken['backgroundColor'];
   contrastRating: DecoratedToken['contrastRating'];
 }> = ({category, name, value, contrastRating, backgroundColor}) => {
-  let tokenExampleRender = null;
+  const TokenPreview = tokenPreviews[category as keyof typeof tokenPreviews];
 
-  switch (category) {
-    case 'background-colors':
-      tokenExampleRender = <BoxExample backgroundColor={value as keyof ThemeShape['backgroundColors']} />;
-      break;
-    case 'border-colors':
-      tokenExampleRender = <BoxExample borderColor={value as keyof ThemeShape['borderColors']} />;
-      break;
-    case 'border-widths':
-      tokenExampleRender = <BorderExample borderWidth={value as keyof ThemeShape['borderWidths']} />;
-      break;
-    case 'fonts':
-      tokenExampleRender = <TextExample fontFamily={value as keyof ThemeShape['fonts']} />;
-      break;
-    case 'font-sizes':
-      tokenExampleRender = <TextExample fontSize={value as keyof ThemeShape['fontSizes']} />;
-      break;
-    case 'font-weights':
-      tokenExampleRender = <TextExample fontWeight={value as keyof ThemeShape['fontWeights']} />;
-      break;
-    case 'line-heights':
-      tokenExampleRender = <LineHeightExample tokenName={name} lineHeight={value as keyof ThemeShape['lineHeights']} />;
-      break;
-    case 'radii':
-      tokenExampleRender = (
-        <BoxExample borderRadius={value as keyof ThemeShape['radii']} backgroundColor="colorBackgroundStrong" />
-      );
-      break;
-    case 'box-shadows':
-      tokenExampleRender = <BoxExample boxShadow={value as keyof ThemeShape['shadows']} />;
-      break;
-    case 'spacings':
-      tokenExampleRender = <SpacingExample tokenName={name} spacing={value as string} />;
-      break;
-    case 'sizings':
-      // only render a preview for icons or squares
-      if (name.toLowerCase().match('icon')) {
-        tokenExampleRender = <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
-      }
-
-      if (name.toLowerCase().match('square')) {
-        tokenExampleRender = (
-          <BoxExample backgroundColor="colorBackgroundStrong" size={value as keyof ThemeShape['sizes']} />
-        );
-      }
-
-      break;
-    case 'text-colors':
-      tokenExampleRender = (
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <TextExample color={value as keyof ThemeShape['textColors']} />
-          <Text as="span" fontSize="fontSize10" lineHeight="lineHeight10" marginTop="space20">
-            <ScreenReaderOnly>Contrast rating: </ScreenReaderOnly>
-            {contrastRating}
-          </Text>
-        </Box>
-      );
-  }
-
-  return tokenExampleRender ? (
+  return TokenPreview != null ? (
     <Box
       boxSizing="content-box"
       padding={['space30', 'space40']}
@@ -94,7 +73,7 @@ export const TokenExample: React.FC<{
       flexShrink={0}
       backgroundColor={backgroundColor as BgColor}
     >
-      {tokenExampleRender}
+      <TokenPreview value={value} name={name} contrastRating={contrastRating} />
     </Box>
   ) : null;
 };
