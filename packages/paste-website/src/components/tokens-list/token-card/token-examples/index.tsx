@@ -17,7 +17,7 @@ import type {CategoryKeys} from '../../types';
 type BgColor = Exclude<React.ComponentProps<typeof Box>['backgroundColor'], undefined>;
 
 const tokenPreviews: Record<
-  CategoryKeys,
+  Exclude<CategoryKeys, 'colors' | 'z-indices'>,
   React.FC<{
     value: DecoratedToken['value'];
     name?: DecoratedToken['name'];
@@ -31,25 +31,27 @@ const tokenPreviews: Record<
   'font-sizes': ({value}) => <TextExample fontSize={value as keyof ThemeShape['fontSizes']} />,
   'font-weights': ({value}) => <TextExample fontWeight={value as keyof ThemeShape['fontWeights']} />,
   'line-heights': ({value, name}) => (
-    <LineHeightExample tokenName={name} lineHeight={value as keyof ThemeShape['lineHeights']} />
+    <LineHeightExample tokenName={name as string} lineHeight={value as keyof ThemeShape['lineHeights']} />
   ),
   radii: ({value}) => (
     <BoxExample borderRadius={value as keyof ThemeShape['radii']} backgroundColor="colorBackgroundStrong" />
   ),
   'box-shadows': ({value}) => <BoxExample boxShadow={value as keyof ThemeShape['shadows']} />,
-  spacings: ({value, name}) => <SpacingExample tokenName={name} spacing={value as string} />,
+  spacings: ({value, name}) => <SpacingExample tokenName={name as string} spacing={value as string} />,
   sizings: ({value, name}) => {
-    console.log({value, name});
-    if (name.toLowerCase().match('icon')) {
+    const _name = (name as string).toLowerCase();
+    if (_name.match('icon')) {
       return <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
     }
-    if (name.toLowerCase().match('square')) {
+    if (_name.match('square')) {
       return <BoxExample backgroundColor="colorBackgroundStrong" size={value as keyof ThemeShape['sizes']} />;
     }
 
     return null;
   },
-  'text-color': ({value, contrastRating}) => <TextColorExample value={value} contrastRating={contrastRating} />,
+  'text-colors': ({value, contrastRating}) => (
+    <TextColorExample value={value as keyof ThemeShape['textColors']} contrastRating={contrastRating as string} />
+  ),
 };
 
 export const TokenExample: React.FC<{

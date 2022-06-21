@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   const backgroundColor = name.toLowerCase().includes('inverse') ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
 
   const {comment} =
-    ((categoryTokens as unknown) as DecoratedToken[]).find((token) => {
+    (categoryTokens as unknown as DecoratedToken[]).find((token) => {
       return token.name === name;
     }) || {};
   let themeCategory: string;
@@ -71,7 +71,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   const themeCategoryTokens = theme[themeCategory as keyof typeof theme];
   type CategoryTokens = typeof themeCategoryTokens;
 
-  const themeTokenValue = themeCategoryTokens[(camelCase(name) as unknown) as keyof CategoryTokens];
+  const themeTokenValue = themeCategoryTokens[camelCase(name) as unknown as keyof CategoryTokens];
 
   return (
     <TokenCard
