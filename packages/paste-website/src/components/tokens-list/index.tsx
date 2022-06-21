@@ -82,7 +82,7 @@ export const TokensList: React.FC = () => {
           columnGap="space40"
           paddingBottom="space30"
         >
-          <Box width="100%">
+          <Box width="100%" paddingBottom={['space60', 'space60', null]}>
             <Label htmlFor={seed('filter-string')} id={seed('filter-string-label')}>
               Filter tokens
             </Label>
@@ -94,7 +94,7 @@ export const TokensList: React.FC = () => {
               insertBefore={<FilterIcon decorative={false} title="TODO" />}
             />
           </Box>
-          <Box width={['100%', '100%', '40%']}>
+          <Box width={['100%', '100%', '40%']} paddingBottom={['space60', 'space60', null]}>
             <Label htmlFor={seed('select-theme')} id={seed('select-theme-label')}>
               Theme
             </Label>
@@ -108,7 +108,7 @@ export const TokensList: React.FC = () => {
               <Option value="dark">Dark</Option>
             </Select>
           </Box>
-          <Box width={['100%', '100%', '40%']}>
+          <Box width={['100%', '100%', '40%']} paddingBottom={['space60', 'space60', null]}>
             <Label htmlFor={seed('select-format')} id={seed('select-format-label')}>
               Format
             </Label>

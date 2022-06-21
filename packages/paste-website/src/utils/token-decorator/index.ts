@@ -29,8 +29,7 @@ export const backgroundColors = (
   theme: GatsbyTokens.ThemeTokens['tokens']
 ): {'color-background-body': string; 'color-background-body-inverse': string} => {
   return theme['background-colors']
-    .filter(({name, ...rest}) => {
-      console.log({name, rest});
+    .filter(({name}) => {
       return Boolean(name === 'color-background-body' || name === 'color-background-body-inverse');
     })
     .reduce(
@@ -49,7 +48,6 @@ export const annotate = (theme: GatsbyTokens.ThemeTokens): GatsbyTokens.Decorate
   const _theme = getTokensFromTheme(theme);
 
   return getCategoryKeys(_theme).reduce((accum, cat) => {
-    console.log({cat});
     const tokens = _theme[cat]
       .filter(({deprecated = false}) => !deprecated)
       .map(({name, value, ...rest}: GatsbyTokens.TokenDTO): Omit<
