@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+- [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002) [#2454](https://github.com/twilio-labs/paste/pull/2454) Thanks [@shleewhite](https://github.com/shleewhite)! - [Textarea] Update textarea to use @twilio-paste/react-autosize-textarea library and add the resize prop which allows users to resize the textarea height.
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+- Updated dependencies [[`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002)]:
+  - @twilio-paste/react-textarea-autosize-library@1.0.0
+
 ## 5.0.0
 
 ### Patch Changes

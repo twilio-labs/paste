@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/paragraph",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "category": "typography",
   "status": "production",
   "description": "A Paragraph is a block of text.",
@@ -36,12 +36,12 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^7.1.1",
-    "@twilio-paste/style-props": "^5.0.0",
-    "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/text": "^6.0.0",
-    "@twilio-paste/theme": "^7.0.0",
-    "@twilio-paste/types": "^3.1.5",
+    "@twilio-paste/design-tokens": "^7.3.0",
+    "@twilio-paste/style-props": "^5.0.2",
+    "@twilio-paste/styling-library": "^1.0.2",
+    "@twilio-paste/text": "^6.0.1",
+    "@twilio-paste/theme": "^7.0.1",
+    "@twilio-paste/types": "^3.1.8",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

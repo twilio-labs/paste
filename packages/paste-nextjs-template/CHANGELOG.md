@@ -1,5 +1,15 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.14
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+- Updated dependencies [[`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c), [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282)]:
+  - @twilio-paste/core@14.0.0
+  - @twilio-paste/icons@8.0.2
+
 ## 1.0.13
 
 ### Patch Changes
