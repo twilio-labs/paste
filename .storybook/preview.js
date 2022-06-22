@@ -7,6 +7,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Grid, Column} from '@twilio-paste/grid';
 import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
+import {SITE_BREAKPOINTS} from '../packages/paste-website/src/constants';
 
 const disableAnimations = isChromatic();
 
@@ -48,6 +49,18 @@ export const globalTypes = {
       ],
     },
   },
+  breakpoints: {
+    name: 'Breakpoints',
+    description: 'Responsive breakpoint settings for ThemeProvider',
+    defaultValue: null,
+    toolbar: {
+      icon: 'mobile',
+      items: [
+        {value: null, title: 'Default Breakpoints'},
+        {value: SITE_BREAKPOINTS, title: 'Docs Site Breakpoints'},
+      ],
+    },
+  },
 };
 
 const GlobalStyles = () => (
@@ -65,6 +78,7 @@ export const decorators = [
     const theme = context.globals.theme;
     const layout = context.globals.theme_layout;
     const lang = context.globals.locale;
+    const breakpoints = context.globals.breakpoints;
 
     switch (lang) {
       case 'rtl':
@@ -82,7 +96,7 @@ export const decorators = [
         return (
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
             <GlobalStyles />
-            <Theme.Provider theme={theme} disableAnimations={disableAnimations}>
+            <Theme.Provider theme={theme} disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
               <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                 <Story />
               </Box>
@@ -95,14 +109,14 @@ export const decorators = [
             <GlobalStyles />
             <Grid>
               <Column>
-                <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+                <Theme.Provider theme="default" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
                 </Theme.Provider>
               </Column>
               <Column>
-                <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
+                <Theme.Provider theme="dark" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
@@ -116,24 +130,24 @@ export const decorators = [
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
             <GlobalStyles />
             <Stack orientation="vertical">
-              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+              <Theme.Provider theme="default" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="default" disableAnimations={disableAnimations}>
+              <Theme.Provider theme="default" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
+              <Theme.Provider theme="dark" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={disableAnimations}>
+              <Theme.Provider theme="dark" disableAnimations={disableAnimations} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />
