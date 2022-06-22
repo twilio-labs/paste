@@ -10332,6 +10332,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    ts-node: ^10.0.0
   peerDependencies:
     "@twilio-paste/box": ^6.0.0
     "@twilio-paste/design-tokens": ^7.0.0
