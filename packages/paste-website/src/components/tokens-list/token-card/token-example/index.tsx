@@ -15,6 +15,7 @@ type TokenExampleProps = {
   name: string;
   value: string;
   contrastRating: string | null;
+  backgroundColor: string | null;
 };
 
 export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value, contrastRating}) => {
@@ -71,7 +72,9 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
 
       break;
     case 'text-colors':
-      tokenExampleRender = <TextColorExample value={value} contrastRating={contrastRating} />;
+      tokenExampleRender = (
+        <TextColorExample value={value as keyof ThemeShape['textColors']} contrastRating={contrastRating} />
+      );
   }
 
   return tokenExampleRender ? (

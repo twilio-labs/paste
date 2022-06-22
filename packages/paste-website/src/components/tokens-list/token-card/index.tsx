@@ -1,55 +1,50 @@
 import * as React from 'react';
-import camelCase from 'lodash/camelCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
-import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-import {remToPx} from '@twilio-paste/theme';
+
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
+import type {DecoratedToken} from '../types';
+import {remToPx} from '@twilio-paste/theme';
 
-const getTokenAltValue = ({
-  category,
-  value,
-}: {
-  category: string;
-  value: 'string' | 'number';
-}): string | number | null => {
+const getTokenAltValue = ({category, value}: {category: string; value: DecoratedToken['value']}): string | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
     case 'text-colors':
-      return rgbToHex(value);
+      return rgbToHex(value as string);
     case 'font-sizes':
     case 'line-heights':
     case 'sizings':
     case 'spacings':
-      return remToPx(value, 'string');
+      return remToPx(value) as string;
     default:
       return null;
   }
 };
 
-export interface TokenCardProps {
-  category: string;
-  name: string;
-  value: string;
-  comment: string;
-  contrastRating: string;
-}
-export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comment, contrastRating = null}) => {
+export const TokenCard: React.FC<{
+  category: DecoratedToken['category'];
+  name: DecoratedToken['name'];
+  value: DecoratedToken['value'];
+  comment?: DecoratedToken['comment'];
+  backgroundColor: DecoratedToken['backgroundColor'];
+  contrastRating: DecoratedToken['contrastRating'];
+}> = ({category, name, value, comment, contrastRating, backgroundColor}) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
   const isFirstRender = React.useRef(true);
   const clipboard = useClipboard({copiedTimeout: 2000});
-  const camelCaseName = camelCase(name.replace('$', ''));
+
   const handleCopyName = React.useCallback(() => {
-    clipboard.copy(camelCaseName);
-  }, [camelCaseName]);
+    clipboard.copy(name);
+  }, [name]);
 
   React.useEffect(() => {
     setTooltipText(clipboard.copied ? 'Copied!' : 'Copy token name');
@@ -83,7 +78,13 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
       marginBottom="space30"
       overflow="hidden"
     >
-      <TokenExample category={category} name={camelCaseName} value={value} contrastRating={contrastRating} />
+      <TokenExample
+        category={category}
+        name={name}
+        value={value}
+        contrastRating={contrastRating}
+        backgroundColor={backgroundColor}
+      />
       <Box
         display={['block', 'block', 'flex']}
         alignItems="center"
@@ -105,7 +106,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({category, name, value, comm
               marginRight="space20"
               wordBreak="break-word"
             >
-              {camelCaseName}
+              {name}
             </Text>
             <Box display={['none', 'block']}>
               <Tooltip text={tooltipText} state={tooltipState}>

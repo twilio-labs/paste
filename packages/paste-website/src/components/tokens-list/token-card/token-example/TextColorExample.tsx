@@ -7,7 +7,7 @@ import type {ThemeShape} from '@twilio-paste/theme';
 
 import {TextExample} from './TextExample';
 
-export const TextColorExample: React.FC<{value: keyof ThemeShape['textColors']; contrastRating: string}> = ({
+export const TextColorExample: React.FC<{value: keyof ThemeShape['textColors']; contrastRating: string | null}> = ({
   value,
   contrastRating,
 }) => {
