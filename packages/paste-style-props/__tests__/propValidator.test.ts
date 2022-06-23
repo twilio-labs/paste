@@ -1,5 +1,5 @@
 import {DefaultTheme} from '@twilio-paste/theme';
-import {propValidator} from '../proptypes/utils/propValidator';
+import {propValidator} from '../src/proptypes/utils/propValidator';
 
 const SpaceOptions = Object.keys(DefaultTheme.space);
 const isSpaceTokenProp = propValidator(SpaceOptions);
