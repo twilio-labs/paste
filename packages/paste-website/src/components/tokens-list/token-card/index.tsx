@@ -6,23 +6,23 @@ import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-
+import {remToPx} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {DecoratedToken} from '../types';
-import {remToPx} from '@twilio-paste/theme';
 
 const getTokenAltValue = ({category, value}: {category: string; value: DecoratedToken['value']}): string | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
     case 'text-colors':
-      return rgbToHex(value as string);
+      return rgbToHex(value);
     case 'font-sizes':
     case 'line-heights':
     case 'sizings':
     case 'spacings':
-      return remToPx(value) as string;
+      return remToPx(value, 'string') as string;
     default:
       return null;
   }
@@ -33,9 +33,8 @@ export const TokenCard: React.FC<{
   name: DecoratedToken['name'];
   value: DecoratedToken['value'];
   comment?: DecoratedToken['comment'];
-  backgroundColor: DecoratedToken['backgroundColor'];
-  contrastRating: DecoratedToken['contrastRating'];
-}> = ({category, name, value, comment, contrastRating, backgroundColor}) => {
+  backgroundColor: keyof ThemeShape['backgroundColors'];
+}> = ({category, name, value, comment, backgroundColor}) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
@@ -78,13 +77,7 @@ export const TokenCard: React.FC<{
       marginBottom="space30"
       overflow="hidden"
     >
-      <TokenExample
-        category={category}
-        name={name}
-        value={value}
-        contrastRating={contrastRating}
-        backgroundColor={backgroundColor}
-      />
+      <TokenExample category={category} name={name} value={value} backgroundColor={backgroundColor} />
       <Box
         display={['block', 'block', 'flex']}
         alignItems="center"

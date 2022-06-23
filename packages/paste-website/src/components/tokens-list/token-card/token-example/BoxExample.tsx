@@ -17,8 +17,6 @@ export const BoxExample: React.FC<BoxExampleProps> = ({
     ? 'colorBorderWeak'
     : null;
 
-  console.log('bg', backgroundColor);
-
   return (
     <Box
       aria-hidden="true"

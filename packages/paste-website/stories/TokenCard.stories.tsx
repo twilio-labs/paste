@@ -17,9 +17,6 @@ export default {
     backgroundColor: {
       control: false,
     },
-    contrastRating: {
-      control: false,
-    },
     comment: {
       control: false,
     },
@@ -37,16 +34,16 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
 
-  const contrastRating = category === 'text-colors' ? 'AAA' : null;
-  const backgroundColor = name.toLowerCase().includes('inverse') ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
+  const backgroundColorToken = name.toLowerCase().includes('inverse')
+    ? 'colorBackgroundBodyInverse'
+    : 'colorBackgroundBody';
+  const backgroundColor = theme.backgroundColors[backgroundColorToken];
 
   const {comment} =
     (categoryTokens as unknown as DecoratedToken[]).find((token) => {
       return token.name === name;
     }) || {};
   let themeCategory: string;
-
-  console.log({name: name.includes('icon')});
 
   // todo: what is the mapping between pure tokens and theme tokens? category names are diff in some cases.
   switch (category) {
@@ -80,7 +77,6 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
       value={themeTokenValue}
       comment={comment}
       backgroundColor={backgroundColor}
-      contrastRating={contrastRating}
     />
   );
 };
