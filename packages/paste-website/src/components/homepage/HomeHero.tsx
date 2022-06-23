@@ -74,19 +74,19 @@ const HomeHero: React.FC = () => {
                 <Badge as="span" variant="new">
                   New!
                 </Badge>
-                <NewComponentBannerText>We&apos;re hiring a Staff Product Designer!</NewComponentBannerText>
+                <NewComponentBannerText>We&apos;ve released a Figma plugin, Twilio Ipsum!</NewComponentBannerText>
                 <NewComponentBannerLink
                   showExternal
-                  to="https://boards.greenhouse.io/twilio/jobs/4249538"
+                  to="https://www.figma.com/community/plugin/1040423794729523647/Twilio-Ipsum"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Go to Staff Designer Position',
+                      label: 'Go to Twilio Ipsum Figma plugin',
                     })
                   }
                 >
-                  Apply here
+                  Try it out
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
