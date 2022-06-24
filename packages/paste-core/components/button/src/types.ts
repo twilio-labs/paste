@@ -1,7 +1,7 @@
 import type {BoxProps} from '@twilio-paste/box';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
-export type ButtonSizes = 'small' | 'default' | 'icon' | 'icon_small' | 'reset';
+export type ButtonSizes = 'small' | 'default' | 'icon' | 'icon_small' | 'reset' | 'rounded';
 export type ButtonVariants =
   | 'primary'
   | 'primary_icon'

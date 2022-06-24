@@ -4,6 +4,7 @@ import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
 import {Button} from '@twilio-paste/button';
+import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import type {StoryFn} from '@storybook/react';
 import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} from '../src';
 
@@ -11,6 +12,13 @@ import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} 
 export default {
   title: 'Components/ChatLog',
 };
+
+export const NewMessagesButton: StoryFn = () => (
+  <Button variant="primary" size="rounded">
+    New message
+    <ArrowDownIcon decorative />
+  </Button>
+);
 
 export const InboundChatMessage: StoryFn = () => (
   <ChatMessage variant="inbound">

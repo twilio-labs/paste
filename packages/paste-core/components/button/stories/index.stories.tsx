@@ -9,7 +9,7 @@ import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
 import type {ButtonVariants, ButtonSizes} from '../src/types';
 
-const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
+const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset', 'rounded'];
 
 const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   const allButtons: React.ReactNode[] = [];

@@ -73,4 +73,13 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     borderWidth: 'borderWidth0',
     fontSize: 'inherit',
   },
+  rounded: {
+    borderRadius: 'borderRadiusPill',
+    paddingTop: 'space30',
+    paddingBottom: 'space30',
+    paddingLeft: 'space40',
+    paddingRight: 'space40',
+    fontSize: 'fontSize30',
+    lineHeight: 'lineHeight20',
+  },
 };
