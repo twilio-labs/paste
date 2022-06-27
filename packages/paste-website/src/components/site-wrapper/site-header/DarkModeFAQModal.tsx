@@ -57,7 +57,7 @@ export const DarkModeFAQModal: React.FC = () => {
       </Heading>
       <Paragraph>
         Using the Dark theme should be a{' '}
-        <SiteLink to="/core/changing-theme">one-line update to the Theme Provider</SiteLink>. Simply change it from
+        <SiteLink to="/theme/changing-theme">one-line update to the Theme Provider</SiteLink>. Simply change it from
         &ldquo;default&rdquo; to &ldquo;dark&rdquo;.
       </Paragraph>
       <Heading variant="heading30" as="h2">
