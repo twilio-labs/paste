@@ -1,7 +1,7 @@
 ---
 title: Changing the Theme
 description: When using Paste, swapping to a different theme is simple and quick.
-slug: /core/changing-theme
+slug: /theme/changing-theme
 ---
 
 import {graphql} from 'gatsby';
@@ -9,7 +9,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
   {
-    mdx(frontmatter: {slug: {eq: "/core/changing-theme"}}) {
+    mdx(frontmatter: {slug: {eq: "/theme/changing-theme"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -26,7 +26,7 @@ export const pageQuery = graphql`
 <ComponentHeader
   name={props.pageContext.frontmatter.title}
   description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.CORE}
+  categoryRoute={SidebarCategoryRoutes.THEME}
 />
 
 ---
@@ -72,7 +72,7 @@ There are a few places that can cause styling bugs:
 
 - Check if there's more than one `<Theme.Provider>` and update of all of them, or the remove extra ones if they are unnecessary.
 - Make sure you aren't overriding any Paste component styles with CSS classes or selectors. The `<Theme.Provider>` cannot access these styles, so they do not get updated.
-- Also check that you are using Paste tokens when styling custom components. See our [guidelines for theming custom components](/core/theme-package/#using-tokens-in-custom-components) for more information.
+- Also check that you are using Paste tokens when styling custom components. See our [guidelines for theming custom components](/theme/#using-tokens-in-custom-components) for more information.
 
 ### What if I'm using a custom theme?
 
