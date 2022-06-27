@@ -13,6 +13,7 @@ const sidebarNavigationDisclosures = [
   'core',
   'libraries',
   'customization',
+  'theme',
 ];
 
 const BASE = 'sidebar-disclosure';
