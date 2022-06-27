@@ -27,10 +27,13 @@ export default {
       control: false,
     },
     value: {control: false},
+    useCamelCase: {
+      control: {type: 'boolean'},
+    },
   },
 } as ComponentMeta<typeof TokenCard>;
 
-const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
+const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
 
@@ -73,10 +76,11 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category}) => {
   return (
     <TokenCard
       category={category}
-      name={camelCase(name)}
+      name={name}
       value={themeTokenValue}
       comment={comment}
       backgroundColor={backgroundColor}
+      useCamelCase={useCamelCase}
     />
   );
 };

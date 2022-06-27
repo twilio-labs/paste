@@ -8,6 +8,7 @@ import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {remToPx} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
+import camelCase from 'lodash/camelCase';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {DecoratedToken} from '../types';
@@ -32,9 +33,10 @@ export const TokenCard: React.FC<{
   category: DecoratedToken['category'];
   name: DecoratedToken['name'];
   value: DecoratedToken['value'];
-  comment?: DecoratedToken['comment'];
   backgroundColor: keyof ThemeShape['backgroundColors'];
-}> = ({category, name, value, comment, backgroundColor}) => {
+  comment?: DecoratedToken['comment'];
+  useCamelCase?: boolean;
+}> = ({category, name, value, comment, backgroundColor, useCamelCase}) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState('Copy token name');
   // Prevents tooltip being visible on first render due to reakit positioning bug code
@@ -99,7 +101,7 @@ export const TokenCard: React.FC<{
               marginRight="space20"
               wordBreak="break-word"
             >
-              {name}
+              {useCamelCase ? camelCase(name) : name}
             </Text>
             <Box display={['none', 'block']}>
               <Tooltip text={tooltipText} state={tooltipState}>
