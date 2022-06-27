@@ -337,12 +337,6 @@ const SidebarNavigation: React.FC = () => {
           <SidebarAnchor level={1} to={SidebarCategoryRoutes.CORE}>
             Paste core
           </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
-            Theme package
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changing-theme`}>
-            Changing theme
-          </SidebarAnchor>
           <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changelog`}>
             Core changelog
           </SidebarAnchor>
@@ -363,6 +357,28 @@ const SidebarNavigation: React.FC = () => {
               Data visualization
             </SidebarAnchor>
           </NavigationDisclosure>
+        </NavigationDisclosure>
+        <NavigationDisclosure
+          buttonText="Theme"
+          categoryRoute={SidebarCategoryRoutes.THEME}
+          level={0}
+          onClick={() =>
+            trackCustomEvent({
+              category: 'Left Navigation',
+              action: 'click-theme',
+              label: 'Theme',
+            })
+          }
+        >
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.THEME}`}>
+            Overview
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.THEME}/dark-theme`}>
+            Dark theme
+          </SidebarAnchor>
+          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.THEME}/changing-theme`}>
+            Changing the theme
+          </SidebarAnchor>
         </NavigationDisclosure>
         <NavigationDisclosure
           buttonText="Customization"

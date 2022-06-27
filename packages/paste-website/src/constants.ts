@@ -57,6 +57,7 @@ export const SidebarCategoryRoutes = {
   CUSTOMIZATION: '/customization',
   ROADMAP: '/roadmap',
   BLOG: '/blog',
+  THEME: '/theme',
 };
 
 export const PackageStatus = {
