@@ -7,8 +7,8 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {remToPx} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
 import camelCase from 'lodash/camelCase';
+import type {Properties} from 'csstype';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {DecoratedToken} from '../types';
@@ -33,7 +33,7 @@ export const TokenCard: React.FC<{
   category: DecoratedToken['category'];
   name: DecoratedToken['name'];
   value: DecoratedToken['value'];
-  backgroundColor: keyof ThemeShape['backgroundColors'];
+  backgroundColor: Properties['backgroundColor'];
   comment?: DecoratedToken['comment'];
   useCamelCase?: boolean;
 }> = ({category, name, value, comment, backgroundColor, useCamelCase}) => {
@@ -93,7 +93,8 @@ export const TokenCard: React.FC<{
         <Box marginBottom={['space40', 'space0']} flexGrow={1}>
           <Box display="flex" alignItems="center" flexWrap="wrap">
             <Text
-              as="span"
+              as="p"
+              display="inline-block"
               fontFamily="fontFamilyCode"
               fontWeight="fontWeightBold"
               fontSize="fontSize30"
@@ -116,21 +117,26 @@ export const TokenCard: React.FC<{
               </Tooltip>
             </Box>
           </Box>
-          <Text as="div">{comment}</Text>
+          <Text as="p" margin="space0">
+            {comment}
+          </Text>
         </Box>
         <Box
+          as="ul"
           display="flex"
           flexDirection="column"
           justifyContent="center"
           alignItems={['flex-start', 'flex-start', 'flex-end']}
           textAlign={['left', 'left', 'right']}
           marginTop={['space30', 'space30', 'space0']}
+          marginBottom="space0"
           flexShrink={0}
+          listStyleType="none"
         >
-          <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
+          <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
             {value}
           </Text>
-          <Text as="div" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
+          <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
             {getTokenAltValue({category, value})}
           </Text>
         </Box>

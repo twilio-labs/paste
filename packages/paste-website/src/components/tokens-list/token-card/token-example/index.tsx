@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
+import type {Properties} from 'csstype';
 import {BoxExample} from './BoxExample';
 import {TextExample} from './TextExample';
 import {BorderExample} from './BorderExample';
@@ -13,14 +14,10 @@ type TokenExampleProps = {
   category: string;
   name: string;
   value: string;
-  backgroundColor: keyof ThemeShape['backgroundColors'];
+  backgroundColor: Properties['backgroundColor'];
 };
 
 export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value, backgroundColor}) => {
-  const exampleBackground = name.toLowerCase().includes('inverse')
-    ? 'colorBackgroundBodyInverse'
-    : 'colorBackgroundBody';
-
   let tokenExampleRender = null;
 
   switch (category) {
@@ -85,7 +82,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
       alignItems="center"
       display="flex"
       flexShrink={0}
-      backgroundColor={exampleBackground}
+      style={{backgroundColor: backgroundColor}}
     >
       {tokenExampleRender}
     </Box>
