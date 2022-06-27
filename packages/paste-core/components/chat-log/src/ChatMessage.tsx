@@ -17,6 +17,7 @@ const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
           ref={ref}
           element={element}
           variant={variant}
+          _last={{marginBottom: 'space0'}}
           {...messageVariantStyles[variant]}
           {...safelySpreadBoxProps(props)}
         >
