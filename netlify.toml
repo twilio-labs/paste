@@ -72,12 +72,21 @@
 
 # CORE/
 [[redirects]]
-  from = '/tokens/theme-package'
-  to = '/core/theme-package'
-
-[[redirects]]
   from = '/libraries/*'
   to = '/core/libraries/:splat'
+
+# THEME/
+[[redirects]]
+  from = '/core/theme-package'
+  to = '/theme/'
+
+[[redirects]]
+  from = '/tokens/theme-package'
+  to = '/theme/'
+
+[[redirects]]
+  from = '/core/changing-theme'
+  to = '/theme/changing-theme'
 
 # CUSTOMIZATION/
 [[redirects]]
