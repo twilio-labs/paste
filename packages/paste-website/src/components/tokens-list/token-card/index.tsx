@@ -11,9 +11,9 @@ import camelCase from 'lodash/camelCase';
 import type {Properties} from 'csstype';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
-import type {DecoratedToken} from '../types';
+import type {Token} from '../types';
 
-const getTokenAltValue = ({category, value}: {category: string; value: DecoratedToken['value']}): string | null => {
+const getTokenAltValue = ({category, value}: {category: string; value: Token['value']}): string | null => {
   switch (category) {
     case 'background-colors':
     case 'border-colors':
@@ -30,11 +30,11 @@ const getTokenAltValue = ({category, value}: {category: string; value: Decorated
 };
 
 export const TokenCard: React.FC<{
-  category: DecoratedToken['category'];
-  name: DecoratedToken['name'];
-  value: DecoratedToken['value'];
+  category: Token['category'];
+  name: Token['name'];
+  value: Token['value'];
   backgroundColor: Properties['backgroundColor'];
-  comment?: DecoratedToken['comment'];
+  comment?: Token['comment'];
   useCamelCase?: boolean;
 }> = ({category, name, value, comment, backgroundColor, useCamelCase}) => {
   const tooltipState = useTooltipState();

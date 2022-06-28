@@ -6,8 +6,6 @@ import {TokenCard} from '../src/components/tokens-list/token-card';
 
 import type {ComponentStory, ComponentMeta} from '@storybook/react';
 
-import type {DecoratedToken} from '../src/components/tokens-list/types';
-
 const defaultThemeTokens = Tokens.tokens;
 
 export default {
@@ -43,7 +41,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
   const backgroundColor = theme.backgroundColors[backgroundColorToken];
 
   const {comment} =
-    (categoryTokens as unknown as DecoratedToken[]).find((token) => {
+    categoryTokens.find((token) => {
       return token.name === name;
     }) || {};
   let themeCategory: string;

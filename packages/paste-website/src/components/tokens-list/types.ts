@@ -1,15 +1,4 @@
-import type {GatsbyTokens} from '@twilio-paste/website__tokens-list';
-
-export type TokenFormats = 'js' | 'css';
-export type TokenValueFormatter = (name: string) => string;
-
-export type ThemeKeys = 'default' | 'dark';
-
-export type Token<Name = string, Val = string> = GatsbyTokens.TokenDTO<Name, Val>;
-export type DecoratedToken<Name = string, Val = string | number> = GatsbyTokens.DecoratedToken<Name, Val>;
-export type CategoryKeys = GatsbyTokens.CategoryKeys;
-
-export interface LegacyToken {
+export interface Token {
   name: string;
   value: string;
   comment: string;
@@ -18,20 +7,20 @@ export interface LegacyToken {
   deprecated: boolean;
 }
 
-export interface LegacyTokenCategory {
+export interface TokenCategory {
   categoryName: string;
   info?: React.ReactNode;
-  tokens: LegacyToken[];
+  tokens: Token[];
 }
 
-export interface LegacyTokensShape {
+export interface TokensShape {
   node: {
-    tokens: LegacyTokenCategory[];
+    tokens: TokenCategory[];
   };
 }
 
-export interface LegacyTokensListProps {
+export interface TokensListProps {
   children?: React.ReactElement;
-  defaultTokens: LegacyTokensShape[];
-  darkTokens: LegacyTokensShape[];
+  defaultTokens: TokensShape[];
+  darkTokens: TokensShape[];
 }

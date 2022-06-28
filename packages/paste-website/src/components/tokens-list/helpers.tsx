@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import type {ThemeVariants} from '@twilio-paste/theme';
-import type {LegacyTokenCategory, LegacyTokensListProps} from './types';
+import type {TokenCategory, TokensListProps} from './types';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
 
 import debounce from 'lodash/debounce';
@@ -16,16 +16,16 @@ export const trackTokenFilterString = debounce((filter: string): void => {
   }
 }, 500);
 
-const filterDeprecatedTokens = (tokens: LegacyTokenCategory[]): LegacyTokenCategory[] => {
+const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
   return tokens.map((category) => {
     return {...category, tokens: [...category.tokens.filter((token) => !token.deprecated)]};
   });
 };
 
-export const getTokensByTheme = (props: LegacyTokensListProps, theme: ThemeVariants): LegacyTokenCategory[] => {
+export const getTokensByTheme = (props: TokensListProps, theme: ThemeVariants): TokenCategory[] => {
   const unfilteredTokensBasedOnTheme =
     theme === 'default' ? props.defaultTokens[0].node.tokens : props.darkTokens[0].node.tokens;
-  let tokens = [] as LegacyTokenCategory[];
+  let tokens = [] as TokenCategory[];
 
   if (unfilteredTokensBasedOnTheme != null) {
     tokens = filterDeprecatedTokens(unfilteredTokensBasedOnTheme);
@@ -50,10 +50,10 @@ export const getTokensByTheme = (props: LegacyTokensListProps, theme: ThemeVaria
 
 export const filterTokenList = (
   filter: string,
-  propsArg: LegacyTokensListProps,
+  propsArg: TokensListProps,
   themeArg: string
-): LegacyTokenCategory[] | null => {
-  const newTokenCategories = getTokensByTheme(propsArg, themeArg).map((category): LegacyTokenCategory => {
+): TokenCategory[] | null => {
+  const newTokenCategories = getTokensByTheme(propsArg, themeArg).map((category): TokenCategory => {
     const newTokens = category.tokens.filter((token) => {
       return token.name.includes(filter) || token.value.includes(filter);
     });

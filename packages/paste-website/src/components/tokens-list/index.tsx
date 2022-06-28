@@ -15,7 +15,7 @@ import {TokenExample} from './TokensExample';
 import {getTokenValue} from './getTokenValue';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
-import type {LegacyToken, LegacyTokenCategory, LegacyTokensListProps} from './types';
+import type {Token, TokenCategory, TokensListProps} from './types';
 import {NoResultImage} from '../images/EmptyStateImages';
 
 const sentenceCase = (catName: string): string => {
@@ -29,10 +29,10 @@ const sentenceCase = (catName: string): string => {
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
-export const TokensList: React.FC<LegacyTokensListProps> = (props) => {
+export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
-  const [tokens, setTokens] = React.useState<LegacyTokenCategory[] | null>(getTokensByTheme(props, theme));
+  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -92,7 +92,7 @@ export const TokensList: React.FC<LegacyTokensListProps> = (props) => {
                         }
                         return collator.compare(a.name, b.name);
                       })
-                      .map((token: LegacyToken) => {
+                      .map((token: Token) => {
                         return (
                           <Tr key={`token${token.name}`}>
                             <Td>
