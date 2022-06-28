@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Button] Adds a new size, 'rounded_small', for the Conversations UI Kit API
+[Button] Adds a new size, 'rounded_small', for the Conversations UI Kit
