@@ -1,8 +1,10 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {useTheme} from '@twilio-paste/theme';
 import {Avatar} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -118,7 +120,8 @@ ResponsiveImage.story = {
   parameters: {chromatic: {delay: 3000}},
 };
 
-export const CustomAvatar = (): React.ReactNode => {
+export const CustomAvatar: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Stack orientation="horizontal" spacing="space40">
@@ -127,14 +130,15 @@ export const CustomAvatar = (): React.ReactNode => {
         <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
       </Stack>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           AVATAR: {
             backgroundColor: 'colorBackgroundTrial',
           },
           AANG: {
             color: 'colorTextWeakest',
-            backgroundColor: 'colorBackgroundPrimary',
+            backgroundColor: 'colorBackgroundPrimaryStrong',
           },
         }}
       >

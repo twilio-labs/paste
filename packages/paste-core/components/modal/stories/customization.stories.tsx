@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
@@ -14,7 +15,7 @@ export const initStyles = (prefix: string): Record<string, PasteCustomCSS> => ({
   [prefix]: {
     borderRadius: 'borderRadius30',
     boxShadow: 'shadowHigh',
-    borderColor: 'colorBorderDark',
+    borderColor: 'colorBorderStrong',
     variants: {
       wide: {
         maxWidth: 'unset',
@@ -117,10 +118,10 @@ export default {
   excludeStories: ['initStyles', 'BaseModal'],
 };
 
-export const First = (): React.ReactNode => {
+export const First: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
       <BaseModal size="default" />
     </CustomizationProvider>
   );
@@ -133,10 +134,10 @@ First.story = {
   name: 'Normal variant - Default element names',
 };
 
-export const Second = (): React.ReactNode => {
+export const Second: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>
       <BaseModal element="CUSTOM" size="default" />
     </CustomizationProvider>
   );
@@ -149,10 +150,10 @@ Second.story = {
   name: 'Normal variant - Custom element names',
 };
 
-export const Third = (): React.ReactNode => {
+export const Third: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
       <BaseModal element="MODAL" size="wide" />
     </CustomizationProvider>
   );
@@ -165,10 +166,10 @@ Third.story = {
   name: 'Wide variant - Default element names',
 };
 
-export const Fourth = (): React.ReactNode => {
+export const Fourth: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>
       <BaseModal element="CUSTOM" size="wide" />
     </CustomizationProvider>
   );

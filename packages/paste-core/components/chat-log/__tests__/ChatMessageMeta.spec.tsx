@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {ChatMessage, ChatMessageMeta, ChatMessageMetaItem} from '../src';
 
@@ -117,28 +115,6 @@ describe('ChatMessageMeta', () => {
       </ChatMessage>
     );
     expect(screen.getByTestId('test-meta')).not.toHaveStyleRule('text-align', 'right');
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <ul>
-        <ChatMessage variant="inbound">
-          <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-            <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
-            <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
-          </ChatMessageMeta>
-        </ChatMessage>
-        <ChatMessage variant="outbound">
-          <ChatMessageMeta aria-label="said by you 2 minutes ago">
-            <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
-          </ChatMessageMeta>
-        </ChatMessage>
-      </ul>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
 

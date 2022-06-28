@@ -18,7 +18,7 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
   ({children, element = 'MODAL_HEADER', i18nDismissLabel = 'Close modal', ...props}, ref) => {
     const {onDismiss} = useModalContext();
     return (
-      <Box {...safelySpreadBoxProps(props)} as="header" {...modalHeaderStyles} element={element} ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} as="div" {...modalHeaderStyles} element={element} ref={ref}>
         <Flex hAlignContent="between">
           <Flex vAlignContent="center" grow={1} marginRight="space70">
             {children}

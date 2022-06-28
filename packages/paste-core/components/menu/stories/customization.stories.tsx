@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -7,6 +8,7 @@ import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {useUID} from '@twilio-paste/uid-library';
 
 import type {ButtonProps} from '@twilio-paste/button';
 
@@ -23,13 +25,13 @@ export const initStyles = (element: string): ElementOverrides => ({
   [`${element}_BUTTON`]: {
     variants: {
       secondary: {backgroundColor: 'colorBackgroundBusy'},
-      destructive: {backgroundColor: 'colorBackgroundDestructiveDarkest'},
+      destructive: {backgroundColor: 'colorBackgroundDestructiveStrongest'},
       destructive_secondary: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
       link: {padding: 'space40', borderRadius: 'borderRadiusCircle', backgroundColor: 'colorBackgroundNeutralWeakest'},
       destructive_link: {
         padding: 'space40',
         borderRadius: 'borderRadiusCircle',
-        backgroundColor: 'colorBackgroundDestructiveLight',
+        backgroundColor: 'colorBackgroundDestructiveWeak',
         color: 'colorTextWarningStrong',
         fontWeight: 'fontWeightBold',
       },
@@ -104,12 +106,13 @@ export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: s
   menuButtonVariant = 'primary',
   element,
 }) {
+  const uniqueBaseID = useUID();
   const menu = useMenuState({
     visible: true,
-    baseId: `${menuButtonVariant}-menu-customization-story`,
+    baseId: `${uniqueBaseID}-${menuButtonVariant}-menu-customization-story`,
   });
 
-  const subMenu = useMenuState({baseId: `${menuButtonVariant}-menu-submenu`});
+  const subMenu = useMenuState({baseId: `${uniqueBaseID}-${menuButtonVariant}-menu-submenu`});
   const onClick = React.useCallback(() => {
     menu.hide();
   }, [menu.hide]);
@@ -193,10 +196,10 @@ export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: s
   );
 });
 
-export const WithDefaultElementName: React.FC = () => {
+export const WithDefaultElementName: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('MENU')}>
+    <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('MENU')}>
       <Box display="flex" flexDirection="row" justifyContent="space-between">
         <BaseMenu menuButtonVariant="primary" />
         <BaseMenu menuButtonVariant="secondary" />
@@ -208,10 +211,10 @@ export const WithDefaultElementName: React.FC = () => {
   );
 };
 
-export const WithCustomElementName: React.FC = () => {
+export const WithCustomElementName: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
+    <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('CUSTOM')}>
       <Box display="flex" flexDirection="row" justifyContent="space-between">
         <BaseMenu menuButtonVariant="primary" element="CUSTOM" />
         <BaseMenu menuButtonVariant="secondary" element="CUSTOM" />

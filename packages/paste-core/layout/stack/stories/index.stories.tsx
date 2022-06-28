@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -144,7 +146,8 @@ OneChild.story = {
   name: 'Stack - One Child',
 };
 
-export const CustomizedStack = (): React.ReactNode => {
+export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Stack orientation="vertical" spacing="space40">
@@ -162,7 +165,8 @@ export const CustomizedStack = (): React.ReactNode => {
       </Stack>
 
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           STACK: {
             backgroundColor: 'colorBackground',

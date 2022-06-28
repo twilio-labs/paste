@@ -178,7 +178,7 @@ export const AlertDialogVRT = (): React.ReactNode => {
   const alertDialogHeadingID = useUID();
   const alertDialogBodyID = useUID();
   return (
-    <AlertDialogContent role="alertdialog">
+    <AlertDialogContent role="alertdialog" aria-labelledby={alertDialogHeadingID}>
       <AlertDialogHeader headingID={alertDialogHeadingID}>Submit application</AlertDialogHeader>
       <AlertDialogBody bodyID={alertDialogBodyID}>
         Are you sure you want to submit this application? No information can be changed after submitting.
@@ -196,7 +196,7 @@ export const DestructiveAlertDialogVRT = (): React.ReactNode => {
   const alertDialogHeadingID = useUID();
   const alertDialogBodyID = useUID();
   return (
-    <AlertDialogContent role="alertdialog">
+    <AlertDialogContent role="alertdialog" aria-labelledby={alertDialogHeadingID}>
       <AlertDialogHeader headingID={alertDialogHeadingID}>Delete data</AlertDialogHeader>
       <AlertDialogBody bodyID={alertDialogBodyID}>
         Are you sure you want to delete this data? This action cannot be undone.
@@ -216,10 +216,11 @@ DestructiveAlertDialogVRT.story = {
   name: 'Destructive Alert Dialog for VRT',
 };
 
-export const CustomizedAlertDialog = (): React.ReactElement => {
+export const CustomizedAlertDialog: React.FC = () => {
   const theme = useTheme();
   return (
     <CustomizationProvider
+      disableAnimations={true}
       theme={theme}
       elements={{
         ALERT_DIALOG: {backgroundColor: 'colorBackgroundSubaccount'},
@@ -244,10 +245,11 @@ export const CustomizedAlertDialog = (): React.ReactElement => {
   );
 };
 
-export const CustomizedDestructiveAlertDialog = (): React.ReactElement => {
+export const CustomizedDestructiveAlertDialog: React.FC = () => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
+      disableAnimations={true}
       theme={currentTheme}
       elements={{
         FOO: {backgroundColor: 'colorBackgroundError'},

@@ -2,8 +2,6 @@ import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 
 import {DataGridHeaderSort} from '../src';
 import {ComposableCellsDataGrid} from '../stories/components/ComposableCellsDataGrid';
@@ -220,14 +218,6 @@ describe('Data Grid', () => {
       expect(header.getAttribute('aria-sort')).toBe('descending');
       headerSort.click();
       expect(header.getAttribute('aria-sort')).toBe('ascending');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<ComposableCellsDataGrid />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

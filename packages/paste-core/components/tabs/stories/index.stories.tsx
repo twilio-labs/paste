@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
@@ -11,8 +12,9 @@ import type {TabStateReturn} from '../src';
 
 export const HorizontalTabs: React.FC = () => {
   const selectedId = useUID();
+  const uniqueBaseID = useUID();
   return (
-    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
+    <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-horizontal-tabs-example`}>
       <TabList aria-label="LGBTQ+ Projects">
         <Tab>Inside Out</Tab>
         <Tab>Transgender District</Tab>
@@ -68,8 +70,9 @@ HorizontalTabs.story = {
 
 export const FittedTabs: React.FC = () => {
   const selectedId = useUID();
+  const uniqueBaseID = useUID();
   return (
-    <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
+    <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-fitted-tabs-example`} variant="fitted">
       <TabList aria-label="LGBTQ+ Projects">
         <Tab>Inside Out</Tab>
         <Tab id={selectedId}>Transgender District</Tab>
@@ -125,8 +128,9 @@ FittedTabs.story = {
 
 export const VerticalTabs: React.FC = () => {
   const selectedId = useUID();
+  const uniqueBaseID = useUID();
   return (
-    <Tabs orientation="vertical" selectedId={selectedId} baseId="vertical-tabs-example">
+    <Tabs orientation="vertical" selectedId={selectedId} baseId={`${uniqueBaseID}-vertical-tabs-example`}>
       <TabList aria-label="LGBTQ+ Projects">
         <Tab id={selectedId}>Inside Out</Tab>
         <Tab>Transgender District</Tab>
@@ -180,16 +184,17 @@ VerticalTabs.story = {
   name: 'Vertical Tabs',
 };
 
-const useButtonClickTabState = (): TabStateReturn => {
+const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   const tab = useTabState();
   return {
     ...tab,
-    baseId: 'state-hook-tab-example',
+    baseId: `${uniqueBaseID}-state-hook-tab-example`,
   };
 };
 
 export const StateHookTabs: React.FC = () => {
-  const {...tab} = useButtonClickTabState();
+  const uniqueBaseID = useUID();
+  const {...tab} = useButtonClickTabState(uniqueBaseID);
 
   return (
     <Tabs state={tab}>
@@ -200,13 +205,13 @@ export const StateHookTabs: React.FC = () => {
       <TabPanels>
         <TabPanel>
           <Paragraph>Tab 1</Paragraph>
-          <Button variant="primary" onClick={() => tab.select('state-hook-tab-example-2')}>
+          <Button variant="primary" onClick={() => tab.select(`${uniqueBaseID}-state-hook-tab-example-2`)}>
             Go to tab 2
           </Button>
         </TabPanel>
         <TabPanel>
           <Paragraph>Tab 2</Paragraph>
-          <Button variant="primary" onClick={() => tab.select('state-hook-tab-example-1')}>
+          <Button variant="primary" onClick={() => tab.select(`${uniqueBaseID}-state-hook-tab-example-1`)}>
             Go back to tab 1
           </Button>
         </TabPanel>
@@ -244,12 +249,13 @@ CenterAlignTabTest.story = {
   name: 'Testing Center Alignment',
 };
 
-export const CustomHorizontalTabs: React.FC = () => {
+export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
-
+  const uniqueBaseID = useUID();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         HORIZONTAL_TABS: {
@@ -300,7 +306,7 @@ export const CustomHorizontalTabs: React.FC = () => {
         },
       }}
     >
-      <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
+      <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-horizontal-tabs-example`}>
         <TabList aria-label="LGBTQ+ Projects">
           <Tab element="HORIZONTAL_CUSTOM_TAB">Inside Out</Tab>
           <Tab>Transgender District</Tab>
@@ -353,12 +359,14 @@ export const CustomHorizontalTabs: React.FC = () => {
   );
 };
 
-export const CustomVerticalTabs: React.FC = () => {
+export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
+  const uniqueBaseID = useUID();
 
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         VERTICAL_TABS: {
@@ -395,7 +403,7 @@ export const CustomVerticalTabs: React.FC = () => {
         },
       }}
     >
-      <Tabs orientation="vertical" selectedId={selectedId} baseId="vertical-tabs-example">
+      <Tabs orientation="vertical" selectedId={selectedId} baseId={`${uniqueBaseID}-vertical-tabs-example`}>
         <TabList aria-label="LGBTQ+ Projects">
           <Tab id={selectedId}>Inside Out</Tab>
           <Tab element="VERTICAL_CUSTOM_TAB">Transgender District</Tab>
@@ -449,12 +457,14 @@ export const CustomVerticalTabs: React.FC = () => {
 };
 
 // @TODO
-export const CustomFittedTabs: React.FC = () => {
+export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
+  const uniqueBaseID = useUID();
 
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         HORIZONTAL_TABS: {
@@ -489,7 +499,7 @@ export const CustomFittedTabs: React.FC = () => {
         },
       }}
     >
-      <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
+      <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-fitted-tabs-example`} variant="fitted">
         <TabList aria-label="LGBTQ+ Projects">
           <Tab element="HORIZONTAL_CUSTOM_TAB">Inside Out</Tab>
           <Tab id={selectedId}>Transgender District</Tab>

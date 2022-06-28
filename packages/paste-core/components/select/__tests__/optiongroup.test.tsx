@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {OptionGroup, Option} from '../src';
 import type {OptionGroupProps} from '../src';
 import {createAttributeMap} from '../test-utils';
@@ -62,13 +60,6 @@ describe('OptionGroup', () => {
     expect(attributeMap.class).not.toBe('blocklisted');
   });
 
-  it('should have no accessibility violations', async () => {
-    const {container} = render(<ExampleOptionGroup />);
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
-  });
-
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Option (default)', () => {
       render(<ExampleOptionGroup groupSuffix="default-data-attribute" />);
@@ -94,7 +85,7 @@ describe('OptionGroup', () => {
           theme={TestTheme}
           elements={{
             OPTION: {
-              color: 'colorTextLinkDarker',
+              color: 'colorTextLinkStronger',
             },
             OPTION_GROUP: {
               color: 'colorTextSuccess',
@@ -115,7 +106,7 @@ describe('OptionGroup', () => {
           theme={TestTheme}
           elements={{
             OPTION_GROUP: {
-              color: 'colorTextLinkDarker',
+              color: 'colorTextLinkStronger',
             },
             UNIQUE_NAME: {
               color: 'colorTextLink',

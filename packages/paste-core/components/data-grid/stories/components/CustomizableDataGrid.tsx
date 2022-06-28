@@ -2,28 +2,29 @@ import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {PlainDataGrid} from './PlainDataGrid';
 
 export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} => ({
   [prefix]: {
     fontSize: 'fontSize20',
-    borderColor: 'colorBorderDark',
+    borderColor: 'colorBorderStrong',
   },
   [`${prefix}_HEAD`]: {
-    backgroundColor: 'colorBackgroundDark',
+    backgroundColor: 'colorBackgroundStrong',
     fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderDark',
+    borderColor: 'colorBorderStrong',
   },
   [`${prefix}_FOOT`]: {
-    backgroundColor: 'colorBackgroundDark',
+    backgroundColor: 'colorBackgroundStrong',
     fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderDark',
+    borderColor: 'colorBorderStrong',
   },
   [`${prefix}_HEADER`]: {
     padding: 'space10',
   },
   [`${prefix}_ROW`]: {
-    borderColor: 'colorBorderDark',
+    borderColor: 'colorBorderStrong',
     // _even
     '&:nth-of-type(2n)': {
       backgroundColor: 'colorBackgroundBody',
@@ -35,20 +36,21 @@ export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} 
 });
 
 export const CustomizableDataGrid: React.FC = () => {
+  const currentTheme = useTheme();
   /* eslint-disable react/no-array-index-key */
   return (
     <Stack orientation="vertical" spacing="space120">
       <Heading as="h2" variant="heading20">
         Default element
       </Heading>
-      <CustomizationProvider baseTheme="default" elements={customElementStyles()}>
+      <CustomizationProvider theme={currentTheme} elements={customElementStyles()}>
         <PlainDataGrid />
       </CustomizationProvider>
 
       <Heading as="h2" variant="heading20">
         Custom element
       </Heading>
-      <CustomizationProvider baseTheme="default" elements={customElementStyles('FOO')}>
+      <CustomizationProvider theme={currentTheme} elements={customElementStyles('FOO')}>
         <PlainDataGrid element="FOO" />
       </CustomizationProvider>
     </Stack>

@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Toast} from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();
@@ -164,29 +162,6 @@ describe('Toast', () => {
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
       expect(icon?.textContent).toEqual('(aviso)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <>
-          <Toast onDismiss={onDismissMock} variant="error">
-            This is a toast
-          </Toast>
-          <Toast onDismiss={onDismissMock} variant="neutral">
-            This is a toast
-          </Toast>
-          <Toast onDismiss={onDismissMock} variant="success">
-            This is a toast
-          </Toast>
-          <Toast onDismiss={onDismissMock} variant="warning">
-            This is a toast
-          </Toast>
-        </>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

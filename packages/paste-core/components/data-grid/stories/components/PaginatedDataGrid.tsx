@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {
   Pagination,
   PaginationItems,
@@ -64,6 +64,8 @@ interface DataGridPaginationProps {
 }
 
 const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1, pageCount, onPageChange}) => {
+  // purely to create unique landmark names when used in stack or side-by-side stories
+  const uniqueLandmarkIdentifier = useUID();
   const goToNextPage = React.useCallback(() => {
     onPageChange(Math.min(currentPage + 1, pageCount));
   }, [currentPage, pageCount]);
@@ -80,7 +82,7 @@ const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1,
 
   /* eslint-disable react/no-array-index-key */
   return (
-    <Pagination label="paged pagination navigation">
+    <Pagination label={`paged pagination navigation ${uniqueLandmarkIdentifier}`}>
       <PaginationItems>
         <PaginationArrow
           label="Go to previous page"

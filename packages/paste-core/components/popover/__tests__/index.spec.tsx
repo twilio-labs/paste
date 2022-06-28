@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
@@ -20,7 +18,7 @@ describe('Popover', () => {
       const renderedPopoverButton = screen.getByRole('button');
       const renderedPopover = screen.getByTestId('top-popover');
       expect(renderedPopoverButton.getAttribute('aria-haspopup')).toEqual('dialog');
-      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
+      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
       await waitFor(() => {
@@ -98,7 +96,7 @@ describe('Popover', () => {
       const renderedPopoverButton = screen.getByRole('button', {name: 'Open popover'});
       const renderedPopover = screen.getByTestId('badge-popover');
       expect(renderedPopoverButton.getAttribute('aria-haspopup')).toEqual('dialog');
-      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual('test-id');
+      expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
       await waitFor(() => {
@@ -106,18 +104,6 @@ describe('Popover', () => {
       });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <Theme.Provider theme="default">
-          <PopoverTop />
-        </Theme.Provider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 

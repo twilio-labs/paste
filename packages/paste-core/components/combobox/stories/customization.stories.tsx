@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
@@ -24,24 +25,28 @@ const groupedItems = [
   {letter: 'd', number: 7},
 ];
 
-const ShowCustomization: React.FC<React.ReactNode> = ({children}): React.ReactElement => {
+const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
+  isTestEnvironment,
+  children,
+}): React.ReactElement => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space50">
       <Card>{children}</Card>
       <Card>
         <CustomizationProvider
+          disableAnimations={isTestEnvironment}
           theme={currentTheme}
           elements={{
-            COMBOBOX_WRAPPER: {backgroundColor: 'colorBackgroundDark', fontFamily: 'fontFamilyCode'},
-            COMBOBOX: {backgroundColor: 'colorBackgroundPrimaryLightest'},
+            COMBOBOX_WRAPPER: {fontFamily: 'fontFamilyCode'},
+            COMBOBOX: {backgroundColor: 'colorBackground'},
             COMBOBOX_ELEMENT: {cursor: 'pointer'},
             COMBOBOX_CHEVRON_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-            COMBOBOX_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryLighter'},
-            COMBOBOX_LIST: {backgroundColor: 'colorBackgroundPrimaryLight'},
+            COMBOBOX_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
+            COMBOBOX_LIST: {backgroundColor: 'colorBackgroundPrimaryWeak'},
             COMBOBOX_GROUPNAME: {fontFamily: 'fontFamilyText', cursor: 'help'},
             COMBOBOX_GROUPNAME_TEXT: {fontWeight: 'fontWeightLight'},
-            COMBOBOX_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryDark'},
+            COMBOBOX_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryStrong'},
             COMBOBOX_LIST_ITEM_TEXT: {color: 'colorTextWeakest', fontWeight: 'fontWeightBold'},
             HELP_TEXT: {color: 'colorTextWarningStrong'},
             COMBOBOX_PREFIX: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
@@ -53,17 +58,18 @@ const ShowCustomization: React.FC<React.ReactNode> = ({children}): React.ReactEl
       </Card>
       <Card>
         <CustomizationProvider
+          disableAnimations={isTestEnvironment}
           baseTheme="default"
           elements={{
-            FOO_WRAPPER: {backgroundColor: 'colorBackgroundDark', fontFamily: 'fontFamilyCode'},
-            FOO: {backgroundColor: 'colorBackgroundPrimaryLightest'},
+            FOO_WRAPPER: {backgroundColor: 'colorBackgroundStrong', fontFamily: 'fontFamilyCode'},
+            FOO: {backgroundColor: 'colorBackground'},
             FOO_ELEMENT: {cursor: 'pointer'},
             FOO_CHEVRON_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-            FOO_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryLighter'},
-            FOO_LIST: {backgroundColor: 'colorBackgroundPrimaryLight'},
+            FOO_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
+            FOO_LIST: {backgroundColor: 'colorBackgroundPrimaryWeak'},
             FOO_GROUPNAME: {fontFamily: 'fontFamilyText', cursor: 'help'},
             FOO_GROUPNAME_TEXT: {fontWeight: 'fontWeightLight'},
-            FOO_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryDark'},
+            FOO_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryStrong'},
             FOO_LIST_ITEM_TEXT: {color: 'colorTextWeakest', fontWeight: 'fontWeightBold'},
             HELP_TEXT: {color: 'colorTextWarningStrong'},
             FOO_PREFIX: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
@@ -77,8 +83,8 @@ const ShowCustomization: React.FC<React.ReactNode> = ({children}): React.ReactEl
   );
 };
 
-export const CustomizedCombobox = (): React.ReactElement => (
-  <ShowCustomization>
+export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment}}) => (
+  <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox items={items} labelText="Choose a letter:" helpText="This is the help text" />
   </ShowCustomization>
 );
@@ -87,8 +93,8 @@ CustomizedCombobox.story = {
   name: 'Default',
 };
 
-export const CustomizedComboboxGroups = (): React.ReactElement => (
-  <ShowCustomization>
+export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
+  <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox
       items={groupedItems}
       groupItemsBy="letter"
@@ -103,8 +109,8 @@ CustomizedComboboxGroups.story = {
   name: 'With groups',
 };
 
-export const CustomizedComboboxBeforeAndAfter = (): React.ReactElement => (
-  <ShowCustomization>
+export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
+  <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox
       items={groupedItems}
       groupItemsBy="letter"

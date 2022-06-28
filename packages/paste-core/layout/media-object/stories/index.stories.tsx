@@ -1,7 +1,9 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
+import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {MediaObject, MediaFigure, MediaBody} from '../src';
@@ -86,7 +88,8 @@ export const ConstrainedWidth = (): React.ReactNode => {
   );
 };
 
-export const CustomMediaObject: React.FC = () => {
+export const CustomMediaObject: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <MediaObject as="div" verticalAlign="center">
@@ -109,7 +112,8 @@ export const CustomMediaObject: React.FC = () => {
         <Text as="span">Customized</Text>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           MEDIA_OBJECT: {
             backgroundColor: 'colorBackground',
@@ -145,7 +149,8 @@ export const CustomMediaObject: React.FC = () => {
         <Text as="span">Customized element</Text>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_MEDIA_OBJECT: {
             backgroundColor: 'colorBackgroundPrimaryWeakest',

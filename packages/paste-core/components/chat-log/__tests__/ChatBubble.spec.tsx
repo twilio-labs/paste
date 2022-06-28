@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {ChatMessage, ChatBubble} from '../src';
 
@@ -49,23 +47,6 @@ describe('ChatBubble', () => {
       </ChatMessage>
     );
     expect(screen.getByText('test')).toBeDefined();
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <ul>
-        <ChatMessage variant="inbound">
-          <ChatBubble>test</ChatBubble>
-        </ChatMessage>
-        <ChatMessage variant="outbound">
-          <ChatBubble>test</ChatBubble>
-        </ChatMessage>
-      </ul>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
 

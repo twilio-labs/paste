@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
 import {DefaultTheme, useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -81,11 +82,11 @@ Alignment.story = {
   name: 'alignment',
 };
 
-export const CustomizedIcon: React.FC = () => {
+export const CustomizedIcon: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},

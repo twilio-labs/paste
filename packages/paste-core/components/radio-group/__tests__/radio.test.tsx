@@ -3,8 +3,6 @@ import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {matchers} from '@emotion/jest';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
 
 expect.extend(matchers);
@@ -487,20 +485,5 @@ describe('Customization', () => {
       'margin-bottom',
       '1.25rem'
     );
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const helpText = "I'm help text";
-    const errorText = "I'm error text";
-
-    const {container} = render(
-      <RadioGroup {...defaultGroupProps} helpText={helpText} errorText={errorText} required>
-        <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

@@ -1,11 +1,12 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-import {useUID} from '@twilio-paste/uid-library';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
 import {DatePicker, formatReturnDate} from '../src';
@@ -42,12 +43,6 @@ export const InverseDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} {...props} />
       <HelpText variant="inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor
-          href="https://civilrights.org/2009/06/22/stonewall-riots-the-beginning-of-the-lgbt-movement/"
-          showExternal
-        >
-          Read more about Stonewall
-        </Anchor>
       </HelpText>
     </Box>
   );
@@ -83,9 +78,6 @@ export const InverseRequiredDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} required {...props} />
       <HelpText variant="inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor href="https://nmaahc.si.edu/blog-post/historical-legacy-juneteenth" showExternal>
-          Read more about Juneteenth
-        </Anchor>
       </HelpText>
     </Box>
   );
@@ -122,12 +114,6 @@ export const InverseErrorDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} hasError id={uidDP} {...props} />
       <HelpText variant="error_inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor
-          href="https://www.hindustantimes.com/india-news/jallianwala-bagh-massacre-here-is-how-the-deadly-incident-transpired-102-years-ago-101618276752335.html"
-          showExternal
-        >
-          Read more about the Jallianwala Bagh massacre
-        </Anchor>
       </HelpText>
     </Box>
   );
@@ -160,11 +146,7 @@ export const InverseDisabledDatePicker: React.FC = (props) => {
         When did the Supreme Court ban anti-miscegenation laws (in Loving v. Virginia)?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} disabled id={uidDP} defaultValue="1967-06-12" {...props} />
-      <HelpText variant="inverse" id={uidHT}>
-        <Anchor href="https://www.oyez.org/cases/1966/395" showExternal>
-          Read more about Loving Day
-        </Anchor>
-      </HelpText>
+      <HelpText variant="inverse" id={uidHT}></HelpText>
     </Box>
   );
 };
@@ -194,11 +176,6 @@ export const InverseReadonlyDatePicker: React.FC = (props) => {
         In what month was the Combahee River Collective Statement published?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} readOnly id={uidDP} defaultValue="1977-04-01" {...props} />
-      <HelpText variant="inverse" id={uidHT}>
-        <Anchor href="https://combaheerivercollective.weebly.com/" showExternal>
-          Read more about the CRC
-        </Anchor>
-      </HelpText>
     </Box>
   );
 };
@@ -346,12 +323,12 @@ export const DatePickerWithMinAndMax: React.FC = (props) => {
   );
 };
 
-export const CustomizedDatePicker: React.FC = (props) => {
+export const CustomizedDatePicker: Story = (_args, {parameters: {isTestEnvironment}, props}) => {
   const activeTheme = useTheme();
-  const uidDP = useUID();
+  const uidSeed = useUIDSeed();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
         DATEPICKER: {
@@ -423,24 +400,24 @@ export const CustomizedDatePicker: React.FC = (props) => {
     >
       <Stack orientation="vertical" spacing="space40">
         <div>
-          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker id={uidDP} {...props} />
+          <Label htmlFor={uidSeed('pride')}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker id={uidSeed('pride')} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed('pride2')}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" id={uidDP} {...props} />
+          <DatePicker variant="inverse" id={uidSeed('pride2')} {...props} />
         </Box>
         <div>
-          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker element="CUSTOM_DATE" id={uidDP} {...props} />
+          <Label htmlFor={uidSeed('pride3')}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker element="CUSTOM_DATE" id={uidSeed('pride3')} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed('pride4')}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidDP} {...props} />
+          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidSeed('pride4')} {...props} />
         </Box>
       </Stack>
     </CustomizationProvider>

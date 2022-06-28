@@ -2,9 +2,6 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 import {getElementName} from '../src/utils';
@@ -105,17 +102,17 @@ describe('Tabs', () => {
 
       let activePanel = screen.queryByRole('tabpanel');
       if (activePanel === null) return false;
-      expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-1');
-      expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-3');
+      expect(activePanel.getAttribute('aria-labelledby')).toBe(screen.getAllByRole('tab')[0].id);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
       await waitFor(() => {
         userEvent.click(ButtonOne);
       });
+
+      expect(screen.getAllByRole('tab')[1].getAttribute('aria-selected')).toBe('true');
       activePanel = screen.queryByRole('tabpanel');
       if (activePanel === null) return false;
-      expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-2');
-      expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-4');
+      expect(activePanel.getAttribute('aria-labelledby')).toBe(screen.getAllByRole('tab')[1].id);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
     });
   });
@@ -430,14 +427,6 @@ describe('Tabs', () => {
       expect(screen.getByTestId('tab-panel-1')).toHaveStyleRule('padding-right', '0');
       expect(screen.getByTestId('tab-panel-2')).toHaveStyleRule('padding-left', '0.25rem');
       expect(screen.getByTestId('tab-panel-3')).toHaveStyleRule('padding-left', '0.75rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<HorizontalTabs />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

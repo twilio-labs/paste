@@ -1,10 +1,15 @@
 import * as React from 'react';
 import {Avatar} from '@twilio-paste/avatar';
-import type {StoryFn} from '@storybook/react';
-import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem} from '../../src';
+import type {Story} from '@storybook/react';
+import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} from '../../src';
 
-export const InboundMessageWithMeta: StoryFn = () => (
-  <>
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/ChatLog',
+};
+
+export const InboundMessageWithMeta: Story = () => (
+  <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -17,11 +22,11 @@ export const InboundMessageWithMeta: StoryFn = () => (
         <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
-  </>
+  </ChatLog>
 );
 
-export const OutboundMessageWithMeta: StoryFn = () => (
-  <>
+export const OutboundMessageWithMeta: Story = () => (
+  <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -33,5 +38,5 @@ export const OutboundMessageWithMeta: StoryFn = () => (
         <ChatMessageMetaItem>Read</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
-  </>
+  </ChatLog>
 );

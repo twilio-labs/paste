@@ -11,9 +11,6 @@ export const FullHeader = (): React.ReactNode => {
       name="Alert"
       categoryRoute="/components"
       description="This is an alert component."
-      designCommitteeReview={null}
-      engineerCommitteeReview={null}
-      figmaStatus={null}
       githubUrl="https://google.com"
       packageName="@twilio-paste/alert"
       packageStatus="alpha"

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
 
 const defaultProps = {
@@ -112,18 +110,5 @@ describe('Customization', () => {
       'margin-top',
       '1.25rem'
     );
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const errorText = 'This is the error text.';
-    const {container} = render(
-      <CheckboxDisclaimer {...defaultProps} errorText={errorText}>
-        foo
-      </CheckboxDisclaimer>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

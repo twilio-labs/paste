@@ -84,9 +84,9 @@ const MyApp = () => (
   <CustomizationProvider baseTheme="Dark" theme={{
     "backgroundColors": {
       "colorBackgroundPrimary": "rgb(80, 123, 30)",
-      "colorBackgroundPrimaryDarker": "rgb(56, 86, 21)",
-      "colorBackgroundPrimaryLighter": "rgb(154,199,232)",
-      "colorBackgroundPrimaryLightest": "rgb(197, 223, 242)",
+      "colorBackgroundPrimaryStronger": "rgb(56, 86, 21)",
+      "colorBackgroundPrimaryWeaker": "rgb(154,199,232)",
+      "colorBackgroundPrimaryWeakest": "rgb(197, 223, 242)",
     }
   }}>
     rest of app
@@ -94,7 +94,7 @@ const MyApp = () => (
 )
 ```
 
-This will output the Paste theme of your choice with the custom background color tokens above. So any component using `colorBackgroundPrimary`, `colorBackgroundPrimaryDarker`, etc will use the custom background color token values instead of the background color token values provided by the base theme.
+This will output the Paste theme of your choice with the custom background color tokens above. So any component using `colorBackgroundPrimary`, `colorBackgroundPrimaryStronger`, etc will use the custom background color token values instead of the background color token values provided by the base theme.
 
 The theme object should follow the following format, where each theme key can take any valid [design token](/tokens) for that grouping:
 

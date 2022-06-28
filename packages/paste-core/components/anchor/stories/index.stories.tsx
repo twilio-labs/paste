@@ -1,9 +1,11 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '../src';
 import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
 
@@ -71,17 +73,15 @@ ShowExternalProp.story = {
   name: 'showExternal prop',
 };
 
-export const CustomAnchor = (): React.ReactNode => {
+export const CustomAnchor: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
-      theme={{
-        textColors: {colorTextLink: 'red'},
-        fonts: {fontFamilyText: 'cursive'},
-      }}
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         ANCHOR: {
-          color: 'colorTextLink',
+          color: 'colorTextError',
           padding: 'space40',
           ':hover': {
             color: 'colorTextLink',

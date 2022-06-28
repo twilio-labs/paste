@@ -60,7 +60,7 @@ export const NoResultsIllustration: React.FC = () => (
       />
     </g>
     <defs>
-      <clipPath id="a">
+      <clipPath>
         <path fill="#fff" d="M0 0h920v920H0z" />
       </clipPath>
     </defs>

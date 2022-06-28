@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
@@ -61,7 +63,8 @@ export const PropPassthrough = (): React.ReactNode => (
   </Card>
 );
 
-export const CustomCard: React.FC = () => {
+export const CustomCard: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Card>
@@ -74,7 +77,8 @@ export const CustomCard: React.FC = () => {
         </Paragraph>
       </Card>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           CARD: {
             backgroundColor: 'colorBackground',
@@ -94,7 +98,8 @@ export const CustomCard: React.FC = () => {
         </Card>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_CARD: {
             backgroundColor: 'colorBackgroundPrimaryWeakest',

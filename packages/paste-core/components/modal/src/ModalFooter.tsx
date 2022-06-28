@@ -11,7 +11,7 @@ export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
   ({children, element = 'MODAL_FOOTER', ...props}, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} {...modalFooterStyles} as="footer" element={element} ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} {...modalFooterStyles} as="div" element={element} ref={ref}>
         {children}
       </Box>
     );

@@ -179,7 +179,7 @@ export const CheckboxHelpTextChildren = (): React.ReactNode => {
       name="foo"
       helpText={
         <>
-          Some interesting help text with a <a href="http://www.google.com">link</a>
+          Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
         </>
       }
     >

@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Paragraph} from '../src';
 
 describe('General', () => {
@@ -63,13 +61,5 @@ describe('Customization', () => {
     const renderedParagraph = screen.getByText('Custom paragraph');
     expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96, 107, 133)');
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(<Paragraph>Hello world!</Paragraph>);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

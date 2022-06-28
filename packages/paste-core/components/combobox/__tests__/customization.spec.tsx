@@ -8,15 +8,15 @@ import {Text} from '@twilio-paste/text';
 import {Combobox} from '../src';
 
 const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
-  [`${element}_WRAPPER`]: {backgroundColor: 'colorBackgroundDark', fontFamily: 'fontFamilyCode'},
-  [`${element}`]: {backgroundColor: 'colorBackgroundPrimaryLightest'},
+  [`${element}_WRAPPER`]: {backgroundColor: 'colorBackgroundStrong', fontFamily: 'fontFamilyCode'},
+  [`${element}`]: {backgroundColor: 'colorBackgroundPrimaryWeakest'},
   [`${element}_ELEMENT`]: {cursor: 'pointer'},
   [`${element}_CHEVRON_WRAPPER`]: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-  [`${element}_LISTBOX`]: {backgroundColor: 'colorBackgroundPrimaryLighter'},
-  [`${element}_LIST`]: {backgroundColor: 'colorBackgroundPrimaryLight'},
+  [`${element}_LISTBOX`]: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
+  [`${element}_LIST`]: {backgroundColor: 'colorBackgroundPrimaryWeak'},
   [`${element}_GROUPNAME`]: {fontFamily: 'fontFamilyText', cursor: 'help'},
   [`${element}_GROUPNAME_TEXT`]: {fontWeight: 'fontWeightLight'},
-  [`${element}_LIST_ITEM`]: {backgroundColor: 'colorBackgroundPrimaryDark'},
+  [`${element}_LIST_ITEM`]: {backgroundColor: 'colorBackgroundPrimaryStrong'},
   [`${element}_LIST_ITEM_TEXT`]: {color: 'colorTextWeakest', fontWeight: 'fontWeightBold'},
   [`${element}_PREFIX`]: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
   [`${element}_SUFFIX`]: {backgroundColor: 'colorBackgroundSubaccount', borderRadius: 'borderRadiusCircle'},

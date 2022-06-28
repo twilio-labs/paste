@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
@@ -7,12 +8,13 @@ import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Radio, RadioGroup} from '../src';
 
-export const CustomizedRadioGroup = (): React.ReactNode => {
+export const CustomizedRadioGroup: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const theme = useTheme();
   const [value, setValue] = React.useState('2');
   const [valueSecond, setValueSecond] = React.useState('2');
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={theme}
       elements={{
         RADIO_GROUP: {padding: 'space30'},

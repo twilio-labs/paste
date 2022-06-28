@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -1382,11 +1383,12 @@ export const Layouts = (): React.ReactNode => {
   );
 };
 
-export const CustomTable = (): React.ReactNode => {
+export const CustomTable: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         TABLE: {fontFamily: 'fontFamilyCode'},
@@ -1398,9 +1400,9 @@ export const CustomTable = (): React.ReactNode => {
         TR_NEUTRAL: {color: 'colorTextNeutral', fontFamily: 'fontFamilyText'},
         TR: {color: 'colorTextWeak'},
         TD_FOOT_HIGHLIGHT: {
-          backgroundColor: 'colorBackgroundAvailable',
+          backgroundColor: 'colorBackgroundSuccessWeakest',
           fontWeight: 'fontWeightSemibold',
-          color: 'colorTextInverse',
+          color: 'colorTextWeak',
         },
       }}
     >

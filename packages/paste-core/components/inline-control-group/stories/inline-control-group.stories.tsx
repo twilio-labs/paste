@@ -1,8 +1,10 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {InlineControlGroup} from '../src';
 import type {InlineControlGroupProps} from '../src';
 
@@ -99,10 +101,12 @@ export const ControlSpacingTest = (): React.ReactNode => {
   );
 };
 
-export const Customized = (): React.ReactNode => {
+export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         INLINE_CONTROL_GROUP: {margin: 'space60'},
         INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},

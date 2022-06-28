@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import type {Story} from '@storybook/react';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Box} from '@twilio-paste/box';
@@ -255,12 +256,12 @@ export const StackOfPickers: React.FC = (props) => {
   );
 };
 
-export const CustomizedTimePicker: React.FC = (props) => {
+export const CustomizedTimePicker: Story = (_args, {parameters: {isTestEnvironment}, props}) => {
   const activeTheme = useTheme();
-  const uidDP = useUID();
+  const uidSeed = useUIDSeed();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
         TIMEPICKER: {
@@ -332,24 +333,24 @@ export const CustomizedTimePicker: React.FC = (props) => {
     >
       <Stack orientation="vertical" spacing="space40">
         <div>
-          <Label htmlFor={uidDP}>What time is your appointment?</Label>
-          <TimePicker id={uidDP} {...props} />
+          <Label htmlFor={uidSeed('appointment')}>What time is your appointment?</Label>
+          <TimePicker id={uidSeed('appointment')} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed('appointment2')}>
             What time is your appointment?
           </Label>
-          <TimePicker variant="inverse" id={uidDP} {...props} />
+          <TimePicker variant="inverse" id={uidSeed('appointment2')} {...props} />
         </Box>
         <div>
-          <Label htmlFor={uidDP}>What time is your appointment?</Label>
-          <TimePicker element="CUSTOM_TIME" id={uidDP} {...props} />
+          <Label htmlFor={uidSeed('appointment3')}>What time is your appointment?</Label>
+          <TimePicker element="CUSTOM_TIME" id={uidSeed('appointment3')} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed('appointment4')}>
             What time is your appointment?
           </Label>
-          <TimePicker variant="inverse" element="CUSTOM_TIME" id={uidDP} {...props} />
+          <TimePicker variant="inverse" element="CUSTOM_TIME" id={uidSeed('appointment4')} {...props} />
         </Box>
       </Stack>
     </CustomizationProvider>

@@ -8,8 +8,6 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
 const handleCloseMock: jest.Mock = jest.fn();
@@ -165,19 +163,6 @@ describe('Modal', () => {
     const {getByTestId} = render(<MockModal />);
     fireEvent.click(getByTestId('modal-header').querySelector('button') as HTMLButtonElement);
     expect(handleCloseMock).toHaveBeenCalled();
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<MockModal />);
-      const results = await axe(container, {
-        rules: {
-          // ignore the tabindex of the focus trap helper
-          tabindex: {enabled: false},
-        },
-      });
-      expect(results).toHaveNoViolations();
-    });
   });
 });
 

@@ -60,14 +60,14 @@ describe('Customization', () => {
   });
 
   it('should customize label and required dot', () => {
-    expect(label).toHaveStyleRule('color', 'rgb(195, 83, 35)');
+    expect(label).toHaveStyleRule('color', 'rgb(141, 49, 24)');
     expect(label).toHaveStyleRule('font-weight', '400');
     expect(requiredDot).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
     expect(requiredDotWrapper).toHaveStyleRule('cursor', 'help');
   });
 
   it('should customize label and required dot with custom element attribute', () => {
-    expect(customLabel).toHaveStyleRule('color', 'rgb(195, 83, 35)');
+    expect(customLabel).toHaveStyleRule('color', 'rgb(141, 49, 24)');
     expect(customLabel).toHaveStyleRule('font-weight', '400');
     expect(customRequiredDot).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
     expect(customRequiredDotWrapper).toHaveStyleRule('cursor', 'help');

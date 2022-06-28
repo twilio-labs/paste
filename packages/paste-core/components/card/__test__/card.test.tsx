@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Card} from '../src';
 
 describe('Card', () => {
@@ -54,18 +52,6 @@ describe('Card', () => {
     );
     const renderedCardContent = screen.getByText('I AM A JEDI!!!!');
     expect(renderedCardContent).toBeDefined();
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <CustomizationProvider baseTheme="default" theme={TestTheme}>
-        <Card>card content</Card>
-      </CustomizationProvider>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
 

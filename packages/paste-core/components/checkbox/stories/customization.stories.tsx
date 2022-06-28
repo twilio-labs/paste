@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
@@ -7,7 +8,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 
-export const CustomizedCheckboxGroup = (): React.ReactNode => {
+export const CustomizedCheckboxGroup: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const [checked1, setChecked1] = React.useState(true);
   const [checked2, setChecked2] = React.useState(false);
   const [checked3, setChecked3] = React.useState(false);
@@ -18,6 +19,7 @@ export const CustomizedCheckboxGroup = (): React.ReactNode => {
   const theme = useTheme();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={theme}
       elements={{
         CHECKBOX_GROUP: {padding: 'space30'},
@@ -143,10 +145,11 @@ export const CustomizedCheckboxGroup = (): React.ReactNode => {
   );
 };
 
-export const CustomizedCheckboxDisclaimer = (): React.ReactNode => {
+export const CustomizedCheckboxDisclaimer: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const theme = useTheme();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={theme}
       elements={{
         CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},

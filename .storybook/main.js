@@ -9,9 +9,14 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
+    '@storybook/addon-interactions',
     'storybook-addon-gatsby',
     './addons/google-analytics/register',
   ],
+  features: {
+    interactionsDebugger: true,
+  },
+  staticDirs: ['./static'],
   typescript: {
     // enable type checking
     check: true,

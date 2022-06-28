@@ -1,11 +1,12 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import {Theme} from '@twilio-paste/theme';
+import {Theme, useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTooltipState, Tooltip} from '../src';
 
@@ -170,10 +171,12 @@ StateHookTooltip.story = {
   name: 'State hook Tooltip',
 };
 
-export const CustomizedTooltip = (): React.ReactNode => {
+export const CustomizedTooltip: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         TOOLTIP: {
           backgroundColor: 'colorBackgroundErrorWeakest',

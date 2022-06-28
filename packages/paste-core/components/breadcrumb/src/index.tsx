@@ -108,7 +108,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
     const keySeed = useUIDSeed();
 
     return (
-      <Box {...safelySpreadBoxProps(props)} aria-label="breadcrumb" as="nav" element={element} ref={ref}>
+      <Box aria-label="breadcrumb" {...safelySpreadBoxProps(props)} as="nav" element={element} ref={ref}>
         <Box alignItems="center" as="ol" display="inline-flex" listStyleType="none" margin="space0" padding="space0">
           {validChildren.map((child, index) => {
             return React.cloneElement(child as React.ReactElement<any>, {

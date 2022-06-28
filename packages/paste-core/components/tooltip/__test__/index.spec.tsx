@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 
@@ -177,18 +175,6 @@ describe('Tooltip', () => {
       const tooltipText = screen.getByText('Welcome to Paste!');
       expect(tooltip).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
       expect(tooltipText).toHaveStyleRule('color', 'rgb(173, 17, 17)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <TooltipWithoutTheme />
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

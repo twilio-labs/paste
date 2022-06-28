@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
 
 describe('Table', () => {
@@ -357,10 +355,10 @@ describe('Table', () => {
             TABLE: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
             TH: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
             TR: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
-            THEAD: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'fontWeightNormal'},
-            TBODY: {borderColor: 'colorBorderDestructiveLight', fontWeight: 'inherit'},
-            TFOOT: {borderColor: 'colorBorderDark', fontWeight: 'inherit'},
-            TD: {borderColor: 'colorBorderLight', fontWeight: 'fontWeightSemibold'},
+            THEAD: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'fontWeightNormal'},
+            TBODY: {borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit'},
+            TFOOT: {borderColor: 'colorBorderStrong', fontWeight: 'inherit'},
+            TD: {borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold'},
           }}
         >
           <Table data-testid="table">
@@ -429,11 +427,11 @@ describe('Table', () => {
             dog: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
             cat: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
             bear: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
-            wolf: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'inherit'},
-            hamster: {borderColor: 'colorBorderDestructiveLight', fontWeight: 'inherit'},
-            chinchilla: {borderColor: 'colorBorderDark', fontWeight: 'inherit'},
-            horse: {borderColor: 'colorBorderLight', fontWeight: 'fontWeightSemibold'},
-            goldfish: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'inherit'},
+            wolf: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit'},
+            hamster: {borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit'},
+            chinchilla: {borderColor: 'colorBorderStrong', fontWeight: 'inherit'},
+            horse: {borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold'},
+            goldfish: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit'},
           }}
         >
           <Table element="dog" data-testid="table">
@@ -501,39 +499,6 @@ describe('Table', () => {
 
       expect(tHead).toHaveStyleRule('border-style', 'dotted');
       expect(tHead).toHaveStyleRule('font-weight', '500');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <Table>
-          <THead>
-            <Tr>
-              <Th>Column 1</Th>
-              <Th>Column 2</Th>
-            </Tr>
-          </THead>
-          <TBody>
-            <Tr>
-              <Td>1</Td>
-              <Td>Empty</Td>
-            </Tr>
-            <Tr>
-              <Td>2</Td>
-              <Td>Empty</Td>
-            </Tr>
-          </TBody>
-          <TFoot>
-            <Tr>
-              <Td>100</Td>
-              <Td>end</Td>
-            </Tr>
-          </TFoot>
-        </Table>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });
