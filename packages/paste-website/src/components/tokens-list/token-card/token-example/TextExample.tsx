@@ -22,6 +22,7 @@ export const TextExample: React.FC<TextExampleProps> = ({fontFamily, fontSize, f
         fontWeight={fontWeight}
         lineHeight={lineHeight}
         color={color}
+        aria-hidden
       >
         Ag
       </Text>

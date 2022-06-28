@@ -14,7 +14,7 @@ export const LineHeightExample: React.FC<TextExampleProps> = ({tokenName, lineHe
 
   return (
     <Box backgroundColor="colorBackgroundStrong" flex={1} textAlign="center">
-      <Text as="p" fontSize={fontSizeValue} lineHeight={lineHeight}>
+      <Text as="p" fontSize={fontSizeValue} lineHeight={lineHeight} aria-hidden>
         Ag
       </Text>
     </Box>

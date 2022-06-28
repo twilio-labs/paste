@@ -16,8 +16,8 @@ export const TextColorExample: React.FC<{
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
       <TextExample color={value} />
-      <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
       <Text as="p" fontSize="fontSize10" lineHeight="lineHeight10" marginTop="space20" marginBottom="space0">
+        <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {contrastRating}
       </Text>
     </Box>

@@ -7,11 +7,13 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {remToPx} from '@twilio-paste/theme';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import camelCase from 'lodash/camelCase';
 import type {Properties} from 'csstype';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {Token} from '../types';
+import {SITE_BREAKPOINTS} from '../../../constants';
 
 const getTokenAltValue = ({category, value}: {category: string; value: Token['value']}): string | null => {
   switch (category) {
@@ -28,6 +30,44 @@ const getTokenAltValue = ({category, value}: {category: string; value: Token['va
       return null;
   }
 };
+
+const TokenCardContent = styled.dl`
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content;
+  border-left: ${themeGet('borderWidths.borderWidth10')} solid ${themeGet('borderColors.colorBorderWeaker')};
+  padding: ${themeGet('space.space50')};
+  margin: ${themeGet('space.space0')};
+
+  @media screen and (min-width: ${SITE_BREAKPOINTS[0]}) {
+    padding: ${themeGet('space.space70')} ${themeGet('space.space60')};
+  }
+`;
+
+const TokenCardName = styled.dt`
+  display: flex;
+  align-items: center;
+`;
+
+const TokenCardValue = styled.dd`
+  grid-row: 3;
+  margin: ${themeGet('space.space0')};
+
+  @media screen and (min-width: ${SITE_BREAKPOINTS[0]}) {
+    grid-row: 1/3;
+    grid-column: 2/2;
+    display: flex;
+    vertical-align: center;
+    margin-top: ${themeGet('space.space0')};
+    text-align: right;
+  }
+`;
+
+const TokenCardComment = styled.dd`
+  grid-row: 2;
+  margin: ${themeGet('space.space0')};
+`;
 
 export const TokenCard: React.FC<{
   category: Token['category'];
@@ -66,6 +106,7 @@ export const TokenCard: React.FC<{
 
   return (
     <Box
+      as="li"
       key={name}
       display="flex"
       alignItems="stretch"
@@ -80,67 +121,62 @@ export const TokenCard: React.FC<{
       overflow="hidden"
     >
       <TokenExample category={category} name={name} value={value} backgroundColor={backgroundColor} />
-      <Box
-        display={['block', 'block', 'flex']}
-        alignItems="center"
-        paddingY={['space50', 'space60']}
-        paddingX={['space50', 'space70']}
-        borderLeftColor="colorBorderWeaker"
-        borderLeftWidth="borderWidth10"
-        borderLeftStyle="solid"
-        width="100%"
-      >
-        <Box marginBottom={['space40', 'space0']} flexGrow={1}>
-          <Box display="flex" alignItems="center" flexWrap="wrap">
-            <Text
-              as="p"
-              display="inline-block"
-              fontFamily="fontFamilyCode"
-              fontWeight="fontWeightBold"
-              fontSize="fontSize30"
-              lineHeight="lineHeight40"
-              marginRight="space20"
-              wordBreak="break-word"
-            >
-              {useCamelCase ? camelCase(name) : name}
-            </Text>
-            <Box display={['none', 'block']}>
-              <Tooltip text={tooltipText} state={tooltipState}>
-                <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
-                  <span>
-                    <CopyIcon decorative />
-                    <span aria-live="polite">
-                      <ScreenReaderOnly>{clipboard.copied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
-                    </span>
+
+      <TokenCardContent>
+        <TokenCardName>
+          <Text
+            as="span"
+            display="inline-block"
+            fontFamily="fontFamilyCode"
+            fontWeight="fontWeightBold"
+            fontSize="fontSize30"
+            lineHeight="lineHeight40"
+            marginRight="space20"
+            wordBreak="break-word"
+          >
+            {useCamelCase ? camelCase(name) : `$${name}`}
+          </Text>
+          <Box display={['none', 'block']}>
+            <Tooltip text={tooltipText} state={tooltipState}>
+              <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
+                <span>
+                  <CopyIcon decorative />
+                  <span aria-live="polite">
+                    <ScreenReaderOnly>{clipboard.copied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
                   </span>
-                </Button>
-              </Tooltip>
-            </Box>
+                </span>
+              </Button>
+            </Tooltip>
           </Box>
-          <Text as="p" margin="space0">
-            {comment}
-          </Text>
-        </Box>
-        <Box
-          as="ul"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems={['flex-start', 'flex-start', 'flex-end']}
-          textAlign={['left', 'left', 'right']}
-          marginTop={['space30', 'space30', 'space0']}
-          marginBottom="space0"
-          flexShrink={0}
-          listStyleType="none"
-        >
-          <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-            {value}
-          </Text>
-          <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight="lineHeight30">
-            {getTokenAltValue({category, value})}
-          </Text>
-        </Box>
-      </Box>
+        </TokenCardName>
+        <TokenCardValue>
+          <ScreenReaderOnly>Token value:</ScreenReaderOnly>
+          <Box
+            as="ul"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            marginTop={['space30', 'space0']}
+            marginBottom="space0"
+            paddingLeft="space0"
+            flexShrink={0}
+            listStyleType="none"
+          >
+            <Text
+              as="li"
+              fontSize={['fontSize20', 'fontSize30']}
+              marginBottom={'space10'}
+              lineHeight={['lineHeight20', 'lineHeight30']}
+            >
+              {value}
+            </Text>
+            <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
+              {getTokenAltValue({category, value})}
+            </Text>
+          </Box>
+        </TokenCardValue>
+        <TokenCardComment>{comment}</TokenCardComment>
+      </TokenCardContent>
     </Box>
   );
 };

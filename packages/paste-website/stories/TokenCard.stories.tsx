@@ -72,14 +72,16 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
   const themeTokenValue = themeCategoryTokens[camelCase(name) as unknown as keyof CategoryTokens];
 
   return (
-    <TokenCard
-      category={category}
-      name={name}
-      value={themeTokenValue}
-      comment={comment}
-      backgroundColor={backgroundColor}
-      useCamelCase={useCamelCase}
-    />
+    <ul>
+      <TokenCard
+        category={category}
+        name={name}
+        value={themeTokenValue}
+        comment={comment}
+        backgroundColor={backgroundColor}
+        useCamelCase={useCamelCase}
+      />
+    </ul>
   );
 };
 
