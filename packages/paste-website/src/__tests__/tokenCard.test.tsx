@@ -12,18 +12,20 @@ describe('TokenCard', () => {
   const testTokenComment = 'Background color used for containers.';
   const testTokenBackground = '#ffffff';
 
+  const BaseTokenCardComponent: React.FC = () => (
+    <Theme.Provider theme="default">
+      <TokenCard
+        name={testTokenName}
+        category={testTokenCategory}
+        value={testTokenValue}
+        comment={testTokenComment}
+        backgroundColor={testTokenBackground}
+      />
+    </Theme.Provider>
+  );
+
   it('should render the proper pass-in props', () => {
-    render(
-      <Theme.Provider theme="default">
-        <TokenCard
-          name={testTokenName}
-          category={testTokenCategory}
-          value={testTokenValue}
-          comment={testTokenComment}
-          backgroundColor={testTokenBackground}
-        />
-      </Theme.Provider>
-    );
+    render(<BaseTokenCardComponent />);
 
     expect(screen.getByText(testTokenName)).toBeDefined();
     expect(screen.getByText(testTokenValue)).toBeDefined();
@@ -48,17 +50,7 @@ describe('TokenCard', () => {
   });
 
   it('should render the proper hexidecimal alt value for color tokens', () => {
-    render(
-      <Theme.Provider theme="default">
-        <TokenCard
-          name={testTokenName}
-          category={testTokenCategory}
-          value={testTokenValue}
-          comment={testTokenComment}
-          backgroundColor={testTokenBackground}
-        />
-      </Theme.Provider>
-    );
+    render(<BaseTokenCardComponent />);
 
     expect(screen.getByText(testTokenHexValue)).toBeDefined();
   });
