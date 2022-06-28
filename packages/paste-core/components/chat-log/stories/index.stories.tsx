@@ -14,7 +14,7 @@ export default {
 };
 
 export const NewMessagesButton: StoryFn = () => (
-  <Button variant="primary" size="rounded">
+  <Button variant="primary" size="rounded_small">
     New message
     <ArrowDownIcon decorative />
   </Button>
