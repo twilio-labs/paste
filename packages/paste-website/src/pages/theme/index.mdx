@@ -2,15 +2,15 @@
 title: Theme Package
 package: '@twilio-paste/theme'
 description: The Paste Theme Package allows easy and simple access to the design tokens via a theme provider to React components
-slug: /core/theme-package/
+slug: /theme
 ---
 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
-import {ThemeObjectDisplay} from '../../../components/ThemeObjectDisplay.tsx';
-import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
+import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -23,7 +23,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(frontmatter: {slug: {eq: "/core/theme-package/"}}) {
+    mdx(frontmatter: {slug: {eq: "/theme"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -38,7 +38,7 @@ export const pageQuery = graphql`
 `;
 
 <NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  categoryRoute={SidebarCategoryRoutes.THEME}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-theme"
   data={props.data}
 />

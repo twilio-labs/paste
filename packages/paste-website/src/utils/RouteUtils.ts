@@ -67,6 +67,8 @@ export const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Core';
     case SidebarCategoryRoutes.PATTERNS:
       return 'Patterns';
+    case SidebarCategoryRoutes.THEME:
+      return 'Theme';
     default:
       return 'Components';
   }
