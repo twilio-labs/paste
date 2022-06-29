@@ -53,6 +53,7 @@ const TokenCardName = styled.dt`
 const TokenCardValue = styled.dd`
   grid-row: 3;
   margin: ${themeGet('space.space0')};
+  margin-top: ${themeGet('space.space40')};
 
   @media screen and (min-width: ${SITE_BREAKPOINTS[0]}) {
     grid-row: 1/3;
@@ -82,10 +83,11 @@ export const TokenCard: React.FC<{
   // Prevents tooltip being visible on first render due to reakit positioning bug code
   const isFirstRender = React.useRef(true);
   const clipboard = useClipboard({copiedTimeout: 2000});
+  const tokenName = useCamelCase ? camelCase(name) : `$${name}`;
 
   const handleCopyName = React.useCallback(() => {
-    clipboard.copy(name);
-  }, [name]);
+    clipboard.copy(tokenName);
+  }, [tokenName]);
 
   React.useEffect(() => {
     setTooltipText(clipboard.copied ? 'Copied!' : 'Copy token name');
@@ -134,7 +136,7 @@ export const TokenCard: React.FC<{
             marginRight="space20"
             wordBreak="break-word"
           >
-            {useCamelCase ? camelCase(name) : `$${name}`}
+            {tokenName}
           </Text>
           <Box display={['none', 'block']}>
             <Tooltip text={tooltipText} state={tooltipState}>
