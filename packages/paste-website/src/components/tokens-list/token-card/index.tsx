@@ -36,7 +36,6 @@ const TokenCardContent = styled.dl`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  border-left: ${themeGet('borderWidths.borderWidth10')} solid ${themeGet('borderColors.colorBorderWeaker')};
   padding: ${themeGet('space.space50')};
   margin: ${themeGet('space.space0')};
 

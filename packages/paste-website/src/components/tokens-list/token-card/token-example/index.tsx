@@ -83,6 +83,9 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
       display="flex"
       flexShrink={0}
       style={{backgroundColor: backgroundColor}}
+      borderRightColor="colorBorderWeaker"
+      borderRightWidth="borderWidth10"
+      borderRightStyle="solid"
     >
       {tokenExampleRender}
     </Box>
