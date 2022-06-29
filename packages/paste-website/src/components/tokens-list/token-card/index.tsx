@@ -35,7 +35,7 @@ const TokenCardContent = styled.dl`
   flex: 1;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: fit-content;
+  grid-template-rows: 1fr;
   border-left: ${themeGet('borderWidths.borderWidth10')} solid ${themeGet('borderColors.colorBorderWeaker')};
   padding: ${themeGet('space.space50')};
   margin: ${themeGet('space.space0')};
@@ -48,6 +48,7 @@ const TokenCardContent = styled.dl`
 const TokenCardName = styled.dt`
   display: flex;
   align-items: center;
+  align-self: center;
 `;
 
 const TokenCardValue = styled.dd`
@@ -130,7 +131,7 @@ export const TokenCard: React.FC<{
             fontFamily="fontFamilyCode"
             fontWeight="fontWeightBold"
             fontSize="fontSize30"
-            lineHeight="lineHeight40"
+            lineHeight="lineHeight30"
             marginRight="space20"
             wordBreak="break-word"
           >
