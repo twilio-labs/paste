@@ -293,6 +293,28 @@ their default size.
 </Stack>`}
 </LivePreview>
 
+#### Rounded Small Button
+
+Use rounded small Buttons sparingly, only when needed for vertical density and visual differentiation. Guidelines for using variants in rounded small Buttons are the same as in
+their default size.
+
+<LivePreview scope={{Button, Stack}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space30">
+  <Button variant="primary" size="rounded_small">
+    Save
+  </Button>
+  <Button variant="secondary" size="rounded_small">
+    Cancel
+  </Button>
+  <Button variant="destructive" size="rounded_small">
+    Delete
+  </Button>
+  <Button variant="destructive_secondary" size="rounded_small">
+    Delete
+  </Button>
+</Stack>`}
+</LivePreview>
+
 #### Reset Button styles
 
 The reset Button is basically a primitive Button. The Button styles are
@@ -564,7 +586,7 @@ All the valid HTML attributes for `Button` are supported including the following
 | fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
 | href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
 | loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
-| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset'                                                                                                                                    | 'default'                              |
+| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                   | 'default'                              |
 | type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
 | variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
 | i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
