@@ -27,7 +27,7 @@ describe('TokenCard', () => {
   it('should render the proper pass-in props', () => {
     render(<BaseTokenCardComponent />);
 
-    expect(screen.getByText(testTokenName)).toBeDefined();
+    expect(screen.getByText(`$${testTokenName}`)).toBeDefined();
     expect(screen.getByText(testTokenValue)).toBeDefined();
     expect(screen.getByText(testTokenComment)).toBeDefined();
   });
