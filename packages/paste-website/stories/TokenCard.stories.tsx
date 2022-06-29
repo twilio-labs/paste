@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import {useTheme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
 import camelCase from 'lodash/camelCase';
 import {TokenCard} from '../src/components/tokens-list/token-card';
 
@@ -72,7 +73,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
   const themeTokenValue = themeCategoryTokens[camelCase(name) as unknown as keyof CategoryTokens];
 
   return (
-    <ul>
+    <Box as="ul" paddingLeft="space0">
       <TokenCard
         category={category}
         name={name}
@@ -81,7 +82,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         backgroundColor={backgroundColor}
         useCamelCase={useCamelCase}
       />
-    </ul>
+    </Box>
   );
 };
 

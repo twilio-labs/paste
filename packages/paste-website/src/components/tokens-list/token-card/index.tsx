@@ -1,14 +1,14 @@
 import * as React from 'react';
+import camelCase from 'lodash/camelCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {remToPx} from '@twilio-paste/theme';
 import {styled, themeGet} from '@twilio-paste/styling-library';
-import camelCase from 'lodash/camelCase';
 import type {Properties} from 'csstype';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
@@ -162,12 +162,7 @@ export const TokenCard: React.FC<{
             flexShrink={0}
             listStyleType="none"
           >
-            <Text
-              as="li"
-              fontSize={['fontSize20', 'fontSize30']}
-              marginBottom={'space10'}
-              lineHeight={['lineHeight20', 'lineHeight30']}
-            >
+            <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
               {value}
             </Text>
             <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
