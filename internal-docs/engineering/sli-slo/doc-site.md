@@ -41,4 +41,4 @@ Pure Front End SLOs are a uncommon. We prioritize availability base on peoples s
 
 ## Error Budget
 
-Error budgets are only defined per availability monitor.
+Error budgets only exist for the availability monitors.
