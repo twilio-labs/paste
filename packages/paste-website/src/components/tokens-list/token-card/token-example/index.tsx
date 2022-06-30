@@ -22,7 +22,11 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
 
   switch (category) {
     case 'background-colors':
-      tokenExampleRender = <BoxExample backgroundColor={value as keyof ThemeShape['backgroundColors']} />;
+      // apply a border to foreground colors that match the background color
+      const borderColor = value === backgroundColor ? 'colorBorderWeak' : null;
+      tokenExampleRender = (
+        <BoxExample backgroundColor={value as keyof ThemeShape['backgroundColors']} borderColor={borderColor} />
+      );
       break;
     case 'border-colors':
       tokenExampleRender = <BoxExample borderColor={value as keyof ThemeShape['borderColors']} />;

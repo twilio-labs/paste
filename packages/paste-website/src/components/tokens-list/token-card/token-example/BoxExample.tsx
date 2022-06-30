@@ -11,19 +11,13 @@ export const BoxExample: React.FC<BoxExampleProps> = ({
   borderRadius = 'borderRadius20',
   size = 'sizeSquare110',
 }) => {
-  const appliedBorderColor = borderColor
-    ? borderColor
-    : backgroundColor === ('rgb(255, 255, 255)' as BoxProps['backgroundColor']) // todo: better logic here
-    ? 'colorBorderWeak'
-    : null;
-
   return (
     <Box
       aria-hidden="true"
       backgroundColor={backgroundColor}
-      borderColor={appliedBorderColor}
-      borderWidth={appliedBorderColor ? 'borderWidth20' : null}
-      borderStyle={appliedBorderColor ? 'solid' : null}
+      borderColor={borderColor}
+      borderWidth={borderColor ? 'borderWidth20' : null}
+      borderStyle={borderColor ? 'solid' : null}
       size={size}
       borderRadius={borderRadius}
       boxShadow={boxShadow}
