@@ -8,12 +8,11 @@ import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {remToPx} from '@twilio-paste/theme';
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import {styled, css} from '@twilio-paste/styling-library';
 import type {Properties} from 'csstype';
 import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {Token} from '../types';
-import {SITE_BREAKPOINTS} from '../../../constants';
 
 const getTokenAltValue = ({category, value}: {category: string; value: Token['value']}): string | null => {
   switch (category) {
@@ -31,44 +30,44 @@ const getTokenAltValue = ({category, value}: {category: string; value: Token['va
   }
 };
 
-const TokenCardContent = styled.dl`
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  padding: ${themeGet('space.space50')};
-  margin: ${themeGet('space.space0')};
+const TokenCardContent = styled.dl(
+  css({
+    flex: 1,
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: '1fr',
+    margin: 'space0',
+    paddingX: ['space50', 'space70'],
+    paddingY: ['space50', 'space60'],
+  })
+);
 
-  @media screen and (min-width: ${SITE_BREAKPOINTS[0]}) {
-    padding: ${themeGet('space.space70')} ${themeGet('space.space60')};
-  }
-`;
+const TokenCardName = styled.dt(
+  css({
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'center',
+  })
+);
 
-const TokenCardName = styled.dt`
-  display: flex;
-  align-items: center;
-  align-self: center;
-`;
+const TokenCardValue = styled.dd(
+  css({
+    gridRow: [3, '1/3'],
+    gridColumn: [1, '2/2'],
+    display: ['block', 'flex'],
+    margin: 'space0',
+    marginTop: ['space40', 'space0'],
+    verticalAlign: 'center',
+    textAlign: ['left', 'right'],
+  })
+);
 
-const TokenCardValue = styled.dd`
-  grid-row: 3;
-  margin: ${themeGet('space.space0')};
-  margin-top: ${themeGet('space.space40')};
-
-  @media screen and (min-width: ${SITE_BREAKPOINTS[0]}) {
-    grid-row: 1/3;
-    grid-column: 2/2;
-    display: flex;
-    vertical-align: center;
-    margin-top: ${themeGet('space.space0')};
-    text-align: right;
-  }
-`;
-
-const TokenCardComment = styled.dd`
-  grid-row: 2;
-  margin: ${themeGet('space.space0')};
-`;
+const TokenCardComment = styled.dd(
+  css({
+    gridRow: 2,
+    margin: 'space0',
+  })
+);
 
 export const TokenCard: React.FC<{
   category: Token['category'];

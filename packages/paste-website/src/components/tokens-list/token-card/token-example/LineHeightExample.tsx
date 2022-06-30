@@ -9,7 +9,7 @@ interface TextExampleProps extends Pick<TextProps, 'lineHeight'> {
 }
 
 export const LineHeightExample: React.FC<TextExampleProps> = ({tokenName, lineHeight}) => {
-  const lineHeightValue = tokenName ? tokenName.toString().match(/\d+/) : null;
+  const lineHeightValue = tokenName ? tokenName.match(/\d+/) : null;
   const fontSizeValue = `fontSize${lineHeightValue}` as keyof ThemeShape['fontSizes'];
 
   return (
