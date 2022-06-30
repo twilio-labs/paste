@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
@@ -19,6 +18,14 @@ import {
   ChatLog,
 } from '../src';
 
+export {InboundChatMessage, OutboundChatMessage} from './components/ChatBubble.stories';
+export {InboundMessageWithMeta, OutboundMessageWithMeta} from './components/ChatMessageMeta.stories';
+export {
+  InboundChatMessageWithAttachment,
+  OutboundChatMessageWithAttachment,
+  ComposerAttachmentCardExample,
+} from './components/ChatAttachment.stories';
+
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/ChatLog',
@@ -29,56 +36,6 @@ export const NewMessagesButton: StoryFn = () => (
     New message
     <ArrowDownIcon decorative />
   </Button>
-);
-
-export const InboundChatMessage: StoryFn = () => (
-  <ChatMessage variant="inbound">
-    <ChatBubble>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.
-    </ChatBubble>
-  </ChatMessage>
-);
-
-export const OutboundChatMessage: StoryFn = () => (
-  <ChatMessage variant="outbound">
-    <ChatBubble>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </ChatBubble>
-  </ChatMessage>
-);
-
-export const InboundMessageWithMeta: StoryFn = () => (
-  <>
-    <ChatMessage variant="inbound">
-      <ChatBubble>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
-        <ChatMessageMetaItem>
-          <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki
-        </ChatMessageMetaItem>
-        <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-  </>
-);
-
-export const OutboundMessageWithMeta: StoryFn = () => (
-  <>
-    <ChatMessage variant="outbound">
-      <ChatBubble>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by you 2 minutes ago">
-        <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
-      </ChatMessageMeta>
-      <ChatMessageMeta aria-label="(read)">
-        <ChatMessageMetaItem>Read</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-  </>
 );
 
 export const ScrollingChatLog: StoryFn = () => {
@@ -258,63 +215,4 @@ export const KitchenSink: StoryFn = () => (
       </ChatMessageMeta>
     </ChatMessage>
   </ChatLog>
-);
-
-export const CustomizedKitchenSink: StoryFn = () => (
-  <CustomizationProvider
-    baseTheme="default"
-    elements={{
-      CHAT_LOG: {
-        padding: 'space100',
-        borderStyle: 'solid',
-        borderColor: 'colorBorder',
-        borderWidth: 'borderWidth10',
-      },
-      CHAT_MESSAGE: {
-        marginBottom: 'space100',
-        variants: {
-          inbound: {marginRight: 'space100'},
-          outbound: {marginLeft: 'space100'},
-        },
-      },
-      CHAT_BUBBLE: {
-        color: 'colorTextInverse',
-        variants: {
-          inbound: {backgroundColor: 'colorBackgroundPrimary'},
-          outbound: {backgroundColor: 'colorBackgroundPrimaryDarker'},
-        },
-      },
-      CHAT_MESSAGE_META: {
-        columnGap: 'space50',
-        variants: {
-          inbound: {justifyContent: 'flex-start'},
-          outbound: {justifyContent: 'flex-end'},
-        },
-      },
-      CHAT_MESSAGE_META_ITEM: {
-        color: 'colorText',
-        columnGap: 'space20',
-      },
-    }}
-  >
-    <ChatLog>
-      <ChatMessage variant="inbound">
-        <ChatBubble>test</ChatBubble>
-        <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
-          <ChatMessageMetaItem>
-            <Avatar name="Gibby Radki" size="sizeIcon20" />
-            Gibby Radki
-          </ChatMessageMetaItem>
-          <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
-      <ChatMessage variant="outbound">
-        <ChatBubble>test</ChatBubble>
-        <ChatMessageMeta aria-label="said by you 2 minutes ago (read)">
-          <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
-          <ChatMessageMetaItem>Read</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
-    </ChatLog>
-  </CustomizationProvider>
 );
