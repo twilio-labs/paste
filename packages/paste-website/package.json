@@ -104,7 +104,7 @@
     "gatsby-plugin-image": "^2.11.1",
     "gatsby-plugin-manifest": "^4.11.1",
     "gatsby-plugin-mdx": "^3.11.1",
-    "gatsby-plugin-netlify": "^4.2.0",
+    "gatsby-plugin-netlify": "5.0.0",
     "gatsby-plugin-react-helmet": "^5.11.0",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.11.1",
