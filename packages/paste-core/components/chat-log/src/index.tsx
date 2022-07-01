@@ -7,4 +7,4 @@ export * from './ComposerAttachmentCard';
 export * from './ChatAttachment';
 export * from './ChatAttachmentLink';
 export * from './ChatAttachmentDescription';
-export * from './types';
+export type {MessageVariants} from './MessageVariantContext';
