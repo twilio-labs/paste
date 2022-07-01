@@ -35,7 +35,7 @@ All user sessions are tracked captured in DataDog RUM.
 
 ## Rationale
 
-Pure Front End SLOs are a uncommon. We prioritize availability base on peoples success of "buidling" with Paste, and web performance to exemplify good performance best practices.
+Pure Front End SLOs are uncommon. We prioritize availability based on people's success of "building" with Paste, and web performance to exemplify good performance best practices.
 
 ## Error Budget
 
