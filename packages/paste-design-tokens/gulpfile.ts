@@ -229,35 +229,6 @@ gulp.task('tokens:es6:dts', () =>
     .pipe(gulp.dest(paths.dist))
 );
 
-gulp.task('tokens:gatsby', () =>
-  gulp
-    .src(paths.tokensEntry)
-    .pipe(
-      gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.js'},
-      })
-    )
-    .on('error', (err: string) => {
-      throw new Error(err);
-    })
-    .pipe(gulp.dest(paths.dist))
-);
-gulp.task('tokens:gatsby:dts', () =>
-  gulp
-    .src(paths.tokensEntry)
-    .pipe(
-      gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'gatsby.d.ts'},
-      })
-    )
-    .on('error', (err: string) => {
-      throw new Error(err);
-    })
-    .pipe(gulp.dest(paths.dist))
-);
-
 gulp.task('tokens:generic:js', () =>
   gulp
     .src(paths.tokensEntry)
@@ -319,7 +290,6 @@ gulp.task(
     'tokens:android',
     'tokens:raw',
     'tokens:sketchpalette',
-    'tokens:gatsby',
     'tokens:generic:js',
     'tokens:generic:d:ts'
   )
