@@ -1,7 +1,7 @@
 export interface Token {
   name: string;
-  value: string;
-  comment: string;
+  value: string | number;
+  comment?: string;
   category: string;
   type: string;
   deprecated: boolean;
