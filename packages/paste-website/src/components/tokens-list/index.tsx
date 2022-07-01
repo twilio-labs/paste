@@ -1,39 +1,17 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
 import {Label} from '@twilio-paste/label';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
-import Tokens from '@twilio-paste/design-tokens/dist/tokens.gatsby.js';
-import {Text} from '@twilio-paste/text';
-import {useUID} from '@twilio-paste/uid-library';
-import {InlineCode} from '../Typography';
+import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
+import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
 import {AnchoredHeading} from '../Heading';
-import {TokenExample} from './TokensExample';
-import {getTokenValue} from './getTokenValue';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
 import type {Token, TokenCategory, TokensListProps} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
-import {BackgroundColor} from './token-box/BackgroundColor';
-import {NoResultImage} from '../images/EmptyStateImages';
 import {TokenCard} from './token-card';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
-
-const PreviewComponentMap: {[key: string]: React.ReactNode} = {
-  'background-colors': BackgroundColor,
-};
-
-console.log(Tokens);
-const TokenKeys = Object.keys(Tokens);
-
-const ContentWrapper = (props): React.FC => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content = (props): React.FC => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -44,12 +22,14 @@ const sentenceCase = (catName: string): string => {
     });
 };
 
-const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
+const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
 
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
-  //const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
+  const [tokens, setTokens] = React.useState(Tokens.tokens);
+  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -62,9 +42,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     setFilterString(filter);
   };
 
-  const uid = useUID();
-
-  if (Tokens === null) {
+  if (tokens === null) {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
@@ -74,7 +52,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         data={{
           fileAbsolutePath: '',
           frontmatter: {slug: '/tokens/list', title: 'Design tokens'},
-          headings: TokenKeys.map((value) => ({value, depth: 2})),
+          headings: tokenCategories.map((value) => ({value: sentenceCase(value), depth: 2})),
         }}
       />
       <Content>
@@ -91,18 +69,23 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
           />
         </Box>
 
-        {TokenKeys.map((tokenKey: string) => (
-          <React.Fragment key={`catname-${tokenKey}`}>
+        {tokenCategories.map((tokenCategory) => (
+          <React.Fragment key={`catname-${tokenCategory}`}>
             <AnchoredHeading as="h2" variant="heading20">
-              {sentenceCase(tokenKey)}
+              {sentenceCase(tokenCategory)}
             </AnchoredHeading>
             <Box marginBottom="space160" data-cy="tokens-table-container">
-              {Tokens[tokenKey].map(({name, value, comment}: {name: string; value: string; comment: string}) => {
-                console.log('key', tokenKey);
-                return (
-                  <TokenCard key={`token${name}`} category={tokenKey} name={name} value={value} comment={comment} />
-                );
-              })}
+              {/* @ts-ignore : todo - figure out comment issue */}
+              {tokens[tokenCategory].map(({name, value, comment}) => (
+                <TokenCard
+                  key={`token${name}`}
+                  category={tokenCategory}
+                  name={name}
+                  value={value}
+                  comment={comment}
+                  backgroundColor="rgb(255, 255, 255)"
+                />
+              ))}
             </Box>
           </React.Fragment>
         ))}
@@ -110,27 +93,3 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     </ContentWrapper>
   );
 };
-
-/*cat.tokens
-                    .sort((a, b) => {
-                      if (cat.categoryName === 'font-weights') {
-                        return collator.compare(a.value, b.value);
-                      }
-                      return collator.compare(a.name, b.name);
-                    })
-                    .map((token: Token) => {
-                      return (
-                        <Tr key={`token${token.name}`}>
-                          <Td>
-                            <Text as="p" marginBottom="space30">
-                              <InlineCode>${token.name}</InlineCode>
-                            </Text>
-                            <Text as="p">{token.comment}</Text>
-                          </Td>
-                          <Td>{getTokenValue(token)}</Td>
-                          <Td>
-                            <TokenExample token={token} />
-                          </Td>
-                        </Tr>
-                      );
-                    })*/

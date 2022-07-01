@@ -10,7 +10,6 @@ import {slugify} from '../../../utils/RouteUtils';
 const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
-  console.log(headings);
   if (headings == null) {
     return null;
   }

@@ -57,6 +57,7 @@ const TokenCardValue = styled.dd(
     display: ['block', 'flex'],
     margin: 'space0',
     marginTop: ['space40', 'space0'],
+    marginLeft: ['space0', 'space110'],
     verticalAlign: 'center',
     textAlign: ['left', 'right'],
   })
@@ -117,8 +118,7 @@ export const TokenCard: React.FC<{
       borderStyle="solid"
       borderRadius="borderRadius30"
       minHeight="sizeSquare170"
-      marginTop="space30"
-      marginBottom="space30"
+      marginBottom="space40"
       overflow="hidden"
     >
       <TokenExample category={category} name={name} value={value} backgroundColor={backgroundColor} />
