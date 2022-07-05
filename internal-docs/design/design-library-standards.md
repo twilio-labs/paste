@@ -172,6 +172,11 @@ E.g. “color-text-weak”
   - Default, error, and disabled states (at least) should be available in Figma.
   - Hover states should include the appropriate cursor to make mocking up prototypes easier for PDs.
   - All variants available in the component API should be available in Figma. There may be some exceptions, such as the “reset” variant on buttons.
+- Component properties
+  - Use component properties to handle different variants, instance swaps, and text layers.
+  - If there's a nested component, consider using an instance swap property so consumers can swap to another instance at the parent level. For example, if there's an icon, enable the instance swap on that layer.
+  - If there's text in a component, consider using a text property so consumers can update the text of that instance or multiple selected instances at the parent level. Note that the text property only works if it's an actual text layer and not in another instance. If it's in another instance (e.g., the text in an Anchor), consumers will have to navigate to the Anchor layer to see the text property in the side panel.
+  - Avoid using boolean properties for now as we want the default variant of a component to be its most basic state, and if a boolean is set to no, that layer is hidden from the component set view and can make it difficult for us to internal debug.
 - TODO: In what order do we list properties for variants?
 - TODO: How do we decide which props to expose at the top level of a component vs. nesting? Maybe a max number of top-level variants? Maybe think about it in terms of [the obvious, the easy, and the possible](https://signalvnoise.com/posts/3047-the-obvious-the-easy-and-the-possible)?
 
