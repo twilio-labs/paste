@@ -34,7 +34,7 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           as={props.href ? 'a' : 'div'}
           alignItems="center"
           backgroundColor="colorBackgroundStrong"
-          borderRadius="borderRadius10"
+          borderRadius="borderRadiusPill"
           color="colorText"
           columnGap="space20"
           cursor={props.href ? 'pointer' : 'default'}
@@ -48,10 +48,9 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           _hover={{
             textDecoration: 'none',
           }}
-          _focusVisible={{
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
+          _focus={{
             boxShadow: 'shadowFocus',
-            color: 'colorTextLinkStronger',
+            textDecoration: 'none',
           }}
         >
           {props.children}
