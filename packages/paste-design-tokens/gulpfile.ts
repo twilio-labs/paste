@@ -4,6 +4,7 @@ import gulpTheo from 'gulp-theo';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
+import {es6CustomPropertiesTokenFormat} from './formatters/es6-custom-properties';
 import {gatsbyJsonTokenFormat} from './formatters/gatsby.json';
 import {genericDTsTemplate} from './formatters/generic.d.ts';
 import {genericCommonJsTokenFormat} from './formatters/generic';
@@ -26,6 +27,7 @@ const paths = {
 
 theo.registerFormat('common.js', commonTokenFormat);
 theo.registerFormat('es6.js', es6TokenFormat);
+theo.registerFormat('es6-custom-properties.ts', es6CustomPropertiesTokenFormat);
 theo.registerFormat('common.d.ts', dTSTokenFormat);
 theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
@@ -201,6 +203,22 @@ gulp.task('tokens:es6', () =>
     .pipe(gulp.dest(paths.dist))
 );
 
+gulp.task('tokens:es6-custom-properties', () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: {type: 'web', includeMeta: true},
+        format: {type: 'es6-custom-properties.ts'},
+      })
+    )
+    .on('error', (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(gulpif(process.env.NODE_ENV === 'production', terser()))
+    .pipe(gulp.dest(paths.dist))
+);
+
 gulp.task('tokens:common:dts', () =>
   gulp
     .src(paths.tokensEntry)
@@ -303,6 +321,7 @@ gulp.task(
     'tokens:common:dts',
     'tokens:es6',
     'tokens:es6:dts',
+    'tokens:es6-custom-properties',
     'tokens:ios',
     'tokens:android',
     'tokens:raw',

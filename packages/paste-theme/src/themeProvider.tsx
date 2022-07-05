@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {DefaultTheme, SendGridTheme, DarkTheme} from './themes';
+import {DefaultTheme, DarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
@@ -20,8 +20,9 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
       };
     case ThemeVariants.SENDGRID:
       return {
-        ...SendGridTheme,
-        breakpoints: customBreakpoints || SendGridTheme.breakpoints,
+        ...DefaultTheme,
+        fonts: {...DefaultTheme.fonts, fontFamilyText: `'Colfax', Helvetica, Arial, sans-serif`},
+        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
       };
     case DeprecatedThemeVariants.CONSOLE:
       isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);
@@ -39,18 +40,45 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
   }
 }
 
+export interface CSSVarsProps {
+  /**
+   * The element to attach the CSS custom properties to.
+   * @default ":host, :root"
+   */
+  root?: string;
+  /**
+   * The element to attach the CSS custom properties to.
+   * @default ":host, :root"
+   */
+  themeCssVars: any;
+}
+
+export const CSSVars: React.FC<CSSVarsProps> = ({root = ':host, :root'}) => {
+  /**
+   * Append color mode selector to allow semantic tokens to change according to the color mode
+   */
+  const selector = [root, `[data-theme]`].join(',');
+  return <StylingGlobals styles={(theme: any) => ({[selector]: theme.__cssVars})} />;
+};
+
+import '@twilio-paste/design-tokens/dist/all-custom-properties.css';
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
   theme?: ThemeVariants;
   disableAnimations?: boolean;
+  cssVarsRoot?: string;
 }
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
-  customBreakpoints,
   theme = ThemeVariants.DEFAULT,
+  customBreakpoints,
   disableAnimations = false,
+  cssVarsRoot,
   ...props
 }) => {
+  const providerThemeProps = getProviderThemeProps(theme, customBreakpoints);
+  const computedTheme = React.useMemo(() => toCSSVar(providerThemeProps), [providerThemeProps]);
+
   const prefersReducedMotion = useReducedMotion();
   React.useMemo(() => {
     AnimatedGlobals.assign({
@@ -58,12 +86,11 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
     });
   }, [disableAnimations, prefersReducedMotion]);
 
-  const providerThemeProps = getProviderThemeProps(theme, customBreakpoints);
-
   return (
     <StyledThemeProvider theme={providerThemeProps}>
       <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
       <StylingGlobals styles={pasteFonts} />
+      <CSSVars root={cssVarsRoot} />
       <StyledBase className="paste-theme-provider" {...props} />
     </StyledThemeProvider>
   );

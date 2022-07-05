@@ -10077,6 +10077,7 @@ __metadata:
     gulp-terser: ^2.0.1
     gulp-theo: 2.0.1
     lodash: ^4.17.21
+    ts-node: ^10.0.0
   languageName: unknown
   linkType: soft
 
@@ -11263,6 +11264,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
+    typescript: ^4.6.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^2.0.0

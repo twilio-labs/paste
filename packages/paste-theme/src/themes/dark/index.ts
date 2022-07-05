@@ -13,7 +13,7 @@ import {
   textColors,
   zIndices,
   colors,
-} from '@twilio-paste/design-tokens/dist/themes/dark/tokens.es6';
+} from '@twilio-paste/design-tokens/dist/themes/dark/tokens.es6-custom-properties';
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
 
