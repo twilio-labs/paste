@@ -34,6 +34,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [tokens, setTokens] = React.useState(Tokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
+  const [selectedTheme, setSelectedTheme] = React.useState(theme === 'dark' ? 'dark' : 'default');
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -83,8 +84,14 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 id="theme-control"
                 defaultValue={theme === 'dark' ? 'dark' : 'default'}
                 onChange={(evt) => {
-                  if (evt.target.value === 'dark') setTokens(DarkModeTokens.tokens);
-                  if (evt.target.value === 'default') setTokens(Tokens.tokens);
+                  if (evt.target.value === 'dark') {
+                    setSelectedTheme('dark');
+                    setTokens(DarkModeTokens.tokens);
+                  }
+                  if (evt.target.value === 'default') {
+                    setSelectedTheme('default');
+                    setTokens(Tokens.tokens);
+                  }
                 }}
               >
                 <Option value="default">Default</Option>
@@ -122,7 +129,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                   name={useJavascriptNames ? camelCase(name) : name}
                   value={value}
                   comment={comment}
-                  backgroundColor="rgb(255, 255, 255)"
+                  backgroundColor={selectedTheme === 'dark' ? 'rgba(15, 22, 33, 1)' : 'rgb(255, 255, 255)'}
                 />
               ))}
             </Box>
