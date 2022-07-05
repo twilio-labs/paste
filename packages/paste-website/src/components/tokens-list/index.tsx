@@ -4,6 +4,7 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
+import camelCase from 'lodash/camelCase';
 import {AnchoredHeading} from '../Heading';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
@@ -12,6 +13,8 @@ import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Select, Option} from '@twilio-paste/select';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -30,6 +33,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [filterString, setFilterString] = React.useState('');
   const [tokens, setTokens] = React.useState(Tokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
+  const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -56,19 +60,54 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         }}
       />
       <Content>
-        <Box paddingBottom="space80">
-          <Label htmlFor="test" id="test-label">
-            Filter tokens
-          </Label>
-          <Input
-            type="text"
-            id="test"
-            aria-labelledby="test-label"
-            onChange={handleInput}
-            insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
-          />
+        <Box marginBottom="space80">
+          <Grid gutter="space40">
+            <Column span={6}>
+              <Label htmlFor="test" id="test-label">
+                Filter tokens
+              </Label>
+              <Input
+                type="text"
+                id="test"
+                aria-labelledby="test-label"
+                onChange={handleInput}
+                insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
+                placeholder="Filter by token name or value"
+              />
+            </Column>
+            <Column span={3}>
+              <Label htmlFor="theme-control" id="theme-control-label">
+                Theme
+              </Label>
+              <Select
+                id="theme-control"
+                defaultValue={theme === 'dark' ? 'dark' : 'default'}
+                onChange={(evt) => {
+                  if (evt.target.value === 'dark') setTokens(DarkModeTokens.tokens);
+                  if (evt.target.value === 'default') setTokens(Tokens.tokens);
+                }}
+              >
+                <Option value="default">Default</Option>
+                <Option value="dark">Dark</Option>
+              </Select>
+            </Column>
+            <Column span={3}>
+              <Label htmlFor="format-control" id="format-control-label">
+                Format
+              </Label>
+              <Select
+                id="format-control"
+                onChange={(evt) => {
+                  if (evt.target.value === 'javascript') setUseJavascriptNames(true);
+                  else setUseJavascriptNames(false);
+                }}
+              >
+                <Option value="css">CSS</Option>
+                <Option value="javascript">Javascript</Option>
+              </Select>
+            </Column>
+          </Grid>
         </Box>
-
         {tokenCategories.map((tokenCategory) => (
           <React.Fragment key={`catname-${tokenCategory}`}>
             <AnchoredHeading as="h2" variant="heading20">
@@ -80,7 +119,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 <TokenCard
                   key={`token${name}`}
                   category={tokenCategory}
-                  name={name}
+                  name={useJavascriptNames ? camelCase(name) : name}
                   value={value}
                   comment={comment}
                   backgroundColor="rgb(255, 255, 255)"
