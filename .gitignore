@@ -104,3 +104,8 @@ cypress/downloads
 
 # turborepo
 .turbo
+
+# apps
+# vs-code-intellisense
+out
+.vscode-test
