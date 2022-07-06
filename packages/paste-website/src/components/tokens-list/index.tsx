@@ -4,7 +4,6 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
-import camelCase from 'lodash/camelCase';
 import {AnchoredHeading} from '../Heading';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
@@ -126,7 +125,8 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                 <TokenCard
                   key={`token${name}`}
                   category={tokenCategory}
-                  name={useJavascriptNames ? camelCase(name) : name}
+                  name={name}
+                  useCamelCase={useJavascriptNames ? true : false}
                   value={value}
                   comment={comment}
                   backgroundColor={selectedTheme === 'dark' ? 'rgba(15, 22, 33, 1)' : 'rgb(255, 255, 255)'}
