@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
 import {AnchoredHeading} from '../Heading';
@@ -11,9 +9,7 @@ import type {Token, TokenCategory, TokensListProps} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
-import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Select, Option} from '@twilio-paste/select';
+import {TokensListFilter} from './TokensListFilter';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -41,11 +37,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     trackTokenFilterString(filterString);
   }, [filterString, props, theme]);
 
-  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const filter = e.currentTarget.value;
-    setFilterString(filter);
-  };
-
   if (tokens === null) {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
@@ -60,60 +51,18 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         }}
       />
       <Content>
-        <Box marginBottom="space80">
-          <Grid gutter="space40">
-            <Column span={6}>
-              <Label htmlFor="test" id="test-label">
-                Filter tokens
-              </Label>
-              <Input
-                type="text"
-                id="test"
-                aria-labelledby="test-label"
-                onChange={handleInput}
-                insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
-                placeholder="Filter by token name or value"
-              />
-            </Column>
-            <Column span={3}>
-              <Label htmlFor="theme-control" id="theme-control-label">
-                Theme
-              </Label>
-              <Select
-                id="theme-control"
-                defaultValue={theme === 'dark' ? 'dark' : 'default'}
-                onChange={(evt) => {
-                  if (evt.target.value === 'dark') {
-                    setSelectedTheme('dark');
-                    setTokens(DarkModeTokens.tokens);
-                  }
-                  if (evt.target.value === 'default') {
-                    setSelectedTheme('default');
-                    setTokens(Tokens.tokens);
-                  }
-                }}
-              >
-                <Option value="default">Default</Option>
-                <Option value="dark">Dark</Option>
-              </Select>
-            </Column>
-            <Column span={3}>
-              <Label htmlFor="format-control" id="format-control-label">
-                Format
-              </Label>
-              <Select
-                id="format-control"
-                onChange={(evt) => {
-                  if (evt.target.value === 'javascript') setUseJavascriptNames(true);
-                  else setUseJavascriptNames(false);
-                }}
-              >
-                <Option value="css">CSS</Option>
-                <Option value="javascript">Javascript</Option>
-              </Select>
-            </Column>
-          </Grid>
-        </Box>
+        <TokensListFilter
+          // @ts-ignore
+          defaultTokens={Tokens.tokens}
+          // @ts-ignore
+          darkTokens={DarkModeTokens.tokens}
+          theme={theme}
+          // @ts-ignore
+          setTokens={setTokens}
+          setUseJavascriptNames={setUseJavascriptNames}
+          setSelectedTheme={setSelectedTheme}
+          setFilterString={setFilterString}
+        />
         {tokenCategories.map((tokenCategory) => (
           <React.Fragment key={`catname-${tokenCategory}`}>
             <AnchoredHeading as="h2" variant="heading20">
