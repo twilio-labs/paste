@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+- [`eb490746c`](https://github.com/twilio-labs/paste/commit/eb490746cb957a349fb217c13b886db4a7277342) [#2480](https://github.com/twilio-labs/paste/pull/2480) Thanks [@shleewhite](https://github.com/shleewhite)! - [Theme] fix isDeprecatedTheme to only throw a console error if a theme is deprecated.
+
 ## 7.0.1
 
 ### Patch Changes

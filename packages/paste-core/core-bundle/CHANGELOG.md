@@ -1,5 +1,37 @@
 # Change Log
 
+## 14.1.0
+
+### Minor Changes
+
+- [`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad) [#2493](https://github.com/twilio-labs/paste/pull/2493) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Adds a new size, 'rounded_small', for the Conversations UI Kit
+
+* [`39cfc65ea`](https://github.com/twilio-labs/paste/commit/39cfc65ea1f44e024732390527fc139a86138a72) [#2489](https://github.com/twilio-labs/paste/pull/2489) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] add a ChatLog component
+
+- [`0aa52162`](https://github.com/twilio-labs/paste/commit/0aa5216294bb195873e46b7fe83ce71250b7c38b) [#2501](https://github.com/twilio-labs/paste/pull/2501) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat log] Add several new components related to displaying attachments:
+
+  - ComposerAttachmentCard
+  - ChatAttachment
+  - ChatAttachmentLink
+  - ChatAttachmentDescription
+
+### Patch Changes
+
+- [`ce87a07d`](https://github.com/twilio-labs/paste/commit/ce87a07de10936cce9f3d0414bae5910e3ddbc9f) [#2476](https://github.com/twilio-labs/paste/pull/2476) Thanks [@shleewhite](https://github.com/shleewhite)! - [Truncate] fix alignment when truncate is within another component
+
+* [`a8ad034fe`](https://github.com/twilio-labs/paste/commit/a8ad034fe0868e725d50dfe02266ea3855119bdb) [#2509](https://github.com/twilio-labs/paste/pull/2509) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] Move types and styles to the component files
+
+- [`90b019171`](https://github.com/twilio-labs/paste/commit/90b019171c520a92671d2514d48a332791f80e55) [#2515](https://github.com/twilio-labs/paste/pull/2515) Thanks [@TheSisb](https://github.com/TheSisb)! - [Display Pill Group] minor updates to the design.
+
+* [`eb490746c`](https://github.com/twilio-labs/paste/commit/eb490746cb957a349fb217c13b886db4a7277342) [#2480](https://github.com/twilio-labs/paste/pull/2480) Thanks [@shleewhite](https://github.com/shleewhite)! - [Theme] fix isDeprecatedTheme to only throw a console error if a theme is deprecated.
+
+* Updated dependencies [[`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad), [`ce87a07d`](https://github.com/twilio-labs/paste/commit/ce87a07de10936cce9f3d0414bae5910e3ddbc9f), [`a8ad034fe`](https://github.com/twilio-labs/paste/commit/a8ad034fe0868e725d50dfe02266ea3855119bdb), [`90b019171`](https://github.com/twilio-labs/paste/commit/90b019171c520a92671d2514d48a332791f80e55), [`39cfc65ea`](https://github.com/twilio-labs/paste/commit/39cfc65ea1f44e024732390527fc139a86138a72), [`eb490746c`](https://github.com/twilio-labs/paste/commit/eb490746cb957a349fb217c13b886db4a7277342), [`0aa52162`](https://github.com/twilio-labs/paste/commit/0aa5216294bb195873e46b7fe83ce71250b7c38b)]:
+  - @twilio-paste/button@10.1.0
+  - @twilio-paste/truncate@10.0.2
+  - @twilio-paste/chat-log@1.1.0
+  - @twilio-paste/display-pill-group@4.0.2
+  - @twilio-paste/theme@7.0.2
+
 ## 14.0.0
 
 ### Major Changes

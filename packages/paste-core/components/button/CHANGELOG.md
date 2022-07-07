@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+- [`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad) [#2493](https://github.com/twilio-labs/paste/pull/2493) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Adds a new size, 'rounded_small', for the Conversations UI Kit
+
 ## 10.0.1
 
 ### Patch Changes

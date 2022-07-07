@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`26e0d23fe`](https://github.com/twilio-labs/paste/commit/26e0d23fe7a2f41739ed53c6c76e2badb6bb2d4b) [#2501](https://github.com/twilio-labs/paste/pull/2501) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Add the new icon "CloseCircleIcon"
+
 ## 8.0.2
 
 ### Patch Changes
