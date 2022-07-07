@@ -27,10 +27,9 @@ export interface TokensListProps {
   darkTokens: TokensShape[];
 }
 
-export interface TokensListFilterProps extends Pick<TokensListProps, 'defaultTokens' | 'darkTokens'> {
+export interface TokensListFilterProps {
   theme: string;
-  setTokens: React.Dispatch<React.SetStateAction<TokensShape>>;
-  setFilterString: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedTheme: React.Dispatch<React.SetStateAction<string>>;
-  setUseJavascriptNames: React.Dispatch<React.SetStateAction<boolean>>;
+  handleThemeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleInput: (e: React.FormEvent<HTMLInputElement>) => void;
+  handleFormatChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

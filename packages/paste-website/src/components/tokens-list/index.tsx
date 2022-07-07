@@ -29,13 +29,27 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [tokens, setTokens] = React.useState(Tokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
-  const [selectedTheme, setSelectedTheme] = React.useState(theme === 'dark' ? 'dark' : 'default');
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
     // setTokens(filterTokenList(filterString, props, theme));
     trackTokenFilterString(filterString);
   }, [filterString, props, theme]);
+
+  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
+    const filter = e.currentTarget.value;
+    setFilterString(filter);
+  };
+
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
+    else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
+  };
+
+  const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    if (e.currentTarget.value === 'javascript') setUseJavascriptNames(true);
+    else if (e.currentTarget.value === 'css') setUseJavascriptNames(false);
+  };
 
   if (tokens === null) {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
@@ -52,16 +66,10 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
       />
       <Content>
         <TokensListFilter
-          // @ts-ignore
-          defaultTokens={Tokens.tokens}
-          // @ts-ignore
-          darkTokens={DarkModeTokens.tokens}
           theme={theme}
-          // @ts-ignore
-          setTokens={setTokens}
-          setUseJavascriptNames={setUseJavascriptNames}
-          setSelectedTheme={setSelectedTheme}
-          setFilterString={setFilterString}
+          handleThemeChange={handleThemeChange}
+          handleFormatChange={handleFormatChange}
+          handleInput={handleInput}
         />
         {tokenCategories.map((tokenCategory) => (
           <React.Fragment key={`catname-${tokenCategory}`}>
