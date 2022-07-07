@@ -8,7 +8,11 @@ import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
 import type {TokensListFilterProps} from './types';
 
-export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
+export const TokensListFilter: React.FC<TokensListFilterProps> = ({
+  handleInput,
+  handleFormatChange,
+  handleThemeChange,
+}) => {
   const inputId = useUID();
   const themeControlId = useUID();
   const formatControlId = useUID();
@@ -25,7 +29,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
               type="text"
               id={inputId}
               aria-labelledby="test-label"
-              onChange={props.handleInput}
+              onChange={handleInput}
               insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
               placeholder="Filter by token name or value"
             />
@@ -37,7 +41,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
             <Select
               id={themeControlId}
               defaultValue={window.localStorage.getItem('themeControl') ?? 'default'}
-              onChange={props.handleThemeChange}
+              onChange={handleThemeChange}
               data-cy="theme-control"
             >
               <Option value="default">Default</Option>
@@ -51,7 +55,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
             <Select
               id={formatControlId}
               defaultValue={window.localStorage.getItem('format-control') ?? 'css'}
-              onChange={props.handleFormatChange}
+              onChange={handleFormatChange}
               data-cy="format-control"
             >
               <Option value="css">CSS</Option>

@@ -58,6 +58,9 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
+  const backgroundColor: string =
+    tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value ?? 'rgb(255,255,255)';
+
   return (
     <ContentWrapper>
       <PageAside
@@ -88,9 +91,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                   useCamelCase={useJavascriptNames}
                   value={value}
                   comment={comment}
-                  backgroundColor={
-                    tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value
-                  }
+                  backgroundColor={backgroundColor}
                 />
               ))}
             </Box>
