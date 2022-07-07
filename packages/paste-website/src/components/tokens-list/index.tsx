@@ -42,13 +42,16 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   };
 
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    // @ts-ignore todo: figure out ts error with DarkModeTokens
     if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
     else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
+    localStorage.setItem('themeControl', e.currentTarget.value);
   };
 
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     if (e.currentTarget.value === 'javascript') setUseJavascriptNames(true);
     else if (e.currentTarget.value === 'css') setUseJavascriptNames(false);
+    localStorage.setItem('formatControl', e.currentTarget.value);
   };
 
   if (tokens === null) {
@@ -66,7 +69,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
       />
       <Content>
         <TokensListFilter
-          theme={theme}
           handleThemeChange={handleThemeChange}
           handleFormatChange={handleFormatChange}
           handleInput={handleInput}

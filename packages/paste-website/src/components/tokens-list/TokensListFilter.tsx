@@ -13,8 +13,6 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
   const themeControlId = useUID();
   const formatControlId = useUID();
 
-  console.log('THEME----->', props.theme);
-
   return (
     <>
       <Box marginBottom="space80">
@@ -38,8 +36,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
             </Label>
             <Select
               id={themeControlId}
-              // props.theme is 'default' for a split second before list renders so 'dark' defaultValue isn't working
-              defaultValue={props.theme === 'dark' ? 'dark' : 'default'}
+              defaultValue={localStorage.getItem('themeControl') ?? 'default'}
               onChange={props.handleThemeChange}
             >
               <Option value="default">Default</Option>
@@ -50,7 +47,11 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
             <Label htmlFor={formatControlId} id="format-control-label">
               Format
             </Label>
-            <Select id={formatControlId} onChange={props.handleFormatChange}>
+            <Select
+              id={formatControlId}
+              defaultValue={localStorage.getItem('formatControl') ?? 'css'}
+              onChange={props.handleFormatChange}
+            >
               <Option value="css">CSS</Option>
               <Option value="javascript">Javascript</Option>
             </Select>
