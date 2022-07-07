@@ -18,7 +18,7 @@ export const Basic: React.FC = () => {
         }}
         href="https://google.com"
       >
-        <CalendarIcon decorative size="sizeIcon10" />
+        <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
         Tennis
       </DisplayPill>
       <DisplayPill data-testid="display-pill-standard">Football</DisplayPill>
@@ -46,14 +46,14 @@ export const OverflowWrapping: React.FC = () => {
           }}
           href="https://google.com"
         >
-          <CalendarIcon decorative size="sizeIcon10" />
+          <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
           Tennis
         </DisplayPill>
         <DisplayPill data-testid="display-pill-standard">Football</DisplayPill>
         <DisplayPill href="/">Baseball</DisplayPill>
         <DisplayPill>Basketball</DisplayPill>
         <DisplayPill>
-          <Avatar size="sizeIcon10" name="Sportsball" />
+          <Avatar size="sizeIcon10" name="portsball" />
           Basketball and Volleyball and Swimming and Jumping
         </DisplayPill>
         <DisplayPill>Soccer</DisplayPill>

@@ -34,7 +34,7 @@ export const CustomDisplayPillGroup: React.FC = () => {
           }}
           href="https://google.com"
         >
-          <CalendarIcon decorative size="sizeIcon10" />
+          <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
           Tennis
         </DisplayPill>
         <DisplayPill data-testid="display-pill-standard">Football</DisplayPill>

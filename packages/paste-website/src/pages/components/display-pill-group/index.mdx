@@ -74,7 +74,7 @@ export const pageQuery = graphql`
 <LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon, Avatar}}>
   {`<DisplayPillGroup aria-label="Your favorite sports:">
   <DisplayPill href="https://google.com">
-    <CalendarIcon decorative size="sizeIcon10" />
+    <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
     Tennis
   </DisplayPill>
   <DisplayPill>Football</DisplayPill>
@@ -127,7 +127,7 @@ When provided with an `href` the `DisplayPill` will render itself as an HTML Anc
     }}
     href="https://google.com"
   >
-    <CalendarIcon decorative size="sizeIcon10" />
+    <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
     Tennis
   </DisplayPill>
   <DisplayPill>Football</DisplayPill>
@@ -152,10 +152,18 @@ When provided with an `href` the `DisplayPill` will render itself as an HTML Anc
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Only pass DisplayPill as a direct descendent of a DisplayPillGroup." />
+  <Do title="Do" body="Only provide the DisplayPill component as a child to DisplayPillGroup." />
   <Dont
     title="Don't"
-    body="Don’t pass DisplayPillGroup any other component type, and do not wrap DisplayPill in any other component of DOM element"
+    body="Don’t pass DisplayPillGroup any other component type, and do not wrap DisplayPill in any other component of DOM element."
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Give icons in DisplayPill the 'colorTextIcon' color." />
+  <Dont
+    title="Don't"
+    body="Don’t forget to pass the 'colorTextIcon' color and don't provide other colors to icons in DisplayPill."
   />
 </DoDont>
 
@@ -188,7 +196,7 @@ export const Basic = () => {
         }}
         href="https://google.com"
       >
-        <CalendarIcon decorative size="sizeIcon10" />
+        <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
         Tennis
       </DisplayPill>
       <DisplayPill>Football</DisplayPill>
