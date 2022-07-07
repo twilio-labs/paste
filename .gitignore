@@ -95,6 +95,7 @@ cypress/downloads
 # Yarn Folders
 .pnp.*
 .yarn/*
+**/.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
