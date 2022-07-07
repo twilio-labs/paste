@@ -45,13 +45,13 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     // @ts-ignore todo: figure out ts error with DarkModeTokens
     if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
     else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
-    localStorage.setItem('themeControl', e.currentTarget.value);
+    window.localStorage.setItem('themeControl', e.currentTarget.value);
   };
 
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     if (e.currentTarget.value === 'javascript') setUseJavascriptNames(true);
     else if (e.currentTarget.value === 'css') setUseJavascriptNames(false);
-    localStorage.setItem('formatControl', e.currentTarget.value);
+    window.localStorage.setItem('formatControl', e.currentTarget.value);
   };
 
   if (tokens === null) {
