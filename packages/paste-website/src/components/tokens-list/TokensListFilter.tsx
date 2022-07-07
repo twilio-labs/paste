@@ -38,6 +38,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
               id={themeControlId}
               defaultValue={localStorage.getItem('themeControl') ?? 'default'}
               onChange={props.handleThemeChange}
+              data-cy="theme-control"
             >
               <Option value="default">Default</Option>
               <Option value="dark">Dark</Option>
@@ -49,8 +50,9 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = (props) => {
             </Label>
             <Select
               id={formatControlId}
-              defaultValue={localStorage.getItem('formatControl') ?? 'css'}
+              defaultValue={localStorage.getItem('format-control') ?? 'css'}
               onChange={props.handleFormatChange}
+              data-cy="format-control"
             >
               <Option value="css">CSS</Option>
               <Option value="javascript">Javascript</Option>

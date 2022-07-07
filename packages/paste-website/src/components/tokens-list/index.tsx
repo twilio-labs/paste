@@ -85,7 +85,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                   key={`token${name}`}
                   category={tokenCategory}
                   name={name}
-                  useCamelCase={useJavascriptNames ? true : false}
+                  useCamelCase={useJavascriptNames}
                   value={value}
                   comment={comment}
                   backgroundColor={
