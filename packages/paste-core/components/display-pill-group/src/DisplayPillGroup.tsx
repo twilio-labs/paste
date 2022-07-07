@@ -28,8 +28,8 @@ export const DisplayPillGroup = React.forwardRef<HTMLUListElement, DisplayPillGr
         padding="space0"
         display="flex"
         flexWrap="wrap"
-        rowGap="space30"
-        columnGap="space30"
+        rowGap="space20"
+        columnGap="space20"
       >
         {props.children}
       </Box>

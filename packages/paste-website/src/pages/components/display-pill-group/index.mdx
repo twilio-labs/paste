@@ -8,6 +8,7 @@ slug: /components/display-pill-group/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Avatar} from '@twilio-paste/avatar';
 import {DisplayPill, DisplayPillGroup} from '@twilio-paste/display-pill-group';
 import Changelog from '@twilio-paste/display-pill-group/CHANGELOG.md';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
@@ -70,14 +71,17 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon}}>
+<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon, Avatar}}>
   {`<DisplayPillGroup aria-label="Your favorite sports:">
   <DisplayPill href="https://google.com">
-    <CalendarIcon decorative size="sizeIcon10" />
+    <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
     Tennis
   </DisplayPill>
   <DisplayPill>Football</DisplayPill>
-  <DisplayPill href="/">Baseball</DisplayPill>
+  <DisplayPill href="#/">
+    <Avatar size="sizeIcon10" name="Baseball avatar" src="https://avatars.githubusercontent.com/u/1592327?v=4" />
+    Baseball
+  </DisplayPill>
   <DisplayPill>Basketball</DisplayPill>
   <DisplayPill>Soccer</DisplayPill>
 </DisplayPillGroup>`}
@@ -112,7 +116,7 @@ Display Pills can be linked, or unlinked by passing an `href` prop to the Displa
 
 When provided with an `href` the `DisplayPill` will render itself as an HTML Anchor element, and will respond to any anchor based events and accept any event handlers.
 
-<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon}}>
+<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon, Avatar}}>
   {`<DisplayPillGroup aria-label="Your favorite sports:">
   <DisplayPill
     onFocus={() => {
@@ -123,11 +127,14 @@ When provided with an `href` the `DisplayPill` will render itself as an HTML Anc
     }}
     href="https://google.com"
   >
-    <CalendarIcon decorative size="sizeIcon10" />
+    <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
     Tennis
   </DisplayPill>
   <DisplayPill>Football</DisplayPill>
-  <DisplayPill href="/">Baseball</DisplayPill>
+  <DisplayPill href="#/">
+    <Avatar size="sizeIcon10" name="Baseball avatar" src="https://avatars.githubusercontent.com/u/1592327?v=4" />
+    Baseball
+  </DisplayPill>
   <DisplayPill>Basketball</DisplayPill>
   <DisplayPill>Soccer</DisplayPill>
 </DisplayPillGroup>`}
@@ -145,10 +152,18 @@ When provided with an `href` the `DisplayPill` will render itself as an HTML Anc
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Only pass DisplayPill as a direct descendent of a DisplayPillGroup." />
+  <Do title="Do" body="Only provide the DisplayPill component as a child to DisplayPillGroup." />
   <Dont
     title="Don't"
-    body="Don’t pass DisplayPillGroup any other component type, and do not wrap DisplayPill in any other component of DOM element"
+    body="Don’t pass DisplayPillGroup any other component type, and do not wrap DisplayPill in any other component of DOM element."
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Give icons in DisplayPill the 'colorTextIcon' color." />
+  <Dont
+    title="Don't"
+    body="Don’t forget to pass the 'colorTextIcon' color and don't provide other colors to icons in DisplayPill."
   />
 </DoDont>
 
@@ -181,7 +196,7 @@ export const Basic = () => {
         }}
         href="https://google.com"
       >
-        <CalendarIcon decorative size="sizeIcon10" />
+        <CalendarIcon color="colorTextIcon" decorative size="sizeIcon10" />
         Tennis
       </DisplayPill>
       <DisplayPill>Football</DisplayPill>
