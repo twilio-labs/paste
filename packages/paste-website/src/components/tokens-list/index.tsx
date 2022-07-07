@@ -78,7 +78,9 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                   useCamelCase={useJavascriptNames ? true : false}
                   value={value}
                   comment={comment}
-                  backgroundColor={selectedTheme === 'dark' ? 'rgba(15, 22, 33, 1)' : 'rgb(255, 255, 255)'}
+                  backgroundColor={
+                    tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value
+                  }
                 />
               ))}
             </Box>
