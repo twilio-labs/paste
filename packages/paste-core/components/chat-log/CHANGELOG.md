@@ -1,5 +1,22 @@
 # @twilio-paste/chat-log
 
+## 1.1.0
+
+### Minor Changes
+
+- [`39cfc65ea`](https://github.com/twilio-labs/paste/commit/39cfc65ea1f44e024732390527fc139a86138a72) [#2489](https://github.com/twilio-labs/paste/pull/2489) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] add a ChatLog component
+
+* [`0aa52162`](https://github.com/twilio-labs/paste/commit/0aa5216294bb195873e46b7fe83ce71250b7c38b) [#2501](https://github.com/twilio-labs/paste/pull/2501) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat log] Add several new components related to displaying attachments:
+
+  - ComposerAttachmentCard
+  - ChatAttachment
+  - ChatAttachmentLink
+  - ChatAttachmentDescription
+
+### Patch Changes
+
+- [`a8ad034fe`](https://github.com/twilio-labs/paste/commit/a8ad034fe0868e725d50dfe02266ea3855119bdb) [#2509](https://github.com/twilio-labs/paste/pull/2509) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] Move types and styles to the component files
+
 ## 1.0.1
 
 ### Patch Changes

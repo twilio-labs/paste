@@ -1,5 +1,11 @@
 # @twilio-paste/display-pill-group
 
+## 4.0.2
+
+### Patch Changes
+
+- [`90b019171`](https://github.com/twilio-labs/paste/commit/90b019171c520a92671d2514d48a332791f80e55) [#2515](https://github.com/twilio-labs/paste/pull/2515) Thanks [@TheSisb](https://github.com/TheSisb)! - [Display Pill Group] minor updates to the design.
+
 ## 4.0.1
 
 ### Patch Changes
