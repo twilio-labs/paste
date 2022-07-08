@@ -14,6 +14,7 @@ import {
   ChatAttachmentLink,
   ChatAttachmentDescription,
   ChatBookend,
+  ChatEvent,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -163,5 +164,20 @@ export const CustomizedChatBookend: StoryFn = () => (
     }}
   >
     <ChatBookend>Today</ChatBookend>
+  </CustomizationProvider>
+);
+
+export const CustomizedChatEvent: StoryFn = () => (
+  <CustomizationProvider
+    baseTheme="default"
+    elements={{
+      CHAT_EVENT: {
+        color: 'colorText',
+      },
+    }}
+  >
+    <ChatEvent>
+      <strong>Lauren Gardner, Lee White, Loreina Chew </strong>have joined the chat・3:42 PM
+    </ChatEvent>
   </CustomizationProvider>
 );
