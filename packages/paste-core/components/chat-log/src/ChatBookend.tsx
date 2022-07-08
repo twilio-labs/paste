@@ -4,7 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
 export interface ChatBookendProps {
-  children?: string;
+  children?: React.ReactNode;
   element?: BoxElementProps['element'];
 }
 
@@ -13,10 +13,12 @@ const ChatBookend = React.forwardRef<HTMLDivElement, ChatBookendProps>(
     return (
       <Box
         {...safelySpreadBoxProps(props)}
+        as="li"
+        listStyleType="none"
         color="colorTextWeak"
         element={element}
-        display="flex"
-        justifyContent="center"
+        textAlign="center"
+        marginBottom="space90"
         lineHeight="lineHeight20"
         fontSize="fontSize20"
         ref={ref}
@@ -30,7 +32,7 @@ const ChatBookend = React.forwardRef<HTMLDivElement, ChatBookendProps>(
 ChatBookend.displayName = 'ChatBookend';
 
 ChatBookend.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
   element: PropTypes.string,
 };
 
