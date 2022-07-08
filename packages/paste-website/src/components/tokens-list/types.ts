@@ -6,7 +6,8 @@ export interface Token {
   comment?: string;
   category: string;
   type: string;
-  deprecated: boolean;
+  deprecated?: boolean;
+  originalValue: string;
 }
 
 export interface TokenCategory {

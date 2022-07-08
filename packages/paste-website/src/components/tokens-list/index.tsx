@@ -26,8 +26,8 @@ const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
-  const [tokens, setTokens] = React.useState(Tokens.tokens);
-  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
+  const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(Tokens.tokens);
+  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(Tokens.tokens));
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
@@ -42,7 +42,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   };
 
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    // @ts-ignore todo: figure out ts error with DarkModeTokens
     if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
     else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
     window.localStorage.setItem('themeControl', e.currentTarget.value);
@@ -58,8 +57,9 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
-  const backgroundColor: string =
-    tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value ?? 'rgb(255,255,255)';
+  const backgroundColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ??
+    'rgb(255,255,255)';
 
   return (
     <ContentWrapper>
@@ -82,7 +82,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               {sentenceCase(tokenCategory)}
             </AnchoredHeading>
             <Box marginBottom="space160" data-cy="tokens-table-container">
-              {/* @ts-ignore : todo - figure out comment issue */}
               {tokens[tokenCategory].map(({name, value, comment}) => (
                 <TokenCard
                   key={`token${name}`}
