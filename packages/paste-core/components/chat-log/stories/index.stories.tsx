@@ -16,6 +16,7 @@ import {
   ChatAttachmentLink,
   ChatAttachmentDescription,
   ChatLog,
+  ChatBookend,
 } from '../src';
 
 export {InboundChatMessage, OutboundChatMessage} from './components/ChatBubble.stories';
@@ -25,6 +26,7 @@ export {
   OutboundChatMessageWithAttachment,
   ComposerAttachmentCardExample,
 } from './components/ChatAttachment.stories';
+export {ChatBookendExample} from './components/ChatBookend.stories';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -133,6 +135,7 @@ export const ScrollingChatLog: StoryFn = () => {
 
 export const KitchenSink: StoryFn = () => (
   <ChatLog>
+    <ChatBookend>Today</ChatBookend>
     <ChatMessage variant="outbound">
       <ChatBubble>
         <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>

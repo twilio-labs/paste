@@ -21,6 +21,7 @@
   "ChatAttachment": "@twilio-paste/core/chat-log",
   "ChatAttachmentDescription": "@twilio-paste/core/chat-log",
   "ChatAttachmentLink": "@twilio-paste/core/chat-log",
+  "ChatBookend": "@twilio-paste/core/chat-log",
   "ChatBubble": "@twilio-paste/core/chat-log",
   "ChatLog": "@twilio-paste/core/chat-log",
   "ChatMessage": "@twilio-paste/core/chat-log",
