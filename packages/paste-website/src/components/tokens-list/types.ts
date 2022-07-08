@@ -7,7 +7,7 @@ export interface Token {
   category: string;
   type: string;
   deprecated?: boolean;
-  originalValue: string;
+  originalValue?: string;
 }
 
 export interface TokenCategory {

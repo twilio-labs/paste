@@ -4,8 +4,8 @@ import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
 import {AnchoredHeading} from '../Heading';
 import {useDarkModeContext} from '../../context/DarkModeContext';
-import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
-import type {Token, TokenCategory, TokensListProps} from './types';
+import {trackTokenFilterString} from './helpers';
+import type {Token, TokensListProps} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
@@ -27,7 +27,8 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
   const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(Tokens.tokens);
-  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(Tokens.tokens));
+  const tokenCategories = Object.keys(Tokens.tokens);
+  // const [tokenCategories, setTokenCategories] = React.useState(Object.keys(Tokens.tokens));
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // The rendered tokens should update every time the filterString, props, or theme changes

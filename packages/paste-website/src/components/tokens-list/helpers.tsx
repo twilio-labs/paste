@@ -55,7 +55,7 @@ export const filterTokenList = (
 ): TokenCategory[] | null => {
   const newTokenCategories = getTokensByTheme(propsArg, themeArg).map((category): TokenCategory => {
     const newTokens = category.tokens.filter((token) => {
-      return token.name.includes(filter) || token.value.includes(filter);
+      return token.name.includes(filter) || token.value.toString().includes(filter);
     });
     return {...category, tokens: newTokens};
   });
