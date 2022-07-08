@@ -17,6 +17,11 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   const themeControlId = useUID();
   const formatControlId = useUID();
 
+  const themeControl: string | null =
+    typeof window === 'undefined' ? 'default' : window.localStorage.getItem('theme-control');
+  const formatControl: string | null =
+    typeof window === 'undefined' ? 'css' : window.localStorage.getItem('format-control');
+
   return (
     <>
       <Box marginBottom="space80">
@@ -40,7 +45,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             </Label>
             <Select
               id={themeControlId}
-              defaultValue={window.localStorage.getItem('themeControl') ?? 'default'}
+              defaultValue={themeControl ?? 'default'}
               onChange={handleThemeChange}
               data-cy="theme-control"
             >
@@ -54,7 +59,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             </Label>
             <Select
               id={formatControlId}
-              defaultValue={window.localStorage.getItem('format-control') ?? 'css'}
+              defaultValue={formatControl ?? 'css'}
               onChange={handleFormatChange}
               data-cy="format-control"
             >
