@@ -8,4 +8,5 @@ export * from './ChatAttachment';
 export * from './ChatAttachmentLink';
 export * from './ChatAttachmentDescription';
 export * from './ChatBookend';
+export * from './ChatEvent';
 export type {MessageVariants} from './MessageVariantContext';

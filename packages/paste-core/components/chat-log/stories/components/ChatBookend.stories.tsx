@@ -11,10 +11,11 @@ export default {
 export const ChatBookendExample: StoryFn = () => (
   <ChatLog>
     <ChatBookend>
-      <Box>Today</Box>
+      <Box>Yesterday</Box>
       <Box>
-        <strong>Chat started </strong>・3:45
+        <strong>Chat started</strong>・3:45 PM
       </Box>
     </ChatBookend>
+    <ChatBookend>Today</ChatBookend>
   </ChatLog>
 );
