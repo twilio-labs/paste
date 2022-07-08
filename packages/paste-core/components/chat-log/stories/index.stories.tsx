@@ -64,6 +64,7 @@ export const ScrollingChatLog: StoryFn = () => {
         ) : (
           <></>
         )}
+        <ChatBookend>Yesterday</ChatBookend>
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
           <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">

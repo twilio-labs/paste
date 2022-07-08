@@ -13,6 +13,7 @@ import {
   ComposerAttachmentCard,
   ChatAttachmentLink,
   ChatAttachmentDescription,
+  ChatBookend,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -149,5 +150,18 @@ export const CustomizedChatAttachments: StoryFn = () => (
         <ChatAttachmentDescription element="MY_CHAT_ATTACHMENT_DESCRIPTION">123 MB</ChatAttachmentDescription>
       </ChatAttachment>
     </ComposerAttachmentCard>
+  </CustomizationProvider>
+);
+
+export const CustomizedChatBookend: StoryFn = () => (
+  <CustomizationProvider
+    baseTheme="default"
+    elements={{
+      CHAT_BOOKEND: {
+        color: 'colorText',
+      },
+    }}
+  >
+    <ChatBookend>Today</ChatBookend>
   </CustomizationProvider>
 );
