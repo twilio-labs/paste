@@ -1,26 +1,34 @@
 {
   "name": "vs-code-intellisense",
-  "displayName": "vs-code-intellisense",
-  "description": "",
+  "displayName": "Twilio Paste Intellisense",
+  "description": "Intelligent Twilio Paste Design tooling for VS Code",
   "version": "0.0.1",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "keywords": [
+    "twilio",
+    "twilio-paste",
+    "paste",
+    "css",
+    "intellisense",
+    "autocomplete",
+    "vscode"
+  ],
   "engines": {
     "vscode": "^1.68.0"
   },
   "categories": [
+    "Linters",
     "Other"
   ],
+  "icon": "assets/favicon.png",
+  "galleryBanner": {
+    "color": "#f9fafb"
+  },
   "activationEvents": [
-    "onCommand:vs-code-intellisense.helloWorld"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "vs-code-intellisense.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
