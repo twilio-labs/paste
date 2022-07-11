@@ -11,6 +11,7 @@ import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
 import {TokensListFilter} from './TokensListFilter';
 import {SimpleStorage} from '../../utils/SimpleStorage';
+import {sectionIntros} from './sectionIntros';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -91,26 +92,31 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
         />
-        {tokenCategories.map((tokenCategory) => (
-          <React.Fragment key={`catname-${tokenCategory}`}>
-            <AnchoredHeading as="h2" variant="heading20">
-              {sentenceCase(tokenCategory)}
-            </AnchoredHeading>
-            <Box marginBottom="space160" data-cy="tokens-table-container">
-              {tokens[tokenCategory].map(({name, value, comment}) => (
-                <TokenCard
-                  key={`token${name}`}
-                  category={tokenCategory}
-                  name={name}
-                  useCamelCase={useJavascriptNames}
-                  value={value}
-                  comment={comment}
-                  backgroundColor={backgroundColor}
-                />
-              ))}
-            </Box>
-          </React.Fragment>
-        ))}
+        {tokenCategories.map((tokenCategory) => {
+          const sectionIntro = sectionIntros[tokenCategory];
+
+          return (
+            <React.Fragment key={`catname-${tokenCategory}`}>
+              <AnchoredHeading as="h2" variant="heading20">
+                {sentenceCase(tokenCategory)}
+              </AnchoredHeading>
+              {sectionIntro}
+              <Box marginBottom="space160" data-cy="tokens-table-container">
+                {tokens[tokenCategory].map(({name, value, comment}) => (
+                  <TokenCard
+                    key={`token${name}`}
+                    category={tokenCategory}
+                    name={name}
+                    useCamelCase={useJavascriptNames}
+                    value={value}
+                    comment={comment}
+                    backgroundColor={backgroundColor}
+                  />
+                ))}
+              </Box>
+            </React.Fragment>
+          );
+        })}
       </Content>
     </ContentWrapper>
   );
