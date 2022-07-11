@@ -32,4 +32,6 @@ export interface TokensListFilterProps {
   handleThemeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInput: (e: React.FormEvent<HTMLInputElement>) => void;
   handleFormatChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedFormat: string;
+  selectedTheme: string;
 }

@@ -7,12 +7,13 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
 import type {TokensListFilterProps} from './types';
-import {SimpleStorage} from '../../utils/SimpleStorage';
 
 export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   handleInput,
   handleFormatChange,
   handleThemeChange,
+  selectedFormat,
+  selectedTheme,
 }) => {
   const inputId = useUID();
   const themeControlId = useUID();
@@ -39,12 +40,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             <Label htmlFor={themeControlId} id="theme-control-label">
               Theme
             </Label>
-            <Select
-              id={themeControlId}
-              defaultValue={SimpleStorage.get('themeControl') ?? 'default'}
-              onChange={handleThemeChange}
-              data-cy="theme-control"
-            >
+            <Select id={themeControlId} value={selectedTheme} onChange={handleThemeChange} data-cy="theme-control">
               <Option value="default">Default</Option>
               <Option value="dark">Dark</Option>
             </Select>
@@ -53,12 +49,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             <Label htmlFor={formatControlId} id="format-control-label">
               Format
             </Label>
-            <Select
-              id={formatControlId}
-              defaultValue={SimpleStorage.get('formatControl') ?? 'css'}
-              onChange={handleFormatChange}
-              data-cy="format-control"
-            >
+            <Select id={formatControlId} value={selectedFormat} onChange={handleFormatChange} data-cy="format-control">
               <Option value="css">CSS</Option>
               <Option value="javascript">Javascript</Option>
             </Select>

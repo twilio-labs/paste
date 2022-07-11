@@ -30,6 +30,18 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(Tokens.tokens);
   const tokenCategories = Object.keys(Tokens.tokens);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
+  const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
+  const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
+
+  React.useEffect(() => {
+    if (selectedTheme === 'dark') setTokens(DarkModeTokens.tokens);
+    else if (selectedTheme === 'default') setTokens(Tokens.tokens);
+  }, [selectedTheme]);
+
+  React.useEffect(() => {
+    if (selectedFormat === 'javascript') setUseJavascriptNames(true);
+    else if (selectedFormat === 'css') setUseJavascriptNames(false);
+  }, [selectedFormat]);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -43,15 +55,15 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   };
 
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
-    else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
-    SimpleStorage.set('themeControl', e.currentTarget.value);
+    const value = e.currentTarget.value;
+    SimpleStorage.set('themeControl', value);
+    setSelectedTheme(value);
   };
 
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    if (e.currentTarget.value === 'javascript') setUseJavascriptNames(true);
-    else if (e.currentTarget.value === 'css') setUseJavascriptNames(false);
-    SimpleStorage.set('formatControl', e.currentTarget.value);
+    const value = e.currentTarget.value;
+    SimpleStorage.set('formatControl', value);
+    setSelectedFormat(value);
   };
 
   if (tokens === null) {
@@ -76,6 +88,8 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
           handleThemeChange={handleThemeChange}
           handleFormatChange={handleFormatChange}
           handleInput={handleInput}
+          selectedFormat={selectedFormat}
+          selectedTheme={selectedTheme}
         />
         {tokenCategories.map((tokenCategory) => (
           <React.Fragment key={`catname-${tokenCategory}`}>
