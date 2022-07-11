@@ -1,70 +1,50 @@
-# vs-code-intellisense README
+<h1 align="center">
+  <img height="320px" src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/favicon.png" alt="Twilio Paste" />
+  <br/>
+  Twilio Paste Intellisense
+</h1>
 
-This is the README for your extension "vs-code-intellisense". After writing up a brief description, we recommend including the following sections.
+Twilio Paste Intellisense extends the development experience of Twilio Paste by giving Visual Studio Code users additional functionality such as hover.
+
+## About Paste
+
+[Paste](https://paste.twilio.design/introduction/about-paste/) is a design system used to build accessible, cohesive, and high-quality customer experiences at Twilio. Paste supports Product Designers and Engineers with tooling and assets that help them build customer UIs in Figma and React.
+
+> Design tokens are the visual design atoms of the design system — specifically, they are named entities that store visual design attributes. — Salesforce UX, [Lightning Design System](https://www.lightningdesignsystem.com/design-tokens/)
+
+Tokens are named for their use case, rather than their value. For example `$color-background-error` is named to indicate the appropriate background color for an error, as opposed to `$color-background-red` which is less specific and could be used in a number of ways depending on cultural context and design language. This makes their intended use clear and intentional, and allows us to develop a scalable and consistent visual language.
+
+In Paste, 1 rem unit = 16 pixels.
+
+## Why should we use Twilio Paste Intellisense
+
+Twilio Paste is a great design system, but working with tokens is time consuming. Because before using the token, we need to check the list of tokens, which one suits us. For example, if we want to use a margin like 20px, we need to check what `space` token is [20px (space60 = 20px)](https://paste.twilio.design/tokens/list/#spacings). This is where Twilio Paste Intellisense comes into play. It has two features:
+
+- `Hover preview` - check the value of the token by hovering over it;
+- `Autocomplete` - use a dropdown menu with the name and value of the token when we start typing the component's paste properties.
+
+## Installation
+
+**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense)**
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Autocomplete
 
-For example if there is an image subfolder under your extension project workspace:
+Intelligent suggestions for twilio paste token attributes.
 
-\!\[feature X\]\(images/feature-x.png\)
+<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/completion-example.png" alt="completion" />
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Hover Preview
 
-## Requirements
+View the value and description of the Twilio Paste token property by hovering over it.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/hover-example.png" alt="hover" />
 
-## Extension Settings
+## How to contribute?
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+1. Fork this repo
+2. Clone your fork
+3. Code 🤓
+4. Test your changes
+5. Submit a PR!
