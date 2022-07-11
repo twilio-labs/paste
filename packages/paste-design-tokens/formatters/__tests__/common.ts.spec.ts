@@ -2,7 +2,7 @@ import * as theo from 'theo';
 import {resolve} from 'path';
 import {commonTokenFormat} from '../common';
 
-theo.registerFormat('common.js', commonTokenFormat); // should this be .ts not .js?
+theo.registerFormat('common.js', commonTokenFormat);
 
 describe('commonJSFormatter', () => {
   it('should return common.js formatted tokens', () => {
