@@ -10,6 +10,7 @@ import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
 import {TokensListFilter} from './TokensListFilter';
+import {SimpleStorage} from '../../utils/SimpleStorage';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -28,7 +29,6 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [filterString, setFilterString] = React.useState('');
   const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(Tokens.tokens);
   const tokenCategories = Object.keys(Tokens.tokens);
-  // const [tokenCategories, setTokenCategories] = React.useState(Object.keys(Tokens.tokens));
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
@@ -45,13 +45,13 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     if (e.currentTarget.value === 'dark') setTokens(DarkModeTokens.tokens);
     else if (e.currentTarget.value === 'default') setTokens(Tokens.tokens);
-    window.localStorage.setItem('themeControl', e.currentTarget.value);
+    SimpleStorage.set('themeControl', e.currentTarget.value);
   };
 
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     if (e.currentTarget.value === 'javascript') setUseJavascriptNames(true);
     else if (e.currentTarget.value === 'css') setUseJavascriptNames(false);
-    window.localStorage.setItem('formatControl', e.currentTarget.value);
+    SimpleStorage.set('formatControl', e.currentTarget.value);
   };
 
   if (tokens === null) {
