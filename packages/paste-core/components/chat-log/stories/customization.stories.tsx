@@ -15,6 +15,7 @@ import {
   ChatAttachmentLink,
   ChatAttachmentDescription,
   ChatBookend,
+  ChatBookendItem,
   ChatEvent,
 } from '../src';
 
@@ -162,11 +163,16 @@ export const CustomizedChatBookend: StoryFn = () => {
       theme={currentTheme}
       elements={{
         CHAT_BOOKEND: {
+          margin: 'space20',
+        },
+        CHAT_BOOKEND_ITEM: {
           color: 'colorText',
         },
       }}
     >
-      <ChatBookend>Today</ChatBookend>
+      <ChatBookend>
+        <ChatBookendItem>Today</ChatBookendItem>
+      </ChatBookend>
     </CustomizationProvider>
   );
 };

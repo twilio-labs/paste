@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
-import {ChatLog, ChatBookend} from '../../src';
+import {ChatLog, ChatBookend, ChatBookendItem} from '../../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -11,11 +10,13 @@ export default {
 export const ChatBookendExample: StoryFn = () => (
   <ChatLog>
     <ChatBookend>
-      <Box>Yesterday</Box>
-      <Box>
+      <ChatBookendItem>Yesterday</ChatBookendItem>
+      <ChatBookendItem>
         <strong>Chat started</strong>・3:45 PM
-      </Box>
+      </ChatBookendItem>
     </ChatBookend>
-    <ChatBookend>Today</ChatBookend>
+    <ChatBookend>
+      <ChatBookendItem>Today</ChatBookendItem>
+    </ChatBookend>
   </ChatLog>
 );

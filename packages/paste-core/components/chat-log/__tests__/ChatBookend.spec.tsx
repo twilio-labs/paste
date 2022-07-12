@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {ChatBookend} from '../src';
+import {ChatBookend, ChatBookendItem} from '../src';
 
 const CustomizationWrapper: React.FC = ({children}) => (
   <CustomizationProvider
@@ -9,6 +9,9 @@ const CustomizationWrapper: React.FC = ({children}) => (
     theme={TestTheme}
     elements={{
       CHAT_BOOKEND: {
+        margin: 'space20',
+      },
+      CHAT_BOOKEND_ITEM: {
         color: 'colorText',
       },
     }}
@@ -23,6 +26,9 @@ const MyCustomizationWrapper: React.FC = ({children}) => (
     theme={TestTheme}
     elements={{
       MY_CHAT_BOOKEND: {
+        margin: 'space20',
+      },
+      MY_CHAT_BOOKEND_ITEM: {
         color: 'colorText',
       },
     }}
@@ -33,14 +39,18 @@ const MyCustomizationWrapper: React.FC = ({children}) => (
 
 describe('ChatBookend', () => {
   it('should render', () => {
-    render(<ChatBookend>Today</ChatBookend>);
+    render(
+      <ChatBookend>
+        <ChatBookendItem>Today</ChatBookendItem>
+      </ChatBookend>
+    );
     expect(screen.getByText('Today')).toBeDefined();
   });
 
   it('should have aria-label when pass the aria-label prop', () => {
     render(
       <ChatBookend data-testid="bookend" aria-label="Today">
-        Today
+        <ChatBookendItem>Today</ChatBookendItem>
       </ChatBookend>
     );
     expect(screen.getByTestId('bookend')).toHaveAttribute('aria-label', 'Today');
@@ -48,35 +58,63 @@ describe('ChatBookend', () => {
 });
 
 describe('Customization', () => {
-  it('should add custom styles to variants', () => {
-    render(<ChatBookend>Today</ChatBookend>, {wrapper: CustomizationWrapper});
+  it('should add custom styles to components', () => {
+    render(
+      <ChatBookend data-testid="bookend">
+        <ChatBookendItem>Today</ChatBookendItem>
+      </ChatBookend>,
+      {wrapper: CustomizationWrapper}
+    );
 
-    const bookend = screen.getByText('Today');
+    const bookend = screen.getByTestId('bookend');
+    const bookendItem = screen.getByText('Today');
 
-    expect(bookend).toHaveStyleRule('color', 'rgb(18, 28, 45)');
+    expect(bookend).toHaveStyleRule('margin', '0.25rem');
+    expect(bookendItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
   });
 
   it('should set element data attribute', () => {
-    render(<ChatBookend>Today</ChatBookend>, {wrapper: CustomizationWrapper});
+    render(
+      <ChatBookend data-testid="bookend">
+        <ChatBookendItem>Today</ChatBookendItem>
+      </ChatBookend>,
+      {wrapper: CustomizationWrapper}
+    );
 
-    const bookend = screen.getByText('Today');
+    const bookend = screen.getByTestId('bookend');
+    const bookendItem = screen.getByText('Today');
 
     expect(bookend.getAttribute('data-paste-element')).toEqual('CHAT_BOOKEND');
+    expect(bookendItem.getAttribute('data-paste-element')).toEqual('CHAT_BOOKEND_ITEM');
   });
 
   it('should add custom styles to variants with a custom element data attribute', () => {
-    render(<ChatBookend element="MY_CHAT_BOOKEND">Today</ChatBookend>, {wrapper: MyCustomizationWrapper});
+    render(
+      <ChatBookend element="MY_CHAT_BOOKEND" data-testid="bookend">
+        <ChatBookendItem element="MY_CHAT_BOOKEND_ITEM">Today</ChatBookendItem>
+      </ChatBookend>,
+      {wrapper: MyCustomizationWrapper}
+    );
 
-    const bookend = screen.getByText('Today');
+    const bookend = screen.getByTestId('bookend');
+    const bookendItem = screen.getByText('Today');
 
-    expect(bookend).toHaveStyleRule('color', 'rgb(18, 28, 45)');
+    expect(bookend).toHaveStyleRule('margin', '0.25rem');
+    expect(bookendItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
   });
 
   it('should set custom element data attribute', () => {
-    render(<ChatBookend element="MY_CHAT_BOOKEND">Today</ChatBookend>, {wrapper: CustomizationWrapper});
+    render(
+      <ChatBookend element="MY_CHAT_BOOKEND" data-testid="bookend">
+        <ChatBookendItem element="MY_CHAT_BOOKEND_ITEM">Today</ChatBookendItem>
+      </ChatBookend>,
+      {wrapper: MyCustomizationWrapper}
+    );
 
-    const bookend = screen.getByText('Today');
+    const bookend = screen.getByTestId('bookend');
+    const bookendItem = screen.getByText('Today');
 
     expect(bookend.getAttribute('data-paste-element')).toEqual('MY_CHAT_BOOKEND');
+    expect(bookendItem.getAttribute('data-paste-element')).toEqual('MY_CHAT_BOOKEND_ITEM');
   });
 });

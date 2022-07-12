@@ -17,6 +17,7 @@ import {
   ChatAttachmentDescription,
   ChatLog,
   ChatBookend,
+  ChatBookendItem,
   ChatEvent,
 } from '../src';
 
@@ -67,10 +68,10 @@ export const ScrollingChatLog: StoryFn = () => {
           <></>
         )}
         <ChatBookend>
-          <Box>Yesterday</Box>
-          <Box>
+          <ChatBookendItem>Yesterday</ChatBookendItem>
+          <ChatBookendItem>
             <strong>Chat Started</strong> 3:34pm
-          </Box>
+          </ChatBookendItem>
         </ChatBookend>
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
@@ -146,7 +147,9 @@ export const ScrollingChatLog: StoryFn = () => {
 
 export const KitchenSink: StoryFn = () => (
   <ChatLog>
-    <ChatBookend>Today</ChatBookend>
+    <ChatBookend>
+      <ChatBookendItem>Today</ChatBookendItem>
+    </ChatBookend>
     <ChatMessage variant="outbound">
       <ChatBubble>
         <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
