@@ -17,7 +17,9 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
 }) => {
   const inputId = useUID();
   const themeControlId = useUID();
+  const themeControlLabelId = useUID();
   const formatControlId = useUID();
+  const formatControlLabelId = useUID();
 
   return (
     <>
@@ -37,7 +39,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             />
           </Column>
           <Column span={3}>
-            <Label htmlFor={themeControlId} id="theme-control-label">
+            <Label htmlFor={themeControlId} id={themeControlLabelId}>
               Theme
             </Label>
             <Select id={themeControlId} value={selectedTheme} onChange={handleThemeChange} data-cy="theme-control">
@@ -46,7 +48,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
             </Select>
           </Column>
           <Column span={3}>
-            <Label htmlFor={formatControlId} id="format-control-label">
+            <Label htmlFor={formatControlId} id={formatControlLabelId}>
               Format
             </Label>
             <Select id={formatControlId} value={selectedFormat} onChange={handleFormatChange} data-cy="format-control">
