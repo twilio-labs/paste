@@ -1,17 +1,16 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
 import {AnchoredHeading} from '../Heading';
 import {useDarkModeContext} from '../../context/DarkModeContext';
-import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
-import type {Token, TokenCategory, TokensListProps} from './types';
+import {trackTokenFilterString} from './helpers';
+import type {Token, TokensListProps} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
-import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
+import {TokensListFilter} from './TokensListFilter';
+import {SimpleStorage} from '../../utils/SimpleStorage';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -28,8 +27,21 @@ const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
-  const [tokens, setTokens] = React.useState(Tokens.tokens);
-  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens) as unknown as [keyof typeof tokens]);
+  const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(Tokens.tokens);
+  const tokenCategories = Object.keys(Tokens.tokens);
+  const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
+  const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
+  const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
+
+  React.useEffect(() => {
+    if (selectedTheme === 'dark') setTokens(DarkModeTokens.tokens);
+    else if (selectedTheme === 'default') setTokens(Tokens.tokens);
+  }, [selectedTheme]);
+
+  React.useEffect(() => {
+    if (selectedFormat === 'javascript') setUseJavascriptNames(true);
+    else if (selectedFormat === 'css') setUseJavascriptNames(false);
+  }, [selectedFormat]);
 
   // The rendered tokens should update every time the filterString, props, or theme changes
   React.useEffect(() => {
@@ -42,9 +54,25 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     setFilterString(filter);
   };
 
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const value = e.currentTarget.value;
+    SimpleStorage.set('themeControl', value);
+    setSelectedTheme(value);
+  };
+
+  const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const value = e.currentTarget.value;
+    SimpleStorage.set('formatControl', value);
+    setSelectedFormat(value);
+  };
+
   if (tokens === null) {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
+
+  const backgroundColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ??
+    'rgb(255,255,255)';
 
   return (
     <ContentWrapper>
@@ -56,34 +84,28 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         }}
       />
       <Content>
-        <Box paddingBottom="space80">
-          <Label htmlFor="test" id="test-label">
-            Filter tokens
-          </Label>
-          <Input
-            type="text"
-            id="test"
-            aria-labelledby="test-label"
-            onChange={handleInput}
-            insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
-          />
-        </Box>
-
+        <TokensListFilter
+          handleThemeChange={handleThemeChange}
+          handleFormatChange={handleFormatChange}
+          handleInput={handleInput}
+          selectedFormat={selectedFormat}
+          selectedTheme={selectedTheme}
+        />
         {tokenCategories.map((tokenCategory) => (
           <React.Fragment key={`catname-${tokenCategory}`}>
             <AnchoredHeading as="h2" variant="heading20">
               {sentenceCase(tokenCategory)}
             </AnchoredHeading>
             <Box marginBottom="space160" data-cy="tokens-table-container">
-              {/* @ts-ignore : todo - figure out comment issue */}
               {tokens[tokenCategory].map(({name, value, comment}) => (
                 <TokenCard
                   key={`token${name}`}
                   category={tokenCategory}
                   name={name}
+                  useCamelCase={useJavascriptNames}
                   value={value}
                   comment={comment}
-                  backgroundColor="rgb(255, 255, 255)"
+                  backgroundColor={backgroundColor}
                 />
               ))}
             </Box>
