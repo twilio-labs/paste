@@ -22,7 +22,7 @@ describe('gatsbyJsonTokenFormat', () => {
       })
       .catch((error: string) => {
         console.log(`Something  went wrong: ${error}`);
-        throw new Error('[es6Formatter test]: should return es6 formatted tokens');
+        throw new Error('[gatsbyJsonTokenFormatter test]: should return gastbyJson formatted tokens');
       });
   });
 });
