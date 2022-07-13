@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img height="320px" src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/favicon.png" alt="Twilio Paste" />
+  <img height="320px" src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/favicon.png" alt="" />
   <br/>
   Twilio Paste Intellisense
 </h1>
@@ -33,13 +33,13 @@ Twilio Paste is a great design system, but working with tokens is time consuming
 
 Intelligent suggestions for twilio paste token attributes.
 
-<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/completion-example.png" alt="completion" />
+<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/completion-example.png" alt="the autocomplete suggestions include the token name with the value in rems and pixels" />
 
 ### Hover Preview
 
 View the value and description of the Twilio Paste token property by hovering over it.
 
-<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/hover-example.png" alt="hover" />
+<img src="https://raw.githubusercontent.com/twilio-labs/paste/apps/vs-code-intellisense/main/assets/hover-example.png" alt="hover panel over a color token includes the rgb value of the color and a description of where the token should be used" />
 
 ## How to contribute?
 
