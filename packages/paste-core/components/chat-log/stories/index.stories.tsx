@@ -16,6 +16,9 @@ import {
   ChatAttachmentLink,
   ChatAttachmentDescription,
   ChatLog,
+  ChatBookend,
+  ChatBookendItem,
+  ChatEvent,
 } from '../src';
 
 export {InboundChatMessage, OutboundChatMessage} from './components/ChatBubble.stories';
@@ -25,6 +28,8 @@ export {
   OutboundChatMessageWithAttachment,
   ComposerAttachmentCardExample,
 } from './components/ChatAttachment.stories';
+export {ChatBookendExample} from './components/ChatBookend.stories';
+export {ChatEventExample} from './components/ChatEvent.stories';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -62,6 +67,12 @@ export const ScrollingChatLog: StoryFn = () => {
         ) : (
           <></>
         )}
+        <ChatBookend>
+          <ChatBookendItem>Yesterday</ChatBookendItem>
+          <ChatBookendItem>
+            <strong>Chat Started</strong> 3:34pm
+          </ChatBookendItem>
+        </ChatBookend>
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
           <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
@@ -72,6 +83,9 @@ export const ScrollingChatLog: StoryFn = () => {
             <ChatMessageMetaItem>4:30 PM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
+        <ChatEvent>
+          <strong>Lauren Gardner, Lee White, Loreina Chew</strong> have joined the chat ・4:31 PM
+        </ChatEvent>
         <ChatMessage variant="outbound">
           <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
           <ChatMessageMeta aria-label="said by you at 4:32pm">
@@ -133,6 +147,9 @@ export const ScrollingChatLog: StoryFn = () => {
 
 export const KitchenSink: StoryFn = () => (
   <ChatLog>
+    <ChatBookend>
+      <ChatBookendItem>Today</ChatBookendItem>
+    </ChatBookend>
     <ChatMessage variant="outbound">
       <ChatBubble>
         <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
@@ -144,6 +161,12 @@ export const KitchenSink: StoryFn = () => (
         <ChatMessageMetaItem>4:25 PM</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
+    <ChatEvent>
+      <strong>Lauren Gardner</strong> has joined the chat ・4:26 PM
+    </ChatEvent>
+    <ChatEvent>
+      <strong>Gibby Radki</strong> sent transfer request to <strong>Technical Support Team</strong> ・3:42 PM
+    </ChatEvent>
     <ChatMessage variant="inbound">
       <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">

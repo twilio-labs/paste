@@ -3,6 +3,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
+import {useTheme} from '@twilio-paste/theme';
 import type {StoryFn} from '@storybook/react';
 import {
   ChatMessage,
@@ -13,6 +14,9 @@ import {
   ComposerAttachmentCard,
   ChatAttachmentLink,
   ChatAttachmentDescription,
+  ChatBookend,
+  ChatBookendItem,
+  ChatEvent,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -151,3 +155,42 @@ export const CustomizedChatAttachments: StoryFn = () => (
     </ComposerAttachmentCard>
   </CustomizationProvider>
 );
+
+export const CustomizedChatBookend: StoryFn = () => {
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={currentTheme}
+      elements={{
+        CHAT_BOOKEND: {
+          margin: 'space20',
+        },
+        CHAT_BOOKEND_ITEM: {
+          color: 'colorText',
+        },
+      }}
+    >
+      <ChatBookend>
+        <ChatBookendItem>Today</ChatBookendItem>
+      </ChatBookend>
+    </CustomizationProvider>
+  );
+};
+
+export const CustomizedChatEvent: StoryFn = () => {
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={currentTheme}
+      elements={{
+        CHAT_EVENT: {
+          color: 'colorText',
+        },
+      }}
+    >
+      <ChatEvent>
+        <strong>Lauren Gardner, Lee White, Loreina Chew </strong>have joined the chat・3:42 PM
+      </ChatEvent>
+    </CustomizationProvider>
+  );
+};
