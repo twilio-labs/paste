@@ -19,7 +19,7 @@ const getTokenAltValue = ({category, value}: {category: string; value: Token['va
     case 'background-colors':
     case 'border-colors':
     case 'text-colors':
-      return rgbToHex(value);
+      return typeof value === 'string' ? rgbToHex(value) : null;
     case 'font-sizes':
     case 'line-heights':
     case 'sizings':
@@ -121,7 +121,7 @@ export const TokenCard: React.FC<{
       marginBottom="space40"
       overflow="hidden"
     >
-      <TokenExample category={category} name={name} value={value} backgroundColor={backgroundColor} />
+      <TokenExample category={category} name={name} value={value.toString()} backgroundColor={backgroundColor} />
 
       <TokenCardContent>
         <TokenCardName>
