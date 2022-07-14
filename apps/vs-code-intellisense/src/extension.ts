@@ -83,7 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
   const hoverProvider = vscode.languages.registerHoverProvider(
     ['javascript', 'typescript', 'javascriptreact', 'typescriptreact'],
     {
-      provideHover(document, position, token) {
+      provideHover(document, position) {
         const word = document.getText(document.getWordRangeAtPosition(position));
         const foundPasteToken = findPasteToken(word);
         if (foundPasteToken) {
