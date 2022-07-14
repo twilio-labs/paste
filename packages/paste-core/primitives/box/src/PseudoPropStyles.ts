@@ -6,6 +6,7 @@ export const PseudoPropStyles = {
   _hover: '&:hover',
   _active: '&:active, &[data-active=true]',
   _focus: '&:focus',
+  _focus_hover: '&:focus:hover',
   _focus_placeholder: '&:focus::placeholder',
   _visited: '&:visited',
   _even: '&:nth-of-type(even)',

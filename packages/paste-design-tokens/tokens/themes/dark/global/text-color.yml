@@ -77,6 +77,9 @@ props:
   color-text-error-strong:
     value: "{!palette-red-30}"
     comment: Strong error text for inputs and error misc
+  color-text-error-stronger:
+    value: "{!palette-red-10}"
+    comment: Stronger error text for inputs and error misc
   color-text-success:
     value: "{!palette-green-30}"
     comment: Text color for success text.

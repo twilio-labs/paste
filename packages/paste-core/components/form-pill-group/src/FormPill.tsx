@@ -1,79 +1,18 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {CompositeItem} from '@twilio-paste/reakit-library';
 import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 import {PillCloseIcon} from './PillCloseIcon';
-
-interface FormPillStylesProps {
-  selected?: boolean;
-  element?: string;
-  children: React.ReactNode;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
-  onClick?: () => void;
-  isHoverable?: boolean;
-}
-
-const hoverStyles: BoxStyleProps = {
-  cursor: 'pointer',
-  _hover: {
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowBorderPrimaryStrong',
-    color: 'colorTextLinkStronger',
-  },
-  _selected_hover: {
-    backgroundColor: 'colorBackgroundPrimaryStronger',
-    color: 'colorTextWeakest',
-  },
-};
-
-const FormPillStyles = React.forwardRef<HTMLElement, FormPillStylesProps>(
-  ({element = 'FORM_PILL', selected = false, isHoverable, ...props}, ref) => (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      ref={ref}
-      element={element}
-      as="button"
-      aria-selected={selected}
-      role="option"
-      type="button"
-      alignItems="center"
-      backgroundColor="colorBackgroundStrong"
-      borderRadius="borderRadius10"
-      borderWidth="borderWidth0"
-      color="colorText"
-      columnGap="space20"
-      cursor="default"
-      display="flex"
-      fontFamily="inherit"
-      fontSize="fontSize20"
-      fontWeight="fontWeightSemibold"
-      lineHeight="lineHeight10"
-      outline="none"
-      paddingX="space30"
-      paddingY="space20"
-      transition="background-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in, border-color 100ms ease-in"
-      _focusVisible={{
-        backgroundColor: 'colorBackgroundPrimaryWeakest',
-        boxShadow: 'shadowFocus',
-        color: 'colorTextLinkStronger',
-      }}
-      _selected={{
-        backgroundColor: 'colorBackgroundPrimaryStronger',
-        color: 'colorTextWeakest',
-      }}
-      {...(isHoverable && {...hoverStyles})}
-    >
-      {props.children}
-    </Box>
-  )
-);
-
-FormPillStyles.displayName = 'StyledFormPill';
+import {FormPillButton} from './FormPillButton';
+import {wrapperStyles, selectedWrapperStyles} from './FormPill.styles';
+import type {PillVariant} from './types';
 
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
   selected?: boolean;
+  disabled?: boolean;
   children: React.ReactNode;
+  variant?: PillVariant;
   /** Event handler to respond to selection events */
   onSelect?: () => void;
   /** Event handler to respond to dismiss events */
@@ -82,6 +21,7 @@ interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> 
   onFocus?: () => void;
   /** Event handler to respond to blur events */
   onBlur?: () => void;
+  i18nErrorLabel?: string;
 }
 
 /**
@@ -102,10 +42,32 @@ interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> 
  * @see https://paste.twilio.design/components/form-pill-group
  */
 export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
-  ({element = 'FORM_PILL', onDismiss, onSelect, next, ...props}, ref) => {
+  (
+    {
+      element = 'FORM_PILL',
+      onDismiss,
+      onSelect,
+      next,
+      selected,
+      variant = 'default',
+      disabled = false,
+      i18nErrorLabel,
+      ...props
+    },
+    ref
+  ) => {
+    if (selected && disabled) {
+      throw new Error('[Paste FormPill] FormPills cannot be selected and disabled at the same time.');
+    }
+
+    const isHoverable = onSelect != null;
+    const isDismissable = onDismiss != null;
+
+    const computedStyles = selected ? selectedWrapperStyles[variant] : wrapperStyles[variant];
+
     // Handles delete and backspace keypresses
     const handleKeydown = React.useCallback(
-      (event) => {
+      (event: React.KeyboardEvent) => {
         if ((event.key === 'Backspace' || event.key === 'Delete') && typeof onDismiss === 'function') {
           onDismiss();
 
@@ -117,23 +79,30 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       },
       [onDismiss, next]
     );
-
-    const isHoverable = onSelect != null;
-
     return (
-      <CompositeItem
-        as={FormPillStyles}
-        element={element}
-        {...props}
-        ref={ref}
-        isHoverable={isHoverable}
-        onKeyDown={handleKeydown}
-        onClick={onSelect}
-        next={next}
-      >
-        {props.children}
-        {onDismiss != null ? <PillCloseIcon onClick={onDismiss} /> : null}
-      </CompositeItem>
+      <Box element={`${element}_WRAPPER`} position="relative" display="inline-block" {...computedStyles}>
+        <CompositeItem
+          {...safelySpreadBoxProps(props)}
+          element={element}
+          ref={ref}
+          as={FormPillButton}
+          focusable={disabled}
+          onKeyDown={disabled ? () => {} : handleKeydown}
+          onClick={disabled ? () => {} : onSelect}
+          next={next}
+          isDisabled={disabled}
+          isDismissable={isDismissable}
+          isHoverable={isHoverable}
+          selected={selected}
+          variant={variant}
+          i18nErrorLabel={i18nErrorLabel}
+        >
+          {props.children}
+        </CompositeItem>
+        {isDismissable && !disabled ? (
+          <PillCloseIcon element={`${element}_CLOSE`} onClick={onDismiss} selected={selected} variant={variant} />
+        ) : null}
+      </Box>
     );
   }
 );

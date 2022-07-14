@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useUID} from '@twilio-paste/uid-library';
 import {Composite} from '@twilio-paste/reakit-library';
@@ -8,7 +9,7 @@ import type {CompositeProps} from '@twilio-paste/reakit-library';
 export interface FormPillGroupProps
   extends Omit<CompositeProps, 'unstable_virtual' | 'unstable_moves' | 'unstable_system' | 'wrapElement' | 'wrap'> {
   'aria-label': string;
-  element?: string;
+  element?: BoxElementProps['element'];
   children: React.ReactNode;
   i18nKeyboardControls?: string;
 }
@@ -24,8 +25,8 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
       padding="space0"
       display="flex"
       flexWrap="wrap"
-      rowGap="space30"
-      columnGap="space30"
+      rowGap="space20"
+      columnGap="space20"
     >
       {props.children}
     </Box>

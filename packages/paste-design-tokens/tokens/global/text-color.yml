@@ -254,6 +254,21 @@ props:
       - color-background-row-striped
       - color-background-primary-weakest
       - color-background-destructive-weakest
+  color-text-error-stronger:
+    value: "{!palette-red-90}"
+    comment: Stronger error text for inputs and error misc
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-success:
     value: "{!palette-green-70}"
     comment: Text color for success text.

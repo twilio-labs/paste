@@ -90,6 +90,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   element?: string;
   /** variant for variant styling */
   variant?: string;
+  disabled?: boolean;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
