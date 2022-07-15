@@ -16,7 +16,7 @@ import type {CodeblockProps} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
-import {ComponentHeader} from '../shortcodes/component-header';
+import {GenericHeader} from '../shortcodes/component-header';
 import {NormalizePatternHeader} from '../shortcodes/normalize-pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
@@ -43,7 +43,7 @@ const MdxLink: React.FC<AnchorProps> = (props) => {
 
 const shortcodes = {
   ChangelogRevealer,
-  ComponentHeader,
+  GenericHeader,
   LivePreview,
   PageAside,
   NormalizePatternHeader,

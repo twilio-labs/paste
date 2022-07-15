@@ -1,11 +1,11 @@
 import * as React from 'react';
 import merge from 'deepmerge';
-import {ComponentHeader} from '../component-header';
-import type {ComponentHeaderProps} from '../component-header';
+import {GenericHeader} from '../component-header';
+import type {GenericHeaderProps} from '../component-header';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
-interface NormalizeComponentHeaderProps extends ComponentHeaderProps {
+interface NormalizeComponentHeaderProps extends GenericHeaderProps {
   data: GraphqlData;
 }
 
@@ -26,7 +26,7 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
   } = merge(normalizedData, props);
 
   return (
-    <ComponentHeader
+    <GenericHeader
       name={name}
       packageName={packageName}
       version={version}

@@ -23,7 +23,7 @@ const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: strin
   </Anchor>
 );
 
-export interface ComponentHeaderProps {
+export interface GenericHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   description?: string;
@@ -38,7 +38,7 @@ export interface ComponentHeaderProps {
   shouldShowBreadcrumbs?: boolean;
 }
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({
+const GenericHeader: React.FC<GenericHeaderProps> = ({
   name,
   categoryRoute,
   description,
@@ -137,4 +137,4 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   );
 };
 
-export {ComponentHeader};
+export {GenericHeader};
