@@ -54,4 +54,10 @@ describe('Token list filter format control and theme control', function () {
       'rgb(244, 244, 246)'
     );
   });
+
+  it('has a responsive layout', () => {
+    cy.get('[data-cy="input-column"]').should('have.attr', 'min-width', '0px');
+    cy.viewport('iphone-x');
+    cy.get('[data-cy="input-column"]').should('have.attr', 'min-width', '100%');
+  });
 });
