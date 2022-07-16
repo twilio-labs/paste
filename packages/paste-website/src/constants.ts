@@ -18,6 +18,7 @@ export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://paste-storybook.twilio.design';
 export const REMIX_DOMAIN = 'https://remix.twilio.design';
+export const FIGMA_PROFILE_URL = 'https://www.figma.com/@twilio';
 
 // IDs for skip links
 export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';

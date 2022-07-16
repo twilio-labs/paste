@@ -6,7 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
-import {STORYBOOK_DOMAIN, REMIX_DOMAIN} from '../../../constants';
+import {STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL} from '../../../constants';
 
 const SiteFooterNav: React.FC = () => {
   const theme = useTheme();
@@ -79,6 +79,66 @@ const SiteFooterNav: React.FC = () => {
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
+              href="https://github.com/twilio-labs/paste"
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Footer',
+                  action: 'click-github',
+                  label: 'Github',
+                })
+              }
+            >
+              Github
+            </Anchor>
+            <Anchor
+              href={FIGMA_PROFILE_URL}
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Footer',
+                  action: 'click-figma',
+                  label: 'Figma',
+                })
+              }
+            >
+              Figma
+            </Anchor>
+            <Anchor
+              href={STORYBOOK_DOMAIN}
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Footer',
+                  action: 'click-storybook',
+                  label: 'Storybook',
+                })
+              }
+            >
+              Storybook
+            </Anchor>
+            <Anchor
+              href={REMIX_DOMAIN}
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Footer',
+                  action: 'click-remix',
+                  label: 'Theme Designer',
+                })
+              }
+            >
+              Paste Remix
+            </Anchor>
+          </Stack>
+        </Box>
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
+          <Stack orientation="vertical" spacing="space60">
+            <Anchor
               href="https://github.com/twilio-labs/paste/discussions"
               variant="inverse"
               showExternal
@@ -118,52 +178,6 @@ const SiteFooterNav: React.FC = () => {
               }
             >
               How we work
-            </Anchor>
-          </Stack>
-        </Box>
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
-          <Stack orientation="vertical" spacing="space60">
-            <Anchor
-              href="https://github.com/twilio-labs/paste"
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                trackCustomEvent({
-                  category: 'Footer',
-                  action: 'click-github',
-                  label: 'Github',
-                })
-              }
-            >
-              Github
-            </Anchor>
-            <Anchor
-              href={STORYBOOK_DOMAIN}
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                trackCustomEvent({
-                  category: 'Footer',
-                  action: 'click-storybook',
-                  label: 'Storybook',
-                })
-              }
-            >
-              Storybook
-            </Anchor>
-            <Anchor
-              href={REMIX_DOMAIN}
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                trackCustomEvent({
-                  category: 'Footer',
-                  action: 'click-remix',
-                  label: 'Theme Designer',
-                })
-              }
-            >
-              Paste Remix
             </Anchor>
           </Stack>
         </Box>
