@@ -82,8 +82,11 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   }
 
   const backgroundColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ??
-    'rgb(255,255,255)';
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ?? '#fff';
+
+  const inverseBackgroundColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
+    '#121C2D';
 
   return (
     <ContentWrapper>
@@ -123,6 +126,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                     backgroundColor={backgroundColor}
                     onCopyText={handleCopyName}
                     isCopied={clipboard.copied && lastCopiedValue === name}
+                    inverseBackgroundColor={inverseBackgroundColor}
                   />
                 ))}
               </Box>

@@ -11,6 +11,7 @@ describe('TokenCard', () => {
   const testTokenHexValue = '#F4F4F6';
   const testTokenComment = 'Background color used for containers.';
   const testTokenBackground = '#ffffff';
+  const testTokenInverseBackground = '#121C2D';
 
   const BaseTokenCardComponent: React.FC = () => (
     <Theme.Provider theme="default">
@@ -20,6 +21,7 @@ describe('TokenCard', () => {
         value={testTokenValue}
         comment={testTokenComment}
         backgroundColor={testTokenBackground}
+        inverseBackgroundColor={testTokenInverseBackground}
       />
     </Theme.Provider>
   );
@@ -41,6 +43,7 @@ describe('TokenCard', () => {
           value={testTokenValue}
           comment={testTokenComment}
           backgroundColor={testTokenBackground}
+          inverseBackgroundColor={testTokenInverseBackground}
           useCamelCase
         />
       </Theme.Provider>
@@ -64,6 +67,7 @@ describe('TokenCard', () => {
           value="70.5rem"
           comment="Generic sizing token scale for UI components."
           backgroundColor={testTokenBackground}
+          inverseBackgroundColor={testTokenInverseBackground}
         />
       </Theme.Provider>
     );
@@ -80,10 +84,30 @@ describe('TokenCard', () => {
           value="rgb(242, 47, 70)"
           comment="Twilio brand red, accessible on large text only."
           backgroundColor={testTokenBackground}
+          inverseBackgroundColor={testTokenInverseBackground}
         />
       </Theme.Provider>
     );
 
     expect(screen.getByText('AA Conditional')).toBeDefined();
+  });
+
+  it('should render an inverse background for inverse tokens', () => {
+    render(
+      <Theme.Provider theme="default">
+        <TokenCard
+          data-testid="alertInverse"
+          name="color-background-inverse-light"
+          category="background-colors"
+          value="rgba(255, 255, 255, 0.2)"
+          comment="Light inverse background color for any container. Must be used on color-background-body-inverse."
+          backgroundColor={testTokenBackground}
+          inverseBackgroundColor={testTokenInverseBackground}
+        />
+      </Theme.Provider>
+    );
+
+    const previewDiv = screen.getByTestId('alertInverse').querySelector('div');
+    expect(previewDiv).toHaveStyle(`background-color: ${testTokenInverseBackground}`);
   });
 });

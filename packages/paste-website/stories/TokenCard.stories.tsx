@@ -16,6 +16,9 @@ export default {
     backgroundColor: {
       control: false,
     },
+    inverseBackgroundColor: {
+      control: false,
+    },
     comment: {
       control: false,
     },
@@ -35,11 +38,8 @@ export default {
 const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
-
-  const backgroundColorToken = name.toLowerCase().includes('inverse')
-    ? 'colorBackgroundBodyInverse'
-    : 'colorBackgroundBody';
-  const backgroundColor = theme.backgroundColors[backgroundColorToken];
+  const backgroundColor = theme.backgroundColors.colorBackgroundBody;
+  const inverseBackgroundColor = theme.backgroundColors.colorBackgroundBodyInverse;
 
   const {comment} =
     categoryTokens.find((token) => {
@@ -80,6 +80,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         value={themeTokenValue}
         comment={comment}
         backgroundColor={backgroundColor}
+        inverseBackgroundColor={inverseBackgroundColor}
         useCamelCase={useCamelCase}
       />
     </Box>
