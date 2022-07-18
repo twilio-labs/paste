@@ -5,6 +5,7 @@ import GitHubButton from 'react-github-button';
 import {SiteHeaderSearch} from './SiteHeaderSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {DarkModeToggle} from './DarkModeToggle';
+import {FigmaButton} from './FigmaButton';
 
 import 'react-github-button/assets/style.css';
 
@@ -36,9 +37,10 @@ const SiteHeaderDesktop: React.FC = () => {
         <Box marginTop="space10">
           <Stack orientation="horizontal" spacing="space60">
             <SiteHeaderSearch />
-            <Box>
+            <Stack orientation="horizontal" spacing="space40">
+              <FigmaButton />
               <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
-            </Box>
+            </Stack>
           </Stack>
         </Box>
       </Box>
