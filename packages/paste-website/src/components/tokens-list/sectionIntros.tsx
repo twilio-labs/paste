@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
 import {SiteLink} from '../SiteLink';
+import {InlineCode} from '../Typography';
 import type {Token} from './types';
 
 const ColorGuidelinesLink: React.FC = () => <SiteLink to="/foundations/colors">Read the color guidelines.</SiteLink>;
@@ -64,10 +65,6 @@ const FontSizesIntro: React.FC = () => (
   </Paragraph>
 );
 
-const FontWeightsIntro: React.FC = () => (
-  <Paragraph>Font sizes define the weight of text. Read the typography guidelines (TBA)</Paragraph>
-);
-
 const LineHeightsIntro: React.FC = () => (
   <Paragraph>
     Line heights define the height of a line of text. 1 rem unit = 16 pixels in Paste.
@@ -88,9 +85,10 @@ const SpacingsIntro: React.FC = () => <Paragraph>Spacings define the spacing bet
 
 const TextColorsIntro: React.FC = () => (
   <Paragraph>
-    Text colors define text and icon colors. We specifically have `color-text-*` and `color-text-icon-*` tokens, since
-    icons have lower contrast requirements than text. This means that text color tokens can be used for icons, but icon
-    color tokens cannot be used for text. <ColorGuidelinesLink />
+    Text colors define text and icon colors. We specifically have <InlineCode>color-text-*</InlineCode> and{' '}
+    <InlineCode>color-text-icon-*</InlineCode> tokens, since icons have lower contrast requirements than text. This
+    means that text color tokens can be used for icons, but icon color tokens cannot be used for text.{' '}
+    <ColorGuidelinesLink />
   </Paragraph>
 );
 
@@ -110,7 +108,6 @@ export const sectionIntros: SectionIntros = {
   colors: <ColorsIntro />,
   fonts: <FontsIntro />,
   'font-sizes': <FontSizesIntro />,
-  'font-weights': <FontWeightsIntro />,
   'line-heights': <LineHeightsIntro />,
   radii: <RadiiIntro />,
   sizings: <SizingsIntro />,

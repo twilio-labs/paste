@@ -33,10 +33,6 @@ export const FontSizesIntro = (): React.ReactNode => {
   return sectionIntros['font-sizes'];
 };
 
-export const FontWeightsIntro = (): React.ReactNode => {
-  return sectionIntros['font-weights'];
-};
-
 export const LineHeightsIntro = (): React.ReactNode => {
   return sectionIntros['line-heights'];
 };
