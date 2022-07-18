@@ -18,8 +18,13 @@ type TokenExampleProps = {
   inverseBackgroundColor: Properties['backgroundColor'];
 };
 
-export const TokenExample: React.FC<TokenExampleProps> = (props) => {
-  const {category, name, value, inverseBackgroundColor} = props;
+export const TokenExample: React.FC<TokenExampleProps> = ({
+  category,
+  name,
+  value,
+  inverseBackgroundColor,
+  ...props
+}) => {
   const backgroundColor = name.toLowerCase().match('inverse') ? inverseBackgroundColor : props.backgroundColor;
   let tokenExampleRender = null;
 

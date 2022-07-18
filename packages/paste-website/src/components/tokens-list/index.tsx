@@ -81,10 +81,14 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
-  const backgroundColor =
+  /**
+   * These vars store the body and inverse background color values from the current theme,
+   * to be passed into the TokenCards. They need to be the values and not the token names
+   * because they need to adapt to the applied theme through the Theme Control.
+   */
+  const tokenCardBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ?? '#fff';
-
-  const inverseBackgroundColor =
+  const tokenCardInverseBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
     '#121C2D';
 
@@ -123,10 +127,10 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                     useCamelCase={useJavascriptNames}
                     value={value}
                     comment={comment}
-                    backgroundColor={backgroundColor}
                     onCopyText={handleCopyName}
                     isCopied={clipboard.copied && lastCopiedValue === name}
-                    inverseBackgroundColor={inverseBackgroundColor}
+                    backgroundColor={tokenCardBackgroundColor}
+                    inverseBackgroundColor={tokenCardInverseBackgroundColor}
                   />
                 ))}
               </Box>
