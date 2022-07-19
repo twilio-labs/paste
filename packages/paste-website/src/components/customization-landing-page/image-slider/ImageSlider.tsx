@@ -11,15 +11,12 @@ import {useSvgResize} from './useSvgResize';
 const INPUT_ID = 'input-range-id';
 const CLIP_PATH_ID = 'clip-path-id';
 
-const imageContainerStyleProps: React.CSSProperties = {
+const imageStyleProps: React.CSSProperties = {
   pointerEvents: 'none',
   position: 'absolute',
   width: '100%',
   height: '100%',
   maxWidth: '640px',
-};
-
-const imageStyleProps: React.CSSProperties = {
   objectFit: 'scale-down',
   objectPosition: 'center center',
 };
@@ -121,16 +118,14 @@ export const ImageSlider: React.FC = () => {
           alt="Sample components with a customized Paste theme"
           placeholder="blurred"
           layout="fullWidth"
-          style={imageContainerStyleProps}
-          imgStyle={imageStyleProps}
+          style={imageStyleProps}
         />
         <StaticImage
           src="../../../assets/images/customization/hero-front.png"
           alt="Sample components with a default Paste theme"
           placeholder="blurred"
           layout="fullWidth"
-          style={imageContainerStyleProps}
-          imgStyle={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
+          style={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
         />
 
         {typeof clip === 'number' && !Number.isNaN(clip) ? (
