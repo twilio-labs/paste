@@ -6,22 +6,18 @@ import {SiteLink} from '../SiteLink';
 import {InlineCode} from '../Typography';
 import type {Token} from './types';
 
-const ColorGuidelinesLink: React.FC = () => <SiteLink to="/foundations/colors">Read the color guidelines.</SiteLink>;
+const ColorGuidelinesLink: React.FC = () => <SiteLink to="/foundations/colors">Read the color guidelines</SiteLink>;
 
 const BackgroundColorsIntro: React.FC = () => (
   <Paragraph>
-    Background color tokens define the background color of a container. <ColorGuidelinesLink />
+    <ColorGuidelinesLink /> to learn more about using background color tokens in Paste.
   </Paragraph>
 );
 
 const BorderColorsIntro: React.FC = () => (
   <Paragraph>
-    Border color tokens define the border color of a container. <ColorGuidelinesLink />
+    <ColorGuidelinesLink /> to learn more about using border color tokens in Paste.
   </Paragraph>
-);
-
-const BorderWidthsIntro: React.FC = () => (
-  <Paragraph>Border widths define the thickness of a border around a container.</Paragraph>
 );
 
 const BoxShadowsIntro: React.FC = () => (
@@ -46,49 +42,37 @@ const BoxShadowsIntro: React.FC = () => (
 
 const ColorsIntro: React.FC = () => (
   <Paragraph>
-    Colors are tokens that do not have a defined usage in the system and can be used in custom compositions.{' '}
-    <ColorGuidelinesLink />
-  </Paragraph>
-);
-
-const FontsIntro: React.FC = () => (
-  <Paragraph>
-    Fonts define the different font families.
-    {/* Read the typography guidelines (TBA) */}
+    Color tokens are a catch-all for miscellaneous colors in Paste. Some do not have a defined usage in the system and
+    can be used in custom compositions. The data visualization colors are specifically for usage within charts.{' '}
+    <SiteLink to="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more about
+    building charts with Paste.
   </Paragraph>
 );
 
 const FontSizesIntro: React.FC = () => (
-  <Paragraph>
-    Font sizes define the size of text. 1 rem unit = 16 pixels in Paste.
-    {/* Read the typography guidelines (TBA) */}
-  </Paragraph>
+  <>
+    <Paragraph>
+      Font size tokens use rem values, and 1 rem unit is equal to 16 pixels in Paste. Unlike em values which are
+      relative to their parent element, rem values are relative to the html element.
+    </Paragraph>
+    <Callout>
+      <CalloutTitle as="h3">
+        <strong>Heads up about font sizes in Paste</strong>
+      </CalloutTitle>
+      <CalloutText>
+        If you aren&apos;t using the Theme.Provider component, you must set font-size: 100%; on your page&apos;s html
+        tag for the font-sizes to be sized correctly as 1rem=16px.
+      </CalloutText>
+    </Callout>
+  </>
 );
-
-const LineHeightsIntro: React.FC = () => (
-  <Paragraph>
-    Line heights define the height of a line of text. 1 rem unit = 16 pixels in Paste.
-    {/* Read the typography guidelines (TBA) */}
-  </Paragraph>
-);
-
-const RadiiIntro: React.FC = () => <Paragraph>Radii define the border radius of a container.</Paragraph>;
-
-const SizingsIntro: React.FC = () => (
-  <Paragraph>
-    Sizings define the size of UI elements.
-    {/* Read the spacing and layout guidelines (TBA)*/}
-  </Paragraph>
-);
-
-const SpacingsIntro: React.FC = () => <Paragraph>Spacings define the spacing between UI elements.</Paragraph>;
 
 const TextColorsIntro: React.FC = () => (
   <Paragraph>
-    Text colors define text and icon colors. We specifically have <InlineCode>color-text-*</InlineCode> and{' '}
+    Text color tokens define both text and icon colors. We specifically have <InlineCode>color-text-*</InlineCode> and
     <InlineCode>color-text-icon-*</InlineCode> tokens, since icons have lower contrast requirements than text. This
     means that text color tokens can be used for icons, but icon color tokens cannot be used for text.{' '}
-    <ColorGuidelinesLink />
+    <ColorGuidelinesLink /> to learn more about using text color tokens in Paste.
   </Paragraph>
 );
 
@@ -103,15 +87,9 @@ interface SectionIntros {
 export const sectionIntros: SectionIntros = {
   'background-colors': <BackgroundColorsIntro />,
   'border-colors': <BorderColorsIntro />,
-  'border-widths': <BorderWidthsIntro />,
   'box-shadows': <BoxShadowsIntro />,
   colors: <ColorsIntro />,
-  fonts: <FontsIntro />,
   'font-sizes': <FontSizesIntro />,
-  'line-heights': <LineHeightsIntro />,
-  radii: <RadiiIntro />,
-  sizings: <SizingsIntro />,
-  spacings: <SpacingsIntro />,
   'text-colors': <TextColorsIntro />,
   'z-indices': <ZIndicesIntro />,
 };
