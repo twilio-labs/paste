@@ -47,8 +47,14 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
       tokenExampleRender = <LineHeightExample tokenName={name} lineHeight={value as keyof ThemeShape['lineHeights']} />;
       break;
     case 'radii':
+      const height = name.toLowerCase().match('pill') ? 'sizeSquare70' : null;
+
       tokenExampleRender = (
-        <BoxExample borderRadius={value as keyof ThemeShape['radii']} backgroundColor="colorBackgroundStrong" />
+        <BoxExample
+          borderRadius={value as keyof ThemeShape['radii']}
+          backgroundColor="colorBackgroundStrong"
+          height={height}
+        />
       );
       break;
     case 'box-shadows':
