@@ -63,7 +63,11 @@ export const TokenExample: React.FC<TokenExampleProps> = ({category, name, value
         tokenExampleRender = <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
       } else if (name.toLowerCase().match('square')) {
         tokenExampleRender = (
-          <BoxExample backgroundColor="colorBackgroundStrong" size={value as keyof ThemeShape['sizes']} />
+          <BoxExample
+            backgroundColor="colorBackgroundStrong"
+            size={value as keyof ThemeShape['sizes']}
+            borderRadius="borderRadius0"
+          />
         );
       }
 
