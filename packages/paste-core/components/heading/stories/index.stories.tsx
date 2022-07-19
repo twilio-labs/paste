@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
 import {Stack} from '@twilio-paste/stack';
@@ -166,14 +168,16 @@ Heading60NoMargin.story = {
   name: 'heading60 no margin',
 };
 
-export const CustomHeading: React.FC = () => {
+export const CustomHeading: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Heading as="h1" variant="heading10">
         Default heading
       </Heading>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           HEADING: {
             backgroundColor: 'colorBackgroundPrimaryWeaker',
@@ -200,7 +204,8 @@ export const CustomHeading: React.FC = () => {
         </Heading>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_HEADING: {
             backgroundColor: 'colorBackgroundTrial',

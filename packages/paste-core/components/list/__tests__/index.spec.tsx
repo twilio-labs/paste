@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
 describe('Ordered List', () => {
@@ -91,20 +89,6 @@ describe('Ordered List', () => {
       expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
     });
   });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <OrderedList>
-            <ListItem>item</ListItem>
-          </OrderedList>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
-  });
 });
 
 describe('Unordered List', () => {
@@ -191,20 +175,6 @@ describe('Unordered List', () => {
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
       expect(renderedList).toHaveStyleRule('color', 'rgb(96, 107, 133)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <UnorderedList>
-            <ListItem>item</ListItem>
-          </UnorderedList>
-        </CustomizationProvider>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

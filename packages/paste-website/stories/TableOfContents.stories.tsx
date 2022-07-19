@@ -16,6 +16,12 @@ export const DefaultTableOfContents = (): React.ReactNode => (
     <TableOfContents headings={TEST_HEADING} />
   </Box>
 );
+DefaultTableOfContents.parameters = {
+  a11y: {
+    // Disabling aXe on this story because of Hardocded Side Body Ids as a requirement
+    disable: true,
+  },
+};
 
 export default {
   title: 'Website/TableOfContents',

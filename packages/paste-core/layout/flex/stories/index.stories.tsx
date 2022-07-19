@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
@@ -357,7 +359,8 @@ export const ContainedWidth = (): React.ReactNode => {
   );
 };
 
-export const CustomizedFlex = (): React.ReactNode => {
+export const CustomizedFlex: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Paragraph>Default Flex Row</Paragraph>
@@ -375,7 +378,11 @@ export const CustomizedFlex = (): React.ReactNode => {
         </Flex>
       </Box>
       <Paragraph>Customized Flex Row</Paragraph>
-      <CustomizationProvider baseTheme="default" elements={{FLEX: {backgroundColor: 'colorBackgroundBusy'}}}>
+      <CustomizationProvider
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
+        elements={{FLEX: {backgroundColor: 'colorBackgroundBusy'}}}
+      >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex">
             <Flex>
@@ -391,7 +398,11 @@ export const CustomizedFlex = (): React.ReactNode => {
         </Box>
       </CustomizationProvider>
       <Paragraph>Customized Flex Row With Custom Element Attribute</Paragraph>
-      <CustomizationProvider baseTheme="default" elements={{MY_FLEX: {backgroundColor: 'colorBackgroundSuccess'}}}>
+      <CustomizationProvider
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
+        elements={{MY_FLEX: {backgroundColor: 'colorBackgroundSuccess'}}}
+      >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex" element="MY_FLEX">
             <Flex>

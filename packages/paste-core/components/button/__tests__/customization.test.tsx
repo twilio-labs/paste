@@ -12,7 +12,7 @@ const customButtonStyles = {
   borderColor: 'colorBorderError',
   fontWeight: 'fontWeightLight',
   variants: {
-    destructive: {backgroundColor: 'colorBackgroundDestructiveDarkest', color: 'colorTextWeaker'},
+    destructive: {backgroundColor: 'colorBackgroundDestructiveStrongest', color: 'colorTextWeaker'},
     link: {padding: 'space40', borderRadius: 'borderRadiusCircle'},
     destructive_link: {
       padding: 'space40',

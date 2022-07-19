@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureProps} from '../src';
 import {getIconHoverStyles} from '../src/utils';
@@ -287,14 +285,6 @@ describe('Disclosure', () => {
       expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
       expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214, 31, 31)');
       expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173, 17, 17)');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
-      const {container} = render(<MockDisclosure />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

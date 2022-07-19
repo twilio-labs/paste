@@ -2,8 +2,6 @@ import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
 
 const getCustomizationStyles = (element = 'CHECKBOX'): {[key: string]: PasteCustomCSS} => ({
@@ -411,20 +409,6 @@ describe('Customization', () => {
       'margin-bottom',
       '1.25rem'
     );
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_CHECKBOX')}>
-        <Checkbox id="foo" name="foo">
-          foo
-        </Checkbox>
-      </CustomizationProvider>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
 

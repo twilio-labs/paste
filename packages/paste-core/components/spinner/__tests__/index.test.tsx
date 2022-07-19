@@ -6,8 +6,6 @@ import type {RenderOptions} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Spinner} from '../src';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] =>
   function Wrapper({children}) {
@@ -98,16 +96,6 @@ describe('Spinner', () => {
       expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255, 255, 255)');
       expect(nodeNamedSpinner).toHaveStyleRule('align-self', 'flex-start');
       expect(nodeNamedSpinner).toHaveStyleRule('padding', '0.25rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<Spinner title="Loading" decorative />, {
-        wrapper: ({children}) => <Theme.Provider theme="default">{children}</Theme.Provider>,
-      });
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

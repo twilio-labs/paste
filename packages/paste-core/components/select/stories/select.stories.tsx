@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {useTheme} from '@twilio-paste/theme';
@@ -654,13 +655,14 @@ SelectOverflowLongValue.story = {
   name: 'Select - overflow long value',
 };
 
-export const CustomizedSelect = (): React.ReactNode => {
+export const CustomizedSelect: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   const seed = useUIDSeed();
 
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={{
         ...currentTheme,
         shadows: {
@@ -679,13 +681,11 @@ export const CustomizedSelect = (): React.ReactNode => {
           },
         },
         CUSTOM_SELECT_ELEMENT: {
-          color: 'colorTextSuccess',
           fontWeight: 'fontWeightSemibold',
           fontFamily: 'fontFamilyCode',
           variants: {
             inverse: {
               fontWeight: 'fontWeightMedium',
-              color: 'colorTextWeakest',
             },
           },
         },

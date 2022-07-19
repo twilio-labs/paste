@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -330,10 +332,12 @@ StateHook.story = {
   name: 'State hook',
 };
 
-export const Customization = (): React.ReactNode => {
+export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         DISCLOSURE: {padding: 'space30', variants: {contained: {borderColor: 'colorBorderError'}}},
         DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},

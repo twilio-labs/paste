@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {Anchor} from '@twilio-paste/anchor';
@@ -670,7 +671,7 @@ InputPlaceholderInverse.story = {
   name: 'Input - Placeholder inverse',
 };
 
-export const CustomInput: React.FC = () => {
+export const CustomInput: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const uidOne = useUID();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();
@@ -710,7 +711,7 @@ export const CustomInput: React.FC = () => {
         />
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
         theme={theme}
         elements={{
           INPUT: {
@@ -836,7 +837,7 @@ export const CustomInput: React.FC = () => {
         </Stack>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
         theme={theme}
         elements={{
           NEW_INPUT: {

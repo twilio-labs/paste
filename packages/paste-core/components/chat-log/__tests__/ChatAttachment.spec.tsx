@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {ChatAttachment, ChatAttachmentLink, ChatAttachmentDescription, ComposerAttachmentCard} from '../src';
 
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -248,20 +246,5 @@ describe('Customization', () => {
     expect(chatAttachmentBody).toHaveStyleRule('padding', '0.25rem');
     expect(chatAttachmentLink).toHaveStyleRule('font-size', '1.125rem');
     expect(chatAttachmentDescription).toHaveStyleRule('color', 'rgb(18, 28, 45)');
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(
-      <ComposerAttachmentCard>
-        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
-          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ComposerAttachmentCard>
-    );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

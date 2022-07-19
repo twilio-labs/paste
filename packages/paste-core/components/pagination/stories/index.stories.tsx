@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useUID} from '@twilio-paste/uid-library';
 import {
   Pagination,
   PaginationArrow,
@@ -10,8 +11,10 @@ import {
 } from '../src';
 
 export const ArrowExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow variant="back" label="Go to previous page" />
         <PaginationArrow variant="forward" label="Go to next page" />
@@ -21,8 +24,10 @@ export const ArrowExample: React.FC = () => {
 };
 
 export const ArrowsAsAnchorsExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow as="a" href="#" variant="back" label="Go to previous page" />
         <PaginationArrow as="a" href="#" variant="forward" label="Go to next page" />
@@ -32,8 +37,10 @@ export const ArrowsAsAnchorsExample: React.FC = () => {
 };
 
 export const ArrowLabelsExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationArrow variant="forward" label="Go to next page" visibleLabel="Next" />
@@ -43,8 +50,10 @@ export const ArrowLabelsExample: React.FC = () => {
 };
 
 export const ArrowAsAnchorLabelsExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow as="a" href="#" variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationArrow as="a" href="#" variant="forward" label="Go to next page" visibleLabel="Next" />
@@ -53,9 +62,11 @@ export const ArrowAsAnchorLabelsExample: React.FC = () => {
   );
 };
 
-export const ArrowsPageLabelExample: React.FC = () => {
+export const ArrowsPageLabelExample: React.FC<{staticLabel?: string}> = ({staticLabel}) => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={staticLabel ? staticLabel : `pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationLabel>Page 1 of 10</PaginationLabel>
@@ -66,8 +77,10 @@ export const ArrowsPageLabelExample: React.FC = () => {
 };
 
 export const NumbersExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationNumbers>
@@ -88,8 +101,10 @@ export const NumbersExample: React.FC = () => {
 };
 
 export const NumbersAsAnchorsExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow as="a" href="#" variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationNumbers>
@@ -118,8 +133,10 @@ export const NumbersAsAnchorsExample: React.FC = () => {
 };
 
 export const NumbersPageLabelExample: React.FC = () => {
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
         <PaginationNumbers pageLabel="Page 5 of 10">
@@ -153,8 +170,10 @@ export const ControlledArrowPaginationExample: React.FC = () => {
     event.preventDefault();
   };
 
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow
           variant="back"
@@ -193,8 +212,10 @@ export const ControlledNumberPaginationExample: React.FC = () => {
     event.preventDefault();
   };
 
+  // we use this to create unique labels for landmark elements when stacked or side-by-side
+  const uniquePaginationID = useUID();
   return (
-    <Pagination label="pagination navigation">
+    <Pagination label={`pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow
           variant="back"

@@ -5,6 +5,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Label, RequiredDot} from '../src';
+import {useTheme} from '@twilio-paste/theme';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -62,6 +63,7 @@ export const I18n = (): React.ReactNode => {
 I18n.storyName = 'i18n label';
 
 export const Customized: React.FC = () => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space20">
       <Box marginBottom="space70">
@@ -80,11 +82,12 @@ export const Customized: React.FC = () => {
         <Paragraph>Customized:</Paragraph>
         <Card>
           <CustomizationProvider
-            baseTheme="default"
+            disableAnimations={true}
+            theme={currentTheme}
             elements={{
-              LABEL: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
-              LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              LABEL: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
+              LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
+              REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
               REQUIRED_DOT_WRAPPER: {cursor: 'help'},
             }}
           >
@@ -102,10 +105,12 @@ export const Customized: React.FC = () => {
         <Paragraph>Customized with custom element attribute:</Paragraph>
         <Card>
           <CustomizationProvider
+            disableAnimations={true}
+            theme={currentTheme}
             elements={{
-              foo: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
-              foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              bar: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              foo: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
+              foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
+              bar: {backgroundColor: 'colorBackgroundDestructiveStrong'},
               bar_WRAPPER: {cursor: 'help'},
             }}
           >

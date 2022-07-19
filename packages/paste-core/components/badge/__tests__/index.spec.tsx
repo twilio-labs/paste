@@ -3,9 +3,6 @@ import {render, fireEvent, screen} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
 
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
 import {useResizeChildIcons} from '../src/hooks';
 
@@ -353,118 +350,6 @@ describe('Badge', () => {
 
         expect(badgeElement.tagName).toEqual('SPAN');
       });
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <>
-          <Badge as="span" data-testid="badge-1" variant="neutral">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="success">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="warning">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="error">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="new">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="decorative10">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="decorative20">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="decorative30">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="decorative40">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="neutral_counter">
-            test
-          </Badge>
-          <Badge as="span" data-testid="badge-1" variant="error_counter">
-            test
-          </Badge>
-
-          <Badge as="a" href="#" data-testid="badge-1" variant="neutral">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="success">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="warning">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="error">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="new">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="decorative10">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="decorative20">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="decorative30">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="decorative40">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="neutral_counter">
-            test
-          </Badge>
-          <Badge as="a" href="#" data-testid="badge-1" variant="error_counter">
-            test
-          </Badge>
-
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="neutral">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="success">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="warning">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="error">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="new">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative10">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative20">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative30">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="decorative40">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="neutral_counter">
-            test
-          </Badge>
-          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="error_counter">
-            test
-          </Badge>
-        </>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

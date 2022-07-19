@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+import {Anchor} from '@twilio-paste/anchor';
 import {Radio, RadioGroup} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -35,7 +36,7 @@ export const RadioUnchecked = (): React.ReactNode => {
         onChange={() => setChecked('2')}
         helpText={
           <>
-            Some interesting help text with a <a href="http://www.google.com">link</a>
+            Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
           </>
         }
       >
@@ -89,7 +90,7 @@ export const RadioChecked = (): React.ReactNode => {
         onChange={() => setChecked('2')}
         helpText={
           <>
-            Some interesting help text with a <a href="http://www.google.com">link</a>
+            Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
           </>
         }
       >

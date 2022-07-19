@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -325,11 +326,11 @@ export const TableLoading: React.FC = () => {
   );
 };
 
-export const CustomizedSkeletonLoader = (): React.ReactNode => {
+export const CustomizedSkeletonLoader: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const activeTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
         SKELETON_LOADER: {backgroundColor: 'colorBackgroundBrandHighlight', margin: 'space100'},

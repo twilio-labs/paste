@@ -455,6 +455,7 @@ export const i18nProp = (): React.ReactNode => {
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
   const modalHeadingID = useUID();
+  const selectID = useUID();
 
   return (
     <div>
@@ -468,8 +469,8 @@ export const i18nProp = (): React.ReactNode => {
           </ModalHeading>
         </ModalHeader>
         <ModalBody>
-          <Label htmlFor="author">Escoja una autora</Label>
-          <Select id="author">
+          <Label htmlFor={selectID}>Escoja una autora</Label>
+          <Select id={selectID}>
             <Option value="allende">Isabel Allende</Option>
             <Option value="cisneros">Sandra Cisneros</Option>
             <Option value="santiago">Esmeralda Santiago</Option>
@@ -593,6 +594,10 @@ ConsolePatchProp.story = {
   name: 'Console patch prop',
   parameters: {
     chromatic: {disableSnapshot: true},
+    a11y: {
+      // funtionality requires hardcoded ids which we can't make unique
+      disable: true,
+    },
   },
 };
 
@@ -716,7 +721,7 @@ export const ModalDialogVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
@@ -748,7 +753,7 @@ export const WideModalDialogVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent size="wide">
+      <ModalDialogContent aria-labelledby={modalHeadingID} size="wide">
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
@@ -781,7 +786,7 @@ export const LeftAlignedFooterActionsVRT = (): React.ReactNode => {
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
@@ -814,7 +819,7 @@ export const DirectionalFooterActionsVRT = (): React.ReactNode => {
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
@@ -850,7 +855,7 @@ export const ExtremelyLongHeadingVRT = (): React.ReactNode => {
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor
@@ -884,7 +889,7 @@ export const OverflowingBodyContentVRT = (): React.ReactNode => {
   return (
     <Box height="500px">
       <ModalContext.Provider value={{onDismiss}}>
-        <ModalDialogContent>
+        <ModalDialogContent aria-labelledby={modalHeadingID}>
           <ModalHeader>
             <ModalHeading as="h3" id={modalHeadingID}>
               Edit Account Details
@@ -1012,7 +1017,7 @@ export const HeaderContentVRT = (): React.ReactNode => {
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Edit Account Details
@@ -1050,7 +1055,7 @@ export const ModalDialogTooltipVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading
@@ -1083,7 +1088,7 @@ export const ModalDialogPopoverVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
   return (
     <ModalContext.Provider value={{onDismiss}}>
-      <ModalDialogContent>
+      <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
             Modal Heading

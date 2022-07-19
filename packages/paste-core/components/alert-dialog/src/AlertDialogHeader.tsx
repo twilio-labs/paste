@@ -15,7 +15,7 @@ export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHe
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        as="header"
+        as="div"
         {...modalHeaderStyles}
         border="none"
         element={`${element}_WRAPPER`}

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -140,7 +142,8 @@ Responsive.story = {
   name: 'responsive',
 };
 
-export const CustomSeparator: React.FC = () => {
+export const CustomSeparator: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
@@ -159,7 +162,8 @@ export const CustomSeparator: React.FC = () => {
         </Card>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           SEPARATOR: {
             borderColor: 'colorBorderDestructive',
@@ -184,7 +188,8 @@ export const CustomSeparator: React.FC = () => {
         </Box>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_SEPARATOR: {
             borderColor: 'colorBorderPrimary',

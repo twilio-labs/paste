@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -23,9 +25,10 @@ export default {
 };
 
 export const Default: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id" visible>
+      <PopoverContainer baseId={uniqueBaseID} visible>
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -36,9 +39,10 @@ export const Default: React.FC = () => {
 };
 
 export const SmallerSize: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id" visible>
+      <PopoverContainer baseId={uniqueBaseID} visible>
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Box width="size30">
@@ -55,9 +59,10 @@ export const WideContent: React.FC = () => {
   const time1ID = useUID();
   const date2ID = useUID();
   const time2ID = useUID();
+  const uniqueBaseID = useUID();
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id" visible>
+      <PopoverContainer baseId={uniqueBaseID} visible>
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Stack orientation="horizontal" spacing="space40">
@@ -88,9 +93,10 @@ export const WideContent: React.FC = () => {
 };
 
 export const PopoverTop: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
     <Box bottom={12} position="absolute">
-      <PopoverContainer baseId="test-id" placement="top-start">
+      <PopoverContainer baseId={uniqueBaseID} placement="top-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover" data-testid="top-popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -101,9 +107,10 @@ export const PopoverTop: React.FC = () => {
 };
 
 export const PopoverLeft: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
     <Box position="absolute" right={12} top={12}>
-      <PopoverContainer baseId="test-id" placement="left-start">
+      <PopoverContainer baseId={uniqueBaseID} placement="left-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -114,8 +121,9 @@ export const PopoverLeft: React.FC = () => {
 };
 
 export const PopoverRight: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
-    <PopoverContainer baseId="test-id" placement="right-start">
+    <PopoverContainer baseId={uniqueBaseID} placement="right-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
         <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -125,8 +133,9 @@ export const PopoverRight: React.FC = () => {
 };
 
 export const PopoverBottom: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
-    <PopoverContainer baseId="test-id" placement="bottom-start">
+    <PopoverContainer baseId={uniqueBaseID} placement="bottom-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
         <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -136,9 +145,10 @@ export const PopoverBottom: React.FC = () => {
 };
 
 export const BadgePopover: React.FC = () => {
+  const uniqueBaseID = useUID();
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id">
+      <PopoverContainer baseId={uniqueBaseID}>
         <PopoverBadgeButton variant="neutral">Open popover</PopoverBadgeButton>
         <Popover aria-label="Popover" data-testid="badge-popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -149,7 +159,8 @@ export const BadgePopover: React.FC = () => {
 };
 
 export const StateHookExample: React.FC = () => {
-  const popover = usePopoverState({baseId: 'test-id'});
+  const uniqueBaseID = useUID();
+  const popover = usePopoverState({baseId: uniqueBaseID});
   return (
     <Box height="300px">
       <Stack orientation="horizontal" spacing="space60">
@@ -170,10 +181,13 @@ export const StateHookExample: React.FC = () => {
   );
 };
 
-export const Customization: React.FC = () => {
+export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
+  const uniqueBaseID = useUID();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         POPOVER: {
           backgroundColor: 'colorBackgroundNeutralWeakest',
@@ -192,7 +206,7 @@ export const Customization: React.FC = () => {
       }}
     >
       <Box height="300px">
-        <PopoverContainer baseId="test-id" visible>
+        <PopoverContainer baseId={uniqueBaseID} visible>
           <PopoverButton variant="primary">Open popover</PopoverButton>
           <Popover aria-label="Popover">
             <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
@@ -204,9 +218,10 @@ export const Customization: React.FC = () => {
 };
 
 export const I18n = (): React.ReactNode => {
+  const uniqueBaseID = useUID();
   return (
     <Box height="300px">
-      <PopoverContainer baseId="test-id" visible>
+      <PopoverContainer baseId={uniqueBaseID} visible>
         <PopoverButton variant="primary">Abrir popover</PopoverButton>
         <Popover aria-label="Popover" i18nDismissLabel="Cerrar popover">
           <Text as="span">

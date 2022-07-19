@@ -1,15 +1,13 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
-import {useVirtual as _useVirtual} from 'react-virtual';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
+import type {useVirtual as _useVirtual} from 'react-virtual';
 import {useCombobox, Combobox} from '../src';
 import type {ComboboxProps} from '../src/types';
 import {getIndexedItems, getGroupedItems} from '../src/helpers';
@@ -24,7 +22,6 @@ jest.mock('react-virtual', () => {
   return {
     useVirtual: (config: Parameters<UseVirtual>) => {
       const {scrollToIndex, ...returnValue} = useVirtual(config);
-
       return {
         ...returnValue,
         scrollToIndex: mockScrollToIndex,
@@ -234,13 +231,15 @@ describe('Combobox', () => {
       expect(renderedTextbox.getAttribute('required')).toEqual('');
     });
 
-    it('should call scroll function when highlighted index changes', () => {
+    it('should call scroll function when highlighted index changes', async () => {
       render(<ComboboxMock />, {wrapper: ThemeWrapper});
 
       const targetIndex = 1;
       const target = items[targetIndex];
 
-      userEvent.hover(screen.getByText(target));
+      await waitFor(() => {
+        userEvent.hover(screen.getByText(target));
+      });
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -356,7 +355,7 @@ describe('Combobox', () => {
       expect(screen.getByTestId('selected-item-span').textContent).toEqual('null');
     });
 
-    it('should call scroll function when highlighted index changes', () => {
+    it('should call scroll function when highlighted index changes', async () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
 
       userEvent.click(screen.getByRole('textbox'));
@@ -364,30 +363,15 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = objectItems[targetIndex];
 
-      userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+      await waitFor(() => {
+        userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+      });
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
       );
 
       expect(mockScrollToIndex).toHaveBeenCalledWith(1);
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<ComboboxMock />, {wrapper: ThemeWrapper});
-      const results = await axe(container, {
-        rules: {
-          // Incorrectly thinks our markup is bad for a11y.
-          // False negative, see:
-          // https://github.com/dequelabs/axe-core/issues/2505
-          // https://github.com/dequelabs/axe-core/issues/2523
-          'aria-required-parent': {enabled: false},
-          'aria-required-children': {enabled: false},
-        },
-      });
-      expect(results).toHaveNoViolations();
     });
   });
 });

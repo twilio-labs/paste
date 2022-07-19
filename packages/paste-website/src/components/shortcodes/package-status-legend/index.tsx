@@ -59,8 +59,8 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
   designCommitteeReview,
   engineerCommitteeReview,
 }) => {
-  const shouldShowFigma = figmaStatus === null;
-  const shouldShowPeerReview = designCommitteeReview === null || engineerCommitteeReview === null;
+  const shouldShowFigma = figmaStatus == null;
+  const shouldShowPeerReview = designCommitteeReview == null || engineerCommitteeReview == null;
 
   const shouldShowStatus = packageStatus || shouldShowFigma || shouldShowPeerReview;
 

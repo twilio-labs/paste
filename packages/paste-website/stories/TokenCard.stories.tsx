@@ -203,7 +203,26 @@ SpacingTokenZero.args = {
 export const TextColorToken = Template.bind({});
 TextColorToken.args = {
   category: 'text-colors',
+  name: 'color-text-success',
+};
+
+export const TextColorConditionalToken = Template.bind({});
+TextColorConditionalToken.args = {
+  category: 'text-colors',
   name: 'color-text-brand-highlight',
+};
+TextColorConditionalToken.parameters = {
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: 'color-contrast',
+          // This story purposefully fails color contrast for small text
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const ZIndexToken = Template.bind({});

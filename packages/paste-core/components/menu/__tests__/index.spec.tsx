@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {useMenuState, Menu, MenuItem, MenuButton, MenuGroup, MenuSeparator} from '../src';
 import type {MenuButtonProps} from '../src';
 
@@ -168,14 +166,6 @@ describe('Menu', () => {
       expect(handleClickMock).toHaveBeenCalled();
       fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
       expect(handleClickMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<MenuMock />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

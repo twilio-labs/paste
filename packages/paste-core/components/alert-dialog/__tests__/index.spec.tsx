@@ -1,8 +1,6 @@
 import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {AlertDialogWithTwoActions, DestructiveAlertDialog} from '../stories/index.stories';
 
 describe('Alert Dialog', () => {
@@ -46,13 +44,5 @@ describe('Alert Dialog', () => {
   it('Should have the initial focus land on the first focusable item', () => {
     render(<AlertDialogWithTwoActions />);
     expect(document.activeElement).toEqual(screen.getAllByRole('button')[0]);
-  });
-});
-
-describe('Accessibility', () => {
-  it('Should have no accessibility violations for two button alert dialogs', async () => {
-    const {container} = render(<AlertDialogWithTwoActions />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });

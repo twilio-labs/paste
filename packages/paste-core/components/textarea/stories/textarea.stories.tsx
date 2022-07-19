@@ -504,7 +504,7 @@ export const CustomizedTextarea: React.FC = () => {
   const uidThreeVariant = useUID();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={true}
       theme={activeTheme}
       elements={{
         TEXTAREA: {

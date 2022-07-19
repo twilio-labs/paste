@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
@@ -33,7 +34,10 @@ export const getStyles = (element = 'TOAST'): {[key: string]: PasteCustomCSS} =>
   [`${element}_CLOSE_ICON`]: {color: 'colorTextIconError'},
 });
 
-const ShowCustomization: React.FC<{variant: ToastVariants}> = ({variant}): React.ReactElement => {
+const ShowCustomization: React.FC<{variant: ToastVariants; isTestEnvironment: boolean}> = ({
+  variant,
+  isTestEnvironment,
+}): React.ReactElement => {
   const theme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space50">
@@ -44,7 +48,7 @@ const ShowCustomization: React.FC<{variant: ToastVariants}> = ({variant}): React
         </Stack>
       </Card>
       <Card>
-        <CustomizationProvider theme={theme} elements={getStyles()}>
+        <CustomizationProvider disableAnimations={isTestEnvironment} theme={theme} elements={getStyles()}>
           <Stack orientation="vertical" spacing="space30">
             <Text as="div">Customized:</Text>
             {makeToast(variant)}
@@ -52,7 +56,7 @@ const ShowCustomization: React.FC<{variant: ToastVariants}> = ({variant}): React
         </CustomizationProvider>
       </Card>
       <Card>
-        <CustomizationProvider theme={theme} elements={getStyles('FOO')}>
+        <CustomizationProvider disableAnimations={isTestEnvironment} theme={theme} elements={getStyles('FOO')}>
           <Stack orientation="vertical" spacing="space30">
             <Text as="div">Customized with custom `element` prop:</Text>
             {makeToast(variant, 'FOO')}
@@ -63,20 +67,20 @@ const ShowCustomization: React.FC<{variant: ToastVariants}> = ({variant}): React
   );
 };
 
-export const NeutralCustomized = (): React.ReactElement => {
-  return <ShowCustomization variant="neutral" />;
+export const NeutralCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="neutral" />;
 };
 
-export const SuccessCustomized = (): React.ReactElement => {
-  return <ShowCustomization variant="success" />;
+export const SuccessCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="success" />;
 };
 
-export const ErrorCustomized = (): React.ReactElement => {
-  return <ShowCustomization variant="error" />;
+export const ErrorCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="error" />;
 };
 
-export const WarningCustomized = (): React.ReactElement => {
-  return <ShowCustomization variant="warning" />;
+export const WarningCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="warning" />;
 };
 
 // eslint-disable-next-line import/no-default-export

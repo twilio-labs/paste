@@ -1,6 +1,8 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
+import {useTheme} from '@twilio-paste/theme';
 import {Paragraph} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -28,7 +30,8 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const CustomParagraph: React.FC = () => {
+export const CustomParagraph: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Paragraph>
@@ -36,10 +39,11 @@ export const CustomParagraph: React.FC = () => {
         with the Programmable Messaging API.
       </Paragraph>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           PARAGRAPH: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
+            backgroundColor: 'colorBackgroundPrimaryWeakest',
             color: 'colorTextError',
             padding: 'space40',
           },
@@ -51,7 +55,8 @@ export const CustomParagraph: React.FC = () => {
         </Paragraph>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_PARAGRAPH: {
             backgroundColor: 'colorBackgroundTrial',

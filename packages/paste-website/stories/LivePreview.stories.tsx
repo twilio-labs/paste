@@ -12,6 +12,12 @@ export const SmallLivePreview = (): React.ReactNode => {
     </LivePreview>
   );
 };
+SmallLivePreview.parameters = {
+  a11y: {
+    // Cannot provide the textarea a label.
+    disable: true,
+  },
+};
 
 export const LargeLivePreview = (): React.ReactNode => {
   return (
@@ -26,6 +32,12 @@ export const LargeLivePreview = (): React.ReactNode => {
 </Stack>`}
     </LivePreview>
   );
+};
+LargeLivePreview.parameters = {
+  a11y: {
+    // Cannot provide the textarea a label.
+    disable: true,
+  },
 };
 
 export default {

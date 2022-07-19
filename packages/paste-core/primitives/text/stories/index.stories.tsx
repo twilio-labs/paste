@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Separator} from '@twilio-paste/separator';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {
@@ -20,6 +21,7 @@ import type {
   Padding,
   Margin,
 } from '@twilio-paste/style-props';
+import {useTheme} from '@twilio-paste/theme';
 import {Text} from '../src';
 import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
 
@@ -148,24 +150,26 @@ const CustomTextCollection: React.FC = () => {
   );
 };
 
-export const CustomText: React.FC = () => {
+export const CustomText: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <CustomTextCollection />
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           RECTANGLE: {
             borderRadius: 'borderRadius20',
             variants: {
               primary: {
-                backgroundColor: 'colorBackgroundPrimaryWeaker',
+                backgroundColor: 'colorBackgroundPrimaryWeakest',
                 padding: 'space30',
                 textDecoration: 'underline',
               },
               secondary: {
-                backgroundColor: 'colorBackgroundSuccess',
+                backgroundColor: 'colorBackgroundSuccessWeakest',
                 margin: 'space30',
               },
             },

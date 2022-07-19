@@ -1,10 +1,12 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '../src';
+import {useTheme} from '@twilio-paste/theme';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -22,7 +24,8 @@ const ExampleComponents: React.FC = () => (
   </Box>
 );
 
-export const Provider = (): React.ReactNode => {
+export const Provider: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Heading as="h2" variant="heading30">
@@ -33,11 +36,12 @@ export const Provider = (): React.ReactNode => {
         Custom theme
       </Heading>
       <CustomizationProvider
+        disableAnimations={isTestEnvironment}
         theme={{
-          backgroundColors: {colorBackgroundDestructive: 'darkred'},
+          ...currentTheme,
+          backgroundColors: {...currentTheme.backgroundColors, colorBackgroundDestructive: 'darkred'},
           radii: {borderRadius20: '20px'},
           fonts: {fontFamilyText: 'Times'},
-          textColors: {colorTextLink: 'hotpink'},
         }}
       >
         <ExampleComponents />
@@ -46,11 +50,12 @@ export const Provider = (): React.ReactNode => {
         Custom theme 2
       </Heading>
       <CustomizationProvider
+        disableAnimations={isTestEnvironment}
         theme={{
-          backgroundColors: {colorBackgroundDestructive: 'blue'},
+          ...currentTheme,
+          backgroundColors: {...currentTheme.backgroundColors, colorBackgroundDestructive: 'blue'},
           radii: {borderRadius20: '8px'},
           fonts: {fontFamilyText: 'cursive'},
-          textColors: {colorTextLink: 'green'},
         }}
         elements={{
           CARD: {

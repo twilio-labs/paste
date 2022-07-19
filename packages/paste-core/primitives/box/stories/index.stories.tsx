@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Separator} from '@twilio-paste/separator';
@@ -85,7 +87,7 @@ export const Default = (): React.ReactNode => {
 export const Responsive = (): React.ReactNode => {
   return (
     <Box
-      backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}
+      backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundSuccessWeakest']}
       padding={['space20', 'space70']}
       height={['size10', 'size20']}
     >
@@ -139,24 +141,26 @@ const CustomBoxCollection: React.FC = () => {
   );
 };
 
-export const CustomBox: React.FC = () => {
+export const CustomBox: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <CustomBoxCollection />
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           RECTANGLE: {
             borderRadius: 'borderRadius20',
             variants: {
               primary: {
-                backgroundColor: 'colorBackgroundPrimary',
+                backgroundColor: 'colorBackgroundPrimaryWeakest',
                 padding: 'space30',
                 textDecoration: 'underline',
               },
               secondary: {
-                backgroundColor: 'colorBackgroundSuccess',
+                backgroundColor: 'colorBackgroundSuccessWeakest',
                 margin: 'space30',
               },
             },
@@ -176,6 +180,7 @@ export const CustomBox: React.FC = () => {
               },
               secondary: {
                 color: 'colorTextWarning',
+                backgroundColor: 'colorBackground',
                 ':hover': {
                   backgroundColor: 'colorBackgroundError',
                 },

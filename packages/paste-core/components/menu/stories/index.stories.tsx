@@ -8,6 +8,7 @@ import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
+import {useUID} from '@twilio-paste/uid-library';
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();
@@ -245,9 +246,10 @@ MenuGroupsStory.story = {
 };
 
 export const MenuDropdown = (): React.ReactNode => {
+  const uniqueMenuLabelID = useUID();
   const menuMockProps = {
     visible: true,
-    baseId: 'test',
+    baseId: uniqueMenuLabelID,
     first: () => {},
     last: () => {},
     items: [],
@@ -272,7 +274,7 @@ export const MenuDropdown = (): React.ReactNode => {
     tabIndex: -1,
   };
   return (
-    <Menu {...menuMockProps} aria-label="Code" placement="auto">
+    <Menu {...menuMockProps} aria-label={`Code ${uniqueMenuLabelID}`} placement="auto">
       <MenuItem {...menuItemMockProps}>Default</MenuItem>
       <MenuItem {...menuItemMockProps} disabled>
         Disabled

@@ -5,8 +5,9 @@ import {HelpText} from '@twilio-paste/help-text';
 import {Button} from '@twilio-paste/button';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
+import {useUID} from '@twilio-paste/uid-library';
 
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {
   ChatMessage,
   ChatBubble,
@@ -36,26 +37,28 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const NewMessagesButton: StoryFn = () => (
+export const NewMessagesButton: Story = () => (
   <Button variant="primary" size="rounded_small">
     New message
     <ArrowDownIcon decorative />
   </Button>
 );
 
-export const ScrollingChatLog: StoryFn = () => {
+export const ScrollingChatLog: Story = () => {
   const [showButton, setShowButton] = React.useState(true);
+  const chatBoxUniqueID = useUID();
   return (
-    <Box maxHeight="size40" overflowY="scroll" id="chat-box">
+    <Box maxHeight="size40" overflowY="scroll" id={chatBoxUniqueID}>
       <ChatLog>
         {showButton ? (
           <Box
+            as="li"
             display="flex"
             paddingY="space50"
             justifyContent="center"
             onClick={() => {
               // eslint-disable-next-line unicorn/prefer-query-selector
-              const box = document.getElementById('chat-box');
+              const box = document.getElementById(chatBoxUniqueID);
               if (box) box.scrollTop = box.scrollHeight;
               setShowButton(false);
             }}
@@ -145,7 +148,7 @@ export const ScrollingChatLog: StoryFn = () => {
   );
 };
 
-export const KitchenSink: StoryFn = () => (
+export const KitchenSink: Story = () => (
   <ChatLog>
     <ChatBookend>
       <ChatBookendItem>Today</ChatBookendItem>

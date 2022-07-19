@@ -24,7 +24,7 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        as="footer"
+        as="div"
         {...modalFooterStyles}
         border="none"
         element={element}

@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {
   Pagination,
   PaginationItems,
@@ -110,11 +110,14 @@ const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1,
     onPageChange(pageNumber);
   }, []);
 
+  // used to create unique labels for nav elements in side by side stories
+  const uniquePaginationID = useUID();
+
   const paginationState = calculatePaginationState(currentPage, pageCount);
 
   /* eslint-disable react/no-array-index-key */
   return (
-    <Pagination label="paged pagination navigation">
+    <Pagination label={`paged pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow
           label="Go to previous page"
@@ -335,7 +338,7 @@ export const KitchenSinkDataGrid: React.FC = () => {
                       if (colIndex === 5) {
                         return (
                           <DataGridCell key={`col-${colIndex}`}>
-                            <Input value={col as string} type="text" onChange={() => {}} />
+                            <Input aria-label="Phone number" value={col as string} type="text" onChange={() => {}} />
                           </DataGridCell>
                         );
                       }

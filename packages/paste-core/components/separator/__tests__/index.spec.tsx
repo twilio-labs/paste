@@ -3,8 +3,6 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Separator} from '../src';
 
 describe('Separator', () => {
@@ -101,19 +99,6 @@ describe('Separator', () => {
       const renderedSeparator = screen.getByTestId('custom-separator');
       expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
       expect(renderedSeparator).toHaveStyleRule('margin', '1rem');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(
-        <>
-          <Separator orientation="horizontal" />
-          <Separator orientation="vertical" />
-        </>
-      );
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
     });
   });
 });

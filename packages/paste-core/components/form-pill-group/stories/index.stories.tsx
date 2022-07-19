@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useTheme} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -148,15 +149,17 @@ export const SelectableAndRemovable: React.FC = () => {
 };
 
 export const CustomFormPillGroup: React.FC = () => {
+  const currentTheme = useTheme();
   const [showTennis, setShowTennis] = React.useState(true);
   const pillState = useFormPillState();
 
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={true}
       theme={{
-        textColors: {colorTextLink: 'red'},
-        fonts: {fontFamilyText: 'arial'},
+        ...currentTheme,
+        textColors: {...currentTheme.textColors, colorTextLink: 'red'},
+        fonts: {...currentTheme.fonts, fontFamilyText: 'arial'},
       }}
       elements={{
         FORM_PILL_GROUP: {

@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
 import {Breadcrumb, BreadcrumbItem} from '../src';
 
 describe('Breadcrumb', () => {
@@ -68,14 +66,6 @@ describe('Breadcrumb', () => {
     );
     const breadcrumbAnchor = screen.getByRole('listitem').firstChild as HTMLElement;
     expect(breadcrumbAnchor.getAttribute('data-testid')).toEqual('breadcrumb-anchor');
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<BreadcrumbExample />);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
   });
 
   describe('Customization', () => {

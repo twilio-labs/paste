@@ -1,9 +1,11 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
+import {useTheme} from '@twilio-paste/theme';
 import {HelpText} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -41,7 +43,8 @@ Inverse.story = {
   name: 'inverse',
 };
 
-export const Customized = (): React.ReactNode => {
+export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Stack orientation="vertical" spacing="space80">
@@ -56,7 +59,8 @@ export const Customized = (): React.ReactNode => {
           <Paragraph>Customized Help Text:</Paragraph>
           <Card>
             <CustomizationProvider
-              baseTheme="default"
+              disableAnimations={isTestEnvironment}
+              theme={currentTheme}
               elements={{
                 HELP_TEXT: {
                   color: 'colorTextSuccess',
@@ -74,7 +78,8 @@ export const Customized = (): React.ReactNode => {
           <Paragraph>Customized Help Text with custom element attribute:</Paragraph>
           <Card>
             <CustomizationProvider
-              baseTheme="default"
+              disableAnimations={isTestEnvironment}
+              theme={currentTheme}
               elements={{
                 foo: {
                   color: 'colorTextSuccess',

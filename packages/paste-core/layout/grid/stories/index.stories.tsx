@@ -1,4 +1,6 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
+import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -903,7 +905,8 @@ GridContainingLongContent.story = {
   name: 'Grid - Containing long content',
 };
 
-export const CustomGrid: React.FC = () => {
+export const CustomGrid: Story = (_args, {parameters: {isTestEnvironment}}) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Grid gutter="space30" equalColumnHeights>
@@ -935,7 +938,8 @@ export const CustomGrid: React.FC = () => {
         </Column>
       </Grid>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           GRID: {
             backgroundColor: 'colorBackgroundPrimary',
@@ -978,7 +982,8 @@ export const CustomGrid: React.FC = () => {
         </Grid>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_GRID: {
             backgroundColor: 'colorBackgroundStrongest',

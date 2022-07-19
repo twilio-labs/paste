@@ -2,8 +2,9 @@ import * as React from 'react';
 import {Spinner} from '@twilio-paste/spinner';
 import {Stack} from '@twilio-paste/stack';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {
+  ChatLog,
   ChatMessage,
   ChatBubble,
   ChatAttachment,
@@ -12,26 +13,35 @@ import {
   ChatAttachmentDescription,
 } from '../../src';
 
-export const InboundChatMessageWithAttachment: StoryFn = () => (
-  <ChatMessage variant="inbound">
-    <ChatBubble>
-      <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-        <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-        <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-      </ChatAttachment>
-    </ChatBubble>
-  </ChatMessage>
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/ChatLog',
+};
+
+export const InboundChatMessageWithAttachment: Story = () => (
+  <ChatLog>
+    <ChatMessage variant="inbound">
+      <ChatBubble>
+        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
+          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+        </ChatAttachment>
+      </ChatBubble>
+    </ChatMessage>
+  </ChatLog>
 );
 
-export const OutboundChatMessageWithAttachment: StoryFn = () => (
-  <ChatMessage variant="outbound">
-    <ChatBubble>
-      <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-        <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-        <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-      </ChatAttachment>
-    </ChatBubble>
-  </ChatMessage>
+export const OutboundChatMessageWithAttachment: Story = () => (
+  <ChatLog>
+    <ChatMessage variant="outbound">
+      <ChatBubble>
+        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
+          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+        </ChatAttachment>
+      </ChatBubble>
+    </ChatMessage>
+  </ChatLog>
 );
 
 const StateExampleComposerAttachmentCard: React.FC = () => {
@@ -64,7 +74,7 @@ const StateExampleComposerAttachmentCard: React.FC = () => {
   );
 };
 
-export const ComposerAttachmentCardExample: StoryFn = () => (
+export const ComposerAttachmentCardExample: Story = () => (
   <Stack orientation="vertical" spacing="space60">
     <ComposerAttachmentCard>
       <ChatAttachment attachmentIcon={<Spinner decorative={false} color="colorTextIcon" title="loading..." />}>

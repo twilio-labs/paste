@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
@@ -159,10 +160,11 @@ export const InFullscreenOverlay: React.ReactNode = () => {
   );
 };
 
-export const CustomizedSpinner = (): React.ReactNode => {
+export const CustomizedSpinner: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
         SPINNER: {

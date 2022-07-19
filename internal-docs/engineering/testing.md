@@ -53,7 +53,7 @@ For component packages, because the source files are limited and confined to a `
 
 ## Accessibility testing
 
-To help us ensure the basics are covered with regards to accessibility we run each component through an accessibility checker called [axe-core](https://github.com/dequelabs/axe-core) via a jest plugin called [jest-axe](https://github.com/nickcolley/jest-axe). We write at least one accessibility assertion per component.
+To help us ensure the basics are covered with regards to accessibility we run each component through an accessibility checker called [axe-core](https://github.com/dequelabs/axe-core) via a playwright plugin called [playwright-axe](https://www.npmjs.com/package/axe-playwright). Playwright Axe is automatically run against each story we write in Storybook, via [Storybook Test Runner](https://storybook.js.org/addons/@storybook/test-runner).
 
 This does not guarantee accessibility of our components. This merely ensures we cover the basics.
 

@@ -7,6 +7,10 @@ import {SidebarDisclosure} from '../src/components/site-wrapper/sidebar/sidebar-
 import {SidebarDisclosureButton} from '../src/components/site-wrapper/sidebar/sidebar-disclosure/SidebarDisclosureButton';
 import {SidebarDisclosureContent} from '../src/components/site-wrapper/sidebar/sidebar-disclosure/SidebarDisclosureContent';
 
+export default {
+  title: 'Website/Sidebar-Navigation',
+};
+
 export const ComplexSidebar = (): React.ReactNode => (
   <Box as="ul" listStyleType="none">
     <SidebarAnchor level={0} to="/">
@@ -84,7 +88,3 @@ export const NestedSidebarDisclosure = (): React.ReactNode => (
 );
 
 export const BasicSeparator = (): React.ReactNode => <SidebarSeparator />;
-
-export default {
-  title: 'Website/SidebarNavigation',
-};
