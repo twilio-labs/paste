@@ -24,6 +24,8 @@ const sentenceCase = (catName: string): string => {
 const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
 const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
 
+const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [filterString, setFilterString] = React.useState('');
@@ -97,17 +99,26 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               {sentenceCase(tokenCategory)}
             </AnchoredHeading>
             <Box marginBottom="space160" data-cy="tokens-table-container">
-              {tokens[tokenCategory].map(({name, value, comment}) => (
-                <TokenCard
-                  key={`token${name}`}
-                  category={tokenCategory}
-                  name={name}
-                  useCamelCase={useJavascriptNames}
-                  value={value}
-                  comment={comment}
-                  backgroundColor={backgroundColor}
-                />
-              ))}
+              {tokens[tokenCategory]
+                .sort((a, b) => {
+                  if (tokenCategory === 'font-weights') {
+                    const aValue: string = typeof a.value === 'string' ? a.value : a.value.toString();
+                    const bValue: string = typeof b.value === 'string' ? b.value : b.value.toString();
+                    return collator.compare(aValue, bValue);
+                  }
+                  return collator.compare(a.name, b.name);
+                })
+                .map(({name, value, comment}) => (
+                  <TokenCard
+                    key={`token${name}`}
+                    category={tokenCategory}
+                    name={name}
+                    useCamelCase={useJavascriptNames}
+                    value={value}
+                    comment={comment}
+                    backgroundColor={backgroundColor}
+                  />
+                ))}
             </Box>
           </React.Fragment>
         ))}
