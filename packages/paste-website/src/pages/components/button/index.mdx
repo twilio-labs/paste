@@ -12,6 +12,7 @@ import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -298,19 +299,20 @@ their default size.
 Use rounded small Buttons sparingly, only when needed for vertical density and visual differentiation. Guidelines for using variants in rounded small Buttons are the same as in
 their default size.
 
-<LivePreview scope={{Button, Stack}} language="jsx">
+<LivePreview scope={{Button, ArrowDownIcon, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
   <Button variant="primary" size="rounded_small">
-    Save
+    New messages
+    <ArrowDownIcon decorative />
   </Button>
   <Button variant="secondary" size="rounded_small">
-    Cancel
+    5 Unread messages
   </Button>
   <Button variant="destructive" size="rounded_small">
-    Delete
+    End chat
   </Button>
   <Button variant="destructive_secondary" size="rounded_small">
-    Delete
+    Kick chat participant
   </Button>
 </Stack>`}
 </LivePreview>
