@@ -74,125 +74,133 @@ export const TokenCard: React.FC<{
   name: Token['name'];
   value: Token['value'];
   backgroundColor: Properties['backgroundColor'];
-  inverseBackgroundColor: Properties['backgroundColor'];
+  backgroundColorInverse: Properties['backgroundColor'];
+  exampleTextColor: Properties['color'];
+  exampleTextColorInverse: Properties['color'];
   comment?: Token['comment'];
   useCamelCase?: boolean;
   ['data-testid']?: string;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;
-}> = React.memo((props) => {
-  const {
+}> = React.memo(
+  ({
     category,
     name,
     value,
     comment,
     backgroundColor,
-    inverseBackgroundColor,
+    backgroundColorInverse,
+    exampleTextColor,
+    exampleTextColorInverse,
     useCamelCase,
     onCopyText = () => {},
     isCopied = false,
-  } = props;
-  const tooltipState = useTooltipState();
-  const [tooltipText, setTooltipText] = React.useState('Copy token name');
-  // Prevents tooltip being visible on first render due to reakit positioning bug code
-  const isFirstRender = React.useRef(true);
-  const tokenName = useCamelCase ? camelCase(name) : `$${name}`;
+    ...props
+  }) => {
+    const tooltipState = useTooltipState();
+    const [tooltipText, setTooltipText] = React.useState('Copy token name');
+    // Prevents tooltip being visible on first render due to reakit positioning bug code
+    const isFirstRender = React.useRef(true);
+    const tokenName = useCamelCase ? camelCase(name) : `$${name}`;
 
-  const handleCopyName = React.useCallback(() => {
-    onCopyText(tokenName);
-  }, [tokenName]);
+    const handleCopyName = React.useCallback(() => {
+      onCopyText(tokenName);
+    }, [tokenName]);
 
-  React.useEffect(() => {
-    setTooltipText(isCopied ? 'Copied!' : 'Copy token name');
-  }, [isCopied]);
-  // Reakit has a bug where the tooltip doesn't recalc position on content changes
-  // This is a workaround until we upgrade to Ariakit with Floating UI fixes
-  // https://github.com/twilio-labs/paste/discussions/2037
-  React.useEffect(() => {
-    // This prevents the tooltip from showing up on mount
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    if (tooltipState.visible) {
-      tooltipState.hide();
-      setTimeout(() => tooltipState.show(), 0);
-    }
-  }, [tooltipText]);
+    React.useEffect(() => {
+      setTooltipText(isCopied ? 'Copied!' : 'Copy token name');
+    }, [isCopied]);
+    // Reakit has a bug where the tooltip doesn't recalc position on content changes
+    // This is a workaround until we upgrade to Ariakit with Floating UI fixes
+    // https://github.com/twilio-labs/paste/discussions/2037
+    React.useEffect(() => {
+      // This prevents the tooltip from showing up on mount
+      if (isFirstRender.current) {
+        isFirstRender.current = false;
+        return;
+      }
+      if (tooltipState.visible) {
+        tooltipState.hide();
+        setTimeout(() => tooltipState.show(), 0);
+      }
+    }, [tooltipText]);
 
-  return (
-    <Box
-      as="li"
-      key={name}
-      display="flex"
-      alignItems="stretch"
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderWidth="borderWidth10"
-      borderStyle="solid"
-      borderRadius="borderRadius30"
-      minHeight="sizeSquare170"
-      marginBottom="space40"
-      overflow="hidden"
-      data-testid={props['data-testid']}
-    >
-      <TokenExample
-        category={category}
-        name={name}
-        value={value.toString()}
-        backgroundColor={backgroundColor}
-        inverseBackgroundColor={inverseBackgroundColor}
-      />
-      <TokenCardContent>
-        <TokenCardName>
-          <Text
-            as="span"
-            display="inline-block"
-            fontFamily="fontFamilyCode"
-            fontWeight="fontWeightBold"
-            fontSize="fontSize30"
-            lineHeight="lineHeight30"
-            marginRight="space20"
-            wordBreak="break-word"
-          >
-            {tokenName}
-          </Text>
-          <Box display={['none', 'block']}>
-            <Tooltip text={tooltipText} state={tooltipState}>
-              <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
-                <span>
-                  <CopyIcon decorative />
-                  <span aria-live="polite">
-                    <ScreenReaderOnly>{isCopied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
+    return (
+      <Box
+        as="li"
+        key={name}
+        display="flex"
+        alignItems="stretch"
+        backgroundColor="colorBackgroundBody"
+        borderColor="colorBorderWeaker"
+        borderWidth="borderWidth10"
+        borderStyle="solid"
+        borderRadius="borderRadius30"
+        minHeight="sizeSquare170"
+        marginBottom="space40"
+        overflow="hidden"
+        data-testid={props['data-testid']}
+      >
+        <TokenExample
+          category={category}
+          name={name}
+          value={value.toString()}
+          backgroundColor={backgroundColor}
+          backgroundColorInverse={backgroundColorInverse}
+          textColor={exampleTextColor}
+          textColorInverse={exampleTextColorInverse}
+        />
+        <TokenCardContent>
+          <TokenCardName>
+            <Text
+              as="span"
+              display="inline-block"
+              fontFamily="fontFamilyCode"
+              fontWeight="fontWeightBold"
+              fontSize="fontSize30"
+              lineHeight="lineHeight30"
+              marginRight="space20"
+              wordBreak="break-word"
+            >
+              {tokenName}
+            </Text>
+            <Box display={['none', 'block']}>
+              <Tooltip text={tooltipText} state={tooltipState}>
+                <Button variant="secondary_icon" size="icon_small" onClick={handleCopyName}>
+                  <span>
+                    <CopyIcon decorative />
+                    <span aria-live="polite">
+                      <ScreenReaderOnly>{isCopied ? 'Copied token name!' : 'Copy token name'}</ScreenReaderOnly>
+                    </span>
                   </span>
-                </span>
-              </Button>
-            </Tooltip>
-          </Box>
-        </TokenCardName>
-        <TokenCardValue>
-          <ScreenReaderOnly>Token value:</ScreenReaderOnly>
-          <Box
-            as="ul"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            marginTop={['space30', 'space0']}
-            marginBottom="space0"
-            paddingLeft="space0"
-            flexShrink={0}
-            listStyleType="none"
-          >
-            <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
-              {value}
-            </Text>
-            <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
-              {getTokenAltValue({category, value})}
-            </Text>
-          </Box>
-        </TokenCardValue>
-        <TokenCardComment>{comment}</TokenCardComment>
-      </TokenCardContent>
-    </Box>
-  );
-});
+                </Button>
+              </Tooltip>
+            </Box>
+          </TokenCardName>
+          <TokenCardValue>
+            <ScreenReaderOnly>Token value:</ScreenReaderOnly>
+            <Box
+              as="ul"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              marginTop={['space30', 'space0']}
+              marginBottom="space0"
+              paddingLeft="space0"
+              flexShrink={0}
+              listStyleType="none"
+            >
+              <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
+                {value}
+              </Text>
+              <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
+                {getTokenAltValue({category, value})}
+              </Text>
+            </Box>
+          </TokenCardValue>
+          <TokenCardComment>{comment}</TokenCardComment>
+        </TokenCardContent>
+      </Box>
+    );
+  }
+);

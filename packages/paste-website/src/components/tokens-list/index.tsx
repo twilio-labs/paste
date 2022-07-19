@@ -91,6 +91,12 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const tokenCardInverseBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
     '#121C2D';
+  const tokenCardExampleTextColor =
+    (tokens['text-colors'].find((token) => token.name === 'color-text')?.value as string) ?? '#121C2D';
+  const tokenCardExampleInverseTextColor =
+    (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
+
+  console.log('render', tokenCardBackgroundColor);
 
   return (
     <ContentWrapper>
@@ -119,20 +125,24 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               </AnchoredHeading>
               {sectionIntro}
               <Box marginBottom="space160" data-cy="tokens-table-container">
-                {tokens[tokenCategory].map(({name, value, comment}) => (
-                  <TokenCard
-                    key={`token${name}`}
-                    category={tokenCategory}
-                    name={name}
-                    useCamelCase={useJavascriptNames}
-                    value={value}
-                    comment={comment}
-                    onCopyText={handleCopyName}
-                    isCopied={clipboard.copied && lastCopiedValue === name}
-                    backgroundColor={tokenCardBackgroundColor}
-                    inverseBackgroundColor={tokenCardInverseBackgroundColor}
-                  />
-                ))}
+                {tokens[tokenCategory]
+                  .filter(({deprecated}) => !deprecated)
+                  .map(({name, value, comment}) => (
+                    <TokenCard
+                      key={`token${name}`}
+                      category={tokenCategory}
+                      name={name}
+                      useCamelCase={useJavascriptNames}
+                      value={value}
+                      comment={comment}
+                      onCopyText={handleCopyName}
+                      isCopied={clipboard.copied && lastCopiedValue === name}
+                      backgroundColor={tokenCardBackgroundColor}
+                      backgroundColorInverse={tokenCardInverseBackgroundColor}
+                      exampleTextColor={tokenCardExampleTextColor}
+                      exampleTextColorInverse={tokenCardExampleInverseTextColor}
+                    />
+                  ))}
               </Box>
             </React.Fragment>
           );

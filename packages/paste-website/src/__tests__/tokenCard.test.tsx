@@ -11,7 +11,9 @@ describe('TokenCard', () => {
   const testTokenHexValue = '#F4F4F6';
   const testTokenComment = 'Background color used for containers.';
   const testTokenBackground = '#ffffff';
-  const testTokenInverseBackground = '#121C2D';
+  const testTokenBackgroundInverse = '#121C2D';
+  const testExampleTextColor = '#121C2D';
+  const textExampleTextColorInverse = '#FFFFFF';
 
   const BaseTokenCardComponent: React.FC = () => (
     <Theme.Provider theme="default">
@@ -21,7 +23,9 @@ describe('TokenCard', () => {
         value={testTokenValue}
         comment={testTokenComment}
         backgroundColor={testTokenBackground}
-        inverseBackgroundColor={testTokenInverseBackground}
+        backgroundColorInverse={testTokenBackgroundInverse}
+        exampleTextColor={testExampleTextColor}
+        exampleTextColorInverse={textExampleTextColorInverse}
       />
     </Theme.Provider>
   );
@@ -43,7 +47,9 @@ describe('TokenCard', () => {
           value={testTokenValue}
           comment={testTokenComment}
           backgroundColor={testTokenBackground}
-          inverseBackgroundColor={testTokenInverseBackground}
+          backgroundColorInverse={testTokenBackgroundInverse}
+          exampleTextColor={testExampleTextColor}
+          exampleTextColorInverse={textExampleTextColorInverse}
           useCamelCase
         />
       </Theme.Provider>
@@ -67,7 +73,9 @@ describe('TokenCard', () => {
           value="70.5rem"
           comment="Generic sizing token scale for UI components."
           backgroundColor={testTokenBackground}
-          inverseBackgroundColor={testTokenInverseBackground}
+          backgroundColorInverse={testTokenBackgroundInverse}
+          exampleTextColor={testExampleTextColor}
+          exampleTextColorInverse={textExampleTextColorInverse}
         />
       </Theme.Provider>
     );
@@ -84,7 +92,9 @@ describe('TokenCard', () => {
           value="rgb(242, 47, 70)"
           comment="Twilio brand red, accessible on large text only."
           backgroundColor={testTokenBackground}
-          inverseBackgroundColor={testTokenInverseBackground}
+          backgroundColorInverse={testTokenBackgroundInverse}
+          exampleTextColor={testExampleTextColor}
+          exampleTextColorInverse={textExampleTextColorInverse}
         />
       </Theme.Provider>
     );
@@ -102,12 +112,33 @@ describe('TokenCard', () => {
           value="rgba(255, 255, 255, 0.2)"
           comment="Light inverse background color for any container. Must be used on color-background-body-inverse."
           backgroundColor={testTokenBackground}
-          inverseBackgroundColor={testTokenInverseBackground}
+          backgroundColorInverse={testTokenBackgroundInverse}
+          exampleTextColor={testExampleTextColor}
+          exampleTextColorInverse={textExampleTextColorInverse}
         />
       </Theme.Provider>
     );
 
     const previewDiv = screen.getByTestId('alertInverse').querySelector('div');
-    expect(previewDiv).toHaveStyle(`background-color: ${testTokenInverseBackground}`);
+    expect(previewDiv).toHaveStyle(`background-color: ${testTokenBackgroundInverse}`);
+  });
+
+  it('should render inverse text color for the color accessibility description on an inverse text color', () => {
+    render(
+      <Theme.Provider theme="default">
+        <TokenCard
+          name="color-text-inverse"
+          category="text-colors"
+          value="rgb(255, 255, 255)"
+          comment="Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse."
+          backgroundColor={testTokenBackground}
+          backgroundColorInverse={testTokenBackgroundInverse}
+          exampleTextColor={testExampleTextColor}
+          exampleTextColorInverse={textExampleTextColorInverse}
+        />
+      </Theme.Provider>
+    );
+
+    expect(screen.getByText('AAA')).toHaveStyle(`color: ${textExampleTextColorInverse}`);
   });
 });

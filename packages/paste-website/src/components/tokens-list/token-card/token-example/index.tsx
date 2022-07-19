@@ -15,17 +15,21 @@ type TokenExampleProps = {
   name: string;
   value: string;
   backgroundColor: Properties['backgroundColor'];
-  inverseBackgroundColor: Properties['backgroundColor'];
+  backgroundColorInverse: Properties['backgroundColor'];
+  textColor: Properties['color'];
+  textColorInverse: Properties['color'];
 };
 
 export const TokenExample: React.FC<TokenExampleProps> = ({
   category,
   name,
   value,
-  inverseBackgroundColor,
+  backgroundColorInverse,
+  textColorInverse,
   ...props
 }) => {
-  const backgroundColor = name.toLowerCase().match('inverse') ? inverseBackgroundColor : props.backgroundColor;
+  const backgroundColor = name.toLowerCase().match('inverse') ? backgroundColorInverse : props.backgroundColor;
+  const textColor = name.toLowerCase().match('inverse') ? textColorInverse : props.textColor;
   let tokenExampleRender = null;
 
   switch (category) {
@@ -87,8 +91,15 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
 
       break;
     case 'text-colors':
+      if (name === 'color-text-inverse') {
+        console.log(name, value, backgroundColorInverse);
+      }
       tokenExampleRender = (
-        <TextColorExample value={value as keyof ThemeShape['textColors']} backgroundColor={backgroundColor} />
+        <TextColorExample
+          value={value as keyof ThemeShape['textColors']}
+          backgroundColor={backgroundColor}
+          textColor={textColor}
+        />
       );
   }
 
