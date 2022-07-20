@@ -27,12 +27,12 @@ export interface GenericHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   description?: string;
-  designCommitteeReview?: string;
-  engineerCommitteeReview?: string;
-  figmaStatus?: string;
+  designCommitteeReview?: string | null;
+  engineerCommitteeReview?: string | null;
+  figmaStatus?: string | null;
   githubUrl?: string;
   packageName?: string;
-  packageStatus?: string;
+  packageStatus?: string | null;
   storybookUrl?: string;
   version?: string;
   shouldShowBreadcrumbs?: boolean;

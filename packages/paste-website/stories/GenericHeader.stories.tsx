@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {GenericHeader} from '../src/components/shortcodes/component-header';
+import {GenericHeader} from '../src/components/shortcodes/generic-header';
 
 export const BasicHeader = (): React.ReactNode => {
   return <GenericHeader name="Alert" categoryRoute="/components" />;
 };
 
 export const FullHeader = (): React.ReactNode => {
+  //QUESTION: why does FullHeader have opengraph meta tag, but not BasicHeader?
   return (
     <GenericHeader
       name="Alert"
@@ -13,7 +14,7 @@ export const FullHeader = (): React.ReactNode => {
       description="This is an alert component."
       githubUrl="https://google.com"
       packageName="@twilio-paste/alert"
-      packageStatus="alpha"
+      packageStatus="Alpha"
       storybookUrl="https://google.com"
       version="1.0.0"
     />

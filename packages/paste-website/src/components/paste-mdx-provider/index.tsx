@@ -16,7 +16,7 @@ import type {CodeblockProps} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
-import {GenericHeader} from '../shortcodes/component-header';
+import {GenericHeader} from '../shortcodes/generic-header';
 import {NormalizePatternHeader} from '../shortcodes/normalize-pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';

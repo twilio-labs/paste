@@ -1,7 +1,7 @@
 import * as React from 'react';
 import merge from 'deepmerge';
-import {GenericHeader} from '../component-header';
-import type {GenericHeaderProps} from '../component-header';
+import {GenericHeader} from '../generic-header';
+import type {GenericHeaderProps} from '../generic-header';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
