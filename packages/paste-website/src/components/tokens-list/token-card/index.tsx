@@ -102,8 +102,10 @@ export const TokenCard: React.FC<{
         isFirstRender.current = false;
         return;
       }
-      tooltipState.hide();
-      setTimeout(() => tooltipState.show(), 0);
+      if (tooltipState.visible) {
+        tooltipState.hide();
+        setTimeout(() => tooltipState.show(), 0);
+      }
     }, [tooltipText]);
 
     return (
