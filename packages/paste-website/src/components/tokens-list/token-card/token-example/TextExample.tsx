@@ -6,7 +6,7 @@ import type {LineHeight} from '@twilio-paste/style-props';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 type TextExampleProps = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight' | 'color' | 'style'> & {
-  textColor: Properties['color'];
+  textColor?: Properties['color'];
 };
 
 export const TextExample: React.FC<TextExampleProps> = ({fontFamily, fontSize, fontWeight, color, textColor}) => {
