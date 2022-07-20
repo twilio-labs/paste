@@ -82,21 +82,21 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   }
 
   /**
-   * These vars store the body and inverse background color values from the current theme,
-   * to be passed into the TokenCards. They need to be the values and not the token names
-   * because they need to adapt to the applied theme through the Theme Control.
+   * These vars grab different values from the selected theme (as opposed to the global theme)
+   * to render the token examples in accordance with the selected theme.
    */
-  const tokenCardBackgroundColor =
+  const tokenExampleBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ?? '#fff';
-  const tokenCardInverseBackgroundColor =
+  const tokenExampleInverseBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
     '#121C2D';
-  const tokenCardExampleTextColor =
+  const tokenExampleHighlightColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-strong')?.value as string) ??
+    '#E1E3EA';
+  const tokenExampleTextColor =
     (tokens['text-colors'].find((token) => token.name === 'color-text')?.value as string) ?? '#121C2D';
-  const tokenCardExampleInverseTextColor =
+  const tokenExampleInverseTextColor =
     (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
-
-  console.log('render', tokenCardBackgroundColor);
 
   return (
     <ContentWrapper>
@@ -132,15 +132,16 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                       key={`token${name}`}
                       category={tokenCategory}
                       name={name}
-                      useCamelCase={useJavascriptNames}
                       value={value}
                       comment={comment}
+                      exampleBackgroundColor={tokenExampleBackgroundColor}
+                      exampleBackgroundColorInverse={tokenExampleInverseBackgroundColor}
+                      exampleTextColor={tokenExampleTextColor}
+                      exampleTextColorInverse={tokenExampleInverseTextColor}
+                      exampleHighlightColor={tokenExampleHighlightColor}
+                      useCamelCase={useJavascriptNames}
                       onCopyText={handleCopyName}
                       isCopied={clipboard.copied && lastCopiedValue === name}
-                      backgroundColor={tokenCardBackgroundColor}
-                      backgroundColorInverse={tokenCardInverseBackgroundColor}
-                      exampleTextColor={tokenCardExampleTextColor}
-                      exampleTextColorInverse={tokenCardExampleInverseTextColor}
                     />
                   ))}
               </Box>

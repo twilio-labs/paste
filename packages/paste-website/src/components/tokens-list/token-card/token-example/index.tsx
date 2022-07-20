@@ -16,8 +16,9 @@ type TokenExampleProps = {
   value: string;
   backgroundColor: Properties['backgroundColor'];
   backgroundColorInverse: Properties['backgroundColor'];
-  textColor: Properties['color'];
-  textColorInverse: Properties['color'];
+  highlightColor?: Properties['backgroundColor'];
+  textColor?: Properties['color'];
+  textColorInverse?: Properties['color'];
 };
 
 export const TokenExample: React.FC<TokenExampleProps> = ({
@@ -26,6 +27,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
   value,
   backgroundColorInverse,
   textColorInverse,
+  highlightColor,
   ...props
 }) => {
   const backgroundColor = name.toLowerCase().match('inverse') ? backgroundColorInverse : props.backgroundColor;
@@ -47,16 +49,23 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       tokenExampleRender = <BorderExample borderWidth={value as keyof ThemeShape['borderWidths']} />;
       break;
     case 'fonts':
-      tokenExampleRender = <TextExample fontFamily={value as keyof ThemeShape['fonts']} />;
+      tokenExampleRender = <TextExample textColor={textColor} fontFamily={value as keyof ThemeShape['fonts']} />;
       break;
     case 'font-sizes':
-      tokenExampleRender = <TextExample fontSize={value as keyof ThemeShape['fontSizes']} />;
+      tokenExampleRender = <TextExample textColor={textColor} fontSize={value as keyof ThemeShape['fontSizes']} />;
       break;
     case 'font-weights':
-      tokenExampleRender = <TextExample fontWeight={value as keyof ThemeShape['fontWeights']} />;
+      tokenExampleRender = <TextExample textColor={textColor} fontWeight={value as keyof ThemeShape['fontWeights']} />;
       break;
     case 'line-heights':
-      tokenExampleRender = <LineHeightExample tokenName={name} lineHeight={value as keyof ThemeShape['lineHeights']} />;
+      tokenExampleRender = (
+        <LineHeightExample
+          textColor={textColor}
+          highlightColor={highlightColor}
+          tokenName={name}
+          lineHeight={value as keyof ThemeShape['lineHeights']}
+        />
+      );
       break;
     case 'radii':
       const height = name.toLowerCase().match('pill') ? 'sizeSquare70' : null;
@@ -117,6 +126,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       borderRightColor="colorBorderWeaker"
       borderRightWidth="borderWidth10"
       borderRightStyle="solid"
+      element="TOKEN_EXAMPLE"
     >
       {tokenExampleRender}
     </Box>

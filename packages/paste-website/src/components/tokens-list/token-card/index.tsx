@@ -73,13 +73,13 @@ export const TokenCard: React.FC<{
   category: Token['category'];
   name: Token['name'];
   value: Token['value'];
-  backgroundColor: Properties['backgroundColor'];
-  backgroundColorInverse: Properties['backgroundColor'];
-  exampleTextColor: Properties['color'];
-  exampleTextColorInverse: Properties['color'];
+  exampleBackgroundColor?: Properties['backgroundColor'];
+  exampleBackgroundColorInverse?: Properties['backgroundColor'];
+  exampleHighlightColor?: Properties['backgroundColor'];
+  exampleTextColor?: Properties['color'];
+  exampleTextColorInverse?: Properties['color'];
   comment?: Token['comment'];
   useCamelCase?: boolean;
-  ['data-testid']?: string;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;
 }> = React.memo(
@@ -88,8 +88,9 @@ export const TokenCard: React.FC<{
     name,
     value,
     comment,
-    backgroundColor,
-    backgroundColorInverse,
+    exampleBackgroundColor,
+    exampleBackgroundColorInverse,
+    exampleHighlightColor,
     exampleTextColor,
     exampleTextColorInverse,
     useCamelCase,
@@ -102,7 +103,6 @@ export const TokenCard: React.FC<{
     // Prevents tooltip being visible on first render due to reakit positioning bug code
     const isFirstRender = React.useRef(true);
     const tokenName = useCamelCase ? camelCase(name) : `$${name}`;
-
     const handleCopyName = React.useCallback(() => {
       onCopyText(tokenName);
     }, [tokenName]);
@@ -139,14 +139,16 @@ export const TokenCard: React.FC<{
         minHeight="sizeSquare170"
         marginBottom="space40"
         overflow="hidden"
-        data-testid={props['data-testid']}
+        element="TOKEN_CARD"
+        {...props}
       >
         <TokenExample
           category={category}
           name={name}
           value={value.toString()}
-          backgroundColor={backgroundColor}
-          backgroundColorInverse={backgroundColorInverse}
+          backgroundColor={exampleBackgroundColor}
+          backgroundColorInverse={exampleBackgroundColorInverse}
+          highlightColor={exampleHighlightColor}
           textColor={exampleTextColor}
           textColorInverse={exampleTextColorInverse}
         />

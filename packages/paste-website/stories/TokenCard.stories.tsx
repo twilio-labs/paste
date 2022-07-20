@@ -38,10 +38,11 @@ export default {
 const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
-  const backgroundColor = theme.backgroundColors.colorBackgroundBody;
-  const backgroundColorInverse = theme.backgroundColors.colorBackgroundBodyInverse;
+  const exampleBackgroundColor = theme.backgroundColors.colorBackgroundBody;
+  const exampleBackgroundColorInverse = theme.backgroundColors.colorBackgroundBodyInverse;
   const exampleTextColor = theme.textColors.colorText;
   const exampleTextColorInverse = theme.textColors.colorTextInverse;
+  const exampleHighlightColor = theme.backgroundColors.colorBackgroundStrong;
 
   const {comment} =
     categoryTokens.find((token) => {
@@ -81,8 +82,9 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         name={name}
         value={themeTokenValue}
         comment={comment}
-        backgroundColor={backgroundColor}
-        backgroundColorInverse={backgroundColorInverse}
+        exampleBackgroundColor={exampleBackgroundColor}
+        exampleBackgroundColorInverse={exampleBackgroundColorInverse}
+        exampleHighlightColor={exampleHighlightColor}
         exampleTextColor={exampleTextColor}
         exampleTextColorInverse={exampleTextColorInverse}
         useCamelCase={useCamelCase}
