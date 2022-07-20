@@ -24,8 +24,8 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   return (
     <>
       <Box marginBottom="space80">
-        <Grid gutter="space40" vertical={[true, true, false]}>
-          <Column span={[12, 6, 6]} data-cy="input-column">
+        <Grid gutter="space40" vertical={[true, false, true, false]}>
+          <Column span={[12, 6, 12, 6]} data-cy="input-column">
             <Label htmlFor={inputId} id="test-label">
               Filter tokens
             </Label>
@@ -38,7 +38,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               placeholder="Filter by token name or value"
             />
           </Column>
-          <Column span={[12, 6, 6]}>
+          <Column span={[12, 6, 12, 6]}>
             <Grid gutter="space40">
               <Column span={6}>
                 <Label htmlFor={themeControlId} id={themeControlLabelId}>

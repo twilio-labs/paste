@@ -56,8 +56,8 @@ describe('Token list filter format control and theme control', function () {
   });
 
   it('has a responsive layout', () => {
-    cy.get('[data-cy="input-column"]').should('have.attr', 'min-width', '0px');
+    cy.get('[data-cy="input-column"]').should('have.css', 'min-width', '0px');
     cy.viewport('iphone-x');
-    cy.get('[data-cy="input-column"]').should('have.attr', 'min-width', '100%');
+    cy.get('[data-cy="input-column"]').should('have.css', 'min-width', '100%');
   });
 });
