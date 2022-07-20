@@ -24,8 +24,8 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   return (
     <>
       <Box marginBottom="space80">
-        <Grid gutter="space40">
-          <Column span={6}>
+        <Grid gutter="space40" vertical={[true, false, true, false]}>
+          <Column span={[12, 6, 12, 6]} data-cy="input-column">
             <Label htmlFor={inputId} id="test-label">
               Filter tokens
             </Label>
@@ -34,27 +34,36 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               id={inputId}
               aria-labelledby="test-label"
               onChange={handleInput}
-              insertBefore={<FilterIcon decorative={false} title="Description of icon" />}
+              insertBefore={<FilterIcon decorative={false} title="Description of icon" color="colorTextIcon" />}
               placeholder="Filter by token name or value"
             />
           </Column>
-          <Column span={3}>
-            <Label htmlFor={themeControlId} id={themeControlLabelId}>
-              Theme
-            </Label>
-            <Select id={themeControlId} value={selectedTheme} onChange={handleThemeChange} data-cy="theme-control">
-              <Option value="default">Default</Option>
-              <Option value="dark">Dark</Option>
-            </Select>
-          </Column>
-          <Column span={3}>
-            <Label htmlFor={formatControlId} id={formatControlLabelId}>
-              Format
-            </Label>
-            <Select id={formatControlId} value={selectedFormat} onChange={handleFormatChange} data-cy="format-control">
-              <Option value="css">CSS</Option>
-              <Option value="javascript">Javascript</Option>
-            </Select>
+          <Column span={[12, 6, 12, 6]}>
+            <Grid gutter="space40">
+              <Column span={6}>
+                <Label htmlFor={themeControlId} id={themeControlLabelId}>
+                  Theme
+                </Label>
+                <Select id={themeControlId} value={selectedTheme} onChange={handleThemeChange} data-cy="theme-control">
+                  <Option value="default">Default</Option>
+                  <Option value="dark">Dark</Option>
+                </Select>
+              </Column>
+              <Column span={6}>
+                <Label htmlFor={formatControlId} id={formatControlLabelId}>
+                  Format
+                </Label>
+                <Select
+                  id={formatControlId}
+                  value={selectedFormat}
+                  onChange={handleFormatChange}
+                  data-cy="format-control"
+                >
+                  <Option value="css">CSS</Option>
+                  <Option value="javascript">Javascript</Option>
+                </Select>
+              </Column>
+            </Grid>
           </Column>
         </Grid>
       </Box>
