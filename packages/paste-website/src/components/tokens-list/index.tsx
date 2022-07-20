@@ -2,6 +2,8 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkModeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
+import {useClipboard} from '@twilio-paste/clipboard-copy-library';
+import kebabCase from 'lodash/kebabCase';
 import {AnchoredHeading} from '../Heading';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 import {trackTokenFilterString} from './helpers';
@@ -33,6 +35,14 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
   const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
   const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
+  const [lastCopiedValue, setLastCopiedValue] = React.useState('');
+  const clipboard = useClipboard({copiedTimeout: 2000});
+
+  const handleCopyName = React.useCallback((_tokenName: string): void => {
+    clipboard.copy(_tokenName);
+    // The inverse of what we do in TokenCard
+    setLastCopiedValue(useJavascriptNames ? _tokenName.slice(1) : kebabCase(_tokenName));
+  }, []);
 
   React.useEffect(() => {
     if (selectedTheme === 'dark') setTokens(DarkModeTokens.tokens);
@@ -111,6 +121,8 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
                     value={value}
                     comment={comment}
                     backgroundColor={backgroundColor}
+                    onCopyText={handleCopyName}
+                    isCopied={clipboard.copied && lastCopiedValue === name}
                   />
                 ))}
               </Box>
