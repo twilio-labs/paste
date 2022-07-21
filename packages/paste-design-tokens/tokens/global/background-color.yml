@@ -79,6 +79,9 @@ props:
   color-background-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest background color used for warning alerts and toasts.
+  color-background-error-strongest:
+    value: "{!palette-red-100}"
+    comment: Strongest error background color
   color-background-error-stronger:
     value: "{!palette-red-90}"
     comment: Stronger error background color

@@ -80,6 +80,9 @@ props:
   color-background-warning-weakest:
     value: "{!palette-orange-100}"
     comment: Weakest warning background color
+  color-background-error-strongest:
+    value: "{!palette-red-10}"
+    comment: Strongest error background color
   color-background-error-stronger:
     value: "{!palette-red-20}"
     comment: Stronger error background color

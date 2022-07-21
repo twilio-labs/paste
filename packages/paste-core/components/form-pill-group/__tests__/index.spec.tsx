@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
-import {Basic, SelectableAndRemovable, CustomFormPillGroup} from '../stories/index.stories';
+import {Basic, SelectableAndDismissable} from '../stories/index.stories';
+import {CustomFormPillGroup} from '../stories/customization.stories';
 
 const CustomElementFormPillGroup: React.FC = () => {
   const pillState = useFormPillState();
@@ -35,7 +35,7 @@ const I18nProp: React.FC = () => {
         aria-label="Votre sports favoris:"
         i18nKeyboardControls="Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection."
       >
-        <FormPill data-testid="form-pill" {...pillState}>
+        <FormPill data-testid="form-pill" variant="error" i18nErrorLabel="(erreur)" {...pillState}>
           Le tennis
         </FormPill>
       </FormPillGroup>
@@ -46,30 +46,27 @@ const I18nProp: React.FC = () => {
 describe('FormPillGroup', () => {
   describe('Rendered shape', () => {
     it('has the correct aria attributes and semantic HTML', () => {
-      const {getByTestId, getByText} = render(<Basic />);
-      expect(getByText('Tennis')).toBeDefined();
+      render(<Basic />);
+      expect(screen.getByText('Default pill')).toBeDefined();
 
-      const group = getByTestId('form-pill-group');
-      expect(group.getAttribute('aria-label')).toBe('Your favorite sports:');
+      const group = screen.getByTestId('form-pill-group');
+      expect(group.getAttribute('aria-label')).toBe('Basic pills:');
       expect(group.tagName).toBe('DIV');
       expect(group.getAttribute('role')).toBe('listbox');
 
-      const pill = getByTestId('form-pill');
+      const pill = screen.getByTestId('form-pill-0');
       expect(pill.tagName).toBe('BUTTON');
       expect(pill.getAttribute('role')).toBe('option');
       expect(pill.getAttribute('aria-selected')).toBe('false');
-
-      const pillSelected = getByTestId('form-pill-selected');
-      expect(pillSelected.getAttribute('aria-selected')).toBe('true');
     });
   });
 
   describe('Selecting and Removing', () => {
     it('can select and navigate pills', () => {
-      const {getByTestId} = render(<SelectableAndRemovable />);
+      render(<SelectableAndDismissable />);
 
       // Get the first pill
-      const firstPill = getByTestId('form-pill-0');
+      const firstPill = screen.getByTestId('form-pill-0');
       // Click it and make sure it selected
       fireEvent.click(firstPill);
       expect(firstPill.getAttribute('aria-selected')).toBe('true');
@@ -82,19 +79,22 @@ describe('FormPillGroup', () => {
       fireEvent.keyDown(firstPill, {key: 'Enter', code: 'Enter'});
       expect(firstPill.getAttribute('aria-selected')).toBe('true');
 
+      // Make sure it deselects on Enter key
+      fireEvent.keyDown(firstPill, {key: 'Enter', code: 'Enter'});
+      expect(firstPill.getAttribute('aria-selected')).toBe('false');
+
       // Make sure we can navigate with right arrow
       fireEvent.keyDown(firstPill, {key: 'ArrowRight', code: 'ArrowRight'});
       if (document.activeElement == null) {
         throw new Error('document.activeElement is null');
       }
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-1');
-      expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
       // Move right again and check for selection
       fireEvent.keyDown(document.activeElement, {key: 'ArrowRight', code: 'ArrowRight'});
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-2');
       fireEvent.keyDown(document.activeElement, {key: 'Enter', code: 'Enter'});
-      expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
+      expect(document.activeElement.getAttribute('aria-selected')).toBe('true');
 
       // Try moving left this time
       fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
@@ -103,24 +103,24 @@ describe('FormPillGroup', () => {
       // Loop movement
       fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
       fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
-      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-3');
+      expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-5');
     });
 
     it('can remove pills', () => {
-      const {getByRole} = render(<SelectableAndRemovable />);
+      render(<SelectableAndDismissable />);
 
       /* Test click to remove */
-      const firstPill = getByRole('option', {name: 'Tennis'});
-      const firstPillX = firstPill.querySelector('[data-paste-element="BOX"]');
+      const firstPill = screen.getByRole('option', {name: 'Default pill'}).parentElement;
+      const firstPillX = firstPill?.querySelector('[data-paste-element="FORM_PILL_CLOSE"]');
       fireEvent.click(firstPillX as Element);
       expect(firstPill).not.toBeInTheDocument();
 
       /* Test keyboard to remove */
-      const secondPill = getByRole('option', {name: 'Baseball'});
+      const secondPill = screen.getByRole('option', {name: 'Pill with icon'});
       fireEvent.keyDown(secondPill, {key: 'Delete', code: 'Delete'});
       expect(secondPill).not.toBeInTheDocument();
 
-      const thirdPill = getByRole('option', {name: 'Football'});
+      const thirdPill = screen.getByRole('option', {name: 'Pill with avatar'});
       fireEvent.keyDown(thirdPill, {key: 'Backspace', code: 'Backspace'});
       expect(thirdPill).not.toBeInTheDocument();
     });
@@ -128,33 +128,33 @@ describe('FormPillGroup', () => {
 
   describe('Customization', () => {
     it('should set an element data attribute for FormPillGroup & FormPill', () => {
-      const {getByTestId} = render(<Basic />);
-      const group = getByTestId('form-pill-group');
+      render(<Basic />);
+      const group = screen.getByTestId('form-pill-group');
       expect(group.getAttribute('data-paste-element')).toEqual('FORM_PILL_GROUP');
 
-      const pill = getByTestId('form-pill');
+      const pill = screen.getByTestId('form-pill-0');
       expect(pill.getAttribute('data-paste-element')).toEqual('FORM_PILL');
     });
 
     it('should set a custom element data attribute for FormPillGroup & FormPill', () => {
-      const {getByTestId} = render(<CustomElementFormPillGroup />);
-      const group = getByTestId('form-pill-group');
+      render(<CustomElementFormPillGroup />);
+      const group = screen.getByTestId('form-pill-group');
       expect(group.getAttribute('data-paste-element')).toEqual('CUSTOM_PILL_GROUP');
-      const pill = getByTestId('form-pill');
+      const pill = screen.getByTestId('form-pill');
       expect(pill.getAttribute('data-paste-element')).toEqual('CUSTOM_PILL');
     });
 
     it('should add custom styles to FormPillGroup & FormPill', () => {
-      const {getByTestId} = render(<CustomFormPillGroup />);
+      render(<CustomFormPillGroup />);
 
-      const group = getByTestId('form-pill-group');
+      const group = screen.getByTestId('form-pill-group');
       expect(group).toHaveStyleRule('margin', '0.75rem');
 
-      const pill = getByTestId('form-pill');
+      const pill = screen.getByTestId('form-pill');
       expect(pill).toHaveStyleRule('background-color', 'rgb(245, 240, 252)');
     });
     it('should add custom styles to custom element FormPillGroup & FormPill', () => {
-      const {getByTestId} = render(
+      render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
@@ -172,10 +172,10 @@ describe('FormPillGroup', () => {
           <CustomElementFormPillGroup />
         </CustomizationProvider>
       );
-      const group = getByTestId('form-pill-group');
+      const group = screen.getByTestId('form-pill-group');
       expect(group).toHaveStyleRule('margin', '0.75rem');
 
-      const pill = getByTestId('form-pill');
+      const pill = screen.getByTestId('form-pill');
       expect(pill).toHaveStyleRule('background-color', 'rgb(231, 220, 250)');
     });
   });
@@ -195,6 +195,18 @@ describe('FormPillGroup', () => {
         'Appuyez sur Supprimer ou Retour arrière pour supprimer. Appuyez sur Entrée pour basculer la sélection.'
       );
       expect(keyboardControlsText).toBeDefined();
+    });
+
+    it('should have default error text', () => {
+      render(<Basic />);
+      const errorLabel = screen.getAllByText('(error)');
+      expect(errorLabel).toBeDefined();
+    });
+
+    it('should use i18nErrorLabel for error text', () => {
+      render(<I18nProp />);
+      const errorLabel = screen.getByText('(erreur)');
+      expect(errorLabel).toBeDefined();
     });
   });
 });
