@@ -208,14 +208,6 @@ exports[`generic declaration file formatter should return typescript definitions
 {
    type: \\"color\\";
    category: \\"color\\";
-   value: \\"rgb(34, 34, 34)\\";
-   comment: \\"Gray Color 10\\";
-   originalValue: \\"{!palette_gray_100}\\";
-   name: \\"color_gray_10\\";
-},
-{
-   type: \\"color\\";
-   category: \\"color\\";
    value: \\"rgb(246, 246, 246)\\";
    comment: \\"Gray Color 2\\";
    originalValue: \\"{!palette_gray_20}\\";
@@ -276,6 +268,14 @@ exports[`generic declaration file formatter should return typescript definitions
    comment: \\"Gray Color 9\\";
    originalValue: \\"{!palette_gray_90}\\";
    name: \\"color_gray_9\\";
+},
+{
+   type: \\"color\\";
+   category: \\"color\\";
+   value: \\"rgb(34, 34, 34)\\";
+   comment: \\"Gray Color 10\\";
+   originalValue: \\"{!palette_gray_100}\\";
+   name: \\"color_gray_10\\";
 }
 ],
 \\"font-sizes\\": [
@@ -378,48 +378,6 @@ exports[`generic declaration file formatter should return typescript definitions
 {
    category: \\"spacing\\";
    type: \\"size\\";
-   value: \\"2.75rem\\";
-   originalValue: \\"{!space_10}\\";
-   name: \\"space_10\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3rem\\";
-   originalValue: \\"{!space_11}\\";
-   name: \\"space_11\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.25rem\\";
-   originalValue: \\"{!space_12}\\";
-   name: \\"space_12\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.5rem\\";
-   originalValue: \\"{!space_13}\\";
-   name: \\"space_13\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.75rem\\";
-   originalValue: \\"{!space_14}\\";
-   name: \\"space_14\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"4rem\\";
-   originalValue: \\"{!space_15}\\";
-   name: \\"space_15\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
    value: \\"0.75rem\\";
    originalValue: \\"{!space_2}\\";
    name: \\"space_2\\";
@@ -472,6 +430,48 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"2.5rem\\";
    originalValue: \\"{!space_9}\\";
    name: \\"space_9\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"2.75rem\\";
+   originalValue: \\"{!space_10}\\";
+   name: \\"space_10\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3rem\\";
+   originalValue: \\"{!space_11}\\";
+   name: \\"space_11\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.25rem\\";
+   originalValue: \\"{!space_12}\\";
+   name: \\"space_12\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.5rem\\";
+   originalValue: \\"{!space_13}\\";
+   name: \\"space_13\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.75rem\\";
+   originalValue: \\"{!space_14}\\";
+   name: \\"space_14\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"4rem\\";
+   originalValue: \\"{!space_15}\\";
+   name: \\"space_15\\";
 }
 ],
 \\"text-colors\\": [
