@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {useTheme, remToPx} from '@twilio-paste/theme';
+import type {Properties} from 'csstype';
+import {remToPx} from '@twilio-paste/theme';
 
 interface SpacingExampleProps {
   tokenName: string;
   spacing: string;
+  color: Properties['color'];
 }
 
-export const SpacingExample: React.FC<SpacingExampleProps> = ({tokenName, spacing}) => {
+export const SpacingExample: React.FC<SpacingExampleProps> = ({tokenName, spacing, color}) => {
   if (spacing === '0') return null;
 
-  const theme = useTheme();
-  const lineColor = theme.borderColors.colorBorder;
   const lineStart = 1;
   const spacingPx = Math.abs(remToPx(spacing) as number);
   const lineEnd = lineStart + spacingPx;
@@ -33,13 +33,13 @@ export const SpacingExample: React.FC<SpacingExampleProps> = ({tokenName, spacin
           x2={lineEnd}
           y1="31"
           y2="31"
-          stroke={lineColor}
+          stroke={color}
           strokeWidth="2"
           strokeDasharray={`1,${strokeDash}`}
         />
         {/* Vertical Lines */}
-        <line x1="0" y1="27" x2="0" y2="35" stroke={lineColor} strokeWidth="2" />
-        <line x1={lineEnd} y1="27" x2={lineEnd} y2="35" stroke={lineColor} strokeWidth="2" />
+        <line x1="0" y1="27" x2="0" y2="35" stroke={color} strokeWidth="2" />
+        <line x1={lineEnd} y1="27" x2={lineEnd} y2="35" stroke={color} strokeWidth="2" />
       </g>
     </svg>
   );

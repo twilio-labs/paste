@@ -71,27 +71,23 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       const height = name.toLowerCase().match('pill') ? 'sizeSquare70' : null;
 
       tokenExampleRender = (
-        <BoxExample
-          borderRadius={value as keyof ThemeShape['radii']}
-          backgroundColor="colorBackgroundStrong"
-          height={height}
-        />
+        <BoxExample borderRadius={value as keyof ThemeShape['radii']} highlightColor={highlightColor} height={height} />
       );
       break;
     case 'box-shadows':
       tokenExampleRender = <BoxExample boxShadow={value as keyof ThemeShape['shadows']} />;
       break;
     case 'spacings':
-      tokenExampleRender = <SpacingExample tokenName={name} spacing={value} />;
+      tokenExampleRender = <SpacingExample color={highlightColor} tokenName={name} spacing={value} />;
       break;
     case 'sizings':
       // only render a preview for icons or squares
       if (name.toLowerCase().match('icon')) {
-        tokenExampleRender = <IconSizeExample size={value as keyof ThemeShape['iconSizes']} />;
+        tokenExampleRender = <IconSizeExample color={textColor} size={value as keyof ThemeShape['iconSizes']} />;
       } else if (name.toLowerCase().match('square')) {
         tokenExampleRender = (
           <BoxExample
-            backgroundColor="colorBackgroundStrong"
+            highlightColor={highlightColor}
             size={value as keyof ThemeShape['sizes']}
             borderRadius="borderRadius0"
           />

@@ -90,13 +90,15 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
   const tokenExampleInverseBackgroundColor =
     (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
     '#121C2D';
-  const tokenExampleHighlightColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-strong')?.value as string) ??
-    '#E1E3EA';
   const tokenExampleTextColor =
     (tokens['text-colors'].find((token) => token.name === 'color-text')?.value as string) ?? '#121C2D';
   const tokenExampleInverseTextColor =
     (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
+  const spacingExampleColor =
+    (tokens['border-colors'].find((token) => token.name === 'color-border')?.value as string) ?? '#E1E3EA';
+  let tokenExampleHighlightColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-stronger')?.value as string) ??
+    '#E1E3EA';
 
   return (
     <ContentWrapper>
@@ -117,6 +119,10 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         />
         {tokenCategories.map((tokenCategory) => {
           const sectionIntro = sectionIntros[tokenCategory];
+
+          if (tokenCategory === 'spacing') {
+            tokenExampleHighlightColor = spacingExampleColor;
+          }
 
           return (
             <React.Fragment key={`catname-${tokenCategory}`}>
