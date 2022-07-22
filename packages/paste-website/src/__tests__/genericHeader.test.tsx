@@ -23,18 +23,6 @@ describe('GenericHeader', () => {
       </Theme.Provider>
     );
   };
-  // These tests are more appropriate as cypress tests
-  // it('should add openGraph meta for existing components and primitives', () => {
-  //   const openGraphMeta = screen.getBy
-  // });
-
-  // it('should not add openGraph meta for non-existing components and primitives', () => {
-
-  // });
-
-  // it('should not add openGraph meta for non-components, non-primitives pages', () => {
-
-  // });
 
   it('should render an h1 tag using the name prop as text', () => {
     render(<FullHeader />);
@@ -44,7 +32,6 @@ describe('GenericHeader', () => {
 
   it('should render text using the description prop', () => {
     render(<FullHeader />);
-    screen.debug();
     const description = screen.getByText('This is an alert component.');
     expect(description).toBeDefined();
   });

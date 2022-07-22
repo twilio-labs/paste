@@ -6,7 +6,6 @@ export const BasicHeader = (): React.ReactNode => {
 };
 
 export const FullHeader = (): React.ReactNode => {
-  //QUESTION: why does FullHeader have opengraph meta tag, but not BasicHeader?
   return (
     <GenericHeader
       name="Alert"
