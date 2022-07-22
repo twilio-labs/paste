@@ -65,7 +65,7 @@ export const pageQuery = graphql`
   }
 `;
 
-<NormalizeComponentHeader
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label"
   storybookUrl="/?path=/story/components-label--default"
@@ -109,9 +109,7 @@ To support internationalization, avoid starting a sentence with the label and us
     Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
     associated input.
   </ListItem>
-  <ListItem>
-    The text of the label needs to remain same. It should not change based on the state of the input.
-  </ListItem>
+  <ListItem>The text of the label needs to remain same. It should not change based on the state of the input.</ListItem>
 </UnorderedList>
 
 <Callout>

@@ -5,11 +5,11 @@ import type {GenericHeaderProps} from '../generic-header';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
-interface NormalizeComponentHeaderProps extends GenericHeaderProps {
+interface NormalizedComponentHeaderProps extends GenericHeaderProps {
   data: GraphqlData;
 }
 
-export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> = ({data, ...props}) => {
+export const NormalizedComponentHeader: React.FC<NormalizedComponentHeaderProps> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
   const {
     name,

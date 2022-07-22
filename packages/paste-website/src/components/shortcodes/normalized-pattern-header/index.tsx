@@ -26,11 +26,11 @@ const PackageLabel: React.FC = ({children}) => {
   );
 };
 
-interface NormalizePatternHeaderProps extends GenericHeaderProps {
+interface NormalizedPatternHeaderProps extends GenericHeaderProps {
   data: GraphqlData;
 }
 
-const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ...props}) => {
+const NormalizedPatternHeader: React.FC<NormalizedPatternHeaderProps> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
   const {
     name,
@@ -71,4 +71,4 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
   );
 };
 
-export {NormalizePatternHeader};
+export {NormalizedPatternHeader};
