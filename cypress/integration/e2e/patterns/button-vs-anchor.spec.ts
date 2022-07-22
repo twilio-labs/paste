@@ -4,7 +4,9 @@ describe('Button-vs-anchor patterns documentation page', () => {
   });
 
   it('should render the button-vs-anchor patterns page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Button vs. Anchor');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Button vs. Anchor',
+    });
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();

@@ -4,7 +4,9 @@ describe('Overview page', () => {
   });
 
   it('should render the patterns overview page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Patterns');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Patterns',
+    });
 
     cy.overviewTableRendersCorrectly();
   });

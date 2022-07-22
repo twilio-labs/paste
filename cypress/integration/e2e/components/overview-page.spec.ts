@@ -4,7 +4,9 @@ describe('Overview page', () => {
   });
 
   it('should render the components overview page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Components');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Components',
+    });
 
     cy.overviewTableRendersCorrectly();
   });
