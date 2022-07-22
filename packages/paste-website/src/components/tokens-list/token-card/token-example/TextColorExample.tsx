@@ -19,7 +19,7 @@ export const TextColorExample: React.FC<{
       <TextExample color={value} />
       <Text
         as="p"
-        style={{color: textColor}}
+        color={textColor as keyof ThemeShape['textColors']}
         fontSize="fontSize10"
         lineHeight="lineHeight10"
         marginTop="space20"

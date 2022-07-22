@@ -16,6 +16,7 @@ type TokenExampleProps = {
   value: string;
   backgroundColor: Properties['backgroundColor'];
   backgroundColorInverse: Properties['backgroundColor'];
+  borderColor?: Properties['borderColor'];
   highlightColor?: Properties['backgroundColor'];
   textColor?: Properties['color'];
   textColorInverse?: Properties['color'];
@@ -26,6 +27,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
   name,
   value,
   backgroundColorInverse,
+  borderColor,
   textColorInverse,
   highlightColor,
   ...props
@@ -37,9 +39,13 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
   switch (category) {
     case 'background-colors':
       // apply a border to foreground colors that match the background color
-      const borderColor = value === backgroundColor ? 'colorBorderWeak' : null;
+      const boxBorder = value === backgroundColor ? borderColor : null;
+
       tokenExampleRender = (
-        <BoxExample backgroundColor={value as keyof ThemeShape['backgroundColors']} borderColor={borderColor} />
+        <BoxExample
+          backgroundColor={value as keyof ThemeShape['backgroundColors']}
+          borderColor={boxBorder as keyof ThemeShape['borderColors']}
+        />
       );
       break;
     case 'border-colors':
@@ -49,20 +55,35 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       tokenExampleRender = <BorderExample borderWidth={value as keyof ThemeShape['borderWidths']} />;
       break;
     case 'fonts':
-      tokenExampleRender = <TextExample textColor={textColor} fontFamily={value as keyof ThemeShape['fonts']} />;
+      tokenExampleRender = (
+        <TextExample
+          color={textColor as keyof ThemeShape['textColors']}
+          fontFamily={value as keyof ThemeShape['fonts']}
+        />
+      );
       break;
     case 'font-sizes':
-      tokenExampleRender = <TextExample textColor={textColor} fontSize={value as keyof ThemeShape['fontSizes']} />;
+      tokenExampleRender = (
+        <TextExample
+          color={textColor as keyof ThemeShape['textColors']}
+          fontSize={value as keyof ThemeShape['fontSizes']}
+        />
+      );
       break;
     case 'font-weights':
-      tokenExampleRender = <TextExample textColor={textColor} fontWeight={value as keyof ThemeShape['fontWeights']} />;
+      tokenExampleRender = (
+        <TextExample
+          color={textColor as keyof ThemeShape['textColors']}
+          fontWeight={value as keyof ThemeShape['fontWeights']}
+        />
+      );
       break;
     case 'line-heights':
       tokenExampleRender = (
         <LineHeightExample
-          textColor={textColor}
-          highlightColor={highlightColor}
           tokenName={name}
+          color={textColor as keyof ThemeShape['textColors']}
+          backgroundColor={highlightColor as keyof ThemeShape['backgroundColors']}
           lineHeight={value as keyof ThemeShape['lineHeights']}
         />
       );
@@ -71,7 +92,11 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       const height = name.toLowerCase().match('pill') ? 'sizeSquare70' : null;
 
       tokenExampleRender = (
-        <BoxExample borderRadius={value as keyof ThemeShape['radii']} highlightColor={highlightColor} height={height} />
+        <BoxExample
+          borderRadius={value as keyof ThemeShape['radii']}
+          backgroundColor={highlightColor as keyof ThemeShape['backgroundColors']}
+          height={height}
+        />
       );
       break;
     case 'box-shadows':
@@ -83,12 +108,17 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
     case 'sizings':
       // only render a preview for icons or squares
       if (name.toLowerCase().match('icon')) {
-        tokenExampleRender = <IconSizeExample color={textColor} size={value as keyof ThemeShape['iconSizes']} />;
+        tokenExampleRender = (
+          <IconSizeExample
+            color={borderColor as keyof ThemeShape['textColors']}
+            size={value as keyof ThemeShape['iconSizes']}
+          />
+        );
       } else if (name.toLowerCase().match('square')) {
         tokenExampleRender = (
           <BoxExample
-            highlightColor={highlightColor}
             size={value as keyof ThemeShape['sizes']}
+            backgroundColor={highlightColor as keyof ThemeShape['backgroundColors']}
             borderRadius="borderRadius0"
           />
         );

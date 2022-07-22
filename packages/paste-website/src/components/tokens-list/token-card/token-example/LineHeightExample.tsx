@@ -1,23 +1,25 @@
 import * as React from 'react';
-import type {Properties} from 'csstype';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import type {TextProps} from '@twilio-paste/text';
+import type {BoxProps} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
 
-interface TextExampleProps extends Pick<TextProps, 'lineHeight'> {
+type LineHeightExampleProps = Pick<BoxProps, 'lineHeight' | 'color' | 'backgroundColor'> & {
   tokenName: string;
-  textColor: Properties['color'];
-  highlightColor: Properties['backgroundColor'];
-}
+};
 
-export const LineHeightExample: React.FC<TextExampleProps> = ({tokenName, lineHeight, textColor, highlightColor}) => {
+export const LineHeightExample: React.FC<LineHeightExampleProps> = ({
+  tokenName,
+  lineHeight,
+  color,
+  backgroundColor,
+}) => {
   const lineHeightValue = tokenName ? tokenName.match(/\d+/) : null;
   const fontSizeValue = `fontSize${lineHeightValue}` as keyof ThemeShape['fontSizes'];
 
   return (
-    <Box style={{backgroundColor: highlightColor}} flex={1} textAlign="center">
-      <Text as="p" fontSize={fontSizeValue} lineHeight={lineHeight} style={{color: textColor}} aria-hidden>
+    <Box backgroundColor={backgroundColor} flex={1} textAlign="center">
+      <Text as="p" fontSize={fontSizeValue} lineHeight={lineHeight} color={color} aria-hidden>
         Ag
       </Text>
     </Box>

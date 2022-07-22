@@ -1,15 +1,12 @@
 import * as React from 'react';
-import type {Properties} from 'csstype';
 import {Text} from '@twilio-paste/text';
 import type {TextProps} from '@twilio-paste/text';
 import type {LineHeight} from '@twilio-paste/style-props';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
-type TextExampleProps = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight' | 'color' | 'style'> & {
-  textColor?: Properties['color'];
-};
+type TextExampleProps = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight' | 'style' | 'color'>;
 
-export const TextExample: React.FC<TextExampleProps> = ({fontFamily, fontSize, fontWeight, color, textColor}) => {
+export const TextExample: React.FC<TextExampleProps> = ({fontFamily, fontSize = 'fontSize60', fontWeight, color}) => {
   let lineHeight: LineHeight = 'lineHeight70';
 
   if (fontSize != null && typeof fontSize === 'string') {
@@ -22,10 +19,9 @@ export const TextExample: React.FC<TextExampleProps> = ({fontFamily, fontSize, f
       <Text
         as="p"
         fontFamily={fontFamily}
-        fontSize={fontSize || 'fontSize60'}
+        fontSize={fontSize}
         fontWeight={fontWeight}
         lineHeight={lineHeight}
-        style={{color: textColor}}
         color={color}
         aria-hidden
       >

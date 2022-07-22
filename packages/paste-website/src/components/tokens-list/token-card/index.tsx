@@ -75,6 +75,7 @@ export const TokenCard: React.FC<{
   value: Token['value'];
   exampleBackgroundColor?: Properties['backgroundColor'];
   exampleBackgroundColorInverse?: Properties['backgroundColor'];
+  exampleBorderColor?: Properties['borderColor'];
   exampleHighlightColor?: Properties['backgroundColor'];
   exampleTextColor?: Properties['color'];
   exampleTextColorInverse?: Properties['color'];
@@ -90,6 +91,7 @@ export const TokenCard: React.FC<{
     comment,
     exampleBackgroundColor,
     exampleBackgroundColorInverse,
+    exampleBorderColor,
     exampleHighlightColor,
     exampleTextColor,
     exampleTextColorInverse,
@@ -148,6 +150,7 @@ export const TokenCard: React.FC<{
           value={value.toString()}
           backgroundColor={exampleBackgroundColor}
           backgroundColorInverse={exampleBackgroundColorInverse}
+          borderColor={exampleBorderColor}
           highlightColor={exampleHighlightColor}
           textColor={exampleTextColor}
           textColorInverse={exampleTextColorInverse}
