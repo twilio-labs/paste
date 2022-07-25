@@ -80,11 +80,7 @@ const ZIndicesIntro: React.FC = () => (
   <Paragraph>Z indices define the vertical stacking order of UI elements that overlap.</Paragraph>
 );
 
-interface SectionIntros {
-  [key: Token['category']]: JSX.Element;
-}
-
-export const sectionIntros: SectionIntros = {
+export const sectionIntros: {[key: string]: JSX.Element} = {
   'background-colors': <BackgroundColorsIntro />,
   'border-colors': <BorderColorsIntro />,
   'box-shadows': <BoxShadowsIntro />,

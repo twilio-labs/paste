@@ -6,9 +6,18 @@ import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
-import type {TokensListFilterProps} from './types';
+
+export interface TokensListFilterProps {
+  value: string;
+  handleThemeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleInput: (e: React.FormEvent<HTMLInputElement>) => void;
+  handleFormatChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedFormat: string;
+  selectedTheme: string;
+}
 
 export const TokensListFilter: React.FC<TokensListFilterProps> = ({
+  value,
   handleInput,
   handleFormatChange,
   handleThemeChange,
@@ -33,6 +42,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               type="text"
               id={inputId}
               aria-labelledby="test-label"
+              value={value}
               onChange={handleInput}
               insertBefore={<FilterIcon decorative={false} title="Description of icon" color="colorTextIcon" />}
               placeholder="Filter by token name or value"
