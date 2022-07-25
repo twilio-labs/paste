@@ -114,6 +114,7 @@ export const hoverPillStyles: VariantStyles = {
     _selected_hover: {
       backgroundColor: 'colorBackgroundErrorStrongest',
       borderColor: 'transparent',
+      color: 'inherit',
     },
     _focus_hover: {
       borderColor: 'transparent',
