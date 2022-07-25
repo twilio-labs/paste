@@ -11,12 +11,13 @@ export const TextColorExample: React.FC<{
   value: keyof ThemeShape['textColors'];
   backgroundColor: Properties['backgroundColor'];
   textColor: Properties['color'];
-}> = ({value, backgroundColor, textColor}) => {
+  textShadow?: Properties['textShadow'];
+}> = ({value, backgroundColor, textColor, textShadow}) => {
   const contrastRating = contrastScore(value, backgroundColor);
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <TextExample color={value} />
+      <TextExample color={value} textShadow={textShadow} />
       <Text
         as="p"
         color={textColor as keyof ThemeShape['textColors']}

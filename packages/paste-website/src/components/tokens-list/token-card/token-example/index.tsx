@@ -126,14 +126,14 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
 
       break;
     case 'text-colors':
-      if (name === 'color-text-inverse') {
-        console.log(name, value, backgroundColorInverse);
-      }
+      const textShadow = value === backgroundColor ? `0 0 1px ${borderColor}` : undefined;
+
       tokenExampleRender = (
         <TextColorExample
           value={value as keyof ThemeShape['textColors']}
           backgroundColor={backgroundColor}
           textColor={textColor}
+          textShadow={textShadow}
         />
       );
   }
