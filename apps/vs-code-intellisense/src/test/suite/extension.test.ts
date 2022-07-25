@@ -1,5 +1,5 @@
-import * as assert from 'assert';
-import * as vscode from 'vscode';
+import assert from 'assert';
+import vscode from 'vscode';
 
 import * as myExtension from '../../extension';
 import {PasteToken} from '../../models/paste-token';
