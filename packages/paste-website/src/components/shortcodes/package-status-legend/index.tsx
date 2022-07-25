@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Badge} from '@twilio-paste/badge';
 import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
+import {useUID} from '@twilio-paste/uid-library';
 
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
@@ -10,10 +11,10 @@ import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
-  packageStatus?: string;
-  figmaStatus?: string;
-  designCommitteeReview?: string;
-  engineerCommitteeReview?: string;
+  packageStatus?: string | null;
+  figmaStatus?: string | null;
+  designCommitteeReview?: string | null;
+  engineerCommitteeReview?: string | null;
 }
 
 interface StatusData {
@@ -21,31 +22,29 @@ interface StatusData {
   popoverContent: string;
 }
 
-const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
-  const statusMap: {[index: string]: StatusData} = {
-    Alpha: {
-      badgeVariant: 'new',
-      popoverContent: StatusDescriptions.ALPHA,
-    },
-    Beta: {
-      badgeVariant: 'neutral',
-      popoverContent: StatusDescriptions.BETA,
-    },
-  };
+const statusMap: {[index: string]: StatusData} = {
+  Alpha: {
+    badgeVariant: 'new',
+    popoverContent: StatusDescriptions.ALPHA,
+  },
+  Beta: {
+    badgeVariant: 'neutral',
+    popoverContent: StatusDescriptions.BETA,
+  },
+};
 
+const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
   const statusData = statusMap[status];
+  const uid = useUID();
 
   if (statusData?.badgeVariant) {
     return (
-      <PopoverContainer baseId="status">
+      <PopoverContainer baseId={`status${uid}`}>
         <PopoverBadgeButton variant={statusData?.badgeVariant}>
-          {/* fragment needed bc Badge expects one React node as child */}
-          <>
-            <NewIcon decorative size="sizeIcon10" />
-            {status}
-          </>
+          <NewIcon decorative size="sizeIcon10" />
+          {status}
         </PopoverBadgeButton>
-        <Popover aria-label={status}>{statusData?.popoverContent}</Popover>
+        <Popover aria-label={uid}>{statusData?.popoverContent}</Popover>
       </PopoverContainer>
     );
   }
@@ -59,22 +58,23 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
   designCommitteeReview,
   engineerCommitteeReview,
 }) => {
-  const shouldShowFigma = figmaStatus == null;
-  const shouldShowPeerReview = designCommitteeReview == null || engineerCommitteeReview == null;
+  const shouldShowStatusBadge = packageStatus != null && packageStatus in statusMap;
+  const shouldShowFigmaNeeded = figmaStatus === null;
+  const shouldShowPeerReviewNeeded = designCommitteeReview === null || engineerCommitteeReview === null;
 
-  const shouldShowStatus = packageStatus || shouldShowFigma || shouldShowPeerReview;
+  const shouldShowStatus = packageStatus || shouldShowFigmaNeeded || shouldShowPeerReviewNeeded;
 
   if (shouldShowStatus) {
     return (
       <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
-        {packageStatus && <PackageStatusBadge status={packageStatus} />}
-        {shouldShowFigma && (
+        {shouldShowStatusBadge && <PackageStatusBadge status={packageStatus} />}
+        {shouldShowFigmaNeeded && (
           <Badge as="span" variant="decorative10">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Design assets pending</Box>
           </Badge>
         )}
-        {shouldShowPeerReview ? (
+        {shouldShowPeerReviewNeeded ? (
           <Badge as="span" variant="decorative10">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Peer review pending</Box>

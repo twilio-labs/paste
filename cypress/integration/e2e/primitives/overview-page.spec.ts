@@ -4,7 +4,9 @@ describe('Overview page', () => {
   });
 
   it('should render the primitives overview page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Primitives');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Primitives',
+    });
 
     cy.overviewTableRendersCorrectly();
   });

@@ -23,22 +23,22 @@ const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: strin
   </Anchor>
 );
 
-export interface ComponentHeaderProps {
+export interface GenericHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   description?: string;
-  designCommitteeReview?: string;
-  engineerCommitteeReview?: string;
-  figmaStatus?: string;
+  designCommitteeReview?: string | null;
+  engineerCommitteeReview?: string | null;
+  figmaStatus?: string | null;
   githubUrl?: string;
   packageName?: string;
-  packageStatus?: string;
+  packageStatus?: string | null;
   storybookUrl?: string;
   version?: string;
   shouldShowBreadcrumbs?: boolean;
 }
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({
+const GenericHeader: React.FC<GenericHeaderProps> = ({
   name,
   categoryRoute,
   description,
@@ -137,4 +137,4 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   );
 };
 
-export {ComponentHeader};
+export {GenericHeader};

@@ -16,15 +16,15 @@ import type {CodeblockProps} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
-import {ComponentHeader} from '../shortcodes/component-header';
-import {NormalizePatternHeader} from '../shortcodes/normalize-pattern-header';
+import {GenericHeader} from '../shortcodes/generic-header';
+import {NormalizedPatternHeader} from '../shortcodes/normalized-pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {PageAside} from '../shortcodes/PageAside';
 import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
 import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
-import {NormalizeComponentHeader} from '../shortcodes/normalize-component-header';
+import {NormalizedComponentHeader} from '../shortcodes/normalized-component-header';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -43,15 +43,15 @@ const MdxLink: React.FC<AnchorProps> = (props) => {
 
 const shortcodes = {
   ChangelogRevealer,
-  ComponentHeader,
+  GenericHeader,
   LivePreview,
   PageAside,
-  NormalizePatternHeader,
+  NormalizedPatternHeader,
   TableOfContents,
   ArticleHeader,
   ArticleContent,
   ArticleAside,
-  NormalizeComponentHeader,
+  NormalizedComponentHeader,
 };
 
 const MDXPoviderComponents = {

@@ -4,7 +4,12 @@ describe('Alert-dialog component documentation page', function () {
   });
 
   it('should render the alert-dialog component page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Alert Dialog');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Alert Dialog',
+      shouldHaveGithubLink: true,
+      shouldHaveStorybook: true,
+      shouldHaveOpenGraph: true,
+    });
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
