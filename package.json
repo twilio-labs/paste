@@ -6,6 +6,9 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
+    "apps": [
+      "apps/vs-code-intellisense"
+    ],
     "packages": [
       "packages/paste-codemods",
       "packages/paste-color-contrast-utils",
