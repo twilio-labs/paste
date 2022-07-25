@@ -11,10 +11,20 @@ export const categoryTemplate = (categoryName: string, props: DesignToken[]): st
   `;
 };
 
+// Filter out deprecated tokens in exported file
+export const filterDeprecatedTokens = (tokenCategory: DesignToken[]): DesignToken[] => {
+  return tokenCategory.filter((token) => !token.deprecated);
+};
+
 export const genericCommonJsTokenFormat = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
-  const groupedTokens = `"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}`;
+  const groupedTokens = `"tokens":{${formatGroupTokensWithTemplate(
+    result,
+    categories,
+    categoryTemplate,
+    filterDeprecatedTokens
+  )}}`;
 
   return `module.exports = {\n${groupedTokens}\n}`;
 };

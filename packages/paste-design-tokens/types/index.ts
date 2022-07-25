@@ -16,6 +16,7 @@ export interface DesignToken {
   data_visualization_contrast_pairing?: string[];
   type: string;
   value: string;
+  deprecated?: boolean;
 }
 /**
  * Shape of  the Paste Design Token JSON Object

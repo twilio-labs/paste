@@ -1,8 +1,8 @@
 import type {ImmutableStyleMap} from 'theo';
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
-
 import {isNumeric, pluralCategoryMap} from './utils';
+import {filterDeprecatedTokens} from './generic';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
@@ -44,7 +44,7 @@ export const formatGroupTokensWithTemplate = (
   const content = categories
     .map((cat: string): string | null => {
       count += 1;
-      const catProps = tokens
+      let catProps = tokens
         .get('props')
         .sort((a, b) => {
           if (cat === 'font-weight') {
@@ -54,6 +54,9 @@ export const formatGroupTokensWithTemplate = (
         })
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
+
+      // Filter out deprecated tokens in exported file
+      catProps = filterDeprecatedTokens(catProps);
 
       if (typeof cat === 'string') {
         return template(getPluralCatName(cat), catProps, count === categories.size);
