@@ -3,6 +3,13 @@ import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../components/shortcodes/package-status-legend';
 
+// This component only exists to use React (to silence a config catch-22 error)
+const PackageStatusEmpty: React.FC = () => (
+  <Theme.Provider theme="default">
+    <PackageStatusLegend />
+  </Theme.Provider>
+);
+
 describe('PackageStatusLegend', () => {
   it('should render an Alpha badge for an Alpha packageStatus', () => {
     render(
@@ -61,7 +68,7 @@ describe('PackageStatusLegend', () => {
   it('should not render any badges if there are no statuses', () => {
     render(
       <Theme.Provider theme="default">
-        <PackageStatusLegend />
+        <PackageStatusEmpty />
       </Theme.Provider>
     );
     expect(screen.queryByText('Alpha')).toBeNull();

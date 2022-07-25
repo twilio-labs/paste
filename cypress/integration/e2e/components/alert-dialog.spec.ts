@@ -17,7 +17,3 @@ describe('Alert-dialog component documentation page', function () {
     cy.checkChangelogRevealer();
   });
 });
-/*
-
-cy.checkGenericHeader({shouldHaveGithubLink: true, })
-*/
