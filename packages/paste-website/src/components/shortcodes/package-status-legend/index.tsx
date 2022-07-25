@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Badge} from '@twilio-paste/badge';
 import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
+import {useUID} from '@twilio-paste/uid-library';
 
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
@@ -34,15 +35,16 @@ const statusMap: {[index: string]: StatusData} = {
 
 const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
   const statusData = statusMap[status];
+  const uid = useUID();
 
   if (statusData?.badgeVariant) {
     return (
-      <PopoverContainer baseId="status">
+      <PopoverContainer baseId={`status${uid}`}>
         <PopoverBadgeButton variant={statusData?.badgeVariant}>
           <NewIcon decorative size="sizeIcon10" />
           {status}
         </PopoverBadgeButton>
-        <Popover aria-label={status}>{statusData?.popoverContent}</Popover>
+        <Popover aria-label={uid}>{statusData?.popoverContent}</Popover>
       </PopoverContainer>
     );
   }
