@@ -11,6 +11,7 @@ module.exports = {
     '<rootDir>/packages/(?:.+?)/.cache/',
     '<rootDir>/cypress/',
     '<rootDir>/packages/paste-cra-template/',
+    '<rootDir>/apps/',
   ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
@@ -18,6 +19,7 @@ module.exports = {
     '<rootDir>/packages/(?:.+?)/dist/',
     '<rootDir>/packages/(?:.+?)/cjs/',
     '<rootDir>/packages/(?:.+?)/esm/',
+    '<rootDir>/apps/',
   ],
   coverageReporters: ['html', 'text'],
   coverageThreshold: {
