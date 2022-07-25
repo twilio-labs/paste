@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Form Pill Group] add error variant, disabled pills, and update styles
+[Form Pill Group] add error variant, update styles, and support disabled pills
