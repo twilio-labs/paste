@@ -101,4 +101,53 @@ describe('filterTokenList', () => {
       ],
     });
   });
+
+  it('handles capitalization, hyphenation, and spaces', () => {
+    const capitalization = filterTokenList('COLORBackGround', DefaultThemeTokens);
+    expect(capitalization).toEqual({
+      'background-colors': [
+        {
+          altValue: '#F4F4F6',
+          category: 'background-color',
+          comment: 'Background color used for containers.',
+          name: 'color-background',
+          type: 'color',
+          value: 'rgb(244, 244, 246)',
+        },
+      ],
+    });
+
+    const hyphenation = filterTokenList('color-background', DefaultThemeTokens);
+    expect(hyphenation).toEqual({
+      'background-colors': [
+        {
+          altValue: '#F4F4F6',
+          category: 'background-color',
+          comment: 'Background color used for containers.',
+          name: 'color-background',
+          type: 'color',
+          value: 'rgb(244, 244, 246)',
+        },
+      ],
+    });
+
+    const spaces = filterTokenList('rgb(244,244,   246)', DefaultThemeTokens);
+    expect(spaces).toEqual({
+      'background-colors': [
+        {
+          altValue: '#F4F4F6',
+          category: 'background-color',
+          comment: 'Background color used for containers.',
+          name: 'color-background',
+          type: 'color',
+          value: 'rgb(244, 244, 246)',
+        },
+      ],
+    });
+  });
+
+  it('returns null when nothing is found', () => {
+    const nullCheck = filterTokenList('dimensions', DefaultThemeTokens);
+    expect(nullCheck).toEqual(null);
+  });
 });

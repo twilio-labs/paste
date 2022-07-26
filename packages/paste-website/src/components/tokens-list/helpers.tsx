@@ -27,10 +27,8 @@ export const filterTokenList = (filterString: string, tokens: Tokens): Partial<T
 
   for (const category of categories) {
     const filteredTokens = tokens[category].filter((token: Token) => {
-      const tokenName = sanitizeForSearch(token.name);
-
       return (
-        tokenName.includes(sanitizedFilterString) ||
+        sanitizeForSearch(token.name).includes(sanitizedFilterString) ||
         sanitizeForSearch(token.value.toString()).includes(sanitizedFilterString) ||
         (token.altValue && sanitizeForSearch(token.altValue).includes(sanitizedFilterString))
       );

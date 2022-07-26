@@ -14,7 +14,7 @@ interface NoTokensFoundProps {
 export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => (
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
-      <Box as="img" src="/images/no-tokens-found.png" alt="No results found illustration" size="size20" />
+      <Box as="img" src="/images/no-tokens-found.png" alt="" size="size20" />
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">
           Oh no! We couldn&apos;t find any matches
@@ -23,7 +23,9 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
           <Text as="span">
             Try adjusting your criteria to filter by the token name or value. If you still can’t find what you’re
             looking for, reach out by creating a{' '}
-            <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion.</Anchor>
+            <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+              GitHub Discussion.
+            </Anchor>
           </Text>
           <Button
             variant="secondary"

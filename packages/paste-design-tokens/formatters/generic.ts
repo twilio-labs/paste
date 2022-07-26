@@ -1,26 +1,9 @@
 import type {ImmutableStyleMap} from 'theo';
-import type {DesignToken} from '../types';
+import type {DesignToken, GenericDesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 import {rgbToHex} from '../utils/rgbToHex';
 import {remToPx} from '../utils/remToPx';
-
-export interface GenericDesignToken {
-  /** category of design token */
-  category: string;
-  comment?: string;
-  name: string;
-  /** tokens that when paired with this token, must pass the text color contrast ratio requirement */
-  text_contrast_pairing?: string[];
-  /** tokens that when paired with this token, must pass the ui control color contrast ratio requirement */
-  uicontrol_contrast_pairing?: string[];
-  /** tokens that when paired with this token, must pass the data visualization color contrast ratio requirement */
-  data_visualization_contrast_pairing?: string[];
-  type: string;
-  value: string;
-  altValue: string | null;
-  deprecated?: boolean;
-}
 
 export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
   const tokenPairs = props.map(({category, ...rest}) => rest);

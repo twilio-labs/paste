@@ -33,13 +33,20 @@ describe('Token list filter format control and theme control', function () {
     cy.visit('/tokens/list');
   });
 
-  it('controls format of token name', () => {
+  it('controls format of token name (Javascript)', () => {
+    const tokenNode = cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]');
     cy.get('[data-cy="format-control"]').select('javascript').should('have.value', 'javascript');
-    cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]').contains(/^[a-z]/);
-    cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]').contains(/[^$-]/);
+    cy.wait(300);
+    tokenNode.contains(/^[a-z]/);
+    tokenNode.contains(/[^$-]/);
+  });
+
+  it('controls format of token name (CSS)', () => {
+    const tokenNode = cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]');
     cy.get('[data-cy="format-control"]').select('css').should('have.value', 'css');
-    cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]').contains(/^[$]/);
-    cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]').contains(/[^A-Z]/);
+    cy.wait(300);
+    tokenNode.contains(/^[$]/);
+    tokenNode.contains(/[^A-Z]/);
   });
 
   it('controls the theme of filtered tokens', () => {
