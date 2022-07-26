@@ -194,6 +194,7 @@ export const TokenCard: React.FC<{
               paddingLeft="space0"
               flexShrink={0}
               listStyleType="none"
+              maxWidth="190px"
             >
               <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
                 {value}
