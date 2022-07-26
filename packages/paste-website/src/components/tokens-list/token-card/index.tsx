@@ -73,19 +73,38 @@ export const TokenCard: React.FC<{
   category: Token['category'];
   name: Token['name'];
   value: Token['value'];
-  backgroundColor: Properties['backgroundColor'];
+  exampleBackgroundColor?: Properties['backgroundColor'];
+  exampleBackgroundColorInverse?: Properties['backgroundColor'];
+  exampleBorderColor?: Properties['borderColor'];
+  exampleHighlightColor?: Properties['backgroundColor'];
+  exampleTextColor?: Properties['color'];
+  exampleTextColorInverse?: Properties['color'];
   comment?: Token['comment'];
   useCamelCase?: boolean;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;
 }> = React.memo(
-  ({category, name, value, comment, backgroundColor, useCamelCase, onCopyText = () => {}, isCopied = false}) => {
+  ({
+    category,
+    name,
+    value,
+    comment,
+    exampleBackgroundColor,
+    exampleBackgroundColorInverse,
+    exampleBorderColor,
+    exampleHighlightColor,
+    exampleTextColor,
+    exampleTextColorInverse,
+    useCamelCase,
+    onCopyText = () => {},
+    isCopied = false,
+    ...props
+  }) => {
     const tooltipState = useTooltipState();
     const [tooltipText, setTooltipText] = React.useState('Copy token name');
     // Prevents tooltip being visible on first render due to reakit positioning bug code
     const isFirstRender = React.useRef(true);
     const tokenName = useCamelCase ? camelCase(name) : `$${name}`;
-
     const handleCopyName = React.useCallback(() => {
       onCopyText(tokenName);
     }, [tokenName]);
@@ -122,9 +141,20 @@ export const TokenCard: React.FC<{
         minHeight="sizeSquare170"
         marginBottom="space40"
         overflow="hidden"
+        element="TOKEN_CARD"
+        {...props}
       >
-        <TokenExample category={category} name={name} value={value.toString()} backgroundColor={backgroundColor} />
-
+        <TokenExample
+          category={category}
+          name={name}
+          value={value.toString()}
+          backgroundColor={exampleBackgroundColor}
+          backgroundColorInverse={exampleBackgroundColorInverse}
+          borderColor={exampleBorderColor}
+          highlightColor={exampleHighlightColor}
+          textColor={exampleTextColor}
+          textColorInverse={exampleTextColorInverse}
+        />
         <TokenCardContent>
           <TokenCardName>
             <Text
