@@ -48,7 +48,7 @@ export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
   categoryTemplate: (cat: string, props: DesignToken[]) => string,
-  additionalFilterFn?: (key: DesignToken[]) => DesignToken[]
+  additionalFilterFn?: (key: DesignToken[]) => any[]
 ): string => {
   const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 

@@ -2,7 +2,7 @@ import type {ImmutableStyleMap} from 'theo';
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {isNumeric, pluralCategoryMap} from './utils';
-import {filterDeprecatedTokens} from './generic';
+import {tweakTokens} from './generic';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
@@ -56,7 +56,9 @@ export const formatGroupTokensWithTemplate = (
         .toJS();
 
       // Filter out deprecated tokens in exported file
-      catProps = filterDeprecatedTokens(catProps);
+      // Add alt values
+      // Remove originalValue
+      catProps = tweakTokens(catProps);
 
       if (typeof cat === 'string') {
         return template(getPluralCatName(cat), catProps, count === categories.size);
