@@ -1,12 +1,13 @@
-import * as React from 'react';
-
 export interface Token {
-  comment: string;
-  name: string;
-  originalValue: string;
   type: string;
-  value: string;
-  deprecated?: boolean;
+  category: string;
+  comment?: string;
+  name: string;
+  value: number | string;
+  altValue: string | null;
+  text_contrast_pairing?: string[];
+  uicontrol_contrast_pairing?: string[];
+  data_visualization_contrast_pairing?: string[];
 }
 
 export interface Tokens {

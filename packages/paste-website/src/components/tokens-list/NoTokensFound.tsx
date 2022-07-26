@@ -5,6 +5,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
+import {Anchor} from '@twilio-paste/anchor';
 
 interface NoTokensFoundProps {
   onClearSearch: () => void;
@@ -12,20 +13,17 @@ interface NoTokensFoundProps {
 
 export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => (
   <Card data-cy="tokens-empty-state" padding="space150">
-    <Stack orientation="horizontal" spacing="space110">
-      <Box
-        as="img"
-        src="/images/patterns/empty-no-results-found.png"
-        alt="No results found illustration"
-        size="size20"
-      />
+    <Box display="flex" columnGap="space110">
+      <Box as="img" src="/images/no-tokens-found.png" alt="No results found illustration" size="size20" />
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">
           Oh no! We couldn&apos;t find any matches
         </Heading>
         <Stack orientation="vertical" spacing="space70">
           <Text as="span">
-            Try clearing your search and using another query to find the token you&apos;re looking for.
+            Try adjusting your criteria to filter by the token name or value. If you still can’t find what you’re
+            looking for, reach out by creating a{' '}
+            <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion.</Anchor>
           </Text>
           <Button
             variant="secondary"
@@ -38,6 +36,6 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
           </Button>
         </Stack>
       </Stack>
-    </Stack>
+    </Box>
   </Card>
 );

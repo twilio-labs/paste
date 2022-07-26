@@ -13,14 +13,27 @@ export const trackTokenFilterString = debounce((filter: string): void => {
   }
 }, 500);
 
+function sanitizeForSearch(filterString: string): string {
+  // Remove space and `-` characters
+  // Lowercases
+  return filterString.replace(/[-\s]+/g, '').toLowerCase();
+}
+
 export const filterTokenList = (filterString: string, tokens: Tokens): Partial<Tokens> | null => {
+  const sanitizedFilterString = sanitizeForSearch(filterString);
   const categories = Object.keys(tokens);
 
   let newTokens: Partial<Tokens> | null = null;
 
   for (const category of categories) {
     const filteredTokens = tokens[category].filter((token: Token) => {
-      return token.name.includes(filterString) || token.value.toString().includes(filterString);
+      const tokenName = sanitizeForSearch(token.name);
+
+      return (
+        tokenName.includes(sanitizedFilterString) ||
+        sanitizeForSearch(token.value.toString()).includes(sanitizedFilterString) ||
+        (token.altValue && sanitizeForSearch(token.altValue).includes(sanitizedFilterString))
+      );
     });
 
     if (filteredTokens.length > 0) {

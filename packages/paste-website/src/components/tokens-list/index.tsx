@@ -126,12 +126,13 @@ export const TokensList: React.FC = () => {
                 </AnchoredHeading>
                 {sectionIntro}
                 <Box marginBottom="space160" data-cy="tokens-table-container">
-                  {categoryTokens.map(({name, value, comment}) => (
+                  {categoryTokens.map(({name, value, altValue, comment}) => (
                     <TokenCard
                       key={`token${name}`}
                       category={tokenCategory}
                       name={name}
                       value={value}
+                      altValue={altValue}
                       comment={comment}
                       exampleBackgroundColor={tokenExampleBackgroundColor}
                       exampleBackgroundColorInverse={tokenExampleInverseBackgroundColor}
