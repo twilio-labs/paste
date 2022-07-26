@@ -28,14 +28,16 @@ const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0
 
 export const TokensList: React.FC = () => {
   const [filterString, setFilterString] = React.useState('');
+  const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
   // Handles storing the full list of currently visible tokens (swaps on theme change)
-  const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(DefaultThemeTokens.tokens);
+  const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(
+    selectedTheme === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens
+  );
   // Handles storing the currently viewable list of tokens (the above + filters)
   const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(DefaultThemeTokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(DefaultThemeTokens.tokens));
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
   const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
-  const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
   const clipboard = useClipboard({copiedTimeout: 2000});
 
