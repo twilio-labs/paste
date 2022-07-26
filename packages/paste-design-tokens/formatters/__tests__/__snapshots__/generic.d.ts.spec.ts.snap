@@ -9,7 +9,7 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Some background\\";
    originalValue: \\"{!white}\\";
-   name: \\"color_background_body\\";
+   name: \\"color-background-body\\";
 },
 {
    type: \\"color\\";
@@ -17,7 +17,7 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(242, 47, 70)\\";
    comment: \\"Primary brand background, accessible with black text\\";
    originalValue: \\"{!amaranth}\\";
-   name: \\"color_background_brand_highlight\\";
+   name: \\"color-background-brand-highlight\\";
 },
 {
    type: \\"color\\";
@@ -25,15 +25,15 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(235, 15, 41)\\";
    comment: \\"Dark Primary brand background, accessible with black and white text\\";
    originalValue: \\"{!red_ribbon}\\";
-   name: \\"color_background_brand_highlight_dark\\";
+   name: \\"color-background-brand-highlight-dark\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(194, 37, 55)\\";
+   value: \\"rgb(235, 86, 86)\\";
    comment: \\"Darker Primary brand background, accessible with black and white text\\";
-   originalValue: \\"{!palette_red_50}\\";
-   name: \\"color_background_brand_highlight_darker\\";
+   originalValue: \\"{!palette-red-50}\\";
+   name: \\"color-background-brand-highlight-darker\\";
 },
 {
    type: \\"color\\";
@@ -41,241 +41,237 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(13, 18, 43)\\";
    comment: \\"Primary brand background, accessible with black text\\";
    originalValue: \\"{!haiti}\\";
-   name: \\"color_background_brand_primary\\";
+   name: \\"color-background-brand-primary\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(246, 246, 246)\\";
+   value: \\"rgb(225, 227, 234)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_20}\\";
-   name: \\"color_background_default\\";
+   originalValue: \\"{!palette-gray-20}\\";
+   name: \\"color-background-default\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(236, 187, 193)\\";
+   value: \\"rgb(252, 207, 207)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_20}\\";
-   name: \\"color_background_element_selection\\";
+   originalValue: \\"{!palette-red-20}\\";
+   name: \\"color-background-element-selection\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(206, 80, 95)\\";
+   value: \\"rgb(245, 138, 138)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_40}\\";
-   name: \\"color_background_error\\";
+   originalValue: \\"{!palette-red-40}\\";
+   name: \\"color-background-error\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(174, 33, 49)\\";
+   value: \\"rgb(214, 31, 31)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_60}\\";
-   name: \\"color_background_error_dark\\";
+   originalValue: \\"{!palette-red-60}\\";
+   name: \\"color-background-error-dark\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(194, 37, 55)\\";
+   value: \\"rgb(235, 86, 86)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_50}\\";
-   name: \\"color_background_error_light\\";
+   originalValue: \\"{!palette-red-50}\\";
+   name: \\"color-background-error-light\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(230, 230, 230)\\";
+   value: \\"rgb(174, 178, 193)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_40}\\";
-   name: \\"color_background_row_active\\";
+   originalValue: \\"{!palette-gray-40}\\";
+   name: \\"color-background-row-active\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(214, 214, 214)\\";
+   value: \\"rgb(136, 145, 170)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_50}\\";
-   name: \\"color_background_row_focus\\";
+   originalValue: \\"{!palette-gray-50}\\";
+   name: \\"color-background-row-focus\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(214, 214, 214)\\";
+   value: \\"rgb(136, 145, 170)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_50}\\";
-   name: \\"color_background_row_hover\\";
+   originalValue: \\"{!palette-gray-50}\\";
+   name: \\"color-background-row-hover\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(230, 230, 230)\\";
+   value: \\"rgb(174, 178, 193)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_40}\\";
-   name: \\"color_background_row_selected\\";
+   originalValue: \\"{!palette-gray-40}\\";
+   name: \\"color-background-row-selected\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(235, 235, 235)\\";
+   value: \\"rgb(202, 205, 216)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_30}\\";
-   name: \\"color_background_row_striped\\";
+   originalValue: \\"{!palette-gray-30}\\";
+   name: \\"color-background-row-striped\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(100, 209, 138)\\";
+   value: \\"rgb(54, 213, 118)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_50}\\";
-   name: \\"color_background_success\\";
+   originalValue: \\"{!palette-green-50}\\";
+   name: \\"color-background-success\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(80, 167, 110)\\";
+   value: \\"rgb(14, 124, 58)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_70}\\";
-   name: \\"color_background_success_dark\\";
+   originalValue: \\"{!palette-green-70}\\";
+   name: \\"color-background-success-dark\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(162, 227, 184)\\";
+   value: \\"rgb(162, 246, 195)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_30}\\";
-   name: \\"color_background_success_light\\";
+   originalValue: \\"{!palette-green-30}\\";
+   name: \\"color-background-success-light\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(251, 208, 144)\\";
+   value: \\"rgb(250, 194, 160)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_30}\\";
-   name: \\"color_background_warning\\";
+   originalValue: \\"{!palette-orange-30}\\";
+   name: \\"color-background-warning\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(199, 141, 56)\\";
+   value: \\"rgb(195, 83, 35)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_70}\\";
-   name: \\"color_background_warning_dark\\";
+   originalValue: \\"{!palette-orange-70}\\";
+   name: \\"color-background-warning-dark\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
-   value: \\"rgb(249, 177, 71)\\";
+   value: \\"rgb(250, 153, 80)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_50}\\";
-   name: \\"color_background_warning_light\\";
+   originalValue: \\"{!palette-orange-50}\\";
+   name: \\"color-background-warning-light\\";
 }
 ],
-\\"colors\\": [
+\\"data-visualizations\\": [
     {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(242, 47, 70)\\";
-   comment: \\"Twilio brand red\\";
-   originalValue: \\"{!amaranth}\\";
-   name: \\"color_brand_highlight\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(0, 20, 137)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-10\\",\\"color-data-visualization-2\\"];
+   originalValue: \\"{!palette-blue-80}\\";
+   name: \\"color-data-visualization-1\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(235, 15, 41)\\";
-   comment: \\"Twilio accessible brand red\\";
-   originalValue: \\"{!red_ribbon}\\";
-   name: \\"color_brand_highlight_dark\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(14, 124, 58)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-1\\",\\"color-data-visualization-3\\"];
+   originalValue: \\"{!palette-green-70}\\";
+   name: \\"color-data-visualization-2\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(13, 18, 43)\\";
-   comment: \\"Primary branding color\\";
-   originalValue: \\"{!haiti}\\";
-   name: \\"color_brand_primary\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(13, 58, 31)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-2\\",\\"color-data-visualization-4\\"];
+   originalValue: \\"{!palette-green-90}\\";
+   name: \\"color-data-visualization-3\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(255, 255, 255)\\";
-   comment: \\"Gray Color 1\\";
-   originalValue: \\"{!palette_gray_10}\\";
-   name: \\"color_gray_1\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(0, 140, 255)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-3\\",\\"color-data-visualization-5\\"];
+   originalValue: \\"{!palette-blue-50}\\";
+   name: \\"color-data-visualization-4\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(246, 246, 246)\\";
-   comment: \\"Gray Color 2\\";
-   originalValue: \\"{!palette_gray_20}\\";
-   name: \\"color_gray_2\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(57, 71, 98)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-4\\",\\"color-data-visualization-6\\"];
+   originalValue: \\"{!palette-gray-80}\\";
+   name: \\"color-data-visualization-5\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(235, 235, 235)\\";
-   comment: \\"Gray Color 3\\";
-   originalValue: \\"{!palette_gray_30}\\";
-   name: \\"color_gray_3\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(166, 127, 227)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-5\\",\\"color-data-visualization-7\\"];
+   originalValue: \\"{!palette-purple-40}\\";
+   name: \\"color-data-visualization-6\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(230, 230, 230)\\";
-   comment: \\"Gray Color 4\\";
-   originalValue: \\"{!palette_gray_40}\\";
-   name: \\"color_gray_4\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(109, 46, 209)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-6\\",\\"color-data-visualization-8\\"];
+   originalValue: \\"{!palette-purple-60}\\";
+   name: \\"color-data-visualization-7\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(214, 214, 214)\\";
-   comment: \\"Gray Color 5\\";
-   originalValue: \\"{!palette_gray_50}\\";
-   name: \\"color_gray_5\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(136, 145, 170)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-7\\",\\"color-data-visualization-9\\"];
+   originalValue: \\"{!palette-gray-50}\\";
+   name: \\"color-data-visualization-8\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(204, 204, 204)\\";
-   comment: \\"Gray Color 6\\";
-   originalValue: \\"{!palette_gray_60}\\";
-   name: \\"color_gray_6\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(117, 12, 12)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-8\\",\\"color-data-visualization-10\\"];
+   originalValue: \\"{!palette-red-80}\\";
+   name: \\"color-data-visualization-9\\";
 },
 {
    type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(153, 153, 153)\\";
-   comment: \\"Gray Color 7\\";
-   originalValue: \\"{!palette_gray_70}\\";
-   name: \\"color_gray_7\\";
-},
-{
-   type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(102, 102, 102)\\";
-   comment: \\"Gray Color 8\\";
-   originalValue: \\"{!palette_gray_80}\\";
-   name: \\"color_gray_8\\";
-},
-{
-   type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(68, 68, 68)\\";
-   comment: \\"Gray Color 9\\";
-   originalValue: \\"{!palette_gray_90}\\";
-   name: \\"color_gray_9\\";
-},
-{
-   type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(34, 34, 34)\\";
-   comment: \\"Gray Color 10\\";
-   originalValue: \\"{!palette_gray_100}\\";
-   name: \\"color_gray_10\\";
+   category: \\"data-visualization\\";
+   value: \\"rgb(235, 86, 86)\\";
+   comment: \\"Color used for data visualizations. Must be used in a sequence.\\";
+   uicontrol_contrast_pairing: [\\"color-background-body\\"];
+   data_visualization_contrast_pairing: [\\"color-data-visualization-9\\",\\"color-data-visualization-1\\"];
+   originalValue: \\"{!palette-red-50}\\";
+   name: \\"color-data-visualization-10\\";
 }
 ],
 \\"font-sizes\\": [
@@ -481,7 +477,7 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(242, 47, 70)\\";
    comment: \\"Twilio brand red, accessible on large text only.\\";
    originalValue: \\"{!amaranth}\\";
-   name: \\"color_text_brand_highlight\\";
+   name: \\"color-text-brand-highlight\\";
 },
 {
    type: \\"color\\";
@@ -489,7 +485,7 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(235, 15, 41)\\";
    comment: \\"Accessible Twilio brand red.\\";
    originalValue: \\"{!red_ribbon}\\";
-   name: \\"color_text_brand_highlight_dark\\";
+   name: \\"color-text-brand-highlight-dark\\";
 },
 {
    type: \\"color\\";
@@ -497,31 +493,31 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Text color used on any brand color\\";
    originalValue: \\"{!white}\\";
-   name: \\"color_text_brand_primary\\";
+   name: \\"color-text-brand-primary\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(68, 68, 68)\\";
+   value: \\"rgb(31, 48, 76)\\";
    comment: \\"Body text color\\";
-   originalValue: \\"{!palette_gray_90}\\";
-   name: \\"color_text_default\\";
+   originalValue: \\"{!palette-gray-90}\\";
+   name: \\"color-text-default\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(194, 37, 55)\\";
+   value: \\"rgb(235, 86, 86)\\";
    comment: \\"Error text for inputs and error misc\\";
-   originalValue: \\"{!palette_red_50}\\";
-   name: \\"color_text_error\\";
+   originalValue: \\"{!palette-red-50}\\";
+   name: \\"color-text-error\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(68, 68, 68)\\";
+   value: \\"rgb(31, 48, 76)\\";
    comment: \\"Default icon color.\\";
-   originalValue: \\"{!palette_gray_90}\\";
-   name: \\"color_text_icon_default\\";
+   originalValue: \\"{!palette-gray-90}\\";
+   name: \\"color-text-icon-default\\";
 },
 {
    type: \\"color\\";
@@ -529,135 +525,135 @@ exports[`generic declaration file formatter should return typescript definitions
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Inverse text color for dark backgrounds\\";
    originalValue: \\"{!white}\\";
-   name: \\"color_text_inverse\\";
+   name: \\"color-text-inverse\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(235, 235, 235)\\";
+   value: \\"rgb(202, 205, 216)\\";
    comment: \\"Weak inverse text color for dark backgrounds\\";
-   originalValue: \\"{!palette_gray_30}\\";
-   name: \\"color_text_inverse_weak\\";
+   originalValue: \\"{!palette-gray-30}\\";
+   name: \\"color-text-inverse-weak\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(68, 68, 68)\\";
+   value: \\"rgb(31, 48, 76)\\";
    comment: \\"Text color for field labels.\\";
-   originalValue: \\"{!palette_gray_90}\\";
-   name: \\"color_text_label\\";
+   originalValue: \\"{!palette-gray-90}\\";
+   name: \\"color-text-label\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(0, 112, 204)\\";
+   value: \\"rgb(0, 140, 255)\\";
    comment: \\"Link text\\";
-   originalValue: \\"{!palette_blue_50}\\";
-   name: \\"color_text_link\\";
+   originalValue: \\"{!palette-blue-50}\\";
+   name: \\"color-text-link\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(0, 89, 163)\\";
+   value: \\"rgb(4, 60, 181)\\";
    comment: \\"Active link text\\";
-   originalValue: \\"{!palette_blue_70}\\";
-   name: \\"color_text_link_active\\";
+   originalValue: \\"{!palette-blue-70}\\";
+   name: \\"color-text-link-active\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(194, 37, 55)\\";
+   value: \\"rgb(235, 86, 86)\\";
    comment: \\"Destructive link text\\";
-   originalValue: \\"{!palette_red_50}\\";
-   name: \\"color_text_link_destructive\\";
+   originalValue: \\"{!palette-red-50}\\";
+   name: \\"color-text-link-destructive\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(155, 29, 44)\\";
+   value: \\"rgb(173, 17, 17)\\";
    comment: \\"Active destructive link text\\";
-   originalValue: \\"{!palette_red_70}\\";
-   name: \\"color_text_link_destructive_active\\";
+   originalValue: \\"{!palette-red-70}\\";
+   name: \\"color-text-link-destructive-active\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(236, 187, 193)\\";
+   value: \\"rgb(252, 207, 207)\\";
    comment: \\"Disabled destructive link text\\";
-   originalValue: \\"{!palette_red_20}\\";
-   name: \\"color_text_link_destructive_disabled\\";
+   originalValue: \\"{!palette-red-20}\\";
+   name: \\"color-text-link-destructive-disabled\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(174, 33, 49)\\";
+   value: \\"rgb(214, 31, 31)\\";
    comment: \\"Focus destructive link text\\";
-   originalValue: \\"{!palette_red_60}\\";
-   name: \\"color_text_link_destructive_focus\\";
+   originalValue: \\"{!palette-red-60}\\";
+   name: \\"color-text-link-destructive-focus\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(174, 33, 49)\\";
+   value: \\"rgb(214, 31, 31)\\";
    comment: \\"Hover destructive link text\\";
-   originalValue: \\"{!palette_red_60}\\";
-   name: \\"color_text_link_destructive_hover\\";
+   originalValue: \\"{!palette-red-60}\\";
+   name: \\"color-text-link-destructive-hover\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(102, 169, 224)\\";
+   value: \\"rgb(153, 205, 255)\\";
    comment: \\"Disabled link text\\";
-   originalValue: \\"{!palette_blue_30}\\";
-   name: \\"color_text_link_disabled\\";
+   originalValue: \\"{!palette-blue-30}\\";
+   name: \\"color-text-link-disabled\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(0, 97, 192)\\";
+   value: \\"rgb(2, 99, 224)\\";
    comment: \\"Focus link text\\";
-   originalValue: \\"{!palette_blue_60}\\";
-   name: \\"color_text_link_focus\\";
+   originalValue: \\"{!palette-blue-60}\\";
+   name: \\"color-text-link-focus\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(0, 97, 192)\\";
+   value: \\"rgb(2, 99, 224)\\";
    comment: \\"Hover link text\\";
-   originalValue: \\"{!palette_blue_60}\\";
-   name: \\"color_text_link_hover\\";
+   originalValue: \\"{!palette-blue-60}\\";
+   name: \\"color-text-link-hover\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(102, 102, 102)\\";
+   value: \\"rgb(57, 71, 98)\\";
    comment: \\"Input placeholder text.\\";
-   originalValue: \\"{!palette_gray_80}\\";
-   name: \\"color_text_placeholder\\";
+   originalValue: \\"{!palette-gray-80}\\";
+   name: \\"color-text-placeholder\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(100, 209, 138)\\";
+   value: \\"rgb(54, 213, 118)\\";
    comment: \\"Text color for success text.\\";
-   originalValue: \\"{!palette_green_50}\\";
-   name: \\"color_text_success\\";
+   originalValue: \\"{!palette-green-50}\\";
+   name: \\"color-text-success\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(249, 177, 71)\\";
+   value: \\"rgb(250, 153, 80)\\";
    comment: \\"Color for texts or icons that are related to warnings on a dark background.\\";
-   originalValue: \\"{!palette_orange_50}\\";
-   name: \\"color_text_warning\\";
+   originalValue: \\"{!palette-orange-50}\\";
+   name: \\"color-text-warning\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
-   value: \\"rgb(230, 230, 230)\\";
+   value: \\"rgb(174, 178, 193)\\";
    comment: \\"Weak body text for visual hierarchy.\\";
-   originalValue: \\"{!palette_gray_40}\\";
-   name: \\"color_text_weak\\";
+   originalValue: \\"{!palette-gray-40}\\";
+   name: \\"color-text-weak\\";
 }
 ],
 \\"z-indices\\": [

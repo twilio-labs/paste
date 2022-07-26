@@ -1,7 +1,7 @@
 imports:
   - ./background-color.yml
   - ./font-size.yml
-  - ./palette-color.yml
+  - ./data-visualization.yml
   - ./spacing.yml
   - ./text-color.yml
   - ./z-index.yml

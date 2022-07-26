@@ -1,8 +1,8 @@
 global:
   type: color
-  category: color
+  category: data-visualization
 imports:
-  - ../../../global/palette-color.yml
+  - ../../../aliases/color-palette.yml
 props:
   # Data visualization colors
   color-data-visualization-1:

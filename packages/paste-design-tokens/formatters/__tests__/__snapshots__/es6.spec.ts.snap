@@ -4,60 +4,57 @@ exports[`es6Formatter should return es6 formatted tokens 1`] = `
 "export const colorBackgroundBody = \\"rgb(255, 255, 255)\\";
 export const colorBackgroundBrandHighlight = \\"rgb(242, 47, 70)\\";
 export const colorBackgroundBrandHighlightDark = \\"rgb(235, 15, 41)\\";
-export const colorBackgroundBrandHighlightDarker = \\"rgb(194, 37, 55)\\";
+export const colorBackgroundBrandHighlightDarker = \\"rgb(235, 86, 86)\\";
 export const colorBackgroundBrandPrimary = \\"rgb(13, 18, 43)\\";
-export const colorBackgroundDefault = \\"rgb(246, 246, 246)\\";
-export const colorBackgroundElementSelection = \\"rgb(236, 187, 193)\\";
-export const colorBackgroundError = \\"rgb(206, 80, 95)\\";
-export const colorBackgroundErrorDark = \\"rgb(174, 33, 49)\\";
-export const colorBackgroundErrorLight = \\"rgb(194, 37, 55)\\";
-export const colorBackgroundRowActive = \\"rgb(230, 230, 230)\\";
-export const colorBackgroundRowFocus = \\"rgb(214, 214, 214)\\";
-export const colorBackgroundRowHover = \\"rgb(214, 214, 214)\\";
-export const colorBackgroundRowSelected = \\"rgb(230, 230, 230)\\";
-export const colorBackgroundRowStriped = \\"rgb(235, 235, 235)\\";
-export const colorBackgroundSuccess = \\"rgb(100, 209, 138)\\";
-export const colorBackgroundSuccessDark = \\"rgb(80, 167, 110)\\";
-export const colorBackgroundSuccessLight = \\"rgb(162, 227, 184)\\";
-export const colorBackgroundWarning = \\"rgb(251, 208, 144)\\";
-export const colorBackgroundWarningDark = \\"rgb(199, 141, 56)\\";
-export const colorBackgroundWarningLight = \\"rgb(249, 177, 71)\\";
-export const colorBrandHighlight = \\"rgb(242, 47, 70)\\";
-export const colorBrandHighlightDark = \\"rgb(235, 15, 41)\\";
-export const colorBrandPrimary = \\"rgb(13, 18, 43)\\";
-export const colorGray1 = \\"rgb(255, 255, 255)\\";
-export const colorGray10 = \\"rgb(34, 34, 34)\\";
-export const colorGray2 = \\"rgb(246, 246, 246)\\";
-export const colorGray3 = \\"rgb(235, 235, 235)\\";
-export const colorGray4 = \\"rgb(230, 230, 230)\\";
-export const colorGray5 = \\"rgb(214, 214, 214)\\";
-export const colorGray6 = \\"rgb(204, 204, 204)\\";
-export const colorGray7 = \\"rgb(153, 153, 153)\\";
-export const colorGray8 = \\"rgb(102, 102, 102)\\";
-export const colorGray9 = \\"rgb(68, 68, 68)\\";
+export const colorBackgroundDefault = \\"rgb(225, 227, 234)\\";
+export const colorBackgroundElementSelection = \\"rgb(252, 207, 207)\\";
+export const colorBackgroundError = \\"rgb(245, 138, 138)\\";
+export const colorBackgroundErrorDark = \\"rgb(214, 31, 31)\\";
+export const colorBackgroundErrorLight = \\"rgb(235, 86, 86)\\";
+export const colorBackgroundRowActive = \\"rgb(174, 178, 193)\\";
+export const colorBackgroundRowFocus = \\"rgb(136, 145, 170)\\";
+export const colorBackgroundRowHover = \\"rgb(136, 145, 170)\\";
+export const colorBackgroundRowSelected = \\"rgb(174, 178, 193)\\";
+export const colorBackgroundRowStriped = \\"rgb(202, 205, 216)\\";
+export const colorBackgroundSuccess = \\"rgb(54, 213, 118)\\";
+export const colorBackgroundSuccessDark = \\"rgb(14, 124, 58)\\";
+export const colorBackgroundSuccessLight = \\"rgb(162, 246, 195)\\";
+export const colorBackgroundWarning = \\"rgb(250, 194, 160)\\";
+export const colorBackgroundWarningDark = \\"rgb(195, 83, 35)\\";
+export const colorBackgroundWarningLight = \\"rgb(250, 153, 80)\\";
+export const colorDataVisualization1 = \\"rgb(0, 20, 137)\\";
+export const colorDataVisualization10 = \\"rgb(235, 86, 86)\\";
+export const colorDataVisualization2 = \\"rgb(14, 124, 58)\\";
+export const colorDataVisualization3 = \\"rgb(13, 58, 31)\\";
+export const colorDataVisualization4 = \\"rgb(0, 140, 255)\\";
+export const colorDataVisualization5 = \\"rgb(57, 71, 98)\\";
+export const colorDataVisualization6 = \\"rgb(166, 127, 227)\\";
+export const colorDataVisualization7 = \\"rgb(109, 46, 209)\\";
+export const colorDataVisualization8 = \\"rgb(136, 145, 170)\\";
+export const colorDataVisualization9 = \\"rgb(117, 12, 12)\\";
 export const colorTextBrandHighlight = \\"rgb(242, 47, 70)\\";
 export const colorTextBrandHighlightDark = \\"rgb(235, 15, 41)\\";
 export const colorTextBrandPrimary = \\"rgb(255, 255, 255)\\";
-export const colorTextDefault = \\"rgb(68, 68, 68)\\";
-export const colorTextError = \\"rgb(194, 37, 55)\\";
-export const colorTextIconDefault = \\"rgb(68, 68, 68)\\";
+export const colorTextDefault = \\"rgb(31, 48, 76)\\";
+export const colorTextError = \\"rgb(235, 86, 86)\\";
+export const colorTextIconDefault = \\"rgb(31, 48, 76)\\";
 export const colorTextInverse = \\"rgb(255, 255, 255)\\";
-export const colorTextInverseWeak = \\"rgb(235, 235, 235)\\";
-export const colorTextLabel = \\"rgb(68, 68, 68)\\";
-export const colorTextLink = \\"rgb(0, 112, 204)\\";
-export const colorTextLinkActive = \\"rgb(0, 89, 163)\\";
-export const colorTextLinkDestructive = \\"rgb(194, 37, 55)\\";
-export const colorTextLinkDestructiveActive = \\"rgb(155, 29, 44)\\";
-export const colorTextLinkDestructiveDisabled = \\"rgb(236, 187, 193)\\";
-export const colorTextLinkDestructiveFocus = \\"rgb(174, 33, 49)\\";
-export const colorTextLinkDestructiveHover = \\"rgb(174, 33, 49)\\";
-export const colorTextLinkDisabled = \\"rgb(102, 169, 224)\\";
-export const colorTextLinkFocus = \\"rgb(0, 97, 192)\\";
-export const colorTextLinkHover = \\"rgb(0, 97, 192)\\";
-export const colorTextPlaceholder = \\"rgb(102, 102, 102)\\";
-export const colorTextSuccess = \\"rgb(100, 209, 138)\\";
-export const colorTextWarning = \\"rgb(249, 177, 71)\\";
-export const colorTextWeak = \\"rgb(230, 230, 230)\\";
+export const colorTextInverseWeak = \\"rgb(202, 205, 216)\\";
+export const colorTextLabel = \\"rgb(31, 48, 76)\\";
+export const colorTextLink = \\"rgb(0, 140, 255)\\";
+export const colorTextLinkActive = \\"rgb(4, 60, 181)\\";
+export const colorTextLinkDestructive = \\"rgb(235, 86, 86)\\";
+export const colorTextLinkDestructiveActive = \\"rgb(173, 17, 17)\\";
+export const colorTextLinkDestructiveDisabled = \\"rgb(252, 207, 207)\\";
+export const colorTextLinkDestructiveFocus = \\"rgb(214, 31, 31)\\";
+export const colorTextLinkDestructiveHover = \\"rgb(214, 31, 31)\\";
+export const colorTextLinkDisabled = \\"rgb(153, 205, 255)\\";
+export const colorTextLinkFocus = \\"rgb(2, 99, 224)\\";
+export const colorTextLinkHover = \\"rgb(2, 99, 224)\\";
+export const colorTextPlaceholder = \\"rgb(57, 71, 98)\\";
+export const colorTextSuccess = \\"rgb(54, 213, 118)\\";
+export const colorTextWarning = \\"rgb(250, 153, 80)\\";
+export const colorTextWeak = \\"rgb(174, 178, 193)\\";
 export const fontSize0 = \\"0.6875rem\\";
 export const fontSize1 = \\"0.75rem\\";
 export const fontSize2 = \\"0.8125rem\\";
@@ -117,20 +114,17 @@ colorBackgroundWarning,
 colorBackgroundWarningDark,
 colorBackgroundWarningLight,
 };
-export const colors = {
-colorBrandHighlight,
-colorBrandHighlightDark,
-colorBrandPrimary,
-colorGray1,
-colorGray2,
-colorGray3,
-colorGray4,
-colorGray5,
-colorGray6,
-colorGray7,
-colorGray8,
-colorGray9,
-colorGray10,
+export const dataVisualizations = {
+colorDataVisualization1,
+colorDataVisualization2,
+colorDataVisualization3,
+colorDataVisualization4,
+colorDataVisualization5,
+colorDataVisualization6,
+colorDataVisualization7,
+colorDataVisualization8,
+colorDataVisualization9,
+colorDataVisualization10,
 };
 export const fontSizes = {
 fontSize0,

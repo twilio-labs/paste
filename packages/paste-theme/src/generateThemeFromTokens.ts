@@ -1,9 +1,9 @@
 import type {
   GenericThemeShape,
-  ColorsKeys,
   BackgroundColorsKeys,
   BorderColorsKeys,
   BorderWidthsKeys,
+  dataVisualizationsKeys,
   FontSizesKeys,
   FontWeightsKeys,
   FontsKeys,
@@ -20,6 +20,7 @@ interface GenerateThemeFromTokensArgs {
   backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
   borderColors: Partial<{[key in BorderColorsKeys]: any}>;
   borderWidths: Partial<{[key in BorderWidthsKeys]: any}>;
+  dataVisualizations: Partial<{[key in dataVisualizationsKeys]: any}>;
   radii: Partial<{[key in RadiiKeys]: any}>;
   fonts: Partial<{[key in FontsKeys]: any}>;
   fontSizes: Partial<{[key in FontSizesKeys]: any}>;
@@ -31,7 +32,6 @@ interface GenerateThemeFromTokensArgs {
   spacings: Partial<{[key in SpacingsKeys]: any}>;
   textColors: Partial<{[key in TextColorsKeys]: any}>;
   zIndices: Partial<{[key in ZIndicesKeys]: any}>;
-  colors: Partial<{[key in ColorsKeys]: any}>;
 }
 
 export const generateThemeFromTokens = ({
@@ -48,23 +48,10 @@ export const generateThemeFromTokens = ({
   spacings,
   textColors,
   zIndices,
-  colors,
+  dataVisualizations,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
-
-  // Get only the dataViz color tokens from the 'colors' token bucket
-  const dataVisualization = Object.keys(colors)
-    .filter((colorToken) => {
-      return colorToken.includes('DataVisualization');
-    })
-    .reduce<Record<ColorsKeys, string>>(
-      (obj, key) => ({
-        ...obj,
-        [key]: colors[key as ColorsKeys],
-      }),
-      {} as Record<ColorsKeys, string>
-    );
 
   return {
     shadows: boxShadows,
@@ -100,6 +87,6 @@ export const generateThemeFromTokens = ({
     },
     space: spacings,
     zIndices,
-    dataVisualization,
+    dataVisualizations,
   };
 };

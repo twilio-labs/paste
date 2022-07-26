@@ -6,80 +6,80 @@ imports:
   - ../aliases/color-palette.yml
 props:
   # body text
-  color_text_default:
-    value: "{!palette_gray_90}"
+  color-text-default:
+    value: "{!palette-gray-90}"
     comment: Body text color
-  color_text_weak:
-    value: "{!palette_gray_40}"
+  color-text-weak:
+    value: "{!palette-gray-40}"
     comment: Weak body text for visual hierarchy.
-  color_text_inverse:
+  color-text-inverse:
     value: "{!white}"
     comment: Inverse text color for dark backgrounds
-  color_text_inverse_weak:
-    value: "{!palette_gray_30}"
+  color-text-inverse-weak:
+    value: "{!palette-gray-30}"
     comment: Weak inverse text color for dark backgrounds
-  color_text_brand_primary:
+  color-text-brand-primary:
     value: "{!white}"
     comment: Text color used on any brand color
-  color_text_brand_highlight:
+  color-text-brand-highlight:
     value: "{!amaranth}"
     comment: Twilio brand red, accessible on large text only.
-  color_text_brand_highlight_dark:
+  color-text-brand-highlight-dark:
     value: "{!red_ribbon}"
     comment: Accessible Twilio brand red.
 
   # links
-  color_text_link:
-    value: "{!palette_blue_50}"
+  color-text-link:
+    value: "{!palette-blue-50}"
     comment: Link text
-  color_text_link_active:
-    value: "{!palette_blue_70}"
+  color-text-link-active:
+    value: "{!palette-blue-70}"
     comment: Active link text
-  color_text_link_disabled:
-    value: "{!palette_blue_30}"
+  color-text-link-disabled:
+    value: "{!palette-blue-30}"
     comment: Disabled link text
-  color_text_link_focus:
-    value: "{!palette_blue_60}"
+  color-text-link-focus:
+    value: "{!palette-blue-60}"
     comment: Focus link text
-  color_text_link_hover:
-    value: "{!palette_blue_60}"
+  color-text-link-hover:
+    value: "{!palette-blue-60}"
     comment: Hover link text
-  color_text_link_destructive:
-    value: "{!palette_red_50}"
+  color-text-link-destructive:
+    value: "{!palette-red-50}"
     comment: Destructive link text
-  color_text_link_destructive_active:
-    value: "{!palette_red_70}"
+  color-text-link-destructive-active:
+    value: "{!palette-red-70}"
     comment: Active destructive link text
-  color_text_link_destructive_disabled:
-    value: "{!palette_red_20}"
+  color-text-link-destructive-disabled:
+    value: "{!palette-red-20}"
     comment: Disabled destructive link text
-  color_text_link_destructive_focus:
-    value: "{!palette_red_60}"
+  color-text-link-destructive-focus:
+    value: "{!palette-red-60}"
     comment: Focus destructive link text
-  color_text_link_destructive_hover:
-    value: "{!palette_red_60}"
+  color-text-link-destructive-hover:
+    value: "{!palette-red-60}"
     comment: Hover destructive link text
 
   #status
-  color_text_error:
-    value: "{!palette_red_50}"
+  color-text-error:
+    value: "{!palette-red-50}"
     comment: Error text for inputs and error misc
-  color_text_success:
-    value: "{!palette_green_50}"
+  color-text-success:
+    value: "{!palette-green-50}"
     comment: Text color for success text.
-  color_text_warning:
-    value: "{!palette_orange_50}"
+  color-text-warning:
+    value: "{!palette-orange-50}"
     comment: Color for texts or icons that are related to warnings on a dark background.
 
   #icon
-  color_text_icon_default:
-    value: "{!palette_gray_90}"
+  color-text-icon-default:
+    value: "{!palette-gray-90}"
     comment: Default icon color.
 
   #forms
-  color_text_label:
-    value: "{!palette_gray_90}"
+  color-text-label:
+    value: "{!palette-gray-90}"
     comment: Text color for field labels.
-  color_text_placeholder:
-    value: "{!palette_gray_80}"
+  color-text-placeholder:
+    value: "{!palette-gray-80}"
     comment: Input placeholder text.

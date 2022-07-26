@@ -3,7 +3,7 @@ import type {
   borderColors,
   borderWidths,
   radii,
-  colors,
+  dataVisualizations,
   fonts,
   fontSizes,
   fontWeights,
@@ -19,7 +19,7 @@ export type GenericBackgroundColors = Partial<{[key in keyof typeof backgroundCo
 export type GenericBorderColors = Partial<{[key in keyof typeof borderColors]: any}>;
 export type GenericBorderWidths = Partial<{[key in keyof typeof borderWidths]: any}>;
 export type GenericRadii = Partial<{[key in keyof typeof radii]: any}>;
-export type GenericColors = Partial<{[key in keyof typeof colors]: any}>;
+export type GenericDataVisualizations = Partial<{[key in keyof typeof dataVisualizations]: any}>;
 export type GenericFonts = Partial<{[key in keyof typeof fonts]: any}>;
 export type GenericFontSizes = Partial<{[key in keyof typeof fontSizes]: any}>;
 export type GenericFontWeights = Partial<{[key in keyof typeof fontWeights]: any}>;
@@ -35,7 +35,7 @@ export type AllGenericTokens = GenericBackgroundColors &
   GenericBorderColors &
   GenericBorderWidths &
   GenericRadii &
-  GenericColors &
+  GenericDataVisualizations &
   GenericFonts &
   GenericFontSizes &
   GenericFontWeights &
@@ -52,7 +52,7 @@ export interface GenericTokensShape {
   borderColors: GenericBorderColors;
   borderWidths: GenericBorderWidths;
   radii: GenericRadii;
-  colors: GenericColors;
+  dataVisualizations: GenericDataVisualizations;
   fonts: GenericFonts;
   fontSizes: GenericFontSizes;
   fontWeights: GenericFontWeights;

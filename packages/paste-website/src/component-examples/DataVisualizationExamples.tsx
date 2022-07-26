@@ -25,11 +25,11 @@ export const DataVizColorSwatches: React.FC = () => {
   // Adapted from the usePasteHighchartsTheme hook
   const dataVizTokenValues: TokenData[] = React.useMemo(() => {
     const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-    const tokenNames = Object.keys(context.dataVisualization) as Array<keyof ThemeShape['dataVisualization']>;
+    const tokenNames = Object.keys(context.dataVisualizations) as Array<keyof ThemeShape['dataVisualizations']>;
 
     const sortedTokenNames = tokenNames.sort((a, b) => collator.compare(a, b));
 
-    return sortedTokenNames.map((name) => ({name, value: context.dataVisualization[name]}));
+    return sortedTokenNames.map((name) => ({name, value: context.dataVisualizations[name]}));
   }, [context]);
 
   return (

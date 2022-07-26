@@ -6,76 +6,76 @@ imports:
   - ../aliases/color-palette.yml
 props:
   # base background
-  color_background_default:
-    value: "{!palette_gray_20}"
+  color-background-default:
+    value: "{!palette-gray-20}"
     comment: Some background
 
   # brand backgrounds
-  color_background_brand_primary:
+  color-background-brand-primary:
     value: "{!haiti}"
     comment: Primary brand background, accessible with black text
-  color_background_brand_highlight:
+  color-background-brand-highlight:
     value: "{!amaranth}"
     comment: Primary brand background, accessible with black text
-  color_background_brand_highlight_dark:
+  color-background-brand-highlight-dark:
     value: "{!red_ribbon}"
     comment: Dark Primary brand background, accessible with black and white text
-  color_background_brand_highlight_darker:
-    value: "{!palette_red_50}"
+  color-background-brand-highlight-darker:
+    value: "{!palette-red-50}"
     comment: Darker Primary brand background, accessible with black and white text
 
   # page body
-  color_background_body:
+  color-background-body:
     value: "{!white}"
     comment: Some background
 
   # status
-  color_background_success:
-    value: "{!palette_green_50}"
+  color-background-success:
+    value: "{!palette-green-50}"
     comment: Some background
-  color_background_success_light:
-    value: "{!palette_green_30}"
+  color-background-success-light:
+    value: "{!palette-green-30}"
     comment: Some background
-  color_background_success_dark:
-    value: "{!palette_green_70}"
+  color-background-success-dark:
+    value: "{!palette-green-70}"
     comment: Some background
-  color_background_warning:
-    value: "{!palette_orange_30}"
+  color-background-warning:
+    value: "{!palette-orange-30}"
     comment: Some background
-  color_background_warning_light:
-    value: "{!palette_orange_50}"
+  color-background-warning-light:
+    value: "{!palette-orange-50}"
     comment: Some background
-  color_background_warning_dark:
-    value: "{!palette_orange_70}"
+  color-background-warning-dark:
+    value: "{!palette-orange-70}"
     comment: Some background
-  color_background_error:
-    value: "{!palette_red_40}"
+  color-background-error:
+    value: "{!palette-red-40}"
     comment: Some background
-  color_background_error_light:
-    value: "{!palette_red_50}"
+  color-background-error-light:
+    value: "{!palette-red-50}"
     comment: Some background
-  color_background_error_dark:
-    value: "{!palette_red_60}"
+  color-background-error-dark:
+    value: "{!palette-red-60}"
     comment: Some background
 
   # row backgrounds
-  color_background_row_striped:
-    value: "{!palette_gray_30}"
+  color-background-row-striped:
+    value: "{!palette-gray-30}"
     comment: Some background
-  color_background_row_active:
-    value: "{!palette_gray_40}"
+  color-background-row-active:
+    value: "{!palette-gray-40}"
     comment: Some background
-  color_background_row_selected:
-    value: "{!palette_gray_40}"
+  color-background-row-selected:
+    value: "{!palette-gray-40}"
     comment: Some background
-  color_background_row_hover:
-    value: "{!palette_gray_50}"
+  color-background-row-hover:
+    value: "{!palette-gray-50}"
     comment: Some background
-  color_background_row_focus:
-    value: "{!palette_gray_50}"
+  color-background-row-focus:
+    value: "{!palette-gray-50}"
     comment: Some background
 
   # text selection
-  color_background_element_selection:
-    value: "{!palette_red_20}"
+  color-background-element-selection:
+    value: "{!palette-red-20}"
     comment: Some background

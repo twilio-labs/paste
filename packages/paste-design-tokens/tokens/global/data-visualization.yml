@@ -1,49 +1,10 @@
 global:
   type: color
-  category: color
+  category: data-visualization
 imports:
   - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
-  color-gray-0:
-    value: "{!palette-gray-0}"
-    comment: "Gray Color 0"
-  color-gray-10:
-    value: "{!palette-gray-10}"
-    comment: "Gray Color 1"
-  color-gray-20:
-    value: "{!palette-gray-20}"
-    comment: "Gray Color 2"
-  color-gray-30:
-    value: "{!palette-gray-30}"
-    comment: "Gray Color 3"
-  color-gray-40:
-    value: "{!palette-gray-40}"
-    comment: "Gray Color 4"
-  color-gray-50:
-    value: "{!palette-gray-50}"
-    comment: "Gray Color 5"
-  color-gray-60:
-    value: "{!palette-gray-60}"
-    comment: "Gray Color 6"
-  color-gray-70:
-    value: "{!palette-gray-70}"
-    comment: "Gray Color 7"
-  color-gray-80:
-    value: "{!palette-gray-80}"
-    comment: "Gray Color 8"
-  color-gray-90:
-    value: "{!palette-gray-90}"
-    comment: "Gray Color 9"
-  color-gray-100:
-    value: "{!palette-gray-100}"
-    comment: "Gray Color 10"
-  color-brand:
-    value: "{!palette-blue-80}"
-    comment: "Default branding color"
-  color-brand-highlight:
-    value: "{!amaranth}"
-    comment: "Twilio brand red"
   # Data visualization colors
   # 3:1 contrast ratio to color-background-body
   # 2:1 contrast ratio to neighboring colors

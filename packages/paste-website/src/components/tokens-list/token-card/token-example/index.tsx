@@ -38,6 +38,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
 
   switch (category) {
     case 'background-colors':
+    case 'data-visualizations':
       // apply a border to foreground colors that match the background color
       const boxBorder = value === backgroundColor ? borderColor : null;
 

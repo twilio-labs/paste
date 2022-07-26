@@ -27,7 +27,7 @@ const getPluralCatName = (name: string): string => {
   const pluralName = pluralCategoryMap.get(name);
   if (pluralName === undefined) {
     throw new Error(
-      "[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category doesn't have a plural equivelant, please add one"
+      `[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category (${name}) doesn't have a plural equivelant, please add one`
     );
   }
   return pluralName;

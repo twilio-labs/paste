@@ -40,10 +40,9 @@ const BoxShadowsIntro: React.FC = () => (
   </Box>
 );
 
-const ColorsIntro: React.FC = () => (
+const DataVisualizationsIntro: React.FC = () => (
   <Paragraph>
-    Color tokens are a catch-all for miscellaneous colors in Paste. Some do not have a defined usage in the system and
-    can be used in custom compositions. The data visualization colors are specifically for usage within charts.{' '}
+    Data visualization colors are for usage within charts.{' '}
     <SiteLink to="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more about
     building charts with Paste.
   </Paragraph>
@@ -88,7 +87,7 @@ export const sectionIntros: SectionIntros = {
   'background-colors': <BackgroundColorsIntro />,
   'border-colors': <BorderColorsIntro />,
   'box-shadows': <BoxShadowsIntro />,
-  colors: <ColorsIntro />,
+  'data-visualizations': <DataVisualizationsIntro />,
   'font-sizes': <FontSizesIntro />,
   'text-colors': <TextColorsIntro />,
   'z-indices': <ZIndicesIntro />,
