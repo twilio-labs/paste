@@ -81,9 +81,24 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     return <NoTokensFound onClearSearch={() => setFilterString('')} />;
   }
 
-  const backgroundColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ??
-    'rgb(255,255,255)';
+  /**
+   * These vars grab different values from the selected theme (as opposed to the global theme)
+   * to render the token examples in accordance with the selected theme.
+   */
+  const tokenExampleBackgroundColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ?? '#fff';
+  const tokenExampleInverseBackgroundColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
+    '#121C2D';
+  const tokenExampleBorderColor =
+    (tokens['border-colors'].find((token) => token.name === 'color-border')?.value as string) ?? '#8891AA';
+  const tokenExampleHighlightColor =
+    (tokens['background-colors'].find((token) => token.name === 'color-background-stronger')?.value as string) ??
+    '#E1E3EA';
+  const tokenExampleTextColor =
+    (tokens['text-colors'].find((token) => token.name === 'color-text')?.value as string) ?? '#121C2D';
+  const tokenExampleInverseTextColor =
+    (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
 
   return (
     <ContentWrapper>
@@ -112,19 +127,26 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
               </AnchoredHeading>
               {sectionIntro}
               <Box marginBottom="space160" data-cy="tokens-table-container">
-                {tokens[tokenCategory].map(({name, value, comment}) => (
-                  <TokenCard
-                    key={`token${name}`}
-                    category={tokenCategory}
-                    name={name}
-                    useCamelCase={useJavascriptNames}
-                    value={value}
-                    comment={comment}
-                    backgroundColor={backgroundColor}
-                    onCopyText={handleCopyName}
-                    isCopied={clipboard.copied && lastCopiedValue === name}
-                  />
-                ))}
+                {tokens[tokenCategory]
+                  .filter(({deprecated}) => !deprecated)
+                  .map(({name, value, comment}) => (
+                    <TokenCard
+                      key={`token${name}`}
+                      category={tokenCategory}
+                      name={name}
+                      value={value}
+                      comment={comment}
+                      exampleBackgroundColor={tokenExampleBackgroundColor}
+                      exampleBackgroundColorInverse={tokenExampleInverseBackgroundColor}
+                      exampleTextColor={tokenExampleTextColor}
+                      exampleTextColorInverse={tokenExampleInverseTextColor}
+                      exampleBorderColor={tokenExampleBorderColor}
+                      exampleHighlightColor={tokenExampleHighlightColor}
+                      useCamelCase={useJavascriptNames}
+                      onCopyText={handleCopyName}
+                      isCopied={clipboard.copied && lastCopiedValue === name}
+                    />
+                  ))}
               </Box>
             </React.Fragment>
           );

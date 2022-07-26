@@ -4,7 +4,7 @@ import type {BoxProps} from '@twilio-paste/box';
 
 type BoxExampleProps = Pick<
   BoxProps,
-  'backgroundColor' | 'borderColor' | 'boxShadow' | 'borderRadius' | 'size' | 'height'
+  'borderColor' | 'boxShadow' | 'borderRadius' | 'size' | 'height' | 'backgroundColor'
 >;
 
 export const BoxExample: React.FC<BoxExampleProps> = ({
