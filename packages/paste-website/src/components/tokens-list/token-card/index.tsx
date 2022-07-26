@@ -18,8 +18,8 @@ const TokenCardContent = styled.dl(
     gridTemplateColumns: '1fr',
     gridTemplateRows: '1fr',
     margin: 'space0',
-    paddingX: ['space50', 'space70'],
-    paddingY: ['space50', 'space60'],
+    paddingX: ['space50', 'space70', 'space50', 'space70'],
+    paddingY: ['space50', 'space60', 'space50', 'space60'],
   })
 );
 
@@ -33,14 +33,14 @@ const TokenCardName = styled.dt(
 
 const TokenCardValue = styled.dd(
   css({
-    gridRow: [3, '1/3'],
-    gridColumn: [1, '2/2'],
-    display: ['block', 'flex'],
+    gridRow: [3, '1/3', 3, '1/3'],
+    gridColumn: [1, '2/2', 1, '2/2'],
+    display: ['block', 'flex', 'block', 'flex'],
     margin: 'space0',
-    marginTop: ['space40', 'space0'],
-    marginLeft: ['space0', 'space110'],
+    marginTop: ['space40', 'space0', 'space40', 'space0'],
+    marginLeft: ['space0', 'space110', 'space0', 'space110'],
     verticalAlign: 'center',
-    textAlign: ['left', 'right'],
+    textAlign: ['left', 'right', 'left', 'right'],
   })
 );
 
@@ -173,17 +173,25 @@ export const TokenCard: React.FC<{
               display="flex"
               flexDirection="column"
               justifyContent="center"
-              marginTop={['space30', 'space0']}
+              marginTop={['space30', 'space0', 'space30', 'space0']}
               marginBottom="space0"
               paddingLeft="space0"
               flexShrink={0}
               listStyleType="none"
-              maxWidth="190px"
+              maxWidth="size20"
             >
-              <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
+              <Text
+                as="li"
+                fontSize={['fontSize20', 'fontSize30', 'fontSize20', 'fontSize30']}
+                lineHeight={['lineHeight20', 'lineHeight30', 'lineHeight20', 'lineHeight30']}
+              >
                 {value}
               </Text>
-              <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
+              <Text
+                as="li"
+                fontSize={['fontSize20', 'fontSize30', 'fontSize20', 'fontSize30']}
+                lineHeight={['lineHeight20', 'lineHeight30', 'lineHeight20', 'lineHeight30']}
+              >
                 {altValue}
               </Text>
             </Box>
