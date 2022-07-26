@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {StaticImage} from 'gatsby-plugin-image';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
@@ -14,7 +15,14 @@ interface NoTokensFoundProps {
 export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => (
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
-      <Box as="img" src="/images/no-tokens-found.png" alt="" size="size20" />
+      <Box flexShrink={0} size="size20">
+        <StaticImage
+          src="../../assets/images/tokens/no-tokens-found.png"
+          alt=""
+          placeholder="blurred"
+          layout="fullWidth"
+        />
+      </Box>
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">
           Oh no! We couldn&apos;t find any matches
