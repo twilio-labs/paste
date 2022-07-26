@@ -1,11 +1,13 @@
 export const basicInboundMessage = `
 const BasicMessage = () => {
   return (
-    <ChatMessage variant='inbound'>
-      <ChatBubble>
-        Ahoy!
-      </ChatBubble>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='inbound'>
+        <ChatBubble>
+          Ahoy!
+        </ChatBubble>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -15,11 +17,13 @@ render(
 export const basicOutboundMessage = `
 const BasicMessage = () => {
   return (
-    <ChatMessage variant='outbound'>
-      <ChatBubble>
-        Howdy!
-      </ChatBubble>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='outbound'>
+        <ChatBubble>
+          Howdy!
+        </ChatBubble>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -29,18 +33,20 @@ render(
 export const inboundMessageMeta = `
 const MessageWithMeta = () => {
   return (
-    <ChatMessage variant='inbound'>
-      <ChatBubble>
-        Hello, what can I help you with?
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
-        <ChatMessageMetaItem>
-          <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki
-        </ChatMessageMetaItem>
-        <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='inbound'>
+        <ChatBubble>
+          Hello, what can I help you with?
+        </ChatBubble>
+        <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
+          <ChatMessageMetaItem>
+            <Avatar name="Gibby Radki" size="sizeIcon20" />
+            Gibby Radki
+          </ChatMessageMetaItem>
+          <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -50,16 +56,18 @@ render(
 export const outboundMessageMeta = `
 const MessageWithMeta = () => {
   return (
-    <ChatMessage variant='outbound'>
-      <ChatBubble>
-        Will this presentation be recorded?
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by you at 4:27 PM">
-        <ChatMessageMetaItem>
-          4:27 PM
-        </ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='outbound'>
+        <ChatBubble>
+          Will this presentation be recorded?
+        </ChatBubble>
+        <ChatMessageMeta aria-label="said by you at 4:27 PM">
+          <ChatMessageMetaItem>
+            4:27 PM
+          </ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -69,14 +77,16 @@ render(
 export const inboundMessageAttachment = `
 const MessageWithAttachment = () => {
   return (
-    <ChatMessage variant='inbound'>
-      <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
-          <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ChatBubble>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='inbound'>
+        <ChatBubble>
+          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
+            <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
+          </ChatAttachment>
+        </ChatBubble>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -86,14 +96,16 @@ render(
 export const outboundMessageAttachment = `
 const MessageWithAttachment = () => {
   return (
-    <ChatMessage variant='outbound'>
-      <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ChatBubble>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='outbound'>
+        <ChatBubble>
+          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
+            <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+          </ChatAttachment>
+        </ChatBubble>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -105,24 +117,26 @@ render(
 export const inboundComplexMessage = `
 const ComplexMessage = () => {
   return (
-    <ChatMessage variant='inbound'>
-      <ChatBubble>
-        I have a copy of the receipt, can you print it?
-      </ChatBubble>
-      <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
-          <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ChatBubble>
-       <ChatMessageMeta aria-label="said by Gibby Radki at 11:27 AM">
-        <ChatMessageMetaItem>
-          <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki
-        </ChatMessageMetaItem>
-        <ChatMessageMetaItem>11:27 AM</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='inbound'>
+        <ChatBubble>
+          I have a copy of the receipt, can you print it?
+        </ChatBubble>
+        <ChatBubble>
+          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
+            <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
+          </ChatAttachment>
+        </ChatBubble>
+        <ChatMessageMeta aria-label="said by Gibby Radki at 11:27 AM">
+          <ChatMessageMetaItem>
+            <Avatar name="Gibby Radki" size="sizeIcon20" />
+            Gibby Radki
+          </ChatMessageMetaItem>
+          <ChatMessageMetaItem>11:27 AM</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -132,23 +146,25 @@ render(
 export const outboundComplexMessage = `
 const ComplexMessage = () => {
   return (
-    <ChatMessage variant='outbound'>
-      <ChatBubble>
-       Here is the document:
-      </ChatBubble>
-      <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by you at 11:27 AM">
-        <ChatMessageMetaItem>11:27 AM</ChatMessageMetaItem>
-      </ChatMessageMeta>
-      <ChatMessageMeta aria-label="(read)">
-        <ChatMessageMetaItem>Read</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
+    <ChatLog>
+      <ChatMessage variant='outbound'>
+        <ChatBubble>
+        Here is the document:
+        </ChatBubble>
+        <ChatBubble>
+          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
+            <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+          </ChatAttachment>
+        </ChatBubble>
+        <ChatMessageMeta aria-label="said by you at 11:27 AM">
+          <ChatMessageMetaItem>11:27 AM</ChatMessageMetaItem>
+        </ChatMessageMeta>
+        <ChatMessageMeta aria-label="(read)">
+          <ChatMessageMetaItem>Read</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    </ChatLog>
   );
 };
 
@@ -159,9 +175,11 @@ render(
 export const basicChatEvent = `
 const BasicChatEvent = () => {
   return (
-    <ChatEvent>
-      <strong>Gibby Radki</strong> has joined the chat・11:56 AM
-    </ChatEvent>
+    <ChatLog>
+      <ChatEvent>
+        <strong>Gibby Radki</strong> has joined the chat・11:56 AM
+      </ChatEvent>
+    </ChatLog>
   );
 };
 
@@ -172,12 +190,14 @@ render(
 export const basicChatBookend = `
 const ChatStartedBookend = () => {
   return (
-    <ChatBookend>
-      <ChatBookendItem>Today</ChatBookendItem>
-      <ChatBookendItem>
-        <strong>Chat Started</strong>・3:34pm
-      </ChatBookendItem>
-    </ChatBookend>
+    <ChatLog>
+      <ChatBookend>
+        <ChatBookendItem>Today</ChatBookendItem>
+        <ChatBookendItem>
+          <strong>Chat Started</strong>・3:34pm
+        </ChatBookendItem>
+      </ChatBookend>
+    </ChatLog>
   );
 };
 

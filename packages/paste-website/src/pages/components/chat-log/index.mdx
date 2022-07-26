@@ -130,13 +130,13 @@ A basic message is simply text sent from a chat participant and is built with th
 
 #### Inbound
 
-<LivePreview scope={{ChatMessage, ChatBubble}} language="jsx" noInline>
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
   {basicInboundMessage}
 </LivePreview>
 
 #### Outbound
 
-<LivePreview scope={{ChatMessage, ChatBubble}} language="jsx" noInline>
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
   {basicOutboundMessage}
 </LivePreview>
 
@@ -148,13 +148,17 @@ ChatMessageMeta should be a child of ChatMessage so that the text and meta infor
 
 #### Inbound
 
-<LivePreview scope={{ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}} language="jsx" noInline>
+<LivePreview
+  scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}}
+  language="jsx"
+  noInline
+>
   {inboundMessageMeta}
 </LivePreview>
 
 #### Outbound
 
-<LivePreview scope={{ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem}} language="jsx" noInline>
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem}} language="jsx" noInline>
   {outboundMessageMeta}
 </LivePreview>
 
@@ -165,7 +169,15 @@ A message can include an attachment. If sent with additional text, the attachmen
 #### Inbound
 
 <LivePreview
-  scope={{ChatMessage, ChatBubble, ChatAttachment, ChatAttachmentDescription, ChatAttachmentLink, DownloadIcon}}
+  scope={{
+    ChatLog,
+    ChatMessage,
+    ChatBubble,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    DownloadIcon,
+  }}
   language="jsx"
   noInline
 >
@@ -175,7 +187,15 @@ A message can include an attachment. If sent with additional text, the attachmen
 #### Outbound
 
 <LivePreview
-  scope={{ChatMessage, ChatBubble, ChatAttachment, ChatAttachmentDescription, ChatAttachmentLink, DownloadIcon}}
+  scope={{
+    ChatLog,
+    ChatMessage,
+    ChatBubble,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    DownloadIcon,
+  }}
   language="jsx"
   noInline
 >
@@ -190,6 +210,7 @@ ChatMessages can contain multiple ChatBubbles and ChatMessageMetas.
 
 <LivePreview
   scope={{
+    ChatLog,
     ChatAttachment,
     ChatAttachmentDescription,
     ChatAttachmentLink,
@@ -210,6 +231,7 @@ ChatMessages can contain multiple ChatBubbles and ChatMessageMetas.
 
 <LivePreview
   scope={{
+    ChatLog,
     ChatAttachment,
     ChatAttachmentDescription,
     ChatAttachmentLink,
@@ -229,7 +251,7 @@ ChatMessages can contain multiple ChatBubbles and ChatMessageMetas.
 
 Chat Events are for things that can happen during the chat, like someone joining or the chat transferring to a different agent.
 
-<LivePreview scope={{ChatEvent}} language="jsx" noInline>
+<LivePreview scope={{ChatLog, ChatEvent}} language="jsx" noInline>
   {basicChatEvent}
 </LivePreview>
 
@@ -237,7 +259,7 @@ Chat Events are for things that can happen during the chat, like someone joining
 
 Chat Bookends are for when the chat starts, ends, and the day when the chat spans multiple days.
 
-<LivePreview scope={{ChatBookend, ChatBookendItem}} language="jsx" noInline>
+<LivePreview scope={{ChatLog, ChatBookend, ChatBookendItem}} language="jsx" noInline>
   {basicChatBookend}
 </LivePreview>
 
