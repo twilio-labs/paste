@@ -36,8 +36,8 @@ export const TokensList: React.FC = () => {
   // Handles storing the currently viewable list of tokens (the above + filters)
   const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(DefaultThemeTokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(DefaultThemeTokens.tokens));
-  const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
   const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
+  const [useJavascriptNames, setUseJavascriptNames] = React.useState(selectedFormat === 'javascript');
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
   const clipboard = useClipboard({copiedTimeout: 2000});
 

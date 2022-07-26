@@ -33,6 +33,14 @@ describe('Token list filter format control and theme control', function () {
     cy.visit('/tokens/list');
   });
 
+  it('controls format of token name (default = css)', () => {
+    const tokenNode = cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]');
+    cy.get('[data-cy="format-control"]').should('have.value', 'css');
+    cy.wait(300);
+    tokenNode.contains(/^[$]/);
+    tokenNode.contains(/[^A-Z]/);
+  });
+
   it('controls format of token name (Javascript)', () => {
     const tokenNode = cy.get('[data-cy="tokens-table-container"] li:first dt [data-paste-element="TEXT"]');
     cy.get('[data-cy="format-control"]').select('javascript').should('have.value', 'javascript');
