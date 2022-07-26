@@ -24,7 +24,7 @@ const sentenceCase = (catName: string): string => {
 };
 
 const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" {...props} />;
+const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" width="100%" {...props} />;
 
 export const TokensList: React.FC = () => {
   const [filterString, setFilterString] = React.useState('');
@@ -74,7 +74,7 @@ export const TokensList: React.FC = () => {
     const value = e.currentTarget.value;
     SimpleStorage.set('formatControl', value);
     setSelectedFormat(value);
-    setUseJavascriptNames(selectedFormat === 'javascript');
+    setUseJavascriptNames(value === 'javascript');
   };
 
   /**
