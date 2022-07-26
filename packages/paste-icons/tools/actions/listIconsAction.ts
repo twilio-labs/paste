@@ -6,17 +6,21 @@ import {readdirAsync, removeTsxExtension, maybeHandleError} from '../utils';
 import {jsonTemplate} from '../templates/jsonTemplate';
 import {buildListTemplate} from '../templates/buildListTemplate';
 
-export async function listIconsAction(): Promise<void> {
+export async function getIconNames(): Promise<any> {
   let destinationFiles;
   try {
     destinationFiles = await readdirAsync(REACT_PATH);
     destinationFiles = destinationFiles
       .filter((fileName) => !BLOCKLIST_FILES.includes(fileName))
       .map(removeTsxExtension);
+    return destinationFiles;
   } catch (error) {
     maybeHandleError('Error occured while generating icon list!', error);
   }
+}
 
+export async function listIconsAction(): Promise<void> {
+  const destinationFiles = await getIconNames();
   // Write the icons list to JSON
   writeToFile(path.join(__dirname, './../../json/icons.json'), jsonTemplate(destinationFiles), {
     errorMessage: `Couldn't update raw JSON file!`,
