@@ -4,7 +4,12 @@ describe('Box primitives documentation page', () => {
   });
 
   it('should render the box primitives page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Box');
+    cy.pageHeaderShouldBeVisible({
+      headerText: 'Box',
+      shouldHaveGithubLink: true,
+      shouldHaveStorybook: true,
+      shouldHaveOpenGraph: true,
+    });
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();

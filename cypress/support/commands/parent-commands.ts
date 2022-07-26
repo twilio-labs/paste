@@ -11,9 +11,15 @@ import {DEFAULT_CHECK_PARAMS, DEFAULT_OPEN_PARAMS, eyesAreEnabled, prepareForEye
 
 Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content-area'));
 
-Cypress.Commands.add('pageHeaderShouldBeVisible', (headerText) => {
-  cy.contains('h1', headerText).should('be.visible');
-});
+Cypress.Commands.add(
+  'pageHeaderShouldBeVisible',
+  ({headerText, shouldHaveGithubLink, shouldHaveStorybook, shouldHaveOpenGraph}) => {
+    cy.contains('h1', headerText).should('be.visible');
+    shouldHaveGithubLink && cy.contains('Github').should('be.visible');
+    shouldHaveStorybook && cy.contains('Storybook').should('be.visible');
+    shouldHaveOpenGraph && cy.get('meta[property="og:image"]').should('exist');
+  }
+);
 
 Cypress.Commands.add('overviewTableRendersCorrectly', () => {
   cy.get('table').first().as('componentsTable').should('be.visible');
@@ -52,9 +58,6 @@ Cypress.Commands.add('checkInPageNavigationLinks', () => {
     });
   });
 });
-
-// @TODO Check ComponentHeader <--- waiting for changes to this component to be merged.
-// Cypress.Commands.add('checkComponentHeader', () => {});
 
 Cypress.Commands.add('checkPageAside', () => {
   cy.getDocsPageContentArea().getInFixedContainer('[data-cy="page-aside"]').as('pageAside');

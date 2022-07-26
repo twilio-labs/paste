@@ -27,7 +27,7 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+<GenericHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
 
 <P variant="lead">{props.pageContext.frontmatter.description}</P>
 

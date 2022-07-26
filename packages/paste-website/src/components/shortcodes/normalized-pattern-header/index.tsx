@@ -4,8 +4,8 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
-import {ComponentHeader} from '../component-header';
-import type {ComponentHeaderProps} from '../component-header';
+import {GenericHeader} from '../generic-header';
+import type {GenericHeaderProps} from '../generic-header';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
@@ -26,11 +26,11 @@ const PackageLabel: React.FC = ({children}) => {
   );
 };
 
-interface NormalizePatternHeaderProps extends ComponentHeaderProps {
+interface NormalizedPatternHeaderProps extends GenericHeaderProps {
   data: GraphqlData;
 }
 
-const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ...props}) => {
+const NormalizedPatternHeader: React.FC<NormalizedPatternHeaderProps> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
   const {
     name,
@@ -44,7 +44,7 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
 
   return (
     <>
-      <ComponentHeader
+      <GenericHeader
         name={name}
         description={description}
         categoryRoute={SidebarCategoryRoutes.PATTERNS}
@@ -71,4 +71,4 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
   );
 };
 
-export {NormalizePatternHeader};
+export {NormalizedPatternHeader};
