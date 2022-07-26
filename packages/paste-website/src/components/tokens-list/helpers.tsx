@@ -16,7 +16,7 @@ export const trackTokenFilterString = debounce((filter: string): void => {
 function sanitizeForSearch(filterString: string): string {
   // Remove space and `-` characters
   // Lowercases
-  return filterString.replace(/[-\s]+/g, '').toLowerCase();
+  return filterString.replace(/[\s-]+/g, '').toLowerCase();
 }
 
 export const filterTokenList = (filterString: string, tokens: Tokens): Partial<Tokens> | null => {
