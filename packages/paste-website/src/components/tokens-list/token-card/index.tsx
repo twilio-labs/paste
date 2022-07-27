@@ -178,7 +178,7 @@ export const TokenCard: React.FC<{
               paddingLeft="space0"
               flexShrink={0}
               listStyleType="none"
-              maxWidth="size20"
+              maxWidth={['none', 'size20', 'none', 'size20']}
             >
               <Text
                 as="li"
