@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icons util functions tools/actions/listIconsAction util gets the icon names 1`] = `
+exports[`icons util functions tools/actions/listIconsAction util gets all the icon names of non blocked icons 1`] = `
 Array [
   "AgentIcon",
   "ArrowBackIcon",
