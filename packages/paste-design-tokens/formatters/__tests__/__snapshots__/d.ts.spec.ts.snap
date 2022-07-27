@@ -114,7 +114,7 @@ export declare const backgroundColors: {
   colorBackgroundWarningDark: \\"rgb(195, 83, 35)\\";
   colorBackgroundWarningLight: \\"rgb(250, 153, 80)\\";
 };
-export declare const dataVisualizations: {
+export declare const dataVisualization: {
   colorDataVisualization1: \\"rgb(0, 20, 137)\\";
   colorDataVisualization2: \\"rgb(14, 124, 58)\\";
   colorDataVisualization3: \\"rgb(13, 58, 31)\\";

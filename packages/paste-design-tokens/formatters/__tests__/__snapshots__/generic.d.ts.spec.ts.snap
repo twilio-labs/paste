@@ -172,7 +172,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"color-background-warning-light\\";
 }
 ],
-\\"data-visualizations\\": [
+\\"data-visualization\\": [
     {
    type: \\"color\\";
    category: \\"data-visualization\\";

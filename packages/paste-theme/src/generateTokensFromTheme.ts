@@ -16,7 +16,7 @@ interface GenerateTokensFromTheme {
   space: GenericThemeShape['space'];
   textColors: GenericThemeShape['textColors'];
   zIndices: GenericThemeShape['zIndices'];
-  dataVisualizations: GenericThemeShape['dataVisualizations'];
+  dataVisualization: GenericThemeShape['dataVisualization'];
 }
 
 export const generateTokensFromTheme = ({
@@ -33,7 +33,7 @@ export const generateTokensFromTheme = ({
   space,
   textColors,
   zIndices,
-  dataVisualizations,
+  dataVisualization,
 }: GenerateTokensFromTheme): Partial<GenericTokensShape> => {
   return {
     boxShadows: shadows,
@@ -49,6 +49,6 @@ export const generateTokensFromTheme = ({
     sizings: sizes,
     spacings: space,
     zIndices,
-    dataVisualizations,
+    dataVisualization,
   };
 };

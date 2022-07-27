@@ -12,13 +12,13 @@ import type {
   spacings,
   textColors,
   zIndices,
-  dataVisualizations,
+  dataVisualization,
 } from '@twilio-paste/design-tokens';
 
 export type BackgroundColorsKeys = keyof typeof backgroundColors;
 export type BorderColorsKeys = keyof typeof borderColors;
 export type BorderWidthsKeys = keyof typeof borderWidths;
-export type dataVisualizationsKeys = keyof typeof dataVisualizations;
+export type DataVisualizationKeys = keyof typeof dataVisualization;
 export type FontSizesKeys = keyof typeof fontSizes;
 export type FontWeightsKeys = keyof typeof fontWeights;
 export type FontsKeys = keyof typeof fonts;
@@ -50,9 +50,9 @@ export interface GenericThemeShape {
   breakpoints: Partial<{
     [key: string]: any;
   }>;
-  dataVisualizations: Partial<
+  dataVisualization: Partial<
     {
-      [key in dataVisualizationsKeys]: any;
+      [key in DataVisualizationKeys]: any;
     }
   >;
   fontSizes: Partial<

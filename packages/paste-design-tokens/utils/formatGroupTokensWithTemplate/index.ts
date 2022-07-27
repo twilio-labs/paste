@@ -12,7 +12,7 @@ const pluralCategoryMap = new Map(
     'border-style': 'border-styles',
     'box-shadow': 'box-shadows',
     'drop-shadow': 'drop-shadows',
-    'data-visualization': 'data-visualizations',
+    'data-visualization': 'data-visualization',
     color: 'colors',
     font: 'fonts',
     'font-family': 'font-families',

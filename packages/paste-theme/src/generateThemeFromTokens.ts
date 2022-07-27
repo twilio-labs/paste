@@ -3,7 +3,7 @@ import type {
   BackgroundColorsKeys,
   BorderColorsKeys,
   BorderWidthsKeys,
-  dataVisualizationsKeys,
+  DataVisualizationKeys,
   FontSizesKeys,
   FontWeightsKeys,
   FontsKeys,
@@ -20,7 +20,7 @@ interface GenerateThemeFromTokensArgs {
   backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
   borderColors: Partial<{[key in BorderColorsKeys]: any}>;
   borderWidths: Partial<{[key in BorderWidthsKeys]: any}>;
-  dataVisualizations: Partial<{[key in dataVisualizationsKeys]: any}>;
+  dataVisualization: Partial<{[key in DataVisualizationKeys]: any}>;
   radii: Partial<{[key in RadiiKeys]: any}>;
   fonts: Partial<{[key in FontsKeys]: any}>;
   fontSizes: Partial<{[key in FontSizesKeys]: any}>;
@@ -48,7 +48,7 @@ export const generateThemeFromTokens = ({
   spacings,
   textColors,
   zIndices,
-  dataVisualizations,
+  dataVisualization,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
@@ -87,6 +87,6 @@ export const generateThemeFromTokens = ({
     },
     space: spacings,
     zIndices,
-    dataVisualizations,
+    dataVisualization,
   };
 };

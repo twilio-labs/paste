@@ -114,7 +114,7 @@ colorBackgroundWarning,
 colorBackgroundWarningDark,
 colorBackgroundWarningLight,
 };
-export const dataVisualizations = {
+export const dataVisualization = {
 colorDataVisualization1,
 colorDataVisualization2,
 colorDataVisualization3,

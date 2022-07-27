@@ -16,7 +16,7 @@ Object {
     "1px",
     "1px",
   ],
-  "dataVisualizations": Object {
+  "dataVisualization": Object {
     "colorDataVisualization1": "red",
     "colorDataVisualization2": "blue",
     "colorDataVisualization3": "green",

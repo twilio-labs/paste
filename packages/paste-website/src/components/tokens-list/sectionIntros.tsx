@@ -87,7 +87,7 @@ export const sectionIntros: SectionIntros = {
   'background-colors': <BackgroundColorsIntro />,
   'border-colors': <BorderColorsIntro />,
   'box-shadows': <BoxShadowsIntro />,
-  'data-visualizations': <DataVisualizationsIntro />,
+  'data-visualization': <DataVisualizationsIntro />,
   'font-sizes': <FontSizesIntro />,
   'text-colors': <TextColorsIntro />,
   'z-indices': <ZIndicesIntro />,
