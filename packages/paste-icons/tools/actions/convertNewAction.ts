@@ -16,7 +16,11 @@ import {reactIconTemplate} from '../templates/reactIconTemplate';
 import {writeToFile} from '../../../../tools/utils/writeToFile';
 
 // Converts raw svg to react component
-function performFileConversion(fileName: string, outputPath: string, options: Record<string, unknown>): void {
+export async function performFileConversion(
+  fileName: string,
+  outputPath: string,
+  options: Record<string, unknown>
+): Promise<void> {
   // eslint-disable-next-line no-console
   console.log(`Converting ${fileName}.`);
   // Read the SVG file
@@ -37,25 +41,32 @@ function performFileConversion(fileName: string, outputPath: string, options: Re
   });
 }
 
+export function normalizeSourceFiles(sourceFiles: string[]): string[] {
+  // Normalize file names so we can run a diff
+  return (
+    sourceFiles
+      // If it isn't in the source files list, it won't generate
+      .filter((fileName) => !BLOCKLIST_FILES.includes(fileName))
+      .map(normalizeFileName)
+  );
+}
+
 export async function convertNewAction(): Promise<void> {
   const sourceFiles = await readdirAsync(SVG_PATH);
   const destinationFiles = await readdirAsync(REACT_PATH);
 
   // Normalize file names so we can run a diff
-  const normalizedSourceFiles = sourceFiles
-    // If it isn't in the source files list, it won't generate
-    .filter((fileName) => !BLOCKLIST_FILES.includes(fileName))
-    .map(normalizeFileName);
+  const normalizedSourceFiles = normalizeSourceFiles(sourceFiles);
   const normalizedDestinationFiles = destinationFiles.map(normalizeFileName);
 
   // Run the diff to get a list of files we need to convert to react components
   const newReactSvgs = difference(normalizedSourceFiles, normalizedDestinationFiles);
 
   // Generate a component for each new SVG in source
-  newReactSvgs.forEach((normalizedFileName) => {
+  newReactSvgs.forEach(async (normalizedFileName) => {
     // Since we normalized the filename, we need to get the original filename again.
     const fileName = sourceFiles[normalizedSourceFiles.indexOf(normalizedFileName)];
-    performFileConversion(fileName, getReactOutputPath(fileName), {
+    await performFileConversion(fileName, getReactOutputPath(fileName), {
       useHooks: false,
       template: reactIconTemplate,
     });
