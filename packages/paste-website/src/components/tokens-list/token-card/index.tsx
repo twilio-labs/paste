@@ -6,28 +6,10 @@ import {Button} from '@twilio-paste/button';
 import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-import {remToPx} from '@twilio-paste/theme';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {Properties} from 'csstype';
-import {rgbToHex} from '../../../utils/rgbToHex';
 import {TokenExample} from './token-example';
 import type {Token} from '../types';
-
-const getTokenAltValue = ({category, value}: {category: string; value: Token['value']}): string | null => {
-  switch (category) {
-    case 'background-colors':
-    case 'border-colors':
-    case 'text-colors':
-      return typeof value === 'string' ? rgbToHex(value) : null;
-    case 'font-sizes':
-    case 'line-heights':
-    case 'sizings':
-    case 'spacings':
-      return remToPx(value, 'string') as string;
-    default:
-      return null;
-  }
-};
 
 const TokenCardContent = styled.dl(
   css({
@@ -73,6 +55,7 @@ export const TokenCard: React.FC<{
   category: Token['category'];
   name: Token['name'];
   value: Token['value'];
+  altValue: Token['altValue'];
   exampleBackgroundColor?: Properties['backgroundColor'];
   exampleBackgroundColorInverse?: Properties['backgroundColor'];
   exampleBorderColor?: Properties['borderColor'];
@@ -88,6 +71,7 @@ export const TokenCard: React.FC<{
     category,
     name,
     value,
+    altValue,
     comment,
     exampleBackgroundColor,
     exampleBackgroundColorInverse,
@@ -194,12 +178,13 @@ export const TokenCard: React.FC<{
               paddingLeft="space0"
               flexShrink={0}
               listStyleType="none"
+              maxWidth="190px"
             >
               <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
                 {value}
               </Text>
               <Text as="li" fontSize={['fontSize20', 'fontSize30']} lineHeight={['lineHeight20', 'lineHeight30']}>
-                {getTokenAltValue({category, value})}
+                {altValue}
               </Text>
             </Box>
           </TokenCardValue>

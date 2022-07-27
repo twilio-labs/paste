@@ -44,7 +44,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
   const exampleTextColorInverse = theme.textColors.colorTextInverse;
   const exampleHighlightColor = theme.backgroundColors.colorBackgroundStrong;
 
-  const {comment} =
+  const {comment, altValue} =
     categoryTokens.find((token) => {
       return token.name === name;
     }) || {};
@@ -81,6 +81,7 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         category={category}
         name={name}
         value={themeTokenValue}
+        altValue={altValue}
         comment={comment}
         exampleBackgroundColor={exampleBackgroundColor}
         exampleBackgroundColorInverse={exampleBackgroundColorInverse}

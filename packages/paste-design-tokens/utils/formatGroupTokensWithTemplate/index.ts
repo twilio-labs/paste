@@ -47,13 +47,14 @@ const getPluralCatName = (name: string): string => {
 export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
-  categoryTemplate: (cat: string, props: DesignToken[]) => string
+  categoryTemplate: (cat: string, props: DesignToken[]) => string,
+  additionalFilterFn?: (key: DesignToken[]) => any[]
 ): string => {
   const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
   return categories
     .map((cat: string): string | null => {
-      const catProps = tokens
+      let catProps = tokens
         .get('props')
         .sort((a, b) => {
           if (cat === 'font-weight') {
@@ -63,6 +64,12 @@ export const formatGroupTokensWithTemplate = (
         })
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
+
+      // Run a conditional filter function against the tokens
+      // Used to remove the deprecated tokens from the website `generic` token file
+      if (additionalFilterFn != null) {
+        catProps = additionalFilterFn(catProps);
+      }
 
       if (typeof cat === 'string') {
         return categoryTemplate(getPluralCatName(cat), catProps);

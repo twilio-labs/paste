@@ -8,7 +8,7 @@ describe('TokenCard', () => {
   const testTokenNameCamelCase = 'colorBackground';
   const testTokenCategory = 'background-colors';
   const testTokenValue = 'rgb(244, 244, 246)';
-  const testTokenHexValue = '#F4F4F6';
+  const testTokenAltValue = '#F4F4F6';
   const testTokenComment = 'Background color used for containers.';
   const testExampleBackground = '#ffffff';
   const testExampleBackgroundInverse = '#121C2D';
@@ -22,6 +22,7 @@ describe('TokenCard', () => {
         name={testTokenName}
         category={testTokenCategory}
         value={testTokenValue}
+        altValue={testTokenAltValue}
         comment={testTokenComment}
         exampleBackgroundColor={testExampleBackground}
         exampleBackgroundColorInverse={testExampleBackgroundInverse}
@@ -50,7 +51,7 @@ describe('TokenCard', () => {
   it('should render the proper hexidecimal alt value for color tokens', () => {
     render(<BaseTokenCardComponent />);
 
-    expect(screen.getByText(testTokenHexValue)).toBeDefined();
+    expect(screen.getByText(testTokenAltValue)).toBeDefined();
   });
 
   it('should render the proper px alt value for size related token', () => {
@@ -60,6 +61,7 @@ describe('TokenCard', () => {
           name="size-110"
           category="sizings"
           value="70.5rem"
+          altValue="1128px"
           comment="Generic sizing token scale for UI components."
         />
       </Theme.Provider>
@@ -75,6 +77,7 @@ describe('TokenCard', () => {
           name="color-text-brand-highlight"
           category="text-colors"
           value="rgb(242, 47, 70)"
+          altValue={testTokenAltValue}
           comment="Twilio brand red, accessible on large text only."
           exampleBackgroundColor={testExampleBackground}
           exampleBackgroundColorInverse={testExampleBackgroundInverse}
@@ -95,6 +98,7 @@ describe('TokenCard', () => {
           name="color-background-inverse-light"
           category="background-colors"
           value="rgba(255, 255, 255, 0.2)"
+          altValue="#ffffff"
           comment="Light inverse background color for any container. Must be used on color-background-body-inverse."
           exampleBackgroundColor={testExampleBackground}
           exampleBackgroundColorInverse={testExampleBackgroundInverse}
@@ -113,6 +117,7 @@ describe('TokenCard', () => {
           name="color-text-inverse"
           category="text-colors"
           value="rgb(255, 255, 255)"
+          altValue="#ffffff"
           comment="Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse."
           exampleBackgroundColor={testExampleBackground}
           exampleBackgroundColorInverse={testExampleBackgroundInverse}
@@ -133,6 +138,7 @@ describe('TokenCard', () => {
           name="line-height-110"
           category="line-heights"
           value="4rem"
+          altValue="40px"
           comment="Constant line-height token for line-height 110"
           exampleBackgroundColor={testExampleBackground}
           exampleBackgroundColorInverse={testExampleBackgroundInverse}
