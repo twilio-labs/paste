@@ -11,6 +11,7 @@ const pluralCategoryMap = new Map(
     'border-width': 'border-widths',
     'border-style': 'border-styles',
     'box-shadow': 'box-shadows',
+    'data-visualization': 'data-visualization',
     'drop-shadow': 'drop-shadows',
     color: 'colors',
     font: 'fonts',
@@ -38,7 +39,7 @@ const getPluralCatName = (name: string): string => {
   const pluralName = pluralCategoryMap.get(name);
   if (pluralName === undefined) {
     throw new Error(
-      "[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category doesn't have a plural equivelant, please add one"
+      `[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category ${name} doesn't have a plural equivelant, please add one`
     );
   }
   return pluralName;
