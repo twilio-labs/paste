@@ -10,7 +10,14 @@
 // or 900 seconds (Enterprise plan).
 import puppeteer from 'puppeteer-core';
 import chromium from 'chrome-aws-lambda';
-import type {Handler} from '@netlify/functions';
+import Rollbar from 'rollbar';
+import type {LambdaHandler} from 'rollbar';
+
+import {logger} from '../functions-utils/logger';
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+});
 
 /** The code below determines the executable location for Chrome to
  * start up and take the screenshot when running a local development environment.
@@ -44,7 +51,7 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
   };
 }
 
-const handler: Handler = async (event) => {
+const handler: LambdaHandler<Event, any, any> = rollbar.lambdaHandler(async (event) => {
   // pass in this parameter if you are developing locally
   // to ensure puppeteer picks up your machine installation of
   // Chrome via the configurable options
@@ -53,8 +60,12 @@ const handler: Handler = async (event) => {
   const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
   const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
 
+  logger.info('Page to visit', {pageToVisit});
+
   // check for a legit link
   if (!componentRequested || !componentRequested.includes('/')) {
+    logger.error('Page not found');
+    rollbar.error('pPage not found for screenshotting', {page: pageToVisit});
     return {
       statusCode: 404,
       body: "Sorry, we couldn't screenshot that page. Did you include a page?",
@@ -64,30 +75,37 @@ const handler: Handler = async (event) => {
   try {
     // get options for browser
     const options = await getOptions(isDev);
+    logger.info('options', options);
     // launch a new headless browser with dev / prod options
     const browser = await puppeteer.launch(options);
+    logger.info('get browser with options');
+
     const page = await browser.newPage();
+    logger.info('new page from browser');
     // set the viewport size
     await page.setViewport({
       width: 800,
       height: 420,
       deviceScaleFactor: 1,
     });
+    logger.info('set viewport');
 
-    // console.log('Visiting page:', pageToVisit, Date.now());
     await page.goto(pageToVisit, {
       // wait for the load event as we need JS to render the page
       waitUntil: 'networkidle0',
     });
-    // console.log('Page visited', Date.now());
+    logger.info(`go to page ${pageToVisit}`);
 
     // take a screenshot
     const file = (await page.screenshot({
       encoding: 'base64',
     })) as string;
+    logger.info('grab screenshot');
 
     // close the browser
     await browser.close();
+
+    logger.info('close browser');
 
     return {
       statusCode: 200,
@@ -98,11 +116,13 @@ const handler: Handler = async (event) => {
       isBase64Encoded: true,
     };
   } catch (error) {
+    logger.error('500 error', {error});
+    rollbar.error(error as Error);
     return {
       statusCode: 500,
-      body: error,
+      body: JSON.stringify(error),
     };
   }
-};
+});
 
 export {handler};
