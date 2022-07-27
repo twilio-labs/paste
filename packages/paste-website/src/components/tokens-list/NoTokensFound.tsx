@@ -17,9 +17,9 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
         <StaticImage
-          src="../../assets/images/tokens/no-tokens-found.png"
+          src="../../assets/images/tokens/no-tokens-found.svg"
           alt=""
-          placeholder="blurred"
+          placeholder="tracedSVG"
           layout="fullWidth"
         />
       </Box>

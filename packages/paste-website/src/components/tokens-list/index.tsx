@@ -111,6 +111,7 @@ export const TokensList: React.FC = () => {
           handleThemeChange={handleThemeChange}
           handleFormatChange={handleFormatChange}
           handleInput={handleInput}
+          handleClearSearch={() => setFilterString('')}
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
         />

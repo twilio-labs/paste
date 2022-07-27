@@ -2,7 +2,9 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
+import {Button} from '@twilio-paste/button';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
+import {CloseCircleIcon} from '@twilio-paste/icons/esm/CloseCircleIcon';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
@@ -12,6 +14,7 @@ export interface TokensListFilterProps {
   handleThemeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInput: (e: React.FormEvent<HTMLInputElement>) => void;
   handleFormatChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleClearSearch: () => void;
   selectedFormat: string;
   selectedTheme: string;
 }
@@ -21,6 +24,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   handleInput,
   handleFormatChange,
   handleThemeChange,
+  handleClearSearch,
   selectedFormat,
   selectedTheme,
 }) => {
@@ -46,6 +50,13 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               onChange={handleInput}
               insertBefore={<FilterIcon decorative={false} title="Description of icon" color="colorTextIcon" />}
               placeholder="Filter by token name or value"
+              insertAfter={
+                value.length > 0 ? (
+                  <Button variant="secondary_icon" size="reset" onClick={handleClearSearch}>
+                    <CloseCircleIcon decorative={false} size="sizeIcon20" title="Clear token search" />
+                  </Button>
+                ) : null
+              }
             />
           </Column>
           <Column span={[12, 6, 12, 6]}>
