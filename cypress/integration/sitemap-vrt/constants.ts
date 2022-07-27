@@ -10,6 +10,7 @@ export const SITEMAP = [
   '/components/breadcrumb/',
   '/components/badge/',
   '/components/card/',
+  '/components/chat-log/',
   '/components/checkbox/',
   '/components/data-grid/',
   '/components/display-pill-group/',
