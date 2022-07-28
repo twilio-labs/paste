@@ -418,6 +418,7 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: false
+          exitZeroOnChanges: false
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
 
