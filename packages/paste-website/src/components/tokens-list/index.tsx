@@ -23,9 +23,6 @@ const sentenceCase = (catName: string): string => {
     });
 };
 
-const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" width="100%" {...props} />;
-
 export const TokensList: React.FC = () => {
   const [filterString, setFilterString] = React.useState('');
   const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
@@ -39,6 +36,7 @@ export const TokensList: React.FC = () => {
   const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(selectedFormat === 'javascript');
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
+  const [shadowOpacity, setShadowOpacity] = React.useState(0);
   const clipboard = useClipboard({copiedTimeout: 2000});
 
   const handleCopyName = React.useCallback((_tokenName: string): void => {
@@ -77,6 +75,25 @@ export const TokensList: React.FC = () => {
     setUseJavascriptNames(value === 'javascript');
   };
 
+  React.useEffect(() => {
+    const intObserver = new IntersectionObserver(
+      (entries) => {
+        const shadowState = entries[0].intersectionRatio;
+        setShadowOpacity(1 - shadowState);
+      },
+      {
+        root: document.querySelector('#styled-site-body'),
+        rootMargin: '0px',
+        threshold: [1, 0.8, 0.6, 0.4, 0.2, 0],
+      }
+    );
+
+    const tokensFilter = document.querySelector('#filter-canary');
+    if (tokensFilter) {
+      intObserver.observe(tokensFilter);
+    }
+  }, []);
+
   /**
    * These vars grab different values from the selected theme (as opposed to the global theme)
    * to render the token examples in accordance with the selected theme.
@@ -97,15 +114,18 @@ export const TokensList: React.FC = () => {
     (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
 
   return (
-    <ContentWrapper>
+    <Box as="div" display={['block', 'block', 'flex']}>
       <PageAside
         data={{
           fileAbsolutePath: '',
           frontmatter: {slug: '/tokens/list', title: 'Design tokens'},
           headings: tokenCategories.map((value) => ({value: sentenceCase(value), depth: 2})),
         }}
+        stickyTop="space0"
+        topPadding="space130"
       />
-      <Content>
+      <Box id="token-list" as="div" maxWidth="size70" minWidth="0" position="relative">
+        <Box id="filter-canary" position="absolute" height="50px" width="100%" zIndex="zIndex0"></Box>
         <TokensListFilter
           value={filterString}
           handleThemeChange={handleThemeChange}
@@ -114,6 +134,7 @@ export const TokensList: React.FC = () => {
           handleClearSearch={() => setFilterString('')}
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
+          shadowOpacity={shadowOpacity}
         />
         {filteredTokens == null ? (
           <NoTokensFound onClearSearch={() => setFilterString('')} />
@@ -123,8 +144,8 @@ export const TokensList: React.FC = () => {
             const categoryTokens = filteredTokens[tokenCategory] ?? [];
 
             return (
-              <React.Fragment key={`catname-${tokenCategory}`}>
-                <AnchoredHeading as="h2" variant="heading20">
+              <Box key={`catname-${tokenCategory}`} id={kebabCase(tokenCategory)}>
+                <AnchoredHeading as="h2" variant="heading20" existingSlug={`heading-${kebabCase(tokenCategory)}`}>
                   {sentenceCase(tokenCategory)}
                 </AnchoredHeading>
                 {sectionIntro}
@@ -149,11 +170,11 @@ export const TokensList: React.FC = () => {
                     />
                   ))}
                 </Box>
-              </React.Fragment>
+              </Box>
             );
           })
         )}
-      </Content>
-    </ContentWrapper>
+      </Box>
+    </Box>
   );
 };
