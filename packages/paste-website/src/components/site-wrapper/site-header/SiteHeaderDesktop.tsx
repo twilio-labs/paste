@@ -20,6 +20,7 @@ const SiteHeaderDesktop: React.FC = () => {
       borderBottomWidth="borderWidth10"
       borderBottomStyle="solid"
       flex="1 0 auto"
+      zIndex="99"
     >
       <SiteHeaderLogo title="Paste" subtitle="UX Platform" />
       <Box
