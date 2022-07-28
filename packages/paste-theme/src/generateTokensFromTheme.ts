@@ -49,9 +49,7 @@ export const generateTokensFromTheme = ({
     sizings: sizes,
     spacings: space,
     zIndices,
-    // The `colors` bucket holds more tokens than these in the `design-tokens` package,
-    // but they aren't exposed on theme. Therefore this is all we need/can do to convert
-    // theme to tokens at this time.
+    // The `colors` bucket currently holds tokens, but we do not expose them
     colors: {},
     dataVisualization,
   };

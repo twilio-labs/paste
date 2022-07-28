@@ -55,19 +55,6 @@ export const generateThemeFromTokens = ({
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 
-  // // Get only the dataViz color tokens from the 'colors' token bucket
-  // const dataVisualization = Object.keys(colors)
-  //   .filter((colorToken) => {
-  //     return colorToken.includes('DataVisualization');
-  //   })
-  //   .reduce<Record<ColorsKeys, string>>(
-  //     (obj, key) => ({
-  //       ...obj,
-  //       [key]: colors[key as ColorsKeys],
-  //     }),
-  //     {} as Record<ColorsKeys, string>
-  //   );
-
   return {
     shadows: boxShadows,
     borderWidths,
