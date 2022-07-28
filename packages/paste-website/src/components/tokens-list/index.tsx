@@ -102,7 +102,9 @@ export const TokensList: React.FC = () => {
         data={{
           fileAbsolutePath: '',
           frontmatter: {slug: '/tokens/list', title: 'Design tokens'},
-          headings: tokenCategories.map((value) => ({value: sentenceCase(value), depth: 2})),
+          headings: tokenCategories
+            .filter((value) => value !== 'colors') // filter out colors section
+            .map((value) => ({value: sentenceCase(value), depth: 2})),
         }}
       />
       <Content>
@@ -119,6 +121,9 @@ export const TokensList: React.FC = () => {
           <NoTokensFound onClearSearch={() => setFilterString('')} />
         ) : (
           tokenCategories.map((tokenCategory) => {
+            // do not render colors section
+            if (tokenCategory === 'colors') return;
+
             const sectionIntro = sectionIntros[tokenCategory];
             const categoryTokens = filteredTokens[tokenCategory] ?? [];
 
