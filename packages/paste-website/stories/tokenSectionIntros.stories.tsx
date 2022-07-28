@@ -17,8 +17,8 @@ export const BoxShadowsIntro = (): React.ReactNode => {
   return sectionIntros['box-shadows'];
 };
 
-export const ColorsIntro = (): React.ReactNode => {
-  return sectionIntros.colors;
+export const DataVisualizationIntro = (): React.ReactNode => {
+  return sectionIntros['data-visualization'];
 };
 
 export const FontSizesIntro = (): React.ReactNode => {
