@@ -255,11 +255,7 @@ const DisabledStateExample = () => {
         <FormPill {...pillState} disabled>
          Voice
         </FormPill>
-<<<<<<< HEAD
         <FormPill {...pillState} disabled>
-=======
-        <FormPill {...pillState} selected disabled>
->>>>>>> 172de0b3a (chore: implement feedback)
           <ProductVideoIcon decorative />
           Video
         </FormPill>
@@ -267,11 +263,7 @@ const DisabledStateExample = () => {
           <ProductVerifyIcon decorative />
           Verify
         </FormPill>
-<<<<<<< HEAD
         <FormPill {...pillState} disabled>
-=======
-        <FormPill {...pillState} selected disabled>
->>>>>>> 172de0b3a (chore: implement feedback)
          Usage
         </FormPill>
       </FormPillGroup>
