@@ -80,7 +80,7 @@ jobs:
         with:
           record: true
           parallel: true
-          group: "Paste Actions Parallel"
+          group: "Paste Actions with VRT Parallel"
           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
         env:
           USE_CYPRESS_EYES: true
