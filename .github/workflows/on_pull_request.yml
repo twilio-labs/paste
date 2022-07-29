@@ -412,15 +412,28 @@ jobs:
           path: packages/
 
       - name: Run Chromatic
+        id: run-chromatic-action
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
-          exitOnceUploaded: true
+          exitOnceUploaded: false
+          exitZeroOnChanges: false
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+
+      - name: "Chromatic outputs"
+        run: echo ${{steps.run-chromatic-action.outputs.code}}
+
+      - name: "Assign Designers to PR if Chromatic detects changes"
+        if: steps.run-chromatic-action.outputs.code == 1
+        uses: itsOliverBott/assign-pr-reviewers@release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          users: "@twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
+          ignore-drafts: true
 
   pr-categorizer:
     name: Categorize the PR using labels
