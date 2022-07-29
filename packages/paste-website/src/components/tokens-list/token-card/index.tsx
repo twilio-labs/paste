@@ -173,7 +173,6 @@ export const TokenCard: React.FC<{
               display="flex"
               flexDirection="column"
               justifyContent="center"
-              marginTop={['space30', 'space0', 'space30', 'space0']}
               marginBottom="space0"
               paddingLeft="space0"
               flexShrink={0}

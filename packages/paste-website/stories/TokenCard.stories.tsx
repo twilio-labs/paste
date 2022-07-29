@@ -145,7 +145,7 @@ BoxShadowToken.args = {
 export const FontFamilyToken = Template.bind({});
 FontFamilyToken.args = {
   category: 'fonts',
-  name: 'font-family-code',
+  name: 'font-family-text',
 };
 
 export const FontSizeToken = Template.bind({});
