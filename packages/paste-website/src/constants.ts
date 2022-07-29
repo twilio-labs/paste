@@ -19,6 +19,9 @@ export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://paste-storybook.twilio.design';
 export const REMIX_DOMAIN = 'https://remix.twilio.design';
 
+// Used to adjust scrolling elements to account for sticky filter on tokens/list page
+export const TOKEN_STICKY_FILTER_HEIGHT = [192, 108, 192, 108];
+
 // IDs for skip links
 export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';
 export const PASTE_DOCS_SEARCH_INPUT = 'paste-docs-search-input';

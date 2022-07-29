@@ -5,6 +5,9 @@ import {TableOfContentsList} from './TableOfContentsList';
 import {TableOfContentsListItem} from './TableOfContentsListItem';
 import {TableOfContentsAnchor} from './TableOfContentsAnchor';
 import {slugify} from '../../../utils/RouteUtils';
+import {useLocationPathname} from '../../../utils/RouteUtils';
+import {useWindowSize} from '../../../hooks/useWindowSize';
+import {TOKEN_STICKY_FILTER_HEIGHT} from '../../../constants';
 
 // Table of contents should only include h2, h3, h4 headings
 const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
@@ -20,11 +23,33 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
     return headingAnchor;
   });
 
+  /**
+   * The Tokens List page has a sticky filter when scrolled, which means that we need to
+   * set a negative offset to adjust whew ScrollSpy transitions from one section to the next.
+   *
+   * We have a global array, 'TOKEN_STICKY_FILTER_HEIGHT' that returns a value for the height
+   * of the filter for the current breakpoint (different breakpoints have different heights),
+   * and we use that, combined with router awareness of our current location, to determine the
+   * value to set for ScrollSpy's offset prop. We also adjust by 42px, which is the value of
+   * the margin between token category sections.
+   */
+  const {breakpointIndex} = useWindowSize();
+  let scrollOffset = 0;
+
+  if (breakpointIndex !== undefined && useLocationPathname() === '/tokens/list') {
+    scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + 42;
+  }
+
   // TODO: Add changelog to headingsList Array because changelogs aren't imported.
   // but only for pages with changelogs
   return (
     <Box as="nav" aria-label="document outline" data-cy="table-of-contents">
-      <TableOfContentsList items={headingsList} currentClassName="is-current" rootEl="#styled-site-body">
+      <TableOfContentsList
+        items={headingsList}
+        currentClassName="is-current"
+        rootEl="#styled-site-body"
+        offset={scrollOffset}
+      >
         {
           // Get heading anchors and convert to #anchor format. Excluding h1 elements.
           headings.filter(shouldIncludeInToC).map(({value, depth}) => {

@@ -87,7 +87,7 @@ const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
               <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
             </Stack>
           </SkipLinkContainer>
-          <SiteBody>{children}</SiteBody>
+          <SiteBody pathname={pathname}>{children}</SiteBody>
         </DarkModeContext.Provider>
       </NavigationContext.Provider>
     </Theme.Provider>

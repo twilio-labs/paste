@@ -149,7 +149,7 @@ export const TokensList: React.FC = () => {
                   {sentenceCase(tokenCategory)}
                 </AnchoredHeading>
                 {sectionIntro}
-                <Box marginBottom="space160" data-cy="tokens-table-container">
+                <Box marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens.map(({name, value, altValue, comment}) => (
                     <TokenCard
                       key={`token${name}`}
