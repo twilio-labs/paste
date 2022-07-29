@@ -1,5 +1,11 @@
 # @twilio-paste/form-pill-group
 
+## 4.1.0
+
+### Minor Changes
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] add error variant, update styles, and support disabled pills
+
 ## 4.0.2
 
 ### Patch Changes

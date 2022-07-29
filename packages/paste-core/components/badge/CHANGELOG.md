@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 4.0.2
+
+### Patch Changes
+
+- [`7ded6de0`](https://github.com/twilio-labs/paste/commit/7ded6de0550bb4bc2251b6a7d91707e8b17af7d0) [#2554](https://github.com/twilio-labs/paste/pull/2554) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] fix colGap between Badge contents
+
 ## 4.0.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @twilio-paste/chat-log
 
+## 1.2.0
+
+### Minor Changes
+
+- [`f9796f1ce`](https://github.com/twilio-labs/paste/commit/f9796f1ced5a89138d789ef8f95bbf15be531d92) [#2520](https://github.com/twilio-labs/paste/pull/2520) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat Log] Add new components for related to events and bookends:
+
+  - ChatBookend
+  - ChatBookendItem
+  - ChatEvent
+
 ## 1.1.0
 
 ### Minor Changes
