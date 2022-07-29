@@ -7,20 +7,6 @@ describe('Token list filter with no existing search params', function () {
     cy.visit('/tokens/list');
   });
 
-  // Todo: uncomment search filter tests when filter work is done
-
-  //   it('searches for a background color', () => {
-  //     cy.get('input[name="tokens-filter"]').type('background').should('have.value', 'background');
-  //     cy.get('#background-colors').should('exist');
-  //     cy.get('#border-colors').should('not.exist');
-  //   });
-
-  //   it('shows empty state', () => {
-  //     cy.get('input[name="tokens-filter"]').type('abc');
-  //     cy.get('[data-cy="tokens-empty-state"]').should('exist');
-  //     cy.get('[data-cy="tokens-empty-state"] h3').should('have.text', `Oh no! We couldn't find any matches`);
-  //   });
-
   describe('Visual regression tests', () => {
     it('Basic VRT', () => {
       cy.visualRegressionTestUrl({url: '/tokens/list', testName: `${testSuiteName}-basic-page-check`});
@@ -74,5 +60,19 @@ describe('Token list filter format control and theme control', function () {
     cy.get('[data-cy="input-column"]').should('have.css', 'min-width', '0px');
     cy.viewport('iphone-x');
     cy.get('[data-cy="input-column"]').should('have.css', 'min-width', '100%');
+  });
+});
+
+describe('Token Card', function () {
+  beforeEach(() => {
+    cy.visit('/tokens/list');
+  });
+
+  it('has a responsive layout', () => {
+    cy.get('[data-paste-element=TOKEN_CARD] dd').should('have.css', 'display', 'flex');
+    cy.get('[data-paste-element=TOKEN_CARD] dd ul').should('have.css', 'maxWidth', '192px');
+    cy.viewport('iphone-x');
+    cy.get('[data-paste-element=TOKEN_CARD] dd').should('have.css', 'display', 'block');
+    cy.get('[data-paste-element=TOKEN_CARD] dd ul').should('have.css', 'maxWidth', 'none');
   });
 });
