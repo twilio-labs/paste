@@ -31,7 +31,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         // We want the size attribute on the HTML element to set the height, not the css
         height={undefined}
         appearance="none"
-        backgroundColor={variant === 'inverse' ? 'colorBackgroundInverse' : 'colorBackgroundBody'}
+        backgroundColor="transparent"
         border="none"
         borderRadius="borderRadius20"
         boxShadow="none"
@@ -53,6 +53,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         _disabled={{
           color: variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
           cursor: 'not-allowed',
+          opacity: 1,
         }}
         variant={variant}
       />
