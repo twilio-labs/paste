@@ -11,10 +11,6 @@ describe('Token list filter with no existing search params', function () {
     it('Basic VRT', () => {
       cy.visualRegressionTestUrl({url: '/tokens/list', testName: `${testSuiteName}-basic-page-check`});
     });
-    it('Small viewport VRT', () => {
-      cy.viewport('iphone-x');
-      cy.visualRegressionTestUrl({url: '/tokens/list', testName: `${testSuiteName}-basic-page-check`});
-    });
   });
 });
 
