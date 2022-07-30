@@ -590,6 +590,76 @@ rather than using the `TFoot`.
 </Table>`}
 </LivePreview>
 
+### Table with sticky header
+
+Tables support a "sticky header", which can be useful in tables with a large amount of data. A sticky header will allow
+a user to keep the context of what each column contains as they scroll through the data contained in the table.
+
+Set the boolean property `stickyHeader` on the `THead` component, to enable the sticky header.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text, Box}} language="jsx">
+  {`<Box overflowY="auto" maxHeight="500px">
+  <Table tableLayout="fixed">
+    <THead stickyHeader top={0}>
+      <Tr>
+        <Th>Agents</Th>
+        <Th>Skills</Th>
+        <Th textAlign="right">Tasks</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Th scope="row">Adam Brown</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">35</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Adriana Lovelock</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">28</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Amanda Cutlack</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">7</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Sofie Korneliya</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">47</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Gerarda Che</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">2</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Natalia Hiroshi</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">9</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Gaël Kambiz</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">18</Td>
+      </Tr>
+      <Tr>
+        <Th scope="row">Amelina Muriel</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">29</Td>
+      </Tr>
+    </TBody>
+    <TFoot>
+      <Tr>
+        <Th scope="row">Total tasks</Th>
+        <Td/>
+        <Td textAlign="right">70</Td>
+      </Tr>
+    </TFoot>
+  </Table>
+</Box>`}
+</LivePreview>
+
 ## Composition Notes
 
 Tables must be created using a combination of:
@@ -1252,6 +1322,22 @@ Sets the table to visually display the actionable state of an interactive table.
 ###### `element?: string`
 
 Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider.
+
+##### THead Props
+
+All the valid HTML attributes for the `thead` element are supported including the following:
+
+###### `stickyHeader?: boolean`
+
+Makes the table head stick to the top of the window as the user scrolls a long table
+
+###### `top?: string | number`
+
+Allows manual control of the top offset, used in conjunction with `stickyHeader`
+
+###### `element?: string`
+
+Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider.
 
 ##### Tr Props
 
