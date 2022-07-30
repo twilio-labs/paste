@@ -7,7 +7,7 @@ export const StickyHeaderDataGrid: React.FC<{element?: BoxProps['element']}> = (
   return (
     <>
       <DataGrid aria-label="User information table" data-testid="data-grid" element={element}>
-        <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`} stickyHeader={true}>
+        <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`} stickyHeader>
           <DataGridRow element={`${element}_ROW`}>
             <DataGridHeader element={`${element}_HEADER`}>
               Header should stick on the top while scrolling
