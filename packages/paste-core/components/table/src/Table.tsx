@@ -21,6 +21,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ) => {
     const tableContext = {
       striped,
+      variant,
     };
 
     return (

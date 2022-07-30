@@ -141,6 +141,22 @@ describe('Table', () => {
     expect(renderedTh).toHaveStyleRule('z-index', 'zIndex10');
   });
 
+  it('should render thead with sticky header css and custom top if props are passed', (): void => {
+    render(
+      <Table>
+        <THead stickyHeader={true} top="20px" data-testid="mockTHead">
+          <Tr>
+            <Th>Column 1</Th>
+          </Tr>
+        </THead>
+      </Table>
+    );
+    const renderedTh = screen.getByTestId('mockTHead');
+    expect(renderedTh).toHaveStyleRule('position', 'sticky');
+    expect(renderedTh).toHaveStyleRule('top', '20px');
+    expect(renderedTh).toHaveStyleRule('z-index', 'zIndex10');
+  });
+
   it('should render Th width and left textAlign styles', (): void => {
     render(
       <Table>

@@ -971,6 +971,33 @@ StickyHeaders.story = {
   name: 'Sticky headers',
 };
 
+export const BorderlessStickyHeaders = (): React.ReactNode => {
+  return (
+    <Table variant="borderless">
+      <THead stickyHeader={true}>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {[...Array(100).keys()].map((index) => (
+          <Tr key={index}>
+            <Td>Content</Td>
+            <Td>Content</Td>
+            <Td>Content</Td>
+          </Tr>
+        ))}
+      </TBody>
+    </Table>
+  );
+};
+
+BorderlessStickyHeaders.story = {
+  name: 'Borderless Sticky headers',
+};
+
 export const Truncation = (): React.ReactNode => {
   return (
     <Table tableLayout="fixed">
