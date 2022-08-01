@@ -1,6 +1,7 @@
 export * from './background';
 export * from './border';
 export * from './flexbox';
+export * from './grid';
 export * from './layout';
 export * from './position';
 export * from './css-props';

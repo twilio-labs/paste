@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '../src';
@@ -381,6 +380,44 @@ describe('Spaces', () => {
     expect(renderedBox).toHaveStyleRule('row-gap', '0.75rem', {
       media: 'screen and (min-width:25rem)',
     });
+  });
+});
+
+describe('Grid CSS', () => {
+  it('handles css grid style props', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" theme={TestTheme}>
+        <Box
+          display="grid"
+          gridColumn="1 / span 2"
+          gridRow="1 / span 3"
+          gridAutoFlow="column"
+          gridAutoRows={['100px', '150px']}
+          gridAutoColumns="160px"
+          gridArea="2 / 1 / span 2 / span 3"
+          gridTemplateColumns="min-content"
+          gridTemplateRows="max-content"
+          gridTemplateAreas="myArea myArea2"
+        >
+          Grid test
+        </Box>
+      </CustomizationProvider>
+    );
+
+    const renderedBox = screen.getByText('Grid test');
+    expect(renderedBox).toHaveStyleRule('display', 'grid');
+    expect(renderedBox).toHaveStyleRule('grid-column', '1/span 2');
+    expect(renderedBox).toHaveStyleRule('grid-row', '1/span 3');
+    expect(renderedBox).toHaveStyleRule('grid-auto-flow', 'column');
+    expect(renderedBox).toHaveStyleRule('grid-auto-rows', '100px');
+    expect(renderedBox).toHaveStyleRule('grid-auto-rows', '150px', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedBox).toHaveStyleRule('grid-auto-columns', '160px');
+    expect(renderedBox).toHaveStyleRule('grid-area', '2/1/span 2/span 3');
+    expect(renderedBox).toHaveStyleRule('grid-template-columns', 'min-content');
+    expect(renderedBox).toHaveStyleRule('grid-template-rows', 'max-content');
+    expect(renderedBox).toHaveStyleRule('grid-template-areas', 'myArea myArea2');
   });
 });
 
