@@ -39,13 +39,10 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
       <Box marginBottom="space80">
         <Grid gutter="space40" vertical={[true, false, true, false]}>
           <Column span={[12, 6, 12, 6]} data-cy="input-column">
-            <Label htmlFor={inputId} id="test-label">
-              Filter tokens
-            </Label>
+            <Label htmlFor={inputId}>Filter tokens</Label>
             <Input
               type="text"
               id={inputId}
-              aria-labelledby="test-label"
               value={value}
               onChange={handleInput}
               insertBefore={<FilterIcon decorative={false} title="Description of icon" color="colorTextIcon" />}

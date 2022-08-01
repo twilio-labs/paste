@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-Updates ordering on design tokens to be alphanumeric.
+[Design tokens] Updates ordering on design tokens to be alphanumeric.
