@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+- [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Breadcrumb] allow aria-label to be overwritten on the breadcrumb navigation element. This is useful to remove duplicate labels and for internationalization
+
 ## 7.0.1
 
 ### Patch Changes

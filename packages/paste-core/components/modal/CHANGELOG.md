@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+- [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Alert Dialog, Modal]: changing header and footer elements to be more generic HTML elements to prevent global banner and contentinfo landmarks being placed in the DOM when using just a Dialog
+
 ## 11.0.2
 
 ### Patch Changes

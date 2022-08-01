@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.0.2
+
+### Patch Changes
+
+- [`d9c3b850`](https://github.com/twilio-labs/paste/commit/d9c3b850577be0e34487b7475d49568053f18fe5) [#2569](https://github.com/twilio-labs/paste/pull/2569) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] fixed the disabled select background color
+
 ## 8.0.1
 
 ### Patch Changes

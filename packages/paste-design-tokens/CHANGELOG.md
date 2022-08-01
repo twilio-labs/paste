@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.4.0
+
+### Minor Changes
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design Tokens] add color-background-error-strongest and color-text-error-stronger tokens
+
 ## 7.3.0
 
 ### Minor Changes

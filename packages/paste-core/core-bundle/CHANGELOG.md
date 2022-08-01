@@ -1,5 +1,42 @@
 # Change Log
 
+## 14.2.0
+
+### Minor Changes
+
+- [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Alert Dialog, Modal]: changing header and footer elements to be more generic HTML elements to prevent global banner and contentinfo landmarks being placed in the DOM when using just a Dialog
+
+* [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design Tokens] add color-background-error-strongest and color-text-error-stronger tokens
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] add error variant, update styles, and support disabled pills
+
+* [`f9796f1ce`](https://github.com/twilio-labs/paste/commit/f9796f1ced5a89138d789ef8f95bbf15be531d92) [#2520](https://github.com/twilio-labs/paste/pull/2520) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat Log] Add new components for related to events and bookends:
+
+  - ChatBookend
+  - ChatBookendItem
+  - ChatEvent
+
+### Patch Changes
+
+- [`7ded6de0`](https://github.com/twilio-labs/paste/commit/7ded6de0550bb4bc2251b6a7d91707e8b17af7d0) [#2554](https://github.com/twilio-labs/paste/pull/2554) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] fix colGap between Badge contents
+
+* [`d9c3b850`](https://github.com/twilio-labs/paste/commit/d9c3b850577be0e34487b7475d49568053f18fe5) [#2569](https://github.com/twilio-labs/paste/pull/2569) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] fixed the disabled select background color
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Box] add missing disabled prop and \_focus_hover pseudoSelector prop
+
+* [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Breadcrumb] allow aria-label to be overwritten on the breadcrumb navigation element. This is useful to remove duplicate labels and for internationalization
+
+* Updated dependencies [[`7ded6de0`](https://github.com/twilio-labs/paste/commit/7ded6de0550bb4bc2251b6a7d91707e8b17af7d0), [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`d9c3b850`](https://github.com/twilio-labs/paste/commit/d9c3b850577be0e34487b7475d49568053f18fe5), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57), [`f9796f1ce`](https://github.com/twilio-labs/paste/commit/f9796f1ced5a89138d789ef8f95bbf15be531d92)]:
+  - @twilio-paste/badge@4.0.2
+  - @twilio-paste/alert-dialog@4.1.0
+  - @twilio-paste/modal@11.1.0
+  - @twilio-paste/design-tokens@7.4.0
+  - @twilio-paste/select@8.0.2
+  - @twilio-paste/box@6.0.2
+  - @twilio-paste/form-pill-group@4.1.0
+  - @twilio-paste/breadcrumb@7.0.2
+  - @twilio-paste/chat-log@1.2.0
+
 ## 14.1.0
 
 ### Minor Changes

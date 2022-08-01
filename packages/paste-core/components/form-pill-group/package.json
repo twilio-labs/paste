@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form-pill-group",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "category": "interaction",
   "status": "production",
   "description": "A Form Pill Group is an editable set of Pills that represent a collection of selectable or removable objects.",
@@ -43,9 +43,9 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.7",
-    "@twilio-paste/box": "^6.0.1",
+    "@twilio-paste/box": "^6.0.2",
     "@twilio-paste/customization": "^4.0.2",
-    "@twilio-paste/design-tokens": "^7.3.0",
+    "@twilio-paste/design-tokens": "^7.4.0",
     "@twilio-paste/icons": "^8.0.2",
     "@twilio-paste/reakit-library": "^0.8.6",
     "@twilio-paste/screen-reader-only": "^9.0.1",
