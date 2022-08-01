@@ -91,3 +91,55 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     borderRadius: 'borderRadiusCircle',
   },
 };
+
+export const ToggleButtonStyles: BoxStyleProps = {
+  transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
+  _pressed: {
+    backgroundColor: 'colorBackgroundPrimaryStronger',
+    color: 'colorTextWeakest',
+    boxShadow: 'none',
+  },
+  _pressed_hover: {
+    backgroundColor: 'colorBackgroundPrimary',
+    boxShadow: 'none',
+    color: 'colorTextInverse',
+  },
+  _pressed_focus: {
+    boxShadow: 'shadowFocus',
+  },
+};
+
+export const ToggleIconButtonStyles: BoxStyleProps = {
+  transition:
+    'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in, border-color 150ms ease-in',
+  borderWidth: 'borderWidth10',
+  borderStyle: 'solid',
+  borderColor: 'transparent',
+
+  _hover: {
+    borderColor: 'colorBorderPrimaryStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    color: 'colorTextLinkStronger',
+  },
+  _focus: {
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowFocus',
+  },
+  _focus_hover: {
+    borderColor: 'transparent',
+  },
+  _pressed: {
+    backgroundColor: 'colorBackgroundPrimaryStronger',
+    color: 'colorTextWeakest',
+    boxShadow: 'none',
+  },
+  _pressed_hover: {
+    backgroundColor: 'colorBackgroundPrimary',
+    boxShadow: 'none',
+    borderColor: 'transparent',
+    color: 'colorTextInverse',
+  },
+  _pressed_focus: {
+    boxShadow: 'shadowFocus',
+  },
+};

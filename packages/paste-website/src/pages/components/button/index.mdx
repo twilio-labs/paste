@@ -8,14 +8,21 @@ slug: /components/button/
 import {graphql} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {PauseIcon} from '@twilio-paste/icons/esm/PauseIcon';
+import {PlayIcon} from '@twilio-paste/icons/esm/PlayIcon';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {ToggleExample} from '../../../component-examples/ButtonExamples';
 
 export const pageQuery = graphql`
   {
@@ -225,7 +232,7 @@ screen if that action is destructive and could be difficult to reverse.
 Use Link-style Buttons when other types of Buttons may be too distracting.
 
 <Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+  <CalloutTitle as="h5">Accessibility insight</CalloutTitle>
   <CalloutText>
     To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
     Read the guidelines first.
@@ -241,10 +248,26 @@ Use Link-style Buttons when other types of Buttons may be too distracting.
 </Stack>`}
 </LivePreview>
 
+#### Toggle Button
+
+To make a Toggle Button, set the `pressed` attribute to either `true` or `false`. The variant must be either `secondary` or `secondary_icon`.
+
+Use a Toggle Button when the button controls a binary state. It can contain text or an icon.
+
+Toggle Buttons use the `aria-pressed` attribute and color to communicate the state of the button. The icon can change based on the state, but the text should not. For example, if it is a follow button, the text should not change from "follow" to "unfollow" when the user clicks it.
+
+<LivePreview
+  scope={{Button, Box, CheckboxCheckIcon, BoldIcon, ScreenReaderOnly, PlayIcon, PauseIcon, PlusIcon}}
+  language="jsx"
+  noInline
+>
+  {ToggleExample}
+</LivePreview>
+
 #### Buttons with link functionality
 
 <Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+  <CalloutTitle as="h5">Accessibility insight</CalloutTitle>
   <CalloutText>
     To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
     Read the guidelines first.
@@ -635,6 +658,7 @@ All the valid HTML attributes for `Button` are supported including the following
 | type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
 | variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
 | i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
+| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                         |                                        |
 | onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
 | onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
 | onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
