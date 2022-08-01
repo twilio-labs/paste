@@ -10,6 +10,7 @@ import {
   boxShadow,
   position,
   flexbox,
+  grid,
   createShouldForwardProp,
   props as defaultStylingProps,
 } from '@twilio-paste/styling-library';
@@ -38,7 +39,7 @@ export const StyledBox = styled('div', {shouldForwardProp})<StyledBoxProps>(
   {
     boxSizing: 'border-box',
   },
-  compose(space, layout, flexbox, background, border, boxShadow, position, typography, PasteStyleProps),
+  compose(space, layout, flexbox, grid, background, border, boxShadow, position, typography, PasteStyleProps),
   getPseudoStyles,
   getCustomElementStyles
 ) as unknown as StyledComponent<

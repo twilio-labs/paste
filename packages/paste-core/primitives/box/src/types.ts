@@ -2,6 +2,7 @@ import type {
   BackgroundProps,
   BorderProps,
   FlexboxProps,
+  GridProps,
   LayoutProps,
   PositionProps,
   ShadowProps,
@@ -39,7 +40,8 @@ export interface BoxBaseStyleProps
     ShadowProps,
     PositionProps,
     TypographyProps,
-    FlexboxProps {
+    FlexboxProps,
+    GridProps {
   animation?: AnimationProperty;
   appearance?: AppearanceProperty;
   boxSizing?: BoxSizingProperty;
