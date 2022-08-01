@@ -37,7 +37,7 @@ const TokenCardValue = styled.dd(
     gridColumn: [1, '2/2', 1, '2/2'],
     display: ['block', 'flex', 'block', 'flex'],
     margin: 'space0',
-    marginTop: ['space40', 'space0', 'space40', 'space0'],
+    marginTop: ['space70', 'space0', 'space70', 'space0'],
     marginLeft: ['space0', 'space110', 'space0', 'space110'],
     verticalAlign: 'center',
     textAlign: ['left', 'right', 'left', 'right'],
@@ -178,6 +178,7 @@ export const TokenCard: React.FC<{
               flexShrink={0}
               listStyleType="none"
               maxWidth={['none', 'size20', 'none', 'size20']}
+              marginTop="space0"
             >
               <Text
                 as="li"
