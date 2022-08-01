@@ -955,7 +955,7 @@ export const StickyHeaders = (): React.ReactNode => {
         </Tr>
       </THead>
       <TBody>
-        {[...Array(100).keys()].map((index) => (
+        {[...new Array(100).keys()].map((index) => (
           <Tr key={index}>
             <Td>Content</Td>
             <Td>Content</Td>
@@ -982,7 +982,7 @@ export const BorderlessStickyHeaders = (): React.ReactNode => {
         </Tr>
       </THead>
       <TBody>
-        {[...Array(100).keys()].map((index) => (
+        {[...new Array(100).keys()].map((index) => (
           <Tr key={index}>
             <Td>Content</Td>
             <Td>Content</Td>
