@@ -29,6 +29,18 @@ const getStickyStyles = ({
         borderBottomColor: 'colorBorderWeaker',
       }),
     },
+    // fake bottom border so that it follows along with the sticky element
+    _after: {
+      position: 'absolute',
+      // This is gross but we need it to sit ontop of the real border, other we lose 2px in overall height of the thead. Borders take up space, absolute positioned afters do not
+      bottom: '-3px',
+      width: '100%',
+      display: 'block',
+      content: `""`,
+      borderBottomStyle: 'solid',
+      borderBottomWidth: 'borderWidth20',
+      borderBottomColor: 'colorBorderWeaker',
+    },
   };
 };
 
@@ -41,20 +53,11 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(
         ref={ref}
         as="thead"
         backgroundColor="colorBackground"
+        borderBottomStyle="solid"
+        borderBottomWidth="borderWidth20"
+        borderBottomColor="colorBorderWeaker"
         element={element}
         top={top}
-        position="relative"
-        // fake bottom border so that it follows along with the sticky element
-        _after={{
-          position: 'absolute',
-          bottom: 0,
-          width: '100%',
-          display: 'block',
-          content: `""`,
-          borderBottomStyle: 'solid',
-          borderBottomWidth: 'borderWidth20',
-          borderBottomColor: 'colorBorderWeaker',
-        }}
         {...getStickyStyles({stickyHeader, variant})}
       />
     );
