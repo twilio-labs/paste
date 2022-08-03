@@ -5,7 +5,6 @@ import {CompositeItem} from '@twilio-paste/reakit-library';
 import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 import {PillCloseIcon} from './PillCloseIcon';
 import {FormPillButton} from './FormPillButton';
-import {wrapperStyles, selectedWrapperStyles} from './FormPill.styles';
 import type {PillVariant} from './types';
 
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
@@ -63,8 +62,6 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     const isHoverable = onSelect != null;
     const isDismissable = onDismiss != null;
 
-    const computedStyles = selected ? selectedWrapperStyles[variant] : wrapperStyles[variant];
-
     // Handles delete and backspace keypresses
     const handleKeydown = React.useCallback(
       (event: React.KeyboardEvent) => {
@@ -80,7 +77,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       [onDismiss, next]
     );
     return (
-      <Box element={`${element}_WRAPPER`} position="relative" display="inline-block" {...computedStyles}>
+      <Box element={`${element}_WRAPPER`} position="relative" display="inline-block">
         <CompositeItem
           {...safelySpreadBoxProps(props)}
           element={element}

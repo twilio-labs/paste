@@ -1,39 +1,5 @@
 import type {VariantStyles} from './types';
 
-/**
- * Wrapper styles
- */
-
-export const wrapperStyles: VariantStyles = {
-  default: {
-    color: 'colorTextIcon',
-    _hover: {
-      color: 'colorTextLinkStronger',
-    },
-  },
-  error: {
-    color: 'colorTextIcon',
-    _hover: {
-      color: 'colorTextErrorStronger',
-    },
-  },
-};
-
-export const selectedWrapperStyles: VariantStyles = {
-  default: {
-    color: 'colorTextWeakest',
-    _hover: {
-      color: 'colorTextInverse',
-    },
-  },
-  error: {
-    color: 'colorTextInverse',
-    _hover: {
-      color: 'colorTextWeakest',
-    },
-  },
-};
-
 /*
  * Pill styles
  */
@@ -97,7 +63,7 @@ export const hoverPillStyles: VariantStyles = {
     _selected_hover: {
       backgroundColor: 'colorBackgroundPrimary',
       borderColor: 'transparent',
-      color: 'inherit',
+      color: 'colorTextInverse',
     },
     _focus_hover: {
       borderColor: 'transparent',
@@ -109,12 +75,12 @@ export const hoverPillStyles: VariantStyles = {
 
     _hover: {
       borderColor: 'colorBorderErrorStronger',
-      color: 'inherit',
+      color: 'colorTextErrorStronger',
     },
     _selected_hover: {
       backgroundColor: 'colorBackgroundErrorStrongest',
       borderColor: 'transparent',
-      color: 'inherit',
+      color: 'colorTextWeakest',
     },
     _focus_hover: {
       borderColor: 'transparent',
@@ -128,34 +94,40 @@ export const hoverPillStyles: VariantStyles = {
 
 export const closeStyles: VariantStyles = {
   default: {
-    color: 'inherit',
+    color: 'colorTextIcon',
     _hover: {
       cursor: 'pointer',
       borderColor: 'colorBorderPrimaryStronger',
+      color: 'colorTextLinkStronger',
     },
   },
   error: {
-    color: 'inherit',
+    color: 'colorTextIcon',
     _hover: {
       cursor: 'pointer',
       borderColor: 'colorBorderErrorStronger',
+      color: 'colorTextErrorStronger',
     },
   },
 };
 
 export const selectedCloseStyles: VariantStyles = {
   default: {
+    color: 'colorTextWeakest',
     _hover: {
       cursor: 'pointer',
       borderColor: 'transparent',
       backgroundColor: 'colorBackgroundPrimary',
+      color: 'colorTextInverse',
     },
   },
   error: {
+    color: 'colorTextInverse',
     _hover: {
       cursor: 'pointer',
       borderColor: 'transparent',
       backgroundColor: 'colorBackgroundErrorStrongest',
+      color: 'colorTextWeakest',
     },
   },
 };
