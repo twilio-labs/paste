@@ -42,27 +42,27 @@ export const pageQuery = graphql`
 
 ### Core 14.0.0
 
-- [Textarea] Update textarea to use @twilio-paste/react-autosize-textarea library and add the resize prop which allows users to resize the textarea height.
+- [Textarea] Update Textarea to use `@twilio-paste/react-autosize-textarea` library and add the `resize` prop which allows users to resize the Textarea height.
 
   **ACTION NEEDED**: None, but because `@twilio-paste/react-autosize-textarea` is a new peer dependency requirement of `@twilio-paste/textarea`, out of an abundance of caution with how npm and yarn differ with regards to handling peer dependencies, we decided to mark this change as a major to be safe.
 
 ### Core 13.0.0
 
-- [Styling Library] Upgrade to Emotion v11 from v10
+- [Styling Library] Upgrade to Emotion v11 from v10.
 
   **ACTION NEEDED**: None, the upgrade from v10 to v11 is largely a backwards compatible upgrade, but there were significant changes to the types exported from Emotion that could impact compilation of your application when using Typescript.
 
 ### Core 12.0.0
 
-- [Icons] All Icon components had `React.forwardRef` added to them.
+- [Icons] Add `React.forwardRef` to all Icon components.
 
   **ACTION NEEDED**: None, but you should be aware of the change due to the fact that refs on Icons are now assigned differently, and there is the potential for exported types to be different.
 
 ### Core 11.0.0
 
-- [Design Tokens] The Console theme from the Design Tokens package was removed as that design language is officially deprecated.
+- [Design Tokens] Remove the Console theme from the Design Tokens package, as that design language is officially deprecated.
 
-  **ACTION NEEDED**: If you we importing the Console theme directly from the Design Tokens package you should switch your import statements to use the default, dark or SendGrid themes.
+  **ACTION NEEDED**: If you were importing the Console theme directly from the Design Tokens package, you should switch your import statements to use the Default, Dark, or SendGrid themes.
 
   ```
   // Before:
