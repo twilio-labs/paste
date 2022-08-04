@@ -101,7 +101,7 @@ const handlePropValidation = ({
   }
 
   // Icon validation
-  if ((size === 'icon' || size === 'icon_small') && fullWidth) {
+  if ((size === 'icon' || size === 'icon_small' || size === 'circle' || size === 'circle_small') && fullWidth) {
     throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
   }
 

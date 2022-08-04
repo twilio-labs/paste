@@ -82,4 +82,12 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight20',
   },
+  circle: {
+    padding: 'space30',
+    borderRadius: 'borderRadiusCircle',
+  },
+  circle_small: {
+    padding: 'space20',
+    borderRadius: 'borderRadiusCircle',
+  },
 };
