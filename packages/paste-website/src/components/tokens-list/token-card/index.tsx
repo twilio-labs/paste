@@ -7,9 +7,8 @@ import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {styled, css} from '@twilio-paste/styling-library';
-import type {Properties} from 'csstype';
 import {TokenExample} from './token-example';
-import type {Token} from '../types';
+import type {TokenCardProps} from '../types';
 
 const TokenCardContent = styled.dl(
   css({
@@ -51,34 +50,19 @@ const TokenCardComment = styled.dd(
   })
 );
 
-export const TokenCard: React.FC<{
-  category: Token['category'];
-  name: Token['name'];
-  value: Token['value'];
-  altValue: Token['altValue'];
-  exampleBackgroundColor?: Properties['backgroundColor'];
-  exampleBackgroundColorInverse?: Properties['backgroundColor'];
-  exampleBorderColor?: Properties['borderColor'];
-  exampleHighlightColor?: Properties['backgroundColor'];
-  exampleTextColor?: Properties['color'];
-  exampleTextColorInverse?: Properties['color'];
-  comment?: Token['comment'];
-  useCamelCase?: boolean;
-  isCopied?: boolean;
-  onCopyText?: (tokenName: string) => void;
-}> = React.memo(
+export const TokenCard: React.FC<TokenCardProps> = React.memo(
   ({
     category,
     name,
     value,
     altValue,
     comment,
-    exampleBackgroundColor,
-    exampleBackgroundColorInverse,
-    exampleBorderColor,
-    exampleHighlightColor,
-    exampleTextColor,
-    exampleTextColorInverse,
+    backgroundColor,
+    backgroundColorInverse,
+    borderColor,
+    highlightColor,
+    textColor,
+    textColorInverse,
     useCamelCase,
     onCopyText = () => {},
     isCopied = false,
@@ -132,12 +116,12 @@ export const TokenCard: React.FC<{
           category={category}
           name={name}
           value={value.toString()}
-          backgroundColor={exampleBackgroundColor}
-          backgroundColorInverse={exampleBackgroundColorInverse}
-          borderColor={exampleBorderColor}
-          highlightColor={exampleHighlightColor}
-          textColor={exampleTextColor}
-          textColorInverse={exampleTextColorInverse}
+          backgroundColor={backgroundColor}
+          backgroundColorInverse={backgroundColorInverse}
+          borderColor={borderColor}
+          highlightColor={highlightColor}
+          textColor={textColor}
+          textColorInverse={textColorInverse}
         />
         <TokenCardContent>
           <TokenCardName>

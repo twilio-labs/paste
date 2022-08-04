@@ -1,7 +1,7 @@
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import type {Token, Tokens} from './types';
-
+import type {Properties} from 'csstype';
 import debounce from 'lodash/debounce';
+import type {Token, Tokens, TokenExampleColors} from './types';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
   if (filter !== '') {
@@ -43,4 +43,20 @@ export const filterTokenList = (filterString: string, tokens: Tokens): Partial<T
   }
 
   return newTokens;
+};
+
+export const getTokenExampleColors = (tokens: Tokens): TokenExampleColors => {
+  return {
+    backgroundColor: tokens['background-colors'].find((token) => token.name === 'color-background-body')
+      ?.value as Properties['backgroundColor'],
+    backgroundColorInverse: tokens['background-colors'].find((token) => token.name === 'color-background-inverse')
+      ?.value as Properties['backgroundColor'],
+    borderColor: tokens['border-colors'].find((token) => token.name === 'color-border')
+      ?.value as Properties['borderColor'],
+    highlightColor: tokens['background-colors'].find((token) => token.name === 'color-background-stronger')
+      ?.value as Properties['backgroundColor'],
+    textColor: tokens['text-colors'].find((token) => token.name === 'color-text')?.value as Properties['color'],
+    textColorInverse: tokens['text-colors'].find((token) => token.name === 'color-text-inverse')
+      ?.value as Properties['color'],
+  };
 };

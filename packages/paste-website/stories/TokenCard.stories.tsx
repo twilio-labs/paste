@@ -38,11 +38,12 @@ export default {
 const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
-  const exampleBackgroundColor = theme.backgroundColors.colorBackgroundBody;
-  const exampleBackgroundColorInverse = theme.backgroundColors.colorBackgroundBodyInverse;
-  const exampleTextColor = theme.textColors.colorText;
-  const exampleTextColorInverse = theme.textColors.colorTextInverse;
-  const exampleHighlightColor = theme.backgroundColors.colorBackgroundStrong;
+  const backgroundColor = theme.backgroundColors.colorBackgroundBody;
+  const backgroundColorInverse = theme.backgroundColors.colorBackgroundBodyInverse;
+  const textColor = theme.textColors.colorText;
+  const textColorInverse = theme.textColors.colorTextInverse;
+  const highlightColor = theme.backgroundColors.colorBackgroundStronger;
+  const borderColor = theme.borderColors.colorBorder;
 
   const {comment, altValue} =
     categoryTokens.find((token) => {
@@ -83,11 +84,12 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         value={themeTokenValue}
         altValue={altValue}
         comment={comment}
-        exampleBackgroundColor={exampleBackgroundColor}
-        exampleBackgroundColorInverse={exampleBackgroundColorInverse}
-        exampleHighlightColor={exampleHighlightColor}
-        exampleTextColor={exampleTextColor}
-        exampleTextColorInverse={exampleTextColorInverse}
+        backgroundColor={backgroundColor}
+        backgroundColorInverse={backgroundColorInverse}
+        highlightColor={highlightColor}
+        textColor={textColor}
+        textColorInverse={textColorInverse}
+        borderColor={borderColor}
         useCamelCase={useCamelCase}
       />
     </Box>

@@ -5,8 +5,8 @@ import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import kebabCase from 'lodash/kebabCase';
 import {AnchoredHeading} from '../Heading';
-import {trackTokenFilterString, filterTokenList} from './helpers';
-import type {Token, Tokens} from './types';
+import {trackTokenFilterString, filterTokenList, getTokenExampleColors} from './helpers';
+import type {Tokens, TokenExampleColors} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
@@ -26,29 +26,84 @@ const sentenceCase = (catName: string): string => {
 const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
 const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" width="100%" {...props} />;
 
-export const TokensList: React.FC = () => {
-  const [filterString, setFilterString] = React.useState('');
-  const [selectedTheme, setSelectedTheme] = React.useState(SimpleStorage.get('themeControl') ?? 'default');
-  // Handles storing the full list of currently visible tokens (swaps on theme change)
-  const [tokens, setTokens] = React.useState<{[key: string]: Token[]}>(
-    selectedTheme === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens
-  );
-  // Handles storing the currently viewable list of tokens (the above + filters)
-  const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(DefaultThemeTokens.tokens);
-  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(DefaultThemeTokens.tokens));
-  const [selectedFormat, setSelectedFormat] = React.useState(SimpleStorage.get('formatControl') ?? 'css');
-  const [useJavascriptNames, setUseJavascriptNames] = React.useState(selectedFormat === 'javascript');
-  const [lastCopiedValue, setLastCopiedValue] = React.useState('');
-  const clipboard = useClipboard({copiedTimeout: 2000});
+const defaultTheme = 'default';
+const defaultFormat = 'css';
 
+export const TokensList: React.FC = () => {
+  // State related to the list of tokens
+  const [tokens, setTokens] = React.useState<Tokens>(DefaultThemeTokens.tokens);
+  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens));
+  const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(tokens);
+  const [exampleColors, setExampleColors] = React.useState<TokenExampleColors>(getTokenExampleColors(tokens));
+
+  // State related to select and filter controls
+  const [filterString, setFilterString] = React.useState('');
+  const [selectedTheme, setSelectedTheme] = React.useState(defaultTheme);
+  const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
+  const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
+
+  // State related to the clipboard
+  const [lastCopiedValue, setLastCopiedValue] = React.useState('');
+
+  // This runs on hydration, grabs any settings from the client's localStorage,
+  // and populates the token list.
+  React.useEffect(() => {
+    const userTheme = SimpleStorage.get('themeControl') || defaultTheme;
+    const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
+    let tokenList: Tokens = DefaultThemeTokens.tokens;
+
+    // Set the theme tokens based on the user's preference
+    if (userTheme === 'dark') {
+      tokenList = DarkThemeTokens.tokens;
+    }
+
+    setSelectedTheme(userTheme);
+    setSelectedFormat(userFormat);
+    setUseJavascriptNames(userFormat === 'javascript');
+    setTokens(tokenList);
+    setFilteredTokens(tokenList);
+    setExampleColors(getTokenExampleColors(tokenList));
+  }, []);
+
+  // Set up code needed for passing & receiving clipboard copy functionality
+  // into the TokenCard components.
+  const clipboard = useClipboard({copiedTimeout: 2000});
   const handleCopyName = React.useCallback((_tokenName: string): void => {
     clipboard.copy(_tokenName);
     // The inverse of what we do in TokenCard
     setLastCopiedValue(useJavascriptNames ? _tokenName.slice(1) : kebabCase(_tokenName));
   }, []);
 
-  // The rendered tokens should update every time the filterString or tokens change
+  // Event handler for Tokens Filter
+  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
+    const filter = e.currentTarget.value;
+    setFilterString(filter);
+  };
+
+  // Event handler for Theme select change
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const value = e.currentTarget.value;
+    const newTokens = value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens;
+
+    SimpleStorage.set('themeControl', value);
+    setSelectedTheme(value);
+    setTokens(newTokens);
+    setExampleColors(getTokenExampleColors(newTokens));
+  };
+
+  // Event handler for Format select change
+  const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const value = e.currentTarget.value;
+    SimpleStorage.set('formatControl', value);
+    setSelectedFormat(value);
+    setUseJavascriptNames(value === 'javascript');
+  };
+
+  // The rendered tokens should update every time the filterString changes
   React.useEffect(() => {
+    if (!tokens) return;
+
+    // set the filtered tokens based on the query
     const newFilteredTokens = filterTokenList(filterString, tokens);
     setFilteredTokens(newFilteredTokens);
 
@@ -58,45 +113,8 @@ export const TokensList: React.FC = () => {
     trackTokenFilterString(filterString);
   }, [filterString, tokens]);
 
-  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const filter = e.currentTarget.value;
-    setFilterString(filter);
-  };
-
-  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const value = e.currentTarget.value;
-    SimpleStorage.set('themeControl', value);
-    setSelectedTheme(value);
-    setTokens(value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens);
-  };
-
-  const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const value = e.currentTarget.value;
-    SimpleStorage.set('formatControl', value);
-    setSelectedFormat(value);
-    setUseJavascriptNames(value === 'javascript');
-  };
-
-  /**
-   * These vars grab different values from the selected theme (as opposed to the global theme)
-   * to render the token examples in accordance with the selected theme.
-   */
-  const tokenExampleBackgroundColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-body')?.value as string) ?? '#fff';
-  const tokenExampleInverseBackgroundColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')?.value as string) ??
-    '#121C2D';
-  const tokenExampleBorderColor =
-    (tokens['border-colors'].find((token) => token.name === 'color-border')?.value as string) ?? '#8891AA';
-  const tokenExampleHighlightColor =
-    (tokens['background-colors'].find((token) => token.name === 'color-background-stronger')?.value as string) ??
-    '#E1E3EA';
-  const tokenExampleTextColor =
-    (tokens['text-colors'].find((token) => token.name === 'color-text')?.value as string) ?? '#121C2D';
-  const tokenExampleInverseTextColor =
-    (tokens['text-colors'].find((token) => token.name === 'color-text-inverse')?.value as string) ?? '#FFF';
-
-  return (
+  // Render code
+  return tokens ? (
     <ContentWrapper>
       <PageAside
         data={{
@@ -117,7 +135,7 @@ export const TokensList: React.FC = () => {
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
         />
-        {filteredTokens == null ? (
+        {filteredTokens === null ? (
           <NoTokensFound onClearSearch={() => setFilterString('')} />
         ) : (
           tokenCategories.map((tokenCategory) => {
@@ -125,7 +143,7 @@ export const TokensList: React.FC = () => {
             if (tokenCategory === 'colors') return;
 
             const sectionIntro = sectionIntros[tokenCategory];
-            const categoryTokens = filteredTokens[tokenCategory] ?? [];
+            const categoryTokens = filteredTokens[tokenCategory] ?? null;
 
             return (
               <React.Fragment key={`catname-${tokenCategory}`}>
@@ -134,25 +152,29 @@ export const TokensList: React.FC = () => {
                 </AnchoredHeading>
                 {sectionIntro}
                 <Box marginBottom="space160" data-cy="tokens-table-container">
-                  {categoryTokens.map(({name, value, altValue, comment}) => (
-                    <TokenCard
-                      key={`token${name}`}
-                      category={tokenCategory}
-                      name={name}
-                      value={value}
-                      altValue={altValue}
-                      comment={comment}
-                      exampleBackgroundColor={tokenExampleBackgroundColor}
-                      exampleBackgroundColorInverse={tokenExampleInverseBackgroundColor}
-                      exampleTextColor={tokenExampleTextColor}
-                      exampleTextColorInverse={tokenExampleInverseTextColor}
-                      exampleBorderColor={tokenExampleBorderColor}
-                      exampleHighlightColor={tokenExampleHighlightColor}
-                      useCamelCase={useJavascriptNames}
-                      onCopyText={handleCopyName}
-                      isCopied={clipboard.copied && lastCopiedValue === name}
-                    />
-                  ))}
+                  {categoryTokens ? (
+                    categoryTokens.map(({name, value, altValue, comment}) => (
+                      <TokenCard
+                        key={`token${name}`}
+                        category={tokenCategory}
+                        name={name}
+                        value={value}
+                        altValue={altValue}
+                        comment={comment}
+                        backgroundColor={exampleColors?.backgroundColor}
+                        backgroundColorInverse={exampleColors?.backgroundColorInverse}
+                        textColor={exampleColors?.textColor}
+                        textColorInverse={exampleColors?.textColorInverse}
+                        borderColor={exampleColors?.borderColor}
+                        highlightColor={exampleColors?.highlightColor}
+                        useCamelCase={useJavascriptNames}
+                        onCopyText={handleCopyName}
+                        isCopied={clipboard.copied && lastCopiedValue === name}
+                      />
+                    ))
+                  ) : (
+                    <p>Placeholder...</p>
+                  )}
                 </Box>
               </React.Fragment>
             );
@@ -160,5 +182,8 @@ export const TokensList: React.FC = () => {
         )}
       </Content>
     </ContentWrapper>
+  ) : (
+    // Loading Box
+    <Box height="size120" width="100%" />
   );
 };

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
-import type {Properties} from 'csstype';
 import {BoxExample} from './BoxExample';
 import {TextExample} from './TextExample';
 import {BorderExample} from './BorderExample';
@@ -9,18 +8,7 @@ import {LineHeightExample} from './LineHeightExample';
 import {SpacingExample} from './SpacingExample';
 import {TextColorExample} from './TextColorExample';
 import {IconSizeExample} from './IconSizeExample';
-
-type TokenExampleProps = {
-  category: string;
-  name: string;
-  value: string;
-  backgroundColor: Properties['backgroundColor'];
-  backgroundColorInverse: Properties['backgroundColor'];
-  borderColor?: Properties['borderColor'];
-  highlightColor?: Properties['backgroundColor'];
-  textColor?: Properties['color'];
-  textColorInverse?: Properties['color'];
-};
+import type {TokenExampleProps} from '../../types';
 
 export const TokenExample: React.FC<TokenExampleProps> = ({
   category,
@@ -149,7 +137,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({
       alignItems="center"
       display="flex"
       flexShrink={0}
-      style={{backgroundColor: backgroundColor}}
+      backgroundColor={backgroundColor as keyof ThemeShape['backgroundColors']}
       borderRightColor="colorBorderWeaker"
       borderRightWidth="borderWidth10"
       borderRightStyle="solid"

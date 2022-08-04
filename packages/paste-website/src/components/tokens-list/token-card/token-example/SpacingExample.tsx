@@ -4,7 +4,7 @@ import {remToPx} from '@twilio-paste/theme';
 
 interface SpacingExampleProps {
   tokenName: string;
-  spacing: string;
+  spacing: string | number;
   color: Properties['color'];
 }
 

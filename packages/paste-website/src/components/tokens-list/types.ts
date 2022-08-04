@@ -1,3 +1,5 @@
+import type {Properties} from 'csstype';
+
 export interface Token {
   type: string;
   category: string;
@@ -15,4 +17,27 @@ export interface Tokens {
 }
 export interface TokensShape {
   tokens: Tokens;
+}
+
+export interface TokenExampleColors {
+  backgroundColor?: Properties['backgroundColor'];
+  backgroundColorInverse?: Properties['backgroundColor'];
+  borderColor?: Properties['borderColor'];
+  highlightColor?: Properties['backgroundColor'];
+  textColor?: Properties['color'];
+  textColorInverse?: Properties['color'];
+}
+
+export interface TokenExampleProps extends TokenExampleColors {
+  category: Token['category'];
+  name: Token['name'];
+  value: Token['value'];
+}
+
+export interface TokenCardProps extends TokenExampleProps {
+  altValue: Token['altValue'];
+  comment?: Token['comment'];
+  useCamelCase?: boolean;
+  isCopied?: boolean;
+  onCopyText?: (tokenName: string) => void;
 }

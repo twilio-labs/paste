@@ -24,11 +24,11 @@ describe('TokenCard', () => {
         value={testTokenValue}
         altValue={testTokenAltValue}
         comment={testTokenComment}
-        exampleBackgroundColor={testExampleBackground}
-        exampleBackgroundColorInverse={testExampleBackgroundInverse}
-        exampleHighlightColor={testExampleHighlightColor}
-        exampleTextColor={testExampleTextColor}
-        exampleTextColorInverse={testExampleTextColorInverse}
+        backgroundColor={testExampleBackground}
+        backgroundColorInverse={testExampleBackgroundInverse}
+        highlightColor={testExampleHighlightColor}
+        textColor={testExampleTextColor}
+        textColorInverse={testExampleTextColorInverse}
         useCamelCase={useCamelCase}
       />
     </Theme.Provider>
@@ -79,10 +79,10 @@ describe('TokenCard', () => {
           value="rgb(242, 47, 70)"
           altValue={testTokenAltValue}
           comment="Twilio brand red, accessible on large text only."
-          exampleBackgroundColor={testExampleBackground}
-          exampleBackgroundColorInverse={testExampleBackgroundInverse}
-          exampleTextColor={testExampleTextColor}
-          exampleTextColorInverse={testExampleTextColorInverse}
+          backgroundColor={testExampleBackground}
+          backgroundColorInverse={testExampleBackgroundInverse}
+          textColor={testExampleTextColor}
+          textColorInverse={testExampleTextColorInverse}
         />
       </Theme.Provider>
     );
@@ -100,8 +100,8 @@ describe('TokenCard', () => {
           value="rgba(255, 255, 255, 0.2)"
           altValue="#ffffff"
           comment="Light inverse background color for any container. Must be used on color-background-body-inverse."
-          exampleBackgroundColor={testExampleBackground}
-          exampleBackgroundColorInverse={testExampleBackgroundInverse}
+          backgroundColor={testExampleBackground}
+          backgroundColorInverse={testExampleBackgroundInverse}
         />
       </Theme.Provider>
     );
@@ -119,10 +119,10 @@ describe('TokenCard', () => {
           value="rgb(255, 255, 255)"
           altValue="#ffffff"
           comment="Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse."
-          exampleBackgroundColor={testExampleBackground}
-          exampleBackgroundColorInverse={testExampleBackgroundInverse}
-          exampleTextColor={testExampleTextColor}
-          exampleTextColorInverse={testExampleTextColorInverse}
+          backgroundColor={testExampleBackground}
+          backgroundColorInverse={testExampleBackgroundInverse}
+          textColor={testExampleTextColor}
+          textColorInverse={testExampleTextColorInverse}
         />
       </Theme.Provider>
     );
@@ -140,11 +140,11 @@ describe('TokenCard', () => {
           value="4rem"
           altValue="40px"
           comment="Constant line-height token for line-height 110"
-          exampleBackgroundColor={testExampleBackground}
-          exampleBackgroundColorInverse={testExampleBackgroundInverse}
-          exampleHighlightColor={testExampleHighlightColor}
-          exampleTextColor={testExampleTextColor}
-          exampleTextColorInverse={testExampleTextColorInverse}
+          backgroundColor={testExampleBackground}
+          backgroundColorInverse={testExampleBackgroundInverse}
+          highlightColor={testExampleHighlightColor}
+          textColor={testExampleTextColor}
+          textColorInverse={testExampleTextColorInverse}
         />
       </Theme.Provider>
     );
