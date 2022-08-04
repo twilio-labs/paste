@@ -60,7 +60,9 @@ Netlify Functions are just AWS Lambdas in disguise. They take an incoming reques
 
 Inside our function we use `chrome-aws-lambda` for grabbing the Chrome Browser binary for AWS Lambdas, and puppeteer to run and control the browser. 
 
-Using Puppeteer, we instruct Chrome to visit a url on the website, which renders a dynamic page based on the parameters we give it. We then tell puppetteer to use Chrome to take a screenshot of the page, and that image is then returned as the response of the function.
+Using Puppeteer, we instruct Chrome to visit a url on the website, which renders a dynamic page based on the parameters we give it. We then tell puppeteer to use Chrome to take a screenshot of the page, and that image is then returned as the response of the function.
+
+The page on the website renders a box 800px x 420px. The information is display for the component being requested comes from Airtable, via the Gatsby integration.
 
 [Winston](https://github.com/winstonjs/winston) does our logging, so we can observe the function running in real time in the Netlify UI.
 
