@@ -38,7 +38,6 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
           <Button
             variant="secondary"
             onClick={() => {
-              // setFilterString('');
               onClearSearch();
             }}
           >
