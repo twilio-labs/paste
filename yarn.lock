@@ -10218,6 +10218,7 @@ __metadata:
     "@twilio-paste/textarea": ^7.0.0
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/time-picker": ^3.0.0
+    "@twilio-paste/toggle": ^0.0.0
     "@twilio-paste/toast": ^9.0.0
     "@twilio-paste/tooltip": ^8.0.0
     "@twilio-paste/tooltip-primitive": ^0.2.9
@@ -11660,6 +11661,20 @@ __metadata:
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/toggle@^0.0.0, @twilio-paste/toggle@workspace:packages/paste-core/components/toggle":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/toggle@workspace:packages/paste-core/components/toggle"
+  dependencies:
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 

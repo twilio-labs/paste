@@ -151,6 +151,7 @@
   "ToastContainer": "@twilio-paste/core/toast",
   "Toaster": "@twilio-paste/core/toast",
   "useToaster": "@twilio-paste/core/toast",
+  "Toggle": "@twilio-paste/core/toggle",
   "Tooltip": "@twilio-paste/core/tooltip",
   "useTooltipState": "@twilio-paste/core/tooltip",
   "Truncate": "@twilio-paste/core/truncate",

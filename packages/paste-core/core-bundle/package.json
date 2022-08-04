@@ -90,6 +90,7 @@
     "@twilio-paste/theme": "^8.0.0",
     "@twilio-paste/time-picker": "^3.0.0",
     "@twilio-paste/toast": "^9.0.0",
+    "@twilio-paste/toggle": "^0.0.0",
     "@twilio-paste/tooltip": "^8.0.0",
     "@twilio-paste/tooltip-primitive": "^0.2.9",
     "@twilio-paste/truncate": "^11.0.0",

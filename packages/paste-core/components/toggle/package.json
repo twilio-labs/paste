@@ -1,0 +1,59 @@
+{
+  "name": "@twilio-paste/toggle",
+  "version": "0.0.0",
+  "category": "interaction",
+  "status": "production",
+  "description": "A toggle is an interactive binary switch.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "peerDependencies": {
+    "@twilio-paste/box": "^6.0.1",
+    "@twilio-paste/stack": "^4.0.1",
+    "@twilio-paste/help-text": "^9.0.1",
+    "@twilio-paste/label": "^9.0.1",
+    "@twilio-paste/media-object": "^6.0.1",
+    "@twilio-paste/uid-library": "^0.2.5",
+    "@twilio-paste/text": "^6.0.1",
+    "@twilio-paste/icons": "^8.1.0",
+    "@twilio-paste/design-tokens": "^7.3.0",
+    "@twilio-paste/style-props": "^5.0.2",
+    "@twilio-paste/theme": "^7.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/box": "^6.0.1",
+    "@twilio-paste/stack": "^4.0.1",
+    "@twilio-paste/help-text": "^9.0.1",
+    "@twilio-paste/label": "^9.0.1",
+    "@twilio-paste/media-object": "^6.0.1",
+    "@twilio-paste/uid-library": "^0.2.5",
+    "@twilio-paste/text": "^6.0.1",
+    "@twilio-paste/icons": "^8.1.0",
+    "@twilio-paste/design-tokens": "^7.3.0",
+    "@twilio-paste/style-props": "^5.0.2",
+    "@twilio-paste/theme": "^7.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

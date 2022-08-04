@@ -52,6 +52,7 @@ export * from '@twilio-paste/text';
 export * from '@twilio-paste/textarea';
 export * from '@twilio-paste/time-picker';
 export * from '@twilio-paste/toast';
+export * from '@twilio-paste/toggle';
 export * from '@twilio-paste/tooltip';
 export * from '@twilio-paste/tooltip-primitive';
 export * from '@twilio-paste/truncate';
