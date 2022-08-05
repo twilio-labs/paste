@@ -1,4 +1,41 @@
+import type {BoxStyleProps} from '@twilio-paste/box';
 import type {VariantStyles} from './types';
+
+/**
+ * Wrapper styles
+ * If the pill is hoverable (i.e. can be selected), we set the color of the 'x' to inherit and set the color on the wrapper. This is so that when anywhere on the pill is hovered, the 'x' matches the rest of the content.
+ * If the pill is not hoverable, we set the color of the 'x' to the correct tokens.
+ */
+
+export const wrapperStyles: VariantStyles = {
+  default: {
+    color: 'colorTextIcon',
+    _hover: {
+      color: 'colorTextLinkStronger',
+    },
+  },
+  error: {
+    color: 'colorTextIcon',
+    _hover: {
+      color: 'colorTextErrorStronger',
+    },
+  },
+};
+
+export const selectedWrapperStyles: VariantStyles = {
+  default: {
+    color: 'colorTextWeakest',
+    _hover: {
+      color: 'colorTextInverse',
+    },
+  },
+  error: {
+    color: 'colorTextInverse',
+    _hover: {
+      color: 'colorTextWeakest',
+    },
+  },
+};
 
 /*
  * Pill styles
@@ -92,41 +129,70 @@ export const hoverPillStyles: VariantStyles = {
  * Close icon styles
  */
 
-export const closeStyles: VariantStyles = {
+export const baseCloseStyles: VariantStyles = {
   default: {
-    color: 'colorTextIcon',
     _hover: {
       cursor: 'pointer',
       borderColor: 'colorBorderPrimaryStronger',
+    },
+  },
+  error: {
+    _hover: {
+      cursor: 'pointer',
+      borderColor: 'colorBorderErrorStronger',
+    },
+  },
+};
+
+export const selectedBaseCloseStyles: VariantStyles = {
+  default: {
+    _hover: {
+      cursor: 'pointer',
+      borderColor: 'transparent',
+      backgroundColor: 'colorBackgroundPrimary',
+    },
+  },
+  error: {
+    _hover: {
+      cursor: 'pointer',
+      borderColor: 'transparent',
+      backgroundColor: 'colorBackgroundErrorStrongest',
+    },
+  },
+};
+
+export const closeInheritColorStyles: BoxStyleProps = {
+  color: 'inherit',
+  _hover: {
+    color: 'inherit',
+  },
+};
+
+export const closeColorStyles: VariantStyles = {
+  default: {
+    color: 'colorTextIcon',
+    _hover: {
       color: 'colorTextLinkStronger',
     },
   },
   error: {
     color: 'colorTextIcon',
     _hover: {
-      cursor: 'pointer',
-      borderColor: 'colorBorderErrorStronger',
       color: 'colorTextErrorStronger',
     },
   },
 };
 
-export const selectedCloseStyles: VariantStyles = {
+export const selectedCloseColorStyles: VariantStyles = {
   default: {
     color: 'colorTextWeakest',
     _hover: {
-      cursor: 'pointer',
-      borderColor: 'transparent',
-      backgroundColor: 'colorBackgroundPrimary',
       color: 'colorTextInverse',
     },
   },
   error: {
     color: 'colorTextInverse',
     _hover: {
-      cursor: 'pointer',
-      borderColor: 'transparent',
-      backgroundColor: 'colorBackgroundErrorStrongest',
       color: 'colorTextWeakest',
     },
   },

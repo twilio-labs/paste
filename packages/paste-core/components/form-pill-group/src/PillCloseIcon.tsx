@@ -2,14 +2,24 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {selectedCloseStyles, closeStyles} from './FormPill.styles';
+import {
+  baseCloseStyles,
+  closeColorStyles,
+  closeInheritColorStyles,
+  selectedBaseCloseStyles,
+  selectedCloseColorStyles,
+} from './FormPill.styles';
 import type {PillVariant} from './types';
+
+// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
+const merge = require('deepmerge');
 
 interface PillCloseIconProps {
   onClick?: () => void;
   selected?: boolean;
   variant?: PillVariant;
   element?: BoxProps['element'];
+  pillIsHoverable?: boolean;
 }
 
 export const PillCloseIcon: React.FC<PillCloseIconProps> = ({
@@ -17,8 +27,16 @@ export const PillCloseIcon: React.FC<PillCloseIconProps> = ({
   onClick = () => {},
   selected = false,
   variant = 'default',
+  pillIsHoverable = false,
 }) => {
-  const computedStyles = selected ? selectedCloseStyles[variant] : closeStyles[variant];
+  const baseStyles = selected ? selectedBaseCloseStyles[variant] : baseCloseStyles[variant];
+  let colorStyles = selected ? selectedCloseColorStyles[variant] : closeColorStyles[variant];
+
+  if (pillIsHoverable) {
+    colorStyles = closeInheritColorStyles;
+  }
+
+  const computedStyles = merge(baseStyles, colorStyles);
 
   return (
     <Box

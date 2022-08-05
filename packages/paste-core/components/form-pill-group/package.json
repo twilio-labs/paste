@@ -24,6 +24,9 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "deepmerge": "4.2.2"
+  },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.2",
     "@twilio-paste/box": "^6.0.0",
