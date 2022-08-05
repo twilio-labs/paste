@@ -4,7 +4,7 @@ When sharing a link to a component page on the internet, we supply a dynamically
 
 **Example:**
 
-<img width="570" alt="image" src="https://user-images.githubusercontent.com/368249/182693326-5068e8a4-1e86-432e-81ae-b19e07a53905.png">
+<img width="570" src="https://user-images.githubusercontent.com/368249/182693326-5068e8a4-1e86-432e-81ae-b19e07a53905.png">
 
 ## The way it works
 
@@ -18,11 +18,11 @@ sequenceDiagram
     note right of U: https://paste.twilio.design/components/button
     S->>W: Do you have any open graph tags?
     note right of S: https://paste.twilio.design/components/button
-    W-->>S: og:image url 
+    W-->>S: og:image url
     note right of S: <meta property="og:image" content={openGraphServiceUrl} />
     S->>N: Can I have the image pls?
     note right of S: http://paste.twilio.design/.netlify/functions/opengraph/components/button
-    loop 
+    loop
         N->>N: Figure out which component and build request params for opengraph page
     end
     note right of N: components/button
@@ -54,11 +54,17 @@ Once running, the function can be reached at `localhost:8888/.netlify/functions/
 
 Whilst running, changes to the function code will restart the function with the new code changes applied. (Hot reloading for Node, using Nodemon) This is all handled for us using the Netlify CLI.
 
+The code that generates the opengraph preview page lives in:
+
+- packages/paste-website/functions/opengraph.ts (the function code)
+- packages/paste-website/src/pages/opengraph/index.tsx (the code for the UI that is screenshotted)
+- packages/paste-website/stories/Opengraph.stories.tsx (a story to aid in local development for the UI)
+
 ## Technology / Stack
 
-Netlify Functions are just AWS Lambdas in disguise. They take an incoming request and you can return a response. 
+Netlify Functions are just AWS Lambdas in disguise. They take an incoming request and you can return a response.
 
-Inside our function we use `chrome-aws-lambda` for grabbing the Chrome Browser binary for AWS Lambdas, and puppeteer to run and control the browser. 
+Inside our function we use `chrome-aws-lambda` for grabbing the Chrome Browser binary for AWS Lambdas, and puppeteer to run and control the browser.
 
 Using Puppeteer, we instruct Chrome to visit a url on the website, which renders a dynamic page based on the parameters we give it. We then tell puppeteer to use Chrome to take a screenshot of the page, and that image is then returned as the response of the function.
 
@@ -68,10 +74,8 @@ The page on the website renders a box 800px x 420px. The information is display 
 
 [Rollbar](https://docs.rollbar.com/docs/aws-lambda) wraps our function and helps log errors to the Rollbar service so we are alerted if it starts to break.
 
-## Node runtime 
+## Node runtime
 
 🚨 **Node v14** 🚨
 
 The Netlify function must run using Node v14 for the Chrome binary to work correctly. We are explicitly opting out of Node 16 runtime in Netlify functions by setting the `AWS_LAMBDA_JS_RUNTIME` environment variable in the Netlify UI.
-
-
