@@ -3,11 +3,14 @@ import {Button} from '@twilio-paste/button';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import {DataGridHeaderSort} from '../src';
-import {ComposableCellsDataGrid} from '../stories/components/ComposableCellsDataGrid';
-import {SortableColumnsDataGrid} from '../stories/components/SortableColumnsDataGrid';
-import {PaginatedDataGrid} from '../stories/components/PaginatedDataGrid';
-import {PlainDataGrid} from '../stories/components/PlainDataGrid';
+import {DataGridCell, DataGridHeaderSort, DataGridHeader} from '../src';
+import {
+  ColumnSpanDataGrid,
+  ComposableCellsDataGrid,
+  SortableColumnsDataGrid,
+  PaginatedDataGrid,
+  PlainDataGrid,
+} from '../stories/index.stories';
 
 const checkTagName = (el: Element, name: string): void => expect(el.tagName).toBe(name.toUpperCase());
 
@@ -39,6 +42,24 @@ describe('Data Grid', () => {
       const dataGrid = getByTestId('data-grid');
       expect(dataGrid.getAttribute('aria-label')).toBeDefined();
       expect(dataGrid.getAttribute('role')).toBe('grid');
+    });
+  });
+
+  describe('Column Span', () => {
+    it('applies colSpan attribute as expected', () => {
+      const {getByTestId} = render(<ColumnSpanDataGrid />);
+      const th = getByTestId('data-grid-header');
+      expect(th).toHaveAttribute('colspan', '5');
+    });
+
+    it('enforces numeric colSpan prop type', () => {
+      // @ts-expect-error colSpan should be numeric
+      <DataGridCell colSpan="oops" />;
+      // @ts-expect-error colSpan should be numeric
+      <DataGridHeader colSpan="oops" />;
+
+      <DataGridCell colSpan={3} />;
+      <DataGridHeader colSpan={3} />;
     });
   });
 

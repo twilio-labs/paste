@@ -23,6 +23,7 @@ export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
  * DataGrid cell component. Every visible box in a data grid is powered by the cell.
  *
  * @param {"th" | "td"} as - is it a header or a regular cell
+ * @param {number} colspan - how many columns the cell spans across
  * @param {string} element - customization element
  */
 export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_CELL', as = 'td', ...props}) => {
