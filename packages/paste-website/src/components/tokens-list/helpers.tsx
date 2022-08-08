@@ -49,7 +49,7 @@ export const getTokenExampleColors = (tokens: Tokens): TokenExampleColors => {
   return {
     backgroundColor: tokens['background-colors'].find((token) => token.name === 'color-background-body')
       ?.value as Properties['backgroundColor'],
-    backgroundColorInverse: tokens['background-colors'].find((token) => token.name === 'color-background-inverse')
+    backgroundColorInverse: tokens['background-colors'].find((token) => token.name === 'color-background-body-inverse')
       ?.value as Properties['backgroundColor'],
     borderColor: tokens['border-colors'].find((token) => token.name === 'color-border')
       ?.value as Properties['borderColor'],
