@@ -48,3 +48,13 @@ View the value and description of the Twilio Paste token property by hovering ov
 3. Code 🤓
 4. Test your changes
 5. Submit a PR!
+
+## Publishing Extensions
+
+We will publish the vscode extension to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension.
+
+First, We need to install the [vsce](https://github.com/microsoft/vscode-vsce) command-line tool for packaging and publishing  VS Code extensions. Let’s install it:
+
+```sh
+npm install -g vsce
+```
