@@ -7,6 +7,7 @@ export const pluralCategoryMap = new Map(
     'border-width': 'border-widths',
     'border-style': 'border-styles',
     'box-shadow': 'box-shadows',
+    'data-visualization': 'data-visualization',
     'drop-shadow': 'drop-shadows',
     color: 'colors',
     font: 'fonts',
