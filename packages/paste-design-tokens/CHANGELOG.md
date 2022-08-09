@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.0.0
+
+### Major Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all of the Data Visualization tokens from the generic Color category. If you are using categorized Data Visualization design tokens, you will need to update their reference.
+
+### Patch Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Updates ordering on design tokens to be alphanumeric.
+
+* [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Update the generic export to exclude deprecated tokens, provide pre-computed alt values, and to omit the originalValue key.
+
 ## 7.4.0
 
 ### Minor Changes

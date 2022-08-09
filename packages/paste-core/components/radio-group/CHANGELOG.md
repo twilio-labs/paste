@@ -1,5 +1,24 @@
 # Change Log
 
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/base-radio-checkbox@10.0.0
+  - @twilio-paste/help-text@10.0.0
+  - @twilio-paste/inline-control-group@10.0.0
+  - @twilio-paste/label@10.0.0
+  - @twilio-paste/screen-reader-only@10.0.0
+  - @twilio-paste/flex@5.0.0
+  - @twilio-paste/sibling-box@6.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/icons@9.0.0
+
 ## 9.0.1
 
 ### Patch Changes

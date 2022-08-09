@@ -1,5 +1,23 @@
 # Change Log
 
+## 11.0.0
+
+### Minor Changes
+
+- [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213) [#2573](https://github.com/twilio-labs/paste/pull/2573) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add "circle" and "circle_small" sizes
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/icons@9.0.0
+
 ## 10.1.0
 
 ### Minor Changes

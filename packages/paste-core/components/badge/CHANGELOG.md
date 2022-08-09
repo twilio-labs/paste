@@ -1,5 +1,19 @@
 # @twilio-paste/badge
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/icons@9.0.0
+
 ## 4.0.2
 
 ### Patch Changes
