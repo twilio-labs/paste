@@ -10,13 +10,22 @@ import {contrastScore} from '../../../../utils/contrastScore';
 export const TextColorExample: React.FC<{
   value: keyof ThemeShape['textColors'];
   backgroundColor: Properties['backgroundColor'];
-}> = ({value, backgroundColor}) => {
+  textColor: Properties['color'];
+  textShadow?: Properties['textShadow'];
+}> = ({value, backgroundColor, textColor, textShadow}) => {
   const contrastRating = contrastScore(value, backgroundColor);
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <TextExample color={value} />
-      <Text as="p" fontSize="fontSize10" lineHeight="lineHeight10" marginTop="space20" marginBottom="space0">
+      <TextExample color={value} textShadow={textShadow} />
+      <Text
+        as="p"
+        color={textColor as keyof ThemeShape['textColors']}
+        fontSize="fontSize10"
+        lineHeight="lineHeight10"
+        marginTop="space20"
+        marginBottom="space0"
+      >
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {contrastRating}
       </Text>

@@ -8,168 +8,168 @@ exports[`generic declaration file formatter should return typescript definitions
    category: \\"background-color\\";
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!white}\\";
    name: \\"color_background_body\\";
+   altValue: \\"#FFFFFF\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(242, 47, 70)\\";
    comment: \\"Primary brand background, accessible with black text\\";
-   originalValue: \\"{!amaranth}\\";
    name: \\"color_background_brand_highlight\\";
+   altValue: \\"#F22F46\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(235, 15, 41)\\";
    comment: \\"Dark Primary brand background, accessible with black and white text\\";
-   originalValue: \\"{!red_ribbon}\\";
    name: \\"color_background_brand_highlight_dark\\";
+   altValue: \\"#EB0F29\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(194, 37, 55)\\";
    comment: \\"Darker Primary brand background, accessible with black and white text\\";
-   originalValue: \\"{!palette_red_50}\\";
    name: \\"color_background_brand_highlight_darker\\";
+   altValue: \\"#C22537\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(13, 18, 43)\\";
    comment: \\"Primary brand background, accessible with black text\\";
-   originalValue: \\"{!haiti}\\";
    name: \\"color_background_brand_primary\\";
+   altValue: \\"#0D122B\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(246, 246, 246)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_20}\\";
    name: \\"color_background_default\\";
+   altValue: \\"#F6F6F6\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(236, 187, 193)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_20}\\";
    name: \\"color_background_element_selection\\";
+   altValue: \\"#ECBBC1\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(206, 80, 95)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_40}\\";
    name: \\"color_background_error\\";
+   altValue: \\"#CE505F\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(174, 33, 49)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_60}\\";
    name: \\"color_background_error_dark\\";
+   altValue: \\"#AE2131\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(194, 37, 55)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_red_50}\\";
    name: \\"color_background_error_light\\";
+   altValue: \\"#C22537\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(230, 230, 230)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_40}\\";
    name: \\"color_background_row_active\\";
+   altValue: \\"#E6E6E6\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(214, 214, 214)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_50}\\";
    name: \\"color_background_row_focus\\";
+   altValue: \\"#D6D6D6\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(214, 214, 214)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_50}\\";
    name: \\"color_background_row_hover\\";
+   altValue: \\"#D6D6D6\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(230, 230, 230)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_40}\\";
    name: \\"color_background_row_selected\\";
+   altValue: \\"#E6E6E6\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(235, 235, 235)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_gray_30}\\";
    name: \\"color_background_row_striped\\";
+   altValue: \\"#EBEBEB\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(100, 209, 138)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_50}\\";
    name: \\"color_background_success\\";
+   altValue: \\"#64D18A\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(80, 167, 110)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_70}\\";
    name: \\"color_background_success_dark\\";
+   altValue: \\"#50A76E\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(162, 227, 184)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_green_30}\\";
    name: \\"color_background_success_light\\";
+   altValue: \\"#A2E3B8\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(251, 208, 144)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_30}\\";
    name: \\"color_background_warning\\";
+   altValue: \\"#FBD090\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(199, 141, 56)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_70}\\";
    name: \\"color_background_warning_dark\\";
+   altValue: \\"#C78D38\\";
 },
 {
    type: \\"color\\";
    category: \\"background-color\\";
    value: \\"rgb(249, 177, 71)\\";
    comment: \\"Some background\\";
-   originalValue: \\"{!palette_orange_50}\\";
    name: \\"color_background_warning_light\\";
+   altValue: \\"#F9B147\\";
 }
 ],
 \\"colors\\": [
@@ -178,104 +178,104 @@ exports[`generic declaration file formatter should return typescript definitions
    category: \\"color\\";
    value: \\"rgb(242, 47, 70)\\";
    comment: \\"Twilio brand red\\";
-   originalValue: \\"{!amaranth}\\";
    name: \\"color_brand_highlight\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(235, 15, 41)\\";
    comment: \\"Twilio accessible brand red\\";
-   originalValue: \\"{!red_ribbon}\\";
    name: \\"color_brand_highlight_dark\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(13, 18, 43)\\";
    comment: \\"Primary branding color\\";
-   originalValue: \\"{!haiti}\\";
    name: \\"color_brand_primary\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Gray Color 1\\";
-   originalValue: \\"{!palette_gray_10}\\";
    name: \\"color_gray_1\\";
-},
-{
-   type: \\"color\\";
-   category: \\"color\\";
-   value: \\"rgb(34, 34, 34)\\";
-   comment: \\"Gray Color 10\\";
-   originalValue: \\"{!palette_gray_100}\\";
-   name: \\"color_gray_10\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(246, 246, 246)\\";
    comment: \\"Gray Color 2\\";
-   originalValue: \\"{!palette_gray_20}\\";
    name: \\"color_gray_2\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(235, 235, 235)\\";
    comment: \\"Gray Color 3\\";
-   originalValue: \\"{!palette_gray_30}\\";
    name: \\"color_gray_3\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(230, 230, 230)\\";
    comment: \\"Gray Color 4\\";
-   originalValue: \\"{!palette_gray_40}\\";
    name: \\"color_gray_4\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(214, 214, 214)\\";
    comment: \\"Gray Color 5\\";
-   originalValue: \\"{!palette_gray_50}\\";
    name: \\"color_gray_5\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(204, 204, 204)\\";
    comment: \\"Gray Color 6\\";
-   originalValue: \\"{!palette_gray_60}\\";
    name: \\"color_gray_6\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(153, 153, 153)\\";
    comment: \\"Gray Color 7\\";
-   originalValue: \\"{!palette_gray_70}\\";
    name: \\"color_gray_7\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(102, 102, 102)\\";
    comment: \\"Gray Color 8\\";
-   originalValue: \\"{!palette_gray_80}\\";
    name: \\"color_gray_8\\";
+   altValue: null;
 },
 {
    type: \\"color\\";
    category: \\"color\\";
    value: \\"rgb(68, 68, 68)\\";
    comment: \\"Gray Color 9\\";
-   originalValue: \\"{!palette_gray_90}\\";
    name: \\"color_gray_9\\";
+   altValue: null;
+},
+{
+   type: \\"color\\";
+   category: \\"color\\";
+   value: \\"rgb(34, 34, 34)\\";
+   comment: \\"Gray Color 10\\";
+   name: \\"color_gray_10\\";
+   altValue: null;
 }
 ],
 \\"font-sizes\\": [
@@ -284,80 +284,80 @@ exports[`generic declaration file formatter should return typescript definitions
    type: \\"font-size\\";
    value: \\"0.6875rem\\";
    comment: \\"Constant typography token for font size 0\\";
-   originalValue: \\"{!font_size_0}\\";
    name: \\"font_size_0\\";
+   altValue: \\"11px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"0.75rem\\";
    comment: \\"Constant typography token for font size 1\\";
-   originalValue: \\"{!font_size_1}\\";
    name: \\"font_size_1\\";
+   altValue: \\"12px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"0.8125rem\\";
    comment: \\"Constant typography token for font size 2\\";
-   originalValue: \\"{!font_size_2}\\";
    name: \\"font_size_2\\";
+   altValue: \\"13px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"0.875rem\\";
    comment: \\"Constant typography token for font size 3\\";
-   originalValue: \\"{!font_size_3}\\";
    name: \\"font_size_3\\";
+   altValue: \\"14px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"0.9375rem\\";
    comment: \\"Constant typography token for font size 4\\";
-   originalValue: \\"{!font_size_4}\\";
    name: \\"font_size_4\\";
+   altValue: \\"15px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"1rem\\";
    comment: \\"Constant typography token for font size 5\\";
-   originalValue: \\"{!font_size_5}\\";
    name: \\"font_size_5\\";
+   altValue: \\"16px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"1.125rem\\";
    comment: \\"Constant typography token for font size 6\\";
-   originalValue: \\"{!font_size_6}\\";
    name: \\"font_size_6\\";
+   altValue: \\"18px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"1.25rem\\";
    comment: \\"Constant typography token for font size 7\\";
-   originalValue: \\"{!font_size_7}\\";
    name: \\"font_size_7\\";
+   altValue: \\"20px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"1.875rem\\";
    comment: \\"Constant typography token for font size 8\\";
-   originalValue: \\"{!font_size_8}\\";
    name: \\"font_size_8\\";
+   altValue: \\"30px\\";
 },
 {
    category: \\"font-size\\";
    type: \\"font-size\\";
    value: \\"2.25rem\\";
    comment: \\"Constant typography token for font size 9\\";
-   originalValue: \\"{!font_size_9}\\";
    name: \\"font_size_9\\";
+   altValue: \\"36px\\";
 }
 ],
 \\"spacings\\": [
@@ -365,113 +365,113 @@ exports[`generic declaration file formatter should return typescript definitions
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"0.25rem\\";
-   originalValue: \\"{!space_0}\\";
    name: \\"space_0\\";
+   altValue: \\"4px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"0.5rem\\";
-   originalValue: \\"{!space_1}\\";
    name: \\"space_1\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"2.75rem\\";
-   originalValue: \\"{!space_10}\\";
-   name: \\"space_10\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3rem\\";
-   originalValue: \\"{!space_11}\\";
-   name: \\"space_11\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.25rem\\";
-   originalValue: \\"{!space_12}\\";
-   name: \\"space_12\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.5rem\\";
-   originalValue: \\"{!space_13}\\";
-   name: \\"space_13\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"3.75rem\\";
-   originalValue: \\"{!space_14}\\";
-   name: \\"space_14\\";
-},
-{
-   category: \\"spacing\\";
-   type: \\"size\\";
-   value: \\"4rem\\";
-   originalValue: \\"{!space_15}\\";
-   name: \\"space_15\\";
+   altValue: \\"8px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"0.75rem\\";
-   originalValue: \\"{!space_2}\\";
    name: \\"space_2\\";
+   altValue: \\"12px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"1rem\\";
-   originalValue: \\"{!space_3}\\";
    name: \\"space_3\\";
+   altValue: \\"16px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"1.25rem\\";
-   originalValue: \\"{!space_4}\\";
    name: \\"space_4\\";
+   altValue: \\"20px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"1.5rem\\";
-   originalValue: \\"{!space_5}\\";
    name: \\"space_5\\";
+   altValue: \\"24px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"1.75rem\\";
-   originalValue: \\"{!space_6}\\";
    name: \\"space_6\\";
+   altValue: \\"28px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"2rem\\";
-   originalValue: \\"{!space_7}\\";
    name: \\"space_7\\";
+   altValue: \\"32px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"2.25rem\\";
-   originalValue: \\"{!space_8}\\";
    name: \\"space_8\\";
+   altValue: \\"36px\\";
 },
 {
    category: \\"spacing\\";
    type: \\"size\\";
    value: \\"2.5rem\\";
-   originalValue: \\"{!space_9}\\";
    name: \\"space_9\\";
+   altValue: \\"40px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"2.75rem\\";
+   name: \\"space_10\\";
+   altValue: \\"44px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3rem\\";
+   name: \\"space_11\\";
+   altValue: \\"48px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.25rem\\";
+   name: \\"space_12\\";
+   altValue: \\"52px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.5rem\\";
+   name: \\"space_13\\";
+   altValue: \\"56px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"3.75rem\\";
+   name: \\"space_14\\";
+   altValue: \\"60px\\";
+},
+{
+   category: \\"spacing\\";
+   type: \\"size\\";
+   value: \\"4rem\\";
+   name: \\"space_15\\";
+   altValue: \\"64px\\";
 }
 ],
 \\"text-colors\\": [
@@ -480,184 +480,184 @@ exports[`generic declaration file formatter should return typescript definitions
    category: \\"text-color\\";
    value: \\"rgb(242, 47, 70)\\";
    comment: \\"Twilio brand red, accessible on large text only.\\";
-   originalValue: \\"{!amaranth}\\";
    name: \\"color_text_brand_highlight\\";
+   altValue: \\"#F22F46\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(235, 15, 41)\\";
    comment: \\"Accessible Twilio brand red.\\";
-   originalValue: \\"{!red_ribbon}\\";
    name: \\"color_text_brand_highlight_dark\\";
+   altValue: \\"#EB0F29\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Text color used on any brand color\\";
-   originalValue: \\"{!white}\\";
    name: \\"color_text_brand_primary\\";
+   altValue: \\"#FFFFFF\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(68, 68, 68)\\";
    comment: \\"Body text color\\";
-   originalValue: \\"{!palette_gray_90}\\";
    name: \\"color_text_default\\";
+   altValue: \\"#444444\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(194, 37, 55)\\";
    comment: \\"Error text for inputs and error misc\\";
-   originalValue: \\"{!palette_red_50}\\";
    name: \\"color_text_error\\";
+   altValue: \\"#C22537\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(68, 68, 68)\\";
    comment: \\"Default icon color.\\";
-   originalValue: \\"{!palette_gray_90}\\";
    name: \\"color_text_icon_default\\";
+   altValue: \\"#444444\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(255, 255, 255)\\";
    comment: \\"Inverse text color for dark backgrounds\\";
-   originalValue: \\"{!white}\\";
    name: \\"color_text_inverse\\";
+   altValue: \\"#FFFFFF\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(235, 235, 235)\\";
    comment: \\"Weak inverse text color for dark backgrounds\\";
-   originalValue: \\"{!palette_gray_30}\\";
    name: \\"color_text_inverse_weak\\";
+   altValue: \\"#EBEBEB\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(68, 68, 68)\\";
    comment: \\"Text color for field labels.\\";
-   originalValue: \\"{!palette_gray_90}\\";
    name: \\"color_text_label\\";
+   altValue: \\"#444444\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(0, 112, 204)\\";
    comment: \\"Link text\\";
-   originalValue: \\"{!palette_blue_50}\\";
    name: \\"color_text_link\\";
+   altValue: \\"#0070CC\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(0, 89, 163)\\";
    comment: \\"Active link text\\";
-   originalValue: \\"{!palette_blue_70}\\";
    name: \\"color_text_link_active\\";
+   altValue: \\"#0059A3\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(194, 37, 55)\\";
    comment: \\"Destructive link text\\";
-   originalValue: \\"{!palette_red_50}\\";
    name: \\"color_text_link_destructive\\";
+   altValue: \\"#C22537\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(155, 29, 44)\\";
    comment: \\"Active destructive link text\\";
-   originalValue: \\"{!palette_red_70}\\";
    name: \\"color_text_link_destructive_active\\";
+   altValue: \\"#9B1D2C\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(236, 187, 193)\\";
    comment: \\"Disabled destructive link text\\";
-   originalValue: \\"{!palette_red_20}\\";
    name: \\"color_text_link_destructive_disabled\\";
+   altValue: \\"#ECBBC1\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(174, 33, 49)\\";
    comment: \\"Focus destructive link text\\";
-   originalValue: \\"{!palette_red_60}\\";
    name: \\"color_text_link_destructive_focus\\";
+   altValue: \\"#AE2131\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(174, 33, 49)\\";
    comment: \\"Hover destructive link text\\";
-   originalValue: \\"{!palette_red_60}\\";
    name: \\"color_text_link_destructive_hover\\";
+   altValue: \\"#AE2131\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(102, 169, 224)\\";
    comment: \\"Disabled link text\\";
-   originalValue: \\"{!palette_blue_30}\\";
    name: \\"color_text_link_disabled\\";
+   altValue: \\"#66A9E0\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(0, 97, 192)\\";
    comment: \\"Focus link text\\";
-   originalValue: \\"{!palette_blue_60}\\";
    name: \\"color_text_link_focus\\";
+   altValue: \\"#0061C0\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(0, 97, 192)\\";
    comment: \\"Hover link text\\";
-   originalValue: \\"{!palette_blue_60}\\";
    name: \\"color_text_link_hover\\";
+   altValue: \\"#0061C0\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(102, 102, 102)\\";
    comment: \\"Input placeholder text.\\";
-   originalValue: \\"{!palette_gray_80}\\";
    name: \\"color_text_placeholder\\";
+   altValue: \\"#666666\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(100, 209, 138)\\";
    comment: \\"Text color for success text.\\";
-   originalValue: \\"{!palette_green_50}\\";
    name: \\"color_text_success\\";
+   altValue: \\"#64D18A\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(249, 177, 71)\\";
    comment: \\"Color for texts or icons that are related to warnings on a dark background.\\";
-   originalValue: \\"{!palette_orange_50}\\";
    name: \\"color_text_warning\\";
+   altValue: \\"#F9B147\\";
 },
 {
    type: \\"color\\";
    category: \\"text-color\\";
    value: \\"rgb(230, 230, 230)\\";
    comment: \\"Weak body text for visual hierarchy.\\";
-   originalValue: \\"{!palette_gray_40}\\";
    name: \\"color_text_weak\\";
+   altValue: \\"#E6E6E6\\";
 }
 ],
 \\"z-indices\\": [
@@ -665,71 +665,71 @@ exports[`generic declaration file formatter should return typescript definitions
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 0;
-   originalValue: \\"{!z-index-0}\\";
    name: \\"z-index-0\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 10;
-   originalValue: \\"{!z-index-10}\\";
    name: \\"z-index-10\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 20;
-   originalValue: \\"{!z-index-20}\\";
    name: \\"z-index-20\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 30;
-   originalValue: \\"{!z-index-30}\\";
    name: \\"z-index-30\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 40;
-   originalValue: \\"{!z-index-40}\\";
    name: \\"z-index-40\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 50;
-   originalValue: \\"{!z-index-50}\\";
    name: \\"z-index-50\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 60;
-   originalValue: \\"{!z-index-60}\\";
    name: \\"z-index-60\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 70;
-   originalValue: \\"{!z-index-70}\\";
    name: \\"z-index-70\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 80;
-   originalValue: \\"{!z-index-80}\\";
    name: \\"z-index-80\\";
+   altValue: null;
 },
 {
    type: \\"z-index\\";
    category: \\"z-index\\";
    value: 90;
-   originalValue: \\"{!z-index-90}\\";
    name: \\"z-index-90\\";
+   altValue: null;
 }
 ]}
 }
