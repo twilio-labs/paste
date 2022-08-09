@@ -9,6 +9,7 @@ export interface ThProps {
   width?: string;
   onClick?: React.MouseEventHandler;
   element?: BoxElementProps['element'];
+  colSpan?: number;
 }
 
 export const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
@@ -48,4 +49,5 @@ Th.propTypes = {
   onClick: PropTypes.func,
   width: PropTypes.string,
   element: PropTypes.string,
+  colSpan: PropTypes.number,
 };
