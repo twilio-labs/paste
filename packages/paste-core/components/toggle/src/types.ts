@@ -8,6 +8,7 @@ export interface ToggleProps extends React.HTMLAttributes<HTMLDivElement>, Pick<
   helpText?: string | React.ReactNode;
   id?: string;
   on?: boolean;
+  onClick?: () => void;
   required?: boolean;
 }
 

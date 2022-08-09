@@ -11,12 +11,17 @@ import {ToggleHelpText} from './ToggleHelpText';
 import {ToggleLabelText} from './ToggleLabelText';
 
 const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
-  ({element = 'TOGGLE', children, helpText, id, disabled = false, on = false, required = false, ...props}, ref) => {
+  (
+    {element = 'TOGGLE', children, helpText, id, disabled = false, on = false, required = false, onClick, ...props},
+    ref
+  ) => {
     const [toggleIsOn, setToggleIsOn] = React.useState(on);
     const [isHovering, setIsHovering] = React.useState(false);
 
-    const toggleId = useUID();
-    if (!id) id = toggleId;
+    if (!id) {
+      const toggleId = useUID();
+      id = toggleId;
+    }
     const helpTextId = useUID();
     const labelId = useUID();
 
@@ -48,6 +53,11 @@ const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
       return 'default';
     };
 
+    const handleClick = (): void => {
+      if (!disabled) setToggleIsOn(!toggleIsOn);
+      if (onClick) onClick();
+    };
+
     const handleKeyDown = (event: React.KeyboardEvent): void => {
       if (event.key === ' ' || event.key === 'Enter') setToggleIsOn(!toggleIsOn);
     };
@@ -62,24 +72,23 @@ const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
                 as="div"
                 role="switch"
                 aria-checked={toggleIsOn}
-                element={element}
                 aria-disabled={disabled}
+                aria-labelledby={labelId}
+                element={element}
                 id={id}
-                tabIndex={0}
                 ref={ref}
-                color={getColor()}
-                backgroundColor={getBackgroundColor()}
+                tabIndex={0}
                 position="relative"
                 display="inline-block"
+                height="20px"
+                width="42px"
                 borderColor="colorBorder"
                 borderWidth="borderWidth10"
-                width="42px"
                 borderRadius="borderRadiusPill"
-                height="20px"
+                backgroundColor={getBackgroundColor()}
+                color={getColor()}
                 cursor={getCursor()}
-                onClick={() => {
-                  if (!disabled) setToggleIsOn(!toggleIsOn);
-                }}
+                onClick={handleClick}
                 onKeyDown={(evt) => {
                   handleKeyDown(evt);
                 }}
@@ -93,7 +102,7 @@ const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
                 <ToggleKnob element={element} disabled={disabled} toggleIsOn={toggleIsOn} isHovering={isHovering} />
               </Box>
             </MediaFigure>
-            <ToggleLabelText id={labelId}>
+            <ToggleLabelText element={`${element}_LABEL_TEXT_WRAPPER`} id={labelId}>
               <MediaObject verticalAlign="top">
                 {required && (
                   <MediaFigure spacing="space20">
@@ -123,7 +132,9 @@ Toggle.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   element: PropTypes.string,
-  required: PropTypes.bool,
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  id: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export {Toggle};

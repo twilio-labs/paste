@@ -20,29 +20,42 @@ describe('Toggle', () => {
     const {getByRole} = render(<On />);
     expect(getByRole('switch').getAttribute('aria-checked')).toBe('true');
   });
+  it('should set aria-labelledby to the label id', () => {
+    const {getByRole, container} = render(<Default />);
+    const labelId = getByRole('switch').getAttribute('aria-labelledby');
+    expect(container.querySelector('[data-paste-element="TOGGLE_LABEL_TEXT_WRAPPER"]')?.getAttribute('id')).toEqual(
+      labelId
+    );
+  });
 });
 
 describe('Toggle customization', () => {
   it('should set an element data attribute on Toggle', () => {
-    const {getByRole} = render(<On />);
+    const {getByRole, container} = render(<On />);
     expect(getByRole('switch').dataset.pasteElement).toEqual('TOGGLE');
     expect(getByRole('switch').firstChild).toHaveAttribute('data-paste-element', 'TOGGLE_KNOB');
     expect(getByRole('switch').querySelector('[data-paste-element="TOGGLE_ICON"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="TOGGLE_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="TOGGLE_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
   it('should set custom element data attributes on Toggle', () => {
-    const {getByRole} = render(<On element="MY_TOGGLE" />);
+    const {getByRole, container} = render(<On element="MY_TOGGLE" />);
     expect(getByRole('switch').dataset.pasteElement).toEqual('MY_TOGGLE');
     expect(getByRole('switch').firstChild).toHaveAttribute('data-paste-element', 'MY_TOGGLE_KNOB');
     expect(getByRole('switch').querySelector('[data-paste-element="MY_TOGGLE_ICON"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_TOGGLE_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_TOGGLE_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
   it('should add custom styling to Toggle', () => {
-    const {getByRole} = render(
+    const {getByRole, container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
           TOGGLE: {height: '30px', width: '52'},
           TOGGLE_KNOB: {height: '26px', width: '26px'},
           TOGGLE_ICON: {color: 'colorIcon'},
+          TOGGLE_HELP_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundAvailable'},
+          TOGGLE_LABEL_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundBrandStrong'},
         }}
       >
         <On />
@@ -51,18 +64,24 @@ describe('Toggle customization', () => {
     const toggle = getByRole('switch');
     const toggleKnob = getByRole('switch').firstChild;
     const toggleIcon = getByRole('switch').querySelector('[data-paste-element="TOGGLE_ICON"]');
+    const toggleLabel = container.querySelector('[data-paste-element="TOGGLE_LABEL_TEXT_WRAPPER"]');
+    const toggleHelpText = container.querySelector('[data-paste-element="TOGGLE_HELP_TEXT_WRAPPER"]');
     expect(toggle).toHaveStyleRule('height', '30px');
     expect(toggleKnob).toHaveStyleRule('height', '26px');
     expect(toggleIcon).toHaveStyleRule('color', 'colorIcon');
+    expect(toggleLabel).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
+    expect(toggleHelpText).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
   it('should add custom styling to a custom named Toggle', () => {
-    const {getByRole} = render(
+    const {getByRole, container} = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
           MY_TOGGLE: {height: '30px', width: '52'},
           MY_TOGGLE_KNOB: {height: '26px', width: '26px'},
           MY_TOGGLE_ICON: {color: 'colorIcon'},
+          MY_TOGGLE_HELP_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundAvailable'},
+          MY_TOGGLE_LABEL_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundBrandStrong'},
         }}
       >
         <On element="MY_TOGGLE" />
@@ -71,8 +90,12 @@ describe('Toggle customization', () => {
     const toggle = getByRole('switch');
     const toggleKnob = getByRole('switch').firstChild;
     const toggleIcon = getByRole('switch').querySelector('[data-paste-element="MY_TOGGLE_ICON"]');
+    const toggleLabel = container.querySelector('[data-paste-element="MY_TOGGLE_LABEL_TEXT_WRAPPER"]');
+    const toggleHelpText = container.querySelector('[data-paste-element="MY_TOGGLE_HELP_TEXT_WRAPPER"]');
     expect(toggle).toHaveStyleRule('height', '30px');
     expect(toggleKnob).toHaveStyleRule('height', '26px');
     expect(toggleIcon).toHaveStyleRule('color', 'colorIcon');
+    expect(toggleLabel).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
+    expect(toggleHelpText).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
 });

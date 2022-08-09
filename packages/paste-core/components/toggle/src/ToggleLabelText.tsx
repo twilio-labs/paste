@@ -4,10 +4,11 @@ import type {ToggleLabelTextProps} from './types';
 import {Text} from '@twilio-paste/text';
 
 const ToggleLabelText = React.forwardRef<HTMLSpanElement, ToggleLabelTextProps>(
-  ({element = 'TOGGLE_LABEL_TEXT', children, ...props}, ref) => {
+  ({element = 'TOGGLE_LABEL_TEXT', id, children, ...props}, ref) => {
     return (
       <Text
         as="span"
+        id={id}
         color="currentColor"
         marginLeft="space30"
         fontWeight="fontWeightMedium"
