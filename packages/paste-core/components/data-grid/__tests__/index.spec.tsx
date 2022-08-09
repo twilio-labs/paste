@@ -51,16 +51,6 @@ describe('Data Grid', () => {
       const th = getByTestId('data-grid-header');
       expect(th).toHaveAttribute('colspan', '5');
     });
-
-    it('enforces numeric colSpan prop type', () => {
-      // @ts-expect-error colSpan should be numeric
-      <DataGridCell colSpan="oops" />;
-      // @ts-expect-error colSpan should be numeric
-      <DataGridHeader colSpan="oops" />;
-
-      <DataGridCell colSpan={3} />;
-      <DataGridHeader colSpan={3} />;
-    });
   });
 
   describe('Composable Cells functionality', () => {

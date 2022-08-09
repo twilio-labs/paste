@@ -14,17 +14,17 @@ import isElement from 'lodash/isElement';
 
 type CellType = 'th' | 'td';
 export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
-  colSpan?: number;
   as?: CellType;
   element?: BoxElementProps['element'];
+  colSpan?: number;
 }
 
 /**
  * DataGrid cell component. Every visible box in a data grid is powered by the cell.
  *
- * @param {"th" | "td"} as - is it a header or a regular cell
- * @param {number} colspan - how many columns the cell spans across
- * @param {string} element - customization element
+ * @param {"th" | "td"} [as=td] - is it a header or a regular cell
+ * @param {string} [element=DATA_GRID_CELL] - customization element
+ * @param {number} [colSpan] - how many columns the cell spans across
  */
 export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_CELL', as = 'td', ...props}) => {
   const dataGridState = React.useContext(DataGridContext);
@@ -96,4 +96,5 @@ DataGridCell.displayName = 'DataGridCell';
 DataGridCell.propTypes = {
   as: PropTypes.oneOf<CellType>(['th', 'td']),
   element: PropTypes.string,
+  colSpan: PropTypes.number,
 };

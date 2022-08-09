@@ -3,4 +3,4 @@
 '@twilio-paste/data-grid': patch
 ---
 
-include supporting types and documentation for existing colSpan prop
+[Data Grid] include supporting types and documentation for existing colSpan prop
