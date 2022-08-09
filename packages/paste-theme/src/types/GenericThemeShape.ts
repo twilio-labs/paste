@@ -13,12 +13,14 @@ import type {
   textColors,
   zIndices,
   colors,
+  dataVisualization,
 } from '@twilio-paste/design-tokens';
 
 export type BackgroundColorsKeys = keyof typeof backgroundColors;
 export type BorderColorsKeys = keyof typeof borderColors;
 export type BorderWidthsKeys = keyof typeof borderWidths;
 export type ColorsKeys = keyof typeof colors;
+export type DataVisualizationKeys = keyof typeof dataVisualization;
 export type FontSizesKeys = keyof typeof fontSizes;
 export type FontWeightsKeys = keyof typeof fontWeights;
 export type FontsKeys = keyof typeof fonts;
@@ -52,7 +54,7 @@ export interface GenericThemeShape {
   }>;
   dataVisualization: Partial<
     {
-      [key in ColorsKeys]: any;
+      [key in DataVisualizationKeys]: any;
     }
   >;
   fontSizes: Partial<

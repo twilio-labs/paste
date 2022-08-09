@@ -114,14 +114,6 @@ module.exports = {
             return 'PasteDesignTokensPackage';
           }
 
-          if (node.relativePath.endsWith('dist/tokens.gatsby.json')) {
-            return 'PasteTokenDefault';
-          }
-
-          if (node.relativePath.endsWith('dist/themes/dark/tokens.gatsby.json')) {
-            return 'PasteTokenDark';
-          }
-
           return 'DefaultJson';
         },
       },
