@@ -38,6 +38,7 @@ export const TokensList: React.FC = () => {
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens));
   const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(tokens);
   const [exampleColors, setExampleColors] = React.useState<TokenExampleColors>(getTokenExampleColors(tokens));
+  const [shadowOpacity, setShadowOpacity] = React.useState(0);
 
   // State related to select and filter controls
   const [filterString, setFilterString] = React.useState('');
@@ -116,6 +117,28 @@ export const TokensList: React.FC = () => {
     trackTokenFilterString(filterString);
   }, [filterString, tokens]);
 
+  // Intersection observer for the Token Filter UI. The Tokens Filter gets a shadow
+  // as the user scrolls past its inherent position, and this intersection observer
+  // checks against a 'canary' element to determine when the shadow should be applied
+  React.useEffect(() => {
+    const intObserver = new IntersectionObserver(
+      (entries) => {
+        const shadowState = entries[0].intersectionRatio;
+        setShadowOpacity(1 - shadowState);
+      },
+      {
+        root: document.querySelector('#styled-site-body'),
+        rootMargin: '0px',
+        threshold: [1, 0.8, 0.6, 0.4, 0.2, 0],
+      }
+    );
+
+    const tokensFilter = document.querySelector('#filter-canary');
+    if (tokensFilter) {
+      intObserver.observe(tokensFilter);
+    }
+  }, []);
+
   // Render code
   return tokens ? (
     <ContentWrapper>
@@ -127,8 +150,11 @@ export const TokensList: React.FC = () => {
             .filter((value) => value !== 'colors') // filter out colors section
             .map((value) => ({value: sentenceCase(value), depth: 2})),
         }}
+        stickyTop="space0"
+        topPadding="space130"
       />
       <Content>
+        <Box id="filter-canary" position="absolute" height="50px" width="100%" zIndex="zIndex0" />
         <TokensListFilter
           value={filterString}
           handleThemeChange={handleThemeChange}
@@ -137,6 +163,7 @@ export const TokensList: React.FC = () => {
           handleClearSearch={() => setFilterString('')}
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
+          shadowOpacity={shadowOpacity}
         />
         {filteredTokens === null ? (
           <NoTokensFound onClearSearch={() => setFilterString('')} />
@@ -149,12 +176,12 @@ export const TokensList: React.FC = () => {
             const categoryTokens = filteredTokens[tokenCategory] ?? null;
 
             return (
-              <React.Fragment key={`catname-${tokenCategory}`}>
-                <AnchoredHeading as="h2" variant="heading20">
+              <Box key={`catname-${tokenCategory}`} id={kebabCase(tokenCategory)}>
+                <AnchoredHeading as="h2" variant="heading20" existingSlug={`heading-${kebabCase(tokenCategory)}`}>
                   {sentenceCase(tokenCategory)}
                 </AnchoredHeading>
                 {sectionIntro}
-                <Box marginBottom="space160" data-cy="tokens-table-container">
+                <Box marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens ? (
                     categoryTokens.map(({name, value, altValue, comment}) => (
                       <TokenCard
@@ -180,7 +207,7 @@ export const TokensList: React.FC = () => {
                   )}
                 </Box>
                 <ScrollToTopLink />
-              </React.Fragment>
+              </Box>
             );
           })
         )}
