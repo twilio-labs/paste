@@ -6,7 +6,12 @@ import type {Variants} from './types';
 import {useInputBoxContext} from './InputBoxContext';
 import type {BackgroundColor, TextColor} from '@twilio-paste/style-props';
 
-const IconColors: {[variant: string]: {[key: string]: TextColor}} = {
+type StateOptions = 'default' | 'disabled' | 'readOnly';
+
+const getChevronWrapperState = (disabled: boolean, readOnly: boolean): StateOptions =>
+  disabled ? 'disabled' : readOnly ? 'readOnly' : 'default';
+
+const IconColors: {[variant in Variants]: {[key in StateOptions]: TextColor}} = {
   default: {
     default: 'colorTextIcon',
     disabled: 'colorTextWeaker',
@@ -32,8 +37,7 @@ const getInputChevronIconColor = (
   disabled: boolean | undefined = false,
   readOnly: boolean | undefined = false
 ): TextColor => {
-  const state = disabled ? 'disabled' : readOnly ? 'readOnly' : 'default';
-  return IconColors[variant][state];
+  return IconColors[variant][getChevronWrapperState(disabled, readOnly)];
 };
 
 const BackgroundColorStyles: {[variant: string]: {[key: string]: BackgroundColor}} = {
@@ -59,11 +63,10 @@ export interface InputChevronWrapperProps {
 const InputChevronWrapper = React.forwardRef<HTMLDivElement, InputChevronWrapperProps>(
   ({children, element = 'CHEVRON_WRAPPER'}, ref) => {
     const {disabled, readOnly, variant} = useInputBoxContext();
-    const state = disabled ? 'disabled' : readOnly ? 'readOnly' : 'default';
 
     return (
       <Box
-        backgroundColor={BackgroundColorStyles[variant][state]}
+        backgroundColor={BackgroundColorStyles[variant][getChevronWrapperState(disabled, readOnly)]}
         borderRadius="borderRadius20"
         cursor="pointer"
         alignItems="center"

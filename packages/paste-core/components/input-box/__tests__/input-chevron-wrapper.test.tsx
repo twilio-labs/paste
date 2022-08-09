@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {InputChevronWrapper, InputBox} from '../src';
+import {getInputChevronIconColor, InputChevronWrapper, InputBox} from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for InputChevronWrapper', () => {
@@ -21,6 +21,25 @@ describe('HTML attributes', () => {
       </InputBox>
     );
     expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('FOO_CHEVRON_WRAPPER');
+  });
+});
+
+describe('getInputChevronIconColor util', () => {
+  it('returns an the correct icon color based on variant, disabled, and readonly arguments', () => {
+    // default
+    expect(getInputChevronIconColor('default', false, false)).toBe('colorTextIcon');
+    expect(getInputChevronIconColor('default', true, false)).toBe('colorTextWeaker');
+    expect(getInputChevronIconColor('default', false, true)).toBe('colorTextWeaker');
+    expect(getInputChevronIconColor('default', true, true)).toBe('colorTextWeaker');
+    // inverse
+    expect(getInputChevronIconColor('inverse', false, false)).toBe('colorTextIconInverse');
+    expect(getInputChevronIconColor('inverse', true, false)).toBe('colorTextInverseWeaker');
+    expect(getInputChevronIconColor('inverse', false, true)).toBe('colorTextInverseWeaker');
+    expect(getInputChevronIconColor('inverse', true, true)).toBe('colorTextInverseWeaker');
+
+    // missing args defaults to normal color
+    expect(getInputChevronIconColor()).toBe('colorTextIcon');
+    expect(getInputChevronIconColor('default')).toBe('colorTextIcon');
   });
 });
 
