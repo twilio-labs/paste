@@ -12,6 +12,7 @@ import {
   spacings,
   textColors,
   zIndices,
+  dataVisualization,
   colors,
 } from '@twilio-paste/design-tokens/dist/themes/dark/tokens.es6';
 
@@ -31,5 +32,6 @@ export const DarkTheme = generateThemeFromTokens({
   spacings,
   textColors,
   zIndices,
+  dataVisualization,
   colors,
 });

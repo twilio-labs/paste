@@ -9,6 +9,7 @@ imports:
   - ./font-weight.yml
   - ./line-height.yml
   - ./palette-color.yml
+  - ./data-visualization.yml
   - ./sizing.yml
   - ./spacing.yml
   - ./text-color.yml

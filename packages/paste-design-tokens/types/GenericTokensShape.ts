@@ -13,6 +13,7 @@ import type {
   spacings,
   textColors,
   zIndices,
+  dataVisualization,
 } from '../dist/tokens.common';
 
 export type GenericBackgroundColors = Partial<{[key in keyof typeof backgroundColors]: any}>;
@@ -20,6 +21,7 @@ export type GenericBorderColors = Partial<{[key in keyof typeof borderColors]: a
 export type GenericBorderWidths = Partial<{[key in keyof typeof borderWidths]: any}>;
 export type GenericRadii = Partial<{[key in keyof typeof radii]: any}>;
 export type GenericColors = Partial<{[key in keyof typeof colors]: any}>;
+export type GenericDataVisualization = Partial<{[key in keyof typeof dataVisualization]: any}>;
 export type GenericFonts = Partial<{[key in keyof typeof fonts]: any}>;
 export type GenericFontSizes = Partial<{[key in keyof typeof fontSizes]: any}>;
 export type GenericFontWeights = Partial<{[key in keyof typeof fontWeights]: any}>;
@@ -36,6 +38,7 @@ export type AllGenericTokens = GenericBackgroundColors &
   GenericBorderWidths &
   GenericRadii &
   GenericColors &
+  GenericDataVisualization &
   GenericFonts &
   GenericFontSizes &
   GenericFontWeights &
@@ -53,6 +56,7 @@ export interface GenericTokensShape {
   borderWidths: GenericBorderWidths;
   radii: GenericRadii;
   colors: GenericColors;
+  dataVisualization: GenericDataVisualization;
   fonts: GenericFonts;
   fontSizes: GenericFontSizes;
   fontWeights: GenericFontWeights;
