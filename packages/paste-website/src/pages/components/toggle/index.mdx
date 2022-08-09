@@ -1,2 +1,136 @@
-<!-- TODO: a11y - include aria-labelledby on Toggle always with label -->
-<!-- TODO: tests, docs, animation -->
+---
+title: Toggle
+package: '@twilio-paste/toggle'
+description: A toggle is an interactive binary switch.
+slug: /components/toggle/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
+import {Toggle} from '@twilio-paste/toggle';
+import Changelog from '@twilio-paste/chat-log/CHANGELOG.md';
+import {HelpText} from '@twilio-paste/help-text';
+import {useUID} from '@twilio-paste/uid-library';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {basicToggle, onToggle, disabledToggle} from '../../../component-examples/ToggleExamples.ts';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/toggle"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/toggle/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Toggle"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toggle"
+  storybookUrl="/?path=/story/components-toggle--default"
+  data={props.data}
+  description={props.data.mdx.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Toggle
+
+A toggle is an interactive binary switch. It should be used in forms when an "on/off" or "yes/no" input is needed.
+
+### Accessibility
+
+Toggle has `role="switch"`. `aria-labelledby` is automatically set on the component, which ensures that assisstive technology devices can read the Toggle's label. When the Toggle is on, `aria-selected` is set to `"true"` (it defaults to `"false"`).
+
+## Examples
+
+### Default
+
+<LivePreview scope={{Toggle, useUID}}>{basicToggle}</LivePreview>
+
+### On
+
+<LivePreview scope={{Toggle, useUID}}>{onToggle}</LivePreview>
+
+### Disabled
+
+<LivePreview scope={{Toggle, useUID}}>{disabledToggle}</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/toggle - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Toggle} from '@twilio-paste/core/toggle';
+
+export const Basic = () => {
+  return <Toggle>Label</Toggle>;
+};
+```
+
+#### Props
+
+| Prop             | Type                           | Description                                                                               | Default    |
+| ---------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ---------- |
+| `attachmentIcon` | `NonNullable<React.ReactNode>` | Specify a Paste Icon or Spinner to be displayed in the Attachment                         |            |
+| `children`       | `NonNullable<React.ReactNode>` |                                                                                           |            |
+| `element?`       | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'TOGGLE'` |
+
+### Figma
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
