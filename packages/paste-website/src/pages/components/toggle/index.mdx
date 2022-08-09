@@ -77,11 +77,11 @@ export const pageQuery = graphql`
 
 ### About Toggle
 
-A toggle is an interactive binary switch. It should be used in forms when an "on/off" or "yes/no" input is needed.
+A Toggle is an interactive binary switch. It should be used in forms when an "on/off" or "yes/no" input is needed. Use label text to describe the purpose of the Toggle. The label text shouldn't change when the state of the Toggle changes. Help Text can also be used to provide additional guidance.
 
 ### Accessibility
 
-Toggle has `role="switch"`. `aria-labelledby` is automatically set on the component, which ensures that assisstive technology devices can read the Toggle's label. When the Toggle is on, `aria-selected` is set to `"true"` (it defaults to `"false"`).
+Toggle has `role="switch"`. The `aria-labelledby` attribute is automatically set on the component, which ensures that assisstive technology devices can read the Toggle's label. When the Toggle is on, `aria-selected` is set to `"true"` (it defaults to `"false"`).
 
 ## Examples
 
@@ -89,13 +89,17 @@ Toggle has `role="switch"`. `aria-labelledby` is automatically set on the compon
 
 <LivePreview scope={{Toggle, useUID}}>{basicToggle}</LivePreview>
 
-### On
-
-<LivePreview scope={{Toggle, useUID}}>{onToggle}</LivePreview>
-
 ### Disabled
 
 <LivePreview scope={{Toggle, useUID}}>{disabledToggle}</LivePreview>
+
+## States
+
+### On
+
+The default Toggle state is "off"
+
+<LivePreview scope={{Toggle, useUID}}>{onToggle}</LivePreview>
 
 ## Usage Guide
 
@@ -119,11 +123,15 @@ export const Basic = () => {
 
 #### Props
 
-| Prop             | Type                           | Description                                                                               | Default    |
-| ---------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ---------- |
-| `attachmentIcon` | `NonNullable<React.ReactNode>` | Specify a Paste Icon or Spinner to be displayed in the Attachment                         |            |
-| `children`       | `NonNullable<React.ReactNode>` |                                                                                           |            |
-| `element?`       | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'TOGGLE'` |
+| Prop        | Type                           | Description                                                                               | Default    |
+| ----------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ---------- |
+| `children`  | `NonNullable<React.ReactNode>` | Pass the label text as children                                                           |            |
+| `element?`  | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'TOGGLE'` |
+| `disabled?` | `boolean`                      |                                                                                           | `false`    |
+| `helpText?` | `string` or `ReactNode`        |                                                                                           | `null`     |
+| `id?`       | `string`                       |                                                                                           | `null`     |
+| `on?`       | `boolean`                      | Controls the state of the Toggle                                                          | `off`      |
+| `required?` | `boolean`                      |                                                                                           | `false`    |
 
 ### Figma
 
