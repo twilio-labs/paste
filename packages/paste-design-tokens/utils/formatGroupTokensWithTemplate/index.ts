@@ -11,6 +11,7 @@ const pluralCategoryMap = new Map(
     'border-width': 'border-widths',
     'border-style': 'border-styles',
     'box-shadow': 'box-shadows',
+    'data-visualization': 'data-visualization',
     'drop-shadow': 'drop-shadows',
     color: 'colors',
     font: 'fonts',
@@ -38,7 +39,7 @@ const getPluralCatName = (name: string): string => {
   const pluralName = pluralCategoryMap.get(name);
   if (pluralName === undefined) {
     throw new Error(
-      "[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category doesn't have a plural equivelant, please add one"
+      `[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category ${name} doesn't have a plural equivelant, please add one`
     );
   }
   return pluralName;
@@ -47,19 +48,29 @@ const getPluralCatName = (name: string): string => {
 export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
-  categoryTemplate: (cat: string, props: DesignToken[]) => string
+  categoryTemplate: (cat: string, props: DesignToken[]) => string,
+  additionalFilterFn?: (key: DesignToken[]) => any[]
 ): string => {
+  const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
   return categories
     .map((cat: string): string | null => {
-      const catProps = tokens
+      let catProps = tokens
         .get('props')
-        .sortBy((prop) => {
-          if (prop !== undefined) {
-            return prop.get('name');
+        .sort((a, b) => {
+          if (cat === 'font-weight') {
+            return collator.compare(a.get('value') as string, b.get('value') as string);
           }
+          return collator.compare(a.get('name') as string, b.get('name') as string);
         })
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
+
+      // Run a conditional filter function against the tokens
+      // Used to remove the deprecated tokens from the website `generic` token file
+      if (additionalFilterFn != null) {
+        catProps = additionalFilterFn(catProps);
+      }
 
       if (typeof cat === 'string') {
         return categoryTemplate(getPluralCatName(cat), catProps);

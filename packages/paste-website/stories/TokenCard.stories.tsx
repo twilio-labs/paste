@@ -16,6 +16,9 @@ export default {
     backgroundColor: {
       control: false,
     },
+    inverseBackgroundColor: {
+      control: false,
+    },
     comment: {
       control: false,
     },
@@ -35,13 +38,14 @@ export default {
 const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
+  const backgroundColor = theme.backgroundColors.colorBackgroundBody;
+  const backgroundColorInverse = theme.backgroundColors.colorBackgroundBodyInverse;
+  const textColor = theme.textColors.colorText;
+  const textColorInverse = theme.textColors.colorTextInverse;
+  const highlightColor = theme.backgroundColors.colorBackgroundStronger;
+  const borderColor = theme.borderColors.colorBorder;
 
-  const backgroundColorToken = name.toLowerCase().includes('inverse')
-    ? 'colorBackgroundBodyInverse'
-    : 'colorBackgroundBody';
-  const backgroundColor = theme.backgroundColors[backgroundColorToken];
-
-  const {comment} =
+  const {comment, altValue} =
     categoryTokens.find((token) => {
       return token.name === name;
     }) || {};
@@ -78,8 +82,14 @@ const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCas
         category={category}
         name={name}
         value={themeTokenValue}
+        altValue={altValue}
         comment={comment}
         backgroundColor={backgroundColor}
+        backgroundColorInverse={backgroundColorInverse}
+        highlightColor={highlightColor}
+        textColor={textColor}
+        textColorInverse={textColorInverse}
+        borderColor={borderColor}
         useCamelCase={useCamelCase}
       />
     </Box>
@@ -137,7 +147,7 @@ BoxShadowToken.args = {
 export const FontFamilyToken = Template.bind({});
 FontFamilyToken.args = {
   category: 'fonts',
-  name: 'font-family-code',
+  name: 'font-family-text',
 };
 
 export const FontSizeToken = Template.bind({});
