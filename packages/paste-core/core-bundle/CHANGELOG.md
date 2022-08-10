@@ -1,5 +1,88 @@
 # Change Log
 
+## 15.0.0
+
+### Major Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all of the Data Visualization tokens from the generic Color category. If you are using categorized Data Visualization design tokens, you will need to update their reference.
+
+### Minor Changes
+
+- [`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c) [#2578](https://github.com/twilio-labs/paste/pull/2578) Thanks [@TheSisb](https://github.com/TheSisb)! - [box, style-props] Enable CSS Grid on Box by adding all the requisite style props to the Box component.
+
+* [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213) [#2573](https://github.com/twilio-labs/paste/pull/2573) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add "circle" and "circle_small" sizes
+
+### Patch Changes
+
+- [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f) [#2597](https://github.com/twilio-labs/paste/pull/2597) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Data Grid] include supporting types and documentation for existing colSpan prop
+
+* [`fdfb6d759`](https://github.com/twilio-labs/paste/commit/fdfb6d759aa4d4da704aa50a15fc927d0fd6a7d9) [#2589](https://github.com/twilio-labs/paste/pull/2589) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form Pill Group] fix small style issues
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Theme] Updated Data Visualization colors to use the new Data Visualization category from the Design Tokens package.
+
+* [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Updates ordering on design tokens to be alphanumeric.
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Update the generic export to exclude deprecated tokens, provide pre-computed alt values, and to omit the originalValue key.
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f), [`fdfb6d759`](https://github.com/twilio-labs/paste/commit/fdfb6d759aa4d4da704aa50a15fc927d0fd6a7d9), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/data-grid@4.0.0
+  - @twilio-paste/form-pill-group@5.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/button@11.0.0
+  - @twilio-paste/color-contrast-utils@3.0.0
+  - @twilio-paste/alert@11.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/avatar@6.0.0
+  - @twilio-paste/badge@5.0.0
+  - @twilio-paste/base-radio-checkbox@10.0.0
+  - @twilio-paste/breadcrumb@8.0.0
+  - @twilio-paste/card@6.0.0
+  - @twilio-paste/chat-log@2.0.0
+  - @twilio-paste/checkbox@10.0.0
+  - @twilio-paste/combobox@12.0.0
+  - @twilio-paste/date-picker@3.0.0
+  - @twilio-paste/disclosure@9.0.0
+  - @twilio-paste/display-pill-group@5.0.0
+  - @twilio-paste/heading@8.0.0
+  - @twilio-paste/help-text@10.0.0
+  - @twilio-paste/inline-control-group@10.0.0
+  - @twilio-paste/input@6.0.0
+  - @twilio-paste/input-box@7.0.0
+  - @twilio-paste/label@10.0.0
+  - @twilio-paste/list@5.0.0
+  - @twilio-paste/menu@11.0.0
+  - @twilio-paste/modal@12.0.0
+  - @twilio-paste/pagination@4.0.0
+  - @twilio-paste/paragraph@7.0.0
+  - @twilio-paste/popover@10.0.0
+  - @twilio-paste/radio-group@10.0.0
+  - @twilio-paste/screen-reader-only@10.0.0
+  - @twilio-paste/select@9.0.0
+  - @twilio-paste/separator@5.0.0
+  - @twilio-paste/skeleton-loader@3.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/table@5.0.0
+  - @twilio-paste/tabs@5.0.0
+  - @twilio-paste/textarea@7.0.0
+  - @twilio-paste/time-picker@3.0.0
+  - @twilio-paste/toast@9.0.0
+  - @twilio-paste/tooltip@8.0.0
+  - @twilio-paste/truncate@11.0.0
+  - @twilio-paste/aspect-ratio@7.0.0
+  - @twilio-paste/flex@5.0.0
+  - @twilio-paste/grid@5.0.0
+  - @twilio-paste/media-object@7.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/sibling-box@6.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/customization@5.0.0
+  - @twilio-paste/icons@9.0.0
+  - @twilio-paste/data-visualization-library@2.0.0
+  - @twilio-paste/alert-dialog@5.0.0
+
 ## 14.2.0
 
 ### Minor Changes

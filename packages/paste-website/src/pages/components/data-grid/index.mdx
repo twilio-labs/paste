@@ -390,6 +390,7 @@ const Component = () => (
 | textAlign? | `string`    | CSS text align for this cell                                                              | `left`             |
 | width?     | `string`    | Allows setting column width programmatically                                              | null               |
 | element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER` |
+| colSpan?   | `number`    | How many columns the cell spans across                                                    | null               |
 | children?  | `ReactNode` |                                                                                           | null               |
 
 #### DataGridHeaderSort Props
@@ -418,6 +419,7 @@ const Component = () => (
 | as?        | "th", "td"  | Cells can either be th or td, so rows can have headers.                                   | `td`             |
 | textAlign? | `string`    | CSS text align for this cell                                                              | `left`           |
 | element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_CELL` |
+| colSpan?   | `number`    | How many columns the cell spans across                                                    | null             |
 | children?  | `ReactNode` |                                                                                           | null             |
 
 <ChangelogRevealer>

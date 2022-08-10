@@ -5,8 +5,8 @@ import {CompositeItem} from '@twilio-paste/reakit-library';
 import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 import {PillCloseIcon} from './PillCloseIcon';
 import {FormPillButton} from './FormPillButton';
-import {wrapperStyles, selectedWrapperStyles} from './FormPill.styles';
 import type {PillVariant} from './types';
+import {selectedWrapperStyles, wrapperStyles} from './FormPill.styles';
 
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
   selected?: boolean;
@@ -63,7 +63,11 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     const isHoverable = onSelect != null;
     const isDismissable = onDismiss != null;
 
-    const computedStyles = selected ? selectedWrapperStyles[variant] : wrapperStyles[variant];
+    let computedStyles = {};
+
+    if (isHoverable) {
+      computedStyles = selected ? selectedWrapperStyles[variant] : wrapperStyles[variant];
+    }
 
     // Handles delete and backspace keypresses
     const handleKeydown = React.useCallback(
@@ -80,7 +84,13 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       [onDismiss, next]
     );
     return (
-      <Box element={`${element}_WRAPPER`} position="relative" display="inline-block" {...computedStyles}>
+      <Box
+        element={`${element}_WRAPPER`}
+        position="relative"
+        display="inline-block"
+        borderRadius="borderRadiusPill"
+        {...computedStyles}
+      >
         <CompositeItem
           {...safelySpreadBoxProps(props)}
           element={element}
@@ -100,7 +110,13 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
           {props.children}
         </CompositeItem>
         {isDismissable && !disabled ? (
-          <PillCloseIcon element={`${element}_CLOSE`} onClick={onDismiss} selected={selected} variant={variant} />
+          <PillCloseIcon
+            element={`${element}_CLOSE`}
+            onClick={onDismiss}
+            selected={selected}
+            variant={variant}
+            pillIsHoverable={isHoverable}
+          />
         ) : null}
       </Box>
     );
