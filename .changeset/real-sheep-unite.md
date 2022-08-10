@@ -3,4 +3,4 @@
 '@twilio-paste/box': patch
 ---
 
-[Box] add \_checked_hover pseudo selector style prop for use in toggle package
+[Box] add a `_checked_hover` pseudo selector style prop for use in toggle package
