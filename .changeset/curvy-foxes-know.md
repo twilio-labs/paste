@@ -1,5 +1,5 @@
 ---
-'@twilio-paste/toggle': minor
+'@twilio-paste/toggle': major
 '@twilio-paste/core': minor
 ---
 

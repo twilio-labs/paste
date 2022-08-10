@@ -81,7 +81,7 @@ A Toggle is an interactive binary switch. It should be used in forms when an "on
 
 ### Accessibility
 
-Toggle has `role="switch"`. The `aria-labelledby` attribute is automatically set on the component, which ensures that assisstive technology devices can read the Toggle's label. When the Toggle is on, `aria-selected` is set to `"true"` (it defaults to `"false"`).
+Toggle has `role="switch"`. The `aria-labelledby` attribute is automatically set on the component, which ensures that assistive technology devices can read the Toggle's label. The 'aria-checked' attribute defaults to `"false"`, and is set to `"true"` when the Toggle is on.
 
 ## Examples
 
@@ -132,8 +132,6 @@ export const Basic = () => {
 | `id?`       | `string`                       |                                                                                           | `null`     |
 | `on?`       | `boolean`                      | Controls the state of the Toggle                                                          | `off`      |
 | `required?` | `boolean`                      |                                                                                           | `false`    |
-
-### Figma
 
 <ChangelogRevealer>
   <Changelog />

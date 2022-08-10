@@ -6,13 +6,15 @@ import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 
 const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
   ({element, disabled, toggleIsOn, isHovering, ...props}, ref) => {
-    const leftPlacement = (): string => {
-      if (toggleIsOn && isHovering && !disabled) return '22px';
-      else if (toggleIsOn && !isHovering) return 'space70';
-      else if (toggleIsOn && disabled) return 'space70';
-      else if (!toggleIsOn && isHovering && !disabled) return 'space20';
-      else return '2px';
-    };
+    // TODO: base these translations on size of the container (for customization)
+    const moveToggleKnob = React.useCallback(() => {
+      if (!disabled) {
+        if (!toggleIsOn && isHovering) return 'translate(2px, 0px)';
+        if (toggleIsOn && !isHovering) return 'translate(22px, 0px)';
+        if (toggleIsOn && isHovering) return 'translate(20px, 0px)';
+      }
+    }, [toggleIsOn, isHovering, disabled]);
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -20,12 +22,13 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
         element={`${element}_KNOB`}
         ref={ref}
         position="absolute"
-        // transition="width 2s"
         display="inline-block"
         height="sizeIcon10"
         width="sizeIcon10"
         top="2px"
-        left={leftPlacement()}
+        left="2px"
+        transform={moveToggleKnob()}
+        transition="transform .2s ease-in-out"
         borderColor="colorBorder"
         borderWidth="borderWidth10"
         borderRadius="borderRadiusCircle"
@@ -35,7 +38,9 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
           boxShadow: 'none',
         }}
       >
-        {toggleIsOn ? <CheckboxCheckIcon decorative size="sizeIcon10" element={`${element}_ICON`} /> : <></>}
+        <Box opacity={toggleIsOn ? '1' : '0'} transition="opacity .2s ease-in-out, color .2s ease-in-out">
+          <CheckboxCheckIcon decorative size="sizeIcon10" element={`${element}_ICON`} />
+        </Box>
       </Box>
     );
   }

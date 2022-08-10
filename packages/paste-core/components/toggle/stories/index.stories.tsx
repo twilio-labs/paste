@@ -19,11 +19,7 @@ export const Default: React.FC<{onClick?: () => void}> = ({onClick}) => {
 
 export const LabelOnly: React.FC = () => {
   const id = useUID();
-  return (
-    <>
-      <Toggle id={id}>Label</Toggle>
-    </>
-  );
+  return <Toggle id={id}>Label</Toggle>;
 };
 
 export const Required: React.FC = () => {

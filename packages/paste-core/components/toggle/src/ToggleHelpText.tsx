@@ -8,7 +8,7 @@ const ToggleHelpText = React.forwardRef<HTMLSpanElement, ToggleHelpTextProps>(
   ({element = 'TOGGLE_HELP_TEXT', children, helpTextId, ...props}, ref) => {
     return (
       // @ts-ignore TODO:no 50px tokens
-      <Box {...safelySpreadBoxProps(props)} as="span" display="block" element={element} marginLeft="50px" ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} element={element} marginLeft="50px" ref={ref}>
         <HelpText id={helpTextId} marginTop="space0">
           {children}
         </HelpText>
