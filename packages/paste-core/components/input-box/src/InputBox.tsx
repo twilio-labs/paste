@@ -5,6 +5,7 @@ import {FieldWrapper} from './FauxInput';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
 import type {InputBoxTypes, Variants} from './types';
+import {InputBoxContext} from './InputBoxContext';
 
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;
@@ -22,31 +23,44 @@ export interface InputBoxProps {
 
 const InputBox = React.forwardRef<HTMLDivElement, InputBoxProps>(
   (
-    {children, disabled, element = 'INPUT_BOX', hasError, insertAfter, insertBefore, readOnly, type, variant, ...props},
+    {
+      children,
+      disabled = false,
+      readOnly = false,
+      element = 'INPUT_BOX',
+      hasError,
+      insertAfter,
+      insertBefore,
+      type,
+      variant = 'default',
+      ...props
+    },
     ref
   ) => (
-    <FieldWrapper
-      disabled={disabled}
-      element={element}
-      hasError={hasError}
-      readOnly={readOnly}
-      type={type}
-      variant={variant}
-      ref={ref}
-      {...props}
-    >
-      {insertBefore && (
-        <Prefix disabled={disabled} element={element} variant={variant}>
-          {insertBefore}
-        </Prefix>
-      )}
-      {children}
-      {insertAfter && (
-        <Suffix disabled={disabled} element={element} variant={variant}>
-          {insertAfter}
-        </Suffix>
-      )}
-    </FieldWrapper>
+    <InputBoxContext.Provider value={{disabled, readOnly, variant}}>
+      <FieldWrapper
+        disabled={disabled}
+        element={element}
+        hasError={hasError}
+        readOnly={readOnly}
+        type={type}
+        variant={variant}
+        ref={ref}
+        {...props}
+      >
+        {insertBefore && (
+          <Prefix disabled={disabled} element={element} variant={variant}>
+            {insertBefore}
+          </Prefix>
+        )}
+        {children}
+        {insertAfter && (
+          <Suffix disabled={disabled} element={element} variant={variant}>
+            {insertAfter}
+          </Suffix>
+        )}
+      </FieldWrapper>
+    </InputBoxContext.Provider>
   )
 );
 
