@@ -1,5 +1,13 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.15
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f), [`fdfb6d759`](https://github.com/twilio-labs/paste/commit/fdfb6d759aa4d4da704aa50a15fc927d0fd6a7d9), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/core@15.0.0
+  - @twilio-paste/icons@9.0.0
+
 ## 1.0.14
 
 ### Patch Changes

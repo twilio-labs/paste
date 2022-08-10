@@ -1,5 +1,24 @@
 # @twilio-paste/data-grid
 
+## 4.0.0
+
+### Patch Changes
+
+- [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f) [#2597](https://github.com/twilio-labs/paste/pull/2597) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Data Grid] include supporting types and documentation for existing colSpan prop
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/button@11.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/table@5.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/customization@5.0.0
+  - @twilio-paste/icons@9.0.0
+
 ## 3.0.2
 
 ### Patch Changes
