@@ -30,14 +30,14 @@ const MenuGroupExample = () => {
       </MenuButton>
       <Menu {...menu} aria-label="Actions">
         <MenuGroup label="Social media" icon={<AttachIcon decorative />}>
-          <MenuItem {...menu}>Twitter</MenuItem>  
-          <MenuItem {...menu}>Myspace</MenuItem>  
-          <MenuItem {...menu}>Dribbble</MenuItem>  
+          <MenuItem {...menu}>Twitter</MenuItem>
+          <MenuItem {...menu}>Myspace</MenuItem>
+          <MenuItem {...menu}>Dribbble</MenuItem>
         </MenuGroup>
         <MenuSeparator />
         <MenuGroup label="Search engines">
-          <MenuItem {...menu}>Ecosia</MenuItem>  
-          <MenuItem {...menu}>DuckDuckGo</MenuItem>  
+          <MenuItem {...menu}>Ecosia</MenuItem>
+          <MenuItem {...menu}>DuckDuckGo</MenuItem>
         </MenuGroup>
       </Menu>
     </>
@@ -154,6 +154,12 @@ const ItemsExample = () => {
         Menu item content <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
+      <MenuItem  {...menu}>
+        Default item
+      </MenuItem>
+      <MenuItem  variant="destructive" {...menu}>
+        Destructive item
+      </MenuItem>
         <MenuItem  {...menu}>
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space20">
