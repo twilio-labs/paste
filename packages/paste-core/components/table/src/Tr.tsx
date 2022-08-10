@@ -4,26 +4,19 @@ import {TableContext} from './TableContext';
 import type {TrProps} from './types';
 import {TrPropTypes} from './proptypes';
 
-export type TrContextProps = {
-  isLastRow: boolean;
-};
-export const TrContext = React.createContext<TrContextProps>({isLastRow: false});
-
 const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
   ({element = 'TR', verticalAlign = 'middle', isLastRow, ...props}, ref) => {
     const {striped} = React.useContext(TableContext);
     return (
-      <TrContext.Provider value={{isLastRow: !!isLastRow}}>
-        <Box
-          {...safelySpreadBoxProps(props)}
-          ref={ref}
-          as="tr"
-          element={element}
-          verticalAlign={verticalAlign}
-          _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
-          _last={{borderWidth: 'borderWidth0'}}
-        />
-      </TrContext.Provider>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as="tr"
+        element={element}
+        verticalAlign={verticalAlign}
+        _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
+        _last={{borderWidth: 'borderWidth0'}}
+      />
     );
   }
 );

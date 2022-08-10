@@ -1061,6 +1061,11 @@ export const StickyHeaders = (): React.ReactNode => {
           <Th>Column 2</Th>
           <Th>Column 3</Th>
         </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
       </THead>
       <TBody>
         {[...new Array(100).keys()].map((index) => (
@@ -1071,6 +1076,18 @@ export const StickyHeaders = (): React.ReactNode => {
           </Tr>
         ))}
       </TBody>
+      <TFoot>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </TFoot>
     </Table>
   );
 };

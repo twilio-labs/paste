@@ -2,13 +2,8 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {TdProps} from './types';
 import {TdPropTypes} from './proptypes';
-import {TFootContext} from './TFoot';
-import {TrContext} from './Tr';
 
 const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({element = 'TD', textAlign = 'left', ...props}, ref) => {
-  const {isTFoot} = React.useContext(TFootContext);
-  const {isLastRow} = React.useContext(TrContext);
-
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -17,8 +12,7 @@ const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({element = 'TD', tex
       borderStyle="solid"
       borderColor="colorBorderWeaker"
       borderWidth="borderWidth0"
-      borderBottomWidth={isLastRow || isTFoot ? null : 'borderWidth10'}
-      borderTopWidth={isTFoot ? 'borderWidth20' : null}
+      borderBottomWidth="borderWidth10"
       element={element}
       fontSize="fontSize30"
       lineHeight="lineHeight30"

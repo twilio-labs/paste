@@ -1,13 +1,9 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {styled, css} from '@twilio-paste/styling-library';
 import type {BoxProps} from '@twilio-paste/box';
 import type {THeadProps} from './types';
 import {THeadPropTypes} from './proptypes';
-
-export type THeadContextProps = {
-  isTHead: boolean;
-};
-export const THeadContext = React.createContext<THeadContextProps>({isTHead: false});
 
 const getStickyStyles = ({stickyHeader}: {stickyHeader: THeadProps['stickyHeader']}): Partial<BoxProps> => {
   if (!stickyHeader) return {};
@@ -18,21 +14,30 @@ const getStickyStyles = ({stickyHeader}: {stickyHeader: THeadProps['stickyHeader
   };
 };
 
+const StyledTHead = styled.thead<THeadProps>(
+  css({
+    backgroundColor: 'colorBackground',
+    top: (props: THeadProps) => props.top,
+    '& > tr > th': {
+      borderBottomWidth: 'borderWidth20',
+    },
+  })
+);
+
 const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(
   ({element = 'THEAD', stickyHeader = false, top = stickyHeader ? '-1px' : null, ...props}, ref) => {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     return (
-      <THeadContext.Provider value={{isTHead: true}}>
-        <Box
-          {...safelySpreadBoxProps(props)}
-          ref={ref}
-          as="thead"
-          backgroundColor="colorBackground"
-          element={element}
-          top={top}
-          {...getStickyStyles({stickyHeader})}
-        />
-      </THeadContext.Provider>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as={StyledTHead as any}
+        element={element}
+        top={top}
+        {...getStickyStyles({stickyHeader})}
+      />
     );
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   }
 );
 

@@ -16,7 +16,6 @@ export type TableVerticalAlignmentOptions = ValueOf<typeof TableVerticalAlignmen
 
 export interface TableContextProps {
   striped: boolean;
-  variant?: TableVariantOptions;
 }
 
 export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
