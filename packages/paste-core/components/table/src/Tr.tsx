@@ -5,7 +5,7 @@ import type {TrProps} from './types';
 import {TrPropTypes} from './proptypes';
 
 const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
-  ({element = 'TR', verticalAlign = 'middle', isLastRow, ...props}, ref) => {
+  ({element = 'TR', verticalAlign = 'middle', ...props}, ref) => {
     const {striped} = React.useContext(TableContext);
     return (
       <Box
