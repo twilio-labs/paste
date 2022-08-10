@@ -11679,8 +11679,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/uid-library": ^0.2.5
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
   peerDependencies:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/design-tokens": ^8.0.0
@@ -37592,7 +37592,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.6 || ^17.0.2, react-dom@npm:^17.0.2":
+"react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -38125,7 +38125,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.6 || ^17.0.2, react@npm:^17.0.2":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
