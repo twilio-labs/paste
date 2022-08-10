@@ -5,12 +5,11 @@ import {useTheme, remToPx} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
-import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
+import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
-import type {TextColor} from '@twilio-paste/style-props';
 import {ComboboxInputSelect} from './styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
 import {ComboboxListbox} from './styles/ComboboxListbox';
@@ -126,13 +125,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       );
     }
 
-    let iconColor = 'colorTextIcon' as TextColor;
-    if (disabled) {
-      iconColor = 'colorTextWeaker';
-    } else if (variant === 'inverse') {
-      iconColor = 'colorTextInverseWeak';
-    }
-
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
         <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
@@ -158,7 +150,12 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             />
             {!autocomplete && (
               <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
-                <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  decorative
+                  color={getInputChevronIconColor(variant, disabled, false)}
+                  size="sizeIcon30"
+                />
               </InputChevronWrapper>
             )}
           </ComboboxInputWrapper>
