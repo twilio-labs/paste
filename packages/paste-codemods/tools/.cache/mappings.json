@@ -68,6 +68,7 @@
   "InputChevronWrapper": "@twilio-paste/core/input-box",
   "Prefix": "@twilio-paste/core/input-box",
   "Suffix": "@twilio-paste/core/input-box",
+  "getInputChevronIconColor": "@twilio-paste/core/input-box",
   "Input": "@twilio-paste/core/input",
   "InputElement": "@twilio-paste/core/input",
   "Label": "@twilio-paste/core/label",
