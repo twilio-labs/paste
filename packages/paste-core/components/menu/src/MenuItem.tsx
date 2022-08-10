@@ -17,7 +17,13 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         appearance="none"
         background="none"
         border="none"
-        color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
+        color={
+          props['aria-disabled']
+            ? 'colorTextWeaker'
+            : props.variant === MenuItemVariants.DESTRUCTIVE
+            ? 'colorTextLinkDestructive'
+            : 'colorText'
+        }
         display="block"
         textAlign="left"
         fontFamily="inherit"
@@ -34,7 +40,9 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
           cursor: 'pointer',
         }}
         _focus={{
-          color: 'colorTextLink',
+          color: `${
+            props.variant === MenuItemVariants.DESTRUCTIVE ? 'colorTextLinkDestructiveStronger' : 'colorTextLink'
+          }`,
         }}
         _disabled={{cursor: 'not-allowed'}}
         ref={ref}
