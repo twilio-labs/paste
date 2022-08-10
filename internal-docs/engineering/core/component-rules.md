@@ -4,7 +4,14 @@ Rules to abide by when designing UI components.
 
 ## Adding a new component
 
-Run the `yarn create:package` script to create a new package. The initial changeset should be a major for the new package and a minor for core, and the new package should be released as version 1.x.x.
+Run the `yarn create:package` script to create a new package. The initial changeset should be a major for the new package and a minor for core, and the new package should be released as version 1.x.x. Add the following dependencies to the package.json of your new package.
+
+```
+"@twilio-paste/box": "^x.x.x",
+"@twilio-paste/design-tokens": "^x.x.x",
+"@twilio-paste/style-props": "^x.x.x",
+"@twilio-paste/theme": "^x.x.x",
+```
 
 ## All
 
