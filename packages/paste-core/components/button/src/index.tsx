@@ -72,6 +72,7 @@ const handlePropValidation = ({
   children,
   disabled,
   loading,
+  pressed,
 }: ButtonProps): void => {
   const hasHref = href != null && href !== '';
   const hasTabIndex = tabIndex != null;
@@ -111,6 +112,11 @@ const handlePropValidation = ({
   }
   if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
     throw new Error(`[Paste: Button] tabIndex must be 0 or -1.`);
+  }
+
+  // Toggle button validaton
+  if (pressed && !(variant === 'secondary' || variant === 'secondary_icon')) {
+    throw new Error(`[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" variants.`);
   }
 };
 
