@@ -82,6 +82,14 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Toast, Text}} language="jsx">
+  {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
+  <Text as="span">
+    Your function is currently being deployed.
+  </Text>
+</Toast>`}
+</LivePreview>
+
 ## Guidelines
 
 ## About Toast

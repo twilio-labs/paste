@@ -89,6 +89,27 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis}}
+  language="jsx"
+>
+  {`<Pagination label="truncated pagination navigation">
+  <PaginationItems>
+    <PaginationArrow label="Go to previous page" variant="back" />
+    <PaginationNumbers>
+      <PaginationNumber label="Go to page 1">1</PaginationNumber>
+      <PaginationEllipsis label="Collapsed previous pages" />
+      <PaginationNumber label="Go to page 4">4</PaginationNumber>
+      <PaginationNumber label="Go to page 5" isCurrent>5</PaginationNumber>
+      <PaginationNumber label="Go to page 6">6</PaginationNumber>
+      <PaginationEllipsis label="Collapsed next pages" />
+      <PaginationNumber label="Go to page 9">9</PaginationNumber>
+    </PaginationNumbers>
+    <PaginationArrow label="Go to next page" variant="forward" />
+  </PaginationItems>
+</Pagination>`}
+</LivePreview>
+
 # Guidelines
 
 ## About Pagination
