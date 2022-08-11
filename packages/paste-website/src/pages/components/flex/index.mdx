@@ -69,6 +69,28 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryWeak"
+        padding="space40"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryWeaker"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
 ## Guidelines
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>

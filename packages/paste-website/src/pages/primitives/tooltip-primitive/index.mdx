@@ -75,6 +75,18 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    useTooltipPrimitiveState,
+    TooltipPrimitive,
+    TooltipPrimitiveReference,
+    Button,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
 ## Guidelines
 
 ### About Tooltip Primitive
