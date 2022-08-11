@@ -80,6 +80,26 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    Label,
+    Select,
+    Option,
+    Paragraph,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
 ## Guidelines
 
 ### About Modals
