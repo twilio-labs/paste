@@ -2,8 +2,8 @@ import * as React from 'react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import type {InformationIconProps} from '@twilio-paste/icons/esm/InformationIcon';
 
-type IconSizeExampleProps = Pick<InformationIconProps, 'size'>;
+type IconSizeExampleProps = Pick<InformationIconProps, 'size' | 'color'>;
 
-export const IconSizeExample: React.FC<IconSizeExampleProps> = ({size}) => {
-  return <InformationIcon decorative size={size} title="Description of icon" />;
+export const IconSizeExample: React.FC<IconSizeExampleProps> = ({size, color}) => {
+  return <InformationIcon decorative color={color} size={size} title="Description of icon" />;
 };

@@ -1,8 +1,8 @@
 import type {ImmutableStyleMap} from 'theo';
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
-
 import {isNumeric, pluralCategoryMap} from './utils';
+import {tweakTokens} from './generic';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
@@ -38,19 +38,27 @@ export const formatGroupTokensWithTemplate = (
   categories: any, // @TODO fix.
   template: (cat: string, props: DesignToken[], isLast?: boolean) => string
 ): string => {
+  const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
   let count = 0;
+
   const content = categories
     .map((cat: string): string | null => {
       count += 1;
-      const catProps = tokens
+      let catProps = tokens
         .get('props')
-        .sortBy((prop) => {
-          if (prop !== undefined) {
-            return prop.get('name');
+        .sort((a, b) => {
+          if (cat === 'font-weight') {
+            return collator.compare(a.get('value') as string, b.get('value') as string);
           }
+          return collator.compare(a.get('name') as string, b.get('name') as string);
         })
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
+
+      // Filter out deprecated tokens in exported file
+      // Add alt values
+      // Remove originalValue
+      catProps = tweakTokens(catProps);
 
       if (typeof cat === 'string') {
         return template(getPluralCatName(cat), catProps, count === categories.size);

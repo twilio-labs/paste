@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import type {InputBoxProps} from '../src';
-import {InputBox} from '../src';
+import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '../src';
 
 const Insert: React.FC = () => {
   return <Box padding="space20" />;
@@ -29,6 +30,14 @@ const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...p
       </InputBox>
       <InputBox variant={variant} insertAfter={<Insert />} insertBefore={<Insert />} {...props}>
         <Input />
+      </InputBox>
+      <InputBox variant={variant} insertAfter={<Insert />} insertBefore={<Insert />} {...props}>
+        <Box display="flex" width="100%" position="relative">
+          <Input />
+          <InputChevronWrapper element="test">
+            <ChevronDownIcon decorative color={getInputChevronIconColor(variant, props.disabled, props.readOnly)} />
+          </InputChevronWrapper>
+        </Box>
       </InputBox>
     </Stack>
   );

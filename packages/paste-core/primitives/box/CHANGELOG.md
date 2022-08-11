@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.0.0
+
+### Minor Changes
+
+- [`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c) [#2578](https://github.com/twilio-labs/paste/pull/2578) Thanks [@TheSisb](https://github.com/TheSisb)! - [box, style-props] Enable CSS Grid on Box by adding all the requisite style props to the Box component.
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/customization@5.0.0
+
 ## 6.0.2
 
 ### Patch Changes

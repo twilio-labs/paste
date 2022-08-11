@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.0.0
+
+### Patch Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Theme] Updated Data Visualization colors to use the new Data Visualization category from the Design Tokens package.
+
+- Updated dependencies [[`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/color-contrast-utils@3.0.0
+
 ## 7.0.2
 
 ### Patch Changes

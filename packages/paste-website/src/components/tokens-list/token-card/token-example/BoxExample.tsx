@@ -2,7 +2,10 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
-type BoxExampleProps = Pick<BoxProps, 'backgroundColor' | 'borderColor' | 'boxShadow' | 'borderRadius' | 'size'>;
+type BoxExampleProps = Pick<
+  BoxProps,
+  'borderColor' | 'boxShadow' | 'borderRadius' | 'size' | 'height' | 'backgroundColor'
+>;
 
 export const BoxExample: React.FC<BoxExampleProps> = ({
   backgroundColor,
@@ -10,6 +13,7 @@ export const BoxExample: React.FC<BoxExampleProps> = ({
   boxShadow,
   borderRadius = 'borderRadius20',
   size = 'sizeSquare110',
+  height,
 }) => {
   return (
     <Box
@@ -18,7 +22,8 @@ export const BoxExample: React.FC<BoxExampleProps> = ({
       borderColor={borderColor}
       borderWidth={borderColor ? 'borderWidth20' : null}
       borderStyle={borderColor ? 'solid' : null}
-      size={size}
+      height={height || size}
+      width={size}
       borderRadius={borderRadius}
       boxShadow={boxShadow}
     />
