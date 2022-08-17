@@ -27,7 +27,6 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
         position="absolute"
         transform={moveToggleKnob()}
         transition="transform .2s ease-in-out"
-        paddingX="space10"
       >
         <Box
           {...safelySpreadBoxProps(props)}
