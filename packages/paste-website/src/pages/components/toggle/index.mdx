@@ -14,7 +14,14 @@ import Changelog from '@twilio-paste/chat-log/CHANGELOG.md';
 import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {basicToggle, onToggle, disabledToggle} from '../../../component-examples/ToggleExamples.ts';
+import {
+  basicToggle,
+  helpTextToggle,
+  requiredToggle,
+  onToggle,
+  disabledToggle,
+  disabledOnToggle,
+} from '../../../component-examples/ToggleExamples.ts';
 
 export const pageQuery = graphql`
   {
@@ -73,11 +80,15 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {basicToggle}
+</LivePreview>
+
 ## Guidelines
 
 ### About Toggle
 
-A Toggle is an interactive binary switch. It should be used in forms when an "on/off" or "yes/no" input is needed. Use label text to describe the purpose of the Toggle. The label text shouldn't change when the state of the Toggle changes. Help Text can also be used to provide additional guidance.
+A Toggle is an interactive binary switch. It should be used in forms when an "on/off" or "yes/no" input is needed. Use label text to describe the purpose of the Toggle. The label text shouldn't change when the state of the Toggle changes. Help text can also be used to provide additional guidance.
 
 ### Accessibility
 
@@ -87,11 +98,33 @@ Toggle has `role="switch"`. The `aria-labelledby` attribute is automatically set
 
 ### Default
 
-<LivePreview scope={{Toggle, useUID}}>{basicToggle}</LivePreview>
+A Toggle is always displayed with a visible label. The label text should never change based on the state of the Toggle.
+
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {basicToggle}
+</LivePreview>
+
+### With Help Text
+
+In cases where the Toggle requires additional context, you can display this information as help text below the Toggle and label. This can help keep Toggle labels concise. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
+
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {helpTextToggle}
+</LivePreview>
+
+### Required
+
+When a Toggle is required to be on, a required indicator should be displayed alongside the label. The label text should also be written in such a way that this requirement is clear to the user.
+
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {requiredToggle}
+</LivePreview>
 
 ### Disabled
 
-<LivePreview scope={{Toggle, useUID}}>{disabledToggle}</LivePreview>
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {disabledToggle}
+</LivePreview>
 
 ## States
 
@@ -99,7 +132,15 @@ Toggle has `role="switch"`. The `aria-labelledby` attribute is automatically set
 
 The default Toggle state is "off"
 
-<LivePreview scope={{Toggle, useUID}}>{onToggle}</LivePreview>
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {onToggle}
+</LivePreview>
+
+### Disabled on
+
+<LivePreview scope={{Toggle, useUID}} noInline>
+  {disabledOnToggle}
+</LivePreview>
 
 ## Usage Guide
 
