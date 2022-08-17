@@ -77,6 +77,14 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+  {`<>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" required />
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
+</>`}
+</LivePreview>
+
 ## Guidelines
 
 A textarea allows users to enter text on multiple lines. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.

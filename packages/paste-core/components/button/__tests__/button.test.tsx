@@ -170,6 +170,16 @@ describe('Button', () => {
       expect(spy).toHaveBeenCalled();
       spy.mockRestore();
     });
+
+    it('Throws an error when passing pressed with invalid variant', () => {
+      // hide console errors from terminal when throwing expected errors
+      const spy = jest.spyOn(console, 'error');
+      spy.mockImplementation(() => {});
+      // @ts-expect-error invalid tabindex
+      expect(() => render(<Button variant="primary" pressed={true} />)).toThrow();
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
   });
 
   describe('Button aria attributes', () => {
@@ -543,6 +553,48 @@ describe('Button', () => {
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
       expect(showExternalIcon?.textContent).toEqual('(este enlace redirige a una página externa)');
+    });
+  });
+
+  describe('toggle button', () => {
+    it('Does not have aria-pressed attribute when pressed undefined', () => {
+      const {getByRole} = render(
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+          <Button variant="secondary">button</Button>
+        </CustomizationProvider>
+      );
+
+      const button = getByRole('button');
+
+      expect(button).not.toHaveAttribute('aria-pressed', 'false');
+    });
+
+    it('Has an aria-pressed attribute when pressed is false', () => {
+      const {getByRole} = render(
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+          <Button variant="secondary" pressed={false}>
+            button
+          </Button>
+        </CustomizationProvider>
+      );
+
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('aria-pressed', 'false');
+    });
+
+    it('Has an aria-pressed attribute when pressed is true', () => {
+      const {getByRole} = render(
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+          <Button variant="secondary" pressed={true}>
+            button
+          </Button>
+        </CustomizationProvider>
+      );
+
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('aria-pressed', 'true');
     });
   });
 });

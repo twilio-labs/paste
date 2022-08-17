@@ -71,6 +71,26 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar size="sizeIcon30" name="Trayvon Martin" />
+  <Avatar size="sizeIcon40" name="Breonna Taylor" />
+  <Avatar size="sizeIcon50" name="Shantel Davis" />
+  <Avatar size="sizeIcon60" name="Walter Scott" />
+  <Avatar size="sizeIcon70" name="avatar example" src="/images/avatars/avatar4.png" />
+  <Avatar size="sizeIcon80" name="avatar example" src="/images/avatars/avatar1.png" />
+  <Avatar size="sizeIcon90" name="avatar example" src="/images/avatars/avatar2.png" />
+  <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
+</Stack>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Avatar

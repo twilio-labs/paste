@@ -74,6 +74,22 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{PasteIcon, Text, MediaObject, MediaFigure, MediaBody, TWILIO_RED}} language="jsx">
+  {`<MediaObject verticalAlign="center">
+  <MediaFigure spacing="space40">
+    <PasteIcon color={TWILIO_RED} display="block" size={42} />
+  </MediaFigure>
+  <MediaBody>
+    <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60">
+      <Text href="/" as="a" color="inherit" fontSize="inherit" lineHeight="inherit" textDecoration="none">Paste</Text>
+    </Text>
+    <Text as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextWeak">
+      Design System
+    </Text>
+  </MediaBody>
+</MediaObject>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Media Object

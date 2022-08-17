@@ -75,6 +75,23 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+  }}
+>
+  {`<Disclosure>
+    <DisclosureHeading as="h2" variant="heading30">
+      Between the World and Me by Ta-Nehisi Coates
+    </DisclosureHeading>
+    <DisclosureContent>
+      But race is the child of racism, not the father. And the process of naming “the people” has never been a matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are white.
+    </DisclosureContent>
+  </Disclosure>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Disclosure

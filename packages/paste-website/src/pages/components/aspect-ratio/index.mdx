@@ -68,6 +68,20 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{AspectRatio, Box}} language="jsx">
+  {`<Box
+  padding="space30"
+  maxWidth="size60"
+  borderColor="colorBorderWeak"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+>
+  <AspectRatio ratio="16:9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OCUlE5ldPvM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </AspectRatio>
+</Box>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Aspect Ratio

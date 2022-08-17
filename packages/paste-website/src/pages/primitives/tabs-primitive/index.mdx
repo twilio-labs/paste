@@ -71,6 +71,18 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    useTabPrimitiveState,
+    TabPrimitiveList,
+    TabPrimitive,
+    TabPrimitivePanel,
+  }}
+  noInline
+>
+  {horizontalExample}
+</LivePreview>
+
 ## Guidelines
 
 ### About the Tabs Primitive

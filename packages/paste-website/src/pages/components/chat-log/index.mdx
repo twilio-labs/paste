@@ -99,6 +99,31 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}} language="jsx">
+  {`<ChatLog>
+  <ChatMessage variant='inbound'>
+    <ChatBubble>
+      Hello, what can I help you with?
+    </ChatBubble>
+    <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
+      <ChatMessageMetaItem>
+        <Avatar name="Gibby Radki" size="sizeIcon20" />
+        Gibby Radki
+      </ChatMessageMetaItem>
+      <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
+    </ChatMessageMeta>
+  </ChatMessage>
+  <ChatMessage variant='outbound'>
+    <ChatBubble>
+      Hi! What is your return policy?
+    </ChatBubble>
+    <ChatMessageMeta aria-label="said by you at 3:35 PM">
+      <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
+    </ChatMessageMeta>
+  </ChatMessage>
+</ChatLog>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Chat Log
