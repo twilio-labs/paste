@@ -3,9 +3,21 @@
   "displayName": "Twilio Paste Intellisense",
   "description": "Intelligent Twilio Paste Design tooling for VS Code",
   "version": "0.0.1",
-  "author": "Twilio Inc.",
   "license": "MIT",
-  "publisher": "Paste",
+  "publisher": "TwilioPaste",
+  "author": "Twilio Inc.",
+  "contributors": [
+    {
+      "name": "Gapur Kassym",
+      "email": "gapur.kassym@gmail.com",
+      "url": "https://gkassym.netlify.app"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twilio-labs/paste.git",
+    "directory": "apps/vs-code-intellisense"
+  },
   "keywords": [
     "twilio",
     "twilio-paste",
