@@ -82,6 +82,10 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
+  {uncontrolledRadioGroup}
+</LivePreview>
+
 ## Guidelines
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>

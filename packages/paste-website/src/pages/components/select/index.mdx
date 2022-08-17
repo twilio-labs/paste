@@ -80,6 +80,20 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Select, Option, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="author">Select an author</Label>
+  <Select id="author">
+    <Option value="baldwin">James Baldwin</Option>
+    <Option value="brown">adrienne maree brown</Option>
+    <Option value="butler">Octavia Butler</Option>
+    <Option value="coates">Ta-Nehisi Coates</Option>
+    <Option value="lorde">Audre Lorde</Option>
+    <Option value="nnedi">Nnedi Okorafor</Option>
+  </Select>
+</>`}
+</LivePreview>
+
 ## Guidelines
 
 A select allows users to select an option from a list in a form field. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.

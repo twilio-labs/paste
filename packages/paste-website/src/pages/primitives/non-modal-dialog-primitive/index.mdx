@@ -80,6 +80,18 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+    NonModalDialogArrowPrimitive,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
 ## Guidelines
 
 ### About Non-Modal Dialog Primitive
