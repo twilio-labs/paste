@@ -161,7 +161,11 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-export const BasicMultiCombobox: React.FC = () => {
+ComboboxNonHooks.story = {
+  name: 'Combobox - non-hooks',
+};
+
+export const MultiSelectionCombobox = (): React.ReactNode => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
 
@@ -267,6 +271,6 @@ export const BasicMultiCombobox: React.FC = () => {
   );
 };
 
-ComboboxNonHooks.story = {
-  name: 'Combobox - non-hooks',
+MultiSelectionCombobox.story = {
+  name: 'Combobox - multiple selection',
 };
