@@ -78,6 +78,7 @@ export interface GenericThemeShape {
     }
   >;
   iconSizes: {
+    sizeIcon05: typeof sizings['sizeIcon05'];
     sizeIcon10: typeof sizings['sizeIcon10'];
     sizeIcon20: typeof sizings['sizeIcon20'];
     sizeIcon30: typeof sizings['sizeIcon30'];
