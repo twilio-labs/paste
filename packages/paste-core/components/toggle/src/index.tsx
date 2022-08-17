@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import type {ToggleProps} from './types';
+import {TOGGLE_HEIGHT, TOGGLE_WIDTH} from './constants';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
@@ -74,8 +75,10 @@ const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
                 tabIndex={0}
                 position="relative"
                 display="inline-block"
-                height="20px"
-                width="42px"
+                boxSizing="content-box"
+                height={TOGGLE_HEIGHT}
+                width={TOGGLE_WIDTH}
+                paddingY="space10"
                 borderColor="colorBorder"
                 borderWidth="borderWidth10"
                 borderRadius="borderRadiusPill"
@@ -91,7 +94,13 @@ const Toggle = React.forwardRef<HTMLDivElement, ToggleProps>(
                   setIsHovering(false);
                 }}
               >
-                <ToggleKnob element={element} disabled={disabled} toggleIsOn={toggleIsOn} isHovering={isHovering} />
+                <ToggleKnob
+                  element={element}
+                  disabled={disabled}
+                  toggleIsOn={toggleIsOn}
+                  isHovering={isHovering}
+                  height={TOGGLE_HEIGHT}
+                />
               </Box>
             </MediaFigure>
             <ToggleLabelText element={`${element}_LABEL_TEXT_WRAPPER`} id={labelId}>

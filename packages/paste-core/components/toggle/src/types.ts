@@ -15,6 +15,7 @@ export interface ToggleProps extends React.HTMLAttributes<HTMLDivElement>, Pick<
 export interface ToggleKnobProps extends Omit<ToggleProps, 'on' | 'helpText' | 'children'> {
   toggleIsOn: boolean;
   isHovering: boolean;
+  height: string;
 }
 
 export interface ToggleHelpTextProps extends Pick<BoxProps, 'element'> {
