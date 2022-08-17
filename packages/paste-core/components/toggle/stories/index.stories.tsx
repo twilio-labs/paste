@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Toggle} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -55,5 +56,16 @@ export const DisabledOn: React.FC = () => {
     <Toggle id={id} helpText={<>Info that helps a user with this field.</>} disabled on>
       Label
     </Toggle>
+  );
+};
+
+export const Customized: React.FC = () => {
+  const id = useUID();
+  return (
+    <CustomizationProvider baseTheme="default" elements={{TOGGLE: {width: '60px'}}}>
+      <Toggle id={id} helpText={<>Info that helps a user with this field.</>} disabled on>
+        Label
+      </Toggle>
+    </CustomizationProvider>
   );
 };
