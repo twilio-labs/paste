@@ -10504,7 +10504,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown"
   dependencies:
-    downshift: 6.0.6
+    downshift: 6.1.7
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -18289,7 +18289,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.14, compute-scroll-into-view@npm:^1.0.17":
+"compute-scroll-into-view@npm:^1.0.17":
   version: 1.0.17
   resolution: "compute-scroll-into-view@npm:1.0.17"
   checksum: b20c05a10c37813c5a6e4bf053c00f65c88d23afed7a6bd7a2a69e05e2ffc2df3483ecfe407d36bf16b8cec8be21ae1966c9c523093a03117e567156cd79a51e
@@ -20882,21 +20882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"downshift@npm:6.0.6":
-  version: 6.0.6
-  resolution: "downshift@npm:6.0.6"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    compute-scroll-into-view: ^1.0.14
-    prop-types: ^15.7.2
-    react-is: ^16.13.1
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 56ce4f9544b0b95a667f717f9a5252fdf9e7556e8e405125e47f423bf3c2d29331b84a918bb05b0b4071962b79c7df1d87b56be87fb7c5ba8403013b88ec2e60
-  languageName: node
-  linkType: hard
-
-"downshift@npm:^6.0.15":
+"downshift@npm:6.1.7, downshift@npm:^6.0.15":
   version: 6.1.7
   resolution: "downshift@npm:6.1.7"
   dependencies:
