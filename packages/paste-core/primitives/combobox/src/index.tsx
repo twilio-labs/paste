@@ -18,4 +18,7 @@ export type {
   UseMultipleSelectionState as UseMultiSelectState,
   UseMultipleSelectionReturnValue as UseMultiSelectPrimitiveReturnValue,
   UseMultipleSelectionStateChange as UseMultiSelectPrimitiveStateChange,
+  UseComboboxGetItemPropsOptions as UseComboboxPrimitiveGetItemPropsOptions,
+  UseComboboxGetMenuPropsOptions as UseComboboxPrimitiveGetMenuPropsOptions,
+  GetPropsCommonOptions as GetComboboxPrimitivePropsCommonOptions,
 } from '@twilio-paste/dropdown-library';
