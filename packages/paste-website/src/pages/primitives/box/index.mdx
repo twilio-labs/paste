@@ -66,6 +66,23 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Box}} language="jsx">
+  {`<Box
+  as="article"
+  backgroundColor="colorBackgroundBody"
+  padding="space60"
+>
+Parent box on the hill side
+  <Box
+    backgroundColor="colorBackgroundSuccessWeakest"
+    display="inline-block"
+    padding="space40"
+  >
+    nested box 1 made out of ticky tacky
+  </Box>
+</Box>`}
+</LivePreview>
+
 ## Guidelines
 
 The Box component is one of the pillars of our system. It can be any HTML element

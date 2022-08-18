@@ -1,5 +1,9 @@
 import * as React from 'react';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {PauseIcon} from '@twilio-paste/icons/esm/PauseIcon';
+import {PlayIcon} from '@twilio-paste/icons/esm/PlayIcon';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
@@ -250,6 +254,93 @@ const IconSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
 export const PrimaryIconButton = (): React.ReactNode => <IconSizeOptions variant="primary_icon" />;
 export const SecondaryIconButton = (): React.ReactNode => <IconSizeOptions variant="secondary_icon" />;
 export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions variant="destructive_icon" />;
+
+interface ToggleButtonProps {
+  defaultPressed?: boolean;
+  variant?: 'secondary' | 'secondary_icon';
+  size?: 'icon' | 'circle';
+  disabled?: boolean;
+  icons: {
+    default: React.ReactNode;
+    pressed?: React.ReactNode;
+  };
+}
+
+const ToggleButton: React.FC<ToggleButtonProps> = ({
+  defaultPressed = false,
+  variant = 'secondary',
+  children,
+  size,
+  icons,
+  disabled,
+}) => {
+  const [pressed, setPressed] = React.useState<boolean>(defaultPressed);
+
+  let computedIcon = icons.default;
+  if (pressed && icons.pressed) computedIcon = icons.pressed;
+
+  return (
+    <Button variant={variant} size={size} pressed={pressed} onClick={() => setPressed(!pressed)} disabled={disabled}>
+      {computedIcon}
+      {children}
+    </Button>
+  );
+};
+
+export const ToggleButtons = (): React.ReactNode => {
+  const followIcons = {
+    default: <PlusIcon decorative />,
+    pressed: <CheckboxCheckIcon decorative />,
+  };
+
+  const boldIcons = {
+    default: <BoldIcon decorative={false} title="Bold" />,
+  };
+
+  const pauseIcons = {
+    default: <PauseIcon decorative />,
+    pressed: <PlayIcon decorative />,
+  };
+
+  return (
+    <Box display="flex" flexDirection="column" rowGap="space50">
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton icons={followIcons}>Follow</ToggleButton>
+        <ToggleButton variant="secondary_icon" size="icon" icons={boldIcons} />
+        <ToggleButton size="circle" icons={pauseIcons}>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton defaultPressed={true} icons={followIcons}>
+          Follow
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary_icon" size="icon" icons={boldIcons} />
+        <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons}>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton icons={followIcons} disabled>
+          Follow
+        </ToggleButton>
+        <ToggleButton variant="secondary_icon" size="icon" icons={boldIcons} disabled />
+        <ToggleButton size="circle" icons={pauseIcons} disabled>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton defaultPressed={true} icons={followIcons} disabled>
+          Follow
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary_icon" size="icon" icons={boldIcons} disabled />
+        <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons} disabled>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+      </Box>
+    </Box>
+  );
+};
 
 export const I18nButtons = (): React.ReactNode => {
   return (

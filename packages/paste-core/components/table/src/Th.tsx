@@ -10,6 +10,9 @@ const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="th"
+        borderBottomStyle="solid"
+        borderBottomColor="colorBorderWeaker"
+        borderBottomWidth="borderWidth10"
         element={element}
         fontSize="fontSize30"
         lineHeight="lineHeight30"
@@ -29,9 +32,6 @@ const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
 );
 
 Th.displayName = 'Th';
-
-if (process.env.NODE_ENV === 'development') {
-  Th.propTypes = ThPropTypes;
-}
+Th.propTypes = ThPropTypes;
 
 export {Th};

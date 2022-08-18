@@ -290,7 +290,7 @@ describe('Select', () => {
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '500');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', 'inherit');
 
       const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
       const nodeNamedIconWrapper = nodeNamedBox.lastChild as ChildNode;
@@ -349,7 +349,7 @@ describe('Select', () => {
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '500');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', 'inherit');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-size', '1rem');
 
       const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
@@ -386,7 +386,7 @@ describe('Select', () => {
       expect(nodeNamedIconWrapper).toHaveStyleRule('display', 'inline-flex');
 
       const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
-      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174, 178, 193)');
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(136, 145, 170)');
     });
   });
 });
