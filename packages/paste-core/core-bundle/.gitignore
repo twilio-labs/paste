@@ -41,6 +41,7 @@
 /media-object
 /menu
 /menu-primitive
+/minimizable-dialog
 /modal
 /modal-dialog-primitive
 /non-modal-dialog-primitive
