@@ -76,6 +76,29 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30">
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Instant Provisioning</Heading>
+      <Paragraph>The API and the Console allow you to search and provision local, toll-free, or mobile numbers by capability, geography, prefix or keyword.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Vast Inventory</Heading>
+      <Paragraph>Twilio maintains phone number inventory at a rate of 50 times the quantity provisioned daily for over 600 area codes and prefixes.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Quality Screening</Heading>
+      <Paragraph>Every phone number in the inventory passes a rigorous 60-day screening process to verify capabilities and test for unwanted call traffic.</Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
+
 ## Guidelines
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>

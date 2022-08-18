@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles} from './styles';
+import {SizeStyles, BaseStyles, ToggleButtonStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
@@ -57,6 +57,16 @@ const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   _hover: baseDisabledStyles,
   _active: baseDisabledStyles,
   _focus: baseDisabledStyles,
+  _pressed: {
+    backgroundColor: 'colorBackgroundStrong',
+    color: 'colorTextWeak',
+    boxShadow: 'none',
+  },
+  _pressed_hover: {
+    backgroundColor: 'colorBackgroundStrong',
+    color: 'colorTextWeak',
+    boxShadow: 'none',
+  },
 });
 
 const ButtonStyleMapping = {
@@ -66,13 +76,17 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+    const toggleStyles = pressed === undefined ? {} : ToggleButtonStyles;
+
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
         width={fullWidth ? '100%' : 'auto'}
+        aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
+        {...toggleStyles}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />

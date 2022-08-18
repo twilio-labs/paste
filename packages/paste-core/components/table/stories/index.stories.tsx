@@ -304,7 +304,7 @@ BorderlessTable.story = {
 
 export const BorderlessFooterTable = (): React.ReactNode => {
   return (
-    <Table variant="borderless" striped>
+    <Table variant="borderless">
       <THead>
         <Tr>
           <Th>Date</Th>
@@ -407,6 +407,114 @@ export const BorderlessFooterTable = (): React.ReactNode => {
 };
 
 BorderlessFooterTable.story = {
+  name: 'Borderless table with footer',
+};
+
+export const BorderlessStripedFooterTable = (): React.ReactNode => {
+  return (
+    <Table variant="borderless" striped>
+      <THead>
+        <Tr>
+          <Th>Date</Th>
+          <Th>SID</Th>
+          <Th>Direction</Th>
+          <Th>From</Th>
+          <Th textAlign="right">Index</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>
+            <Text as="p">16:24:28 PDT</Text>
+            <Text as="p">2020-09-17</Text>
+          </Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              1
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            <Text as="p">16:24:28 PDT</Text>
+            <Text as="p">2020-09-17</Text>
+          </Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMl29llgoihx286uhxfb0yc5n0sg391x5n
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              2
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            <Text as="p">16:24:28 PDT</Text>
+            <Text as="p">2020-09-17</Text>
+          </Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMxarke3v30fv17hauqn86a7nhgm3b5d87
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              3
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            <Text as="p">16:24:28 PDT</Text>
+            <Text as="p">2020-09-17</Text>
+          </Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMxarke3v30fv17hauqn86a7nhgm3b5d87
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              4
+            </Text>
+          </Td>
+        </Tr>
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Td colSpan={3}>
+            <Text as="p" fontWeight="fontWeightSemibold">
+              Index Total
+            </Text>
+          </Td>
+          <Td colSpan={2} textAlign="right">
+            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+              4
+            </Text>
+          </Td>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
+};
+
+BorderlessStripedFooterTable.story = {
   name: 'Borderless striped table with footer',
 };
 
@@ -942,6 +1050,77 @@ export const RowHeaders = (): React.ReactNode => {
 
 RowHeaders.story = {
   name: 'Row headers',
+};
+
+export const StickyHeaders = (): React.ReactNode => {
+  return (
+    <Table>
+      <THead stickyHeader={true}>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {[...new Array(100).keys()].map((index) => (
+          <Tr key={index}>
+            <Td>Content</Td>
+            <Td>Content</Td>
+            <Td>Content</Td>
+          </Tr>
+        ))}
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
+};
+
+StickyHeaders.story = {
+  name: 'Sticky headers',
+};
+
+export const BorderlessStickyHeaders = (): React.ReactNode => {
+  return (
+    <Table variant="borderless">
+      <THead stickyHeader={true}>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {[...new Array(100).keys()].map((index) => (
+          <Tr key={index}>
+            <Td>Content</Td>
+            <Td>Content</Td>
+            <Td>Content</Td>
+          </Tr>
+        ))}
+      </TBody>
+    </Table>
+  );
+};
+
+BorderlessStickyHeaders.story = {
+  name: 'Borderless Sticky headers',
 };
 
 export const Truncation = (): React.ReactNode => {

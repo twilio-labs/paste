@@ -12,10 +12,6 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="tr"
-        borderStyle="solid"
-        borderColor="colorBorderWeaker"
-        borderWidth="borderWidth0"
-        borderBottomWidth="borderWidth10"
         element={element}
         verticalAlign={verticalAlign}
         _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
@@ -26,9 +22,6 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
 );
 
 Tr.displayName = 'Tr';
-
-if (process.env.NODE_ENV === 'development') {
-  Tr.propTypes = TrPropTypes;
-}
+Tr.propTypes = TrPropTypes;
 
 export {Tr};

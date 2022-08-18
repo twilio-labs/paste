@@ -79,6 +79,14 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address" required>Email address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
+</>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Help Text

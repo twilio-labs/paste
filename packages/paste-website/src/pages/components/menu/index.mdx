@@ -82,6 +82,21 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuSeparator,
+    ChevronDownIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultExample}
+</LivePreview>
+
 ## Guidelines
 
 ### About Menu
