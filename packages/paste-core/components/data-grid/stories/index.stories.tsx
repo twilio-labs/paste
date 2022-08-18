@@ -8,6 +8,7 @@ export {KitchenSinkDataGrid} from './components/KitchenSinkDataGrid';
 export {I18nDataGrid} from './components/I18nDataGrid';
 export {DataGridLayouts} from './components/DataGridLayouts';
 export {ColumnSpanDataGrid} from './components/ColumnSpanDataGrid';
+export {StickyHeaderDataGrid} from './components/StickyHeaderDataGrid';
 
 // eslint-disable-next-line import/no-default-export
 export default {

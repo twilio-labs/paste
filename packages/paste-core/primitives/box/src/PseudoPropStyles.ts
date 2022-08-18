@@ -21,6 +21,8 @@ export const PseudoPropStyles = {
   _selected_focusVisible: '&[aria-selected=true]:focus-visible',
   _invalid: '&:invalid, &[aria-invalid=true]',
   _pressed: '&[aria-pressed=true]',
+  _pressed_focus: '&[aria-pressed=true]:focus',
+  _pressed_hover: '&[aria-pressed=true]:hover',
   _readOnly: '&[aria-readonly=true], &[readonly]',
   _first: '&:first-of-type',
   _last: '&:last-of-type',

@@ -11,4 +11,9 @@ export const TableOfContentsList = styled(Scrollspy)`
   border-left-width: 1px;
   border-left-style: solid;
   border-left-color: ${themeGet('borderColors.colorBorderWeak')};
+  /* Fix overflowing on long pages.
+   * 220px is how tall the page is above this nav once you scroll.
+   */
+  max-height: calc(100vh - 220px);
+  overflow: auto;
 `;

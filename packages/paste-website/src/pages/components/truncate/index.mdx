@@ -72,6 +72,20 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview
+  scope={{
+    Truncate,
+    Box,
+    Text,
+  }}
+>
+  {`<Box maxWidth="size30">
+  <Text as="p">
+    <Truncate title="Black Lives Matter. We stand with the Black community.">Black Lives Matter. We stand with the Black community.</Truncate>
+  </Text>
+</Box>`}
+</LivePreview>
+
 ## Guidelines
 
 ### About Truncate
