@@ -1,0 +1,8 @@
+{
+  "name": "@twilio-paste-core/minimizable-dialog",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/minimizable-dialog.js",
+  "types": "../dist/minimizable-dialog.d.ts"
+}

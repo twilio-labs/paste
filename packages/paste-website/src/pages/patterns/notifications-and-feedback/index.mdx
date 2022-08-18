@@ -8,7 +8,7 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
@@ -152,8 +152,8 @@ There are 3 levels of notifications and feedback:
 - **Feedback indicators:** Acknowledgment of a user action, like submitting a form or pressing a “Copy code” button.
 - **Notification centers and reminders:** Currently, these are highly specific to products’ business needs and should be treated as a product feature, rather than a pattern. While the implementation of a notification center might use Paste components, guidelines specific to a notification center won’t be covered in this page.
 
-<Callout>
-  <CalloutTitle>Notifications in high-emotion or high-stress situations</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Notifications in high-emotion or high-stress situations</CalloutHeading>
   <CalloutText>
     For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the
     customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you
@@ -207,8 +207,8 @@ Use a Toast when
 
 ![Screen with toast confirming a password reset email has been sent](../../../assets/images/patterns/notifications-toast@3x.png)
 
-<Callout>
-  <CalloutTitle>Toasts in Flex and SendGrid?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Toasts in Flex and SendGrid?</CalloutHeading>
   <CalloutText>
     While the recommendation is to migrate to Paste Toast components to acknowledge user actions, Flex and SendGrid
     currently use banners for this purpose.

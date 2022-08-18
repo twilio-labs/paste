@@ -12,7 +12,7 @@ import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
 import {Avatar} from '@twilio-paste/avatar';
 import Changelog from '@twilio-paste/avatar/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
@@ -106,8 +106,8 @@ export const pageQuery = graphql`
 
 Provide the Avatar with a `name` and the component will render the initials as their visual representation. The option is particularly useful if there is no supplied image.
 
-<Callout>
-  <CalloutTitle>A note about size 10 and 20</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">A note about size 10 and 20</CalloutHeading>
   <CalloutText>
     On the 2 smallest sizes some initials will get cut off if the characters are particularly wide, such as W. Although
     we do support them due to maintaining size parity with Icons, we do not recommend using these 2 sizes.
@@ -137,8 +137,8 @@ Provide the Avatar with a `name` and the component will render the initials as t
 
 Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
 
-<Callout>
-  <CalloutTitle>A note about Avatar contents</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading>A note about Avatar contents</CalloutHeading>
   <CalloutText>
     The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
     display the image.
@@ -168,8 +168,8 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
 
 Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="/components/icons/">Paste Icon</a>.
 
-<Callout>
-  <CalloutTitle>A note about Avatar contents</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">A note about Avatar contents</CalloutHeading>
   <CalloutText>
     The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
     display the image.

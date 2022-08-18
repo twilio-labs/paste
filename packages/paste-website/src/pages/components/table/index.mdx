@@ -23,7 +23,7 @@ import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import Changelog from '@twilio-paste/table/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {SiteLink} from '../../../components/SiteLink';
@@ -164,8 +164,8 @@ Accessibility recommendations:
   times to get past that table. If you do need to include interactive elements (such as linking to object details,
   selecting rows, or deleting rows), use <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
 
-<Callout>
-  <CalloutTitle>Accessibility insight: navigating tables with a screen reader</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight: navigating tables with a screen reader</CalloutHeading>
   <CalloutText>
     Learn more about why semantic table markup is important in{' '}
     <Anchor href="https://youtu.be/tlpQ0d2ADNo" showExternal>

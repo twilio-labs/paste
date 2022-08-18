@@ -5,7 +5,7 @@ slug: /foundations/content/voice-and-tone/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 export const pageQuery = graphql`
   {
@@ -49,8 +49,8 @@ Voice makes us &mdash; Twilio &mdash; identifiable, consistent, and familiar.
 
 Tone enables you to choose words, structures, punctuation, or syntax appropriate to the scenario.
 
-<Callout>
-  <CalloutTitle as="h4">Voice or tone?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Voice or tone?</CalloutHeading>
   <CalloutText>
     Think of your best friend. You can recognize their voice &mdash; that doesn't change. But how they speak in a job
     interview is different from how they chat with you at the weekend. They <strong>sound</strong> the same &mdash;

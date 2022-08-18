@@ -9,8 +9,8 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import Changelog from '@twilio-paste/text/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {InlineCode} from '../../../components/Typography';
 
@@ -75,8 +75,8 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-<Callout>
-  <CalloutTitle as="h3">Please note</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Please note</CalloutHeading>
   <CalloutText>
     Only use this component if all other Paste typographic components don’t meet your use case. If you find yourself
     here, come to the Design System Office Hours.
@@ -108,7 +108,7 @@ The Text component can be used in any situation. As always, when working with HT
 to select an appropriate semantic for your text. That semantic communicates the intended meaning of that text to
 assistive technology.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Be sure to use the <strong>"as"</strong> prop to select semantically meaningful HTML elements. The{' '}
     <strong>"as"</strong> property is required. As a fallback, the Text component will render as a{' '}

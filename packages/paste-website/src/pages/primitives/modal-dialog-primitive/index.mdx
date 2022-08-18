@@ -9,8 +9,8 @@ import {ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay} from '@twilio-
 import Changelog from '@twilio-paste/modal-dialog-primitive/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {ModalDialogPrimitiveExample} from '../../../component-examples/ModalDialogPrimitiveExample.tsx';
 
@@ -85,8 +85,8 @@ we suggest falling back to this component to roll your own solution. We encourag
 using this code as a basis for all modal dialogs in order to avoid code fragmentation
 and accessibility issues in our products.
 
-<Callout>
-  <CalloutTitle as="h4">Looking for Paste's styled Modal?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Looking for Paste's styled Modal?</CalloutHeading>
   <CalloutText>
     Only use this primitive if you have a bespoke modal design. For most Twilio interfaces, we recommend using the{' '}
     <Anchor href="/components/modal">Paste Modal component</Anchor>.
@@ -196,7 +196,7 @@ export const ModalActivator: React.FC = () => {
 
 ### API
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Much of the following is copied directly from{' '}
     <Anchor href="https://reacttraining.com/reach-ui/dialog/">reach-ui's docs</Anchor>. Because we may update at a

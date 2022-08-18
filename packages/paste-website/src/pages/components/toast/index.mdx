@@ -19,8 +19,8 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {InlineCode} from '../../../components/Typography';
@@ -115,8 +115,8 @@ We recommend giving users about 500 milliseconds per word. For short toasts (abo
 
 In addition to reading time, consider the time users need to make a decision based on the message. If a toast has any interactive element in it, like a link or button, don't add an automatic time-out to the toast.
 
-<Callout>
-  <CalloutTitle>Research insight into reading speeds</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Research insight into reading speeds</CalloutHeading>
   <CalloutText>
     From the{' '}
     <Anchor href="https://www.perkinselearning.org/technology/blog/reading-rates">Perkins School for the Blind</Anchor>:
@@ -299,8 +299,8 @@ Provide an "undo" action in the toast if it's easily and safely reversible, and 
 </Toast>`}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle>When to automatically time-out a success toast</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">When to automatically time-out a success toast</CalloutHeading>
   <CalloutText>
     Add an automatic time-out to a success toast if the <i>only</i> thing it does is confirm that the action was
     completed. If it has any additional information or interactive content, like a link or button, the toast shouldn't

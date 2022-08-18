@@ -7,7 +7,7 @@ slug: /patterns/object-details/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -161,8 +161,8 @@ To structure a page:
 
 The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be vertically placed.
 
-<Callout>
-  <CalloutTitle as="h4">Composing a Description List</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Composing a Description List</CalloutHeading>
   <CalloutText>
     A list of properties should be structured into a description list using the{' '}
     <Anchor href="/primitives/box">Box</Anchor> and <Anchor href="/primitives/text">Text</Anchor> primitives (e.g.,{' '}
@@ -233,8 +233,8 @@ When you find that customers want to see multiple, top-level content sections, s
 
 Many object detail pages also include a set of actions that can be performed on that object, such as editing or deleting.
 
-<Callout>
-  <CalloutTitle as="h4">This pattern is coming soon!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">This pattern is coming soon!</CalloutHeading>
   <CalloutText>
     We've not yet patternized this part of Object Details. If you need this for your current or upcoming work, please
     consider partnering with us to <Anchor href="/introduction/contributing/patterns">contribute it</Anchor>.

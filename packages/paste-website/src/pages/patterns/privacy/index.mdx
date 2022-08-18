@@ -14,7 +14,7 @@ import {HelpText} from '@twilio-paste/help-text';
 import {Input} from '@twilio-paste/input';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {
   PrivacyExample,
@@ -161,8 +161,8 @@ Use when informing a user that a “friendly name” or "unique name” field is
 
 <LivePreview scope={{Label, Input, HelpText, Anchor, Button, Heading, Box}}>{FriendlyName}</LivePreview>
 
-<Callout>
-  <CalloutTitle>Need a variation that isn't included here?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Need a variation that isn't included here?</CalloutHeading>
   <CalloutText>
     Variations of this pattern will be added as there are more non-PII fields where users may unintentionally input
     personal data. Please{' '}
