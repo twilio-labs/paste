@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {ToggleLabelTextProps} from './types';
+import type {SwitchLabelTextProps} from './types';
 import {Text} from '@twilio-paste/text';
 
-const ToggleLabelText = React.forwardRef<HTMLSpanElement, ToggleLabelTextProps>(
-  ({element = 'TOGGLE_LABEL_TEXT', id, children, ...props}, ref) => {
+const SwitchLabelText = React.forwardRef<HTMLSpanElement, SwitchLabelTextProps>(
+  ({element = 'SWITCH_LABEL_TEXT_WRAPPER', id, children, ...props}, ref) => {
     return (
       <Text
         as="span"
@@ -22,11 +22,11 @@ const ToggleLabelText = React.forwardRef<HTMLSpanElement, ToggleLabelTextProps>(
   }
 );
 
-ToggleLabelText.displayName = 'ToggleLabelText';
+SwitchLabelText.displayName = 'SwitchLabelText';
 
-ToggleLabelText.propTypes = {
+SwitchLabelText.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
 };
 
-export {ToggleLabelText};
+export {SwitchLabelText};

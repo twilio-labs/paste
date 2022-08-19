@@ -1,31 +1,31 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {ToggleKnobProps} from './types';
+import type {SwitchKnobProps} from './types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {useTheme} from '@twilio-paste/theme';
 
-const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
-  ({element, disabled, toggleIsOn, isHovering, height, ...props}, ref) => {
+const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
+  ({element, disabled, switchIsOn, isHovering, height, ...props}, ref) => {
     const theme = useTheme();
 
-    const moveToggleKnob = React.useCallback(() => {
+    const moveSwitchKnob = React.useCallback(() => {
       if (!disabled) {
-        if (!toggleIsOn && isHovering) return 'translateX(5%)';
-        if (toggleIsOn && !isHovering) return 'translateX(100%)';
-        if (toggleIsOn && isHovering) return 'translateX(95%)';
+        if (!switchIsOn && isHovering) return 'translateX(5%)';
+        if (switchIsOn && !isHovering) return 'translateX(100%)';
+        if (switchIsOn && isHovering) return 'translateX(95%)';
       } else if (disabled) {
-        if (!toggleIsOn) return 'translate(0%)';
-        if (toggleIsOn) return 'translateX(100%)';
+        if (!switchIsOn) return 'translate(0%)';
+        if (switchIsOn) return 'translateX(100%)';
       }
-    }, [toggleIsOn, isHovering, disabled]);
+    }, [switchIsOn, isHovering, disabled]);
 
     return (
       <Box
         width={`calc(100% - ${theme.space.space20})`} // necessary?
         height="100%"
         position="absolute"
-        transform={moveToggleKnob()}
+        transform={moveSwitchKnob()}
         transition="transform .2s ease-in-out"
       >
         <Box
@@ -35,7 +35,7 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
           ref={ref}
           height={height}
           width={height}
-          transform={toggleIsOn ? 'translateX(-100%)' : 'translateX(0%)'}
+          transform={switchIsOn ? 'translateX(-100%)' : 'translateX(0%)'}
           transition="transform .2s ease-in-out"
           borderColor="colorBorder"
           borderWidth="borderWidth10"
@@ -51,7 +51,7 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
             height="100%"
             alignItems="center"
             justifyContent="center"
-            opacity={toggleIsOn ? '1' : '0'}
+            opacity={switchIsOn ? '1' : '0'}
             transition="opacity .2s ease-in-out, color .2s ease-in-out"
           >
             <CheckboxCheckIcon decorative size="sizeIcon05" element={`${element}_ICON`} />
@@ -62,14 +62,14 @@ const ToggleKnob = React.forwardRef<HTMLDivElement, ToggleKnobProps>(
   }
 );
 
-ToggleKnob.displayName = 'ToggleKnob';
+SwitchKnob.displayName = 'SwitchKnob';
 
-ToggleKnob.propTypes = {
+SwitchKnob.propTypes = {
   disabled: PropTypes.bool,
   element: PropTypes.string,
-  toggleIsOn: PropTypes.bool.isRequired,
+  switchIsOn: PropTypes.bool.isRequired,
   isHovering: PropTypes.bool.isRequired,
   height: PropTypes.string.isRequired,
 };
 
-export {ToggleKnob};
+export {SwitchKnob};

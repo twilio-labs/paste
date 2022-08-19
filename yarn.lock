@@ -10219,7 +10219,7 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/time-picker": ^3.0.0
     "@twilio-paste/toast": ^9.0.0
-    "@twilio-paste/toggle": ^0.0.0
+    "@twilio-paste/switch": ^0.0.0
     "@twilio-paste/tooltip": ^8.0.0
     "@twilio-paste/tooltip-primitive": ^0.2.9
     "@twilio-paste/truncate": ^11.0.0
@@ -11664,9 +11664,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/toggle@^0.0.0, @twilio-paste/toggle@workspace:packages/paste-core/components/toggle":
+"@twilio-paste/switch@^0.0.0, @twilio-paste/switch@workspace:packages/paste-core/components/switch":
   version: 0.0.0-use.local
-  resolution: "@twilio-paste/toggle@workspace:packages/paste-core/components/toggle"
+  resolution: "@twilio-paste/switch@workspace:packages/paste-core/components/switch"
   dependencies:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/design-tokens": ^8.0.0

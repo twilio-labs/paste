@@ -58,6 +58,7 @@
 /stack
 /style-props
 /styling-library
+/switch
 /table
 /tabs
 /tabs-primitive
@@ -66,7 +67,6 @@
 /theme
 /time-picker
 /toast
-/toggle
 /tooltip
 /tooltip-primitive
 /truncate

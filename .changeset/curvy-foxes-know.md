@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/toggle': major
+'@twilio-paste/switch': major
 '@twilio-paste/core': minor
 ---
 
-[Toggle] add Toggle package
+[Switch] add Switch package

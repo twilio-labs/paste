@@ -122,6 +122,8 @@ When a Toggle is required to be on, a required indicator should be displayed alo
 
 ### Disabled
 
+Use a disabled Toggle to indicate to users that it is not interactive. If interactivity is dependent on another action, make that clear using help text.
+
 <LivePreview scope={{Toggle, useUID}} noInline>
   {disabledToggle}
 </LivePreview>
@@ -130,13 +132,15 @@ When a Toggle is required to be on, a required indicator should be displayed alo
 
 ### On
 
-The default Toggle state is "off"
+The default Toggle state is off.
 
 <LivePreview scope={{Toggle, useUID}} noInline>
   {onToggle}
 </LivePreview>
 
 ### Disabled on
+
+Use the disabled on Toggle to indicate to users that it is not interactive and cannot be turned off. If interactivity is dependent on another action, make that clear using help text.
 
 <LivePreview scope={{Toggle, useUID}} noInline>
   {disabledOnToggle}

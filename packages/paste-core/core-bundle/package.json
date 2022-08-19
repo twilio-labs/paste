@@ -82,6 +82,7 @@
     "@twilio-paste/stack": "^5.0.0",
     "@twilio-paste/style-props": "^6.0.0",
     "@twilio-paste/styling-library": "^1.0.2",
+    "@twilio-paste/switch": "^0.0.0",
     "@twilio-paste/table": "^5.0.0",
     "@twilio-paste/tabs": "^5.0.0",
     "@twilio-paste/tabs-primitive": "^0.2.8",
@@ -90,13 +91,13 @@
     "@twilio-paste/theme": "^8.0.0",
     "@twilio-paste/time-picker": "^3.0.0",
     "@twilio-paste/toast": "^9.0.0",
-    "@twilio-paste/toggle": "^0.0.0",
     "@twilio-paste/tooltip": "^8.0.0",
     "@twilio-paste/tooltip-primitive": "^0.2.9",
     "@twilio-paste/truncate": "^11.0.0",
     "@twilio-paste/types": "^3.1.8",
     "@twilio-paste/uid-library": "^0.2.5",
-    "@twilio-paste/utils": "^1.1.5"
+    "@twilio-paste/utils": "^1.1.5",
+    "@twilio-paste/toggle": "^0.0.0"
   },
   "peerDependencies": {
     "@twilio-paste/icons": "^9.0.0",
