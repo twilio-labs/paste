@@ -27,6 +27,9 @@ const PlainMenu: React.FC = () => {
         <MenuItem {...menu} href="http://www.google.com" onClick={onClick}>
           Has a link
         </MenuItem>
+        <MenuItem {...menu} variant="destructive" href="http://www.google.com" onClick={onClick}>
+          Destructive link
+        </MenuItem>
         <MenuItem {...menu} disabled>
           Extensions
         </MenuItem>
@@ -276,6 +279,9 @@ export const MenuDropdown = (): React.ReactNode => {
   return (
     <Menu {...menuMockProps} aria-label={`Code ${uniqueMenuLabelID}`} placement="auto">
       <MenuItem {...menuItemMockProps}>Default</MenuItem>
+      <MenuItem {...menuItemMockProps} variant="destructive">
+        Destructive
+      </MenuItem>
       <MenuItem {...menuItemMockProps} disabled>
         Disabled
       </MenuItem>
@@ -308,10 +314,43 @@ export const MenuDropdown = (): React.ReactNode => {
           </MediaFigure>
         </MediaObject>
       </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        Suuuuuuuuuuuuuuuuuuuuuuper long menu item
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got an icon</MediaBody>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaBody>Got a right icon</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got two icons</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
       <MenuSeparator />
       <MenuGroup icon={<ProductVoiceIcon decorative />} label="Search Options">
         <MenuItem {...menuItemMockProps} href="https://google.com">
           Search with Google
+        </MenuItem>
+        <MenuItem variant="destructive" {...menuItemMockProps} href="https://google.com">
+          Search with Yahoo
         </MenuItem>
         <MenuItem {...menuItemMockProps} disabled>
           Search with Bing
