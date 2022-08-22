@@ -11,7 +11,7 @@ export interface SwitchContainerProps extends React.HTMLAttributes<HTMLLabelElem
 }
 
 export interface SwitchProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
-  switchId?: string;
+  id?: string;
   disabled?: boolean;
   on?: boolean;
   labelId?: string;

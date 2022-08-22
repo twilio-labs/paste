@@ -7,7 +7,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 
 const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
-  ({element = 'SWITCH', switchId, labelId, disabled = false, on = false, onClick, ...props}, ref) => {
+  ({element = 'SWITCH', id, labelId, disabled = false, on = false, onClick, ...props}, ref) => {
     const [switchIsOn, setSwitchIsOn] = React.useState(on);
     const [isHovering, setIsHovering] = React.useState(false);
 
@@ -54,7 +54,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         aria-disabled={disabled}
         aria-labelledby={labelId}
         element={element}
-        id={switchId}
+        id={id}
         ref={ref}
         tabIndex={0}
         position="relative"
