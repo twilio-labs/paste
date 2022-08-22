@@ -116,7 +116,7 @@ props:
   # icons
   size-icon-05:
     value: "{!line-height-05}"
-    comment: "Mapps to line-height tokens 1:1"
+    comment: "Maps to line-height tokens 1:1"
   size-icon-10:
     value: "{!line-height-10}"
     comment: "Maps to line-height tokens 1:1"
