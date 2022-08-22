@@ -6,7 +6,7 @@ import type {BoxProps} from '@twilio-paste/box';
 
 type AsTags = 'ul' | 'ol';
 
-export interface CalloutListProps extends Partial<Omit<HTMLLIElement, 'children'>> {
+export interface CalloutListProps extends Partial<Omit<HTMLElement, 'children'>> {
   as: AsTags;
   children?: React.ReactNode;
   element?: BoxProps['element'];

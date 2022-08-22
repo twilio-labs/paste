@@ -13,7 +13,7 @@ import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
 
-export interface CalloutProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
+export interface CalloutProps extends Partial<Omit<HTMLDivElement, 'children'>> {
   children?: React.ReactNode;
   variant: CalloutVariants;
   i18nLabel?: string;
