@@ -6,44 +6,43 @@ import {SwitchKnob} from './SwitchKnob';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 
+const styles: BoxStyleProps = {
+  backgroundColor: 'colorBackgroundStronger',
+  _checked_hover: {
+    backgroundColor: 'colorBackgroundPrimary',
+    color: 'colorTextLink',
+  },
+  _checked: {
+    backgroundColor: 'colorBackgroundPrimaryStronger',
+    color: 'colorTextLinkStronger',
+  },
+  _hover: {
+    backgroundColor: 'colorBackgroundStrongest',
+    cursor: 'pointer',
+  },
+  _disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    color: 'colorTextIcon',
+    cursor: 'not-allowed',
+  },
+  _focus: {boxShadow: 'shadowFocus'},
+};
+
 const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
   ({element = 'SWITCH', id, labelId, disabled = false, on = false, onClick, ...props}, ref) => {
     const [switchIsOn, setSwitchIsOn] = React.useState(on);
     const [isHovering, setIsHovering] = React.useState(false);
 
-    const styles: BoxStyleProps = {
-      backgroundColor: 'colorBackgroundStronger',
-      _checked_hover: {
-        backgroundColor: 'colorBackgroundPrimary',
-        color: 'colorTextLink',
-      },
-      _checked: {
-        backgroundColor: 'colorBackgroundPrimaryStronger',
-        color: 'colorTextLinkStronger',
-      },
-      _hover: {
-        backgroundColor: 'colorBackgroundStrongest',
-        cursor: 'pointer',
-      },
-      _disabled: {
-        backgroundColor: 'colorBackgroundStrong',
-        color: 'colorTextIcon',
-        cursor: 'not-allowed',
-      },
-      _focus: {boxShadow: 'shadowFocus'},
-    };
-
     const handleClick = React.useCallback((): void => {
-      if (!disabled) setSwitchIsOn(!switchIsOn);
-      if (onClick) onClick();
+      if (!disabled) {
+        setSwitchIsOn(!switchIsOn);
+        if (onClick) onClick();
+      }
     }, [onClick, disabled, switchIsOn]);
 
-    const handleKeyDown = React.useCallback(
-      (event: React.KeyboardEvent): void => {
-        if (event.key === ' ' || event.key === 'Enter') setSwitchIsOn(!switchIsOn);
-      },
-      [switchIsOn]
-    );
+    const handleKeyDown = React.useCallback((event: React.KeyboardEvent): void => {
+      if (event.key === ' ' || event.key === 'Enter') setSwitchIsOn((prev) => !prev);
+    }, []);
 
     return (
       <Box
@@ -70,9 +69,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         borderRadius="borderRadiusPill"
         transition="background-color .2s ease-in-out"
         onClick={handleClick}
-        onKeyDown={(evt) => {
-          handleKeyDown(evt);
-        }}
+        onKeyDown={handleKeyDown}
         onMouseEnter={() => {
           setIsHovering(true);
         }}

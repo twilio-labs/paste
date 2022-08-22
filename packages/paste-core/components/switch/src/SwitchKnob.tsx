@@ -5,28 +5,34 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {useTheme} from '@twilio-paste/theme';
 
+const getSwitchKnobTransformValue = (disabled: boolean, switchIsOn: boolean, isHovering: boolean): string => {
+  if (!disabled) {
+    if (!switchIsOn && isHovering) return 'translateX(5%)';
+    if (switchIsOn && !isHovering) return 'translateX(100%)';
+    if (switchIsOn && isHovering) return 'translateX(95%)';
+  } else if (disabled) {
+    if (!switchIsOn) return 'translate(0%)';
+    if (switchIsOn) return 'translateX(100%)';
+  }
+  return 'translate(0%)';
+};
+
 const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
-  ({element, disabled, switchIsOn, isHovering, height, ...props}, ref) => {
+  ({element, disabled = false, switchIsOn, isHovering, height, ...props}, ref) => {
     const theme = useTheme();
     const SWITCH_PADDING = theme.space ? theme.space.space20 : '4px';
 
-    const moveSwitchKnob = React.useCallback(() => {
-      if (!disabled) {
-        if (!switchIsOn && isHovering) return 'translateX(5%)';
-        if (switchIsOn && !isHovering) return 'translateX(100%)';
-        if (switchIsOn && isHovering) return 'translateX(95%)';
-      } else if (disabled) {
-        if (!switchIsOn) return 'translate(0%)';
-        if (switchIsOn) return 'translateX(100%)';
-      }
-    }, [switchIsOn, isHovering, disabled]);
+    const transformValue = React.useMemo(
+      () => getSwitchKnobTransformValue(disabled, switchIsOn, isHovering),
+      [disabled, switchIsOn, isHovering]
+    );
 
     return (
       <Box
         width={`calc(100% - ${SWITCH_PADDING})`}
         height="100%"
         position="absolute"
-        transform={moveSwitchKnob()}
+        transform={transformValue}
         transition="transform .2s ease-in-out"
       >
         <Box

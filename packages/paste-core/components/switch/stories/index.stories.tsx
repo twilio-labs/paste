@@ -12,7 +12,7 @@ export default {
 export const Default: React.FC = () => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} helpText="This is help text" label="This is the label">
+    <SwitchContainer id={id} helpText="Messages wil be sent to the registered number" label="Enable SMS notifications">
       <Switch />
     </SwitchContainer>
   );
@@ -26,7 +26,7 @@ export const SwitchOnly: React.FC = () => {
 export const LabelOnly: React.FC = () => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} label="This is the label">
+    <SwitchContainer id={id} label="Enable notifications">
       <Switch />
     </SwitchContainer>
   );
@@ -35,7 +35,12 @@ export const LabelOnly: React.FC = () => {
 export const Required: React.FC = () => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} helpText="This is help text" label="This is the label" required>
+    <SwitchContainer
+      id={id}
+      helpText="Notifications must be enabled in order to proceed"
+      label="Enable notifications"
+      required
+    >
       <Switch />
     </SwitchContainer>
   );
@@ -44,7 +49,7 @@ export const Required: React.FC = () => {
 export const Disabled: React.FC = () => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} helpText="This is help text" label="This is the label" disabled>
+    <SwitchContainer id={id} label="Show password" disabled>
       <Switch />
     </SwitchContainer>
   );
@@ -53,7 +58,7 @@ export const Disabled: React.FC = () => {
 export const On: React.FC<{element?: string}> = ({element}) => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} element={element} helpText="This is help text" label="This is the label">
+    <SwitchContainer id={id} element={element} label="Sign up for newsletter and updates">
       <Switch on />
     </SwitchContainer>
   );
@@ -62,7 +67,12 @@ export const On: React.FC<{element?: string}> = ({element}) => {
 export const DisabledOn: React.FC = () => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} helpText="This is help text" label="This is the label" disabled>
+    <SwitchContainer
+      id={id}
+      label="Send copy to customer"
+      helpText="Email will be send to the registered address"
+      disabled
+    >
       <Switch on />
     </SwitchContainer>
   );
@@ -80,7 +90,7 @@ export const Customized: React.FC = () => {
         SWITCH_LABEL_TEXT_WRAPPER: {color: 'colorTextBrandHighlight'},
       }}
     >
-      <SwitchContainer id={id} helpText="This is help text" label="This is the label">
+      <SwitchContainer id={id} helpText="Update registered number in settings" label="Enable SMS notifications">
         <Switch />
       </SwitchContainer>
     </CustomizationProvider>

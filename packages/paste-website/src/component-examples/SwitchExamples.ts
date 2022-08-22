@@ -2,7 +2,7 @@ export const basicSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text">
+    <SwitchContainer id={id} label="Enable notifications">
       <Switch />
     </SwitchContainer>
   )
@@ -16,7 +16,7 @@ export const helpTextSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text" helpText="This is help text">
+    <SwitchContainer id={id} label="Enroll in Privacy Program" helpText={<Anchor href="#" showExternal>Read more about the program</Anchor>}>
       <Switch />
     </SwitchContainer>
   )
@@ -30,7 +30,7 @@ export const requiredSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text" required>
+    <SwitchContainer id={id} label="Opt into newsletter updates" required>
       <Switch />
     </SwitchContainer>
   )
@@ -44,7 +44,7 @@ export const onSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text">
+    <SwitchContainer id={id} label="Enable SMS notifications">
       <Switch on />
     </SwitchContainer>
   )
@@ -58,7 +58,7 @@ export const disabledSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text" disabled>
+    <SwitchContainer id={id} label="Enable email notifications" disabled>
       <Switch />
     </SwitchContainer>
   )
@@ -72,7 +72,7 @@ export const disabledOnSwitch = `
 const SwitchExample = () => {
   const id = useUID()
   return (
-    <SwitchContainer id={id} label="This is label text" disabled>
+    <SwitchContainer id={id} label="Enroll in paperless notifications" disabled>
       <Switch on />
     </SwitchContainer>
   )
