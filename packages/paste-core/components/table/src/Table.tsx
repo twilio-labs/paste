@@ -36,7 +36,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             {...safelySpreadBoxProps(props)}
             ref={ref}
             as="table"
-            borderCollapse="collapse"
+            borderCollapse="separate"
             borderColor="colorBorderWeaker"
             borderSpacing="0"
             borderStyle="solid"
@@ -52,9 +52,6 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 );
 
 Table.displayName = 'Table';
-
-if (process.env.NODE_ENV === 'development') {
-  Table.propTypes = TablePropTypes;
-}
+Table.propTypes = TablePropTypes;
 
 export {Table};

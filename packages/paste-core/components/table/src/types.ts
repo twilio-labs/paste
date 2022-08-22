@@ -39,6 +39,20 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
 export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
+  /**
+   * Makes the table head stick to the top of the window as the user scrolls a long table
+   *
+   * @type {boolean}
+   * @memberof THeadProps
+   */
+  stickyHeader?: boolean;
+  /**
+   * Allows manual control of the top offset, used in conjunction with `stickyHeader`
+   *
+   * @type {BoxProps['top']}
+   * @memberof THeadProps
+   */
+  top?: BoxProps['top'];
 }
 export interface TBodyProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
@@ -48,6 +62,7 @@ export interface TrProps extends React.TableHTMLAttributes<HTMLTableRowElement> 
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   verticalAlign?: TableVerticalAlignmentOptions;
+  isLastRow?: boolean;
 }
 export interface ThProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {
   children?: React.ReactNode;
