@@ -46,6 +46,7 @@ export * from '@twilio-paste/sibling-box';
 export * from '@twilio-paste/skeleton-loader';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/stack';
+export * from '@twilio-paste/switch';
 export * from '@twilio-paste/table';
 export * from '@twilio-paste/tabs';
 export * from '@twilio-paste/tabs-primitive';

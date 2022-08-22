@@ -63,6 +63,7 @@
     "/packages/paste-core/layout/stack",
     "/packages/paste-style-props",
     "/packages/paste-libraries/styling",
+    "/packages/paste-core/components/switch",
     "/packages/paste-core/components/table",
     "/packages/paste-core/components/tabs",
     "/packages/paste-core/primitives/tabs",
