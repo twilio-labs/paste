@@ -14,6 +14,7 @@ export const PseudoPropStyles = {
   _disabled:
     '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
   _checked: '&:checked, &[aria-checked=true]',
+  _checked_hover: '&:checked:hover, &[aria-checked=true]:hover',
   _mixed: '&:indeterminate, &[aria-checked=mixed]',
   _selected: '&[aria-selected=true]',
   _selected_hover: '&[aria-selected=true]:hover',
