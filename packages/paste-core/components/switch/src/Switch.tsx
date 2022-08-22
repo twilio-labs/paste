@@ -30,6 +30,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         color: 'colorTextIcon',
         cursor: 'not-allowed',
       },
+      _focus: {boxShadow: 'shadowFocus'},
     };
 
     const handleClick = React.useCallback((): void => {
@@ -57,6 +58,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         id={id}
         ref={ref}
         tabIndex={0}
+        outline="none"
         position="relative"
         display="inline-block"
         boxSizing="content-box"

@@ -1,5 +1,5 @@
 export const basicSwitch = `
-const basicSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text">
@@ -7,10 +7,13 @@ const basicSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
 
 export const helpTextSwitch = `
-const helpTextSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text" helpText="This is help text">
@@ -18,10 +21,13 @@ const helpTextSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
 
 export const requiredSwitch = `
-const requiredSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text" required>
@@ -29,10 +35,13 @@ const requiredSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
 
 export const onSwitch = `
-const onSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text">
@@ -40,10 +49,13 @@ const onSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
 
 export const disabledSwitch = `
-const disabledSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text" disabled>
@@ -51,10 +63,13 @@ const disabledSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
 
 export const disabledOnSwitch = `
-const disabledOnSwitch = () => {
+const SwitchExample = () => {
   const id = useUID()
   return (
     <SwitchContainer id={id} label="This is label text" disabled>
@@ -62,4 +77,7 @@ const disabledOnSwitch = () => {
     </SwitchContainer>
   )
 }
+render(
+  <SwitchExample />
+)
 `.trim();
