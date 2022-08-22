@@ -7,17 +7,17 @@ import {MenuItemVariants} from './constants';
 import {MenuGroupContext} from './MenuGroup';
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
-  ({element = 'STYLED_MENU_ITEM', ...props}, ref) => {
+  ({element = 'STYLED_MENU_ITEM', href, variant, tabIndex, children, ...props}, ref) => {
     return (
       <Box
-        {...(props.href && secureExternalLink(props.href))}
-        as={props.href ? 'a' : 'button'}
+        {...(href && secureExternalLink(href))}
+        as={href ? 'a' : 'button'}
         {...safelySpreadBoxProps(props)}
         element={element}
         appearance="none"
         background="none"
         border="none"
-        color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
+        color={variant === MenuItemVariants.DESTRUCTIVE ? 'colorTextLinkDestructive' : 'colorText'}
         display="block"
         textAlign="left"
         fontFamily="inherit"
@@ -27,19 +27,19 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         margin="space0"
         outline="none"
         paddingY="space30"
-        paddingX={props.variant === MenuItemVariants.GROUP_ITEM ? 'space90' : 'space70'}
-        textDecoration={props.tabIndex === 0 ? 'underline' : 'none'}
+        paddingX={variant === MenuItemVariants.GROUP_ITEM ? 'space90' : 'space70'}
+        textDecoration={tabIndex === 0 ? 'underline' : 'none'}
         width="100%"
         _hover={{
           cursor: 'pointer',
         }}
         _focus={{
-          color: 'colorTextLink',
+          color: `${variant === MenuItemVariants.DESTRUCTIVE ? 'colorTextLinkDestructiveStronger' : 'colorTextLink'}`,
         }}
-        _disabled={{cursor: 'not-allowed'}}
+        _disabled={{color: 'colorTextWeaker', cursor: 'not-allowed'}}
         ref={ref}
       >
-        {props.children}
+        {children}
       </Box>
     );
   }

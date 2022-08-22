@@ -244,6 +244,8 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
   </CalloutText>
 </Callout>
 
+Use the `variant` prop in `MenuItem` to use a default or destructive item. We recommend naming the menu item as something commonly understood as a destructive (e.g., "Delete" or "Cancel").
+
 <LivePreview
   scope={{
     useMenuState,
@@ -289,19 +291,19 @@ See the [button](/components/button) component.
 
 #### Default
 
-| Property       | Default token                                     | Modifiable? |
-| -------------- | ------------------------------------------------- | ----------- |
-| color          | color-text (default) color-text-weaker (disabled) | No          |
-| padding-top    | space-30                                          | No          |
-| padding-bottom | space-30                                          | No          |
-| padding-left   | space-90 (in-group) or space-70 (regular)         | No          |
-| padding-right  | space-90 (in-group) or space-70 (regular)         | No          |
+| Property       | Default token                                                                                 | Modifiable? |
+| -------------- | --------------------------------------------------------------------------------------------- | ----------- |
+| color          | color-text (default), color-text-link-destructive (destructive), color-text-weaker (disabled) | No          |
+| padding-top    | space-30                                                                                      | No          |
+| padding-bottom | space-30                                                                                      | No          |
+| padding-left   | space-90 (in-group) or space-70 (regular)                                                     | No          |
+| padding-right  | space-90 (in-group) or space-70 (regular)                                                     | No          |
 
 #### Hover & focused
 
-| Property | Default token   | Modifiable? |
-| -------- | --------------- | ----------- |
-| color    | color-text-link | No          |
+| Property | Default token                                                                 | Modifiable? |
+| -------- | ----------------------------------------------------------------------------- | ----------- |
+| color    | color-text-link (default), color-text-link-destructive-stronger (destructive) | No          |
 
 ### MenuGroup
 
@@ -434,6 +436,7 @@ These props are returned by the state hook. You can spread them into this compon
 
 | Prop     | Type                 | Description                                                                               | Default     |
 | -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
 | disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
 | id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
 | onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
