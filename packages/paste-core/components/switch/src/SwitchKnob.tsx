@@ -8,6 +8,7 @@ import {useTheme} from '@twilio-paste/theme';
 const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
   ({element, disabled, switchIsOn, isHovering, height, ...props}, ref) => {
     const theme = useTheme();
+    const SWITCH_PADDING = theme.space ? theme.space.space20 : '4px';
 
     const moveSwitchKnob = React.useCallback(() => {
       if (!disabled) {
@@ -22,7 +23,7 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
 
     return (
       <Box
-        width={`calc(100% - ${theme.space.space20})`} // necessary?
+        width={`calc(100% - ${SWITCH_PADDING})`}
         height="100%"
         position="absolute"
         transform={moveSwitchKnob()}

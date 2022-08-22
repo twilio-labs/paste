@@ -50,10 +50,10 @@ export const Disabled: React.FC = () => {
   );
 };
 
-export const On: React.FC = () => {
+export const On: React.FC<{element?: string}> = ({element}) => {
   const id = useUID();
   return (
-    <SwitchContainer id={id} helpText="This is help text" label="This is the label">
+    <SwitchContainer id={id} element={element} helpText="This is help text" label="This is the label">
       <Switch on />
     </SwitchContainer>
   );

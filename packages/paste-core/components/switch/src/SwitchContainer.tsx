@@ -27,6 +27,7 @@ const SwitchContainer = React.forwardRef<HTMLLabelElement, SwitchContainerProps>
             <MediaFigure>
               {React.cloneElement(children as React.ReactElement, {
                 switchId: switchId,
+                element: element,
                 labelId: labelId,
                 disabled: disabled,
               })}
