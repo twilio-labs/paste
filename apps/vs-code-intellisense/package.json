@@ -3,6 +3,7 @@
   "displayName": "Twilio Paste Intellisense",
   "description": "Intelligent Twilio Paste Design tooling for VS Code",
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "publisher": "TwilioPaste",
   "author": "Twilio Inc.",
