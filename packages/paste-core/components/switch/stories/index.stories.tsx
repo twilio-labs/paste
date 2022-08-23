@@ -2,6 +2,7 @@ import * as React from 'react';
 import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Label} from '@twilio-paste/label';
 import {Switch, SwitchContainer} from '../src';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -22,7 +23,15 @@ export const Default: Story = () => {
 
 export const SwitchOnly: Story = () => {
   const id = useUID();
-  return <Switch id={id} />;
+  const labelId = useUID();
+  return (
+    <>
+      <Label htmlFor={id} id={labelId}>
+        Label
+      </Label>
+      <Switch id={id} labelId={labelId} />
+    </>
+  );
 };
 
 export const LabelOnly: Story = () => {
