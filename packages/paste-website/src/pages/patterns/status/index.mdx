@@ -10,7 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -279,8 +279,10 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
   </TBody>
 </Table>
 
-<Callout>
-  <CalloutTitle>Does your product have a use case where there are only one or two statuses on a page?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">
+    Does your product have a use case where there are only one or two statuses on a page?
+  </CalloutHeading>
   <CalloutText>
     We are keeping our eyes peeled for use cases such as this to understand them in more depth. If your product has a
     use case like this, please create a{' '}
@@ -368,8 +370,8 @@ Connectivity statuses are used to show if a user, object, or system is online or
   </TBody>
 </Table>
 
-<Callout>
-  <CalloutTitle>Connectivity statuses in Flex</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Connectivity statuses in Flex</CalloutHeading>
   <CalloutText>
     Connectivity statuses are used heavily throughout Flex, where the circle indicators should retain the same color
     across the product on any background color (including the dark topmast).

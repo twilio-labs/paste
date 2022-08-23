@@ -19,7 +19,7 @@ import {DatePicker} from '@twilio-paste/date-picker';
 import {TimePicker} from '@twilio-paste/time-picker';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/label/CHANGELOG.md';
@@ -112,7 +112,7 @@ To support internationalization, avoid starting a sentence with the label and us
   <ListItem>The text of the label needs to remain same. It should not change based on the state of the input.</ListItem>
 </UnorderedList>
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
     <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the form field.

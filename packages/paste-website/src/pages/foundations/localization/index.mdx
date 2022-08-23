@@ -6,7 +6,7 @@ slug: /foundations/localization/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 
@@ -43,8 +43,8 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
-<Callout>
-  <CalloutTitle>Have more questions?</CalloutTitle>
+<Callout variant='neutral' marginY='space70'>
+  <CalloutHeading as='h2'>Have more questions?</CalloutHeading>
   <CalloutText>
     This page contains general guidance around best practices for localization. If you are a Twilion and have any questions, please
     visit the{' '}

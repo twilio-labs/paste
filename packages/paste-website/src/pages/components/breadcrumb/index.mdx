@@ -15,7 +15,7 @@ import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {Truncate} from '@twilio-paste/truncate';
 import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
@@ -88,8 +88,8 @@ Breadcrumb navigation helps the user understand their location in an app or webs
 
 Breadcrumbs are listed in order and represent the hierarchy of the page in the product. They will include links to parent pages and can optionally show the current page.
 
-<Callout variant="warning">
-  <CalloutTitle>Using Breadcrumb in Console products</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Using Breadcrumb in Console products</CalloutHeading>
   <CalloutText>
     If you're planning on using Breadcrumbs in a Console product, please read the{' '}
     <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>

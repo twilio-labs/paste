@@ -10,6 +10,7 @@ import {Button} from '@twilio-paste/button';
 import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/tooltip-primitive/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {
   useTooltipPrimitiveState,
   TooltipPrimitive,
@@ -17,7 +18,6 @@ import {
   TooltipPrimitiveArrow,
 } from '@twilio-paste/tooltip-primitive';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {defaultExample, rightExample, styledExample} from '../../../component-examples/TooltipPrimitiveExamples';
 
 export const pageQuery = graphql`
@@ -100,8 +100,8 @@ However, we strongly recommend reviewing your design proposal with the Design Sy
 
 This primitive should be used to compose all custom tooltips to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle as="h3">Before you roll your own tooltip...</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Before you roll your own tooltip...</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     go through the UX Review process to ensure an excellent experience for our customers.

@@ -15,10 +15,10 @@ import {Separator} from '@twilio-paste/separator';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 
 export const pageQuery = graphql`
@@ -96,8 +96,8 @@ There are two primary goals of patterns:
         These patterns have been highly requested by Twilio product designers and engineers and have been ranked based
         on customer impact, ease of work, and how frequently they appear on product UI roadmaps.
       </Paragraph>
-      <Callout>
-        <CalloutTitle>Are you working on solutions that use these patterns?</CalloutTitle>
+      <Callout variant="neutral" marginY="space70">
+        <CalloutHeading as="h3">Are you working on solutions that use these patterns?</CalloutHeading>
         <CalloutText>
           This pattern library relies on contributions from folks like you (yes, YOU). If you are using any of these
           patterns in your work, or if you are extra passionate about a particular pattern,{' '}

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 export const AccessibilityCallout: React.FC = () => {
   return (
-    <Callout variant="warning">
-      <CalloutTitle as="h2">Need to check the accessibility of your colors?</CalloutTitle>
+    <Callout variant="warning" marginY="space70">
+      <CalloutHeading as="h2">Need to check the accessibility of your colors?</CalloutHeading>
       <CalloutText>
         Checkout{' '}
         <Anchor href="https://www.aremycolorsaccessible.com" showExternal>

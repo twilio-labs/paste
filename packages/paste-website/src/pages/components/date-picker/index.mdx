@@ -19,8 +19,8 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {ChromeImage, FirefoxImage, SafariImage} from '../../../components/images/DatePickerImages';
 import {
   RequiredDatePicker,
@@ -219,7 +219,7 @@ The Date Picker component should include the base DatePicker, along with support
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
 - **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the Date Picker input successful.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>DatePicker</inlineCode>. This is done
     with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Date
@@ -311,8 +311,8 @@ A Date Picker must have at least a label and an input.
   {LabelOnlyPicker}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle as="h4">Quick note about Date Picker DOM methods</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Quick note about Date Picker DOM methods</CalloutHeading>
   <CalloutText>
     There are three methods that come with the HTML picker: <inlineCode>stepUp()</inlineCode>,{' '}
     <inlineCode>stepDown()</inlineCode> and <inlineCode>select()</inlineCode>. Usage of these methods is possible, but
@@ -375,10 +375,10 @@ Error text should:
 - Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
 - Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
 
-<Callout>
-  <CalloutTitle as="h4">
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">
     Date Picker and <inlineCode>placeHolder</inlineCode>
-  </CalloutTitle>
+  </CalloutHeading>
   <CalloutText>
     Because Date Picker has a default display value of <inlineCode>mm/dd/yyyy</inlineCode> (and defaults to the current
     date on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and

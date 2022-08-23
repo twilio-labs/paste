@@ -1,0 +1,247 @@
+---
+title: Callout
+package: '@twilio-paste/callout'
+description: A Callout is a banner that highlights important information on a page.
+slug: /components/callout/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from '@twilio-paste/callout';
+import Changelog from '@twilio-paste/callout/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/callout"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/callout/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Callout"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/"
+  storybookUrl="/?path=/story/components-callout--variants"
+  description={props.data.mdx.frontmatter.description}
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`<Callout variant='neutral'>
+    <CalloutHeading>Heads up!</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+</Callout>`}
+</LivePreview>
+
+## Guidelines
+
+### About Callout
+
+Use a Callout to highlight important, static information in a page of text. Callouts should not be used to provide feedback to a user or alert them to a change in the system. If the information is not static, use a [Toast](/components/toast) or [Alert](/components/alert) instead.
+
+### Accessibility
+
+We recommend Callouts have a CalloutHeading so that the information is easier to navigate to for people who use screen readers. The CalloutHeading's level should be set appropriately with the `as` prop. It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page.
+
+## Examples
+
+### Callout variants
+
+There are five variants of Callouts: `neutral`, `success`, `warning`, `error`, and `new`. Each variant includes an icon.
+
+Callouts are for important, static information on the page. If it is not static, use a [Toast](/components/toast) or [Alert](/components/alert) instead.
+
+To internationalize the icon label for a variant, simply pass the `i18nLabel` prop.
+
+<LivePreview scope={{Stack, Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`<Stack orientation='vertical' spacing='space70'>
+  <Callout variant='neutral'>
+    <CalloutHeading>Neutral Callout</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+  <Callout variant='success'>
+    <CalloutHeading>Success Callout</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+  <Callout variant='warning'>
+    <CalloutHeading>Warning Callout</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+  <Callout variant='error'>
+    <CalloutHeading>Error Callout</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+  <Callout variant='new'>
+    <CalloutHeading>New Callout</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+</Stack>`}
+</LivePreview>
+
+### Callout with a list
+
+Callouts can have lists of information within them. Use the `CalloutList` and `CalloutListItem` components to make sure the text is the appropriate color for the variant.
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutList, CalloutListItem}} language="jsx">
+  {`<Callout variant='warning'>
+    <CalloutHeading>
+      Make sure to check for personal data, such as:
+    </CalloutHeading>
+    <CalloutList>
+      <CalloutListItem>Name</CalloutListItem>
+      <CalloutListItem>Email</CalloutListItem>
+      <CalloutListItem>Phone number</CalloutListItem>
+    </CalloutList>
+</Callout>`}
+</LivePreview>
+
+### Callout with margin
+
+Callouts can be inline with text, so use the `marginY` prop to add a vertical margin. To add a margin only one side, wrap the Callout in a [Box](/primitives/box) to style it further.
+
+<LivePreview scope={{Paragraph, Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`<>
+  <Paragraph>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Paragraph>
+  <Callout variant='neutral' marginY='space70'>
+    <CalloutHeading>Accessibility insight</CalloutHeading>
+    <CalloutText>Make sure every Input is associated with a Label.</CalloutText>
+  </Callout>
+  <Paragraph>
+    Mi in nulla posuere sollicitudin aliquam ultrices. Consectetur libero id faucibus nisl tincidunt eget nullam non. Imperdiet nulla malesuada pellentesque elit eget. Est ante in nibh mauris cursus mattis molestie. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Phasellus vestibulum lorem sed risus ultricies tristique. Dui vivamus arcu felis bibendum ut.
+  </Paragraph>
+</>`}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/callout - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/core/callout';
+
+const ExampleCallout = () => (
+  <Callout variant="neutral">
+    <CalloutHeading>Heads up!</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+);
+```
+
+#### Props
+
+##### Callout
+
+| Prop       | Type                                              | Description                                                                               | Default                                                                  |
+| ---------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| children?  | `React.ReactNode`                                 | Child components to render into the Callout                                               |                                                                          |
+| variant    | `'neutral', 'warning', 'error', 'success', 'new'` | The variant of Callout to render                                                          |                                                                          |
+| marginY    | `ResponsiveValue<keyof ThemeShape['space']>`      | Any of our space tokens                                                                   | 'space0'                                                                 |
+| element?   | `string`                                          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT'                                                                |
+| i18nLabel? | `string`                                          | Icon label text. The default depends on the `variant`.                                    | '(error)', '(information)', '(warning)', '(error)', '(success)', '(new)' |
+
+##### CalloutHeading
+
+| Prop      | Type                                                                   | Description                                                                               | Default           |
+| --------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------- |
+| children? | `React.ReactNode`                                                      | Child components to render into the heading                                               |                   |
+| as        | `'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span', 'header'` | The HTML element to render                                                                | 'h3'              |
+| element?  | `string`                                                               | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_HEADING' |
+
+##### CalloutText
+
+| Prop      | Type              | Description                                                                               | Default        |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| children? | `React.ReactNode` | Child components to render into the paragraph                                             |                |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_TEXT' |
+
+##### CalloutList
+
+| Prop      | Type              | Description                                                                               | Default        |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| children? | `React.ReactNode` | Child components to render into the list                                                  |                |
+| as        | `'ol', 'ul'`      | The type of list to render                                                                |                |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_LIST' |
+
+##### CalloutListItem
+
+| Prop      | Type              | Description                                                                               | Default             |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------- |
+| children? | `React.ReactNode` | Child components to render into the list item                                             |                     |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_LIST_ITEM' |
+
+### Figma
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
+  <CalloutText>
+    You can find the Callout component in{' '}
+    <Anchor
+      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=14784%3A85847"
+      showExternal
+    >
+      the Paste Components library
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

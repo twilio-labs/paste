@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutTitle, CalloutText} from '../callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../SiteLink';
 import {InlineCode} from '../Typography';
 import type {Token} from './types';
@@ -28,10 +28,10 @@ const BoxShadowsIntro: React.FC = () => (
       add a border without affecting the height of the component; box shadow tokens are also used for focus states on
       components.
     </Paragraph>
-    <Callout variant="info">
-      <CalloutTitle as="h3">
+    <Callout variant="neutral" marginY="space70">
+      <CalloutHeading as="h3">
         <strong>Did you know?</strong>
-      </CalloutTitle>
+      </CalloutHeading>
       <CalloutText>
         Borders add height to an element, but box shadows do not. It&apos;s why we need to use box shadows on some
         components and not others.
@@ -54,10 +54,10 @@ const FontSizesIntro: React.FC = () => (
       Font size tokens use rem values, and 1 rem unit is equal to 16 pixels in Paste. Unlike em values which are
       relative to their parent element, rem values are relative to the html element.
     </Paragraph>
-    <Callout>
-      <CalloutTitle as="h3">
+    <Callout variant="neutral" marginY="space70">
+      <CalloutHeading as="h3">
         <strong>Heads up about font sizes in Paste</strong>
-      </CalloutTitle>
+      </CalloutHeading>
       <CalloutText>
         If you aren&apos;t using the Theme.Provider component, you must set font-size: 100%; on your page&apos;s html
         tag for the font-sizes to be sized correctly as 1rem=16px.

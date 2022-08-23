@@ -19,7 +19,7 @@ import {
 } from '@twilio-paste/data-grid';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {standardDataGrid, TableHeaderData, TableBodyData} from '../../../component-examples/DataGridExamples';
@@ -264,8 +264,8 @@ Keep in mind that anything that dynamically updates an element's `tabIndex` valu
 
 ### When to use a Data Grid
 
-<Callout>
-  <CalloutTitle as="h4">Don't forget about the Table component</CalloutTitle>
+<Callout variant="neutral">
+  <CalloutHeading as="h4">Don't forget about the Table component</CalloutHeading>
   <CalloutText>
     If the data is static and doesn't need sorting, prefer to use a <Anchor href="/components/table">Table</Anchor>{' '}
     component which is more lightweight.

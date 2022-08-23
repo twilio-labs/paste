@@ -18,7 +18,7 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -108,7 +108,7 @@ Text that's placed below the field to help users prevent an error and describe w
   </ListItem>
 </UnorderedList>
 
-<Callout>
+<Callout variant="neutral">
   <CalloutText>
     Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the Help Text ties directly
     to the form element.
