@@ -16,8 +16,6 @@ import type {IconObject, IconComponent, IconsListProps, GroupedList} from './typ
 import {IconCard} from './IconCard';
 import {SiteLink} from '../SiteLink';
 import {IconListItem} from './IconListItem';
-import {STICKY_COLUMN_OFFSET} from '../../constants';
-import {space130} from '@twilio-paste/design-tokens';
 
 const iconsJson = require('@twilio-paste/icons/json/icons.json');
 
@@ -203,7 +201,7 @@ const IconsList: React.FC<IconsListProps> = () => {
         <Box
           paddingX="space60"
           position="sticky"
-          top={space130}
+          top="space130"
           height="fit-content"
           width={['100%', '50%', '50%', '41.66666666666667%']}
         >
