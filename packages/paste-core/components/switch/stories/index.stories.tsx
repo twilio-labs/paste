@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Switch, SwitchContainer} from '../src';
@@ -9,7 +10,7 @@ export default {
   component: Switch,
 };
 
-export const Default: React.FC = () => {
+export const Default: Story = () => {
   const id = useUID();
   return (
     <SwitchContainer id={id} helpText="Messages wil be sent to the registered number" label="Enable SMS notifications">
@@ -18,12 +19,12 @@ export const Default: React.FC = () => {
   );
 };
 
-export const SwitchOnly: React.FC = () => {
+export const SwitchOnly: Story = () => {
   const id = useUID();
   return <Switch id={id} />;
 };
 
-export const LabelOnly: React.FC = () => {
+export const LabelOnly: Story = () => {
   const id = useUID();
   return (
     <SwitchContainer id={id} label="Enable notifications">
@@ -32,21 +33,22 @@ export const LabelOnly: React.FC = () => {
   );
 };
 
-export const Required: React.FC = () => {
+export const Required: Story<{element?: string}> = ({element}) => {
   const id = useUID();
   return (
     <SwitchContainer
       id={id}
+      element={element}
       helpText="Notifications must be enabled in order to proceed"
       label="Enable notifications"
       required
     >
-      <Switch />
+      <Switch element={element} />
     </SwitchContainer>
   );
 };
 
-export const Disabled: React.FC = () => {
+export const Disabled: Story = () => {
   const id = useUID();
   return (
     <SwitchContainer id={id} label="Show password" disabled>
@@ -55,16 +57,16 @@ export const Disabled: React.FC = () => {
   );
 };
 
-export const On: React.FC<{element?: string}> = ({element}) => {
+export const On: Story<{element?: string}> = ({element}) => {
   const id = useUID();
   return (
     <SwitchContainer id={id} element={element} label="Sign up for newsletter and updates">
-      <Switch on />
+      <Switch on element={element} />
     </SwitchContainer>
   );
 };
 
-export const DisabledOn: React.FC = () => {
+export const DisabledOn: Story = () => {
   const id = useUID();
   return (
     <SwitchContainer
@@ -78,7 +80,7 @@ export const DisabledOn: React.FC = () => {
   );
 };
 
-export const Customized: React.FC = () => {
+export const Customized: Story = () => {
   const id = useUID();
   return (
     <CustomizationProvider

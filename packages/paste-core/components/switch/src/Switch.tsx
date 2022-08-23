@@ -29,7 +29,7 @@ const styles: BoxStyleProps = {
 };
 
 const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
-  ({element = 'SWITCH', id, labelId, disabled = false, on = false, onClick, ...props}, ref) => {
+  ({element = 'SWITCH', id, labelId, helpTextId, disabled = false, on = false, onClick, ...props}, ref) => {
     const [switchIsOn, setSwitchIsOn] = React.useState(on);
     const [isHovering, setIsHovering] = React.useState(false);
 
@@ -53,6 +53,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         aria-checked={switchIsOn}
         aria-disabled={disabled}
         aria-labelledby={labelId}
+        aria-describedby={helpTextId}
         element={element}
         id={id}
         ref={ref}

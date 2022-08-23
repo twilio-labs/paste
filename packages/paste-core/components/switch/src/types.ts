@@ -14,6 +14,7 @@ export interface SwitchProps extends React.HTMLAttributes<HTMLDivElement>, Pick<
   disabled?: boolean;
   on?: boolean;
   labelId?: string;
+  helpTextId?: string;
   onClick?: () => void;
 }
 

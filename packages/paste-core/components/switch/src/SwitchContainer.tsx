@@ -3,9 +3,8 @@ import * as PropTypes from 'prop-types';
 import type {SwitchContainerProps} from './types';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {RequiredDot, Label} from '@twilio-paste/label';
-import {Box} from '@twilio-paste/box';
+import {Label} from '@twilio-paste/label';
+import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {HelpText} from '@twilio-paste/help-text';
 
 const SwitchContainer = React.forwardRef<HTMLLabelElement, SwitchContainerProps>(
@@ -15,43 +14,37 @@ const SwitchContainer = React.forwardRef<HTMLLabelElement, SwitchContainerProps>
     const labelId = useUID();
 
     return (
-      <>
-        <Label htmlFor={switchId} element={element} marginBottom="space0" disabled={disabled} {...props} ref={ref}>
-          <MediaObject>
-            <MediaFigure>
-              {React.cloneElement(children as React.ReactElement, {
-                id: switchId,
-                labelId: labelId,
-                disabled: disabled,
-              })}
-            </MediaFigure>
-            <Text
-              as="span"
-              id={labelId}
-              marginLeft="space30"
-              fontWeight="fontWeightMedium"
-              element={`${element}_LABEL_TEXT_WRAPPER`}
-            >
-              <MediaObject verticalAlign="top">
-                {required && (
-                  <MediaFigure spacing="space20">
-                    <RequiredDot />
-                  </MediaFigure>
-                )}
-                <MediaBody>{label ?? <></>}</MediaBody>
-              </MediaObject>
+      <MediaObject {...props} element={element} ref={ref}>
+        <MediaFigure spacing="space30">
+          {React.cloneElement(children as React.ReactElement, {
+            id: switchId,
+            labelId,
+            helpTextId,
+            disabled,
+          })}
+        </MediaFigure>
+        <MediaBody>
+          <Label
+            as="div"
+            htmlFor={switchId}
+            marginBottom="space0"
+            disabled={disabled}
+            ref={ref}
+            id={labelId}
+            element={`${element}_LABEL`}
+            required={required}
+          >
+            <Text as="span" color="currentColor" fontWeight="fontWeightMedium">
+              {label ?? <></>}
             </Text>
-          </MediaObject>
-        </Label>
-        {helpText ? (
-          // @ts-ignore TODO:no 50px tokens
-          <Box element={`${element}_HELP_TEXT_WRAPPER`} marginLeft="50px">
-            <HelpText marginTop="space0" id={helpTextId}>
+          </Label>
+          {helpText ? (
+            <HelpText element={`${element}_HELP_TEXT`} marginTop="space0" id={helpTextId}>
               {helpText}
             </HelpText>
-          </Box>
-        ) : null}
-      </>
+          ) : null}
+        </MediaBody>
+      </MediaObject>
     );
   }
 );

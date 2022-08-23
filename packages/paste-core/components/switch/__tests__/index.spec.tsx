@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Default, Disabled, On} from '../stories/index.stories';
+import {Default, Disabled, On, Required} from '../stories/index.stories';
 
 describe('Switch', () => {
   it('should render as role="switch"', () => {
@@ -23,28 +23,35 @@ describe('Switch', () => {
   it('should set aria-labelledby to the label id', () => {
     const {getByRole, container} = render(<Default />);
     const labelId = getByRole('switch').getAttribute('aria-labelledby');
-    expect(container.querySelector('[data-paste-element="SWITCH_LABEL_TEXT_WRAPPER"]')?.getAttribute('id')).toEqual(
+    expect(container.querySelector('[data-paste-element="SWITCH_CONTAINER_LABEL"]')?.getAttribute('id')).toEqual(
       labelId
+    );
+  });
+  it('should set aria-describedby to the help text id when past', () => {
+    const {getByRole, container} = render(<Default />);
+    const describedbyId = getByRole('switch').getAttribute('aria-describedby');
+    expect(container.querySelector('[data-paste-element="SWITCH_CONTAINER_HELP_TEXT"]')?.getAttribute('id')).toEqual(
+      describedbyId
     );
   });
 });
 
 describe('Switch customization', () => {
   it('should set an element data attribute on Switch', () => {
-    const {getByRole, container} = render(<On />);
+    const {getByRole, container} = render(<Required />);
     expect(getByRole('switch').dataset.pasteElement).toEqual('SWITCH');
     expect(getByRole('switch').firstChild?.firstChild).toHaveAttribute('data-paste-element', 'SWITCH_KNOB');
     expect(getByRole('switch').querySelector('[data-paste-element="SWITCH_ICON"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="SWITCH_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="SWITCH_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SWITCH_CONTAINER_HELP_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SWITCH_CONTAINER_LABEL"]')).toBeInTheDocument();
   });
   it('should set custom element data attributes on Switch', () => {
-    const {getByRole, container} = render(<On element="MY_SWITCH" />);
+    const {getByRole, container} = render(<Required element="MY_SWITCH" />);
     expect(getByRole('switch').dataset.pasteElement).toEqual('MY_SWITCH');
     expect(getByRole('switch').firstChild?.firstChild).toHaveAttribute('data-paste-element', 'MY_SWITCH_KNOB');
     expect(getByRole('switch').querySelector('[data-paste-element="MY_SWITCH_ICON"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="MY_SWITCH_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="MY_SWITCH_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_SWITCH_HELP_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_SWITCH_LABEL"]')).toBeInTheDocument();
   });
   it('should add custom styling to Switch', () => {
     const {getByRole, container} = render(
@@ -53,17 +60,17 @@ describe('Switch customization', () => {
         elements={{
           SWITCH: {height: '30px', width: '52'},
           SWITCH_KNOB: {height: '26px', width: '26px'},
-          SWITCH_HELP_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundAvailable'},
-          SWITCH_LABEL_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundBrandStrong'},
+          SWITCH_CONTAINER_HELP_TEXT: {backgroundColor: 'colorBackgroundAvailable'},
+          SWITCH_CONTAINER_LABEL: {backgroundColor: 'colorBackgroundBrandStrong'},
         }}
       >
-        <On />
+        <Required />
       </CustomizationProvider>
     );
     const theSwitch = getByRole('switch');
     const switchKnob = getByRole('switch').firstChild?.firstChild;
-    const switchLabel = container.querySelector('[data-paste-element="SWITCH_LABEL_TEXT_WRAPPER"]');
-    const switchHelpText = container.querySelector('[data-paste-element="SWITCH_HELP_TEXT_WRAPPER"]');
+    const switchLabel = container.querySelector('[data-paste-element="SWITCH_CONTAINER_LABEL"]');
+    const switchHelpText = container.querySelector('[data-paste-element="SWITCH_CONTAINER_HELP_TEXT"]');
     expect(theSwitch).toHaveStyleRule('height', '30px');
     expect(switchKnob).toHaveStyleRule('height', '26px');
     expect(switchLabel).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
@@ -76,17 +83,17 @@ describe('Switch customization', () => {
         elements={{
           MY_SWITCH: {height: '30px', width: '52'},
           MY_SWITCH_KNOB: {height: '26px', width: '26px'},
-          MY_SWITCH_HELP_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundAvailable'},
-          MY_SWITCH_LABEL_TEXT_WRAPPER: {backgroundColor: 'colorBackgroundBrandStrong'},
+          MY_SWITCH_HELP_TEXT: {backgroundColor: 'colorBackgroundAvailable'},
+          MY_SWITCH_LABEL: {backgroundColor: 'colorBackgroundBrandStrong'},
         }}
       >
-        <On element="MY_SWITCH" />
+        <Required element="MY_SWITCH" />
       </CustomizationProvider>
     );
     const toggle = getByRole('switch');
     const toggleKnob = getByRole('switch').firstChild?.firstChild;
-    const toggleLabel = container.querySelector('[data-paste-element="MY_SWITCH_LABEL_TEXT_WRAPPER"]');
-    const toggleHelpText = container.querySelector('[data-paste-element="MY_SWITCH_HELP_TEXT_WRAPPER"]');
+    const toggleLabel = container.querySelector('[data-paste-element="MY_SWITCH_LABEL"]');
+    const toggleHelpText = container.querySelector('[data-paste-element="MY_SWITCH_HELP_TEXT"]');
     expect(toggle).toHaveStyleRule('height', '30px');
     expect(toggleKnob).toHaveStyleRule('height', '26px');
     expect(toggleLabel).toHaveStyleRule('background-color', 'rgb(3, 11, 93)');
