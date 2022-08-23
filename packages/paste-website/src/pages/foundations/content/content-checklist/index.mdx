@@ -6,7 +6,7 @@ slug: /foundations/content/content-checklist/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 export const pageQuery = graphql`
   {
@@ -85,8 +85,8 @@ How do you know if your content is "done" or "good"?
 - If their understanding matches your intent, great! Your content is clear.
 - If they stumble on words or don't understand, ask why. Use their feedback to iterate, then try again.
 
-<Callout>
-  <CalloutTitle as="h4">Need support with non-product content?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Need support with non-product content?</CalloutHeading>
   <CalloutText>
     {' '}
     Visit the <Anchor href="https://www.twilio.com/brand/guidelines/writing-style">

@@ -10,7 +10,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import CorePkgJson from '@twilio-paste/core/package.json';
 import IconsPkgJson from '@twilio-paste/icons/package.json';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import Package from '../../../../../../../package.json';
 
 export const pageQuery = graphql`
@@ -150,7 +150,7 @@ The **best and most performant way** to load the fonts is to include the followi
 <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css">
 ```
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     We recommend loading the fonts directly from the Twilio CDN. This provides the fastest download time, therefore
     giving you the most optimized page load experience.

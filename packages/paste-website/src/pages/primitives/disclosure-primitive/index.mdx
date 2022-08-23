@@ -13,8 +13,8 @@ import {
 import Changelog from '@twilio-paste/disclosure-primitive/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {
   BasicExample,
@@ -98,8 +98,8 @@ your customers.
 This primitive should be used to compose all custom Disclosures to ensure
 accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle>Warning</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Warning</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     goes through the UX Review process to ensure an excellent experience for our customers.
@@ -163,7 +163,7 @@ Disclosures that will result in a single element.
 
 ### API
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Much of the following is copied directly from{' '}
     <Anchor href="https://reakit.io/docs/disclosure/#props">Reakit's docs</Anchor>. Because we may update at a different
@@ -215,8 +215,8 @@ When an element is `disabled`, it may still be `focusable`. It works
 similarly to `readOnly` on form elements. In this case, only
 `aria-disabled` will be set.
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.
@@ -243,8 +243,8 @@ Toggles the visible state
 
 #### DisclosurePrimitiveContent Props
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.

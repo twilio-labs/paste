@@ -11,7 +11,7 @@ import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Grid} from '../../../../components/grid';
 
 export const pageQuery = graphql`
@@ -60,8 +60,8 @@ export const pageQuery = graphql`
 5. In the frame name, replace "IconName" with the name of your icon. Follow the naming pattern of the existing icon frames in that section (e.g. "action/Filter").
 6. Select the frame and convert it to a new component.
 
-<Callout>
-  <CalloutTitle>How to name icon frames</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">How to name icon frames</CalloutHeading>
   <CalloutText>
     Use PascalCase. For an interface icon, give the icon a name that describes its purpose rather than its content. For
     example, "LinkExternal" instead of "ArrowUpRight".

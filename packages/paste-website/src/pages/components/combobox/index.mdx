@@ -21,8 +21,8 @@ import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import filter from 'lodash/filter';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
 import {
@@ -201,8 +201,8 @@ In the example below the value of the Combobox is stored in a piece of our appli
 
 #### useCombobox state hook
 
-<Callout variant="warning">
-  <CalloutTitle as="h5">Power user move!</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Power user move!</CalloutHeading>
   <CalloutText>
     Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
     Paste team will not be able to debug this for you. Proceed with extreme caution.

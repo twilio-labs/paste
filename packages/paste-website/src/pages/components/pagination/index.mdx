@@ -27,10 +27,10 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/pagination/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Blockquote} from '../../../components/Blockquote';
 import {defaultExample, numberExample, positioningExample} from '../../../component-examples/PaginationExamples';
 
@@ -226,8 +226,8 @@ Use the Pagination variant with total page count in cases when knowing the exact
 
 This variant also allows customers to skip ahead pages in a dataset, though this hasn't been identified as a common use case.
 
-<Callout>
-  <CalloutTitle>Considering the tradeoffs for showing the total count of a dataset</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Considering the tradeoffs for showing the total count of a dataset</CalloutHeading>
   <CalloutText>
     By default,{' '}
     <Anchor href="https://www.twilio.com/blog/replacing-absolute-paging-and-related-properties" showExternal>

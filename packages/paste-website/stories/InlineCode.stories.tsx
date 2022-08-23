@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Box} from '@twilio-paste/core/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {InlineCode} from '../src/components/Typography';
-import {Callout, CalloutText, CalloutTitle} from '../src/components/callout';
 
 export const RegularInline = (): React.ReactNode => <InlineCode>string</InlineCode>;
 
@@ -22,8 +22,8 @@ export const ExternalAnchorInline = (): React.ReactNode => (
 
 export const InParagraphInline = (): React.ReactNode => (
   <Box width="400px">
-    <Callout>
-      <CalloutTitle as="h4">Remember!</CalloutTitle>
+    <Callout variant="neutral" marginY="space70">
+      <CalloutHeading as="h4">Remember!</CalloutHeading>
       <CalloutText>
         Provide the Avatar with an <InlineCode>icon</InlineCode> prop to display <InlineCode> an icon</InlineCode>. You
         must import the <InlineCode>icon</InlineCode>

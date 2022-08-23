@@ -14,8 +14,8 @@ import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library'
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   LineChartExample,
@@ -105,8 +105,8 @@ An example of a non-categorical palette would be a sequential color palette (alt
 
 The categorical palette is fully 3:1 contrast-accessible against our `$color-background-body` token and has >2:1 contrast between neighboring colors. Since the contrast between neighboring colors falls short of the [WCAG 2.1 AA requirement for non-text](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) contrast, we will also include color-agnostic accessibility recommendations to assist with data read, which will be detailed in [additional accessibility for charts](#additional-accessibility-for-charts) section.
 
-<Callout>
-  <CalloutTitle as="h3">Be mindful about how you apply this palette.</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Be mindful about how you apply this palette.</CalloutHeading>
   <CalloutText>
     The colors of this palette should be applied in sequence strictly as described. The sequence is carefully curated to
     maximize contrast between neighboring colors to help with visual differentiation. You can start anywhere in the

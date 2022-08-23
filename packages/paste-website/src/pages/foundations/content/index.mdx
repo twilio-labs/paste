@@ -5,7 +5,7 @@ slug: /foundations/content/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 
 export const pageQuery = graphql`
@@ -40,8 +40,8 @@ export const pageQuery = graphql`
 
 <content>
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">Early Access! Early Access! Early Access!</CalloutHeading>
   <CalloutText>
     These guidelines are still in development and are not yet complete. If you can't see what you need here, you've
     found an edge-case or exception, or you have other comments, reach out to Caroline Tecks on Slack.
@@ -92,8 +92,8 @@ These guidelines rely on your feedback to evolve and grow. Please reach out on S
 - Additional examples &mdash; have a great example of before/after?
 - Questions and queries &mdash; if something isn't clear, let us know.
 
-<Callout>
-  <CalloutTitle as="h4">Need support with non-product content?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Need support with non-product content?</CalloutHeading>
   <CalloutText>
     {' '}
     Visit the <Anchor href="https://www.twilio.com/brand/guidelines/writing-style">

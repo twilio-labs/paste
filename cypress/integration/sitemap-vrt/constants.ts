@@ -14,6 +14,7 @@ export const SITEMAP = [
   '/components/avatar/',
   '/components/breadcrumb/',
   '/components/badge/',
+  '/components/callout/',
   '/components/card/',
   '/components/chat-log/',
   '/components/checkbox/',

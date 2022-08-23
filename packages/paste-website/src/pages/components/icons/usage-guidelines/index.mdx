@@ -13,7 +13,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../../components/DoDont';
 import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 
@@ -41,8 +41,8 @@ export const pageQuery = graphql`
 
 <h1>{props.pageContext.frontmatter.title}</h1>
 
-<Callout>
-  <CalloutTitle>Can't find the icon you need?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h2">Can't find the icon you need?</CalloutHeading>
   <CalloutText>
     Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute it to the library following{' '}
     <SiteLink to="/introduction/contributing/icons">our guidelines.</SiteLink>

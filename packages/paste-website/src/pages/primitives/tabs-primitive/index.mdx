@@ -12,8 +12,8 @@ import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/tabs-primitive/CHANGELOG.md';
 import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {horizontalExample, verticalExample, styledExample} from '../../../component-examples/TabsPrimitiveExamples';
 
 export const pageQuery = graphql`
@@ -93,8 +93,8 @@ This unstyled primitive is to be used when the styled [Tabs](/components/tabs) p
 
 This primitive should be used to compose all custom Tabs to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle as="h3">Before you roll your own tabset...</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Before you roll your own tabset...</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     go through the UX Review process to ensure an excellent experience for our customers.
@@ -265,8 +265,8 @@ similarly to `readOnly` on form elements. In this case, only
 
 Same as the HTML attribute.
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.
@@ -361,8 +361,8 @@ When an element is `disabled`, it may still be `focusable`. It works
 similarly to `readOnly` on form elements. In this case, only
 `aria-disabled` will be set.
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.
@@ -428,8 +428,8 @@ Same as the HTML attribute.
 
 Tab's id
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.

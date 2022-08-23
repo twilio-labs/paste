@@ -19,8 +19,8 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {ChromeImage, FirefoxImage, SafariImage} from '../../../components/images/TimePickerImages';
 import {
   RequiredTimePicker,
@@ -210,7 +210,7 @@ The Time Picker component should include the base TimePicker, along with support
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
 - **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the Time Picker input successful.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>TimePicker</inlineCode>. This is done
     with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Time
@@ -303,8 +303,8 @@ A Time Picker must have at least a label and an input.
   {LabelOnlyPicker}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle as="h4">Quick note about Time Picker DOM methods</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Quick note about Time Picker DOM methods</CalloutHeading>
   <CalloutText>
     There are three methods that come with the HTML picker: <inlineCode>stepUp()</inlineCode>,{' '}
     <inlineCode>stepDown()</inlineCode> and <inlineCode>select()</inlineCode>. Usage of these methods is possible, but
@@ -363,10 +363,10 @@ Error text should:
 - Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
 - Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
 
-<Callout>
-  <CalloutTitle as="h4">
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">
     Time Picker and <inlineCode>placeholder</inlineCode>
-  </CalloutTitle>
+  </CalloutHeading>
   <CalloutText>
     Because Time Picker has a default display value of <inlineCode>--:-- --</inlineCode> (and defaults to{' '}
     <inlineCode>12:30 PM</inlineCode>
