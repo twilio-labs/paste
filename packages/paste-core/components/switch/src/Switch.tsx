@@ -64,6 +64,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         boxSizing="content-box"
         height={SWITCH_HEIGHT}
         width={SWITCH_WIDTH}
+        overflow="hidden"
         padding="space10"
         borderColor="colorBorder"
         borderWidth="borderWidth10"

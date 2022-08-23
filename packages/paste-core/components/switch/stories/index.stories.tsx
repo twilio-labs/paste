@@ -3,6 +3,7 @@ import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Switch, SwitchContainer} from '../src';
+import {useTheme} from '@twilio-paste/theme';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -92,14 +93,20 @@ export const Controlled: Story = () => {
 
 export const Customized: Story = () => {
   const id = useUID();
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      theme={currentTheme}
       elements={{
-        SWITCH: {width: '52px', backgroundColor: 'colorBackgroundAvailable', borderRadius: 'borderRadius30'},
+        SWITCH: {
+          width: '52px',
+          backgroundColor: 'colorBackgroundAvailable',
+          borderRadius: 'borderRadius30',
+          '&[aria-checked=true]': {backgroundColor: 'colorBackgroundAvailable'},
+        },
         SWITCH_KNOB: {color: 'colorTextError'},
-        SWITCH_HELP_TEXT_WRAPPER: {marginLeft: 'space170'},
-        SWITCH_LABEL_TEXT_WRAPPER: {color: 'colorTextBrandHighlight'},
+        SWITCH_CONTAINER_HELP_TEXT: {fontWeight: 'fontWeightMedium', fontSize: 'fontSize40'},
+        SWITCH_CONTAINER_LABEL: {fontWeight: 'fontWeightMedium'},
       }}
     >
       <SwitchContainer id={id} helpText="Update registered number in settings" label="Enable SMS notifications">
