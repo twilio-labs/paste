@@ -21,6 +21,8 @@ import {
   onSwitch,
   disabledSwitch,
   disabledOnSwitch,
+  uncontrolledSwitch,
+  controlledSwitch,
 } from '../../../component-examples/SwitchExamples.ts';
 
 export const pageQuery = graphql`
@@ -93,6 +95,22 @@ A Switch is an interactive binary control. It should be used in forms when an "o
 ### Accessibility
 
 Switch has `role="switch"`. The `aria-labelledby` attribute is automatically set on the component, which ensures that assistive technology devices can read the Switch's label. The 'aria-checked' attribute defaults to `"false"`, and is set to `"true"` when the Switch is on.
+
+## Controlled vs. uncontrolle Switches
+
+The Switch can either be controlled, meaning there is an external state that determines if the Switch is on or not, or uncontrolled, meaning the Switch manages its own state.
+
+To make an uncontrolled Switch, you do not pass the `onClick` prop.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {uncontrolledSwitch}
+</LivePreview>
+
+To make a controlled checkbox, you must pass the `on` and `onChange` props.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {controlledSwitch}
+</LivePreview>
 
 ## Examples
 
@@ -173,25 +191,25 @@ export const Basic = () => {
 
 All the valid HTML attributes for `label` are supported including the following props:
 
-| Prop      | Type        | Description | Default          |
-| --------- | ----------- | ----------- | ---------------- |
-| children  | `ReactNode` |             | null             |
-| id?       | `string`    |             | null             |
-| disabled? | `boolean`   |             |                  |
-| element?  | `string`    |             | SWITCH_CONTAINER |
-| helpText? | `ReactNode` |             |                  |
-| label     | `ReactNode` |             |                  |
-| required  | `boolean`   |             |                  |
+| Prop      | Type        | Description                                                                               | Default            |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children  | `ReactNode` |                                                                                           | null               |
+| id?       | `string`    |                                                                                           | null               |
+| disabled? | `boolean`   |                                                                                           |                    |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'SWITCH_CONTAINER' |
+| helpText? | `ReactNode` |                                                                                           |                    |
+| label     | `ReactNode` |                                                                                           |                    |
+| required  | `boolean`   |                                                                                           |                    |
 
 #### Switch Props
 
 All the valid HTML attributes for `div` are supported including the following props:
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
-| id?      | `string`    |             | null    |
-| element? | `string`    |             | SWITCH  |
+| Prop     | Type        | Description                                                                               | Default  |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | -------- |
+| children | `ReactNode` |                                                                                           | null     |
+| id?      | `string`    |                                                                                           | null     |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'SWITCH' |
 
 <ChangelogRevealer>
   <Changelog />

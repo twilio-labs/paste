@@ -15,7 +15,7 @@ export interface SwitchProps extends React.HTMLAttributes<HTMLDivElement>, Pick<
   on?: boolean;
   labelId?: string;
   helpTextId?: string;
-  onClick?: () => void;
+  onClick?: (evt?: any) => void;
 }
 
 export interface SwitchKnobProps extends Omit<SwitchContainerProps, 'on' | 'helpText' | 'children'> {

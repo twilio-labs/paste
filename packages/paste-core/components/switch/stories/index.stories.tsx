@@ -72,10 +72,20 @@ export const DisabledOn: Story = () => {
     <SwitchContainer
       id={id}
       label="Send copy to customer"
-      helpText="Email will be send to the registered address"
+      helpText="Email will be sent to the registered address"
       disabled
     >
       <Switch on />
+    </SwitchContainer>
+  );
+};
+
+export const Controlled: Story = () => {
+  const id = useUID();
+  const [on, setOn] = React.useState(false);
+  return (
+    <SwitchContainer id={id} label="Opt into marketing emails" helpText="Emails will be sent to the registered address">
+      <Switch on={on} onClick={() => setOn(!on)} />
     </SwitchContainer>
   );
 };

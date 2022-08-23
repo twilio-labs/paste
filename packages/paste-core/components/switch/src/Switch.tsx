@@ -68,7 +68,7 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         borderColor="colorBorder"
         borderWidth="borderWidth10"
         borderRadius="borderRadiusPill"
-        transition="background-color .2s ease-in-out"
+        transition="background-color .2s ease-in-out, box-shadow .2s ease-in-out"
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         onMouseEnter={() => {

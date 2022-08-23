@@ -81,3 +81,32 @@ render(
   <SwitchExample />
 )
 `.trim();
+
+export const uncontrolledSwitch = `
+const SwitchExample = () => {
+  const id = useUID()
+  return (
+    <SwitchContainer id={id} label="I am an uncontrolled Switch">
+      <Switch />
+    </SwitchContainer>
+  )
+}
+render(
+  <SwitchExample />
+)
+`.trim();
+
+export const controlledSwitch = `
+const SwitchExample = () => {
+  const id = useUID()
+  const [on, setOn] = React.useState(false)
+  return (
+    <SwitchContainer id={id} label="I am a controlled Switch">
+      <Switch on={on} onClick={(evt) => setOn(!on)} />
+    </SwitchContainer>
+  )
+}
+render(
+  <SwitchExample />
+)
+`.trim();
