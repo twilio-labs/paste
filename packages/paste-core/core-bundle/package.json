@@ -83,6 +83,7 @@
     "@twilio-paste/stack": "^5.0.0",
     "@twilio-paste/style-props": "^6.0.0",
     "@twilio-paste/styling-library": "^1.0.2",
+    "@twilio-paste/switch": "^0.0.0",
     "@twilio-paste/table": "^5.0.0",
     "@twilio-paste/tabs": "^5.0.0",
     "@twilio-paste/tabs-primitive": "^0.2.8",

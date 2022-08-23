@@ -75,6 +75,7 @@ export const generateThemeFromTokens = ({
     minHeights: sizings,
     sizes: sizings,
     iconSizes: {
+      sizeIcon05: sizings.sizeIcon05,
       sizeIcon10: sizings.sizeIcon10,
       sizeIcon20: sizings.sizeIcon20,
       sizeIcon30: sizings.sizeIcon30,

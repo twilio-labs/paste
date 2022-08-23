@@ -14,7 +14,7 @@ props:
     value: "{!palette-gray-90}"
     comment: Strong default background color.
   color-background-stronger:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-60}"
     comment: Stronger default background color.
   color-background-strongest:
     value: "{!palette-gray-20}"
