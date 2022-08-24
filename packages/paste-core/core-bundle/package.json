@@ -57,6 +57,7 @@
     "@twilio-paste/grid": "^5.0.0",
     "@twilio-paste/heading": "^8.0.0",
     "@twilio-paste/help-text": "^10.0.0",
+    "@twilio-paste/inline-code": "^0.0.0",
     "@twilio-paste/inline-control-group": "^10.0.0",
     "@twilio-paste/input": "^6.0.0",
     "@twilio-paste/input-box": "^7.1.0",
