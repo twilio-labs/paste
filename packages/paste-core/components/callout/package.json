@@ -2,7 +2,7 @@
   "name": "@twilio-paste/callout",
   "version": "0.0.0",
   "category": "feedback",
-  "status": "alpha",
+  "status": "production",
   "description": "A callout is highlighted information in a larger page.",
   "author": "Twilio Inc.",
   "license": "MIT",
