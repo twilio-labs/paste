@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] add the ability to use the label as a div HTML element
+
 ## 10.0.0
 
 ### Patch Changes
