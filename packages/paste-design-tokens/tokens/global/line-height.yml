@@ -7,6 +7,9 @@ props:
   line-height-0:
     value: "{!line-height-0}"
     comment: "Constant line-height token for line-height 0"
+  line-height-05:
+    value: "{!line-height-05}"
+    comment: "Constant line-height token for line-height 05"
   line-height-10:
     value: "{!line-height-10}"
     comment: "Constant line-height token for line-height 10"

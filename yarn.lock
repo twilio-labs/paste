@@ -10244,6 +10244,7 @@ __metadata:
     "@twilio-paste/stack": ^5.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.2
+    "@twilio-paste/switch": ^0.0.0
     "@twilio-paste/table": ^5.0.0
     "@twilio-paste/tabs": ^5.0.0
     "@twilio-paste/tabs-primitive": ^0.2.8
@@ -11449,6 +11450,40 @@ __metadata:
   peerDependencies:
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/switch@^0.0.0, @twilio-paste/switch@workspace:packages/paste-core/components/switch":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/switch@workspace:packages/paste-core/components/switch"
+  dependencies:
+    "@twilio-paste/box": ^7.0.0
+    "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/help-text": ^10.0.0
+    "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/label": ^10.0.0
+    "@twilio-paste/media-object": ^7.0.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/text": ^7.0.0
+    "@twilio-paste/theme": ^8.0.0
+    "@twilio-paste/uid-library": ^0.2.5
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/box": ^7.0.0
+    "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/help-text": ^10.0.0
+    "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/label": ^10.0.0
+    "@twilio-paste/media-object": ^7.0.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/text": ^7.0.0
+    "@twilio-paste/theme": ^8.0.0
+    "@twilio-paste/uid-library": ^0.2.5
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 

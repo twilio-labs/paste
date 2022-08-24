@@ -8,7 +8,7 @@ import {RequiredDot} from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<BoxProps, 'element'> {
-  as?: 'label' | 'legend';
+  as?: 'label' | 'legend' | 'div';
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
   htmlFor: string | undefined;
@@ -45,7 +45,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
     let cursor = 'pointer';
     if (disabled) {
       cursor = 'not-allowed';
-    } else if (as === 'legend') {
+    } else if (as === 'legend' || as === 'div') {
       cursor = 'default';
     }
 
@@ -85,7 +85,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
 Label.displayName = 'Label';
 
 Label.propTypes = {
-  as: PropTypes.oneOf(['label', 'legend']),
+  as: PropTypes.oneOf(['label', 'legend', 'div']),
   disabled: PropTypes.bool,
   element: PropTypes.string,
   htmlFor: PropTypes.string,

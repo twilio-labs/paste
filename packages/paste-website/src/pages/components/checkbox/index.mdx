@@ -138,7 +138,7 @@ A checkbox is always displayed next to a visible label.
 
 ### Checkbox with help text
 
-In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise.
+In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
 
 <LivePreview scope={{Checkbox}} language="jsx">
   {`<Checkbox id="enabled" value="enabled" name="enabled" helpText="Determines if certificate validation is performed on all Twilio originated requests">
