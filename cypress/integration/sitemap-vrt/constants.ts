@@ -36,6 +36,7 @@ export const SITEMAP = [
   '/components/input/',
   '/components/label/',
   '/components/list/',
+  '/components/minimizable-dialog/',
   '/components/media-object/',
   '/components/pagination/',
   '/components/modal/',
