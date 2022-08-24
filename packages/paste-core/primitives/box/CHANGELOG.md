@@ -1,5 +1,13 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+- [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box] add pressed_focus and pressed_hover pseudoselectors
+
+* [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] add a `_checked_hover` pseudo selector style prop for use in switch package
+
 ## 7.0.0
 
 ### Minor Changes

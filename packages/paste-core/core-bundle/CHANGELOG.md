@@ -1,5 +1,56 @@
 # Change Log
 
+## 15.1.0
+
+### Minor Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] add the ability to use the label as a div HTML element
+
+* [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Switch] add Switch package
+
+- [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76) [#2595](https://github.com/twilio-labs/paste/pull/2595) Thanks [@TheSisb](https://github.com/TheSisb)! - [InputBox, Combobox, Select] InputBox's `InputChevronWrapper` has refreshed styling which will appear in Select and Combobox. InputBox now exports a `getInputChevronIconColor()` function which returns a textColor to use for styling the icon child to the `InputChevronWrapper`.
+
+* [`7e75f8119`](https://github.com/twilio-labs/paste/commit/7e75f8119067c8aad70f14b70324ca93d8d07917) [#2574](https://github.com/twilio-labs/paste/pull/2574) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [table, data-grid] adding sticky header functionality to both the Table and Data Grid components
+
+- [`b8c3d33c9`](https://github.com/twilio-labs/paste/commit/b8c3d33c9b55b6967b075159f8fe490f7cba2d38) [#2623](https://github.com/twilio-labs/paste/pull/2623) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] Introducing the all-new Minimizable Dialog component! This component can be used for a chat widget so that users can keep the chat open while they interact with the rest of the page. 🎉
+
+* [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new icon size and line height tokens (05), adust dark theme background tokens
+
+- [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add toggle button for secondary and secondary_icon variants
+
+* [`563dff9a8`](https://github.com/twilio-labs/paste/commit/563dff9a889e9b880e86568add91cfe5b686f7bd) [#2604](https://github.com/twilio-labs/paste/pull/2604) Thanks [@loreina](https://github.com/loreina)! - - [menu] add menu item destructive variant
+
+- [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c) [#2620](https://github.com/twilio-labs/paste/pull/2620) Thanks [@shleewhite](https://github.com/shleewhite)! - [Callout] Introducing the all-new Callout component! This component is useful in those moments when you want to highlight important, static information in a page of text. 🎉
+
+### Patch Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Theme] add new icon size (05) to theme shape
+
+* [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box] add pressed_focus and pressed_hover pseudoselectors
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] add a `_checked_hover` pseudo selector style prop for use in switch package
+
+* [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c) [#2620](https://github.com/twilio-labs/paste/pull/2620) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add screen-reader-only as peerDependency
+
+- [`ceb26bb91`](https://github.com/twilio-labs/paste/commit/ceb26bb91348c4ace5a81522f7da3c3595c77de1) [#2634](https://github.com/twilio-labs/paste/pull/2634) Thanks [@shleewhite](https://github.com/shleewhite)! - [Menu] fix href not getting passed to MenuItem
+
+- Updated dependencies [[`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be), [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`7e75f8119`](https://github.com/twilio-labs/paste/commit/7e75f8119067c8aad70f14b70324ca93d8d07917), [`b8c3d33c9`](https://github.com/twilio-labs/paste/commit/b8c3d33c9b55b6967b075159f8fe490f7cba2d38), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c), [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be), [`563dff9a8`](https://github.com/twilio-labs/paste/commit/563dff9a889e9b880e86568add91cfe5b686f7bd), [`ceb26bb91`](https://github.com/twilio-labs/paste/commit/ceb26bb91348c4ace5a81522f7da3c3595c77de1), [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c)]:
+  - @twilio-paste/label@10.1.0
+  - @twilio-paste/switch@1.0.0
+  - @twilio-paste/theme@8.0.1
+  - @twilio-paste/box@7.0.1
+  - @twilio-paste/combobox@12.1.0
+  - @twilio-paste/input-box@7.1.0
+  - @twilio-paste/select@9.1.0
+  - @twilio-paste/data-grid@4.1.0
+  - @twilio-paste/table@5.1.0
+  - @twilio-paste/minimizable-dialog@1.0.0
+  - @twilio-paste/design-tokens@8.1.0
+  - @twilio-paste/alert@11.0.1
+  - @twilio-paste/button@11.1.0
+  - @twilio-paste/menu@11.1.0
+  - @twilio-paste/callout@1.0.0
+
 ## 15.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c) [#2620](https://github.com/twilio-labs/paste/pull/2620) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add screen-reader-only as peerDependency
+
 ## 11.0.0
 
 ### Patch Changes
