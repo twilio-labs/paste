@@ -32,6 +32,7 @@ export * from '@twilio-paste/list';
 export * from '@twilio-paste/media-object';
 export * from '@twilio-paste/menu';
 export * from '@twilio-paste/menu-primitive';
+export * from '@twilio-paste/minimizable-dialog';
 export * from '@twilio-paste/modal';
 export * from '@twilio-paste/modal-dialog-primitive';
 export * from '@twilio-paste/non-modal-dialog-primitive';
