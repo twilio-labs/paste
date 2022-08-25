@@ -1,0 +1,60 @@
+import * as React from 'react';
+import type {BoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import {InputElement} from '@twilio-paste/input';
+
+interface GrowingInputProps {
+  initialValue?: string;
+  element?: BoxProps['element'];
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps>(
+  ({element = 'GROWING_INPUT', onChange, initialValue = '', ...props}, ref) => {
+    const [text, setText] = React.useState(initialValue);
+
+    /* The trick is to make the input 100% width of the wrapper
+     * and the wrapper is sized based on the content of the _after
+     * which is also given 0 height to not break the flow of the page
+     * and whiteSpace nowrap is the trick to make `min-content` not
+     * fall apart on whitespace characters. We also make sure to replace multiple
+     * space characters with a single space for the same reason.
+     */
+    // Note if updating Input designs we may need to update these props.
+    return (
+      <Box
+        ref={ref}
+        element={`${element}_CONTAINER`}
+        display="inline-grid"
+        gridTemplateColumns="min-content"
+        _after={{
+          content: `"${text}"`,
+          fontFamily: 'inherit',
+          fontSize: 'fontSize30',
+          fontWeight: 'fontWeightMedium',
+          paddingX: 'space40',
+          visibility: 'hidden',
+          height: 'size0',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        <InputElement
+          {...props}
+          element={element}
+          type="text"
+          value={text}
+          padding="space0"
+          onChange={(event) => {
+            event.preventDefault();
+            setText(event.currentTarget.value.replace(/  +/g, ' '));
+
+            if (onChange != null) {
+              onChange(event);
+            }
+          }}
+        />
+      </Box>
+    );
+  }
+);
+GrowingInput.displayName = 'GrowingInput';
