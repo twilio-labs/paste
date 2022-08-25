@@ -13,8 +13,6 @@ export const SITE_CONTENT_MAX_WIDTH = '1440px';
 // Used to 'bleed' sections together. GettingStarted+Popular
 export const HOMEPAGE_SECTION_OVERFLOW_OFFSET = 150;
 
-export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
-
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://paste-storybook.twilio.design';
 export const REMIX_DOMAIN = 'https://remix.twilio.design';
