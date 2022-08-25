@@ -23,7 +23,6 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
     // Note if updating Input designs we may need to update these props.
     return (
       <Box
-        ref={ref}
         element={`${element}_CONTAINER`}
         display="inline-grid"
         gridTemplateColumns="min-content"
@@ -40,6 +39,7 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
       >
         <InputElement
           {...props}
+          ref={ref}
           element={element}
           type="text"
           value={text}
