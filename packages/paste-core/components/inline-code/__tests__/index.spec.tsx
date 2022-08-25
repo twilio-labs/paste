@@ -4,7 +4,7 @@ import {InlineCode} from '../src';
 
 describe('InlineCode', () => {
   it('should render', () => {
-    const {getByText} = render(<InlineCode>test</InlineCode>);
-    expect(getByText('test')).toBeDefined();
+    const {getByText} = render(<InlineCode>sid</InlineCode>);
+    expect(getByText('sid')).toBeDefined();
   });
 });

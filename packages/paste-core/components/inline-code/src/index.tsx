@@ -1,18 +1,38 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-export interface InlineCodeProps {
-  children?: React.ReactNode;
+export interface InlineCodeProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+  children: string;
 }
 
-const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>((props, ref) => {
-  return <div ref={ref}>{props.children}</div>;
+const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(({children, ...props}, ref) => {
+  return (
+    <Box
+      as="code"
+      {...safelySpreadBoxProps(props)}
+      backgroundColor="colorBackground"
+      borderWidth="borderWidth10"
+      borderColor="colorBorderWeaker"
+      borderStyle="solid"
+      borderRadius="borderRadius20"
+      color="inherit"
+      fontFamily="fontFamilyCode"
+      fontSize="fontSize20" //do we want to set this or should this be 'inherit'?
+      lineHeight="lineHeight20"
+      paddingY="space10"
+      paddingX="space20"
+      ref={ref}
+    >
+      {children}
+    </Box>
+  );
 });
 
 InlineCode.displayName = 'InlineCode';
 
 InlineCode.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.string.isRequired,
 };
 
 export {InlineCode};
