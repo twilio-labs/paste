@@ -11,7 +11,7 @@ export type InputVariants = 'default' | 'inverse';
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'color'>,
     Pick<BoxProps, 'element'>,
-    Pick<BoxStyleProps, 'paddingRight'> {
+    Pick<BoxStyleProps, 'padding' | 'paddingRight'> {
   className?: never;
   disabled?: boolean;
   hasError?: boolean;
