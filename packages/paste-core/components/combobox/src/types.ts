@@ -1,4 +1,4 @@
-import {BoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
@@ -6,6 +6,12 @@ import type {
 } from '@twilio-paste/combobox-primitive';
 import type {InputVariants, InputProps} from '@twilio-paste/input';
 import type {VirtualItem} from 'react-virtual/types';
+
+export type {
+  UseComboboxPrimitiveGetItemPropsOptions,
+  UseComboboxPrimitiveGetMenuPropsOptions,
+  GetComboboxPrimitivePropsCommonOptions,
+} from '@twilio-paste/combobox-primitive';
 
 export type Item = string | {[key: string]: any};
 
