@@ -74,7 +74,7 @@ const HomeHero: React.FC = () => {
                 <Badge as="span" variant="new">
                   New!
                 </Badge>
-                <NewComponentBannerText>We&apos;ve updated our Design tokens list page!</NewComponentBannerText>
+                <NewComponentBannerText>We updated our tokens list page!</NewComponentBannerText>
                 <NewComponentBannerLink
                   to="https://www.figma.com/community/plugin/1040423794729523647/Twilio-Ipsum"
                   onClick={() =>
