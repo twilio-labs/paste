@@ -6,11 +6,7 @@ export interface InlineCodeProps {
 }
 
 const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>((props, ref) => {
-  return (
-    <div ref={ref}>
-      {props.children}
-    </div>
-  );
+  return <div ref={ref}>{props.children}</div>;
 });
 
 InlineCode.displayName = 'InlineCode';
