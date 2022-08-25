@@ -28,7 +28,8 @@ Before you begin there are some things that you will need to have installed, and
    1. Follow the installation instructions on the Homebrew website [https://brew.sh/](https://brew.sh/)
 4. **NodeJS v16.13.x**- A JavaScript runtime for running JavaScript applications
    1. Node is preinstalled on Macs but you might need to manage the version that is installed.
-5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine 5. Install via Homebrew
+5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine
+   1. Install via Homebrew
 6. **[Yarn](https://classic.yarnpkg.com/en/)** - A package manager for node packages.
    1. Install via NPM instructions on the Yarn website [https://classic.yarnpkg.com/en/](https://classic.yarnpkg.com/en/)
    2. Paste currently uses v3.
