@@ -34,7 +34,8 @@ Before you begin there are some things that you will need to have installed, and
    1. Install via NPM instructions on the Yarn website [https://classic.yarnpkg.com/en/](https://classic.yarnpkg.com/en/)
    2. Paste currently uses v3.
 7. **[Visual Studio Code](https://code.visualstudio.com/)** (optional) - Lightweight IDE that’s really good working with Typescript codebases.
-   1. Check out the recommended extensions in the extensions tab. 9. We supply some handy React code snippets in the Paste repo too
+   1. Check out the recommended extensions in the extensions tab.
+   2. We supply some handy React code snippets in the Paste repo too
 8. **Chrome, Edge, Firefox and Safari browsers** - Browsers we support.
 9. **[iTerm2](https://iterm2.com/)** - (optional) Handy terminal with many features.
    1. We’re fans of zShell coupled with [Oh My Zsh!](https://ohmyz.sh/)
