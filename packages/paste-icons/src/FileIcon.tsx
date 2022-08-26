@@ -24,22 +24,19 @@ const FileIcon = React.forwardRef<HTMLElement, FileIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          viewBox="0 0 20 20"
           fill="none"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M5.5 6a.5.5 0 000 1h6a.5.5 0 000-1h-6zM5 10a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 015 10zM5.5 13a.5.5 0 000 1h8a.5.5 0 000-1h-8z"
-          />
-          <path
-            fill="currentColor"
             fillRule="evenodd"
+            d="M16.5 17h-13a.5.5 0 01-.5-.5v-13a.5.5 0 01.5-.5h9.879a.5.5 0 01.353.146l3.122 3.122A.5.5 0 0117 6.62v9.88a.5.5 0 01-.5.5zM2 3.5A1.5 1.5 0 013.5 2h9.879a1.5 1.5 0 011.06.44l3.122 3.12A1.5 1.5 0 0118 6.622V16.5a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 16.5v-13zM5.5 6a.5.5 0 000 1h6a.5.5 0 000-1h-6zM5 10a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 015 10zm.5 3a.5.5 0 000 1h8a.5.5 0 000-1h-8z"
             clipRule="evenodd"
-            d="M2 3.5A1.5 1.5 0 013.5 2h13A1.5 1.5 0 0118 3.5v13a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 16.5v-13zM3.5 3h13a.5.5 0 01.5.5v13a.5.5 0 01-.5.5h-13a.5.5 0 01-.5-.5v-13a.5.5 0 01.5-.5z"
           />
         </svg>
       </IconWrapper>

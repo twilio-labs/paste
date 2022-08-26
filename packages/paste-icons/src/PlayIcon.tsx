@@ -24,8 +24,10 @@ const PlayIcon = React.forwardRef<HTMLElement, PlayIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
+          fill="none"
           viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
@@ -33,7 +35,8 @@ const PlayIcon = React.forwardRef<HTMLElement, PlayIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M6.153 4.465a1.003 1.003 0 011.277-.368l.102.056 8.002 5.002a.99.99 0 01.096 1.616l-.095.067-8.002 5.01c-.16.099-.344.152-.533.152a.998.998 0 01-.993-.878L6 15.006V4.994a.99.99 0 01.153-.529zm.847.53v10.01l8.002-5.009L7 4.994z"
+            d="M6.153 4.465a1.003 1.003 0 011.277-.368l.102.056 8.002 5.002a.99.99 0 01.096 1.616l-.095.067-8.002 5.01c-.16.099-.344.152-.533.152a.998.998 0 01-.993-.878L6 15.006V4.994a.99.99 0 01.153-.529z"
+            clipRule="evenodd"
           />
         </svg>
       </IconWrapper>
