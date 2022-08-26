@@ -24,47 +24,45 @@ const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStylePr
   },
 };
 
-const ComboboxListboxOption = React.memo(
-  React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
-    ({children, element = 'COMBOBOX', highlighted, selected, variant = 'default', startHeight, ...props}, ref) => {
-      const virtualItemStyles =
-        startHeight !== undefined
-          ? {
-              position: 'absolute' as PositionOptions,
-              top: 0,
-              left: 0,
-              width: '100%',
-              transform: `translateY(${startHeight}px)`,
-            }
-          : {};
-      return (
-        <Box
-          {...safelySpreadBoxProps(props)}
-          as="li"
-          element={`${element}_LIST_ITEM`}
-          backgroundColor={
-            selected ? 'colorBackgroundBrand' : highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'
+const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
+  ({children, element = 'COMBOBOX', highlighted, selected, variant = 'default', startHeight, ...props}, ref) => {
+    console.log('re-render item');
+    const virtualItemStyles =
+      startHeight !== undefined
+        ? {
+            position: 'absolute' as PositionOptions,
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${startHeight}px)`,
           }
-          padding="space30"
-          cursor="pointer"
-          ref={ref}
-          {...virtualItemStyles}
-          {...VariantStyles[variant]}
+        : {};
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as="li"
+        element={`${element}_LIST_ITEM`}
+        backgroundColor={
+          selected ? 'colorBackgroundBrand' : highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'
+        }
+        padding="space30"
+        cursor="pointer"
+        ref={ref}
+        {...virtualItemStyles}
+        {...VariantStyles[variant]}
+      >
+        <Text
+          as="span"
+          color="colorText"
+          element={`${element}_LIST_ITEM_TEXT`}
+          textDecoration={highlighted ? 'underline' : null}
         >
-          <Text
-            as="span"
-            color="colorText"
-            element={`${element}_LIST_ITEM_TEXT`}
-            textDecoration={highlighted ? 'underline' : null}
-          >
-            {children}
-          </Text>
-        </Box>
-      );
-    }
-  )
+          {children}
+        </Text>
+      </Box>
+    );
+  }
 );
-
 ComboboxListboxOption.displayName = 'ComboboxListboxOption';
 
 export {ComboboxListboxOption};

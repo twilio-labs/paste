@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useVirtual} from 'react-virtual';
+import {useVirtualizer} from '@tanstack/react-virtual';
 import {useTheme, remToPx} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
@@ -66,17 +66,14 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const parentRef = React.useRef(null);
     const helpTextId = useUID();
 
-    // Only virtualize non-grouped items
-    // Not virtualizing grouped items because we cannot accessibly define position within nested sets (e.g. "groups")
-    const {scrollToIndex, virtualItems, totalSize} = useVirtual({
-      size: items.length,
-      parentRef,
-      // 36 is a magic number that represents the comboboxItem height in px
-      // this is an estimate, and gets recalculated in runtime
-      estimateSize: React.useCallback(() => 36, []),
-      overscan: 4,
+    const rowVirtualizer = useVirtualizer({
+      count: items.length,
+      getScrollElement: () => parentRef.current,
+      estimateSize: () => 36,
       paddingStart: remToPx(theme.space.space30, 'number') as number,
+      overscan: 4,
     });
+    const {scrollToIndex} = rowVirtualizer;
 
     const {
       getComboboxProps,
@@ -169,8 +166,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             optionTemplate={optionTemplate}
             groupItemsBy={groupItemsBy}
             groupLabelTemplate={groupLabelTemplate}
-            totalSize={totalSize}
-            virtualItems={virtualItems}
+            totalSize={rowVirtualizer.getTotalSize()}
+            virtualItems={rowVirtualizer.getVirtualItems()}
           />
         </ComboboxListbox>
         {helpText && (
