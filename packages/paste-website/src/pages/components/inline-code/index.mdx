@@ -8,8 +8,10 @@ slug: /components/inline-code/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
-import {Paragraph} from '@twilio-paste/paragraph';
 import {InlineCode} from '@twilio-paste/inline-code';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -82,6 +84,30 @@ export const pageQuery = graphql`
 The Inline Code component emphasizes short, inline pieces of computer code such as variable names, commands and function calls.
 It is also used to display important inline code snippets, such as SIDs, IDs and API keys
 
+## Examples
+
+The most common use for Inline Code is inside of other pieces of text. Inline Code emphasizes that the text is a piece of code using styling conventions.
+
+<LivePreview scope={{InlineCode, Text}} language="jsx">
+  {`<Text as="span">
+      If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
+      determines which arrow keys can be used to move focus.
+    </Text>`}
+</LivePreview>
+
+Inline Code is also commonly used standalone for key pieces of code text, such as SIDs or Keys.
+
+<LivePreview scope={{InlineCode, Text, Stack}} language="jsx">
+  {`
+    <Stack orientation="vertical" spacing="space30">
+      <Text fontWeight="fontWeightMedium" as="div">
+        API Key
+      </Text>
+      <InlineCode>WQC0000001111111122234444444</InlineCode>
+    </Stack>
+`}
+</LivePreview>
+
 ## Usage Guide
 
 ### API
@@ -111,16 +137,6 @@ const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
-  <CalloutText>
-    You can find the Callout component in{' '}
-    <Anchor
-      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=14784%3A85847"
-      showExternal
-    >
-      the Paste Components library
-    </Anchor>
-    .
-  </CalloutText>
 </Callout>
 
 <ChangelogRevealer>
