@@ -263,10 +263,10 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
           paddingX="space40"
         >
           <FormPillGroup {...pillState} aria-label="Products:">
-            {selectedItems.map(function renderSelectedItems(selectedItem, index) {
+            {selectedItems.map(function renderSelectedItems(selectedItem) {
               return (
                 <FormPill
-                  key={`${selectedItem.title}-${selectedItem.author}-${index}`}
+                  key={`${selectedItem.title}-${selectedItem.author}`}
                   onDismiss={() => {
                     removeSelectedItem(selectedItem);
                   }}
