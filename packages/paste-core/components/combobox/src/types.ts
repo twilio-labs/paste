@@ -76,6 +76,7 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
 export interface ComboboxItemsProps
   extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element'> {
   items: Item[];
+  selectedItems?: Item[];
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   totalSize: RowVirtualizer['totalSize'];

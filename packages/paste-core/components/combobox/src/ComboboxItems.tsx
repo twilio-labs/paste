@@ -11,6 +11,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
   element = 'COMBOBOX',
   getItemProps,
   highlightedIndex,
+  selectedItems,
   optionTemplate,
   groupLabelTemplate,
   groupItemsBy,
@@ -40,6 +41,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
               {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureRef})}
               element={element}
               highlighted={highlightedIndex === virtualItemIndex}
+              selected={selectedItems?.includes(items[virtualItemIndex])}
               key={uidSeed(`item-${virtualItemIndex}`)}
               variant="default"
               startHeight={virtualItem.start}
