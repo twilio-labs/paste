@@ -76,7 +76,7 @@ const HomeHero: React.FC = () => {
                 </Badge>
                 <NewComponentBannerText>We updated our tokens list page!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://www.figma.com/community/plugin/1040423794729523647/Twilio-Ipsum"
+                  to="/tokens/list"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
