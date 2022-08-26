@@ -1,0 +1,132 @@
+---
+title: Inline Code
+package: '@twilio-paste/inline-code'
+description: An Inline Code component visually distinguishes pieces of texts as fragments of code.  It is used to display important inline code snippets, such as SIDs, IDs and API keys.
+slug: /components/inline-code/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {InlineCode} from '@twilio-paste/inline-code';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/inline-code"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/inline-code/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "inline-code"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/"
+  storybookUrl="/?path=/story/components-inline-code--variants"
+  description={props.data.mdx.frontmatter.description}
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+  <LivePreview scope={{InlineCode}} language="jsx">
+    {`<InlineCode>
+    console.log(mySustainabilityGoals)
+</InlineCode>`}
+  </LivePreview>
+
+## Guidelines
+
+### About Inline Code
+
+The Inline Code component emphasizes short, inline pieces of computer code such as variable names, commands and function calls.
+It is also used to display important inline code snippets, such as SIDs, IDs and API keys
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/inline-code - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {InlineCode} from '@twilio-paste/inline-code';
+
+const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</InlineCode>;
+```
+
+#### Props
+
+| Prop     | Type     | Description                                                                               | Default       |
+| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
+| children | `string` | text to display inline as code                                                            |               |
+| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
+
+### Figma
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
+  <CalloutText>
+    You can find the Callout component in{' '}
+    <Anchor
+      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=14784%3A85847"
+      showExternal
+    >
+      the Paste Components library
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
