@@ -20,12 +20,12 @@
 
 Before you begin there are some things that you will need to have installed, and some things that we recommend, but are not essential:
 
-1. **[Git](https://git-scm.com/)** - distributed version control. This should be preinstalled on a Mac
+1. **[Git](https://git-scm.com/)** - distributed version control. This should be preinstalled on a Mac.
    1. `git config --global user.name “first last”`
    2. `git config --global user.email johndoe@example.com`
-2. **[Xcode Command Line Tools](https://developer.apple.com/xcode/)** - Used to build some Apple software and node packages
+2. **[Xcode Command Line Tools](https://developer.apple.com/xcode/)** - Used to build some Apple software and node packages.
 3. **[Homebrew](https://brew.sh/)** (optional)- A package manager for Mac software
-   1. Follow the installation instructions on the Homebrew website [https://brew.sh/](https://brew.sh/)
+   1. Follow the installation instructions on the [Homebrew website](https://brew.sh/)
 4. **NodeJS v16.13.x**- A JavaScript runtime for running JavaScript applications
    1. Node is preinstalled on Macs but you might need to manage the version that is installed.
 5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine
@@ -38,6 +38,8 @@ Before you begin there are some things that you will need to have installed, and
 8. **Chrome, Edge, Firefox and Safari browsers** - Browsers we support.
 9. **[iTerm2](https://iterm2.com/)** - (optional) Handy terminal with many features.
    1. We’re fans of zShell coupled with [Oh My Zsh!](https://ohmyz.sh/)
+10. **[Connect to Github with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)** - You'll need this to connect your local machine to Github and clone the Paste repo.
+   1. Follow the [Github instructions to check if you have an existing SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys). If not, continue through the instructions to generate and add a new one.
 
 ## First time working on Paste
 
