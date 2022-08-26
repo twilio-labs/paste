@@ -32,12 +32,15 @@ const books: Book[] = [
   {author: 'Fyodor Dostoevsky', title: 'Crime and Punishment'},
 ];
 
-function getBooksFilter(inputValue: string | undefined) {
-  return function booksFilter(book: Book) {
+function getFilteredBooks(inputValue: string): Book[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return books.filter(function filterBook(book) {
     return (
-      !inputValue || book.title.toLowerCase().includes(inputValue) || book.author.toLowerCase().includes(inputValue)
+      book.title.toLowerCase().includes(lowerCasedInputValue) ||
+      book.author.toLowerCase().includes(lowerCasedInputValue)
     );
-  };
+  });
 }
 
 interface ItemProps {
@@ -45,11 +48,12 @@ interface ItemProps {
   item: Book;
   index: number;
   isHighlighted: boolean;
+  isSelected: boolean;
 }
 
 // eslint-disable-next-line react/display-name
-const Item = React.memo(({item, index, getItemProps, isHighlighted, ...rest}: ItemProps) => {
-  console.log('render book item:', item, index, getItemProps, isHighlighted);
+const Item = React.memo(({item, index, getItemProps, isHighlighted, isSelected, ...rest}: ItemProps) => {
+  //   console.log('render book item:', item, index, getItemProps, isHighlighted);
   return (
     <li
       style={{
@@ -69,6 +73,7 @@ const Item = React.memo(({item, index, getItemProps, isHighlighted, ...rest}: It
         whiteSpace: 'normal',
         wordWrap: 'normal',
         color: isHighlighted ? 'blue' : 'black',
+        backgroundColor: isSelected ? 'lightblue' : 'white',
       }}
       {...getItemProps({item, index, ...rest})}
     >
@@ -80,6 +85,7 @@ const Item = React.memo(({item, index, getItemProps, isHighlighted, ...rest}: It
 
 interface MenuProps {
   items: Book[];
+  selectedItems: Book[];
   getMenuProps: (
     options?: UseComboboxPrimitiveGetMenuPropsOptions | undefined,
     otherOptions?: GetComboboxPrimitivePropsCommonOptions | undefined
@@ -91,7 +97,7 @@ interface MenuProps {
 }
 
 // eslint-disable-next-line react/display-name
-const Menu = React.memo(({isOpen, items, getMenuProps, getItemProps, highlightedIndex}: MenuProps) => {
+const Menu = React.memo(({isOpen, items, selectedItems, getMenuProps, getItemProps, highlightedIndex}: MenuProps) => {
   return (
     <ul
       {...getMenuProps()}
@@ -124,6 +130,7 @@ const Menu = React.memo(({isOpen, items, getMenuProps, getItemProps, highlighted
             index={index}
             item={item}
             isHighlighted={highlightedIndex === index}
+            isSelected={selectedItems.includes(item)}
           />
         ))}
     </ul>
@@ -131,24 +138,24 @@ const Menu = React.memo(({isOpen, items, getMenuProps, getItemProps, highlighted
 });
 
 export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
-  const [items, setItems] = React.useState(books);
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
+  // const [selectedItems, setSelectedItems] = React.useState<Book[]>([]);
   const pillState = useFormPillState();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const {
     // Call and destructure its returned object on the selected item element.
-    getSelectedItemProps,
+    // getSelectedItemProps,
     // Call optionally with preventKeyAction and destructure its returned object on the toggle button (select) or input (combobox) element.
     getDropdownProps,
-    // Action prop that adds the item to the selection. Best used in useSelect and useCombobox prop onStateChange or onSelectedItemChange
-    addSelectedItem,
     // Action prop that removes the item from the selection. Used in the X icon/button onClick handler.
     removeSelectedItem,
-    // State value with the items currently selected. Used to render the Tags
-    selectedItems,
+    addSelectedItem,
     // initialSelectedItems i.e.: [items[0], items[1]]
     // TODO make a prop
-  } = useMultipleSelection<Book>({initialSelectedItems: []});
+    selectedItems,
+  } = useMultipleSelection<Book>();
 
   const {
     // State value with the open state of the menu. Used below for conditionally showing the items.
@@ -174,7 +181,7 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
   } = useCombobox({
     // The controlled state of currently available items to select
     // TODO this should always persist but render a checkmark
-    items,
+    items: filteredItems,
     /* Items are objects and not strings.
      * As a result, the itemToString prop is passed to useCombobox. It will return
      * the string equivalent of the item which will be used for displaying the item
@@ -188,9 +195,8 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
      * we will return an empty string in this case.
      */
     itemToString(item) {
-      return item ? item.title : '';
+      return item ? `${item.title} - ${item.author}` : '';
     },
-    defaultHighlightedIndex: 0, // after selection, highlight the first item.
     // For multiselect, we need `selectedItem` to always be null.
     // We keep our selected items in a state variable, selectedItems.
     // TODO ? We use onSelectedItemChange prop to retrieve the selectedItem from useCombobox, which is added to / removed from the selectedItems array. We also use stateReducer to keep the menu open on selection by Enter key or by click, and also to keep the highlightedIndex to be the most recent selected item.
@@ -206,26 +212,27 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
         case useCombobox.stateChangeTypes.InputBlur:
           return {
             ...changes,
-            isOpen: changes.selectedItem != null, // keep the menu open after selection.
+            // If an item was selected, keep the menu open and reset the highlightedIndex to the first item.
+            ...(changes.selectedItem && {isOpen: true, highlightedIndex: filteredItems.indexOf(changes.selectedItem)}),
           };
       }
       return changes;
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
-    onStateChange({inputValue, type, selectedItem}) {
-      // Set items list to all books minus search and selection
-      setItems(books.filter(getBooksFilter(inputValue)));
-
+    onStateChange({inputValue: newInputValue = '', type, selectedItem: newSelectedItem}) {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          if (selectedItem) {
-            if (includes(selectedItems, selectedItem)) {
-              removeSelectedItem(selectedItem);
+          if (newSelectedItem) {
+            if (includes(selectedItems, newSelectedItem)) {
+              removeSelectedItem(newSelectedItem);
             } else {
-              addSelectedItem(selectedItem);
+              addSelectedItem(newSelectedItem);
             }
           }
+          break;
+        case useCombobox.stateChangeTypes.InputChange:
+          setInputValue(newInputValue);
           break;
         default:
           break;
@@ -233,22 +240,22 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
     },
   });
 
-  console.log('re-render', isOpen);
-  console.log('inputRef', inputRef);
   return (
     <Box position="relative" element={`${element}_WRAPPER`}>
       <Label {...getLabelProps()}>Choose an element:</Label>
 
       <InputBox disabled={false} hasError={false} element={'test-multiselect'} variant={'default'}>
         <Box
-          {...getComboboxProps({
-            role: 'combobox',
+          {...getToggleButtonProps({
             onClick: () => {
               // Clicking anywhere on the combobox wrapper will focus the GrowingInput
               if (inputRef && inputRef.current) {
                 inputRef.current.focus();
               }
             },
+          })}
+          {...getComboboxProps({
+            role: 'combobox',
           })}
           position="relative"
           width="100%"
@@ -259,12 +266,12 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
             {selectedItems.map(function renderSelectedItems(selectedItem, index) {
               return (
                 <FormPill
-                  key={`${selectedItem}-${index}`}
-                  {...getSelectedItemProps({selectedItem, index})}
-                  {...pillState}
+                  key={`${selectedItem.title}-${selectedItem.author}-${index}`}
                   onDismiss={() => {
                     removeSelectedItem(selectedItem);
                   }}
+                  onSelect={(event) => event.stopPropagation()} // prevent losing focus on pill to focus input
+                  {...pillState}
                 >
                   {selectedItem.title}
                 </FormPill>
@@ -273,7 +280,6 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
           </FormPillGroup>
           <GrowingInput
             ref={inputRef}
-            {...getToggleButtonProps({tabIndex: 0})}
             // we spread props into `getInputProps` so that Downshift handles events correctly
             {...getInputProps(getDropdownProps({ref: inputRef, preventKeyAction: isOpen}))}
             element={`multi-input-element`}
@@ -295,7 +301,8 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
         highlightedIndex={highlightedIndex}
         getMenuProps={getMenuProps}
         getItemProps={getItemProps}
-        items={items}
+        items={filteredItems}
+        selectedItems={selectedItems}
       />
     </Box>
   );
