@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useVirtualizer} from '@tanstack/react-virtual';
+import {elementScroll, useVirtualizer} from '@tanstack/react-virtual';
+import type {VirtualizerOptions} from '@tanstack/react-virtual';
 import {useTheme, remToPx} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
@@ -17,6 +18,12 @@ import {ComboboxItems} from './ComboboxItems';
 import type {ComboboxProps} from './types';
 
 import {extractPropsFromState} from './extractPropsFromState';
+
+const estimateSize = (): number => 36;
+
+function easeInOutQuint(t: number): number {
+  return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+}
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -63,17 +70,46 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     ref
   ) => {
     const theme = useTheme();
-    const parentRef = React.useRef(null);
+    const parentRef = React.useRef<HTMLElement>(null);
     const helpTextId = useUID();
+    const paddingStart = React.useMemo(() => remToPx(theme.space.space30, 'number') ?? 0, [theme]);
+    const scrollingRef = React.useRef<number>();
 
+    // Custom performance scrollTo function
+    // https://codesandbox.io/s/infallible-bouman-h0vyjo?file=/src/main.tsx:1790-1803
+    // Has better accuracy when scrolling to a particular index than the default scrollToIndex
+    const scrollToFn: VirtualizerOptions<any, any>['scrollToFn'] = React.useCallback((offset, canSmooth, instance) => {
+      const duration = 500;
+      const start = parentRef.current ? parentRef.current.scrollTop : 0;
+      const startTime = (scrollingRef.current = Date.now());
+
+      const run = (): void => {
+        if (scrollingRef.current !== startTime) return;
+        const now = Date.now();
+        const elapsed = now - startTime;
+        const progress = easeInOutQuint(Math.min(elapsed / duration, 1));
+        const interpolated = start + (offset - start) * progress;
+
+        if (elapsed < duration) {
+          elementScroll(interpolated, canSmooth, instance);
+          requestAnimationFrame(run);
+        } else {
+          elementScroll(interpolated, canSmooth, instance);
+        }
+      };
+
+      requestAnimationFrame(run);
+    }, []);
+
+    // Virtualizer for long lists that don't use `groupItemsBy`
     const rowVirtualizer = useVirtualizer({
       count: items.length,
       getScrollElement: () => parentRef.current,
-      estimateSize: () => 36,
-      paddingStart: remToPx(theme.space.space30, 'number') as number,
+      estimateSize,
+      paddingStart: paddingStart as number,
       overscan: 4,
+      scrollToFn,
     });
-    const {scrollToIndex} = rowVirtualizer;
 
     const {
       getComboboxProps,
@@ -97,15 +133,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       items,
       state,
     });
-
-    React.useEffect(() => {
-      const comboboxIsVirtualized = typeof groupItemsBy !== 'string';
-      if (comboboxIsVirtualized) {
-        if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
-          scrollToIndex(highlightedIndex);
-        }
-      }
-    }, [highlightedIndex, scrollToIndex, groupItemsBy]);
 
     if (
       getComboboxProps === undefined ||

@@ -5,7 +5,7 @@ import type {
   UseComboboxPrimitiveReturnValue,
 } from '@twilio-paste/combobox-primitive';
 import type {InputVariants, InputProps} from '@twilio-paste/input';
-import type {VirtualItem} from 'react-virtual/types';
+import type {VirtualItem} from '@tanstack/react-virtual';
 
 export type {
   UseComboboxPrimitiveGetItemPropsOptions,
@@ -26,7 +26,7 @@ interface ScrollToOptions {
 }
 
 export type RowVirtualizer = {
-  virtualItems: VirtualItem[];
+  virtualItems: VirtualItem<Item>[];
   totalSize: number;
   scrollToOffset: (index: number, options?: ScrollToOptions | undefined) => void;
   scrollToIndex: (index: number, options?: ScrollToOptions | undefined) => void;

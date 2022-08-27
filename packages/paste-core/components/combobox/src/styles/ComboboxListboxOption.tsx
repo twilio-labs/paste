@@ -3,14 +3,15 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import type {PositionOptions} from '@twilio-paste/style-props';
-import type {VirtualItem} from 'react-virtual/types';
+import type {VirtualItem} from '@tanstack/react-virtual';
+import type {Item} from '../types';
 
 export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   highlighted?: boolean;
   selected?: boolean;
   variant: 'default' | 'groupOption';
-  startHeight?: VirtualItem['start'];
+  startHeight?: VirtualItem<Item>['start'];
 }
 
 const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {

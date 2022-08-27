@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {VirtualItem} from 'react-virtual/types';
+import type {VirtualItem} from '@tanstack/react-virtual';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
-import type {ComboboxItemsProps} from './types';
+import type {Item, ComboboxItemsProps} from './types';
 
 const ComboboxItems = React.memo(
   React.forwardRef<HTMLUListElement, ComboboxItemsProps>(
@@ -38,16 +38,16 @@ const ComboboxItems = React.memo(
         return (
           <ComboboxListboxGroup element={element} ref={ref}>
             <li role="presentation" key="total-size" style={{height: totalSize}} />
-            {virtualItems.map((virtualItem: VirtualItem) => {
+            {virtualItems.map((virtualItem: VirtualItem<Item>) => {
               const {index: virtualItemIndex} = virtualItem;
               const item = templatizedItems[virtualItemIndex];
               return (
                 <ComboboxListboxOption
-                  {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureRef})}
+                  {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureElement})}
                   element={element}
                   highlighted={highlightedIndex === virtualItemIndex}
                   selected={selectedItems?.includes(items[virtualItemIndex])}
-                  key={uidSeed(`item-${virtualItemIndex}`)}
+                  key={virtualItem.index}
                   variant="default"
                   startHeight={virtualItem.start}
                   aria-setsize={items.length}
