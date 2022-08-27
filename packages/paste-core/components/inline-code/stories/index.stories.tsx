@@ -2,6 +2,7 @@ import * as React from 'react';
 import {InlineCode} from '../src';
 import type {Story} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -30,6 +31,35 @@ export const InlineWithText: Story = () => {
       If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
       determines which arrow keys can be used to move focus.
     </Text>
+  );
+};
+
+export const WithTextSizes: Story = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Text fontSize="fontSize50" as="div">
+        If the composite has a single row or column (one-dimensional), the{' '}
+        <Text fontSize="fontSize10" as="span">
+          <InlineCode>orientation</InlineCode>
+        </Text>
+        <InlineCode>orientation</InlineCode> value determines which arrow keys can be used to move focus.
+      </Text>
+      <Text fontSize="fontSize10" as="div">
+        If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
+        determines which arrow keys can be used to move focus.
+      </Text>
+    </Stack>
+  );
+};
+
+export const DisplayingAPIKey: Story = () => {
+  return (
+    <Stack orientation="vertical" spacing="space30">
+      <Text fontWeight="fontWeightMedium" as="div">
+        API Key
+      </Text>
+      <InlineCode>WQC0000001111111122234444444</InlineCode>
+    </Stack>
   );
 };
 

@@ -26,12 +26,18 @@
   },
   "peerDependencies": {
     "@twilio-paste/box": "^7.0.1",
+    "@twilio-paste/design-tokens": "^8.1.0",
+    "@twilio-paste/style-props": "^6.0.0",
+    "@twilio-paste/theme": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@twilio-paste/box": "^7.0.1",
+    "@twilio-paste/design-tokens": "^8.1.0",
+    "@twilio-paste/style-props": "^6.0.0",
+    "@twilio-paste/theme": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

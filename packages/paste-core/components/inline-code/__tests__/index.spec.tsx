@@ -2,12 +2,18 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {InlineCode} from '../src';
+import {Box} from '@twilio-paste/box';
 
 describe('InlineCode', () => {
-  it('should render', () => {
-    const {getByText} = render(<InlineCode>sid</InlineCode>);
-    expect(getByText('sid')).toBeDefined();
+  it('should render text in a <code> tag', () => {
+    const {getByTestId} = render(
+      <Box data-testid="inline-code">
+        <InlineCode>sid</InlineCode>
+      </Box>
+    );
+    expect(getByTestId('inline-code').querySelector('code')).not.toBeNull();
   });
+
   it('should have a default element attribute', () => {
     const {getByText} = render(<InlineCode>sid</InlineCode>);
     expect(getByText('sid').getAttribute('data-paste-element')).toEqual('INLINE_CODE');
