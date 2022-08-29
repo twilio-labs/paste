@@ -4,6 +4,7 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {useCombobox, useMultipleSelection} from '@twilio-paste/dropdown-library';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {GrowingInput} from '../src/multiselect/GrowingInput';
@@ -49,37 +50,59 @@ interface ItemProps {
   index: number;
   isHighlighted: boolean;
   isSelected: boolean;
+  isLast: boolean;
 }
 
 // eslint-disable-next-line react/display-name
-const Item = React.memo(({item, index, getItemProps, isHighlighted, isSelected, ...rest}: ItemProps) => {
+const Item = React.memo(({item, index, getItemProps, isHighlighted, isSelected, isLast, ...rest}: ItemProps) => {
   //   console.log('render book item:', item, index, getItemProps, isHighlighted);
   return (
-    <li
-      style={{
-        position: 'relative',
-        cursor: 'pointer',
-        display: 'block',
-        border: 'none',
-        height: 'auto',
-        textAlign: 'left',
-        borderTop: 'none',
-        lineHeight: '1em',
-        fontSize: '1rem',
-        textTransform: 'none',
-        fontWeight: '400',
-        boxShadow: 'none',
-        padding: '.8rem 1.1rem',
-        whiteSpace: 'normal',
-        wordWrap: 'normal',
-        color: isHighlighted ? 'blue' : 'black',
-        backgroundColor: isSelected ? 'lightblue' : 'white',
-      }}
+    <Box
       {...getItemProps({item, index, ...rest})}
+      as="li"
+      position="relative"
+      cursor="pointer"
+      display="flex"
+      alignItems="center"
+      height="auto"
+      textAlign="left"
+      borderTop="none"
+      lineHeight="lineHeight10"
+      fontSize="fontSize40"
+      textTransform="none"
+      fontWeight="fontWeightNormal"
+      paddingX="space60"
+      paddingY="space40"
+      whiteSpace="normal"
+      wordWrap="normal"
+      border="none"
+      margin="space0"
+      width="100%"
+      marginBottom={isLast ? 'space0' : 'space10'}
+      borderLeftWidth="borderWidth30"
+      borderLeftColor={isHighlighted ? 'colorBorderPrimary' : 'transparent'}
+      borderLeftStyle="solid"
+      transition="all 200ms ease-in"
+      boxShadow={isLast ? 'none' : 'shadowBorderBottomDecorative10Weaker'}
+      /*
+      borderBottomWidth="borderWidth10"
+      borderBottomColor="colorBorderDecorative10Weaker"
+      borderBottomStyle="solid"
+      */
+      color={isHighlighted ? 'colorTextLinkStronger' : 'textColor'}
+      backgroundColor={isHighlighted ? 'colorBackgroundDecorative20Weakest' : 'colorBackgroundBody'}
     >
-      <span>{item.title}</span>
-      <span> - {item.author}</span>
-    </li>
+      <Box as="span" minHeight="1.25rem">
+        {item.title}
+      </Box>
+      <Box as="span" minHeight="1.25rem">
+        {' '}
+        - {item.author}
+      </Box>
+      <Box as="span" minHeight="1.25rem" marginLeft="auto" hidden={isSelected ? false : true}>
+        <CheckboxCheckIcon decorative={false} title="TODO: INJECT AS PROP FOR I18N" />
+      </Box>
+    </Box>
   );
 });
 
@@ -98,42 +121,40 @@ interface MenuProps {
 
 // eslint-disable-next-line react/display-name
 const Menu = React.memo(({isOpen, items, selectedItems, getMenuProps, getItemProps, highlightedIndex}: MenuProps) => {
+  if (!isOpen) return null;
   return (
-    <ul
+    <Box
       {...getMenuProps()}
-      style={{
-        padding: 0,
-        marginTop: 0,
-        position: 'absolute',
-        backgroundColor: 'white',
-        width: '100%',
-        maxHeight: '20rem',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        outline: '0',
-        transition: 'opacity .1s ease',
-        borderRadius: '0 0 .28571429rem .28571429rem',
-        boxShadow: '0 2px 3px 0 rgba(34,36,38,.15)',
-        borderColor: '#96c8da',
-        borderTopWidth: '0',
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
-        borderLeftWidth: 1,
-        borderStyle: 'solid',
-      }}
+      as="ul"
+      marginTop="space0"
+      padding="space0"
+      position="absolute"
+      top="108%" // TODO can we remove this magic number for layout to get the menu positioned corrrectly against focus ring?
+      backgroundColor="white"
+      width="100%"
+      maxHeight="20rem"
+      overflowY="auto"
+      overflowX="hidden"
+      outline="none"
+      transition="opacity .1s ease"
+      borderRadius="borderRadius20"
+      boxShadow="shadow"
+      borderColor="colorBorderDecorative10Weaker"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
     >
-      {isOpen &&
-        items.map((item, index) => (
-          <Item
-            key={index}
-            getItemProps={getItemProps}
-            index={index}
-            item={item}
-            isHighlighted={highlightedIndex === index}
-            isSelected={selectedItems.includes(item)}
-          />
-        ))}
-    </ul>
+      {items.map((item, index, arr) => (
+        <Item
+          key={index}
+          getItemProps={getItemProps}
+          index={index}
+          item={item}
+          isHighlighted={highlightedIndex === index}
+          isSelected={selectedItems.includes(item)}
+          isLast={arr[arr.length - 1] === item}
+        />
+      ))}
+    </Box>
   );
 });
 
