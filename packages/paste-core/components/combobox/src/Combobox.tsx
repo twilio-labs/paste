@@ -57,6 +57,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       groupItemsBy,
       groupLabelTemplate,
       variant = 'default',
+      getA11yStatusMessage,
+      getA11ySelectionMessage,
       state,
       ...props
     },
@@ -99,6 +101,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       initialSelectedItem,
       items,
       state,
+      getA11yStatusMessage,
+      getA11ySelectionMessage,
     });
 
     React.useEffect(() => {
