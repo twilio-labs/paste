@@ -38,11 +38,8 @@ export const WithTextSizes: Story = () => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Text fontSize="fontSize50" as="div">
-        If the composite has a single row or column (one-dimensional), the{' '}
-        <Text fontSize="fontSize10" as="span">
-          <InlineCode>orientation</InlineCode>
-        </Text>
-        <InlineCode>orientation</InlineCode> value determines which arrow keys can be used to move focus.
+        If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
+        determines which arrow keys can be used to move focus.
       </Text>
       <Text fontSize="fontSize10" as="div">
         If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
