@@ -2,6 +2,7 @@ import * as React from 'react';
 import {InlineCode} from '../src';
 import type {Story} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -18,10 +19,12 @@ export const Default: Story = () => {
 
 export const ReallyLongContent: Story = () => {
   return (
-    <InlineCode>
-      000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122
-      2344444 44
-    </InlineCode>
+    <Box maxWidth="size40">
+      <InlineCode>
+        000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122
+        2344444 44
+      </InlineCode>
+    </Box>
   );
 };
 
@@ -31,6 +34,23 @@ export const InlineWithText: Story = () => {
       If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
       determines which arrow keys can be used to move focus.
     </Text>
+  );
+};
+
+export const WithLineHeights: Story = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Text lineHeight="lineHeight40" as="span">
+        If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
+        determines which arrow keys can be used to move focus.
+      </Text>
+      <Text as="span" lineHeight="lineHeight60">
+        <InlineCode>
+          000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111
+          1122 2344444 44
+        </InlineCode>
+      </Text>
+    </Stack>
   );
 };
 

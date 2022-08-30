@@ -24,7 +24,6 @@ const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
         fontFamily="fontFamilyCode"
         fontSize="inherit"
         lineHeight="inherit"
-        paddingY="space10"
         paddingX="space20"
         ref={ref}
       >
