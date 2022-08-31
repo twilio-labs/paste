@@ -1,5 +1,8 @@
 import * as React from 'react';
 import type {Story, Meta} from '@storybook/react';
+import {useVirtualizer} from '@tanstack/react-virtual';
+import {useWindowSize} from '@twilio-paste/utils';
+import {useTheme, remToPx} from '@twilio-paste/theme';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
@@ -7,30 +10,28 @@ import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill
 import {useCombobox, useMultipleSelection} from '@twilio-paste/dropdown-library';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {GrowingInput} from '../src/multiselect/GrowingInput';
+import {ComboboxListbox} from '../src/styles/ComboboxListbox';
+import {ComboboxItems} from '../src/ComboboxItems';
 import includes from 'lodash/includes';
-import type {
-  UseComboboxPrimitiveGetItemPropsOptions,
-  UseComboboxPrimitiveGetMenuPropsOptions,
-  GetComboboxPrimitivePropsCommonOptions,
-} from '@twilio-paste/combobox-primitive';
+
+const estimateSize = (): number => 36;
+
+function createLargeArray<TemplateResult = string & Record<string, string>>(
+  template: (index?: number | undefined) => TemplateResult
+): TemplateResult[] {
+  // eslint-disable-next-line unicorn/prefer-spread
+  return Array.from(new Array(1000), (_empty, index) => template(index));
+}
 
 type Book = {
   author: string;
   title: string;
 };
 
-const books: Book[] = [
-  {author: 'Harper Lee', title: 'To Kill a Mockingbird'},
-  {author: 'Lev Tolstoy', title: 'War and Peace'},
-  {author: 'Fyodor Dostoyevsy', title: 'The Idiot'},
-  {author: 'Oscar Wilde', title: 'A Picture of Dorian Gray'},
-  {author: 'George Orwell', title: '1984'},
-  {author: 'Jane Austen', title: 'Pride and Prejudice'},
-  {author: 'Marcus Aurelius', title: 'Meditations'},
-  {author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov'},
-  {author: 'Lev Tolstoy', title: 'Anna Karenina'},
-  {author: 'Fyodor Dostoevsky', title: 'Crime and Punishment'},
-];
+const books: Book[] = createLargeArray((index) => ({
+  title: `Book ${index}`,
+  author: `Author ${index}`,
+}));
 
 function getFilteredBooks(inputValue: string): Book[] {
   const lowerCasedInputValue = inputValue.toLowerCase();
@@ -43,106 +44,15 @@ function getFilteredBooks(inputValue: string): Book[] {
   });
 }
 
-interface ItemProps {
-  getItemProps: (options: UseComboboxPrimitiveGetItemPropsOptions<Book>) => any;
-  item: Book;
-  index: number;
-  isHighlighted: boolean;
-  isSelected: boolean;
-}
-
-// eslint-disable-next-line react/display-name
-const Item = React.memo(({item, index, getItemProps, isHighlighted, isSelected, ...rest}: ItemProps) => {
-  //   console.log('render book item:', item, index, getItemProps, isHighlighted);
-  return (
-    <li
-      style={{
-        position: 'relative',
-        cursor: 'pointer',
-        display: 'block',
-        border: 'none',
-        height: 'auto',
-        textAlign: 'left',
-        borderTop: 'none',
-        lineHeight: '1em',
-        fontSize: '1rem',
-        textTransform: 'none',
-        fontWeight: '400',
-        boxShadow: 'none',
-        padding: '.8rem 1.1rem',
-        whiteSpace: 'normal',
-        wordWrap: 'normal',
-        color: isHighlighted ? 'blue' : 'black',
-        backgroundColor: isSelected ? 'lightblue' : 'white',
-      }}
-      {...getItemProps({item, index, ...rest})}
-    >
-      <span>{item.title}</span>
-      <span> - {item.author}</span>
-    </li>
-  );
-});
-
-interface MenuProps {
-  items: Book[];
-  selectedItems: Book[];
-  getMenuProps: (
-    options?: UseComboboxPrimitiveGetMenuPropsOptions | undefined,
-    otherOptions?: GetComboboxPrimitivePropsCommonOptions | undefined
-  ) => any;
-  getItemProps: (options: UseComboboxPrimitiveGetItemPropsOptions<Book>) => any;
-  highlightedIndex: number;
-  children?: never;
-  isOpen: boolean;
-}
-
-// eslint-disable-next-line react/display-name
-const Menu = React.memo(({isOpen, items, selectedItems, getMenuProps, getItemProps, highlightedIndex}: MenuProps) => {
-  return (
-    <ul
-      {...getMenuProps()}
-      style={{
-        padding: 0,
-        marginTop: 0,
-        position: 'absolute',
-        backgroundColor: 'white',
-        width: '100%',
-        maxHeight: '20rem',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        outline: '0',
-        transition: 'opacity .1s ease',
-        borderRadius: '0 0 .28571429rem .28571429rem',
-        boxShadow: '0 2px 3px 0 rgba(34,36,38,.15)',
-        borderColor: '#96c8da',
-        borderTopWidth: '0',
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
-        borderLeftWidth: 1,
-        borderStyle: 'solid',
-      }}
-    >
-      {isOpen &&
-        items.map((item, index) => (
-          <Item
-            key={index}
-            getItemProps={getItemProps}
-            index={index}
-            item={item}
-            isHighlighted={highlightedIndex === index}
-            isSelected={selectedItems.includes(item)}
-          />
-        ))}
-    </ul>
-  );
-});
-
-export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
+export const MultiselectComboBox: Story = ({groupItemsBy, element = 'Multiselect'}) => {
   const [inputValue, setInputValue] = React.useState('');
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
-  // const [selectedItems, setSelectedItems] = React.useState<Book[]>([]);
   const pillState = useFormPillState();
+  const theme = useTheme();
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const parentRef = React.useRef(null);
+  const paddingStart = React.useMemo(() => remToPx(theme.space.space30, 'number') ?? 0, [theme]);
+  const {width} = useWindowSize();
 
   const {
     // Call and destructure its returned object on the selected item element.
@@ -220,6 +130,7 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
     onStateChange({inputValue: newInputValue = '', type, selectedItem: newSelectedItem}) {
+      console.log('aaaaaaa');
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -239,6 +150,33 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
       }
     },
   });
+
+  // Virtualizer for long lists that don't use `groupItemsBy`
+  const rowVirtualizer = useVirtualizer({
+    count: filteredItems.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize,
+    paddingStart: paddingStart as number,
+    overscan: 4,
+  });
+
+  // Fixes issue where dynamic height items would not recompute on window resize and list content wrapping
+  React.useEffect(() => {
+    rowVirtualizer.measure();
+  }, [width]);
+
+  React.useEffect(() => {
+    const comboboxIsVirtualized = typeof groupItemsBy !== 'string';
+    if (comboboxIsVirtualized) {
+      if (
+        highlightedIndex !== undefined &&
+        typeof rowVirtualizer.scrollToIndex === 'function' &&
+        highlightedIndex > -1
+      ) {
+        rowVirtualizer.scrollToIndex(highlightedIndex);
+      }
+    }
+  }, [highlightedIndex, rowVirtualizer.scrollToIndex, groupItemsBy]);
 
   return (
     <Box position="relative" element={`${element}_WRAPPER`}>
@@ -296,14 +234,23 @@ export const MultiselectComboBox: Story = ({element = 'Multiselect'}) => {
         </Box>
       </InputBox>
 
-      <Menu
-        isOpen={isOpen}
-        highlightedIndex={highlightedIndex}
-        getMenuProps={getMenuProps}
-        getItemProps={getItemProps}
-        items={filteredItems}
-        selectedItems={selectedItems}
-      />
+      <ComboboxListbox hidden={!isOpen} element={element} {...getMenuProps({ref: parentRef})}>
+        <ComboboxItems
+          items={filteredItems}
+          element={'TESSSST'}
+          getItemProps={getItemProps}
+          highlightedIndex={highlightedIndex}
+          selectedItems={selectedItems}
+          totalSize={rowVirtualizer.getTotalSize()}
+          virtualItems={rowVirtualizer.getVirtualItems()}
+          optionTemplate={({title, author}) => (
+            <Box as="span" display="flex" flexDirection="column">
+              <Box as="span">{title}</Box>
+              <Box as="span">{author}</Box>
+            </Box>
+          )}
+        />
+      </ComboboxListbox>
     </Box>
   );
 };

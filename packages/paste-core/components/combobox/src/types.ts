@@ -1,3 +1,4 @@
+import type React from 'react';
 import type {BoxProps} from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
