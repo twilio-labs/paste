@@ -74,19 +74,18 @@ const HomeHero: React.FC = () => {
                 <Badge as="span" variant="new">
                   New!
                 </Badge>
-                <NewComponentBannerText>We&apos;ve released a Figma plugin, Twilio Ipsum!</NewComponentBannerText>
+                <NewComponentBannerText>We updated our tokens list page!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  showExternal
-                  to="https://www.figma.com/community/plugin/1040423794729523647/Twilio-Ipsum"
+                  to="/tokens/list"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Go to Twilio Ipsum Figma plugin',
+                      label: 'Go to the updated Tokens list page',
                     })
                   }
                 >
-                  Try it out
+                  Check it out
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text

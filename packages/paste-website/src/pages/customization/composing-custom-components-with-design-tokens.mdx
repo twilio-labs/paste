@@ -7,7 +7,7 @@ slug: /customization/composing-custom-components-with-design-tokens/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
 
@@ -73,8 +73,8 @@ Each Design Primitive is a [Styled Component](https://emotion.sh/docs/styled) th
 
 The Box Primitive component is designed to be a block level primitive. Think of it as a `div`, except with super powers. By exposing the `as` prop, Box can become any _valid_ HTML element (obviously the sensible choices would be box or block style things). It exposes important styling properties like background color, padding, margin, border styles, etc., to allow you to create custom block level containers. The values the styling properties take are the names of the design tokens exposed on the theme object.
 
-<Callout>
-  <CalloutTitle as="h4">RIP Hex Values!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">RIP Hex Values!</CalloutHeading>
   <CalloutText>
     To ensure design system resiliency, Box and Text <strong>do not</strong> accept HTML Color Codes, Font Sizes, or
     arbitrary pixel values. Any styling choices must be expressed using tokens, and tokens only.

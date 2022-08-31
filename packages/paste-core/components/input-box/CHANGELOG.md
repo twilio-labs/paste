@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+- [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76) [#2595](https://github.com/twilio-labs/paste/pull/2595) Thanks [@TheSisb](https://github.com/TheSisb)! - [InputBox, Combobox, Select] InputBox's `InputChevronWrapper` has refreshed styling which will appear in Select and Combobox. InputBox now exports a `getInputChevronIconColor()` function which returns a textColor to use for styling the icon child to the `InputChevronWrapper`.
+
 ## 7.0.0
 
 ### Patch Changes

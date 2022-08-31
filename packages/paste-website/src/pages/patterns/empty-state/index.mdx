@@ -14,7 +14,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import {
   AwaitingDataImage,
   ChangeRegionImage,
@@ -208,7 +208,7 @@ In smaller spaces, use `padding="space100"` and stack the illustration in the ca
 
 If your empty state composition needs to accommodate different screen sizes, you can also wrap it in the Stack or Grid component.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     If you'd like to contribute guidelines for the empty state pattern in even more compact situations, like a
     navigation panel or components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}

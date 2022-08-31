@@ -80,6 +80,7 @@ Object {
     "sizeSquare90": "1px",
   },
   "iconSizes": Object {
+    "sizeIcon05": undefined,
     "sizeIcon10": "1px",
     "sizeIcon100": "1px",
     "sizeIcon110": "1px",

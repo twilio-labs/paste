@@ -97,6 +97,7 @@ describe('Menu', () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-anchor');
       expect(renderedMenuItem.tagName).toEqual('A');
+      expect(renderedMenuItem.getAttribute('href')).toEqual('https://google.com');
     });
 
     it('should render a menu separator', () => {

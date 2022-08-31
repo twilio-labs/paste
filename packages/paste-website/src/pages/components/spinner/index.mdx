@@ -10,7 +10,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
 import Changelog from '@twilio-paste/spinner/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
 
@@ -83,8 +83,8 @@ export const pageQuery = graphql`
 
 The spinner is an icon component that can be used in situations where you would like to communicate a loading state to the user. It inherits a lot of properties from the [Icon component](/components/icons/usage-guidelines/).
 
-<Callout>
-  <CalloutTitle>Accessible animation</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessible animation</CalloutHeading>
   <CalloutText>
     The spinner animation will automatically respect user preferences set at the operating system level via the prefers
     reduced motion API.
@@ -97,8 +97,8 @@ The spinner is an icon component that can be used in situations where you would 
 
 The default Spinner uses the default text color (`color-text`) and default icon size (`icon-size-20`), which is meant to be paired with our default text size.
 
-<Callout>
-  <CalloutTitle>Accessibility</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility</CalloutHeading>
   <CalloutText>
     You are required to set whether the Spinner is decorative or not, please follow the{' '}
     <SiteLink to="/components/icons/usage-guidelines#accessibility">icon accessibility guidelines</SiteLink>.

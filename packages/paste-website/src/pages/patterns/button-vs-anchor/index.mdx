@@ -8,7 +8,7 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -192,8 +192,8 @@ There are some cases where a secondary button may be used for an irreversible ac
 
 ### Link-style button (tertiary)
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">This is not a variant we recommend you use often.</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">This is not a variant we recommend you use often.</CalloutHeading>
   <CalloutText>
     When using buttons that look similar to anchors, <strong>be very strategic</strong> in their use since voice
     dictation users may encounter issues when trying to activate them by mistaking them for anchors.
@@ -219,8 +219,8 @@ When making this decision, it's **a great opportunity to test** which buttons yo
 
 ### Buttons with link functionality
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">This is not a variant we recommend you use often.</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">This is not a variant we recommend you use often.</CalloutHeading>
   <CalloutText>
     When using buttons as anchors, be very strategic in their use and placement. Screen dictation software may
     experience usability issues, as it is confusing to hear a link read out when looking at a button.

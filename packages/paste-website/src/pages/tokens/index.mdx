@@ -8,8 +8,8 @@ import {graphql} from 'gatsby';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {ImageCaption} from '../../components/ImageCaption';
 
@@ -59,8 +59,8 @@ All Paste components use design tokens. Additionally, [styling primitives with t
   thickness, text color and size, padding, and margin.
 </ImageCaption>
 
-<Callout>
-  <CalloutTitle as="h3">Need a token that doesn't exist in Paste yet?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Need a token that doesn't exist in Paste yet?</CalloutHeading>
   <CalloutText>
     We add new tokens every so often when there’s a strong semantic purpose that can exist across multiple products. If
     you think you have a need for a new token, please{' '}

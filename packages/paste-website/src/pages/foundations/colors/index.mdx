@@ -10,8 +10,8 @@ import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {ColorSwatch} from '../../../components/color-swatch/ColorSwatch';
 import {ColorGradientRainbow} from '../../../components/color-swatch/ColorGradient';
@@ -317,8 +317,8 @@ As detailed in [WCAG Success Criterion 1.4.11 (Level AA)](https://www.w3.org/TR/
 
 <InteractingStatesImgCaption />
 
-<Callout>
-  <CalloutTitle as="h4">Still need more guidance?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Still need more guidance?</CalloutHeading>
   <CalloutText>
     This guideline has many exceptions and rules, so it can get complicated. The information provided is an attempt to
     cover most cases, but doesn’t cover everything.{' '}

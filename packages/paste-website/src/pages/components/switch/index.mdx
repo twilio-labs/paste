@@ -1,0 +1,220 @@
+---
+title: Switch
+package: '@twilio-paste/switch'
+description: A Switch is an interactive binary control.
+slug: /components/switch/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
+import {Switch, SwitchContainer} from '@twilio-paste/switch';
+import Changelog from '@twilio-paste/chat-log/CHANGELOG.md';
+import {HelpText} from '@twilio-paste/help-text';
+import {useUID} from '@twilio-paste/uid-library';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  basicSwitch,
+  helpTextSwitch,
+  requiredSwitch,
+  onSwitch,
+  disabledSwitch,
+  disabledOnSwitch,
+  uncontrolledSwitch,
+  controlledSwitch,
+} from '../../../component-examples/SwitchExamples.ts';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/switch"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/switch/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Switch"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/switch"
+  storybookUrl="/?path=/story/components-switch--default"
+  data={props.data}
+  description={props.data.mdx.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {basicSwitch}
+</LivePreview>
+
+## Guidelines
+
+### About Switch
+
+A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed. Use label text to describe the purpose of the Switch. The label text shouldn't change when the state of the Switch changes. Help text can also be used to provide additional guidance.
+
+### Accessibility
+
+Switch has `role="switch"`. The `aria-labelledby` attribute is automatically set on the component, which ensures that assistive technology devices can read the Switch's label. The 'aria-checked' attribute defaults to `"false"`, and is set to `"true"` when the Switch is on.
+
+## Controlled vs. uncontrolle Switches
+
+The Switch can either be controlled, meaning there is an external state that determines if the Switch is on or not, or uncontrolled, meaning the Switch manages its own state.
+
+To make an uncontrolled Switch, you do not pass the `onClick` prop.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {uncontrolledSwitch}
+</LivePreview>
+
+To make a controlled checkbox, you must pass the `on` and `onChange` props.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {controlledSwitch}
+</LivePreview>
+
+## Examples
+
+### Default
+
+A Switch is always displayed with a visible label. The label text should never change based on the state of the Switch.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {basicSwitch}
+</LivePreview>
+
+### With Help Text
+
+In cases where the Switch requires additional context, you can display this information as help text below the Switch and label. This can help keep Switch labels concise. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
+
+<LivePreview scope={{Switch, SwitchContainer, Anchor, useUID}} noInline>
+  {helpTextSwitch}
+</LivePreview>
+
+### Required
+
+When a Switch is required to be on, a required indicator should be displayed alongside the label. The label text should also be written in such a way that this requirement is clear to the user.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {requiredSwitch}
+</LivePreview>
+
+### Disabled
+
+Use a disabled Switch to indicate to users that it is not interactive. If interactivity is dependent on another action, make that clear using help text.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {disabledSwitch}
+</LivePreview>
+
+## States
+
+### On
+
+The default Switch state is off.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {onSwitch}
+</LivePreview>
+
+### Disabled on
+
+Use the disabled on Switch to indicate to users that it is not interactive and cannot be turned off. If interactivity is dependent on another action, make that clear using help text.
+
+<LivePreview scope={{Switch, SwitchContainer, useUID}} noInline>
+  {disabledOnSwitch}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/switch - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Switch} from '@twilio-paste/core/switch';
+export const Basic = () => {
+  return (
+    <SwitchContainer label="label text">
+      <Switch />
+    </SwitchContainer>
+  );
+};
+```
+
+#### SwitchContainer Props
+
+All the valid HTML attributes for `label` are supported including the following props:
+
+| Prop      | Type        | Description                                                                               | Default            |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children  | `ReactNode` |                                                                                           | null               |
+| id?       | `string`    |                                                                                           | null               |
+| disabled? | `boolean`   |                                                                                           |                    |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'SWITCH_CONTAINER' |
+| helpText? | `ReactNode` |                                                                                           |                    |
+| label     | `ReactNode` |                                                                                           |                    |
+| required  | `boolean`   |                                                                                           |                    |
+
+#### Switch Props
+
+All the valid HTML attributes for `div` are supported including the following props:
+
+| Prop     | Type        | Description                                                                               | Default  |
+| -------- | ----------- | ----------------------------------------------------------------------------------------- | -------- |
+| children | `ReactNode` |                                                                                           | null     |
+| id?      | `string`    |                                                                                           | null     |
+| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'SWITCH' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

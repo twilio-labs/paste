@@ -14,8 +14,8 @@ import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {InlineCode} from '../../../components/Typography';
 import {
@@ -109,8 +109,8 @@ export const pageQuery = graphql`
 
 Each menu item can only perform a single action.
 
-<Callout variant="warning">
-  <CalloutTitle>Do not nest multiple actions within a menu item</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Do not nest multiple actions within a menu item</CalloutHeading>
   <CalloutText>
     Please do not add additional actionable elements inside a menu item. They will not be keyboard accessible.
   </CalloutText>
@@ -236,8 +236,8 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 
 ### Composing menu items
 
-<Callout>
-  <CalloutTitle>Note</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading>Note</CalloutHeading>
   <CalloutText>
     Menu item content is composible however you want. We'll have more complete best practice guidelines soon, but in the
     meantime here are some example compositions using Paste components.

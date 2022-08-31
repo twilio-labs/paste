@@ -1,0 +1,57 @@
+{
+  "name": "@twilio-paste/switch",
+  "version": "1.0.0",
+  "category": "interaction",
+  "status": "production",
+  "description": "A switch is an interactive binary control.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "peerDependencies": {
+    "@twilio-paste/box": "^7.0.0",
+    "@twilio-paste/design-tokens": "^8.0.0",
+    "@twilio-paste/help-text": "^10.0.0",
+    "@twilio-paste/icons": "^9.0.0",
+    "@twilio-paste/label": "^10.0.0",
+    "@twilio-paste/media-object": "^7.0.0",
+    "@twilio-paste/style-props": "^6.0.0",
+    "@twilio-paste/text": "^7.0.0",
+    "@twilio-paste/theme": "^8.0.0",
+    "@twilio-paste/uid-library": "^0.2.5",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/box": "^7.0.1",
+    "@twilio-paste/design-tokens": "^8.1.0",
+    "@twilio-paste/help-text": "^10.0.0",
+    "@twilio-paste/icons": "^9.0.0",
+    "@twilio-paste/label": "^10.1.0",
+    "@twilio-paste/media-object": "^7.0.0",
+    "@twilio-paste/style-props": "^6.0.0",
+    "@twilio-paste/text": "^7.0.0",
+    "@twilio-paste/theme": "^8.0.1",
+    "@twilio-paste/uid-library": "^0.2.5",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

@@ -11,6 +11,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
     return (
       <Box
         {...(href && secureExternalLink(href))}
+        href={href}
         as={href ? 'a' : 'button'}
         {...safelySpreadBoxProps(props)}
         element={element}

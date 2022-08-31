@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+- [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add toggle button for secondary and secondary_icon variants
+
 ## 11.0.0
 
 ### Minor Changes
