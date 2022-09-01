@@ -5,10 +5,16 @@ import type {BoxProps} from '@twilio-paste/box';
 
 export interface ComboboxListboxProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
+  hidden: boolean;
 }
 
 const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>(
-  ({children, element = 'COMBOBOX', ...props}, ref) => {
+  ({children, element = 'COMBOBOX', hidden, ...props}, ref) => {
+    // Unmount children when hidden
+    if (hidden) {
+      return null;
+    }
+
     // TODO:
     // Right now the listbox is absolutely positioned. This will
     // fail if a combobox is placed at the bottom of a screen

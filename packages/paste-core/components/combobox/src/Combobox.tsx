@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useVirtualizer} from '@tanstack/react-virtual';
+import {useVirtual} from 'react-virtual';
 import {useTheme, remToPx} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {useWindowSize} from '@twilio-paste/utils';
@@ -17,8 +17,6 @@ import {ComboboxListbox} from './styles/ComboboxListbox';
 import {ComboboxItems} from './ComboboxItems';
 import type {ComboboxProps} from './types';
 import {extractPropsFromState} from './extractPropsFromState';
-
-const estimateSize = (): number => 36;
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -78,6 +76,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       getMenuProps,
       getToggleButtonProps,
       highlightedIndex,
+      selectedItem: internalSelectedItem,
       isOpen,
     } = extractPropsFromState({
       onInputValueChange,
@@ -109,10 +108,9 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     }
 
     // Virtualizer for long lists that don't use `groupItemsBy`
-    const rowVirtualizer = useVirtualizer({
-      count: items.length,
-      getScrollElement: () => parentRef.current,
-      estimateSize,
+    const rowVirtualizer = useVirtual({
+      size: items.length,
+      parentRef,
       paddingStart: paddingStart as number,
       overscan: 4,
     });
@@ -121,6 +119,17 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     React.useEffect(() => {
       rowVirtualizer.measure();
     }, [width]);
+
+    // Use ref to focus the current selected item when the list is opened
+    // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+    const scrollToIndexRef = React.useCallback(
+      (node) => {
+        if (node) {
+          rowVirtualizer.scrollToIndex(items.indexOf(internalSelectedItem));
+        }
+      },
+      [items, internalSelectedItem]
+    );
 
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
@@ -159,6 +168,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         </InputBox>
         <ComboboxListbox hidden={!isOpen} element={element} {...getMenuProps({ref: parentRef})}>
           <ComboboxItems
+            ref={scrollToIndexRef}
             items={items}
             element={element}
             getItemProps={getItemProps}
@@ -166,8 +176,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             optionTemplate={optionTemplate}
             groupItemsBy={groupItemsBy}
             groupLabelTemplate={groupLabelTemplate}
-            totalSize={rowVirtualizer.getTotalSize()}
-            virtualItems={rowVirtualizer.getVirtualItems()}
+            totalSize={rowVirtualizer.totalSize}
+            virtualItems={rowVirtualizer.virtualItems}
           />
         </ComboboxListbox>
         {helpText && (

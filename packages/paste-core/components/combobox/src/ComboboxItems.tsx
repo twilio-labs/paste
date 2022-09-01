@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {VirtualItem} from '@tanstack/react-virtual';
+import type {VirtualItem} from 'react-virtual';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
-import type {Item, ComboboxItemsProps} from './types';
+import type {ComboboxItemsProps} from './types';
 
 const ComboboxItems = React.memo(
   React.forwardRef<HTMLUListElement, ComboboxItemsProps>(
@@ -38,18 +38,17 @@ const ComboboxItems = React.memo(
         return (
           <ComboboxListboxGroup element={element} ref={ref}>
             <li role="presentation" key="total-size" style={{height: totalSize}} />
-            {virtualItems.map((virtualItem: VirtualItem<Item>) => {
-              const {index: virtualItemIndex} = virtualItem;
+            {virtualItems.map(({measureRef, index: virtualItemIndex, start}: VirtualItem) => {
               const item = templatizedItems[virtualItemIndex];
               return (
                 <ComboboxListboxOption
-                  {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureElement})}
+                  {...getItemProps({item, index: virtualItemIndex, ref: measureRef})}
+                  key={virtualItemIndex}
                   element={element}
                   highlighted={highlightedIndex === virtualItemIndex}
                   selected={selectedItems?.includes(items[virtualItemIndex])}
-                  key={virtualItem.index}
                   variant="default"
-                  startHeight={virtualItem.start}
+                  startHeight={start}
                   aria-setsize={items.length}
                   aria-posinset={virtualItemIndex + 1}
                 >
@@ -81,7 +80,7 @@ const ComboboxItems = React.memo(
                 groupName={isUncategorized ? undefined : groupKey}
                 groupLabelTemplate={groupLabelTemplate}
               >
-                {groupedItems[groupedItemKey].map((item: {[key: string]: any}) => (
+                {groupedItems[groupedItemKey].map((item: Record<string, unknown>) => (
                   <ComboboxListboxOption
                     {...getItemProps({item, index: item.index})}
                     element={element}

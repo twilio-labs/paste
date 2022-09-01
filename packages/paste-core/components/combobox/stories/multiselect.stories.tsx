@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type {Story, Meta} from '@storybook/react';
-import {useVirtualizer} from '@tanstack/react-virtual';
+import {useVirtual} from 'react-virtual';
 import {useWindowSize} from '@twilio-paste/utils';
 import {useTheme, remToPx} from '@twilio-paste/theme';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
@@ -13,8 +13,6 @@ import {GrowingInput} from '../src/multiselect/GrowingInput';
 import {ComboboxListbox} from '../src/styles/ComboboxListbox';
 import {ComboboxItems} from '../src/ComboboxItems';
 import includes from 'lodash/includes';
-
-const estimateSize = (): number => 36;
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
   template: (index?: number | undefined) => TemplateResult
@@ -130,7 +128,6 @@ export const MultiselectComboBox: Story = ({groupItemsBy, element = 'Multiselect
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
     onStateChange({inputValue: newInputValue = '', type, selectedItem: newSelectedItem}) {
-      console.log('aaaaaaa');
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -152,18 +149,29 @@ export const MultiselectComboBox: Story = ({groupItemsBy, element = 'Multiselect
   });
 
   // Virtualizer for long lists that don't use `groupItemsBy`
-  const rowVirtualizer = useVirtualizer({
-    count: filteredItems.length,
-    getScrollElement: () => parentRef.current,
-    estimateSize,
+  const rowVirtualizer = useVirtual({
+    size: filteredItems.length,
+    parentRef,
     paddingStart: paddingStart as number,
-    overscan: 4,
+    overscan: 8,
   });
 
   // Fixes issue where dynamic height items would not recompute on window resize and list content wrapping
   React.useEffect(() => {
     rowVirtualizer.measure();
   }, [width]);
+
+  // Use ref to focus the current selected item when the list is opened
+  // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+  const scrollToIndexRef = React.useCallback(
+    (node) => {
+      if (node) {
+        const lastSelectedItem = selectedItems[selectedItems.length - 1];
+        rowVirtualizer.scrollToIndex(filteredItems.indexOf(lastSelectedItem));
+      }
+    },
+    [filteredItems, selectedItems]
+  );
 
   React.useEffect(() => {
     const comboboxIsVirtualized = typeof groupItemsBy !== 'string';
@@ -236,13 +244,14 @@ export const MultiselectComboBox: Story = ({groupItemsBy, element = 'Multiselect
 
       <ComboboxListbox hidden={!isOpen} element={element} {...getMenuProps({ref: parentRef})}>
         <ComboboxItems
+          ref={scrollToIndexRef}
           items={filteredItems}
           element={'TESSSST'}
           getItemProps={getItemProps}
           highlightedIndex={highlightedIndex}
           selectedItems={selectedItems}
-          totalSize={rowVirtualizer.getTotalSize()}
-          virtualItems={rowVirtualizer.getVirtualItems()}
+          totalSize={rowVirtualizer.totalSize}
+          virtualItems={rowVirtualizer.virtualItems}
           optionTemplate={({title, author}) => (
             <Box as="span" display="flex" flexDirection="column">
               <Box as="span">{title}</Box>
