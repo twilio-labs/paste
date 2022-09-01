@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import type {PositionOptions} from '@twilio-paste/style-props';
@@ -41,23 +42,40 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         {...safelySpreadBoxProps(props)}
         as="li"
         element={`${element}_LIST_ITEM`}
-        backgroundColor={
-          selected ? 'colorBackgroundBrand' : highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'
-        }
+        backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
+        color={highlighted ? 'colorTextLinkStronger' : 'colorText'}
+        display="flex"
+        alignItems="center"
         padding="space30"
         cursor="pointer"
         ref={ref}
+        borderLeftWidth="borderWidth30"
+        borderLeftColor={highlighted ? (selected ? 'colorBorderPrimaryStronger' : 'colorBorderPrimary') : 'transparent'}
+        borderLeftStyle="solid"
+        transition="borderLeft 200ms ease-in, backgroundColor 200ms ease-in"
+        borderBottomWidth="borderWidth10"
+        borderBottomColor="colorBorderDecorative10Weaker"
+        borderBottomStyle="solid"
+        _last={{
+          marginBottom: 'space0',
+          borderBottomColor: 'transparent',
+        }}
         {...virtualItemStyles}
         {...VariantStyles[variant]}
       >
-        <Text
-          as="span"
-          color="colorText"
-          element={`${element}_LIST_ITEM_TEXT`}
-          textDecoration={highlighted ? 'underline' : null}
-        >
-          {children}
-        </Text>
+        <Box as="span" minHeight="1.25rem">
+          <Text
+            as="span"
+            color="inherit"
+            element={`${element}_LIST_ITEM_TEXT`}
+            textDecoration={highlighted ? 'underline' : null}
+          >
+            {children}
+          </Text>
+        </Box>
+        <Box as="span" minHeight="1.25rem" marginLeft="auto" hidden={selected ? false : true}>
+          <CheckboxCheckIcon decorative={false} title="TODO: INJECT AS PROP FOR I18N" color="inherit" />
+        </Box>
       </Box>
     );
   }
