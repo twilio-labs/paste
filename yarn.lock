@@ -10218,6 +10218,7 @@ __metadata:
     "@twilio-paste/heading": ^8.0.0
     "@twilio-paste/help-text": ^10.0.0
     "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/inline-code": ^0.0.0
     "@twilio-paste/inline-control-group": ^10.0.0
     "@twilio-paste/input": ^6.0.0
     "@twilio-paste/input-box": ^7.1.0
@@ -10707,6 +10708,28 @@ __metadata:
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/inline-code@^0.0.0, @twilio-paste/inline-code@workspace:packages/paste-core/components/inline-code":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/inline-code@workspace:packages/paste-core/components/inline-code"
+  dependencies:
+    "@twilio-paste/box": ^7.0.1
+    "@twilio-paste/design-tokens": ^8.1.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/theme": ^8.0.1
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/box": ^7.0.1
+    "@twilio-paste/design-tokens": ^8.1.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/theme": ^8.0.1
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
