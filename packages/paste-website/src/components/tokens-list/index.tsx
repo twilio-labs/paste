@@ -13,6 +13,7 @@ import {TokenCard} from './token-card';
 import {TokensListFilter} from './TokensListFilter';
 import {SimpleStorage} from '../../utils/SimpleStorage';
 import {sectionIntros} from './sectionIntros';
+import {ScrollToTopLink} from './ScrollToTopLink';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -24,7 +25,9 @@ const sentenceCase = (catName: string): string => {
 };
 
 const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content: React.FC = (props) => <Box as="div" maxWidth="size70" minWidth="0" width="100%" {...props} />;
+const Content: React.FC = (props) => (
+  <Box as="div" position="relative" maxWidth="size70" minWidth="0" width="100%" {...props} />
+);
 
 const defaultTheme = 'default';
 const defaultFormat = 'css';
@@ -176,6 +179,7 @@ export const TokensList: React.FC = () => {
                     <p>Placeholder...</p>
                   )}
                 </Box>
+                <ScrollToTopLink />
               </React.Fragment>
             );
           })

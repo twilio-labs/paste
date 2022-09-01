@@ -11,6 +11,7 @@
 /box
 /breadcrumb
 /button
+/callout
 /card
 /chat-log
 /checkbox
@@ -40,6 +41,7 @@
 /media-object
 /menu
 /menu-primitive
+/minimizable-dialog
 /modal
 /modal-dialog-primitive
 /non-modal-dialog-primitive
@@ -58,6 +60,7 @@
 /stack
 /style-props
 /styling-library
+/switch
 /table
 /tabs
 /tabs-primitive

@@ -15,8 +15,8 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {UnorderedList, ListItem} from '@twilio-paste/core/list';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 export const pageQuery = graphql`
   {
@@ -221,8 +221,8 @@ They’ve performed audits and gap analyses, written software design docs, and i
 
 ## 👀 What's next
 
-<Callout>
-  <CalloutTitle>Roadmap delays inbound</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Roadmap delays inbound</CalloutHeading>
   <CalloutText>
     We are observing a Heightened Awareness Period (HAP). As such, the following items may not be released according to
     our initial roadmap projections.

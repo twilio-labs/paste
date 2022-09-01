@@ -6,7 +6,7 @@ slug: /foundations/content/product-style-guide/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../../components/DoDont';
 
 export const pageQuery = graphql`
@@ -53,8 +53,8 @@ export const pageQuery = graphql`
 - Use simple, short sentences and common words.
 - Explain technical terms and write acronyms in full the first time a user sees them.
 
-<Callout>
-  <CalloutTitle>Using readability tools</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Using readability tools</CalloutHeading>
   <CalloutText>
     Sites offering{' '}
     <Anchor href="https://readabilityformulas.com/free-readability-formula-tests.php">
@@ -92,8 +92,8 @@ export const pageQuery = graphql`
 - And you can start sentences with _But_ or _And_.
 - Use contractions with pronouns &mdash; _it’s, there’s, you’ll, we’ll, you’re_ &mdash; to sound conversational.
 
-<Callout>
-  <CalloutTitle>Exception: avoid contractions in error messages</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Exception: avoid contractions in error messages</CalloutHeading>
   <CalloutText>
     Avoid contractions in negative scenarios. When a user is stressed, their comprehension suffers. Often users will
     read <em>can’t</em> as <em>can</em>, missing the -’t at the end. Write out error messages or destructive action
@@ -115,10 +115,9 @@ export const pageQuery = graphql`
 
 **Don't** use "&" just to make content shorter. If space is an issue, address the content and design together.
 
-<Callout>
-  <CalloutTitle>Why?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Why?</CalloutHeading>
   <CalloutText>
-    {' '}
     Using "and" rather than the ampersand symbol (&) supports localization and users with lower literacy or cognitive
     impairments. Some screen readers can’t interpret the code behind an ampersand, which obscures the meaning for the
     user.
@@ -353,8 +352,8 @@ _Avoid_ using abbreviations in body copy. It might reduce the character count bu
   - _To access billing information, select My Account._
   - _I understand._ (This usage is almost exclusively for legal consent.)
 
-<Callout>
-  <CalloutTitle as="h4">Legal content</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Legal content</CalloutHeading>
   <CalloutText>
     Legal content follows different rules to product &mdash; e.g., in Terms of Service, Twilio is usually referenced in
     the third person. Always check with the legal team if the content regards consent.

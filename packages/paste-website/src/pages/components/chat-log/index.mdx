@@ -25,9 +25,9 @@ import {
 import Changelog from '@twilio-paste/chat-log/CHANGELOG.md';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {HelpText} from '@twilio-paste/help-text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   basicInboundMessage,
   basicOutboundMessage,
@@ -85,8 +85,8 @@ export const pageQuery = graphql`
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox"
-  storybookUrl="/?path=/story/components-combobox--default-combobox"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-log"
+  storybookUrl="/?path=/story/components-chatlog--scrolling-chat-log"
   data={props.data}
   description={props.data.mdx.frontmatter.description}
 />
@@ -450,8 +450,8 @@ ChatAttachmentLink inherits the same props as [Anchor](/components/anchor) as we
 
 ### Figma
 
-<Callout>
-  <CalloutTitle as="h4">Chat Log components are not in the Paste Component Library yet</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Chat Log components are not in the Paste Component Library yet</CalloutHeading>
   <CalloutText>
     To find the Stage 1 components, see{' '}
     <Anchor href="https://www.figma.com/file/cSdKlqoTbxoAUmnrYkfFWl/Conversations-UI-Kit?node-id=0%3A1" showExternal>

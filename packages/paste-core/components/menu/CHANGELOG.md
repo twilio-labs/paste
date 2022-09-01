@@ -1,5 +1,15 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+- [`563dff9a8`](https://github.com/twilio-labs/paste/commit/563dff9a889e9b880e86568add91cfe5b686f7bd) [#2604](https://github.com/twilio-labs/paste/pull/2604) Thanks [@loreina](https://github.com/loreina)! - - [menu] add menu item destructive variant
+
+### Patch Changes
+
+- [`ceb26bb91`](https://github.com/twilio-labs/paste/commit/ceb26bb91348c4ace5a81522f7da3c3595c77de1) [#2634](https://github.com/twilio-labs/paste/pull/2634) Thanks [@shleewhite](https://github.com/shleewhite)! - [Menu] fix href not getting passed to MenuItem
+
 ## 11.0.0
 
 ### Patch Changes

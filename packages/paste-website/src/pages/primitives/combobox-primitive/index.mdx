@@ -14,9 +14,9 @@ import {Input} from '@twilio-paste/input';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
 import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   autocompleteExample,
   defaultExample,
@@ -98,8 +98,8 @@ a functional and accessible experience to your customers.
 
 This primitive should be used to compose all custom Comboboxes to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle>Warning</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading>Warning</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     goes through the UX Review process to ensure an excellent experience for our customers.
@@ -118,7 +118,7 @@ Contrary to the Downshift documentation and example, the basic Combobox should h
 the trigger, and not an HTML button. Use an input element and set the role of Combobox in the `getToggleButtonProps`
 getter or directly on the element itself. You can see this demonstrated below:
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Using an input element prevents screen readers like JAWS switching out of focus or forms mode when navigating
     through a form. This provides a really frustrating experience to users of JAWS. It is also a direct replacement for
@@ -493,8 +493,8 @@ that state from other components, `redux`, `react-router`, or anywhere else.
 
 ##### useComboboxPrimitive prop getters
 
-<Callout>
-  <CalloutTitle>On prop getters and accessibility</CalloutTitle>
+<Callout variant="neutral" marignY="space70">
+  <CalloutHeading as="span">On prop getters and accessibility</CalloutHeading>
   <CalloutText>
     These prop-getters provide `aria-` attributes which are very important > to your component being accessible. It's
     recommended that you utilize these > functions and apply the props they give you to your components.
@@ -898,8 +898,8 @@ The properties of `useMultipleSelection` can be split into three categories as i
 
 ##### useMultiSelectPrimitive prop getters
 
-<Callout>
-  <CalloutTitle>On prop getters and accessibility</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="span">On prop getters and accessibility</CalloutHeading>
   <CalloutText>
     These prop-getters provide `aria-` attributes which are very important > to your component being accessible. It's
     recommended that you utilize these > functions and apply the props they give you to your components.

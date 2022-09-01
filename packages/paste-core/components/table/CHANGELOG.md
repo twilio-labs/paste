@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`7e75f8119`](https://github.com/twilio-labs/paste/commit/7e75f8119067c8aad70f14b70324ca93d8d07917) [#2574](https://github.com/twilio-labs/paste/pull/2574) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [table, data-grid] adding sticky header functionality to both the Table and Data Grid components
+
 ## 5.0.0
 
 ### Patch Changes

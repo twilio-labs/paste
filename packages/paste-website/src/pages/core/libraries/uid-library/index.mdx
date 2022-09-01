@@ -7,8 +7,8 @@ slug: /core/libraries/uid-library/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import PackageJSON from '@twilio-paste/uid-library/package.json';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -129,7 +129,7 @@ This React Hook creates a seed from which you can generate several UIDs. It's ha
 
 #### UIDFork Component
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>This is only needed for lazy-loaded or code-split chunks.</CalloutText>
 </Callout>
 
@@ -141,8 +141,8 @@ to garantee there isn't any collisions.
 
 #### uid(item, index)
 
-<Callout variant="warning">
-  <CalloutTitle>Don't use this API in React Components</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading>Don't use this API in React Components</CalloutHeading>
   <CalloutText>
     Prefer using the other React Hooks (useUID or useUIDSeed) in React components. They are Server Side Rendering (SSR)
     compatible and the recommended future-proof API.

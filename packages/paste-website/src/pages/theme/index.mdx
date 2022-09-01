@@ -8,9 +8,9 @@ slug: /theme
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -113,8 +113,8 @@ const custom = styled.div(
 
 ### Alternatives when not using Emotion
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">Careful!</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Careful!</CalloutHeading>
   <CalloutText>
     This is not a recommended approach for using Tokens. If you must do so, we strongly recommend reaching out at{' '}
     <em>#help-design-system</em>

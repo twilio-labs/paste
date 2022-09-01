@@ -19,7 +19,7 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -211,8 +211,8 @@ The Select component should include the base Select, along with supporting eleme
 - **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing the optional fields.
 - **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with
     the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.

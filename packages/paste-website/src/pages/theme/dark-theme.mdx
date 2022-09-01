@@ -5,9 +5,9 @@ slug: /theme/dark-theme
 ---
 
 import {graphql} from 'gatsby';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../constants';
 import {DoDont, Do, Dont} from '../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -123,8 +123,8 @@ We have a [Dark theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-D
 
 #### Theme switching
 
-<Callout variant="info">
-  <CalloutTitle as="h5">Support for Figma theme switching coming soon</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Support for Figma theme switching coming soon</CalloutHeading>
   <CalloutText>
     The Paste team is exploring how to offer guidance on theme switching in Figma. We'll update this section with more
     documentation soon. Thanks for being patient!
