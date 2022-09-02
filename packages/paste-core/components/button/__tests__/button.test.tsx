@@ -78,13 +78,6 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
-      expect(() =>
-        render(
-          <Button as="a" href="#" variant="inverse">
-            Go to Paste
-          </Button>
-        )
-      ).toThrow();
       spy.mockRestore();
     });
 
