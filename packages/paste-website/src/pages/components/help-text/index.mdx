@@ -91,7 +91,8 @@ export const pageQuery = graphql`
 
 ### About Help Text
 
-Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+Help Text is placed below a form field to help users prevent an error and describe what makes the form field successful. It’s also used in compact UI situations to communicate feedback on specific page elements, like in a <Anchor href="/components/chat-log">Chat Log</Anchor>.
+If you’re highlighting important information, especially if it’s unrelated to an interactive element or a user action, consider using a <Anchor href="/components/callout">Callout</Anchor> or <Anchor href="/components/alert">Alert</Anchor> instead.
 
 ### Accessibility
 
@@ -151,7 +152,7 @@ Text that's placed below the field to help users prevent an error and describe w
 </>`}
 </LivePreview>
 
-## States
+## Variants
 
 ### Default Help Text
 
@@ -189,7 +190,12 @@ Error text should:
 
 ### Warning Help Text
 
-Use Help Text with `variant="warning"` to provide real-time validation.
+Warning Help Text can be used to:
+
+- Preemptively warn a user before an action is taken that may result in an undesired effect (e.g., “You have entered an external email. Use your work email address.”).
+- Help a user avoid a potential issue.
+
+Warning Help Text should provide actionable feedback to help a user take corrective action, if possible.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -201,7 +207,10 @@ Use Help Text with `variant="warning"` to provide real-time validation.
 
 ### Success Help Text
 
-Use Help Text with `variant="success"` to provide real-time validation.
+Success Help Text should be used to:
+
+- Confirm an action has completed.
+- Inform a user that a process has started or is in progress (e.g., “Valid work email address.”).
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
