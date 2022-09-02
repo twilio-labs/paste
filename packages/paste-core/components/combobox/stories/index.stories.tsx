@@ -248,13 +248,13 @@ export const ComboboxAutocomplete = (): React.ReactNode => {
     <Combobox
       autocomplete
       items={inputItems}
-      helpText="This is the help text"
-      labelText="Choose a component:"
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }
       }}
+      helpText="This is the help text"
+      labelText="Choose a component:"
     />
   );
 };

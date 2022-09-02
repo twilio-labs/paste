@@ -1,4 +1,6 @@
 import type {Item as ItemType} from './types';
+import type {HelpTextVariants} from '@twilio-paste/help-text';
+import type {InputVariants} from '@twilio-paste/input';
 
 import groupBy from 'lodash/groupBy';
 
@@ -18,4 +20,17 @@ export const getIndexedItems = (items: ItemType[]): ItemType[] => {
 // Creates a grouped object of items with the original flat array index
 export const getGroupedItems = (items: ItemType[], groupItemsBy: string): any => {
   return groupBy(items, (item: ItemType) => (typeof item === 'string' ? 'Uncategorized' : item[groupItemsBy]));
+};
+
+export const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
+  if (hasError && variant === 'inverse') {
+    return 'error_inverse';
+  }
+  if (hasError) {
+    return 'error';
+  }
+  if (variant === 'inverse') {
+    return 'inverse';
+  }
+  return 'default';
 };

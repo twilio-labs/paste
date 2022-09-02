@@ -74,6 +74,11 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   onInput?: never;
 }
 
+export interface MultiselectComboboxProps extends Omit<ComboboxProps, 'autocomplete' | 'initialSelectedItem'> {
+  filterItems?: (items: Item[], inputValue: string) => Item[];
+  initialSelectedItems?: Item[];
+}
+
 export interface ComboboxItemsProps
   extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element'> {
   items: Item[];

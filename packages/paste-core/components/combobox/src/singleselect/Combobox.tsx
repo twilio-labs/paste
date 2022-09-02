@@ -11,11 +11,11 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
-import {ComboboxInputSelect} from './styles/ComboboxInputSelect';
-import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
-import {ComboboxListbox} from './styles/ComboboxListbox';
-import {ComboboxItems} from './ComboboxItems';
-import type {ComboboxProps} from './types';
+import {ComboboxInputSelect} from '../styles/ComboboxInputSelect';
+import {ComboboxInputWrapper} from '../styles/ComboboxInputWrapper';
+import {ComboboxListbox} from '../styles/ComboboxListbox';
+import {ComboboxItems} from '../ComboboxItems';
+import type {ComboboxProps} from '../types';
 import {extractPropsFromState} from './extractPropsFromState';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
@@ -138,7 +138,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         </Label>
         <InputBox
           disabled={disabled}
-          element={element}
+          element={`${element}_INPUT_WRAPPER`}
           hasError={hasError}
           insertBefore={insertBefore}
           insertAfter={insertAfter}
@@ -166,7 +166,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             )}
           </ComboboxInputWrapper>
         </InputBox>
-        <ComboboxListbox hidden={!isOpen} element={element} {...getMenuProps({ref: parentRef})}>
+        <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>
           <ComboboxItems
             ref={scrollToIndexRef}
             items={items}

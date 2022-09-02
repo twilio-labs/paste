@@ -4,7 +4,7 @@ export {Downshift as ComboboxPrimitive};
 
 export {
   useCombobox as useComboboxPrimitive,
-  useMultipleSelection as useMultiSelectPrimitive,
+  useMultipleSelection as useMultiselectComboboxPrimitive,
 } from '@twilio-paste/dropdown-library';
 
 export type {

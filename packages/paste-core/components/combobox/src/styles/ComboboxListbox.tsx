@@ -9,7 +9,7 @@ export interface ComboboxListboxProps extends Pick<BoxProps, 'element'> {
 }
 
 const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>(
-  ({children, element = 'COMBOBOX', hidden, ...props}, ref) => {
+  ({children, element = 'COMBOBOX_LISTBOX', hidden, ...props}, ref) => {
     // Unmount children when hidden
     if (hidden) {
       return null;
@@ -29,7 +29,7 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
         borderWidth="borderWidth10"
         borderStyle="solid"
         boxShadow="shadow"
-        element={`${element}_LISTBOX`}
+        element={element}
         listStyleType="none"
         margin="space0"
         overflowY="auto"
