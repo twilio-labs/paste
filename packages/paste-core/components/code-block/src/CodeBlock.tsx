@@ -94,7 +94,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
             </Box>
           )}
         </Box>
-        <Box element={`${element}_CONTENT`} display="flex" alignItems="center" overflowX="scroll" gridArea="code-block">
+        <Box element={`${element}_CONTENT`} display="flex" alignItems="center" overflowX="auto" gridArea="code-block">
           <SyntaxHighlighter
             language={language}
             style={getPasteSyntaxTheme(maxLines) as Record<string, React.CSSProperties>}
