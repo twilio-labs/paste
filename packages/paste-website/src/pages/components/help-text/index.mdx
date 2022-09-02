@@ -187,6 +187,30 @@ Error text should:
 </>`}
 </LivePreview>
 
+### Warning Help Text
+
+Use Help Text with `variant="warning"` to provide real-time validation.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_warning_example">Email address</Label>
+  <Input aria-describedby="email_warning_help_text" id="email_warning_example" defaultValue="paste@abc.com" name="email_warning_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} />
+  <HelpText id="email_warning_help_text" variant="warning">You have entered an external email. Use your work email address.</HelpText>
+</>`}
+</LivePreview>
+
+### Success Help Text
+
+Use Help Text with `variant="success"` to provide real-time validation.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_success_example">Email address</Label>
+  <Input aria-describedby="email_success_help_text" id="email_success_example" defaultValue="paste@twilio.com" name="email_success_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} />
+  <HelpText id="email_success_help_text" variant="success">Valid work email address.</HelpText>
+</>`}
+</LivePreview>
+
 ## When to use Help Text
 
 Use Help Text when users might need additional information to fill out a form field.
@@ -372,12 +396,12 @@ const Component = () => (
 
 All the [valid HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) (role, aria-\*, type, and so on) are supported including the following props:
 
-| Prop       | Type                                           | Description                                                                               | Default     |
-| ---------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| children?  | `ReactNode`                                    |                                                                                           | null        |
-| marginTop? | 'space0'                                       | Sets the top margin on the `div` element.                                                 | 'space30'   |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the render state.                                                                 | 'default'   |
-| element?   | `string`                                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HELP_TEXT' |
+| Prop       | Type                                                                 | Description                                                                               | Default     |
+| ---------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| children?  | `ReactNode`                                                          |                                                                                           | null        |
+| marginTop? | 'space0'                                                             | Sets the top margin on the `div` element.                                                 | 'space30'   |
+| variant?   | 'default', 'error', 'error_inverse', 'inverse', 'warning', 'success' | Changes the render state.                                                                 | 'default'   |
+| element?   | `string`                                                             | Overrides the default element name to apply unique styles with the Customization Provider | 'HELP_TEXT' |
 
 <ChangelogRevealer>
   <Changelog />

@@ -68,7 +68,7 @@ const VariantOptions: VariantOptionsProps = {
     textColor: 'colorTextWarning',
     icon: (
       <Box flexShrink={0}>
-        <WarningIcon color="colorTextIconWarning" decorative size="sizeIcon20" />
+        <WarningIcon color="colorTextWarning" decorative size="sizeIcon20" />
       </Box>
     ),
   },
