@@ -25,6 +25,7 @@ export * from '@twilio-paste/form-pill-group';
 export * from '@twilio-paste/grid';
 export * from '@twilio-paste/heading';
 export * from '@twilio-paste/help-text';
+export * from '@twilio-paste/inline-code';
 export * from '@twilio-paste/inline-control-group';
 export * from '@twilio-paste/input';
 export * from '@twilio-paste/input-box';

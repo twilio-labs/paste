@@ -74,6 +74,7 @@
   "HeadingPropTypes": "@twilio-paste/core/heading",
   "HelpText": "@twilio-paste/core/help-text",
   "HelpTextVariants": "@twilio-paste/core/help-text",
+  "InlineCode": "@twilio-paste/core/inline-code",
   "InlineControlGroup": "@twilio-paste/core/inline-control-group",
   "InputBox": "@twilio-paste/core/input-box",
   "InputChevronWrapper": "@twilio-paste/core/input-box",

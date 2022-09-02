@@ -38,6 +38,7 @@
     "/packages/paste-core/layout/grid",
     "/packages/paste-core/components/heading",
     "/packages/paste-core/components/help-text",
+    "/packages/paste-core/components/inline-code",
     "/packages/paste-core/components/inline-control-group",
     "/packages/paste-core/components/input",
     "/packages/paste-core/components/input-box",
