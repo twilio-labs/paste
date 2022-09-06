@@ -12,7 +12,7 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
   ({children, element = 'COMBOBOX_LISTBOX', hidden, ...props}, ref) => {
     // Unmount children when hidden
     if (hidden) {
-      return null;
+      return <Box ref={ref} />;
     }
 
     // TODO:

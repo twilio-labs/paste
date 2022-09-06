@@ -10,6 +10,7 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
 import {useComboboxPrimitive, useMultiselectComboboxPrimitive} from '@twilio-paste/combobox-primitive';
+import type {UseComboboxPrimitiveStateChange} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {GrowingInput} from './GrowingInput';
 import {ComboboxListbox} from '../styles/ComboboxListbox';
@@ -20,12 +21,11 @@ import {getHelpTextVariant} from '../helpers';
 export const MultiselectCombobox = React.forwardRef<HTMLInputElement, MultiselectComboboxProps>(
   (
     {
-      disabled,
       element = 'MULTISELECT_COMBOBOX',
+      disabled,
       hasError,
       helpText,
       initialSelectedItems = [],
-      initialIsOpen,
       inputValue,
       insertAfter,
       insertBefore,
@@ -38,11 +38,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       onHighlightedIndexChange,
       onIsOpenChange,
       required,
-      selectedItem,
       groupItemsBy,
       groupLabelTemplate,
       variant = 'default',
-      state,
       ...props
     },
     ref
@@ -100,6 +98,14 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       // we use the stateChange event to add/remove items to the multiselect hook
       selectedItem: null,
       onInputValueChange,
+      onHighlightedIndexChange: React.useCallback(
+        (changes: UseComboboxPrimitiveStateChange<string>) => {
+          if (onHighlightedIndexChange) {
+            onHighlightedIndexChange(changes);
+          }
+        },
+        [onHighlightedIndexChange]
+      ),
       // https://www.downshift-js.com/use-combobox#state-reducer
       // Handles how state in Downshift should change as a result of user action
       stateReducer(_state, actionAndChanges) {
@@ -203,6 +209,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               {selectedItems.map(function renderSelectedItems(selectedItemPill: Item) {
                 return (
                   <FormPill
+                    variant={hasError ? 'error' : 'default'}
                     element={`${element}_PILL`}
                     key={`${itemToString(selectedItemPill)}`}
                     onDismiss={() => {
@@ -223,7 +230,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 ...getDropdownProps({ref, preventKeyAction: isOpen}),
                 disabled,
                 required,
-                ref,
                 ...props,
               })}
               aria-describedby={helpTextId}
