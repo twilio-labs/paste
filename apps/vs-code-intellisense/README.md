@@ -1,8 +1,4 @@
-<h1 align="center">
-  <img height="320px" src="https://raw.githubusercontent.com/twilio-labs/paste/main/apps/vs-code-intellisense/assets/favicon.png" alt="" />
-  <br/>
-  Twilio Paste Intellisense
-</h1>
+# Twilio Paste Intellisense
 
 Twilio Paste Intellisense extends the development experience of Twilio Paste by giving Visual Studio Code users additional functionality such as hover.
 
