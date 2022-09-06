@@ -1,0 +1,236 @@
+---
+title: Code Block
+package: '@twilio-paste/code-block'
+description: A component used to display readable blocks of code.
+slug: /components/code-block/
+---
+
+import {graphql} from 'gatsby';
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '@twilio-paste/code-block';
+import Changelog from '@twilio-paste/code-block/CHANGELOG.md';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {singleLine, multiLine, tab} from '../../../component-examples/CodeBlockExamples.ts';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/code-block"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/code-block/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Code Block"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/code-block"
+  storybookUrl="/?path=/story/components-code-block--default"
+  data={props.data}
+  description={props.data.mdx.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {singleLine}
+</LivePreview>
+
+## Guidelines
+
+### About Code Block
+
+The Code Block component improves readability of embedded code samples with syntax highlighting and automatic line numbering.
+
+Multiple Code Blocks may displayed as a tabset with the CodeBlockTabList, CodeBlockTab, and CodeBlockTabPanel components. A common use case for this is providing a code sample in multiple languages.
+
+### Accessibility
+
+To ensure the Code Block is accessible:
+
+- Provide a descriptive label such as the current filename or step in a process to clarify the purpose of the Code Block.
+- Enable long line wrapping whenever possible for a better reading experience.
+- Use the correct heading level for the CodeBlockHeader
+
+## Examples
+
+### Single line
+
+Use `variant="single-line"` for one line Code Blocks. Single line Code Blocks should not have `showLineNumbers={true}`.
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {singleLine}
+</LivePreview>
+
+### Multi line
+
+Code Blocks have `variant="multi-line"` by default. Multi line Code Blocks should have a CodeBlockHeader with a logical label for the Code Block, like the language or file name.
+
+Note for the `maxLines` property: Code Block uses [line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp) to limit the number of lines visible. When using line-clamp, browsers add an ellipsis to the contents of the Code Block to indicate that there is more to scroll to. When the code is copied with the copy button, the ellipsis isn't included.
+
+<LivePreview scope={{CodeBlockWrapper, CodeBlockHeader, CodeBlock}} language="jsx" noInline>
+  {multiLine}
+</LivePreview>
+
+### Tabs
+
+Multiple Code Blocks may be displayed as a tabset with the CodeBlockTabList, CodeBlockTab, and CodeBlockTabPanel components. Provide a logical name for each CodeBlockTab, like the language or file name.
+
+The Code Block Tabs components use the Tabs Primitive. For full details on the primitive and what props to provide it, follow the [Tabs Primitive documentation](/primitives/tabs-primitive).
+
+<LivePreview
+  scope={{CodeBlock, CodeBlockHeader, CodeBlockWrapper, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel}}
+  language="jsx"
+  noInline
+>
+  {tab}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/code-block - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/chat-log';
+
+const rubyCode = `#!/usr/bin/ruby
+
+# Import the library.
+require 'tk'
+
+# Root window.
+root = TkRoot.new  {
+  title 'Push Me'
+  background '#111188'
+}
+
+# Add a label to the root window.
+lab = TkLabel.new(root) {
+  text "Hey there,\nPush a button!"
+  background '#3333AA'
+  foreground '#CCCCFF'
+}`;
+
+export const Basic = () => {
+  return (
+    <CodeBlockWrapper>
+      <CodeBlockHeader>Build a button</CodeBlockHeader>
+      <CodeBlock showLineNumbers language="ruby" code={rubyCode} />
+    </CodeBlockWrapper>
+  );
+};
+```
+
+#### Props
+
+##### CodeBlock
+
+| Prop                   | Type                                                                                                                    | Description                                                                               | Default                         |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------- |
+| `code`                 | `string`                                                                                                                | The code snippet to be rendered.                                                          |                                 |
+| `language`             | `'javascript', 'jsx', 'csharp', 'php', 'ruby', 'python', 'java', 'json', 'c', 'bash', 'shell-session', 'go', 'groovy',` | The language of the code snippet.                                                         |                                 |
+| `element?`             | `string`                                                                                                                | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK'`                  |
+| `variant?`             | `'single-line', 'multi-line'`                                                                                           | Which variant of code block to render.                                                    | `'multi-line'`                  |
+| `showLineNumbers?`     | `boolean`                                                                                                               | Include line numbers in code block.                                                       | `false`                         |
+| `wrapLines?`           | `boolean`                                                                                                               | Wraps long lines of code.                                                                 | `false`                         |
+| `maxLines?`            | `boolean`                                                                                                               | Constrains the height of code block to a set number of lines.                             |                                 |
+| `externalLink?`        | `string`                                                                                                                | Optional link to an external source for the code                                          |                                 |
+| `i18nCopyLabelBefore?` | `string`                                                                                                                | The content of the copy button tooltip before it is clicked.                              | `'Copy code block'`             |
+| `i18nCopyLabelAfter?`  | `string`                                                                                                                | The content of the copy button tooltip after the user clicks it.                          | `'Copied!'`                     |
+| `i18nLinkLabel?`       | `string`                                                                                                                | The content of the external link button tooltip.                                          | `'Open code block in new page'` |
+
+##### CodeBlockWrapper
+
+| Prop       | Type     | Description                                                                               | Default                |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| `children` | `string` | The code snippet to be rendered.                                                          |                        |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_WRAPPER'` |
+
+##### CodeBlockHeader
+
+| Prop       | Type                                                         | Description                                                                               | Default               |
+| ---------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | --------------------- |
+| `children` | `string`                                                     | The code snippet to be rendered.                                                          |                       |
+| `element?` | `string`                                                     | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_HEADER'` |
+| `as?`      | `'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'` | The HTML element to render                                                                | `'h3'`                |
+
+##### CodeBlockTabList
+
+| Prop       | Type     | Description                                                                               | Default                 |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| `children` | `string` | The code snippet to be rendered.                                                          |                         |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB_LIST'` |
+
+##### CodeBlockTab
+
+| Prop       | Type     | Description                                                                               | Default            |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| `children` | `string` | The code snippet to be rendered.                                                          |                    |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB'` |
+
+##### CodeBlockTabPanel
+
+| Prop       | Type     | Description                                                                               | Default                  |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------ |
+| `children` | `string` | The code snippet to be rendered.                                                          |                          |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB_PANEL'` |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

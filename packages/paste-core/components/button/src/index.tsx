@@ -88,8 +88,8 @@ const handlePropValidation = ({
     if (variant === 'link' || variant === 'inverse_link') {
       throw new Error(`[Paste: Button] Using Button component as an Anchor. Use the Paste Anchor component instead.`);
     }
-    if (variant !== 'primary' && variant !== 'secondary' && variant !== 'reset') {
-      throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary or secondary.`);
+    if (variant !== 'primary' && variant !== 'secondary' && variant !== 'reset' && variant !== 'inverse') {
+      throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary and secondary.`);
     }
     if (disabled || loading) {
       throw new Error(`[Paste: Button] <Button as="a"> cannot be disabled or loading.`);

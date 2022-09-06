@@ -45,6 +45,7 @@ export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   buttonState: ButtonStates;
   variant: ButtonVariants;
   pressed?: boolean;
+  target?: string;
 }
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
@@ -61,4 +62,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   children: React.ReactNode;
   i18nExternalLinkLabel?: string;
   pressed?: boolean;
+  target?: string;
 }

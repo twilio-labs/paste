@@ -10078,6 +10078,36 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/code-block@^0.0.0, @twilio-paste/code-block@workspace:packages/paste-core/components/code-block":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/code-block@workspace:packages/paste-core/components/code-block"
+  dependencies:
+    "@twilio-paste/box": ^7.0.1
+    "@twilio-paste/button": ^11.1.0
+    "@twilio-paste/heading": ^8.0.0
+    "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/screen-reader-only": ^10.0.0
+    "@twilio-paste/styling-library": ^1.0.2
+    "@twilio-paste/syntax-highlighter-library": ^0.0.1
+    "@twilio-paste/tabs-primitive": ^0.2.8
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/box": ^7.0.1
+    "@twilio-paste/button": ^11.1.0
+    "@twilio-paste/heading": ^8.0.0
+    "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/screen-reader-only": ^10.0.0
+    "@twilio-paste/styling-library": ^1.0.2
+    "@twilio-paste/syntax-highlighter-library": ^0.0.1
+    "@twilio-paste/tabs-primitive": ^0.2.8
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/codemods@workspace:packages/paste-codemods":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/codemods@workspace:packages/paste-codemods"
@@ -10200,6 +10230,7 @@ __metadata:
     "@twilio-paste/chat-log": ^2.0.0
     "@twilio-paste/checkbox": ^10.0.0
     "@twilio-paste/clipboard-copy-library": ^1.0.4
+    "@twilio-paste/code-block": ^0.0.0
     "@twilio-paste/color-contrast-utils": ^3.0.0
     "@twilio-paste/combobox": ^12.1.0
     "@twilio-paste/combobox-primitive": ^0.3.4
@@ -10247,6 +10278,7 @@ __metadata:
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.2
     "@twilio-paste/switch": ^1.0.0
+    "@twilio-paste/syntax-highlighter-library": ^0.0.1
     "@twilio-paste/table": ^5.1.0
     "@twilio-paste/tabs": ^5.0.0
     "@twilio-paste/tabs-primitive": ^0.2.8
@@ -11540,6 +11572,20 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/syntax-highlighter-library@^0.0.1, @twilio-paste/syntax-highlighter-library@workspace:packages/paste-libraries/syntax-highlighter":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/syntax-highlighter-library@workspace:packages/paste-libraries/syntax-highlighter"
+  dependencies:
+    "@types/react-syntax-highlighter": 15.5.4
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-syntax-highlighter: 15.5.0
+  peerDependencies:
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -12893,6 +12939,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 8f4dce3eb5c70178c5ec2f7434983d632d02a0371a80c31ea012e37a2b8b2174bee482c3b85764333cbe3bcba9132b95307e23ac56d05d490e485e371bdcea46
+  languageName: node
+  linkType: hard
+
+"@types/react-syntax-highlighter@npm:15.5.4":
+  version: 15.5.4
+  resolution: "@types/react-syntax-highlighter@npm:15.5.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: 5008a8752f95502d8029b9c067d516050c1a04a898fcaf34fe5ed00ec563cc7aa3df0d6c2e585320d4cd07780d438e7bcaaddba96a72f1ae25ca19c285aad570
   languageName: node
   linkType: hard
 
@@ -26547,7 +26602,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^10.1.1, highlight.js@npm:~10.7.0":
+"highlight.js@npm:^10.1.1, highlight.js@npm:^10.4.1, highlight.js@npm:~10.7.0":
   version: 10.7.3
   resolution: "highlight.js@npm:10.7.3"
   checksum: defeafcd546b535d710d8efb8e650af9e3b369ef53e28c3dc7893eacfe263200bba4c5fcf43524ae66d5c0c296b1af0870523ceae3e3104d24b7abf6374a4fea
@@ -31231,7 +31286,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lowlight@npm:^1.14.0":
+"lowlight@npm:^1.14.0, lowlight@npm:^1.17.0":
   version: 1.20.0
   resolution: "lowlight@npm:1.20.0"
   dependencies:
@@ -36936,6 +36991,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"prismjs@npm:^1.27.0":
+  version: 1.29.0
+  resolution: "prismjs@npm:1.29.0"
+  checksum: 007a8869d4456ff8049dc59404e32d5666a07d99c3b0e30a18bd3b7676dfa07d1daae9d0f407f20983865fd8da56de91d09cb08e6aa61f5bc420a27c0beeaf93
+  languageName: node
+  linkType: hard
+
 "prismjs@npm:~1.27.0":
   version: 1.27.0
   resolution: "prismjs@npm:1.27.0"
@@ -38150,6 +38212,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-syntax-highlighter@npm:15.5.0":
+  version: 15.5.0
+  resolution: "react-syntax-highlighter@npm:15.5.0"
+  dependencies:
+    "@babel/runtime": ^7.3.1
+    highlight.js: ^10.4.1
+    lowlight: ^1.17.0
+    prismjs: ^1.27.0
+    refractor: ^3.6.0
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: c082b48f30f8ba8d0c55ed1d761910630860077c7ff5793c4c912adcb5760df06436ed0ad62be0de28113aac9ad2af55eccd995f8eee98df53382e4ced2072fb
+  languageName: node
+  linkType: hard
+
 "react-syntax-highlighter@npm:^13.5.3":
   version: 13.5.3
   resolution: "react-syntax-highlighter@npm:13.5.3"
@@ -38599,7 +38676,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"refractor@npm:^3.1.0":
+"refractor@npm:^3.1.0, refractor@npm:^3.6.0":
   version: 3.6.0
   resolution: "refractor@npm:3.6.0"
   dependencies:

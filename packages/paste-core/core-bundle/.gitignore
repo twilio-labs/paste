@@ -16,6 +16,7 @@
 /chat-log
 /checkbox
 /clipboard-copy-library
+/code-block
 /color-contrast-utils
 /combobox
 /combobox-primitive
@@ -62,6 +63,7 @@
 /style-props
 /styling-library
 /switch
+/syntax-highlighter-library
 /table
 /tabs
 /tabs-primitive
