@@ -32,15 +32,15 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       items,
       itemToString = (item: string | Record<string, unknown> | null): string => (item ? item.toString() : ''),
       labelText,
+      optionTemplate,
+      required,
+      variant = 'default',
       onInputValueChange,
       onSelectedItemChange,
-      optionTemplate,
       onHighlightedIndexChange,
       onIsOpenChange,
-      required,
       groupItemsBy,
       groupLabelTemplate,
-      variant = 'default',
       ...props
     },
     ref
@@ -132,6 +132,15 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 inputValue: '',
               }),
             };
+          // FIX: Bluring the menu causes highlightedIndex to reset to -1, which causes the
+          // menu to scroll to the last selectedItem per the `scrollToIndexRef` function.
+          // By setting it to -2, we can prevent this behavior because -1 is now reserved for when
+          // the menu is first opened.
+          case useComboboxPrimitive.stateChangeTypes.MenuMouseLeave:
+            return {
+              ...changes,
+              highlightedIndex: -2,
+            };
         }
         return changes;
       },
@@ -173,6 +182,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       (node) => {
         // Only scroll to the selected item when the list is opened
         // When the list is opened, highlightedIndex is set to -1, so that's how we check if the list is opened
+        // We also have a fix in the `stateReducer` to handle setting highlightedIndex to -2 when the
+        // menu is blurred instead of -1
         if (node && highlightedIndex === -1) {
           const lastSelectedItem = selectedItems[selectedItems.length - 1];
           rowVirtualizer.scrollToIndex(items.indexOf(lastSelectedItem));
@@ -235,7 +246,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               aria-describedby={helpTextId}
               element={`${element}_ELEMENT`}
             />
-
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
               <ChevronDownIcon
                 aria-hidden="true"
