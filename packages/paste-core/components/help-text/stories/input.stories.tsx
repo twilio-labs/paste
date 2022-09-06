@@ -29,7 +29,7 @@ export const Default = (): React.ReactNode => {
 };
 
 Default.story = {
-  name: 'default',
+  name: 'Default',
 };
 
 export const Inverse = (): React.ReactNode => {
@@ -42,7 +42,7 @@ export const Inverse = (): React.ReactNode => {
 };
 
 Inverse.story = {
-  name: 'inverse',
+  name: 'Inverse',
 };
 
 export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
