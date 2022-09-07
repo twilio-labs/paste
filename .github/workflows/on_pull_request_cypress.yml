@@ -32,6 +32,11 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+
       - name: Load Yarn cache
         uses: actions/cache@v2
         id: yarn_cache_id
@@ -80,9 +85,11 @@ jobs:
           group: "Paste Actions with VRT Parallel"
           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
           # enabled percy to run cypress for VRT
-          command-prefix: "percy exec -- npx"
+          command-prefix: "percy exec --parallel -- npx"
         env:
           USE_CYPRESS_VRT: true
+          PERCY_PARALLEL_NONCE: ${{ steps.percy-batch-id.outputs.result }}
+          PERCY_PARALLEL_TOTAL: 3
 
       - name: Remove Test Label
         uses: actions-ecosystem/action-remove-labels@v1
