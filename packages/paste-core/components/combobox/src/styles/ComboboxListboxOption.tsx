@@ -16,12 +16,12 @@ export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
 
 const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
   groupOption: {
-    paddingLeft: 'space90',
-    paddingRight: 'space90',
+    paddingLeft: 'space70',
+    paddingRight: 'space50',
   },
   default: {
-    paddingLeft: 'space70',
-    paddingRight: 'space70',
+    paddingLeft: 'space50',
+    paddingRight: 'space50',
   },
 };
 
@@ -43,14 +43,14 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         as="li"
         element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
-        color={highlighted ? 'colorTextLinkStronger' : 'colorText'}
+        color={highlighted ? 'colorTextLinkStronger' : selected ? 'colorTextLink' : 'colorText'}
         display="flex"
         alignItems="center"
-        padding="space30"
+        paddingY="space40"
         cursor="pointer"
         ref={ref}
         borderLeftWidth="borderWidth30"
-        borderLeftColor={highlighted ? (selected ? 'colorBorderPrimaryStronger' : 'colorBorderPrimary') : 'transparent'}
+        borderLeftColor={highlighted ? 'colorBorderPrimaryStronger' : 'transparent'}
         borderLeftStyle="solid"
         transition="borderLeft 200ms ease-in, backgroundColor 200ms ease-in"
         borderBottomWidth="borderWidth10"
@@ -64,12 +64,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         {...VariantStyles[variant]}
       >
         <Box as="span" minHeight="1.25rem">
-          <Text
-            as="span"
-            color="inherit"
-            element={`${element}_LIST_ITEM_TEXT`}
-            textDecoration={highlighted ? 'underline' : null}
-          >
+          <Text as="span" color="inherit" element={`${element}_LIST_ITEM_TEXT`}>
             {children}
           </Text>
         </Box>
