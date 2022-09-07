@@ -392,8 +392,8 @@ const ComboboxControlledUsingState = () => {
         setValue(inputValue);
       }
     },
-    inputValue: value,
-    selectedItem,
+    initialInputValue: value,
+    initialSelectedItem: selectedItem,
   });
   return (
     <>

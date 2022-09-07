@@ -16,6 +16,8 @@ type DefaultStateProps = {
   selectedItem: ComboboxProps['selectedItem'];
   initialSelectedItem: ComboboxProps['initialSelectedItem'];
   items: ComboboxProps['items'];
+  getA11yStatusMessage: ComboboxProps['getA11yStatusMessage'];
+  getA11ySelectionMessage: ComboboxProps['getA11ySelectionMessage'];
 };
 
 const getDefaultState = ({
@@ -29,6 +31,8 @@ const getDefaultState = ({
   selectedItem,
   initialSelectedItem,
   items,
+  getA11yStatusMessage,
+  getA11ySelectionMessage,
 }: DefaultStateProps): Partial<UseComboboxPrimitiveReturnValue<any>> => {
   return useComboboxPrimitive({
     initialSelectedItem,
@@ -46,8 +50,11 @@ const getDefaultState = ({
     onSelectedItemChange,
     ...(itemToString != null && {itemToString}),
     ...(initialIsOpen != null && {initialIsOpen}),
-    ...(inputValue != null && {inputValue}),
+    // We remap inputValue to defaultInputValue because we want downshift to manage the state of controlled inputs
+    ...(inputValue != null && {defaultInputValue: inputValue}),
     ...(selectedItem != null && {selectedItem}),
+    ...(getA11yStatusMessage != null && {getA11yStatusMessage}),
+    ...(getA11ySelectionMessage != null && {getA11ySelectionMessage}),
   });
 };
 

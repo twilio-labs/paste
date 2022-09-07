@@ -508,21 +508,30 @@ ComboboxOverflowLongValue.story = {
 };
 
 export const ComboboxControlled = (): React.ReactNode => {
-  const [value, setValue] = React.useState('');
-  const [selectedItem, setSelectedItem] = React.useState({});
+  const [value, setValue] = React.useState('United Arab Emirates');
+  const [selectedItem, setSelectedItem] = React.useState({code: 'AE', label: 'United Arab Emirates', phone: '971'});
   const [inputItems, setInputItems] = React.useState(objectItems);
   return (
     <>
+      <Box paddingBottom="space70">
+        Input value state: {JSON.stringify(value)}
+        <br />
+        Selected item state: {JSON.stringify(selectedItem)}
+      </Box>
+
       <Combobox
         autocomplete
         items={inputItems}
         labelText="Choose a country:"
         helpText="This is the help text"
-        optionTemplate={(item: ObjectItem) => (
-          <div>
-            {item.code} | {item.label} | {item.phone}
-          </div>
-        )}
+        optionTemplate={(item: ObjectItem) => {
+          return (
+            <Box>
+              {item.code} | {item.label} | {item.phone}{' '}
+              {item && selectedItem && item.label === selectedItem.label ? '✅' : null}
+            </Box>
+          );
+        }}
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
             setInputItems(
@@ -538,11 +547,6 @@ export const ComboboxControlled = (): React.ReactNode => {
         }}
         inputValue={value}
       />
-      <Box paddingTop="space70">
-        Input value state: {JSON.stringify(value)}
-        <br />
-        Selected item state: {JSON.stringify(selectedItem)}
-      </Box>
     </>
   );
 };
@@ -552,10 +556,15 @@ ComboboxControlled.story = {
 };
 
 export const ComboboxControlledUsingState: Story = () => {
-  const [value, setValue] = React.useState('');
-  const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({} as ObjectItem);
+  const [value, setValue] = React.useState('United Arab Emirates');
+  const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({
+    code: 'AE',
+    label: 'United Arab Emirates',
+    phone: '971',
+  } as ObjectItem);
   const [inputItems, setInputItems] = React.useState<ObjectItem[] | never[]>(objectItems as ObjectItem[]);
   const {reset, ...state} = useCombobox<ObjectItem>({
+    initialInputValue: value,
     items: inputItems,
     itemToString: (item) => (item ? item.label : ''),
     onSelectedItemChange: (changes) => {
@@ -571,11 +580,15 @@ export const ComboboxControlledUsingState: Story = () => {
         setValue(inputValue);
       }
     },
-    inputValue: value,
-    selectedItem,
+    initialSelectedItem: selectedItem,
   });
   return (
     <>
+      <Box paddingBottom="space70">
+        Input value state: {JSON.stringify(value)}
+        <br />
+        Selected item state: {JSON.stringify(selectedItem)}
+      </Box>
       <Combobox
         state={{...state, reset}}
         items={inputItems}
@@ -584,9 +597,10 @@ export const ComboboxControlledUsingState: Story = () => {
         labelText="Choose a country:"
         helpText="This is the help text"
         optionTemplate={(item: ObjectItem) => (
-          <div>
-            {item.code} | {item.label} | {item.phone}
-          </div>
+          <Box>
+            {item.code} | {item.label} | {item.phone}{' '}
+            {item && selectedItem && item.label === selectedItem.label ? '✅' : null}
+          </Box>
         )}
         insertAfter={
           <Button
@@ -606,11 +620,6 @@ export const ComboboxControlledUsingState: Story = () => {
           </Button>
         }
       />
-      <Box paddingTop="space70">
-        Input value state: {JSON.stringify(value)}
-        <br />
-        Selected item state: {JSON.stringify(selectedItem)}
-      </Box>
     </>
   );
 };
