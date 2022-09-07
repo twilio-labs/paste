@@ -1,6 +1,6 @@
-# Applitools
+# Visual Regression Testing (VRT)
 
-- [Applitools](#applitools)
+- [Visual Regression Testing (VRT)](#visual-regression-testing-vrt)
   - [Background](#background)
   - [Getting Started](#getting-started)
     - [Finding your personal Applitools API key](#finding-your-personal-applitools-api-key)
@@ -39,7 +39,7 @@ Add the following environment variables to your `.env` file at the root of the m
 
 ```bash
 APPLITOOLS_API_KEY=__PERSONAL_API_KEY__
-USE_CYPRESS_EYES=false
+USE_CYPRESS_VRT=false
 APPLITOOLS_SERVER_URL=https://twilioeyesapi.applitools.com
 APPLITOOLS_BATCH_NAME=local-batch
 ```
@@ -47,7 +47,7 @@ APPLITOOLS_BATCH_NAME=local-batch
 | ENV variable            | Default                                | Description                                                                                 |
 | ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `APPLITOOLS_API_KEY`    | {{PERSONAL_API_KEY}}                   | This is your personal api key, which you will use only if you need to run the VRT locally.  |
-| `USE_CYPRESS_EYES`      | `false`                                | This controls whether or not the VRT will run. To test locally, change this value to `true` |
+| `USE_CYPRESS_VRT`       | `false`                                | This controls whether or not the VRT will run. To test locally, change this value to `true` |
 | `APPLITOOLS_SERVER_URL` | `https://twilioeyesapi.applitools.com` | This is our company's Applitools. You should not need to change this value.                 |
 | `APPLITOOLS_BATCH_NAME` | `local-batch`                          | This provides a batch name for local runs; you should not need to change this value         |
 
@@ -58,9 +58,9 @@ Ensure that you have all the above required environment variables.
 
 The Applitools VRT check runs as a part of our cypress e2e tests.
 
-If `USE_CYPRESS_EYES` is `false`, Applitools will not check for visual regressions. The checks currently run programmatically, meaning the tool will only check for regressions if we explicitly instruct the test to do so.
+If `USE_CYPRESS_VRT` is `false`, Applitools will not check for visual regressions. The checks currently run programmatically, meaning the tool will only check for regressions if we explicitly instruct the test to do so.
 
-1. In the root `.env` file, update the value of `USE_CYPRESS_EYES` to be `true`
+1. In the root `.env` file, update the value of `USE_CYPRESS_VRT` to be `true`
 2. Start Cypress.io by running `yarn test:website-gui`
 3. Run selected tests by clicking on their names in the GUI
 

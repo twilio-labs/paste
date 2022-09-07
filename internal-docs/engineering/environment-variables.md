@@ -6,9 +6,6 @@ Full list of Environment variables and where they are needed.
 | --------------------------------- | --------------------------------------------------------------------- | ----- | ---------- | ------------- | ------------- |
 | AIRTABLE_APIKEY                   | Airtable API key for Gatsby                                           | ✅    |            | ✅            |               |
 | AIRTABLE_BASEID                   | Airtable Base to look up data                                         | ✅    |            | ✅            |               |
-| APPLITOOLS_API_KEY                | Applitools API key                                                    | ✅    | ✅         |               |               |
-| APPLITOOLS_BATCH_NAME             | Applitools batch name to associate snapshots to                       | ✅    |            |               |               |
-| APPLITOOLS_SERVER_URL             | Applitools server to push snapshots to                                | ✅    |            |               |               |
 | CHROMA_APP_CODE                   | Chromatic app key                                                     | ✅    | ✅         |               |               |
 | DATADOG_API_KEY                   | Datadog API key for GH actions metric tracking                        |       | ✅         |               |               |
 | DATADOG_APPLICATION_ID            | Datadog application ID for remix RUM tracking                         | ✅    |            |               | ✅            |
@@ -27,4 +24,5 @@ Full list of Environment variables and where they are needed.
 | STORYBOOK_GITHUB_SHA              | Github SHA used to associate perf tracking with commit IDs            |       |            |               |               |
 | CYPRESS_CACHE_FOLDER              | Tells Cypress override where it stores its binary so it can be cached |       |            | ✅            |               |
 | CYPRESS_RECORD_KEY                | Cypress record key so we can record our cypress runs                  | ✅    | ✅         |               |               |
-| USE_CYPRESS_EYES                  | Key to enable the applitools cypress integration                      | ✅    |            |               |               |
+| PERCY_TOKEN                       | Percy.io token                                                        | ✅    | ✅         |               |               |
+| USE_CYPRESS_VRT                   | Key to enable the cypress vrt integration                             | ✅    |            |               |               |

@@ -13,8 +13,7 @@ export const isRenderingOnServer = (() => {
   if (typeof window == 'undefined' || !window.location || !window.location.href || !window.matchMedia) {
     return true;
   }
-  // Disable animations during VRT
-  return Boolean(new URL(window.location.href).searchParams.get('eyes-storybook'));
+  return false;
 })();
 
 // eslint-disable-next-line @typescript-eslint/ban-types

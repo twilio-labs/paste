@@ -1,5 +1,4 @@
-import '@applitools/eyes-cypress/commands';
-import {DEFAULT_CHECK_PARAMS, DEFAULT_OPEN_PARAMS, eyesAreEnabled, prepareForEyes} from 'support/utils/applitools';
+import {DEFAULT_VRT_OPTIONS, vrtIsEnabled, prepareForVRT} from 'support/utils/vrt';
 
 /**
  * @file Custom parent commands
@@ -100,32 +99,22 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
 Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
   cy.visit(url);
   cy.wait(1000);
-  cy.log('[Applitools]: checking if eyes are enabled');
+  cy.log('[VRT]: checking if VRT is enabled');
 
-  if (eyesAreEnabled()) {
-    cy.log('[Applitools]: Eyes are enabled, proceed with eyes check.');
+  if (vrtIsEnabled()) {
+    cy.log('[VRT]: VRT is enabled, proceed.');
 
-    const openParams: Partial<Eyes.Open.Options> = {
-      ...DEFAULT_OPEN_PARAMS,
-      testName: testName,
+    const vrtOptions = {
+      ...DEFAULT_VRT_OPTIONS,
     };
 
-    const checkParams: Partial<Eyes.Check.Options> = {
-      ...DEFAULT_CHECK_PARAMS,
-      tag: `${testName}`,
-    };
+    prepareForVRT();
 
-    cy.log(`[Applitools]: Opening eyes with these params: ${openParams}`);
-    cy.eyesOpen(openParams);
-
-    prepareForEyes();
-
-    cy.log(`[Applitools]: Checking window with these params: ${checkParams}`);
-    cy.eyesCheckWindow(checkParams);
-
-    cy.eyesClose();
+    // Take a snapshot for visual diffing
+    cy.log(`[VRT]: Taking snapshot with these params: ${vrtOptions}`);
+    cy.percySnapshot(testName, vrtOptions);
   } else {
-    cy.log('[Applitools]: Eyes not enabled, skipping eyes check');
+    cy.log('[VRT]: VRT is not enabled, skipping');
   }
 
   expect(true).to.equal(true);
