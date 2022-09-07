@@ -37,6 +37,32 @@ RadioBasic.story = {
 };
 
 /**
+ * No id passed to Radio
+ */
+export const RadioWithNoID = (): React.ReactNode => {
+  return (
+    <>
+      <Radio value="1" name="foo" helpText="This is some help text.">
+        First option
+      </Radio>
+      <Radio value="2" name="foo" helpText="This is some help text.">
+        Second option
+      </Radio>
+      <Radio value="2" name="foo" helpText="This is some help text." disabled>
+        Disabled option
+      </Radio>
+    </>
+  );
+};
+
+RadioWithNoID.story = {
+  name: 'Radio - with no ID',
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
+};
+
+/**
  * Only `defaultChecked` passed to Radio
  */
 export const RadioDefaultChecked = (): React.ReactNode => {

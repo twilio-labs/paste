@@ -32,8 +32,10 @@ const defaultGroupProps = {
 
 describe('Checkbox', () => {
   it('should render', () => {
-    const {getByRole, container} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
-    expect(getByRole('checkbox')).not.toBeNull();
+    const {container} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).not.toBeNull();
+    expect(checkbox.id).toBeDefined();
 
     const checkIcon = container.querySelector('[data-paste-element="CHECKBOX_ICON"]');
     expect(checkIcon).toHaveStyleRule('display', 'none');
@@ -46,6 +48,16 @@ describe('Checkbox', () => {
       </Checkbox>
     );
     expect(getByRole('checkbox').getAttribute('aria-invalid')).toBeTruthy();
+  });
+
+  it('should use the id prop when passed', () => {
+    render(
+      <Checkbox {...defaultProps} id="my-id" onChange={NOOP}>
+        foo
+      </Checkbox>
+    );
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox.id).toBe('my-id');
   });
 
   it('should render as checked when defaultChecked', () => {

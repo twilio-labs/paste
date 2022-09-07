@@ -92,6 +92,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const radioGroupContext = React.useContext(RadioContext);
     const helpTextId = useUID();
+    const radioId = id ? id : useUID();
     // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
     const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== '', []);
 
@@ -144,10 +145,10 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           aria-describedby={helpTextId}
           aria-invalid={state.hasError}
           onChange={handleChange}
-          id={id}
+          id={radioId}
           ref={ref}
         />
-        <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={id}>
+        <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={radioId}>
           <BaseRadioCheckboxControl
             element={`${element}_CONTROL`}
             borderRadius="borderRadiusCircle"
