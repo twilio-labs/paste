@@ -79,7 +79,7 @@ describe('icons util functions', () => {
   describe('tools/templates/jsonTemplate util', () => {
     it('accepts an array of icon names and returns json', () => {
       const expectedOutput =
-        '[{"name":"icon1","svg":"/svg/icon1.svg","cjs":"/cjs/icon1.js","esm":"/esm/icon1.js"},{"name":"icon2","svg":"/svg/icon2.svg","cjs":"/cjs/icon2.js","esm":"/esm/icon2.js"},{"name":"icon3","svg":"/svg/icon3.svg","cjs":"/cjs/icon3.js","esm":"/esm/icon3.js"}]';
+        '{"icons":[{"name":"icon1","svg":"/svg/icon1.svg","cjs":"/cjs/icon1.js","esm":"/esm/icon1.js"},{"name":"icon2","svg":"/svg/icon2.svg","cjs":"/cjs/icon2.js","esm":"/esm/icon2.js"},{"name":"icon3","svg":"/svg/icon3.svg","cjs":"/cjs/icon3.js","esm":"/esm/icon3.js"}],"deprecatedIcons":[]}';
       expect(jsonTemplate(testIconList)).toEqual(expectedOutput);
     });
   });
