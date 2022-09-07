@@ -5,12 +5,16 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {TextColor} from '@twilio-paste/style-props';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 
 export const HelpTextVariants = {
   DEFAULT: 'default',
   ERROR: 'error',
   ERROR_INVERSE: 'error_inverse',
   INVERSE: 'inverse',
+  SUCCESS: 'success',
+  WARNING: 'warning',
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -52,6 +56,22 @@ const VariantOptions: VariantOptionsProps = {
       </Box>
     ),
   },
+  [HelpTextVariants.SUCCESS]: {
+    textColor: 'colorTextSuccess',
+    icon: (
+      <Box flexShrink={0}>
+        <SuccessIcon color="colorTextIconSuccess" decorative size="sizeIcon20" />
+      </Box>
+    ),
+  },
+  [HelpTextVariants.WARNING]: {
+    textColor: 'colorTextWarning',
+    icon: (
+      <Box flexShrink={0}>
+        <WarningIcon color="colorTextWarning" decorative size="sizeIcon20" />
+      </Box>
+    ),
+  },
 };
 
 const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
@@ -81,11 +101,9 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
 
 HelpText.displayName = 'HelpText';
 
-if (process.env.NODE_ENV === 'development') {
-  HelpText.propTypes = {
-    marginTop: PropTypes.oneOf(['space0']),
-    element: PropTypes.string,
-  };
-}
+HelpText.propTypes = {
+  marginTop: PropTypes.oneOf(['space0']),
+  element: PropTypes.string,
+};
 
 export {HelpText};
