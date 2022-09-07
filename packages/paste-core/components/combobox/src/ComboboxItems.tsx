@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type {VirtualItem} from 'react-virtual';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import find from 'lodash/find';
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
@@ -23,8 +23,6 @@ const ComboboxItems = React.memo(
       },
       ref
     ) => {
-      const uidSeed = useUIDSeed();
-
       // Use option template if provided
       // otherwise, return the items array.
       const templatizedItems = React.useMemo(() => {
@@ -62,8 +60,11 @@ const ComboboxItems = React.memo(
 
       // Creating indexed Items so we can use original flat array index values
       // for indexing within groups.
-      const indexedItems = getIndexedItems(items);
-      const groupedItems = getGroupedItems(indexedItems, groupItemsBy);
+      const groupedItems = React.useMemo(() => {
+        const indexedItems = getIndexedItems(items);
+        return getGroupedItems(indexedItems, groupItemsBy);
+      }, [items, groupItemsBy]);
+
       const groupedItemKeys = Object.keys(groupedItems);
 
       return (
@@ -76,21 +77,24 @@ const ComboboxItems = React.memo(
             return (
               <ComboboxListboxGroup
                 element={element}
-                key={uidSeed(groupKey)}
+                key={groupKey}
                 groupName={isUncategorized ? undefined : groupKey}
                 groupLabelTemplate={groupLabelTemplate}
               >
-                {groupedItems[groupedItemKey].map((item: Record<string, unknown>) => (
-                  <ComboboxListboxOption
-                    {...getItemProps({item, index: item.index})}
-                    element={element}
-                    highlighted={highlightedIndex === item.index}
-                    key={uidSeed(`${groupKey}-${item.index}`)}
-                    variant={isUncategorized ? 'default' : 'groupOption'}
-                  >
-                    {optionTemplate ? optionTemplate(item) : item}
-                  </ComboboxListboxOption>
-                ))}
+                {groupedItems[groupedItemKey].map(({index, ...item}: Record<string, unknown>) => {
+                  return (
+                    <ComboboxListboxOption
+                      {...getItemProps({item, index})}
+                      element={element}
+                      highlighted={highlightedIndex === index}
+                      selected={find(selectedItems, item)}
+                      key={index}
+                      variant={isUncategorized ? 'default' : 'groupOption'}
+                    >
+                      {optionTemplate ? optionTemplate(item) : item}
+                    </ComboboxListboxOption>
+                  );
+                })}
               </ComboboxListboxGroup>
             );
           })}

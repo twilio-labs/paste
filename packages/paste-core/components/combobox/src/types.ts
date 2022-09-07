@@ -75,9 +75,10 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
 }
 
 export interface MultiselectComboboxProps
-  extends Omit<ComboboxProps, 'autocomplete' | 'initialSelectedItem' | 'selectedItem'> {
-  filterItems?: (items: Item[], inputValue: string) => Item[];
-  initialSelectedItems?: Item[];
+  extends Omit<ComboboxProps, 'autocomplete' | 'initialSelectedItem' | 'selectedItem' | 'onSelectedItemChange'> {
+  filterItems?: (items: any[], inputValue: string) => any[];
+  initialSelectedItems?: any[];
+  onSelectedItemsChange?: (newSelectedItems: any[]) => void;
 }
 
 export interface ComboboxItemsProps

@@ -3,7 +3,10 @@ import type {Meta} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import filter from 'lodash/filter';
 import {MultiselectCombobox} from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
@@ -11,27 +14,6 @@ function createLargeArray<TemplateResult = string & Record<string, string>>(
 ): TemplateResult[] {
   // eslint-disable-next-line unicorn/prefer-spread
   return Array.from(new Array(1000), (_empty, index) => template(index));
-}
-
-type Book = {
-  author: string;
-  title: string;
-};
-
-const books: Book[] = createLargeArray((index) => ({
-  title: `Book ${index}`,
-  author: `Author ${index}`,
-}));
-
-function getFilteredBooks(inputValue: string): Book[] {
-  const lowerCasedInputValue = inputValue.toLowerCase();
-
-  return books.filter(function filterBook(book) {
-    return (
-      book.title.toLowerCase().includes(lowerCasedInputValue) ||
-      book.author.toLowerCase().includes(lowerCasedInputValue)
-    );
-  });
 }
 
 const items = [
@@ -69,6 +51,9 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: string[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
@@ -93,6 +78,9 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
+        onSelectedItemsChange={(selectedItems: string[]) => {
+          console.log(selectedItems);
+        }}
       />
     </Box>
   );
@@ -116,6 +104,9 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
       items={filteredItems}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
+      }}
+      onSelectedItemsChange={(selectedItems: string[]) => {
+        console.log(selectedItems);
       }}
     />
   );
@@ -143,6 +134,9 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
+        onSelectedItemsChange={(selectedItems: string[]) => {
+          console.log(selectedItems);
+        }}
       />
     </Box>
   );
@@ -168,6 +162,9 @@ export const MultiselectComboboxError = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: string[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
@@ -192,6 +189,9 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: string[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
@@ -215,6 +215,9 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: string[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
@@ -225,6 +228,27 @@ MultiselectComboboxInitialSelectedItems.story = {
 /*
  * insertBefore and insertAfter
  */
+type Book = {
+  author: string;
+  title: string;
+};
+
+const books: Book[] = createLargeArray((index) => ({
+  title: `Book ${index}`,
+  author: `Author ${index}`,
+}));
+
+function getFilteredBooks(inputValue: string): Book[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return books.filter(function filterBook(book) {
+    return (
+      book.title.toLowerCase().includes(lowerCasedInputValue) ||
+      book.author.toLowerCase().includes(lowerCasedInputValue)
+    );
+  });
+}
+
 export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
   const [inputValue, setInputValue] = React.useState('');
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
@@ -255,6 +279,9 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: Book[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
@@ -284,11 +311,82 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
+      onSelectedItemsChange={(selectedItems: Book[]) => {
+        console.log(selectedItems);
+      }}
     />
   );
 };
 MultiselectComboboxOptionTemplate.story = {
   name: 'with optionTemplate',
+};
+
+/*
+ * groupedItemsBy
+ */
+interface GroupedItem {
+  group?: string;
+  label: string;
+}
+const groupedItems = [
+  {group: 'Components', label: 'Alert'},
+  {group: 'Components', label: 'Anchor'},
+  {group: 'Components', label: 'Button'},
+  {group: 'Components', label: 'Card'},
+  {group: 'Components', label: 'Heading'},
+  {group: 'Components', label: 'List'},
+  {group: 'Components', label: 'Modal'},
+  {group: 'Components', label: 'Paragraph'},
+  {group: 'Primitives', label: 'Box'},
+  {group: 'Primitives', label: 'Text'},
+  {group: 'Primitives', label: 'Non-modal dialog'},
+  {group: 'Layout', label: 'Grid'},
+  {label: 'Design Tokens'},
+];
+
+function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+  return filter(groupedItems, (item: GroupedItem) => item.label.toLowerCase().includes(lowerCasedInputValue));
+}
+
+export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
+
+  return (
+    <MultiselectCombobox
+      groupItemsBy="group"
+      items={filteredItems}
+      itemToString={(item: GroupedItem) => (item ? item.label : '')}
+      onInputValueChange={({inputValue: newInputValue = ''}) => {
+        setInputValue(newInputValue);
+      }}
+      onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+        console.log(selectedItems);
+      }}
+      labelText="Choose a component:"
+      helpText="This is group"
+      initialIsOpen
+      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      groupLabelTemplate={(groupName: string) => {
+        if (groupName === 'Components') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        return groupName;
+      }}
+    />
+  );
+};
+
+MultiselectComboboxOptionGroups.story = {
+  name: 'with groups',
 };
 
 // eslint-disable-next-line import/no-default-export

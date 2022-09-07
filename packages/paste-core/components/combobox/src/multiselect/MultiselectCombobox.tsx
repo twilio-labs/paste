@@ -10,7 +10,6 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
 import {useComboboxPrimitive, useMultiselectComboboxPrimitive} from '@twilio-paste/combobox-primitive';
-import type {UseComboboxPrimitiveStateChange} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {GrowingInput} from './GrowingInput';
 import {ComboboxListbox} from '../styles/ComboboxListbox';
@@ -35,9 +34,10 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       optionTemplate,
       required,
       variant = 'default',
-      onInputValueChange,
-      onSelectedItemChange,
+      initialIsOpen,
       onHighlightedIndexChange,
+      onInputValueChange,
+      onSelectedItemsChange,
       onIsOpenChange,
       groupItemsBy,
       groupLabelTemplate,
@@ -59,7 +59,17 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       removeSelectedItem,
       addSelectedItem,
       selectedItems,
-    } = useMultiselectComboboxPrimitive<Item>({initialSelectedItems});
+    } = useMultiselectComboboxPrimitive<Item>({
+      initialSelectedItems,
+      onSelectedItemsChange: React.useCallback(
+        (changes) => {
+          if (onSelectedItemsChange) {
+            onSelectedItemsChange(changes.selectedItems);
+          }
+        },
+        [onSelectedItemsChange]
+      ),
+    });
 
     const {
       // State value with the open state of the menu. Used below for conditionally showing the items.
@@ -98,14 +108,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       // we use the stateChange event to add/remove items to the multiselect hook
       selectedItem: null,
       onInputValueChange,
-      onHighlightedIndexChange: React.useCallback(
-        (changes: UseComboboxPrimitiveStateChange<string>) => {
-          if (onHighlightedIndexChange) {
-            onHighlightedIndexChange(changes);
-          }
-        },
-        [onHighlightedIndexChange]
-      ),
+      onHighlightedIndexChange,
+      onIsOpenChange,
+      initialIsOpen,
       // https://www.downshift-js.com/use-combobox#state-reducer
       // Handles how state in Downshift should change as a result of user action
       stateReducer(_state, actionAndChanges) {
@@ -145,7 +150,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
         return changes;
       },
       // https://www.downshift-js.com/use-combobox#controlling-state
-      onStateChange({/*inputValue: newInputValue = '',*/ type, selectedItem: newSelectedItem}) {
+      onStateChange({type, selectedItem: newSelectedItem}) {
         switch (type) {
           case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
           case useComboboxPrimitive.stateChangeTypes.ItemClick:
@@ -268,6 +273,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             totalSize={rowVirtualizer.totalSize}
             virtualItems={rowVirtualizer.virtualItems}
             optionTemplate={optionTemplate}
+            groupItemsBy={groupItemsBy}
+            groupLabelTemplate={groupLabelTemplate}
           />
         </ComboboxListbox>
         {helpText && (
