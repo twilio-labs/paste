@@ -7,7 +7,7 @@ type IconFiles = {
   esm: string;
 };
 
-const createIconsFilesObject = (icons: string[] | undefined): IconFiles[] | undefined =>
+export const createIconsFilesObject = (icons: string[] | undefined): IconFiles[] | undefined =>
   icons?.map((iconName: string) => ({
     name: iconName,
     svg: `/svg/${iconName}.svg`,
