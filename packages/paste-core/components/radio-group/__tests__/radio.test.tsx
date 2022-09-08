@@ -37,14 +37,6 @@ const defaultGroupProps = {
 
 describe('Radio', () => {
   it('should render', () => {
-    render(<Radio {...defaultProps}>foo</Radio>);
-
-    const radio = screen.getByRole('radio');
-    expect(radio).not.toBeNull();
-    expect(radio.id).toBe('foo');
-  });
-
-  it('should have a default id', () => {
     render(
       <Radio value="foo" name="foo" onChange={NOOP}>
         foo
@@ -52,7 +44,15 @@ describe('Radio', () => {
     );
 
     const radio = screen.getByRole('radio');
+    expect(radio).not.toBeNull();
     expect(radio.id).toBeDefined();
+  });
+
+  it('should use the id prop when passed', () => {
+    render(<Radio {...defaultProps}>foo</Radio>);
+
+    const radio = screen.getByRole('radio');
+    expect(radio.id).toBe('foo');
   });
 
   it('should render as invalid', () => {
