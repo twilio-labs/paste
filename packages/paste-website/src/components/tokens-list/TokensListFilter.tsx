@@ -4,7 +4,7 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Button} from '@twilio-paste/button';
 import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
-import {CloseCircleIcon} from '@twilio-paste/icons/esm/CloseCircleIcon';
+import {ClearIcon} from '@twilio-paste/icons/esm/ClearIcon';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
@@ -50,7 +50,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               insertAfter={
                 value.length > 0 ? (
                   <Button variant="secondary_icon" size="reset" onClick={handleClearSearch}>
-                    <CloseCircleIcon decorative={false} size="sizeIcon20" title="Clear token search" />
+                    <ClearIcon decorative={false} size="sizeIcon20" title="Clear token search" />
                   </Button>
                 ) : null
               }

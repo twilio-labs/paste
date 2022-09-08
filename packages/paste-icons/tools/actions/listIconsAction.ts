@@ -7,13 +7,9 @@ import {jsonTemplate} from '../templates/jsonTemplate';
 import {buildListTemplate} from '../templates/buildListTemplate';
 
 export async function getIconNames(): Promise<any> {
-  let destinationFiles;
   try {
-    destinationFiles = await readdirAsync(REACT_PATH);
-    destinationFiles = destinationFiles
-      .filter((fileName) => !BLOCKLIST_FILES.includes(fileName))
-      .map(removeTsxExtension);
-    return destinationFiles;
+    const allIconSourceFiles = await readdirAsync(REACT_PATH);
+    return allIconSourceFiles.filter((fileName) => !BLOCKLIST_FILES.includes(fileName)).map(removeTsxExtension);
   } catch (error) {
     maybeHandleError('Error occured while generating icon list!', error);
   }

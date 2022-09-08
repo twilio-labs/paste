@@ -17,7 +17,7 @@ import {IconCard} from './IconCard';
 import {SiteLink} from '../SiteLink';
 import {IconListItem} from './IconListItem';
 
-const iconsJson = require('@twilio-paste/icons/json/icons.json');
+const {icons: iconsJson} = require('@twilio-paste/icons/json/icons.json');
 
 const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {name}: IconObject) => {
   return {

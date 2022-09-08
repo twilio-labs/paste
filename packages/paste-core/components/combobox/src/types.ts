@@ -37,21 +37,27 @@ export type HighlightedIndexChanges = {
 export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>, Pick<BoxProps, 'element'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
+  labelText: string | NonNullable<React.ReactNode>;
+  optionTemplate?: OptionTemplateFn<any>;
+  groupLabelTemplate?: (groupName: string) => React.ReactNode;
+  groupItemsBy?: string;
+  variant?: InputVariants;
+
+  // Downshift useCombobox Hook Props. Thes are mainly covered in https://github.com/downshift-js/downshift/blob/master/src/hooks/useCombobox/README.md#advanced-props docs
   initialIsOpen?: UseComboboxPrimitiveProps<any>['initialIsOpen'];
   initialSelectedItem?: UseComboboxPrimitiveProps<any>['initialSelectedItem'];
   items: UseComboboxPrimitiveProps<any>['items'];
   itemToString?: UseComboboxPrimitiveProps<any>['itemToString'];
-  labelText: string | NonNullable<React.ReactNode>;
   onHighlightedIndexChange?: UseComboboxPrimitiveProps<any>['onHighlightedIndexChange'];
   onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
   onIsOpenChange?: UseComboboxPrimitiveProps<any>['onIsOpenChange'];
   onSelectedItemChange?: UseComboboxPrimitiveProps<any>['onSelectedItemChange'];
-  optionTemplate?: OptionTemplateFn<any>;
-  groupLabelTemplate?: (groupName: string) => React.ReactNode;
   selectedItem?: UseComboboxPrimitiveProps<any>['selectedItem'];
   inputValue?: UseComboboxPrimitiveProps<any>['inputValue'];
-  groupItemsBy?: string;
-  variant?: InputVariants;
+  getA11yStatusMessage?: UseComboboxPrimitiveProps<any>['getA11yStatusMessage'];
+  getA11ySelectionMessage?: UseComboboxPrimitiveProps<any>['getA11ySelectionMessage'];
+
+  // Downshift useCombobox Hook return props for when you are using the hook outside of the component
   state?: Partial<UseComboboxPrimitiveReturnValue<any>>;
   /**
    * Use `onInputValueChange` instead.

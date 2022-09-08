@@ -3,13 +3,13 @@ import * as PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
-import {CloseCircleIcon} from '@twilio-paste/icons/esm/CloseCircleIcon';
+import {ClearIcon} from '@twilio-paste/icons/esm/ClearIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 /*
-These style props are specific to our CloseCircleIcon use case in ComposerAttachmentCard.
+These style props are specific to our ClearIcon use case in ComposerAttachmentCard.
 
-The close button uses CloseCircleIcon and needs the Box behind it to have these styles
+The close button uses ClearIcon and needs the Box behind it to have these styles
 because the inner part of the glyph is transparent (variant="secondary_icon").
 When more button variants become available, closeButtonBackgroundStyles should
 be reconsidered (and possibly removed).
@@ -61,7 +61,7 @@ const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachme
             {...closeButtonBackgroundStyles}
           >
             <Button element={`${element}_REMOVE_BUTTON`} variant="secondary_icon" size="icon" onClick={onDismiss}>
-              <CloseCircleIcon decorative />
+              <ClearIcon decorative />
               <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
             </Button>
           </Box>

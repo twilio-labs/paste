@@ -3,7 +3,7 @@ import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {AgentIcon} from '../src/AgentIcon';
 import {buildListTemplate} from '../tools/templates/buildListTemplate';
-import {jsonTemplate} from '../tools/templates/jsonTemplate';
+import {createIconsFilesObject, jsonTemplate} from '../tools/templates/jsonTemplate';
 import {reactIconTemplate} from '../tools/templates/reactIconTemplate';
 import {
   getOutputComponentName,
@@ -77,9 +77,18 @@ describe('icons util functions', () => {
   });
 
   describe('tools/templates/jsonTemplate util', () => {
+    it('accepts an array of icon names and returns an array of objects detaiil icon files', () => {
+      const expectedOutput = [
+        {cjs: '/cjs/icon1.js', esm: '/esm/icon1.js', name: 'icon1', svg: '/svg/icon1.svg'},
+        {cjs: '/cjs/icon2.js', esm: '/esm/icon2.js', name: 'icon2', svg: '/svg/icon2.svg'},
+        {cjs: '/cjs/icon3.js', esm: '/esm/icon3.js', name: 'icon3', svg: '/svg/icon3.svg'},
+      ];
+      expect(createIconsFilesObject(testIconList)).toEqual(expectedOutput);
+    });
+
     it('accepts an array of icon names and returns json', () => {
       const expectedOutput =
-        '[{"name":"icon1","svg":"/svg/icon1.svg","cjs":"/cjs/icon1.js","esm":"/esm/icon1.js"},{"name":"icon2","svg":"/svg/icon2.svg","cjs":"/cjs/icon2.js","esm":"/esm/icon2.js"},{"name":"icon3","svg":"/svg/icon3.svg","cjs":"/cjs/icon3.js","esm":"/esm/icon3.js"}]';
+        '{"icons":[{"name":"icon1","svg":"/svg/icon1.svg","cjs":"/cjs/icon1.js","esm":"/esm/icon1.js"},{"name":"icon2","svg":"/svg/icon2.svg","cjs":"/cjs/icon2.js","esm":"/esm/icon2.js"},{"name":"icon3","svg":"/svg/icon3.svg","cjs":"/cjs/icon3.js","esm":"/esm/icon3.js"}],"deprecatedIcons":[]}';
       expect(jsonTemplate(testIconList)).toEqual(expectedOutput);
     });
   });

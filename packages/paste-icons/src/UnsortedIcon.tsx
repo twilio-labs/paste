@@ -24,6 +24,7 @@ const UnsortedIcon = React.forwardRef<HTMLElement, UnsortedIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           fill="none"
