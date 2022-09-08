@@ -102,9 +102,3 @@ jobs:
           USE_CYPRESS_VRT: true
           PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
-
-      - name: Remove Test Label
-        uses: actions-ecosystem/action-remove-labels@v1
-        if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
-        with:
-          labels: "🕵🏻‍♀️ Run website visual regression"

@@ -1,4 +1,4 @@
-import {DEFAULT_VRT_OPTIONS, vrtIsEnabled, prepareForVRT} from 'support/utils/vrt';
+import {DEFAULT_VRT_OPTIONS, vrtIsEnabled} from 'support/utils/vrt';
 
 /**
  * @file Custom parent commands
@@ -107,8 +107,6 @@ Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
     const vrtOptions = {
       ...DEFAULT_VRT_OPTIONS,
     };
-
-    prepareForVRT();
 
     // Take a snapshot for visual diffing
     cy.log(`[VRT]: Taking snapshot with these params: ${vrtOptions}`);
