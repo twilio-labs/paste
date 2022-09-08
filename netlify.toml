@@ -3,9 +3,6 @@
   targetPort = 8000
   framework = "#custom"
 
-[context.deploy-preview]
-  ignore = "git diff --quiet main...HEAD -- packages/paste-core packages/paste-website packages/paste-theme-designer ':!packages/**/__tests__/*' ':!packages/paste-website/stories'"
-
 [context.deploy-preview.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"
 
