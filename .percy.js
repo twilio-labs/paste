@@ -4,6 +4,5 @@ module.exports = {
     widths: [1280],
     // disable all the iframes in the docs site
     percyCSS: `iframe { display: none; }`,
-    scope: '#styled-site-body',
   },
 };

@@ -5,9 +5,23 @@ on:
     types: [opened, synchronize, reopened, labeled]
 
 jobs:
+  # run this job first to create a single timestamped id for all percy batches on parallel machines
+  percy-batch-id:
+    runs-on: ubuntu-latest
+    # persist job results to other jobs in the workflow
+    outputs:
+      result: ${{ steps.percy-batch-id.outputs.result }}
+    steps:
+      # persist step results to other steps in the job
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+
   cypress:
     name: Website tests
     runs-on: ubuntu-latest
+    needs: percy-batch-id
     strategy:
       fail-fast: false
       matrix:
@@ -32,10 +46,8 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Create Percy Batch ID
-        id: percy-batch-id
-        # adding a timestamp makes the batch id more unique for re-runs
-        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+      - name: Percy Batch ID
+        run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
       - name: Load Yarn cache
         uses: actions/cache@v2
@@ -88,7 +100,7 @@ jobs:
           command-prefix: "percy exec --parallel -- npx"
         env:
           USE_CYPRESS_VRT: true
-          PERCY_PARALLEL_NONCE: ${{ steps.percy-batch-id.outputs.result }}
+          PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
 
       - name: Remove Test Label
