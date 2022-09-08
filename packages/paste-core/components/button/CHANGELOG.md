@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] support <Button as='a' variant='inverse'> and add the `target` prop
+
 ## 11.1.0
 
 ### Minor Changes

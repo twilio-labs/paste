@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+- [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015) [#2651](https://github.com/twilio-labs/paste/pull/2651) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] Releasing the Contact Centre icon set, introducing 42 new icons into Paste
+
 ## 9.0.0
 
 ### Patch Changes

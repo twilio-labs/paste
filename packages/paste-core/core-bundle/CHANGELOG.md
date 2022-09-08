@@ -1,5 +1,34 @@
 # Change Log
 
+## 15.2.0
+
+### Minor Changes
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] create a new CodeBlock component, which allows you to display readable blocks of code 🎉
+
+* [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Syntax Highlighter] Create a new library, @twilio-paste/syntax-highlighter-library. Supports: javascript, jsx, csharp, php, ruby, python, java, json, c, bash, shell, go, and groovy.
+
+- [`c65d69840`](https://github.com/twilio-labs/paste/commit/c65d6984039112b877f30ce30a69bc882e5652f5) [#2654](https://github.com/twilio-labs/paste/pull/2654) Thanks [@nkrantz](https://github.com/nkrantz)! - [Help text] add success and warning variants
+
+* [`257051d67`](https://github.com/twilio-labs/paste/commit/257051d67988132c8d96b04940d35c401b622aa5) [#2642](https://github.com/twilio-labs/paste/pull/2642) Thanks [@gloriliale](https://github.com/gloriliale)! - [Inline Code] Introducing the Inline Code component! Helpful for all those moments when a piece of text is actually representing code.
+
+### Patch Changes
+
+- [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2) [#2647](https://github.com/twilio-labs/paste/pull/2647) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] Minor fix to controlled Comboboxes, where the input cursor would always jump to the end of the input string in autocomplete examples, even when you want to amend the beginning or middle. Cursor position should now remain in place as you type or modify the input value.
+
+* [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015) [#2651](https://github.com/twilio-labs/paste/pull/2651) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log]: replaces the deprecated CloseCircleIcon with ClearIcon in the ComposerAttachment component
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] support <Button as='a' variant='inverse'> and add the `target` prop
+
+- Updated dependencies [[`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd), [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd), [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2), [`c65d69840`](https://github.com/twilio-labs/paste/commit/c65d6984039112b877f30ce30a69bc882e5652f5), [`257051d67`](https://github.com/twilio-labs/paste/commit/257051d67988132c8d96b04940d35c401b622aa5), [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015), [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd)]:
+  - @twilio-paste/code-block@1.0.0
+  - @twilio-paste/syntax-highlighter-library@1.0.0
+  - @twilio-paste/combobox@12.1.1
+  - @twilio-paste/help-text@10.1.0
+  - @twilio-paste/inline-code@1.0.0
+  - @twilio-paste/chat-log@2.0.1
+  - @twilio-paste/button@11.1.1
+
 ## 15.1.0
 
 ### Minor Changes

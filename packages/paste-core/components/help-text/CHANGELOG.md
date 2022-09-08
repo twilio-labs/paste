@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+- [`c65d69840`](https://github.com/twilio-labs/paste/commit/c65d6984039112b877f30ce30a69bc882e5652f5) [#2654](https://github.com/twilio-labs/paste/pull/2654) Thanks [@nkrantz](https://github.com/nkrantz)! - [Help text] add success and warning variants
+
 ## 10.0.0
 
 ### Patch Changes

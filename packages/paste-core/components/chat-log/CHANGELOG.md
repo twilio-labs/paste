@@ -1,5 +1,11 @@
 # @twilio-paste/chat-log
 
+## 2.0.1
+
+### Patch Changes
+
+- [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015) [#2651](https://github.com/twilio-labs/paste/pull/2651) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log]: replaces the deprecated CloseCircleIcon with ClearIcon in the ComposerAttachment component
+
 ## 2.0.0
 
 ### Patch Changes
