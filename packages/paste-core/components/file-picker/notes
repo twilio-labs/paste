@@ -1,0 +1,14 @@
+# File Picker
+
+## To do
+
+- Center vertical alignment of file name string
+- Spacing on required dot
+- Fix types (able to pass `multiple` to file picker)
+- How to display multiple file names
+- Docs
+- Tests
+
+## Open questions
+
+-
