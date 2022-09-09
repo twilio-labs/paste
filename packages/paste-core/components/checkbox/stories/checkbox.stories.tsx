@@ -44,6 +44,26 @@ CheckboxChecked.story = {
   name: 'Checkbox - Checked',
 };
 
+export const CheckboxWithNoID = (): React.ReactNode => {
+  const [checked, setChecked] = React.useState(true);
+  return (
+    <Checkbox
+      value="1"
+      name="foo"
+      checked={checked}
+      onChange={(event) => {
+        setChecked(event.target.checked);
+      }}
+    >
+      Label
+    </Checkbox>
+  );
+};
+
+CheckboxWithNoID.story = {
+  name: 'Checkbox - With no ID',
+};
+
 export const CheckboxDefaultChecked = (): React.ReactNode => {
   return (
     <Checkbox id={useUID()} value="label" name="foo" defaultChecked>

@@ -131,6 +131,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const checkboxGroupContext = React.useContext(CheckboxContext);
     const helpTextId = useUID();
+    const checkboxId = id ? id : useUID();
     // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
     const isControlled = React.useMemo(() => checked !== undefined, []);
 
@@ -176,11 +177,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           aria-describedby={helpTextId}
           aria-checked={indeterminate ? 'mixed' : checked}
           aria-invalid={hasError}
-          id={id}
+          id={checkboxId}
           required={required}
           ref={ref}
         />
-        <BaseRadioCheckboxLabel disabled={disabled} htmlFor={id}>
+        <BaseRadioCheckboxLabel disabled={disabled} htmlFor={checkboxId}>
           <BaseRadioCheckboxControl
             alignItems="center"
             borderRadius="borderRadius10"
