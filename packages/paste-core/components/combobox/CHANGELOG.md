@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.1.1
+
+### Patch Changes
+
+- [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2) [#2647](https://github.com/twilio-labs/paste/pull/2647) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] Minor fix to controlled Comboboxes, where the input cursor would always jump to the end of the input string in autocomplete examples, even when you want to amend the beginning or middle. Cursor position should now remain in place as you type or modify the input value.
+
 ## 12.1.0
 
 ### Minor Changes
