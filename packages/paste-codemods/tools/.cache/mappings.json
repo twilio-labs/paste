@@ -69,6 +69,7 @@
   "DisplayPill": "@twilio-paste/core/display-pill-group",
   "DisplayPillGroup": "@twilio-paste/core/display-pill-group",
   "FilePicker": "@twilio-paste/core/file-picker",
+  "FilePickerButton": "@twilio-paste/core/file-picker",
   "FormPill": "@twilio-paste/core/form-pill-group",
   "FormPillGroup": "@twilio-paste/core/form-pill-group",
   "useFormPillState": "@twilio-paste/core/form-pill-group",
