@@ -8,6 +8,7 @@ export * from '@twilio-paste/base-radio-checkbox';
 export * from '@twilio-paste/box';
 export * from '@twilio-paste/breadcrumb';
 export * from '@twilio-paste/button';
+export * from '@twilio-paste/button-group';
 export * from '@twilio-paste/callout';
 export * from '@twilio-paste/card';
 export * from '@twilio-paste/chat-log';

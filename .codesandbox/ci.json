@@ -15,6 +15,7 @@
     "/packages/paste-core/primitives/box",
     "/packages/paste-core/components/breadcrumb",
     "/packages/paste-core/components/button",
+    "/packages/paste-core/components/button-group",
     "/packages/paste-core/components/callout",
     "/packages/paste-core/components/card",
     "/packages/paste-core/components/chat-log",
