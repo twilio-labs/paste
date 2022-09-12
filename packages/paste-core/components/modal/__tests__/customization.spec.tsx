@@ -54,11 +54,6 @@ describe('Modal Customization', () => {
 
       const modalFooterActions = modalFooter.firstChild as HTMLElement;
       expect(modalFooterActions.getAttribute('data-paste-element')).toEqual('MODAL_FOOTER_ACTIONS');
-
-      const modalFooterActionItemOne = modalFooterActions.firstChild as HTMLElement;
-      const modalFooterActionItemTwo = modalFooterActions.lastChild as HTMLElement;
-      expect(modalFooterActionItemOne.getAttribute('data-paste-element')).toEqual('MODAL_FOOTER_ACTIONS_ITEM');
-      expect(modalFooterActionItemTwo.getAttribute('data-paste-element')).toEqual('MODAL_FOOTER_ACTIONS_ITEM');
     });
 
     it('Should add the correct "data-paste-element" attribute when element prop is defined', () => {
@@ -80,17 +75,9 @@ describe('Modal Customization', () => {
 
       const modalFooter = screen.getByTestId('modal-footer-test-id');
       const modalFooterActions = modalFooter.firstChild as HTMLElement;
-      const modalFooterActionItemOne = modalFooterActions.firstChild as HTMLElement;
-      const modalFooterActionItemTwo = modalFooterActions.lastChild as HTMLElement;
 
       expect(modalFooter.getAttribute('data-paste-element')).toEqual('CUSTOM_TEST_MODAL_FOOTER');
       expect(modalFooterActions.getAttribute('data-paste-element')).toEqual('CUSTOM_TEST_MODAL_FOOTER_ACTIONS');
-      expect(modalFooterActionItemOne.getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM'
-      );
-      expect(modalFooterActionItemTwo.getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM'
-      );
     });
   });
 
@@ -121,20 +108,12 @@ describe('Modal Customization', () => {
 
       const modalFooter = screen.getByTestId('modal-footer-test-id');
       const modalFooterActions = modalFooter.firstChild as HTMLElement;
-      const modalFooterActionItemOne = modalFooterActions.firstChild as HTMLElement;
-      const modalFooterActionItemTwo = modalFooterActions.lastChild as HTMLElement;
 
       expect(modalFooter).toHaveStyleRule('border-width', '0');
       expect(modalFooter).toHaveStyleRule('border-style', 'none');
       expect(modalFooter).toHaveStyleRule('border-color', 'transparent');
 
       expect(modalFooterActions).toHaveStyleRule('justify-content', 'flex-start');
-
-      expect(modalFooterActionItemOne).toHaveStyleRule('padding-left', '0', {target: ':first-of-type'});
-      expect(modalFooterActionItemOne).toHaveStyleRule('padding-right', '0.75rem');
-
-      expect(modalFooterActionItemTwo).toHaveStyleRule('padding-left', '0.75rem');
-      expect(modalFooterActionItemTwo).toHaveStyleRule('padding-right', '0.75rem');
     });
 
     it('Should apply correct style rules to wide size variant', () => {
