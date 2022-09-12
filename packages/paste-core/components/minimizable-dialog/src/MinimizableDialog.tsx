@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
@@ -25,7 +25,7 @@ const StyledMinimizableDialog = styled.div(({minimized}: {minimized?: boolean}) 
 
 StyledMinimizableDialog.displayName = 'StyledMinimizableDialog';
 
-export interface MinimizableDialogProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface MinimizableDialogProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   'aria-label': string;
   element?: BoxProps['element'];
