@@ -5,7 +5,7 @@ import toLower from 'lodash/toLower';
 import {useLocation} from '@reach/router';
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
-const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
+export const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {

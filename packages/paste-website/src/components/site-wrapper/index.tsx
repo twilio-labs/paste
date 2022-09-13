@@ -10,6 +10,7 @@ import {SkipLinkContainer} from '../SkipLinkContainer';
 import {PASTE_DOCS_CONTENT_AREA, PASTE_DOCS_SEARCH_INPUT, SITE_BREAKPOINTS} from '../../constants';
 import type {NavigationQuery} from '../../context/NavigationContext';
 import {DarkModeContext} from '../../context/DarkModeContext';
+import {inCypress} from '../../utils/inCypress';
 
 const pageQuery = graphql`
   {
@@ -78,7 +79,7 @@ const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (
-    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS}>
+    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS} disableAnimations={inCypress()}>
       <NavigationContext.Provider value={{...navigationQueryData, pathname}}>
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
           <SkipLinkContainer>

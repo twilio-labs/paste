@@ -1,4 +1,4 @@
-import {DEFAULT_VRT_OPTIONS, vrtIsEnabled} from 'support/utils/vrt';
+import {DEFAULT_VRT_OPTIONS, vrtIsEnabled} from '../utils/vrt';
 
 /**
  * @file Custom parent commands
@@ -107,6 +107,13 @@ Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
     const vrtOptions = {
       ...DEFAULT_VRT_OPTIONS,
     };
+
+    // Date and time pickers, and anywhere that displays the current date and time
+    // Will cause a VRT diff every time it is run as the time is always changing
+    // By freezing the date we can guarantee that displayed current date and time never
+    // changes across snapshots
+    const now = new Date(2018, 1, 1);
+    cy.clock(now);
 
     // Take a snapshot for visual diffing
     cy.log(`[VRT]: Taking snapshot with these params: ${vrtOptions}`);

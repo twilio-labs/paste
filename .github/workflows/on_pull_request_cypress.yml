@@ -80,7 +80,7 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4.2.0
         if: ${{ !contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
         with:
           record: true
@@ -89,7 +89,7 @@ jobs:
           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
 
       - name: Cypress run with site VRT
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4.2.0
         if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
         with:
           record: true
