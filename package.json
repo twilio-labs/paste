@@ -74,7 +74,9 @@
     "test:react-16": "USE_REACT_16=true jest",
     "test:coverage": "jest --coverage",
     "test:website": "yarn cypress run --record",
+    "test:website-percy": "percy exec -- yarn cypress run --record",
     "test:website-gui": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:8000 'yarn cypress open'",
+    "test:website-gui-percy": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:8000 'percy exec -- yarn cypress open'",
     "test:storybook": "test-storybook --url http://localhost:9001",
     "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
     "serve:website": "yarn workspace @twilio-paste/website serve",
@@ -95,7 +97,6 @@
     "turbo-type-check": "turbo run tsc"
   },
   "dependencies": {
-    "@applitools/eyes-cypress": "^3.23.4",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
@@ -120,6 +121,8 @@
     "@expo/spawn-async": "^1.5.0",
     "@manypkg/cli": "0.17.0",
     "@netlify/functions": "^0.7.2",
+    "@percy/cli": "^1.10.1",
+    "@percy/cypress": "^3.1.2",
     "@storybook/addon-a11y": "6.4.20",
     "@storybook/addon-actions": "6.4.20",
     "@storybook/addon-essentials": "6.4.20",

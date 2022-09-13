@@ -13,7 +13,7 @@
     - [Check package sizes](#check-package-sizes)
     - [CodeSandbox](#codesandbox)
     - [Website test(1/2/3)](#website-test123)
-    - [Applitools](#applitools)
+    - [Percy](#percy)
     - [Component Visual regression tests](#component-visual-regression-tests)
     - [Netlify](#netlify)
     - [Kodiak hq](#kodiak-hq)
@@ -77,19 +77,19 @@ Each pull request gets its own CodeSandbox environment through the CodeSandbox G
 
 ### Website test(1/2/3)
 
-Website tests is a test runner for Cypress and Applitools, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Netlify to finish deploying the preview of the website, and then run cypress against that url.
+Website tests is a test runner for Cypress and Percy, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Netlify to finish deploying the preview of the website, and then run cypress against that url.
 
 It will parallelize Cypress test suites across 3 boxes.
 
 After the tests have run, the Cypress integration reports back the results as a comment on the pull request and as a required check.
 
-### Applitools
+### Percy
 
-Applitools is used for visual regression of the docs website. We use Cypress as a means to fire Applitools snapshots for comparison.
+Percy is used for visual regression of the docs website. We use Cypress as a means to fire Percy snapshots for comparison.
 
 This does not run by default.
 
-To enable a website visual regression test on your PR, add the `🕵🏻‍♀️ Run website visual regression` label. This will run the Cypress tests with an environment variable set that instructs cypress to enable applitools.
+To enable a website visual regression test on your PR, add the `🕵🏻‍♀️ Run website visual regression` label. This will run the Cypress tests with an environment variable set that instructs cypress to enable Percy.
 
 ### Component Visual regression tests
 

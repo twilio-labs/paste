@@ -5,9 +5,23 @@ on:
     types: [opened, synchronize, reopened, labeled]
 
 jobs:
+  # run this job first to create a single timestamped id for all percy batches on parallel machines
+  percy-batch-id:
+    runs-on: ubuntu-latest
+    # persist job results to other jobs in the workflow
+    outputs:
+      result: ${{ steps.percy-batch-id.outputs.result }}
+    steps:
+      # persist step results to other steps in the job
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+
   cypress:
     name: Website tests
     runs-on: ubuntu-latest
+    needs: percy-batch-id
     strategy:
       fail-fast: false
       matrix:
@@ -16,24 +30,24 @@ jobs:
       CYPRESS_CACHE_FOLDER: ./node_modules/cypress
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-      APPLITOOLS_SERVER_URL: "https://twilioeyesapi.applitools.com"
-      APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
-      APPLITOOLS_BATCH_ID: ${{ github.event.pull_request.head.sha }}
-      USE_CYPRESS_EYES: false
+      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      USE_CYPRESS_VRT: false
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 16.13
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Percy Batch ID
+        run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
       - name: Load Yarn cache
         uses: actions/cache@v2
@@ -82,5 +96,9 @@ jobs:
           parallel: true
           group: "Paste Actions with VRT Parallel"
           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+          # enabled percy to run cypress for VRT
+          command-prefix: "percy exec --parallel -- npx"
         env:
-          USE_CYPRESS_EYES: true
+          USE_CYPRESS_VRT: true
+          PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
+          PERCY_PARALLEL_TOTAL: 3

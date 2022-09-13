@@ -27,6 +27,6 @@ A Definition of Done (DoD) is a team agreement of when an issue from the backlog
 
 1. Cypress end-to-end test for any functionality
 2. Storybook story to catch component visual regression
-3. New pages should have a applitools VRT test in Cypress
+3. New pages should have a Percy VRT test in Cypress
 4. Proof read by at least two members of the team
 5. Tested on a mobile device.

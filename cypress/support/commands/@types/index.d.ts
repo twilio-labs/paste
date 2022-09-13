@@ -73,7 +73,7 @@ declare namespace Cypress {
     checkChangelogRevealer(): void;
 
     /**
-     * Navigates to a URL and takes a snapshot with Applitools.
+     * Navigates to a URL and takes a snapshot with for VRT.
      */
     visualRegressionTestUrl({url, testName}: {url: string, testName: string}): void;
   }

@@ -18,11 +18,9 @@ const result = require('dotenv').config();
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  if (config.env.USE_CYPRESS_EYES == null) {
-    config.env.USE_CYPRESS_EYES = JSON.parse(process.env.USE_CYPRESS_EYES);
+  if (config.env.USE_CYPRESS_VRT == null) {
+    config.env.USE_CYPRESS_VRT = JSON.parse(process.env.USE_CYPRESS_VRT);
   }
 
   return config;
 };
-
-require('@applitools/eyes-cypress')(module);
