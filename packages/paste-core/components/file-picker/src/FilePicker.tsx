@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import {SiblingBox} from '@twilio-paste/sibling-box';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 
 export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
@@ -39,21 +39,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
     };
 
     return (
-      <>
-        <label htmlFor={id}>
-          <Stack element={element} orientation="horizontal" spacing="space30">
-            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
-            <Text
-              id={textId}
-              as="span"
-              color={disabled ? 'colorTextWeaker' : 'currentColor'}
-              fontWeight="fontWeightMedium"
-              element={`${element}_TEXT`}
-            >
-              {fileDescription}
-            </Text>
-          </Stack>
-        </label>
+      <Box element={element}>
         <Box
           // The actual <input type="file"/> is hidden but still appears in the DOM
           {...safelySpreadBoxProps(props)}
@@ -64,6 +50,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           // @ts-expect-error
           accept={accept}
           aria-disabled={disabled}
+          disabled={disabled}
           aria-required={required}
           aria-describedby={textId}
           size="size0"
@@ -77,7 +64,21 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           clip="rect(0 0 0 0)"
           onChange={handleChange}
         />
-      </>
+        <label htmlFor={id}>
+          <SiblingBox as="span" _focusSibling={{boxShadow: 'shadowFocus'}} />
+          {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
+          <Text
+            id={textId}
+            as="span"
+            color={disabled ? 'colorTextWeaker' : 'currentColor'}
+            marginLeft="space30"
+            fontWeight="fontWeightMedium"
+            element={`${element}_TEXT`}
+          >
+            {fileDescription}
+          </Text>
+        </label>
+      </Box>
     );
   }
 );

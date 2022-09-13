@@ -3,10 +3,9 @@
 ## To do
 
 - Fix type (ts error on `accept` prop)
+- Fix SiblingBox to properly set focus styles
 - Docs
 - Tests
-- Finalize stories
-- use an aria property to link the file name text and the input
 
 ## Notes for docs
 
@@ -15,6 +14,4 @@
 
 ## Open questions
 
-- Clicking 'no files selected' doesn't open the file browser
-- Clicking the composed Label doesn't open the file browser (2 htmlFors)
 - What should be `element="FILEPICKER"`?
