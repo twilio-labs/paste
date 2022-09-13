@@ -20,6 +20,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
     {
       element = 'FILEPICKER',
       accept,
+      id = useUID(),
       children,
       disabled = false,
       i18nNoSelectionText = 'No files selected',
@@ -30,7 +31,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
   ) => {
     const [fileDescription, setFileDescription] = React.useState(i18nNoSelectionText);
 
-    const id = useUID();
+    const textId = useUID();
 
     const handleChange = (evt: any): void => {
       const file = evt.target.files[0].name;
@@ -38,16 +39,21 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
     };
 
     return (
-      <Stack element={element} orientation="horizontal" spacing="space30">
-        <label htmlFor={id}>{React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}</label>
-        <Text
-          as="span"
-          color={disabled ? 'colorTextWeaker' : 'currentColor'}
-          fontWeight="fontWeightMedium"
-          element={`${element}_TEXT`}
-        >
-          {fileDescription}
-        </Text>
+      <>
+        <label htmlFor={id}>
+          <Stack element={element} orientation="horizontal" spacing="space30">
+            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
+            <Text
+              id={textId}
+              as="span"
+              color={disabled ? 'colorTextWeaker' : 'currentColor'}
+              fontWeight="fontWeightMedium"
+              element={`${element}_TEXT`}
+            >
+              {fileDescription}
+            </Text>
+          </Stack>
+        </label>
         <Box
           // The actual <input type="file"/> is hidden but still appears in the DOM
           {...safelySpreadBoxProps(props)}
@@ -59,6 +65,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           accept={accept}
           aria-disabled={disabled}
           aria-required={required}
+          aria-describedby={textId}
           size="size0"
           border="none"
           overflow="hidden"
@@ -70,7 +77,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           clip="rect(0 0 0 0)"
           onChange={handleChange}
         />
-      </Stack>
+      </>
     );
   }
 );
