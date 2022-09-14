@@ -10026,24 +10026,28 @@ __metadata:
   dependencies:
     "@twilio-paste/box": ^7.0.1
     "@twilio-paste/button": ^11.1.1
+    "@twilio-paste/clipboard-copy-library": ^1.0.4
     "@twilio-paste/heading": ^8.0.0
     "@twilio-paste/icons": ^9.1.0
     "@twilio-paste/screen-reader-only": ^10.0.0
     "@twilio-paste/styling-library": ^1.0.2
     "@twilio-paste/syntax-highlighter-library": ^1.0.0
     "@twilio-paste/tabs-primitive": ^0.2.8
+    "@twilio-paste/tooltip": ^8.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
     "@twilio-paste/box": ^7.0.1
     "@twilio-paste/button": ^11.1.0
+    "@twilio-paste/clipboard-copy-library": ^1.0.4
     "@twilio-paste/heading": ^8.0.0
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/screen-reader-only": ^10.0.0
     "@twilio-paste/styling-library": ^1.0.2
     "@twilio-paste/syntax-highlighter-library": ^1.0.0
     "@twilio-paste/tabs-primitive": ^0.2.8
+    "@twilio-paste/tooltip": ^8.0.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
