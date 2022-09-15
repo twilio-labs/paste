@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
-import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import {SideModalContext} from './SideModalContext';
 import type {ButtonProps} from '@twilio-paste/button';
+import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+
+import {SideModalContext} from './SideModalContext';
 
 type SideModalButtonProps = Omit<ButtonProps, 'as'> & {
   id?: string;
