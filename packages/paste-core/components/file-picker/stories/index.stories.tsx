@@ -12,14 +12,14 @@ export default {
   component: FilePicker,
 };
 
-export const Default: Story = () => {
+export const Default: Story = ({...props}) => {
   const id = useUID();
   const helpText = useUID();
   return (
     <>
       <Label htmlFor={id}>Proof of employment</Label>
-      <FilePicker id={id} accept=".pdf" aria-describedby={helpText}>
-        <FilePickerButton variant="secondary">Choose file</FilePickerButton>
+      <FilePicker id={id} accept=".pdf" aria-describedby={helpText} {...props}>
+        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
       </FilePicker>
       <HelpText id={helpText}>Upload a pdf</HelpText>
     </>
@@ -34,7 +34,7 @@ export const Required: Story = () => {
         Upload a profile picture
       </Label>
       <FilePicker id={id} required accept="image/*">
-        <FilePickerButton variant="secondary">Choose file</FilePickerButton>
+        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -47,8 +47,8 @@ export const Disabled: Story = () => {
       <Label htmlFor={id} disabled>
         Attach your receipt
       </Label>
-      <FilePicker id={id} disabled>
-        <FilePickerButton variant="secondary">Choose file</FilePickerButton>
+      <FilePicker id={id} disabled data-testid="test-file-picker">
+        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -66,21 +66,21 @@ export const I18n: Story = () => {
   );
 };
 
-export const Customized: Story = () => {
+export const Customized: Story = ({element = 'FILEPICKER', ...props}) => {
   const id = useUID();
   const helpText = useUID();
   return (
     <CustomizationProvider
       baseTheme="default"
       elements={{
-        FILEPICKER: {fontFamily: 'fontFamilyCode'},
-        FILEPICKER_BUTTON: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-        FILEPICKER_TEXT: {marginLeft: 'space10'},
+        [`${element}`]: {fontFamily: 'fontFamilyCode'},
+        [`${element}_BUTTON`]: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        [`${element}_TEXT`]: {marginLeft: 'space10'},
       }}
     >
       <Label htmlFor={id}>What&apos;s your favorite song?</Label>
-      <FilePicker id={id} accept="audio/*" aria-describedby={helpText}>
-        <FilePickerButton variant="secondary">Choose file</FilePickerButton>
+      <FilePicker id={id} accept="audio/*" aria-describedby={helpText} element={element} {...props}>
+        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
       </FilePicker>
       <HelpText id={helpText}>Upload an audio file</HelpText>
     </CustomizationProvider>

@@ -39,7 +39,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
     };
 
     return (
-      <Box element={element}>
+      <>
         <Box
           // The actual <input type="file"/> is hidden but still appears in the DOM
           {...safelySpreadBoxProps(props)}
@@ -47,7 +47,6 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           ref={ref}
           as="input"
           type="file"
-          // @ts-expect-error
           accept={accept}
           aria-disabled={disabled}
           disabled={disabled}
@@ -65,20 +64,35 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
           onChange={handleChange}
         />
         <label htmlFor={id}>
-          <SiblingBox as="span" _focusSibling={{boxShadow: 'shadowFocus'}} />
-          {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
-          <Text
-            id={textId}
+          <SiblingBox
+            element={element}
             as="span"
-            color={disabled ? 'colorTextWeaker' : 'currentColor'}
-            marginLeft="space30"
-            fontWeight="fontWeightMedium"
-            element={`${element}_TEXT`}
+            type="file"
+            padding="space20"
+            paddingRight="space30"
+            borderRadius="borderRadius20"
+            boxShadow="shadowBorderWeak"
+            _focusSibling={{
+              boxShadow: 'shadowFocus',
+              borderRadius: 'borderRadius20',
+              padding: 'space20',
+              paddingRight: 'space30',
+            }}
           >
-            {fileDescription}
-          </Text>
+            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
+            <Text
+              id={textId}
+              as="span"
+              color={disabled ? 'colorTextWeaker' : 'currentColor'}
+              marginLeft="space30"
+              fontWeight="fontWeightMedium"
+              element={`${element}_TEXT`}
+            >
+              {fileDescription}
+            </Text>
+          </SiblingBox>
         </label>
-      </Box>
+      </>
     );
   }
 );
