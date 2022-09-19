@@ -22,7 +22,7 @@ export interface SiblingBoxProps extends BoxProps {
   _invalidSibling?: BoxStyleProps;
   _invalidAndHoverSibling?: BoxStyleProps;
   _invalidAndDisabledSibling?: BoxStyleProps;
-  type?: 'checkbox' | 'radio';
+  type?: 'checkbox' | 'radio' | 'file';
 }
 
 const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
@@ -112,7 +112,7 @@ const SiblingBox: React.FC<SiblingBoxProps> = ({
 SiblingBox.displayName = 'SiblingBox';
 
 SiblingBox.propTypes = {
-  type: PropTypes.oneOf(['checkbox', 'radio']),
+  type: PropTypes.oneOf(['checkbox', 'radio', 'file']),
 };
 
 export {SiblingBox};

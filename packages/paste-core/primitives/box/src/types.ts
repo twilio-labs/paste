@@ -72,6 +72,7 @@ export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 
 // Omits potential clashes from our style props with HTMLAttributes (i.e.: color)
 export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxBaseStyleProps> {
+  accept?: string;
   as?: keyof JSX.IntrinsicElements;
   type?: string;
   /** Typed as any because Box can literally be any HTML element */
