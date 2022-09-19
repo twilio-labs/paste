@@ -50,6 +50,12 @@ export const initStyles = (prefix: string): Record<string, PasteCustomCSS> => ({
   [`${prefix}_FOOTER_ACTIONS`]: {
     justifyContent: 'flex-start',
   },
+  [`${prefix}_FOOTER_ACTIONS_ITEM`]: {
+    paddingX: 'space40',
+    ':first-of-type': {
+      paddingLeft: 'space0',
+    },
+  },
 });
 
 const getElementName = (elementName: string | undefined, suffix?: string): string | undefined => {
