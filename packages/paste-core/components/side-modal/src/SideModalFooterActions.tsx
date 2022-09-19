@@ -1,21 +1,23 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
+
+type JustifyOptions = 'flex-start' | 'flex-end' | 'space-between';
 
 export interface SideModalFooterActionsProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
-  justify?: BoxStyleProps['justifyContent'];
+  justifyContent?: JustifyOptions;
 }
 
 const SideModalFooterActions = React.forwardRef<HTMLDivElement, SideModalFooterActionsProps>(
-  ({children, element = 'SIDE_MODAL_FOOTER_ACTIONS', justify = 'flex-end', ...props}, ref) => {
+  ({children, element = 'SIDE_MODAL_FOOTER_ACTIONS', justifyContent = 'flex-end', ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         display="flex"
-        justifyContent={justify}
+        justifyContent={justifyContent}
         flexWrap="wrap"
         flexGrow={1}
         element={element}
@@ -34,24 +36,7 @@ SideModalFooterActions.displayName = 'SideModalFooterActions';
 SideModalFooterActions.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
-  justify: PropTypes.oneOf([
-    'start',
-    'end',
-    'flex-start',
-    'flex-end',
-    'center',
-    'left',
-    'right',
-    'normal',
-    'space-around',
-    'space-between',
-    'space-evenly',
-    'stretch',
-    'inherit',
-    'initial',
-    'revert',
-    'unset',
-  ] as BoxStyleProps['justifyContent'][]),
+  justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'space-between'] as JustifyOptions[]),
 };
 
 export {SideModalFooterActions};
