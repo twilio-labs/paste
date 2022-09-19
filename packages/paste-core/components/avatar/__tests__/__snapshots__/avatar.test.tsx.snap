@@ -4,12 +4,12 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
-  background-color: colorBackgroundUser;
-  border-radius: borderRadiusCircle;
   overflow: hidden;
   width: sizeIcon30;
   height: sizeIcon30;
+  background-color: colorBackgroundUser;
   color: colorText;
+  border-radius: borderRadiusCircle;
 }
 
 @media screen and (min-width: 40em) {
@@ -66,12 +66,12 @@ exports[`Avatar intials should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
-  background-color: colorBackgroundUser;
-  border-radius: borderRadiusCircle;
   overflow: hidden;
   width: sizeIcon10;
   height: sizeIcon10;
+  background-color: colorBackgroundUser;
   color: colorText;
+  border-radius: borderRadiusCircle;
 }
 
 @media screen and (min-width: 40em) {
