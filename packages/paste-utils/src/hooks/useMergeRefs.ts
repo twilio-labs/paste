@@ -30,7 +30,7 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void
  *
  * @example
  * import React from "react";
- * import { useMergeRefs } from `@chakra-ui/hooks`;
+ * import { useMergeRefs } from `@twilio-paste/utils`;
  *
  * const Component = React.forwardRef((props, ref) => {
  *   const internalRef = React.useRef();

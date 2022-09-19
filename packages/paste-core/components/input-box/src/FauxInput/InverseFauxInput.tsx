@@ -42,7 +42,7 @@ const InverseFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
         }}
         _focusWithin={{
           backgroundColor: 'colorBackgroundInverse',
-          boxShadow: 'shadowFocusInverse',
+          boxShadow: disabled ? boxShadow : 'shadowFocusInverse',
         }}
         _active={{
           boxShadow: boxShadowHover,

@@ -121,7 +121,7 @@
     "gatsby-transformer-sharp": "^4.11.0",
     "highcharts": "^9.3.3",
     "highcharts-react-official": "^3.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "4.17.21",
     "lottie-web": "^5.7.4",
     "pretty-format": "^28.1.0",
     "prism-react-renderer": "^0.1.7",

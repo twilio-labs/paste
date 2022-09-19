@@ -239,6 +239,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
           <ComboboxListboxGroup>
             {filteredItems.map((filteredItem, index) => (
               <ComboboxListboxOption
+                key={filteredItem}
                 highlighted={highlightedIndex === index}
                 variant="default"
                 {...getItemProps({item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`)})}
@@ -250,9 +251,10 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
         </ComboboxListbox>
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
-        {selectedItems.map((item, index) => {
+        {selectedItems.map((item: unknown, index: number) => {
           return (
             <FormPill
+              key={item}
               {...getSelectedItemProps({
                 selectedItem,
                 index,

@@ -90,7 +90,7 @@ export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment
 );
 
 CustomizedCombobox.story = {
-  name: 'Default',
+  name: 'Combobox - Default',
 };
 
 export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
@@ -106,7 +106,7 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
   </ShowCustomization>
 );
 CustomizedComboboxGroups.story = {
-  name: 'With groups',
+  name: 'Combobox - With groups',
 };
 
 export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
@@ -124,11 +124,11 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
   </ShowCustomization>
 );
 CustomizedComboboxBeforeAndAfter.story = {
-  name: 'With prefix and suffix',
+  name: 'Combobox - With prefix and suffix',
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox/Customization',
+  title: 'Components/Combobox/Customization - Combobox',
   component: CustomizedCombobox,
 };

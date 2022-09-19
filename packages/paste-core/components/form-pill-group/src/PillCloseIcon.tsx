@@ -15,7 +15,7 @@ import type {PillVariant} from './types';
 const merge = require('deepmerge');
 
 interface PillCloseIconProps {
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   selected?: boolean;
   variant?: PillVariant;
   element?: BoxProps['element'];

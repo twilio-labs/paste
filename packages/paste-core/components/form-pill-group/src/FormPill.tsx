@@ -14,9 +14,9 @@ interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> 
   children: React.ReactNode;
   variant?: PillVariant;
   /** Event handler to respond to selection events */
-  onSelect?: () => void;
+  onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /** Event handler to respond to dismiss events */
-  onDismiss?: () => void;
+  onDismiss?: (event: React.MouseEvent<Element> | React.KeyboardEvent<Element>) => void;
   /** Event handler to respond to focus events */
   onFocus?: () => void;
   /** Event handler to respond to blur events */
@@ -73,7 +73,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     const handleKeydown = React.useCallback(
       (event: React.KeyboardEvent) => {
         if ((event.key === 'Backspace' || event.key === 'Delete') && typeof onDismiss === 'function') {
-          onDismiss();
+          onDismiss(event);
 
           // Focus the next pill upon removing the current one
           if (typeof next === 'function') {

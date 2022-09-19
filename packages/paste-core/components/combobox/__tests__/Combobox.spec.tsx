@@ -1,5 +1,6 @@
 import * as React from 'react';
-import * as _ from 'lodash';
+import filter from 'lodash/filter';
+import uniq from 'lodash/uniq';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type {RenderOptions} from '@testing-library/react';
@@ -73,18 +74,26 @@ const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>
 );
 
+function getFilteredItems(inputValue: string): any[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+  return items.filter((item) => item.toLowerCase().startsWith(lowerCasedInputValue));
+}
+
 const ComboboxMock: React.FC = () => {
-  const [inputItems, setInputItems] = React.useState(items);
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
   return (
     <Combobox
-      items={inputItems}
+      items={filteredItems}
       initialIsOpen
+      disabledItems={filteredItems[3]}
       helpText="This is the help text"
       labelText="Choose a component:"
       required
-      onInputValueChange={({inputValue}) => {
-        if (inputValue !== undefined) {
-          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+      onInputValueChange={(changes) => {
+        if (changes.inputValue != null) {
+          setInputValue(changes.inputValue);
         }
       }}
     />
@@ -108,33 +117,35 @@ const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLa
   );
 };
 
+function getFilteredObjectItems(inputValue: string): any[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+  return filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(lowerCasedInputValue));
+}
+
 const ControlledCombobox: React.FC = () => {
-  const [value, setValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredObjectItems(inputValue), [inputValue]);
   const [selectedItem, setSelectedItem] = React.useState({});
-  const [inputItems, setInputItems] = React.useState(objectItems);
+
   const {reset, ...state} = useCombobox({
-    items: inputItems,
+    items: filteredItems,
     itemToString: (item) => (item ? item.label : ''),
     onSelectedItemChange: (changes) => {
-      // @ts-ignore
       setSelectedItem(changes.selectedItem);
     },
-    onInputValueChange: ({inputValue}) => {
-      if (inputValue !== undefined) {
-        const newInputItems = _.filter(objectItems, (item: any) =>
-          item.label.toLowerCase().startsWith(inputValue.toLowerCase())
-        ) as [];
-        setInputItems(newInputItems);
-        setValue(inputValue);
+    onInputValueChange: (changes) => {
+      if (changes.inputValue != null) {
+        setInputValue(changes.inputValue);
       }
     },
-    inputValue: value,
+    inputValue,
   });
+
   return (
     <>
       <Combobox
         state={state}
-        items={inputItems}
+        items={filteredItems}
         autocomplete
         labelText="Choose a country:"
         helpText="This is the help text"
@@ -156,7 +167,7 @@ const ControlledCombobox: React.FC = () => {
         }
       />
       <Box paddingTop="space70">
-        Input value state: <span data-testid="input-value-span">{JSON.stringify(value)}</span>
+        Input value state: <span data-testid="input-value-span">{JSON.stringify(inputValue)}</span>
         <br />
         Selected item state: <span data-testid="selected-item-span">{JSON.stringify(selectedItem)}</span>
       </Box>
@@ -214,8 +225,9 @@ describe('Combobox', () => {
       render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedOptions = screen.getAllByRole('option');
       const optionIDs = renderedOptions.map((option) => option.id);
-      const uniqueIDs = _.uniq(optionIDs);
+      const uniqueIDs = uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
+      expect(renderedOptions[3].getAttribute('disabled')).toEqual('');
     });
 
     it('should render a label for that matches the input id', () => {
@@ -231,21 +243,17 @@ describe('Combobox', () => {
       expect(renderedTextbox.getAttribute('required')).toEqual('');
     });
 
-    it('should call scroll function when highlighted index changes', async () => {
+    it('should set correct aria-activedescendant when highlighted index changes', async () => {
       render(<ComboboxMock />, {wrapper: ThemeWrapper});
 
       const targetIndex = 1;
       const target = items[targetIndex];
 
-      await waitFor(() => {
-        userEvent.hover(screen.getByText(target));
-      });
+      userEvent.hover(screen.getByText(target));
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
       );
-
-      expect(mockScrollToIndex).toHaveBeenCalledWith(1);
     });
   });
 
@@ -278,7 +286,7 @@ describe('Combobox', () => {
       render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
       const renderedOptions = screen.getAllByRole('option');
       const optionIDs = renderedOptions.map((option) => option.id);
-      const uniqueIDs = _.uniq(optionIDs);
+      const uniqueIDs = uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
 
@@ -339,8 +347,11 @@ describe('Combobox', () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
       // open the combobox
       fireEvent.click(screen.getByRole('textbox'));
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('');
       // select the first item
       fireEvent.click(screen.getAllByRole('option')[0]);
+
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('Andorra');
       expect(screen.getByTestId('input-value-span').textContent).toEqual('"Andorra"');
@@ -355,7 +366,7 @@ describe('Combobox', () => {
       expect(screen.getByTestId('selected-item-span').textContent).toEqual('null');
     });
 
-    it('should call scroll function when highlighted index changes', async () => {
+    it('should set correct aria-activedescendant when highlighted index changes', async () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
 
       userEvent.click(screen.getByRole('textbox'));
@@ -363,15 +374,11 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = objectItems[targetIndex];
 
-      await waitFor(() => {
-        userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
-      });
+      userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
       );
-
-      expect(mockScrollToIndex).toHaveBeenCalledWith(1);
     });
   });
 });

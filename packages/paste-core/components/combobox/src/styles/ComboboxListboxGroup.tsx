@@ -9,22 +9,30 @@ export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLab
   groupName?: string | undefined;
 }
 
-const ComboboxListboxGroup = React.forwardRef<HTMLDivElement, ComboboxListboxGroupProps>(
+const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(
   ({children, element = 'COMBOBOX', groupName, groupLabelTemplate}, ref) => {
     return (
       <Box
         as="ul"
+        ref={ref}
         element={`${element}_LIST`}
         role={!groupName ? 'presentation' : 'group'}
         aria-label={groupName}
-        ref={ref}
         margin="space0"
         padding="space0"
         listStyleType="none"
       >
         {groupName ? (
-          <Box as="li" role="presentation" paddingY="space30" paddingX="space70" element={`${element}_GROUPNAME`}>
-            <Text as="span" fontWeight="fontWeightBold" element={`${element}_GROUPNAME_TEXT`}>
+          <Box
+            as="li"
+            backgroundColor="colorBackground"
+            role="presentation"
+            paddingY="space40"
+            paddingLeft="space70"
+            paddingRight="space50"
+            element={`${element}_GROUPNAME`}
+          >
+            <Text as="span" fontWeight="fontWeightBold" color="colorTextWeak" element={`${element}_GROUPNAME_TEXT`}>
               {groupLabelTemplate ? groupLabelTemplate(groupName) : groupName}
             </Text>
           </Box>

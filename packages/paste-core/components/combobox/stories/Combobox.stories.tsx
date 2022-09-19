@@ -92,7 +92,7 @@ const groupedItems = [
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox',
+  title: 'Components/Combobox/Combobox',
   component: Combobox,
 };
 
@@ -248,13 +248,13 @@ export const ComboboxAutocomplete = (): React.ReactNode => {
     <Combobox
       autocomplete
       items={inputItems}
-      helpText="This is the help text"
-      labelText="Choose a component:"
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }
       }}
+      helpText="This is the help text"
+      labelText="Choose a component:"
     />
   );
 };
@@ -329,6 +329,22 @@ export const ComboboxDisabled = (): React.ReactNode => {
 
 ComboboxDisabled.story = {
   name: 'Combobox - Disabled',
+};
+
+export const ComboboxDisabledItems = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={items}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialSelectedItem={items[2]}
+      disabledItems={[items[1]]}
+    />
+  );
+};
+
+ComboboxDisabledItems.story = {
+  name: 'Combobox - Disabled Items',
 };
 
 export const ComboboxDisabledInverse = (): React.ReactNode => {
