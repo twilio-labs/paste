@@ -436,7 +436,7 @@ MultiselectComboboxOptionGroups.story = {
 };
 
 const SampleEmptyState: React.FC = () => (
-  <ComboboxListboxOption variant="default">
+  <ComboboxListboxOption variant="default" disabled>
     <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
       Some image
     </Box>

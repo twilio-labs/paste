@@ -50,6 +50,7 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   groupItemsBy?: string;
   variant?: InputVariants;
   disabledItems?: any[];
+  emptyState?: React.FC;
 
   // Downshift useCombobox Hook Props. Thes are mainly covered in https://github.com/downshift-js/downshift/blob/master/src/hooks/useCombobox/README.md#advanced-props docs
   initialIsOpen?: UseComboboxPrimitiveProps<any>['initialIsOpen'];
@@ -88,11 +89,10 @@ export interface MultiselectComboboxProps
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;
   selectedItemsLabelText: string;
   i18nKeyboardControls?: string;
-  emptyState?: React.FC;
 }
 
 export interface ComboboxItemsProps
-  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element'> {
+  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element' | 'emptyState'> {
   items: Item[];
   selectedItems?: Item[];
   disabledItems?: Item[];
@@ -100,5 +100,4 @@ export interface ComboboxItemsProps
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   totalSize: RowVirtualizer['totalSize'];
   virtualItems: RowVirtualizer['virtualItems'];
-  emptyState?: React.FC;
 }

@@ -56,9 +56,9 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         // FIX: Manually control aria-selected state to be true when an item has been selected.
         // Downshift sets aria-selected to true when an item is highlighted, which we don't want.
         aria-selected={selected}
+        aria-disabled={disabled}
         as="li"
         position="relative"
-        aria-disabled={disabled}
         element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
         color={highlighted && !disabled ? 'colorTextLinkStronger' : selected ? 'colorTextLink' : 'colorText'}

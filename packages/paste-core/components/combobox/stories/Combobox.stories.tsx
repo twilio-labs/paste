@@ -13,7 +13,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {Combobox, useCombobox} from '../src';
+import {Combobox, useCombobox, ComboboxListboxOption} from '../src';
 
 const items = [
   'Alert',
@@ -779,4 +779,40 @@ export const ComboboxListboxZIndex = (): React.ReactNode => {
 
 ComboboxListboxZIndex.story = {
   name: 'Combobox - Listbox zIndex',
+};
+
+const SampleEmptyState: React.FC = () => (
+  <ComboboxListboxOption variant="default" disabled>
+    <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
+      Some image
+    </Box>
+    <Text as="span" fontStyle="italic">
+      No results found
+    </Text>
+  </ComboboxListboxOption>
+);
+
+export const ComboboxEmptyState = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState<string[]>([]);
+
+  return (
+    <Combobox
+      autocomplete
+      items={inputItems}
+      inputValue="test123"
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
+      emptyState={SampleEmptyState}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialIsOpen
+    />
+  );
+};
+
+ComboboxEmptyState.story = {
+  name: 'Combobox - EmptyState',
 };

@@ -57,6 +57,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       groupItemsBy,
       groupLabelTemplate,
       variant = 'default',
+      emptyState,
       getA11yStatusMessage,
       getA11ySelectionMessage,
       state,
@@ -179,6 +180,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             groupLabelTemplate={groupLabelTemplate}
             totalSize={rowVirtualizer.totalSize}
             virtualItems={rowVirtualizer.virtualItems}
+            emptyState={emptyState}
           />
         </ComboboxListbox>
         {helpText && (
