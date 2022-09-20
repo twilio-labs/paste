@@ -101,11 +101,11 @@ export const ColorVariants = (): React.ReactNode => {
   );
 };
 
-export const ShapeVariants = (): React.ReactNode => {
+export const Variants = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar shape="user" name="avatar example" icon={UserIcon} />
-      <Avatar shape="entity" name="avatar example" icon={BusinessIcon} />
+      <Avatar variant="user" name="avatar example" icon={UserIcon} />
+      <Avatar variant="entity" name="avatar example" icon={BusinessIcon} />
     </Stack>
   );
 };

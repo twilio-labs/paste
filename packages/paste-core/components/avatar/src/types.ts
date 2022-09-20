@@ -3,7 +3,7 @@ import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import type {BoxProps} from '@twilio-paste/box';
 
 export type ColorVariants = 'default' | 'decorative10' | 'decorative20' | 'decorative30' | 'decorative40';
-export type ShapeVariants = 'user' | 'entity';
+export type AvatarVariants = 'user' | 'entity';
 
 export type AvatarProps = React.HTMLAttributes<'div'> &
   Pick<BoxProps, 'element'> & {
@@ -12,7 +12,7 @@ export type AvatarProps = React.HTMLAttributes<'div'> &
     icon?: React.FC<GenericIconProps>;
     src?: string;
     color?: ColorVariants;
-    shape?: ShapeVariants;
+    variant?: AvatarVariants;
   };
 
 export type AvatarContentProps = {

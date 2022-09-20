@@ -197,6 +197,24 @@ Provide the Avatar with an `icon` prop to display an icon. You must import the i
 </Stack>`}
 </LivePreview>
 
+### Avatar variants
+
+The Avatar `variant` prop can be used to change the shape. There are two variants, one for users and one for entities, like a business. The default value for `variant` is "user".
+
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+    BusinessIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar variant="user" name="user example" icon={UserIcon} />
+  <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
+</Stack>`}
+</LivePreview>
+
 ### Changing the color of an Avatar
 
 The Avatar `color` prop can be used to change the color. These colors are meant to differentiate between multiple Avatars in close proximity to each other. Do not use these colors to convey meaning, like warning, error, or success.
@@ -214,24 +232,6 @@ The Avatar `color` prop can be used to change the color. These colors are meant 
   <Avatar color="decorative20" name="avatar example" icon={UserIcon} />
   <Avatar color="decorative30" name="avatar example" icon={UserIcon} />
   <Avatar color="decorative40" name="avatar example" icon={UserIcon} />
-</Stack>`}
-</LivePreview>
-
-### Changing the shape of an Avatar
-
-The Avatar `shape` prop can be used to change the shape. There are two shapes, one for users and one for entities, like a business. The default value for `shape` is "user".
-
-<LivePreview
-  scope={{
-    Avatar,
-    Stack,
-    UserIcon,
-    BusinessIcon,
-  }}
->
-  {`<Stack orientation="horizontal" spacing="space40">
-  <Avatar shape="user" name="user example" icon={UserIcon} />
-  <Avatar shape="entity" name="entity example" icon={BusinessIcon} />
 </Stack>`}
 </LivePreview>
 
@@ -322,7 +322,7 @@ const AvatarExample = () => {
 | size?    | `IconSize[]`                                                                | Responsive size property that takes IconSize token names.                                 | `sizeIcon70` |
 | src?     | `string`                                                                    | Used to set the image `src` attribute when setting an image as the Avatar.                |              |
 | icon?    | `React.FC<GenericIconProps>`                                                | Specify a Paste Icon to be displayed in the Avatar.                                       |              |
-| shape?   | `'user', 'entity'`                                                          | Specify the shape of the Avatar based on what it represents.                              | `'user'`     |
+| variant? | `'user', 'entity'`                                                          | Specify the variant of the Avatar based on what it represents.                            | `'user'`     |
 | color?   | `'default', 'decorative10', 'decorative20', 'decorative30', 'decorative40'` | Used to set the color of the Avatar.                                                      | `'default'`  |
 | element? | `string`                                                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'AVATAR'`   |
 

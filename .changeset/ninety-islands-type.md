@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Avatar] add new shape and color props
+[Avatar] add new variant and color props

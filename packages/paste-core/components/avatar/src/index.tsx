@@ -6,7 +6,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
-import type {AvatarProps, AvatarContentProps, ColorVariants, ShapeVariants} from './types';
+import type {AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants} from './types';
 
 const DEFAULT_SIZE = 'sizeIcon70';
 
@@ -65,7 +65,7 @@ const colorVariants: Record<ColorVariants, BoxStyleProps> = {
   },
 };
 
-const shapeVariants: Record<ShapeVariants, BoxStyleProps> = {
+const variants: Record<AvatarVariants, BoxStyleProps> = {
   user: {
     borderRadius: 'borderRadiusCircle',
   },
@@ -76,7 +76,7 @@ const shapeVariants: Record<ShapeVariants, BoxStyleProps> = {
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   (
-    {name, children, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', shape = 'user', ...props},
+    {name, children, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props},
     ref
   ) => {
     if (name === undefined) {
@@ -92,7 +92,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         ref={ref}
         size={size}
         {...colorVariants[color]}
-        {...shapeVariants[shape]}
+        {...variants[variant]}
       >
         <AvatarContents name={name} size={size} icon={icon} src={src} />
       </Box>
@@ -114,7 +114,7 @@ Avatar.propTypes = {
     'decorative30',
     'decorative40',
   ] as ColorVariants[]),
-  shape: PropTypes.oneOf(['user', 'entity'] as ShapeVariants[]),
+  variant: PropTypes.oneOf(['user', 'entity'] as AvatarVariants[]),
   icon: (props) => {
     if (typeof props.icon !== 'function') new Error('[Paste Avatar]: icon prop must be a Paste Icon');
     return null;
