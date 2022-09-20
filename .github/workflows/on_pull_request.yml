@@ -248,9 +248,6 @@ jobs:
           name: compiled-js-and-types
           path: packages/
 
-      - name: Install React 16 types
-        run: yarn add -W --no-lockfile @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
-
       - name: Run tests
         run: yarn test:react-16
 
