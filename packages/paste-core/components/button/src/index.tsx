@@ -122,7 +122,12 @@ const handlePropValidation = ({
 
 const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
 
-const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
+const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = ({
+  buttonState,
+  children,
+  showLoading,
+  variant,
+}) => {
   const buttonVariantHasBoundingBox = variant && variantsWithoutBoundingBox.has(variant);
 
   return (
@@ -158,7 +163,9 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
   );
 };
 
-const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<DirectButtonProps> => {
+const getButtonComponent = (
+  variant: ButtonVariants
+): React.FunctionComponent<React.PropsWithChildren<DirectButtonProps>> => {
   switch (variant) {
     case 'primary_icon':
       return PrimaryIconButton;

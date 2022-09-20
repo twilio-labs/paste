@@ -19,7 +19,10 @@ import {
 import {Story} from '@storybook/react';
 
 // Wrapper to abstract the rendering of the default and customized pagination versions
-const BeforeAndAfter: React.FC<{before: React.ReactNode; after: React.ReactNode}> = ({before, after}) => (
+const BeforeAndAfter: React.FC<React.PropsWithChildren<{before: React.ReactNode; after: React.ReactNode}>> = ({
+  before,
+  after,
+}) => (
   <Stack orientation="vertical" spacing="space90">
     <Heading as="h3" variant="heading30">
       Default:
@@ -32,7 +35,9 @@ const BeforeAndAfter: React.FC<{before: React.ReactNode; after: React.ReactNode}
   </Stack>
 );
 
-export const WrapperAndArrows: React.FC<{element?: BoxElementProps['element']}> = ({element = 'PAGINATION'}) => {
+export const WrapperAndArrows: React.FC<React.PropsWithChildren<{element?: BoxElementProps['element']}>> = ({
+  element = 'PAGINATION',
+}) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -56,7 +61,9 @@ export const WrapperAndArrows: React.FC<{element?: BoxElementProps['element']}> 
     </Pagination>
   );
 };
-export const NumbersAndLabel: React.FC<{element?: BoxElementProps['element']}> = ({element = 'PAGINATION'}) => {
+export const NumbersAndLabel: React.FC<React.PropsWithChildren<{element?: BoxElementProps['element']}>> = ({
+  element = 'PAGINATION',
+}) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (

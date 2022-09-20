@@ -11,7 +11,7 @@ import {UnitTokenInput} from './UnitTokenInput';
 import {DesignerContext} from './DesignerContext';
 import {TextTokenInput} from './TextToken';
 
-export const DesignerControls: React.FC = () => {
+export const DesignerControls: React.FC<React.PropsWithChildren<unknown>> = () => {
   const {tokens, updateToken} = React.useContext(DesignerContext);
 
   const [fontFamily, setFontFamily] = React.useState('Inter var experimental');

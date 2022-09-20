@@ -12,7 +12,7 @@ import {Stack} from '@twilio-paste/stack';
 import {DatePicker, formatReturnDate} from '../src';
 import type {DatePickerProps} from '../src';
 
-export const DefaultDatePicker: React.FC<DatePickerProps> = (props) => {
+export const DefaultDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -32,7 +32,7 @@ export const DefaultDatePicker: React.FC<DatePickerProps> = (props) => {
   );
 };
 
-export const InverseDatePicker: React.FC = (props) => {
+export const InverseDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -48,7 +48,7 @@ export const InverseDatePicker: React.FC = (props) => {
   );
 };
 
-export const RequiredDatePicker: React.FC = (props) => {
+export const RequiredDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -67,7 +67,7 @@ export const RequiredDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseRequiredDatePicker: React.FC = (props) => {
+export const InverseRequiredDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -83,7 +83,7 @@ export const InverseRequiredDatePicker: React.FC = (props) => {
   );
 };
 
-export const ErrorDatePicker: React.FC = (props) => {
+export const ErrorDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -103,7 +103,7 @@ export const ErrorDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseErrorDatePicker: React.FC = (props) => {
+export const InverseErrorDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -119,7 +119,7 @@ export const InverseErrorDatePicker: React.FC = (props) => {
   );
 };
 
-export const DisabledDatePicker: React.FC = (props) => {
+export const DisabledDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -137,7 +137,7 @@ export const DisabledDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseDisabledDatePicker: React.FC = (props) => {
+export const InverseDisabledDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -151,7 +151,7 @@ export const InverseDisabledDatePicker: React.FC = (props) => {
   );
 };
 
-export const ReadonlyDatePicker: React.FC = (props) => {
+export const ReadonlyDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -167,7 +167,7 @@ export const ReadonlyDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseReadonlyDatePicker: React.FC = (props) => {
+export const InverseReadonlyDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -180,7 +180,7 @@ export const InverseReadonlyDatePicker: React.FC = (props) => {
   );
 };
 
-export const DefaultValueDatePicker: React.FC = (props) => {
+export const DefaultValueDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -198,7 +198,7 @@ export const DefaultValueDatePicker: React.FC = (props) => {
   );
 };
 
-export const OnChangeDatePicker: React.FC = (props) => {
+export const OnChangeDatePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const [value, setValue] = React.useState('');
   const [dateFormat, setDateFormat] = React.useState('MM dd yy');
   const uidDP = useUID();
@@ -239,7 +239,7 @@ export const OnChangeDatePicker: React.FC = (props) => {
   );
 };
 
-export const LabelOnlyPicker: React.FC = (props) => {
+export const LabelOnlyPicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   return (
     <>
@@ -249,7 +249,7 @@ export const LabelOnlyPicker: React.FC = (props) => {
   );
 };
 
-export const DateRangePicker: React.FC = (props) => {
+export const DateRangePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const [startDate, setStartDate] = React.useState('');
   const startUidDP = useUID();
   const endUidDP = useUID();
@@ -267,7 +267,7 @@ export const DateRangePicker: React.FC = (props) => {
   );
 };
 
-export const StackOfPickers: React.FC = (props) => {
+export const StackOfPickers: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDPOne = useUID();
   const uidHTOne = useUID();
   const uidDPTwo = useUID();
@@ -303,7 +303,7 @@ export const StackOfPickers: React.FC = (props) => {
   );
 };
 
-export const DatePickerWithMinAndMax: React.FC = (props) => {
+export const DatePickerWithMinAndMax: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (

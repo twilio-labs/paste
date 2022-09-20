@@ -53,7 +53,7 @@ describe('Stack Unit Tests', () => {
   });
 });
 
-const MockHeaderStack: React.FC = () => {
+const MockHeaderStack: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Stack
       as="header"
@@ -70,7 +70,7 @@ const MockHeaderStack: React.FC = () => {
   );
 };
 
-const MockSingleChildStack: React.FC = () => {
+const MockSingleChildStack: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       <Stack orientation="horizontal" spacing="space60" data-testid="single-horizontal">

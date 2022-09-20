@@ -11,7 +11,7 @@ export interface CustomizableIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const CustomizableIcon: React.FC<CustomizableIconProps> = ({
+const CustomizableIcon: React.FC<React.PropsWithChildren<CustomizableIconProps>> = ({
   as,
   display,
   element = 'ICON',

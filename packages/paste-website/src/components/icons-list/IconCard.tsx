@@ -19,7 +19,7 @@ export interface IconCardProps {
   selectedIcon: IconObject | null;
 }
 
-const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
+const IconCard: React.FC<React.PropsWithChildren<IconCardProps>> = ({selectedIcon}) => {
   if (selectedIcon === null) return null;
   const Icon = selectedIcon.Component;
 

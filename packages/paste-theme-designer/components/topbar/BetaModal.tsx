@@ -8,7 +8,7 @@ import {Anchor} from '@twilio-paste/core/anchor';
 
 export type BetaModalProps = Pick<ModalProps, 'isOpen' | 'onDismiss'>;
 
-const BetaModal: React.FC<BetaModalProps> = ({isOpen, onDismiss}) => {
+const BetaModal: React.FC<React.PropsWithChildren<BetaModalProps>> = ({isOpen, onDismiss}) => {
   const modalID = useUID();
   return (
     <Modal isOpen={isOpen} ariaLabelledby={modalID} onDismiss={onDismiss} size="wide">

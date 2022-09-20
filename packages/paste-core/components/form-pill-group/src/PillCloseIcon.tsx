@@ -22,7 +22,7 @@ interface PillCloseIconProps {
   pillIsHoverable?: boolean;
 }
 
-export const PillCloseIcon: React.FC<PillCloseIconProps> = ({
+export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>> = ({
   element = 'FORM_PILL_CLOSE',
   onClick = () => {},
   selected = false,

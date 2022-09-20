@@ -81,12 +81,13 @@ const HiddenCheckbox = React.forwardRef<HTMLInputElement, HiddenCheckboxProps>((
 
 HiddenCheckbox.displayName = 'HiddenCheckbox';
 
-const CheckboxIcon: React.FC<{
+const CheckboxIcon: React.FC<
+React.PropsWithChildren<{
   indeterminate: boolean | undefined;
   disabled: boolean | undefined;
-  checked: boolean | undefined;
+    checked: boolean | undefined;
   element: BoxProps['element'];
-}> = ({checked, element, indeterminate}) => {
+}>> = ({checked, element, indeterminate}) => {
   if (indeterminate) {
     return <MinusIcon element={element} decorative color="inherit" size="sizeIcon10" />;
   }

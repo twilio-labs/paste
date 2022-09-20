@@ -10,7 +10,7 @@ import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 
-export const GetStarterWhy: React.FC = () => {
+export const GetStarterWhy: React.FC<React.PropsWithChildren<unknown>> = () => {
   const {theme} = useDarkModeContext();
   return (
     <GetStartedCard>

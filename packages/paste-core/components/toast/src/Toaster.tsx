@@ -13,7 +13,7 @@ interface ReturnTargetState {
   trigger: HTMLElement | null;
 }
 
-const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
+const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, ...props}) => {
   const prefersReducedMotion = useReducedMotion();
   const [refMap] = React.useState(() => new WeakMap());
   const [returnTarget, setReturnTarget] = React.useState<ReturnTargetState>({trigger: null});

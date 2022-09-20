@@ -17,7 +17,7 @@ import ComponentsIcon from '../icons/ComponentsIcon';
 import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
 
-const PopularComponents: React.FC = () => {
+const PopularComponents: React.FC<React.PropsWithChildren<unknown>> = () => {
   const theme = useTheme();
 
   return (

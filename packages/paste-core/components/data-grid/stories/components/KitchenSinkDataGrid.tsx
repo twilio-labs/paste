@@ -97,7 +97,11 @@ interface DataGridPaginationProps {
   onPageChange: (newPageNumber: number) => void;
 }
 
-const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1, pageCount, onPageChange}) => {
+const DataGridPagination: React.FC<React.PropsWithChildren<DataGridPaginationProps>> = ({
+  currentPage = 1,
+  pageCount,
+  onPageChange,
+}) => {
   const goToNextPage = React.useCallback(() => {
     onPageChange(Math.min(currentPage + 1, pageCount));
   }, [currentPage, pageCount]);
@@ -168,7 +172,13 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
@@ -178,7 +188,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
         return;
       }
@@ -211,7 +221,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const KitchenSinkDataGrid: React.FC = () => {
+export const KitchenSinkDataGrid: React.FC<React.PropsWithChildren<unknown>> = () => {
   const seed = useUIDSeed();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortedColumns, setSortedColumns] = React.useState<Array<SortDirection | null>>(initialHeaderData);
@@ -224,7 +234,7 @@ export const KitchenSinkDataGrid: React.FC = () => {
   const rowIndexStart = (currentPage - 1) * PAGE_SIZE;
   const rowIndexEnd = Math.min(rowIndexStart + PAGE_SIZE - 1, TOTAL_ROWS);
 
-  const handlePagination = React.useCallback((newPage) => {
+  const handlePagination = React.useCallback((newPage: any) => {
     setCurrentPage(newPage);
   }, []);
 

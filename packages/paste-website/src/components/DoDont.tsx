@@ -16,7 +16,7 @@ interface DoDontProps {
   do: boolean;
 }
 
-const DoDont: React.FC<DoDontProps> = (props) => {
+const DoDont: React.FC<React.PropsWithChildren<DoDontProps>> = (props) => {
   return (
     <StyledWrapper marginTop="space90" marginBottom="space130" data-cy="do-dont-container">
       {props.children}
@@ -32,7 +32,7 @@ interface DoProps {
   title: string;
 }
 
-const Item: React.FC<DoProps> = ({center = false, ...props}) => {
+const Item: React.FC<React.PropsWithChildren<DoProps>> = ({center = false, ...props}) => {
   let preview = props.children;
 
   if (center) {
@@ -84,11 +84,11 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
   );
 };
 
-const Do: React.FC<DoProps> = (props) => {
+const Do: React.FC<React.PropsWithChildren<DoProps>> = (props) => {
   return <Item {...props} do />;
 };
 
-const Dont: React.FC<DoProps> = (props) => {
+const Dont: React.FC<React.PropsWithChildren<DoProps>> = (props) => {
   return <Item {...props} do={false} />;
 };
 

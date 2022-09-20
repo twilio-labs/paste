@@ -2,7 +2,11 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {TableOfContentsAnchorProps} from './types';
 
-export const TableOfContentsAnchor: React.FC<TableOfContentsAnchorProps> = ({href, children, ...props}) => {
+export const TableOfContentsAnchor: React.FC<React.PropsWithChildren<TableOfContentsAnchorProps>> = ({
+  href,
+  children,
+  ...props
+}) => {
   return (
     <Box
       {...props}

@@ -7,7 +7,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 
-const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) => {
+const TooltipWithoutTheme: React.FC<React.PropsWithChildren<{elementName?: string}>> = ({elementName}) => {
   return (
     <Tooltip text="Welcome to Paste!" element={elementName} data-testid="tooltip-example">
       <Button variant="primary">Open Tooltip</Button>

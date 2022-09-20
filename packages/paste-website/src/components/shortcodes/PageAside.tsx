@@ -19,7 +19,7 @@ interface PageAsideProps {
   hideFeedback?: boolean;
 }
 
-const PageAside: React.FC<PageAsideProps> = ({data, hideFeedback}) => {
+const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({data, hideFeedback}) => {
   return (
     <Box
       order={2}

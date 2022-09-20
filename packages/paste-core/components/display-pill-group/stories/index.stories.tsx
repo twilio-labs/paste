@@ -5,7 +5,7 @@ import {Avatar} from '@twilio-paste/avatar';
 import {DisplayPillGroup} from '../src/DisplayPillGroup';
 import {DisplayPill} from '../src/DisplayPill';
 
-export const Basic: React.FC = () => {
+export const Basic: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <DisplayPillGroup data-testid="display-pill-group" aria-label="Your favorite sports:">
       <DisplayPill
@@ -32,7 +32,7 @@ export const Basic: React.FC = () => {
   );
 };
 
-export const OverflowWrapping: React.FC = () => {
+export const OverflowWrapping: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box maxWidth="size40">
       <DisplayPillGroup data-testid="display-pill-group" aria-label="Your favorite sports:">

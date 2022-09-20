@@ -4,7 +4,7 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {hasFocus} from '../src/utils/reakit/reakit-hasFocus';
 
-const TestComponent: React.FC = () => {
+const TestComponent: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       <div aria-label="item1">

@@ -13,7 +13,7 @@ interface NotBuiltProps {
   name: string;
 }
 
-const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
+const NotBuilt: React.FC<React.PropsWithChildren<NotBuiltProps>> = ({type, name}) => {
   return (
     <>
       <Breadcrumb>

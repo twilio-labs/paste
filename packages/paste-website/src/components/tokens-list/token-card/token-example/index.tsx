@@ -10,7 +10,7 @@ import {TextColorExample} from './TextColorExample';
 import {IconSizeExample} from './IconSizeExample';
 import type {TokenExampleProps} from '../../types';
 
-export const TokenExample: React.FC<TokenExampleProps> = ({
+export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> = ({
   category,
   name,
   value,

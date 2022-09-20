@@ -9,7 +9,7 @@ import {slugify} from '../../../utils/RouteUtils';
 // Table of contents should only include h2, h3, h4 headings
 const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
+const TableOfContents: React.FC<React.PropsWithChildren<TableOfContentsProps>> = ({headings}) => {
   if (headings == null) {
     return null;
   }

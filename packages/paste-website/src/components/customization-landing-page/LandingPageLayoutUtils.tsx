@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
-export const LandingPageSection: React.FC<BoxProps> = ({children, ...props}) => {
+export const LandingPageSection: React.FC<React.PropsWithChildren<BoxProps>> = ({children, ...props}) => {
   return (
     <Box
       as="section"
@@ -30,7 +30,7 @@ const ContentVariants = {
 type LandingPageSectionContentProps = {
   variant: keyof typeof ContentVariants;
 } & BoxProps;
-export const LandingPageSectionContent: React.FC<LandingPageSectionContentProps> = ({
+export const LandingPageSectionContent: React.FC<React.PropsWithChildren<LandingPageSectionContentProps>> = ({
   children,
   variant = 'default',
   ...props

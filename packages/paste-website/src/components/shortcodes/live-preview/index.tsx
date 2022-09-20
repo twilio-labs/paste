@@ -21,7 +21,7 @@ interface LivePreviewProps {
   showOverflow?: boolean;
 }
 
-const LivePreview: React.FC<LivePreviewProps> = ({
+const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   children,
   language = 'jsx',
   disabled = false,

@@ -6,21 +6,23 @@ import {SiteLink} from '../SiteLink';
 import {InlineCode} from '../Typography';
 import type {Token} from './types';
 
-const ColorGuidelinesLink: React.FC = () => <SiteLink to="/foundations/colors">Read the color guidelines</SiteLink>;
+const ColorGuidelinesLink: React.FC<React.PropsWithChildren<unknown>> = () => (
+  <SiteLink to="/foundations/colors">Read the color guidelines</SiteLink>
+);
 
-const BackgroundColorsIntro: React.FC = () => (
+const BackgroundColorsIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Paragraph>
     <ColorGuidelinesLink /> to learn more about using background color tokens in Paste.
   </Paragraph>
 );
 
-const BorderColorsIntro: React.FC = () => (
+const BorderColorsIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Paragraph>
     <ColorGuidelinesLink /> to learn more about using border color tokens in Paste.
   </Paragraph>
 );
 
-const BoxShadowsIntro: React.FC = () => (
+const BoxShadowsIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Box marginBottom="space80">
     <Paragraph>
       Box shadows are used in a number of ways: some are true shadows that are used to create depth and demonstrate the
@@ -40,7 +42,7 @@ const BoxShadowsIntro: React.FC = () => (
   </Box>
 );
 
-const DataVisualizationIntro: React.FC = () => (
+const DataVisualizationIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Paragraph>
     Data visualization colors are for usage within charts.{' '}
     <SiteLink to="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more about
@@ -48,7 +50,7 @@ const DataVisualizationIntro: React.FC = () => (
   </Paragraph>
 );
 
-const FontSizesIntro: React.FC = () => (
+const FontSizesIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <>
     <Paragraph>
       Font size tokens use rem values, and 1 rem unit is equal to 16 pixels in Paste. Unlike em values which are
@@ -66,7 +68,7 @@ const FontSizesIntro: React.FC = () => (
   </>
 );
 
-const TextColorsIntro: React.FC = () => (
+const TextColorsIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Paragraph>
     Text color tokens define both text and icon colors. We specifically have <InlineCode>color-text-*</InlineCode> and
     <InlineCode>color-text-icon-*</InlineCode> tokens, since icons have lower contrast requirements than text. This
@@ -75,7 +77,7 @@ const TextColorsIntro: React.FC = () => (
   </Paragraph>
 );
 
-const ZIndicesIntro: React.FC = () => (
+const ZIndicesIntro: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Paragraph>Z indices define the vertical stacking order of UI elements that overlap.</Paragraph>
 );
 

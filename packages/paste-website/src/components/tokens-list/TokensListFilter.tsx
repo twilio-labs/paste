@@ -19,7 +19,7 @@ export interface TokensListFilterProps {
   selectedTheme: string;
 }
 
-export const TokensListFilter: React.FC<TokensListFilterProps> = ({
+export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilterProps>> = ({
   value,
   handleInput,
   handleFormatChange,

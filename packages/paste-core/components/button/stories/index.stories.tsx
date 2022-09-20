@@ -24,7 +24,7 @@ const ButtonSizeOptions = [
   'circle_small',
 ];
 
-const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
+const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}>> = ({variant}) => {
   const allButtons: React.ReactNode[] = [];
 
   ButtonSizeOptions.forEach((size) => {
@@ -196,7 +196,7 @@ export const ButtonAsAnchor = (): React.ReactNode => {
   );
 };
 
-const IconSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
+const IconSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}>> = ({variant}) => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
@@ -266,7 +266,7 @@ interface ToggleButtonProps {
   };
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({
+const ToggleButton: React.FC<React.PropsWithChildren<ToggleButtonProps>> = ({
   defaultPressed = false,
   variant = 'secondary',
   children,

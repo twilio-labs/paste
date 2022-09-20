@@ -16,7 +16,14 @@ interface SVGThumbProps {
 const FILTER_1 = 'filter-1';
 const FILTER_2 = 'filter-2';
 
-export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs, height, width, top}) => {
+export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
+  left,
+  svgCircleRef,
+  initRefs,
+  height,
+  width,
+  top,
+}) => {
   const seed = useUIDSeed();
   const {
     backgroundColors: {colorBackground},

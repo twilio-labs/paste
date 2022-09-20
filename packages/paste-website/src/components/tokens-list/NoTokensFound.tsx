@@ -12,7 +12,7 @@ interface NoTokensFoundProps {
   onClearSearch: () => void;
 }
 
-export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => (
+export const NoTokensFound: React.FC<React.PropsWithChildren<NoTokensFoundProps>> = ({onClearSearch}) => (
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">

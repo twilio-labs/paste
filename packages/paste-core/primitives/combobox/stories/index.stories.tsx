@@ -175,7 +175,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
     useMultiSelectPrimitive({});
 
   const handleSelectItemOnClick = React.useCallback(
-    (selectedItem) => {
+    (selectedItem: any) => {
       addSelectedItem(selectedItem);
 
       setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== selectedItem));
@@ -184,7 +184,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
   );
 
   const handleRemoveItemOnClick = React.useCallback(
-    (selectedItem) => {
+    (selectedItem: any) => {
       removeSelectedItem(selectedItem);
 
       setFilteredItems((currentFilteredItems) => [...currentFilteredItems, selectedItem].sort());

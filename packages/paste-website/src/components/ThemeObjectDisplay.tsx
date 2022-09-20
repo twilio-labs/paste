@@ -4,7 +4,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {Codeblock} from './codeblock';
 import {format as prettyFormat} from 'pretty-format';
 
-export const ThemeObjectDisplay: React.FC = () => {
+export const ThemeObjectDisplay: React.FC<React.PropsWithChildren<unknown>> = () => {
   const theme = useTheme();
   const themeKeys = Object.keys(theme);
   const reducedTheme: {[key: string]: any} = {};

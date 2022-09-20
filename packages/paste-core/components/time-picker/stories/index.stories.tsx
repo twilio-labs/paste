@@ -11,7 +11,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {TimePicker, formatReturnTime} from '../src';
 import type {TimePickerProps} from '../src';
 
-export const DefaultTimePicker: React.FC<TimePickerProps> = (props) => {
+export const DefaultTimePicker: React.FC<React.PropsWithChildren<TimePickerProps>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -23,7 +23,7 @@ export const DefaultTimePicker: React.FC<TimePickerProps> = (props) => {
   );
 };
 
-export const InverseTimePicker: React.FC = (props) => {
+export const InverseTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -39,7 +39,7 @@ export const InverseTimePicker: React.FC = (props) => {
   );
 };
 
-export const RequiredTimePicker: React.FC = (props) => {
+export const RequiredTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -53,7 +53,7 @@ export const RequiredTimePicker: React.FC = (props) => {
   );
 };
 
-export const InverseRequiredTimePicker: React.FC = (props) => {
+export const InverseRequiredTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -69,7 +69,7 @@ export const InverseRequiredTimePicker: React.FC = (props) => {
   );
 };
 
-export const ErrorTimePicker: React.FC = (props) => {
+export const ErrorTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -83,7 +83,7 @@ export const ErrorTimePicker: React.FC = (props) => {
   );
 };
 
-export const InverseErrorTimePicker: React.FC = (props) => {
+export const InverseErrorTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -99,7 +99,7 @@ export const InverseErrorTimePicker: React.FC = (props) => {
   );
 };
 
-export const DisabledTimePicker: React.FC = (props) => {
+export const DisabledTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -113,7 +113,7 @@ export const DisabledTimePicker: React.FC = (props) => {
   );
 };
 
-export const InverseDisabledTimePicker: React.FC = (props) => {
+export const InverseDisabledTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -129,7 +129,7 @@ export const InverseDisabledTimePicker: React.FC = (props) => {
   );
 };
 
-export const ReadonlyTimePicker: React.FC = (props) => {
+export const ReadonlyTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -141,7 +141,7 @@ export const ReadonlyTimePicker: React.FC = (props) => {
   );
 };
 
-export const InverseReadonlyTimePicker: React.FC = (props) => {
+export const InverseReadonlyTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -157,7 +157,7 @@ export const InverseReadonlyTimePicker: React.FC = (props) => {
   );
 };
 
-export const DefaultValueTimePicker: React.FC = (props) => {
+export const DefaultValueTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -169,7 +169,7 @@ export const DefaultValueTimePicker: React.FC = (props) => {
   );
 };
 
-export const OnChangeTimePicker: React.FC = (props) => {
+export const OnChangeTimePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const [value, setValue] = React.useState('');
   const [timeFormat, setTimeFormat] = React.useState('HH:mm');
   const uidTP = useUID();
@@ -208,7 +208,7 @@ export const OnChangeTimePicker: React.FC = (props) => {
   );
 };
 
-export const LabelOnlyPicker: React.FC = (props) => {
+export const LabelOnlyPicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTP = useUID();
   return (
     <>
@@ -218,7 +218,7 @@ export const LabelOnlyPicker: React.FC = (props) => {
   );
 };
 
-export const TimeRangePicker: React.FC = (props) => {
+export const TimeRangePicker: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const startUidTP = useUID();
   const endUidTP = useUID();
   return (
@@ -235,7 +235,7 @@ export const TimeRangePicker: React.FC = (props) => {
   );
 };
 
-export const StackOfPickers: React.FC = (props) => {
+export const StackOfPickers: React.FC<React.PropsWithChildren<unknown>> = (props) => {
   const uidTPOne = useUID();
   const uidHTOne = useUID();
   const uidTPTwo = useUID();

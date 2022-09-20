@@ -10,7 +10,7 @@ import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 
 import {ImageSlider} from './image-slider';
 
-export const LandingPageHero: React.FC = () => {
+export const LandingPageHero: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box overflow="hidden">
       <Box padding="space70">

@@ -24,7 +24,7 @@ interface BackgroundGradientProps {
   styles?: React.CSSProperties;
 }
 
-export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
+export const SlantedBackgroundGradient: React.FC<React.PropsWithChildren<BackgroundGradientProps>> = ({
   startColor,
   endColor,
   skewAngle = HOMEPAGE_SKEW_ANGLE,

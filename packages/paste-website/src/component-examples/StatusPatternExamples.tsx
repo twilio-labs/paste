@@ -18,47 +18,47 @@ export const BannerExample = `
 </Box>
 `.trim();
 
-export const ProcessError: React.FC = () => {
+export const ProcessError: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessErrorIcon color="colorTextIconError" decorative={false} title="Error" />;
 };
 
-export const ProcessWarning: React.FC = () => {
+export const ProcessWarning: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="Warning" />;
 };
 
-export const ProcessSuccess: React.FC = () => {
+export const ProcessSuccess: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="Success" />;
 };
 
-export const ProcessNeutral: React.FC = () => {
+export const ProcessNeutral: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessNeutralIcon color="colorTextIconNeutral" decorative={false} title="Neutral" />;
 };
 
-export const ProcessInProgress: React.FC = () => {
+export const ProcessInProgress: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In Progress" />;
 };
 
-export const ProcessDisabled: React.FC = () => {
+export const ProcessDisabled: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="Disabled" />;
 };
 
-export const ProcessDraft: React.FC = () => {
+export const ProcessDraft: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <ProcessDraftIcon color="colorTextIcon" decorative={false} title="Draft" />;
 };
 
-export const ConnectivityAvailable: React.FC = () => {
+export const ConnectivityAvailable: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundAvailable" />;
 };
 
-export const ConnectivityBusy: React.FC = () => {
+export const ConnectivityBusy: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundBusy" />;
 };
 
-export const ConnectivityUnavailable: React.FC = () => {
+export const ConnectivityUnavailable: React.FC<React.PropsWithChildren<unknown>> = () => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundUnavailable" />;
 };
 
-export const ConnectivityOffline: React.FC = () => {
+export const ConnectivityOffline: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box
       borderRadius="borderRadiusCircle"

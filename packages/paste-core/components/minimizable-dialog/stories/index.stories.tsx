@@ -25,7 +25,7 @@ export default {
   component: MinimizableDialog,
 };
 
-const DialogExample: React.FC<{minimized?: boolean}> = ({minimized = false}) => {
+const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = ({minimized = false}) => {
   const nameID = useUID();
   const emailID = useUID();
   const questionID = useUID();

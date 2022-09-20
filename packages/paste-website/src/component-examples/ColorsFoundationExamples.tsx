@@ -83,7 +83,7 @@ export const StyledSwatchGrid = styled.div<{numberColumns: number}>`
   grid-template-rows: repeat(2, auto);
 `;
 
-export const BackgroundColorSwatches: React.FC = () => {
+export const BackgroundColorSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
@@ -103,7 +103,7 @@ export const BackgroundColorSwatches: React.FC = () => {
 
 type BackgroundColorMap = Partial<Record<TextColorOptions, BackgroundColorOptions>>;
 
-export const TextColorSwatches: React.FC = () => {
+export const TextColorSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   const backgroundColorMap: BackgroundColorMap = {
     colorTextWeakest: 'colorBackgroundStrongest',
     colorTextInverse: 'colorBackgroundBodyInverse',
@@ -127,7 +127,7 @@ export const TextColorSwatches: React.FC = () => {
   );
 };
 
-export const BorderColorSwatches: React.FC = () => {
+export const BorderColorSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
@@ -163,7 +163,7 @@ export const BorderColorSwatches: React.FC = () => {
   );
 };
 
-export const StandardPairingSwatches: React.FC = () => {
+export const StandardPairingSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
@@ -183,7 +183,7 @@ export const StandardPairingSwatches: React.FC = () => {
   );
 };
 
-export const StatusPairingSwatches: React.FC = () => {
+export const StatusPairingSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
@@ -203,7 +203,7 @@ export const StatusPairingSwatches: React.FC = () => {
   );
 };
 
-export const InversePairingSwatches: React.FC = () => {
+export const InversePairingSwatches: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
@@ -222,7 +222,7 @@ export const InversePairingSwatches: React.FC = () => {
   );
 };
 
-export const TokensDiagramImgCaption: React.FC = () => (
+export const TokensDiagramImgCaption: React.FC<React.PropsWithChildren<unknown>> = () => (
   <ImageCaption>
     Aliases in Paste contain the hard-coded values that are the primitive form of the colors in our palette. All design
     tokens reference an alias. In this example, the $color-background-primary and $color-text-link tokens reference the
@@ -231,14 +231,14 @@ export const TokensDiagramImgCaption: React.FC = () => (
   </ImageCaption>
 );
 
-export const InteractingStatesImgCaption: React.FC = () => (
+export const InteractingStatesImgCaption: React.FC<React.PropsWithChildren<unknown>> = () => (
   <ImageCaption>
     In this example, we are using a combination of color and shadow to help users identify the primary button while in
     its different states.
   </ImageCaption>
 );
 
-export const UseOfColorImgCaption: React.FC = () => (
+export const UseOfColorImgCaption: React.FC<React.PropsWithChildren<unknown>> = () => (
   <ImageCaption>
     In this example, a success toast uses multiple distinguishing visual elements—the thick left border and the
     icon—along with green colors to further convey to a user that an action they just took was successful.

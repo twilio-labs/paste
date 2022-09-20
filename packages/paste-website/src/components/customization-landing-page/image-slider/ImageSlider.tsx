@@ -21,7 +21,7 @@ const imageStyleProps: React.CSSProperties = {
   objectPosition: 'center center',
 };
 
-export const ImageSlider: React.FC = () => {
+export const ImageSlider: React.FC<React.PropsWithChildren<unknown>> = () => {
   const uidSeed = useUIDSeed();
 
   // Set the initial state of the slider to be roughly at the 60% position.
@@ -49,7 +49,7 @@ export const ImageSlider: React.FC = () => {
   const clip = (value / MAX_VALUE) * containerWidth;
 
   const handleMouseMove = React.useCallback(
-    (event): void => {
+    (event: any): void => {
       const {clientX} = event;
       const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
 
@@ -59,7 +59,7 @@ export const ImageSlider: React.FC = () => {
   );
 
   const handleMouseUp = React.useCallback(
-    (event): void => {
+    (event: any): void => {
       setIsDragging(false);
 
       // We must unbind these manually managed events

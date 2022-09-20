@@ -8,7 +8,7 @@ interface PeerReviewStatusProps {
   engineerStatus: string | null;
 }
 
-const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
+const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({designStatus, engineerStatus}) => {
   if (designStatus === null || engineerStatus === null) {
     return (
       <Text fontSize="fontSize60" lineHeight="lineHeight60" as="span" color="colorTextWeak">

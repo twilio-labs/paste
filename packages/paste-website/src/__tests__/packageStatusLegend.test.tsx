@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../components/shortcodes/package-status-legend';
 
 // This component only exists to use React (to silence a config catch-22 error)
-const PackageStatusEmpty: React.FC = () => (
+const PackageStatusEmpty: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Theme.Provider theme="default">
     <PackageStatusLegend />
   </Theme.Provider>

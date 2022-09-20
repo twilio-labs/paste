@@ -68,7 +68,7 @@ const StyledSidebarAnchor = styled(Link, {
   })
 );
 
-const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, level, to}) => {
+const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({children, level, to}) => {
   const pathname = useLocationPathname();
   const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 

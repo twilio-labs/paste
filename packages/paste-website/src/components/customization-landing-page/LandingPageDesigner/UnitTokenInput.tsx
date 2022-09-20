@@ -42,7 +42,7 @@ function validateInput(value: string, unit: string): string {
   return '';
 }
 
-export const UnitTokenInput: React.FC<UnitTokenInputProps> = ({
+export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProps>> = ({
   bucket,
   labelText,
   tokenName,

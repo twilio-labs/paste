@@ -9,7 +9,7 @@ import {FigmaButton} from './FigmaButton';
 
 import 'react-github-button/assets/style.css';
 
-const SiteHeaderDesktop: React.FC = () => {
+const SiteHeaderDesktop: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Box
       as="header"

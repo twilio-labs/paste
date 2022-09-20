@@ -12,7 +12,7 @@ import type {RoadmapProps} from './types';
 import {slugify} from '../../utils/RouteUtils';
 import {AnchoredHeading} from '../Heading';
 
-const StatusIconWrapper: React.FC = ({children}) => (
+const StatusIconWrapper: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
   <Box display="flex" columnGap="space20" justifyContent="flex-start">
     {children}
   </Box>
@@ -45,7 +45,7 @@ const StatusIcons = {
   ),
 };
 
-const Roadmap: React.FC<RoadmapProps> = ({data}) => {
+const Roadmap: React.FC<React.PropsWithChildren<RoadmapProps>> = ({data}) => {
   /* eslint-disable no-underscore-dangle */
   return (
     <Box width="100%">

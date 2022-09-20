@@ -16,7 +16,7 @@ export interface TabListProps {
   variant?: Variants;
 }
 
-const HorizontalTabList: React.FC<{element?: BoxProps['element']}> = ({children, element}) => (
+const HorizontalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
   <Box
     display="flex"
     borderBottomWidth="borderWidth10"
@@ -29,7 +29,7 @@ const HorizontalTabList: React.FC<{element?: BoxProps['element']}> = ({children,
   </Box>
 );
 
-const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, element}) => (
+const VerticalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
   <Box
     borderLeftWidth="borderWidth10"
     borderLeftColor="colorBorderWeak"

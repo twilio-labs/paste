@@ -7,7 +7,10 @@ import {TABLE_HEADERS} from '../constants';
 import {formatDate, formatDateTime} from '../helpers';
 import type {SampleDataGridProps} from '../types';
 
-export const SampleDataGrid: React.FC<SampleDataGridProps> = ({data, showDateTime = false}) => (
+export const SampleDataGrid: React.FC<React.PropsWithChildren<SampleDataGridProps>> = ({
+  data,
+  showDateTime = false,
+}) => (
   <DataGrid aria-label="Video rooms" scrollHorizontally noWrap>
     <DataGridHead>
       <DataGridRow>

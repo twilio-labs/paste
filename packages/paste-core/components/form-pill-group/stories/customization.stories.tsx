@@ -4,7 +4,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
 
-export const CustomFormPillGroup: React.FC = () => {
+export const CustomFormPillGroup: React.FC<React.PropsWithChildren<unknown>> = () => {
   const currentTheme = useTheme();
   const [showTennis, setShowTennis] = React.useState(true);
   const pillState = useFormPillState();

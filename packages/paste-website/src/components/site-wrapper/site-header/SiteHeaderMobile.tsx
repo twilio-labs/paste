@@ -8,7 +8,7 @@ import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
 import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME} from '../../../constants';
 
-const SiteHeaderMobile: React.FC = () => {
+const SiteHeaderMobile: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [navigationOpen, setNavigationOpen] = React.useState(false);
 
   return (

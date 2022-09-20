@@ -5,7 +5,7 @@ import {useFormPillState, FormPillGroup, FormPill} from '../src';
 import {Basic, SelectableAndDismissable} from '../stories/index.stories';
 import {CustomFormPillGroup} from '../stories/customization.stories';
 
-const CustomElementFormPillGroup: React.FC = () => {
+const CustomElementFormPillGroup: React.FC<React.PropsWithChildren<unknown>> = () => {
   const pillState = useFormPillState();
 
   return (
@@ -24,7 +24,7 @@ const CustomElementFormPillGroup: React.FC = () => {
   );
 };
 
-const I18nProp: React.FC = () => {
+const I18nProp: React.FC<React.PropsWithChildren<unknown>> = () => {
   const pillState = useFormPillState();
 
   return (

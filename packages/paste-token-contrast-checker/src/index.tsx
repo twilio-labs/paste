@@ -4,7 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {IndexPage} from './pages/IndexPage';
 
-export const Index: React.FC = () => {
+export const Index: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <App>
       <IndexPage />
