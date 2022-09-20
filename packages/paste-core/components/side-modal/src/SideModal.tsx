@@ -2,27 +2,26 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 
 import {SideModalContext} from './SideModalContext';
 
-const StyledSideModal = styled.div(() =>
-  css({
-    boxShadow: 'shadow',
-    width: 'size60',
-    zIndex: 'zIndex80',
-    transform: 'none!important',
-    inset: `0rem 0rem 0rem auto!important`,
-    ['&:focus']: {
+const StyledSideModal = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => (
+  <Box
+    {...safelySpreadBoxProps(props)}
+    ref={ref}
+    style={style}
+    boxShadow="shadow"
+    width="size60"
+    zIndex="zIndex80"
+    transform="none!important"
+    inset="0rem 0rem 0rem auto!important"
+    _focus={{
       outline: 'none',
-    },
-    ['div:first-child']: {
-      height: '100%',
-    },
-  })
-);
+    }}
+  />
+));
 
 StyledSideModal.displayName = 'StyledSideModal';
 
@@ -51,7 +50,7 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
             element={element}
             display="grid"
             gridTemplateRows="auto 1fr auto"
-            height="100%"
+            height="100vh"
             backgroundColor="colorBackgroundBody"
           >
             {children}
