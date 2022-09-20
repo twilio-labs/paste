@@ -23,7 +23,7 @@ const FilePickerExample = () => {
   const id = useUID();
   return (
     <>
-    <Label htmlFor={id}>Receipt to expense</Label>
+    <Label disabled htmlFor={id}>Receipt to expense</Label>
     <FilePicker id={id} accept=".pdf" disabled>
       <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
     </FilePicker>
