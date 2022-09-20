@@ -51,7 +51,7 @@ export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupPro
     const keyboardControlsId = useUID();
     return (
       <>
-        <Composite as={FormPillGroupStyles} {...props} ref={ref} aria-describedby={keyboardControlsId}>
+        <Composite as={FormPillGroupStyles} ref={ref} aria-describedby={keyboardControlsId} {...props}>
           {props.children}
         </Composite>
         <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>
