@@ -69,11 +69,11 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             type="file"
             padding="space20"
             paddingRight="space30"
-            borderRadius="borderRadius20"
+            borderRadius="borderRadius10"
             boxShadow="shadowBorderWeak"
             _focusSibling={{
               boxShadow: 'shadowFocus',
-              borderRadius: 'borderRadius20',
+              borderRadius: 'borderRadius10',
               padding: 'space20',
               paddingRight: 'space30',
             }}
