@@ -2,10 +2,9 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {SiblingBox} from '@twilio-paste/sibling-box';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
 
 export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
   accept?: string;
@@ -104,6 +103,7 @@ FilePicker.propTypes = {
   children: PropTypes.element.isRequired,
   element: PropTypes.string,
   disabled: PropTypes.bool,
+  i18nNoSelectionText: PropTypes.string,
   required: PropTypes.bool,
 };
 

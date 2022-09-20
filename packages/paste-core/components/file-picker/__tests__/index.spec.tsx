@@ -1,19 +1,20 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {Default, Disabled, Customized} from '../stories/index.stories';
+import {Default, Disabled, Required, Customized} from '../stories/index.stories';
 
 describe('FilePicker', () => {
   it('should render', () => {
     const {getByText} = render(<Default data-testid="test-file-picker" />);
     expect(getByText('Choose a file')).toBeDefined();
-  });
-  it('should render the file input in the DOM', () => {
-    render(<Default data-testid="test-file-picker" />);
     expect(screen.getByTestId('test-file-picker')).toHaveAttribute('type', 'file');
   });
   it('should render as disabled', () => {
     render(<Disabled data-testid="test-file-picker" />);
     expect(screen.getByTestId('test-file-picker').getAttribute('aria-disabled')).toBe('true');
+  });
+  it('should render as required', () => {
+    render(<Required data-testid="test-file-picker" />);
+    expect(screen.getByTestId('test-file-picker').getAttribute('aria-required')).toBe('true');
   });
   it('should set aria-describedby on the file description text', () => {
     render(<Default data-testid="test-file-picker" />);

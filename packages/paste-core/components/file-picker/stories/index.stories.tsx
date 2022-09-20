@@ -3,6 +3,7 @@ import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {FilePicker, FilePickerButton} from '../src';
 
@@ -26,14 +27,14 @@ export const Default: Story = ({...props}) => {
   );
 };
 
-export const Required: Story = () => {
+export const Required: Story = ({...props}) => {
   const id = useUID();
   return (
     <>
       <Label htmlFor={id} required>
         Upload a profile picture
       </Label>
-      <FilePicker id={id} required accept="image/*">
+      <FilePicker id={id} required accept="image/*" {...props}>
         <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
       </FilePicker>
     </>
@@ -69,9 +70,10 @@ export const I18n: Story = () => {
 export const Customized: Story = ({element = 'FILEPICKER', ...props}) => {
   const id = useUID();
   const helpText = useUID();
+  const theme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      theme={theme}
       elements={{
         [`${element}`]: {fontFamily: 'fontFamilyCode'},
         [`${element}_BUTTON`]: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
