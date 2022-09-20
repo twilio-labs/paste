@@ -14,12 +14,14 @@ export type TopOptions = Properties<TLengthStyledSystem>['top'];
 export type RightOptions = Properties<TLengthStyledSystem>['right'];
 export type BottomOptions = Properties<TLengthStyledSystem>['bottom'];
 export type LeftOptions = Properties<TLengthStyledSystem>['left'];
+export type InsetOptions = Properties<TLengthStyledSystem>['inset'];
 
 export type Position = ResponsiveValue<PositionOptions>;
 export type Top = ResponsiveValue<TopOptions>;
 export type Right = ResponsiveValue<RightOptions>;
 export type Bottom = ResponsiveValue<BottomOptions>;
 export type Left = ResponsiveValue<LeftOptions>;
+export type Inset = ResponsiveValue<InsetOptions>;
 
 // Styled-system grouping
 export interface PositionProps {
@@ -29,4 +31,5 @@ export interface PositionProps {
   bottom?: Bottom;
   left?: Left;
   zIndex?: ZIndex;
+  inset?: Inset;
 }
