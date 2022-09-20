@@ -132,7 +132,7 @@ describe('MultiselectCombobox', () => {
 
       // unique option ids
       const renderedOptions = screen.getAllByRole('option');
-      expect(renderedOptions[3].getAttribute('disabled')).toEqual('');
+      expect(renderedOptions[3].getAttribute('aria-disabled')).toEqual('true');
       const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);

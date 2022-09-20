@@ -120,7 +120,7 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
       selectedItemsLabelText="Selected letters:"
       helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.letter : '')}
+      itemToString={(item: GroupedItem) => (item ? `${item.number}` : '')}
       initialSelectedItems={initialSelectedGroupedItems}
     />
   </ShowCustomization>
@@ -138,7 +138,7 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
       selectedItemsLabelText="Selected letters:"
       helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.letter : '')}
+      itemToString={(item: GroupedItem) => (item ? `${item.number}` : '')}
       insertBefore={<Text as="span">Z</Text>}
       insertAfter={<InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />}
       initialSelectedItems={initialSelectedGroupedItems}

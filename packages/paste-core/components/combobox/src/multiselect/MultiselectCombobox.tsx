@@ -258,12 +258,20 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               aria-describedby={a11yLabelId}
               i18nKeyboardControls=""
             >
-              {selectedItems.map(function renderSelectedItems(selectedItemPill: Item, index: number) {
+              {selectedItems.map(function renderSelectedItems(selectedItemPill: any) {
+                // When using groupItemsBy, then `itemToString` can potentially return the same string for several groups of items.
+                // i.e.: Components->Combobox and Primitive->Combobox both return "Combobox"
+                // So we prefix the key with the group name to make it unique.
+                const key =
+                  groupItemsBy != null && typeof selectedItemPill !== 'string'
+                    ? `${selectedItemPill[groupItemsBy]}-${itemToString(selectedItemPill)}`
+                    : itemToString(selectedItemPill);
+
                 return (
                   <FormPill
                     variant={hasError ? 'error' : 'default'}
                     element={`${element}_PILL`}
-                    key={`${itemToString(selectedItemPill)}-${index}`}
+                    key={key}
                     onDismiss={() => {
                       removeSelectedItem(selectedItemPill);
                     }}

@@ -227,7 +227,7 @@ describe('Combobox', () => {
       const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
-      expect(renderedOptions[3].getAttribute('disabled')).toEqual('');
+      expect(renderedOptions[3].getAttribute('aria-disabled')).toEqual('true');
     });
 
     it('should render a label for that matches the input id', () => {
