@@ -1,7 +1,7 @@
 ---
 title: Side Modal
 package: '@twilio-paste/side-modal'
-description: An accessible modal dialog that sits on the right side of the page.
+description: A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.
 slug: /components/side-modal/
 ---
 
@@ -153,7 +153,7 @@ Side Modal and non-modal dialogs follow these accessibility guidelines:
 
 ### Side Modal with a footer
 
-By default the footer actions are aligned to the right of the modal using the Flexbox property `justify-content`. This should be the most common configuration you should choose.
+The SideModalFooter component has a `justifyContent` prop that lets you change how the actions are displayed within the footer. It can be set to `flex-start`, `flex-end`, or `space-between` and the default is `flex-end`.
 
 <LivePreview
   scope={{
