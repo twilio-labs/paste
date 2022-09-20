@@ -52,6 +52,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
 
     return (
       <Box
+        role="option"
         {...safelySpreadBoxProps(props)}
         // FIX: Manually control aria-selected state to be true when an item has been selected.
         // Downshift sets aria-selected to true when an item is highlighted, which we don't want.

@@ -36,7 +36,11 @@ const ComboboxItems = React.memo(
       // If no groupings, return plain list
       if (groupItemsBy == null) {
         if (virtualItems.length === 0 && EmptyState != null) {
-          return <EmptyState />;
+          return (
+            <ComboboxListboxGroup element={element} ref={ref}>
+              <EmptyState />
+            </ComboboxListboxGroup>
+          );
         }
 
         return (
@@ -77,7 +81,11 @@ const ComboboxItems = React.memo(
 
       // Empty state
       if (groupedItemKeys.length === 0 && EmptyState != null) {
-        return <EmptyState />;
+        return (
+          <ComboboxListboxGroup element={element} ref={ref}>
+            <EmptyState />
+          </ComboboxListboxGroup>
+        );
       }
 
       return (
