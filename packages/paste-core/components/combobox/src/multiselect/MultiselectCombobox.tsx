@@ -7,6 +7,7 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
 import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
@@ -41,10 +42,14 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       onIsOpenChange,
       groupItemsBy,
       groupLabelTemplate,
+      emptyState,
+      selectedItemsLabelText,
+      i18nKeyboardControls = 'Press Delete or Backspace to remove. Press Enter to toggle selection.',
       ...props
     },
     ref
   ) => {
+    const a11yLabelId = useUID();
     const helpTextId = useUID();
     const pillState = useFormPillState();
     const parentRef = React.useRef(null);
@@ -65,6 +70,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       getDropdownProps,
       // Action prop that removes the item from the selection. Used in the X icon/button onClick handler.
       removeSelectedItem,
+      // Action prop that adds the item to the selection. Best used in useSelect and useCombobox prop onStateChange or onSelectedItemChange
       addSelectedItem,
       selectedItems,
     } = useMultiSelectPrimitive<Item>({
@@ -180,7 +186,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       overscan: 8,
     });
 
-    // Fixes issue where dynamic height items would not recompute on window resize and list content wrapping
+    // Fixes issue where dynamic height items would not recompute on window resize, when list options (un)wrap
     React.useEffect(() => {
       rowVirtualizer.measure();
     }, [width]);
@@ -189,21 +195,26 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
     // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
     const scrollToIndexRef = React.useCallback(
       (node) => {
+        // Do nothing if the ref hasn't been set yet
+        if (node == null) {
+          return;
+        }
+
         // FEAT: Scroll to the last selected item when the list is opened
         // When the list is opened, highlightedIndex is set to -1, so that's how we check if the list is opened
         // We also have a fix in the `stateReducer` to handle setting highlightedIndex to -2 when the
         // menu is blurred instead of being set to -1, which confuses this check.
-        if (node && highlightedIndex === -1) {
+        if (highlightedIndex === -1) {
           const lastSelectedItem = selectedItems[selectedItems.length - 1];
           rowVirtualizer.scrollToIndex(items.indexOf(lastSelectedItem));
         }
 
         // FIX: Looping fix, scroll to the beginning of the list when the first item is highlighted
-        if (node && highlightedIndex === 0) {
+        if (highlightedIndex === 0) {
           rowVirtualizer.scrollToIndex(0);
         }
         // FIX: Looping fix, scroll to the end of the list when the last item is highlighted
-        if (node && highlightedIndex === size - 1) {
+        if (highlightedIndex === size - 1) {
           rowVirtualizer.scrollToIndex(size - 1);
         }
       },
@@ -241,9 +252,11 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           >
             <FormPillGroup
               {...pillState}
-              aria-label="Products:"
               element={`${element}_PILL_GROUP`}
               display="inline-flex"
+              aria-label={selectedItemsLabelText}
+              aria-describedby={a11yLabelId}
+              i18nKeyboardControls=""
             >
               {selectedItems.map(function renderSelectedItems(selectedItemPill: Item, index: number) {
                 return (
@@ -280,7 +293,12 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           </Box>
         </InputBox>
 
-        <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>
+        <ComboboxListbox
+          {...getMenuProps({ref: parentRef})}
+          element={`${element}_LISTBOX`}
+          hidden={!isOpen}
+          aria-multiselectable="true"
+        >
           <ComboboxItems
             ref={scrollToIndexRef}
             items={items}
@@ -294,6 +312,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             optionTemplate={optionTemplate}
             groupItemsBy={groupItemsBy}
             groupLabelTemplate={groupLabelTemplate}
+            emptyState={emptyState}
           />
         </ComboboxListbox>
         {helpText && (
@@ -301,6 +320,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             {helpText}
           </HelpText>
         )}
+        <ScreenReaderOnly id={a11yLabelId}>{i18nKeyboardControls}</ScreenReaderOnly>
       </Box>
     );
   }

@@ -58,10 +58,10 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         aria-selected={selected}
         as="li"
         position="relative"
-        disabled={disabled}
+        aria-disabled={disabled}
         element={`${element}_LIST_ITEM`}
-        backgroundColor={highlighted && !disabled ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
-        color={highlighted ? 'colorTextLinkStronger' : selected ? 'colorTextLink' : 'colorText'}
+        backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
+        color={highlighted && !disabled ? 'colorTextLinkStronger' : selected ? 'colorTextLink' : 'colorText'}
         opacity={disabled ? 0.6 : 1}
         display="flex"
         justifyContent="space-between"
@@ -80,7 +80,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
           bottom: 0,
           left: 0,
           borderLeftWidth: 'borderWidth30',
-          borderLeftColor: highlighted && !disabled ? 'colorBorderPrimaryStronger' : 'transparent',
+          borderLeftColor: highlighted ? 'colorBorderPrimaryStronger' : 'transparent',
           borderLeftStyle: 'solid',
         }}
         _last={{

@@ -7,7 +7,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
-import {MultiselectCombobox} from '../src';
+import {MultiselectCombobox, ComboboxListboxOption} from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
   template: (index?: number | undefined) => TemplateResult
@@ -45,8 +45,9 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a book:"
-      helpText="Reading books can be good for your mental health."
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
@@ -72,8 +73,9 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <MultiselectCombobox
         variant="inverse"
-        labelText="Choose a book:"
-        helpText="Reading books can be good for your mental health."
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
@@ -99,8 +101,9 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
   return (
     <MultiselectCombobox
       disabled
-      labelText="Choose a book:"
-      helpText="Reading books can be good for your mental health."
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
@@ -128,8 +131,9 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
         disabled
         variant="inverse"
         required
-        labelText="Choose a book:"
-        helpText="Reading books can be good for your mental health."
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
@@ -155,8 +159,9 @@ export const MultiselectComboboxError = (): React.ReactNode => {
   return (
     <MultiselectCombobox
       hasError
-      labelText="Choose a book:"
-      helpText="Reading books can be good for your mental health."
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       initialSelectedItems={['Alert', 'Anchor']}
       initialIsOpen
@@ -183,8 +188,9 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
   return (
     <MultiselectCombobox
       required
-      labelText="Choose a book:"
-      helpText="Reading books can be good for your mental health."
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       initialSelectedItems={['Alert', 'Anchor']}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
@@ -209,8 +215,9 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a book:"
-      helpText="Reading books can be good for your mental health."
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       initialSelectedItems={['Alert', 'Anchor']}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
@@ -256,7 +263,8 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a book:"
+      labelText="Choose a book"
+      selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
@@ -299,7 +307,8 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a book:"
+      labelText="Choose a book"
+      selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
@@ -331,7 +340,8 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
 
   return (
     <MultiselectCombobox
-      labelText="Choose a book:"
+      labelText="Choose a book"
+      selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
@@ -399,8 +409,9 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
       onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
         console.log(selectedItems);
       }}
-      labelText="Choose a component:"
-      helpText="This is group"
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
       initialIsOpen
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
       groupLabelTemplate={(groupName: string) => {
@@ -422,6 +433,61 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
 
 MultiselectComboboxOptionGroups.story = {
   name: 'with groups',
+};
+
+const SampleEmptyState: React.FC = () => (
+  <ComboboxListboxOption variant="default">
+    <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
+      Some image
+    </Box>
+    <Text as="span" fontStyle="italic">
+      No results found
+    </Text>
+  </ComboboxListboxOption>
+);
+
+export const MultiselectComboboxEmptyState = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
+
+  return (
+    <MultiselectCombobox
+      groupItemsBy="group"
+      items={filteredItems}
+      emptyState={SampleEmptyState}
+      itemToString={(item: GroupedItem) => (item ? item.label : '')}
+      onInputValueChange={({inputValue: newInputValue = ''}) => {
+        setInputValue(newInputValue);
+      }}
+      onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+        console.log(selectedItems);
+      }}
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      helpText="Paste components are the building blocks of your product UI."
+      initialIsOpen
+      optionTemplate={(item: GroupedItem) => {
+        return <div>{item.label}</div>;
+      }}
+      groupLabelTemplate={(groupName: string) => {
+        if (groupName === 'Components') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        return groupName;
+      }}
+    />
+  );
+};
+
+MultiselectComboboxEmptyState.story = {
+  name: 'with empty state',
 };
 
 // eslint-disable-next-line import/no-default-export

@@ -9,8 +9,8 @@ type IndexedItem = Item & {
 };
 // Converts items into an array of objects with a key for the index
 // Examples:
-// ['a', 'b'] -> [{label: 'a', index: 1}, {label: 'b', index: 2}]
-// [{label: 'a'}] -> [{label: 'a', index: 1}]
+// ['a', 'b'] -> [{label: 'a', index: 0}, {label: 'b', index: 1}]
+// [{label: 'a'}] -> [{label: 'a', index: 0}]
 export const getIndexedItems = (items: Item[]): IndexedItem[] => {
   return items.map((item, index) => {
     if (typeof item === 'string') {

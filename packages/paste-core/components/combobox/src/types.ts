@@ -86,6 +86,9 @@ export interface MultiselectComboboxProps
   filterItems?: (items: any[], inputValue: string) => any[];
   initialSelectedItems?: any[];
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;
+  selectedItemsLabelText: string;
+  i18nKeyboardControls?: string;
+  emptyState?: React.FC;
 }
 
 export interface ComboboxItemsProps
@@ -97,4 +100,5 @@ export interface ComboboxItemsProps
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   totalSize: RowVirtualizer['totalSize'];
   virtualItems: RowVirtualizer['virtualItems'];
+  emptyState?: React.FC;
 }

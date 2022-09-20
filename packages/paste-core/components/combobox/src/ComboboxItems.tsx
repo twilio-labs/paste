@@ -3,7 +3,6 @@ import type {VirtualItem} from 'react-virtual';
 import find from 'lodash/find';
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
-import {ComboboxEmptyState} from './styles/ComboboxEmptyState';
 import {getIndexedItems, getGroupedItems} from './helpers';
 import type {ComboboxItemsProps} from './types';
 
@@ -22,6 +21,7 @@ const ComboboxItems = React.memo(
         groupItemsBy,
         totalSize,
         virtualItems,
+        emptyState: EmptyState,
       },
       ref
     ) => {
@@ -35,9 +35,8 @@ const ComboboxItems = React.memo(
 
       // If no groupings, return plain list
       if (groupItemsBy == null) {
-        // Empty state
-        if (virtualItems.length === 0) {
-          return <ComboboxEmptyState element={element} ref={ref} />;
+        if (virtualItems.length === 0 && EmptyState != null) {
+          return <EmptyState />;
         }
 
         return (
@@ -77,8 +76,8 @@ const ComboboxItems = React.memo(
       const groupedItemKeys = Object.keys(groupedItems);
 
       // Empty state
-      if (groupedItemKeys.length === 0) {
-        return <ComboboxEmptyState element={element} ref={ref} />;
+      if (groupedItemKeys.length === 0 && EmptyState != null) {
+        return <EmptyState />;
       }
 
       return (
@@ -102,7 +101,7 @@ const ComboboxItems = React.memo(
                       {...getItemProps({item, index, disabled})}
                       element={element}
                       highlighted={highlightedIndex === index}
-                      selected={find(selectedItems, item)}
+                      selected={find(selectedItems, item) != null}
                       disabled={disabled}
                       key={index}
                       variant={isUncategorized ? 'default' : 'groupOption'}

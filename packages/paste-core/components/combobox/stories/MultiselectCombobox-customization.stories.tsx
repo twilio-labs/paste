@@ -99,8 +99,9 @@ export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <MultiselectCombobox
       items={items}
-      labelText="Choose a letter:"
-      helpText="This is the help text"
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
       initialSelectedItems={initialSelectedItems}
     />
   </ShowCustomization>
@@ -115,8 +116,9 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
     <MultiselectCombobox
       items={groupedItems}
       groupItemsBy="letter"
-      labelText="Choose a letter:"
-      helpText="This is the help text"
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
       itemToString={(item: GroupedItem) => (item ? item.letter : '')}
       initialSelectedItems={initialSelectedGroupedItems}
@@ -132,8 +134,9 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
     <MultiselectCombobox
       items={groupedItems}
       groupItemsBy="letter"
-      labelText="Choose a letter:"
-      helpText="This is the help text"
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
       itemToString={(item: GroupedItem) => (item ? item.letter : '')}
       insertBefore={<Text as="span">Z</Text>}
