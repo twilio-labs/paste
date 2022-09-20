@@ -104,8 +104,12 @@ export const ColorVariants = (): React.ReactNode => {
 export const Variants = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
+      <Avatar variant="user" name="avatar example" />
       <Avatar variant="user" name="avatar example" icon={UserIcon} />
-      <Avatar variant="entity" name="avatar example" icon={BusinessIcon} />
+      <Avatar variant="user" name="avatar example" src="./avatars/avatar-sizeIcon70.png" />
+      <Avatar variant="entity" name="entity example" />
+      <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
+      <Avatar variant="entity" name="entity example" src="./avatars/avatar-sizeIcon70.png" />
     </Stack>
   );
 };
