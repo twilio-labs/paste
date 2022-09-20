@@ -7,11 +7,21 @@ slug: /components/file-picker/
 
 import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
-import {FilePicker} from '@twilio-paste/file-picker';
+import {FilePicker, FilePickerButton} from '@twilio-paste/file-picker';
+import {Anchor} from '@twilio-paste/anchor';
 import {HelpText} from '@twilio-paste/help-text';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {useUID} from '@twilio-paste/uid-library';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultFilePicker,
+  disabledFilePicker,
+  requiredFilePicker,
+  i18nFilePicker,
+} from '../../../component-examples/FilePickerExamples.ts';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
 
 export const pageQuery = graphql`
@@ -69,20 +79,15 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Use your work email address.</HelpText>
-</>`}
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
 </LivePreview>
 
 ## Guidelines
 
-### About Input
+### About File Picker
 
-Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
-You can set the input to more [specific types](#input-types) if needed. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
+Use a File Picker when users need to upload a document in a form flow. The File Picker allows any type of file by default, but the desired file type can be specified using the <inlineCode>accept</inlineCode> prop. This is a native HTML file picker, `<input type="file" />`, so there's currently no drag-and-drop functionality. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" showExternal>Read more about the native file picker on MDN.</Anchor> The input is hidden visually, but still appears in the DOM, so that we're able to apply custom styles in an accessible way.
 
 ### Accessibility
 
@@ -93,25 +98,6 @@ You can set the input to more [specific types](#input-types) if needed. It is us
   <ListItem>
     Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
     associated input.
-  </ListItem>
-  <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="/components/label">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
   </ListItem>
   <ListItem>
     Provide clear identification of required fields in the label or at the start of a form. If you use the required
@@ -127,208 +113,69 @@ You can set the input to more [specific types](#input-types) if needed. It is us
     changed.
   </ListItem>
   <ListItem>
-    If the input has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
-    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
+    If the File Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop on the File Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
   </ListItem>
 </UnorderedList>
 
 ## Examples
 
-### Input
-
-The input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
+The File Picker component should include the base File Picker, along with supporting elements to compose an input field that gives users the context they need to successfully complete it.
 
 - **Label** — A label should be included for every form field and provide a short title for its associated input.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful. If you're using the <inlineCode>accept</inlineCode> prop, specify the file type using Help Text.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
-    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
-    <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input. Those two
-    need to match.
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>File Picker</inlineCode>. This is done
+    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the File
+    Picker. Those two need to match.
   </CalloutText>
   <CalloutText>
-    If the input has any associated help text, the input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    If the File Picker has any associated help text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
     prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
-    ties directly to the input.
+    ties directly to the File Picker.
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Use your work email address.</HelpText>
-</>`}
+### Default File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
 </LivePreview>
 
-### Input with add-ons (prefix/suffix text or icons)
+### Disabled File Picker
 
-- **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
-- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (_e.g._, a search icon).
-
-<LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
-  {`<>
-  <Label htmlFor="payment_amount" required>Payment amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
-  <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
-</>`}
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {disabledFilePicker}
 </LivePreview>
 
-<LivePreview scope={{Input, Label, HelpText, InformationIcon, Button}} language="jsx">
-  {`<>
-  <Label htmlFor="message_title" required>Message title</Label>
-  <Input
-    aria-describedby="display_name_help_text"
-    id="display_name"
-    name="display_name"
-    type="text"
-    placeholder="Ahoy, World"
-    insertAfter={
-      <Button variant="link">
-        <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
-      </Button>
-    }
-    onChange=""
-  />
-  <HelpText id="display_name_help_text">Enter a short title for your message.</HelpText>
-</>`}
+### Required File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {requiredFilePicker}
 </LivePreview>
 
-### Input types
+### Internationalization
 
-How an input functions varies depending on the value of its type attribute. If a type attribute is not specified, the default type is text. The following type options are available:
+To internationalize a File Picker, simply pass the `i18nNoSelectionText` prop with the translated string. Because the <inlineCode>FilePickerButton</inlineCode> is compositional, you already pass the button text as children.
 
-#### text
-
-A single-line text input.
-
-#### email
-
-An input for editing an email address. This looks like a text-type input but has validation parameters and relevant keyboard in browsers and devices with dynamic keyboards.
-
-#### hidden
-
-An input that is not displayed but whose value is submitted to the server.
-
-#### number
-
-An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
-
-**Note:** We do not support the native HTML `input[type="number"]` element due to some accessibility concerns. These are best described in the following [research article from the gov.uk digital team](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
-
-#### password
-
-An input whose value is obscured. This input alerts a user if the site isn't secure.
-
-#### readonly
-
-An input that can't be edited but can receive focus. Allows users to highlight the text in the field.
-
-#### search
-
-An input for entering search strings. It may include an icon in supporting browsers that can be used to clear the field. It displays a search key instead of enter key on some devices with dynamic keypads.
-
-#### tel
-
-An input for entering a telephone number. It displays a telephone keypad in some devices with dynamic keypads.
-
-## States
-
-### Input with inline error
-
-Change a form field to its error state and add an inline error if the value entered doesn't pass validation requirements.
-
-An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
-
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_error">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
-</>`}
-</LivePreview>
-
-### Disabled input
-
-Use a disabled form field to show users that they can't interact with the field.
-
-If you want to show information that can't be edited, use a [read-only](#read-only-input) form field or consider another way of showing static information.
-
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_disabled" disabled>Email address</Label>
-  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
-</>`}
-</LivePreview>
-
-### Read-only input
-
-Use a read-only form field when a field's value can't be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
-
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_readonly">Email address</Label>
-  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
-  <HelpText id="email_readonly_help_text">Use your work email address.</HelpText>
-</>`}
+<LivePreview scope={{FilePicker, FilePickerButton, Label, useUID}} language="jsx" noInline>
+  {i18nFilePicker}
 </LivePreview>
 
 ## Composition notes
 
-An input field must have at least a label and an input.
-
-<LivePreview scope={{Input, Label}} language="jsx">
-  {`<>
-  <Label htmlFor="name">Name</Label>
-  <Input id="name" name="name" type="text" onChange=""/>
-</>`}
-</LivePreview>
-
-### Positioning form fields
-
-Stack form fields vertically with `$space-80` spacing between each field.
-
-<LivePreview scope={{Input, Label, HelpText, Box}} language="jsx">
-  {`<>
-  <Box marginBottom="space80">
-    <Label htmlFor="first_name">First name</Label>
-    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
-  </Box>
-  <Box>
-    <Label htmlFor="last_name">Last name</Label>
-    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
-  </Box>
-</>`}
-</LivePreview>
-
-Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
-
 ### Labels and help text
 
-Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+Labels should clearly describe the object being requested. They should be concise and descriptive, not instructional. To do this:
 
-- Use help text to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Use help text to provide instruction if needed. For example, don't use "Upload an image in the form of a jpeg or png" as label text. Instead, use "Profile photo" as a label and "Upload an image file" as help text.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
-To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
-
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
-
-### Required field indicator
-
-Use required indicators to show users which fields they must fill out.
-
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Use your work email address.</HelpText>
-</>`}
-</LivePreview>
+Give users enough information in help text to prevent upload and file type errors. Keep it concise and scoped to information that will help with validation.
 
 ### Validation
 
@@ -351,319 +198,6 @@ Error text should:
 - Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
 - Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
 
-### Optional compositional elements
-
-- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
-- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
-
-## When to use an input
-
-Use an input when users are expected to enter less than a single line of text, or text that's shorter than a sentence.
-
-<DoDont>
-  <Do title="Do" body="Use an input to encourage short text entry." center>
-    <Box width="100%" padding="space60">
-      <Label htmlFor="short_do">Name</Label>
-      <Input id="short_do" name="short_do" type="text" onChange="" />
-    </Box>
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don't use an input when text entry is expected to be longer than the width of the input since users may need to review the text before submission. Use a textarea instead."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="short_dont">Tell us your life story</Label>
-      <Input id="short_dont" name="short_dont" type="text" onChange="" />
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do
-    title="Do"
-    body="If you limit the length of text entry, show a character counter and explain to users in help text why their entry is restricted."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="limited_do">Job title (60 characters)</Label>
-      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
-      <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
-    </Box>
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don't have a character limit if you can't explain to the user why their text entry is restricted."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="limited_dont">Abbreviated country</Label>
-      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
-    <Box width="100%" padding="space60">
-      <Label htmlFor="email_do">Email address</Label>
-      <Input
-        aria-describedby="email_do_help_text"
-        id="email_do"
-        name="email_do"
-        type="email"
-        placeholder="example@twilio.com"
-        onChange=""
-      />
-      <HelpText id="email_do_help_text">Use your work email address.</HelpText>
-    </Box>
-  </Do>
-  <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
-    <Box width="100%" padding="space60">
-      <Label htmlFor="email_dont">Email address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Use your work email address" onChange="" />
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do
-    title="Do"
-    body="Use the correct input type to help users format their text correctly and bring up dynamic keypads."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="tel_do">Phone number</Label>
-      <Input id="tel_do" name="tel_do" type="tel" onChange="" />
-    </Box>
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don't use the default input type if there's a more specific one that can help users enter valid text more efficiently."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="tel_dont">Phone number</Label>
-      <Input id="tel_dont" name="tel_dont" type="text" onChange="" />
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do
-    title="Do"
-    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="help_do">Phone number</Label>
-      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
-      <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
-    </Box>
-  </Do>
-  <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
-    <Box width="100%" padding="space60">
-      <Label htmlFor="help_dont">Email address</Label>
-      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
-      <HelpText id="help_dont_help_text">
-        Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
-        field.
-      </HelpText>
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do title="Do" body="Include a visible label on every form field." center>
-    <Box width="100%" padding="space60">
-      <Label htmlFor="label_do">Name</Label>
-      <Input id="label_do" name="label_do" type="text" onChange="" />
-    </Box>
-  </Do>
-  <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
-    <Box width="100%" padding="space60">
-      <Input
-        id="label_dont"
-        name="label_dont"
-        type="text"
-        onChange=""
-        insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
-            Name
-          </Text>
-        }
-      />
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do
-    title="Do"
-    body="Use a disabled form field to show users that they can't interact with the field, but that it could potentially be enabled through another UI element."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="disabled_do">Name</Label>
-      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled />
-    </Box>
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don't use a disabled form field to show information that can't be edited. Instead, use a read-only form field or consider another way of showing static information."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <Label htmlFor="disabled_dont">Company</Label>
-      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled />
-    </Box>
-  </Dont>
-</DoDont>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No, but it can take any children</Td>
-      </Tr>
-      <Tr>
-        <Td>Placeholder text </Td>
-        <Td>$color-text-weak, italic</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
 ## Usage guide
 
 ### API
@@ -671,47 +205,48 @@ Use an input when users are expected to enter less than a single line of text, o
 #### Installation
 
 ```bash
-yarn add @twilio-paste/input - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/file-picker - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {Input} from '@twilio-paste/core/input';
+import {FilePicker, FilePickerButton} from '@twilio-paste/core/file-picker';
 import {Label} from '@twilio-paste/core/label';
 import {HelpText} from '@twilio-paste/core/help-text';
 
-const Component = () => (
+const MyFilePicker = () => (
   <>
     <Label htmlFor="foo" required>
-      foo
+      Profile photo
     </Label>
-    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Please enter some text</HelpText>
+    <FilePicker id="foo" required aria-describedby="foo_text">
+      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+    </FilePicker>
+    <HelpText id="foo_text">Upload an image</HelpText>
   </>
 );
 ```
 
-#### Input props
+#### FilePickerButton Props
 
-All the valid HTML attributes for `input` are supported including the following props:
+All the valid attributes for `Button` are supported including the following props:
 
-| Prop         | Type                                                             | Description                                                                               | Default   |
-| ------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                     | null      |
-| name?        | string                                                           | Sets the name of the input.                                                               | null      |
-| value?       | string                                                           | Sets the value of the input.                                                              | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                                                        | null      |
-| disabled?    | boolean                                                          | Disables the input.                                                                       | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                                               | false     |
-| required?    | boolean                                                          | Sets the input as required.                                                               | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                                                         | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                                           | 'default' |
-| element?     | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider | 'INPUT'   |
+| Prop     | Type                                     | Description                                                                                | Default             |
+| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------- |
+| variant? | <inlineCode>ButtonVariants</inlineCode>  | Button variant used for the FilePickerButton. Recommended variant is 'secondary'.          | 'primary'           |
+| element? | <inlineCode>string</inlineCode>          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILEPICKER_BUTTON' |
+| children | <inlineCode>React.ReactNode</inlineCode> | The text displayed on the FilePickerButton. Recommended for English is "Choose a file".    | null                |
+
+#### FilePicker Props
+
+| Prop                 | Type                                        | Description                                                                                                                                                                                                                                                               | Default             |
+| -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| accept?              | <inlineCode>string</inlineCode>             | Specify the desired file type. Note: file type should still be validated server-side, as this prop is not a complete validation. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" showExternal>Read more about the accept prop</Anchor> | null                |
+| children             | <inlineCode>React.ReactElement</inlineCode> | `<FilePickerButton />`                                                                                                                                                                                                                                                    | null                |
+| disabled?            | <inlineCode>boolean</inlineCode>            | Disables the File Picker.                                                                                                                                                                                                                                                 | false               |
+| required?            | <inlineCode>boolean</inlineCode>            | Sets the File Picker as required.                                                                                                                                                                                                                                         | false               |
+| i18nNoSelectionText? | <inlineCode>string</inlineCode>             | The text string displayed when no files are selected.                                                                                                                                                                                                                     | 'No files selected' |
 
 <ChangelogRevealer>
   <Changelog />
