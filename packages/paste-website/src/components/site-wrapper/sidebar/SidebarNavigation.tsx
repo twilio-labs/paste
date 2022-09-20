@@ -19,13 +19,14 @@ import type {SidebarDisclosureButtonProps} from './sidebar-disclosure/SidebarDis
 import type {SidebarDisclosureContentProps} from './sidebar-disclosure/SidebarDisclosureContent';
 
 const CY_BASE = 'sidebar-disclosure';
-const NavigationDisclosure: React.FC<{
-  children: SidebarDisclosureContentProps['children'];
+const NavigationDisclosure: React.FC<
+React.PropsWithChildren<{
+   children: SidebarDisclosureContentProps['children'];
   categoryRoute: SidebarDisclosureProps['categoryRoute'];
-  level: SidebarDisclosureButtonProps['level'];
-  buttonText: string;
-  onClick?: SidebarDisclosureButtonProps['onClick'];
-}> = ({children, categoryRoute, level, buttonText, onClick}) => {
+   level: SidebarDisclosureButtonProps['level'];
+    buttonText: string;
+   onClick?: SidebarDisclosureButtonProps['onClick'];
+}>> = ({children, categoryRoute, level, buttonText, onClick}) => {
   const buttonAttribute = `${CY_BASE}-button-${kebabCase(buttonText)}`;
   const contentAttribute = `${CY_BASE}-content-${kebabCase(buttonText)}`;
 
@@ -41,7 +42,7 @@ const NavigationDisclosure: React.FC<{
   );
 };
 
-const SidebarNavigation: React.FC = () => {
+const SidebarNavigation: React.FC<React.PropsWithChildren<unknown>> = () => {
   const data = useNavigationContext();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);

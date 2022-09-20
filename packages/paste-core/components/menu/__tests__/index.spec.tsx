@@ -30,7 +30,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>(fun
 });
 
 const GROUP_LABEL_TEXT = 'Search Options';
-const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) => {
+const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivElement>}>> = ({groupRef}) => {
   const menu = useMenuState({baseId: 'menu-example'});
   return (
     <>

@@ -11657,8 +11657,8 @@ __metadata:
     eslint: ^7.32.0
     next: ^12.1.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -12483,8 +12483,8 @@ __metadata:
     "@twilio-paste/icons": ^9.3.1
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-scripts: 5.0.0
     web-vitals: ^1.0.1
   languageName: unknown
@@ -12737,9 +12737,9 @@ __metadata:
     prism-react-renderer: ^0.1.7
     prop-types: ^15.7.2
     puppeteer-core: ^10.1.0
-    react: ^17.0.2
+    react: ^18.0.0
     react-color: ^2.19.3
-    react-dom: ^17.0.2
+    react-dom: ^18.0.0
     react-github-button: ^0.1.11
     react-helmet: ^6.1.0
     react-hook-form: ^7.30.0

@@ -8,10 +8,14 @@ export default {
   title: 'Website/FilterGroupExamples',
 };
 
-export const DefaultFilterGroupExample: React.FC = () => <DefaultFilterGroup data={STATIC_TABLE_DATA} />;
+export const DefaultFilterGroupExample: React.FC<React.PropsWithChildren<unknown>> = () => (
+  <DefaultFilterGroup data={STATIC_TABLE_DATA} />
+);
 
-export const EmptyStateFilterGroupExample: React.FC = () => (
+export const EmptyStateFilterGroupExample: React.FC<React.PropsWithChildren<unknown>> = () => (
   <DefaultFilterGroup data={STATIC_TABLE_DATA} defaultRoomType="Peer to Peer" defaultDateRange="day" />
 );
 
-export const CustomDateFilterGroupExample: React.FC = () => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;
+export const CustomDateFilterGroupExample: React.FC<React.PropsWithChildren<unknown>> = () => (
+  <CustomDateFilterGroup data={STATIC_TABLE_DATA} />
+);

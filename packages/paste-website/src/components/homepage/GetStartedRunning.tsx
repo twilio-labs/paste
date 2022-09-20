@@ -17,7 +17,7 @@ interface GetStartedRunningProps {
   animationDelay: number;
 }
 
-export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDelay}) => {
+export const GetStartedRunning: React.FC<React.PropsWithChildren<GetStartedRunningProps>> = ({animationDelay}) => {
   const {ref, width: linkBoxWidth = 1} = useResizeObserver<HTMLDivElement>();
   const {theme} = useDarkModeContext();
   return (

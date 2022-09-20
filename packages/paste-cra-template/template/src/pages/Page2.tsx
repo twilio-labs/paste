@@ -5,7 +5,7 @@ import {Heading} from '@twilio-paste/core/heading';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Modal} from '@twilio-paste/core/modal';
 
-const Page2: React.FC = () => {
+const Page2: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>

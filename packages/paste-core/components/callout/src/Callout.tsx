@@ -44,7 +44,7 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   },
 };
 
-const variantIcons: Record<CalloutVariants, React.FC<GenericIconProps>> = {
+const variantIcons: Record<CalloutVariants, React.FC<React.PropsWithChildren<GenericIconProps>>> = {
   success: SuccessIcon,
   error: ErrorIcon,
   warning: WarningIcon,

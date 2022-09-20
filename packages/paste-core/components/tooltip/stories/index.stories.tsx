@@ -11,7 +11,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {useTooltipState, Tooltip} from '../src';
 
-export const StateHookExample: React.FC = () => {
+export const StateHookExample: React.FC<React.PropsWithChildren<unknown>> = () => {
   const tooltip = useTooltipState();
   return (
     <Theme.Provider theme="default">

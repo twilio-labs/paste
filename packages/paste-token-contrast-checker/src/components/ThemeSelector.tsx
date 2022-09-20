@@ -8,7 +8,7 @@ import {ThemeVariants} from '@twilio-paste/core/theme';
 interface ThemeSelectorProps extends Omit<SelectProps, 'children'> {
   themes: [keyof typeof ThemeVariants];
 }
-export const ThemeSelector: React.FC<ThemeSelectorProps> = ({onChange, themes, value}) => {
+export const ThemeSelector: React.FC<React.PropsWithChildren<ThemeSelectorProps>> = ({onChange, themes, value}) => {
   const selectID = useUID();
   return (
     <>

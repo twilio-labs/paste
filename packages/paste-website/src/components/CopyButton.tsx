@@ -9,7 +9,7 @@ interface CopyButtonProps {
   copiedTimeout?: number;
 }
 
-export const CopyButton: React.FC<CopyButtonProps> = ({text, copiedTimeout = 1500}) => {
+export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({text, copiedTimeout = 1500}) => {
   const clipboard = useClipboard({copiedTimeout});
 
   const handleCopy = React.useCallback(() => {

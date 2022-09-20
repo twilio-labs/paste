@@ -75,7 +75,7 @@ interface SiteWrapperProps {
   pathname: string;
 }
 
-const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
+const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({pathname, children}) => {
   const navigationQueryData: NavigationQuery = useStaticQuery(pageQuery);
   const [theme, toggleMode, componentMounted] = useDarkMode();
 

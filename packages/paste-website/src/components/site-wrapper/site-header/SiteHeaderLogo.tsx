@@ -35,7 +35,7 @@ interface SiteHeaderLogoProps {
  * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
  * to render different sizes and spacing in mobile
  */
-const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
+const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({title, subtitle}) => {
   const theme = useTheme();
   const [logoOpacity, setLogoOpacity] = React.useState(1);
   const [hoverOpacity, setHoverOpacity] = React.useState(0);

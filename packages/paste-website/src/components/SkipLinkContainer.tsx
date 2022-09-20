@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
-const SkipLinkContainer: React.FC = ({children}) => {
+const SkipLinkContainer: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
   return (
     <Box
       backgroundColor="colorBackgroundBody"

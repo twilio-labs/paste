@@ -65,7 +65,7 @@ const getElementName = (elementName: string | undefined, suffix?: string): strin
 
 type BaseModalProps = Pick<ModalProps, 'size'> & {element?: string | undefined};
 const NOOP: VoidFunction = () => null;
-export const BaseModal: React.FC<BaseModalProps> = ({size, element}) => {
+export const BaseModal: React.FC<React.PropsWithChildren<BaseModalProps>> = ({size, element}) => {
   const modalHeadingId = useUID();
 
   return (

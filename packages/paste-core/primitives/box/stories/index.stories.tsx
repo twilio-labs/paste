@@ -121,7 +121,7 @@ PseudoClassesWithProps.story = {
   name: 'Pseudo-classes with props',
 };
 
-const CustomBoxCollection: React.FC = () => {
+const CustomBoxCollection: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       <CustomizableBoxExample element="RECTANGLE">base</CustomizableBoxExample>

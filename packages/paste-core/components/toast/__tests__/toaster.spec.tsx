@@ -25,7 +25,7 @@ const mockToasterState: ToasterProps = {
   pop: mockDismiss,
 };
 
-const MockToasterTrigger: React.FC = () => {
+const MockToasterTrigger: React.FC<React.PropsWithChildren<unknown>> = () => {
   const toaster = useToaster();
   const variants = Object.values(ToastVariantObject);
   return (

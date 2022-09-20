@@ -16,7 +16,10 @@ import type {RadioGroupProps} from '@twilio-paste/radio-group';
 import {TextArea} from '@twilio-paste/textarea';
 import type {TextAreaProps} from '@twilio-paste/textarea';
 
-const InputField: React.FC<Pick<InputProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
+const InputField: React.FC<React.PropsWithChildren<Pick<InputProps, 'disabled' | 'hasError'>>> = ({
+  disabled,
+  hasError,
+}) => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
@@ -28,7 +31,10 @@ const InputField: React.FC<Pick<InputProps, 'disabled' | 'hasError'>> = ({disabl
   );
 };
 
-const TextareaField: React.FC<Pick<TextAreaProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
+const TextareaField: React.FC<React.PropsWithChildren<Pick<TextAreaProps, 'disabled' | 'hasError'>>> = ({
+  disabled,
+  hasError,
+}) => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
@@ -40,7 +46,10 @@ const TextareaField: React.FC<Pick<TextAreaProps, 'disabled' | 'hasError'>> = ({
   );
 };
 
-const SelectField: React.FC<Pick<SelectProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
+const SelectField: React.FC<React.PropsWithChildren<Pick<SelectProps, 'disabled' | 'hasError'>>> = ({
+  disabled,
+  hasError,
+}) => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
@@ -54,7 +63,7 @@ const SelectField: React.FC<Pick<SelectProps, 'disabled' | 'hasError'>> = ({disa
   );
 };
 
-const CheckboxGroupField: React.FC<Pick<CheckboxGroupProps, 'orientation' | 'errorText'>> = ({
+const CheckboxGroupField: React.FC<React.PropsWithChildren<Pick<CheckboxGroupProps, 'orientation' | 'errorText'>>> = ({
   orientation,
   errorText,
 }) => {
@@ -115,7 +124,10 @@ const CheckboxGroupField: React.FC<Pick<CheckboxGroupProps, 'orientation' | 'err
   );
 };
 
-const RadioGroupField: React.FC<Pick<RadioGroupProps, 'orientation' | 'errorText'>> = ({orientation, errorText}) => {
+const RadioGroupField: React.FC<React.PropsWithChildren<Pick<RadioGroupProps, 'orientation' | 'errorText'>>> = ({
+  orientation,
+  errorText,
+}) => {
   const [value, setValue] = React.useState('2');
   return (
     <RadioGroup

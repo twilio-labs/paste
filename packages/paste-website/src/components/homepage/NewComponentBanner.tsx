@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
-const NewComponentBanner: React.FC = ({children}) => {
+const NewComponentBanner: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
   return (
     <Box
       alignItems="center"

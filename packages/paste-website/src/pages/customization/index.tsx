@@ -8,7 +8,9 @@ import {LikeTwilio} from '../../components/customization-landing-page/LikeTwilio
 import {WhyPaste} from '../../components/customization-landing-page/WhyPaste';
 import {ReadyToGetStarted} from '../../components/customization-landing-page/ReadyToGetStarted';
 
-const CustomizationLandingPage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
+const CustomizationLandingPage: React.FC<React.PropsWithChildren<{location: {pathname: string}}>> = ({
+  location,
+}): React.ReactElement => {
   return (
     <SiteWrapper pathname={location.pathname}>
       <Helmet>

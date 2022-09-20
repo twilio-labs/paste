@@ -6,7 +6,7 @@ import {Box} from '@twilio-paste/box';
 
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 
-const NotFound: React.FC = () => (
+const NotFound: React.FC<React.PropsWithChildren<unknown>> = () => (
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>

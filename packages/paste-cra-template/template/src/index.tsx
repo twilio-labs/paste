@@ -15,7 +15,7 @@ const Page1 = React.lazy(async () => import('./pages/Page1'));
 // @ts-ignore
 const Page2 = React.lazy(async () => import('./pages/Page2'));
 
-export const Index: React.FC = () => {
+export const Index: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <App>
       <React.Suspense fallback={<Loading />}>

@@ -8,7 +8,7 @@ import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
 import type {ComboboxItemsProps} from './types';
 
-const ComboboxItems = React.memo(
+const ComboboxItems: React.FC<React.PropsWithChildren<ComboboxItemsProps>> = React.memo(
   React.forwardRef<HTMLUListElement, ComboboxItemsProps>(
     (
       {

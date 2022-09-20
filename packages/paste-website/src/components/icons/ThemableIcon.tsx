@@ -11,7 +11,15 @@ export interface ThemableIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ThemableIcon: React.FC<ThemableIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
+const ThemableIcon: React.FC<React.PropsWithChildren<ThemableIconProps>> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ThemableIcon-${useUID()}`;
 
   if (!decorative && title == null) {

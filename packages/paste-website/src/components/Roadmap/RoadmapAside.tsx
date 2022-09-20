@@ -10,7 +10,7 @@ import type {RoadmapProps} from './types';
 
 type RoadmapAsideProps = RoadmapProps;
 
-const RoadmapAside: React.FC<RoadmapAsideProps> = ({data}) => {
+const RoadmapAside: React.FC<React.PropsWithChildren<RoadmapAsideProps>> = ({data}) => {
   // Get Array of releases as anchors.
   const releaseList = data.map(({release}) => slugify(release));
 

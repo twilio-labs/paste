@@ -161,7 +161,7 @@ PseudoClassesWithHoverPseudoProps.story = {
   name: 'Pseudo-classes with hover pseudo props',
 };
 
-const CustomTextCollection: React.FC = () => {
+const CustomTextCollection: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       <CustomizableTextExample element="RECTANGLE">base</CustomizableTextExample>

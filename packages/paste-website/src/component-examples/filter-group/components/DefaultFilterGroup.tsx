@@ -19,7 +19,11 @@ import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 
 // Note: update the codesandboxes if update this
-export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoomType, defaultDateRange}) => {
+export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
+  data,
+  defaultRoomType,
+  defaultDateRange,
+}) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 

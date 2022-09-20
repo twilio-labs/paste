@@ -25,15 +25,17 @@ const sentenceCase = (catName: string): string => {
     });
 };
 
-const ContentWrapper: React.FC = (props) => <Box as="div" display={['block', 'block', 'flex']} {...props} />;
-const Content: React.FC = (props) => (
+const ContentWrapper: React.FC<React.PropsWithChildren<unknown>> = (props) => (
+  <Box as="div" display={['block', 'block', 'flex']} {...props} />
+);
+const Content: React.FC<React.PropsWithChildren<unknown>> = (props) => (
   <Box as="div" position="relative" maxWidth="size70" minWidth="0" width="100%" {...props} />
 );
 
 const defaultTheme = 'default';
 const defaultFormat = 'css';
 
-export const TokensList: React.FC = () => {
+export const TokensList: React.FC<React.PropsWithChildren<unknown>> = () => {
   // State related to the list of tokens
   const [tokens, setTokens] = React.useState<Tokens>(DefaultThemeTokens.tokens);
   const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens));

@@ -25,7 +25,7 @@ export default {
   ],
 };
 
-export const AlertDialogWithTwoActions: React.FC = () => {
+export const AlertDialogWithTwoActions: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <AlertDialog
       heading="Submit application"
@@ -51,7 +51,7 @@ AlertDialogWithTwoActionsStory.story = {
   },
 };
 
-export const DestructiveAlertDialog: React.FC = () => {
+export const DestructiveAlertDialog: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <AlertDialog
       heading="Delete data"
@@ -78,7 +78,7 @@ DestructiveAlertDialogStory.story = {
   },
 };
 
-export const OpenAlertDialogFromButton: React.FC = () => {
+export const OpenAlertDialogFromButton: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -113,7 +113,7 @@ OpenAlertDialogFromButtonStory.story = {
   },
 };
 
-export const OpenAlertDialogFromModal: React.FC = () => {
+export const OpenAlertDialogFromModal: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(true);
   const [isAlertDialogOpen, setIsAlertDialogOpen] = React.useState(true);
   const handleModalOpen = (): void => setIsModalOpen(true);
@@ -217,7 +217,7 @@ DestructiveAlertDialogVRT.story = {
   name: 'Destructive Alert Dialog for VRT',
 };
 
-export const CustomizedAlertDialog: React.FC = () => {
+export const CustomizedAlertDialog: React.FC<React.PropsWithChildren<unknown>> = () => {
   const theme = useTheme();
   return (
     <CustomizationProvider
@@ -246,7 +246,7 @@ export const CustomizedAlertDialog: React.FC = () => {
   );
 };
 
-export const CustomizedDestructiveAlertDialog: React.FC = () => {
+export const CustomizedDestructiveAlertDialog: React.FC<React.PropsWithChildren<unknown>> = () => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

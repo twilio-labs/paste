@@ -36,7 +36,7 @@ const ThemeConsumerElementsExample = (): React.ReactElement => {
 interface BaseThemeConsumerExampleProps {
   'data-testid'?: string;
 }
-const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props) => {
+const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsumerExampleProps>> = (props) => {
   return (
     <CustomizationConsumer>
       {({theme}) => {

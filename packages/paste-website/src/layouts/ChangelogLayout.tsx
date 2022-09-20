@@ -11,7 +11,7 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const ChangelogLayout: React.FC<ChangelogLayoutProps> = ({children}) => {
+const ChangelogLayout: React.FC<React.PropsWithChildren<ChangelogLayoutProps>> = ({children}) => {
   return <PasteMDXProvider componentOverrides={componentOverrides}>{children}</PasteMDXProvider>;
 };
 

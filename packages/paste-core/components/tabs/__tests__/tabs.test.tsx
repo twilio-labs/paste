@@ -35,7 +35,7 @@ describe('Tabs', () => {
         (_, i) => `${i}`
       );
 
-      const ManualIdExample: React.FC = () => {
+      const ManualIdExample: React.FC<React.PropsWithChildren<unknown>> = () => {
         return (
           <Tabs orientation="horizontal" selectedId={tabOneId} baseId="">
             <TabList aria-label="My tabs">

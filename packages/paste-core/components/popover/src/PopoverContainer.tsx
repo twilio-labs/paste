@@ -16,7 +16,7 @@ export interface PopoverContainerProps extends NonModalDialogPrimitivePopoverIni
   state?: PopoverStateReturn;
 }
 
-const BasePopoverContainer: React.FC<PopoverContainerProps> = ({
+const BasePopoverContainer: React.FC<React.PropsWithChildren<PopoverContainerProps>> = ({
   children,
   gutter,
   placement,

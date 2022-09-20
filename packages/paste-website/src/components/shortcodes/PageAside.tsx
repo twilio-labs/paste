@@ -23,7 +23,12 @@ interface PageAsideProps {
   topPadding?: BoxProps['padding'];
 }
 
-const PageAside: React.FC<PageAsideProps> = ({data, hideFeedback, stickyTop = 'space130', topPadding = 'space0'}) => {
+const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
+  data,
+  hideFeedback,
+  stickyTop = 'space130',
+  topPadding = 'space0',
+}) => {
   return (
     <Box
       order={2}

@@ -22,7 +22,7 @@ type ColorTokenInputProps = {
 
 const isInRange = (v: number): boolean => v >= 0 && v <= 255;
 
-export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({
+export const ColorTokenInput: React.FC<React.PropsWithChildren<ColorTokenInputProps>> = ({
   bucket,
   tokenName,
   tokenValue,

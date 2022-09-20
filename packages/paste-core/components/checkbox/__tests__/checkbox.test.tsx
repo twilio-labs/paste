@@ -262,7 +262,7 @@ describe('Checkbox event handlers', () => {
   });
 
   it('Should check the checkbox when controlled', () => {
-    const MockCheckBox: React.FC = () => {
+    const MockCheckBox: React.FC<React.PropsWithChildren<unknown>> = () => {
       const [checked, setChecked] = React.useState(false);
       return (
         <Checkbox
@@ -286,7 +286,7 @@ describe('Checkbox event handlers', () => {
   });
 
   it('Should check the checkbox when uncontrolled', () => {
-    const MockCheckBox: React.FC = () => {
+    const MockCheckBox: React.FC<React.PropsWithChildren<unknown>> = () => {
       return (
         <Checkbox data-testid="checkbox-button" id="foo" name="foo">
           foo

@@ -27,7 +27,11 @@ export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
  * @param {string} [element=DATA_GRID_CELL] - customization element
  * @param {number} [colSpan] - how many columns the cell spans across
  */
-export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_CELL', as = 'td', ...props}) => {
+export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> = ({
+  element = 'DATA_GRID_CELL',
+  as = 'td',
+  ...props
+}) => {
   const dataGridState = React.useContext(DataGridContext);
   const cellRef = React.useRef() as React.MutableRefObject<HTMLTableCellElement>;
 

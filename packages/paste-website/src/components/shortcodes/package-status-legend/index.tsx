@@ -32,7 +32,7 @@ const statusMap: {[index: string]: StatusData} = {
   },
 };
 
-const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
+const PackageStatusBadge: React.FC<React.PropsWithChildren<{status: string}>> = ({status}) => {
   const statusData = statusMap[status];
   const uid = useUID();
 
@@ -51,7 +51,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
   return null;
 };
 
-const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
+const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendProps>> = ({
   packageStatus,
   figmaStatus,
   designCommitteeReview,

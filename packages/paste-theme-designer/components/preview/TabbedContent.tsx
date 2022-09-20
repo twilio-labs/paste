@@ -17,7 +17,7 @@ import {ToastPreview} from './ToastPreview';
 import {TooltipPreview} from './TooltipPreview';
 import {TypographyPreview} from './TypographyPreview';
 
-const TabbedContent: React.FC = () => {
+const TabbedContent: React.FC<React.PropsWithChildren<unknown>> = () => {
   const selectedId = useUID();
 
   return (

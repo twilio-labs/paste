@@ -9,7 +9,11 @@ export interface RequiredDotProps {
   i18nLabel?: string;
 }
 
-export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT', i18nLabel = '', ...props}) => {
+export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = ({
+  element = 'REQUIRED_DOT',
+  i18nLabel = '',
+  ...props
+}) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}

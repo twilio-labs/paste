@@ -9,7 +9,7 @@ interface HTMLProps {
   body: string;
   postBodyComponents: [];
 }
-const HTML: React.FC<HTMLProps> = ({
+const HTML: React.FC<React.PropsWithChildren<HTMLProps>> = ({
   htmlAttributes,
   headComponents,
   bodyAttributes,
