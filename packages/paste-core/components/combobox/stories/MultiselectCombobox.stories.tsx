@@ -7,7 +7,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
-import {MultiselectCombobox, ComboboxListboxOption} from '../src';
+import {MultiselectCombobox} from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
   template: (index?: number | undefined) => TemplateResult
@@ -436,14 +436,14 @@ MultiselectComboboxOptionGroups.story = {
 };
 
 const SampleEmptyState: React.FC = () => (
-  <ComboboxListboxOption variant="default" disabled>
+  <>
     <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
       Some image
     </Box>
     <Text as="span" fontStyle="italic">
       No results found
     </Text>
-  </ComboboxListboxOption>
+  </>
 );
 
 export const MultiselectComboboxEmptyState = (): React.ReactNode => {

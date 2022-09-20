@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {VirtualItem} from 'react-virtual';
 import find from 'lodash/find';
+import {Box} from '@twilio-paste/box';
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
@@ -38,7 +39,16 @@ const ComboboxItems = React.memo(
         if (virtualItems.length === 0 && EmptyState != null) {
           return (
             <ComboboxListboxGroup element={element} ref={ref}>
-              <EmptyState />
+              <Box
+                as="li"
+                role="option"
+                position="relative"
+                element={`${element}_EMPTY_STATE`}
+                backgroundColor="colorBackgroundBody"
+                color="colorText"
+              >
+                <EmptyState />
+              </Box>
             </ComboboxListboxGroup>
           );
         }
@@ -83,7 +93,16 @@ const ComboboxItems = React.memo(
       if (groupedItemKeys.length === 0 && EmptyState != null) {
         return (
           <ComboboxListboxGroup element={element} ref={ref}>
-            <EmptyState />
+            <Box
+              as="li"
+              role="option"
+              position="relative"
+              element={`${element}_EMPTY_STATE`}
+              backgroundColor="colorBackgroundBody"
+              color="colorText"
+            >
+              <EmptyState />
+            </Box>
           </ComboboxListboxGroup>
         );
       }

@@ -13,7 +13,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {Combobox, useCombobox, ComboboxListboxOption} from '../src';
+import {Combobox, useCombobox} from '../src';
 
 const items = [
   'Alert',
@@ -782,14 +782,14 @@ ComboboxListboxZIndex.story = {
 };
 
 const SampleEmptyState: React.FC = () => (
-  <ComboboxListboxOption variant="default" disabled>
+  <>
     <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
       Some image
     </Box>
     <Text as="span" fontStyle="italic">
       No results found
     </Text>
-  </ComboboxListboxOption>
+  </>
 );
 
 export const ComboboxEmptyState = (): React.ReactNode => {

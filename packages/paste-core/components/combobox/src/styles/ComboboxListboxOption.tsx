@@ -85,7 +85,6 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
           borderLeftStyle: 'solid',
         }}
         _last={{
-          marginBottom: 'space0',
           borderBottomColor: 'transparent',
         }}
         {...virtualItemStyles}
