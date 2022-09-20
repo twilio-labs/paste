@@ -783,9 +783,7 @@ ComboboxListboxZIndex.story = {
 
 const SampleEmptyState: React.FC = () => (
   <>
-    <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20">
-      Some image
-    </Box>
+    <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20" />
     <Text as="span" fontStyle="italic">
       No results found
     </Text>
