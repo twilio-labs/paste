@@ -130,19 +130,21 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             return {
               ...changes,
               // The default behavior upon item selection has a few issues, so only upon selection do we want to change the state.
-              ...(changes.selectedItem && {
-                // FIX: We want to keep the dropdown open upon selection for multiselection
-                isOpen: true,
-                // FIX: We don't want the highlightedIndex to be reset to 0 upon selection, which scrolls the dropdown to the top.
-                highlightedIndex: items.indexOf(changes.selectedItem),
-                // FIX: When we select an item from the dropdown, downshift sets that selected item as the inputValue.
-                // Since inputValue is being set to a value that has been selected, the items array will be filtered
-                // to only include that item, but it's on the selectedList now so even that item won't be shown.
-                // This means that for a split second the dropdown will render and empty items array until
-                // after the inputValue is cleared again. This causes the dropdown to flicker on selection.
-                // Setting inputValue to an empty string on selection fixes this jankiness.
-                inputValue: '',
-              }),
+              ...(changes.selectedItem != null
+                ? {
+                    // FIX: We want to keep the dropdown open upon selection for multiselection
+                    isOpen: true,
+                    // FIX: We don't want the highlightedIndex to be reset to 0 upon selection, which scrolls the dropdown to the top.
+                    highlightedIndex: items.indexOf(changes.selectedItem),
+                    // FIX: When we select an item from the dropdown, downshift sets that selected item as the inputValue.
+                    // Since inputValue is being set to a value that has been selected, the items array will be filtered
+                    // to only include that item, but it's on the selectedList now so even that item won't be shown.
+                    // This means that for a split second the dropdown will render and empty items array until
+                    // after the inputValue is cleared again. This causes the dropdown to flicker on selection.
+                    // Setting inputValue to an empty string on selection fixes this jankiness.
+                    inputValue: '',
+                  }
+                : {}),
             };
           // FIX: Bluring the menu causes highlightedIndex to reset to -1, which causes the
           // menu to scroll to the last selectedItem per the `scrollToIndexRef` function.
@@ -248,7 +250,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             position="relative"
             width="100%"
             paddingY="space30"
-            paddingX="space40"
+            paddingLeft="space40"
+            paddingRight="space100"
           >
             <FormPillGroup
               {...pillState}
@@ -272,8 +275,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                     variant={hasError ? 'error' : 'default'}
                     element={`${element}_PILL`}
                     key={key}
-                    onDismiss={() => {
+                    onDismiss={(event) => {
                       removeSelectedItem(selectedItemPill);
+                      event.stopPropagation();
                     }}
                     // Prevents focus from being snatched from the pill to the input
                     onSelect={(event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation()}

@@ -29,6 +29,9 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         gridTemplateColumns="min-content"
         maxWidth="100%"
         overflow="hidden"
+        // FIX: Mostly works, hack fix to get the height just
+        // right between no pills selected and some pills selected
+        height="24px"
         _after={{
           content: `"${text}"`,
           fontFamily: 'inherit',

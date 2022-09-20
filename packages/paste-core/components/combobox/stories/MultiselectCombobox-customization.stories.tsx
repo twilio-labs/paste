@@ -140,7 +140,7 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
       itemToString={(item: GroupedItem) => (item ? `${item.number}` : '')}
       insertBefore={<Text as="span">Z</Text>}
-      insertAfter={<InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />}
+      insertAfter={<InformationIcon decorative={false} size="sizeIcon20" title="Get more info" color="colorTextIcon" />}
       initialSelectedItems={initialSelectedGroupedItems}
     />
   </ShowCustomization>
