@@ -21,7 +21,7 @@ export interface InputBoxProps {
   variant?: Variants;
 }
 
-const InputBox = React.forwardRef<HTMLDivElement, InputBoxProps>(
+const InputBox = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputBoxProps>>(
   (
     {
       children,
