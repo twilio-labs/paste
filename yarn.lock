@@ -9614,7 +9614,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/animation-library@^0.3.7, @twilio-paste/animation-library@workspace:packages/paste-libraries/animation":
+"@twilio-paste/animation-library@^0.3.2, @twilio-paste/animation-library@^0.3.7, @twilio-paste/animation-library@workspace:packages/paste-libraries/animation":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/animation-library@workspace:packages/paste-libraries/animation"
   dependencies:
@@ -10079,8 +10079,8 @@ __metadata:
   resolution: "@twilio-paste/color-contrast-utils@workspace:packages/paste-color-contrast-utils"
   dependencies:
     "@twilio-paste/design-tokens": ^8.0.0
-    color-combos: ^1.0.12
-    lodash: ^4.17.21
+    color-combos: 1.0.12
+    lodash: 4.17.21
   peerDependencies:
     "@twilio-paste/design-tokens": ^8.0.0
   languageName: unknown
@@ -10106,16 +10106,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
+    "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.1
     "@twilio-paste/button": ^11.1.1
     "@twilio-paste/combobox-primitive": ^0.3.4
     "@twilio-paste/design-tokens": ^8.1.0
     "@twilio-paste/flex": ^5.0.0
+    "@twilio-paste/form-pill-group": ^5.0.0
     "@twilio-paste/help-text": ^10.1.0
     "@twilio-paste/icons": ^9.1.0
     "@twilio-paste/input": ^6.0.0
     "@twilio-paste/input-box": ^7.1.0
     "@twilio-paste/label": ^10.1.0
+    "@twilio-paste/reakit-library": ^0.8.1
     "@twilio-paste/screen-reader-only": ^10.0.0
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/stack": ^5.0.0
@@ -10125,22 +10128,27 @@ __metadata:
     "@twilio-paste/theme": ^8.0.1
     "@twilio-paste/types": ^3.1.8
     "@twilio-paste/uid-library": ^0.2.5
-    lodash: ^4.17.21
+    "@twilio-paste/utils": ^1.1.5
+    lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-virtual: ^2.8.2
+    react-virtual: 2.10.4
+    typescript: ^4.6.4
   peerDependencies:
+    "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/button": ^11.0.0
     "@twilio-paste/combobox-primitive": ^0.3.0
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/flex": ^5.0.0
+    "@twilio-paste/form-pill-group": ^5.0.0
     "@twilio-paste/help-text": ^10.0.0
-    "@twilio-paste/icons": ^9.0.0
+    "@twilio-paste/icons": ^9.1.0
     "@twilio-paste/input": ^6.0.0
     "@twilio-paste/input-box": ^7.0.0
     "@twilio-paste/label": ^10.0.0
+    "@twilio-paste/reakit-library": ^0.8.1
     "@twilio-paste/screen-reader-only": ^10.0.0
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/stack": ^5.0.0
@@ -10150,6 +10158,7 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/utils": ^1.1.5
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
@@ -10303,7 +10312,7 @@ __metadata:
     "@twilio-paste/types": ^3.1.8
     "@twilio-paste/uid-library": ^0.2.5
     "@twilio-paste/utils": ^1.1.5
-    lodash: ^4.17.21
+    lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -10404,7 +10413,7 @@ __metadata:
     gulp-if: ^3.0.0
     gulp-terser: ^2.0.1
     gulp-theo: 2.0.1
-    lodash: ^4.17.21
+    lodash: 4.17.21
   languageName: unknown
   linkType: soft
 
@@ -10504,7 +10513,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown"
   dependencies:
-    downshift: 6.0.6
+    downshift: 6.1.7
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -10671,7 +10680,7 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.8
     "@twilio-paste/uid-library": ^0.2.5
-    lodash: ^4.17.21
+    lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11235,7 +11244,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/reakit-library@^0.8.6, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
+"@twilio-paste/reakit-library@^0.8.1, @twilio-paste/reakit-library@^0.8.6, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
   dependencies:
@@ -11493,8 +11502,8 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/styling-library": ^1.0.2
     "@twilio-paste/theme": ^8.0.0
-    csstype: ^3.0.11
-    lodash: ^4.17.21
+    csstype: 3.0.11
+    lodash: 4.17.21
     prop-types: ^15.7.2
   peerDependencies:
     "@twilio-paste/design-tokens": ^8.0.0
@@ -11824,7 +11833,7 @@ __metadata:
   dependencies:
     "@twilio-paste/core": ^15.0.0
     "@twilio-paste/icons": ^9.0.0
-    lodash: ^4.17.21
+    lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11942,11 +11951,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/utils@workspace:packages/paste-utils"
   dependencies:
+    "@twilio-paste/animation-library": ^0.3.7
+    "@twilio-paste/color-contrast-utils": ^3.0.0
+    "@twilio-paste/design-tokens": ^8.1.0
+    "@twilio-paste/styling-library": ^1.0.2
+    "@twilio-paste/theme": ^8.0.1
     "@twilio-paste/types": ^3.1.8
-    lodash: ^4.17.21
+    lodash: 4.17.21
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
+    "@twilio-paste/animation-library": ^0.3.1
+    "@twilio-paste/color-contrast-utils": ^3.0.0
+    "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/styling-library": ^1.0.0
+    "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
@@ -12063,7 +12082,7 @@ __metadata:
     gatsby-transformer-sharp: ^4.11.0
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
-    lodash: ^4.17.21
+    lodash: 4.17.21
     lottie-web: ^5.7.4
     netlify-cli: ^6.13.1
     pretty-format: ^28.1.0
@@ -17953,7 +17972,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-combos@npm:^1.0.12":
+"color-combos@npm:1.0.12":
   version: 1.0.12
   resolution: "color-combos@npm:1.0.12"
   dependencies:
@@ -18289,7 +18308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.14, compute-scroll-into-view@npm:^1.0.17":
+"compute-scroll-into-view@npm:^1.0.17":
   version: 1.0.17
   resolution: "compute-scroll-into-view@npm:1.0.17"
   checksum: b20c05a10c37813c5a6e4bf053c00f65c88d23afed7a6bd7a2a69e05e2ffc2df3483ecfe407d36bf16b8cec8be21ae1966c9c523093a03117e567156cd79a51e
@@ -19473,7 +19492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.11":
+"csstype@npm:3.0.11":
   version: 3.0.11
   resolution: "csstype@npm:3.0.11"
   checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f
@@ -20882,21 +20901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"downshift@npm:6.0.6":
-  version: 6.0.6
-  resolution: "downshift@npm:6.0.6"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    compute-scroll-into-view: ^1.0.14
-    prop-types: ^15.7.2
-    react-is: ^16.13.1
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 56ce4f9544b0b95a667f717f9a5252fdf9e7556e8e405125e47f423bf3c2d29331b84a918bb05b0b4071962b79c7df1d87b56be87fb7c5ba8403013b88ec2e60
-  languageName: node
-  linkType: hard
-
-"downshift@npm:^6.0.15":
+"downshift@npm:6.1.7, downshift@npm:^6.0.15":
   version: 6.1.7
   resolution: "downshift@npm:6.1.7"
   dependencies:
@@ -35128,7 +35133,7 @@ fsevents@^1.2.7:
     commander: ^2.20.0
     concurrently: ^4.1.1
     cross-env: ^5.2.0
-    csstype: ^3.0.11
+    csstype: 3.0.11
     cypress: 9.3.1
     danger: ^10.6.6
     del: ^5.1.0
@@ -35156,7 +35161,7 @@ fsevents@^1.2.7:
     immutable: ^4.0.0-rc.12
     jest: 27.5.1
     lerna: ^4.0.0
-    lodash: ^4.17.21
+    lodash: 4.17.21
     lorem-ipsum: ^2.0.3
     netlify-cli: ^6.13.1
     plop: ^2.7.4
@@ -38146,7 +38151,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-virtual@npm:^2.8.2":
+"react-virtual@npm:2.10.4":
   version: 2.10.4
   resolution: "react-virtual@npm:2.10.4"
   dependencies:

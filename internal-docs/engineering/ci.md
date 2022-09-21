@@ -67,6 +67,14 @@ Based on the files changed, [using this configuration](https://github.com/twilio
 
 [DangerJS](https://danger.systems/js/) allows use to run a number of checks on our codebase, based on the contents of a PR change list. The checks can be [found here](https://github.com/twilio-labs/paste/tree/main/.danger)
 
+You can run Danger checks from a PR locally with the following command, replacing `<PR NUMBER>`:
+
+```sh
+yarn danger pr https://github.com/twilio-labs/paste/pull/<PR NUMBER>
+```
+
+Note: This command is heavily rate limited, so you may only get 6 attempts every few minutes.
+
 ### Check package sizes
 
 The package size job runs on every pull request and push. It uses a [forked version of compressed-size-action](https://github.com/zahnster/compressed-size-action) Github integration. The job installs and builds all package javascript bundles, and then compares their file sizes. A comment with package size output is then published to the pull request. This comment is updated for each push.

@@ -12,7 +12,7 @@ interface FormPillStylesProps {
   element?: BoxElementProps['element'];
   children: React.ReactNode;
   onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   isHoverable?: boolean;
   isDismissable?: boolean;
   /* We can't call this `disabled` because it conflicts with the internal `CompositeItem disabled prop */

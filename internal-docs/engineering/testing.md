@@ -55,7 +55,9 @@ For component packages, because the source files are limited and confined to a `
 
 To help us ensure the basics are covered with regards to accessibility we run each component through an accessibility checker called [axe-core](https://github.com/dequelabs/axe-core) via a playwright plugin called [playwright-axe](https://www.npmjs.com/package/axe-playwright). Playwright Axe is automatically run against each story we write in Storybook, via [Storybook Test Runner](https://storybook.js.org/addons/@storybook/test-runner).
 
-This does not guarantee accessibility of our components. This merely ensures we cover the basics.
+If this test fails on CI, you can debug the issues by checking the output of the Accessibility Addon (Keyboard shortcut D) after running `yarn start:storybook`. Alternatively, you can use `yarn start:test:storybook` to run the exact step CI runs.
+
+Note: This does not guarantee accessibility of our components. This merely ensures we cover the basics.
 
 **There is no substitute for manual testing with regards to accessibility.**
 

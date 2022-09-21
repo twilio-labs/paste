@@ -2,10 +2,10 @@ import * as React from 'react';
 import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
+import {useWindowSize} from '@twilio-paste/utils';
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
-import {useWindowSize} from '../../hooks/useWindowSize';
 import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 

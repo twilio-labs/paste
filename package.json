@@ -173,7 +173,7 @@
     "commander": "^2.20.0",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
-    "csstype": "^3.0.11",
+    "csstype": "3.0.11",
     "cypress": "9.3.1",
     "danger": "^10.6.6",
     "del": "^5.1.0",
@@ -201,7 +201,7 @@
     "immutable": "^4.0.0-rc.12",
     "jest": "27.5.1",
     "lerna": "^4.0.0",
-    "lodash": "^4.17.21",
+    "lodash": "4.17.21",
     "lorem-ipsum": "^2.0.3",
     "netlify-cli": "^6.13.1",
     "plop": "^2.7.4",
@@ -235,7 +235,7 @@
   "resolutions": {
     "@storybook/react/webpack": "^5",
     "react-hot-loader": "^4.13.0",
-    "csstype": "^3.0.11"
+    "csstype": "3.0.11"
   },
   "husky": {
     "hooks": {

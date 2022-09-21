@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
+import {useWindowSize} from '@twilio-paste/utils';
 import {GetStarterWhy} from './GetStartedWhy';
 import {GetStartedInclusive} from './GetStartedInclusive';
 import {GetStartedRunning} from './GetStartedRunning';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
-import {useWindowSize} from '../../hooks/useWindowSize';
 
 const DELAY_INTERVAL = 250;
 

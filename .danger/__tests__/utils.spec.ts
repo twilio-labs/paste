@@ -266,23 +266,25 @@ describe('danger utils', () => {
       expect(
         getPackJsonsFromFiles([
           'package.json',
+          'packages/paste-core/components/alert-dialog/package.json',
           'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
         ])
-      ).toEqual(['package.json']);
+      ).toEqual(['packages/paste-core/components/alert-dialog/package.json']);
     });
 
-    it('should more than one package json file from a changelist', () => {
+    it('should return more than one package json file from a changelist', () => {
       expect(
         getPackJsonsFromFiles([
           'package.json',
+          'packages/paste-core/components/alert-dialog/package.json',
           'packages/box/package.json',
           'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
         ])
-      ).toEqual(['package.json', 'packages/box/package.json']);
+      ).toEqual(['packages/paste-core/components/alert-dialog/package.json', 'packages/box/package.json']);
     });
   });
 });

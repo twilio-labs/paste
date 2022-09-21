@@ -6,9 +6,10 @@ import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {useTheme} from '@twilio-paste/theme';
-import {Combobox} from '../src';
+import {MultiselectCombobox} from '../src';
 
 const items = ['a', 'b', 'c'];
+const initialSelectedItems = [items[0], items[1]];
 
 interface GroupedItem {
   letter: string;
@@ -24,6 +25,7 @@ const groupedItems = [
   {letter: 'c', number: 6},
   {letter: 'd', number: 7},
 ];
+const initialSelectedGroupedItems = [groupedItems[0], groupedItems[1], groupedItems[2]];
 
 const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
   isTestEnvironment,
@@ -38,19 +40,27 @@ const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
           disableAnimations={isTestEnvironment}
           theme={currentTheme}
           elements={{
-            COMBOBOX_WRAPPER: {fontFamily: 'fontFamilyCode'},
-            COMBOBOX: {backgroundColor: 'colorBackground'},
-            COMBOBOX_ELEMENT: {cursor: 'pointer'},
-            COMBOBOX_CHEVRON_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-            COMBOBOX_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
-            COMBOBOX_LIST: {backgroundColor: 'colorBackgroundPrimaryWeak'},
-            COMBOBOX_GROUPNAME: {fontFamily: 'fontFamilyText', cursor: 'help'},
-            COMBOBOX_GROUPNAME_TEXT: {fontWeight: 'fontWeightLight'},
-            COMBOBOX_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryStrong'},
-            COMBOBOX_LIST_ITEM_TEXT: {color: 'colorTextWeakest', fontWeight: 'fontWeightBold'},
-            HELP_TEXT: {color: 'colorTextWarningStrong'},
-            COMBOBOX_PREFIX: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
-            COMBOBOX_SUFFIX: {backgroundColor: 'colorBackgroundSubaccount', borderRadius: 'borderRadiusCircle'},
+            MULTISELECT_COMBOBOX_WRAPPER: {
+              backgroundColor: 'colorBackgroundWarningWeakest',
+              fontFamily: 'fontFamilyCode',
+            },
+            MULTISELECT_COMBOBOX: {backgroundColor: 'colorBackground'},
+            MULTISELECT_COMBOBOX_PILL_GROUP: {backgroundColor: 'colorBackgroundWarning'},
+            MULTISELECT_COMBOBOX_PILL: {backgroundColor: 'colorBackgroundWarningWeakest'},
+            MULTISELECT_COMBOBOX_ELEMENT: {cursor: 'pointer'},
+            MULTISELECT_COMBOBOX_CHEVRON_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+            MULTISELECT_COMBOBOX_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
+            MULTISELECT_COMBOBOX_LIST: {backgroundColor: 'colorBackgroundPrimaryWeak'},
+            MULTISELECT_COMBOBOX_GROUPNAME: {fontFamily: 'fontFamilyText', cursor: 'help'},
+            MULTISELECT_COMBOBOX_GROUPNAME_TEXT: {fontWeight: 'fontWeightLight'},
+            MULTISELECT_COMBOBOX_LIST_ITEM: {backgroundColor: 'colorBackgroundPrimaryStrong'},
+            MULTISELECT_COMBOBOX_LIST_ITEM_TEXT: {color: 'colorTextWeakest', fontWeight: 'fontWeightBold'},
+            MULTISELECT_COMBOBOX_HELP_TEXT: {color: 'colorTextWarningStrong'},
+            MULTISELECT_COMBOBOX_PREFIX: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
+            MULTISELECT_COMBOBOX_SUFFIX: {
+              backgroundColor: 'colorBackgroundSubaccount',
+              borderRadius: 'borderRadiusCircle',
+            },
           }}
         >
           {children}
@@ -61,8 +71,10 @@ const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
           disableAnimations={isTestEnvironment}
           baseTheme="default"
           elements={{
-            FOO_WRAPPER: {backgroundColor: 'colorBackgroundStrong', fontFamily: 'fontFamilyCode'},
+            FOO_WRAPPER: {backgroundColor: 'colorBackgroundWarningWeakest', fontFamily: 'fontFamilyCode'},
             FOO: {backgroundColor: 'colorBackground'},
+            FOO_PILL_GROUP: {backgroundColor: 'colorBackgroundWarning'},
+            FOO_PILL: {backgroundColor: 'colorBackgroundWarningWeakest'},
             FOO_ELEMENT: {cursor: 'pointer'},
             FOO_CHEVRON_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
             FOO_LISTBOX: {backgroundColor: 'colorBackgroundPrimaryWeaker'},
@@ -85,50 +97,60 @@ const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
 
 export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
-    <Combobox items={items} labelText="Choose a letter:" helpText="This is the help text" />
+    <MultiselectCombobox
+      items={items}
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
+      initialSelectedItems={initialSelectedItems}
+    />
   </ShowCustomization>
 );
 
 CustomizedCombobox.story = {
-  name: 'Default',
+  name: 'MultiselectCombobox - Default',
 };
 
 export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
-    <Combobox
+    <MultiselectCombobox
       items={groupedItems}
       groupItemsBy="letter"
-      labelText="Choose a letter:"
-      helpText="This is the help text"
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.letter : '')}
+      itemToString={(item: GroupedItem) => (item ? `${item.number}` : '')}
+      initialSelectedItems={initialSelectedGroupedItems}
     />
   </ShowCustomization>
 );
 CustomizedComboboxGroups.story = {
-  name: 'With groups',
+  name: 'MultiselectCombobox - With groups',
 };
 
 export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
-    <Combobox
+    <MultiselectCombobox
       items={groupedItems}
       groupItemsBy="letter"
-      labelText="Choose a letter:"
-      helpText="This is the help text"
+      labelText="Choose a letter"
+      selectedItemsLabelText="Selected letters:"
+      helpText="Now I know my ABCs, next time won't you sing with me?"
       optionTemplate={(item: GroupedItem) => <div>{item.number}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.letter : '')}
+      itemToString={(item: GroupedItem) => (item ? `${item.number}` : '')}
       insertBefore={<Text as="span">Z</Text>}
-      insertAfter={<InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />}
+      insertAfter={<InformationIcon decorative={false} size="sizeIcon20" title="Get more info" color="colorTextIcon" />}
+      initialSelectedItems={initialSelectedGroupedItems}
     />
   </ShowCustomization>
 );
 CustomizedComboboxBeforeAndAfter.story = {
-  name: 'With prefix and suffix',
+  name: 'MultiselectCombobox - With prefix and suffix',
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox/Customization',
+  title: 'Components/Combobox/Customization - MultiselectCombobox',
   component: CustomizedCombobox,
 };
