@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box, Style Props] add support for inset CSS property
+
+### Patch Changes
+
+- [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0) [#2674](https://github.com/twilio-labs/paste/pull/2674) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] adds `accept` prop for use in the File Picker package
+
 ## 7.0.1
 
 ### Patch Changes

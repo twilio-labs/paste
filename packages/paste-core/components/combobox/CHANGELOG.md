@@ -1,5 +1,16 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Several improvements, including the addition of the much awaited `MultiselectCombobox` component!
+
+  - Improve styling of Combobox menu items
+  - Performance improvements around virtualized list items
+  - Add a new `emptyState` prop that is rendered when there are no items in the list.
+  - Accessibility improvements.
+
 ## 12.1.1
 
 ### Patch Changes

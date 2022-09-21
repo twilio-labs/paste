@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 1.0.1
+
+### Patch Changes
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] add missing peer/dev dependencies
+
 ## 1.0.0
 
 ### Major Changes

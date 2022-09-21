@@ -1,5 +1,15 @@
 # @twilio-paste/form-pill-group
 
+## 5.1.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Allow passing a `display` prop as either `inline-flex` or `flex` (default) to the `FormPillGroup` container.
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Allow overriding the `aria-describedby` attribute.
+
 ## 5.0.0
 
 ### Patch Changes

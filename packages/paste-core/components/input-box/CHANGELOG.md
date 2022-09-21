@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.1
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input Box] Remove focus boxShadow when disabled
+
 ## 7.1.0
 
 ### Minor Changes
