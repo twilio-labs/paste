@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.6
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Dropdown Library] Upgrade downshiftjs from version 6.0.6 to 6.1.7
+
 ## 1.1.5
 
 ### Patch Changes

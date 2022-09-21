@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box, Style Props] add support for inset CSS property
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Style Props] Pin lodash dependency
+
 ## 6.0.0
 
 ### Minor Changes

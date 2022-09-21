@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.8
+
+### Patch Changes
+
+- [`99bb7a146`](https://github.com/twilio-labs/paste/commit/99bb7a146bdd75c1b90f90769e74f162128b698e) [#2664](https://github.com/twilio-labs/paste/pull/2664) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Animation Library]: remove unecessary check for VRT tool we no longer use
+
 ## 0.3.7
 
 ### Patch Changes

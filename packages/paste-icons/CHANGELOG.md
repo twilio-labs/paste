@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] Add `SelectedIcon`. This is used in MultiselectCombobox to represent selected items.
+
 ## 9.1.0
 
 ### Minor Changes

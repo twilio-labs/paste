@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+- [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0) [#2674](https://github.com/twilio-labs/paste/pull/2674) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sibling Box] adds type 'file' for use in the File Picker package
+
 ## 6.0.0
 
 ### Patch Changes

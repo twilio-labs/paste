@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.5
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox Primtiive] Export additional Typescript types for the MultiSelect hook
+
 ## 0.3.4
 
 ### Patch Changes
