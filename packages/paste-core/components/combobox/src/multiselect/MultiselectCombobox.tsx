@@ -114,6 +114,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       // For multiselect, we need `selectedItem` to always be null because
       // we use the stateChange event to add/remove items to the multiselect hook
       selectedItem: null,
+      defaultInputValue: inputValue,
       onInputValueChange,
       onHighlightedIndexChange,
       onIsOpenChange,
@@ -288,17 +289,19 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 );
               })}
             </FormPillGroup>
-            <GrowingInput
-              // we spread props into `getInputProps` so that Downshift handles events correctly
-              {...getInputProps({
-                ...getDropdownProps({ref, preventKeyAction: isOpen}),
-                disabled,
-                required,
-                ...props,
-              })}
-              aria-describedby={helpTextId}
-              element={`${element}_ELEMENT`}
-            />
+            <Box as="span" marginLeft="space20">
+              <GrowingInput
+                // we spread props into `getInputProps` so that Downshift handles events correctly
+                {...getInputProps({
+                  ...getDropdownProps({ref, preventKeyAction: isOpen}),
+                  disabled,
+                  required,
+                  ...props,
+                })}
+                aria-describedby={helpTextId}
+                element={`${element}_ELEMENT`}
+              />
+            </Box>
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
               <ChevronDownIcon decorative color={getInputChevronIconColor('default', false, false)} size="sizeIcon30" />
             </InputChevronWrapper>

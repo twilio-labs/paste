@@ -348,7 +348,9 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       optionTemplate={({title, author}: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
-          <Box as="span">{author}</Box>
+          <Box as="span" color="colorTextWeak">
+            {author}
+          </Box>
         </Box>
       )}
       disabledItems={filteredItems.slice(2, 8)}
@@ -445,7 +447,7 @@ const SampleEmptyState: React.FC = () => (
 );
 
 export const MultiselectComboboxEmptyState = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState('test123');
   const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
 
   return (
@@ -453,6 +455,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
       groupItemsBy="group"
       items={filteredItems}
       emptyState={SampleEmptyState}
+      inputValue={inputValue}
       itemToString={(item: GroupedItem) => (item ? item.label : '')}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);

@@ -30,6 +30,7 @@ export interface InputProps
   width?: never;
   padding?: 'space0';
   paddingRight?: BoxStyleProps['paddingRight'];
+  cursor?: BoxStyleProps['cursor'];
 }
 
 interface TypeProps {

@@ -62,8 +62,15 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         position="relative"
         element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
-        color={highlighted && !disabled ? 'colorTextLinkStronger' : selected ? 'colorTextLink' : 'colorText'}
-        opacity={disabled ? 0.6 : 1}
+        color={
+          disabled
+            ? 'colorTextWeaker'
+            : highlighted
+            ? 'colorTextLinkStronger'
+            : selected
+            ? 'colorTextLink'
+            : 'colorText'
+        }
         display="flex"
         justifyContent="space-between"
         alignItems="center"

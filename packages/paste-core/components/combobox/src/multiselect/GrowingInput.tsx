@@ -8,11 +8,12 @@ interface GrowingInputProps {
   element?: BoxProps['element'];
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   id: string;
+  value?: HTMLInputElement['value'];
 }
 
 export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps>(
-  ({element = 'GROWING_INPUT', onChange, initialValue = '', ...props}, ref) => {
-    const [text, setText] = React.useState(initialValue);
+  ({element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props}, ref) => {
+    const [text, setText] = React.useState(value || initialValue);
 
     /* The trick is to make the input 100% width of the wrapper
      * and the wrapper is sized based on the content of the _after
