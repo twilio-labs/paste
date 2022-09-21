@@ -5,6 +5,7 @@ import {useReducedMotion} from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
+import {inCypress} from '../../utils/inCypress';
 
 const IllustrationStates = {
   UNINITIALIZED: 0, // This is SSR too
@@ -32,7 +33,9 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
  * - If prefers reduced motion, render static.
  */
 const HomeHeroIllustration: React.FC = () => {
-  const prefersReducedMotion = useReducedMotion();
+  // lottie doesn't honour our disableAnimations global, so we have to
+  // manually detect running in cypress to stop the animation on the homepage
+  const prefersReducedMotion = useReducedMotion() || inCypress();
   const containerRef = React.useRef(null);
   const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.UNINITIALIZED);
 
