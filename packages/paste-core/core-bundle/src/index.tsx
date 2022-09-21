@@ -46,6 +46,7 @@ export * from '@twilio-paste/screen-reader-only';
 export * from '@twilio-paste/select';
 export * from '@twilio-paste/separator';
 export * from '@twilio-paste/sibling-box';
+export * from '@twilio-paste/side-modal';
 export * from '@twilio-paste/skeleton-loader';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/stack';

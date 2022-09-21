@@ -57,6 +57,7 @@
 /select
 /separator
 /sibling-box
+/side-modal
 /skeleton-loader
 /spinner
 /stack

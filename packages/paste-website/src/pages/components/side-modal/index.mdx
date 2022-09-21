@@ -1,0 +1,364 @@
+---
+title: Side Modal
+package: '@twilio-paste/side-modal'
+description: A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.
+slug: /components/side-modal/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {
+  SideModal,
+  SideModalButton,
+  SideModalHeader,
+  SideModalHeading,
+  SideModalContainer,
+  SideModalBody,
+  useSideModalState,
+  SideModalFooter,
+  SideModalFooterActions,
+} from '@twilio-paste/side-modal';
+import Changelog from '@twilio-paste/side-modal/CHANGELOG.md';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  footerExample,
+  sideModalButtonExample,
+  hookExample,
+} from '../../../component-examples/SideModalExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/side-modal"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/side-modal/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Side Modal"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-modal"
+  storybookUrl="/?path=/story/components-side-modal--default"
+  description={props.data.mdx.frontmatter.description}
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview
+  scope={{
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+## Guidelines
+
+### About Side Modal
+
+The Side Modal component is a non-modal dialog that sits on top of the right side of the page. It is meant for situations like a preview of a record while looking at a table.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Only use one Side Modal on a page</CalloutHeading>
+  <CalloutText>
+    We currenly only support having one Side Modal open on a page. If you have questions, please post{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      a GitHub Discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+### Accessibility
+
+Side Modal and non-modal dialogs follow these accessibility guidelines:
+
+- There must be a focusable element inside the dialog.
+- There should be a close button so screen readers have a specific close action to target.
+- A Side Modal is a focus trap, and focus is placed inside it when it's shown.
+- A Side Modal must be triggered by an explicit user action, e.g. clicking a button.
+
+## Examples
+
+### Basic Side Modal
+
+<LivePreview
+  scope={{
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### Side Modal with a footer
+
+The SideModalFooter component has a `justifyContent` prop that lets you change how the actions are displayed within the footer. It can be set to `flex-start`, `flex-end`, or `space-between` and the default is `flex-end`.
+
+<LivePreview
+  scope={{
+    Button,
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalFooter,
+    SideModalFooterActions,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {footerExample}
+</LivePreview>
+
+### SideModalButton
+
+The SideModalButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
+
+<LivePreview
+  scope={{
+    Box,
+    Paragraph,
+    PlusIcon,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {sideModalButtonExample}
+</LivePreview>
+
+### Using state hooks
+
+Side Modal comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/popover/#usepopoverstate).
+
+Rather than the state be internal to the component, you can use the `useSideModalState` hook and pass the returned state
+to `SideModalContainer` as the `state` prop.
+
+This allows you to use certain returned props from the state hook, including functions like `hide` and `show`.
+
+It should be noted that when doing so, the state prop takes precedent over the other properties that affect
+the state or initial state of the Side Modal. They will be ignored in favour of them being provided as arguments
+to the `useSideModalState` hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Non-Modal Dialog Primitive documentation](/primitives/non-modal-dialog-primitive).
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+    useSideModalState,
+  }}
+  noInline
+>
+  {hookExample}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/side-modal - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {
+  SideModal,
+  SideModalBody,
+  SideModalButton,
+  SideModalContainer,
+  SideModalHeader,
+  SideModalHeading,
+} from '@twilio-paste/core/side-modal';
+
+const SideModalExample: React.FC = () => {
+  return (
+    <SideModalContainer>
+      <SideModalButton variant="primary">Open dialog</SideModalButton>
+      <SideModal aria-label="My Dialog">
+        <SideModalHeader>
+          <SideModalHeading>Dialog header</SideModalHeading>
+        </SideModalHeader>
+        <SideModalBody>Dialog content</SideModalBody>
+      </SideModal>
+    </SideModalContainer>
+  );
+};
+```
+
+#### Props
+
+##### useSideModalState
+
+Pass these as part of an object to the useSideModalState hook.
+
+| Prop        | Type      | Description                                                                                                                                                                                                                         | Default |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `baseId?`   | `string`  | Sets the ID that will serve as a base for all the items IDs.                                                                                                                                                                        |         |
+| `visible?`  | `boolean` | Whether the dialog is visible or not.                                                                                                                                                                                               |         |
+| `animated?` | `number`  | If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called after that number of milliseconds. |         |
+
+##### useSideModalState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+| Prop             | Type         | Description                                                                                                                                                                                                                         | Default |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `baseId?`        | `string`     | Sets the ID that will serve as a base for all the items IDs.                                                                                                                                                                        |         |
+| `visible?`       | `boolean`    | Whether the dialog is visible or not.                                                                                                                                                                                               |         |
+| `modal?`         | `boolean`    | Sets the modal state.                                                                                                                                                                                                               | `true`  |
+| `animating?`     | `boolean`    | Whether it's animating or not.                                                                                                                                                                                                      |         |
+| `stopAnimation?` | `() => void` | Stops animation. It's called automatically if there's a CSS transition                                                                                                                                                              |         |
+| `show?`          | `() => void` | Changes the `visible` state to `true`.                                                                                                                                                                                              |         |
+| `hide?`          | `() => void` | Changes the `visible` state to `false`.                                                                                                                                                                                             |         |
+| `animated?`      | `number`     | If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called after that number of milliseconds. |         |
+
+##### SideModalContainer
+
+| Prop        | Type              | Description                                                  | Default |
+| ----------- | ----------------- | ------------------------------------------------------------ | ------- |
+| `baseId?`   | `string`          | Sets the ID that will serve as a base for all the items IDs. |         |
+| `visible?`  | `boolean`         | Whether the dialog is visible or not.                        |         |
+| `children?` | `React.ReactNode` | Child components to render into the SideModalContainer       |         |
+
+##### SideModalButton
+
+The SideModalButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
+
+| Prop       | Type     | Description                                                                               | Default               |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_BUTTON'` |
+
+##### SideModal
+
+| Prop         | Type              | Description                                                                               | Default        |
+| ------------ | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| `aria-label` | `string`          | Title of the dialog for screen readers.                                                   |                |
+| `element?`   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL'` |
+| `children?`  | `React.ReactNode` | Child components to render into the SideModal                                             |                |
+
+##### SideModalHeader
+
+| Prop                | Type              | Description                                                                               | Default               |
+| ------------------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| `element?`          | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_HEADER'` |
+| `children?`         | `React.ReactNode` | Child components to render into the SideModalHeader                                       |                       |
+| `i18nDismissLabel?` | `string`          | The dismiss button text label                                                             | `'close'`             |
+
+##### SideModalHeading
+
+| Prop        | Type                                 | Description                                                                               | Default                |
+| ----------- | ------------------------------------ | ----------------------------------------------------------------------------------------- | ---------------------- |
+| `element?`  | `string`                             | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_HEADING'` |
+| `children?` | `React.ReactNode`                    | Child components to render into the SideModalHeading                                      |                        |
+| `as?`       | `'h1', 'h2', 'h3', 'h4', 'h5', 'h6'` | The element the SideModalHeading will render                                              | `'h2'`                 |
+
+##### SideModalBody
+
+| Prop        | Type              | Description                                                                               | Default             |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_BODY'` |
+| `children?` | `React.ReactNode` | Child components to render into the SideModalBody                                         |                     |
+
+##### SideModalFooter
+
+| Prop        | Type              | Description                                                                               | Default               |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_FOOTER'` |
+| `children?` | `React.ReactNode` | Child components to render into the SideModalFooter                                       |                       |
+
+##### SideModalFooterActions
+
+| Prop        | Type                                        | Description                                                                               | Default                       |
+| ----------- | ------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
+| `element?`  | `string`                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDE_MODAL_FOOTER_ACTIONS'` |
+| `justify?`  | `'flex-start', 'flex-end', 'space-between'` | Sets the `justify-content` CSS property.                                                  | `'flex-end'`                  |
+| `children?` | `React.ReactNode`                           | Child components to render into the SideModalFooterActions                                |                               |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
