@@ -300,6 +300,51 @@ MultiselectComboboxBeforeAfter.story = {
 };
 
 /*
+ * maxHeight
+ */
+export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
+
+  return (
+    <MultiselectCombobox
+      labelText="Choose a book"
+      selectedItemsLabelText="Selected books:"
+      helpText="Reading books can be good for your mental health."
+      items={filteredItems}
+      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
+      initialSelectedItems={filteredItems.slice(20, 80)}
+      maxHeight="100px"
+      insertBefore={
+        <Text as="span" fontWeight="fontWeightSemibold">
+          $10.99
+        </Text>
+      }
+      insertAfter={
+        <Anchor href="#" display="flex">
+          <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+        </Anchor>
+      }
+      optionTemplate={({title, author}: Book) => (
+        <Box as="span" display="flex" flexDirection="column">
+          <Box as="span">{title}</Box>
+          <Box as="span">{author}</Box>
+        </Box>
+      )}
+      onInputValueChange={({inputValue: newInputValue = ''}) => {
+        setInputValue(newInputValue);
+      }}
+      onSelectedItemsChange={(selectedItems: Book[]) => {
+        console.log(selectedItems);
+      }}
+    />
+  );
+};
+MultiselectComboboxMaxHeight.story = {
+  name: 'with maxHeight',
+};
+
+/*
  * optionTemplate
  */
 export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {

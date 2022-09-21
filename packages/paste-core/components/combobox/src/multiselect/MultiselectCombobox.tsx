@@ -43,6 +43,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       groupItemsBy,
       groupLabelTemplate,
       emptyState,
+      maxHeight = '100%',
       selectedItemsLabelText,
       i18nKeyboardControls = 'Press Delete or Backspace to remove. Press Enter to toggle selection.',
       ...props
@@ -253,6 +254,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             paddingY="space30"
             paddingLeft="space40"
             paddingRight="space100"
+            maxHeight={maxHeight}
+            overflowY="auto"
           >
             <FormPillGroup
               {...pillState}

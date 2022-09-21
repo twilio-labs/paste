@@ -1,5 +1,5 @@
 import type React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
@@ -89,6 +89,7 @@ export interface MultiselectComboboxProps
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;
   selectedItemsLabelText: string;
   i18nKeyboardControls?: string;
+  maxHeight?: BoxStyleProps['maxHeight'];
 }
 
 export interface ComboboxItemsProps
