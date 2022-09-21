@@ -20,6 +20,7 @@ export * from '@twilio-paste/date-picker';
 export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';
 export * from '@twilio-paste/display-pill-group';
+export * from '@twilio-paste/file-picker';
 export * from '@twilio-paste/flex';
 export * from '@twilio-paste/form-pill-group';
 export * from '@twilio-paste/grid';

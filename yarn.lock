@@ -10198,6 +10198,7 @@ __metadata:
     "@twilio-paste/disclosure-primitive": ^0.3.9
     "@twilio-paste/display-pill-group": ^5.0.0
     "@twilio-paste/dropdown-library": ^1.1.5
+    "@twilio-paste/file-picker": ^0.0.0
     "@twilio-paste/flex": ^5.0.0
     "@twilio-paste/form-pill-group": ^5.0.0
     "@twilio-paste/grid": ^5.0.0
@@ -10519,6 +10520,36 @@ __metadata:
   peerDependencies:
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/file-picker@^0.0.0, @twilio-paste/file-picker@workspace:packages/paste-core/components/file-picker":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/file-picker@workspace:packages/paste-core/components/file-picker"
+  dependencies:
+    "@twilio-paste/box": ^7.0.0
+    "@twilio-paste/button": ^11.1.1
+    "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/sibling-box": ^6.0.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/text": ^7.0.0
+    "@twilio-paste/theme": ^8.0.0
+    "@twilio-paste/uid-library": ^0.2.5
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/box": ^7.0.0
+    "@twilio-paste/button": ^11.1.1
+    "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/sibling-box": ^6.0.0
+    "@twilio-paste/style-props": ^6.0.0
+    "@twilio-paste/text": ^7.0.0
+    "@twilio-paste/theme": ^8.0.0
+    "@twilio-paste/uid-library": ^0.2.5
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
