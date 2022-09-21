@@ -173,7 +173,7 @@
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
     "csstype": "3.0.11",
-    "cypress": "9.3.1",
+    "cypress": "10.8.0",
     "danger": "^10.6.6",
     "del": "^5.1.0",
     "directory-named-webpack-plugin": "^4.0.1",
