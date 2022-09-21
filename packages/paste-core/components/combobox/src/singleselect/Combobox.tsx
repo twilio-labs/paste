@@ -156,13 +156,15 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               aria-describedby={helpTextId}
               element={`${element}_ELEMENT`}
             />
-            <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
-              <ChevronDownIcon
-                decorative
-                color={getInputChevronIconColor(variant, disabled, false)}
-                size="sizeIcon30"
-              />
-            </InputChevronWrapper>
+            {!autocomplete && (
+              <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
+                <ChevronDownIcon
+                  decorative
+                  color={getInputChevronIconColor(variant, disabled, false)}
+                  size="sizeIcon30"
+                />
+              </InputChevronWrapper>
+            )}
           </ComboboxInputWrapper>
         </InputBox>
         <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>

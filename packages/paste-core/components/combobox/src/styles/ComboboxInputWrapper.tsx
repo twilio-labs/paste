@@ -9,14 +9,7 @@ export interface ComboboxInputWrapperProps {
 const ComboboxInputWrapper = React.forwardRef<HTMLDivElement, ComboboxInputWrapperProps>(
   ({children, ...props}, ref) => {
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        ref={ref}
-        display="flex"
-        position="relative"
-        width="100%"
-        paddingRight="space100"
-      >
+      <Box {...safelySpreadBoxProps(props)} ref={ref} display="flex" position="relative" width="100%">
         {children}
       </Box>
     );
