@@ -1,0 +1,259 @@
+---
+title: File Picker
+package: '@twilio-paste/file-picker'
+description: A File Picker is a form element used to upload files.
+slug: /components/file-picker/
+---
+
+import {graphql} from 'gatsby';
+import {Label} from '@twilio-paste/label';
+import {FilePicker, FilePickerButton} from '@twilio-paste/file-picker';
+import {Anchor} from '@twilio-paste/anchor';
+import {HelpText} from '@twilio-paste/help-text';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {useUID} from '@twilio-paste/uid-library';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultFilePicker,
+  disabledFilePicker,
+  requiredFilePicker,
+  i18nFilePicker,
+} from '../../../component-examples/FilePickerExamples.ts';
+import Changelog from '@twilio-paste/file-picker/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/file-picker"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/file-picker/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "File Picker"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker"
+  storybookUrl="/?path=/story/components-file-picker--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
+</LivePreview>
+
+## Guidelines
+
+### About File Picker
+
+Use a File Picker when users need to upload a document in a form flow. The File Picker allows any type of file by default, but the desired file type can be specified using the <inlineCode>accept</inlineCode> prop. This is a native HTML file picker, `<input type="file" />`, so there's currently no drag-and-drop or multiple attachments functionality. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" showExternal>Read more about the native file picker on MDN.</Anchor> The input is hidden visually, but still appears in the DOM, so that we're able to apply custom styles in an accessible way.
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>
+    Include a visible <Anchor href="/components/label">Label</Anchor> on <strong>all</strong> form fields.
+  </ListItem>
+  <ListItem>
+    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
+    associated input.
+  </ListItem>
+  <ListItem>
+    Provide clear identification of required fields in the label or at the start of a form. If you use the required
+    field indicator, include the form key at the start of the form.
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Include inline error text with the error icon on any field that errors to make it visually clear that the field
+    changed. You can also use{' '}
+    <Anchor href="/components/help-text#error-help-text">the "error" variant of Help Text</Anchor>.
+  </ListItem>
+  <ListItem>
+    If the File Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop on the File Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
+  </ListItem>
+</UnorderedList>
+
+## Examples
+
+The File Picker component should include the base File Picker, along with supporting elements to compose an input field that gives users the context they need to successfully complete it.
+
+- **Label** — A label should be included for every form field and provide a short title for its associated input.
+- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful. If you're using the <inlineCode>accept</inlineCode> prop, specify the file type using <Anchor href="/components/help-text">Help Text</Anchor>.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
+  <CalloutText>
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>File Picker</inlineCode>. This is done
+    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the File
+    Picker. Those two need to match.
+  </CalloutText>
+  <CalloutText>
+    If the File Picker has any associated help text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
+    ties directly to the File Picker.
+  </CalloutText>
+</Callout>
+
+### Default File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
+</LivePreview>
+
+### Disabled File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {disabledFilePicker}
+</LivePreview>
+
+### Required File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {requiredFilePicker}
+</LivePreview>
+
+### Internationalization
+
+To internationalize a File Picker, simply pass the `i18nNoSelectionText` prop with the translated string. Because the <inlineCode>FilePickerButton</inlineCode> is compositional, you already pass the button text as children.
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, useUID}} language="jsx" noInline>
+  {i18nFilePicker}
+</LivePreview>
+
+## Composition notes
+
+### Labels and help text
+
+Labels should clearly describe the object being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use help text to provide instruction if needed. For example, don't use "Upload an image in the form of a jpeg or png" as label text. Instead, use "Profile photo" as a label and "Upload an image file" as help text.
+- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+Give users enough information in help text to prevent upload and file type errors. Keep it concise and scoped to information that will help with validation.
+
+### Validation
+
+Validate form fields on form submission.
+
+Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
+
+Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+
+### Errors
+
+Use inline error text to explain how to fix an error.
+
+Ideally, help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+
+Error text should:
+
+- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
+- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
+- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
+- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+
+## Usage guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/file-picker - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {FilePicker, FilePickerButton} from '@twilio-paste/core/file-picker';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const MyFilePicker = () => (
+  <>
+    <Label htmlFor="foo" required>
+      Profile photo
+    </Label>
+    <FilePicker id="foo" required aria-describedby="foo_text">
+      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+    </FilePicker>
+    <HelpText id="foo_text">Upload an image</HelpText>
+  </>
+);
+```
+
+#### FilePickerButton Props
+
+All the valid attributes for `Button` are supported including the following props:
+
+| Prop     | Type                                     | Description                                                                                | Default             |
+| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------- |
+| variant? | <inlineCode>ButtonVariants</inlineCode>  | Button variant used for the FilePickerButton. Recommended variant is 'secondary'.          | 'primary'           |
+| element? | <inlineCode>string</inlineCode>          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILEPICKER_BUTTON' |
+| children | <inlineCode>React.ReactNode</inlineCode> | The text displayed on the FilePickerButton. Recommended for English is "Choose a file".    | null                |
+
+#### FilePicker Props
+
+| Prop                 | Type                                        | Description                                                                                                                                                                                                                                                               | Default            |
+| -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| accept?              | <inlineCode>string</inlineCode>             | Specify the desired file type. Note: file type should still be validated server-side, as this prop is not a complete validation. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" showExternal>Read more about the accept prop</Anchor> | null               |
+| children             | <inlineCode>React.ReactElement</inlineCode> | `<FilePickerButton />`                                                                                                                                                                                                                                                    | null               |
+| disabled?            | <inlineCode>boolean</inlineCode>            | Disables the File Picker.                                                                                                                                                                                                                                                 | false              |
+| required?            | <inlineCode>boolean</inlineCode>            | Sets the File Picker as required.                                                                                                                                                                                                                                         | false              |
+| i18nNoSelectionText? | <inlineCode>string</inlineCode>             | The text string displayed when no files are selected.                                                                                                                                                                                                                     | 'No file uploaded' |
+| element?             | <inlineCode>string</inlineCode>             | Overrides the default element name to apply unique styles with the Customization Provider.                                                                                                                                                                                | 'FILEPICKER'       |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
