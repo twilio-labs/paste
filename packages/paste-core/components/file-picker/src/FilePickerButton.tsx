@@ -6,7 +6,7 @@ import {Button} from '@twilio-paste/button';
 const FilePickerButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({children, element, disabled, ...props}, ref) => {
     return (
-      <Button element={element} ref={ref} size="small" disabled={disabled} {...props} as="span" type="button">
+      <Button {...props} element={element} ref={ref} size="small" disabled={disabled} as="span" type="button">
         {children}
       </Button>
     );

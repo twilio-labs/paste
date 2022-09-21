@@ -22,7 +22,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
       id = useUID(),
       children,
       disabled = false,
-      i18nNoSelectionText = 'No files selected',
+      i18nNoSelectionText = 'No file uploaded',
       required = false,
       ...props
     },
@@ -68,27 +68,27 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             as="span"
             type="file"
             padding="space20"
-            paddingRight="space30"
+            paddingLeft="space30"
             borderRadius="borderRadius10"
             boxShadow="shadowBorderWeak"
             _focusSibling={{
               boxShadow: 'shadowFocus',
               borderRadius: 'borderRadius10',
               padding: 'space20',
-              paddingRight: 'space30',
+              paddingLeft: 'space30',
             }}
           >
-            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
             <Text
               id={textId}
               as="span"
               color={disabled ? 'colorTextWeaker' : 'currentColor'}
-              marginLeft="space30"
+              marginRight="space40"
               fontWeight="fontWeightMedium"
               element={`${element}_TEXT`}
             >
               {fileDescription}
             </Text>
+            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
           </SiblingBox>
         </label>
       </>

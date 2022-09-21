@@ -5,6 +5,7 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Box} from '@twilio-paste/box';
 import {FilePicker, FilePickerButton} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -20,9 +21,9 @@ export const Default: Story = ({...props}) => {
     <>
       <Label htmlFor={id}>Proof of employment</Label>
       <FilePicker id={id} accept=".pdf" aria-describedby={helpText} {...props}>
-        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
       </FilePicker>
-      <HelpText id={helpText}>Upload a pdf</HelpText>
+      <HelpText id={helpText}>Only PDF files please</HelpText>
     </>
   );
 };
@@ -32,10 +33,10 @@ export const Required: Story = ({...props}) => {
   return (
     <>
       <Label htmlFor={id} required>
-        Upload a profile picture
+        Choose a profile picture
       </Label>
       <FilePicker id={id} required accept="image/*" {...props}>
-        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -49,7 +50,7 @@ export const Disabled: Story = () => {
         Attach your receipt
       </Label>
       <FilePicker id={id} disabled data-testid="test-file-picker">
-        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -64,6 +65,18 @@ export const I18n: Story = () => {
         <FilePickerButton variant="secondary">Seleccione un archivo</FilePickerButton>
       </FilePicker>
     </>
+  );
+};
+
+export const containedWidth: Story = () => {
+  const id = useUID();
+  return (
+    <Box width="size40">
+      <Label htmlFor={id}>Profile picture</Label>
+      <FilePicker id={id}>
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+      </FilePicker>
+    </Box>
   );
 };
 
@@ -82,7 +95,7 @@ export const Customized: Story = ({element = 'FILEPICKER', ...props}) => {
     >
       <Label htmlFor={id}>What&apos;s your favorite song?</Label>
       <FilePicker id={id} accept="audio/*" aria-describedby={helpText} element={element} {...props}>
-        <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
       </FilePicker>
       <HelpText id={helpText}>Upload an audio file</HelpText>
     </CustomizationProvider>

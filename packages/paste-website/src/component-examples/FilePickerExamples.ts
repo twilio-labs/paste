@@ -6,9 +6,9 @@ const FilePickerExample = () => {
     <>
     <Label htmlFor={id}>Profile picture</Label>
     <FilePicker id={id} accept="image/*" aria-describedby={helpText}>
-      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+      <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
     </FilePicker>
-    <HelpText id={helpText}>Upload an image</HelpText>
+    <HelpText id={helpText}>Please upload an image</HelpText>
   </>
   );
 }
@@ -25,7 +25,7 @@ const FilePickerExample = () => {
     <>
     <Label disabled htmlFor={id}>Receipt to expense</Label>
     <FilePicker id={id} accept=".pdf" disabled>
-      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+      <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
     </FilePicker>
   </>
   );
@@ -44,7 +44,7 @@ const FilePickerExample = () => {
     <>
     <Label htmlFor={id} required>Proof of employment</Label>
     <FilePicker id={id} aria-describedby={helpText} required>
-      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+      <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
     </FilePicker>
     <HelpText id={helpText}>Acceptable formats include W2, I9, or latest pay stub.</HelpText>
   </>
