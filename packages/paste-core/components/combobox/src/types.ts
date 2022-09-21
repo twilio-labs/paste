@@ -1,13 +1,20 @@
-import {BoxProps} from '@twilio-paste/box';
+import type React from 'react';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveReturnValue,
 } from '@twilio-paste/combobox-primitive';
 import type {InputVariants, InputProps} from '@twilio-paste/input';
-import type {VirtualItem} from 'react-virtual/types';
+import type {VirtualItem} from 'react-virtual';
 
-export type Item = string | {[key: string]: any};
+export type {
+  UseComboboxPrimitiveGetItemPropsOptions,
+  UseComboboxPrimitiveGetMenuPropsOptions,
+  GetComboboxPrimitivePropsCommonOptions,
+} from '@twilio-paste/combobox-primitive';
+
+export type Item = string | Record<string, unknown>;
 
 export interface OptionTemplateFn<ProvidedItem> {
   (item: ProvidedItem): React.ReactNode;
@@ -42,6 +49,8 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   groupLabelTemplate?: (groupName: string) => React.ReactNode;
   groupItemsBy?: string;
   variant?: InputVariants;
+  disabledItems?: any[];
+  emptyState?: React.FC;
 
   // Downshift useCombobox Hook Props. Thes are mainly covered in https://github.com/downshift-js/downshift/blob/master/src/hooks/useCombobox/README.md#advanced-props docs
   initialIsOpen?: UseComboboxPrimitiveProps<any>['initialIsOpen'];
@@ -73,9 +82,21 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   onInput?: never;
 }
 
+export interface MultiselectComboboxProps
+  extends Omit<ComboboxProps, 'autocomplete' | 'initialSelectedItem' | 'selectedItem' | 'onSelectedItemChange'> {
+  filterItems?: (items: any[], inputValue: string) => any[];
+  initialSelectedItems?: any[];
+  onSelectedItemsChange?: (newSelectedItems: any[]) => void;
+  selectedItemsLabelText: string;
+  i18nKeyboardControls?: string;
+  maxHeight?: BoxStyleProps['maxHeight'];
+}
+
 export interface ComboboxItemsProps
-  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element'> {
+  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element' | 'emptyState'> {
   items: Item[];
+  selectedItems?: Item[];
+  disabledItems?: Item[];
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   totalSize: RowVirtualizer['totalSize'];

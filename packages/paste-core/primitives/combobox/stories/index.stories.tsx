@@ -161,7 +161,11 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-export const BasicMultiCombobox: React.FC = () => {
+ComboboxNonHooks.story = {
+  name: 'Combobox - non-hooks',
+};
+
+export const MultiSelectionCombobox = (): React.ReactNode => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
 
@@ -235,6 +239,7 @@ export const BasicMultiCombobox: React.FC = () => {
           <ComboboxListboxGroup>
             {filteredItems.map((filteredItem, index) => (
               <ComboboxListboxOption
+                key={filteredItem}
                 highlighted={highlightedIndex === index}
                 variant="default"
                 {...getItemProps({item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`)})}
@@ -246,9 +251,10 @@ export const BasicMultiCombobox: React.FC = () => {
         </ComboboxListbox>
       </Box>
       <FormPillGroup {...formPillState} aria-label="Selected components">
-        {selectedItems.map((item, index) => {
+        {selectedItems.map((item: unknown, index: number) => {
           return (
             <FormPill
+              key={item}
               {...getSelectedItemProps({
                 selectedItem,
                 index,
@@ -267,6 +273,6 @@ export const BasicMultiCombobox: React.FC = () => {
   );
 };
 
-ComboboxNonHooks.story = {
-  name: 'Combobox - non-hooks',
+MultiSelectionCombobox.story = {
+  name: 'Combobox - multiple selection',
 };

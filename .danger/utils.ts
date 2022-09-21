@@ -83,6 +83,15 @@ export const getUnpublishedPackageNames = (touchedFiles: string[], publicPackage
 export const getChangesetsFromFiles = (fileList: string[]) =>
   fileList.filter((filePath) => filePath.includes('changeset') && filePath.includes('.md'));
 
+export const IGNORE_LIST = [
+  'paste-website',
+  'paste-cra-template',
+  'paste-nextjs-template',
+  'paste-theme-designer',
+  'paste-color-contrast-utils',
+  'paste-token-contrast-checker',
+];
+
 /**
  * Return a list of package json files from a changelist
  *
@@ -90,5 +99,9 @@ export const getChangesetsFromFiles = (fileList: string[]) =>
  */
 export const getPackJsonsFromFiles = (fileList: string[]) =>
   fileList.filter((filePath) => {
-    return filePath.includes('package.json');
+    return (
+      filePath !== 'package.json' && // Ignore root package.json
+      filePath.includes('package.json') && // Only include package.json files
+      !IGNORE_LIST.some((ignorePath) => filePath.includes(ignorePath)) // Unless they are in the ignore list
+    );
   });

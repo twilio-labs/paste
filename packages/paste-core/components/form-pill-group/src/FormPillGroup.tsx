@@ -12,10 +12,11 @@ export interface FormPillGroupProps
   element?: BoxElementProps['element'];
   children: React.ReactNode;
   i18nKeyboardControls?: string;
+  display?: 'flex' | 'inline-flex';
 }
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({element = 'FORM_PILL_GROUP', ...props}, ref) => (
+  ({element = 'FORM_PILL_GROUP', display = 'flex', ...props}, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       element={element}
@@ -23,7 +24,7 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
       role="listbox"
       margin="space0"
       padding="space0"
-      display="flex"
+      display={display}
       flexWrap="wrap"
       rowGap="space20"
       columnGap="space20"
@@ -50,7 +51,7 @@ export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupPro
     const keyboardControlsId = useUID();
     return (
       <>
-        <Composite as={FormPillGroupStyles} {...props} ref={ref} aria-describedby={keyboardControlsId}>
+        <Composite as={FormPillGroupStyles} ref={ref} aria-describedby={keyboardControlsId} {...props}>
           {props.children}
         </Composite>
         <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>

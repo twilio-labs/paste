@@ -58,7 +58,9 @@ export default () => {
 
     if (unpinnedExternalDeps.length > 0) {
       fail(
-        'There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number.'
+        `There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number. See: ${JSON.stringify(
+          unpinnedExternalDeps
+        )}`
       );
     }
   }

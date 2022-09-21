@@ -38,7 +38,7 @@ describe('packageJsonCheck()', () => {
       packageJsonCheck();
       expect(global.warn).not.toHaveBeenCalled();
     });
-    it('should warn when the root package.json is modified', () => {
+    it('should not warn when the root package.json is modified', () => {
       global.danger = {
         git: {
           modified_files: [
@@ -50,7 +50,7 @@ describe('packageJsonCheck()', () => {
         },
       };
       packageJsonCheck();
-      expect(global.warn).toHaveBeenCalled();
+      expect(global.warn).not.toHaveBeenCalled();
     });
     it('should warn when a package package.json is modified', () => {
       global.danger = {

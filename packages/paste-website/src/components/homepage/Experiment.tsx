@@ -7,6 +7,7 @@ import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {useWindowSize} from '@twilio-paste/utils';
 import {DoodleArrow} from '../../assets/illustrations/DoodleArrow';
 import {DoodleZigzag} from '../../assets/illustrations/DoodleZigzag';
 import {DoodleCloud} from '../../assets/illustrations/DoodleCloud';
@@ -14,7 +15,6 @@ import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
-import {useWindowSize} from '../../hooks/useWindowSize';
 
 interface ExperimentProps {
   showIframe: boolean;

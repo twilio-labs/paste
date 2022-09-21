@@ -3,9 +3,10 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
-export interface ScreenReaderOnlyProps extends Pick<BoxProps, 'as'> {
+export interface ScreenReaderOnlyProps {
   children: NonNullable<React.ReactNode>;
   id?: string;
+  as?: BoxProps['as'];
 }
 
 const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(

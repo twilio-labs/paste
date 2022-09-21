@@ -92,7 +92,7 @@ const groupedItems = [
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox',
+  title: 'Components/Combobox/Combobox',
   component: Combobox,
 };
 
@@ -248,13 +248,13 @@ export const ComboboxAutocomplete = (): React.ReactNode => {
     <Combobox
       autocomplete
       items={inputItems}
-      helpText="This is the help text"
-      labelText="Choose a component:"
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }
       }}
+      helpText="This is the help text"
+      labelText="Choose a component:"
     />
   );
 };
@@ -329,6 +329,22 @@ export const ComboboxDisabled = (): React.ReactNode => {
 
 ComboboxDisabled.story = {
   name: 'Combobox - Disabled',
+};
+
+export const ComboboxDisabledItems = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={items}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialSelectedItem={items[2]}
+      disabledItems={[items[1]]}
+    />
+  );
+};
+
+ComboboxDisabledItems.story = {
+  name: 'Combobox - Disabled Items',
 };
 
 export const ComboboxDisabledInverse = (): React.ReactNode => {
@@ -692,7 +708,7 @@ ComboboxOptionGroupsOpen.story = {
   name: 'Combobox - Option groups open',
 };
 
-export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
+export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
   return (
     <Combobox
@@ -714,8 +730,8 @@ export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
   );
 };
 
-ComboboxOptionGroupsTypeahead.story = {
-  name: 'Combobox - Option groups typeahead',
+ComboboxOptionGroupsAutocomplete.story = {
+  name: 'Combobox - Option groups autocomplete',
 };
 
 export const ComboboxListboxZIndex = (): React.ReactNode => {
@@ -763,4 +779,38 @@ export const ComboboxListboxZIndex = (): React.ReactNode => {
 
 ComboboxListboxZIndex.story = {
   name: 'Combobox - Listbox zIndex',
+};
+
+const SampleEmptyState: React.FC = () => (
+  <>
+    <Box size="size10" backgroundColor="colorBackgroundAvailable" borderRadius="borderRadius20" />
+    <Text as="span" fontStyle="italic">
+      No results found
+    </Text>
+  </>
+);
+
+export const ComboboxEmptyState = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState<string[]>([]);
+
+  return (
+    <Combobox
+      autocomplete
+      items={inputItems}
+      inputValue="test123"
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
+      emptyState={SampleEmptyState}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialIsOpen
+    />
+  );
+};
+
+ComboboxEmptyState.story = {
+  name: 'Combobox - EmptyState',
 };

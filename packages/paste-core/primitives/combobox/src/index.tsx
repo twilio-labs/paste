@@ -13,9 +13,12 @@ export type {
   UseComboboxState as UseComboboxPrimitiveState,
   UseComboboxReturnValue as UseComboboxPrimitiveReturnValue,
   UseComboboxStateChange as UseComboboxPrimitiveStateChange,
+  UseComboboxGetItemPropsOptions as UseComboboxPrimitiveGetItemPropsOptions,
+  UseComboboxGetMenuPropsOptions as UseComboboxPrimitiveGetMenuPropsOptions,
+  GetPropsCommonOptions as GetComboboxPrimitivePropsCommonOptions,
   UseMultipleSelectionInterface as UseMultiSelectPrimitiveInterface,
   UseMultipleSelectionProps as UseMultiSelectPrimitiveProps,
-  UseMultipleSelectionState as UseMultiSelectState,
+  UseMultipleSelectionState as UseMultiSelectPrimitiveState,
   UseMultipleSelectionReturnValue as UseMultiSelectPrimitiveReturnValue,
   UseMultipleSelectionStateChange as UseMultiSelectPrimitiveStateChange,
 } from '@twilio-paste/dropdown-library';
