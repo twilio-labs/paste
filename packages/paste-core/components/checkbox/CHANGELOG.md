@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+- [`02725a235`](https://github.com/twilio-labs/paste/commit/02725a235378cd9bb3eaa6513731d98877cc5b35) [#2667](https://github.com/twilio-labs/paste/pull/2667) Thanks [@shleewhite](https://github.com/shleewhite)! - [Checkbox, RadioGroup] When no id is passed, use a unique id. This fixes an issue where id is not marked as a required prop, but the control won't work unless it is passed.
+
 ## 10.0.0
 
 ### Patch Changes

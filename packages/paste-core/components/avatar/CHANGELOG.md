@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`0ead4dfa0`](https://github.com/twilio-labs/paste/commit/0ead4dfa0492a8caa50b147a81583ea8e306a665) [#2681](https://github.com/twilio-labs/paste/pull/2681) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add new variant and color props
+
 ## 6.0.0
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @twilio-paste/utils
 
+## 1.2.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Utils] Add a `useWindowSize` hook which can be used to react to window resize events. This hook also returns the current responsive breakpoint index used by the design system.
+
 ## 1.1.5
 
 ### Patch Changes

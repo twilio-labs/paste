@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/avatar",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "category": "graphic",
   "status": "production",
   "description": "An Avatar is a graphical representation of a user or object.",
@@ -42,10 +42,10 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^7.0.0",
+    "@twilio-paste/box": "^7.1.0",
     "@twilio-paste/design-tokens": "^8.0.0",
-    "@twilio-paste/icons": "^9.0.0",
-    "@twilio-paste/style-props": "^6.0.0",
+    "@twilio-paste/icons": "^9.2.0",
+    "@twilio-paste/style-props": "^6.1.0",
     "@twilio-paste/styling-library": "^1.0.2",
     "@twilio-paste/text": "^7.0.0",
     "@twilio-paste/theme": "^8.0.0",

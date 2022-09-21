@@ -1,5 +1,29 @@
 # @twilio-paste/website
 
+## 2.23.22
+
+### Patch Changes
+
+- Updated dependencies [[`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`99bb7a146`](https://github.com/twilio-labs/paste/commit/99bb7a146bdd75c1b90f90769e74f162128b698e), [`0ead4dfa0`](https://github.com/twilio-labs/paste/commit/0ead4dfa0492a8caa50b147a81583ea8e306a665), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`02725a235`](https://github.com/twilio-labs/paste/commit/02725a235378cd9bb3eaa6513731d98877cc5b35)]:
+  - @twilio-paste/form-pill-group@5.1.0
+  - @twilio-paste/sibling-box@6.0.1
+  - @twilio-paste/input-box@7.1.1
+  - @twilio-paste/combobox-primitive@0.3.5
+  - @twilio-paste/modal@12.0.1
+  - @twilio-paste/animation-library@0.3.8
+  - @twilio-paste/avatar@6.1.0
+  - @twilio-paste/input@6.1.0
+  - @twilio-paste/utils@1.2.0
+  - @twilio-paste/screen-reader-only@10.0.1
+  - @twilio-paste/combobox@12.2.0
+  - @twilio-paste/box@7.1.0
+  - @twilio-paste/style-props@6.1.0
+  - @twilio-paste/icons@9.2.0
+  - @twilio-paste/dropdown-library@1.1.6
+  - @twilio-paste/side-modal@1.0.0
+  - @twilio-paste/checkbox@10.0.1
+  - @twilio-paste/radio-group@10.0.1
+
 ## 2.23.21
 
 ### Patch Changes

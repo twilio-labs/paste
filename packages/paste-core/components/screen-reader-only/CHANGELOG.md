@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Screen Reader Only] Minor typescript fix for 'as' prop.
+
 ## 10.0.0
 
 ### Patch Changes
