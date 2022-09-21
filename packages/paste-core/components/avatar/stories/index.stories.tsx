@@ -4,6 +4,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
 import {useTheme} from '@twilio-paste/theme';
 import {Avatar} from '../src';
 
@@ -66,6 +67,10 @@ export const Image = (): React.ReactNode => {
   );
 };
 
+Image.story = {
+  parameters: {chromatic: {delay: 3000}},
+};
+
 export const Icon = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
@@ -84,8 +89,29 @@ export const Icon = (): React.ReactNode => {
   );
 };
 
-Image.story = {
-  parameters: {chromatic: {delay: 3000}},
+export const ColorVariants = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar color="default" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative10" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative20" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative30" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative40" name="avatar example" icon={UserIcon} />
+    </Stack>
+  );
+};
+
+export const Variants = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar variant="user" name="avatar example" />
+      <Avatar variant="user" name="avatar example" icon={UserIcon} />
+      <Avatar variant="user" name="avatar example" src="./avatars/avatar-sizeIcon70.png" />
+      <Avatar variant="entity" name="entity example" />
+      <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
+      <Avatar variant="entity" name="entity example" src="./avatars/avatar-sizeIcon70.png" />
+    </Stack>
+  );
 };
 
 export const ResponsiveInitials = (): React.ReactNode => {
