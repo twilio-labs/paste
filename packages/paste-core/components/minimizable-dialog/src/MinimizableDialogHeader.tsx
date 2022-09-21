@@ -10,7 +10,7 @@ import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 
-export interface MinimizableDialogHeaderProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface MinimizableDialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   i18nDismissLabel?: string;
   i18nMinimizeLabel?: string;
@@ -87,6 +87,9 @@ MinimizableDialogHeader.displayName = 'MinimizableDialogHeader';
 
 MinimizableDialogHeader.propTypes = {
   children: PropTypes.node,
+  i18nDismissLabel: PropTypes.string,
+  i18nMinimizeLabel: PropTypes.string,
+  element: PropTypes.string,
 };
 
 export {MinimizableDialogHeader};

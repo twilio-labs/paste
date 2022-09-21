@@ -5,7 +5,7 @@ import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 import type {ButtonProps} from '@twilio-paste/button';
 
-type MinimizableDialogButtonProps = Omit<ButtonProps, 'as'> & {
+export type MinimizableDialogButtonProps = Omit<ButtonProps, 'as'> & {
   id?: string;
   toggle?: () => void;
 };

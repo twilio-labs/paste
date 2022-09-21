@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
 type Justify = 'start' | 'end';
@@ -10,10 +10,11 @@ export interface ModalFooterActionsProps {
   justify?: Justify;
 }
 const ModalFooterActions = React.forwardRef<HTMLDivElement, ModalFooterActionsProps>(
-  ({children, element = 'MODAL_FOOTER_ACTIONS', justify}, ref) => {
+  ({children, element = 'MODAL_FOOTER_ACTIONS', justify, ...props}, ref) => {
     const count = React.Children.count(children);
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         display="flex"
         justifyContent={justify === 'start' ? 'flex-start' : 'flex-end'}
         flexShrink={justify === 'start' ? null : 0}

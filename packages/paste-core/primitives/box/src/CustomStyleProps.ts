@@ -62,6 +62,7 @@ export const customStyleProps = {
   borderSpacing: true,
   tableLayout: true,
   fontVariantNumeric: true,
+  inset: true,
   columnGap: {
     property: 'columnGap',
     scale: 'space',

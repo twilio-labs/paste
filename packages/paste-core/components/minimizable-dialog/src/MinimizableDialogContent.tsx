@@ -5,7 +5,7 @@ import type {BoxProps} from '@twilio-paste/box';
 
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 
-interface MinimizableDialogContentProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface MinimizableDialogContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
 }
