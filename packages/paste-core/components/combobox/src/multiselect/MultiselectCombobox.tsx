@@ -276,10 +276,15 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                     variant={hasError ? 'error' : 'default'}
                     element={`${element}_PILL`}
                     key={key}
-                    onDismiss={(event) => {
-                      removeSelectedItem(selectedItemPill);
-                      event.stopPropagation();
-                    }}
+                    disabled={disabled}
+                    onDismiss={
+                      disabled
+                        ? undefined
+                        : (event) => {
+                            removeSelectedItem(selectedItemPill);
+                            event.stopPropagation();
+                          }
+                    }
                     // Prevents focus from being snatched from the pill to the input
                     onSelect={(event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation()}
                     {...pillState}

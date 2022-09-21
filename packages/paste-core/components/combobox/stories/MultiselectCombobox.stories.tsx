@@ -102,6 +102,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
     <MultiselectCombobox
       disabled
       labelText="Choose a Paste Component"
+      initialSelectedItems={filteredItems.slice(0, 2)}
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}

@@ -708,7 +708,7 @@ ComboboxOptionGroupsOpen.story = {
   name: 'Combobox - Option groups open',
 };
 
-export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
+export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
   return (
     <Combobox
@@ -730,8 +730,8 @@ export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
   );
 };
 
-ComboboxOptionGroupsTypeahead.story = {
-  name: 'Combobox - Option groups typeahead',
+ComboboxOptionGroupsAutocomplete.story = {
+  name: 'Combobox - Option groups autocomplete',
 };
 
 export const ComboboxListboxZIndex = (): React.ReactNode => {
