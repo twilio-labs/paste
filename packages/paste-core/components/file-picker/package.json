@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "interaction",
   "status": "production",
-  "description": "A file picker is a form element used to upload files.",
+  "description": "A File Picker is a form element used to upload files.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

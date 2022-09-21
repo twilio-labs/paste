@@ -1,7 +1,7 @@
 ---
 title: File Picker
 package: '@twilio-paste/file-picker'
-description: An input allows users to enter text on a single line.
+description: A File Picker is a form element used to upload files..
 slug: /components/file-picker/
 ---
 
@@ -93,7 +93,7 @@ Use a File Picker when users need to upload a document in a form flow. The File 
 
 <UnorderedList>
   <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
+    Include a visible <Anchor href="/components/label">Label</Anchor> on <strong>all</strong> form fields.
   </ListItem>
   <ListItem>
     Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
@@ -110,7 +110,8 @@ Use a File Picker when users need to upload a document in a form flow. The File 
   </ListItem>
   <ListItem>
     Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
+    changed. You can also use{' '}
+    <Anchor href="/components/help-text#error-help-text">the "error" variant of Help Text</Anchor>.
   </ListItem>
   <ListItem>
     If the File Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
@@ -124,7 +125,7 @@ The File Picker component should include the base File Picker, along with suppor
 
 - **Label** — A label should be included for every form field and provide a short title for its associated input.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful. If you're using the <inlineCode>accept</inlineCode> prop, specify the file type using Help Text.
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful. If you're using the <inlineCode>accept</inlineCode> prop, specify the file type using <Anchor href="/components/help-text">Help Text</Anchor>.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
