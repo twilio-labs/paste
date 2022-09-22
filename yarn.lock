@@ -12105,8 +12105,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": ^17.0.31
-    "@types/react-dom": ^17.0.10
+    "@types/react": ^18.0.0
+    "@types/react-dom": ^18.0.0
     react: ^18.0.0
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13022,6 +13022,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:^15.7.5":
+  version: 15.7.5
+  resolution: "@types/prop-types@npm:15.7.5"
+  checksum: 5b43b8b15415e1f298243165f1d44390403bb2bd42e662bca3b5b5633fdd39c938e91b7fce3a9483699db0f7a715d08cef220c121f723a634972fdf596aec980
+  languageName: node
+  linkType: hard
+
 "@types/q@npm:^1.5.1":
   version: 1.5.2
   resolution: "@types/q@npm:1.5.2"
@@ -13070,15 +13077,6 @@ __metadata:
     "@types/react": "*"
     "@types/reactcss": "*"
   checksum: 8cd881d6eb725190be942c1d71f7917d3dd1b418417740f64fa6c03ae3ba16cb91d07c4b3b348cf5bae20071c8ca5d4aaf514c9a5318077d5e50bd782a5e8da2
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^17.0.10":
-  version: 17.0.14
-  resolution: "@types/react-dom@npm:17.0.14"
-  dependencies:
-    "@types/react": "*"
-  checksum: b54cd0ef573236b3d87fe7493e6d1c36d8b4ca37a3b46364272a5c91ac178e3296b68ea1aeb299ce68f12ad663c5720ee890d0539b14881c6754bdcbdb0befa0
   languageName: node
   linkType: hard
 
@@ -13136,7 +13134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.31":
+"@types/react@npm:*":
   version: 17.0.35
   resolution: "@types/react@npm:17.0.35"
   dependencies:
@@ -35379,6 +35377,7 @@ fsevents@^1.2.7:
     "@types/color": ^3.0.0
     "@types/jest": ^24.0.18
     "@types/node": ^17.0.33
+    "@types/prop-types": ^15.7.5
     "@types/react": ^18.0.0
     "@types/react-16": "npm:@types/react@^16.0.0"
     "@types/react-color": ^3.0.6
