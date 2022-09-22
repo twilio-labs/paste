@@ -13491,6 +13491,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:^15.7.5":
+  version: 15.7.5
+  resolution: "@types/prop-types@npm:15.7.5"
+  checksum: 5b43b8b15415e1f298243165f1d44390403bb2bd42e662bca3b5b5633fdd39c938e91b7fce3a9483699db0f7a715d08cef220c121f723a634972fdf596aec980
+  languageName: node
+  linkType: hard
+
 "@types/q@npm:^1.5.1":
   version: 1.5.2
   resolution: "@types/q@npm:1.5.2"
@@ -36111,6 +36118,7 @@ fsevents@^1.2.7:
     "@types/color": ^3.0.0
     "@types/jest": ^24.0.18
     "@types/node": ^17.0.33
+    "@types/prop-types": ^15.7.5
     "@types/react": ^18.0.0
     "@types/react-color": ^3.0.6
     "@types/react-github-button": ^0.1.1
