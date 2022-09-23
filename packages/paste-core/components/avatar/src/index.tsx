@@ -32,7 +32,6 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
       fontSize={computedTokenNames.fontSize}
       fontWeight="fontWeightBold"
       lineHeight={computedTokenNames.lineHeight}
-      textAlign="center"
       verticalAlign="text-top"
       textDecoration="none"
       title={name}
@@ -90,7 +89,6 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         as="div"
         element={element}
         overflow="hidden"
-        // textDecoration="none"
         textAlign="center"
         ref={ref}
         size={size}
