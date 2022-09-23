@@ -125,7 +125,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     // Use ref to focus the current selected item when the list is opened
     // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
     const scrollToIndexRef = React.useCallback(
-      (node) => {
+      (node: any) => {
         if (node) {
           rowVirtualizer.scrollToIndex(items.indexOf(internalSelectedItem));
         }
