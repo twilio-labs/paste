@@ -98,7 +98,7 @@ exports[`Avatar intials should render responsive css 1`] = `
   line-height: lineHeight10;
   display: inline-block;
   font-weight: fontWeightBold;
-  vertical-align: text-top;
+  vertical-align: top;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
