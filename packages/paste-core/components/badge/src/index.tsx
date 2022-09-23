@@ -8,8 +8,6 @@ import type {BadgeProps, BadgeVariants} from './types';
 import {useResizeChildIcons} from './hooks';
 import {badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
-export type {BadgeProps};
-
 const handlePropValidation = ({as, href, onClick}: Partial<BadgeProps>): void => {
   if (as === 'a') {
     if (href === null || href === undefined)
@@ -95,8 +93,9 @@ Badge.propTypes = {
     'default',
     'info',
   ] as BadgeVariants[]).isRequired,
-  // @ts-expect-error type unions are a little too much for prop types inferred types to handle
   as: PropTypes.oneOf(['span', 'button', 'a']).isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
 };
+
+export type {BadgeProps} from './types';
