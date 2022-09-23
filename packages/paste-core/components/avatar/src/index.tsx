@@ -32,7 +32,7 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
       fontSize={computedTokenNames.fontSize}
       fontWeight="fontWeightBold"
       lineHeight={computedTokenNames.lineHeight}
-      verticalAlign="text-top"
+      verticalAlign="top"
       textDecoration="none"
       title={name}
       color="inherit"
