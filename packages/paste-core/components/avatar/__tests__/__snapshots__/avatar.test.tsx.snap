@@ -5,6 +5,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
   .emotion-0 {
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
   width: sizeIcon30;
   height: sizeIcon30;
   background-color: colorBackgroundUser;
@@ -67,6 +68,7 @@ exports[`Avatar intials should render responsive css 1`] = `
   .emotion-0 {
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
   width: sizeIcon10;
   height: sizeIcon10;
   background-color: colorBackgroundUser;
@@ -94,9 +96,9 @@ exports[`Avatar intials should render responsive css 1`] = `
   color: inherit;
   font-size: fontSize10;
   line-height: lineHeight10;
-  display: block;
+  display: inline-block;
   font-weight: fontWeightBold;
-  text-align: center;
+  vertical-align: top;
   -webkit-text-decoration: none;
   text-decoration: none;
 }

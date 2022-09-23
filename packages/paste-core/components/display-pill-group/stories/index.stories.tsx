@@ -26,6 +26,10 @@ export const Basic: React.FC = () => {
         <Avatar size="sizeIcon10" name="avatar example" src="./avatars/avatar4.png" />
         Baseball
       </DisplayPill>
+      <DisplayPill href="/">
+        <Avatar size="sizeIcon10" name="Avatar Anchor Example" />
+        Bowling
+      </DisplayPill>
       <DisplayPill>Basketball</DisplayPill>
       <DisplayPill>Soccer</DisplayPill>
     </DisplayPillGroup>
