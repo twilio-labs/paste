@@ -41,9 +41,8 @@ const MessageWithMeta = () => {
         <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
           <ChatMessageMetaItem>
             <Avatar name="Gibby Radki" size="sizeIcon20" />
-            Gibby Radki
+            Gibby Radki ・ 4 minutes ago
           </ChatMessageMetaItem>
-          <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>
     </ChatLog>
@@ -131,9 +130,8 @@ const ComplexMessage = () => {
         <ChatMessageMeta aria-label="said by Gibby Radki at 11:27 AM">
           <ChatMessageMetaItem>
             <Avatar name="Gibby Radki" size="sizeIcon20" />
-            Gibby Radki
+            Gibby Radki ・ 11:27 AM
           </ChatMessageMetaItem>
-          <ChatMessageMetaItem>11:27 AM</ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>
     </ChatLog>
@@ -177,7 +175,7 @@ const BasicChatEvent = () => {
   return (
     <ChatLog>
       <ChatEvent>
-        <strong>Gibby Radki</strong> has joined the chat・11:56 AM
+        <strong>Gibby Radki</strong> has joined the chat ・ 11:56 AM
       </ChatEvent>
     </ChatLog>
   );
@@ -194,7 +192,7 @@ const ChatStartedBookend = () => {
       <ChatBookend>
         <ChatBookendItem>Today</ChatBookendItem>
         <ChatBookendItem>
-          <strong>Chat Started</strong>・3:34pm
+          <strong>Chat Started</strong> ・ 3:34pm
         </ChatBookendItem>
       </ChatBookend>
     </ChatLog>
@@ -226,9 +224,8 @@ const SampleChat = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki
+              Gibby Radki ・ 3:35 PM
             </ChatMessageMetaItem>
-            <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant='outbound'>
@@ -252,9 +249,8 @@ const SampleChat = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 3:37 PM">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki
+              Gibby Radki ・ 3:37 PM
             </ChatMessageMetaItem>
-            <ChatMessageMetaItem>3:37 PM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant='outbound'>
@@ -286,9 +282,8 @@ const SampleChat = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 11:29 AM">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki
+              Gibby Radki ・ 11:29 AM
             </ChatMessageMetaItem>
-            <ChatMessageMetaItem>11:29 AM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant='inbound'>
@@ -298,9 +293,8 @@ const SampleChat = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 11:36 AM">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki
+              Gibby Radki ・ 11:36 AM
             </ChatMessageMetaItem>
-            <ChatMessageMetaItem>11:36 AM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatBookend>
