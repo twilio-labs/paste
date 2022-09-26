@@ -176,7 +176,6 @@
     "cypress": "10.8.0",
     "danger": "^10.6.6",
     "del": "^5.1.0",
-    "directory-named-webpack-plugin": "^4.0.1",
     "dotenv": "^16.0.0",
     "esbuild": "^0.14.43",
     "eslint": "^7.32.0",

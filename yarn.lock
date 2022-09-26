@@ -20616,18 +20616,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"directory-named-webpack-plugin@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "directory-named-webpack-plugin@npm:4.0.1"
-  dependencies:
-    enhanced-resolve: ^4.0.0
-    object-assign: ^4.1.0
-  peerDependencies:
-    webpack: ">=4.0.0"
-  checksum: 0132d1475fd2ec14003843cb201a7cbfadfdf45258f1bf6a0ce996cd5257d92301c6415958e286a3bf0354aacab1ea4e7a80f081fc480cdbea3556fe1ec08d9e
-  languageName: node
-  linkType: hard
-
 "dlv@npm:^1.1.3":
   version: 1.1.3
   resolution: "dlv@npm:1.1.3"
@@ -21311,7 +21299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^4.0.0, enhanced-resolve@npm:^4.5.0":
+"enhanced-resolve@npm:^4.5.0":
   version: 4.5.0
   resolution: "enhanced-resolve@npm:4.5.0"
   dependencies:
@@ -35164,7 +35152,6 @@ fsevents@^1.2.7:
     cypress: 10.8.0
     danger: ^10.6.6
     del: ^5.1.0
-    directory-named-webpack-plugin: ^4.0.1
     dotenv: ^16.0.0
     esbuild: ^0.14.43
     eslint: ^7.32.0
