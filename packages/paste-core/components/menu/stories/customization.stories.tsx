@@ -24,8 +24,8 @@ export const initStyles = (element: string): ElementOverrides => ({
   },
   [`${element}_BUTTON`]: {
     variants: {
-      secondary: {backgroundColor: 'colorBackgroundBusy'},
-      destructive: {backgroundColor: 'colorBackgroundDestructiveStrongest'},
+      secondary: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
+      destructive: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
       destructive_secondary: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
       link: {padding: 'space40', borderRadius: 'borderRadiusCircle', backgroundColor: 'colorBackgroundNeutralWeakest'},
       destructive_link: {

@@ -121,7 +121,7 @@ describe('Menu Customization', () => {
 
         expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
         expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
+        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
         expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
         expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
@@ -159,7 +159,7 @@ describe('Menu Customization', () => {
 
         expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
         expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(49, 12, 12)');
+        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
 
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
         expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
@@ -279,7 +279,7 @@ describe('Menu Customization', () => {
 
         expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
         expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
+        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
 
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
         expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
@@ -318,7 +318,7 @@ describe('Menu Customization', () => {
 
         expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
         expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(49, 12, 12)');
+        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
 
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
         expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
