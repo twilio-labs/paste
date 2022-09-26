@@ -5,7 +5,7 @@ import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledBoxProps} from './types';
 import {customStyleProps} from './CustomStyleProps';
 
-const merge = require('deepmerge');
+import merge from 'deepmerge';
 
 export const PasteStyleProps = system(customStyleProps as Config);
 

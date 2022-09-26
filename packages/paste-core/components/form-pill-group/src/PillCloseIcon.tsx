@@ -12,7 +12,7 @@ import {
 import type {PillVariant} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import merge from 'deepmerge';
 
 interface PillCloseIconProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;

@@ -5,7 +5,7 @@ import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import merge from 'deepmerge';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   fontWeight: 'inherit',

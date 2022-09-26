@@ -1,6 +1,6 @@
 import type {CustomTheme, CreateCustomTheme} from './types';
 
-const merge = require('deepmerge');
+import merge from 'deepmerge';
 
 export const createCustomTheme = ({
   baseTheme,
