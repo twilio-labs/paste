@@ -10,7 +10,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
-const PackageValue: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const PackageValue: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Text as="dd" display="inline-block">
       {children}
@@ -18,7 +18,7 @@ const PackageValue: React.FC<React.PropsWithChildren<unknown>> = ({children}) =>
   );
 };
 
-const PackageLabel: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const PackageLabel: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
       {children}

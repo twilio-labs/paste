@@ -44,7 +44,7 @@ export const OutboundChatMessageWithAttachment: Story = () => (
   </ChatLog>
 );
 
-const StateExampleComposerAttachmentCard: React.FC<React.PropsWithChildren<unknown>> = () => {
+const StateExampleComposerAttachmentCard = (): JSX.Element => {
   const [loading, setLoading] = React.useState(true);
   const attachmentIcon = loading ? (
     <Spinner decorative={false} title="loading..." />

@@ -7,7 +7,7 @@ import {Select, Option} from '@twilio-paste/select';
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 
-const ActionMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const ActionMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <Box display="flex" justifyContent="center">
@@ -28,7 +28,7 @@ const ActionMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const ComposableCellsDataGrid: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ComposableCellsDataGrid = (): JSX.Element => {
   /* eslint-disable react/no-array-index-key */
   return (
     <DataGrid aria-label="User list" data-testid="data-grid" striped>

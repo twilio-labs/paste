@@ -10,7 +10,7 @@ import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../co
 
 const DELAY_INTERVAL = 250;
 
-export const GetStarted: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const GetStarted = (): JSX.Element => {
   const {breakpointIndex} = useWindowSize();
 
   return (

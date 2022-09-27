@@ -50,7 +50,7 @@ const MockModal: React.FC<React.PropsWithChildren<{children?: React.ReactNode}>>
   );
 };
 
-const MockInitalFocusModal: React.FC<React.PropsWithChildren<unknown>> = () => {
+const MockInitalFocusModal = (): JSX.Element => {
   const [name, setName] = React.useState('');
   const modalHeadingID = `modal-${useUID()}`;
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
@@ -95,7 +95,7 @@ const MockInitalFocusModal: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const I18nMockModal: React.FC<React.PropsWithChildren<unknown>> = () => {
+const I18nMockModal = (): JSX.Element => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
     <CustomizationProvider baseTheme="default" theme={TestTheme}>

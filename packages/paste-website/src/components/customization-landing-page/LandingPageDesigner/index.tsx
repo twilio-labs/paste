@@ -8,7 +8,7 @@ import {DesignerPreview} from './DesignerPreview';
 import {DesignerControls} from './DesignerControls';
 import {DesignerContext} from './DesignerContext';
 
-export const LandingPageDesigner: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const LandingPageDesigner = (): JSX.Element => {
   const theme = useTheme();
   const initialTokens = generateTokensFromTheme(theme);
   const [tokens, setTokens] = React.useState<Partial<GenericTokensShape>>(initialTokens);

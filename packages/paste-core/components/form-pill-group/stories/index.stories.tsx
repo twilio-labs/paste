@@ -40,23 +40,17 @@ export const Basic: React.FC<
   );
 };
 
-export const Disabled: React.FC<React.PropsWithChildren<unknown>> = () => (
-  <Basic disabled ariaLabel="Disabled pills:" />
-);
-export const Selected: React.FC<React.PropsWithChildren<unknown>> = () => (
-  <Basic selected ariaLabel="Selected pills:" />
-);
-export const Dismissable: React.FC<React.PropsWithChildren<unknown>> = () => (
-  <Basic dismissable ariaLabel="Dismissable pills:" />
-);
+export const Disabled = (): JSX.Element => <Basic disabled ariaLabel="Disabled pills:" />;
+export const Selected = (): JSX.Element => <Basic selected ariaLabel="Selected pills:" />;
+export const Dismissable = (): JSX.Element => <Basic dismissable ariaLabel="Dismissable pills:" />;
 
-export const OverflowWrapping: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const OverflowWrapping = (): JSX.Element => (
   <Box maxWidth="size40">
     <Basic ariaLabel="Horizontal wrap pills:" />
   </Box>
 );
 
-export const SelectableAndDismissable: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const SelectableAndDismissable = (): JSX.Element => {
   const [pills, setPills] = React.useState([...PILL_NAMES]);
   const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set([PILL_NAMES[1], PILL_NAMES[4]]));
   const pillState = useFormPillState();

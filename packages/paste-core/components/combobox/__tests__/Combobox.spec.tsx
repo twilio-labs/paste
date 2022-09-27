@@ -79,7 +79,7 @@ function getFilteredItems(inputValue: string): any[] {
   return items.filter((item) => item.toLowerCase().startsWith(lowerCasedInputValue));
 }
 
-const ComboboxMock: React.FC<React.PropsWithChildren<unknown>> = () => {
+const ComboboxMock = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('');
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
@@ -122,7 +122,7 @@ function getFilteredObjectItems(inputValue: string): any[] {
   return filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(lowerCasedInputValue));
 }
 
-const ControlledCombobox: React.FC<React.PropsWithChildren<unknown>> = () => {
+const ControlledCombobox = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('');
   const filteredItems = React.useMemo(() => getFilteredObjectItems(inputValue), [inputValue]);
   const [selectedItem, setSelectedItem] = React.useState({});

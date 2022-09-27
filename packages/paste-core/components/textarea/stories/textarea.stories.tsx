@@ -496,7 +496,7 @@ TextareaDisabledInsertBeforeAndAfterInverse.story = {
   name: 'Textarea - Disabled insert before and after inverse',
 };
 
-export const CustomizedTextarea: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const CustomizedTextarea = (): JSX.Element => {
   const activeTheme = useTheme();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();

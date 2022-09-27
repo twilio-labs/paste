@@ -15,7 +15,7 @@ import {Button} from '@twilio-paste/button';
 import {Truncate} from '@twilio-paste/truncate';
 import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
 
-const MoreMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const MoreMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <Box display="flex" justifyContent="flex-end">

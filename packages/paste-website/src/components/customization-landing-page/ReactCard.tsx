@@ -5,7 +5,7 @@ import {ReactLogoIcon} from '../icons/ReactLogoIcon';
 
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
 
-export const ReactCard: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ReactCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

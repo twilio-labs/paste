@@ -221,7 +221,7 @@ const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
   );
 };
 
-export const KitchenSinkDataGrid: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const KitchenSinkDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortedColumns, setSortedColumns] = React.useState<Array<SortDirection | null>>(initialHeaderData);

@@ -7,7 +7,7 @@ import {Anchor} from '@twilio-paste/anchor';
 
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
 
-export const ComingSoonCard: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ComingSoonCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

@@ -5,7 +5,7 @@ import {Label} from '@twilio-paste/core/label';
 import {Select, Option} from '@twilio-paste/core/select';
 import {Routes} from '../../../constants/Routes';
 
-const TokenSelector: React.FC<React.PropsWithChildren<unknown>> = () => {
+const TokenSelector = (): JSX.Element => {
   const router = useRouter();
   const [value, setValue] = React.useState(router.pathname.replace(`/`, ''));
 

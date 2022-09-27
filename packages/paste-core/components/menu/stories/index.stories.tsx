@@ -10,7 +10,7 @@ import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 import {useUID} from '@twilio-paste/uid-library';
 
-const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const PlainMenu = (): JSX.Element => {
   const menu = useMenuState();
   const onClick = (): void => {
     menu.hide();
@@ -42,7 +42,7 @@ const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const AutoplacedMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const AutoplacedMenu = (): JSX.Element => {
   const menu = useMenuState({visible: true});
   return (
     <>
@@ -82,7 +82,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
 
 PreferencesMenu.displayName = 'PreferencesMenu';
 
-const SubMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const SubMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -99,7 +99,7 @@ const SubMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const Example3: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Example3 = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -125,7 +125,7 @@ const Example3: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const Example4: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Example4 = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -151,7 +151,7 @@ const Example4: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const WithActionsMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
+const WithActionsMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -179,7 +179,7 @@ const WithActionsMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const MenuGroups: React.FC<React.PropsWithChildren<unknown>> = () => {
+const MenuGroups = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>

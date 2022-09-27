@@ -59,7 +59,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: 
   </CustomizationProvider>
 );
 
-const CustomizationMyWrapper: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationWrapper elements={customizedMyElements}>{children}</CustomizationWrapper>
 );
 

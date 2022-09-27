@@ -23,13 +23,13 @@ const SignupForm: React.FC<React.PropsWithChildren<{emailId: string; passwordId:
   );
 };
 
-const UseUIDExample: React.FC<React.PropsWithChildren<unknown>> = () => {
+const UseUIDExample = (): JSX.Element => {
   const emailId = useUID();
   const passwordId = useUID();
   return <SignupForm emailId={emailId} passwordId={passwordId} />;
 };
 
-const UseUIDSeedExample: React.FC<React.PropsWithChildren<unknown>> = () => {
+const UseUIDSeedExample = (): JSX.Element => {
   const uidSeed = useUIDSeed();
   return <SignupForm emailId={uidSeed('email')} passwordId={uidSeed('password')} />;
 };

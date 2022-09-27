@@ -5,7 +5,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 
-const NotFound: React.FC<React.PropsWithChildren<unknown>> = () => (
+const NotFound = (): JSX.Element => (
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>

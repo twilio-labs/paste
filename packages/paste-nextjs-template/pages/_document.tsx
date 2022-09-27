@@ -1,6 +1,6 @@
 import {Html, Head, Main, NextScript} from 'next/document';
 
-const Document: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Document = (): JSX.Element => {
   return (
     <Html>
       <Head>

@@ -26,7 +26,7 @@ const Wrapper = styled.div(
   })
 );
 
-export const AllBadges: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const AllBadges = (): JSX.Element => (
   <Wrapper>
     <Badge as="span" variant="neutral">
       Neutral
@@ -64,7 +64,7 @@ export const AllBadges: React.FC<React.PropsWithChildren<unknown>> = () => (
   </Wrapper>
 );
 
-export const NeutralBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const NeutralBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -121,7 +121,7 @@ export const NeutralBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const WarningBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const WarningBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -174,7 +174,7 @@ export const WarningBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const ErrorBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const ErrorBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -227,7 +227,7 @@ export const ErrorBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const SuccessBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const SuccessBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -284,7 +284,7 @@ export const SuccessBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const NewBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const NewBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -337,7 +337,7 @@ export const NewBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const Decorative10Badge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const Decorative10Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -390,7 +390,7 @@ export const Decorative10Badge: React.FC<React.PropsWithChildren<unknown>> = () 
   </>
 );
 
-export const Decorative20Badge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const Decorative20Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -443,7 +443,7 @@ export const Decorative20Badge: React.FC<React.PropsWithChildren<unknown>> = () 
   </>
 );
 
-export const Decorative30Badge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const Decorative30Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -496,7 +496,7 @@ export const Decorative30Badge: React.FC<React.PropsWithChildren<unknown>> = () 
   </>
 );
 
-export const Decorative40Badge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const Decorative40Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -549,7 +549,7 @@ export const Decorative40Badge: React.FC<React.PropsWithChildren<unknown>> = () 
   </>
 );
 
-export const NeutralCounterBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const NeutralCounterBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -596,7 +596,7 @@ export const NeutralCounterBadge: React.FC<React.PropsWithChildren<unknown>> = (
   </>
 );
 
-export const ErrorCounterBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const ErrorCounterBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -643,7 +643,7 @@ export const ErrorCounterBadge: React.FC<React.PropsWithChildren<unknown>> = () 
   </>
 );
 
-export const DefaultBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const DefaultBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -690,7 +690,7 @@ export const DefaultBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const InfoBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const InfoBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -737,7 +737,7 @@ export const InfoBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
   </>
 );
 
-export const LongTextBadge: React.FC<React.PropsWithChildren<unknown>> = () => (
+export const LongTextBadge = (): JSX.Element => (
   <Wrapper>
     <Badge as="a" href="#" variant="neutral">
       <InformationIcon decorative />

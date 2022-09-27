@@ -10,6 +10,6 @@ const authors = [
   'Nnedi Okorafor',
 ];
 
-export const BasicCombobox: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const BasicCombobox = (): JSX.Element => {
   return <Combobox items={authors} labelText="Select an author" required />;
 };

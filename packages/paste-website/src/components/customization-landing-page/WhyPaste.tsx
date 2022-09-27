@@ -13,7 +13,7 @@ import {useSlantedSkew} from '../SlantedBackgroundGradient';
 import {DoodleLoopArrowLarge} from '../../assets/illustrations/DoodleLoopArrowLarge';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 
-const WhyPasteTopAngle: React.FC<React.PropsWithChildren<unknown>> = () => {
+const WhyPasteTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
   const {theme} = useDarkModeContext();
 
@@ -34,7 +34,7 @@ const WhyPasteTopAngle: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-const WhyPasteBottomAngle: React.FC<React.PropsWithChildren<unknown>> = () => {
+const WhyPasteBottomAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew(-0.35);
   const {theme} = useDarkModeContext();
 
@@ -55,7 +55,7 @@ const WhyPasteBottomAngle: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const WhyPaste: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const WhyPaste = (): JSX.Element => {
   return (
     <LandingPageSection
       backgroundColor="colorBackgroundPrimaryWeakest"

@@ -63,7 +63,7 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{aliasPrefix: strin
   );
 };
 
-export const ColorGradientRainbow: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ColorGradientRainbow = (): JSX.Element => {
   return (
     <StyledGrid>
       {aliasPrefixes.map((prefix) => (

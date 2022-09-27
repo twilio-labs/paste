@@ -20,7 +20,7 @@ interface ExperimentProps {
   showIframe: boolean;
 }
 
-const ExperimentEmbed: React.FC<React.PropsWithChildren<unknown>> = () => {
+const ExperimentEmbed = (): JSX.Element => {
   const {breakpointIndex} = useWindowSize();
 
   if (breakpointIndex !== undefined && breakpointIndex === 0) {

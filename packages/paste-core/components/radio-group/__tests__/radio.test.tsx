@@ -287,7 +287,7 @@ describe('Radio Group event handlers', () => {
   });
 
   it('Should check the selected radio (controlled)', () => {
-    const MockRadioGroup: React.FC<React.PropsWithChildren<unknown>> = () => {
+    const MockRadioGroup = (): JSX.Element => {
       const [value, setValue] = React.useState('2');
       return (
         <RadioGroup
@@ -328,7 +328,7 @@ describe('Radio Group event handlers', () => {
   });
 
   it('Should check the selected radio (uncontrolled)', () => {
-    const MockRadioGroup: React.FC<React.PropsWithChildren<unknown>> = () => {
+    const MockRadioGroup = (): JSX.Element => {
       return (
         <RadioGroup legend="foo" id="foo" name="foo">
           <Radio data-testid="radio-button" id="bar" name="bar" value="1">
@@ -354,7 +354,7 @@ describe('Radio Group event handlers', () => {
   });
 
   it('Should check the selected value on initial', () => {
-    const MockRadioGroup: React.FC<React.PropsWithChildren<unknown>> = () => {
+    const MockRadioGroup = (): JSX.Element => {
       const [value, setValue] = React.useState('2');
       return (
         <RadioGroup
