@@ -191,7 +191,7 @@ const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
   );
 };
 
-export const PaginatedDataGrid: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const PaginatedDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
   const [checkedItems, setCheckedItems] = React.useState(PaginatedTableBodyData.map(() => false));

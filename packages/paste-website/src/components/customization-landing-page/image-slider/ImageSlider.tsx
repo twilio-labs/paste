@@ -22,7 +22,7 @@ const imageStyleProps: React.CSSProperties = {
   objectPosition: 'center center',
 };
 
-export const ImageSlider: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ImageSlider = (): JSX.Element => {
   const uidSeed = useUIDSeed();
 
   // Set the initial state of the slider to be roughly at the 60% position.

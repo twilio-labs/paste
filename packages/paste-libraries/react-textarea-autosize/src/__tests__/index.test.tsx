@@ -12,7 +12,7 @@ import type {SizingData} from '../getSizingData';
 
 const resizeMock: jest.Mock = jest.fn();
 
-const SampleComponent: React.FunctionComponent<React.PropsWithChildren<unknown>> = () => {
+const SampleComponent: React.FunctionComponent = () => {
   useHiddenTextarea();
   useWindowResizeListener(resizeMock);
   return <></>;

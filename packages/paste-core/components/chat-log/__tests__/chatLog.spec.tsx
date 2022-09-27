@@ -14,7 +14,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: 
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo_log: {padding: 'space100'}}}>
     {children}
   </CustomizationProvider>

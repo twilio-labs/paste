@@ -47,7 +47,7 @@ const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>>
   );
 };
 
-export const ModalDialogPrimitiveExample: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ModalDialogPrimitiveExample = (): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);

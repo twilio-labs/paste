@@ -4,7 +4,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {ChatEvent} from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -18,7 +18,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<unknown>> = ({child
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}

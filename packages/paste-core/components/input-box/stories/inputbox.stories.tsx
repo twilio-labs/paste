@@ -6,11 +6,11 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import type {InputBoxProps} from '../src';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '../src';
 
-const Insert: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Insert = (): JSX.Element => {
   return <Box padding="space20" />;
 };
 
-const Input: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Input = (): JSX.Element => {
   return <Box padding="space60" width="100%" />;
 };
 

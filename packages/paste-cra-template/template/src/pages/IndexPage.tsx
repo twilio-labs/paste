@@ -14,7 +14,7 @@ const FancyBox: React.FC<React.PropsWithChildren<FancyBoxProps>> = styled(Box)({
   width: '40%',
 });
 
-export const IndexPage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const IndexPage = (): JSX.Element => {
   return (
     <Box margin="space60">
       <Heading as="h1" variant="heading10">

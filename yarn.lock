@@ -10232,8 +10232,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -10244,8 +10244,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10360,8 +10360,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     deepmerge: 4.2.2
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.6.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
@@ -10374,8 +10374,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10965,8 +10965,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.6.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
@@ -10979,8 +10979,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11256,8 +11256,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.6.4
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.1
@@ -11272,8 +11272,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11436,11 +11436,11 @@ __metadata:
     "@lexical/link": 0.6.0
     "@lexical/react": 0.6.0
     lexical: 0.6.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11798,8 +11798,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/button": ^11.1.1
@@ -11818,8 +11818,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -38612,19 +38612,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react-dom@npm:17.0.2"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    scheduler: ^0.20.2
-  peerDependencies:
-    react: 17.0.2
-  checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:^18.0.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -40663,16 +40650,6 @@ fsevents@^1.2.7:
   dependencies:
     xmlchars: ^2.2.0
   checksum: 5636b55cf15f7cf0baa73f2797bf992bdcf75d1b39d82c0aa4608555c774368f6ac321cb641fd5f3d3ceb87805122cd47540da6a7b5960fe0dbdb8f8c263f000
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.20.2":
-  version: 0.20.2
-  resolution: "scheduler@npm:0.20.2"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
   languageName: node
   linkType: hard
 

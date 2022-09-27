@@ -4,7 +4,7 @@ import {Table, Tr, THead, Th, TBody, Td} from '@twilio-paste/table';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
-const FormPillVsDisplayPillTable: React.FC<React.PropsWithChildren<unknown>> = () => {
+const FormPillVsDisplayPillTable = (): JSX.Element => {
   return (
     <Box marginBottom="space70">
       <Table scrollHorizontally>
@@ -105,7 +105,7 @@ const FormPillVsDisplayPillTable: React.FC<React.PropsWithChildren<unknown>> = (
   );
 };
 
-const DisplayPillVsFormPillTable: React.FC<React.PropsWithChildren<unknown>> = () => {
+const DisplayPillVsFormPillTable = (): JSX.Element => {
   return (
     <Box marginBottom="space70">
       <Table scrollHorizontally>

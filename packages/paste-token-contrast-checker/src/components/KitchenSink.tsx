@@ -26,7 +26,7 @@ const handleClick = (): void => {
   alert('clicked');
 };
 
-export const KitchenSink: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const KitchenSink = (): JSX.Element => {
   // Modal properties
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);

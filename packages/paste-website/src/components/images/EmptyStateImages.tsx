@@ -3,7 +3,7 @@ import {StaticImage} from 'gatsby-plugin-image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
-export const AwaitingDataImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const AwaitingDataImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage
@@ -21,7 +21,7 @@ export const AwaitingDataImage: React.FC<React.PropsWithChildren<unknown>> = () 
     />
   );
 };
-export const ChangeRegionImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ChangeRegionImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage
@@ -39,7 +39,7 @@ export const ChangeRegionImage: React.FC<React.PropsWithChildren<unknown>> = () 
     />
   );
 };
-export const CreateObjectImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const CreateObjectImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage
@@ -57,7 +57,7 @@ export const CreateObjectImage: React.FC<React.PropsWithChildren<unknown>> = () 
     />
   );
 };
-export const GenericDependencyImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const GenericDependencyImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage
@@ -75,7 +75,7 @@ export const GenericDependencyImage: React.FC<React.PropsWithChildren<unknown>> 
     />
   );
 };
-export const NoPermissionsImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const NoPermissionsImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage
@@ -93,7 +93,7 @@ export const NoPermissionsImage: React.FC<React.PropsWithChildren<unknown>> = ()
     />
   );
 };
-export const NoResultImage: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const NoResultImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <StaticImage

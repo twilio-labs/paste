@@ -20,13 +20,14 @@ import type {SidebarDisclosureContentProps} from './sidebar-disclosure/SidebarDi
 
 const CY_BASE = 'sidebar-disclosure';
 const NavigationDisclosure: React.FC<
-React.PropsWithChildren<{
-   children: SidebarDisclosureContentProps['children'];
-  categoryRoute: SidebarDisclosureProps['categoryRoute'];
-   level: SidebarDisclosureButtonProps['level'];
+  React.PropsWithChildren<{
+    children: SidebarDisclosureContentProps['children'];
+    categoryRoute: SidebarDisclosureProps['categoryRoute'];
+    level: SidebarDisclosureButtonProps['level'];
     buttonText: string;
-   onClick?: SidebarDisclosureButtonProps['onClick'];
-}>> = ({children, categoryRoute, level, buttonText, onClick}) => {
+    onClick?: SidebarDisclosureButtonProps['onClick'];
+  }>
+> = ({children, categoryRoute, level, buttonText, onClick}) => {
   const buttonAttribute = `${CY_BASE}-button-${kebabCase(buttonText)}`;
   const contentAttribute = `${CY_BASE}-content-${kebabCase(buttonText)}`;
 
@@ -42,7 +43,7 @@ React.PropsWithChildren<{
   );
 };
 
-const SidebarNavigation: React.FC<React.PropsWithChildren<unknown>> = () => {
+const SidebarNavigation = (): JSX.Element => {
   const data = useNavigationContext();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);

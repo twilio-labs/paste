@@ -5,7 +5,7 @@ import {render, screen} from '@testing-library/react';
 import {GenericHeader} from '../components/shortcodes/generic-header';
 
 describe('GenericHeader', () => {
-  const FullHeader: React.FC<React.PropsWithChildren<unknown>> = () => {
+  const FullHeader = (): JSX.Element => {
     return (
       <Theme.Provider theme="default">
         <GenericHeader
@@ -57,7 +57,7 @@ describe('GenericHeader', () => {
     );
   });
 
-  const BasicHeader: React.FC<React.PropsWithChildren<unknown>> = () => {
+  const BasicHeader = (): JSX.Element => {
     return (
       <Theme.Provider theme="default">
         <GenericHeader name="Alert" categoryRoute="/components" />;

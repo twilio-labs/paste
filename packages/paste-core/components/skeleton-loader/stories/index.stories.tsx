@@ -26,7 +26,7 @@ export const Default: React.FC<React.PropsWithChildren<SkeletonLoaderProps>> = (
   return <SkeletonLoader data-testid="default-skeleton" {...props} />;
 };
 
-export const TextLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const TextLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -45,7 +45,7 @@ export const TextLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const ParagraphLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ParagraphLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -83,7 +83,7 @@ export const ParagraphLoading: React.FC<React.PropsWithChildren<unknown>> = () =
   );
 };
 
-export const HeadingLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const HeadingLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -132,7 +132,7 @@ export const HeadingLoading: React.FC<React.PropsWithChildren<unknown>> = () => 
   );
 };
 
-export const ButtonsLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ButtonsLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -163,7 +163,7 @@ export const ButtonsLoading: React.FC<React.PropsWithChildren<unknown>> = () => 
   );
 };
 
-export const AvatarLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const AvatarLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -186,7 +186,7 @@ export const AvatarLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const IconLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const IconLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -205,7 +205,7 @@ export const IconLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const ThumbnailLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const ThumbnailLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -228,7 +228,7 @@ export const ThumbnailLoading: React.FC<React.PropsWithChildren<unknown>> = () =
   );
 };
 
-export const CardLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const CardLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -278,7 +278,7 @@ export const CardLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export const TableLoading: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const TableLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>

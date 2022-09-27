@@ -8,7 +8,7 @@ import {Paragraph} from '@twilio-paste/core/paragraph';
 import {MenuPreview} from './MenuPreview';
 import {ModalPreview} from './ModalPreview';
 
-const CardPreview: React.FC<React.PropsWithChildren<unknown>> = () => {
+const CardPreview = (): JSX.Element => {
   return (
     <Card>
       <MediaObject verticalAlign="center">

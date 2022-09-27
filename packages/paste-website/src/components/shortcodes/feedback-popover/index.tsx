@@ -95,7 +95,7 @@ export const DislikedPage: React.FC<React.PropsWithChildren<RatingProps>> = () =
   </>
 );
 
-export const FeedbackPopover: React.FC<React.PropsWithChildren<unknown>> = () => {
+export const FeedbackPopover = (): JSX.Element => {
   const pathname = useLocationPathname();
   const localStorageKey = `page-rating${pathname}`;
   const popoverId = useUID();

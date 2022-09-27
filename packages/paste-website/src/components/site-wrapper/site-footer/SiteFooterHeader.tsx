@@ -5,7 +5,7 @@ import {Text} from '@twilio-paste/text';
 
 import HeartDoodleIcon from '../../icons/HeartDoodleIcon';
 
-const SiteFooterHeader: React.FC<React.PropsWithChildren<unknown>> = () => {
+const SiteFooterHeader = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box
