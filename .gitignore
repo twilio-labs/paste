@@ -71,7 +71,6 @@ out/
 
 .jest-coverage
 .jest-cache
-.jest-cache-react-16
 **/lib/*
 **/dist/*
 packages/**/docs
