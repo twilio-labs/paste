@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Combobox] Refine typings for Multiselect Combobox.
+[Combobox] Refine typings and styling for group options for Multiselect Combobox.
