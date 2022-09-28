@@ -86,7 +86,7 @@ export const pageQuery = graphql`
   storybookUrl="/?path=/story/components-combobox-multiselectcombobox--multiselect-combobox-basic"
   data={props.data}
   name="Multiselect Combobox"
-  description="A multiselect combobox is a styled dropdown form element that allows users to select multiple values from a list."
+  description="A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list."
 />
 
 ---
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{MultiselectCombobox}} noInline language="jsx" showOverflow>
+<LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
   {basicExample}
 </LivePreview>
 
@@ -140,7 +140,9 @@ When the user is focused on a Combobox, the following keyboard interactions appl
 
 - Up and down arrows move the user between the options
 - Enter selects the currently active option
-- When the user is focused within the Form Pill Group, they can use these keyboard interactions:
+
+When the user is focused within the Form Pill Group, they can use these keyboard interactions:
+
 - Left and right arrow keys move focus within the group.
 - If a pill is selectable, spacebar and enter will toggle pill selection.
 - If a pill is dismissible, the pill can be removed by pressing the delete or backspace key.
@@ -247,7 +249,7 @@ it resizes vertically, you can provide a `maxHeight` prop.
 
 ### Mutliselect Combobox with an empty state
 
-Use an empty state to indicate to a user that their input doesn not match any value in the list of options.
+Use an empty state to indicate to a user that their input does not match any value in the list of options.
 
 <LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
   {emptyStateExample}
@@ -267,10 +269,6 @@ form fields horizontally.
 
 Keep option text concise and simple. Option text will truncate when it is longer than the width of the container.
 
-Use a safe and reversible option as the default selected value, or an option that tells users to
-choose from the list. For example, on page load, a select could show “Choose category" as the
-default value if there is no safe default.
-
 Use at least five options in a Combobox. If there are less than five options or if choosing options
 requires more explanation, consider using a Checkbox instead and add help text for each option,
 or give more explanation through help text. Sort options logically (e.g., alphabetically, by value)
@@ -282,7 +280,7 @@ or in an order that’s intuitive to your user.
   <Do title="Do" body="Use a Multiselect Combobox when there are multiple options for a user to type or select." />
   <Dont
     title="Don't"
-    body="Don’t use a Multiselect Combobox when a user should only select a single option. Use a Combobox instead."
+    body="Don’t use a Multiselect Combobox when a user should only select a single option. Use a Singleselect Combobox instead."
   />
 </DoDont>
 <DoDont>
@@ -313,8 +311,41 @@ yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
 ```jsx
 import {MultiselectCombobox} from '@twilio-paste/core/combobox';
 
-const Component = () => (
-  <MultiselectCombobox items={foo} selectedItemsLabelText="Selected items:" labelText="Choose an item" />
+const items = [
+  'Alert',
+  'Anchor',
+  'Button',
+  'Card',
+  'Heading',
+  'List',
+  'Modal',
+  'Paragraph',
+  'Popover',
+  'Tooltip',
+];
+
+function getFilteredItems(inputValue) {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return items.filter(function filterItems(item) {
+    return item.toLowerCase().includes(lowerCasedInputValue);
+  });
+}
+
+const MyComponent = () => (
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <MultiselectCombobox
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      items={filteredItems}
+      onInputValueChange={({inputValue: newInputValue = ''}) => {
+        setInputValue(newInputValue);
+      }}
+    />
+  );
 );
 ```
 
