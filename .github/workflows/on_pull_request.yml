@@ -215,6 +215,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.13.x
+      - name: Install pckgs
+        run: yarn install
       - name: Run tests
         run: yarn test:react-16
 
