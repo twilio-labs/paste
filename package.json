@@ -71,7 +71,7 @@
     "clean:core": "yarn workspace @twilio-paste/core clean",
     "pre-test": "ts-node ./tools/build/pre-test.ts",
     "test": "jest",
-    "test:react-16": "yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6 && jest",
+    "test:react-16": "yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6 && yarn set resolution react@npm:^17.0.2 ^16.8.6 && yarn set resolution @types/react@npm:^17.0.31 ^16.0.0 && yarn set resolution react-dom@npm:^17.0.2 ^16.8.6 && jest",
     "test:coverage": "jest --coverage",
     "test:website": "yarn cypress run --record",
     "test:website-percy": "percy exec -- yarn cypress run --record",
