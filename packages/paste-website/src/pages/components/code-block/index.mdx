@@ -17,7 +17,7 @@ import {
 import Changelog from '@twilio-paste/code-block/CHANGELOG.md';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import {singleLine, multiLine, tab} from '../../../component-examples/CodeBlockExamples.ts';
+import {singleLine, multiLine, tab, formattedCopyText} from '../../../component-examples/CodeBlockExamples.ts';
 
 export const pageQuery = graphql`
   {
@@ -130,6 +130,14 @@ The Code Block Tabs components use the Tabs Primitive. For full details on the p
   {tab}
 </LivePreview>
 
+### Format the copied text
+
+To modify what text is copied when the copy button is clicked, use the `copyTextFormatter` prop.
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {formattedCopyText}
+</LivePreview>
+
 ## Usage Guide
 
 ### API
@@ -190,6 +198,7 @@ export const Basic = () => {
 | `i18nCopyLabelBefore?` | `string`                                                                                                                | The content of the copy button tooltip before it is clicked.                              | `'Copy code block'`             |
 | `i18nCopyLabelAfter?`  | `string`                                                                                                                | The content of the copy button tooltip after the user clicks it.                          | `'Copied!'`                     |
 | `i18nLinkLabel?`       | `string`                                                                                                                | The content of the external link button tooltip.                                          | `'Open code block in new page'` |
+| `copyTextFormatter?`   | `(code: string) => string`                                                                                              | A function that formats the text that gets copied when the copy button is clicked.        |                                 |
 
 ##### CodeBlockWrapper
 
