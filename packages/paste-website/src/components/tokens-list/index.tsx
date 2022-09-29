@@ -137,6 +137,7 @@ export const TokensList: React.FC = () => {
     if (tokensFilter) {
       intObserver.observe(tokensFilter);
     }
+    // Clean up observer
     return () => {
       intObserver.disconnect();
     };
