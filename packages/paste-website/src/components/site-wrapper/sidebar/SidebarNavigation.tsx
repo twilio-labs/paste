@@ -272,6 +272,30 @@ const SidebarNavigation: React.FC = () => {
                 </NavigationDisclosure>
               );
             }
+            if (name === 'Combobox') {
+              return (
+                <NavigationDisclosure
+                  buttonText={name}
+                  categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                  key={slug}
+                  level={1}
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: 'Left Navigation',
+                      action: `click-${name}`,
+                      label: name,
+                    })
+                  }
+                >
+                  <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/combobox`}>
+                    Singleselect
+                  </SidebarAnchor>
+                  <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`}>
+                    Multiselect
+                  </SidebarAnchor>
+                </NavigationDisclosure>
+              );
+            }
             return (
               <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
                 {name}
