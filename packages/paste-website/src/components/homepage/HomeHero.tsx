@@ -77,6 +77,7 @@ const HomeHero: React.FC = () => {
                 <NewComponentBannerText>We&rsquo;re hiring a Staff UX Software Engineer!</NewComponentBannerText>
                 <NewComponentBannerLink
                   to="https://boards.greenhouse.io/twilio/jobs/4595880"
+                  showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
