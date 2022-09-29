@@ -23,6 +23,12 @@ export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';
 export const PASTE_DOCS_SEARCH_INPUT = 'paste-docs-search-input';
 export const PASTE_DOCS_SEARCH_INPUT_MOBILE = 'paste-docs-search-input-mobile';
 
+// Used to adjust scrolling elements to account for sticky filter on tokens/list page
+export const TOKEN_STICKY_FILTER_HEIGHT = [192, 108, 192, 108];
+
+// Regex that looks for match on `/tokens/list/` route, specifically
+export const TOKEN_LIST_PAGE_REGEX = /^\/tokens\/list\/$/;
+
 // env variables
 export const DATADOG_APPLICATION_ID = process.env.GATSBY_DATADOG_APPLICATION_ID || 'no env variable';
 export const DATADOG_CLIENT_TOKEN = process.env.GATSBY_DATADOG_CLIENT_TOKEN || 'no env variable';
