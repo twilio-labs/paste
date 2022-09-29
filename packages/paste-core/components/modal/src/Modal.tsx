@@ -31,7 +31,7 @@ export const ModalDialogOverlay = animated(
     // no longer a child of the theme provider. We need to re-set
     // some of the base styles that we rely on inheriting from
     // such as font-family and line-height so that compositions
-    // of paste components in the modal are styled correctly
+    // of paste components in the modal are styled correctly.
     pasteBaseStyles,
     getCustomElementStyles
   )
