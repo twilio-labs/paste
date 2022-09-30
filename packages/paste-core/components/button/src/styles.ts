@@ -97,11 +97,11 @@ export const ToggleButtonStyles: BoxStyleProps = {
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _pressed_hover: {
     backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimary',
     color: 'colorTextInverse',
   },
   _pressed_focus: {
@@ -117,11 +117,11 @@ export const ToggleIconButtonStyles: BoxStyleProps = {
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _pressed_hover: {
     backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimary',
     color: 'colorTextInverse',
   },
   _pressed_focus: {
