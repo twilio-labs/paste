@@ -15,6 +15,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {Blockquote} from '../../components/Blockquote';
 
 export const pageQuery = graphql`
   {
@@ -126,12 +127,7 @@ for full control of its internal state. Making a chat log has never been easier 
 We&apos;ve got new icons! A full suite of contact center icons and more are now available.
 Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin Chin</strong> for their close collaboration on these icons.
 
-<br />
-*View the full list at the end of this newsletter.
-
-<Paragraph>
-  <Anchor href="/components/icons">Search through our icons list</Anchor>
-</Paragraph>
+[View the full list of new icons](#continued-from-42-new-icons) and [search through our full icons list](/components/icons)
 
 #### Conversations UI Kit added to Figma
 
@@ -212,7 +208,7 @@ especially on mobile viewports. Thanks Mark! 🎉
 
 ## 💬 Customer insights
 
-The Design Systems team keeps a pulse on Paste users with our [annual CSAT survey](https://airtable.com/appiDf1K8tPC1fPoJ/pagAqvPc6EWGFAzYO) annual CSAT survey.
+The Design Systems team keeps a pulse on Paste users with our [annual CSAT survey](https://airtable.com/appiDf1K8tPC1fPoJ/pagAqvPc6EWGFAzYO).
 Thank you to each of the <strong>68 Twilions</strong> who provided feedback on their Paste experience!
 Our survey used a scale of 1-5 (1 being strongly disagree, 5 being strongly agree).
 We are excited to the share the following insights:
@@ -223,22 +219,18 @@ We are excited to the share the following insights:
   <strong>4.00/5</strong>.
 </Paragraph>
 <Paragraph>
-  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>,
-  our participants averaged <strong>4.18/5</strong>.
+  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>
+  , our participants averaged <strong>4.18/5</strong>.
 </Paragraph>
 
 In addition, some participants specified:
 
-<Box marginBottom="space70" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextWeak">
-  <em>
-    &quot;It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to
-    focus on my business logic.&quot;
-  </em>
-</Box>
+<Blockquote>
+  It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to focus on
+  my business logic.
+</Blockquote>
 
-<Box marginBottom="space70" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextWeak">
-  <em>&quot;I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.&quot;</em>
-</Box>
+<Blockquote>I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.</Blockquote>
 
 These results are music to our ears 🎶
 
@@ -406,7 +398,7 @@ See you next time! 👋
 
 — The Design Systems Team
 
-#### \*Continued from 42 new icons
+#### Continued from 42 new icons
 
 - AcceptIcon
 - BusinessIcon
