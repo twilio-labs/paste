@@ -229,6 +229,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn
 
+      # Note: Yarn cahce has been removed from the following step
+      # since we need to change the React version installed
       - name: Install Dependencies
         run: yarn install --immutable
 
