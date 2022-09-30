@@ -28,6 +28,7 @@ export const customStyleProps = {
     scale: 'borderColors',
   },
   content: true,
+  colorScheme: true,
   cursor: true,
   appearance: true,
   transition: true,

@@ -66,6 +66,7 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       width="100%"
       variant={props.variant}
       ref={ref}
+      colorScheme={props.variant === 'inverse' ? 'dark' : 'normal'}
       _placeholder={{
         color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
         fontStyle: 'italic',

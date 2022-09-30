@@ -4,6 +4,7 @@ export type AnimationProperty = Properties['animation'];
 export type AppearanceProperty = Properties['appearance'];
 export type BoxSizingProperty = Properties['boxSizing'];
 export type ClipProperty = Properties['clip']; // 'clip' is deprecated
+export type ColorSchemeProperty = Properties['colorScheme'];
 export type CursorProperty = Properties['cursor'];
 export type FloatProperty = Properties['float'];
 export type ObjectFitProperty = Properties['objectFit'];

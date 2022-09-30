@@ -12,6 +12,7 @@ import type {
   AppearanceProperty,
   BoxSizingProperty,
   ClipProperty,
+  ColorSchemeProperty,
   CursorProperty,
   FloatProperty,
   ObjectFitProperty,
@@ -47,6 +48,7 @@ export interface BoxBaseStyleProps
   boxSizing?: BoxSizingProperty;
   clip?: ClipProperty;
   content?: string;
+  colorScheme?: ColorSchemeProperty;
   cursor?: CursorProperty;
   float?: FloatProperty;
   objectFit?: ObjectFitProperty;

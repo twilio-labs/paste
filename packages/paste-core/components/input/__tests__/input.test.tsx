@@ -175,6 +175,11 @@ describe('HTML attributes', () => {
     expect(screen.getByText('test before').getAttribute('data-paste-element')).toEqual('foo_PREFIX');
     expect(screen.getByText('test after').getAttribute('data-paste-element')).toEqual('foo_SUFFIX');
   });
+
+  it('should style inverse variant with color scheme correctly', () => {
+    render(<Input variant="inverse" type="text" onChange={NOOP} />);
+    expect(screen.getByRole('textbox')).toHaveStyle({'color-scheme': 'dark'});
+  });
 });
 
 describe('Customization', () => {
