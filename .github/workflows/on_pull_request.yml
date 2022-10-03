@@ -229,18 +229,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
+      # Note: Yarn cahce has been removed from the following step
+      # since we need to change the React version installed
       - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
+
+      - name: Install React 16
+        run: |
+          yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
+          yarn set resolution react@npm:^17.0.2 ^16.8.6
+          yarn set resolution @types/react@npm:^17.0.31 ^16.0.0
+          yarn set resolution react-dom@npm:^17.0.2 ^16.8.6
 
       - name: Download build artifacts
         uses: actions/download-artifact@v2
@@ -249,7 +248,7 @@ jobs:
           path: packages/
 
       - name: Run tests
-        run: yarn test:react-16
+        run: yarn test
 
   storybook_tests:
     name: Storybook test runner

@@ -38,12 +38,3 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
   snapshotSerializers: ['@emotion/jest/serializer'],
 };
-
-if (process.env.USE_REACT_16 === 'true') {
-  module.exports.cacheDirectory = '.jest-cache-react-16';
-  module.exports.moduleNameMapper = {
-    ...module.exports.moduleNameMapper,
-    '^react-dom((\\/.*)?)$': 'react-dom-16$1',
-    '^react((\\/.*)?)$': 'react-16$1',
-  };
-}
