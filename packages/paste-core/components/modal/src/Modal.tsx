@@ -7,7 +7,6 @@ import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
-import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUtils';
 
 type Sizes = 'default' | 'wide';
 
@@ -32,7 +31,7 @@ export const ModalDialogOverlay = animated(
     // no longer a child of the theme provider. We need to re-set
     // some of the base styles that we rely on inheriting from
     // such as font-family and line-height so that compositions
-    // of paste components in the modal are styled correctly
+    // of paste components in the modal are styled correctly.
     pasteBaseStyles,
     getCustomElementStyles
   )
@@ -72,19 +71,13 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   size: Sizes;
   initialFocusRef?: React.RefObject<any>;
   ariaLabelledby: string;
-  // Adds an 80px margin to the root elements on the Console application
-  __console_patch?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getAnimationStates = (isConsole: boolean): any => ({
+const getAnimationStates = (): any => ({
   from: {opacity: 0, transform: `scale(0.675)`},
   enter: {opacity: 1, transform: `scale(1)`},
-  // FIXME: We remove the animation on modal close in console because
-  // react-spring v9 currently doesn't have a hook into animation destroyed
-  // Ideally it should still animate and the hack should be applied after
-  // the animation ends.
-  leave: isConsole ? null : {opacity: 0, transform: `scale(0.675)`},
+  leave: {opacity: 0, transform: `scale(0.675)`},
   // https://www.react-spring.io/docs/hooks/api
   config: {
     mass: 0.5,
@@ -104,23 +97,11 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       initialFocusRef,
       ariaLabelledby,
       size,
-      __console_patch = false,
       ...props
     },
     ref
   ) => {
-    const transitions = useTransition(isOpen, getAnimationStates(__console_patch));
-
-    React.useEffect(() => {
-      if (__console_patch && isOpen) {
-        addConsoleHeightPatch();
-      }
-      return () => {
-        if (__console_patch) {
-          removeConsoleHeightPatch();
-        }
-      };
-    }, [isOpen, __console_patch]);
+    const transitions = useTransition(isOpen, getAnimationStates());
 
     return (
       <ModalContext.Provider value={{onDismiss}}>

@@ -8,6 +8,7 @@ export const SITEMAP = [
   '/blog/2022-04-06-paste-newsletter/',
   '/blog/2022-06-28-paste-newsletter/',
   '/blog/2022-07-26-paste-newsletter/',
+  '/blog/2022-09-23-paste-newsletter/',
   '/components/aspect-ratio/',
   '/components/anchor/',
   '/components/alert-dialog/',

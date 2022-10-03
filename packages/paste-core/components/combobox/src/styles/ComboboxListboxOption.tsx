@@ -17,7 +17,7 @@ export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
 
 const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
   groupOption: {
-    paddingLeft: 'space70',
+    paddingLeft: 'space90',
     paddingRight: 'space50',
   },
   default: {
