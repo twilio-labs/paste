@@ -3,7 +3,7 @@ const authors = ['James Baldwin', 'Adrienne Maree Brown', 'Octavia Butler', 'Ta-
 
 const BasicCombobox = () => {
   return (
-    <Combobox items={authors} labelText="Select an author" required />
+    <Combobox items={authors} initialSelectedItem={authors[2]} labelText="Select an author" required />
   );
 };
 
@@ -40,6 +40,7 @@ const artists = ['The Aces', 'Brandi Carlile', 'Claud', 'Deb Never', 'Hayley Kiy
 
 const AutoCompleteCombobox = () => {
   const [inputItems, setInputItems] = React.useState(artists);
+
   return (
     <Combobox
       autocomplete
@@ -324,6 +325,20 @@ render(
 )
 `.trim();
 
+export const disabledOptionsExample = `
+const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
+
+const DisabledCombobox = () => {
+  return (
+    <Combobox items={products} labelText="Select a product" disabledOptions={products[1]} />
+  );
+};
+
+render(
+  <DisabledCombobox />
+)
+`.trim();
+
 export const inverseExample = `
 const products = ['SMS', 'Phone Numbers', 'Video'];
 
@@ -434,5 +449,34 @@ const ComboboxControlledUsingState = () => {
 
 render(
   <ComboboxControlledUsingState />
+)
+`.trim();
+
+export const emptyStateExample = `
+const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
+
+const SampleEmptyState = () => (
+  <Box paddingY="space40" paddingX="space50">
+    <Text as="span" fontStyle="italic">
+      No results found
+    </Text>
+  </Box>
+);
+
+
+const DisabledCombobox = () => {
+  return (
+    <Combobox
+      autocomplete
+      inputValue={products[3]}
+      items={products}
+      labelText="Select a product"
+      emptyState={SampleEmptyState}
+    />
+  );
+};
+
+render(
+  <DisabledCombobox />
 )
 `.trim();
