@@ -90,7 +90,7 @@ const SiteFooterNav: React.FC = () => {
                 })
               }
             >
-              Github
+              GitHub
             </Anchor>
             <Anchor
               href={FIGMA_PROFILE_URL}
