@@ -27,8 +27,8 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
             as="li"
             backgroundColor="colorBackground"
             role="presentation"
-            paddingY="space40"
-            paddingLeft="space70"
+            paddingY="space30"
+            paddingLeft="space50"
             paddingRight="space50"
             element={`${element}_GROUPNAME`}
           >
