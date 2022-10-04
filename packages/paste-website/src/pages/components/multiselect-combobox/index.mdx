@@ -124,8 +124,9 @@ Use a (Multiselect) [Combobox](/components/combobox) when:
 
 - You need a Twilio-styled options list.
 - You need to show more than text in an option (e.g., text paired with an icon).
-- You need placeholder text in the field to show an example option, rather than a preselected option.
-- Users would benefit from typeahead functionality (e.g., autocomplete, search). For example, typeahead may be useful when users need to select from a list of more than 10 options.
+- You need to group options under labels.
+- You need to disable options in the list.
+- Users would benefit from autocomplete functionality (e.g., autocomplete, search). For example, autocomplete may be useful when users need to select from a list of more than 10 options.
 - You need to lazy load a much longer list of options to improve page load performance.
 
 ### Accessibility
@@ -179,7 +180,7 @@ input and to offer more context about the value a user is entering.
 Use option groups to create labeled sections of options.
 
 Structure your data into an array of objects and use a key on each object as the grouping identifier.
-Then, tell the Combobox what you would like to group the items by, by setting `groupItemsby` to match
+Then, tell the Combobox what you would like to group the items by, by setting `groupItemsBy` to match
 the intended group identifier.
 
 In the example below, we have a list of components and we are grouping them based on their type.
