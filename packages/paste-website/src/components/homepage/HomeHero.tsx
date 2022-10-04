@@ -72,20 +72,21 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
-                  New!
+                  Hello!
                 </Badge>
-                <NewComponentBannerText>We updated our tokens list page!</NewComponentBannerText>
+                <NewComponentBannerText>We&rsquo;re hiring a Staff UX Software Engineer!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/tokens/list"
+                  to="https://boards.greenhouse.io/twilio/jobs/4595880"
+                  showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Go to the updated Tokens list page',
+                      label: 'Staff UX Engineer Job Ad',
                     })
                   }
                 >
-                  Check it out
+                  Apply now!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
