@@ -90,6 +90,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         element={element}
         overflow="hidden"
         textAlign="center"
+        flexShrink={0}
         ref={ref}
         size={size}
         {...colorVariants[color]}
