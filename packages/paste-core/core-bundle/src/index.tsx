@@ -43,6 +43,7 @@ export * from '@twilio-paste/non-modal-dialog-primitive';
 export * from '@twilio-paste/pagination';
 export * from '@twilio-paste/paragraph';
 export * from '@twilio-paste/popover';
+export * from '@twilio-paste/radio-button-group';
 export * from '@twilio-paste/radio-group';
 export * from '@twilio-paste/screen-reader-only';
 export * from '@twilio-paste/select';
