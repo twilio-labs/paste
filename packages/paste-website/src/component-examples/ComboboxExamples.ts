@@ -468,7 +468,7 @@ render(
 `.trim();
 
 export const emptyStateExample = `
-const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
+const authors = ['James Baldwin', 'Adrienne Maree Brown', 'Octavia Butler', 'Ta-Nehisi Coates', 'Audre Lorde', 'Nnedi Okorafor'];
 
 const SampleEmptyState = () => (
   <Box paddingY="space40" paddingX="space50">
@@ -478,39 +478,22 @@ const SampleEmptyState = () => (
   </Box>
 );
 
-
 const EmptyStateCombobox = () => {
-  const [value, setValue] = React.useState('');
-  const [selectedItem, setSelectedItem] = React.useState('');
-  const [inputItems, setInputItems] = React.useState(products);
-
-  const {reset, ...state} = useCombobox({
-    items: inputItems,
-    itemToString: (item) => (item ? item.label : ''),
-    onSelectedItemChange: (changes) => {
-      if (changes.selectedItem != null) {
-        setSelectedItem(changes.selectedItem);
-      }
-    },
-    onInputValueChange: ({inputValue}) => {
-      if (inputValue !== undefined) {
-        setInputItems(
-          filter(products, (item) => item.toLowerCase().startsWith(inputValue.toLowerCase()))
-        );
-        setValue(inputValue);
-      }
-    },
-    initialInputValue: value,
-    initialSelectedItem: selectedItem,
-  });
+  const [inputItems, setInputItems] = React.useState([]);
 
   return (
     <Combobox
-      state={{...state, reset}}
-      items={inputItems}
       autocomplete
-      labelText="Select a product"
+      items={inputItems}
+      inputValue="test123"
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
       emptyState={SampleEmptyState}
+      labelText="Select an author"
+      helpText="Try searching for an item that doesn't exist in the list."
     />
   );
 };
