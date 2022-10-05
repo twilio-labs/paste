@@ -108,9 +108,8 @@ export const pageQuery = graphql`
     <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
       <ChatMessageMetaItem>
         <Avatar name="Gibby Radki" size="sizeIcon20" />
-        Gibby Radki
+        Gibby Radki ・ 3:35 PM
       </ChatMessageMetaItem>
-      <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
     </ChatMessageMeta>
   </ChatMessage>
   <ChatMessage variant='outbound'>
@@ -345,8 +344,7 @@ export const Basic = () => {
       <ChatMessage variant="inbound">
         <ChatBubble>Ahoy!</ChatBubble>
         <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
-          <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
-          <ChatMessageMetaItem>4 minutes ago</ChatMessageMetaItem>
+          <ChatMessageMetaItem>Gibby Radki ・ 4 minutes ago</ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>
       <ChatMessage variant="outbound">
@@ -451,11 +449,14 @@ ChatAttachmentLink inherits the same props as [Anchor](/components/anchor) as we
 ### Figma
 
 <Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Chat Log components are not in the Paste Component Library yet</CalloutHeading>
+  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
   <CalloutText>
-    To find the Stage 1 components, see{' '}
-    <Anchor href="https://www.figma.com/file/cSdKlqoTbxoAUmnrYkfFWl/Conversations-UI-Kit?node-id=0%3A1" showExternal>
-      the Conversations UI Kit Figma file
+    You can find the Chat Log components in{' '}
+    <Anchor
+      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=16157%3A123797"
+      showExternal
+    >
+      the Paste Components library
     </Anchor>
     .
   </CalloutText>

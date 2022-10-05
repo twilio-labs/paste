@@ -81,13 +81,12 @@ export const ScrollingChatLog: Story = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki
+              Gibby Radki ・ 4:30 PM
             </ChatMessageMetaItem>
-            <ChatMessageMetaItem>4:30 PM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatEvent>
-          <strong>Lauren Gardner, Lee White, Loreina Chew</strong> have joined the chat ・4:31 PM
+          <strong>Lauren Gardner, Lee White, Loreina Chew</strong> have joined the chat ・ 4:31 PM
         </ChatEvent>
         <ChatMessage variant="outbound">
           <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
@@ -112,8 +111,7 @@ export const ScrollingChatLog: Story = () => {
           </ChatBubble>
           <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
           <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-            <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
-            <ChatMessageMetaItem>5:04 PM</ChatMessageMetaItem>
+            <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="outbound">
@@ -165,19 +163,18 @@ export const KitchenSink: Story = () => (
       </ChatMessageMeta>
     </ChatMessage>
     <ChatEvent>
-      <strong>Lauren Gardner</strong> has joined the chat ・4:26 PM
+      <strong>Lauren Gardner</strong> has joined the chat ・ 4:26 PM
     </ChatEvent>
     <ChatEvent>
-      <strong>Gibby Radki</strong> sent transfer request to <strong>Technical Support Team</strong> ・3:42 PM
+      <strong>Gibby Radki</strong> sent transfer request to <strong>Technical Support Team</strong> ・ 3:42 PM
     </ChatEvent>
     <ChatMessage variant="inbound">
       <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
         <ChatMessageMetaItem>
           <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki
+          Gibby Radki ・ 4:30 PM
         </ChatMessageMetaItem>
-        <ChatMessageMetaItem>4:30 PM</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">
@@ -209,8 +206,7 @@ export const KitchenSink: Story = () => (
       </ChatBubble>
       <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-        <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
-        <ChatMessageMetaItem>5:04 PM</ChatMessageMetaItem>
+        <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">

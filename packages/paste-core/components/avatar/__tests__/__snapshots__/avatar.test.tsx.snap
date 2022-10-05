@@ -6,6 +6,9 @@ exports[`Avatar image should render responsive css with an image 1`] = `
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   width: sizeIcon30;
   height: sizeIcon30;
   background-color: colorBackgroundUser;
@@ -69,6 +72,9 @@ exports[`Avatar intials should render responsive css 1`] = `
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   width: sizeIcon10;
   height: sizeIcon10;
   background-color: colorBackgroundUser;

@@ -16,6 +16,7 @@
   "BaseRadioCheckboxLabelText": "@twilio-paste/core/base-radio-checkbox",
   "Breadcrumb": "@twilio-paste/core/breadcrumb",
   "BreadcrumbItem": "@twilio-paste/core/breadcrumb",
+  "ButtonGroup": "@twilio-paste/core/button-group",
   "Button": "@twilio-paste/core/button",
   "Callout": "@twilio-paste/core/callout",
   "CalloutHeading": "@twilio-paste/core/callout",
