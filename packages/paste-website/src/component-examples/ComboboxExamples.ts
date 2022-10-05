@@ -74,10 +74,10 @@ const OptionTemplateCombobox = () => {
       items={months}
       labelText="Select a month"
       optionTemplate={(item) => (
-        <MediaFigure spacing="space30">
-          <CalendarIcon decorative={true} />
-        </MediaFigure>
         <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space30">
+            <CalendarIcon decorative={true} />
+          </MediaFigure>
           <MediaBody>
             <Text as="span" fontStyle="italic" color="colorTextWeak">
             ({item.abbr}){' '}
