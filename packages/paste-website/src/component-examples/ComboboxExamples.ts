@@ -74,6 +74,9 @@ const OptionTemplateCombobox = () => {
       items={months}
       labelText="Select a month"
       optionTemplate={(item) => (
+        <MediaFigure spacing="space30">
+          <CalendarIcon decorative={true} />
+        </MediaFigure>
         <MediaObject verticalAlign="center">
           <MediaBody>
             <Text as="span" fontStyle="italic" color="colorTextWeak">
@@ -83,9 +86,6 @@ const OptionTemplateCombobox = () => {
               {item.label} {item.year}
             </Text>
           </MediaBody>
-          <MediaFigure spacing="space20">
-            <CalendarIcon decorative={true} />
-          </MediaFigure>
         </MediaObject>
       )}
       itemToString={item => (item ? String(item.label) : null)}
@@ -118,6 +118,9 @@ const ControlledCombobox = () => {
         labelText="Select a month"
         optionTemplate={(item) => (
           <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space30">
+              <CalendarIcon decorative={true} />
+            </MediaFigure>
             <MediaBody>
               <Text as="span" fontStyle="italic" color="colorTextWeak">
               ({item.abbr}){' '}
@@ -126,9 +129,6 @@ const ControlledCombobox = () => {
                 {item.label} {item.year}
               </Text>
             </MediaBody>
-            <MediaFigure spacing="space20">
-              <CalendarIcon decorative={true} />
-            </MediaFigure>
           </MediaObject>
         )}
         itemToString={item => (item ? String(item.label) : null)}
@@ -330,7 +330,7 @@ const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
 
 const DisabledCombobox = () => {
   return (
-    <Combobox items={products} labelText="Select a product" disabledItems={products.slice(1,2)} />
+    <Combobox items={products} labelText="Select a product" disabledItems={products.slice(1,3)} />
   );
 };
 
@@ -384,7 +384,22 @@ const objectItems = [
   {code: 'AQ', label: 'Antarctica', phone: '672'},
   {code: 'AR', label: 'Argentina', phone: '54'},
   {code: 'AS', label: 'American Samoa', phone: '1-684'},
-  {code: 'AT', label: 'Austria', phone: '43'},
+  {code: 'AT', label: 'Austria', phone: '44'},
+  {code: 'BS', label: 'Bahamas', phone: '43'},
+  {code: 'BH', label: 'Bahrain', phone: '48'},
+  {code: 'BD', label: 'Bangladesh', phone: '50'},
+  {code: 'BB', label: 'Barbados', phone: '52'},
+  {code: 'BY', label: 'Belarus', phone: '112'},
+  {code: 'BE', label: 'Belgium', phone: '56'},
+  {code: 'BZ', label: 'Belize', phone: '84'},
+  {code: 'BJ', label: 'Benin', phone: '204'},
+  {code: 'BM', label: 'Bermuda', phone: '60'},
+  {code: 'BT', label: 'Bhutan', phone: '64'},
+  {code: 'BO', label: 'Bolivia', phone: '68'},
+  {code: 'BW', label: 'Botswana', phone: '72'},
+  {code: 'BR', label: 'Brazil', phone: '76'},
+  {code: 'KH', label: 'Cambodia', phone: '116'},
+  {code: 'CA', label: 'Canada', phone: '124'},
 ];
 
 const ComboboxControlledUsingState = () => {
@@ -501,6 +516,6 @@ const EmptyStateCombobox = () => {
 };
 
 render(
-  <DisabledCombobox />
+  <EmptyStateCombobox />
 )
 `.trim();
