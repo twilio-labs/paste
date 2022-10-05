@@ -84,7 +84,7 @@ const OptionTemplateCombobox = () => {
             </Text>
           </MediaBody>
           <MediaFigure spacing="space20">
-            <LinkExternalIcon decorative={false} title="external" />
+            <CalendarIcon decorative={true} />
           </MediaFigure>
         </MediaObject>
       )}
@@ -127,7 +127,7 @@ const ControlledCombobox = () => {
               </Text>
             </MediaBody>
             <MediaFigure spacing="space20">
-              <LinkExternalIcon decorative={false} title="external" />
+              <CalendarIcon decorative={true} />
             </MediaFigure>
           </MediaObject>
         )}
@@ -330,7 +330,7 @@ const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
 
 const DisabledCombobox = () => {
   return (
-    <Combobox items={products} labelText="Select a product" disabledOptions={products[1]} />
+    <Combobox items={products} labelText="Select a product" disabledItems={products.slice(1,2)} />
   );
 };
 
@@ -464,12 +464,36 @@ const SampleEmptyState = () => (
 );
 
 
-const DisabledCombobox = () => {
+const EmptyStateCombobox = () => {
+  const [value, setValue] = React.useState('');
+  const [selectedItem, setSelectedItem] = React.useState('');
+  const [inputItems, setInputItems] = React.useState(products);
+
+  const {reset, ...state} = useCombobox({
+    items: inputItems,
+    itemToString: (item) => (item ? item.label : ''),
+    onSelectedItemChange: (changes) => {
+      if (changes.selectedItem != null) {
+        setSelectedItem(changes.selectedItem);
+      }
+    },
+    onInputValueChange: ({inputValue}) => {
+      if (inputValue !== undefined) {
+        setInputItems(
+          filter(products, (item) => item.toLowerCase().startsWith(inputValue.toLowerCase()))
+        );
+        setValue(inputValue);
+      }
+    },
+    initialInputValue: value,
+    initialSelectedItem: selectedItem,
+  });
+
   return (
     <Combobox
+      state={{...state, reset}}
+      items={inputItems}
       autocomplete
-      inputValue={products[3]}
-      items={products}
       labelText="Select a product"
       emptyState={SampleEmptyState}
     />

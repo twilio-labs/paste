@@ -14,7 +14,6 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
 import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
@@ -120,7 +119,7 @@ Use a [Select](/components/select) when:
 - Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical list of states or countries).
 - You need the component to work out-of-the-box across all operating systems and browsers.
 
-Use a (Multiselect) [Combobox](/components/combobox) when:
+Use a Multiselect Combobox when:
 
 - You need a Twilio-styled options list.
 - You need to show more than text in an option (e.g., text paired with an icon).
@@ -248,7 +247,7 @@ it resizes vertically, you can provide a `maxHeight` prop.
   {errorExample}
 </LivePreview>
 
-### Mutliselect Combobox with an empty state
+### Multiselect Combobox with an empty state
 
 Use an empty state to indicate to a user that their input does not match any value in the list of options.
 
@@ -263,17 +262,17 @@ A Multiselect Combobox is comprised of a label, an input and a listbox.
 ### Positioning form fields
 
 Stack form fields vertically with `$space-80` spacing between each field. Avoid placing multiple form fields on the
-same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place
-form fields horizontally.
+same horizontal row to help make it easier to scan a page vertically.
 
 ### Options in a Combobox
 
-Keep option text concise and simple. Option text will truncate when it is longer than the width of the container.
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container.
+Use a safe and reversible option as the default selected value.
 
-Use at least five options in a Combobox. If there are less than five options or if choosing options
-requires more explanation, consider using a Checkbox instead and add help text for each option,
-or give more explanation through help text. Sort options logically (e.g., alphabetically, by value)
-or in an order that’s intuitive to your user.
+Use at least 7 options in a Combobox. If there are less than 7 options or if choosing options requires
+more explanation, consider using a Checkbox instead and add Help Text for each option, or give more
+explanation through help text. Sort options logically (e.g., alphabetically, by value) or in an order
+that’s intuitive to your user.
 
 ## When to use Multiselect Combobox
 
@@ -287,11 +286,11 @@ or in an order that’s intuitive to your user.
 <DoDont>
   <Do
     title="Do"
-    body="Use a Multiselect Combobox when there are at least six options for a user to type or select from."
+    body="Use a Multiselect Combobox when there are at least 7 options for a user to type or select from."
   />
   <Dont
     title="Don't"
-    body="Don’t use a Multiselect Combobox if there are less than six options in a list for users to select multiple values from. Use a Checkbox Group instead."
+    body="Don’t use a Multiselect Combobox if there are less than 7 options in a list for users to select multiple values from. Use a Checkbox Group instead."
   />
 </DoDont>
 

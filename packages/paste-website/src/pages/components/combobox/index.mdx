@@ -6,6 +6,7 @@ slug: /components/combobox/
 ---
 
 import {graphql} from 'gatsby';
+import filter from 'lodash/filter';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Combobox, useCombobox} from '@twilio-paste/combobox';
@@ -13,7 +14,7 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
 import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
@@ -22,9 +23,8 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import filter from 'lodash/filter';
-import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
 import {
   autoCompleteExample,
   defaultExample,
@@ -103,11 +103,13 @@ export const pageQuery = graphql`
 
 ### About Combobox
 
-The Combobox is an opinionated implementation and wrapper around the **very excellent [Downshift component](https://downshift.netlify.app/downshift)**.
+A Combobox allows a user to select a single value from a styled listbox of options. Each option
+can consist of more than just text, _e.g._ text paired with an icon. However, an option can
+only be paired with non-interactive content and shouldn’t contain components like a checkbox
+or button. It can also be set up with autocomplete functionality so users can easily find a specific option.
 
-Combobox allows a user to make a selection from a styled list box of options. Each option can consist of more than just text,
-_e.g._ text paired with an icon. It can also be set up with autocomplete functionality so users can easily find a
-specific option.
+This component is an opinionated implementation and wrapper around the
+[Downshift library](https://downshift.netlify.app/downshift).
 
 ### What’s the difference between Select and Combobox?
 
@@ -118,15 +120,17 @@ autocomplete and grouping options.
 Use a [Select](/components/select) when:
 
 - You need a native picker experience, especially on mobile devices.
-- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical list of states or countries).
+- You only need to show text in an option.
+- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical list of states or countries). For less than 4 items, consider using a [Radio Group](/components/radio-group) instead.
 - You need the component to work out-of-the-box across all operating systems and browsers.
 
-Use a [Combobox](/components/combobox) when:
+Use a Combobox when:
 
 - You need a Twilio-styled options list.
 - You need to show more than text in an option (e.g., text paired with an icon).
 - You need to group options under labels.
 - You need to disable options in the list.
+- You need placeholder text in the field to show an example option, rather than a preselected option.
 - Users would benefit from autocomplete functionality (e.g., autocomplete, search). For example, autocomplete may be useful when users need to select from a list of more than 10 options.
 - You need to lazy load a much longer list of options to improve page load performance.
 
@@ -142,6 +146,7 @@ When the user is focused on a Combobox, the following keyboard interactions appl
 
 - Up and down arrows move the user between the options
 - Enter selects the currently active option
+- Escape closes the listbox or clears the selected option if the listbox is already closed
 
 ## Examples
 
@@ -157,6 +162,10 @@ predefined options.
 ### Autocomplete Combobox
 
 The autocomplete Combobox allows users to filter the list of options by typing into the input directly.
+
+This is useful when a user needs to filter a list of options, or when there are more than 15 options as
+users may find it difficult to navigate with only scrolling. Pass the `autocomplete` prop to enable
+the feature.
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {autoCompleteExample}
@@ -223,7 +232,7 @@ The `optionTemplate` prop allows you to pass `jsx` to customize the options. Not
 to build Combobox and these HTML elements don't allow for images, icons, or svgs to be added even with the option template.
 
 <LivePreview
-  scope={{Combobox, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  scope={{Combobox, CalendarIcon, MediaBody, MediaObject, MediaFigure, Text}}
   noInline
   language="jsx"
   showOverflow
@@ -238,7 +247,7 @@ The Combobox can be used as a [controlled component](https://reactjs.org/docs/fo
 In the example below the value of the Combobox is stored in a piece of our application state. We update that value based on user input into the Combobox, resetting the value of the Combobox. Upon the user selecting a defined option, we hook into `onSelectedItemChange` to set our selectedItem state value based on user selection.
 
 <LivePreview
-  scope={{Combobox, Box, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  scope={{Combobox, Box, CalendarIcon, MediaBody, MediaObject, MediaFigure, Text}}
   noInline
   language="jsx"
   showOverflow
@@ -262,7 +271,7 @@ Rather than the state be internal to the component, you can use the `useCombobox
 
 This allows you to destructure certain returned props from the state hook, including action methods like `reset`.
 
-An example usecase of this might be programmatically providing the user a way to clear or reset the Combobox of it's previous selections. In the example below we are providing a clear button as an input suffix. When pressed, it uses the `reset` action method from the hook to clear the input and select item values.
+An example use case of this might be programmatically providing the user a way to clear or reset the Combobox of its previous selections.
 
 It should be noted that when doing so, the `state` prop takes precident over the [other properties](#state-props) that affect the state or initial state of the `Combobox`. They will be ignored in favour of them being provided as arguments to the `useCombobox` hook.
 
@@ -312,17 +321,18 @@ A Combobox is comprised of a label, an input and a listbox.
 ### Positioning form fields
 
 Stack form fields vertically with `$space-80` spacing between each field. Avoid placing multiple form fields on the
-same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place
-form fields horizontally.
+same horizontal row to help make it easier to scan a page vertically.
 
 ### Options in a Combobox
 
-Keep option text concise and simple. Option text will truncate when it is longer than the width of the container.
+Keep option text concise and simple.
 
-Use at least five options in a Combobox. If there are less than five options or if choosing options
-requires more explanation, consider using a Checkbox instead and add help text for each option,
-or give more explanation through help text. Sort options logically (e.g., alphabetically, by value)
-or in an order that’s intuitive to your user.
+If setting a default selected value, use a safe and reversible option as the default selected value.
+
+Use at least 7 options in a Combobox. If there are less than 7 options or if choosing options requires more explanation,
+consider using a [Radio Group](/components/radio-group) instead and add help text for each option, or give more
+explanation through help text. Sort options logically (e.g., alphabetically, by value) or in an order that’s
+intuitive to your user.
 
 ---
 
@@ -396,6 +406,40 @@ These props are used when want to create a Controlled Combobox. They control the
 #### useCombobox arguments
 
 See the [Combobox Primitive](/primitives/combobox-primitive#usecomboboxprimitive-arguments).
+
+### Figma
+
+#### Usage
+
+Combobox is available in the Paste Components Figma library. It also has several base
+components with a ⚙️emoji in its layer name to indicate there are nested configurable properties available.
+
+#### Properties
+
+Here is a properties table for Combobox:
+
+| Property      | Variants                                                   | Description                                             | Default         |
+| ------------- | ---------------------------------------------------------- | ------------------------------------------------------- | --------------- |
+| Type          | `Single-select`, `Multi-select`                            | Swaps between combobox types.                           | “Single-select” |
+| State         | `Default`, `Error`, `Disabled`, `Open`                     | The state of the Combobox.                              | “Default”       |
+| Required      | “Yes”, “No”                                                | Toggles to display if the Combobox is a required field. | “No”            |
+| Help Text     | “Yes”, “No”                                                | Toggles to display help text below the field.           | “No”            |
+| Prefix/Suffix | `Prefix text`, `Prefix icon`, `Suffix text`, `Suffix icon` | Adds a prefix ahead or a suffix after the field text.   |                 |
+
+Here is a properties table for its nested component, Field:
+
+| Property | Variants                                                                 | Description                                               | Default   |
+| -------- | ------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
+| Value    | `Filled`, `Blank`                                                        | Toggles a different view of the Field if there’s a value. | “Filled”  |
+| State    | `Default`, `Hover`, `Hover (Autocomplete)`, `Focus`, `Error`, `Disabled` | The state of the Field.                                   | “Default” |
+
+Here is a properties table for Listbox Item, a nested component within Listbox:
+
+| Property | Variants                                                                                  | Description                                           | Default          |
+| -------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------- |
+| Variant  | `Ungrouped item`, `Group label`, `Grouped item`, `Loading state`, `Empty state`, `Create` | The variant of the Listbox item.                      | “Ungrouped item” |
+| Selected | “Yes”, “No”                                                                               | Toggles to show the selected state of a Listbox item. | “No”             |
+| State    | `Default`, `Hover/Active`, `Disabled`                                                     | The state of the Field.                               | "Default”        |
 
 <ChangelogRevealer>
   <Changelog />
