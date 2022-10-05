@@ -35,6 +35,7 @@
     "@twilio-paste/box": "^7.1.0",
     "@twilio-paste/breadcrumb": "^8.0.0",
     "@twilio-paste/button": "^11.1.1",
+    "@twilio-paste/button-group": "^0.0.0",
     "@twilio-paste/callout": "^1.0.0",
     "@twilio-paste/card": "^6.0.0",
     "@twilio-paste/chat-log": "^2.0.1",

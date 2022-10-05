@@ -15,15 +15,13 @@ export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaP
   ({children, element = 'CHAT_MESSAGE_META', ...props}, ref) => {
     const variant = React.useContext(MessageVariantContext);
 
-    const hasMultipleChildren = React.Children.count(children) > 1;
-
     return (
       <Box
         ref={ref}
         element={element}
         display="flex"
-        justifyContent={hasMultipleChildren ? 'space-between' : 'flex-end'}
-        textAlign={!hasMultipleChildren ? 'right' : undefined}
+        justifyContent={variant === 'inbound' ? 'flex-start' : 'flex-end'}
+        textAlign={variant === 'outbound' ? 'right' : 'left'}
         alignItems="center"
         variant={variant}
         columnGap="space40"
