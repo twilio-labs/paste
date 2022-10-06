@@ -34,7 +34,7 @@ const MultiselectComboboxExample = () => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
@@ -84,7 +84,7 @@ const MultiselectComboboxExample = () => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
@@ -151,7 +151,7 @@ const MultiselectComboboxExample = () => {
       onSelectedItemsChange={(selectedItems) => {
         console.log(selectedItems);
       }}
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       optionTemplate={(item) => <div>{item.label}</div>}
@@ -201,7 +201,7 @@ const MultiselectComboboxExample = () => {
       onSelectedItemsChange={(selectedItems) => {
         console.log(selectedItems);
       }}
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       optionTemplate={(item) => <div>{item.label}</div>}
@@ -315,7 +315,7 @@ const MultiselectComboboxExample = () => {
   return (
     <MultiselectCombobox
       disabled
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
@@ -363,7 +363,7 @@ const MultiselectComboboxExample = () => {
 
   return (
     <MultiselectCombobox
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
@@ -412,7 +412,7 @@ const MultiselectComboboxExample = () => {
   return (
     <MultiselectCombobox
       hasError
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Tooltip must be used with an anchor or button."
       items={filteredItems}
@@ -469,7 +469,7 @@ const MultiselectComboboxExample = () => {
   return (
     <MultiselectCombobox
       emptyState={SampleEmptyState}
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
       helpText="Try searching for an item that doesn't exist in the list."
       items={filteredItems}
@@ -514,9 +514,9 @@ const MultiselectComboboxExample = () => {
   return (
     <MultiselectCombobox
       maxHeight="130px"
-      labelText="Choose a Paste Component"
+      labelText="Choose a Paste component"
       selectedItemsLabelText="Selected Paste components"
-      helpText="Paste components are the building blocks of your product UI."
+      helpText="Try searching for an item that doesn't exist in the list."
       items={filteredItems}
       initialSelectedItems={items.slice(20, 80)}
       emptyState={SampleEmptyState}
