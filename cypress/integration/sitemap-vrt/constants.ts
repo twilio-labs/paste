@@ -24,6 +24,7 @@ export const SITEMAP = [
   '/components/display-pill-group/',
   '/components/disclosure/',
   '/components/button/',
+  '/components/button-group/',
   '/components/flex/',
   '/components/combobox/',
   '/components/date-picker/',
