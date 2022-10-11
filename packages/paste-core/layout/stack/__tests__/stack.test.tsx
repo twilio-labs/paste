@@ -3,53 +3,58 @@ import {render, screen} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-import type {StackOrientation} from '../src';
-import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
+import type {StackOrientation} from '../src/Stack';
+import {getDirection, getAlignment, getStackStyles, Stack} from '../src/Stack';
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';
   const mockVerticalOrientation = 'vertical';
   const mockResponsiveOrientation: StackOrientation = ['vertical', 'horizontal', 'vertical'];
   const mockSpace = 'space40';
-  const horizontalStyles = {display: 'flex', alignItems: 'center', flexWrap: 'wrap'};
-  const verticalStyles = {display: 'block', alignItems: 'center', flexWrap: 'wrap'};
-  const marginRightStyles = {marginRight: 'space40'};
-  const marginBottomStyles = {marginBottom: 'space40'};
-  const marginReponsiveStyles = {
-    marginBottom: ['space40', 'space0', 'space40'],
-    marginRight: ['space0', 'space40', 'space0'],
+  const horizontalStyles = {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 'space40',
+    rowGap: 'space40',
+  };
+  const verticalStyles = {
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    columnGap: 'space40',
+    rowGap: 'space40',
   };
 
+  // Direction
   it('should return display: flex', (): void => {
-    expect(getStackDisplay(mockHorizontalOrientation)).toStrictEqual('flex');
+    expect(getDirection(mockHorizontalOrientation)).toStrictEqual('row');
   });
 
   it('should return display: block', (): void => {
-    expect(getStackDisplay(mockVerticalOrientation)).toStrictEqual('block');
+    expect(getDirection(mockVerticalOrientation)).toStrictEqual('column');
   });
 
   it('should return a reponsive display', (): void => {
-    expect(getStackDisplay(mockResponsiveOrientation)).toStrictEqual(['block', 'flex', 'block']);
+    expect(getDirection(mockResponsiveOrientation)).toStrictEqual(['column', 'row', 'column']);
   });
 
+  // Alignment
+  it('should return horizontal alignment as center', (): void => {
+    expect(getAlignment(mockHorizontalOrientation)).toStrictEqual('center');
+  });
+  it('should return vertical alignment as stretch', (): void => {
+    expect(getAlignment(mockVerticalOrientation)).toStrictEqual('stretch');
+  });
+  it('should return responsive alignment correctly', (): void => {
+    expect(getAlignment(mockResponsiveOrientation)).toStrictEqual(['stretch', 'center', 'stretch']);
+  });
+
+  // Stack Styles
   it('should return horizontal styles', (): void => {
-    expect(getStackStyles(mockHorizontalOrientation)).toStrictEqual(horizontalStyles);
+    expect(getStackStyles(mockHorizontalOrientation, mockSpace)).toStrictEqual(horizontalStyles);
   });
 
   it('should return vertical styles', (): void => {
-    expect(getStackStyles(mockVerticalOrientation)).toStrictEqual(verticalStyles);
-  });
-
-  it('should return marginRight styles', (): void => {
-    expect(getStackChildMargins(mockHorizontalOrientation, mockSpace)).toStrictEqual(marginRightStyles);
-  });
-
-  it('should return marginBottom styles', (): void => {
-    expect(getStackChildMargins(mockVerticalOrientation, mockSpace)).toStrictEqual(marginBottomStyles);
-  });
-
-  it('should return responsive margin styles', (): void => {
-    expect(getStackChildMargins(mockResponsiveOrientation, mockSpace)).toStrictEqual(marginReponsiveStyles);
+    expect(getStackStyles(mockVerticalOrientation, mockSpace)).toStrictEqual(verticalStyles);
   });
 });
 
@@ -120,18 +125,6 @@ describe('Stack Customization', () => {
     expect(renderedBox).toHaveAttribute('data-paste-element', 'STACK');
   });
 
-  it('should set the data-paste-attribute attribute for Stack Children to "STACK_CHILD"', (): void => {
-    const {container} = render(
-      <CustomizationProvider baseTheme="default">
-        <Stack orientation="vertical" spacing="space0">
-          <p>One</p>
-          <p>Two</p>
-        </Stack>
-      </CustomizationProvider>
-    );
-    expect(container.querySelector('[data-paste-element="STACK_CHILD"]')).toBeInTheDocument();
-  });
-
   it('should allow a custom element name to be set for Stack', (): void => {
     render(
       <CustomizationProvider baseTheme="default">
@@ -143,18 +136,6 @@ describe('Stack Customization', () => {
     );
     const renderedBox = screen.getByTestId('stack-customization-name');
     expect(renderedBox).toHaveAttribute('data-paste-element', 'STACKY');
-  });
-
-  it('should allow a custom element name to be set for Stack children', (): void => {
-    const {container} = render(
-      <CustomizationProvider baseTheme="default">
-        <Stack element="STACKY" orientation="vertical" spacing="space0">
-          <p>One</p>
-          <p>Two</p>
-        </Stack>
-      </CustomizationProvider>
-    );
-    expect(container.querySelector('[data-paste-element="STACKY_CHILD"]')).toBeInTheDocument();
   });
 
   it('should style Stack according to the customization provider', (): void => {
@@ -172,22 +153,5 @@ describe('Stack Customization', () => {
     const renderedBox = screen.getByTestId('customizable-stack');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedBox).toHaveStyleRule('color', 'rgb(96, 107, 133)');
-  });
-
-  it('should style Stack children according to the customization provider', (): void => {
-    const {container} = render(
-      <CustomizationProvider
-        baseTheme="default"
-        elements={{STACK_CHILD: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
-      >
-        <Stack orientation="vertical" spacing="space0">
-          <p>One</p>
-          <p>Two</p>
-        </Stack>
-      </CustomizationProvider>
-    );
-    const childNode = container.querySelector('[data-paste-element="STACK_CHILD"]');
-    expect(childNode).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
-    expect(childNode).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });

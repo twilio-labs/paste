@@ -1,49 +1,17 @@
 import * as React from 'react';
 import type {Story} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-import type {StackOrientation} from '../src';
 import {Stack} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Stack',
-  component: Stack,
-};
-
-export const DefaultStack = (): React.ReactNode => {
-  const orientaionValue = 'vertical' as StackOrientation;
-  const spaceValue = 'space40' as keyof ThemeShape['space'];
-  return (
-    <Stack orientation={orientaionValue} spacing={spaceValue}>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          First Card
-        </Heading>
-      </Card>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          Second Card
-        </Heading>
-        <Paragraph>Card content should go here.</Paragraph>
-      </Card>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          Third Card
-        </Heading>
-      </Card>
-    </Stack>
-  );
-};
-
-DefaultStack.story = {
-  name: 'Stack',
 };
 
 export const StackVertical = (): React.ReactNode => {
@@ -100,7 +68,7 @@ StackHorizontal.story = {
   name: 'Stack - Horizontal',
 };
 
-export const StackResponsive = (): React.ReactNode => {
+export const StackResponsiveOrientation = (): React.ReactNode => {
   return (
     <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing="space40">
       <Card>
@@ -123,8 +91,89 @@ export const StackResponsive = (): React.ReactNode => {
   );
 };
 
+StackResponsiveOrientation.story = {
+  name: 'Stack - Responsive orientation',
+};
+
+export const StackResponsiveSpacingHorizontal = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing={['space20', 'space40', 'space80']}>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          First Card
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Second Card
+        </Heading>
+        <Paragraph>Card content should go here.</Paragraph>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Third Card
+        </Heading>
+      </Card>
+    </Stack>
+  );
+};
+
+StackResponsiveSpacingHorizontal.story = {
+  name: 'Stack - Responsive spacing horizontal',
+};
+
+export const StackResponsiveSpacingVertical = (): React.ReactNode => {
+  return (
+    <Stack orientation="vertical" spacing={['space20', 'space40', 'space80']}>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          First Card
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Second Card
+        </Heading>
+        <Paragraph>Card content should go here.</Paragraph>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Third Card
+        </Heading>
+      </Card>
+    </Stack>
+  );
+};
+
+StackResponsiveSpacingVertical.story = {
+  name: 'Stack - Responsive spacing vertical',
+};
+
+export const StackResponsive = (): React.ReactNode => {
+  return (
+    <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing={['space20', 'space40', 'space80']}>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          First Card
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Second Card
+        </Heading>
+        <Paragraph>Card content should go here.</Paragraph>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Third Card
+        </Heading>
+      </Card>
+    </Stack>
+  );
+};
+
 StackResponsive.story = {
-  name: 'Stack - Responsive',
+  name: 'Stack - Responsive orientation and spacing',
 };
 
 export const OneChild = (): React.ReactNode => {
