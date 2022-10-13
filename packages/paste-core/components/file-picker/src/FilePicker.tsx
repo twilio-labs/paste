@@ -96,7 +96,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             >
               {fileDescription}
             </Text>
-            {React.cloneElement(children, {disabled: disabled, element: `${element}_BUTTON`})}
+            {React.cloneElement(children, {disabled, element: `${element}_BUTTON`})}
           </SiblingBox>
         </label>
       </>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Box} from '../src';
 import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 

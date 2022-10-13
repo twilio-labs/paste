@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {CheckboxDisclaimer} from '../src';
 
 const defaultProps = {

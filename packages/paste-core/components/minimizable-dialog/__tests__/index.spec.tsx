@@ -8,7 +8,6 @@ import {
   MinimizableDialogContainer,
   MinimizableDialogContent,
 } from '../src';
-
 import {StateHookExample} from '../stories/index.stories';
 
 describe('MinimizableDialog', () => {

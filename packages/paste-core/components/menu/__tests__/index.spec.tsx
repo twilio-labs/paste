@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+
 import {useMenuState, Menu, MenuItem, MenuButton, MenuGroup, MenuSeparator} from '../src';
 import type {MenuButtonProps} from '../src';
 
@@ -112,6 +113,7 @@ describe('Menu', () => {
       const {getByText} = render(<MenuMock groupRef={groupRef} />);
 
       expect(groupRef.current).not.toBeNull();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore we're checking it above
       expect(groupRef.current.getAttribute('aria-label')).toEqual(GROUP_LABEL_TEXT);
 

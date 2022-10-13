@@ -5,6 +5,7 @@ import {secureExternalLink} from '@twilio-paste/anchor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+
 import type {
   ButtonProps,
   ButtonSizes,
@@ -31,10 +32,12 @@ export {ToggleStyles as ButtonToggleStyles} from './styles';
 
 const AnimatedBox = animated(Box);
 
-// If size isn't passed, come up with a smart default:
-// - 'reset' for variant 'link'
-// - 'icon' if there's 1 child that's an icon
-// - 'default' otherwise
+/*
+ * If size isn't passed, come up with a smart default:
+ * - 'reset' for variant 'link'
+ * - 'icon' if there's 1 child that's an icon
+ * - 'default' otherwise
+ */
 const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?: ButtonSizes): ButtonSizes => {
   let smartSize: ButtonSizes = 'default';
   if (size != null) {
@@ -43,11 +46,14 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
     smartSize = 'reset';
   } else if (React.Children.count(children) === 1) {
     React.Children.forEach(children, (child) => {
-      if (React.isValidElement(child)) {
+      if (
+        React.isValidElement(child) &&
         // @ts-expect-error we know displayName will exist in React
-        if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
-          smartSize = 'icon';
-        }
+        typeof child.type.displayName === 'string' &&
+        // @ts-expect-error we know displayName will exist in React
+        child.type.displayName.includes('Icon')
+      ) {
+        smartSize = 'icon';
       }
     });
   }
@@ -159,6 +165,8 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
     </>
   );
 };
+
+ButtonContents.displayName = 'ButtonContents';
 
 const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<DirectButtonProps> => {
   switch (variant) {

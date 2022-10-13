@@ -12,6 +12,7 @@ import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
+
 import type {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
 import {IconCard} from './IconCard';
 import {SiteLink} from '../SiteLink';
@@ -22,7 +23,7 @@ const {icons: iconsJson} = require('@twilio-paste/icons/json/icons.json');
 const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {name}: IconObject) => {
   return {
     ...icons,
-    // eslint-disable-next-line import/no-dynamic-require,global-require
+    // eslint-disable-next-line import/no-dynamic-require,global-require, @typescript-eslint/no-var-requires
     [`${name}`]: require(`@twilio-paste/icons/esm/${name}.js`)[name],
   };
 }, {});

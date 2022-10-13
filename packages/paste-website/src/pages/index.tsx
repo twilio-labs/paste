@@ -1,6 +1,7 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import {Helmet} from 'react-helmet';
+
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
 import {HomeHero} from '../components/homepage/HomeHero';
@@ -9,8 +10,10 @@ import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
 
 const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
-  // Only load the Experiment section iframe when the user scrolls down to
-  // the Popular section (the section prior)
+  /*
+   * Only load the Experiment section iframe when the user scrolls down to
+   * the Popular section (the section prior)
+   */
   const [showIframe, setShowIframe] = React.useState(false);
   function handleVisibilityChange(isVisible: boolean): void {
     if (!showIframe) {

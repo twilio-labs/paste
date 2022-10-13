@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
+
 import {LivePreview} from '../src/components/shortcodes/live-preview';
 
 export const SmallLivePreview = (): React.ReactNode => {

@@ -22,8 +22,10 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
     backgroundColors: {colorBackground},
   } = useTheme();
 
-  // "Force" update of this child component to ensure that the refs are correctly set on the initial render.
-  // Required to measure the actual rendered dimensions and resize accordingly.
+  /*
+   * "Force" update of this child component to ensure that the refs are correctly set on the initial render.
+   * Required to measure the actual rendered dimensions and resize accordingly.
+   */
   React.useEffect(() => {
     initRefs(true);
   }, []);

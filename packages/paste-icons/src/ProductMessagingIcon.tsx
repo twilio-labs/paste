@@ -3,6 +3,7 @@
  */
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 

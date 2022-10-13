@@ -21,6 +21,7 @@ import {
   isDeprecatedBoxShadowTokenProp,
   isDeprecatedTextColorTokenProp,
 } from '@twilio-paste/style-props';
+
 import type {BoxProps, StyledBoxProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
 import {customStyleProps} from './CustomStyleProps';

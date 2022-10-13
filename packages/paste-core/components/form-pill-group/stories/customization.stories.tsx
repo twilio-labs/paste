@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
 
 export const CustomFormPillGroup: React.FC = () => {

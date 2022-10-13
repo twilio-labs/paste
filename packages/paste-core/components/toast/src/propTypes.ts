@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+
 import {ToastVariantObject} from './constants';
 
 export const ToastPropTypes = {

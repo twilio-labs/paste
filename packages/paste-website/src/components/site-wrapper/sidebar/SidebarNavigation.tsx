@@ -2,7 +2,6 @@ import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {StaticImage} from 'gatsby-plugin-image';
 import kebabCase from 'lodash/kebabCase';
-
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
@@ -10,13 +9,11 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
 import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
 import {useNavigationContext} from '../../../context/NavigationContext';
-
 import {SidebarAnchor} from './SidebarAnchor';
 import {SidebarSeparator} from './SidebarSeparator';
 import {SidebarDisclosure} from './sidebar-disclosure/SidebarDisclosure';
 import {SidebarDisclosureButton} from './sidebar-disclosure/SidebarDisclosureButton';
 import {SidebarDisclosureContent} from './sidebar-disclosure/SidebarDisclosureContent';
-
 import type {SidebarDisclosureProps} from './sidebar-disclosure/SidebarDisclosure';
 import type {SidebarDisclosureButtonProps} from './sidebar-disclosure/SidebarDisclosureButton';
 import type {SidebarDisclosureContentProps} from './sidebar-disclosure/SidebarDisclosureContent';

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+
 import {ScreenReaderOnly} from '../src';
 
 // eslint-disable-next-line import/no-default-export

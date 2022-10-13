@@ -6,6 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Anchor} from '../src';
 import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
 

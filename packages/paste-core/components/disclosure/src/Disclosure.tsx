@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useDisclosurePrimitiveState} from '@twilio-paste/disclosure-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
+
 import {DisclosureContext} from './DisclosureContext';
 import type {DisclosureProps} from './types';
 import {DisclosurePropTypes} from './PropTypes';

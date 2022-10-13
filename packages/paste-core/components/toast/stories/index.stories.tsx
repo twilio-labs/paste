@@ -10,6 +10,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+
 import type {ToastVariants} from '../src';
 import {Toast, ToastContainer, Toaster, useToaster} from '../src';
 import {ToastVariantObject} from '../src/constants';
@@ -254,7 +255,7 @@ export const ToastContainerStory = (): React.ReactNode => {
           <Text as="div">I am a toast</Text>
         </Toast>
         {toasts.map((toast) => (
-          <Toast variant={toast.variant} onDismiss={() => {}}>
+          <Toast variant={toast.variant} onDismiss={() => {}} key={toast.message}>
             <Text as="div">{toast.message}</Text>
           </Toast>
         ))}
@@ -284,6 +285,7 @@ export const ToasterStory = (): React.ReactNode => {
       message: messageText,
       ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
       onDismiss: () => {
+        // eslint-disable-next-line no-console
         console.log('dismissed!');
       },
     });

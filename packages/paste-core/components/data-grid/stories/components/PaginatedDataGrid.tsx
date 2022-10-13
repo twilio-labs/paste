@@ -11,6 +11,7 @@ import {
   PaginationNumber,
   PaginationEllipsis,
 } from '@twilio-paste/pagination';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableHeaderData, PaginatedTableBodyData} from './constants';
 
@@ -26,8 +27,10 @@ const calculatePaginationState = (currentPage: number, pageCount: number): numbe
     // delta === 7: [1 2 3 4 5 6 7]
     delta = 7;
   } else {
-    // delta === 2: [1 ... 4 5 6 ... 10]
-    // delta === 4: [1 2 3 4 5 ... 10]
+    /*
+     * delta === 2: [1 ... 4 5 6 ... 10]
+     * delta === 4: [1 2 3 4 5 ... 10]
+     */
     delta = currentPage > 4 && currentPage < pageCount - 3 ? 2 : 4;
   }
 
@@ -138,18 +141,20 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
 
   const handleClick = React.useCallback(() => {
     if (checkboxRef.current == null) {
-      return;
+      return undefined;
     }
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
     (event) => {
       if (checkboxRef.current == null) {
-        return;
+        return undefined;
       }
       if (event.keyCode === 32 || event.keyCode === 13) {
         return onClick(!checkboxRef.current.checked);
       }
+
+      return undefined;
     },
     [onClick, checkboxRef]
   );

@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
+
 import type {Variants, Element} from './types';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
@@ -26,8 +27,10 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         as="select"
         ref={ref}
         size={size}
-        // ensure height is reset after size, so that size doesn't set a css height via the style prop.
-        // We want the size attribute on the HTML element to set the height, not the css
+        /*
+         * ensure height is reset after size, so that size doesn't set a css height via the style prop.
+         * We want the size attribute on the HTML element to set the height, not the css
+         */
         height={undefined}
         appearance="none"
         backgroundColor="transparent"

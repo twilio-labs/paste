@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
+
 import {CustomizedAlertDialog, CustomizedDestructiveAlertDialog} from '../stories/index.stories';
 
 jest.mock('@twilio-paste/modal-dialog-primitive', () => {

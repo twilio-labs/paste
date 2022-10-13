@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
+
 import {Truncate} from '../src';
 
 // eslint-disable-next-line import/no-default-export

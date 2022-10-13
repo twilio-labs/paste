@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {DisplayPillGroup, DisplayPill} from '../src';
 import {Basic} from '../stories/index.stories';
 import {CustomDisplayPillGroup} from '../stories/customization.stories';

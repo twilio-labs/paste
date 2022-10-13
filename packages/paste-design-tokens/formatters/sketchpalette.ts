@@ -1,6 +1,6 @@
 import * as color from 'color';
 import * as Immutable from 'immutable';
-import {ImmutableStyleMap} from 'theo';
+import type {ImmutableStyleMap} from 'theo';
 
 interface SketchPaletteColor {
   name: string;
@@ -17,6 +17,7 @@ interface ColorRGB {
 }
 
 const convertToSketchPaletteColor = (input: string): {[key: string]: number} => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore FIXME
   const convertedColor: ColorRGB = color.rgb(input);
 
@@ -31,6 +32,7 @@ const convertToSketchPaletteColor = (input: string): {[key: string]: number} => 
 const convertColorArray = (result: ImmutableStyleMap): SketchPaletteColor[] =>
   result
     .get('props')
+    // eslint-disable-next-line consistent-return
     .sortBy((prop) => {
       if (prop !== undefined) {
         return prop.get('name');

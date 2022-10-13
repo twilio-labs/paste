@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 import {ThemeProvider} from '@twilio-paste/styling-library';
+
 import {useThemeContrastCheck} from '../src/useThemeContrastCheck';
 
 describe('useThemeContrastCheck', () => {

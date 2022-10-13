@@ -6,6 +6,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {useTheme} from '@twilio-paste/theme';
+
 import {PasteIcon} from '../../icons/PasteIcon';
 import {PasteIconPride} from '../../icons/PasteIconPride';
 
@@ -30,8 +31,10 @@ interface SiteHeaderLogoProps {
   subtitle?: string;
 }
 
-// Note: 'subtitle' isn't passed for the mobile view, so we use that fact
-// to render different sizes and spacing in mobile
+/*
+ * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
+ * to render different sizes and spacing in mobile
+ */
 const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
   const theme = useTheme();
   const [logoOpacity, setLogoOpacity] = React.useState(1);

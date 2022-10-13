@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {BoxProps} from '@twilio-paste/box';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableBodyData} from './constants';
 

@@ -3,6 +3,7 @@ import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import {StaticImage} from 'gatsby-plugin-image';
+
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
 import {convertPositionToInputValue, clampValueToRange} from './utils';
@@ -40,12 +41,16 @@ export const ImageSlider: React.FC = () => {
 
   const {svgOffset, svgHeight, svgWidth} = useSvgResize(containerHeight, containerWidth);
 
-  // Minimum change defines the absolute distance threshold for value to change.
-  // Calculated by half the width of the SVG, default is half of the absolute width.
+  /*
+   * Minimum change defines the absolute distance threshold for value to change.
+   * Calculated by half the width of the SVG, default is half of the absolute width.
+   */
   const minimumChange = svgWidth ? svgWidth / 2 : DEFAULT_MIN_CHANGE;
 
-  // Width of SVG Clip used to conditionally show/hide part of the each image
-  // SVG clip is calculated from right to left, since the dynamic value here is the width.
+  /*
+   * Width of SVG Clip used to conditionally show/hide part of the each image
+   * SVG clip is calculated from right to left, since the dynamic value here is the width.
+   */
   const clip = (value / MAX_VALUE) * containerWidth;
 
   const handleMouseMove = React.useCallback(

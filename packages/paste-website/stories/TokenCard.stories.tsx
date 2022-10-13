@@ -3,9 +3,9 @@ import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import camelCase from 'lodash/camelCase';
-import {TokenCard} from '../src/components/tokens-list/token-card';
-
 import type {ComponentStory, ComponentMeta} from '@storybook/react';
+
+import {TokenCard} from '../src/components/tokens-list/token-card';
 
 const defaultThemeTokens = Tokens.tokens;
 

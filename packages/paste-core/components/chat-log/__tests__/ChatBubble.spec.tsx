@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {ChatMessage, ChatBubble} from '../src';
 
 const CustomizationWrapper: React.FC = ({children}) => (
@@ -26,7 +27,7 @@ const CustomizationFooWrapper: React.FC = ({children}) => (
     baseTheme="default"
     theme={TestTheme}
     elements={{
-      foo_bubble: {
+      FOO_BUBBLE: {
         color: 'colorTextInverse',
         variants: {
           inbound: {backgroundColor: 'colorBackgroundPrimary'},
@@ -97,12 +98,12 @@ describe('Customization', () => {
     render(
       <>
         <ChatMessage variant="inbound">
-          <ChatBubble element="foo_bubble" data-testid="inbound-bubble">
+          <ChatBubble element="FOO_BUBBLE" data-testid="inbound-bubble">
             test
           </ChatBubble>
         </ChatMessage>
         <ChatMessage variant="outbound">
-          <ChatBubble element="foo_bubble" data-testid="outbound-bubble">
+          <ChatBubble element="FOO_BUBBLE" data-testid="outbound-bubble">
             test
           </ChatBubble>
         </ChatMessage>
@@ -123,12 +124,12 @@ describe('Customization', () => {
     render(
       <>
         <ChatMessage variant="inbound">
-          <ChatBubble element="foo_bubble" data-testid="inbound-bubble">
+          <ChatBubble element="FOO_BUBBLE" data-testid="inbound-bubble">
             test
           </ChatBubble>
         </ChatMessage>
         <ChatMessage variant="outbound">
-          <ChatBubble element="foo_bubble" data-testid="outbound-bubble">
+          <ChatBubble element="FOO_BUBBLE" data-testid="outbound-bubble">
             test
           </ChatBubble>
         </ChatMessage>
@@ -139,7 +140,7 @@ describe('Customization', () => {
     const inboundBubble = screen.getByTestId('inbound-bubble');
     const outboundBubble = screen.getByTestId('outbound-bubble');
 
-    expect(inboundBubble.getAttribute('data-paste-element')).toEqual('foo_bubble');
-    expect(outboundBubble.getAttribute('data-paste-element')).toEqual('foo_bubble');
+    expect(inboundBubble.getAttribute('data-paste-element')).toEqual('FOO_BUBBLE');
+    expect(outboundBubble.getAttribute('data-paste-element')).toEqual('FOO_BUBBLE');
   });
 });

@@ -78,7 +78,8 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
       hasError: hasError != null ? hasError : radioGroupContext.hasError,
     };
 
-    /* We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
+    /*
+     * We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
      * So we conditionally provide the correct prop here.
      */
     if (isControlled) {

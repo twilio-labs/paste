@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
-import {GenericHeader} from '../components/shortcodes/generic-header/index';
 import {render, screen} from '@testing-library/react';
+
+import {GenericHeader} from '../components/shortcodes/generic-header';
 
 describe('GenericHeader', () => {
   const FullHeader: React.FC = () => {

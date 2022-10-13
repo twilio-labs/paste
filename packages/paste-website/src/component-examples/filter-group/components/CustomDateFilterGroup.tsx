@@ -17,7 +17,6 @@ import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
 import {DATE_TIME_RANGES, ROOM_TYPES, FORM_DEFAULT_VALUES} from '../constants';
 import type {FilterGroupDateTimeProps, DateTimeFormValues} from '../types';
 import {filterByDateTimeRange, filterByRoomType, filterBySearchString, isEndDateBeforeStartDate} from '../helpers';
-
 import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 import {DateTimePopover} from './DateTimePopover';

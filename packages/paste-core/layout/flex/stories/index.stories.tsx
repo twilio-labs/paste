@@ -6,6 +6,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Truncate} from '@twilio-paste/truncate';
+
 import {Flex} from '../src';
 
 // eslint-disable-next-line import/no-default-export

@@ -5,6 +5,7 @@ import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {isIconSizeTokenProp} from '@twilio-paste/style-props';
+
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants} from './types';
 
@@ -41,6 +42,8 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
     </Text>
   );
 };
+
+AvatarContents.displayName = 'AvatarContents';
 
 const colorVariants: Record<ColorVariants, BoxStyleProps> = {
   default: {
@@ -80,6 +83,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     ref
   ) => {
     if (name === undefined) {
+      // eslint-disable-next-line no-console
       console.error('[Paste Avatar]: name prop is required');
     }
 

@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 import {useUIDSeed} from '@twilio-paste/uid-library';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 
@@ -18,18 +19,20 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
 
   const handleClick = React.useCallback(() => {
     if (checkboxRef.current == null) {
-      return;
+      return undefined;
     }
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
     (event) => {
       if (checkboxRef.current == null) {
-        return;
+        return undefined;
       }
       if (event.keyCode === 32 || event.keyCode === 13) {
         return onClick(!checkboxRef.current.checked);
       }
+
+      return undefined;
     },
     [onClick, checkboxRef]
   );

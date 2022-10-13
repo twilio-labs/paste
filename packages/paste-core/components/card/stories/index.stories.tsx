@@ -5,6 +5,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Card} from '../src';
 
 // eslint-disable-next-line import/no-default-export

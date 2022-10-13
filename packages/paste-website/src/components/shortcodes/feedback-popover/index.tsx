@@ -12,6 +12,7 @@ import {ThumbsUpIcon} from '@twilio-paste/icons/esm/ThumbsUpIcon';
 import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+
 import {SimpleStorage} from '../../../utils/SimpleStorage';
 import {useLocationPathname} from '../../../utils/RouteUtils';
 

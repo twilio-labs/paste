@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+
 import {AssetStatus} from './AssetStatus';
 import {PeerReviewStatus} from './PeerReviewStatus';
 import type {PackageData} from './types';

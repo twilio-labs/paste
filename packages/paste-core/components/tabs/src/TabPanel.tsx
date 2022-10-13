@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
+
 import {TabsContext} from './TabsContext';
 import {getElementName} from './utils';
 

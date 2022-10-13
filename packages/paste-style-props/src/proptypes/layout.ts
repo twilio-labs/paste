@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import {DefaultTheme} from '@twilio-paste/theme';
+
 import {propValidator} from './utils/propValidator';
 import {ResponsiveProp} from './utils/responsivePropValidator';
 

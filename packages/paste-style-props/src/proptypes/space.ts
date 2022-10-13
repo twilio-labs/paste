@@ -1,4 +1,5 @@
 import {DefaultTheme} from '@twilio-paste/theme';
+
 import {propValidator} from './utils/propValidator';
 
 // Tokens

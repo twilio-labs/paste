@@ -7,6 +7,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {DarkModeIcon} from '@twilio-paste/icons/esm/DarkModeIcon';
 import {LightModeIcon} from '@twilio-paste/icons/esm/LightModeIcon';
+
 import {useDarkModeContext} from '../../../context/DarkModeContext';
 import {DarkModeBadge} from './DarkModeBadge';
 
@@ -75,7 +76,7 @@ export const DarkModeToggle: React.FC = () => {
               name="darkmode"
               onChange={handleChange}
               type="radio"
-              value={'light'}
+              value="light"
               onClick={() => {
                 trackCustomEvent({
                   category: 'Top Navigation',
@@ -95,7 +96,7 @@ export const DarkModeToggle: React.FC = () => {
               name="darkmode"
               onChange={handleChange}
               type="radio"
-              value={'dark'}
+              value="dark"
               onClick={() => {
                 trackCustomEvent({
                   category: 'Top Navigation',

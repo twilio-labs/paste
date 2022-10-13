@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render} from '@testing-library/react';
+
 import {PlainDataGrid} from '../stories/components/PlainDataGrid';
 import {customElementStyles} from '../stories/components/CustomizableDataGrid';
 

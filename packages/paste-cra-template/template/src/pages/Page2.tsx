@@ -40,4 +40,7 @@ const Page2: React.FC = () => {
     </>
   );
 };
+
+Page2.displayName = 'Page2';
+
 export default Page2;

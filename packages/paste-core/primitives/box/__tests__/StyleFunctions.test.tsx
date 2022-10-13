@@ -1,7 +1,9 @@
 import {getPseudoStyles, getCustomElementStyles} from '../src/StyleFunctions';
 
-// When rendered the theme object is injected onto Box props via emotions theming context
-// which is where the css and variant style functions look for their values
+/*
+ * When rendered the theme object is injected onto Box props via emotions theming context
+ * which is where the css and variant style functions look for their values
+ */
 const mockTheme = {
   theme: {
     ...TestTheme,
@@ -162,8 +164,10 @@ describe('getCustomElementStyles', () => {
   });
 
   it('should not throw when variants that are not present on the theme are set on a component', () => {
-    // this just covers a bug where Box would be looking for a variant that is not present on the theme
-    // and rather than gracefully handle this, it would throw an error
+    /*
+     * this just covers a bug where Box would be looking for a variant that is not present on the theme
+     * and rather than gracefully handle this, it would throw an error
+     */
 
     const primaryCardProps = {
       'data-paste-element': 'CARD',

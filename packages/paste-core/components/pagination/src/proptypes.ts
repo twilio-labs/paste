@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+
 import type {AsTags, Variants} from './types';
 
 export const PaginationPropTypes = {

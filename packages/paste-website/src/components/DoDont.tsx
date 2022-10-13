@@ -13,7 +13,6 @@ const StyledWrapper = styled(Box)`
 
 interface DoDontProps {
   children: React.ReactNode;
-  do: boolean;
 }
 
 const DoDont: React.FC<DoDontProps> = (props) => {

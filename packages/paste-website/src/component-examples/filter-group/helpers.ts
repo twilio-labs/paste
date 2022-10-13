@@ -2,6 +2,7 @@
 
 import {format, isBefore, isAfter, add} from 'date-fns';
 import type {Duration} from 'date-fns';
+
 import type {RoomTypes, DateRanges, DateTimeRanges} from './types';
 
 export const formatDate = (date: Date): string => format(date, 'yyyy-MM-dd');

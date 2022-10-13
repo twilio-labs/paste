@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import type {BoxProps} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 

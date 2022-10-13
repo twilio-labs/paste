@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
-import TextareaAutosize from '../index';
+import TextareaAutosize from '..';
 import {forceHiddenStyles} from '../forceHiddenStyles';
 import {getSizingData} from '../getSizingData';
 import {useWindowResizeListener} from '../useWindowResizeListener';

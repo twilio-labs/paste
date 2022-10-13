@@ -28,12 +28,12 @@ export interface ColorCombinationTypes {
 }
 
 export interface ColorCombosTypes {
+  [key: number]: ColorCombosTypes;
   color?: number[];
   combinations: ColorCombinationTypes[];
   hex: string;
   model?: string;
   valpha?: number;
-  [key: number]: ColorCombosTypes;
 }
 
 interface Options {
@@ -77,6 +77,7 @@ const ColorCombos = (
         arr = uniq(arr);
       }
     } else {
+      // eslint-disable-next-line no-console
       console.error('Must provide an array or object');
       return false;
     }
@@ -86,7 +87,7 @@ const ColorCombos = (
       uniqueColors = uniq(colors);
     }
 
-    if (uniqueColors != null) {
+    if (uniqueColors !== null) {
       arr = uniqueColors.map((color) => Color(color));
     }
   }
@@ -111,7 +112,7 @@ const ColorCombos = (
       .filter((bg): boolean => color !== bg)
       .filter((bg): boolean => {
         if (combinedOptions.threshold != null) {
-          return color.contrast(bg) > combinedOptions.threshold;
+          return color.contrast(bg) > combinedOptions?.threshold;
         }
         return true;
       })

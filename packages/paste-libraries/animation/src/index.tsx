@@ -7,6 +7,7 @@ import type {
   UseSpringsProps,
 } from '@react-spring/web';
 import {Globals} from '@react-spring/shared';
+
 import {useReducedMotion, isRenderingOnServer} from './useReducedMotion';
 
 export {

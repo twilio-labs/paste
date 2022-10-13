@@ -67,4 +67,4 @@ const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
 );
 
 FigmaIcon.displayName = 'FigmaIcon';
-export {FigmaIcon as FigmaIcon};
+export {FigmaIcon};

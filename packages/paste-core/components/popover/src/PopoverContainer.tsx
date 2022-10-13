@@ -4,6 +4,7 @@ import type {
   NonModalDialogPrimitivePopoverInitialState,
 } from '@twilio-paste/non-modal-dialog-primitive';
 import {useNonModalDialogPrimitiveState} from '@twilio-paste/non-modal-dialog-primitive';
+
 import {PopoverContext} from './PopoverContext';
 
 export interface PopoverStateReturn extends NonModalDialogPrimitiveStateReturn {

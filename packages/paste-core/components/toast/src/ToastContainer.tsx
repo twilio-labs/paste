@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+
 import {ToastPortal} from './ToastPortal';
 import {ToastContainerPropTypes} from './propTypes';
 import type {ToastContainerProps} from './types';

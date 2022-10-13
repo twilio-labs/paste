@@ -12,9 +12,6 @@ export type SortDirection = 'ascending' | 'descending' | 'none';
 interface DataGridHeaderSortIconProps {
   direction: SortDirection;
   element?: BoxProps['element'];
-  i18nAscendingLabel?: string;
-  i18nDescendingLabel?: string;
-  i18nUnsortedLabel?: string;
 }
 
 const DataGridHeaderSortIcon: React.FC<DataGridHeaderSortIconProps> = ({direction, element}) => {
@@ -30,8 +27,13 @@ const DataGridHeaderSortIcon: React.FC<DataGridHeaderSortIconProps> = ({directio
   }
 };
 
+DataGridHeaderSortIcon.displayName = 'DataGridHeaderSortIcon';
+
 export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
   onClick?: () => void;
+  i18nAscendingLabel?: string;
+  i18nDescendingLabel?: string;
+  i18nUnsortedLabel?: string;
 }
 
 /**

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {makeToast, getStyles} from '../stories/customization.stories';
 
 describe('Toast data-paste-element attribute', () => {

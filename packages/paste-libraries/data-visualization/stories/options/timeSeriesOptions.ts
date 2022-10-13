@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck copied from official highcharts docs
 import Highcharts from 'highcharts';
+
 import {usdEurData} from '../data/usdEurData';
 
 export const timeSeriesOptions: Highcharts.Options = {

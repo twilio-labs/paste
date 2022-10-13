@@ -7,6 +7,7 @@ import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {styled, css} from '@twilio-paste/styling-library';
+
 import {TokenExample} from './token-example';
 import type {TokenCardProps} from '../types';
 
@@ -64,6 +65,7 @@ export const TokenCard: React.FC<TokenCardProps> = React.memo(
     textColor,
     textColorInverse,
     useCamelCase,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onCopyText = () => {},
     isCopied = false,
     ...props
@@ -80,9 +82,11 @@ export const TokenCard: React.FC<TokenCardProps> = React.memo(
     React.useEffect(() => {
       setTooltipText(isCopied ? 'Copied!' : 'Copy token name');
     }, [isCopied]);
-    // Reakit has a bug where the tooltip doesn't recalc position on content changes
-    // This is a workaround until we upgrade to Ariakit with Floating UI fixes
-    // https://github.com/twilio-labs/paste/discussions/2037
+    /*
+     * Reakit has a bug where the tooltip doesn't recalc position on content changes
+     * This is a workaround until we upgrade to Ariakit with Floating UI fixes
+     * https://github.com/twilio-labs/paste/discussions/2037
+     */
     React.useEffect(() => {
       // This prevents the tooltip from showing up on mount
       if (isFirstRender.current) {

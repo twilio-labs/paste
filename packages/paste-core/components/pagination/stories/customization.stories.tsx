@@ -7,6 +7,8 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTheme} from '@twilio-paste/theme';
+import type {Story} from '@storybook/react';
+
 import {
   Pagination,
   PaginationArrow,
@@ -16,7 +18,6 @@ import {
   PaginationNumbers,
   PaginationLabel,
 } from '../src';
-import {Story} from '@storybook/react';
 
 // Wrapper to abstract the rendering of the default and customized pagination versions
 const BeforeAndAfter: React.FC<{before: React.ReactNode; after: React.ReactNode}> = ({before, after}) => (

@@ -25,7 +25,16 @@ export interface TextareaAutosizeProps extends Omit<TextareaProps, 'style'> {
 }
 
 const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextareaAutosizeProps> = (
-  {cacheMeasurements, maxRows, minRows, onChange = (): void => {}, onHeightChange = (): void => {}, ...props},
+  {
+    cacheMeasurements,
+    maxRows,
+    minRows,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onChange = (): void => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onHeightChange = (): void => {},
+    ...props
+  },
   userRef: React.Ref<HTMLTextAreaElement>
 ) => {
   if (process.env.NODE_ENV !== 'production' && props.style) {
@@ -70,10 +79,12 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    // There isn't a user resize event on the textarea, so this is a low-cost way to check if the user manually resized it
-    // By default, when the user resizes a textarea, the new height is set in the style attribute
-    // The way the react-textarea-autosize works, it calculates the height and sets the style attribute with !important
-    // So, we can assume that if the height has important it is the autosize height and if it doesn't have important the user resized it themselves
+    /*
+     * There isn't a user resize event on the textarea, so this is a low-cost way to check if the user manually resized it
+     * By default, when the user resizes a textarea, the new height is set in the style attribute
+     * The way the react-textarea-autosize works, it calculates the height and sets the style attribute with !important
+     * So, we can assume that if the height has important it is the autosize height and if it doesn't have important the user resized it themselves
+     */
     const didUserResize = ownRef.current?.style.getPropertyPriority('height') !== 'important';
 
     if (!isControlled && !didUserResize) {
@@ -89,6 +100,8 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
 
   return <textarea {...props} onChange={handleChange} ref={ref} />;
 };
+
+TextareaAutosize.displayName = 'TexareaAutosize';
 
 // eslint-disable-next-line import/no-default-export
 export default /* #__PURE__ */ React.forwardRef(TextareaAutosize);

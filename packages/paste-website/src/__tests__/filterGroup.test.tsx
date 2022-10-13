@@ -1,4 +1,5 @@
 import {add} from 'date-fns';
+
 import {
   filterBySearchString,
   filterByRoomType,

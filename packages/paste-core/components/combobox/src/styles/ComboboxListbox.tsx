@@ -15,10 +15,12 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
       return <Box {...safelySpreadBoxProps(props)} appearance="none" ref={ref} />;
     }
 
-    // TODO:
-    // Right now the listbox is absolutely positioned. This will
-    // fail if a combobox is placed at the bottom of a screen
-    // so we need upgrade the positioning using popperjs in the future.
+    /*
+     * TODO:
+     * Right now the listbox is absolutely positioned. This will
+     * fail if a combobox is placed at the bottom of a screen
+     * so we need upgrade the positioning using popperjs in the future.
+     */
     return (
       <Box
         {...safelySpreadBoxProps(props)}

@@ -4,6 +4,7 @@ import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
+
 import {safelySpreadFormControlProps} from './utils';
 
 export type InputVariants = 'default' | 'inverse';

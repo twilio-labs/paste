@@ -1,8 +1,10 @@
 // Base styling system (emotion)
 import styled from '@emotion/styled';
 
-// Custom styling application (styled-system)
-// https://github.com/styled-system/styled-system/tree/master/
+/*
+ * Custom styling application (styled-system)
+ * https://github.com/styled-system/styled-system/tree/master/
+ */
 export type {
   SystemStyleObject,
   SystemCssProperties,

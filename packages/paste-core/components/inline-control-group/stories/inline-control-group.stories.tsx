@@ -5,6 +5,7 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {InlineControlGroup} from '../src';
 import type {InlineControlGroupProps} from '../src';
 

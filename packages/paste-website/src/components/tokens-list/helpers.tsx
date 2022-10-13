@@ -1,6 +1,7 @@
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import type {Properties} from 'csstype';
 import debounce from 'lodash/debounce';
+
 import type {Token, Tokens, TokenExampleColors} from './types';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
@@ -14,8 +15,10 @@ export const trackTokenFilterString = debounce((filter: string): void => {
 }, 500);
 
 function sanitizeForSearch(filterString: string): string {
-  // Remove space and `-` characters
-  // Lowercases
+  /*
+   * Remove space and `-` characters
+   * Lowercases
+   */
   return filterString.replace(/[\s-]+/g, '').toLowerCase();
 }
 

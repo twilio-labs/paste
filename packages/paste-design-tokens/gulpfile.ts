@@ -3,6 +3,7 @@ import * as theo from 'theo';
 import gulpTheo from 'gulp-theo';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
+
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
 import {genericDTsTemplate} from './formatters/generic.d.ts';
 import {genericCommonJsTokenFormat} from './formatters/generic';

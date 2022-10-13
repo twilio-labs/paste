@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+
 import {DefaultAnchor} from './DefaultAnchor';
 import {InverseAnchor} from './InverseAnchor';
 import {AnchorPropTypes} from './proptypes';
@@ -19,7 +20,7 @@ export const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(u
 export const secureExternalLink = (
   href: string
 ): {rel: typeof EXTERNAL_REL_DEFAULT; target: typeof EXTERNAL_TARGET_DEFAULT} | undefined => {
-  if (!isExternalUrl(href)) return;
+  if (!isExternalUrl(href)) return undefined;
   return {
     rel: EXTERNAL_REL_DEFAULT,
     target: EXTERNAL_TARGET_DEFAULT,

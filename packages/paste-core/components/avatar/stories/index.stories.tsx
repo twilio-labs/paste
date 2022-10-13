@@ -6,6 +6,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Avatar} from '../src';
 
 // eslint-disable-next-line import/no-default-export

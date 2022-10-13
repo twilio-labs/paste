@@ -1,13 +1,17 @@
-// Credits:
-// https://github.com/infiniteluke/react-reduce-motion
-// https://joshwcomeau.com/react/prefers-reduced-motion/#the-hook
+/*
+ * Credits:
+ * https://github.com/infiniteluke/react-reduce-motion
+ * https://joshwcomeau.com/react/prefers-reduced-motion/#the-hook
+ */
 import * as React from 'react';
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 
-// Due to a bug in how terser is compiling these functions,
-// we're getting into situations where SSR is checking for window.matchMedia.
-// Wrapping the second return in an else fixes how terser compiles the code.
+/*
+ * Due to a bug in how terser is compiling these functions,
+ * we're getting into situations where SSR is checking for window.matchMedia.
+ * Wrapping the second return in an else fixes how terser compiles the code.
+ */
 /* eslint-disable no-else-return */
 export const isRenderingOnServer = (() => {
   if (typeof window == 'undefined' || !window.location || !window.location.href || !window.matchMedia) {
@@ -21,7 +25,9 @@ const getMediaQueryList = (): {matches: boolean; addListener: Function; removeLi
   if (isRenderingOnServer) {
     return {
       matches: true, // When SSR, true === disable animations
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       addListener: () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       removeListener: () => {},
     };
   }

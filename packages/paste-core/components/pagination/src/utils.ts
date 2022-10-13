@@ -9,9 +9,7 @@ export const handleLinkValidation = ({as, href}: PaginationButtonProps): void =>
     );
   }
 
-  if (as === 'a') {
-    if (!hasHref) {
-      throw new Error(`[Paste: Pagination] Missing href prop for link pagination.`);
-    }
+  if (as === 'a' && !hasHref) {
+    throw new Error(`[Paste: Pagination] Missing href prop for link pagination.`);
   }
 };

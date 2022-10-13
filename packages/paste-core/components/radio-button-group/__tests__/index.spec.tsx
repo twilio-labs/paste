@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Attached} from '../stories/index.stories';
 import {RadioButton, RadioButtonGroup} from '../src';
 import type {RadioButtonProps} from '../src';
@@ -21,7 +22,7 @@ describe('RadioButton', () => {
 
   it('renders children visibly into document as an input label', () => {
     renderRadioButton();
-    const labels = screen.getByRole<HTMLInputElement>('radio', {name: 'foo'}).labels;
+    const {labels} = screen.getByRole<HTMLInputElement>('radio', {name: 'foo'});
 
     expect(labels).toHaveLength(1);
     expect(labels?.[0]).toHaveTextContent('foo');

@@ -22,6 +22,7 @@ import type {
   Margin,
 } from '@twilio-paste/style-props';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Text} from '../src';
 import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
 

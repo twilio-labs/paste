@@ -1,4 +1,5 @@
 import type {ImmutableStyleMap} from 'theo';
+
 import type {DesignToken} from '../../types';
 
 // These plurals should map to the default styled system theme keys where possible
@@ -66,8 +67,10 @@ export const formatGroupTokensWithTemplate = (
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
 
-      // Run a conditional filter function against the tokens
-      // Used to remove the deprecated tokens from the website `generic` token file
+      /*
+       * Run a conditional filter function against the tokens
+       * Used to remove the deprecated tokens from the website `generic` token file
+       */
       if (additionalFilterFn != null) {
         catProps = additionalFilterFn(catProps);
       }

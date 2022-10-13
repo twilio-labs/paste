@@ -4,7 +4,6 @@ import type {DisclosurePrimitiveInitialState} from '@twilio-paste/disclosure-pri
 
 import type {SidebarCategoryRoutes} from '../../../../constants';
 import {useLocationPathname} from '../../../../utils/RouteUtils';
-
 import {SidebarItem} from '../SidebarItem';
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 

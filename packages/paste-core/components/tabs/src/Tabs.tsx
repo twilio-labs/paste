@@ -5,6 +5,7 @@ import {Flex} from '@twilio-paste/flex';
 import {Box} from '@twilio-paste/box';
 import {useTabPrimitiveState} from '@twilio-paste/tabs-primitive';
 import type {TabPrimitiveInitialState, TabPrimitiveStateReturn} from '@twilio-paste/tabs-primitive';
+
 import {TabsContext} from './TabsContext';
 import type {Variants} from './types';
 import {getElementName} from './utils';

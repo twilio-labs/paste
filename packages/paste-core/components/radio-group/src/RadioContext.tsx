@@ -13,6 +13,7 @@ const RadioContext = React.createContext<RadioContextValue>({
   value: '',
   disabled: false,
   hasError: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
 });
 

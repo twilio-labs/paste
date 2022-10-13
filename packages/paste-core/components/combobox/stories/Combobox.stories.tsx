@@ -13,6 +13,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+
 import {Combobox, useCombobox} from '../src';
 
 const items = [

@@ -14,6 +14,7 @@ import {
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
 import {isDeprecatedBoxShadowTokenProp, isDeprecatedTextColorTokenProp} from '@twilio-paste/style-props';
+
 import type {TextProps, StyledTextProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
 import {customStyleProps} from './CustomStyleProps';
@@ -24,6 +25,7 @@ const shouldForwardProp = createShouldForwardProp([
   ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
 ]);
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in TextProps
 export const StyledText = styled<StyledTextProps>('div', {shouldForwardProp})(
   {

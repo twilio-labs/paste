@@ -8,6 +8,7 @@ import {Truncate} from '@twilio-paste/truncate';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {ProductInternetOfThingsIcon} from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
 

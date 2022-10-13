@@ -1,5 +1,6 @@
-import theo from 'theo';
 import path from 'path';
+
+import theo from 'theo';
 
 beforeAll(() => {
   theo.registerTransform('web', ['color/rgb']);

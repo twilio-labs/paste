@@ -11,6 +11,7 @@ import type {
   OutlineProperty,
   TransitionProperty,
 } from '@twilio-paste/style-props';
+
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
 export interface TextBaseStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {

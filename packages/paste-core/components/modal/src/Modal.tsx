@@ -6,6 +6,7 @@ import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/b
 import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+
 import {ModalContext} from './ModalContext';
 
 type Sizes = 'default' | 'wide';
@@ -26,12 +27,14 @@ export const ModalDialogOverlay = animated(
       backgroundColor: 'colorBackgroundOverlay',
       zIndex: 'zIndex80',
     }),
-    // import Paste Theme Based Styles due to portal positioning.
-    // reach portal is a sibling to the main app, so you are now
-    // no longer a child of the theme provider. We need to re-set
-    // some of the base styles that we rely on inheriting from
-    // such as font-family and line-height so that compositions
-    // of paste components in the modal are styled correctly.
+    /*
+     * import Paste Theme Based Styles due to portal positioning.
+     * reach portal is a sibling to the main app, so you are now
+     * no longer a child of the theme provider. We need to re-set
+     * some of the base styles that we rely on inheriting from
+     * such as font-family and line-height so that compositions
+     * of paste components in the modal are styled correctly.
+     */
     pasteBaseStyles,
     getCustomElementStyles
   )

@@ -2,8 +2,10 @@ import {join} from 'path';
 
 import type {PackageShape} from './types';
 
-// Adding the website package for redundancy only, because
-// it's a private package and won't be included anyways
+/*
+ * Adding the website package for redundancy only, because
+ * it's a private package and won't be included anyways
+ */
 const BLOCKLIST = [
   '@twilio-paste/core',
   '@twilio-paste/icons',

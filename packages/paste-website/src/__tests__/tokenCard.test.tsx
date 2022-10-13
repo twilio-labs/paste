@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
-import {TokenCard} from '../components/tokens-list/token-card';
 import {render, screen} from '@testing-library/react';
+
+import {TokenCard} from '../components/tokens-list/token-card';
 
 describe('TokenCard', () => {
   const testTokenName = 'color-background';

@@ -49,7 +49,7 @@ export const DateTimePopover: React.FC<DateTimePopoverProps> = ({onApply, regist
               />
               <ErrorMessage
                 errors={errors}
-                name={'customDate.startDate'}
+                name="customDate.startDate"
                 render={({message}): React.ReactNode => (
                   <HelpText variant="error" id={`${startId}-date-error`} data-cy="start-date-error">
                     {message}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+
 import {TableOfContents} from './table-of-contents';
 import {FeedbackPopover} from './feedback-popover';
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
+
 import type {TFootProps} from './types';
 import {TFootPropTypes} from './proptypes';
 

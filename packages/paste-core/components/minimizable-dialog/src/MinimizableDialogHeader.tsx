@@ -28,10 +28,8 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
     },
     ref
   ) => {
-    // @ts-ignore
-    // Property 'hide' does not exist on type 'Partial<PopoverState>'
-    // But reakit docs suggest using it
-    // https://reakit.io/docs/popover/#initial-focus
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore Property 'hide' does not exist on type 'Partial<PopoverState>', but reakit docs suggest using it (https://reakit.io/docs/popover/#initial-focus)
     const {hide, minimized, minimize, expand} = React.useContext(MinimizableDialogContext);
 
     return (

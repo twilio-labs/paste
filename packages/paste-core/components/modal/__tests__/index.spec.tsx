@@ -8,6 +8,7 @@ import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
 const handleCloseMock: jest.Mock = jest.fn();

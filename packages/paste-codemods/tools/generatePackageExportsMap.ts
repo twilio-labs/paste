@@ -25,6 +25,7 @@ export async function generatePackageExportsMap(getPackages = getRepoPackages): 
       // eslint-disable-next-line global-require, import/no-dynamic-require
       packageExports = require(name);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(`Failed to dynamically require package: ${name}`, error);
       throw error;
     }

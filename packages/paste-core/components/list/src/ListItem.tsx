@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+
 import type {ListItemProps} from './types';
 
 const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(({children, element = 'LIST_ITEM', ...props}, ref) => {

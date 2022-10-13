@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Avatar} from '@twilio-paste/avatar';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
 
 const PILL_NAMES = [

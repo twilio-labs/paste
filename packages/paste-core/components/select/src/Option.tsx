@@ -12,6 +12,7 @@ export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElemen
 
 const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, element = 'OPTION', ...props}, ref) => {
   if (props.selected) {
+    // eslint-disable-next-line no-console
     console.warn('"selected" is a blocked prop on this component, please use "value" on the select element.');
   }
   return (

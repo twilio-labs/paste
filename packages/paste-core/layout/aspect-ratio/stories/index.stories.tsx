@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+
 import {AspectRatio} from '../src';
 
 // eslint-disable-next-line import/no-default-export

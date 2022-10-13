@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {ChatMessage} from '../src';
 
 const CustomizationWrapper: React.FC = ({children}) => (
@@ -26,7 +27,7 @@ const CustomizationFooWrapper: React.FC = ({children}) => (
     baseTheme="default"
     theme={TestTheme}
     elements={{
-      foo_message: {
+      FOO_MESSAGE: {
         marginBottom: 'space100',
         variants: {
           inbound: {marginRight: 'space100'},
@@ -92,10 +93,10 @@ describe('Customization', () => {
   it('should add custom styles with a custom element data attribute', () => {
     render(
       <>
-        <ChatMessage element="foo_message" variant="inbound" data-testid="inbound-message">
+        <ChatMessage element="FOO_MESSAGE" variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
-        <ChatMessage element="foo_message" variant="outbound" data-testid="outbound-message">
+        <ChatMessage element="FOO_MESSAGE" variant="outbound" data-testid="outbound-message">
           test
         </ChatMessage>
       </>,
@@ -114,10 +115,10 @@ describe('Customization', () => {
   it('should set custom element data attribute', () => {
     render(
       <>
-        <ChatMessage element="foo_message" variant="inbound" data-testid="inbound-message">
+        <ChatMessage element="FOO_MESSAGE" variant="inbound" data-testid="inbound-message">
           test
         </ChatMessage>
-        <ChatMessage element="foo_message" variant="outbound" data-testid="outbound-message">
+        <ChatMessage element="FOO_MESSAGE" variant="outbound" data-testid="outbound-message">
           test
         </ChatMessage>
       </>,
@@ -126,7 +127,7 @@ describe('Customization', () => {
     const inboundMessage = screen.getByTestId('inbound-message');
     const outboundMessage = screen.getByTestId('outbound-message');
 
-    expect(inboundMessage.getAttribute('data-paste-element')).toEqual('foo_message');
-    expect(outboundMessage.getAttribute('data-paste-element')).toEqual('foo_message');
+    expect(inboundMessage.getAttribute('data-paste-element')).toEqual('FOO_MESSAGE');
+    expect(outboundMessage.getAttribute('data-paste-element')).toEqual('FOO_MESSAGE');
   });
 });

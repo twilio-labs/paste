@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+
 import type {ThProps} from './types';
 import {ThPropTypes} from './proptypes';
 

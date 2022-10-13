@@ -47,7 +47,8 @@ export type ListStyleImage = ResponsiveValue<ListStyleImageProperty>;
 export type ListStylePosition = ResponsiveValue<ListStylePositionProperty>;
 export type ListStyleType = ResponsiveValue<ListStyleTypeProperty>;
 
-/* Styled-system grouping
+/*
+ * Styled-system grouping
  * ---
  * We add `color` here, not in the `color` interface grouping like styled-system does
  * We also add `whiteSpace` and `textOverflow` to allow for ellipsis text.

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Separator} from '@twilio-paste/separator';
 import type {SeparatorProps} from '@twilio-paste/separator';
 import {MenuPrimitiveSeparator} from '@twilio-paste/menu-primitive';
+
 import type {MenuSeparatorProps} from './types';
 
 const StyledMenuSeparator = React.forwardRef<HTMLHRElement, SeparatorProps>((props, ref) => {

@@ -7,6 +7,7 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+
 import {PopoverArrow} from './PopoverArrow';
 import {PopoverContext} from './PopoverContext';
 
@@ -51,10 +52,8 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
                 element={`${element}_CLOSE_BUTTON`}
                 variant="secondary_icon"
                 size="reset"
-                // @ts-ignore
-                // Property 'hide' does not exist on type 'Partial<PopoverState>'
-                // But reakit docs suggest using it
-                // https://reakit.io/docs/popover/#initial-focus
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore Property 'hide' does not exist on type 'Partial<PopoverState>', but reakit docs suggest using it (https://reakit.io/docs/popover/#initial-focus)
                 onClick={popover.hide}
               >
                 <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon10" />

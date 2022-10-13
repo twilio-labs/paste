@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {ChatEvent} from '../src';
 
 const CustomizationWrapper: React.FC = ({children}) => (

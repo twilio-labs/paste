@@ -15,7 +15,8 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
   ({element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props}, ref) => {
     const [text, setText] = React.useState(value || initialValue);
 
-    /* The trick is to make the input 100% width of the wrapper
+    /*
+     * The trick is to make the input 100% width of the wrapper
      * and the wrapper is sized based on the content of the _after
      * which is also given 0 height to not break the flow of the page
      * and whiteSpace nowrap is the trick to make `min-content` not
@@ -30,8 +31,10 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         gridTemplateColumns="min-content"
         maxWidth="100%"
         overflow="hidden"
-        // FIX: Mostly works, hack fix to get the height just
-        // right between no pills selected and some pills selected
+        /*
+         * FIX: Mostly works, hack fix to get the height just
+         * right between no pills selected and some pills selected
+         */
         height="24px"
         _after={{
           content: `"${text}"`,

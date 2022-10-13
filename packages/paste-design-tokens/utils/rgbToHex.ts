@@ -36,13 +36,13 @@ export const rgbToHex = (rgb: string): string => {
   let hex = '#';
   rgbChannels.forEach((channel) => {
     const hexValue = Number.parseInt(channel, 10).toString(16);
-    hex = hex + hexValue.padStart(2, '0');
+    hex += hexValue.padStart(2, '0');
   });
 
   // If an alpha channel is defined, append to hex
   if (channels[3] != null) {
     const alphaChannel = Math.round(Number.parseFloat(channels[3]) * 255).toString(16);
-    hex = hex + alphaChannel.padStart(2, '0');
+    hex += alphaChannel.padStart(2, '0');
   }
 
   return hex.toUpperCase();

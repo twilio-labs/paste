@@ -6,6 +6,7 @@ describe('isDeprecatedTheme', () => {
 
     isDeprecatedTheme('console');
 
+    // eslint-disable-next-line no-console
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(spy.mock.calls[0][0]).toBe(
       'Paste: console is a deprecated theme. It was removed in the 2022.02.04 release of Paste.'
@@ -19,6 +20,7 @@ describe('isDeprecatedTheme', () => {
 
     isDeprecatedTheme('foo');
 
+    // eslint-disable-next-line no-console
     expect(console.error).toHaveBeenCalledTimes(0);
 
     spy.mockRestore();

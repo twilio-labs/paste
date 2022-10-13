@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 import {getElementName} from '../src/utils';
@@ -28,6 +29,7 @@ describe('Tabs', () => {
     });
   });
   describe('Render', () => {
+    // eslint-disable-next-line consistent-return
     it('relevant html and aria attributes', async () => {
       const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
         (_, i) => `${i}`
@@ -95,6 +97,7 @@ describe('Tabs', () => {
       expect(activePanel.getAttribute('tabindex')).toBe('0');
     });
 
+    // eslint-disable-next-line consistent-return
     it('should render tabs using the state prop and go to the next tab on button click', async () => {
       render(<StateHookTabs />);
 

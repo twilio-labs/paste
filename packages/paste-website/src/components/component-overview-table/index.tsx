@@ -5,6 +5,7 @@ import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+
 import {AssetStatus} from '../component-status/AssetStatus';
 import {PeerReviewStatus} from '../component-status/PeerReviewStatus';
 import {SiteLink} from '../SiteLink';
@@ -14,7 +15,6 @@ import {sentenceCase} from '../../utils/SentenceCase';
 import type {AirTableComponentNode} from '../../utils/types';
 
 interface ComponentOverviewTableProps {
-  children?: React.ReactElement;
   categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   componentsList?: [AirTableComponentNode];
 }

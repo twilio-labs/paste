@@ -8,6 +8,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
+
 import {Separator} from '../src';
 
 // eslint-disable-next-line import/no-default-export

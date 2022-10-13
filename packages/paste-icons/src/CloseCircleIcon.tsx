@@ -3,6 +3,7 @@
  */
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
@@ -19,6 +20,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
       throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
     }
 
+    // eslint-disable-next-line no-console
     console.error(
       '[CloseCircleIcon]: This icon is deprecated. Please use ClearIcon instead. This icon will be removed in after the 2023.05.16 release.'
     );

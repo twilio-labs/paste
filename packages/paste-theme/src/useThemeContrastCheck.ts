@@ -5,6 +5,7 @@ import {
   getNumberOfTextFailures,
   getNumberOfUIControlFailures,
 } from '@twilio-paste/color-contrast-utils';
+
 import {useTheme} from './useTheme';
 import {generateTokensFromTheme} from './generateTokensFromTheme';
 

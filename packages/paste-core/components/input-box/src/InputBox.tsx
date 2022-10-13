@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
+
 import {FieldWrapper} from './FauxInput';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
@@ -10,8 +11,10 @@ import {InputBoxContext} from './InputBoxContext';
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  // Requiring element here instead of extending directly from BoxProps.
-  // This ensures an element prop is always passed on these composite components.
+  /*
+   * Requiring element here instead of extending directly from BoxProps.
+   * This ensures an element prop is always passed on these composite components.
+   */
   element: BoxProps['element'];
   hasError?: boolean;
   insertAfter?: React.ReactNode;

@@ -3,6 +3,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Separator} from '@twilio-paste/separator';
+
 import {useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent} from '../src';
 
 // eslint-disable-next-line import/no-default-export

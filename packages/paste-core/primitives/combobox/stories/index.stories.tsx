@@ -7,6 +7,7 @@ import {Label} from '@twilio-paste/label';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
 import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+
 import {ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive} from '../src';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
@@ -127,11 +128,12 @@ export const ComboboxNonHooks = (): React.ReactNode => {
           <Label {...getLabelProps()}>Choose a component:</Label>
           <Box
             display="flex"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             {...getRootProps({}, {suppressRefError: true})}
           >
             <Input {...getInputProps()} type="text" />
-            <Button {...getToggleButtonProps()} variant="primary" aria-label={'toggle menu'}>
+            <Button {...getToggleButtonProps()} variant="primary" aria-label="toggle menu">
               <ChevronDownIcon size="sizeIcon30" decorative={false} title="toggle menu" />
             </Button>
           </Box>
@@ -141,6 +143,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
                   .filter((item) => !inputValue || item.includes(inputValue))
                   .map((item, index) => (
                     <li
+                      key={item}
                       {...getItemProps({
                         key: item,
                         index,
@@ -187,7 +190,9 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
     (selectedItem) => {
       removeSelectedItem(selectedItem);
 
-      setFilteredItems((currentFilteredItems) => [...currentFilteredItems, selectedItem].sort());
+      setFilteredItems((currentFilteredItems) =>
+        [...currentFilteredItems, selectedItem].sort((a, b) => a.localeCompare(b))
+      );
     },
     [removeSelectedItem]
   );

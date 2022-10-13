@@ -3,10 +3,11 @@ import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
-import {RadioButton, RadioButtonGroup} from '../src';
-import type {RadioButtonGroupProps} from '../src';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
+import {RadioButton, RadioButtonGroup} from '../src';
+import type {RadioButtonGroupProps} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

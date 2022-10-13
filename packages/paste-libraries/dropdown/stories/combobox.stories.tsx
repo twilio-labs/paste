@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {Story, Meta} from '@storybook/react';
+
 import {useCombobox} from '../src';
 
 type Book = {
@@ -67,6 +68,7 @@ export const ComboBox: Story = () => {
           items.map((item, index) => (
             <li
               style={{
+                // eslint-disable-next-line unicorn/no-nested-ternary
                 color: highlightedIndex === index ? 'blue' : selectedItem === item ? 'green' : 'black',
               }}
               key={`${item.title}${index}`}

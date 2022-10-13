@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {Story, Meta} from '@storybook/react';
+
 import {useCombobox, useMultipleSelection} from '../src';
 
 type Book = {
@@ -76,13 +77,16 @@ export const MultiselectComboBox: Story = () => {
     getComboboxProps,
     // Call with index or item and destructure its returned object on each menu item element.
     getItemProps,
-    // State value with the index of thehighlighted menu item. Used below for styling.
-    // highlightedIndex,
-    // selectedItem,
+    /*
+     * State value with the index of thehighlighted menu item. Used below for styling.
+     * highlightedIndex,
+     * selectedItem,
+     */
   } = useCombobox({
     // The controlled state of currently available items to select
     items,
-    /* Items are objects and not strings.
+    /*
+     * Items are objects and not strings.
      * As a result, the itemToString prop is passed to useCombobox. It will return
      * the string equivalent of the item which will be used for displaying the item
      * in the input once selected and for the a11y aria-live message that will occur
@@ -98,13 +102,17 @@ export const MultiselectComboBox: Story = () => {
       return item ? `${item.title} - ${item.author}` : '';
     },
     defaultHighlightedIndex: 0, // after selection, highlight the first item.
-    // For multiselect, we need `selectedItem` to always be null.
-    // We keep our selected items in a state variable, selectedItems.
-    // TODO ? We use onSelectedItemChange prop to retrieve the selectedItem from useCombobox, which is added to / removed from the selectedItems array. We also use stateReducer to keep the menu open on selection by Enter key or by click, and also to keep the highlightedIndex to be the most recent selected item.
+    /*
+     * For multiselect, we need `selectedItem` to always be null.
+     * We keep our selected items in a state variable, selectedItems.
+     * TODO ? We use onSelectedItemChange prop to retrieve the selectedItem from useCombobox, which is added to / removed from the selectedItems array. We also use stateReducer to keep the menu open on selection by Enter key or by click, and also to keep the highlightedIndex to be the most recent selected item.
+     */
     selectedItem: null,
 
-    // https://www.downshift-js.com/use-combobox#state-reducer
-    // Handles how state in Downshift should change as a result of user action
+    /*
+     * https://www.downshift-js.com/use-combobox#state-reducer
+     * Handles how state in Downshift should change as a result of user action
+     */
     stateReducer(_state, actionAndChanges) {
       const {changes, type} = actionAndChanges;
 
@@ -156,6 +164,7 @@ export const MultiselectComboBox: Story = () => {
                 })}
               >
                 {selectedItemForRender.title}
+                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
                 <span
                   onClick={(e) => {
                     e.stopPropagation();

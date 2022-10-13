@@ -7,8 +7,10 @@ import {getDocument} from './reakit-getDocument';
 export function getActiveElement(element?: Element | Document | null): Element | null {
   const {activeElement} = getDocument(element);
   if (!activeElement?.nodeName) {
-    // In IE11, activeElement might be an empty object if we're interacting
-    // with elements inside of an iframe.
+    /*
+     * In IE11, activeElement might be an empty object if we're interacting
+     * with elements inside of an iframe.
+     */
     return null;
   }
   return activeElement;

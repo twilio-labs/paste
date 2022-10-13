@@ -2,6 +2,7 @@ import * as React from 'react';
 import {DocSearch} from '@docsearch/react';
 import '@docsearch/css';
 import {Box} from '@twilio-paste/box';
+
 import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID} from '../../../constants';
 
 const SiteHeaderSearch: React.FC = () => {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {PackageStatusLegend} from '../src/components/shortcodes/package-status-legend';
 
 const basicStatusProps = {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {ChatMessage, ChatMessageMeta, ChatMessageMetaItem} from '../src';
 
 const CustomizationWrapper: React.FC = ({children}) => (
@@ -30,14 +31,14 @@ const CustomizationFooWrapper: React.FC = ({children}) => (
     baseTheme="default"
     theme={TestTheme}
     elements={{
-      foo_meta: {
+      FOO_META: {
         columnGap: 'space50',
         variants: {
           inbound: {justifyContent: 'flex-start'},
           outbound: {justifyContent: 'flex-end'},
         },
       },
-      foo_meta_item: {
+      FOO_META_ITEM: {
         color: 'colorText',
         columnGap: 'space0',
       },
@@ -169,12 +170,12 @@ describe('Customization', () => {
     render(
       <>
         <ChatMessage variant="inbound">
-          <ChatMessageMeta element="foo_meta" data-testid="inbound-meta" aria-label="sent at 5:04pm">
+          <ChatMessageMeta element="FOO_META" data-testid="inbound-meta" aria-label="sent at 5:04pm">
             5:04pm
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="outbound">
-          <ChatMessageMeta element="foo_meta" data-testid="outbound-meta" aria-label="said by you 4 minutes ago">
+          <ChatMessageMeta element="FOO_META" data-testid="outbound-meta" aria-label="said by you 4 minutes ago">
             4 minutes ago
           </ChatMessageMeta>
         </ChatMessage>
@@ -195,12 +196,12 @@ describe('Customization', () => {
     render(
       <>
         <ChatMessage variant="inbound">
-          <ChatMessageMeta element="foo_meta" data-testid="inbound-meta" aria-label="sent at 5:04pm">
+          <ChatMessageMeta element="FOO_META" data-testid="inbound-meta" aria-label="sent at 5:04pm">
             5:04pm
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="outbound">
-          <ChatMessageMeta element="foo_meta" data-testid="outbound-meta" aria-label="said by you 4 minutes ago">
+          <ChatMessageMeta element="FOO_META" data-testid="outbound-meta" aria-label="said by you 4 minutes ago">
             4 minutes ago
           </ChatMessageMeta>
         </ChatMessage>
@@ -211,8 +212,8 @@ describe('Customization', () => {
     const inboundMeta = screen.getByTestId('inbound-meta');
     const outboundMeta = screen.getByTestId('outbound-meta');
 
-    expect(inboundMeta.getAttribute('data-paste-element')).toEqual('foo_meta');
-    expect(outboundMeta.getAttribute('data-paste-element')).toEqual('foo_meta');
+    expect(inboundMeta.getAttribute('data-paste-element')).toEqual('FOO_META');
+    expect(outboundMeta.getAttribute('data-paste-element')).toEqual('FOO_META');
   });
 });
 
@@ -250,7 +251,7 @@ describe('ChatMessageMetaItem', () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
-          <ChatMessageMetaItem element="foo_meta_item" data-testid="meta-item">
+          <ChatMessageMetaItem element="FOO_META_ITEM" data-testid="meta-item">
             5:04pm
           </ChatMessageMetaItem>
         </ChatMessageMeta>
@@ -267,7 +268,7 @@ describe('ChatMessageMetaItem', () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
-          <ChatMessageMetaItem element="foo_meta_item" data-testid="meta-item">
+          <ChatMessageMetaItem element="FOO_META_ITEM" data-testid="meta-item">
             5:04pm
           </ChatMessageMetaItem>
         </ChatMessageMeta>
@@ -276,6 +277,6 @@ describe('ChatMessageMetaItem', () => {
     );
 
     const metaItem = screen.getByTestId('meta-item');
-    expect(metaItem.getAttribute('data-paste-element')).toEqual('foo_meta_item');
+    expect(metaItem.getAttribute('data-paste-element')).toEqual('FOO_META_ITEM');
   });
 });

@@ -1,4 +1,5 @@
 import type {BoxStyleProps} from '@twilio-paste/box';
+
 import type {ButtonStates, ButtonSizes} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export

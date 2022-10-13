@@ -54,8 +54,10 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
       <Box
         role="option"
         {...safelySpreadBoxProps(props)}
-        // FIX: Manually control aria-selected state to be true when an item has been selected.
-        // Downshift sets aria-selected to true when an item is highlighted, which we don't want.
+        /*
+         * FIX: Manually control aria-selected state to be true when an item has been selected.
+         * Downshift sets aria-selected to true when an item is highlighted, which we don't want.
+         */
         aria-selected={selected}
         aria-disabled={disabled}
         as="li"
@@ -65,9 +67,11 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         color={
           disabled
             ? 'colorTextWeaker'
-            : highlighted
+            : // eslint-disable-next-line unicorn/no-nested-ternary
+            highlighted
             ? 'colorTextLinkStronger'
-            : selected
+            : // eslint-disable-next-line unicorn/no-nested-ternary
+            selected
             ? 'colorTextLink'
             : 'colorText'
         }
@@ -102,7 +106,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
             {children}
           </Text>
         </Box>
-        <Box as="span" hidden={selected ? false : true}>
+        <Box as="span" hidden={!selected}>
           <SelectedIcon decorative color="inherit" />
         </Box>
       </Box>

@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {AnchoredHeading} from '../src/components/Heading';
 
 export const SectionHeaderAnchor = (): React.ReactNode => {
-  // IDs of anchoredHeadings are created based on child content and when these stories
-  // are side-by-side they need to be unique for accessibility reasons.
+  /*
+   * IDs of anchoredHeadings are created based on child content and when these stories
+   * are side-by-side they need to be unique for accessibility reasons.
+   */
   const uniqueHeadingIdentifier = useUID();
   return (
     <>

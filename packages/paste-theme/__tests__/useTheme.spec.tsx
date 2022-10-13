@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {render} from '@testing-library/react';
+
 import {Theme, useTheme} from '../src';
 
 const HookExampleComponent = (): React.ReactElement => {

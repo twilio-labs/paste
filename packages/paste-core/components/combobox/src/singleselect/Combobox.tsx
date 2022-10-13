@@ -10,6 +10,7 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
+
 import {ComboboxInputSelect} from '../styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from '../styles/ComboboxInputWrapper';
 import {ComboboxListbox} from '../styles/ComboboxListbox';
@@ -122,8 +123,10 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       rowVirtualizer.measure();
     }, [width]);
 
-    // Use ref to focus the current selected item when the list is opened
-    // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+    /*
+     * Use ref to focus the current selected item when the list is opened
+     * https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+     */
     const scrollToIndexRef = React.useCallback(
       (node) => {
         if (node) {

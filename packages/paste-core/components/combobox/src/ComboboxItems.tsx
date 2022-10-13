@@ -2,6 +2,7 @@ import * as React from 'react';
 import type {VirtualItem} from 'react-virtual';
 import find from 'lodash/find';
 import {Box} from '@twilio-paste/box';
+
 import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
 import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
 import {getIndexedItems, getGroupedItems} from './helpers';
@@ -26,8 +27,10 @@ const ComboboxItems = React.memo(
       },
       ref
     ) => {
-      // Use option template if provided
-      // otherwise, return the items array.
+      /*
+       * Use option template if provided
+       * otherwise, return the items array.
+       */
       const templatizedItems = React.useMemo(() => {
         return optionTemplate != null && typeof optionTemplate === 'function'
           ? items.map((item) => optionTemplate(item))
@@ -80,8 +83,10 @@ const ComboboxItems = React.memo(
         );
       }
 
-      // Creating indexed Items so we can use original flat array index values
-      // for indexing within groups.
+      /*
+       * Creating indexed Items so we can use original flat array index values
+       * for indexing within groups.
+       */
       const groupedItems = React.useMemo(() => {
         const indexedItems = getIndexedItems(items);
         return getGroupedItems(indexedItems, groupItemsBy);

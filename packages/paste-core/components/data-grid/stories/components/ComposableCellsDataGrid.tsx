@@ -4,6 +4,7 @@ import {Input} from '@twilio-paste/input';
 import {Menu, useMenuState, MenuButton, MenuItem, MenuSeparator} from '@twilio-paste/menu';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Select, Option} from '@twilio-paste/select';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 
@@ -72,7 +73,7 @@ export const ComposableCellsDataGrid: React.FC = () => {
               }
               return <DataGridCell key={`col-${colIndex}`}>{col}</DataGridCell>;
             })}
-            <DataGridCell key={`col-5`}>
+            <DataGridCell key="col-5">
               <ActionMenu />
             </DataGridCell>
           </DataGridRow>

@@ -6,6 +6,7 @@ import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Combobox} from '../src';
 
 const items = ['a', 'b', 'c'];

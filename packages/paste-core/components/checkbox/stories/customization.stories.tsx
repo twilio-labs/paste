@@ -6,6 +6,7 @@ import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 
 export const CustomizedCheckboxGroup: Story = (_args, {parameters: {isTestEnvironment}}) => {

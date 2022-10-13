@@ -1,10 +1,11 @@
-// https://github.com/react-syntax-highlighter/react-syntax-highlighter#light-build
-// We are using the light build for a smaller bundle size. This means we need to import and
-// register our own languages for Prism to use.
+/*
+ * https://github.com/react-syntax-highlighter/react-syntax-highlighter#light-build
+ * We are using the light build for a smaller bundle size. This means we need to import and
+ * register our own languages for Prism to use.
+ */
 /* eslint-disable import/no-extraneous-dependencies */
 import {PrismLight as SyntaxHighlighter} from 'react-syntax-highlighter';
 import SyntaxHighlighterTheme from 'react-syntax-highlighter/dist/esm/styles/prism/night-owl';
-
 import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
 import c from 'react-syntax-highlighter/dist/esm/languages/prism/c';
 import csharp from 'react-syntax-highlighter/dist/esm/languages/prism/csharp';

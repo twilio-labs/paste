@@ -1,5 +1,6 @@
 import type {BoxProps} from '@twilio-paste/box';
 import type {ValueOf} from '@twilio-paste/types';
+
 import type {ToastVariantObject} from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;

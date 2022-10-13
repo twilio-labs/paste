@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {SkeletonLoader} from '@twilio-paste/skeleton-loader';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 

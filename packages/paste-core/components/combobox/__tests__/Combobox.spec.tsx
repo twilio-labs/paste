@@ -9,6 +9,7 @@ import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
 import type {useVirtual as _useVirtual} from 'react-virtual';
+
 import {useCombobox, Combobox} from '../src';
 import type {ComboboxProps} from '../src/types';
 import {getIndexedItems, getGroupedItems} from '../src/helpers';
@@ -315,12 +316,14 @@ describe('Combobox', () => {
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('Button');
       // select the first item using ArrowUp keyDown
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
@@ -347,11 +350,13 @@ describe('Combobox', () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
       // open the combobox
       fireEvent.click(screen.getByRole('textbox'));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('');
       // select the first item
       fireEvent.click(screen.getAllByRole('option')[0]);
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('Andorra');
       expect(screen.getByTestId('input-value-span').textContent).toEqual('"Andorra"');
@@ -360,6 +365,7 @@ describe('Combobox', () => {
       );
       // click the clear button
       fireEvent.click(screen.getByText('Clear'));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
       expect(screen.getByRole('textbox').value).toEqual('');
       expect(screen.getByTestId('input-value-span').textContent).toEqual('""');

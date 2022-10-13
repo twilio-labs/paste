@@ -1,8 +1,8 @@
 import * as React from 'react';
-
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
+
 import {AnyButton} from '../stories/customization.stories';
 
 const customButtonStyles = {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import type {StackOrientation} from '../src';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
 

@@ -41,9 +41,11 @@ export const pasteGlobalStyles = css({
       scrollBehavior: 'auto !important',
     },
   },
-  // To disable reach/dialog's style warning
-  // Issue: https://github.com/twilio-labs/paste/discussions/524
-  // Reach Docs Guidance: https://reach.tech/styling#skip-including-styles
+  /*
+   * To disable reach/dialog's style warning
+   * Issue: https://github.com/twilio-labs/paste/discussions/524
+   * Reach Docs Guidance: https://reach.tech/styling#skip-including-styles
+   */
   ':root': {
     ['--reach-dialog' as any]: '1',
   },

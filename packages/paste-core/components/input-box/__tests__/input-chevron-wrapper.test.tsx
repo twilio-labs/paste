@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {getInputChevronIconColor, InputChevronWrapper, InputBox} from '../src';
 
 describe('HTML attributes', () => {

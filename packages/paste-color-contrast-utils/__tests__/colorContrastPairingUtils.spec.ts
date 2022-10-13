@@ -7,6 +7,7 @@ import {
 } from '../src/utils';
 import * as RawJSON from '../__fixtures__/tokens.raw.json';
 import * as RawExtraJSON from '../__fixtures__/tokensWithExtraPairings.raw.json';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore type declaration warning for these token fixtures
 import {tokens} from '../__fixtures__/tokens';
 

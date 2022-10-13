@@ -7,6 +7,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {ShowIcon} from '@twilio-paste/icons/esm/ShowIcon';
 import {HideIcon} from '@twilio-paste/icons/esm/HideIcon';
+
 import {CodeblockTheme} from './theme';
 import {CodeBlockOverlayShadow} from './CodeBlockOverlayShadow';
 import type {Language} from '../../codeblock';

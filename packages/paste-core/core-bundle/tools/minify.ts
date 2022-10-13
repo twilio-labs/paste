@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import {minify} from 'terser';
 
 import {CORE_BUNDLE_OUTPUT_PATH} from './constants';

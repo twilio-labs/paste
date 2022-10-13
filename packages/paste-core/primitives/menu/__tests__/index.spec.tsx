@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
+
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
@@ -113,8 +114,10 @@ describe('Menu Primitive', () => {
     });
   });
 
-  // an update to reakit broke these document.activeElements
-  // annoying, commenting out for review but will investigate
+  /*
+   * an update to reakit broke these document.activeElements
+   * annoying, commenting out for review but will investigate
+   */
   // eslint-disable-next-line jest/no-disabled-tests
   describe.skip('interaction', () => {
     it('should control expanded attribute on the button', () => {

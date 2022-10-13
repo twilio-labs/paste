@@ -32,7 +32,8 @@ const HTML: React.FC<HTMLProps> = ({
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
         </noscript>
-        <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{__html: body}} />
+        {/* eslint-disable-next-line react/no-danger */}
+        <div key="body" id="___gatsby" dangerouslySetInnerHTML={{__html: body}} />
         {postBodyComponents}
       </body>
     </html>

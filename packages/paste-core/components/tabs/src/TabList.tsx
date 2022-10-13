@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
+
 import {TabsContext} from './TabsContext';
 import type {Variants} from './types';
 import {getElementName} from './utils';
@@ -29,6 +30,8 @@ const HorizontalTabList: React.FC<{element?: BoxProps['element']}> = ({children,
   </Box>
 );
 
+HorizontalTabList.displayName = 'HorizontalTabList';
+
 const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, element}) => (
   <Box
     borderLeftWidth="borderWidth10"
@@ -42,6 +45,8 @@ const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, e
     {children}
   </Box>
 );
+
+VerticalTabList.displayName = 'VerticalTabList';
 
 const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, element, variant, ...props}, ref) => {
   const tab = React.useContext(TabsContext);

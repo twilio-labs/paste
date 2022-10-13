@@ -54,9 +54,9 @@ describe('Customization', () => {
   });
 
   it('should set custom element data attribute for label and required dot', () => {
-    expect(customLabel.getAttribute('data-paste-element')).toEqual('foo');
-    expect(customRequiredDotWrapper.getAttribute('data-paste-element')).toEqual('bar_WRAPPER');
-    expect(customRequiredDot.getAttribute('data-paste-element')).toEqual('bar');
+    expect(customLabel.getAttribute('data-paste-element')).toEqual('FOO');
+    expect(customRequiredDotWrapper.getAttribute('data-paste-element')).toEqual('BAR_WRAPPER');
+    expect(customRequiredDot.getAttribute('data-paste-element')).toEqual('BAR');
   });
 
   it('should customize label and required dot', () => {

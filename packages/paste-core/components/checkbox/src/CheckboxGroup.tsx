@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {InlineControlGroup} from '@twilio-paste/inline-control-group';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
+
 import {CheckboxContext} from './CheckboxContext';
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {

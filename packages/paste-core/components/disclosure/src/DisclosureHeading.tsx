@@ -5,6 +5,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Heading, HeadingPropTypes} from '@twilio-paste/heading';
 import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
+
 import {DisclosureContext} from './DisclosureContext';
 import type {DisclosureHeadingProps, StyledDisclosureHeadingProps} from './types';
 import {useHover, getIconHoverStyles} from './utils';

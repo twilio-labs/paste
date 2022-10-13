@@ -11,6 +11,7 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
 import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
+
 import {GrowingInput} from './GrowingInput';
 import {ComboboxListbox} from '../styles/ComboboxListbox';
 import {ComboboxItems} from '../ComboboxItems';
@@ -99,7 +100,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
     } = useComboboxPrimitive({
       // The controlled state of currently available items to select
       items,
-      /* Items are objects and not strings.
+      /*
+       * Items are objects and not strings.
        * As a result, the itemToString prop is passed to useCombobox. It will return
        * the string equivalent of the item which will be used for displaying the item
        * in the input once selected and for the a11y aria-live message that will occur
@@ -112,16 +114,20 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
        * we will return an empty string in this case.
        */
       itemToString,
-      // For multiselect, we need `selectedItem` to always be null because
-      // we use the stateChange event to add/remove items to the multiselect hook
+      /*
+       * For multiselect, we need `selectedItem` to always be null because
+       * we use the stateChange event to add/remove items to the multiselect hook
+       */
       selectedItem: null,
       defaultInputValue: inputValue,
       onInputValueChange,
       onHighlightedIndexChange,
       onIsOpenChange,
       initialIsOpen,
-      // https://www.downshift-js.com/use-combobox#state-reducer
-      // Handles how state in Downshift should change as a result of user action
+      /*
+       * https://www.downshift-js.com/use-combobox#state-reducer
+       * Handles how state in Downshift should change as a result of user action
+       */
       stateReducer(_state, actionAndChanges) {
         const {changes, type} = actionAndChanges;
 
@@ -138,20 +144,24 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                     isOpen: true,
                     // FIX: We don't want the highlightedIndex to be reset to 0 upon selection, which scrolls the dropdown to the top.
                     highlightedIndex: items.indexOf(changes.selectedItem),
-                    // FIX: When we select an item from the dropdown, downshift sets that selected item as the inputValue.
-                    // Since inputValue is being set to a value that has been selected, the items array will be filtered
-                    // to only include that item, but it's on the selectedList now so even that item won't be shown.
-                    // This means that for a split second the dropdown will render and empty items array until
-                    // after the inputValue is cleared again. This causes the dropdown to flicker on selection.
-                    // Setting inputValue to an empty string on selection fixes this jankiness.
+                    /*
+                     * FIX: When we select an item from the dropdown, downshift sets that selected item as the inputValue.
+                     * Since inputValue is being set to a value that has been selected, the items array will be filtered
+                     * to only include that item, but it's on the selectedList now so even that item won't be shown.
+                     * This means that for a split second the dropdown will render and empty items array until
+                     * after the inputValue is cleared again. This causes the dropdown to flicker on selection.
+                     * Setting inputValue to an empty string on selection fixes this jankiness.
+                     */
                     inputValue: '',
                   }
                 : {}),
             };
-          // FIX: Bluring the menu causes highlightedIndex to reset to -1, which causes the
-          // menu to scroll to the last selectedItem per the `scrollToIndexRef` function.
-          // By setting it to -2, we can prevent this behavior because -1 is now reserved for when
-          // the menu is first opened.
+          /*
+           * FIX: Bluring the menu causes highlightedIndex to reset to -1, which causes the
+           * menu to scroll to the last selectedItem per the `scrollToIndexRef` function.
+           * By setting it to -2, we can prevent this behavior because -1 is now reserved for when
+           * the menu is first opened.
+           */
           case useComboboxPrimitive.stateChangeTypes.MenuMouseLeave:
             return {
               ...changes,
@@ -195,8 +205,10 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       rowVirtualizer.measure();
     }, [width]);
 
-    // Use ref to focus the current selected item when the list is opened
-    // https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+    /*
+     * Use ref to focus the current selected item when the list is opened
+     * https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+     */
     const scrollToIndexRef = React.useCallback(
       (node) => {
         // Do nothing if the ref hasn't been set yet
@@ -204,10 +216,12 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           return;
         }
 
-        // FEAT: Scroll to the last selected item when the list is opened
-        // When the list is opened, highlightedIndex is set to -1, so that's how we check if the list is opened
-        // We also have a fix in the `stateReducer` to handle setting highlightedIndex to -2 when the
-        // menu is blurred instead of being set to -1, which confuses this check.
+        /*
+         * FEAT: Scroll to the last selected item when the list is opened
+         * When the list is opened, highlightedIndex is set to -1, so that's how we check if the list is opened
+         * We also have a fix in the `stateReducer` to handle setting highlightedIndex to -2 when the
+         * menu is blurred instead of being set to -1, which confuses this check.
+         */
         if (highlightedIndex === -1) {
           const lastSelectedItem = selectedItems[selectedItems.length - 1];
           rowVirtualizer.scrollToIndex(items.indexOf(lastSelectedItem));
@@ -266,9 +280,11 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               i18nKeyboardControls=""
             >
               {selectedItems.map(function renderSelectedItems(selectedItemPill: any) {
-                // When using groupItemsBy, then `itemToString` can potentially return the same string for several groups of items.
-                // i.e.: Components->Combobox and Primitive->Combobox both return "Combobox"
-                // So we prefix the key with the group name to make it unique.
+                /*
+                 * When using groupItemsBy, then `itemToString` can potentially return the same string for several groups of items.
+                 * i.e.: Components->Combobox and Primitive->Combobox both return "Combobox"
+                 * So we prefix the key with the group name to make it unique.
+                 */
                 const key =
                   groupItemsBy != null && typeof selectedItemPill !== 'string'
                     ? `${selectedItemPill[groupItemsBy]}-${itemToString(selectedItemPill)}`

@@ -6,6 +6,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Truncate} from '@twilio-paste/truncate';
 import {Button} from '@twilio-paste/button';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
 
 export const DataGridLayouts = (): React.ReactNode => {

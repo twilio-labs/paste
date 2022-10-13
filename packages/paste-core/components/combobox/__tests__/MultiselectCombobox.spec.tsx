@@ -4,6 +4,7 @@ import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
+
 import {MultiselectCombobox} from '../src';
 import type {MultiselectComboboxProps} from '../src';
 
@@ -45,6 +46,7 @@ const MultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (pr
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
       required

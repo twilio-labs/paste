@@ -47,9 +47,11 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
     setTooltipText(getText(clipboard.copied));
   }, [clipboard.copied]);
 
-  // NOTE: Reakit has a bug where the tooltip doesn't recalc position on content changes
-  // This is a workaround until we upgrade to Ariakit with Floating UI fixes
-  // https://github.com/twilio-labs/paste/discussions/2037
+  /*
+   * NOTE: Reakit has a bug where the tooltip doesn't recalc position on content changes
+   * This is a workaround until we upgrade to Ariakit with Floating UI fixes
+   * https://github.com/twilio-labs/paste/discussions/2037
+   */
   React.useEffect(() => {
     // This prevents the tooltip from showing up on mount
     if (isFirstRender.current) {
@@ -73,3 +75,5 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
     </Tooltip>
   );
 };
+
+CopyButton.displayName = 'CopyButton';

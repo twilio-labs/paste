@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Prefix} from '../src';
 
 describe('HTML attributes', () => {
@@ -61,10 +61,10 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo_PREFIX: {backgroundColor: 'colorBackground'},
+          FOO_PREFIX: {backgroundColor: 'colorBackground'},
         }}
       >
-        <Prefix element="foo">prefix</Prefix>
+        <Prefix element="FOO">prefix</Prefix>
       </CustomizationProvider>
     );
     const renderedPrefix = screen.getByText('prefix');
@@ -76,7 +76,7 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo_PREFIX: {
+          FOO_PREFIX: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -86,7 +86,7 @@ describe('Customization', () => {
           },
         }}
       >
-        <Prefix element="foo" variant="inverse">
+        <Prefix element="FOO" variant="inverse">
           prefix
         </Prefix>
       </CustomizationProvider>

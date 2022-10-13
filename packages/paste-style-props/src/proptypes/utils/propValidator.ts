@@ -13,9 +13,8 @@ export const propValidator = (optionsList: string[]): PropFunctionSignature => {
     if (suppliedValue != null) {
       // If it's an array of tokens, loop through each and check if all values are tokens
       if (Array.isArray(suppliedValue)) {
-        // eslint-disable-next-line unicorn/no-for-loop
-        for (let i = 0; i < suppliedValue.length; i++) {
-          if (isInvalidToken(suppliedValue[i])) {
+        for (const value of suppliedValue) {
+          if (isInvalidToken(value)) {
             return propError;
           }
         }

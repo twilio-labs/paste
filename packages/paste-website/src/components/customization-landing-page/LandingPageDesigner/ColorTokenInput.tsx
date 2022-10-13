@@ -9,6 +9,7 @@ import {ChromePicker} from 'react-color';
 import type {ColorChangeHandler, ColorResult} from 'react-color';
 import {Input} from '@twilio-paste/input';
 import {ColorPickerIcon} from '@twilio-paste/icons/esm/ColorPickerIcon';
+
 import type {DesignerContextProps} from './DesignerContext';
 
 type ColorTokenInputProps = {
@@ -55,6 +56,8 @@ export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({
     const partTwo = Number.parseInt(valueParts[1], 10);
     const partThree = Number.parseInt(valueParts[2].replace(')', ''), 10);
     const partFour = valueParts[3] ? Number.parseFloat(valueParts[3].replace(')', '')) : null;
+
+    // eslint-disable-next-line sonarjs/no-collapsible-if
     if (
       (isRGB || isRGBA) &&
       value.endsWith(')') &&
@@ -63,6 +66,7 @@ export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({
       isInRange(partTwo) &&
       isInRange(partThree)
     ) {
+      // eslint-disable-next-line sonarjs/no-collapsible-if
       if (!partFour || (isRGBA && partFour <= 1 && partFour >= 0)) {
         if (onChange != null) {
           onChange(bucket, tokenName, value);
@@ -72,8 +76,10 @@ export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({
     setLocalValue(value);
   };
 
-  // For color picker styling see:
-  // https://github.com/casesandberg/react-color/blob/master/src/components/chrome/Chrome.js#L11
+  /*
+   * For color picker styling see:
+   * https://github.com/casesandberg/react-color/blob/master/src/components/chrome/Chrome.js#L11
+   */
   return (
     <Box key={tokenName}>
       <Label htmlFor={seed(tokenName)}>{labelText}</Label>

@@ -7,6 +7,7 @@ import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Button} from '../src';
 import type {ButtonVariants} from '../src/types';
 
