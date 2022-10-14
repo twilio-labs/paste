@@ -68,15 +68,34 @@ export const I18n: Story = () => {
   );
 };
 
-export const containedWidth: Story = () => {
+export const ContainedWidth: Story = () => {
   const id = useUID();
   return (
     <Box width="size40">
       <Label htmlFor={id}>Profile picture</Label>
       <FilePicker id={id}>
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Upload a file with a long name</FilePickerButton>
       </FilePicker>
     </Box>
+  );
+};
+
+export const OnChange: Story = () => {
+  const id = useUID();
+  const [uploadedFileName, setUploadedFileName] = React.useState('upload a file to see the onChange run');
+  return (
+    <>
+      <Label htmlFor={id}>Profile picture</Label>
+      <FilePicker
+        id={id}
+        onChange={(evt) => {
+          if (evt.currentTarget.files) setUploadedFileName(evt.currentTarget.files[0].name);
+        }}
+      >
+        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+      </FilePicker>
+      {uploadedFileName}
+    </>
   );
 };
 
