@@ -12,6 +12,8 @@ export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>,
   disabled?: boolean;
   i18nNoSelectionText?: string;
   required?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
 }
 
 const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
@@ -24,6 +26,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
       disabled = false,
       i18nNoSelectionText = 'No file uploaded',
       required = false,
+      onChange,
       ...props
     },
     ref
@@ -33,8 +36,13 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
     const textId = useUID();
 
     const handleChange = (evt: any): void => {
-      const file = evt.target.files[0].name;
-      setFileDescription(file);
+      if (onChange) onChange(evt);
+      if (evt.currentTarget.files && evt.currentTarget.files.length > 0) {
+        const file = evt.currentTarget.files[0].name;
+        setFileDescription(file);
+      } else {
+        setFileDescription(i18nNoSelectionText);
+      }
     };
 
     return (
@@ -105,6 +113,8 @@ FilePicker.propTypes = {
   disabled: PropTypes.bool,
   i18nNoSelectionText: PropTypes.string,
   required: PropTypes.bool,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
 };
 
 export {FilePicker};
