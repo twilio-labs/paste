@@ -48,10 +48,10 @@ export interface ButtonGroupProps extends Omit<React.ComponentPropsWithRef<'div'
 }
 
 export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
-  ({element = 'BUTTON_GROUP', children, attached = false, ...rest}, ref) => {
+  ({element = 'BUTTON_GROUP', children, attached = false, ...props}, ref) => {
     return (
       <Box
-        {...safelySpreadBoxProps(rest)}
+        {...safelySpreadBoxProps(props)}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         as={attached ? AttachedStyled : UnattachedStyled}
