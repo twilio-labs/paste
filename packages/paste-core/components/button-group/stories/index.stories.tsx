@@ -17,7 +17,7 @@ export default {
 
 type ButtonGroupStoryProps = Partial<Omit<ButtonGroupProps, 'children'>>;
 
-export const Unattached: Story = (props: ButtonGroupStoryProps) => (
+export const Unattached: Story<ButtonGroupStoryProps> = (props) => (
   <ButtonGroup aria-label="A decisive group of buttons" {...props}>
     <Button variant="secondary">Yes</Button>
     <Button variant="secondary">No</Button>
@@ -25,8 +25,8 @@ export const Unattached: Story = (props: ButtonGroupStoryProps) => (
   </ButtonGroup>
 );
 
-export const Attached: Story = (props: ButtonGroupStoryProps) => (
-  <ButtonGroup attached aria-label="A decisive group of buttons" {...props}>
+export const Attached: Story = () => (
+  <ButtonGroup attached aria-label="A decisive group of buttons">
     <Button variant="secondary">Yes</Button>
     <Button variant="secondary">No</Button>
     <Button variant="secondary">Maybe</Button>
