@@ -56,18 +56,18 @@ Similar to the Paste [ThemeProvider](/theme), the `CustomizationProvider` uses [
 
 The `CustomizationProvider` currently differs in two ways:
 
-1. Firstly, you set a `baseTheme`. The base theme tells the provider which Paste theme you would like to base your custom theme on. You can choose from the 'Default' or 'Dark' Theme.
+1. Firstly, you set a `baseTheme`. The base theme tells the provider which Paste theme you would like to base your custom theme on. You can choose from the 'default' or 'dark' Theme.
 2. Secondly, you set a `theme`, but unlike with the `<Theme.Provider />` you pass it an object.
 
 ## Selecting a Base Theme
 
-Selecting a base theme allows you to choose which Paste theme you would like to build on top of. By default we select the Default theme for you, but if you would like to create a custom application using a dark theme, you can choose the Dark Base Theme as your starting point.
+Selecting a base theme allows you to choose which Paste theme you would like to build on top of. By default we select the default theme for you, but if you would like to create a custom application using a dark theme, you can choose the dark baseTheme as your starting point.
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark">
+  <CustomizationProvider baseTheme="dark">
     rest of app
   </CustomizationProvider>
 )
@@ -81,7 +81,7 @@ For the `theme` prop you can pass a complete [theme object](/theme/#theme) or a 
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" theme={{
+  <CustomizationProvider baseTheme="dark" theme={{
     "backgroundColors": {
       "colorBackgroundPrimary": "rgb(80, 123, 30)",
       "colorBackgroundPrimaryStronger": "rgb(56, 86, 21)",
@@ -109,7 +109,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from './themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 );
@@ -125,7 +125,7 @@ Coming soon.
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" elements={{
+  <CustomizationProvider baseTheme="dark" elements={{
     CARD: {
       backgroundColor: 'colorBackground',
       borderRadius: 'borderRadius30',
@@ -156,7 +156,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from ''./themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 )
