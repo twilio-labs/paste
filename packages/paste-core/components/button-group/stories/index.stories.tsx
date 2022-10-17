@@ -66,6 +66,47 @@ export const PopoverButtons: Story = () => {
   );
 };
 
+export const ToggleButtons: Story = () => {
+  const [boldPressed, setBoldPressed] = React.useState(false);
+  const [italicPressed, setItalicPressed] = React.useState(false);
+  const [underlinePressed, setUnderlinePressed] = React.useState(true);
+  const [disabledBoldPressed, setDisabledBoldPressed] = React.useState(false);
+  const [strikePressed, setStrikePressed] = React.useState(false);
+  const [disabledItalicPressed, setDisabledItalicPressed] = React.useState(true);
+  return (
+    <ButtonGroup attached aria-label="a decisive group of buttons">
+      <Button variant="secondary" pressed={boldPressed} onClick={() => setBoldPressed(!boldPressed)}>
+        Bold
+      </Button>
+      <Button variant="secondary" pressed={italicPressed} onClick={() => setItalicPressed(!italicPressed)}>
+        Italic
+      </Button>
+      <Button variant="secondary" pressed={underlinePressed} onClick={() => setUnderlinePressed(!underlinePressed)}>
+        Underline
+      </Button>
+      <Button
+        variant="secondary"
+        pressed={disabledBoldPressed}
+        disabled
+        onClick={() => setDisabledBoldPressed(!disabledBoldPressed)}
+      >
+        Disabled bold
+      </Button>
+      <Button variant="secondary" pressed={strikePressed} onClick={() => setStrikePressed(!strikePressed)}>
+        Strike
+      </Button>
+      <Button
+        variant="secondary"
+        pressed={disabledItalicPressed}
+        disabled
+        onClick={() => setDisabledItalicPressed(!disabledItalicPressed)}
+      >
+        Disabled italic (pressed)
+      </Button>
+    </ButtonGroup>
+  );
+};
+
 export const Customized: Story = () => {
   const currentTheme = useTheme();
   return (
