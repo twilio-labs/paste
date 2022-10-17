@@ -1,0 +1,237 @@
+---
+title: Radio Button Group
+package: '@twilio-paste/radio-button-group'
+description: Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.
+slug: /components/radio-button-group/
+---
+
+import {graphql} from 'gatsby';
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {Menu, useMenuState, MenuButton, MenuItem} from '@twilio-paste/menu';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+import {EditIcon} from '@twilio-paste/icons/esm/EditIcon';
+import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+// import {
+//   BasicExample,
+//   UnattachedExample,
+//   DisabledExample,
+//   IconExample,
+//   MenuExample,
+// } from '../../../component-examples/ButtonGroupExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-button-group"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/radio-button-group/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Radio Button Group"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group"
+  storybookUrl="/?path=/story/components-radio-button-group--attached"
+  data={props.data}
+  description={props.pageContext.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+TODO: default live preview
+
+## Guidelines
+
+### About Radio Button Group
+
+A Radio Button Group is a set of 2–6 mutually exclusive radio buttons. It is often used as a way to swap between different views of the same data (e.g., swapping between different chart types for a data set).
+
+### Radio Button Groups in forms
+
+Be thoughtful when using Radio Button Groups in forms. It can be difficult for users to discern which option is “selected” with only 2 options, while having too many options can be overwhelming. We recommend no more than 6 options.
+Radio Button Groups used in forms should have a label.
+
+### Radio Button Groups vs Tabs
+
+[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time. Use Tabs to alternate between views within the same context. Use Radio Button Groups to toggle between different functionality in a single view. Tabs replace the entire view based on the selected tab. Radio Buttons update the data within the view.
+
+### Button Group vs Radio Button Group
+
+[Radio Groups](/components/radio-group) are form elements that allow customers to select only one option from a list of text at a time. Radio Groups are easily scannable and work well within a larger form because they visually compete less with primary page actions.
+
+Radio Button Groups are functionally the same as Radio Groups since only one option can be selected at a time. However, the Radio Button Group contains buttons while Radio Groups contain Radios. This distinction makes Radio Button Groups more visually prominent, so they may be ideal for a more graphical element. They can also be great options when selecting between simple things, like days of the week, modes of contact (e.g., phone, sms, email), etc.
+
+### Accessibility
+
+A Radio Button Group is the same as a Radio Group to assistive technology.
+
+- If the Radio Button only has an icon, the icon needs a label
+- The Radio Button Group needs a legend, which labels what the set of Radio Buttons does
+
+## Examples
+
+### Text
+
+Use the text variant with short labels, no more than 3 words per label.
+
+TODO: live preview - Radio Button Group component with text variant with days of the week options (Mon, Tue, Wed, Thu, Fri) and one option is selected. Able to toggle between the different options.
+
+### Icon
+
+Use the icon variant when space is limited and the icons being used are easily recognizable (e.g., icons representing graph types). It is highly recommended to pair this variant with the [Tooltip](/components/tooltip) component to help ensure understandability.
+
+TODO: live preview - Radio Button Group component with icon variant with four icons (DataBarChart, DataLineChart, DataPieChart, DataTable) and one option is selected. Able to toggle between the different options. Tooltip shows name of option on hover.
+
+### Text + Icon
+
+Use the text + icon variant when icons are not easily recognizable (e.g., product-specific icons) and a text label would help with understanding. If an icon has a chance of not being completely understood at a glance, pairing it with a text label is recommended.
+
+TODO: live preview - Radio Button Group component with text + icon variant with three options: [icon: call] phone, [icon: smsCapable] text, [icon: email] email
+
+## States
+
+### Error
+
+TODO: live preview - Radio Button Group component with error state. Label: What is your preferred programming language? Options: JavaScript, Python, C++ Error help text: Choose a programming language
+
+### Disabled
+
+TODO: live preview - Radio Button Group component with three options, one of which is disabled.
+
+## Composition notes
+
+Radio Button Groups:
+
+- Should have between 2–6 options
+- Are comprised of mutually exclusive options
+- Have a default option selected when possible
+- When using the icon-only variant, pair it with a tooltip
+- Labels should use sentence case
+
+## When to use Radio Button Group
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Radio Button Group when options are mutually exclusive and only one option is valid."
+    preview={false}
+  />
+  <Dont title="Don't" body="Don’t use Radio Button Groups if you need to select multiple options." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Group related buttons in a Radio Button Group (e.g., types of graphs)." preview={false} />
+  <Dont title="Don't" body="Don’t group buttons together that are not related to each other." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Pair icon-only variants with a tooltip." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use the icon-only variant without a tooltip if the icons are not easily recognizable."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Radio Button Group to let users select one option from a list." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use Radio Button Groups for actions, such as save, edit, or delete. Use single Buttons instead."
+    preview={false}
+  />
+</DoDont>
+
+## Implementation Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/button-group - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+TODO: update usage
+
+```jsx
+import {ButtonGroup} from '@twilio-paste/core/button-group';
+import {Button} from '@twilio-paste/core/button';
+
+const Component = () => (
+  <ButtonGroup attached>
+    <Button variant="primary">First button</Button>
+    <Button variant="secondary">Second button</Button>
+    <Button variant="destructive">Destructive button</Button>
+  </ButtonGroup>
+);
+```
+
+#### Props
+
+TODO: finalize props table
+
+All the valid HTML attributes for `div` are supported including the following props:
+
+| Prop      | Type                   | Description                                                                               | Default              |
+| --------- | ---------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
+| children  | `React.ReactElement[]` | The Buttons rendered in the ButtonGroup                                                   |                      |
+| attached? | `boolean`              | If the group of buttons are visually attached                                             | `false`              |
+| element?  | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON_GROUP' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
