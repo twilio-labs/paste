@@ -11,6 +11,8 @@ import {AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper} from
 
 /*
 NOTE: not sure why this was added originally. seems we use the import on line 5 above?
+GA: this interfacee  uses ref?: HTMLFieldSetElement as opposed to ref?: any like in the imported InlineControlGroupProps
+Could maybe just extend it more concisely in RadioButtonGroupProps?
 
 interface InlineControlGroupProps
   extends Pick<BoxProps, 'element'>,
@@ -29,7 +31,7 @@ interface InlineControlGroupProps
 
 export interface RadioButtonGroupProps extends InlineControlGroupProps {
   name: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string) => void; // the context has this as taking in an event, is that ok?
   value?: string;
   i18nRequiredLabel?: string;
   attached?: boolean;
@@ -50,7 +52,7 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
       legend,
       required,
       attached = false,
-      ...rest
+      ...props
     },
     ref
   ) => {
@@ -74,6 +76,7 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
     }, [name, value, disabled, errorText, onChangeHandler]);
 
     return (
+      // Do we need to spread this contextValue object here?
       <RadioButtonContext.Provider value={contextValue}>
         <Box
           as="fieldset"
@@ -82,15 +85,15 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
           padding="space0"
           border="none"
           display="flex"
-          flexDirection="column"
+          flexDirection="column" // why is this column not row?
           rowGap="space40"
           ref={ref}
-          {...safelySpreadBoxProps(rest)}
+          {...safelySpreadBoxProps(props)}
         >
           <Label
             as="legend"
             element="LEGEND"
-            htmlFor={undefined}
+            htmlFor={undefined} // I know this is in inline control group but, why do we do this?
             required={required}
             marginBottom="space0"
             disabled={disabled}
