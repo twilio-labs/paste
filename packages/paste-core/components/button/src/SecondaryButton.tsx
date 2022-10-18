@@ -24,7 +24,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   _focus: {
     color: 'colorTextLinkStronger',
     backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowFocus',
+    boxShadow: 'shadowFocusShadowBorder',
   },
   _active: {
     color: 'colorTextLinkStronger',

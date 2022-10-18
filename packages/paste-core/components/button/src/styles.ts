@@ -105,7 +105,7 @@ export const ToggleButtonStyles: BoxStyleProps = {
     color: 'colorTextInverse',
   },
   _pressed_focus: {
-    boxShadow: 'shadowFocus',
+    boxShadow: 'shadowFocusShadowBorder',
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
   },
