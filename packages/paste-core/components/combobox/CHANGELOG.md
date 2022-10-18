@@ -1,5 +1,14 @@
 # Change Log
 
+## 13.0.0
+
+### Patch Changes
+
+- [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555) [#2711](https://github.com/twilio-labs/paste/pull/2711) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Refine typings and styling for group options for Multiselect Combobox.
+
+- Updated dependencies [[`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273)]:
+  - @twilio-paste/utils@2.0.0
+
 ## 12.2.0
 
 ### Minor Changes

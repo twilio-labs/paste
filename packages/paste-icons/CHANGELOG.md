@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.3.0
+
+### Minor Changes
+
+- [`0585beee9`](https://github.com/twilio-labs/paste/commit/0585beee93f997dadabc1bcb3f44347d6f4ca48e) [#2690](https://github.com/twilio-labs/paste/pull/2690) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] add ProductInternetOfThingsProgrammableAssetTracker icon
+
 ## 9.2.0
 
 ### Minor Changes

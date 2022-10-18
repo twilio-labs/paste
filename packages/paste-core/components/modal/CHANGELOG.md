@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.0.0
+
+### Major Changes
+
+- [`56186cb51`](https://github.com/twilio-labs/paste/commit/56186cb511555bc20f5fe57439e207b33a3f7653) [#2697](https://github.com/twilio-labs/paste/pull/2697) Thanks [@nkrantz](https://github.com/nkrantz)! - [Modal] remove `__console_patch` prop because it is no longer necessary
+
 ## 12.0.1
 
 ### Patch Changes
