@@ -2,7 +2,7 @@ import * as React from 'react';
 import {screen, render, fireEvent} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Attached} from '../stories/index.stories';
-import {RadioButton} from '../src';
+import {RadioButton, RadioButtonGroup} from '../src';
 import type {RadioButtonProps} from '../src';
 
 describe('RadioButton', () => {
@@ -214,6 +214,72 @@ describe('RadioButtonGroup', () => {
             })
       );
     });
+    it('Should check the selected radio button (controlled)', () => {
+      const MockRadioButtonGroup: React.FC = () => {
+        const [value, setValue] = React.useState('2');
+        return (
+          <RadioButtonGroup
+            legend="foo"
+            id="foo"
+            name="foo"
+            value={value}
+            onChange={(newVal) => {
+              setValue(newVal);
+            }}
+          >
+            <RadioButton data-testid="radio-button" value="1" checked>
+              first
+            </RadioButton>
+            <RadioButton data-testid="radio-button1" value="2">
+              second
+            </RadioButton>
+            <RadioButton data-testid="radio-button2" value="3" defaultChecked>
+              third
+            </RadioButton>
+          </RadioButtonGroup>
+        );
+      };
+
+      const {getByTestId} = render(<MockRadioButtonGroup />);
+
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+      expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
+      fireEvent.click(getByTestId('radio-button'));
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
+      fireEvent.click(getByTestId('radio-button2'));
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(true);
+    });
+
+    it('Should check the selected radio (uncontrolled)', () => {
+      const MockRadioButtonGroup: React.FC = () => {
+        return (
+          <RadioButtonGroup legend="foo" id="foo" name="foo">
+            <RadioButton data-testid="radio-button" value="1">
+              first
+            </RadioButton>
+            <RadioButton data-testid="radio-button1" value="2" defaultChecked>
+              second
+            </RadioButton>
+          </RadioButtonGroup>
+        );
+      };
+
+      const {getByTestId} = render(<MockRadioButtonGroup />);
+
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+      fireEvent.click(getByTestId('radio-button'));
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
+      fireEvent.click(getByTestId('radio-button1'));
+      expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+      expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+    });
   });
 
   describe('customization', () => {
@@ -259,105 +325,9 @@ describe('RadioButtonGroup', () => {
         </CustomizationProvider>
       );
       const radio = screen.getByRole('group');
+      screen.debug();
 
       expect(radio).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
     });
   });
 });
-
-//   it('Should check the selected radio (controlled)', () => {
-//     const MockRadioGroup: React.FC = () => {
-//       const [value, setValue] = React.useState('2');
-//       return (
-//         <RadioGroup
-//           legend="foo"
-//           id="foo"
-//           name="foo"
-//           value={value}
-//           onChange={(newVal) => {
-//             setValue(newVal);
-//           }}
-//         >
-//           <Radio data-testid="radio-button" id="bar" name="bar" value="1" checked>
-//             bar
-//           </Radio>
-//           <Radio data-testid="radio-button1" id="bar" name="bar" value="2">
-//             bar
-//           </Radio>
-//           <Radio data-testid="radio-button2" id="bar" name="bar" value="3" defaultChecked>
-//             bar
-//           </Radio>
-//         </RadioGroup>
-//       );
-//     };
-
-//     const {getByTestId} = render(<MockRadioGroup />);
-
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
-//     expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
-//     fireEvent.click(getByTestId('radio-button'));
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(false);
-//     fireEvent.click(getByTestId('radio-button2'));
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button2') as HTMLInputElement).checked).toBe(true);
-//   });
-
-//   it('Should check the selected radio (uncontrolled)', () => {
-//     const MockRadioGroup: React.FC = () => {
-//       return (
-//         <RadioGroup legend="foo" id="foo" name="foo">
-//           <Radio data-testid="radio-button" id="bar" name="bar" value="1">
-//             bar
-//           </Radio>
-//           <Radio data-testid="radio-button1" id="bar" name="bar" value="2" defaultChecked>
-//             bar
-//           </Radio>
-//         </RadioGroup>
-//       );
-//     };
-
-//     const {getByTestId} = render(<MockRadioGroup />);
-
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
-//     fireEvent.click(getByTestId('radio-button'));
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
-//     fireEvent.click(getByTestId('radio-button1'));
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
-//   });
-
-//   it('Should check the selected value on initial', () => {
-//     const MockRadioGroup: React.FC = () => {
-//       const [value, setValue] = React.useState('2');
-//       return (
-//         <RadioGroup
-//           legend="foo"
-//           id="foo"
-//           name="foo"
-//           value={value}
-//           onChange={(newVal) => {
-//             setValue(newVal);
-//           }}
-//         >
-//           <Radio data-testid="radio-button" id="bar" name="bar" value="1">
-//             bar
-//           </Radio>
-//           <Radio data-testid="radio-button1" id="bar" name="bar" value="2">
-//             bar
-//           </Radio>
-//         </RadioGroup>
-//       );
-//     };
-
-//     const {getByTestId} = render(<MockRadioGroup />);
-
-//     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
-//     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
-//   });
-// });

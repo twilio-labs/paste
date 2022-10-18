@@ -11,7 +11,7 @@ import {AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper} from
 
 /*
 NOTE: not sure why this was added originally. seems we use the import on line 5 above?
-GA: this interfacee  uses ref?: HTMLFieldSetElement as opposed to ref?: any like in the imported InlineControlGroupProps
+GA: this interface  uses ref?: HTMLFieldSetElement as opposed to ref?: any like in the imported InlineControlGroupProps
 Could maybe just extend it more concisely in RadioButtonGroupProps?
 
 interface InlineControlGroupProps
@@ -35,6 +35,7 @@ export interface RadioButtonGroupProps extends InlineControlGroupProps {
   value?: string;
   i18nRequiredLabel?: string;
   attached?: boolean;
+  // ref?: HTMLFieldSetElement;
 }
 
 const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupProps>(

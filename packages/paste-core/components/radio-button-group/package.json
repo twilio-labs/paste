@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "user input",
   "status": "production",
-  "description": "A Radio Button Group is a form element that lets users select a single choice from a list of at least two options.",
+  "description": "Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

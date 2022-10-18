@@ -2,13 +2,13 @@ import {styled, css} from '@twilio-paste/styling-library';
 
 export const AttachedRadioButtonGroupWrapper = styled.span(
   css({
-    // NOTE: allow hover and focus indication to remain visible on all sides of a button despite
-    // sibling elements being rendered immediately adjacent under the attached styles
-    '& > label:hover': {
-      zIndex: 1,
-    },
+    // NOTE: allow focus indication to remain visible on all sides of a button despite
+    // sibling elements being rendered immediately adjacent under the attached styles.
+    // Not applied to hover for consistent styling with borders.
+
     '& > label:focus-within': {
       zIndex: 2,
+      position: 'relative',
     },
     '& > label:first-of-type': {
       '& > span': {
