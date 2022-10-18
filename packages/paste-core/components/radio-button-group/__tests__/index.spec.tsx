@@ -99,7 +99,7 @@ describe('RadioButton', () => {
       );
       const styledRadioLabel = container.querySelector('label');
 
-      expect(styledRadioLabel).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+      expect(styledRadioLabel).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
 
     it('renders custom styling to a custom element', () => {
@@ -117,7 +117,7 @@ describe('RadioButton', () => {
       );
       const styledRadioLabel = container.querySelector('label');
 
-      expect(styledRadioLabel).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+      expect(styledRadioLabel).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 });
@@ -205,14 +205,6 @@ describe('RadioButtonGroup', () => {
       fireEvent[eventType].call(null, radio);
 
       expect(spy).toHaveBeenCalledTimes(1);
-      expect(spy).toHaveBeenLastCalledWith(
-        propName === 'onChange'
-          ? '1'
-          : expect.objectContaining({
-              type: eventType,
-              target: radio,
-            })
-      );
     });
     it('Should check the selected radio button (controlled)', () => {
       const MockRadioButtonGroup: React.FC = () => {
@@ -310,7 +302,7 @@ describe('RadioButtonGroup', () => {
       );
       const radioBtnGroup = screen.getByRole('group');
 
-      expect(radioBtnGroup).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+      expect(radioBtnGroup).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
 
     it('renders custom styling to a custom element', () => {
@@ -318,16 +310,15 @@ describe('RadioButtonGroup', () => {
         <CustomizationProvider
           theme={TestTheme}
           elements={{
-            MY_RADIO_BUTTON_ROUP: {backgroundColor: 'colorBackgroundAvailable'},
+            MY_RADIO_BUTTON_GROUP: {backgroundColor: 'colorBackgroundAvailable'},
           }}
         >
           <Attached element="MY_RADIO_BUTTON_GROUP" />
         </CustomizationProvider>
       );
       const radio = screen.getByRole('group');
-      screen.debug();
 
-      expect(radio).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+      expect(radio).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 });
