@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {Default, Disabled, Required, Customized} from '../stories/index.stories';
 
 describe('FilePicker', () => {
@@ -20,6 +20,20 @@ describe('FilePicker', () => {
     render(<Default data-testid="test-file-picker" />);
     const textId = screen.getByText('No file uploaded').getAttribute('id');
     expect(screen.getByTestId('test-file-picker')).toHaveAttribute('aria-describedby', textId);
+  });
+  it('should run the passed onChange function', () => {
+    const MockOnChange = jest.fn();
+    render(<Default onChange={MockOnChange} data-testid="test-file-picker" />);
+    fireEvent.change(screen.getByTestId('test-file-picker'), {
+      target: {
+        files: [new File([], 'file.png', {type: 'image/png'})],
+      },
+    });
+    expect(MockOnChange).toHaveBeenCalledTimes(1);
+  });
+  it('should correctly pass the name prop', () => {
+    render(<Default name="imAFilePicker" data-testid="test-file-picker" />);
+    expect(screen.getByTestId('test-file-picker').getAttribute('name')).toEqual('imAFilePicker');
   });
 });
 

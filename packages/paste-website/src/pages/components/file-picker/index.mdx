@@ -21,6 +21,7 @@ import {
   disabledFilePicker,
   requiredFilePicker,
   i18nFilePicker,
+  onChangeFilePicker,
 } from '../../../component-examples/FilePickerExamples.ts';
 import Changelog from '@twilio-paste/file-picker/CHANGELOG.md';
 
@@ -249,6 +250,8 @@ All the valid attributes for `Button` are supported including the following prop
 | required?            | <inlineCode>boolean</inlineCode>            | Sets the File Picker as required.                                                                                                                                                                                                                                         | false              |
 | i18nNoSelectionText? | <inlineCode>string</inlineCode>             | The text string displayed when no files are selected.                                                                                                                                                                                                                     | 'No file uploaded' |
 | element?             | <inlineCode>string</inlineCode>             | Overrides the default element name to apply unique styles with the Customization Provider.                                                                                                                                                                                | 'FILEPICKER'       |
+| onChange?            | `(event: React.MouseEvent<HTMLElement>)`    | Function will run when the uploaded file changes                                                                                                                                                                                                                          | null               |
+| name?                | <inlineCode>string</inlineCode>             |                                                                                                                                                                                                                                                                           | null               |
 
 <ChangelogRevealer>
   <Changelog />
