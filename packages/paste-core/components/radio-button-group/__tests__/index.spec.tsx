@@ -10,13 +10,6 @@ describe('RadioButton', () => {
     // eslint-disable-next-line react/no-children-prop
     render(<RadioButton value="foo" name="foo" children="foo" {...props} />);
 
-  it('renders visibly into document', () => {
-    renderRadioButton();
-    const radio = screen.getByRole('radio', {name: 'foo'});
-
-    expect(radio).toBeVisible();
-  });
-
   it('assigns attributes as expected', () => {
     renderRadioButton();
     const radio = screen.getByRole('radio', {name: 'foo'});
