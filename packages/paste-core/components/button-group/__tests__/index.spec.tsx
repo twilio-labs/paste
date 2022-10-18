@@ -72,7 +72,7 @@ describe('ButtonGroup customization', () => {
     );
 
     const btnGroup = screen.getByRole('group');
-    expect(btnGroup).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+    expect(btnGroup).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
 
   it('should add custom styling to a custom element for ButtonGroup', () => {
@@ -88,6 +88,6 @@ describe('ButtonGroup customization', () => {
     );
 
     const btnGroup = screen.getByRole('group');
-    expect(btnGroup).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+    expect(btnGroup).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
 });
