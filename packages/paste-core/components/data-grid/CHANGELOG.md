@@ -1,5 +1,12 @@
 # @twilio-paste/data-grid
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273)]:
+  - @twilio-paste/utils@2.0.0
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.0.2
+
+### Patch Changes
+
+- [`4a3974fce`](https://github.com/twilio-labs/paste/commit/4a3974fce6d8d099e0e00b8ab12ae0cb921c719a) [#2745](https://github.com/twilio-labs/paste/pull/2745) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Fix type for the `iconSizes` token bucket under the theme object
+
 ## 8.0.1
 
 ### Patch Changes

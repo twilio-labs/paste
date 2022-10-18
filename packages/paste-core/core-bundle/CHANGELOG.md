@@ -1,5 +1,59 @@
 # Change Log
 
+## 16.0.0
+
+### Major Changes
+
+- [`56186cb51`](https://github.com/twilio-labs/paste/commit/56186cb511555bc20f5fe57439e207b33a3f7653) [#2697](https://github.com/twilio-labs/paste/pull/2697) Thanks [@nkrantz](https://github.com/nkrantz)! - [Modal] remove `__console_patch` prop because it is no longer necessary
+
+### Minor Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [RadioButtonGroup]: add new package
+
+* [`bb46d95db`](https://github.com/twilio-labs/paste/commit/bb46d95dbddb754abb11042d5f03b77539353c42) [#2743](https://github.com/twilio-labs/paste/pull/2743) Thanks [@nkrantz](https://github.com/nkrantz)! - [File picker] add `onChange` and `name` props
+
+- [`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273) [#2719](https://github.com/twilio-labs/paste/pull/2719) Thanks [@nkrantz](https://github.com/nkrantz)! - [Utils] Remove useMergeRef() hook
+
+* [`8ce66e675`](https://github.com/twilio-labs/paste/commit/8ce66e675e6f621a46e35da8029d5a0e95ff5478) [#2703](https://github.com/twilio-labs/paste/pull/2703) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] add copyTextFormatter prop
+
+- [`b7b927ac2`](https://github.com/twilio-labs/paste/commit/b7b927ac2cfc7d039f48c00a672926a65e82e9fe) [#2712](https://github.com/twilio-labs/paste/pull/2712) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ButtonGroup] add ButtonGroup package
+
+### Patch Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Design Tokens] Add token for box-shadow that includes focus and regular border
+
+* [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add flexShrink 0 so it stays the correct size in a flex layout
+
+- [`4a3974fce`](https://github.com/twilio-labs/paste/commit/4a3974fce6d8d099e0e00b8ab12ae0cb921c719a) [#2745](https://github.com/twilio-labs/paste/pull/2745) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Fix type for the `iconSizes` token bucket under the theme object
+
+* [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555) [#2711](https://github.com/twilio-labs/paste/pull/2711) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Refine typings and styling for group options for Multiselect Combobox.
+
+- [`7599162bc`](https://github.com/twilio-labs/paste/commit/7599162bcdfcd0c997c688ab49ede59b5f627c0f) [#2710](https://github.com/twilio-labs/paste/pull/2710) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] add box shadow to toggle button's pressed states to match regular button height
+
+* [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5) [#2685](https://github.com/twilio-labs/paste/pull/2685) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Prevent underlines from being added to Avatar initials inside of anchors or display pills
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Button]: refine styling for focus state
+
+* [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Message] hug the width of the ChatBubble to the width of the message
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ButtonGroup]: touch up attached styles
+
+- Updated dependencies [[`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd), [`4a3974fce`](https://github.com/twilio-labs/paste/commit/4a3974fce6d8d099e0e00b8ab12ae0cb921c719a), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`56186cb51`](https://github.com/twilio-labs/paste/commit/56186cb511555bc20f5fe57439e207b33a3f7653), [`bb46d95db`](https://github.com/twilio-labs/paste/commit/bb46d95dbddb754abb11042d5f03b77539353c42), [`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273), [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555), [`8ce66e675`](https://github.com/twilio-labs/paste/commit/8ce66e675e6f621a46e35da8029d5a0e95ff5478), [`7599162bc`](https://github.com/twilio-labs/paste/commit/7599162bcdfcd0c997c688ab49ede59b5f627c0f), [`b7b927ac2`](https://github.com/twilio-labs/paste/commit/b7b927ac2cfc7d039f48c00a672926a65e82e9fe), [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c)]:
+  - @twilio-paste/design-tokens@8.1.1
+  - @twilio-paste/avatar@6.1.1
+  - @twilio-paste/theme@8.0.2
+  - @twilio-paste/radio-button-group@1.0.0
+  - @twilio-paste/modal@13.0.0
+  - @twilio-paste/file-picker@1.1.0
+  - @twilio-paste/utils@2.0.0
+  - @twilio-paste/combobox@13.0.0
+  - @twilio-paste/code-block@1.1.0
+  - @twilio-paste/button@11.1.2
+  - @twilio-paste/button-group@1.0.0
+  - @twilio-paste/chat-log@2.0.2
+  - @twilio-paste/alert-dialog@6.0.0
+  - @twilio-paste/data-grid@5.0.0
+
 ## 15.3.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Design Tokens] Add token for box-shadow that includes focus and regular border
+
 ## 8.1.0
 
 ### Minor Changes
