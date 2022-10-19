@@ -16,6 +16,7 @@ import {CallIcon} from '@twilio-paste/icons/esm/CallIcon';
 import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
 import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
 import Changelog from '@twilio-paste/radio-button-group/CHANGELOG.md';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   BasicExample,
@@ -69,7 +70,7 @@ export const pageQuery = graphql`
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group"
-  storybookUrl="/?path=/story/components-radio-button-group--attached"
+  storybookUrl="/?path=/story/components-radiobuttongroup--attached"
   data={props.data}
   description={props.pageContext.frontmatter.description}
 />
@@ -233,6 +234,7 @@ All the valid HTML attributes for `div` are supported including the following pr
 | Prop               | Type                   | Description                                                                               | Default              |
 | ------------------ | ---------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
 | children           | `React.ReactElement[]` | RadioButton                                                                               |                      |
+| name               | `string`               |                                                                                           | null                 |
 | attached?          | `boolean`              | If the group of buttons are visually attached                                             | `false`              |
 | legend?            | `string`               | Label text for the Radio Button Group                                                     | null                 |
 | helpText?          | `string`               | Help text for the Radio Button Group                                                      | null                 |
