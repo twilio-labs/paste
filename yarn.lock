@@ -10094,13 +10094,13 @@ __metadata:
     "@babel/plugin-proposal-object-rest-spread": ^7.17.3
     "@babel/preset-env": ^7.16.11
     "@twilio-paste/core": ^16.0.1
-    chalk: ^2.4.2
-    execa: ^3.2.0
-    globby: ^10.0.1
-    inquirer: ^7.0.0
-    is-git-clean: ^1.1.0
-    jscodeshift: ^0.11.0
-    meow: ^8.0.0
+    chalk: 2.4.2
+    execa: 3.2.0
+    globby: 10.0.1
+    inquirer: 7.0.0
+    is-git-clean: 1.1.0
+    jscodeshift: 0.11.0
+    meow: 8.0.0
   bin:
     codemods: ./bin/paste-codemod.js
   languageName: unknown
@@ -22670,7 +22670,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:3.4.0, execa@npm:^3.2.0":
+"execa@npm:3.2.0":
+  version: 3.2.0
+  resolution: "execa@npm:3.2.0"
+  dependencies:
+    cross-spawn: ^7.0.0
+    get-stream: ^5.0.0
+    human-signals: ^1.1.1
+    is-stream: ^2.0.0
+    merge-stream: ^2.0.0
+    npm-run-path: ^4.0.0
+    onetime: ^5.1.0
+    p-finally: ^2.0.0
+    signal-exit: ^3.0.2
+    strip-final-newline: ^2.0.0
+  checksum: 1c5e4629d5e40151ee6b3902740b0fee1e1fe519483472d020e0ec1bc6a4f12903ba02c569868c81416f6ad122da9d96f273164bc641648bada42cce9c56f907
+  languageName: node
+  linkType: hard
+
+"execa@npm:3.4.0":
   version: 3.4.0
   resolution: "execa@npm:3.4.0"
   dependencies:
@@ -25661,6 +25679,22 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"globby@npm:10.0.1":
+  version: 10.0.1
+  resolution: "globby@npm:10.0.1"
+  dependencies:
+    "@types/glob": ^7.1.1
+    array-union: ^2.1.0
+    dir-glob: ^3.0.1
+    fast-glob: ^3.0.3
+    glob: ^7.1.3
+    ignore: ^5.1.1
+    merge2: ^1.2.3
+    slash: ^3.0.0
+  checksum: a16754b93eff58c1070ca9b0a92c69d9d97a184870fbc7dcb1b99a3ff202311ae66dd5662cbec874deaa888d0172024332e14d04d038c23949d5f8e29341dad2
+  languageName: node
+  linkType: hard
+
 "globby@npm:11.0.1":
   version: 11.0.1
   resolution: "globby@npm:11.0.1"
@@ -27522,6 +27556,27 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"inquirer@npm:7.0.0":
+  version: 7.0.0
+  resolution: "inquirer@npm:7.0.0"
+  dependencies:
+    ansi-escapes: ^4.2.1
+    chalk: ^2.4.2
+    cli-cursor: ^3.1.0
+    cli-width: ^2.0.0
+    external-editor: ^3.0.3
+    figures: ^3.0.0
+    lodash: ^4.17.15
+    mute-stream: 0.0.8
+    run-async: ^2.2.0
+    rxjs: ^6.4.0
+    string-width: ^4.1.0
+    strip-ansi: ^5.1.0
+    through: ^2.3.6
+  checksum: 0e02dc507abd571a6153dc4ec54b87aee4ad32593ddf9fe22cf5aac1627c7f1afc626c5ae48055c1ee7462e6f65bd7dcaeadd407c5104a91b585b0b2d69dfa1d
+  languageName: node
+  linkType: hard
+
 "inquirer@npm:^6.5.1":
   version: 6.5.2
   resolution: "inquirer@npm:6.5.2"
@@ -27974,7 +28029,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-git-clean@npm:^1.1.0":
+"is-git-clean@npm:1.1.0":
   version: 1.1.0
   resolution: "is-git-clean@npm:1.1.0"
   dependencies:
@@ -29612,7 +29667,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jscodeshift@npm:^0.11.0":
+"jscodeshift@npm:0.11.0":
   version: 0.11.0
   resolution: "jscodeshift@npm:0.11.0"
   dependencies:
@@ -31970,6 +32025,25 @@ fsevents@^1.2.7:
     errno: ^0.1.3
     readable-stream: ^2.0.1
   checksum: a9f25b0a8ecfb7324277393f19ef68e6ba53b9e6e4b526bbf2ba23055c5440fbf61acc7bf66bfd980e9eb4951a4790f6f777a9a3abd36603f22c87e8a64d3d6b
+  languageName: node
+  linkType: hard
+
+"meow@npm:8.0.0":
+  version: 8.0.0
+  resolution: "meow@npm:8.0.0"
+  dependencies:
+    "@types/minimist": ^1.2.0
+    camelcase-keys: ^6.2.2
+    decamelize-keys: ^1.1.0
+    hard-rejection: ^2.1.0
+    minimist-options: 4.1.0
+    normalize-package-data: ^3.0.0
+    read-pkg-up: ^7.0.1
+    redent: ^3.0.0
+    trim-newlines: ^3.0.0
+    type-fest: ^0.18.0
+    yargs-parser: ^20.2.3
+  checksum: a6e934cc88d6026fa767666ca40571aedac1c69917484c9b7064336fe0c55cb1471012e43cab6f91626162cd11b2abb77cf634d6f2dd0baa1ea6672bd4882b04
   languageName: node
   linkType: hard
 
