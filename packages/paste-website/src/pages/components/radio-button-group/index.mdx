@@ -16,10 +16,10 @@ import {CallIcon} from '@twilio-paste/icons/esm/CallIcon';
 import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
 import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
 import Changelog from '@twilio-paste/radio-button-group/CHANGELOG.md';
+import {Text} from '@twilio-paste/text';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
-  BasicExample,
   TextExample,
   TextAndIconExample,
   ErrorExample,
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
 <content>
 
 <LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
-  {BasicExample}
+  {TextExample}
 </LivePreview>
 
 ## Guidelines
@@ -136,7 +136,7 @@ Use the text + icon variant when icons are not easily recognizable (e.g., produc
 
 ### Error
 
-<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+<LivePreview scope={{RadioButtonGroup, RadioButton, Text}} language="jsx" noInline>
   {ErrorExample}
 </LivePreview>
 
@@ -153,7 +153,6 @@ Radio Button Groups:
 - Should have between 2–6 options
 - Are comprised of mutually exclusive options
 - Have a default option selected when possible
-- When using the icon-only variant, pair it with a tooltip
 - Labels should use sentence case
 
 ## When to use Radio Button Group
@@ -173,10 +172,10 @@ Radio Button Groups:
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Pair icon-only variants with a tooltip." preview={false} />
+  <Do title="Do" body="Pair icon-only variants with text for better context." preview={false} />
   <Dont
     title="Don't"
-    body="Don’t use the icon-only variant without a tooltip if the icons are not easily recognizable."
+    body="Don’t use the icon-only variant if the icons are not easily recognizable."
     preview={false}
   />
 </DoDont>
@@ -185,7 +184,7 @@ Radio Button Groups:
   <Do title="Do" body="Use Radio Button Group to let users select one option from a list." preview={false} />
   <Dont
     title="Don't"
-    body="Don’t use Radio Button Groups for actions, such as save, edit, or delete. Use single Buttons instead."
+    body="Don’t use Radio Button Groups for actions, such as save, edit, or delete. Use single Buttons or a Button Group instead."
     preview={false}
   />
 </DoDont>
@@ -216,18 +215,22 @@ const Component = () => (
 
 #### Radio Button Group Props
 
-All the valid HTML attributes for `div` are supported including the following props:
+All the valid HTML attributes for `input[type="radio]` are supported including the following props:
 
-| Prop               | Type                   | Description                                                                               | Default              |
-| ------------------ | ---------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
-| children           | `React.ReactElement[]` | RadioButton                                                                               |                      |
-| name               | `string`               |                                                                                           | null                 |
-| attached?          | `boolean`              | If the group of buttons are visually attached                                             | `false`              |
-| legend?            | `string`               | Label text for the Radio Button Group                                                     | null                 |
-| helpText?          | `string`               | Help text for the Radio Button Group                                                      | null                 |
-| errorText?         | `string`               | Error text for the Radio Button Group                                                     | null                 |
-| element?           | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON_GROUP' |
-| i18nRequiredLabel? | `string`               | Overrides the default string marking the group as required                                | '(required)'         |
+| Prop               | Type                                     | Description                                                                               | Default              |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
+| children           | `React.ReactElement[]`                   | RadioButton                                                                               |                      |
+| name               | `string`                                 | Name for the Radio Button Group                                                           | null                 |
+| attached?          | `boolean`                                | If the group of buttons are visually attached                                             | `false`              |
+| legend?            | `string`                                 | Label text for the Radio Button Group                                                     | null                 |
+| helpText?          | `string`                                 | Help text for the Radio Button Group                                                      | null                 |
+| id?                | `string`                                 | ID for the Radio Button Group                                                             | null                 |
+| value?             | `string`                                 | Value for the Radio Button Group                                                          | null                 |
+| disabled?          | `boolean`                                | Make the Radio Button Group disabled                                                      | false                |
+| onChange?          | `(event: React.MouseEvent<HTMLElement>)` | Pass a function for the onChange handler                                                  | null                 |
+| errorText?         | `string`                                 | Error text for the Radio Button Group                                                     | null                 |
+| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON_GROUP' |
+| i18nRequiredLabel? | `string`                                 | Overrides the default string marking the group as required                                | '(required)'         |
 
 #### Radio Button Props
 
@@ -239,6 +242,10 @@ All the valid HTML attributes for `div` are supported including the following pr
 | hasError?       | `boolean`              | Adds an error state to the Radio Button                                                   | false          |
 | defaultChecked? | `boolean`              | Sets the Radio Button as the default checked option                                       | false          |
 | checked?        | `boolean`              | Sets the Radio Button as checked                                                          | false          |
+| id?             | `string`               | ID for the Radio Button                                                                   | null           |
+| value?          | `string`               | Value for the Radio Button                                                                | null           |
+| disabled?       | `boolean`              | Make the Radio Button disabled                                                            | false          |
+| name            | `string`               | Name for the Radio Button Group                                                           | null           |
 | element?        | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON' |
 
 <ChangelogRevealer>

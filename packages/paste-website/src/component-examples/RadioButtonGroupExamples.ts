@@ -1,15 +1,3 @@
-export const BasicExample = `const RadioButtonGroupExample = () => {
-  return (
-    <RadioButtonGroup attached name="foo">
-      <RadioButton value="1">One</RadioButton>
-      <RadioButton value="2" defaultChecked>Two</RadioButton>
-      <RadioButton value="3">Three</RadioButton>
-    </RadioButtonGroup>
-  )
-}
-
-render(<RadioButtonGroupExample />)`.trim();
-
 export const TextExample = `const RadioButtonGroupExample = () => {
   return (
     <RadioButtonGroup attached name="foo">
@@ -38,7 +26,13 @@ render(<RadioButtonGroupExample />)`.trim();
 
 export const ErrorExample = `const RadioButtonGroupExample = () => {
   return (
-    <RadioButtonGroup attached name="foo" legend="What is your preferred programming language?" errorText="Choose a programming language">
+    <RadioButtonGroup
+      attached
+      name="foo"
+      legend="What is your preferred programming language?"
+      errorText="Choose a programming language"
+      helpText="Choose the language with which you are most familiar"
+    >
       <RadioButton value="js" hasError>JavaScript</RadioButton>
       <RadioButton value="py" hasError>Python</RadioButton>
       <RadioButton value="c" hasError>C++</RadioButton>
