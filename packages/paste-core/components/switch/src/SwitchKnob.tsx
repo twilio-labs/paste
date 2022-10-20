@@ -23,10 +23,11 @@ export interface SwitchKnobProps {
   checked?: boolean;
   isHovering: boolean;
   height: string;
+  hasError?: boolean;
 }
 
 const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
-  ({element = 'SWITCH_KNOB', disabled = false, checked = false, isHovering, height, ...props}, ref) => {
+  ({element = 'SWITCH', disabled = false, checked = false, isHovering, height, hasError = false, ...props}, ref) => {
     const theme = useTheme();
     const SWITCH_PADDING = theme.space ? theme.space.space20 : '4px';
 
@@ -69,7 +70,12 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
             opacity={checked ? '1' : '0'}
             transition="opacity .2s ease-in-out, color .2s ease-in-out"
           >
-            <CheckboxCheckIcon decorative size="sizeIcon05" element={`${element}_ICON`} />
+            <CheckboxCheckIcon
+              decorative
+              size="sizeIcon05"
+              element={`${element}_ICON`}
+              color={hasError && !disabled ? 'colorTextIconError' : 'colorTextIcon'}
+            />
           </Box>
         </Box>
       </Box>
@@ -82,7 +88,8 @@ SwitchKnob.displayName = 'SwitchKnob';
 SwitchKnob.propTypes = {
   disabled: PropTypes.bool,
   element: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
+  checked: PropTypes.bool,
+  hasError: PropTypes.bool,
   isHovering: PropTypes.bool.isRequired,
   height: PropTypes.string.isRequired,
 };

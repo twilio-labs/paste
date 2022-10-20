@@ -75,7 +75,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
-        console.log('handleChange', isControlled, onChange);
         if (!isControlled) {
           setCheckedState(event.currentTarget.checked);
         } else if (onChange) {
@@ -92,7 +91,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     const name = props.name != null ? props.name : SwitchGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : SwitchGroupContext.hasError;
 
-    console.log(props);
     return (
       <Box element={element} display="inline-flex" position="relative" flexDirection="column">
         <HiddenSwitch
@@ -111,7 +109,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
         <Label disabled={disabled} htmlFor={SwitchId} marginBottom="space0">
           <Box as="span" display="flex">
             <SiblingBox
-              {...safelySpreadBoxProps(props)}
+              element={`${element}_CONTROL`}
               as="span"
               outline="none"
               position="relative"
@@ -152,6 +150,15 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 backgroundColor: 'colorBackgroundPrimary',
                 color: 'colorTextLink',
               }}
+              _invalidSibling={{
+                backgroundColor: 'colorBackgroundError',
+              }}
+              _invalidAndHoverSibling={{
+                backgroundColor: 'colorBackgroundErrorStrongest',
+              }}
+              _invalidAndDisabledSibling={{
+                backgroundColor: 'colorBackgroundStrong',
+              }}
             >
               <SwitchKnob
                 element={element}
@@ -159,15 +166,15 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 checked={mergedChecked}
                 isHovering={isHovering}
                 height={SWITCH_HEIGHT}
+                hasError={hasError}
               />
             </SiblingBox>
             <Text
-              {...props}
               element={`${element}_LABEL_TEXT`}
               as="span"
               color="colorText"
               marginLeft="space30"
-              fontWeight={'fontWeightMedium'}
+              fontWeight="fontWeightMedium"
             >
               <MediaObject verticalAlign="top">
                 {required && (
@@ -181,7 +188,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           </Box>
         </Label>
         {helpText && (
-          <Box as="span" display="flex" element={element}>
+          <Box as="span" display="flex" element={`${element}_HELP_TEXT_WRAPPER`}>
             <Box
               as="span"
               boxSizing="content-box"
@@ -192,8 +199,9 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               role="presentation"
               marginRight="space30"
               display="inline-block"
+              element={`${element}_HELP_TEXT_SPACER`}
             />
-            <HelpText id={helpTextId} marginTop="space0">
+            <HelpText id={helpTextId} marginTop="space0" element={`${element}_HELP_TEXT`}>
               {helpText}
             </HelpText>
           </Box>
@@ -208,7 +216,6 @@ Switch.propTypes = {
   disabled: PropTypes.bool,
   element: PropTypes.string,
   id: PropTypes.string,
-
   children: PropTypes.node.isRequired,
   name: PropTypes.string,
   onChange: PropTypes.func,

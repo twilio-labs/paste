@@ -24,7 +24,6 @@ DefaultSwitch.story = {
 
 export const SwitchChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
-  console.log(1, checked);
   return (
     <Switch
       id={useUID()}
@@ -32,7 +31,6 @@ export const SwitchChecked = (): React.ReactNode => {
       name="foo"
       checked={checked}
       onChange={(event) => {
-        console.log(2, event.currentTarget.checked, event.target.checked);
         setChecked(event.target.checked);
       }}
     >
