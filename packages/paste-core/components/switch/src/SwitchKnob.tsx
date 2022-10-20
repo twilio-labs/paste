@@ -1,30 +1,38 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {SwitchKnobProps} from './types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {useTheme} from '@twilio-paste/theme';
 
-const getSwitchKnobTransformValue = (disabled: boolean, switchIsOn: boolean, isHovering: boolean): string => {
+const getSwitchKnobTransformValue = (disabled: boolean, checked: boolean, isHovering: boolean): string => {
   if (!disabled) {
-    if (!switchIsOn && isHovering) return 'translateX(5%)';
-    if (switchIsOn && !isHovering) return 'translateX(100%)';
-    if (switchIsOn && isHovering) return 'translateX(95%)';
+    if (!checked && isHovering) return 'translateX(5%)';
+    if (checked && !isHovering) return 'translateX(100%)';
+    if (checked && isHovering) return 'translateX(95%)';
   } else if (disabled) {
-    if (!switchIsOn) return 'translate(0%)';
-    if (switchIsOn) return 'translateX(100%)';
+    if (!checked) return 'translate(0%)';
+    if (checked) return 'translateX(100%)';
   }
   return 'translate(0%)';
 };
 
+export interface SwitchKnobProps {
+  element: BoxProps['element'];
+  disabled?: boolean;
+  checked?: boolean;
+  isHovering: boolean;
+  height: string;
+}
+
 const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
-  ({element, disabled = false, switchIsOn, isHovering, height, ...props}, ref) => {
+  ({element = 'SWITCH_KNOB', disabled = false, checked = false, isHovering, height, ...props}, ref) => {
     const theme = useTheme();
     const SWITCH_PADDING = theme.space ? theme.space.space20 : '4px';
 
     const transformValue = React.useMemo(
-      () => getSwitchKnobTransformValue(disabled, switchIsOn, isHovering),
-      [disabled, switchIsOn, isHovering]
+      () => getSwitchKnobTransformValue(disabled, checked, isHovering),
+      [disabled, checked, isHovering]
     );
 
     return (
@@ -42,7 +50,7 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
           ref={ref}
           height={height}
           width={height}
-          transform={switchIsOn ? 'translateX(-100%)' : 'translateX(0%)'}
+          transform={checked ? 'translateX(-100%)' : 'translateX(0%)'}
           transition="transform .2s ease-in-out"
           borderColor="colorBorder"
           borderWidth="borderWidth10"
@@ -58,7 +66,7 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
             height="100%"
             alignItems="center"
             justifyContent="center"
-            opacity={switchIsOn ? '1' : '0'}
+            opacity={checked ? '1' : '0'}
             transition="opacity .2s ease-in-out, color .2s ease-in-out"
           >
             <CheckboxCheckIcon decorative size="sizeIcon05" element={`${element}_ICON`} />
@@ -74,7 +82,7 @@ SwitchKnob.displayName = 'SwitchKnob';
 SwitchKnob.propTypes = {
   disabled: PropTypes.bool,
   element: PropTypes.string,
-  switchIsOn: PropTypes.bool.isRequired,
+  checked: PropTypes.bool.isRequired,
   isHovering: PropTypes.bool.isRequired,
   height: PropTypes.string.isRequired,
 };
