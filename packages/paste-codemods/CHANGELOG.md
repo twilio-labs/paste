@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- [`edca0f7c8`](https://github.com/twilio-labs/paste/commit/edca0f7c8dcf612c6edf0dd98eb7dffe28c3fce9) [#2757](https://github.com/twilio-labs/paste/pull/2757) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button, radio-button-group, codemods] Correct the ToggleButtonStyles export for use in Radio Button Group
+
 ## 0.3.0
 
 ### Minor Changes
