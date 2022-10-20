@@ -27,7 +27,7 @@ import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
 
-export {ToggleButtonStyles as ButtonToggleButtonStyles} from './styles';
+export {ToggleStyles as ButtonToggleStyles} from './styles';
 
 const AnimatedBox = animated(Box);
 
