@@ -27,6 +27,8 @@ import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
 
+export {ToggleStyles as ButtonToggleStyles} from './styles';
+
 const AnimatedBox = animated(Box);
 
 // If size isn't passed, come up with a smart default:

@@ -92,7 +92,7 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
   },
 };
 
-export const ToggleButtonStyles: BoxStyleProps = {
+export const ToggleStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
