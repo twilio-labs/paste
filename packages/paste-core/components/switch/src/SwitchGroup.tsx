@@ -5,10 +5,8 @@ import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 import {SwitchContext} from './SwitchContext';
 
 export interface SwitchGroupProps extends InlineControlGroupProps {
-  isSelectAll?: boolean;
   name: string;
   onChange?: (checked: boolean) => void;
-  i18nRequiredLabel?: string;
 }
 
 const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
@@ -18,7 +16,6 @@ const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
       element = 'SWITCH_GROUP',
       disabled = false,
       errorText,
-      isSelectAll = false,
       name,
       onChange,
       orientation = 'vertical',
@@ -57,14 +54,7 @@ const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
           ref={ref}
           i18nRequiredLabel={i18nRequiredLabel}
         >
-          {React.Children.map(children, (child, index) => {
-            return React.isValidElement(child)
-              ? React.cloneElement(child, {
-                  isSelectAll: isSelectAll && index === 0,
-                  isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
-                })
-              : child;
-          })}
+          {children}
         </InlineControlGroup>
       </SwitchContext.Provider>
     );
@@ -75,7 +65,6 @@ SwitchGroup.displayName = 'SwitchGroup';
 
 if (process.env.NODE_ENV === 'development') {
   SwitchGroup.propTypes = {
-    isSelectAll: PropTypes.bool,
     name: PropTypes.string.isRequired,
     element: PropTypes.string,
     onChange: PropTypes.func,

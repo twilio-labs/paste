@@ -13,49 +13,18 @@ import {RequiredDot} from '@twilio-paste/label';
 import {SwitchContext} from './SwitchContext';
 import {SwitchKnob} from './SwitchKnob';
 
-const selectAllStyleProps = {
-  paddingTop: 'space20',
-  paddingRight: 'space30',
-  paddingBottom: 'space20',
-  paddingLeft: 'space20',
-  borderRadius: 'borderRadius10',
-  backgroundColor: 'colorBackground',
-};
-
-const selectAllActiveStyleProps = {
-  ...selectAllStyleProps,
-  backgroundColor: 'colorBackgroundPrimaryWeakest',
-};
-
-const selectAllChildStyleProps = {
-  paddingLeft: 'space30',
-  paddingRight: 'space30',
-};
-
 export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   helpText?: string | React.ReactNode;
   id?: string;
-  indeterminate?: boolean;
-  isSelectAll?: boolean;
-  isSelectAllChild?: boolean;
   checked?: boolean;
   defaultChecked?: boolean;
 }
 
 type HiddenSwitchProps = Pick<
   SwitchProps,
-  | 'checked'
-  | 'defaultChecked'
-  | 'element'
-  | 'disabled'
-  | 'id'
-  | 'indeterminate'
-  | 'name'
-  | 'onChange'
-  | 'required'
-  | 'value'
+  'checked' | 'defaultChecked' | 'element' | 'disabled' | 'id' | 'name' | 'onChange' | 'required' | 'value'
 > & {
   ref?: any | undefined;
 };
@@ -83,23 +52,7 @@ const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>(({dis
 HiddenSwitch.displayName = 'HiddenSwitch';
 
 const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-  (
-    {
-      checked,
-      defaultChecked,
-      element = 'SWITCH',
-      children,
-      helpText,
-      id,
-      indeterminate,
-      isSelectAll,
-      isSelectAllChild,
-      required,
-      onChange,
-      ...props
-    },
-    ref
-  ) => {
+  ({checked, defaultChecked, element = 'SWITCH', children, helpText, id, required, onChange, ...props}, ref) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
         `[Paste Switch] Do not provide both 'defaultChecked' and 'checked' to Switch at the same time. Please consider if you want this component to be controlled or uncontrolled.`
@@ -139,18 +92,9 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     const name = props.name != null ? props.name : SwitchGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : SwitchGroupContext.hasError;
 
-    // Custom Switch styles if selectAll(Child)
-    let selectAllStyles = {};
-    if (isSelectAll) {
-      selectAllStyles = !disabled && (mergedChecked || indeterminate) ? selectAllActiveStyleProps : selectAllStyleProps;
-    }
-    if (isSelectAllChild) {
-      selectAllStyles = selectAllChildStyleProps;
-    }
-
     console.log(props);
     return (
-      <Box element={element} display="inline-flex" position="relative" flexDirection="column" {...selectAllStyles}>
+      <Box element={element} display="inline-flex" position="relative" flexDirection="column">
         <HiddenSwitch
           {...safelySpreadBoxProps(props)}
           checked={checked}
@@ -159,7 +103,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
-          aria-checked={indeterminate ? 'mixed' : checked}
           aria-invalid={hasError}
           id={SwitchId}
           required={required}
@@ -224,7 +167,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               as="span"
               color="colorText"
               marginLeft="space30"
-              fontWeight={isSelectAll ? null : 'fontWeightMedium'}
+              fontWeight={'fontWeightMedium'}
             >
               <MediaObject verticalAlign="top">
                 {required && (
@@ -271,9 +214,6 @@ Switch.propTypes = {
   onChange: PropTypes.func,
   hasError: PropTypes.bool,
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  indeterminate: PropTypes.bool,
-  isSelectAll: PropTypes.bool,
-  isSelectAllChild: PropTypes.bool,
   defaultChecked: PropTypes.bool,
 };
 
