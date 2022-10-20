@@ -18,7 +18,7 @@
   "BreadcrumbItem": "@twilio-paste/core/breadcrumb",
   "ButtonGroup": "@twilio-paste/core/button-group",
   "Button": "@twilio-paste/core/button",
-  "ToggleButtonStyles": "@twilio-paste/core/button",
+  "ButtonToggleButtonStyles": "@twilio-paste/core/button",
   "Callout": "@twilio-paste/core/callout",
   "CalloutHeading": "@twilio-paste/core/callout",
   "CalloutList": "@twilio-paste/core/callout",
