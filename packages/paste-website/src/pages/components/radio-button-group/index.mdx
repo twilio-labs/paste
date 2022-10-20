@@ -21,7 +21,6 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {
   BasicExample,
   TextExample,
-  IconExample,
   TextAndIconExample,
   ErrorExample,
   DisabledExample,
@@ -123,18 +122,6 @@ Use the text variant with short labels, no more than 3 words per label.
 
 <LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
   {TextExample}
-</LivePreview>
-
-### Icon
-
-Use the icon variant when space is limited and the icons being used are easily recognizable (e.g., icons representing graph types). It is highly recommended to pair this variant with the [Tooltip](/components/tooltip) component to help ensure understandability.
-
-<LivePreview
-  scope={{RadioButtonGroup, RadioButton, DataBarChartIcon, DataLineChartIcon, DataPieChartIcon, DataTableIcon, Tooltip}}
-  language="jsx"
-  noInline
->
-  {IconExample}
 </LivePreview>
 
 ### Text + Icon

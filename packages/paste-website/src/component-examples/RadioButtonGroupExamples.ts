@@ -24,19 +24,6 @@ export const TextExample = `const RadioButtonGroupExample = () => {
 
 render(<RadioButtonGroupExample />)`.trim();
 
-export const IconExample = `const RadioButtonGroupExample = () => {
-  return (
-    <RadioButtonGroup attached name="foo">
-      <Tooltip text="Bar chart"><RadioButton value="bar chart"><DataBarChartIcon decorative={false} title="data bar chart icon"/></RadioButton></Tooltip>
-      <Tooltip text="Line chart"><RadioButton value="line chart"><DataLineChartIcon decorative={false} title="data line chart icon"/></RadioButton></Tooltip>
-      <Tooltip text="Pie chart"><RadioButton value="pie chart"><DataPieChartIcon decorative={false} title="data pie chart icon"/></RadioButton></Tooltip>
-      <Tooltip text="Table"><RadioButton value="table"><DataTableIcon decorative={false} title="data table icon"/></RadioButton></Tooltip>
-    </RadioButtonGroup>
-  )
-}
-
-render(<RadioButtonGroupExample />)`.trim();
-
 export const TextAndIconExample = `const RadioButtonGroupExample = () => {
   return (
     <RadioButtonGroup attached name="foo">
