@@ -1,5 +1,5 @@
 import {styled, css} from '@twilio-paste/styling-library';
-import {ToggleButtonStyles} from '@twilio-paste/button/src/styles';
+import {ToggleButtonStyles} from '@twilio-paste/button';
 
 export const StyledRadioButtonLabel = styled.label(
   css({
