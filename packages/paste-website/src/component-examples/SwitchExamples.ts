@@ -129,7 +129,7 @@ const SwitchExample = () => {
         value="marketing-updates"
         checked={checked1}
         onChange={() => {
-          setChecked1(!checked!);
+          setChecked1(!checked);
         }}
         helpText={
           <Text as="span" color="currentColor">
