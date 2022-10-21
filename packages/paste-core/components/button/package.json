@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "11.1.2",
+  "version": "11.1.3",
   "category": "interaction",
   "status": "production",
   "description": "A Button is a clickable element which communicates that users can trigger an action.",

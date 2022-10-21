@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/radio-button-group",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "user input",
   "status": "production",
   "description": "Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^7.1.0",
-    "@twilio-paste/button": "^11.1.2",
+    "@twilio-paste/button": "^11.1.3",
     "@twilio-paste/design-tokens": "^8.1.1",
     "@twilio-paste/flex": "^5.0.0",
     "@twilio-paste/help-text": "^10.0.0",
