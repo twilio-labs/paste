@@ -428,11 +428,10 @@ jobs:
 
       - name: "Assign Designers to PR if Chromatic detects changes"
         if: steps.run-chromatic-action.outputs.changeCount > 0
-        uses: itsOliverBott/assign-pr-reviewers@release
+        uses: delivery-much/actions-assigner@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          users: "@twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
-          ignore-drafts: true
+          team-reviewers: "@twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
 
   pr-categorizer:
     name: Categorize the PR using labels
