@@ -28,11 +28,10 @@ type HiddenSwitchProps = Pick<
 > & {
   ref?: any | undefined;
 };
-const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>(({disabled, ...props}, ref) => (
+const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>((props, ref) => (
   <Box
     {...props}
     ref={ref}
-    disabled={disabled}
     as="input"
     type="checkbox"
     role="switch"
@@ -45,7 +44,6 @@ const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>(({dis
     textTransform="none"
     position="absolute"
     clip="rect(0 0 0 0)"
-    tabIndex={0}
   />
 ));
 
@@ -101,11 +99,13 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
+          aria-checked={checked}
           aria-invalid={hasError}
           id={SwitchId}
           required={required}
           ref={ref}
         />
+
         <Label disabled={disabled} htmlFor={SwitchId} marginBottom="space0">
           <Box as="span" display="flex">
             <SiblingBox
