@@ -425,10 +425,10 @@ jobs:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
 
       - name: "Chromatic outputs"
-        run: echo ${{steps.run-chromatic-action.outputs.code}}
+        run: echo ${{steps.run-chromatic-action.outputs.changeCount}}
 
       - name: "Assign Designers to PR if Chromatic detects changes"
-        if: steps.run-chromatic-action.outputs.code == 1
+        if: steps.run-chromatic-action.outputs.changeCount > 0
         uses: itsOliverBott/assign-pr-reviewers@release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
