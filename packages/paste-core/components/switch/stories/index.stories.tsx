@@ -12,11 +12,8 @@ export default {
 };
 
 export const DefaultSwitch = (): React.ReactNode => {
-  return (
-    <Switch id={useUID()} value="label" name="foo">
-      Label
-    </Switch>
-  );
+  const switchRef = React.useRef(null);
+  return <Switch ref={switchRef}>Play notification sounds</Switch>;
 };
 DefaultSwitch.story = {
   name: 'Switch',
@@ -445,7 +442,7 @@ export const SwitchGroupHorizontalError = (): React.ReactNode => {
         Third
       </Switch>
       <Switch id={useUID()} value="4" helpText="This is some help text.">
-        Forth
+        Fourth
       </Switch>
       <Switch id={useUID()} value="5" helpText="This is some help text.">
         Fifth
