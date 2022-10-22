@@ -431,7 +431,7 @@ jobs:
         uses: delivery-much/actions-assigner@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          team-reviewers: "@twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
+          team-reviewers: "twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
 
   pr-categorizer:
     name: Categorize the PR using labels
