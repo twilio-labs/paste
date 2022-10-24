@@ -1,6 +1,6 @@
 export const TextExample = `const RadioButtonGroupExample = () => {
   return (
-    <RadioButtonGroup attached name="foo">
+    <RadioButtonGroup attached name="foo" legend="Choose a day" helpText="The message will be sent on the day you choose">
       <RadioButton value="m">Mon</RadioButton>
       <RadioButton value="t" defaultChecked>Tues</RadioButton>
       <RadioButton value="w">Wed</RadioButton>
@@ -14,7 +14,7 @@ render(<RadioButtonGroupExample />)`.trim();
 
 export const TextAndIconExample = `const RadioButtonGroupExample = () => {
   return (
-    <RadioButtonGroup attached name="foo">
+    <RadioButtonGroup attached name="foo" legend="Choose a product" helpText="The product you choose will be used for your new role">
       <RadioButton value="phone"><CallIcon decorative={false} title="phone icon"/>Phone</RadioButton>
       <RadioButton value="text"><SMSCapableIcon decorative={false} title="text icon"/>Text</RadioButton>
       <RadioButton value="email"><EmailIcon decorative={false} title="email icon"/>Email</RadioButton>
@@ -44,7 +44,7 @@ render(<RadioButtonGroupExample />)`.trim();
 
 export const DisabledExample = `const RadioButtonGroupExample = () => {
   return (
-    <RadioButtonGroup attached name="foo">
+    <RadioButtonGroup attached name="foo" legend="Choose a letter" helpText="Don't get it wrong!">
       <RadioButton value="a" hasError>A</RadioButton>
       <RadioButton value="b" hasError>B</RadioButton>
       <RadioButton value="c" hasError disabled>C</RadioButton>
