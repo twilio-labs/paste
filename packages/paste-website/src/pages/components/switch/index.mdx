@@ -102,10 +102,11 @@ can also be used to provide additional guidance.
 - SwitchGroup **must** have a `legend` that describes the collection.
 - Switch always has the `role="switch"` attribute.
 - Switch must have a visible label that is in close proximity to the control.
-- Switch don't natively support the `required` attribute. In cases where a Switch is required to be checked:
-  - Display a required indicator
+- If you want to mark a Switch as required, use the `required` prop.
+  - Only use the `required` prop on the SwitchGroup if you want to mark the entire group as required.
+  - If you want to mark a single Switch as required, use the `required` prop on it directly.
   - Ensure the label text includes wording that successfully describes the requirement to the user that they should toggle the Switch on
-- When in an error state display an inline error message below the offending Switch that clearly describes the error along with an icon that depicts the severity.
+- When in an error state display an inline error message below the offending Switch that clearly describes the error.
 - When displaying additional content based on toggling a Switch, be sure that the new content appears after the Switch in question so that it is naturally discoverable by assistive technology users.
 
 ## Controlled vs. uncontrolled Switch
@@ -234,11 +235,12 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 
 | Prop            | Type                                         | Description                                                                               | Default  |
 | --------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- | -------- |
-| children        | `NonNullable<React.ReactNode>`               |                                                                                           | null     |
+| children        | `NonNullable<React.ReactNode>`               |                                                                                           |          |
 | id?             | `string`                                     |                                                                                           | null     |
-| checked?        | `boolean`                                    |                                                                                           | false    |
+| checked?        | `boolean`                                    |                                                                                           | null     |
 | defaultChecked? | `boolean`                                    |                                                                                           | null     |
-| hasError?       | `boolean`                                    |                                                                                           | false    |
+| disabled?       | `boolean`                                    |                                                                                           | `false`  |
+| hasError?       | `boolean`                                    |                                                                                           | `false`  |
 | helpText?       | `string \| ReactNode`                        |                                                                                           | null     |
 | required?       | `boolean`                                    |                                                                                           | `false`  |
 | onChange?       | `React.ChangeEventHandler<HTMLInputElement>` |                                                                                           | null     |
@@ -250,16 +252,16 @@ All the valid HTML attributes for `label` are supported including the following 
 
 | Prop               | Type                                     | Description                                                                               | Default        |
 | ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children           | `ReactNode`                              |                                                                                           | null           |
+| children           | `ReactNode`                              |                                                                                           |                |
 | legend             | `string \| NonNullable<React.ReactNode>` |                                                                                           |                |
 | name               | `string`                                 |                                                                                           |                |
 | orientation?       | `'vertical' \| 'horizontal'`             |                                                                                           | `'horizontal'` |
-| errorText?         | `string \| React.ReactNode`              |                                                                                           |                |
-| helpText?          | `string \| ReactNode`                    |                                                                                           |                |
-| disabled?          | `boolean`                                |                                                                                           |                |
+| errorText?         | `string \| React.ReactNode`              |                                                                                           | null           |
+| helpText?          | `string \| ReactNode`                    |                                                                                           | null           |
+| disabled?          | `boolean`                                |                                                                                           | `false`        |
 | required?          | `boolean`                                |                                                                                           | `false`        |
-| i18nRequiredLabel? | `string`                                 |                                                                                           |                |
-| onChange?          | `(checked: boolean) => void`             |                                                                                           |                |
+| i18nRequiredLabel? | `string`                                 |                                                                                           | `(required)`   |
+| onChange?          | `(checked: boolean) => void`             |                                                                                           | null           |
 | element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'SWITCH_GROUP' |
 
 <ChangelogRevealer>

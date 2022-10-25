@@ -263,10 +263,12 @@ describe('Switch event handlers', () => {
       );
     };
 
-    const {getByTestId} = render(<MockSwitch />);
+    render(<MockSwitch />);
+    const switchButton = screen.getByTestId('switch-button') as HTMLInputElement;
 
-    fireEvent.click(getByTestId('switch-button'));
-    expect((getByTestId('switch-button') as HTMLInputElement).checked).toBe(true);
+    fireEvent.click(switchButton);
+    expect(switchButton.checked).toBe(true);
+    expect(switchButton.getAttribute('aria-checked')).toBeTruthy();
   });
 
   it('Should check the switch when uncontrolled', () => {
@@ -278,10 +280,12 @@ describe('Switch event handlers', () => {
       );
     };
 
-    const {getByTestId} = render(<MockSwitch />);
+    render(<MockSwitch />);
+    const switchButton = screen.getByTestId('switch-button') as HTMLInputElement;
 
-    fireEvent.click(getByTestId('switch-button'));
-    expect((getByTestId('switch-button') as HTMLInputElement).checked).toBe(true);
+    fireEvent.click(switchButton);
+    expect(switchButton.checked).toBe(true);
+    expect(switchButton.getAttribute('aria-checked')).toBeTruthy();
   });
 });
 

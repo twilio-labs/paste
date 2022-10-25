@@ -99,7 +99,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           name={name}
           onChange={handleChange}
           aria-describedby={helpTextId}
-          aria-checked={checked}
+          aria-checked={mergedChecked}
           aria-invalid={hasError}
           id={SwitchId}
           required={required}
@@ -222,6 +222,7 @@ Switch.propTypes = {
   hasError: PropTypes.bool,
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   defaultChecked: PropTypes.bool,
+  checked: PropTypes.bool,
 };
 
 export {Switch};
