@@ -48,6 +48,7 @@ export const SITEMAP = [
   '/components/paragraph/',
   '/components/popover/',
   '/components/radio-group/',
+  '/components/radio-button-group/',
   '/components/screen-reader-only/',
   '/components/select/',
   '/components/separator/',
