@@ -1,16 +1,16 @@
 import {styled, css} from '@twilio-paste/styling-library';
-import {ToggleButtonStyles} from '@twilio-paste/button/src/styles';
+import {ButtonToggleStyles} from '@twilio-paste/button';
 
 export const StyledRadioButtonLabel = styled.label(
   css({
     '& > input[type=radio]:checked + span': {
-      ...ToggleButtonStyles._pressed,
+      ...ButtonToggleStyles._pressed,
     },
     '& > input[type=radio]:checked + span:hover': {
-      ...ToggleButtonStyles._pressed_hover,
+      ...ButtonToggleStyles._pressed_hover,
     },
     '& > input[type=radio]:checked:focus + span': {
-      ...ToggleButtonStyles._pressed_focus,
+      ...ButtonToggleStyles._pressed_focus,
     },
   })
 );

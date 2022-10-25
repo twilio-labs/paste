@@ -1,7 +1,7 @@
 ---
 title: Avatar
 package: '@twilio-paste/avatar'
-description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity, an image or a Paste Icon.
+description: An Avatar is a graphical representation of a user or entity.
 slug: /components/avatar/
 ---
 
@@ -98,14 +98,24 @@ export const pageQuery = graphql`
 
 <p>
   {props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the{' '}
-  <a href="/components/icons/usage-guidelines/#resizing-icons">Paste Icon</a>.
+  <a href="/components/icons/usage-guidelines/#resizing-icons">Paste Icon</a>. People are represented using the "user"
+  variant and entities (e.g. businesses) are represented using the "entity" variant.
 </p>
 
 ## Examples
 
-### Representing an entity via their initials
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading>A note about Avatar contents</CalloutHeading>
+  <CalloutText>
+    The Avatar component can only display initials, an image, or an icon. If multiple props are present, the Avatar will
+    display the image first. If an icon prop is present without the src prop, the Avatar will display the icon. Only if
+    no image or icon is passed will the Avatar display initials.
+  </CalloutText>
+</Callout>
 
-Provide the Avatar with a `name` and the component will render the initials as their visual representation. The option is particularly useful if there is no supplied image.
+### Avatar with initials
+
+Provide the Avatar with a `name` and the component will render the initials as the visual representation of the user or entity. This option is particularly useful if there is no image to use.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">A note about size 10 and 20</CalloutHeading>
@@ -134,17 +144,9 @@ Provide the Avatar with a `name` and the component will render the initials as t
 </Stack>`}
 </LivePreview>
 
-### Representing an entity via an image
+### Avatar with an image
 
 Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading>A note about Avatar contents</CalloutHeading>
-  <CalloutText>
-    The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
-    display the image.
-  </CalloutText>
-</Callout>
 
 <LivePreview
   scope={{
@@ -165,17 +167,9 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
 </Stack>`}
 </LivePreview>
 
-### Representing an entity via an icon
+### Avatar with an icon
 
 Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="/components/icons/">Paste Icon</a>.
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">A note about Avatar contents</CalloutHeading>
-  <CalloutText>
-    The Avatar component can either display an image or an icon, but not both. If both are present, the Avatar will
-    display the image.
-  </CalloutText>
-</Callout>
 
 <LivePreview
   scope={{
