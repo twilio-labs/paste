@@ -40,11 +40,57 @@ export const pageQuery = graphql`
 
 <content>
 
+### Core 17.0.0
+
+- [Switch] Updated Switch component API to match other form components in Paste.
+
+  - `SwitchContainer` has been replaced with `SwitchGroup`
+  - `SwitchGroup` props changes:
+    - removes `id?: string`
+    - removes `label: ReactNode` - use the new `legend` prop instead.
+    - adds `legend: string | NonNullable<React.ReactNode>` to replace the old `label` prop.
+    - adds `errorText?: string | React.ReactNode` to handle error states.
+    - adds `orientation?: 'vertical' | 'horizontal;` to set children orientation.
+    - adds `i18nRequiredLabel?: string` to change the required label for internationalization.
+    - adds `name: string` to label the switch group for forms.
+    - adds `onChange?: (checked: boolean) => void` to handle changes to any child Switch's checked state in a single function.
+    - `helpText` prop now accepts a string.
+    - `required` prop is now optional.
+    - `element` prop default value changed to `SWITCH_GROUP` from `SWITCH_CONTAINER`
+  - `Switch` props changes:
+    - `children` prop type changed to ` NonNullable<React.ReactNode>`
+    - adds `hasError?: boolean` to handle error states.
+    - adds `helpText?: string | React.React.Node` to add additional context to a switch.
+    - adds `checked?: boolean` to use the Switch in a controlled manner.
+    - adds `defaultChecked?: boolean` to set the default checked value in an uncontrolled manner.
+
+  **ACTION NEEDED**: If you are using the Switch component, you will need to update your code to use the new API. You can find the new API in the [Switch documentation](/components/switch).
+
+### Core 16.0.0
+
+- [Modal] We removed the `\_\_console_patch`` prop because it is no longer necessary. It was a hack needed for the legacy Console application, which is no longer in use. [See PR #2697](https://github.com/twilio-labs/paste/pull/2697)
+
+  **ACTION NEEDED**: None, but the `__console_patch` prop will no longer work if you are on a legacy application and need to use the Modal component. We recommend migrating to the new Console application.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2687) and the [documentation snapshot](https://deploy-preview-2687--paste-docs.netlify.app/).
+
+### Core 15.0.0
+
+- [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all
+  of the Data Visualization tokens from the generic Color category. If you are using categorized Data
+  Visualization design tokens, you will need to update their reference.
+
+  **ACTION NEEDED**: If you are referencing the `color.dataVisualization` tokens directly from the `@twilio-paste/design-tokens` package, you will need to update your references to the `dataVisualization` bucket.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2579/files) and the [documentation snapshot](https://deploy-preview-2579--paste-docs.netlify.app/).
+
 ### Core 14.0.0
 
 - [Textarea] Update Textarea to use `@twilio-paste/react-autosize-textarea` library and add the `resize` prop which allows users to resize the Textarea height.
 
   **ACTION NEEDED**: None, but because `@twilio-paste/react-autosize-textarea` is a new peer dependency requirement of `@twilio-paste/textarea`, out of an abundance of caution with how npm and yarn differ with regards to handling peer dependencies, we decided to mark this change as a major to be safe.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2455) and the [documentation snapshot](https://deploy-preview-2455--paste-docs.netlify.app/).
 
 ### Core 13.0.0
 
@@ -52,11 +98,15 @@ export const pageQuery = graphql`
 
   **ACTION NEEDED**: None, the upgrade from v10 to v11 is largely a backwards compatible upgrade, but there were significant changes to the types exported from Emotion that could impact compilation of your application when using Typescript.
 
+See [the full change list](https://github.com/twilio-labs/paste/pull/2393) and the [documentation snapshot](https://deploy-preview-2393--paste-docs.netlify.app/).
+
 ### Core 12.0.0
 
 - [Icons] Add `React.forwardRef` to all Icon components.
 
   **ACTION NEEDED**: None, but you should be aware of the change due to the fact that refs on Icons are now assigned differently, and there is the potential for exported types to be different.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2359) and the [documentation snapshot](https://deploy-preview-2359--paste-docs.netlify.app/).
 
 ### Core 11.0.0
 
@@ -78,6 +128,8 @@ export const pageQuery = graphql`
   } from '@twilio-paste/design-tokens/dist/tokens.common';
   ```
 
+See [the full change list](https://github.com/twilio-labs/paste/pull/2149) and the [documentation snapshot](https://deploy-preview-2149--paste-docs.netlify.app/).
+
 ### Core 10.0.0
 
 - [Truncate] `title` prop is required for the Truncate component. More details: <inlineCode>[fa2ffc5c](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)</inlineCode> [#1603](https://github.com/twilio-labs/paste/pull/1603)
@@ -92,6 +144,8 @@ export const pageQuery = graphql`
   <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
 
   ```
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/1617) and the [documentation snapshot](https://deploy-preview-1617--paste-docs.netlify.app/).
 
 ### Core 9.0.0
 
@@ -133,6 +187,8 @@ export const pageQuery = graphql`
   <Button as="a" href="https://twilio.com">Twilio</Button>
 
   ```
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2149) and the [documentation snapshot](https://deploy-preview-2149--paste-docs.netlify.app/).
 
 ### Core 4.3.2
 
