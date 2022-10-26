@@ -147,7 +147,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               }}
               _disabledSibling={{
                 backgroundColor: 'colorBackgroundStrong',
-                color: 'colorTextWeakest',
+                color: 'currentColor',
                 cursor: 'not-allowed',
               }}
               _checkedAndHoverSibling={{
