@@ -74,7 +74,7 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
               decorative
               size="sizeIcon05"
               element={`${element}_ICON`}
-              color={hasError && !disabled ? 'colorTextIconError' : 'colorTextIcon'}
+              color={hasError && !disabled ? 'colorTextIconError' : 'currentColor'}
             />
           </Box>
         </Box>
