@@ -501,6 +501,6 @@ jobs:
         run: yarn install --immutable
 
       - name: Run DangerJS
-        run: yarn danger ci
+        run: DEBUG="*" yarn danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
