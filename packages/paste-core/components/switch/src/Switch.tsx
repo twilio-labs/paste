@@ -71,8 +71,17 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     // Determines if the Switch is checked in either controlled or uncontrolled environments
     const mergedChecked = isControlled ? checked : checkedState;
 
+    // Prioritizing direct props values over whatever SwitchGroupContext passes down
+    const disabled = props.disabled != null ? props.disabled : SwitchGroupContext.disabled;
+    const name = props.name != null ? props.name : SwitchGroupContext.name;
+    const hasError = props.hasError != null ? props.hasError : SwitchGroupContext.hasError;
+
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
+        if (disabled) {
+          return;
+        }
+
         if (!isControlled) {
           setCheckedState(event.currentTarget.checked);
         } else if (onChange) {
@@ -81,13 +90,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           SwitchGroupContext.onChange(event);
         }
       },
-      [onChange, SwitchGroupContext.onChange]
+      [onChange, SwitchGroupContext.onChange, disabled]
     );
-
-    // Prioritizing direct props values over whatever SwitchGroupContext passes down
-    const disabled = props.disabled != null ? props.disabled : SwitchGroupContext.disabled;
-    const name = props.name != null ? props.name : SwitchGroupContext.name;
-    const hasError = props.hasError != null ? props.hasError : SwitchGroupContext.hasError;
 
     return (
       <Box element={element} display="inline-flex" position="relative" flexDirection="column">
@@ -143,7 +147,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               }}
               _disabledSibling={{
                 backgroundColor: 'colorBackgroundStrong',
-                color: 'colorTextIcon',
+                color: 'colorTextWeakest',
                 cursor: 'not-allowed',
               }}
               _checkedAndHoverSibling={{
@@ -172,7 +176,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
             <Text
               element={`${element}_LABEL_TEXT`}
               as="span"
-              color="colorText"
+              color="currentColor"
               marginLeft="space30"
               fontWeight="fontWeightMedium"
             >
