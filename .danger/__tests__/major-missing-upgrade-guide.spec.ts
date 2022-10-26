@@ -1,39 +1,54 @@
-import majorCoreMissingUpgradeGuideCheck, {
-  hasMajorCoreUpgrade,
-  getChangesetsWithMajorCoreUpgrade,
+import majorMissingUpgradeGuideCheck, {
+  hasMajorUpdate,
+  getChangesetsWithMajorUpdate,
   UPGRADE_GUIDE_PAGE_FILE,
-} from '../major-core-missing-upgrade-guide';
+  FAIL_MESSAGE,
+} from '../major-missing-upgrade-guide';
 declare const global: any;
 
-describe('hasMajorCoreUpgrade()', () => {
-  it('should not flag icon changesets', () => {
-    expect(hasMajorCoreUpgrade('./.danger/__fixtures__/changeset/heavy-peaches-repeat.md')).toEqual(false);
+const expectedFailureFiles = [
+  './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
+  './.danger/__fixtures__/changeset/tiny-robot-hands.md',
+];
+
+describe('hasMajorUpdate()', () => {
+  it('should not flag changesets with minor or patch updates to core', () => {
+    expect(hasMajorUpdate('./.danger/__fixtures__/changeset/pink-masks-walk.md')).toEqual(false);
   });
 
-  it('should not flag changesets with minor or patch updates to core', () => {
-    expect(hasMajorCoreUpgrade('./.danger/__fixtures__/changeset/pink-masks-walk.md')).toEqual(false);
+  it('should not flag changesets with minor or patch updates to other packages', () => {
+    expect(hasMajorUpdate('./.danger/__fixtures__/changeset/heavy-peaches-repeat.md')).toEqual(false);
   });
 
   it('should flag changesets with major updates to core', () => {
-    expect(hasMajorCoreUpgrade('./.danger/__fixtures__/changeset/tiny-robot-hands.md')).toEqual(true);
+    expect(hasMajorUpdate('./.danger/__fixtures__/changeset/tiny-robot-hands.md')).toEqual(true);
+  });
+
+  it('should flag changesets with major updates to other packages', () => {
+    expect(hasMajorUpdate('./.danger/__fixtures__/changeset/pretty-cameras-burn.md')).toEqual(true);
   });
 });
 
-describe('getChangesetsWithMajorCoreUpgrade', () => {
-  it('should return an array of changesets that have a major release of core', () => {
+describe('getChangesetsWithMajorUpdate', () => {
+  it('should return an array of changesets that have a major update', () => {
     expect(
-      getChangesetsWithMajorCoreUpgrade([
+      getChangesetsWithMajorUpdate([
         './.danger/__fixtures__/changeset/heavy-peaches-repeat.md',
         './.danger/__fixtures__/changeset/pink-masks-walk.md',
         './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
         './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         './.danger/__fixtures__/changeset/tiny-robot-hands.md',
       ])
-    ).toEqual(['./.danger/__fixtures__/changeset/tiny-robot-hands.md']);
+    ).toEqual(expectedFailureFiles);
   });
 });
 
-describe('majorCoreMissingUpgradeGuideCheck()', () => {
+describe('majorMissingUpgradeGuideCheck()', () => {
+  const expectFail = (): void => {
+    expect(global.fail).toHaveBeenCalledTimes(1);
+    expect(global.fail).toHaveBeenCalledWith(FAIL_MESSAGE);
+  };
+
   beforeEach(() => {
     global.warn = jest.fn();
     global.message = jest.fn();
@@ -49,7 +64,7 @@ describe('majorCoreMissingUpgradeGuideCheck()', () => {
     global.danger = undefined;
   });
 
-  it('should fail for any modified changeset that sets a major core version if the upgrade guide is not also modifided', () => {
+  it('should fail for any modified changeset that sets an update version if the upgrade guide is not also modifided', () => {
     global.danger = {
       git: {
         modified_files: [
@@ -62,11 +77,11 @@ describe('majorCoreMissingUpgradeGuideCheck()', () => {
         created_files: [],
       },
     };
-    majorCoreMissingUpgradeGuideCheck();
-    expect(global.fail).toHaveBeenCalledTimes(1);
+    majorMissingUpgradeGuideCheck();
+    expectFail();
   });
 
-  it('should fail for any created changeset that that sets a major core version if the upgrade guide is not also modifided', () => {
+  it('should fail for any created changeset that that sets a major version if the upgrade guide is not also modifided', () => {
     global.danger = {
       git: {
         modified_files: [],
@@ -76,11 +91,11 @@ describe('majorCoreMissingUpgradeGuideCheck()', () => {
         ],
       },
     };
-    majorCoreMissingUpgradeGuideCheck();
-    expect(global.fail).toHaveBeenCalledTimes(1);
+    majorMissingUpgradeGuideCheck();
+    expectFail();
   });
 
-  it('should fail for any modified and created changeset that sets a major core version if the upgrade guide is not also modifided', () => {
+  it('should fail for any modified and created changeset that sets a major version if the upgrade guide is not also modifided', () => {
     global.danger = {
       git: {
         modified_files: [
@@ -94,22 +109,18 @@ describe('majorCoreMissingUpgradeGuideCheck()', () => {
         ],
       },
     };
-    majorCoreMissingUpgradeGuideCheck();
-    expect(global.fail).toHaveBeenCalledTimes(1);
+    majorMissingUpgradeGuideCheck();
+    expectFail();
   });
 
-  it('should not fail for any changeset that sets a major core versions but DOES include a change to the upgrade guide.', () => {
+  it('should not fail for any changeset that sets a major version but DOES include a change to the upgrade guide.', () => {
     global.danger = {
       git: {
-        modified_files: [
-          './.danger/__fixtures__/changeset/heavy-peaches-repeat.md',
-          './.danger/__fixtures__/changeset/pink-masks-walk.md',
-          UPGRADE_GUIDE_PAGE_FILE,
-        ],
+        modified_files: ['./.danger/__fixtures__/changeset/pink-masks-walk.md', UPGRADE_GUIDE_PAGE_FILE],
         created_files: ['./.danger/__fixtures__/changeset/popular-cheetahs-punch.md'],
       },
     };
-    majorCoreMissingUpgradeGuideCheck();
+    majorMissingUpgradeGuideCheck();
     expect(global.fail).not.toHaveBeenCalled();
   });
 });
