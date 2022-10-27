@@ -17,4 +17,10 @@ describe('Word list with filters', function () {
     cy.get('[data-cy="word-list-filter-input"]').click().type('ad');
     cy.get('@table-rows').its('length').should('eq', 4);
   });
+
+  it('should show empty state when nothing returned', () => {
+    cy.get('[data-cy="word-list-filter-input"]').click().type('adddd');
+    cy.get('[data-cy="word-list-table"]').should('not.exist');
+    cy.get('[data-cy="word-list-empty-state"]').should('be.visible');
+  });
 });
