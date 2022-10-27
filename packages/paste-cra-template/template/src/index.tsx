@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
 import {Stack} from '@twilio-paste/core/stack';
 import App from './App';
@@ -35,11 +35,11 @@ export const Index = (): JSX.Element => {
   );
 };
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
+root.render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>,
-  document.querySelector('#root')
+  </React.StrictMode>
 );
 
 /**
