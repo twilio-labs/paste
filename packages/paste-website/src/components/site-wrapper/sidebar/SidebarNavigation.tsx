@@ -176,6 +176,9 @@ const SidebarNavigation: React.FC = () => {
             <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
               Product style guide
             </SidebarAnchor>
+            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/word-list`}>
+              Word list
+            </SidebarAnchor>
           </NavigationDisclosure>
           <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
             Data visualization

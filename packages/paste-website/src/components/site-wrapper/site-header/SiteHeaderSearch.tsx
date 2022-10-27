@@ -7,7 +7,11 @@ import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID} from '../.
 
 const SiteHeaderSearch: React.FC = () => {
   return (
-    <Box minWidth={['size20', 'size20', 'size20', 'size30']} data-cy="paste-docsearch-container">
+    <Box
+      minWidth={['size20', 'size20', 'size20', 'size30']}
+      data-cy="paste-docsearch-container"
+      id="paste-docs-search-input"
+    >
       <DocSearch
         placeholder={`Try "button" or "token"`}
         appId={DOCSEARCHV3_APPID}

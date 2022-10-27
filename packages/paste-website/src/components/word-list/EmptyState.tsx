@@ -8,12 +8,12 @@ import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
 
-interface NoTokensFoundProps {
+interface EmptyStateProps {
   onClearSearch: () => void;
 }
 
-export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => (
-  <Card data-cy="tokens-empty-state" padding="space150">
+export const EmptyState: React.FC<EmptyStateProps> = ({onClearSearch}) => (
+  <Card data-cy="word-list-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
         <StaticImage
@@ -29,11 +29,12 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
         </Heading>
         <Stack orientation="vertical" spacing="space70">
           <Text as="span">
-            Try adjusting your criteria to filter by the token name or value. If you still can&rsquo;t find what
-            you&rsquo;re looking for, reach out by creating a{' '}
+            Try adjusting your filter string. If you still can&rsquo;t find what you&rsquo;re looking for, reach out by
+            creating a{' '}
             <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
-              GitHub Discussion.
-            </Anchor>
+              GitHub Discussion
+            </Anchor>{' '}
+            and we can see about adding to the word list.
           </Text>
           <Button
             variant="secondary"

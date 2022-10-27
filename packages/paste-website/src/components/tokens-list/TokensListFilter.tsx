@@ -70,7 +70,7 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
               id={inputId}
               value={value}
               onChange={handleInput}
-              insertBefore={<FilterIcon decorative={false} title="Description of icon" color="colorTextIcon" />}
+              insertBefore={<FilterIcon decorative color="colorTextIcon" />}
               placeholder="Filter by token name or value"
               insertAfter={
                 value.length > 0 ? (
