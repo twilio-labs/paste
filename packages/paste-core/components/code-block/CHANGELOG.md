@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 1.1.0
+
+### Minor Changes
+
+- [`8ce66e675`](https://github.com/twilio-labs/paste/commit/8ce66e675e6f621a46e35da8029d5a0e95ff5478) [#2703](https://github.com/twilio-labs/paste/pull/2703) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] add copyTextFormatter prop
+
 ## 1.0.1
 
 ### Patch Changes

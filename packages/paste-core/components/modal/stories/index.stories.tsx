@@ -555,52 +555,6 @@ CustomInitialFocusElement.story = {
   },
 };
 
-export const ConsolePatchProp = (): React.ReactNode => {
-  const [isOpen, setIsOpen] = React.useState(true);
-  const handleOpen = (): void => setIsOpen(true);
-  const handleClose = (): void => setIsOpen(false);
-  const modalHeadingID = useUID();
-  return (
-    <Flex>
-      <div id="sidebar-wrapper">Sidebar</div>
-      <div id="content">
-        <Button variant="primary" onClick={handleOpen}>
-          Open Modal
-        </Button>
-        <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default" __console_patch>
-          <ModalHeader>
-            <ModalHeading as="h3" id={modalHeadingID}>
-              Modal Heading
-            </ModalHeading>
-          </ModalHeader>
-          <ModalBody>Look at the background, behind the dark overlay.</ModalBody>
-          <ModalFooter>
-            <ModalFooterActions>
-              <Button variant="secondary" onClick={handleClose}>
-                Cancel
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Submit
-              </Button>
-            </ModalFooterActions>
-          </ModalFooter>
-        </Modal>
-      </div>
-    </Flex>
-  );
-};
-
-ConsolePatchProp.story = {
-  name: 'Console patch prop',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-    a11y: {
-      // funtionality requires hardcoded ids which we can't make unique
-      disable: true,
-    },
-  },
-};
-
 export const TooltipInModal = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
   const handleOpen = (): void => setIsOpen(true);

@@ -19,7 +19,6 @@ export const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageM
       color="colorTextWeak"
       lineHeight="lineHeight20"
       fontSize="fontSize20"
-      _last={{textAlign: 'right'}}
       {...safelySpreadBoxProps(props)}
     >
       {children}

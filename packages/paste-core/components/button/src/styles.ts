@@ -92,20 +92,20 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
   },
 };
 
-export const ToggleButtonStyles: BoxStyleProps = {
+export const ToggleStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _pressed_hover: {
     backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimary',
     color: 'colorTextInverse',
   },
   _pressed_focus: {
-    boxShadow: 'shadowFocus',
+    boxShadow: 'shadowFocusShadowBorder',
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
   },
@@ -117,11 +117,11 @@ export const ToggleIconButtonStyles: BoxStyleProps = {
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _pressed_hover: {
     backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'none',
+    boxShadow: 'shadowBorderPrimary',
     color: 'colorTextInverse',
   },
   _pressed_focus: {

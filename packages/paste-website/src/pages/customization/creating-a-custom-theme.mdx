@@ -47,13 +47,13 @@ A custom theme can be created either manually or using the [Paste Theme Designer
 
 ### Choosing your base theme
 
-Firstly you need to decide what base theme you want to extend from. The Customization Provider allows you to choose either the Default or Dark themes as a base. This means that you can choose to only override certain tokens from the base theme, or completely replace it with a whole new theme.
+Firstly you need to decide what base theme you want to extend from. The Customization Provider allows you to choose either the default or dark themes as a base. This means that you can choose to only override certain tokens from the base theme, or completely replace it with a whole new theme.
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark">
+  <CustomizationProvider baseTheme="dark">
     rest of app
   </CustomizationProvider>
 )
@@ -69,7 +69,7 @@ Below we are choosing the dark theme as our base, and manually creating a custom
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" theme={{
+  <CustomizationProvider baseTheme="dark" theme={{
     "fontWeights": {
       "fontWeightNormal": "light"
       "fontWeightMedium": "500"
@@ -99,7 +99,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from './themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 );

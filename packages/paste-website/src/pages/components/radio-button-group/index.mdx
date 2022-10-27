@@ -1,0 +1,257 @@
+---
+title: Radio Button Group
+package: '@twilio-paste/radio-button-group'
+description: Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.
+slug: /components/radio-button-group/
+---
+
+import {graphql} from 'gatsby';
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {CallIcon} from '@twilio-paste/icons/esm/CallIcon';
+import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
+import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
+import Changelog from '@twilio-paste/radio-button-group/CHANGELOG.md';
+import {Text} from '@twilio-paste/text';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  TextExample,
+  TextAndIconExample,
+  ErrorExample,
+  DisabledExample,
+} from '../../../component-examples/RadioButtonGroupExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-button-group"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/radio-button-group/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Radio Button Group"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group"
+  storybookUrl="/?path=/story/components-radiobuttongroup--attached"
+  data={props.data}
+  description={props.pageContext.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {TextExample}
+</LivePreview>
+
+## Guidelines
+
+### About Radio Button Group
+
+A Radio Button Group is a set of 2–6 mutually exclusive radio buttons. It is often used as a way to swap between different views of the same data (e.g., swapping between different chart types for a data set).
+
+### Radio Button Groups in forms
+
+Be thoughtful when using Radio Button Groups in forms. It can be difficult for users to discern which option is “selected” with only 2 options, while having too many options can be overwhelming. We recommend no more than 6 options.
+Radio Button Groups used in forms should have a label.
+
+### Radio Button Groups vs Tabs
+
+[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time. Use Tabs to alternate between views within the same context. Use Radio Button Groups to toggle between different functionality in a single view. Tabs replace the entire view based on the selected tab. Radio Buttons update the data within the view.
+
+### Button Group vs Radio Button Group
+
+[Radio Groups](/components/radio-group) are form elements that allow customers to select only one option from a list of text at a time. Radio Groups are easily scannable and work well within a larger form because they visually compete less with primary page actions.
+
+Radio Button Groups are functionally the same as Radio Groups since only one option can be selected at a time. However, the Radio Button Group contains buttons while Radio Groups contain Radios. This distinction makes Radio Button Groups more visually prominent, so they may be ideal for a more graphical element. They can also be great options when selecting between simple things, like days of the week, modes of contact (e.g., phone, sms, email), etc.
+
+### Accessibility
+
+A Radio Button Group is the same as a Radio Group to assistive technology.
+
+- If the Radio Button only has an icon, the icon needs a label
+- The Radio Button Group needs a legend, which labels what the set of Radio Buttons does
+
+## Examples
+
+### Text
+
+Use the text variant with short labels, no more than 3 words per label.
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {TextExample}
+</LivePreview>
+
+### Text + Icon
+
+Use the text + icon variant when icons are not easily recognizable (e.g., product-specific icons) and a text label would help with understanding. If an icon has a chance of not being completely understood at a glance, pairing it with a text label is recommended.
+
+<LivePreview scope={{RadioButtonGroup, RadioButton, CallIcon, SMSCapableIcon, EmailIcon}} language="jsx" noInline>
+  {TextAndIconExample}
+</LivePreview>
+
+## States
+
+### Error
+
+<LivePreview scope={{RadioButtonGroup, RadioButton, Text}} language="jsx" noInline>
+  {ErrorExample}
+</LivePreview>
+
+### Disabled
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {DisabledExample}
+</LivePreview>
+
+## Composition notes
+
+Radio Button Groups:
+
+- Should have between 2–6 options
+- Are comprised of mutually exclusive options
+- Have a default option selected when possible
+- Labels should use sentence case
+
+## When to use Radio Button Group
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Radio Button Group when options are mutually exclusive and only one option is valid."
+    preview={false}
+  />
+  <Dont title="Don't" body="Don’t use Radio Button Groups if you need to select multiple options." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Group related buttons in a Radio Button Group (e.g., types of graphs)." preview={false} />
+  <Dont title="Don't" body="Don’t group buttons together that are not related to each other." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Pair icon-only variants with text for better context." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use the icon-only variant if the icons are not easily recognizable."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Radio Button Group to let users select one option from a list." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use Radio Button Groups for actions, such as save, edit, or delete. Use single Buttons or a Button Group instead."
+    preview={false}
+  />
+</DoDont>
+
+## Implementation Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/radio-button-group - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/core/radio-button-group';
+
+const Component = () => (
+  <RadioButtonGroup attached>
+    <RadioButton>One</RadioButton>
+    <RadioButton>Two</RadioButton>
+    <RadioButton>Three</RadioButton>
+  </RadioButtonGroup>
+);
+```
+
+#### Radio Button Group Props
+
+All the valid HTML attributes for `input[type="radio]` are supported including the following props:
+
+| Prop               | Type                                     | Description                                                                               | Default              |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
+| children           | `React.ReactElement[]`                   | RadioButton                                                                               |                      |
+| name               | `string`                                 | Name for the Radio Button Group                                                           | null                 |
+| attached?          | `boolean`                                | If the group of buttons are visually attached                                             | `false`              |
+| legend             | `string`                                 | Label text for the Radio Button Group                                                     | null                 |
+| helpText?          | `string`                                 | Help text for the Radio Button Group                                                      | null                 |
+| id?                | `string`                                 | ID for the Radio Button Group                                                             | null                 |
+| value?             | `string`                                 | Value for the Radio Button Group                                                          | null                 |
+| disabled?          | `boolean`                                | Make the Radio Button Group disabled                                                      | false                |
+| onChange?          | `(event: React.MouseEvent<HTMLElement>)` | Pass a function for the onChange handler                                                  | null                 |
+| errorText?         | `string`                                 | Error text for the Radio Button Group                                                     | null                 |
+| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON_GROUP' |
+| i18nRequiredLabel? | `string`                                 | Overrides the default string marking the group as required                                | '(required)'         |
+
+#### Radio Button Props
+
+All the valid HTML attributes for `div` are supported including the following props:
+
+| Prop            | Type                   | Description                                                                               | Default        |
+| --------------- | ---------------------- | ----------------------------------------------------------------------------------------- | -------------- |
+| children        | `React.ReactElement[]` | Contents of the Radio Button                                                              |                |
+| hasError?       | `boolean`              | Adds an error state to the Radio Button                                                   | false          |
+| defaultChecked? | `boolean`              | Sets the Radio Button as the default checked option                                       | false          |
+| checked?        | `boolean`              | Sets the Radio Button as checked                                                          | false          |
+| id?             | `string`               | ID for the Radio Button                                                                   | null           |
+| value?          | `string`               | Value for the Radio Button                                                                | null           |
+| disabled?       | `boolean`              | Make the Radio Button disabled                                                            | false          |
+| name            | `string`               | Name for the Radio Button Group                                                           | null           |
+| element?        | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

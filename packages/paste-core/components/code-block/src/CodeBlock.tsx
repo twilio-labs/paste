@@ -24,6 +24,7 @@ export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, 'children'>
   i18nCopyLabelBefore?: string;
   i18nCopyLabelAfter?: string;
   i18nLinkLabel?: string;
+  copyTextFormatter?: (code: string) => string;
 }
 
 const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
@@ -53,6 +54,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
       i18nCopyLabelAfter,
       i18nCopyLabelBefore,
       i18nLinkLabel,
+      copyTextFormatter,
       ...props
     },
     ref
@@ -82,6 +84,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
               text={code}
               i18nCopyLabelAfter={i18nCopyLabelAfter}
               i18nCopyLabelBefore={i18nCopyLabelBefore}
+              copyTextFormatter={copyTextFormatter}
             />
           </Box>
           {externalLink && (
@@ -140,4 +143,5 @@ CodeBlock.propTypes = {
   i18nCopyLabelAfter: PropTypes.string,
   i18nLinkLabel: PropTypes.string,
   variant: PropTypes.oneOf(['multi-line', 'single-line'] as CodeBlockVariants[]),
+  copyTextFormatter: PropTypes.func,
 };

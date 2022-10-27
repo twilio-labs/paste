@@ -83,8 +83,15 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
 }
 
 export interface MultiselectComboboxProps
-  extends Omit<ComboboxProps, 'autocomplete' | 'initialSelectedItem' | 'selectedItem' | 'onSelectedItemChange'> {
-  filterItems?: (items: any[], inputValue: string) => any[];
+  extends Omit<
+    ComboboxProps,
+    | 'autocomplete'
+    | 'initialSelectedItem'
+    | 'selectedItem'
+    | 'onSelectedItemChange'
+    | 'getA11yStatusMessage'
+    | 'getA11ySelectionMessage'
+  > {
   initialSelectedItems?: any[];
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;
   selectedItemsLabelText: string;
@@ -93,7 +100,10 @@ export interface MultiselectComboboxProps
 }
 
 export interface ComboboxItemsProps
-  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element' | 'emptyState'> {
+  extends Pick<
+    ComboboxProps,
+    'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element' | 'emptyState' | 'state'
+  > {
   items: Item[];
   selectedItems?: Item[];
   disabledItems?: Item[];

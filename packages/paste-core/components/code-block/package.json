@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/code-block",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "category": "data display",
   "status": "production",
   "description": "A Code Block is a component used to display readable blocks of code.",
@@ -41,10 +41,10 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^7.1.0",
-    "@twilio-paste/button": "^11.1.1",
+    "@twilio-paste/button": "^11.1.2",
     "@twilio-paste/clipboard-copy-library": "^1.0.4",
     "@twilio-paste/heading": "^8.0.0",
-    "@twilio-paste/icons": "^9.2.0",
+    "@twilio-paste/icons": "^9.3.0",
     "@twilio-paste/screen-reader-only": "^10.0.1",
     "@twilio-paste/styling-library": "^1.0.2",
     "@twilio-paste/syntax-highlighter-library": "^1.0.0",

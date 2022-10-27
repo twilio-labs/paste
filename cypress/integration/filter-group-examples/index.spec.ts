@@ -94,11 +94,6 @@ describe('Custom date/time pattern example', () => {
     cy.get('@filterGroupWrapper').find('tr').should('have.length', 3);
   });
 
-  it('opens the popover when click the button', () => {
-    cy.get('@dateTimePopoverButton').click();
-    cy.get('[data-cy="custom-date-popover"]').should('be.visible');
-  });
-
   describe('Empty state', () => {
     it('shows the empty state when search returns no results', () => {
       cy.get('@filterGroupWrapper').find('tr').should('have.length', 8);

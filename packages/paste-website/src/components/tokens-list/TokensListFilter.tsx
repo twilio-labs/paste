@@ -17,6 +17,7 @@ export interface TokensListFilterProps {
   handleClearSearch: () => void;
   selectedFormat: string;
   selectedTheme: string;
+  shadowOpacity: number;
 }
 
 export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilterProps>> = ({
@@ -27,6 +28,7 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
   handleClearSearch,
   selectedFormat,
   selectedTheme,
+  shadowOpacity = 0,
 }) => {
   const inputId = useUID();
   const themeControlId = useUID();
@@ -34,9 +36,30 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
   const formatControlId = useUID();
   const formatControlLabelId = useUID();
 
+  // Note: We use pseudo content for creating the shadow, in order for it to be
+  // visually cropped and not bleed onto the sides of the filter container.
   return (
-    <>
-      <Box marginBottom="space80">
+    <Box
+      marginBottom="space80"
+      position="sticky"
+      top="0"
+      zIndex="zIndex10"
+      marginX="spaceNegative40"
+      css={{
+        '::before': {
+          content: '""',
+          position: 'absolute',
+          bottom: '0',
+          right: '8px',
+          left: '8px',
+          height: '1px',
+          backgroundColor: '#fff',
+          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.8)',
+          opacity: shadowOpacity,
+        },
+      }}
+    >
+      <Box backgroundColor="colorBackgroundBody" padding="space40" position="relative">
         <Grid gutter="space40" vertical={[true, false, true, false]}>
           <Column span={[12, 6, 12, 6]} data-cy="input-column">
             <Label htmlFor={inputId}>Filter tokens</Label>
@@ -85,6 +108,6 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
           </Column>
         </Grid>
       </Box>
-    </>
+    </Box>
   );
 };

@@ -12,6 +12,7 @@ interface CopyButtonProps {
   i18nCopyLabelBefore?: string;
   i18nCopyLabelAfter?: string;
   element?: BoxProps['element'];
+  copyTextFormatter?: (code: string) => string;
 }
 
 export const getCopyButtonText = (labelBefore: string, labelAfter: string) => {
@@ -25,6 +26,7 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   i18nCopyLabelBefore = 'Copy code block',
   i18nCopyLabelAfter = 'Copied!',
   element = 'COPY_BUTTON',
+  copyTextFormatter,
 }) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState(i18nCopyLabelBefore);
@@ -37,7 +39,8 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
 
   const clipboard = useClipboard({copiedTimeout: 1500});
   const handleCopy = React.useCallback(() => {
-    clipboard.copy(text);
+    const formattedText = copyTextFormatter ? copyTextFormatter(text) : text;
+    clipboard.copy(formattedText);
   }, [text]);
 
   React.useEffect(() => {

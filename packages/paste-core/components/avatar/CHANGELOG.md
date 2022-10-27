@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.1
+
+### Patch Changes
+
+- [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add flexShrink 0 so it stays the correct size in a flex layout
+
+* [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5) [#2685](https://github.com/twilio-labs/paste/pull/2685) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Prevent underlines from being added to Avatar initials inside of anchors or display pills
+
 ## 6.1.0
 
 ### Minor Changes

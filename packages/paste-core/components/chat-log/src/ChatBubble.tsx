@@ -12,15 +12,15 @@ export interface ChatBubbleProps {
 }
 
 const bubbleVariantStyles: {
-  [key in MessageVariants]: {
-    backgroundColor: BoxStyleProps['backgroundColor'];
-  };
+  [key in MessageVariants]: BoxStyleProps;
 } = {
   inbound: {
     backgroundColor: 'colorBackground',
+    alignSelf: 'flex-start',
   },
   outbound: {
     backgroundColor: 'colorBackgroundPrimaryWeakest',
+    alignSelf: 'flex-end',
   },
 };
 
@@ -30,6 +30,7 @@ export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
 
     return (
       <Box
+        display="inline-block"
         fontSize="fontSize30"
         lineHeight="lineHeight20"
         borderRadius="borderRadius30"

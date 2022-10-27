@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles, ToggleButtonStyles} from './styles';
+import {SizeStyles, BaseStyles, ToggleStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
@@ -24,7 +24,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   _focus: {
     color: 'colorTextLinkStronger',
     backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowFocus',
+    boxShadow: 'shadowFocusShadowBorder',
   },
   _active: {
     color: 'colorTextLinkStronger',
@@ -77,7 +77,7 @@ const ButtonStyleMapping = {
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
   ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
-    const toggleStyles = pressed === undefined ? {} : ToggleButtonStyles;
+    const toggleStyles = pressed === undefined ? {} : ToggleStyles;
 
     // Must spread size styles after button styles
     return (

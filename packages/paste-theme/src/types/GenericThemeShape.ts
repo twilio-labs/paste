@@ -77,7 +77,7 @@ export interface GenericThemeShape {
       [key in SizingKeys]: any;
     }
   >;
-  iconSizes: {
+  iconSizes: Partial<{
     sizeIcon05: typeof sizings['sizeIcon05'];
     sizeIcon10: typeof sizings['sizeIcon10'];
     sizeIcon20: typeof sizings['sizeIcon20'];
@@ -90,7 +90,7 @@ export interface GenericThemeShape {
     sizeIcon90: typeof sizings['sizeIcon90'];
     sizeIcon100: typeof sizings['sizeIcon100'];
     sizeIcon110: typeof sizings['sizeIcon110'];
-  };
+  }>;
   lineHeights: Partial<
     {
       [key in LineHeightsKeys]: any;

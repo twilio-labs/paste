@@ -1,5 +1,11 @@
 # @twilio-paste/chat-log
 
+## 2.0.2
+
+### Patch Changes
+
+- [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Message] hug the width of the ChatBubble to the width of the message
+
 ## 2.0.1
 
 ### Patch Changes

@@ -71,32 +71,28 @@ describe('ChatMessageMeta', () => {
     expect(screen.getByTestId('test-meta')).toHaveAttribute('aria-label', 'said by Gibby Radki at 5:04pm');
   });
 
-  it('should have justifyContent flex-end if there is one child', () => {
+  it('should have justifyContent flex-start it is inbound and flex-end if it is outbound', () => {
     render(
-      <ChatMessage variant="inbound">
-        <ChatMessageMeta data-testid="test-meta" aria-label="sent at 5:04pm">
-          <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
+      <>
+        <ChatMessage variant="inbound">
+          <ChatMessageMeta data-testid="in-test-meta" aria-label="sent at 5:04pm">
+            <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
+          </ChatMessageMeta>
+        </ChatMessage>
+        <ChatMessage variant="outbound">
+          <ChatMessageMeta data-testid="out-test-meta" aria-label="sent at 5:04pm">
+            <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
+          </ChatMessageMeta>
+        </ChatMessage>
+      </>
     );
-    expect(screen.getByTestId('test-meta')).toHaveStyleRule('justify-content', 'flex-end');
+    expect(screen.getByTestId('in-test-meta')).toHaveStyleRule('justify-content', 'flex-start');
+    expect(screen.getByTestId('out-test-meta')).toHaveStyleRule('justify-content', 'flex-end');
   });
 
-  it('should have justifyContent space-between if there is more than one child', () => {
+  it('should have textAlign right if it is outbound', () => {
     render(
-      <ChatMessage variant="inbound">
-        <ChatMessageMeta data-testid="test-meta" aria-label="said by Gibby Radki at 5:04pm">
-          <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
-          <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
-    );
-    expect(screen.getByTestId('test-meta')).toHaveStyleRule('justify-content', 'space-between');
-  });
-
-  it('should have textAlign right if there is one child', () => {
-    render(
-      <ChatMessage variant="inbound">
+      <ChatMessage variant="outbound">
         <ChatMessageMeta data-testid="test-meta" aria-label="sent at 5:04pm">
           <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>

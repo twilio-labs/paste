@@ -3,7 +3,7 @@ export const singleLine = `
     return (
       <CodeBlock
         variant="single-line"
-        language='shell-session'
+        language='shell'
         code={\`$ curl -G https://api.twilio.com/2010-04-01/Accounts -u '[YOUR ACCOUNT SID]:[YOUR AUTH TOKEN]'\`}
       />
     )
@@ -123,3 +123,23 @@ class Program
 render(
   <TabExample />
 )`.trim();
+
+export const formattedCopyText = `
+  const SingleLineExample = () => {
+    return (
+      <CodeBlock
+        variant="single-line"
+        language='shell'
+        code={\`$ curl -G https://api.twilio.com/2010-04-01/Accounts -u '[YOUR ACCOUNT SID]:[YOUR AUTH TOKEN]'\`}
+        copyTextFormatter={(code) => {
+          const formattedCode = code.replace('[YOUR ACCOUNT SID]', 'XXXXXXX').replace('[YOUR AUTH TOKEN]', '1234567890');
+          return formattedCode;
+        }}
+      />
+    )
+  }
+
+  render (
+    <SingleLineExample />
+  )
+`.trim();
