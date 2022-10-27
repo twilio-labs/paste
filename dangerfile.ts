@@ -2,6 +2,7 @@
 import packageJsonCheck from './.danger/package-json-check';
 import missingChangesetsCheck from './.danger/missing-changesets-check';
 import changesetsThatNeedCoreCheck from './.danger/changesets-that-need-core-check';
+import majorMissingUpgradeGuide from './.danger/major-missing-upgrade-guide';
 import pinExternalDeps from './.danger/pin-external-deps';
 import {getRepoPackages} from './tools/utils/getRepoPackages';
 import type {PackageShape} from './tools/utils/getRepoPackages';
@@ -22,4 +23,6 @@ export default async (): Promise<void> => {
 
   // Check that new external deps are pinned
   pinExternalDeps();
+
+  majorMissingUpgradeGuide();
 };
