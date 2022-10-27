@@ -7,7 +7,7 @@ export interface CustomizationConsumerProps {
   children: ({theme}: {theme: CustomTheme}) => React.ReactNode;
 }
 
-export const CustomizationConsumer: React.FC<React.PropsWithChildren<CustomizationConsumerProps>> = (props) => {
+export const CustomizationConsumer: React.FC<CustomizationConsumerProps> = (props) => {
   return <Theme.Consumer {...props} />;
 };
 

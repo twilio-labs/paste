@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {render} from '@testing-library/react';
 
 import {Theme} from '../src';
@@ -10,11 +10,11 @@ const ThemeConsumerExampleComponent = (): React.ReactElement => {
 
 describe('Theme.Consumer', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    root.render(
       <Theme.Provider theme="default">
         <ThemeConsumerExampleComponent />
-      </Theme.Provider>,
-      document.createElement('div')
+      </Theme.Provider>
     );
   });
 

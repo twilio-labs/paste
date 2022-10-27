@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {render} from '@testing-library/react';
 
 import {Theme, useTheme} from '../src';
@@ -11,11 +11,11 @@ const HookExampleComponent = (): React.ReactElement => {
 
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    root.render(
       <Theme.Provider theme="default">
         <HookExampleComponent />
-      </Theme.Provider>,
-      document.createElement('div')
+      </Theme.Provider>
     );
   });
 
