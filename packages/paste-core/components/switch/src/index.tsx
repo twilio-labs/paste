@@ -1,2 +1,2 @@
-export * from './SwitchContainer';
+export * from './SwitchGroup';
 export * from './Switch';

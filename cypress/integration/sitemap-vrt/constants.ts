@@ -55,6 +55,7 @@ export const SITEMAP = [
   '/components/stack/',
   '/components/spinner/',
   '/components/skeleton-loader/',
+  '/components/switch/',
   '/components/tabs/',
   '/components/toast/',
   '/components/time-picker/',
