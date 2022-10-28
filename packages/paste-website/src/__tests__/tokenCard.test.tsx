@@ -108,7 +108,7 @@ describe('TokenCard', () => {
     );
 
     const previewDiv = screen.getByTestId('alertInverse').querySelector('[data-paste-element=TOKEN_EXAMPLE]');
-    expect(previewDiv).toHaveStyle(`background-color: ${testExampleBackgroundInverse}`);
+    expect(previewDiv).toHaveStyleRule('background-color', testExampleBackgroundInverse);
   });
 
   it('should render inverse text color for the color accessibility description on an inverse text color', () => {
@@ -128,7 +128,7 @@ describe('TokenCard', () => {
       </Theme.Provider>
     );
 
-    expect(screen.getByText('AAA')).toHaveStyle(`color: ${testExampleTextColorInverse}`);
+    expect(screen.getByText('AAA')).toHaveStyleRule('color', testExampleTextColorInverse);
   });
 
   it('should render the proper highlight color for a token example (line height)', () => {
@@ -151,6 +151,6 @@ describe('TokenCard', () => {
     );
 
     const testElement = screen.getByTestId('highlightToken').querySelector('[data-paste-element=TOKEN_EXAMPLE] > div');
-    expect(testElement).toHaveStyle(`background-color: ${testExampleHighlightColor}`);
+    expect(testElement).toHaveStyleRule('background-color', testExampleHighlightColor);
   });
 });

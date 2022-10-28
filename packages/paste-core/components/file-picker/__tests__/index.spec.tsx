@@ -1,7 +1,13 @@
 import * as React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
+import type {RenderOptions} from '@testing-library/react';
+import {Theme} from '@twilio-paste/theme';
 
 import {Default, Disabled, Required, Customized} from '../stories/index.stories';
+
+const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+  <Theme.Provider theme="default">{children}</Theme.Provider>
+);
 
 describe('FilePicker', () => {
   it('should render', () => {
@@ -52,27 +58,33 @@ describe('FilePicker customization', () => {
     expect(container.querySelector('[data-paste-element="MY_FILEPICKER_TEXT"]')).toBeInTheDocument();
   });
   it('should add custom styling to File Picker', () => {
-    const {container} = render(<Customized />);
-    expect(container.querySelector('[data-paste-element="FILEPICKER"]')).toHaveStyle(
-      "font-family: 'Fira Mono',Courier,monospace"
+    const {container} = render(<Customized />, {wrapper: ThemeWrapper});
+    expect(container.querySelector('[data-paste-element="FILEPICKER"]')).toHaveStyleRule(
+      'font-family',
+      "'Fira Mono',Courier,monospace"
     );
-    expect(container.querySelector('[data-paste-element="FILEPICKER_BUTTON"]')).toHaveStyle(
-      'background-color: rgba(242, 47, 70, 0.1)'
+    expect(container.querySelector('[data-paste-element="FILEPICKER_BUTTON"]')).toHaveStyleRule(
+      'background-color',
+      'rgba(242, 47, 70, 0.1)'
     );
-    expect(container.querySelector('[data-paste-element="FILEPICKER_TEXT"]')).toHaveStyle(
-      'margin: 0px 0.75rem 0px 0.125rem'
+    expect(container.querySelector('[data-paste-element="FILEPICKER_TEXT"]')).toHaveStyleRule(
+      'margin-left',
+      '0.125rem'
     );
   });
   it('should add custom styling to a custom named File Picker', () => {
     const {container} = render(<Customized element="MY_FILEPICKER" />);
-    expect(container.querySelector('[data-paste-element="MY_FILEPICKER"]')).toHaveStyle(
-      "font-family: 'Fira Mono',Courier,monospace"
+    expect(container.querySelector('[data-paste-element="MY_FILEPICKER"]')).toHaveStyleRule(
+      'font-family',
+      "'Fira Mono',Courier,monospace"
     );
-    expect(container.querySelector('[data-paste-element="MY_FILEPICKER_BUTTON"]')).toHaveStyle(
-      'background-color: rgba(242, 47, 70, 0.1)'
+    expect(container.querySelector('[data-paste-element="MY_FILEPICKER_BUTTON"]')).toHaveStyleRule(
+      'background-color',
+      'rgba(242, 47, 70, 0.1)'
     );
-    expect(container.querySelector('[data-paste-element="MY_FILEPICKER_TEXT"]')).toHaveStyle(
-      'margin: 0px 0.75rem 0px 0.125rem'
+    expect(container.querySelector('[data-paste-element="MY_FILEPICKER_TEXT"]')).toHaveStyleRule(
+      'margin-left',
+      '0.125rem'
     );
   });
 });

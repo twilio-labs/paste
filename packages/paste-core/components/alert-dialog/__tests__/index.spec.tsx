@@ -1,7 +1,13 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
+import type {RenderOptions} from '@testing-library/react';
+import {Theme} from '@twilio-paste/theme';
 
 import {AlertDialogWithTwoActions, DestructiveAlertDialog} from '../stories/index.stories';
+
+const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+  <Theme.Provider theme="default">{children}</Theme.Provider>
+);
 
 describe('Alert Dialog', () => {
   it('Should render an alert dialog box', () => {
@@ -18,8 +24,9 @@ describe('Alert Dialog', () => {
   });
 
   it('Should have a destructive button style when the destructive prop is included', () => {
-    render(<DestructiveAlertDialog />);
-    expect(screen.getByText('Delete')).toHaveStyle('background-color: color-background-destructive');
+    render(<DestructiveAlertDialog />, {wrapper: ThemeWrapper});
+    const button = screen.getByRole('button', {name: 'Delete'});
+    expect(button).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
   });
 
   it('Should have a heading the same as the heading prop', () => {
