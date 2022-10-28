@@ -16,12 +16,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({onClearSearch}) => (
   <Card data-cy="word-list-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
-        <StaticImage
-          src="../../assets/images/tokens/no-tokens-found.svg"
-          alt=""
-          placeholder="tracedSVG"
-          layout="fullWidth"
-        />
+        <StaticImage src="../../assets/images/not-found.svg" alt="" placeholder="tracedSVG" layout="fullWidth" />
       </Box>
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">
@@ -36,12 +31,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({onClearSearch}) => (
             </Anchor>{' '}
             and we can see about adding to the word list.
           </Text>
-          <Button
-            variant="secondary"
-            onClick={() => {
-              onClearSearch();
-            }}
-          >
+          <Button variant="secondary" onClick={onClearSearch}>
             Clear search
           </Button>
         </Stack>
