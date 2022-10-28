@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import type {BoxProps} from '@twilio-paste/box';
 
-export interface {{pascalCase component-name}}Props {
+export interface {{pascalCase component-name}}Props extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;
+  element?: BoxProps['element'];
 }
 
-const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>((props, ref) => {
+const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>(({element = "{{constantCase component-name}}", ...props}, ref) => {
   return (
     <div ref={ref}>
       {props.children}
@@ -17,6 +19,7 @@ const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalC
 
 {{pascalCase component-name}}.propTypes = {
   children: PropTypes.node,
+  element: PropTypes.string,
 };
 
 {{export component-name}};
