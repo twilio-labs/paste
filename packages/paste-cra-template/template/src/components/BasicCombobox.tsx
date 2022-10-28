@@ -13,3 +13,5 @@ const authors = [
 export const BasicCombobox: React.FC = () => {
   return <Combobox items={authors} labelText="Select an author" required />;
 };
+
+BasicCombobox.displayName = 'BasicCombobox';

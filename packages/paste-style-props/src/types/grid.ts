@@ -1,5 +1,6 @@
 // https://styled-system.com/api/#grid-layout
-/* NOTE:
+/*
+ * NOTE:
  * `gridGap`, `gridColumnGap`, `gridRowGap` are excluded as
  * `rowGap` and `columnGap` are already defined elsewhere and used
  * in our system

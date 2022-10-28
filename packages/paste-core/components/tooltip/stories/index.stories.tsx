@@ -8,6 +8,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Theme, useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {useTooltipState, Tooltip} from '../src';
 
 export const StateHookExample: React.FC = () => {

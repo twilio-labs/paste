@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
+
 import {Radio, RadioGroup} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -29,6 +30,7 @@ export const ControlledRadioGroupA = (): React.ReactNode => {
       helpText="Help text should go here."
       required
       onChange={(newValue) => {
+        // eslint-disable-next-line no-console
         console.log('new value is:', newValue);
         setValue(newValue);
       }}
@@ -79,6 +81,7 @@ export const ControlledRadioGroupB = (): React.ReactNode => {
       helpText="Help text should go here."
       required
       onChange={(newValue) => {
+        // eslint-disable-next-line no-console
         console.log('new value is:', newValue);
         setValue(newValue);
       }}
@@ -129,6 +132,7 @@ export const ControlledRadioGroupC = (): React.ReactNode => {
       helpText="Help text should go here."
       required
       onChange={(newValue) => {
+        // eslint-disable-next-line no-console
         console.log('new value is:', newValue);
         setValue(newValue);
       }}
@@ -180,6 +184,7 @@ export const ControlledRadioGroupD = (): React.ReactNode => {
       helpText="Help text should go here."
       required
       onChange={(newValue) => {
+        // eslint-disable-next-line no-console
         console.log('new value is:', newValue);
         setValue(newValue);
       }}

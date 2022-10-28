@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {CompositeGroup} from '@twilio-paste/reakit-library';
+
 import {Tr} from './table/Tr';
 import {DataGridContext} from './DataGridContext';
 

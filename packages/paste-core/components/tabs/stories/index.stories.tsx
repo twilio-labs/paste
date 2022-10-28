@@ -7,6 +7,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useTheme} from '@twilio-paste/theme';
+
 import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
 import type {TabStateReturn} from '../src';
 

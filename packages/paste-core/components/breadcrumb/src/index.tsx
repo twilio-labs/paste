@@ -22,6 +22,8 @@ const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({e
   </Text>
 );
 
+BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
+
 type BreadcrumbItemBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
   parentElement?: BoxElementProps['element'];

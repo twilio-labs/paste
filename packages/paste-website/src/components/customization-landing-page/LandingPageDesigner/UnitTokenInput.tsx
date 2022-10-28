@@ -5,6 +5,7 @@ import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+
 import type {DesignerContextProps} from './DesignerContext';
 
 type UnitTokenInputProps = {
@@ -17,6 +18,7 @@ type UnitTokenInputProps = {
 };
 
 // Get a number value from a string like '10.23rem' => '10.23'
+// eslint-disable-next-line consistent-return
 const getTokenNumberValue = (value: string): number | undefined => {
   const numbersFromValue = value.split(/(\d+\.?\d*)/).find(Boolean);
   if (numbersFromValue != null) {

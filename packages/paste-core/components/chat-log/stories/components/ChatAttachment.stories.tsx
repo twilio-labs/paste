@@ -3,6 +3,7 @@ import {Spinner} from '@twilio-paste/spinner';
 import {Stack} from '@twilio-paste/stack';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import type {Story} from '@storybook/react';
+
 import {
   ChatLog,
   ChatMessage,

@@ -1,5 +1,6 @@
-import {ValueOf} from '@twilio-paste/types';
-import {
+import type {ValueOf} from '@twilio-paste/types';
+
+import type {
   Basis,
   BasisOptions,
   FlexProps,
@@ -56,6 +57,7 @@ export const getShrink = ({shrink, basis}: FlexProps): number | number[] => {
 // Function for basis. Adds 'px' if basis is a number.
 export const getSuffix = (item: Basis): string => {
   const suffix = typeof item === 'number' || String(Number.parseInt(item as string, 10)) === item ? 'px' : '';
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   return item + suffix;
 };
 
@@ -144,9 +146,11 @@ const RemapedHorizontalAlignments = {
   between: 'space-between',
 } as const;
 
-// Gets hAlignContent and returns array of horizontal key value pairs, a horizontal key value pair, or flex-start
-// ideally this would be typed as ValueOf<typeof RemapedHorizontalAlignments> | ValueOf<typeof RemapedHorizontalAlignments>[]
-// but space-between isn't a valid alignItems value and I don't know how to conditionally type things.
+/*
+ * Gets hAlignContent and returns array of horizontal key value pairs, a horizontal key value pair, or flex-start
+ * ideally this would be typed as ValueOf<typeof RemapedHorizontalAlignments> | ValueOf<typeof RemapedHorizontalAlignments>[]
+ * but space-between isn't a valid alignItems value and I don't know how to conditionally type things.
+ */
 export const hAlignToProps = ({hAlignContent}: FlexProps): any => {
   if (Array.isArray(hAlignContent)) {
     return (hAlignContent as HorizontalAlignOptions[]).map((value) => RemapedHorizontalAlignments[value]);

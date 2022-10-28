@@ -15,8 +15,10 @@ type TimeValueType = string;
  */
 type TimeFormatType = string;
 
-// Adding an arbitrary date of 2021-06-18 to the timeValue before passing into the formatter
-// because it requires a complete Date object (date + time)
+/*
+ * Adding an arbitrary date of 2021-06-18 to the timeValue before passing into the formatter
+ * because it requires a complete Date object (date + time)
+ */
 
 /**
  *formatReturnTime formats a timeValue string of type 'HH:ss' OR 'HH:mm:ss' OR 'HH:mm:ss.SSS' to a pre-defined timeFormat

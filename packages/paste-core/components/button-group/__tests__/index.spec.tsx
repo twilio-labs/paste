@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
-import {ButtonGroup} from '../src';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
+import {ButtonGroup} from '../src';
 import {Attached, Unattached} from '../stories/index.stories';
 
 describe('ButtonGroup', () => {

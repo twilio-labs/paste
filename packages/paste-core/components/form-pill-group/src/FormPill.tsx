@@ -3,6 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {CompositeItem} from '@twilio-paste/reakit-library';
 import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
+
 import {PillCloseIcon} from './PillCloseIcon';
 import {FormPillButton} from './FormPillButton';
 import type {PillVariant} from './types';
@@ -97,8 +98,8 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
           ref={ref}
           as={FormPillButton}
           focusable={disabled}
-          onKeyDown={disabled ? () => {} : handleKeydown}
-          onClick={disabled ? () => {} : onSelect}
+          onKeyDown={disabled ? undefined : handleKeydown}
+          onClick={disabled ? undefined : onSelect}
           next={next}
           isDisabled={disabled}
           isDismissable={isDismissable}

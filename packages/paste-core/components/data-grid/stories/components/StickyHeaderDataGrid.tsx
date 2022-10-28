@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {BoxProps} from '@twilio-paste/box';
+
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
 
 export const StickyHeaderDataGrid: React.FC<{element?: BoxProps['element']}> = ({element = 'DATA_GRID'}) => {
@@ -16,8 +17,8 @@ export const StickyHeaderDataGrid: React.FC<{element?: BoxProps['element']}> = (
         </DataGridHead>
         <DataGridBody data-testid="data-grid-body" element={`${element}_BODY`}>
           {[...new Array(100).keys()].map((rowIndex) => (
-            <DataGridRow key={`row-${rowIndex}`} data-testid={'data-grid-row'} element={`${element}_ROW`}>
-              <DataGridCell element={`${element}_CELL`} key={`col-0`} data-testid={'data-grid-cell'}>
+            <DataGridRow key={`row-${rowIndex}`} data-testid="data-grid-row" element={`${element}_ROW`}>
+              <DataGridCell element={`${element}_CELL`} key="col-0" data-testid="data-grid-cell">
                 content
               </DataGridCell>
             </DataGridRow>

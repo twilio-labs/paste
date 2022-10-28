@@ -6,6 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Alert} from '../src';
 
 // eslint-disable-next-line import/no-default-export

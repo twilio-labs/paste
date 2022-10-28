@@ -2,6 +2,7 @@ import * as React from 'react';
 import {screen, render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
+
 import {ChatLog} from '../src';
 
 const CustomizationWrapper: React.FC<{elements?: {[key: string]: PasteCustomCSS}}> = ({children, elements}) => (
@@ -11,14 +12,14 @@ const CustomizationWrapper: React.FC<{elements?: {[key: string]: PasteCustomCSS}
 );
 
 const CustomizationFooWrapper: React.FC = ({children}) => (
-  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo_log: {padding: 'space100'}}}>
+  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{FOO_LOG: {padding: 'space100'}}}>
     {children}
   </CustomizationProvider>
 );
 
 describe('ChatLog', () => {
   it('should render', () => {
-    render(<ChatLog></ChatLog>);
+    render(<ChatLog />);
     expect(screen.getByRole('log')).toBeDefined();
     expect(screen.getByRole('list')).toBeDefined();
   });
@@ -40,16 +41,16 @@ describe('Customization', () => {
   });
 
   it('should add custom styles with a custom element data attribute', () => {
-    render(<ChatLog element="foo_log" />, {wrapper: CustomizationFooWrapper});
+    render(<ChatLog element="FOO_LOG" />, {wrapper: CustomizationFooWrapper});
 
     const chatLog = screen.getByRole('log');
     expect(chatLog).toHaveStyleRule('padding', '2.25rem');
   });
 
   it('should set custom element data attribute', () => {
-    render(<ChatLog element="foo_log" />, {wrapper: CustomizationFooWrapper});
+    render(<ChatLog element="FOO_LOG" />, {wrapper: CustomizationFooWrapper});
 
     const chatLog = screen.getByRole('log');
-    expect(chatLog.getAttribute('data-paste-element')).toEqual('foo_log');
+    expect(chatLog.getAttribute('data-paste-element')).toEqual('FOO_LOG');
   });
 });

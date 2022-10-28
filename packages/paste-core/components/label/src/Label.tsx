@@ -4,6 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import type {TextColor} from '@twilio-paste/style-props';
+
 import {RequiredDot} from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
@@ -53,8 +54,10 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         as={as}
-        // Setting a bottom border here to prevent Bootstrap's bottom border
-        // on legend in Console.
+        /*
+         * Setting a bottom border here to prevent Bootstrap's bottom border
+         * on legend in Console.
+         */
         borderBottomWidth="borderWidth0"
         display="block"
         marginBottom={marginBottom || 'space20'}

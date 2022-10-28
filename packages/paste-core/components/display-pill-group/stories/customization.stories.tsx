@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+
 import {DisplayPillGroup} from '../src/DisplayPillGroup';
 import {DisplayPill} from '../src/DisplayPill';
 
@@ -30,9 +31,11 @@ export const CustomDisplayPillGroup: React.FC = () => {
         <DisplayPill
           data-testid="display-pill-anchor"
           onFocus={() => {
+            // eslint-disable-next-line no-console
             console.log('Focused Tennis!');
           }}
           onBlur={() => {
+            // eslint-disable-next-line no-console
             console.log('Blurred Tennis!');
           }}
           href="https://google.com"

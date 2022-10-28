@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+
 import {TableContext} from './TableContext';
 import type {TableProps} from './types';
 import {TablePropTypes} from './proptypes';

@@ -2,8 +2,8 @@ import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 

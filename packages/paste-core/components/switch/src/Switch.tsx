@@ -4,12 +4,12 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {SWITCH_HEIGHT, SWITCH_WIDTH} from './constants';
 import {SiblingBox} from '@twilio-paste/sibling-box';
-import {Label} from '@twilio-paste/label';
+import {Label, RequiredDot} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {RequiredDot} from '@twilio-paste/label';
+
+import {SWITCH_HEIGHT, SWITCH_WIDTH} from './constants';
 import {SwitchContext} from './SwitchContext';
 import {SwitchKnob} from './SwitchKnob';
 
@@ -57,8 +57,10 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
       );
     }
 
-    // Keeps track of the `checked` state on uncontrolled Switches
-    // in order to properly render the Switch icon svg.
+    /*
+     * Keeps track of the `checked` state on uncontrolled Switches
+     * in order to properly render the Switch icon svg.
+     */
     const [checkedState, setCheckedState] = React.useState(defaultChecked);
     const [isHovering, setIsHovering] = React.useState(false);
 

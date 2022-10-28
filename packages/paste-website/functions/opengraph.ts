@@ -1,13 +1,17 @@
-// Shout outs to the following repositories:
-// https://github.com/whitep4nth3r/puppeteer-demo
-// https://github.com/vercel/og-image
-// https://github.com/ireade/netlify-puppeteer-screenshot-demo
+/*
+ * Shout outs to the following repositories:
+ * https://github.com/whitep4nth3r/puppeteer-demo
+ * https://github.com/vercel/og-image
+ * https://github.com/ireade/netlify-puppeteer-screenshot-demo
+ */
 
-// Note
-// The maximum execution timeout is 10
-// seconds when deployed on a Personal Account (Hobby plan).
-// For Teams, the execution timeout is 60 seconds (Pro plan)
-// or 900 seconds (Enterprise plan).
+/*
+ * Note
+ * The maximum execution timeout is 10
+ * seconds when deployed on a Personal Account (Hobby plan).
+ * For Teams, the execution timeout is 60 seconds (Pro plan)
+ * or 900 seconds (Enterprise plan).
+ */
 import puppeteer from 'puppeteer-core';
 import chromium from 'chrome-aws-lambda';
 import Rollbar from 'rollbar';
@@ -19,7 +23,8 @@ const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
 });
 
-/** The code below determines the executable location for Chrome to
+/**
+ * The code below determines the executable location for Chrome to
  * start up and take the screenshot when running a local development environment.
  *
  * If the code is running on Windows, find chrome.exe in the default location.
@@ -52,9 +57,11 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
 }
 
 const handler: LambdaHandler<Event, any, any> = rollbar.lambdaHandler(async (event) => {
-  // pass in this parameter if you are developing locally
-  // to ensure puppeteer picks up your machine installation of
-  // Chrome via the configurable options
+  /*
+   * pass in this parameter if you are developing locally
+   * to ensure puppeteer picks up your machine installation of
+   * Chrome via the configurable options
+   */
   const isDev = event.queryStringParameters.isDev === 'true';
   const hostURL = isDev ? 'http://localhost:8888' : `https://${event.headers.host}`;
   const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');

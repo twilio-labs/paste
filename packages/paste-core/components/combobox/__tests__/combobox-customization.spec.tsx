@@ -5,6 +5,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
+
 import {Combobox} from '../src';
 
 const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({

@@ -71,9 +71,11 @@ function createRelativePackageFolders(packageList: PackageList): void {
         // Make its package.json file
         const packageJsonPath = path.join(relativePackagePath, 'package.json');
         const packageJsonContents = {
-          // This name really doesn't matter, it just can't match an existing package
-          // or Lerna and TS gets confused as there are multiple references.
-          // Package names must be globally unique
+          /*
+           * This name really doesn't matter, it just can't match an existing package
+           * or Lerna and TS gets confused as there are multiple references.
+           * Package names must be globally unique
+           */
           name: item.name.replace('@twilio-paste/', '@twilio-paste-core/'),
           version: '0.0.0',
           private: true,

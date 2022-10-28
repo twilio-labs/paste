@@ -11,6 +11,7 @@ const CheckboxContext = React.createContext<CheckboxContextValue>({
   disabled: false,
   name: undefined,
   hasError: undefined,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
 });
 

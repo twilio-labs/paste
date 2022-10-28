@@ -7,8 +7,9 @@ import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 import {useUID} from '@twilio-paste/uid-library';
+
+import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();
@@ -168,6 +169,7 @@ const WithActionsMenu: React.FC = () => {
         <MenuItem
           {...menu}
           onClick={() => {
+            // eslint-disable-next-line no-alert
             alert('you clicked me');
             menu.hide();
           }}

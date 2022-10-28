@@ -5,8 +5,9 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '../src';
 import {useTheme} from '@twilio-paste/theme';
+
+import {CustomizationProvider} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {Avatar} from '@twilio-paste/avatar';
+
 import {DisplayPillGroup} from '../src/DisplayPillGroup';
 import {DisplayPill} from '../src/DisplayPill';
 
@@ -11,9 +12,11 @@ export const Basic: React.FC = () => {
       <DisplayPill
         data-testid="display-pill-anchor"
         onFocus={() => {
+          // eslint-disable-next-line no-console
           console.log('Focused Tennis!');
         }}
         onBlur={() => {
+          // eslint-disable-next-line no-console
           console.log('Blurred Tennis!');
         }}
         href="https://google.com"
@@ -43,9 +46,11 @@ export const OverflowWrapping: React.FC = () => {
         <DisplayPill
           data-testid="display-pill-anchor"
           onFocus={() => {
+            // eslint-disable-next-line no-console
             console.log('Focused Tennis!');
           }}
           onBlur={() => {
+            // eslint-disable-next-line no-console
             console.log('Blurred Tennis!');
           }}
           href="https://google.com"

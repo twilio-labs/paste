@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render as testRender, screen} from '@testing-library/react';
-
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {InlineControlGroup} from '../src';
 
 const defaultGroupProps = {

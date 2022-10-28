@@ -4,8 +4,9 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Label, RequiredDot} from '../src';
 import {useTheme} from '@twilio-paste/theme';
+
+import {Label, RequiredDot} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -108,20 +109,20 @@ export const Customized: React.FC = () => {
             disableAnimations={true}
             theme={currentTheme}
             elements={{
-              foo: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
-              foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              bar: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              bar_WRAPPER: {cursor: 'help'},
+              FOO: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
+              FOO_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
+              BAR: {backgroundColor: 'colorBackgroundDestructiveStrong'},
+              BAR_WRAPPER: {cursor: 'help'},
             }}
           >
-            <Label htmlFor="label" element="foo">
+            <Label htmlFor="label" element="FOO">
               Label
             </Label>
-            <Label required htmlFor="required_label" element="foo" data-testid="custom_label_test">
+            <Label required htmlFor="required_label" element="FOO" data-testid="custom_label_test">
               Required label
             </Label>
             <Box display="flex" alignContent="start">
-              <RequiredDot data-testid="custom_required_dot" element="bar" />
+              <RequiredDot data-testid="custom_required_dot" element="BAR" />
             </Box>
           </CustomizationProvider>
         </Card>

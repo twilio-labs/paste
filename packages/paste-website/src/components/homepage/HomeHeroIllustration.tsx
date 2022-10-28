@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {useReducedMotion} from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';
+
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
 import {inCypress} from '../../utils/inCypress';
 
@@ -26,15 +27,18 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
   }
 };
 
-/* Multiple states:
+/*
+ * Multiple states:
  * - On load, render nothing (null).
  * - When in view, render dynamic.
  * - If dynamic fails, render static.
  * - If prefers reduced motion, render static.
  */
 const HomeHeroIllustration: React.FC = () => {
-  // lottie doesn't honour our disableAnimations global, so we have to
-  // manually detect running in cypress to stop the animation on the homepage
+  /*
+   * lottie doesn't honour our disableAnimations global, so we have to
+   * manually detect running in cypress to stop the animation on the homepage
+   */
   const prefersReducedMotion = useReducedMotion() || inCypress();
   const containerRef = React.useRef(null);
   const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.UNINITIALIZED);
@@ -47,12 +51,15 @@ const HomeHeroIllustration: React.FC = () => {
 
   React.useEffect(() => {
     if (!prefersReducedMotion && illustrationState === IllustrationStates.DYNAMIC) {
-      // Dynamically import the animation so we don't load a huge json blob for everyone
-      // @ts-ignore
+      /*
+       * Dynamically import the animation so we don't load a huge json blob for everyone
+       * @ts-ignore
+       */
       import('../../assets/animations/homepage-hero-animation.json')
         .then((animationData) => {
           if (containerRef.current != null) {
             const anim = lottie.loadAnimation({
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               container: containerRef.current,
               renderer: 'svg',
@@ -71,8 +78,10 @@ const HomeHeroIllustration: React.FC = () => {
     }
   }, [illustrationState, prefersReducedMotion]);
 
-  // Need a minHeight for when we render null children so that the visibilityObserver triggers
-  // Also to prevent height fouc when the animation loads
+  /*
+   * Need a minHeight for when we render null children so that the visibilityObserver triggers
+   * Also to prevent height fouc when the animation loads
+   */
   return (
     <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={15}>
       <Box

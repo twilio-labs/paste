@@ -9,6 +9,7 @@ import {
   GRID_PROPS,
   TYPOGRAPHY_PROPS,
 } from '@twilio-paste/style-props';
+
 import {PseudoPropStyles} from './PseudoPropStyles';
 
 export const BOX_PROPS_TO_BLOCK = [

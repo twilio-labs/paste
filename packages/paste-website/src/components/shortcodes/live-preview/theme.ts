@@ -1,10 +1,12 @@
-import {PrismTheme} from 'prism-react-renderer';
+import type {PrismTheme} from 'prism-react-renderer';
 
 // Nightowl theme
 
-// Original: https://github.com/sdras/night-owl-vscode-theme
-// Converted automatically using ./tools/themeFromVsCode
-// Source https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/nightOwl.js
+/*
+ * Original: https://github.com/sdras/night-owl-vscode-theme
+ * Converted automatically using ./tools/themeFromVsCode
+ * Source https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/nightOwl.js
+ */
 
 const CodeblockTheme: PrismTheme = {
   plain: {
@@ -65,8 +67,10 @@ const CodeblockTheme: PrismTheme = {
       },
     },
     {
-      // This was manually added after the auto-generation
-      // so that punctuations are not italicised
+      /*
+       * This was manually added after the auto-generation
+       * so that punctuations are not italicised
+       */
       types: ['punctuation'],
       style: {
         color: 'rgb(199, 146, 234)',

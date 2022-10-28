@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
+
 import {Toast} from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();

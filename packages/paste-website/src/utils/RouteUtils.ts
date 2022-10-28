@@ -3,9 +3,10 @@ import startCase from 'lodash/startCase';
 import toLower from 'lodash/toLower';
 // Gatsby uses @reach/router under the hood
 import {useLocation} from '@reach/router';
+
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
-export const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
+export const hasWindowObject = (): boolean => typeof window !== 'undefined' && window.location != null;
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {

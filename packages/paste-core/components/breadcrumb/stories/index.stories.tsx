@@ -5,6 +5,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Truncate} from '@twilio-paste/truncate';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {Breadcrumb, BreadcrumbItem} from '../src';
 
 // eslint-disable-next-line import/no-default-export

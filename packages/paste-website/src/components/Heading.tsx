@@ -4,6 +4,7 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import type {HeadingProps} from '@twilio-paste/heading';
 import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
+
 import {slugify} from '../utils/RouteUtils';
 
 const anchoredHeadingSpacing: Partial<

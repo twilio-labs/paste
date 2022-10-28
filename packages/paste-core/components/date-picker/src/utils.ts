@@ -15,8 +15,10 @@ type DateValueType = string;
  */
 type DateFormatType = string;
 
-// Adding a time of 12:00:00 UTC+0 to the dateValue in order to avoid the timezone conversions
-// that lead to the date value being off by 1 day.
+/*
+ * Adding a time of 12:00:00 UTC+0 to the dateValue in order to avoid the timezone conversions
+ * that lead to the date value being off by 1 day.
+ */
 
 /**
  * formatReturnDate formats a dateValue string of type 'YYYY-MM-DD' to a pre-defined dateFormat

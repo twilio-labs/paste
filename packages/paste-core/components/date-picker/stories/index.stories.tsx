@@ -9,6 +9,7 @@ import {HelpText} from '@twilio-paste/help-text';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
+
 import {DatePicker, formatReturnDate} from '../src';
 import type {DatePickerProps} from '../src';
 
@@ -146,7 +147,7 @@ export const InverseDisabledDatePicker: React.FC = (props) => {
         When did the Supreme Court ban anti-miscegenation laws (in Loving v. Virginia)?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} disabled id={uidDP} defaultValue="1967-06-12" {...props} />
-      <HelpText variant="inverse" id={uidHT}></HelpText>
+      <HelpText variant="inverse" id={uidHT} />
     </Box>
   );
 };

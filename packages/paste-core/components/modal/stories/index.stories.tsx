@@ -12,6 +12,7 @@ import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
+
 import type {ModalProps} from '../src';
 import {
   Modal,

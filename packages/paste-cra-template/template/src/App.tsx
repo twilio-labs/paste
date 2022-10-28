@@ -5,4 +5,6 @@ const App: React.FC = ({children}) => {
   return <Theme.Provider theme="default">{children}</Theme.Provider>;
 };
 
+App.displayName = 'App';
+
 export default App;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+
 import {GrowingInput} from '../src/multiselect/GrowingInput';
 
 const TEST_ID = 'growing-input-test-id-123';

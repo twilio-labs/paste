@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {InputElement} from '@twilio-paste/input';
+
 import type {ComboboxProps} from '../types';
 
 const ComboboxInputSelect = React.forwardRef<HTMLInputElement, ComboboxProps>(({...props}, ref) => {

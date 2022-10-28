@@ -9,6 +9,7 @@ import {
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
+
 import {RadioContext} from './RadioContext';
 
 export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -113,7 +114,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       hasError: hasError != null ? hasError : radioGroupContext.hasError,
     };
 
-    /* We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
+    /*
+     * We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
      * So we conditionally provide the correct prop here.
      */
     if (isControlled) {

@@ -28,12 +28,12 @@ export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, 'children'>
 }
 
 const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
-  ['single-line']: {
+  'single-line': {
     gridTemplateColumns: '1fr auto',
     gridTemplateAreas: '"code-block button-group"',
     columnGap: 'space40',
   },
-  ['multi-line']: {
+  'multi-line': {
     gridTemplateRows: 'auto 1fr',
     gridTemplateAreas: '"button-group" "code-block"',
     rowGap: 'space20',
@@ -102,8 +102,10 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
             language={language}
             style={getPasteSyntaxTheme(maxLines) as Record<string, React.CSSProperties>}
             showLineNumbers={showLineNumbers}
-            // the difference between wrapLongLines and wrapLines is detailed here:
-            // https://github.com/react-syntax-highlighter/react-syntax-highlighter/pull/309
+            /*
+             * the difference between wrapLongLines and wrapLines is detailed here:
+             * https://github.com/react-syntax-highlighter/react-syntax-highlighter/pull/309
+             */
             wrapLongLines={wrapLines}
             wrapLines={true}
           >

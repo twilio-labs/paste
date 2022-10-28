@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+
 import type {PaginationEllipsisProps} from './types';
 import {PaginationEllipsisPropTypes} from './proptypes';
 

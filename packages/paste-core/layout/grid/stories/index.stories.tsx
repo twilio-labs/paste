@@ -10,6 +10,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Grid, Column} from '../src';
 
 // eslint-disable-next-line import/no-default-export

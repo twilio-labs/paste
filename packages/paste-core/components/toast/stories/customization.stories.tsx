@@ -6,6 +6,7 @@ import {Text} from '@twilio-paste/text';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import type {ToastVariants} from '../src';
 import {Toast} from '../src';
 

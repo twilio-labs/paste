@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Input} from '../src';
 import type {InputTypes} from '../src';
 
@@ -274,10 +274,10 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo: {backgroundColor: 'colorBackground'},
-          foo_ELEMENT: {backgroundColor: 'colorBackground'},
-          foo_PREFIX: {backgroundColor: 'colorBackground'},
-          foo_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO: {backgroundColor: 'colorBackground'},
+          FOO_ELEMENT: {backgroundColor: 'colorBackground'},
+          FOO_PREFIX: {backgroundColor: 'colorBackground'},
+          FOO_SUFFIX: {backgroundColor: 'colorBackground'},
         }}
       >
         <Input
@@ -285,13 +285,13 @@ describe('Customization', () => {
           type="text"
           value="test"
           onChange={NOOP}
-          element="foo"
+          element="FOO"
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
       </CustomizationProvider>
     );
-    const renderedInput = container.querySelector('[data-paste-element="foo"]');
+    const renderedInput = container.querySelector('[data-paste-element="FOO"]');
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
@@ -306,7 +306,7 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo: {
+          FOO: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -314,7 +314,7 @@ describe('Customization', () => {
               },
             },
           },
-          foo_ELEMENT: {
+          FOO_ELEMENT: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -322,7 +322,7 @@ describe('Customization', () => {
               },
             },
           },
-          foo_PREFIX: {
+          FOO_PREFIX: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -330,7 +330,7 @@ describe('Customization', () => {
               },
             },
           },
-          foo_SUFFIX: {
+          FOO_SUFFIX: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -346,13 +346,13 @@ describe('Customization', () => {
           value="test"
           onChange={NOOP}
           variant="inverse"
-          element="foo"
+          element="FOO"
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
       </CustomizationProvider>
     );
-    const renderedInput = container.querySelector('[data-paste-element="foo"]');
+    const renderedInput = container.querySelector('[data-paste-element="FOO"]');
     const renderedInputElement = screen.getByRole('textbox');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');

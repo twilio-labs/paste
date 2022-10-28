@@ -1,4 +1,5 @@
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+
 import type {GenericThemeShape} from './types/GenericThemeShape';
 
 interface GenerateTokensFromTheme {

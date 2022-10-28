@@ -29,7 +29,7 @@ export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        //@ts-expect-error: we don't have polymorphic box typings yet
+        // @ts-expect-error: we don't have polymorphic box typings yet
         as={StyledTr}
         aria-selected={props.selected}
         _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}

@@ -6,6 +6,7 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {AlertDialog} from '../src';
 import {AlertDialogHeader} from '../src/AlertDialogHeader';
 import {AlertDialogBody} from '../src/AlertDialogBody';

@@ -31,7 +31,7 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
     }
 
     React.useEffect(() => {
-      if (delay === 0) return;
+      if (delay === 0) return undefined;
       const showTimer = setTimeout(() => setShow(true), delay);
       return () => clearTimeout(showTimer);
     }, [delay]);

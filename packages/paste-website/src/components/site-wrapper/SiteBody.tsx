@@ -3,6 +3,7 @@ import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
+
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';

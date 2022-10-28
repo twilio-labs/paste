@@ -3,13 +3,16 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
+
 import type {Variants} from './types';
 
 export interface PrefixProps {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  // Requiring element here instead of extending directly from BoxProps.
-  // This ensures an element prop is always passed on these composite components.
+  /*
+   * Requiring element here instead of extending directly from BoxProps.
+   * This ensures an element prop is always passed on these composite components.
+   */
   element: BoxProps['element'];
   variant?: Variants;
 }

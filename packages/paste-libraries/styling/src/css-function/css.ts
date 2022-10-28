@@ -1,13 +1,15 @@
-// Very lightly TS Version of https://github.com/styled-system/styled-system/blob/685be747c51862b4c574bc18b03a6715c6c7ee6e/packages/css/src/index.js
-// not typed correctly in the slightest
+/*
+ * Very lightly TS Version of https://github.com/styled-system/styled-system/blob/685be747c51862b4c574bc18b03a6715c6c7ee6e/packages/css/src/index.js
+ * not typed correctly in the slightest
+ */
 
 import type {CSSObject} from '@styled-system/css';
 
-interface GetFunc {
-  (object: unknown, key: string | number, fallback?: unknown): any;
-}
-// based on https://github.com/developit/dlv
-// this is simplified from the original method in styled system
+type GetFunc = (object: unknown, key: string | number, fallback?: unknown) => any;
+/*
+ * based on https://github.com/developit/dlv
+ * this is simplified from the original method in styled system
+ */
 export const get: GetFunc = (object, key, fallback) => {
   const keyAsArray = key && typeof key === 'string' ? key.split('.') : [key];
   let values: any = object;
@@ -50,8 +52,10 @@ const multiples: {[key: string]: string[]} = {
   size: ['width', 'height'],
 };
 
-// scales modified from styled system, we don't follow a generic colors bucket.
-// each color type belongs to their own color bucket
+/*
+ * scales modified from styled system, we don't follow a generic colors bucket.
+ * each color type belongs to their own color bucket
+ */
 const scales = {
   color: 'textColors',
   backgroundColor: 'backgroundColors',
@@ -194,6 +198,7 @@ export const responsive = (styles: {[key: string]: any}) => (theme: JSON) => {
 export const css =
   (args: any) =>
   (props = {}): CSSObject => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const theme = {...defaultTheme, ...(props.theme || props)};
     let result: {[key: string]: any} = {};
@@ -227,9 +232,8 @@ export const css =
       if (multiples[prop]) {
         const dirs = multiples[prop];
 
-        // eslint-disable-next-line unicorn/no-for-loop
-        for (let i = 0; i < dirs.length; i++) {
-          result[dirs[i]] = value;
+        for (const dir of dirs) {
+          result[dir] = value;
         }
       } else {
         result[prop] = value;

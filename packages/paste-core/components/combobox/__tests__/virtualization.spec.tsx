@@ -10,8 +10,10 @@ import {Combobox} from '../src';
 const mockMeasureRef = jest.fn();
 
 jest.mock('react-virtual', () => {
-  // mocking this to verify that the measure refs are being invoked --> they are being used
-  // need to test this because it is essential that the virtualization ref is attached to the correct element for the virtual listbox to render correctly
+  /*
+   * mocking this to verify that the measure refs are being invoked --> they are being used
+   * need to test this because it is essential that the virtualization ref is attached to the correct element for the virtual listbox to render correctly
+   */
   const {useVirtual} = jest.requireActual('react-virtual');
 
   return {

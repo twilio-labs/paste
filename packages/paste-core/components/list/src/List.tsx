@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
+
 import type {AsTags, BaseListProps} from './types';
 
 const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps>(

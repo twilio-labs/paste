@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+
 import type {DisclosureVariants} from './types';
 
 export const DisclosurePropTypes = {

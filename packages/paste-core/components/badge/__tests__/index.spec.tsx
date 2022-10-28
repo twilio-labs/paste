@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
-
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+
 import {Badge} from '../src';
 import {useResizeChildIcons} from '../src/hooks';
 
@@ -12,7 +12,7 @@ describe('Badge', () => {
   describe('Hooks', () => {
     describe('useResizeChildIcons', () => {
       it('should return return no modifications when child icon size is default', () => {
-        const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
+        const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon key={1} decorative />]));
 
         const icon = (result.current as ArrayLike<NamedChild>)[1];
 
@@ -22,7 +22,7 @@ describe('Badge', () => {
 
       it('should return the correct modifications when child icon size is not the default', () => {
         const {result} = renderHook(() =>
-          useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
+          useResizeChildIcons(['test', <InformationIcon key={1} size="sizeIcon40" decorative />])
         );
 
         const icon = (result.current as ArrayLike<NamedChild>)[1];

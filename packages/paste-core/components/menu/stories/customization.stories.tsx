@@ -9,7 +9,6 @@ import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {useUID} from '@twilio-paste/uid-library';
-
 import type {ButtonProps} from '@twilio-paste/button';
 
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';

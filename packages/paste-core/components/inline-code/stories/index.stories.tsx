@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {InlineCode} from '../src';
 import type {Story} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
+import {InlineCode} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

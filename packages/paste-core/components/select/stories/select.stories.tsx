@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+
 import {Select, Option, OptionGroup} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -264,6 +265,7 @@ export const SelectMultiple = (): React.ReactNode => {
         size={2}
         onChange={({target: options}) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
@@ -543,6 +545,7 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
         id={uid}
         onChange={({target: options}) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
@@ -589,6 +592,7 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
         id={uid}
         onChange={({target: options}) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {

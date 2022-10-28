@@ -11,6 +11,7 @@ const reportWebVitals = (onPerfEntry?: ReportHandler): void => {
         getTTFB(onPerfEntry);
         return true;
       })
+      // eslint-disable-next-line no-console
       .catch(() => console.error('web vitals import error'));
   }
 };

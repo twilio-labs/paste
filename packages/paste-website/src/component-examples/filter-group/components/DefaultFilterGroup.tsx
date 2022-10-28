@@ -15,7 +15,6 @@ import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
 import {DATE_RANGES, ROOM_TYPES} from '../constants';
 import type {RoomTypes, DateRanges, FilterGroupProps} from '../types';
 import {filterByDateRange, filterByRoomType, filterBySearchString} from '../helpers';
-
 import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 

@@ -4,6 +4,7 @@ import {Avatar} from '@twilio-paste/avatar';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {useTheme} from '@twilio-paste/theme';
 import type {Story} from '@storybook/react';
+
 import {
   ChatMessage,
   ChatBubble,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
+
 import {BoxExample} from './BoxExample';
 import {TextExample} from './TextExample';
 import {BorderExample} from './BorderExample';

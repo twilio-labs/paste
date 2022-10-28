@@ -2,8 +2,9 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
 import type {Story} from '@storybook/react';
+
+import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Avatar} from '@twilio-paste/avatar';
 import type {Story} from '@storybook/react';
+
 import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} from '../../src';
 
 // eslint-disable-next-line import/no-default-export

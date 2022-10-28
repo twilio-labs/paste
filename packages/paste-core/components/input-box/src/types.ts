@@ -7,8 +7,10 @@ export type Variants = 'default' | 'inverse';
 export interface FauxInputProps {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  // Requiring element here instead of extending directly from BoxProps.
-  // This ensures an element prop is always passed on these composite components.
+  /*
+   * Requiring element here instead of extending directly from BoxProps.
+   * This ensures an element prop is always passed on these composite components.
+   */
   element: BoxProps['element'];
   hasError?: boolean;
   readOnly?: boolean;

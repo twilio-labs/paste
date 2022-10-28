@@ -6,8 +6,10 @@ import {styled, css} from '@twilio-paste/styling-library';
 
 const AttachedStyled = styled.span(
   css({
-    // NOTE: allow hover and focus indication to remain visible on all sides of a button despite
-    // sibling elements being rendered immediately adjacent under the attached styles
+    /*
+     * NOTE: allow hover and focus indication to remain visible on all sides of a button despite
+     * sibling elements being rendered immediately adjacent under the attached styles
+     */
     '& > button:hover': {
       zIndex: 1,
     },

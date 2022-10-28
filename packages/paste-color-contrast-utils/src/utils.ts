@@ -3,7 +3,6 @@ import type {ColorCombo} from 'color-combos';
 import type {GenericTokensShape, AllGenericTokens} from '@twilio-paste/design-tokens/types/GenericTokensShape';
 import type {DesignToken, DesignTokensJSON, TokenPairContrastRating} from '@twilio-paste/design-tokens/types';
 import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
-
 import camelCase from 'lodash/camelCase';
 
 /**

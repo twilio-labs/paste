@@ -1,4 +1,5 @@
 import {DefaultTheme} from '@twilio-paste/theme';
+
 import {propValidator} from './utils/propValidator';
 import {DEPRECATE_TOKENS} from '../constants';
 
@@ -15,7 +16,8 @@ export const isFontWeightTokenProp = propValidator(FontWeightOptions);
 export const isLineHeightTokenProp = propValidator(LineHeightOptions);
 export const isTextColorTokenProp = propValidator(TextColorOptions);
 export const isDeprecatedTextColorTokenProp = (props: Record<string, unknown>): Error | null => {
-  if (props.color != null && DEPRECATE_TOKENS.indexOf(props.color) > 0) {
+  if (props.color != null && DEPRECATE_TOKENS.indexOf(props.color as string) > 0) {
+    // eslint-disable-next-line no-console
     console.error(
       `Paste: "${props.color}" is a deprecated design token. It will be removed in the 2021.11.16 release of Paste`
     );

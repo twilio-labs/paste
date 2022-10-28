@@ -1,7 +1,6 @@
 import fs from 'fs';
-import difference from 'lodash/difference';
 
-const {convertSvgToReact} = require('@twilio-labs/svg-to-react');
+import difference from 'lodash/difference';
 
 import {
   getInputPath,
@@ -14,6 +13,8 @@ import {
 import {SVG_PATH, REACT_PATH, BLOCKLIST_FILES} from '../constants';
 import {reactIconTemplate} from '../templates/reactIconTemplate';
 import {writeToFile} from '../../../../tools/utils/writeToFile';
+
+const {convertSvgToReact} = require('@twilio-labs/svg-to-react');
 
 // Converts raw svg to react component
 export async function performFileConversion(

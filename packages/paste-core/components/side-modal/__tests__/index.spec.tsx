@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {Button} from '@twilio-paste/button';
 
 import {
   SideModal,
@@ -11,9 +12,7 @@ import {
   SideModalFooter,
   SideModalFooterActions,
 } from '../src';
-
 import {StateHookExample} from '../stories/index.stories';
-import {Button} from '@twilio-paste/button';
 
 describe('SideModal', () => {
   describe('Render', () => {

@@ -16,10 +16,8 @@ export interface SideModalHeaderProps extends React.HTMLAttributes<HTMLDivElemen
 
 const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
   ({children, element = 'SIDE_MODAL_HEADER', i18nDismissLabel = 'close', ...props}, ref) => {
-    // @ts-ignore
-    // Property 'hide' does not exist on type 'Partial<PopoverState>'
-    // But reakit docs suggest using it
-    // https://reakit.io/docs/popover/#initial-focus
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore Property 'hide' does not exist on type 'Partial<PopoverState>', but reakit docs suggest using it (https://reakit.io/docs/popover/#initial-focus)
     const {hide} = React.useContext(SideModalContext);
 
     return (

@@ -3,16 +3,18 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
+
 import {TabsContext} from './TabsContext';
 import type {Orientation, Variants} from './types';
-
 import {getElementName} from './utils';
 
-// TODO:
-// Split vertical tabs into a separate component
-// because fitted tabs do nothing when orientation
-// is vertical, which feels broken. Vertical tabs
-// shouldn't get the fitted variant.
+/*
+ * TODO:
+ * Split vertical tabs into a separate component
+ * because fitted tabs do nothing when orientation
+ * is vertical, which feels broken. Vertical tabs
+ * shouldn't get the fitted variant.
+ */
 const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleProps => {
   switch (orientation) {
     case 'vertical':

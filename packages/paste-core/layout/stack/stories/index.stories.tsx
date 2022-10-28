@@ -7,6 +7,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import type {StackOrientation} from '../src';
 import {Stack} from '../src';
 

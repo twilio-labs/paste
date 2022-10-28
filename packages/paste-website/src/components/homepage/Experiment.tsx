@@ -8,6 +8,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useWindowSize} from '@twilio-paste/utils';
+
 import {DoodleArrow} from '../../assets/illustrations/DoodleArrow';
 import {DoodleZigzag} from '../../assets/illustrations/DoodleZigzag';
 import {DoodleCloud} from '../../assets/illustrations/DoodleCloud';

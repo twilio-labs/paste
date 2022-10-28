@@ -26,6 +26,7 @@ export const createAttributeMap = (element: HTMLElement): AttributesMap => {
   const attributesNodeList: NamedNodeMap = element.attributes;
 
   return Object.keys(attributesNodeList).reduce((attributesMap, key) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore implicit any on key
     const {name, value} = attributesNodeList[key];
     return {...attributesMap, [name]: value};

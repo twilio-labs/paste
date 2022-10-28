@@ -4,6 +4,7 @@ import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+
 import type {DesignerContextProps} from './DesignerContext';
 
 type TextTokenInputProps = {

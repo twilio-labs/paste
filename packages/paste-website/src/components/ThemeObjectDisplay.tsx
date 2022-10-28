@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
-import {Codeblock} from './codeblock';
 import {format as prettyFormat} from 'pretty-format';
+
+import {Codeblock} from './codeblock';
 
 export const ThemeObjectDisplay: React.FC = () => {
   const theme = useTheme();

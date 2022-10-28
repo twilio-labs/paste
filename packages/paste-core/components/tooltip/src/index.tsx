@@ -7,6 +7,7 @@ import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '@twilio-paste/tooltip-primitive';
 import type {TooltipPrimitiveInitialState, TooltipPrimitiveStateReturn} from '@twilio-paste/tooltip-primitive';
+
 import {TooltipArrow} from './TooltipArrow';
 
 const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, element, ...props}, ref) => {
@@ -44,10 +45,10 @@ export interface TooltipProps extends TooltipPrimitiveInitialState, Pick<BoxProp
 }
 
 /*
-Tooltip's current structure does not allow for customization of its arrow.
-TODO: refactor Tooltip so that the styling of its arrow can be customized
-using Customization Provider.
-*/
+ *Tooltip's current structure does not allow for customization of its arrow.
+ *TODO: refactor Tooltip so that the styling of its arrow can be customized
+ *using Customization Provider.
+ */
 
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   ({baseId, children, element = 'TOOLTIP', state, text, ...props}, ref) => {

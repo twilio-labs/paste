@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
+
 import {modalFooterStyles} from './styles';
 
 export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {

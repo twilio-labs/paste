@@ -3,6 +3,7 @@ import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Paragraph} from '../src';
 
 // eslint-disable-next-line import/no-default-export

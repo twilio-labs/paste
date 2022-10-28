@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
+
 import {DefaultTheme, SendGridTheme, DarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
@@ -68,5 +69,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
     </StyledThemeProvider>
   );
 };
+
+ThemeProvider.displayName = 'PasteThemeProvider';
 
 export {ThemeProvider};

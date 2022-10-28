@@ -70,10 +70,12 @@ export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
 export type FlexWrapOptions = Properties['flexWrap'];
 export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
 
-// TODO: The FlexBasisValue currently really only exists for documentation
-//       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
-//       Not sure there’s a way to still have the union values show up as
-//       auto-completion results.
+/*
+ * TODO: The FlexBasisValue currently really only exists for documentation
+ *       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
+ *       Not sure there’s a way to still have the union values show up as
+ *       auto-completion results.
+ */
 export type FlexBasisOptions = Properties['flexBasis'];
 export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
 

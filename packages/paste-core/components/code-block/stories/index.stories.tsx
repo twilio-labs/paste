@@ -144,8 +144,7 @@ export const CustomCopyFormatter: Story = () => (
     language="shell"
     code={`$ curl -G https://api.twilio.com/2010-04-01/Accounts -u '[YOUR ACCOUNT SID]:[YOUR AUTH TOKEN]'`}
     copyTextFormatter={(code) => {
-      const formattedCode = code.replace('[YOUR ACCOUNT SID]', 'XXXXXXX').replace('[YOUR AUTH TOKEN]', '1234567890');
-      return formattedCode;
+      return code.replace('[YOUR ACCOUNT SID]', 'XXXXXXX').replace('[YOUR AUTH TOKEN]', '1234567890');
     }}
   />
 );

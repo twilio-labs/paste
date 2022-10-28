@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {ThemeContext, styled, themeGet} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
+
 import {ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 import {ImageCaption} from '../components/ImageCaption';
 import {StyledSwatchGrid} from './ColorsFoundationExamples';
@@ -65,7 +66,7 @@ export const LineChartOptions = {
   title: {text: 'Solar Employment Growth by Sector, 2010-2016'},
   subtitle: {text: 'Source: thesolarfoundation.com'},
   chart: {
-    //this controls animation of updates, to disable animation on initial render you have to disable animation on the series
+    // this controls animation of updates, to disable animation on initial render you have to disable animation on the series
     animation: !inCypress(),
   },
   series: [

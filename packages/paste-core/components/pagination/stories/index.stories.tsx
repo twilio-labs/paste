@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {
   Pagination,
   PaginationArrow,
@@ -225,9 +226,9 @@ export const ControlledNumberPaginationExample: React.FC = () => {
           disabled={currentPage === 1}
         />
         <PaginationNumbers pageLabel={`Page ${currentPage} of ${totalPages}`}>
-          {pages.map((page) => {
+          {pages.map((page, i) => {
             return (
-              <PaginationNumber label={`Go to page ${page}`} isCurrent={page === currentPage}>
+              <PaginationNumber key={i} label={`Go to page ${page}`} isCurrent={page === currentPage}>
                 {page}
               </PaginationNumber>
             );

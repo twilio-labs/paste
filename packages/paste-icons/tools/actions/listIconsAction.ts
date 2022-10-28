@@ -13,6 +13,8 @@ export async function getIconNames(): Promise<any> {
   } catch (error) {
     maybeHandleError('Error occured while generating icon list!', error);
   }
+
+  return undefined;
 }
 
 export async function listIconsAction(): Promise<void> {

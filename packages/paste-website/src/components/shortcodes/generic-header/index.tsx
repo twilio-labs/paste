@@ -6,6 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
+
 import {PackageStatusLegend} from '../package-status-legend';
 import {STORYBOOK_DOMAIN, SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';

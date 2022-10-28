@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
@@ -31,6 +30,7 @@ describe('Base radio checkbox HTML attributes', () => {
     );
     expect(container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore object isn't null
       container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]').firstElementChild
     ).toHaveAttribute('data-paste-element', 'HELP_TEXT');
@@ -56,6 +56,7 @@ describe('Base radio checkbox HTML attributes', () => {
     expect(screen.getByTestId('control').getAttribute('data-paste-element')).toEqual('fi');
     expect(screen.getByTestId('label_text').getAttribute('data-paste-element')).toEqual('fo');
     expect(container.querySelector('[data-paste-element="fum"]')).toBeInTheDocument();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore object isn't null
     expect(container.querySelector('[data-paste-element="fum"]').firstElementChild).toHaveAttribute(
       'data-paste-element',
@@ -85,8 +86,10 @@ describe('Base radio checkbox customization', () => {
       </CustomizationProvider>
     );
 
-    // matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
-    // using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+    /*
+     * matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
+     * using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+     */
     expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214, 31, 31)', {
       target: new RegExp(`^.${screen.getByTestId('control').getAttribute('class')}$`),
     });
@@ -120,8 +123,10 @@ describe('Base radio checkbox customization', () => {
         </BaseRadioCheckboxHelpText>
       </CustomizationProvider>
     );
-    // matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
-    // using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+    /*
+     * matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied
+     * using regex we can instruct the matcher specifically to look at the parent rule, not the rules for sibling input state, label state, etc.
+     */
     expect(screen.getByTestId('control')).toHaveStyleRule('background-color', 'rgb(214, 31, 31)', {
       target: new RegExp(`^.${screen.getByTestId('control').getAttribute('class')}$`),
     });

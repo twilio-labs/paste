@@ -3,7 +3,8 @@ export const TWILIO_BLUE = '#0D122B';
 export const PSA_ALERT_HEIGHT = 40;
 export const PASTE_THEME_ALERT_HEIGHT = 54;
 export const SITE_MASTHEAD_HEIGHT = 76;
-/* Note:
+/*
+ * Note:
  * Changing the mobile breakpoint should be reflected
  * in styles/docSearch.ts
  */
@@ -36,9 +37,11 @@ export const DOCSEARCH_APIKEY = process.env.GATSBY_DOCSEARCH_APIKEY || 'no env v
 export const DOCSEARCHV3_APIKEY = process.env.GATSBY_DOCSEARCHV3_APIKEY || 'no env variable';
 export const DOCSEARCHV3_INDEXNAME = process.env.GATSBY_DOCSEARCHV3_INDEXNAME || 'no env variable';
 export const DOCSEARCHV3_APPID = process.env.GATSBY_DOCSEARCHV3_APPID || 'no env variable';
-// Netlify provides an environment variable called CONTEXT which reflects their build context https://docs.netlify.com/site-deploys/overview/#deploy-contexts
-// We need to use this to know where the Gatsby site is being run for metrics tracking. Gatsby env variables all need
-// start with GATSBY_, so GATSBY_ENVIRONMENT_CONTEXT is just a re-implementation of Netlify's $CONTEXT
+/*
+ * Netlify provides an environment variable called CONTEXT which reflects their build context https://docs.netlify.com/site-deploys/overview/#deploy-contexts
+ * We need to use this to know where the Gatsby site is being run for metrics tracking. Gatsby env variables all need
+ * start with GATSBY_, so GATSBY_ENVIRONMENT_CONTEXT is just a re-implementation of Netlify's $CONTEXT
+ */
 export type EnvironmentContext = 'production' | 'deploy-preview' | 'branch-deploy' | 'local';
 export const ENVIRONMENT_CONTEXT: EnvironmentContext =
   (process.env.GATSBY_ENVIRONMENT_CONTEXT as EnvironmentContext) || 'local';

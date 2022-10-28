@@ -4,6 +4,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
 import {Table} from '@twilio-paste/table';
 import type {TableProps} from '@twilio-paste/table';
+
 import {DataGridContext} from './DataGridContext';
 import {
   ensureFocus,
@@ -64,8 +65,10 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
           if (lastFocusedElement.current != null) {
             const closestCell = getClosestCellFrom(lastFocusedElement.current, dataGridId);
             if (closestCell) {
-              // TabIndex isn't resetting to 0 on escape. This makes it reset to 0 after a delay
-              // Race condition fix vs Composite code
+              /*
+               * TabIndex isn't resetting to 0 on escape. This makes it reset to 0 after a delay
+               * Race condition fix vs Composite code
+               */
               delayedSetFocusable(closestCell);
             }
           }
@@ -80,8 +83,10 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
     const handleKeypress = React.useCallback(
       (event: React.KeyboardEvent) => {
         switch (event.key) {
-          // Wrapping cases in {} to avoid ESLint error
-          // https://eslint.org/docs/rules/no-case-declarations
+          /*
+           * Wrapping cases in {} to avoid ESLint error
+           * https://eslint.org/docs/rules/no-case-declarations
+           */
           case 'Enter': {
             // Set the actionable state
             setActionable(true);

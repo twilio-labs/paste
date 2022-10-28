@@ -13,6 +13,7 @@ import {
 } from '@twilio-paste/base-radio-checkbox';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {RequiredDot} from '@twilio-paste/label';
+
 import {CheckboxContext} from './CheckboxContext';
 
 const selectAllStyleProps = {
@@ -83,7 +84,6 @@ HiddenCheckbox.displayName = 'HiddenCheckbox';
 
 const CheckboxIcon: React.FC<{
   indeterminate: boolean | undefined;
-  disabled: boolean | undefined;
   checked: boolean | undefined;
   element: BoxProps['element'];
 }> = ({checked, element, indeterminate}) => {
@@ -100,6 +100,8 @@ const CheckboxIcon: React.FC<{
     />
   );
 };
+
+CheckboxIcon.displayName = 'CheckboxIcon';
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
@@ -125,8 +127,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       );
     }
 
-    // Keeps track of the `checked` state on uncontrolled Checkboxes
-    // in order to properly render the checkbox icon svg.
+    /*
+     * Keeps track of the `checked` state on uncontrolled Checkboxes
+     * in order to properly render the checkbox icon svg.
+     */
     const [checkedState, setCheckedState] = React.useState(defaultChecked);
 
     const checkboxGroupContext = React.useContext(CheckboxContext);
@@ -190,12 +194,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             position="relative"
             type="checkbox"
           >
-            <CheckboxIcon
-              element={`${element}_ICON`}
-              checked={mergedChecked}
-              disabled={disabled}
-              indeterminate={indeterminate}
-            />
+            <CheckboxIcon element={`${element}_ICON`} checked={mergedChecked} indeterminate={indeterminate} />
           </BaseRadioCheckboxControl>
           <BaseRadioCheckboxLabelText
             element={`${element}_LABEL_TEXT`}

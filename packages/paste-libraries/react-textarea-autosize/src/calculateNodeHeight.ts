@@ -2,9 +2,11 @@ import type {SizingData} from './getSizingData';
 import {forceHiddenStyles} from './forceHiddenStyles';
 import {getHeight} from './getHeight';
 
-// TODO: use labelled tuples once they are avaiable:
-//   export type CalculatedNodeHeights = [height: number, rowHeight: number];
-// https://github.com/microsoft/TypeScript/issues/28259
+/*
+ * TODO: use labelled tuples once they are avaiable:
+ *   export type CalculatedNodeHeights = [height: number, rowHeight: number];
+ * https://github.com/microsoft/TypeScript/issues/28259
+ */
 export type CalculatedNodeHeights = number[];
 
 export function calculateNodeHeight(

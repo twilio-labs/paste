@@ -4,6 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
+
 import {GenericHeader} from '../generic-header';
 import type {GenericHeaderProps} from '../generic-header';
 import {SidebarCategoryRoutes} from '../../../constants';

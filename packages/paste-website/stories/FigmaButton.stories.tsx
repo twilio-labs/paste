@@ -1,5 +1,6 @@
 import React from 'react';
 import type {Story} from '@storybook/react';
+
 import {FigmaButton} from '../src/components/site-wrapper/site-header/FigmaButton';
 
 export default {

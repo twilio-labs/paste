@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+
 import type {PopoverButtonProps} from './types';
 import {PopoverContext} from './PopoverContext';
 

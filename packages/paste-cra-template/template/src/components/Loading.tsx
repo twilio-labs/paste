@@ -9,3 +9,5 @@ export const Loading: React.FC = () => {
     </Box>
   );
 };
+
+Loading.displayName = 'Loading';

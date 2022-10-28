@@ -10,6 +10,7 @@ import {Stack} from '@twilio-paste/stack';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
+
 import {Button} from '../src';
 import type {ButtonVariants, ButtonSizes} from '../src/types';
 

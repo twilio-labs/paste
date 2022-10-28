@@ -6,6 +6,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Flex} from '@twilio-paste/flex';
+
 import {CopyIcon} from '../src/CopyIcon';
 
 const SizeOptions = Object.keys(DefaultTheme.iconSizes) as IconSizeOptions[];
@@ -32,7 +33,7 @@ export const Colors = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       {ColorOptions.map((color: TextColorOptions) => (
-        <CopyIcon color={color} decorative />
+        <CopyIcon color={color} decorative key={color} />
       ))}
     </Stack>
   );
@@ -46,7 +47,7 @@ export const Sizes = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       {SizeOptions.map((size: IconSizeOptions) => (
-        <CopyIcon size={size} decorative />
+        <CopyIcon size={size} decorative key={size} />
       ))}
     </Stack>
   );

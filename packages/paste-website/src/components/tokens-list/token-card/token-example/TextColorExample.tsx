@@ -4,6 +4,7 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
 import type {ThemeShape} from '@twilio-paste/theme';
 import type {Properties} from 'csstype';
+
 import {TextExample} from './TextExample';
 import {contrastScore} from '../../../../utils/contrastScore';
 

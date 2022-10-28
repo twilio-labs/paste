@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {ArrowBackIcon} from '@twilio-paste/icons/esm/ArrowBackIcon';
+
 import {PaginationArrowButton} from './PaginationArrowButton';
 import {PaginationArrowIconWrapper} from './PaginationArrowIconWrapper';
 import type {PaginationArrowProps} from '../types';

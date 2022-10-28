@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+
 import type {TableOfContentsProps} from './types';
 import {TableOfContentsList} from './TableOfContentsList';
 import {TableOfContentsListItem} from './TableOfContentsListItem';
 import {TableOfContentsAnchor} from './TableOfContentsAnchor';
-import {slugify} from '../../../utils/RouteUtils';
-import {useLocationPathname} from '../../../utils/RouteUtils';
+import {slugify, useLocationPathname} from '../../../utils/RouteUtils';
 import {useWindowSize} from '../../../hooks/useWindowSize';
 import {TOKEN_STICKY_FILTER_HEIGHT, TOKEN_LIST_PAGE_REGEX} from '../../../constants';
 
@@ -19,8 +19,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
 
   // Get Array of heading anchors.
   const headingsList = headings.filter(shouldIncludeInToC).map(({value}) => {
-    const headingAnchor = slugify(value);
-    return headingAnchor;
+    return slugify(value);
   });
 
   /**
@@ -40,8 +39,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
     scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + 32;
   }
 
-  // TODO: Add changelog to headingsList Array because changelogs aren't imported.
-  // but only for pages with changelogs
+  /*
+   * TODO: Add changelog to headingsList Array because changelogs aren't imported.
+   * but only for pages with changelogs
+   */
   return (
     <Box as="nav" aria-label="document outline" data-cy="table-of-contents">
       <TableOfContentsList

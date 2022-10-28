@@ -6,6 +6,7 @@ import {Truncate} from '@twilio-paste/truncate';
 import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {MediaObject, MediaFigure, MediaBody} from '../src';
 
 // eslint-disable-next-line import/no-default-export

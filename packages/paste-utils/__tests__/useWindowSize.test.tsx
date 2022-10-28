@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {renderHook, act} from '@testing-library/react-hooks';
-import {useWindowSize} from '../src/hooks/useWindowSize';
 import {Theme} from '@twilio-paste/theme';
+
+import {useWindowSize} from '../src/hooks/useWindowSize';
 
 const resizeTo = (w: number, h: number): void => {
   Object.defineProperty(window, 'innerWidth', {

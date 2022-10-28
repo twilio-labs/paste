@@ -36,8 +36,10 @@ export const TokensListFilter: React.FC<TokensListFilterProps> = ({
   const formatControlId = useUID();
   const formatControlLabelId = useUID();
 
-  // Note: We use pseudo content for creating the shadow, in order for it to be
-  // visually cropped and not bleed onto the sides of the filter container.
+  /*
+   * Note: We use pseudo content for creating the shadow, in order for it to be
+   * visually cropped and not bleed onto the sides of the filter container.
+   */
   return (
     <Box
       marginBottom="space80"

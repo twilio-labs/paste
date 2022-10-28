@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+
 import {PackageStatusLegend} from '../components/shortcodes/package-status-legend';
 
 // This component only exists to use React (to silence a config catch-22 error)

@@ -16,9 +16,7 @@ export type {
 
 export type Item = string | Record<string, unknown>;
 
-export interface OptionTemplateFn<ProvidedItem> {
-  (item: ProvidedItem): React.ReactNode;
-}
+export type OptionTemplateFn<ProvidedItem> = (item: ProvidedItem) => React.ReactNode;
 
 type ScrollAlignment = 'start' | 'center' | 'end' | 'auto';
 

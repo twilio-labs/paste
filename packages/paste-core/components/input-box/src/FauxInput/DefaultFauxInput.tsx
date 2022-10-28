@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxShadow, BackgroundColor} from '@twilio-paste/style-props';
+
 import type {FauxInputProps} from '../types';
 import {FauxInputPropTypes} from '../types';
 

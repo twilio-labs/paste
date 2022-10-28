@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+
 import type {HeadingVariants, AsTags} from './types';
 
 export const HeadingPropTypes = {

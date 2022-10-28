@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-
 import debounce from 'lodash/debounce';
 
 type Options = {
@@ -50,6 +49,7 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
     if (!observer) return;
 
     if (!targetEl) {
+      // eslint-disable-next-line no-console
       console.warn(`You must provide a valid DOM element to observe, instead you've provided ${targetEl}`);
     }
 
@@ -64,6 +64,7 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
     }
 
     // Stop observing when unmounting
+    // eslint-disable-next-line consistent-return
     return () => {
       if (observer) {
         observer.disconnect();

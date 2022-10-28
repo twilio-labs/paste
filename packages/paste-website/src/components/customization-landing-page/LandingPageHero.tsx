@@ -7,7 +7,6 @@ import {Heading} from '@twilio-paste/heading';
 
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
-
 import {ImageSlider} from './image-slider';
 
 export const LandingPageHero: React.FC = () => {

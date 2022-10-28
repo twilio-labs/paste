@@ -1,4 +1,5 @@
 import type {Properties} from 'csstype';
+
 const Color = require('color');
 
 enum ContrastRatingScores {

@@ -1,4 +1,5 @@
 import {styled, themeGet} from '@twilio-paste/styling-library';
+
 import type {TableOfContentsListItemProps} from './types';
 
 export const marginTopPartial = ({depth}: TableOfContentsListItemProps): any => {

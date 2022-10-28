@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {graphql} from 'gatsby';
 import {Theme} from '@twilio-paste/theme';
+
 import {GraphImageWrapper} from '../../components/open-graph-card/GraphImageWrapper';
 import {GraphImageHero} from '../../components/open-graph-card/GraphImageHero';
 import {GraphImageDetails} from '../../components/open-graph-card/GraphImageDetails';
@@ -51,8 +52,10 @@ export const pageQuery = graphql`
   }
 `;
 
-// Some packages can't be found just by humanizing the package name,
-// so I need to manually map them.
+/*
+ * Some packages can't be found just by humanizing the package name,
+ * so I need to manually map them.
+ */
 const ManualPackageNameMapping: Record<string, string> = {
   // This package needs to preserve one of the hyphens in the name.
   '@twilio-paste/non-modal-dialog-primitive': 'Non-modal Dialog Primitive',
@@ -109,8 +112,10 @@ const OpenGraphCard: React.FC<OpenGraphCardProps> = ({location, data}): React.Re
   function mergeAirtableDataForNode(node: NodeGQL, type: string): PackageData {
     const {name, description} = node;
 
-    // If this package is in our manual mapping list, use that.
-    // otherwise, humanize the package name.
+    /*
+     * If this package is in our manual mapping list, use that.
+     * otherwise, humanize the package name.
+     */
     const humanizedName =
       ManualPackageNameMapping[name] != null ? ManualPackageNameMapping[name] : getHumanizedNameFromPackageName(name);
 

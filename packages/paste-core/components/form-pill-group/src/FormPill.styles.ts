@@ -1,4 +1,5 @@
 import type {BoxStyleProps} from '@twilio-paste/box';
+
 import type {VariantStyles} from './types';
 
 /**

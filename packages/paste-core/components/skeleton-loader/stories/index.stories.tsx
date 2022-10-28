@@ -12,6 +12,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+
 import type {SkeletonLoaderProps} from '../src';
 import {SkeletonLoader} from '../src';
 

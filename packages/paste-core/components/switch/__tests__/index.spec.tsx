@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
+
 import {Switch, SwitchGroup} from '../src';
 
 const getCustomizationStyles = (element = 'SWITCH'): {[key: string]: PasteCustomCSS} => ({

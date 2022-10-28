@@ -7,13 +7,13 @@ import {ClearIcon} from '@twilio-paste/icons/esm/ClearIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 /*
-These style props are specific to our ClearIcon use case in ComposerAttachmentCard.
-
-The close button uses ClearIcon and needs the Box behind it to have these styles
-because the inner part of the glyph is transparent (variant="secondary_icon").
-When more button variants become available, closeButtonBackgroundStyles should
-be reconsidered (and possibly removed).
-*/
+ *These style props are specific to our ClearIcon use case in ComposerAttachmentCard.
+ *
+ *The close button uses ClearIcon and needs the Box behind it to have these styles
+ *because the inner part of the glyph is transparent (variant="secondary_icon").
+ *When more button variants become available, closeButtonBackgroundStyles should
+ *be reconsidered (and possibly removed).
+ */
 const closeButtonBackgroundStyles: BoxStyleProps = {
   backgroundColor: 'colorBackgroundBody',
   borderRadius: 'borderRadiusCircle',

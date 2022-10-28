@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import Highlight, {defaultProps} from 'prism-react-renderer';
+
 import {CodeblockTheme} from '../shortcodes/live-preview/theme';
 
 const StyledCode = styled.code((props) => ({

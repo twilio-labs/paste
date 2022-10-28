@@ -20,4 +20,7 @@ const Page1: React.FC = () => {
     </Box>
   );
 };
+
+Page1.displayName = 'Page1';
+
 export default Page1;

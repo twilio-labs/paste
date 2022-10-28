@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+
 import {SizeStyles, BaseStyles, ToggleStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';

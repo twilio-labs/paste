@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {render, screen} from '@testing-library/react';
+
 import {CustomizationProvider, CustomizationConsumer} from '../src';
 
 const ThemeConsumerExample = (): React.ReactElement => {
@@ -10,6 +11,7 @@ const ThemeConsumerExample = (): React.ReactElement => {
         if (theme.textColors && theme.textColors.colorTextLink) {
           return <p>Color: {theme.textColors.colorTextLink}</p>;
         }
+        return <></>;
       }}
     </CustomizationConsumer>
   );
@@ -41,6 +43,7 @@ const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props
         if (theme.textColors && theme.textColors.colorTextLink) {
           return <p data-testid={props['data-testid']}>Color: {theme.textColors.colorTextLink}</p>;
         }
+        return <></>;
       }}
     </CustomizationConsumer>
   );
@@ -71,6 +74,7 @@ describe('CustomizationProvider', () => {
         <ThemeConsumerExample />
       </CustomizationProvider>
     );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(document.querySelector('p').textContent).toEqual('Color: hotpink');
   });

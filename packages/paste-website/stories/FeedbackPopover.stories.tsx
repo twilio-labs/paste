@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {FeedbackPopover, UnratedPage, LikedPage, DislikedPage} from '../src/components/shortcodes/feedback-popover';
 
 const NOOP = (): void => {};

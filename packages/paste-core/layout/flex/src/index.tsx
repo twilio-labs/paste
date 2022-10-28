@@ -13,6 +13,7 @@ import {
   isMarginTokenProp,
 } from '@twilio-paste/style-props';
 import type {FlexboxProps} from '@twilio-paste/style-props';
+
 import type {FlexProps} from './types';
 import {getGrow, getShrink, getBasis, getVertical, getWrap, hAlignToProps, vAlignToProps} from './helpers';
 
@@ -84,12 +85,14 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     );
 
     if (size && (width || height)) {
+      // eslint-disable-next-line no-console
       console.error('[Paste Flex]: you cannot set a height or width when using the size attribute');
     }
     if (
       (marginX && (margin || marginBottom || marginLeft || marginRight || marginTop)) ||
       (marginY && (margin || marginBottom || marginLeft || marginRight || marginTop))
     ) {
+      // eslint-disable-next-line no-console
       console.error(
         '[Paste Flex]: you cannot set a top, right, bottom or left margin when using the marginX or marginY attributes.'
       );
@@ -98,6 +101,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       (paddingX && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop)) ||
       (paddingY && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop))
     ) {
+      // eslint-disable-next-line no-console
       console.error(
         '[Paste Flex]: you cannot set a top, right, bottom or left padding when using the paddingX or paddingY attributes.'
       );

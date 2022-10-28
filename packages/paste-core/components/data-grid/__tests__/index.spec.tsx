@@ -114,8 +114,10 @@ describe('Data Grid', () => {
       userEvent.tab();
       expect(secondRowFirstInputCell).toHaveFocus();
 
-      // TEST: handles entering actionable mode from a cell without focusable children correctly
-      // I added this particular sequence because it was a reproducable bug in my manual tests
+      /*
+       * TEST: handles entering actionable mode from a cell without focusable children correctly
+       * I added this particular sequence because it was a reproducable bug in my manual tests
+       */
       headerCell.focus();
       userEvent.keyboard('{enter}');
       userEvent.keyboard('{arrowdown}');

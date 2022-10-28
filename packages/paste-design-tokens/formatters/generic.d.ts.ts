@@ -1,4 +1,5 @@
 import type {ImmutableStyleMap} from 'theo';
+
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {isNumeric, pluralCategoryMap} from './utils';
@@ -41,7 +42,7 @@ export const formatGroupTokensWithTemplate = (
   const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
   let count = 0;
 
-  const content = categories
+  return categories
     .map((cat: string): string | null => {
       count += 1;
       let catProps = tokens
@@ -55,9 +56,11 @@ export const formatGroupTokensWithTemplate = (
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
 
-      // Filter out deprecated tokens in exported file
-      // Add alt values
-      // Remove originalValue
+      /*
+       * Filter out deprecated tokens in exported file
+       * Add alt values
+       * Remove originalValue
+       */
       catProps = tweakTokens(catProps);
 
       if (typeof cat === 'string') {
@@ -66,8 +69,6 @@ export const formatGroupTokensWithTemplate = (
       return null;
     })
     .join(',\n');
-
-  return content;
 };
 
 export const genericDTsTemplate = (result: ImmutableStyleMap): string => {

@@ -38,13 +38,14 @@ export const getIconHoverStyles = (
 };
 
 /*
- TODO: Move this hook over to a Paste hook library
-*/
+ *TODO: Move this hook over to a Paste hook library
+ */
 export const useHover = <T extends HTMLElement = HTMLElement>(elementRef: React.RefObject<T>): boolean => {
   const [value, setValue] = React.useState(false);
   const handleMouseOver = (): void => setValue(true);
   const handleMouseOut = (): void => setValue(false);
 
+  // eslint-disable-next-line consistent-return
   React.useEffect(() => {
     const node = elementRef?.current;
     if (node) {

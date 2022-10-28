@@ -7,6 +7,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
+
 import {MultiselectCombobox} from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
@@ -53,6 +54,7 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -81,6 +83,7 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems: string[]) => {
+          // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
       />
@@ -110,6 +113,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -140,6 +144,7 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems: string[]) => {
+          // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
       />
@@ -170,6 +175,7 @@ export const MultiselectComboboxError = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -198,6 +204,7 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -225,6 +232,7 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -290,6 +298,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: Book[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -335,6 +344,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: Book[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -368,6 +378,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: Book[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -405,6 +416,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: Book[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
     />
@@ -455,6 +467,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
       labelText="Choose a Paste Component"
@@ -507,6 +520,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+        // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
       labelText="Choose a Paste Component"

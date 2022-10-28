@@ -4,6 +4,7 @@ import DefaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic'
 import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import kebabCase from 'lodash/kebabCase';
+
 import {AnchoredHeading} from '../Heading';
 import {trackTokenFilterString, filterTokenList, getTokenExampleColors} from './helpers';
 import type {Tokens, TokenExampleColors} from './types';
@@ -49,8 +50,10 @@ export const TokensList: React.FC = () => {
   // State related to the clipboard
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
 
-  // This runs on hydration, grabs any settings from the client's localStorage,
-  // and populates the token list.
+  /*
+   * This runs on hydration, grabs any settings from the client's localStorage,
+   * and populates the token list.
+   */
   React.useEffect(() => {
     const userTheme = SimpleStorage.get('themeControl') || defaultTheme;
     const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
@@ -69,8 +72,10 @@ export const TokensList: React.FC = () => {
     setExampleColors(getTokenExampleColors(tokenList));
   }, []);
 
-  // Set up code needed for passing & receiving clipboard copy functionality
-  // into the TokenCard components.
+  /*
+   * Set up code needed for passing & receiving clipboard copy functionality
+   * into the TokenCard components.
+   */
   const clipboard = useClipboard({copiedTimeout: 2000});
   const handleCopyName = React.useCallback((_tokenName: string): void => {
     clipboard.copy(_tokenName);
@@ -80,13 +85,13 @@ export const TokensList: React.FC = () => {
 
   // Event handler for Tokens Filter
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const filter = e.currentTarget.value;
-    setFilterString(filter);
+    const {value} = e.currentTarget;
+    setFilterString(value);
   };
 
   // Event handler for Theme select change
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const value = e.currentTarget.value;
+    const {value} = e.currentTarget;
     const newTokens = value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens;
 
     SimpleStorage.set('themeControl', value);
@@ -97,7 +102,7 @@ export const TokensList: React.FC = () => {
 
   // Event handler for Format select change
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const value = e.currentTarget.value;
+    const {value} = e.currentTarget;
     SimpleStorage.set('formatControl', value);
     setSelectedFormat(value);
     setUseJavascriptNames(value === 'javascript');
@@ -117,9 +122,11 @@ export const TokensList: React.FC = () => {
     trackTokenFilterString(filterString);
   }, [filterString, tokens]);
 
-  // Intersection observer for the Token Filter UI. The Tokens Filter gets a shadow
-  // as the user scrolls past its inherent position, and this intersection observer
-  // checks against a 'canary' element to determine when the shadow should be applied
+  /*
+   * Intersection observer for the Token Filter UI. The Tokens Filter gets a shadow
+   * as the user scrolls past its inherent position, and this intersection observer
+   * checks against a 'canary' element to determine when the shadow should be applied
+   */
   React.useEffect(() => {
     const intObserver = new IntersectionObserver(
       (entries) => {
@@ -174,7 +181,7 @@ export const TokensList: React.FC = () => {
         ) : (
           tokenCategories.map((tokenCategory) => {
             // do not render colors section
-            if (tokenCategory === 'colors') return;
+            if (tokenCategory === 'colors') return undefined;
 
             const sectionIntro = sectionIntros[tokenCategory];
             const categoryTokens = filteredTokens[tokenCategory] ?? null;

@@ -4,6 +4,7 @@ import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from 
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {useUID} from '@twilio-paste/uid-library';
+
 import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
 import {ImageCaption} from '../components/ImageCaption';
 

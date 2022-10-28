@@ -7,6 +7,7 @@ import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+
 import {ErrorToast} from './ErrorToast';
 import {NeutralToast} from './NeutralToast';
 import {SuccessToast} from './SuccessToast';

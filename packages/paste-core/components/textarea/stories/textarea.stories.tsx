@@ -11,6 +11,7 @@ import {HelpText} from '@twilio-paste/help-text';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
+
 import {TextArea} from '../src';
 
 // eslint-disable-next-line import/no-default-export

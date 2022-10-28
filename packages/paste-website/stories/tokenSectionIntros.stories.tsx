@@ -1,4 +1,5 @@
-import * as React from 'react';
+import type * as React from 'react';
+
 import {sectionIntros} from '../src/components/tokens-list/sectionIntros';
 
 export default {

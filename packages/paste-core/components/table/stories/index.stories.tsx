@@ -13,6 +13,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Truncate} from '@twilio-paste/truncate';
+
 import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
 
 const MoreMenu: React.FC = () => {

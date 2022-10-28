@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+
 import {Suffix} from '../src';
 
 describe('HTML attributes', () => {
@@ -64,10 +64,10 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          foo_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO_SUFFIX: {backgroundColor: 'colorBackground'},
         }}
       >
-        <Suffix element="foo">suffix</Suffix>
+        <Suffix element="FOO">suffix</Suffix>
       </CustomizationProvider>
     );
     const renderedSuffix = screen.getByText('suffix');
@@ -80,7 +80,7 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          foo_SUFFIX: {
+          FOO_SUFFIX: {
             backgroundColor: 'colorBackground',
             variants: {
               inverse: {
@@ -90,7 +90,7 @@ describe('Customization', () => {
           },
         }}
       >
-        <Suffix element="foo" variant="inverse">
+        <Suffix element="FOO" variant="inverse">
           suffix
         </Suffix>
       </CustomizationProvider>

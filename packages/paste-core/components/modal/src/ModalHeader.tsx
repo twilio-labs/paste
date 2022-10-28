@@ -6,6 +6,7 @@ import {Button} from '@twilio-paste/button';
 import {Flex} from '@twilio-paste/flex';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+
 import {useModalContext} from './ModalContext';
 import {modalHeaderStyles} from './styles';
 

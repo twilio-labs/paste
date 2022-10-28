@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {forceHiddenStyles} from './forceHiddenStyles';
 
 export const useHiddenTextarea = (): HTMLTextAreaElement | null => {

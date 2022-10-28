@@ -36,7 +36,7 @@ export type SizingData = {
   borderSize: number;
 };
 
-const isIE = typeof document !== 'undefined' ? !!(document.documentElement as any).currentStyle : false;
+const isIE = typeof document !== 'undefined' ? Boolean((document.documentElement as any).currentStyle) : false;
 
 export const getSizingData = (node: HTMLElement): SizingData | null => {
   const style = window.getComputedStyle(node);
@@ -64,16 +64,19 @@ export const getSizingData = (node: HTMLElement): SizingData | null => {
     return null;
   }
 
-  // IE (Edge has already correct behaviour) returns content width as computed width
-  // so we need to add manually padding and border widths
+  /*
+   * IE (Edge has already correct behaviour) returns content width as computed width
+   * so we need to add manually padding and border widths
+   */
   if (isIE && boxSizing === 'border-box') {
-    sizingStyle.width =
+    const widthPxValue =
       Number.parseFloat(width!) +
       Number.parseFloat(borderRightWidth!) +
       Number.parseFloat(borderLeftWidth!) +
       Number.parseFloat(paddingRight!) +
-      Number.parseFloat(paddingLeft!) +
-      'px';
+      Number.parseFloat(paddingLeft!);
+
+    sizingStyle.width = `${widthPxValue}px`;
   }
 
   const paddingSize = Number.parseFloat(paddingBottom!) + Number.parseFloat(paddingTop!);

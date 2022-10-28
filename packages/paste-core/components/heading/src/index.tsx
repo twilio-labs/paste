@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {TextStyleProps} from '@twilio-paste/text';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+
 import type {HeadingVariants, HeadingProps, AsTags} from './types';
 import {HeadingPropTypes} from './PropTypes';
 

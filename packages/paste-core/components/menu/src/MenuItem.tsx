@@ -2,6 +2,7 @@ import * as React from 'react';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
+
 import type {MenuItemProps} from './types';
 import {MenuItemVariants} from './constants';
 import {MenuGroupContext} from './MenuGroup';

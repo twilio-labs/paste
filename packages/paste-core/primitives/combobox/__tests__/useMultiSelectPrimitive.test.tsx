@@ -1,10 +1,8 @@
 import * as React from 'react';
-
 import {act, renderHook} from '@testing-library/react-hooks';
 import {render, fireEvent, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-
 import type {FireObject} from '@testing-library/react';
 import type {
   UseMultipleSelectionGetSelectedItemPropsOptions,

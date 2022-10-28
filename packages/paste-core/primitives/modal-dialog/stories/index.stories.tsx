@@ -2,6 +2,7 @@ import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
+
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({

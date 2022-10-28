@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+
 import type {PaginationArrowIconWrapperProps} from '../types';
 import {PaginationArrowIconWrapperPropTypes} from '../proptypes';
 

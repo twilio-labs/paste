@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {ColorSwatch, ColorSwatchText} from '../src/components/color-swatch/ColorSwatch';
 import {ColorGradient, ColorGradientRainbow} from '../src/components/color-swatch/ColorGradient';
 import {DarkModeContext} from '../src/context/DarkModeContext';

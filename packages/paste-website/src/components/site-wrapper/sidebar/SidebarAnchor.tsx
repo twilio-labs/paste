@@ -68,13 +68,18 @@ const StyledSidebarAnchor = styled(Link, {
   })
 );
 
-const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, level, to}) => {
+const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, level, to, onClick}) => {
   const pathname = useLocationPathname();
   const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
   return (
     <SidebarItem>
-      <StyledSidebarAnchor level={level} to={to} aria-current={pathnameWithoutTrailingSlash === to ? 'page' : false}>
+      <StyledSidebarAnchor
+        level={level}
+        to={to}
+        onClick={onClick}
+        aria-current={pathnameWithoutTrailingSlash === to ? 'page' : false}
+      >
         {children}
       </StyledSidebarAnchor>
     </SidebarItem>

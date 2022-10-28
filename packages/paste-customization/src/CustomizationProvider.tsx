@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
 import {pasteGlobalStyles, StyledBase, DefaultTheme, DarkTheme} from '@twilio-paste/theme';
+
 import {createCustomTheme} from './utils';
 import type {CustomizationProviderProps} from './types';
 
@@ -54,5 +55,7 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
     </StyledThemeProvider>
   );
 };
+
+CustomizationProvider.displayName = 'PasteCustomizationProvider';
 
 export {CustomizationProvider};

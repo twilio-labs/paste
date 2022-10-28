@@ -6,8 +6,8 @@ import {Button} from '@twilio-paste/button';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {useUID} from '@twilio-paste/uid-library';
-
 import type {Story} from '@storybook/react';
+
 import {
   ChatMessage,
   ChatBubble,

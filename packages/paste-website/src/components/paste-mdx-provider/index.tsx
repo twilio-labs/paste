@@ -11,6 +11,7 @@ import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 import {Separator} from '@twilio-paste/separator';
 import type {SeparatorProps} from '@twilio-paste/separator';
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
+
 import {Codeblock} from '../codeblock';
 import type {CodeblockProps} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
@@ -103,10 +104,10 @@ const MDXPoviderComponents = {
 
 /* eslint-disable no-shadow */
 /*
-  "error  'props' is already declared in the upper scope": these errors I don't
-  think are actually real. Because top level props is actually a different set of
-  props than that are passed to the components. I think eslint is confused.
-*/
+ *"error  'props' is already declared in the upper scope": these errors I don't
+ *think are actually real. Because top level props is actually a different set of
+ *props than that are passed to the components. I think eslint is confused.
+ */
 interface PasteMDXProviderProps {
   componentOverrides?: {[key: string]: (props: unknown) => React.ReactNode};
 }

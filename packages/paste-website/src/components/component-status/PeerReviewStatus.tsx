@@ -9,8 +9,10 @@ interface PeerReviewStatusProps {
 }
 
 const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
-  // Counts as successfully reviewed if
-  // neither is null and they aren't both 'not applicable'
+  /*
+   * Counts as successfully reviewed if
+   * neither is null and they aren't both 'not applicable'
+   */
 
   // One is null, so overall the review is pending
   if (designStatus === null || engineerStatus === null) {

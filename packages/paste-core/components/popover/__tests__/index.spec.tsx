@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
+
 import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 

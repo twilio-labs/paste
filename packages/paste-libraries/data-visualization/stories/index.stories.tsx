@@ -7,7 +7,6 @@ import HighchartsReact from 'highcharts-react-official';
 /* eslint-enable */
 
 import {usePasteHighchartsTheme} from '../src';
-
 import {lineChartOptions} from './options/lineChartOptions';
 import {lineChartWithAnnotationsOptions} from './options/lineChartWithAnnotationsOptions';
 import {columnChartOptions} from './options/columnChartOptions';
