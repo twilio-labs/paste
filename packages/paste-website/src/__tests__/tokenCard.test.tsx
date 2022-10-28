@@ -108,6 +108,7 @@ describe('TokenCard', () => {
     );
 
     const previewDiv = screen.getByTestId('alertInverse').querySelector('[data-paste-element=TOKEN_EXAMPLE]');
+    // @ts-expect-error toHaveStyleRule definitely exists
     expect(previewDiv).toHaveStyleRule('background-color', testExampleBackgroundInverse);
   });
 
@@ -127,7 +128,7 @@ describe('TokenCard', () => {
         />
       </Theme.Provider>
     );
-
+    // @ts-expect-error toHaveStyleRule definitely exists
     expect(screen.getByText('AAA')).toHaveStyleRule('color', testExampleTextColorInverse);
   });
 
@@ -151,6 +152,7 @@ describe('TokenCard', () => {
     );
 
     const testElement = screen.getByTestId('highlightToken').querySelector('[data-paste-element=TOKEN_EXAMPLE] > div');
+    // @ts-expect-error toHaveStyleRule definitely exists
     expect(testElement).toHaveStyleRule('background-color', testExampleHighlightColor);
   });
 });
