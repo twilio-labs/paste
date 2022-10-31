@@ -3,7 +3,7 @@ describe('Word list with no filters', function () {
     cy.visit('/foundations/content/word-list');
   });
   it('should have a pre-populated list of words in the table', () => {
-    cy.get('[data-cy="word-list-table"] tbody tr').its('length').should('eq', 81);
+    cy.get('[data-cy="word-list-table"] tbody tr').its('length').should('be.greaterThan', 70);
   });
 });
 

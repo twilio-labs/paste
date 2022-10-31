@@ -16,7 +16,7 @@ export const WordFilter: React.FC<WordFilterProps> = ({value, onInput, onClear})
   const filterID = useUID();
   return (
     <Box marginBottom="space70" maxWidth={['100%', '100%', 'size30']}>
-      <Label htmlFor={filterID}>Filter words:</Label>
+      <Label htmlFor={filterID}>Filter words</Label>
       <Input
         type="text"
         id={filterID}
