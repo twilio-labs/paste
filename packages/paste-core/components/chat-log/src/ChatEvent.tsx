@@ -13,8 +13,8 @@ const ChatEvent = React.forwardRef<HTMLDivElement, ChatEventProps>(
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        as="li"
-        listStyleType="none"
+        as="div"
+        role="listitem"
         color="colorTextWeak"
         element={element}
         textAlign="center"

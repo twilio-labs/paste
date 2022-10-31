@@ -10,4 +10,6 @@ export * from './ChatAttachmentDescription';
 export * from './ChatBookend';
 export * from './ChatBookendItem';
 export * from './ChatEvent';
+export * from './ChatLogger';
+export * from './useChatLogger';
 export type {MessageVariants} from './MessageVariantContext';
