@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Paste Design System shared utilities and React hooks.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -36,12 +36,12 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^0.3.8",
-    "@twilio-paste/color-contrast-utils": "^3.0.0",
-    "@twilio-paste/design-tokens": "^8.1.1",
-    "@twilio-paste/styling-library": "^1.0.2",
-    "@twilio-paste/theme": "^8.0.2",
-    "@twilio-paste/types": "^3.1.8",
+    "@twilio-paste/animation-library": "^0.3.9",
+    "@twilio-paste/color-contrast-utils": "^3.0.1",
+    "@twilio-paste/design-tokens": "^8.1.2",
+    "@twilio-paste/styling-library": "^1.0.3",
+    "@twilio-paste/theme": "^8.0.3",
+    "@twilio-paste/types": "^3.1.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
