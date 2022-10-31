@@ -1,5 +1,13 @@
 # @twilio-paste/token-contrast-checker
 
+## 0.1.11
+
+### Patch Changes
+
+- Updated dependencies [[`448c9fec8`](https://github.com/twilio-labs/paste/commit/448c9fec8b5bf14481940e7226fa1d2456290e83), [`38a72ad0c`](https://github.com/twilio-labs/paste/commit/38a72ad0c64ad0e11316cf410505dcec640d0c16), [`efffcde51`](https://github.com/twilio-labs/paste/commit/efffcde5161524fb00d09942fca0471315b2fbe5), [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b)]:
+  - @twilio-paste/core@17.0.0
+  - @twilio-paste/icons@9.3.1
+
 ## 0.1.10
 
 ### Patch Changes

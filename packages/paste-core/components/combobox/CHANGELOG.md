@@ -1,5 +1,13 @@
 # Change Log
 
+## 13.0.1
+
+### Patch Changes
+
+- [`efffcde51`](https://github.com/twilio-labs/paste/commit/efffcde5161524fb00d09942fca0471315b2fbe5) [#2782](https://github.com/twilio-labs/paste/pull/2782) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] remove inherited HTML `autoComplete` prop because it conflicts with the autocomplete prop and remove state prop from Multiselect Combobox because we don't support using it with the useComboboxState hook.
+
+* [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
 ## 13.0.0
 
 ### Patch Changes
