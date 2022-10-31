@@ -39,7 +39,9 @@ export type HighlightedIndexChanges = {
   inputValue: string;
 };
 
-export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>, Pick<BoxProps, 'element'> {
+export interface ComboboxProps
+  extends Omit<InputProps, 'id' | 'type' | 'value' | 'autoComplete'>,
+    Pick<BoxProps, 'element'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
   labelText: string | NonNullable<React.ReactNode>;
@@ -89,6 +91,7 @@ export interface MultiselectComboboxProps
     | 'onSelectedItemChange'
     | 'getA11yStatusMessage'
     | 'getA11ySelectionMessage'
+    | 'state'
   > {
   initialSelectedItems?: any[];
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;
