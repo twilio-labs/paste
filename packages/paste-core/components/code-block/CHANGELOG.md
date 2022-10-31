@@ -1,5 +1,14 @@
 # @twilio-paste/code-block
 
+## 1.1.1
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+- Updated dependencies [[`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b)]:
+  - @twilio-paste/animation-library@0.3.9
+
 ## 1.1.0
 
 ### Minor Changes
