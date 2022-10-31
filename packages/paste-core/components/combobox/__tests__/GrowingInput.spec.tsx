@@ -16,7 +16,7 @@ describe('GrowingInput component', () => {
     );
     const input = screen.getByRole('textbox');
 
-    expect(input).toHaveStyle('width: 100%');
+    expect(input).toHaveStyleRule('width', '100%');
     expect(input.getAttribute('id')).toEqual(TEST_ID);
   });
 });

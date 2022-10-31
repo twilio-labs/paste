@@ -4,7 +4,7 @@ import {Button} from '@twilio-paste/button';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {ButtonGroup} from '../src';
-import {Attached, Unattached} from '../stories/index.stories';
+import {Unattached} from '../stories/index.stories';
 
 describe('ButtonGroup', () => {
   it('should render a group visibly into document', () => {
@@ -20,18 +20,6 @@ describe('ButtonGroup', () => {
     for (const btn of btns) {
       expect(btn).toBeVisible();
     }
-  });
-
-  it('should accept attached prop and apply styles', () => {
-    render(<Attached />);
-    const middleBtn = screen.getAllByRole('button')[1];
-    expect(middleBtn).toHaveStyle({borderRadius: 0});
-  });
-
-  it('should default to unattached and apply styles', () => {
-    render(<Unattached />);
-    const middleBtn = screen.getAllByRole('button')[1];
-    expect(middleBtn).not.toHaveStyle({borderRadius: 0});
   });
 
   it('should forward safe box props to root group role node', () => {
@@ -72,7 +60,7 @@ describe('ButtonGroup customization', () => {
     );
 
     const btnGroup = screen.getByRole('group');
-    expect(btnGroup).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+    expect(btnGroup).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
 
   it('should add custom styling to a custom element for ButtonGroup', () => {
@@ -88,6 +76,6 @@ describe('ButtonGroup customization', () => {
     );
 
     const btnGroup = screen.getByRole('group');
-    expect(btnGroup).toHaveStyle({backgroundColor: 'rgb(20, 176, 83'});
+    expect(btnGroup).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
   });
 });
