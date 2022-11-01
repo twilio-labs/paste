@@ -76,6 +76,7 @@ export const SITEMAP = [
   '/foundations/colors/',
   '/foundations/content/content-checklist/',
   '/foundations/content/voice-and-tone/',
+  '/foundations/content/word-list/',
   '/foundations/illustrations/',
   '/foundations/data-visualization/',
   '/inclusive-design/',
