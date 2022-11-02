@@ -41,7 +41,7 @@ body:
         3. Scroll down to '...'
         4. See error
   - type: "input"
-    id: "chakra-version"
+    id: "version"
     attributes:
       label: "Paste Core Version"
       description: "The version of Paste Core you use."
