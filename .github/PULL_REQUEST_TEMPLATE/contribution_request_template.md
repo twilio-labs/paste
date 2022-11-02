@@ -13,7 +13,7 @@ Details of change...
 ## Checklist
 
 - [ ] Work in a "Draft" branch whilst you are getting feedback to reduce Chromatic costs. Once you are ready for approval, convert the PR to "Ready to review"
-- [ ] Ensure all `required`a checks have passed
+- [ ] Ensure all `required` checks have passed
 - [ ] Icon changes must have a product design review
 - [ ] Website content changes must have a product design review
 - [ ] At least two engineers have reviewed any code changes
