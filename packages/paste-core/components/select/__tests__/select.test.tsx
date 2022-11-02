@@ -289,7 +289,7 @@ describe('Select', () => {
       expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #0263e0');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'TwilioSansMono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', 'inherit');
 
@@ -319,7 +319,7 @@ describe('Select', () => {
       expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #fccfcf');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'TwilioSansMono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141, 49, 24)');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
 
@@ -348,7 +348,7 @@ describe('Select', () => {
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'TwilioSansMono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', 'inherit');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-size', '1rem');
@@ -378,7 +378,7 @@ describe('Select', () => {
       expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
 
       const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
-      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'TwilioSansMono',Courier,monospace");
       expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141, 49, 24)');
       expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
 

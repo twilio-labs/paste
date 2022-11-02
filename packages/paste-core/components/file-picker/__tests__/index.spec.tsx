@@ -61,7 +61,7 @@ describe('FilePicker customization', () => {
     const {container} = render(<Customized />, {wrapper: ThemeWrapper});
     expect(container.querySelector('[data-paste-element="FILEPICKER"]')).toHaveStyleRule(
       'font-family',
-      "'Fira Mono',Courier,monospace"
+      "'TwilioSansMono',Courier,monospace"
     );
     expect(container.querySelector('[data-paste-element="FILEPICKER_BUTTON"]')).toHaveStyleRule(
       'background-color',
@@ -76,7 +76,7 @@ describe('FilePicker customization', () => {
     const {container} = render(<Customized element="MY_FILEPICKER" />);
     expect(container.querySelector('[data-paste-element="MY_FILEPICKER"]')).toHaveStyleRule(
       'font-family',
-      "'Fira Mono',Courier,monospace"
+      "'TwilioSansMono',Courier,monospace"
     );
     expect(container.querySelector('[data-paste-element="MY_FILEPICKER_BUTTON"]')).toHaveStyleRule(
       'background-color',

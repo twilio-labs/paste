@@ -235,7 +235,7 @@ module.exports = {
     colorBackgroundWarningWeakest: 'rgb(254, 245, 238)',
   },
   fonts: {
-    fontFamilyCode: "'Fira Mono', Courier, monospace",
+    fontFamilyCode: "'TwilioSansMono', Courier, monospace",
     fontFamilyText:
       "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
   },
