@@ -75,7 +75,7 @@ module.exports = {
     config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
 
     // FIX: Tell Storybook to look at dev files if available
-    config.resolve.mainFields = ['main:dev', 'browser', 'module', 'main'];
+    config.resolve.mainFields = ['browser', 'main:dev', 'main', 'module'];
 
     return config;
   },
