@@ -16,12 +16,7 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
-        <StaticImage
-          src="../../assets/images/tokens/no-tokens-found.svg"
-          alt=""
-          placeholder="tracedSVG"
-          layout="fullWidth"
-        />
+        <StaticImage src="../../assets/images/not-found.svg" alt="" placeholder="tracedSVG" layout="fullWidth" />
       </Box>
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">
@@ -29,8 +24,8 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
         </Heading>
         <Stack orientation="vertical" spacing="space70">
           <Text as="span">
-            Try adjusting your criteria to filter by the token name or value. If you still can’t find what you’re
-            looking for, reach out by creating a{' '}
+            Try adjusting your criteria to filter by the token name or value. If you still can&rsquo;t find what
+            you&rsquo;re looking for, reach out by creating a{' '}
             <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
               GitHub Discussion.
             </Anchor>
