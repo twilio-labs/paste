@@ -32,7 +32,7 @@ PagerDuty will send out emails, and if configured, push notifications through th
 
 ## What are the roles for on-call rotation?
 
-- **On-Call:** The person who is the first contact in the case of an incident. Respond within 5 minutes is the goal.
+- **On-Call:** The person who is the first contact in the case of an incident. The goal is to respond within 5 minutes.
 - **On-Call backup:** The person who will be contacted during an incident if the on-call person does not acknowledge the incident within a 10 minute time window.
 - **Escalation responder:** Engineering manager, who will be contacted during an incident if both the on-call Engineers fail to acknowledge the incident after an additional 10 minutes.
 - **Secondary escalation responder:** Product owner, who will be contacted during an incident if the Escalation responder fails to acknowledge the incident within the next 30 minutes.
