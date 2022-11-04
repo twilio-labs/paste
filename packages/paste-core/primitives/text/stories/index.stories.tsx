@@ -98,6 +98,37 @@ export const Default = (): React.ReactNode => {
   );
 };
 
+export const FontFamilies: Story = () => {
+  return (
+    <>
+      <Text as="div">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+      <Text as="div" fontWeight="fontWeightMedium">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+      <Text as="div" fontWeight="fontWeightBold">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+      <Text as="div" fontFamily="fontFamilyCode">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+      <Text as="div" fontFamily="fontFamilyCode" fontWeight="fontWeightMedium">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+      <Text as="div" fontFamily="fontFamilyCode" fontWeight="fontWeightBold">
+        `1234567890-=~!@#$%^&*()_+qwertyuiop[]\asdfghjkl;&apos;zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:&quot;ZXCVBNM
+        <>? =`${'>'}` === == != !==</>
+      </Text>
+    </>
+  );
+};
+
 export const Responsive = (): React.ReactNode => {
   return (
     <Text
