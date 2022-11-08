@@ -10,8 +10,16 @@ export default {
 
 export const Default = (): React.ReactNode => {
   return (
-    <DisplayHeading variant="displayHeading10" as="h1">
-      Initial story
-    </DisplayHeading>
+    <>
+      <DisplayHeading variant="displayHeading10" as="h1">
+        DisplayHeading10
+      </DisplayHeading>
+      <DisplayHeading variant="displayHeading20" as="h1">
+        DisplayHeading20
+      </DisplayHeading>
+      <DisplayHeading variant="displayHeading30" as="h1">
+        DisplayHeading30
+      </DisplayHeading>
+    </>
   );
 };

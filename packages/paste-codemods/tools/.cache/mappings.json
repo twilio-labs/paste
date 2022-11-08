@@ -70,6 +70,7 @@
   "DisclosureContent": "@twilio-paste/core/disclosure",
   "DisclosureHeading": "@twilio-paste/core/disclosure",
   "useDisclosureState": "@twilio-paste/core/disclosure",
+  "DisplayHeading": "@twilio-paste/core/display-heading",
   "DisplayPill": "@twilio-paste/core/display-pill-group",
   "DisplayPillGroup": "@twilio-paste/core/display-pill-group",
   "FilePicker": "@twilio-paste/core/file-picker",

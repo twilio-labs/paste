@@ -25,14 +25,14 @@ const getDisplayHeadingProps = (
       return {
         marginBottom: marginBottom || 'space70',
         fontSize: 'fontSize120',
-        fontWeight: 'fontWeightExtraBold',
+        fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight120',
       };
     case 'displayHeading20':
       return {
         marginBottom: marginBottom || 'space60',
         fontSize: 'fontSize110',
-        fontWeight: 'fontWeightExtraBold',
+        fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight105',
       };
     case 'displayHeading30':
@@ -40,7 +40,7 @@ const getDisplayHeadingProps = (
       return {
         marginBottom: marginBottom || 'space50',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightExtraBold',
+        fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight80',
       };
   }

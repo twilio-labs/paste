@@ -10244,6 +10244,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/disclosure": ^9.0.1
     "@twilio-paste/disclosure-primitive": ^0.3.10
+    "@twilio-paste/display-heading": ^0.0.0
     "@twilio-paste/display-pill-group": ^5.0.1
     "@twilio-paste/dropdown-library": ^1.1.7
     "@twilio-paste/file-picker": ^1.1.1
@@ -10523,7 +10524,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading":
+"@twilio-paste/display-heading@^0.0.0, @twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading"
   dependencies:
@@ -10531,6 +10532,7 @@ __metadata:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/customization": ^5.0.0
     "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^8.0.0
@@ -10544,6 +10546,7 @@ __metadata:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/customization": ^5.0.0
     "@twilio-paste/design-tokens": ^8.0.0
+    "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^8.0.0
