@@ -10,11 +10,11 @@ We are connecting the Next.js `_app.tsx` with `Paste`'s Theme Provider so the pa
 
 Deploy the example using [Vercel](https://vercel.com):
 
-[![Edit paste-cra in Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/twilio-labs/paste-nextjs)
+[![Edit paste-nextjs-template in Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/twilio-labs/paste/tree/main/packages/paste-nextjs-template)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/twilio-labs/paste-nextjs/tree/main)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://codesandbox.io/s/github/twilio-labs/paste/tree/main/packages/paste-nextjs-template)
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/twilio-labs/paste-nextjs)
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://codesandbox.io/s/github/twilio-labs/paste/tree/main/packages/paste-nextjs-template)
 
 ## How to use
 
