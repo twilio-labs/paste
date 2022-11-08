@@ -40,6 +40,7 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
         {...dialog}
         {...safelySpreadBoxProps(props)}
         as={StyledSideModal}
+        element={`${element}_CONTAINER`}
         ref={ref}
         preventBodyScroll={false}
         hideOnClickOutside={false}

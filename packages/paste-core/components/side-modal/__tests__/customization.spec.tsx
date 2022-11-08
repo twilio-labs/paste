@@ -22,6 +22,9 @@ const CustomizationWrapper: React.FC = ({children}) => (
       SIDE_MODAL_BUTTON: {
         backgroundColor: 'colorBackgroundErrorWeakest',
       },
+      SIDE_MODAL_CONTAINER: {
+        width: '400px',
+      },
       SIDE_MODAL: {
         boxShadow: 'shadowFocus',
       },
@@ -59,6 +62,9 @@ const MyCustomizationWrapper: React.FC = ({children}) => (
     elements={{
       FOO_DIALOG_BUTTON: {
         backgroundColor: 'colorBackgroundErrorWeakest',
+      },
+      FOO_DIALOG_CONTAINER: {
+        width: '400px',
       },
       FOO_DIALOG: {
         boxShadow: 'shadowFocus',
@@ -125,6 +131,7 @@ describe('Customization', () => {
     expect(dialogHeading.dataset.pasteElement).toEqual('SIDE_MODAL_HEADING');
     expect(dialogFooter.dataset.pasteElement).toEqual('SIDE_MODAL_FOOTER');
     expect(dialogFooterActions.dataset.pasteElement).toEqual('SIDE_MODAL_FOOTER_ACTIONS');
+    expect(dialog.dataset.pasteElement).toBe('SIDE_MODAL_CONTAINER');
     expect(dialog.querySelector('[data-paste-element="SIDE_MODAL"]')).toBeInTheDocument();
     expect(closeButton.querySelector('[data-paste-element="SIDE_MODAL_HEADER_CLOSE_ICON"]')).toBeInTheDocument();
   });
@@ -153,7 +160,6 @@ describe('Customization', () => {
     await waitFor(() => {
       fireEvent.click(dialogButton);
     });
-
     const closeButton = screen.getByRole('button', {name: 'close'});
     const closeIcon = closeButton.querySelector('[data-paste-element="SIDE_MODAL_HEADER_CLOSE_ICON"]');
     const dialog = screen.getByRole('dialog');
@@ -167,7 +173,11 @@ describe('Customization', () => {
     expect(dialogHeader).toHaveStyleRule('padding', '1.75rem');
     expect(dialogHeading).toHaveStyleRule('font-size', '1.25rem');
     expect(dialogContents).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
-    expect(dialog).toHaveStyleRule('box-shadow', '0 4px 16px 0 rgba(18, 28, 45, 0.2)');
+    expect(dialog).toHaveStyleRule('width', '400px');
+    expect(dialog.querySelector('[data-paste-element="SIDE_MODAL"]')).toHaveStyleRule(
+      'box-shadow',
+      '0 0 0 4px rgba(2, 99, 224, 0.7)'
+    );
     expect(closeButton).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
     expect(closeIcon).toHaveStyleRule('width', '1.75rem');
     expect(dialogFooter).toHaveStyleRule('border-top-width', '4px');
@@ -212,6 +222,7 @@ describe('Customization', () => {
     expect(dialogHeading.dataset.pasteElement).toEqual('FOO_DIALOG_HEADING');
     expect(dialogFooter.dataset.pasteElement).toEqual('FOO_DIALOG_FOOTER');
     expect(dialogFooterActions.dataset.pasteElement).toEqual('FOO_DIALOG_FOOTER_ACTIONS');
+    expect(dialog.dataset.pasteElement).toEqual('FOO_DIALOG_CONTAINER');
     expect(dialog.querySelector('[data-paste-element="FOO_DIALOG"]')).toBeInTheDocument();
     expect(closeButton.querySelector('[data-paste-element="FOO_DIALOG_HEADER_CLOSE_ICON"]')).toBeInTheDocument();
   });
@@ -258,7 +269,11 @@ describe('Customization', () => {
     expect(dialogHeader).toHaveStyleRule('padding', '1.75rem');
     expect(dialogHeading).toHaveStyleRule('font-size', '1.25rem');
     expect(dialogContents).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
-    expect(dialog).toHaveStyleRule('box-shadow', '0 4px 16px 0 rgba(18, 28, 45, 0.2)');
+    expect(dialog).toHaveStyleRule('width', '400px');
+    expect(dialog.querySelector('[data-paste-element="FOO_DIALOG"]')).toHaveStyleRule(
+      'box-shadow',
+      '0 0 0 4px rgba(2, 99, 224, 0.7)'
+    );
     expect(closeButton).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
     expect(closeIcon).toHaveStyleRule('width', '1.75rem');
     expect(dialogFooter).toHaveStyleRule('border-top-width', '4px');

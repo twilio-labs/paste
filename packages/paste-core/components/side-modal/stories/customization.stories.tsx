@@ -33,6 +33,9 @@ export const CustomizedDialog: Story = (_args, {parameters: {isTestEnvironment}}
           backgroundColor: 'colorBackgroundErrorWeakest',
           color: 'colorTextErrorStronger',
         },
+        SIDE_MODAL_CONTAINER: {
+          width: '400px',
+        },
         SIDE_MODAL: {
           boxShadow: 'shadowFocus',
         },
