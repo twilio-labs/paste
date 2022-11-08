@@ -35,26 +35,13 @@ const NotesIcon = React.forwardRef<HTMLElement, NotesIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M16.5 17.5h-13a1 1 0 01-1-1v-13a1 1 0 011-1h13a1 1 0 011 1v13a1 1 0 01-1 1z"
-            stroke="#606B85"
-          />
-          <path
-            fill="currentColor"
-            d="M13 4V1M7 4V1M10 4V1"
-            stroke="#606B85"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path fill="currentColor" stroke="#606B85" strokeLinecap="round" d="M5.5 7.5h9M5.5 10.5h9M5.5 13.5h6" />
-          <path
-            fill="currentColor"
-            d="M5.5 7a.5.5 0 000 1h9a.5.5 0 000-1h-9zM5 10.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM5.5 13a.5.5 0 000 1h6a.5.5 0 000-1h-6z"
+            d="M5 7.5a.5.5 0 0 1 .5-.5h9a.498.498 0 0 1 .45.717.5.5 0 0 1-.45.283h-9a.5.5 0 0 1-.5-.5Zm.5 2.5a.498.498 0 0 0-.49.6.5.5 0 0 0 .49.4h9a.5.5 0 1 0 0-1h-9Zm-.195 3.04A.498.498 0 0 1 5.5 13h6a.498.498 0 0 1 .481.636.5.5 0 0 1-.481.364h-6a.498.498 0 0 1-.458-.7.502.502 0 0 1 .263-.26Z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
+            d="M13.5 1a.5.5 0 0 0-1 0v1h-2V1a.5.5 0 0 0-1 0v1h-2V1a.5.5 0 0 0-1 0v1h-3A1.5 1.5 0 0 0 2 3.5v13A1.5 1.5 0 0 0 3.5 18h13a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 16.5 2h-3V1Zm-4 2h-2v1a.5.5 0 0 1-1 0V3h-3a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-3v1a.5.5 0 0 1-1 0V3h-2v1a.5.5 0 0 1-1 0V3Z"
             clipRule="evenodd"
-            d="M13 .5a.5.5 0 01.5.5v1h3A1.5 1.5 0 0118 3.5v13a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 16.5v-13A1.5 1.5 0 013.5 2h3V1a.5.5 0 011 0v1h2V1a.5.5 0 011 0v1h2V1a.5.5 0 01.5-.5zM7.5 3h2v1a.5.5 0 001 0V3h2v1a.5.5 0 001 0V3h3a.5.5 0 01.5.5v13a.5.5 0 01-.5.5h-13a.5.5 0 01-.5-.5v-13a.5.5 0 01.5-.5h3v1a.5.5 0 001 0V3z"
           />
         </svg>
       </IconWrapper>
