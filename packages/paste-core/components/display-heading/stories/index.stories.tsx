@@ -8,7 +8,7 @@ export default {
   component: DisplayHeading,
 };
 
-export const Default = (): React.ReactNode => {
+export const AllVariants = (): React.ReactNode => {
   return (
     <>
       <DisplayHeading variant="displayHeading10" as="h1">
@@ -21,5 +21,29 @@ export const Default = (): React.ReactNode => {
         DisplayHeading30
       </DisplayHeading>
     </>
+  );
+};
+
+export const DisplayHeading10 = (): React.ReactNode => {
+  return (
+    <DisplayHeading variant="displayHeading10" as="h1">
+      Display Heading 10
+    </DisplayHeading>
+  );
+};
+
+export const DisplayHeading20 = (): React.ReactNode => {
+  return (
+    <DisplayHeading variant="displayHeading20" as="h2">
+      Display Heading 20
+    </DisplayHeading>
+  );
+};
+
+export const DisplayHeading30 = (): React.ReactNode => {
+  return (
+    <DisplayHeading variant="displayHeading30" as="h3">
+      Display Heading 30
+    </DisplayHeading>
   );
 };
