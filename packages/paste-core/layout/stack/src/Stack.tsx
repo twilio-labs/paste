@@ -1,73 +1,40 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {Space, FlexboxProps, AlignItems, FlexDirection, GapProps} from '@twilio-paste/style-props';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {isSpaceTokenProp, ResponsiveProp} from '@twilio-paste/style-props';
-import type {BoxElementProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-type StackOrientationOptions = 'horizontal' | 'vertical';
-export type StackOrientation = NonNullable<ResponsiveValue<StackOrientationOptions>>;
-type Spacing = NonNullable<Space>;
+import type {StackProps} from './types';
+import {getAlignment, getDirection} from './utils';
 
-export const getDirection = (orientation: StackOrientation): FlexDirection => {
-  if (Array.isArray(orientation)) {
-    return orientation.map((value) => {
-      if (value === 'horizontal') {
-        return 'row';
-      }
-
-      return 'column';
-    });
-  }
-
-  if (orientation === 'horizontal') {
-    return 'row';
-  }
-
-  return 'column';
-};
-
-export const getAlignment = (orientation: StackOrientation): AlignItems => {
-  if (Array.isArray(orientation)) {
-    return orientation.map((value) => {
-      if (value === 'horizontal') {
-        return 'center';
-      }
-
-      return 'stretch';
-    });
-  }
-
-  if (orientation === 'horizontal') {
-    return 'center';
-  }
-
-  return 'stretch';
-};
-
-interface StackStyles extends FlexboxProps, GapProps {}
-
-export const getStackStyles = (orientation: StackOrientation, spacing: Spacing): StackStyles => {
-  return {
-    flexDirection: getDirection(orientation),
-    alignItems: getAlignment(orientation),
-    columnGap: spacing,
-    rowGap: spacing,
-  };
-};
-
-export interface StackProps extends BoxElementProps {
-  orientation: StackOrientation;
-  spacing: Spacing;
-}
-export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
-  ({children, orientation, spacing = 'space0', element = 'STACK', ...props}, ref) => {
-    const stackStyles = React.useMemo(() => getStackStyles(orientation, spacing), [orientation, spacing]);
+const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+  ({children, orientation, spacing, justifyContent, element = 'STACK', ...props}, ref) => {
+    const validChildren = React.useMemo(() => {
+      return React.Children.toArray(children).filter(
+        (child) => React.isValidElement(child) || typeof child === 'string'
+      );
+    }, [children]);
+    const keySeed = useUIDSeed();
 
     return (
-      <Box element={element} {...safelySpreadBoxProps(props)} ref={ref} display="flex" {...stackStyles}>
-        {children}
+      <Box
+        element={element}
+        {...safelySpreadBoxProps(props)}
+        display="flex"
+        alignItems={getAlignment(orientation)}
+        justifyContent={justifyContent}
+        rowGap={spacing}
+        columnGap={spacing}
+        flexDirection={getDirection(orientation)}
+        ref={ref}
+      >
+        {validChildren.map((child, index) => {
+          return (
+            <Box element={`${element}_CHILD`} key={keySeed(`stack-${index}`)}>
+              {child}
+            </Box>
+          );
+        })}
       </Box>
     );
   }
@@ -77,6 +44,29 @@ Stack.displayName = 'Stack';
 
 Stack.propTypes = {
   orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])).isRequired,
+  justifyContent: ResponsiveProp(
+    PropTypes.oneOf([
+      'center',
+      'start',
+      'end',
+      'flex-start',
+      'flex-end',
+      'left',
+      'right',
+      'normal',
+      'space-between',
+      'space-around',
+      'space-evenly',
+      'stretch',
+      'inherit',
+      'initial',
+      'revert',
+      'revert-layer',
+      'unset',
+    ])
+  ),
   spacing: isSpaceTokenProp,
   element: PropTypes.string,
 };
+
+export {Stack};

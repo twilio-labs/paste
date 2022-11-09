@@ -12,6 +12,7 @@ import {Stack} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Stack',
+  component: Stack,
 };
 
 export const StackVertical = (): React.ReactNode => {
@@ -36,7 +37,6 @@ export const StackVertical = (): React.ReactNode => {
     </Stack>
   );
 };
-
 StackVertical.story = {
   name: 'Stack - Vertical',
 };
@@ -63,9 +63,72 @@ export const StackHorizontal = (): React.ReactNode => {
     </Stack>
   );
 };
-
 StackHorizontal.story = {
   name: 'Stack - Horizontal',
+};
+
+export const StackHorizontalJustifyContent = (): React.ReactNode => {
+  return (
+    <Stack orientation="vertical" spacing="space40">
+      <Stack orientation="horizontal" spacing="space40" justifyContent="flex-start">
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Second Card
+          </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Third Card
+          </Heading>
+        </Card>
+      </Stack>
+      <Stack orientation="horizontal" spacing="space40" justifyContent="center">
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Second Card
+          </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Third Card
+          </Heading>
+        </Card>
+      </Stack>
+      <Stack orientation="horizontal" spacing="space40" justifyContent="flex-end">
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Second Card
+          </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Third Card
+          </Heading>
+        </Card>
+      </Stack>
+    </Stack>
+  );
+};
+StackHorizontalJustifyContent.story = {
+  name: 'Stack - Horizontal Justify Content',
 };
 
 export const StackResponsiveOrientation = (): React.ReactNode => {
@@ -90,14 +153,13 @@ export const StackResponsiveOrientation = (): React.ReactNode => {
     </Stack>
   );
 };
-
 StackResponsiveOrientation.story = {
   name: 'Stack - Responsive orientation',
 };
 
-export const StackResponsiveSpacingHorizontal = (): React.ReactNode => {
+export const StackResponsiveSpacing = (): React.ReactNode => {
   return (
-    <Stack orientation="horizontal" spacing={['space20', 'space40', 'space80']}>
+    <Stack orientation="horizontal" spacing={['space100', 'space60', 'space20']}>
       <Card>
         <Heading as="h2" variant="heading20">
           First Card
@@ -117,41 +179,13 @@ export const StackResponsiveSpacingHorizontal = (): React.ReactNode => {
     </Stack>
   );
 };
-
-StackResponsiveSpacingHorizontal.story = {
-  name: 'Stack - Responsive spacing horizontal',
-};
-
-export const StackResponsiveSpacingVertical = (): React.ReactNode => {
-  return (
-    <Stack orientation="vertical" spacing={['space20', 'space40', 'space80']}>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          First Card
-        </Heading>
-      </Card>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          Second Card
-        </Heading>
-        <Paragraph>Card content should go here.</Paragraph>
-      </Card>
-      <Card>
-        <Heading as="h2" variant="heading20">
-          Third Card
-        </Heading>
-      </Card>
-    </Stack>
-  );
-};
-
-StackResponsiveSpacingVertical.story = {
-  name: 'Stack - Responsive spacing vertical',
+StackResponsiveSpacing.story = {
+  name: 'Stack - Responsive spacing',
 };
 
 export const StackResponsive = (): React.ReactNode => {
   return (
-    <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing={['space20', 'space40', 'space80']}>
+    <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing={['space100', 'space60', 'space20']}>
       <Card>
         <Heading as="h2" variant="heading20">
           First Card
@@ -171,9 +205,8 @@ export const StackResponsive = (): React.ReactNode => {
     </Stack>
   );
 };
-
 StackResponsive.story = {
-  name: 'Stack - Responsive orientation and spacing',
+  name: 'Stack - Responsive',
 };
 
 export const OneChild = (): React.ReactNode => {
@@ -191,7 +224,6 @@ export const OneChild = (): React.ReactNode => {
     </Box>
   );
 };
-
 OneChild.story = {
   name: 'Stack - One Child',
 };
@@ -275,7 +307,6 @@ export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}})
     </>
   );
 };
-
 CustomizedStack.story = {
   name: 'Stack - Customized',
 };
