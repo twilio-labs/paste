@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.4.0
+
+### Minor Changes
+
+- [`6c632c7f7`](https://github.com/twilio-labs/paste/commit/6c632c7f71d3c89a28e161bec194ee23e726759e) [#2814](https://github.com/twilio-labs/paste/pull/2814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add Notes icon
+
 ## 9.3.1
 
 ### Patch Changes
