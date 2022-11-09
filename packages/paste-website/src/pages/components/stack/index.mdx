@@ -132,6 +132,19 @@ Elements within the stack are placed horizontally with right spacing. This is ac
 </Stack>`}
 </LivePreview>
 
+### Justifying Stack content
+
+Stacked elements can be aligned inside the Stack container using the `justifyContent` CSS flexbox property. This property
+will only work if the Stack is set to `orientation="horizontal"`.
+
+<LivePreview scope={{Anchor, Button, Stack}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space60" justifyContent="flex-end">
+  <Button variant="primary">Save</Button>
+  <Button variant="secondary">Cancel</Button>
+  <Anchor href="#">Close Project</Anchor>
+</Stack>`}
+</LivePreview>
+
 ### Responsive Stack
 
 `orientation` is a responsive props. You can provide it an array of orientation
@@ -176,11 +189,12 @@ import {Stack} from '@twilio-paste/core/stack';
 
 #### Props
 
-| Prop        | Type                                      | Description                                                                               | Default |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| orientation | ResponsiveValue<'horizontal', 'vertical'> |                                                                                           | null    |
-| spacing     | [Spacing](/tokens/list/#spacings)         |                                                                                           | null    |
-| element?    | `string`                                  | Overrides the default element name to apply unique styles with the Customization Provider | 'STACK' |
+| Prop           | Type                                        | Description                                                                               | Default |
+| -------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| orientation    | `ResponsiveValue<'horizontal', 'vertical'>` |                                                                                           | null    |
+| justifyContent | `ResponsiveValue<JustifyContentOptions>`    |                                                                                           | null    |
+| spacing        | [Spacing](/tokens/list/#spacings)           |                                                                                           | null    |
+| element?       | `string`                                    | Overrides the default element name to apply unique styles with the Customization Provider | 'STACK' |
 
 <ChangelogRevealer>
   <Changelog />
