@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/side-modal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "category": "overlays",
   "status": "production",
   "description": "A modal that stays on the side of the screen.",
@@ -45,7 +45,7 @@
     "@twilio-paste/button": "^11.1.4",
     "@twilio-paste/design-tokens": "^8.1.2",
     "@twilio-paste/heading": "^8.0.1",
-    "@twilio-paste/icons": "^9.3.1",
+    "@twilio-paste/icons": "^9.4.0",
     "@twilio-paste/non-modal-dialog-primitive": "^0.3.11",
     "@twilio-paste/screen-reader-only": "^10.0.2",
     "@twilio-paste/style-props": "^6.1.1",

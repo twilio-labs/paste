@@ -10250,7 +10250,7 @@ __metadata:
     "@twilio-paste/grid": ^5.0.1
     "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/help-text": ^10.1.1
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.0
     "@twilio-paste/inline-code": ^1.0.1
     "@twilio-paste/inline-control-group": ^10.0.1
     "@twilio-paste/input": ^6.1.1
@@ -10275,7 +10275,7 @@ __metadata:
     "@twilio-paste/select": ^9.1.1
     "@twilio-paste/separator": ^5.0.1
     "@twilio-paste/sibling-box": ^6.0.2
-    "@twilio-paste/side-modal": ^1.0.1
+    "@twilio-paste/side-modal": ^1.0.2
     "@twilio-paste/skeleton-loader": ^3.0.1
     "@twilio-paste/spinner": ^11.0.1
     "@twilio-paste/stack": ^5.0.1
@@ -10747,7 +10747,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@^9.3.1, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@^9.3.1, @twilio-paste/icons@^9.4.0, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
@@ -11497,7 +11497,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/side-modal@^1.0.1, @twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal":
+"@twilio-paste/side-modal@^1.0.1, @twilio-paste/side-modal@^1.0.2, @twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal"
   dependencies:
@@ -11505,7 +11505,7 @@ __metadata:
     "@twilio-paste/button": ^11.1.4
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/heading": ^8.0.1
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.0
     "@twilio-paste/non-modal-dialog-primitive": ^0.3.11
     "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/style-props": ^6.1.1

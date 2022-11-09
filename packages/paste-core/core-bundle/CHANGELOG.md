@@ -1,5 +1,14 @@
 # Change Log
 
+## 17.0.1
+
+### Patch Changes
+
+- [`0865d51a7`](https://github.com/twilio-labs/paste/commit/0865d51a770aa2e0ac054f83d26a7808d9f55054) [#2807](https://github.com/twilio-labs/paste/pull/2807) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [side-modal] set an element name on the root dialog node, to allow full control of custom styling including widths
+
+- Updated dependencies [[`0865d51a7`](https://github.com/twilio-labs/paste/commit/0865d51a770aa2e0ac054f83d26a7808d9f55054)]:
+  - @twilio-paste/side-modal@1.0.2
+
 ## 17.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "17.0.0",
+  "version": "17.0.1",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -84,7 +84,7 @@
     "@twilio-paste/select": "^9.1.1",
     "@twilio-paste/separator": "^5.0.1",
     "@twilio-paste/sibling-box": "^6.0.2",
-    "@twilio-paste/side-modal": "^1.0.1",
+    "@twilio-paste/side-modal": "^1.0.2",
     "@twilio-paste/skeleton-loader": "^3.0.1",
     "@twilio-paste/spinner": "^11.0.1",
     "@twilio-paste/stack": "^5.0.1",
@@ -114,7 +114,7 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^9.3.1",
+    "@twilio-paste/icons": "^9.4.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
