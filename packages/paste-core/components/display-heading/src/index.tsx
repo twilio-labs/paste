@@ -1,15 +1,15 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {asTags as AsTags} from '@twilio-paste/heading';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {TextProps, TextStyleProps} from '@twilio-paste/text';
 
 type DisplayHeadingVariants = 'displayHeading10' | 'displayHeading20' | 'displayHeading30';
+type AsTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span' | 'header';
 
 export interface DisplayHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     Pick<TextProps, 'element' | 'display'> {
-  as: AsTags; // omit label
+  as: AsTags;
   className?: never;
   id?: string;
   marginBottom?: 'space0';
@@ -28,20 +28,20 @@ const getDisplayHeadingProps = (
         fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight120',
       };
-    case 'displayHeading20':
-      return {
-        marginBottom: marginBottom || 'space60',
-        fontSize: 'fontSize110',
-        fontWeight: 'fontWeightExtrabold',
-        lineHeight: 'lineHeight105',
-      };
     case 'displayHeading30':
-    default:
       return {
         marginBottom: marginBottom || 'space50',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight80',
+      };
+    case 'displayHeading20':
+    default:
+      return {
+        marginBottom: marginBottom || 'space60',
+        fontSize: 'fontSize110',
+        fontWeight: 'fontWeightExtrabold',
+        lineHeight: 'lineHeight105',
       };
   }
 };
