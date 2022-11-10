@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "typography",
   "status": "production",
-  "description": "Display heading is large expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.",
+  "description": "Display heading is large, expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

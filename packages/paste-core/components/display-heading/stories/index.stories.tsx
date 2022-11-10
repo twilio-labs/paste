@@ -1,3 +1,5 @@
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import * as React from 'react';
 
 import {DisplayHeading} from '../src';
@@ -45,5 +47,16 @@ export const DisplayHeading30 = (): React.ReactNode => {
     <DisplayHeading variant="displayHeading30" as="h3">
       Display Heading 30
     </DisplayHeading>
+  );
+};
+
+export const Customization = (): React.ReactNode => {
+  const theme = useTheme();
+  return (
+    <CustomizationProvider theme={theme} elements={{DISPLAY_HEADING: {color: 'colorTextDecorative20'}}}>
+      <DisplayHeading as="div" variant="displayHeading10">
+        Display Heading with customization
+      </DisplayHeading>
+    </CustomizationProvider>
   );
 };

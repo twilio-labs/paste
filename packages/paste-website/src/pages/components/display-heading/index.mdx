@@ -1,18 +1,17 @@
 ---
 title: Display Heading
 package: '@twilio-paste/display-heading'
-description: Display heading is large expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.
+description: Display heading is large, expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.
 slug: /components/display-heading/
 ---
 
 import {graphql} from 'gatsby';
-import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
+import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/heading/CHANGELOG.md';
+import Changelog from '@twilio-paste/display-heading/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
@@ -69,150 +68,120 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h1" variant="heading10" marginBottom="space0">
-  Black lives matter
-</Heading>`}
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
+  Twilio magic
+</DisplayHeading>`}
 </LivePreview>
 
 ## Guidelines
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-### About Heading
+### About Display Heading
 
-Headings should allow users to easily distinguish content sections on the page.
+Display Heading should not be used interchangeably with [the Heading component](/components/heading). While Heading is for adding multiple levels of hierarchy and structuring the content of any page, Display Heading is only for use in very specific contexts.
 
-- Headings can have multiple levels of depth to help organize content
-- Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content
-- Headings should be used with intention that maintains a coherent document outline
-- Don’t use heading tags to resize text. Instead use the `<Text>` primitive
-- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
-- There can only be one `<h1>` tag per page
-- Always use sentence case when writing headings, for more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
+Use Display Heading for marketing, branding, or editorial purposes to highlight a small amount of text. Don't use Display Heading to outline sections of a page or form.
+
+Follow these guidelines for appropriate Display Heading usage:
+
+- Don’t use Display Heading to resize text. Instead use the `<Text>` primitive
+- Use the appropriate tag for the Display Heading. If using an `<h1>` tag, don't use more than one per page.
+- Always use sentence case, unless you're writing a product name. For more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
+
+Here are some examples of when you might want to use a Display Heading:
+
+- Grabbing your user's attention on a home or onboarding page
+- Marketing purposes or when you need to connect with the Twilio branding
+- Displaying numbers on a dashboard layout to make them stand out
+
+If you have concerns about whether you're using a Display Heading appropriately, feel free to [start a new Github Discussion](https://github.com/twilio-labs/paste/discussions/new) to ask.
 
 #### Accessibility
 
 It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page. Skipping a heading level could cause confusion as the user navigating the page may not know why a heading is missing.
 
-- Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
-- Headings should be used thoughtfully, with clear hierarchies for content and subsections
+- Display Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
+- Display Headings should be used thoughtfully and intentionally, including the value passed to the `as` prop.
 
 ## Examples
 
-<LivePreview scope={{Heading}} language="jsx">
+<LivePreview scope={{DisplayHeading}} language="jsx">
   {`<>
-<Heading as="h1" variant="heading10">
-  Black lives matter
-</Heading>
+<DisplayHeading as="h1" variant="displayHeading10">
+  Twilio magic
+</DisplayHeading>
 
-<Heading as="h2" variant="heading20">
-  Black lives matter
-</Heading>
+<DisplayHeading as="h1" variant="displayHeading20">
+  Twilio magic
+</DisplayHeading>
 
-<Heading as="h3" variant="heading30">
-  Black lives matter
-</Heading>
-
-<Heading as="h4" variant="heading40">
-  Black lives matter
-</Heading>
-
-<Heading as="h5" variant="heading50">
-  Black lives matter
-</Heading>
-
-<Heading as="h6" variant="heading60">
-  Black lives matter
-</Heading>
+<DisplayHeading as="h1" variant="displayHeading30">
+  Twilio magic
+</DisplayHeading>
 </>`}
 </LivePreview>
 
-### Heading as h2 with heading10 variant
+### Display Heading as h1 with displayHeading10 variant
 
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading10">
-  Heading one
-</Heading>`}
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h1" variant="displayHeading10">
+  Display Heading one
+</DisplayHeading>`}
 </LivePreview>
 
-### Heading as h2 with heading20 variant
+### Display Heading as h2 with heading20 variant
 
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading20">
-  Heading two
-</Heading>`}
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h2" variant="displayHeading20">
+  Display Heading two
+</DisplayHeading>`}
 </LivePreview>
 
-### Heading as h2 with heading30 variant
+### Heading as h3 with displayHeading30 variant
 
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading30">
-  Heading three
-</Heading>`}
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h2" variant="displayHeading30">
+  Display Heading three
+</DisplayHeading>`}
 </LivePreview>
 
-### Heading as h2 with heading40 variant
+### Display Heading with no bottom margin
 
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading40">
-  Heading four
-</Heading>`}
-</LivePreview>
-
-### Heading as h2 with heading50 variant
-
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading50">
-  Heading five
-</Heading>`}
-</LivePreview>
-
-### Heading as h2 with heading60 variant
-
-<LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="heading60">
-  Heading six
-</Heading>`}
-</LivePreview>
-
-### Heading with no bottom margin
-
-<LivePreview scope={{Heading, Card}} language="jsx">
+<LivePreview scope={{DisplayHeading, Card}} language="jsx">
   {`<Card>
-  <Heading as="h2" marginBottom="space0" variant="heading10">
-    Heading with no margin
-  </Heading>
+  <DisplayHeading as="h2" marginBottom="space0" variant="displayHeading10">
+    Display Heading with no margin
+  </DisplayHeading>
 </Card>`}
 </LivePreview>
 
 ## Composition Notes
 
-### When to use Heading
-
-Headings should be used for page headings or content subsections. Headings are broken into six levels, where h1 is the highest level and h6 is the lowest. Avoid skipping heading levels. Use the next lowest heading level to maintain a coherent document outline.
+### When to use Display Heading
 
 <DoDont>
-  <Do title="Do" body="Use sentence case in headings." center>
-    <Heading as="h2" variant="heading10">
+  <Do title="Do" body="Use sentence case in Display Headings (except for a product name)." center>
+    <DisplayHeading as="h2" variant="heading10">
       This is sentence case
-    </Heading>
+    </DisplayHeading>
   </Do>
   <Dont title="Don't" body="Don’t use title case." center>
-    <Heading as="h2" variant="heading10">
+    <DisplayHeading as="h2" variant="heading10">
       This Is Title Case
-    </Heading>
+    </DisplayHeading>
   </Dont>
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use headings for page headings to specific sections of content." />
-  <Dont title="Don't" body="Don’t use headings for pure stylistic purposes." />
+  <Do title="Do" body="Use Display Headings to connect with the brand or grab users' attention." />
+  <Dont title="Don't" body="Don’t use Display Headings in place of the regular Heading component." />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use headings in order, so your content reads like an outline." />
-  <Dont title="Don't" body="Don’t use headings out of order." />
+  <Do title="Do" body="Be intentional about the value you pass to the `as` prop." />
+  <Dont title="Don't" body="Don’t use multiple h1 tags on a page." />
 </DoDont>
 
 ---
@@ -224,31 +193,31 @@ Headings should be used for page headings or content subsections. Headings are b
 #### Installation
 
 ```bash
-yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/display-heading - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {Heading} from '@twilio-paste/core/heading';
+import {DisplayHeading} from '@twilio-paste/core/display-heading';
 
 const Component = () => (
-  <Heading as="h2" variant="heading20">
-    Heading Two
-  </Heading>
+  <DisplayHeading as="h2" variant="displayHeading20">
+    Display Heading
+  </DisplayHeading>
 );
 ```
 
 #### Props
 
-| Prop          | Type                           | Description                                                                               | Default   |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | --------- |
-| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null      |
-| id?           | `string`                       |                                                                                           | null      |
-| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null      |
-| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null      |
-| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"   |
-| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HEADING' |
+| Prop          | Type                           | Description                                                                               | Default           |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ----------------- |
+| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'                                         | null              |
+| id?           | `string`                       |                                                                                           | null              |
+| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null              |
+| variant       | `displayHeadingVariants`       | 'heading10', 'heading20', 'heading30'                                                     | null              |
+| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"           |
+| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'DISPLAY_HEADING' |
 
 <ChangelogRevealer>
   <Changelog />
