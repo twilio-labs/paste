@@ -23,14 +23,14 @@ const getDisplayHeadingProps = (
   switch (displayHeadingVariant) {
     case 'displayHeading10':
       return {
-        marginBottom: marginBottom || 'space70',
+        marginBottom: marginBottom || 'space170',
         fontSize: 'fontSize120',
         fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight120',
       };
     case 'displayHeading30':
       return {
-        marginBottom: marginBottom || 'space50',
+        marginBottom: marginBottom || 'space90',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight80',
@@ -38,7 +38,7 @@ const getDisplayHeadingProps = (
     case 'displayHeading20':
     default:
       return {
-        marginBottom: marginBottom || 'space60',
+        marginBottom: marginBottom || 'space130',
         fontSize: 'fontSize110',
         fontWeight: 'fontWeightExtrabold',
         lineHeight: 'lineHeight105',
