@@ -35,6 +35,7 @@ export const CustomizedDialog: Story = (_args, {parameters: {isTestEnvironment}}
         },
         MINIMIZABLE_DIALOG_CONTENT: {
           color: 'colorTextErrorStronger',
+          padding: 'space70',
         },
         MINIMIZABLE_DIALOG_HEADER: {
           padding: 'space80',

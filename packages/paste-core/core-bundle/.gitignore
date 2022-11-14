@@ -14,6 +14,7 @@
 /button-group
 /callout
 /card
+/chat-composer
 /chat-log
 /checkbox
 /clipboard-copy-library
@@ -42,6 +43,7 @@
 /input
 /input-box
 /label
+/lexical-library
 /list
 /media-object
 /menu
