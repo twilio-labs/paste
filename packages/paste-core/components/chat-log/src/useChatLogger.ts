@@ -8,7 +8,7 @@ type PopChat = (id?: string) => void;
 
 export type Chat = {
   id: string;
-  variant: MessageVariants;
+  variant?: MessageVariants;
   content: React.ReactElement;
 };
 
