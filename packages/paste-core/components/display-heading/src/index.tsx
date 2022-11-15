@@ -24,24 +24,24 @@ const getDisplayHeadingProps = (
     case 'displayHeading10':
       return {
         marginBottom: marginBottom || 'space170',
-        fontSize: 'fontSize120',
+        fontSize: 'fontSizeDisplay30',
         fontWeight: 'fontWeightExtrabold',
-        lineHeight: 'lineHeight120',
+        lineHeight: 'lineHeightDisplay30',
       };
     case 'displayHeading30':
       return {
         marginBottom: marginBottom || 'space90',
-        fontSize: 'fontSize90',
+        fontSize: 'fontSizeDisplay10',
         fontWeight: 'fontWeightExtrabold',
-        lineHeight: 'lineHeight80',
+        lineHeight: 'lineHeightDisplay10',
       };
     case 'displayHeading20':
     default:
       return {
         marginBottom: marginBottom || 'space130',
-        fontSize: 'fontSize110',
+        fontSize: 'fontSizeDisplay20',
         fontWeight: 'fontWeightExtrabold',
-        lineHeight: 'lineHeight105',
+        lineHeight: 'lineHeightDisplay20',
       };
   }
 };

@@ -40,12 +40,15 @@ props:
   line-height-100:
     value: "{!line-height-100}"
     comment: "Constant line-height token for line-height 100"
-  line-height-105:
-    value: "{!line-height-105}"
-    comment: "Constant line-height token for line-height 105"
   line-height-110:
     value: "{!line-height-110}"
     comment: "Constant line-height token for line-height 110"
-  line-height-120:
-    value: "{!line-height-120}"
-    comment: "Constant line-height token for line-height 120"
+  line-height-display-10:
+    value: "{!line-height-display-10}"
+    comment: "Constant line-height token for line-height-display 10"
+  line-height-display-20:
+    value: "{!line-height-display-20}"
+    comment: "Constant line-height token for line-height-display 20"
+  line-height-display-30:
+    value: "{!line-height-display-30}"
+    comment: "Constant line-height token for line-height-display 30"

@@ -37,6 +37,12 @@ props:
   font-size-110:
     value: "{!font-size-110}"
     comment: "Constant typography token for font size 110"
-  font-size-120:
-    value: "{!font-size-120}"
-    comment: "Constant typography token for font size 120"
+  font-size-display-10:
+    value: "{!font-size-display-10}"
+    comment: "Constant typography token for font size display 10"
+  font-size-display-20:
+    value: "{!font-size-display-20}"
+    comment: "Constant typography token for font size display 20"
+  font-size-display-30:
+    value: "{!font-size-display-30}"
+    comment: "Constant typography token for font size display 30"

@@ -3,4 +3,4 @@
 '@twilio-paste/design-tokens': minor
 ---
 
-[Design Tokens]: add 4 new tokens for the Display Heading package: fontSize120, fontWeightExtrabold, lineHeight 105, lineHeight 120.
+[Design Tokens]: add 7 new tokens for the Display Heading package: fontSizeDisplay10, fontSizeDisplay20, fontSizeDisplay30, fontWeightExtrabold, lineHeightDisplay10, lineHeightDisplay20, and lineHeightDisplay30.
