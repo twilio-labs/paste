@@ -13,14 +13,14 @@ export default {
 export const AllVariants = (): React.ReactNode => {
   return (
     <>
-      <DisplayHeading variant="displayHeading10" as="h1">
-        DisplayHeading10
+      <DisplayHeading variant="displayHeading10" as="div">
+        Display Heading 10
       </DisplayHeading>
-      <DisplayHeading variant="displayHeading20" as="h1">
-        DisplayHeading20
+      <DisplayHeading variant="displayHeading20" as="div">
+        Display Heading 20
       </DisplayHeading>
-      <DisplayHeading variant="displayHeading30" as="h1">
-        DisplayHeading30
+      <DisplayHeading variant="displayHeading30" as="div">
+        Display Heading 30
       </DisplayHeading>
     </>
   );
@@ -28,7 +28,7 @@ export const AllVariants = (): React.ReactNode => {
 
 export const DisplayHeading10 = (): React.ReactNode => {
   return (
-    <DisplayHeading variant="displayHeading10" as="h1">
+    <DisplayHeading variant="displayHeading10" as="div">
       Display Heading 10
     </DisplayHeading>
   );
@@ -36,7 +36,7 @@ export const DisplayHeading10 = (): React.ReactNode => {
 
 export const DisplayHeading20 = (): React.ReactNode => {
   return (
-    <DisplayHeading variant="displayHeading20" as="h2">
+    <DisplayHeading variant="displayHeading20" as="div">
       Display Heading 20
     </DisplayHeading>
   );
@@ -44,7 +44,7 @@ export const DisplayHeading20 = (): React.ReactNode => {
 
 export const DisplayHeading30 = (): React.ReactNode => {
   return (
-    <DisplayHeading variant="displayHeading30" as="h3">
+    <DisplayHeading variant="displayHeading30" as="div">
       Display Heading 30
     </DisplayHeading>
   );

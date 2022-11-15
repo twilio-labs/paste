@@ -10534,6 +10534,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
+    "@twilio-paste/text": ^7.0.1
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
@@ -10547,6 +10548,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
+    "@twilio-paste/text": ^7.0.1
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2

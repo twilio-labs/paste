@@ -1,18 +1,11 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Theme} from '@twilio-paste/theme';
 
 import {DisplayHeading} from '../src';
 
 describe('DisplayHeading', () => {
-  it('should render', () => {
-    const {getByText} = render(
-      <DisplayHeading as="h1" variant="displayHeading10">
-        test
-      </DisplayHeading>
-    );
-    expect(getByText('test')).toBeDefined();
-  });
   it('should render as an h1 when passed as="h1', () => {
     render(
       <DisplayHeading as="h1" variant="displayHeading10">
@@ -22,7 +15,7 @@ describe('DisplayHeading', () => {
     const renderedDisplayHeading = screen.getByRole('heading', {level: 1});
     expect(renderedDisplayHeading).toBeDefined();
   });
-  it('should render as an h2 when passed as="h1', () => {
+  it('should render as an h2 when passed as="h2', () => {
     render(
       <DisplayHeading as="h2" variant="displayHeading20">
         test
@@ -31,7 +24,7 @@ describe('DisplayHeading', () => {
     const renderedDisplayHeading = screen.getByRole('heading', {level: 2});
     expect(renderedDisplayHeading).toBeDefined();
   });
-  it('should render as an h3 when passed as="h1', () => {
+  it('should render as an h3 when passed as="h3', () => {
     render(
       <DisplayHeading as="h3" variant="displayHeading30">
         test
@@ -42,12 +35,14 @@ describe('DisplayHeading', () => {
   });
   it('should remove bottom margin when passed margin="space0', () => {
     render(
-      <DisplayHeading as="h3" variant="displayHeading30" marginBottom="space0">
-        test
-      </DisplayHeading>
+      <Theme.Provider theme="default">
+        <DisplayHeading as="h3" variant="displayHeading30" marginBottom="space0">
+          test
+        </DisplayHeading>
+      </Theme.Provider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 3});
-    expect(renderedDisplayHeading).toHaveStyleRule('margin-bottom', 'space0');
+    expect(renderedDisplayHeading).toHaveStyle('margin-bottom: 0');
   });
 });
 
@@ -83,7 +78,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 1});
-    expect(renderedDisplayHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+    expect(renderedDisplayHeading).toHaveStyle('color: rgb(96, 107, 133)');
   });
   it('should add custom styles to a custom named Display Heading', () => {
     render(
@@ -94,6 +89,6 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 1});
-    expect(renderedDisplayHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+    expect(renderedDisplayHeading).toHaveStyle('color: rgb(96, 107, 133)');
   });
 });

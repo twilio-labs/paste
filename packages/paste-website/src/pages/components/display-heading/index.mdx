@@ -69,7 +69,7 @@ export const pageQuery = graphql`
 <content>
 
 <LivePreview scope={{DisplayHeading}} language="jsx">
-  {`<DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
+  {`<DisplayHeading as="div" variant="displayHeading10" marginBottom="space0">
   Twilio magic
 </DisplayHeading>`}
 </LivePreview>
@@ -80,13 +80,13 @@ export const pageQuery = graphql`
 
 ### About Display Heading
 
-Display Heading should not be used interchangeably with [the Heading component](/components/heading). While Heading is for adding multiple levels of hierarchy and structuring the content of any page, Display Heading is only for use in very specific contexts.
+Display Heading should **not** be used interchangeably with [the Heading component](/components/heading). While Heading is for adding multiple levels of hierarchy and structuring the content of any page, Display Heading should only be used in very specific contexts.
 
 Use Display Heading for marketing, branding, or editorial purposes to highlight a small amount of text. Don't use Display Heading to outline sections of a page or form.
 
 Follow these guidelines for appropriate Display Heading usage:
 
-- Don’t use Display Heading to resize text. Instead use the `<Text>` primitive
+- Don’t use Display Heading to resize text. Instead use the [Text primitive](/primitives/text).
 - Use the appropriate tag for the Display Heading. If using an `<h1>` tag, don't use more than one per page.
 - Always use sentence case, unless you're writing a product name. For more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
 
@@ -109,15 +109,15 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{DisplayHeading}} language="jsx">
   {`<>
-<DisplayHeading as="h1" variant="displayHeading10">
+<DisplayHeading as="div" variant="displayHeading10">
   Twilio magic
 </DisplayHeading>
 
-<DisplayHeading as="h1" variant="displayHeading20">
+<DisplayHeading as="div" variant="displayHeading20">
   Twilio magic
 </DisplayHeading>
 
-<DisplayHeading as="h1" variant="displayHeading30">
+<DisplayHeading as="div" variant="displayHeading30">
   Twilio magic
 </DisplayHeading>
 </>`}
