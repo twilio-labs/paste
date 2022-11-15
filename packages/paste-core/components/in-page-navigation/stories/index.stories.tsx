@@ -21,7 +21,7 @@ export const Default = (): React.ReactNode => {
       <Stack orientation="vertical" spacing="space90">
         <Box>
           This is what In Page Navigation looks like (only for visual- clicking should not lead anywhere)
-          <InPageNavigation>
+          <InPageNavigation aria-label="myNav" variant="fullWidth">
             <InPageNavigationItem href="#" currentPage>
               Bio
             </InPageNavigationItem>
@@ -30,7 +30,7 @@ export const Default = (): React.ReactNode => {
         </Box>
         <Box>
           This is what Tabs look like:
-          <Tabs>
+          <Tabs variant="fitted">
             <TabList aria-label="my tabsz">
               <Tab>Bio</Tab>
               <Tab>Impact</Tab>

@@ -1,18 +1,19 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {AnchorProps} from '@twilio-paste/anchor';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-const getItemStyles = (fullWidth: boolean, currentPage: boolean): BoxStyleProps => {
+import {InPageNavigationContext} from './InPageNavigationContext';
+
+const getItemStyles = (currentPage: boolean, variant?: string): BoxStyleProps => {
   return {
     borderBottomColor: currentPage ? 'colorBorderPrimary' : 'transparent',
     borderBottomStyle: 'solid',
     borderBottomWidth: 'borderWidth20',
     color: currentPage ? 'colorTextLink' : 'colorTextWeak',
-    flexBasis: fullWidth ? '50%' : undefined,
-    flexGrow: fullWidth ? 1 : undefined,
-    flexShrink: fullWidth ? 1 : undefined,
+    flexBasis: variant === 'fullWidth' ? '50%' : undefined,
+    flexGrow: variant === 'fullWidth' ? 1 : undefined,
+    flexShrink: variant === 'fullWidth' ? 1 : undefined,
     minWidth: 'sizeSquare130',
     paddingBottom: 'space40',
     paddingLeft: 'space20',
@@ -46,25 +47,32 @@ const getItemStyles = (fullWidth: boolean, currentPage: boolean): BoxStyleProps 
   };
 };
 
-export interface InPageNavigationItemProps extends Omit<AnchorProps, 'showExternal' | 'i18nExternalLinkLabel'> {
+export interface InPageNavigationItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   currentPage?: boolean;
-  fullWidth?: boolean;
+  children: NonNullable<React.ReactNode>;
+  href: string;
+  ref?: any;
+  rel?: string; // do we need this? I don't understand how we're using it in Anchor
+  element?: BoxProps['element'];
 }
 
 const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationItemProps>(
-  ({element = 'IN_PAGE_NAVIGATION_ITEM', currentPage = false, href, fullWidth = false, ...props}, ref) => {
+  ({element = 'IN_PAGE_NAVIGATION_ITEM', currentPage = false, href, children, ...props}, ref) => {
+    const {variant} = React.useContext(InPageNavigationContext);
+
     return (
       <Box as="li" ref={ref} element={element} display="flex">
         <Box
           {...safelySpreadBoxProps(props)}
-          {...getItemStyles(fullWidth, currentPage)}
+          {...getItemStyles(currentPage, variant)}
           as="a"
+          ref={ref}
           element={`${element}_ANCHOR`}
           aria-current={currentPage ? 'page' : undefined}
           href={href}
           cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
         >
-          {props.children}
+          {children}
         </Box>
       </Box>
     );
@@ -77,7 +85,6 @@ InPageNavigationItem.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
   currentPage: PropTypes.bool,
-  fullWidth: PropTypes.bool,
 };
 
 export {InPageNavigationItem};
