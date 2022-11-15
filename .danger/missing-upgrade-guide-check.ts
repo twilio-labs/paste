@@ -13,24 +13,32 @@ export const FAIL_MESSAGE = `You have marked a Paste package as a MAJOR update v
 Please update the guide to inform our users what to do in response to this major update to Paste.`;
 
 /**
- * Check if the changeset file contents include a mention of a package major update
+ * Predicate method to determine if changeset file content contains qualifying major update change
  *
- * @param {string} filePath
- * @return {*}
+ * @param {string} fileContent
+ * @return {boolean}
  */
-export const hasMajorUpdate = (filePath: string) => {
-  const fileContent = fs.readFileSync(filePath).toString();
-  return /\@twilio-paste\/\S+: major/.test(fileContent);
+export const qualifyingMajorUpdate = (fileContent: string) => {
+  const matches = Array.from(fileContent.matchAll(/'\@twilio-paste\/(\S+)': major/g), (m) => m[1]);
+
+  // check if core has a major bump
+  if (matches.includes('core')) return true;
+  // check if other packages have major bump alongside a patch/minor core bump
+  if (matches.length && fileContent.includes('@twilio-paste/core')) return false;
+  // check if other packages have a major bump without any core bump
+  if (matches.length) return true;
+
+  return false;
 };
 
 /**
  * Utility to return a list of changeset files that have listed a package as needing a major update
  *
  * @param {string[]} touchedChangesets
- * @return {*}  {string[]}
+ * @return {string[]}
  */
-export const getChangesetsWithMajorUpdate = (touchedChangesets: string[]): string[] => {
-  return touchedChangesets.filter(hasMajorUpdate);
+export const getChangesetsWithMajorQualifyingUpdate = (touchedChangesets: string[]): string[] => {
+  return touchedChangesets.map((filePath) => fs.readFileSync(filePath).toString()).filter(qualifyingMajorUpdate);
 };
 
 /**
@@ -41,8 +49,8 @@ export default () => {
   const modifiedChangeSets = getChangesetsFromFiles([...danger.git.modified_files, ...danger.git.created_files]);
   if (modifiedChangeSets.length === 0) return;
 
-  const changesetsWithMajorUpdate = getChangesetsWithMajorUpdate(modifiedChangeSets);
-  if (changesetsWithMajorUpdate.length === 0) return;
+  const changesetsWithQualifyingMajorUpdate = getChangesetsWithMajorQualifyingUpdate(modifiedChangeSets);
+  if (changesetsWithQualifyingMajorUpdate.length === 0) return;
 
   const upgradeGuideChanged = danger.git.modified_files.includes(UPGRADE_GUIDE_PAGE_FILE);
   if (upgradeGuideChanged) return;
