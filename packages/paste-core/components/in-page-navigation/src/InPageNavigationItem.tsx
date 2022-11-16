@@ -29,14 +29,9 @@ const getItemStyles = (currentPage: boolean, variant?: string): BoxStyleProps =>
     whiteSpace: 'nowrap',
     display: 'block',
     textDecoration: 'none',
-
     _hover: {
       borderBottomColor: 'colorBorderPrimaryStronger',
       color: 'colorTextLinkStronger',
-    },
-    _disabled: {
-      borderBottomColor: 'transparent',
-      color: 'colorTextWeaker',
     },
     _focus: {
       borderBottomColor: 'colorBorderPrimaryStronger',
@@ -78,7 +73,6 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
           element={`${element}_ANCHOR`}
           aria-current={currentPage ? 'page' : undefined}
           href={href}
-          cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
         >
           {children}
         </Box>
@@ -93,6 +87,9 @@ InPageNavigationItem.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
   currentPage: PropTypes.bool,
+  href: PropTypes.string.isRequired,
+  ref: PropTypes.any,
+  rel: PropTypes.string,
 };
 
 export {InPageNavigationItem};

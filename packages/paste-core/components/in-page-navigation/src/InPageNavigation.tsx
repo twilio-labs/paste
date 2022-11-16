@@ -13,7 +13,7 @@ import {InPageNavigationContext} from './InPageNavigationContext';
  */
 
 export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   element?: BoxProps['element'];
   'aria-label': string;
   variant?: 'fullWidth';
@@ -49,8 +49,10 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
 InPageNavigation.displayName = 'InPageNavigation';
 
 InPageNavigation.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   element: PropTypes.string,
+  'aria-label': PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['fullWidth', null]),
 };
 
 export {InPageNavigation};

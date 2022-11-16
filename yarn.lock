@@ -10254,6 +10254,7 @@ __metadata:
     "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/help-text": ^10.1.1
     "@twilio-paste/icons": ^9.4.0
+    "@twilio-paste/in-page-navigation": ^0.0.0
     "@twilio-paste/inline-code": ^1.0.1
     "@twilio-paste/inline-control-group": ^10.0.1
     "@twilio-paste/input": ^6.1.1
@@ -10813,7 +10814,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation":
+"@twilio-paste/in-page-navigation@^0.0.0, @twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation"
   dependencies:

@@ -1,0 +1,206 @@
+---
+title: In Page Navigation
+package: '@twilio-paste/in-page-navigation'
+description: An In Page Navigation is a group of styled links that lets users navigate between related pages.
+slug: /components/in-page-navigation/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md';
+import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {basicExample, fullWidthExample} from '../../../component-examples/InPageNavigationExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/in-page-navigation"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/in-page-navigation/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "In Page Navigation"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/in-page-navigation"
+  storybookUrl="/?path=/story/components-in-page-navigation--default"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview
+  scope={{
+    InPageNavigation,
+    InPageNavigationItem,
+  }}
+  noInline
+>
+  {basicExample}
+</LivePreview>
+
+## Guidelines
+
+### About In Page Navigation
+
+The In Page Navigation component allows users to navigate to different pages using a styled group of links.
+
+### Accessibility
+
+- Each In Page Navigation must have a unique label. To add the label, add the `aria-label` prop to the `<InPageNavigation>` tag.
+- To interact with In Page Navigation using the keyboard, use the tab key.
+- Each In Page Navigation must have an In Page Navigation Item which is the currently selected page. To specify which page is current, add the `currentPage` prop to the respective `<InPageNavigationItem>`. Doing so will set `aria-current="page"` on that link.
+
+## Examples
+
+### Default In Page Navigation
+
+<LivePreview
+  scope={{
+    InPageNavigation,
+    InPageNavigationItem,
+  }}
+  noInline
+>
+  {basicExample}
+</LivePreview>
+
+### Full width In Page Navigation
+
+Full width In Page Navigation allows the component to expand and fit the width of a containing element.
+
+<LivePreview
+  scope={{
+    InPageNavigation,
+    InPageNavigationItem,
+  }}
+  noInline
+>
+  {fullWidthExample}
+</LivePreview>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/in-page-navigation - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/core/in-page-navigation';
+
+const InPageNavigationExample: React.FC = () => {
+  return (
+    <InPageNavigation aria-label="my-nav">
+      <InPageNavigationItem href="#">Home</InPageNavigationItem>
+      <InPageNavigationItem href="#" currentPage>
+        About
+      </InPageNavigationItem>
+    </InPageNavigation>
+  );
+};
+```
+
+#### In Page Navigation Props
+
+##### `orientation?: 'horizontal' (default) | 'vertical' | undefined`
+
+Changes the Tabs' direction to either have the panels below or on the right side.
+
+##### `variant?: 'fitted' | undefined (default)`
+
+Changes the Tabs' to either fit the width of the containing element or not.
+
+##### `selectedId?: string | null`
+
+Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed.
+
+##### `baseId?: string`
+
+Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.
+
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TABS') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TABS'.
+
+#### TabList Props
+
+##### `aria-label: string`
+
+Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+
+###### `element?: string`
+
+Overrides the default element name ('HORIZONTAL_TAB_LIST') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_LIST'.
+
+#### InPageNavigation Props
+
+| Prop       | Type        | Description                                                                               | Default              |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------- | -------------------- |
+| aria-label | `string`    | Unique label for the InPageNavigation                                                     | null                 |
+| children   | `ReactNode` | InPageNavigationItem                                                                      | null                 |
+| variant?   | `fullWidth` | InPageNavigation variant                                                                  | null                 |
+| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'IN_PAGE_NAVIGATION' |
+
+#### InPageNavigationItem Props
+
+| Prop         | Type        | Description                                                                               | Default                   |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------- | ------------------------- |
+| children     | `ReactNode` | Rendered text for the InPageNavigationItem                                                | null                      |
+| currentPage? | `boolean`   | Sets the InPageNavigationItem as the current page and adds `aria-current="page"`          | false                     |
+| href         | string      | A URL to route to. Required.                                                              | null                      |
+| rel?         | any         | Sets the anchor rel attribute.                                                            | null                      |
+| element?     | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'IN_PAGE_NAVIGATION_ITEM' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
