@@ -42,7 +42,7 @@ describe('DisplayHeading', () => {
       </Theme.Provider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 3});
-    expect(renderedDisplayHeading).toHaveStyle('margin-bottom: 0');
+    expect(renderedDisplayHeading).toHaveStyleRule('margin-bottom', '0');
   });
 });
 
@@ -78,7 +78,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 1});
-    expect(renderedDisplayHeading).toHaveStyle('color: rgb(96, 107, 133)');
+    expect(renderedDisplayHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
   it('should add custom styles to a custom named Display Heading', () => {
     render(
@@ -89,6 +89,6 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedDisplayHeading = screen.getByRole('heading', {level: 1});
-    expect(renderedDisplayHeading).toHaveStyle('color: rgb(96, 107, 133)');
+    expect(renderedDisplayHeading).toHaveStyleRule('color', 'rgb(96, 107, 133)');
   });
 });
