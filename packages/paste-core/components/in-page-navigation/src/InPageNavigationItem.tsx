@@ -61,7 +61,15 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
     const {variant} = React.useContext(InPageNavigationContext);
 
     return (
-      <Box as="li" ref={ref} element={element} display="flex">
+      <Box
+        as="li"
+        ref={ref}
+        element={element}
+        display="flex"
+        flexBasis={variant === 'fullWidth' ? '50%' : undefined}
+        flexGrow={variant === 'fullWidth' ? 1 : undefined}
+        flexShrink={variant === 'fullWidth' ? 1 : undefined}
+      >
         <Box
           {...safelySpreadBoxProps(props)}
           {...getItemStyles(currentPage, variant)}

@@ -18,9 +18,41 @@ export const Default = (): React.ReactNode => {
       <Heading as="h1" variant="heading30">
         Comparison to Tabs style
       </Heading>
-      <Stack orientation="vertical" spacing="space90">
+      <Stack orientation="vertical" spacing="space120">
         <Box>
-          This is what In Page Navigation looks like (only for visual- clicking should not lead anywhere)
+          This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
+          anywhere)
+          <InPageNavigation aria-label="myNav">
+            <InPageNavigationItem href="#" currentPage>
+              Bio
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Impact</InPageNavigationItem>
+          </InPageNavigation>
+        </Box>
+        <Box>
+          This is what Tabs look like:
+          <Tabs>
+            <TabList aria-label="my tabsz">
+              <Tab>Bio</Tab>
+              <Tab>Impact</Tab>
+            </TabList>
+          </Tabs>
+        </Box>
+      </Stack>
+    </>
+  );
+};
+
+export const FullWidth = (): React.ReactNode => {
+  return (
+    <>
+      <Heading as="h1" variant="heading30">
+        Comparison to Tabs style
+      </Heading>
+      <Stack orientation="vertical" spacing="space120">
+        <Box>
+          This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
+          anywhere)
           <InPageNavigation aria-label="myNav" variant="fullWidth">
             <InPageNavigationItem href="#" currentPage>
               Bio
