@@ -10817,7 +10817,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation"
   dependencies:
-    "@twilio-paste/anchor": ^9.0.1
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/customization": ^5.0.0
@@ -10831,7 +10830,6 @@ __metadata:
     react-dom: ^17.0.2
     typescript: ^4.6.4
   peerDependencies:
-    "@twilio-paste/anchor": ^9.0.1
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/customization": ^5.0.0
