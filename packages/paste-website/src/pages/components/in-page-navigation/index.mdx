@@ -81,7 +81,11 @@ export const pageQuery = graphql`
 
 ### About In Page Navigation
 
-The In Page Navigation component allows users to navigate to different pages using a styled group of links.
+The In Page Navigation component allows users to navigate to different pages using a styled group of links. Each In Page Navigation Item is an anchor that links to a related page. Each page within the In Page Navigation should also have an In Page Navigation component so that users can easily navigate back and forth within a set of related pages.
+
+### In Page Navigation vs Tabs
+
+[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time on the same URL. Use Tabs to alternate between views within the same context. In Page Navigation is a collection of anchors, rather than buttons. Use In Page Navigation to switch between different, related pages. Tabs replace the entire view based on the selected tab. In Page Navigation links navigate the user to a new page.
 
 ### Accessibility
 
