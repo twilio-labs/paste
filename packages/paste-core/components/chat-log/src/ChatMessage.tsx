@@ -31,8 +31,7 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
     return (
       <MessageVariantContext.Provider value={variant}>
         <Box
-          as="li"
-          listStyleType="none"
+          role="listitem"
           marginBottom="space80"
           display="flex"
           flexDirection="column"
