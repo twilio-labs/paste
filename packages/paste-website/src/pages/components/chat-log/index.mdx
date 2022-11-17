@@ -21,11 +21,16 @@ import {
   ChatMessage,
   ChatMessageMeta,
   ChatMessageMetaItem,
+  useChatLogger,
+  ChatLogger,
 } from '@twilio-paste/chat-log';
 import Changelog from '@twilio-paste/chat-log/CHANGELOG.md';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {HelpText} from '@twilio-paste/help-text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {Stack} from '@twilio-paste/stack';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
@@ -40,6 +45,7 @@ import {
   basicChatEvent,
   basicChatBookend,
   kitchenSink,
+  chatLoggerExample,
 } from '../../../component-examples/ChatLogExamples.ts';
 
 export const pageQuery = graphql`
@@ -313,6 +319,47 @@ This example combines all the separate features displayed previously into one ex
   noInline
 >
   {kitchenSink}
+</LivePreview>
+
+### useChatLogger hook
+
+The `useChatLogger` hook provides a hook based approach to managing chat state. It is best used with the `<ChatLogger />` component.
+
+`useChatLogger` returns 3 things:
+
+- An array of `chats`.
+- A `push` method used to add a chat, optionally with a custom ID
+- A `pop` method used to remove a chat, optionally via its ID.
+
+##### ChatLogger component
+
+The `<ChatLogger />` component handles rendering the chats it is passed via props. It handles how chats enter and leave the UI.
+
+```
+const { chats }= useChatLogger();
+return <ChatLogger chats={chats} />;
+```
+
+##### Adding and removing a chat
+
+You can push or pop a chat based on an action or event. In this example it's based on a button click:
+
+<LivePreview
+  scope={{
+    useChatLogger,
+    ChatBubble,
+    ChatLogger,
+    ChatMessage,
+    ChatMessageMeta,
+    ChatMessageMetaItem,
+    Button,
+    ButtonGroup,
+    Stack,
+  }}
+  language="jsx"
+  noInline
+>
+  {chatLoggerExample}
 </LivePreview>
 
 ## Usage Guide

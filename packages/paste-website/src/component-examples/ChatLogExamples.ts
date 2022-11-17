@@ -311,3 +311,66 @@ render(
   <SampleChat />
 )
 `.trim();
+
+export const chatLoggerExample = `
+const chatFactory = ([ message, variant, metaLabel, meta ]) => {
+  const time = new Date().toLocaleString(
+    'en-US',
+    { hour: 'numeric', minute: "numeric", hour12: true }
+  )
+
+  return {
+    variant,
+    content: (
+      <ChatMessage variant={variant}>
+        <ChatBubble>{message}</ChatBubble>
+        <ChatMessageMeta aria-label={metaLabel + time}>
+          <ChatMessageMetaItem>{meta + time}</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    )
+  }
+};
+
+const chatTemplates = [
+  ["Hello", "inbound", "said by Gibby Radki at ", "Gibby Radki・"],
+  ["Hi there", "outbound", "said by you at ", ""],
+  ["Greetings", "inbound", "said by Gibby Radki at ", "Gibby Radki・"],
+  ["Good to meet you", "outbound", "said by you at ", ""]
+];
+
+const ChatLoggerExample = () => {
+  const [templateIdx, setTemplateIdx] = React.useState(2);
+  const { chats, push, pop } = useChatLogger(
+    chatFactory(chatTemplates[0]),
+    chatFactory(chatTemplates[1])
+  );
+
+  const pushChat = () => {
+    const template = chatTemplates[templateIdx];
+    push(chatFactory(template));
+    setTemplateIdx((idx) => ++idx % chatTemplates.length);
+  }
+
+  const popChat = () => {
+    pop();
+    setTemplateIdx((idx) => idx === 0 ? idx : --idx % chatTemplates.length);
+  }
+
+  return(
+    <Stack orientation="vertical">
+      <ButtonGroup>
+        <Button variant="primary" onClick={pushChat}>
+          Push Chat
+        </Button>
+        <Button variant="primary" onClick={popChat}>
+          Pop Chat
+        </Button>
+      </ButtonGroup>
+      <ChatLogger chats={chats} />
+    </Stack>
+  )
+}
+
+render(<ChatLoggerExample />);
+`.trim();
