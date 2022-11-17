@@ -13,8 +13,8 @@ const ChatBookend = React.forwardRef<HTMLDivElement, ChatBookendProps>(
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        as="li"
-        listStyleType="none"
+        as="div"
+        role="listitem"
         color="colorTextWeak"
         element={element}
         textAlign="center"

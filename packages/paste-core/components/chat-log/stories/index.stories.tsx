@@ -52,7 +52,8 @@ export const ScrollingChatLog: Story = () => {
       <ChatLog>
         {showButton ? (
           <Box
-            as="li"
+            as="div"
+            role="listitem"
             display="flex"
             paddingY="space50"
             justifyContent="center"

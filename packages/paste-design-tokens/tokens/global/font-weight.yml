@@ -19,3 +19,6 @@ props:
   font-weight-bold:
     value: "{!font-weight-bold}"
     comment: Font weight for bold weight
+  font-weight-extrabold:
+    value: "{!font-weight-extrabold}"
+    comment: Font weight for extrabold weight
