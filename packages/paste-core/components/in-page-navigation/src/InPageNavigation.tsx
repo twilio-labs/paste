@@ -5,13 +5,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import {InPageNavigationContext} from './InPageNavigationContext';
 
-/*
- * still left:
- * - use Context to pass down fullWidth Prop
- * - how to prove this works with a router (since stories are only on 1 URL)
- * - tests, doc, stories
- */
-
 export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children: React.ReactNode;
   element?: BoxProps['element'];
