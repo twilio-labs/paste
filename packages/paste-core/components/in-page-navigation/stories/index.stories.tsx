@@ -6,6 +6,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Tabs, TabList, Tab} from '@twilio-paste/tabs';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+import {useUID} from '@twilio-paste/uid-library';
 
 import {InPageNavigation, InPageNavigationItem} from '../src';
 
@@ -25,7 +26,8 @@ export const Default: Story = () => {
         <Box>
           This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
           anywhere)
-          <InPageNavigation aria-label="get started">
+          {/* using UID here to make unique labels for landmarks in Storybook for axe testing */}
+          <InPageNavigation aria-label={`get started ${useUID()}`}>
             <InPageNavigationItem href="#" currentPage>
               Super SIM
             </InPageNavigationItem>
@@ -56,7 +58,8 @@ export const FullWidth: Story = () => {
         <Box>
           This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
           anywhere)
-          <InPageNavigation aria-label="privacy" variant="fullWidth">
+          {/* using UID here to make unique labels for landmarks in Storybook for axe testing */}
+          <InPageNavigation aria-label={`privacy ${useUID()}`} variant="fullWidth">
             <InPageNavigationItem href="#" currentPage>
               Home
             </InPageNavigationItem>
@@ -85,13 +88,14 @@ export const Customized: Story = () => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        IN_PAGE_NAVIGATION: {fontWeight: 'fontWeightLight', backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        IN_PAGE_NAVIGATION: {backgroundColor: 'colorBackgroundDecorative20Weakest'},
         IN_PAGE_NAVIGATION_ITEMS: {padding: 'space40'},
         IN_PAGE_NAVIGATION_ITEM: {margin: 'space40'},
         IN_PAGE_NAVIGATION_ITEM_ANCHOR: {fontSize: 'fontSize40'},
       }}
     >
-      <InPageNavigation aria-label="privacy">
+      {/* using UID here to make unique labels for landmarks in Storybook for axe testing */}
+      <InPageNavigation aria-label={`privacy ${useUID()}`}>
         <InPageNavigationItem href="#" currentPage>
           Home
         </InPageNavigationItem>
