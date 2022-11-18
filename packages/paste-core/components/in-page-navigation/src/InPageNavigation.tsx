@@ -1,20 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
+import type {InPageNavigationProps} from './types';
 import {InPageNavigationContext} from './InPageNavigationContext';
 
-export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  children: React.ReactNode;
-  element?: BoxProps['element'];
-  'aria-label': string;
-  variant?: 'fullWidth';
-  // later on: union type of label/labelledby
-}
-
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
-  ({element = 'IN_PAGE_NAVIGATION', variant, children, ...props}, ref) => {
+  ({element = 'IN_PAGE_NAVIGATION', variant = 'default', children, ...props}, ref) => {
     return (
       <InPageNavigationContext.Provider value={{variant}}>
         <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>

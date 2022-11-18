@@ -25,19 +25,19 @@ export const Default: Story = () => {
         <Box>
           This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
           anywhere)
-          <InPageNavigation aria-label="myNav">
+          <InPageNavigation aria-label="get started">
             <InPageNavigationItem href="#" currentPage>
-              Bio
+              Super SIM
             </InPageNavigationItem>
-            <InPageNavigationItem href="#">Impact</InPageNavigationItem>
+            <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
           </InPageNavigation>
         </Box>
         <Box>
           This is what Tabs look like:
           <Tabs>
-            <TabList aria-label="my tabsz">
-              <Tab>Bio</Tab>
-              <Tab>Impact</Tab>
+            <TabList aria-label="get started">
+              <Tab>Super SIM</Tab>
+              <Tab>Programmable Wireless</Tab>
             </TabList>
           </Tabs>
         </Box>
@@ -56,19 +56,21 @@ export const FullWidth: Story = () => {
         <Box>
           This is what <strong>In Page Navigation</strong> looks like (only for visual- clicking should not lead
           anywhere)
-          <InPageNavigation aria-label="myNav" variant="fullWidth">
+          <InPageNavigation aria-label="privacy" variant="fullWidth">
             <InPageNavigationItem href="#" currentPage>
-              Bio
+              Home
             </InPageNavigationItem>
-            <InPageNavigationItem href="#">Impact</InPageNavigationItem>
+            <InPageNavigationItem href="#">Detection</InPageNavigationItem>
+            <InPageNavigationItem href="#">Settings</InPageNavigationItem>
           </InPageNavigation>
         </Box>
         <Box>
           This is what Tabs look like:
           <Tabs variant="fitted">
-            <TabList aria-label="my tabsz">
-              <Tab>Bio</Tab>
-              <Tab>Impact</Tab>
+            <TabList aria-label="privacy">
+              <Tab>Home</Tab>
+              <Tab>Detection</Tab>
+              <Tab>Settings</Tab>
             </TabList>
           </Tabs>
         </Box>
@@ -89,11 +91,12 @@ export const Customized: Story = () => {
         IN_PAGE_NAVIGATION_ITEM_ANCHOR: {fontSize: 'fontSize40'},
       }}
     >
-      <InPageNavigation aria-label="my-nav">
+      <InPageNavigation aria-label="privacy">
         <InPageNavigationItem href="#" currentPage>
           Home
         </InPageNavigationItem>
-        <InPageNavigationItem href="#">Bio</InPageNavigationItem>
+        <InPageNavigationItem href="#">Detection</InPageNavigationItem>
+        <InPageNavigationItem href="#">Settings</InPageNavigationItem>
       </InPageNavigation>
     </CustomizationProvider>
   );

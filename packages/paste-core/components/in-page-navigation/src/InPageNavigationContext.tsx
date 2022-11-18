@@ -1,11 +1,13 @@
 import * as React from 'react';
 
+import type {InPageNavigationProps} from './types';
+
 interface InPageNavigationContextValue {
-  variant?: 'fullWidth';
+  variant?: InPageNavigationProps['variant'];
 }
 
 const InPageNavigationContext = React.createContext<InPageNavigationContextValue>({
-  variant: undefined,
+  variant: 'default',
 });
 
 export {InPageNavigationContext};

@@ -90,6 +90,7 @@ The In Page Navigation component allows users to navigate to different pages usi
 ### Accessibility
 
 - Each In Page Navigation must have a unique label. To add the label, add the `aria-label` prop to the `<InPageNavigation>` tag.
+  Omit the term 'navigation'- it is redundant since the role is already defined as 'navigation'.
 - To interact with In Page Navigation using the keyboard, use the tab key.
 - Each In Page Navigation must have an In Page Navigation Item which is the currently selected page. To specify which page is current, add the `currentPage` prop to the respective `<InPageNavigationItem>`. Doing so will set `aria-current="page"` on that link.
 

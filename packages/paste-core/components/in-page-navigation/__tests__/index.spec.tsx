@@ -13,10 +13,10 @@ describe('InPageNavigation', () => {
       </InPageNavigation>
     );
 
-    expect(getByRole('navigation').getAttribute('aria-label')).toBe('my-nav');
+    expect(getByRole('navigation')).toHaveAttribute('aria-label', 'my-nav');
   });
 
-  it('should render a list with list items', () => {
+  it('should render a list with list items and links', () => {
     const {getAllByRole} = render(
       <InPageNavigation aria-label="my-nav">
         <InPageNavigationItem href="#">page 1</InPageNavigationItem>
@@ -26,16 +26,6 @@ describe('InPageNavigation', () => {
 
     expect(getAllByRole('list')).toHaveLength(1);
     expect(getAllByRole('listitem')).toHaveLength(2);
-  });
-
-  it('should render anchors', () => {
-    const {getAllByRole} = render(
-      <InPageNavigation aria-label="my-nav">
-        <InPageNavigationItem href="#">page 1</InPageNavigationItem>
-        <InPageNavigationItem href="#">page 2</InPageNavigationItem>
-      </InPageNavigation>
-    );
-
     expect(getAllByRole('link')).toHaveLength(2);
   });
 
@@ -49,10 +39,10 @@ describe('InPageNavigation', () => {
       </InPageNavigation>
     );
 
-    expect(getByText('page 2').getAttribute('aria-current')).toBe('page');
+    expect(getByText('page 2')).toHaveAttribute('aria-current', 'page');
   });
 
-  it('should pass props given to InPageNavigationItem onto its Anchor child', () => {
+  it('should pass props given to InPageNavigationItem onto its <a> child', () => {
     const {getByText} = render(
       <InPageNavigation aria-label="my-nav">
         <InPageNavigationItem data-test-id="page-1" href="#">
@@ -64,7 +54,7 @@ describe('InPageNavigation', () => {
       </InPageNavigation>
     );
 
-    expect(getByText('page 1').getAttribute('data-test-id')).toEqual('page-1');
+    expect(getByText('page 1')).toHaveAttribute('data-test-id', 'page-1');
   });
 });
 
@@ -76,10 +66,10 @@ describe('Customization', () => {
       </InPageNavigation>
     );
 
-    expect(getByRole('navigation').getAttribute('data-paste-element')).toEqual('IN_PAGE_NAVIGATION');
-    expect(getByRole('list').getAttribute('data-paste-element')).toEqual('IN_PAGE_NAVIGATION_ITEMS');
-    expect(getByRole('listitem').getAttribute('data-paste-element')).toEqual('IN_PAGE_NAVIGATION_ITEM');
-    expect(getByRole('link').getAttribute('data-paste-element')).toEqual('IN_PAGE_NAVIGATION_ITEM_ANCHOR');
+    expect(getByRole('navigation')).toHaveAttribute('data-paste-element', 'IN_PAGE_NAVIGATION');
+    expect(getByRole('list')).toHaveAttribute('data-paste-element', 'IN_PAGE_NAVIGATION_ITEMS');
+    expect(getByRole('listitem')).toHaveAttribute('data-paste-element', 'IN_PAGE_NAVIGATION_ITEM');
+    expect(getByRole('link')).toHaveAttribute('data-paste-element', 'IN_PAGE_NAVIGATION_ITEM_ANCHOR');
   });
 
   it('should set a custom element name when provided', () => {
@@ -91,10 +81,10 @@ describe('Customization', () => {
       </InPageNavigation>
     );
 
-    expect(getByRole('navigation').getAttribute('data-paste-element')).toEqual('MY_IN_PAGE_NAVIGATION');
-    expect(getByRole('list').getAttribute('data-paste-element')).toEqual('MY_IN_PAGE_NAVIGATION_ITEMS');
-    expect(getByRole('listitem').getAttribute('data-paste-element')).toEqual('MY_IN_PAGE_NAVIGATION_ITEM');
-    expect(getByRole('link').getAttribute('data-paste-element')).toEqual('MY_IN_PAGE_NAVIGATION_ITEM_ANCHOR');
+    expect(getByRole('navigation')).toHaveAttribute('data-paste-element', 'MY_IN_PAGE_NAVIGATION');
+    expect(getByRole('list')).toHaveAttribute('data-paste-element', 'MY_IN_PAGE_NAVIGATION_ITEMS');
+    expect(getByRole('listitem')).toHaveAttribute('data-paste-element', 'MY_IN_PAGE_NAVIGATION_ITEM');
+    expect(getByRole('link')).toHaveAttribute('data-paste-element', 'MY_IN_PAGE_NAVIGATION_ITEM_ANCHOR');
   });
 
   it('should add custom styles to default element names', () => {

@@ -2,16 +2,11 @@ export const basicExample = `
 const BasicInPageNavigation = () => {
 
   return (
-    <InPageNavigation aria-label="my-nav">
-      <InPageNavigationItem href="#">
-        Home
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#">
-        About
-      </InPageNavigationItem>
+    <InPageNavigation aria-label="get started">
       <InPageNavigationItem href="#" currentPage>
-        Contact
+        Super SIM
       </InPageNavigationItem>
+      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
     </InPageNavigation>
   );
 };
@@ -25,16 +20,12 @@ export const fullWidthExample = `
 const FullWidthInPageNavigation = () => {
 
   return (
-    <InPageNavigation aria-label="my-nav" variant="fullWidth">
-      <InPageNavigationItem href="#">
+    <InPageNavigation aria-label="privacy" variant="fullWidth">
+      <InPageNavigationItem href="#" currentPage>
         Home
       </InPageNavigationItem>
-      <InPageNavigationItem href="#">
-        About
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#" currentPage>
-        Contact
-      </InPageNavigationItem>
+      <InPageNavigationItem href="#">Detection</InPageNavigationItem>
+      <InPageNavigationItem href="#">Settings</InPageNavigationItem>
     </InPageNavigation>
   );
 };
