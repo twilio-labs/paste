@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import type {InPageNavigationProps} from './types';
+import type {Variants} from './types';
 
 interface InPageNavigationContextValue {
-  variant?: InPageNavigationProps['variant'];
+  variant?: Variants;
 }
 
 const InPageNavigationContext = React.createContext<InPageNavigationContextValue>({

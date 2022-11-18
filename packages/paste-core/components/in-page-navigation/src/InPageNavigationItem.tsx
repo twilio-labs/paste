@@ -25,6 +25,7 @@ const BASE_STYLES: BoxStyleProps = {
   transition: 'border-color 100ms ease, color 100ms ease',
   whiteSpace: 'nowrap',
   display: 'block',
+  width: '100%',
   textDecoration: 'none',
   _hover: {
     borderBottomColor: 'colorBorderPrimaryStronger',
@@ -38,12 +39,6 @@ const BASE_STYLES: BoxStyleProps = {
   },
 };
 
-const VARIANT_FULL_WIDTH_STYLES: BoxStyleProps = {
-  flexBasis: '50%',
-  flexGrow: 1,
-  flexShrink: 1,
-};
-
 const CURRENT_PAGE_STYLES: BoxStyleProps = {
   borderBottomColor: 'colorBorderPrimary',
   color: 'colorTextLink',
@@ -53,16 +48,13 @@ export interface InPageNavigationItemProps extends React.AnchorHTMLAttributes<HT
   currentPage?: boolean;
   children: NonNullable<React.ReactNode>;
   href: string;
-  ref?: any;
-  rel?: string;
   element?: BoxProps['element'];
 }
 
 const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationItemProps>(
   ({element = 'IN_PAGE_NAVIGATION_ITEM', currentPage = false, href, children, ...props}, ref) => {
     const {variant} = React.useContext(InPageNavigationContext);
-    const variantStyles = variant === 'fullWidth' ? {...VARIANT_FULL_WIDTH_STYLES} : {};
-    const currentStyles = currentPage && {...CURRENT_PAGE_STYLES};
+
     return (
       <Box
         as="li"
@@ -77,8 +69,7 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
           {...secureExternalLink(href)}
           {...safelySpreadBoxProps(props)}
           {...BASE_STYLES}
-          {...variantStyles}
-          {...currentStyles}
+          {...(currentPage ? CURRENT_PAGE_STYLES : {})}
           as="a"
           ref={ref}
           element={`${element}_ANCHOR`}
@@ -99,8 +90,6 @@ InPageNavigationItem.propTypes = {
   element: PropTypes.string,
   currentPage: PropTypes.bool,
   href: PropTypes.string.isRequired,
-  ref: PropTypes.any,
-  rel: PropTypes.string,
 };
 
 export {InPageNavigationItem};

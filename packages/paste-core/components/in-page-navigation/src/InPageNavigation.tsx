@@ -1,9 +1,17 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 
-import type {InPageNavigationProps} from './types';
+import type {Variants} from './types';
 import {InPageNavigationContext} from './InPageNavigationContext';
+
+export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+  children?: React.ReactNode;
+  element?: BoxProps['element'];
+  'aria-label': string;
+  variant?: Variants;
+}
 
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
   ({element = 'IN_PAGE_NAVIGATION', variant = 'default', children, ...props}, ref) => {
@@ -21,7 +29,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             margin="space0"
             marginBottom="space60"
             paddingLeft="space0"
-            columnGap="space70"
+            columnGap={variant === 'default' ? 'space70' : 'space0'}
           >
             {children}
           </Box>
@@ -34,10 +42,10 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
 InPageNavigation.displayName = 'InPageNavigation';
 
 InPageNavigation.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   element: PropTypes.string,
   'aria-label': PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['fullWidth', null]),
+  variant: PropTypes.oneOf(['fullWidth', 'default']),
 };
 
 export {InPageNavigation};
