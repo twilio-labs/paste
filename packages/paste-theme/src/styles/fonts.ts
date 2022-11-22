@@ -10,7 +10,7 @@ Variable font.
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.0/Inter-roman.var.woff2?v=3.15") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.1/Inter-roman.var.woff2?v=3.15") format("woff2");
 }
 @font-face {
   font-family: 'Inter var';
@@ -18,7 +18,7 @@ Variable font.
   font-display: swap;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.0/Inter-italic.var.woff2?v=3.15") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.1/Inter-italic.var.woff2?v=3.15") format("woff2");
 }
 /* --------------------------------------------------------------------------
 [EXPERIMENTAL] Multi-axis, single variable font.
@@ -38,7 +38,7 @@ explicitly, e.g.
   font-weight: 100 900;
   font-display: swap;
   font-style: oblique 0deg 8deg;
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.0/Inter.var.woff2?v=3.15") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.4.1/Inter.var.woff2?v=3.15") format("woff2");
 }
 
 /*
@@ -50,8 +50,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Regular.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Regular.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Regular.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -59,8 +59,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-RegularItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-RegularItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-RegularItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-RegularItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -68,8 +68,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Bold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Bold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Bold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -77,8 +77,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-BoldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-BoldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-BoldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-BoldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -86,8 +86,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Medium.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-Medium.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Medium.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -95,7 +95,7 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-MediumItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.0/TwilioSansMono-MediumItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-MediumItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.4.1/TwilioSansMono-MediumItl.woff') format('woff');
 }
 `;
