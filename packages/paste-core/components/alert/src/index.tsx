@@ -46,7 +46,7 @@ export type AlertRoles = ValueOf<typeof AlertRoles>;
 export interface AlertProps extends Pick<BoxProps, 'element'> {
   id?: never;
   className?: never;
-  children: NonNullable<React.ReactNode>;
+  children: NonNullable<JSX.Element>;
   onDismiss?: () => void;
   role?: string;
   variant: AlertVariants;

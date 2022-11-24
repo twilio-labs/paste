@@ -14,7 +14,7 @@ export default {
   component: Alert,
 };
 
-export const Neutral = (): React.ReactNode => {
+export const Neutral = (): JSX.Element => {
   return (
     <>
       <Alert variant="neutral">
@@ -53,7 +53,7 @@ export const Neutral = (): React.ReactNode => {
   );
 };
 
-export const Error = (): React.ReactNode => {
+export const Error = (): JSX.Element => {
   return (
     <>
       <Alert variant="error" onDismiss={action('dismiss')}>
@@ -92,7 +92,7 @@ export const Error = (): React.ReactNode => {
   );
 };
 
-export const Warning = (): React.ReactNode => {
+export const Warning = (): JSX.Element => {
   return (
     <>
       <Alert variant="warning">
@@ -192,7 +192,7 @@ export const CustomAlert: Story = (_args, {parameters: {isTestEnvironment = fals
   );
 };
 
-export const I18nAlerts = (): React.ReactNode => {
+export const I18nAlerts = (): JSX.Element => {
   const i18nStrings = {
     i18nDismissLabel: "Fermez l'alerte",
     i18nErrorLabel: '(erreur)',

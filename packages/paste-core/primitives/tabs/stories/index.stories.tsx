@@ -49,7 +49,7 @@ export const HorizontalTabs = (): JSX.Element => {
   );
 };
 
-export const VerticalTabs = (): React.ReactNode => {
+export const VerticalTabs = (): JSX.Element => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({orientation: 'vertical', selectedId});
   return (
