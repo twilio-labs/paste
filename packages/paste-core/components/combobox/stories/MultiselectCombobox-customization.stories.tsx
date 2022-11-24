@@ -27,10 +27,13 @@ const groupedItems = [
 ];
 const initialSelectedGroupedItems = [groupedItems[0], groupedItems[1], groupedItems[2]];
 
-const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
+const ShowCustomization = ({
   isTestEnvironment,
   children,
-}): React.ReactElement => {
+}: {
+  isTestEnvironment: boolean;
+  children: React.ReactNode;
+}): JSX.Element => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space50">

@@ -69,7 +69,7 @@ export const InverseColors = (): React.ReactNode => (
   </Box>
 );
 
-export const Sizes: React.ReactNode = () => (
+export const Sizes = (): JSX.Element => (
   <Box display="flex" marginX="space80" paddingY="space80" alignItems="center" justifyContent="space-between">
     {Object.keys(iconSizes).map((iconSize) => (
       <Spinner decorative={false} title={iconSize} size={iconSize as IconSize} key={`dark-${iconSize}`} />
@@ -113,7 +113,7 @@ export const LoadingOverlay: React.FC<React.PropsWithChildren<LoadingOverlayProp
   return null;
 };
 
-export const InFullscreenOverlay: React.ReactNode = () => {
+export const InFullscreenOverlay = (): JSX.Element => {
   const countdown = 7;
   const timeoutTime = countdown * 1000;
   const [isOpen, setIsOpen] = React.useState(true);

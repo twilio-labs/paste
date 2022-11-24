@@ -12,7 +12,7 @@ export default {
   subcomponents: {TabPrimitiveList, TabPrimitivePanel},
 };
 
-export const HorizontalTabs = (): React.ReactNode => {
+export const HorizontalTabs = (): JSX.Element => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({selectedId});
   return (
