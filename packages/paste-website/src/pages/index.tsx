@@ -1,6 +1,6 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import {Helmet} from 'react-helmet';
+import {Helmet} from '../utils/ReactHelmetOverride';
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
 import {HomeHero} from '../components/homepage/HomeHero';

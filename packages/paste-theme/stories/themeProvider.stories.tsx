@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
@@ -8,6 +7,7 @@ import {Select, Option} from '@twilio-paste/select';
 import {Stack} from '@twilio-paste/stack';
 import {TextArea} from '@twilio-paste/textarea';
 
+import {Helmet} from '../src/utils/ReactHelmetOverride';
 import {ThemeProvider} from '../src/themeProvider';
 
 // eslint-disable-next-line import/no-default-export

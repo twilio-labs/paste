@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -7,6 +6,7 @@ import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
+import {Helmet} from '../../../utils/ReactHelmetOverride';
 import {STORYBOOK_DOMAIN, SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
