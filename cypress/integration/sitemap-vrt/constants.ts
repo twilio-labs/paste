@@ -19,6 +19,7 @@ export const SITEMAP = [
   '/components/callout/',
   '/components/code-block/',
   '/components/card/',
+  '/components/chat-composer/',
   '/components/chat-log/',
   '/components/checkbox/',
   '/components/data-grid/',
