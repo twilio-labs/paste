@@ -83,7 +83,6 @@
   "HelpText": "@twilio-paste/core/help-text",
   "HelpTextVariants": "@twilio-paste/core/help-text",
   "InPageNavigation": "@twilio-paste/core/in-page-navigation",
-  "InPageNavigationContext": "@twilio-paste/core/in-page-navigation",
   "InPageNavigationItem": "@twilio-paste/core/in-page-navigation",
   "InlineCode": "@twilio-paste/core/inline-code",
   "InlineControlGroup": "@twilio-paste/core/inline-control-group",

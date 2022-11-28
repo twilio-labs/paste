@@ -37,6 +37,26 @@ export const FullWidth: Story = () => {
   );
 };
 
+export const LinkOverflowExample: Story = () => {
+  /* using UID here to make unique labels for landmarks in Storybook for axe testing */
+  return (
+    <InPageNavigation aria-label={`get started ${useUID()}`}>
+      <InPageNavigationItem href="#" currentPage>
+        Super SIM
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+      <InPageNavigationItem href="#">Product</InPageNavigationItem>
+    </InPageNavigation>
+  );
+};
+
 export const Customized: Story = () => {
   const theme = useTheme();
   return (
