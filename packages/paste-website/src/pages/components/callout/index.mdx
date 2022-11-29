@@ -57,7 +57,7 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/"
   storybookUrl="/?path=/story/components-callout--variants"
-  description={props.data.mdx.frontmatter.description}
+  description={props.pageContext.frontmatter.description}
   data={props.data}
 />
 

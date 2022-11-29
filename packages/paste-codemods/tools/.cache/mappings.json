@@ -83,6 +83,8 @@
   "HeadingPropTypes": "@twilio-paste/core/heading",
   "HelpText": "@twilio-paste/core/help-text",
   "HelpTextVariants": "@twilio-paste/core/help-text",
+  "InPageNavigation": "@twilio-paste/core/in-page-navigation",
+  "InPageNavigationItem": "@twilio-paste/core/in-page-navigation",
   "InlineCode": "@twilio-paste/core/inline-code",
   "InlineControlGroup": "@twilio-paste/core/inline-control-group",
   "InputBox": "@twilio-paste/core/input-box",

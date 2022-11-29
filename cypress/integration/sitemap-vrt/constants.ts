@@ -38,6 +38,7 @@ export const SITEMAP = [
   '/components/icons/',
   '/components/icons/usage-guidelines/',
   '/components/',
+  '/components/in-page-navigation',
   '/components/inline-code/',
   '/components/input/',
   '/components/label/',
