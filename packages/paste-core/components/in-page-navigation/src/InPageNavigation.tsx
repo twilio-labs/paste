@@ -30,6 +30,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             margin="space0"
             marginBottom="space60"
             paddingLeft="space0"
+            paddingRight={variant === 'default' ? 'space70' : 'space0'}
             columnGap={variant === 'default' ? 'space70' : 'space0'}
           >
             {children}
