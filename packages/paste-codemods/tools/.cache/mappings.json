@@ -25,6 +25,7 @@
   "CalloutListItem": "@twilio-paste/core/callout",
   "CalloutText": "@twilio-paste/core/callout",
   "Card": "@twilio-paste/core/card",
+  "ChatComposer": "@twilio-paste/core/chat-composer",
   "ChatAttachment": "@twilio-paste/core/chat-log",
   "ChatAttachmentDescription": "@twilio-paste/core/chat-log",
   "ChatAttachmentLink": "@twilio-paste/core/chat-log",

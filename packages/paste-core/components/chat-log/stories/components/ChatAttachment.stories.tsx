@@ -89,6 +89,17 @@ export const ComposerAttachmentCardExample: Story = () => (
         <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
       </ChatAttachment>
     </ComposerAttachmentCard>
+  </Stack>
+);
+
+export const StatefulComposerAttachmentCard: Story = () => (
+  <Stack orientation="vertical" spacing="space60">
     <StateExampleComposerAttachmentCard />
   </Stack>
 );
+
+StatefulComposerAttachmentCard.story = {
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
+};

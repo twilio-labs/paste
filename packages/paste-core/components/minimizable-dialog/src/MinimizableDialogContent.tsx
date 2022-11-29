@@ -19,7 +19,6 @@ const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDia
         {...safelySpreadBoxProps(props)}
         element={element}
         ref={ref}
-        margin={minimized ? 'space0' : 'space70'}
         display={minimized ? 'none' : 'block'}
         borderBottomLeftRadius="borderRadius20"
         borderBottomRightRadius="borderRadius20"
