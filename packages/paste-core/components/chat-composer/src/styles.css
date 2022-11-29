@@ -1,0 +1,8 @@
+.paste-chat-composer-paragraph {
+  margin: 0;
+  position: relative;
+}
+
+.paste-chat-composer-content-editable:focus {
+  outline: none;
+}

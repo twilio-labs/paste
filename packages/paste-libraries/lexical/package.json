@@ -1,0 +1,40 @@
+{
+  "name": "@twilio-paste/lexical-library",
+  "version": "0.0.0",
+  "category": "library",
+  "status": "production",
+  "description": "The Lexical third party library.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@lexical/link": "0.6.0",
+    "@lexical/react": "0.6.0",
+    "lexical": "0.6.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
