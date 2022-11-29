@@ -23,6 +23,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             listStyleType="none"
             element={`${element}_ITEMS`}
             display="flex"
+            justifyContent={variant === 'fullWidth' ? 'space-evenly' : 'flex-start'}
             borderBottomWidth="borderWidth10"
             borderBottomColor="colorBorderWeak"
             borderBottomStyle="solid"
