@@ -61,9 +61,10 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
         ref={ref}
         element={element}
         display="flex"
-        flexBasis={variant === 'fullWidth' ? '50%' : undefined}
+        flexBasis={variant === 'fullWidth' ? '100%' : undefined}
         flexGrow={variant === 'fullWidth' ? 1 : undefined}
         flexShrink={variant === 'fullWidth' ? 1 : undefined}
+        minWidth="size0"
       >
         <Box
           {...secureExternalLink(href)}
