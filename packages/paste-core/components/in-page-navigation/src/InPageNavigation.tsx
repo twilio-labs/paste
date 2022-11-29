@@ -22,16 +22,14 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             as="ul"
             listStyleType="none"
             element={`${element}_ITEMS`}
-            display={variant === 'default' ? 'inline-flex' : 'flex'}
+            display="flex"
             borderBottomWidth="borderWidth10"
             borderBottomColor="colorBorderWeak"
             borderBottomStyle="solid"
             margin="space0"
             marginBottom="space60"
             paddingLeft="space0"
-            paddingRight={variant === 'default' ? 'space70' : 'space0'}
             columnGap={variant === 'default' ? 'space70' : 'space0'}
-            minWidth="100%"
           >
             {children}
           </Box>
