@@ -119,7 +119,7 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
 
 PseudoClassesWithProps.storyName = 'Pseudo-classes with props';
 
-const CustomBoxCollection: React.FC = () => {
+const CustomBoxCollection = (): JSX.Element => {
   return (
     <>
       <CustomizableBoxExample element="RECTANGLE">base</CustomizableBoxExample>

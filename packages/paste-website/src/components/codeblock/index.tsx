@@ -55,7 +55,7 @@ export interface CodeblockProps extends React.ComponentProps<'code'> {
   live?: boolean;
 }
 
-const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-jsx'}) => {
+const Codeblock: React.FC<React.PropsWithChildren<CodeblockProps>> = ({children, className = 'language-jsx'}) => {
   const language = className.replace(/language-/, '') as Language;
 
   return (

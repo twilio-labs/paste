@@ -37,7 +37,7 @@ export const getStyles = (element = 'BADGE'): {[key: string]: PasteCustomCSS} =>
   };
 };
 
-const CustomizationWrapper: React.FC<{variant: BadgeVariants; isTestEnvironment: boolean}> = ({
+const CustomizationWrapper: React.FC<React.PropsWithChildren<{variant: BadgeVariants; isTestEnvironment: boolean}>> = ({
   variant,
   isTestEnvironment,
 }): React.ReactElement => {

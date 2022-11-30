@@ -10,7 +10,7 @@ type PasteIconInverseProps = {
   title?: string;
 };
 
-const PasteIconInverse: React.FC<PasteIconInverseProps> = React.memo(
+const PasteIconInverse: React.FC<React.PropsWithChildren<PasteIconInverseProps>> = React.memo(
   ({title = 'Twilio Paste', className, color, decorative = true, display, size}) => {
     const titleId = `paste-icon-${useUID()}`;
     return (

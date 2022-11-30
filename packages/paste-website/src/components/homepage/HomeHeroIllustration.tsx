@@ -15,7 +15,7 @@ const IllustrationStates = {
 };
 type IllustrationStatesType = ValueOf<typeof IllustrationStates>;
 
-const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}) => {
+const IllustrationChildren: React.FC<React.PropsWithChildren<{state: IllustrationStatesType}>> = ({state}) => {
   switch (state) {
     case IllustrationStates.STATIC:
       return <HomeHeroIllu />;
@@ -34,7 +34,7 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
  * - If dynamic fails, render static.
  * - If prefers reduced motion, render static.
  */
-const HomeHeroIllustration: React.FC = () => {
+const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
   /*
    * lottie doesn't honour our disableAnimations global, so we have to
    * manually detect running in cypress to stop the animation on the homepage

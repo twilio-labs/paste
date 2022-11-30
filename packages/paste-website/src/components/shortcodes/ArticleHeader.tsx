@@ -14,7 +14,14 @@ interface ArticleHeaderProps {
   authorLink: string;
 }
 
-const ArticleHeader: React.FC<ArticleHeaderProps> = ({title, author, avatar, date, authorLink, machineDate}) => {
+const ArticleHeader: React.FC<React.PropsWithChildren<ArticleHeaderProps>> = ({
+  title,
+  author,
+  avatar,
+  date,
+  authorLink,
+  machineDate,
+}) => {
   return (
     <>
       <Breadcrumb>

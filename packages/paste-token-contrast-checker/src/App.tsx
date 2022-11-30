@@ -9,7 +9,7 @@ interface SelectedThemeContextProps {
 }
 export const SelectedThemeContext = React.createContext<SelectedThemeContextProps>({} as SelectedThemeContextProps);
 
-const App: React.FC = ({children}) => {
+const App: React.FC<React.PropsWithChildren> = ({children}) => {
   const [selectedTheme, setSelectedTheme] = React.useState('default');
   return (
     <SelectedThemeContext.Provider value={{selectedTheme, setSelectedTheme}}>

@@ -6,7 +6,7 @@ import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {DisplayPillGroup} from '../src/DisplayPillGroup';
 import {DisplayPill} from '../src/DisplayPill';
 
-export const CustomDisplayPillGroup: React.FC = () => {
+export const CustomDisplayPillGroup = (): JSX.Element => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

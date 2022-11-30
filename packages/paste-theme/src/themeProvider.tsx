@@ -46,7 +46,7 @@ export interface ThemeProviderProps {
   disableAnimations?: boolean;
 }
 
-const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
+const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProviderProps>> = ({
   customBreakpoints,
   theme = ThemeVariants.DEFAULT,
   disableAnimations = false,

@@ -8,7 +8,7 @@ import {AssetStatus} from './AssetStatus';
 import {PeerReviewStatus} from './PeerReviewStatus';
 import type {PackageData} from './types';
 
-export const ComponentStatus: React.FC<PackageData> = ({
+export const ComponentStatus: React.FC<React.PropsWithChildren<PackageData>> = ({
   Figma,
   Documentation,
   Code,

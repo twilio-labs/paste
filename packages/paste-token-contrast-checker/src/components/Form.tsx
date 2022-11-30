@@ -10,7 +10,7 @@ import {Select, Option} from '@twilio-paste/core/select';
 import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
 import {Checkbox, CheckboxGroup} from '@twilio-paste/core/checkbox';
 
-export const ExampleForm: React.FC = () => {
+export const ExampleForm = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('');
   const [textAreaValue, setTextAreaValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState('');

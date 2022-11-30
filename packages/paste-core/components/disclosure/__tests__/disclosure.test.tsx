@@ -8,11 +8,13 @@ import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} fr
 import type {DisclosureHeadingProps, DisclosureProps} from '../src';
 import {getIconHoverStyles} from '../src/utils';
 
-const MockDisclosure: React.FC<{
-  visible?: DisclosureProps['visible'];
-  disabled?: DisclosureHeadingProps['disabled'];
-  focusable?: DisclosureHeadingProps['focusable'];
-}> = ({visible, disabled, focusable}) => {
+const MockDisclosure: React.FC<
+  React.PropsWithChildren<{
+    visible?: DisclosureProps['visible'];
+    disabled?: DisclosureHeadingProps['disabled'];
+    focusable?: DisclosureHeadingProps['focusable'];
+  }>
+> = ({visible, disabled, focusable}) => {
   return (
     <Theme.Provider theme="default">
       <Disclosure baseId="disclosure" visible={visible}>
@@ -25,7 +27,7 @@ const MockDisclosure: React.FC<{
   );
 };
 
-const MockDefaultElementDisclosure: React.FC = () => {
+const MockDefaultElementDisclosure = (): JSX.Element => {
   return (
     <Disclosure data-testid="disclosure">
       <DisclosureHeading as="h1" data-testid="disclosure-heading" variant="heading10">
@@ -36,7 +38,7 @@ const MockDefaultElementDisclosure: React.FC = () => {
   );
 };
 
-const MockCustomElementDisclosure: React.FC = () => {
+const MockCustomElementDisclosure = (): JSX.Element => {
   return (
     <Disclosure element="MY_DISCLOSURE" data-testid="disclosure" visible>
       <DisclosureHeading element="MY_DISCLOSURE_HEADING" as="h2" variant="heading20" data-testid="disclosure-heading">
@@ -52,7 +54,7 @@ const MockCustomElementDisclosure: React.FC = () => {
   );
 };
 
-const StateHookMock: React.FC = () => {
+const StateHookMock = (): JSX.Element => {
   const disclosure = useDisclosureState();
   return (
     <Theme.Provider theme="default">

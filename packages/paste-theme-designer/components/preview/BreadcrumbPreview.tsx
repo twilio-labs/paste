@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
 
-const BreadcrumbPreview: React.FC = () => {
+const BreadcrumbPreview = (): JSX.Element => {
   return (
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>

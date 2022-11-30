@@ -21,7 +21,7 @@ export const getCopyButtonText = (labelBefore: string, labelAfter: string) => {
   };
 };
 
-export const CopyButton: React.FC<CopyButtonProps> = ({
+export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   text,
   i18nCopyLabelBefore = 'Copy code block',
   i18nCopyLabelAfter = 'Copied!',

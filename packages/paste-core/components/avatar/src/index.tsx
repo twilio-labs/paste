@@ -11,7 +11,12 @@ import type {AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants} fro
 
 const DEFAULT_SIZE = 'sizeIcon70';
 
-const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE, src, icon: Icon}) => {
+const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
+  name,
+  size = DEFAULT_SIZE,
+  src,
+  icon: Icon,
+}) => {
   const computedTokenNames = getComputedTokenNames(size);
   if (src != null) {
     return <Box as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} />;

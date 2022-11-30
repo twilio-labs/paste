@@ -21,7 +21,7 @@ datadogRum.init({
 function MyApp({Component, pageProps}: AppProps): JSX.Element {
   const [tokens, setTokens] = React.useState<GenericTokensShape>(Tokens);
 
-  const updateToken = React.useCallback((bucket: keyof GenericTokensShape, key, value) => {
+  const updateToken = React.useCallback((bucket: keyof GenericTokensShape, key: any, value: any) => {
     setTokens((currentTokens) => ({
       ...currentTokens,
       [key]: value, // update the root key
@@ -29,7 +29,7 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
     }));
   }, []);
 
-  const loadTokens = React.useCallback((newTokens) => {
+  const loadTokens = React.useCallback((newTokens: any) => {
     setTokens(newTokens);
   }, []);
 

@@ -43,7 +43,7 @@ type DropdownMultipleComboboxProps = {
   comboboxProps?: Partial<UseComboboxPrimitiveProps<string>>;
 };
 
-const DropdownMultipleCombobox: React.FC<DropdownMultipleComboboxProps> = ({
+const DropdownMultipleCombobox: React.FC<React.PropsWithChildren<DropdownMultipleComboboxProps>> = ({
   multipleSelectionProps = {},
   comboboxProps = {},
 }) => {

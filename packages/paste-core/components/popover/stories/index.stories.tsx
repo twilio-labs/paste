@@ -25,7 +25,7 @@ export default {
   },
 };
 
-export const Default: React.FC = () => {
+export const Default = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box height="300px">
@@ -39,7 +39,7 @@ export const Default: React.FC = () => {
   );
 };
 
-export const SmallerSize: React.FC = () => {
+export const SmallerSize = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box height="300px">
@@ -55,7 +55,7 @@ export const SmallerSize: React.FC = () => {
   );
 };
 
-export const WideContent: React.FC = () => {
+export const WideContent = (): JSX.Element => {
   const date1ID = useUID();
   const time1ID = useUID();
   const date2ID = useUID();
@@ -93,7 +93,7 @@ export const WideContent: React.FC = () => {
   );
 };
 
-export const PopoverTop: React.FC = () => {
+export const PopoverTop = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box bottom={12} position="absolute">
@@ -107,7 +107,7 @@ export const PopoverTop: React.FC = () => {
   );
 };
 
-export const PopoverLeft: React.FC = () => {
+export const PopoverLeft = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box position="absolute" right={12} top={12}>
@@ -121,7 +121,7 @@ export const PopoverLeft: React.FC = () => {
   );
 };
 
-export const PopoverRight: React.FC = () => {
+export const PopoverRight = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <PopoverContainer baseId={uniqueBaseID} placement="right-start">
@@ -133,7 +133,7 @@ export const PopoverRight: React.FC = () => {
   );
 };
 
-export const PopoverBottom: React.FC = () => {
+export const PopoverBottom = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <PopoverContainer baseId={uniqueBaseID} placement="bottom-start">
@@ -145,7 +145,7 @@ export const PopoverBottom: React.FC = () => {
   );
 };
 
-export const BadgePopover: React.FC = () => {
+export const BadgePopover = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box height="300px">
@@ -159,7 +159,7 @@ export const BadgePopover: React.FC = () => {
   );
 };
 
-export const StateHookExample: React.FC = () => {
+export const StateHookExample = (): JSX.Element => {
   const uniqueBaseID = useUID();
   const popover = usePopoverState({baseId: uniqueBaseID});
   return (

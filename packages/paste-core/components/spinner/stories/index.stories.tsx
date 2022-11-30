@@ -97,7 +97,7 @@ interface LoadingOverlayProps {
   isOpen: boolean;
 }
 
-export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({isOpen, children}) => {
+export const LoadingOverlay: React.FC<React.PropsWithChildren<LoadingOverlayProps>> = ({isOpen, children}) => {
   if (isOpen) {
     return (
       <StyledLoadingOverlay>

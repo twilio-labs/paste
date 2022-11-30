@@ -13,7 +13,7 @@ interface ColorSwatchProps extends Pick<BoxProps, 'borderColor' | 'backgroundCol
   children?: React.ReactNode;
 }
 
-export const ColorSwatchText: React.FC<ColorSwatchTextProps> = ({
+export const ColorSwatchText: React.FC<React.PropsWithChildren<ColorSwatchTextProps>> = ({
   children,
   fontFamily = 'fontFamilyCode',
   fontSize = 'fontSize20',
@@ -29,7 +29,12 @@ export const ColorSwatchText: React.FC<ColorSwatchTextProps> = ({
   );
 };
 
-export const ColorSwatch: React.FC<ColorSwatchProps> = ({borderColor, backgroundColor, color, children}) => {
+export const ColorSwatch: React.FC<React.PropsWithChildren<ColorSwatchProps>> = ({
+  borderColor,
+  backgroundColor,
+  color,
+  children,
+}) => {
   return (
     <Box
       position="relative"

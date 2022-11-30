@@ -21,7 +21,7 @@ interface ExperimentProps {
   showIframe: boolean;
 }
 
-const ExperimentEmbed: React.FC = () => {
+const ExperimentEmbed = (): JSX.Element => {
   const {breakpointIndex} = useWindowSize();
 
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
@@ -48,7 +48,7 @@ const ExperimentEmbed: React.FC = () => {
   );
 };
 
-const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
+const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({showIframe}) => {
   const theme = useTheme();
 
   return (

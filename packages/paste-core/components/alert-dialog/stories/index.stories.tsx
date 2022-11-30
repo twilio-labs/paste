@@ -50,7 +50,7 @@ AlertDialogWithTwoActionsStory.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const DestructiveAlertDialog: React.FC = () => {
+export const DestructiveAlertDialog = (): JSX.Element => {
   return (
     <AlertDialog
       heading="Delete data"
@@ -75,7 +75,7 @@ DestructiveAlertDialogStory.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const OpenAlertDialogFromButton: React.FC = () => {
+export const OpenAlertDialogFromButton = (): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -108,7 +108,7 @@ OpenAlertDialogFromButtonStory.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const OpenAlertDialogFromModal: React.FC = () => {
+export const OpenAlertDialogFromModal = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = React.useState(true);
   const [isAlertDialogOpen, setIsAlertDialogOpen] = React.useState(true);
   const handleModalOpen = (): void => setIsModalOpen(true);

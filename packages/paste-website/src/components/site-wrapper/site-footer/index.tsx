@@ -7,7 +7,7 @@ import {SiteFooterTopAngle} from './SiteFooterTopAngle';
 import {useNavigationContext} from '../../../context/NavigationContext';
 import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 
-const SiteFooter: React.FC = () => {
+const SiteFooter = (): JSX.Element => {
   const {pathname} = useNavigationContext();
   return (
     <Box as="footer" margin="space70" marginTop="space200" paddingTop="space200" position="relative">

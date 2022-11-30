@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import type {PaginationArrowIconWrapperProps} from '../types';
 import {PaginationArrowIconWrapperPropTypes} from '../proptypes';
 
-const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({
+const PaginationArrowIconWrapper: React.FC<React.PropsWithChildren<PaginationArrowIconWrapperProps>> = ({
   children,
   element = 'PAGINATION_ARROW_ICON_WRAPPER',
   isFocused,

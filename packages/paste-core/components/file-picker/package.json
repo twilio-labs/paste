@@ -34,8 +34,8 @@
     "@twilio-paste/theme": "^8.0.0",
     "@twilio-paste/uid-library": "^0.2.5",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
     "@twilio-paste/box": "^7.1.1",
@@ -47,7 +47,7 @@
     "@twilio-paste/theme": "^8.0.3",
     "@twilio-paste/uid-library": "^0.2.6",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

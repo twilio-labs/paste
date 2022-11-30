@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Grid, Column} from '@twilio-paste/grid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
-export const CustomThemeKeyList: React.FC = () => {
+export const CustomThemeKeyList = (): JSX.Element => {
   return (
     <Grid>
       <Column>

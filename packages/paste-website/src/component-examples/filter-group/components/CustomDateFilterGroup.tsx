@@ -22,7 +22,7 @@ import {EmptyState} from './EmptyState';
 import {DateTimePopover} from './DateTimePopover';
 
 // Note: update the codesandboxes if update this
-export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}) => {
+export const CustomDateFilterGroup: React.FC<React.PropsWithChildren<FilterGroupDateTimeProps>> = ({data}) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 

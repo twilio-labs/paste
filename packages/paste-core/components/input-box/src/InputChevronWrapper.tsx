@@ -64,7 +64,7 @@ export interface InputChevronWrapperProps {
   element: BoxProps['element'];
 }
 
-const InputChevronWrapper = React.forwardRef<HTMLDivElement, InputChevronWrapperProps>(
+const InputChevronWrapper = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputChevronWrapperProps>>(
   ({children, element = 'CHEVRON_WRAPPER'}, ref) => {
     const {disabled, readOnly, variant} = useInputBoxContext();
 

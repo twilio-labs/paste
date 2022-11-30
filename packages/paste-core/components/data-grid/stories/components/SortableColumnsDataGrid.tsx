@@ -29,7 +29,7 @@ const numColumns = TableHeaderData.length;
 const initialHeaderData = [...new Array(numColumns)].map((_, index) => (index === 0 ? 'ascending' : 'none'));
 const initialBodyData = TableBodyData.sort((a, b) => simpleComparator(a, b, true, 0));
 
-export const SortableColumnsDataGrid: React.FC = () => {
+export const SortableColumnsDataGrid = (): JSX.Element => {
   const [sortedColumns, setSortedColumns] = React.useState<Array<SortDirection>>(initialHeaderData);
   const [sortedData, setSortedData] = React.useState(initialBodyData);
 

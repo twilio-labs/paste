@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 
 import {useSlantedSkew} from '../../SlantedBackgroundGradient';
 
-const SiteFooterTopAngle: React.FC = () => {
+const SiteFooterTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
 
   return (

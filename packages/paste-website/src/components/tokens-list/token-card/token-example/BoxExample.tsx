@@ -7,7 +7,7 @@ type BoxExampleProps = Pick<
   'borderColor' | 'boxShadow' | 'borderRadius' | 'size' | 'height' | 'backgroundColor'
 >;
 
-export const BoxExample: React.FC<BoxExampleProps> = ({
+export const BoxExample: React.FC<React.PropsWithChildren<BoxExampleProps>> = ({
   backgroundColor,
   borderColor,
   boxShadow,

@@ -14,12 +14,9 @@ const PILL_NAMES = [
   'Error pill with avatar',
 ];
 
-export const Basic: React.FC<{selected?: boolean; dismissable?: boolean; disabled?: boolean; ariaLabel?: string}> = ({
-  selected = false,
-  dismissable = false,
-  disabled = false,
-  ariaLabel = 'Basic pills:',
-}) => {
+export const Basic: React.FC<
+  React.PropsWithChildren<{selected?: boolean; dismissable?: boolean; disabled?: boolean; ariaLabel?: string}>
+> = ({selected = false, dismissable = false, disabled = false, ariaLabel = 'Basic pills:'}) => {
   const pillState = useFormPillState();
   return (
     <form>
@@ -44,17 +41,17 @@ export const Basic: React.FC<{selected?: boolean; dismissable?: boolean; disable
   );
 };
 
-export const Disabled: React.FC = () => <Basic disabled ariaLabel="Disabled pills:" />;
-export const Selected: React.FC = () => <Basic selected ariaLabel="Selected pills:" />;
-export const Dismissable: React.FC = () => <Basic dismissable ariaLabel="Dismissable pills:" />;
+export const Disabled = (): JSX.Element => <Basic disabled ariaLabel="Disabled pills:" />;
+export const Selected = (): JSX.Element => <Basic selected ariaLabel="Selected pills:" />;
+export const Dismissable = (): JSX.Element => <Basic dismissable ariaLabel="Dismissable pills:" />;
 
-export const OverflowWrapping: React.FC = () => (
+export const OverflowWrapping = (): JSX.Element => (
   <Box maxWidth="size40">
     <Basic ariaLabel="Horizontal wrap pills:" />
   </Box>
 );
 
-export const SelectableAndDismissable: React.FC = () => {
+export const SelectableAndDismissable = (): JSX.Element => {
   const [pills, setPills] = React.useState([...PILL_NAMES]);
   const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set([PILL_NAMES[1], PILL_NAMES[4]]));
   const pillState = useFormPillState();

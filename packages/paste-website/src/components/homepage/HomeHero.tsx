@@ -15,7 +15,7 @@ import {HomeHeroIllustration} from './HomeHeroIllustration';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
-const SeeRoadmapAnchor: React.FC = () => {
+const SeeRoadmapAnchor = (): JSX.Element => {
   const [hovered, setHovered] = React.useState(false);
 
   const handleMouseEnter = (): void => {
@@ -54,7 +54,7 @@ const SeeRoadmapAnchor: React.FC = () => {
   );
 };
 
-const HomeHero: React.FC = () => {
+const HomeHero = (): JSX.Element => {
   return (
     <Box
       paddingX={['space90', 'space180']}

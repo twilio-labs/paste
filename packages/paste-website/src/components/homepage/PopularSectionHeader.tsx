@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 
-const PopularSectionHeader: React.FC = () => {
+const PopularSectionHeader = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box

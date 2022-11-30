@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-export const NoResultsIllustration: React.FC = () => (
+export const NoResultsIllustration = (): JSX.Element => (
   <svg width="100%" height="100%" viewBox="0 0 920 920" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#a)">
       <path

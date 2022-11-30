@@ -36,7 +36,7 @@ export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} 
   },
 });
 
-export const CustomizableDataGrid: React.FC = () => {
+export const CustomizableDataGrid = (): JSX.Element => {
   const currentTheme = useTheme();
   /* eslint-disable react/no-array-index-key */
   return (

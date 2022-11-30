@@ -4,7 +4,7 @@ import type {BoxProps} from '@twilio-paste/box';
 
 type BorderExampleProps = Pick<BoxProps, 'borderWidth'>;
 
-export const BorderExample: React.FC<BorderExampleProps> = ({borderWidth}) => {
+export const BorderExample: React.FC<React.PropsWithChildren<BorderExampleProps>> = ({borderWidth}) => {
   return (
     <Box
       borderRadius="borderRadius20"

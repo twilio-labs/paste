@@ -21,7 +21,7 @@ const StyledSwatch = styled.div<{backgroundColor: string}>`
   height: ${themeGet('space.space110')};
 `;
 
-export const DataVizColorSwatches: React.FC = () => {
+export const DataVizColorSwatches = (): JSX.Element => {
   const context = React.useContext(ThemeContext) as ThemeShape;
 
   // Adapted from the usePasteHighchartsTheme hook
@@ -48,14 +48,14 @@ export const DataVizColorSwatches: React.FC = () => {
   );
 };
 
-export const PieChartCaption: React.FC = () => (
+export const PieChartCaption = (): JSX.Element => (
   <ImageCaption>
     A white divider line is used between each section of the pie charts to create contrast and help distinguish the
     difference between the categories.
   </ImageCaption>
 );
 
-export const LineChartCaption: React.FC = () => (
+export const LineChartCaption = (): JSX.Element => (
   <ImageCaption>
     Different shapes are used at each point in the line charts to create additional visual distinction between each
     category.

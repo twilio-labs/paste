@@ -12,11 +12,12 @@ import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
 
-export const ExampleDisclosures: React.FC<{
-  disabled?: boolean;
-  variant?: DisclosureVariants;
+export const ExampleDisclosures: React.FC<
+React.PropsWithChildren<{
+    disabled?: boolean;
+   variant?: DisclosureVariants;
   headingVariant: DisclosureHeadingProps['variant'];
-}> = (props) => {
+}>> = (props) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <Disclosure visible variant={props.variant}>
