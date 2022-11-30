@@ -24,7 +24,7 @@ const HTML: React.FC<HTMLProps> = ({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="preconnect" href="https://assets.twilio.com" crossOrigin="" />
-        <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css" />
+        <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.4.1/fonts.css" />
         {headComponents}
       </head>
       <body {...bodyAttributes}>

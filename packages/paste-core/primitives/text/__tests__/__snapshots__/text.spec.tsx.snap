@@ -327,7 +327,7 @@ exports[`fontFamily should set a font family property 1`] = `
   color: rgb(18, 28, 45);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-family: 'Fira Mono',Courier,monospace;
+  font-family: 'TwilioSansMono',Courier,monospace;
 }
 
 <div
@@ -365,7 +365,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 
 @media screen and (min-width: 25rem) {
   .emotion-1 {
-    font-family: 'Fira Mono',Courier,monospace;
+    font-family: 'TwilioSansMono',Courier,monospace;
   }
 }
 
