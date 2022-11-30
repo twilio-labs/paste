@@ -23,11 +23,9 @@ type SiteHeaderLogoProps = {
   subtitle?: string;
 };
 
-/*
- * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
- * to render different sizes and spacing in mobile
- */
-const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
+// Note: 'subtitle' isn't passed for the mobile view, so we use that fact
+// to render different sizes and spacing in mobile
+const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({title, subtitle}) => {
   const theme = useTheme();
   return (
     <Box

@@ -3105,11 +3105,20 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.14.8":
-  version: 7.18.3
-  resolution: "@babel/runtime@npm:7.18.3"
+  version: 7.19.0
+  resolution: "@babel/runtime@npm:7.19.0"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: db8526226aa02cfa35a5a7ac1a34b5f303c62a1f000c7db48cb06c6290e616483e5036ab3c4e7a84d0f3be6d4e2148d5fe5cec9564bf955f505c3e764b83d7f1
+  checksum: fa69c351bb05e1db3ceb9a02fdcf620c234180af68cdda02152d3561015f6d55277265d3109815992f96d910f3db709458cae4f8df1c3def66f32e0867d82294
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:~7.5.4":
+  version: 7.5.5
+  resolution: "@babel/runtime@npm:7.5.5"
+  dependencies:
+    regenerator-runtime: ^0.13.2
+  checksum: b04ed65993bbf4371a880f7afc289f1f2a5f5a9e882c64448b41481aa289ed650a2b6155c6179f3d32fccf159f9be947989af5ff7a4f9b847f60f25e631ad533
   languageName: node
   linkType: hard
 
@@ -10526,6 +10535,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^8.5.0":
+  version: 8.18.1
+  resolution: "@testing-library/dom@npm:8.18.1"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^4.2.0
+    aria-query: ^5.0.0
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.9
+    lz-string: ^1.4.4
+    pretty-format: ^27.0.2
+  checksum: 432a7da2bb626b11375b22e22d12c02317b35d69c0f69972c03bd0104895b496f21dc5b9d4447adef6e0c9acb3c0a64337f7d38c9667dbbacf09d5cd523394dd
+  languageName: node
+  linkType: hard
+
 "@testing-library/jest-dom@npm:^5.16.2":
   version: 5.16.2
   resolution: "@testing-library/jest-dom@npm:5.16.2"
@@ -10543,43 +10568,60 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "@testing-library/react-hooks@npm:7.0.2"
+"@testing-library/jest-dom@npm:^5.16.5":
+  version: 5.16.5
+  resolution: "@testing-library/jest-dom@npm:5.16.5"
+  dependencies:
+    "@adobe/css-tools": ^4.0.1
+    "@babel/runtime": ^7.9.2
+    "@types/testing-library__jest-dom": ^5.9.1
+    aria-query: ^5.0.0
+    chalk: ^3.0.0
+    css.escape: ^1.5.1
+    dom-accessibility-api: ^0.5.6
+    lodash: ^4.17.15
+    redent: ^3.0.0
+  checksum: 94911f901a8031f3e489d04ac057cb5373621230f5d92bed80e514e24b069fb58a3166d1dd86963e55f078a1bd999da595e2ab96ed95f452d477e272937d792a
+  languageName: node
+  linkType: hard
+
+"@testing-library/react-hooks@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@testing-library/react-hooks@npm:8.0.1"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@types/react": ">=16.9.0"
-    "@types/react-dom": ">=16.9.0"
-    "@types/react-test-renderer": ">=16.9.0"
     react-error-boundary: ^3.1.0
   peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-    react-test-renderer: ">=16.9.0"
+    "@types/react": ^16.9.0 || ^17.0.0
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+    react-test-renderer: ^16.9.0 || ^17.0.0
   peerDependenciesMeta:
+    "@types/react":
+      optional: true
     react-dom:
       optional: true
     react-test-renderer:
       optional: true
-  checksum: 27c6169b5c9832bd02dcea232e6a0a3cd8d4504e13ecb49d57eb5ab6bea5e2f1bff65f3102068b7e57eec3cbd671326dc0b277335014b0edfbdedf11a1fe6db5
+  checksum: 7fe44352e920deb5cb1876f80d64e48615232072c9d5382f1e0284b3aab46bb1c659a040b774c45cdf084a5257b8fe463f7e08695ad8480d8a15635d4d3d1f6d
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^12.1.4":
-  version: 12.1.4
-  resolution: "@testing-library/react@npm:12.1.4"
+"@testing-library/react@npm:^13.4.0":
+  version: 13.4.0
+  resolution: "@testing-library/react@npm:13.4.0"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.0.0
-    "@types/react-dom": "*"
+    "@testing-library/dom": ^8.5.0
+    "@types/react-dom": ^18.0.0
   peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 944c5f8d4abb22c0650c25c7ae499651828c37c0e741ff67a4635d4cd99b307d486dabec05b372aba638bd359d29cd2af97393b5055ea294a201d80b4bc384b8
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 51ec548c1fdb1271089a5c63e0908f0166f2c7fcd9cacd3108ebbe0ce64cb4351812d885892020dc37608418cfb15698514856502b3cab0e5cc58d6cc1bd4a3e
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.2.1, @testing-library/user-event@npm:^13.5.0":
+"@testing-library/user-event@npm:^13.2.1":
   version: 13.5.0
   resolution: "@testing-library/user-event@npm:13.5.0"
   dependencies:
@@ -10675,8 +10717,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -10700,8 +10742,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10727,8 +10769,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -10748,8 +10790,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10769,8 +10811,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -10784,8 +10826,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10795,11 +10837,11 @@ __metadata:
   dependencies:
     "@react-spring/shared": 9.4.3
     "@react-spring/web": 9.4.3
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10817,8 +10859,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -10830,8 +10872,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10853,8 +10895,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.1
     "@types/react-is": 17.0.3
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-is: 18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
@@ -10870,8 +10912,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10894,8 +10936,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.2
@@ -10912,8 +10954,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10940,8 +10982,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -10962,8 +11004,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10994,8 +11036,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11017,8 +11059,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -11034,8 +11076,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11054,8 +11096,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -11067,8 +11109,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11111,8 +11153,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11134,8 +11176,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -11151,8 +11193,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11170,8 +11212,8 @@ __metadata:
     "@twilio-paste/theme": ^8.2.0
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -11183,8 +11225,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11219,8 +11261,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11248,8 +11290,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.9
@@ -11301,8 +11343,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/base-radio-checkbox": ^10.0.0
@@ -11325,8 +11367,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11334,12 +11376,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/clipboard-copy-library@workspace:packages/paste-libraries/clipboard-copy"
   dependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     use-clipboard-copy: 0.2.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11444,13 +11486,13 @@ __metadata:
   dependencies:
     "@twilio-paste/dropdown-library": ^1.1.7
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/dropdown-library": ^1.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11489,8 +11531,8 @@ __metadata:
     "@twilio-paste/utils": ^2.0.1
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-virtual: 2.10.4
     typescript: ^4.9.4
   peerDependencies:
@@ -11523,8 +11565,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.1
     "@twilio-paste/utils": ^2.0.0
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11631,8 +11673,8 @@ __metadata:
   peerDependencies:
     "@twilio-paste/icons": ^9.0.0
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11696,8 +11738,8 @@ __metadata:
     "@twilio-paste/utils": ^2.0.1
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.2
@@ -11719,8 +11761,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.1
     "@twilio-paste/utils": ^2.0.0
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11737,8 +11779,8 @@ __metadata:
     deepmerge: 4.2.2
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -11747,8 +11789,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     highcharts: ^9.3.3
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11770,8 +11812,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.6
     date-fns: 2.21.3
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -11786,8 +11828,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11879,13 +11921,13 @@ __metadata:
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11910,8 +11952,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -11930,8 +11972,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11965,8 +12007,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -11987,8 +12029,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.2
@@ -12003,8 +12045,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12013,11 +12055,11 @@ __metadata:
   resolution: "@twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown"
   dependencies:
     downshift: 6.1.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12043,8 +12085,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -12139,8 +12181,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12152,8 +12194,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12176,8 +12218,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.6
     deepmerge: 4.2.2
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -12193,8 +12235,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12251,8 +12293,8 @@ __metadata:
     "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12264,8 +12306,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12283,8 +12325,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -12296,8 +12338,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12317,8 +12359,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12332,8 +12374,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12353,8 +12395,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.6
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     ts-node: ^10.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
@@ -12368,8 +12410,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12407,8 +12449,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12426,8 +12468,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.1
@@ -12466,8 +12508,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12487,8 +12529,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12507,8 +12549,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12521,8 +12563,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12542,8 +12584,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12557,8 +12599,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12580,8 +12622,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12597,8 +12639,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12609,11 +12651,11 @@ __metadata:
     "@lexical/link": 0.6.0
     "@lexical/react": 0.6.0
     lexical: 0.6.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12631,8 +12673,8 @@ __metadata:
     "@twilio-paste/theme": ^8.2.0
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -12644,8 +12686,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12677,8 +12719,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12690,8 +12732,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12700,12 +12742,12 @@ __metadata:
   resolution: "@twilio-paste/menu-primitive@workspace:packages/paste-core/primitives/menu"
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12734,8 +12776,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -12758,8 +12800,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12786,8 +12828,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -12818,11 +12860,11 @@ __metadata:
   resolution: "@twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog"
   dependencies:
     "@reach/dialog": 0.16.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12851,8 +12893,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -12875,8 +12917,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12901,12 +12943,12 @@ __metadata:
   resolution: "@twilio-paste/non-modal-dialog-primitive@workspace:packages/paste-core/primitives/non-modal-dialog"
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12927,8 +12969,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -12943,8 +12985,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -12962,8 +13004,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -12975,8 +13017,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13005,8 +13047,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -13029,8 +13071,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13062,8 +13104,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -13089,8 +13131,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13119,8 +13161,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/base-radio-checkbox": ^10.0.0
@@ -13143,8 +13185,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13158,8 +13200,8 @@ __metadata:
     use-composed-ref: 1.3.0
     use-latest: 1.2.1
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13167,14 +13209,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
   dependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     reakit: 1.3.11
     reakit-system: 0.15.2
     reakit-utils: 0.15.2
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13194,8 +13236,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13209,8 +13251,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13231,8 +13273,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13247,8 +13289,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13266,8 +13308,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13279,8 +13321,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13299,8 +13341,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13313,8 +13355,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13343,8 +13385,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -13386,8 +13428,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13399,8 +13441,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13420,8 +13462,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13435,8 +13477,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13455,8 +13497,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13469,8 +13511,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13520,8 +13562,8 @@ __metadata:
     react-dom: ^17.0.2
     styled-system: 5.1.5
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13549,8 +13591,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13581,13 +13623,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/syntax-highlighter-library@workspace:packages/paste-libraries/syntax-highlighter"
   dependencies:
-    "@types/react-syntax-highlighter": 15.5.4
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    "@types/react-syntax-highlighter": 15.5.5
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-syntax-highlighter: 15.5.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13605,8 +13647,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13618,8 +13660,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13628,12 +13670,12 @@ __metadata:
   resolution: "@twilio-paste/tabs-primitive@workspace:packages/paste-core/primitives/tabs"
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13654,8 +13696,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13670,8 +13712,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13689,8 +13731,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     deepmerge: 4.2.2
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -13701,8 +13743,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13723,8 +13765,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13739,8 +13781,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13767,8 +13809,8 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.5.0
     "@twilio-paste/styling-library": ^1.1.0
     "@twilio-paste/types": ^3.1.9
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-helmet: ^6.1.0
     typescript: ^4.9.4
   peerDependencies:
@@ -13777,8 +13819,8 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/types": ^3.1.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13800,8 +13842,8 @@ __metadata:
     "@twilio-paste/uid-library": ^0.2.6
     date-fns: 2.21.3
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13816,8 +13858,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13844,8 +13886,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -13866,8 +13908,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13879,8 +13921,8 @@ __metadata:
     "@twilio-paste/icons": ^9.3.1
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-scripts: 5.0.0
     web-vitals: ^1.0.1
   languageName: unknown
@@ -13891,12 +13933,12 @@ __metadata:
   resolution: "@twilio-paste/tooltip-primitive@workspace:packages/paste-core/primitives/tooltip"
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13920,8 +13962,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13939,8 +13981,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13960,8 +14002,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/box": ^7.0.0
@@ -13975,8 +14017,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13984,11 +14026,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": ^17.0.31
-    "@types/react-dom": ^17.0.10
-    react: ^17.0.2
+    "@types/react": ^18.0.0
+    "@types/react-dom": ^18.0.0
+    react: ^18.0.0
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13996,12 +14038,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/uid-library@workspace:packages/paste-libraries/uid"
   dependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-uid: 2.3.1
   peerDependencies:
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -14016,8 +14058,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     lodash: 4.17.21
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -14025,8 +14067,8 @@ __metadata:
     "@twilio-paste/styling-library": ^1.0.0
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -14141,9 +14183,9 @@ __metadata:
     prism-react-renderer: ^1.3.5
     prop-types: ^15.7.2
     puppeteer-core: ^10.1.0
-    react: ^17.0.2
+    react: ^18.0.0
     react-color: ^2.19.3
-    react-dom: ^17.0.2
+    react-dom: ^18.0.0
     react-github-button: ^0.1.11
     react-hook-form: ^7.30.0
     react-live: ^3.1.1
@@ -14964,6 +15006,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:^15.7.5":
+  version: 15.7.5
+  resolution: "@types/prop-types@npm:15.7.5"
+  checksum: 5b43b8b15415e1f298243165f1d44390403bb2bd42e662bca3b5b5633fdd39c938e91b7fce3a9483699db0f7a715d08cef220c121f723a634972fdf596aec980
+  languageName: node
+  linkType: hard
+
 "@types/q@npm:^1.5.1":
   version: 1.5.2
   resolution: "@types/q@npm:1.5.2"
@@ -14995,12 +15044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:*, @types/react-dom@npm:>=16.9.0, @types/react-dom@npm:^17.0.10":
-  version: 17.0.14
-  resolution: "@types/react-dom@npm:17.0.14"
+"@types/react-dom@npm:^18.0.0":
+  version: 18.0.6
+  resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
     "@types/react": "*"
-  checksum: b54cd0ef573236b3d87fe7493e6d1c36d8b4ca37a3b46364272a5c91ac178e3296b68ea1aeb299ce68f12ad663c5720ee890d0539b14881c6754bdcbdb0befa0
+  checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
   languageName: node
   linkType: hard
 
@@ -15074,7 +15123,7 @@ __metadata:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 33e2bf8068ccc5330f089f5d4bee54649c2d5b512edee4a9e44c113271a69ea8c71ddbd3103b205eb971fd4c358e9f69d707df08bec90b3c33492db374614eb7
+  checksum: 7d06125bac61e1c6661e5dfbeeeb56d5b6d1d4c743292faebaa6b0f30f8414c7af3cadf674923fd86e4ca14e82566ff9156cd40c56786be024600c31b97d6c03
   languageName: node
   linkType: hard
 
@@ -37212,10 +37261,10 @@ fsevents@^1.2.7:
     "@storybook/testing-library": 0.0.13
     "@swc/core": ^1.2.160
     "@swc/jest": ^0.2.20
-    "@testing-library/jest-dom": ^5.16.2
-    "@testing-library/react": ^12.1.4
-    "@testing-library/react-hooks": ^7.0.2
-    "@testing-library/user-event": ^13.5.0
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^13.4.0
+    "@testing-library/react-hooks": ^8.0.1
+    "@testing-library/user-event": ^14.4.3
     "@twilio-labs/svg-to-react": ^2.1.1
     "@types/browser-sync": ^2.26.1
     "@types/color": ^3.0.0
@@ -37282,8 +37331,8 @@ fsevents@^1.2.7:
     prettier: ^2.8.1
     prop-types: ^15.7.2
     puppeteer-core: ^10.1.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     react-ga: ^3.3.0
     react-helmet: ^6.1.0
     react-router-dom: 6.2.1
@@ -39566,13 +39615,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react-dom@npm:17.0.2"
+"react-dom@npm:^18.0.0":
+  version: 18.2.0
+  resolution: "react-dom@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    scheduler: ^0.20.2
+    scheduler: ^0.23.0
   peerDependencies:
     react: 17.0.2
   checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
@@ -39991,13 +40039,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react@npm:17.0.2"
+"react@npm:^18.0.0":
+  version: 18.2.0
+  resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
+  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
   linkType: hard
 
@@ -41484,13 +41531,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.20.2":
-  version: 0.20.2
-  resolution: "scheduler@npm:0.20.2"
+"scheduler@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "scheduler@npm:0.23.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
+  checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
   languageName: node
   linkType: hard
 

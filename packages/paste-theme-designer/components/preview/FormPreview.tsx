@@ -10,7 +10,7 @@ import {Stack} from '@twilio-paste/core/stack';
 import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
 import {Select, Option} from '@twilio-paste/core/select';
 
-const FormPreview: React.FC = () => {
+const FormPreview = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('input');
   const [selectValue, setSelectValue] = React.useState('select');
   const [radioValue, setRadioValue] = React.useState('radio');

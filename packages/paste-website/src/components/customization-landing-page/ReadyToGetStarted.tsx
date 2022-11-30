@@ -9,7 +9,7 @@ import {css} from '@twilio-paste/styling-library';
 
 import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
 
-export const ReadyToGetStarted: React.FC = () => {
+export const ReadyToGetStarted = (): JSX.Element => {
   const theme = useTheme();
   return (
     <LandingPageSection

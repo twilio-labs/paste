@@ -74,7 +74,10 @@ const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButton
   );
 });
 
-export const SidebarDisclosureButton: React.FC<SidebarDisclosureButtonProps> = ({children, ...props}) => {
+export const SidebarDisclosureButton: React.FC<React.PropsWithChildren<SidebarDisclosureButtonProps>> = ({
+  children,
+  ...props
+}) => {
   const {disclosure} = React.useContext(SidebarDisclosureContext);
 
   return (

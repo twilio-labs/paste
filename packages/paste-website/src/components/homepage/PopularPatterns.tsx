@@ -19,7 +19,7 @@ import HomeCreateIllustration from '../../assets/illustrations/home_create_illus
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 import {event} from '../../lib/gtag';
 
-const PopularPatterns: React.FC = () => {
+const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
 
   return (

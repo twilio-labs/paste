@@ -14,7 +14,7 @@ type ImportModalProps = {
   onDismiss: ModalProps['onDismiss'];
 };
 
-export const ImportModal: React.FC<ImportModalProps> = ({isOpen, onDismiss}) => {
+export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = ({isOpen, onDismiss}) => {
   const toaster = useToaster();
   const {loadTokens} = React.useContext(TokenContext);
   const importModalHeadingID = useUID();

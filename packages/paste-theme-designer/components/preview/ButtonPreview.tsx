@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button} from '@twilio-paste/core/button';
 import {Stack} from '@twilio-paste/core/stack';
 
-const ButtonPreview: React.FC = () => {
+const ButtonPreview = (): JSX.Element => {
   return (
     <Stack orientation="horizontal" spacing="space30">
       <Button variant="primary">Action</Button>

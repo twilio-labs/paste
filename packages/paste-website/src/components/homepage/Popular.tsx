@@ -10,7 +10,7 @@ import {useSlantedSkew} from '../SlantedBackgroundGradient';
 import {DoodleLoopSmall} from '../../assets/illustrations/DoodleLoopSmall';
 import {DoodleCurve} from '../../assets/illustrations/DoodleCurve';
 
-const PopularComponentsTopAngle: React.FC = () => {
+const PopularComponentsTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
 
   return (
@@ -29,7 +29,7 @@ const PopularComponentsTopAngle: React.FC = () => {
   );
 };
 
-const PopularComponentsBottomAngle: React.FC = () => {
+const PopularComponentsBottomAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
 
   return (
@@ -49,7 +49,7 @@ const PopularComponentsBottomAngle: React.FC = () => {
   );
 };
 
-const PopularComponentsAndPatterns: React.FC = () => {
+const PopularComponentsAndPatterns = (): JSX.Element => {
   return (
     <Box margin="space70" marginTop="space110" padding={['space90', 'space180']} position="relative">
       <PopularComponentsTopAngle />

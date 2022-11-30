@@ -5,7 +5,7 @@ import {Anchor} from '@twilio-paste/anchor';
 
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
 
-export const FlexCard: React.FC = () => {
+export const FlexCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

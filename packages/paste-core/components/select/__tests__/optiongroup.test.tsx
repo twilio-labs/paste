@@ -10,7 +10,10 @@ interface ExampleOptionGroupProps extends Omit<OptionGroupProps, 'children' | 'l
   groupSuffix?: string;
 }
 
-const ExampleOptionGroup: React.FC<ExampleOptionGroupProps> = ({groupSuffix = 'test', ...props}) => {
+const ExampleOptionGroup: React.FC<React.PropsWithChildren<ExampleOptionGroupProps>> = ({
+  groupSuffix = 'test',
+  ...props
+}) => {
   return (
     <OptionGroup data-testid={`optgroup-1-${groupSuffix}`} {...props} label="first-group">
       <Option value="option-1">Option 1</Option>

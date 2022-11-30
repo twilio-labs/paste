@@ -3,7 +3,7 @@ import {Heading} from '@twilio-paste/core/heading';
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/core/list';
 import {Paragraph} from '@twilio-paste/core/paragraph';
 
-const TypographyPreview: React.FC = () => {
+const TypographyPreview = (): JSX.Element => {
   return (
     <>
       <Heading as="h1" variant="heading10">

@@ -9,7 +9,7 @@ import TwilioLogo from '../../icons/TwilioLogo';
 import {STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL} from '../../../constants';
 import {event} from '../../../lib/gtag';
 
-const SiteFooterNav: React.FC = () => {
+const SiteFooterNav = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box position="relative">

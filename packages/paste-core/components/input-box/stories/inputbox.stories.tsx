@@ -6,15 +6,15 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import type {InputBoxProps} from '../src';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '../src';
 
-const Insert: React.FC = () => {
+const Insert = (): JSX.Element => {
   return <Box padding="space20" />;
 };
 
-const Input: React.FC = () => {
+const Input = (): JSX.Element => {
   return <Box padding="space60" width="100%" />;
 };
 
-const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...props}) => {
+const CommonStories: React.FC<React.PropsWithChildren<Omit<InputBoxProps, 'children'>>> = ({variant, ...props}) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <InputBox variant={variant} {...props}>

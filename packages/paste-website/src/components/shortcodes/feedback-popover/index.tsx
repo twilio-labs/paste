@@ -21,7 +21,7 @@ type RatingProps = {
   dislikePage: (event: React.MouseEvent) => void;
 };
 
-export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
+export const UnratedPage: React.FC<React.PropsWithChildren<RatingProps>> = ({likePage, dislikePage}) => {
   const pathname = useLocationPathname();
   return (
     <>
@@ -54,7 +54,7 @@ export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
   );
 };
 
-export const LikedPage: React.FC<RatingProps> = () => (
+export const LikedPage: React.FC<React.PropsWithChildren<RatingProps>> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
@@ -72,7 +72,7 @@ export const LikedPage: React.FC<RatingProps> = () => (
   </>
 );
 
-export const DislikedPage: React.FC<RatingProps> = () => (
+export const DislikedPage: React.FC<React.PropsWithChildren<RatingProps>> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsDownIcon display="inline-block" size="sizeIcon50" decorative={false} title="Dislike this page" />
@@ -95,7 +95,7 @@ export const DislikedPage: React.FC<RatingProps> = () => (
   </>
 );
 
-export const FeedbackPopover: React.FC = () => {
+export const FeedbackPopover = (): JSX.Element => {
   const pathname = useLocationPathname();
   const localStorageKey = `page-rating${pathname}`;
   const popoverId = useUID();

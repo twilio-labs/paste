@@ -25,7 +25,7 @@ export const ChromeImage: React.FC = () => {
   );
 };
 
-export const SafariImage: React.FC = () => {
+export const SafariImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -43,7 +43,7 @@ export const SafariImage: React.FC = () => {
   );
 };
 
-export const FirefoxImage: React.FC = () => {
+export const FirefoxImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image

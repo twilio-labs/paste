@@ -28,7 +28,7 @@ export const AwaitingDataImage: React.FC = () => {
     />
   );
 };
-export const ChangeRegionImage: React.FC = () => {
+export const ChangeRegionImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -46,7 +46,7 @@ export const ChangeRegionImage: React.FC = () => {
     />
   );
 };
-export const CreateObjectImage: React.FC = () => {
+export const CreateObjectImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -64,7 +64,7 @@ export const CreateObjectImage: React.FC = () => {
     />
   );
 };
-export const GenericDependencyImage: React.FC = () => {
+export const GenericDependencyImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -82,7 +82,7 @@ export const GenericDependencyImage: React.FC = () => {
     />
   );
 };
-export const NoPermissionsImage: React.FC = () => {
+export const NoPermissionsImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -100,7 +100,7 @@ export const NoPermissionsImage: React.FC = () => {
     />
   );
 };
-export const NoResultImage: React.FC = () => {
+export const NoResultImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image

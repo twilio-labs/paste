@@ -15,7 +15,12 @@ type FontTokenInputProps = {
 };
 
 // TODO
-export const FontTokenInput: React.FC<FontTokenInputProps> = ({bucket, tokenName, tokenValue, onChange}) => {
+export const FontTokenInput: React.FC<React.PropsWithChildren<FontTokenInputProps>> = ({
+  bucket,
+  tokenName,
+  tokenValue,
+  onChange,
+}) => {
   const seed = useUIDSeed();
 
   return (

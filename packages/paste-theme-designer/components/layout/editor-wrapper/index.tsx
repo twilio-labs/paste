@@ -9,7 +9,7 @@ import {ExportModal} from './ExportModal';
 import {ImportModal} from './ImportModal';
 import {SITE_MASTHEAD_HEIGHT} from '../../../constants';
 
-const EditorWrapper: React.FC = (props) => {
+const EditorWrapper: React.FC<React.PropsWithChildren> = (props) => {
   const [isExportOpen, setExportOpen] = React.useState(false);
   const [isImportOpen, setImportOpen] = React.useState(false);
 

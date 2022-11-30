@@ -21,7 +21,12 @@ interface ExampleSelectProps extends SelectProps {
   size?: number;
 }
 
-const ExampleSelect: React.FC<ExampleSelectProps> = ({children, hasError = false, dataPrefix, ...props}) => {
+const ExampleSelect: React.FC<React.PropsWithChildren<ExampleSelectProps>> = ({
+  children,
+  hasError = false,
+  dataPrefix,
+  ...props
+}) => {
   const selectID = `select-${useUID()}`;
   return (
     <>
@@ -42,7 +47,7 @@ const ExampleSelect: React.FC<ExampleSelectProps> = ({children, hasError = false
 
 const initTestId = (prefix?: string): string => `${prefix ? `${prefix}-` : ''}select-wrapper`;
 
-const MockWrappedSelect: React.FC<ExampleSelectProps> = ({children, dataPrefix, ...props}) => {
+const MockWrappedSelect: React.FC<React.PropsWithChildren<ExampleSelectProps>> = ({children, dataPrefix, ...props}) => {
   return (
     <Theme.Provider theme="default" data-testid={initTestId(dataPrefix)}>
       <ExampleSelect dataPrefix={dataPrefix} {...props}>
@@ -203,7 +208,7 @@ describe('Select', () => {
   });
 
   describe('Customization', () => {
-    const CustomizationWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
+    const CustomizationWrapper: React.FC<React.PropsWithChildren<{children: React.ReactNode}>> = ({children}) => (
       <CustomizationProvider
         theme={TestTheme}
         elements={{

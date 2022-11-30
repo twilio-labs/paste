@@ -12,7 +12,7 @@ import camelCase from 'lodash/camelCase';
 interface ContrastRatioProps {
   ratio: number;
 }
-const ContrastRatio: React.FC<ContrastRatioProps> = ({ratio}) => (
+const ContrastRatio: React.FC<React.PropsWithChildren<ContrastRatioProps>> = ({ratio}) => (
   <Box width="80px" textAlign="right">
     <Box as="span" fontSize="fontSize40" fontWeight="fontWeightBold">
       {Math.round(ratio * 100) / 100}
@@ -29,7 +29,13 @@ export interface TokenPairRatingProps {
   variant: 'text' | 'control';
 }
 
-const TokenPairRating: React.FC<TokenPairRatingProps> = ({foreground, background, rating, contrast, variant}) => {
+const TokenPairRating: React.FC<React.PropsWithChildren<TokenPairRatingProps>> = ({
+  foreground,
+  background,
+  rating,
+  contrast,
+  variant,
+}) => {
   const uidSeed = useUIDSeed();
   return (
     <Box

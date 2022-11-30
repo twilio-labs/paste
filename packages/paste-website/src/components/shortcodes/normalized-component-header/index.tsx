@@ -10,7 +10,10 @@ interface NormalizedComponentHeaderProps extends GenericHeaderProps {
   data: ApiData;
 }
 
-export const NormalizedComponentHeader: React.FC<NormalizedComponentHeaderProps> = ({data, ...props}) => {
+export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<NormalizedComponentHeaderProps>> = ({
+  data,
+  ...props
+}) => {
   const normalizedData = getNormalizedHeaderData(data);
 
   const {

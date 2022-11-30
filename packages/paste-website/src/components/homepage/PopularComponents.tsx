@@ -19,7 +19,7 @@ import HomeButtonIllustration from '../../assets/illustrations/home_button_illus
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
 import {event} from '../../lib/gtag';
 
-const PopularComponents: React.FC = () => {
+const PopularComponents = (): JSX.Element => {
   const theme = useTheme();
 
   return (

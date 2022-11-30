@@ -16,7 +16,11 @@ import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 
 import type {DateTimePopoverProps} from '../types';
 
-export const DateTimePopover: React.FC<DateTimePopoverProps> = ({onApply, register, errors}) => {
+export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverProps>> = ({
+  onApply,
+  register,
+  errors,
+}) => {
   const startId = `start-date-${useUID()}`;
   const endId = `end-date-${useUID()}`;
   const popoverId = `date-popover-${useUID()}`;

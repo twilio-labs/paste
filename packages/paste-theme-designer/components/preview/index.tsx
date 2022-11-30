@@ -9,7 +9,7 @@ import {FormPreview} from './FormPreview';
 import {TokenContext} from '../../context/TokenContext';
 import {SITE_MASTHEAD_HEIGHT} from '../../constants';
 
-const Preview: React.FC = () => {
+const Preview = (): JSX.Element => {
   const {tokens} = React.useContext(TokenContext);
 
   // @ts-expect-error tokens from context are based on GenericTokenShape which states that sizing keys are as optional as the rest, but generateThemeFromTokens expects sizing keys to be required

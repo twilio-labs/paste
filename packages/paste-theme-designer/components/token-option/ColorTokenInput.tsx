@@ -21,7 +21,12 @@ type ColorTokenInputProps = {
 
 const isInRange = (v: number): boolean => v >= 0 && v <= 255;
 
-export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({bucket, tokenName, tokenValue, onChange}) => {
+export const ColorTokenInput: React.FC<React.PropsWithChildren<ColorTokenInputProps>> = ({
+  bucket,
+  tokenName,
+  tokenValue,
+  onChange,
+}) => {
   const [localValue, setLocalValue] = React.useState(tokenValue);
   const theme = useTheme();
   const seed = useUIDSeed();

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const AccessibilityCallout: React.FC = () => {
+export const AccessibilityCallout = (): JSX.Element => {
   return (
     <Callout variant="warning" marginY="space70">
       <CalloutHeading as="h2">Need to check the accessibility of your colors?</CalloutHeading>

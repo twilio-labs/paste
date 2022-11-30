@@ -5,7 +5,7 @@ import {NewIcon} from '@twilio-paste/icons/cjs/NewIcon';
 import {BetaModal} from './BetaModal';
 import {SimpleStorage} from '../../utils/SimpleStorage';
 
-const BetaBadge: React.FC = () => {
+const BetaBadge = (): JSX.Element => {
   const localStorageKey = 'beta-modal-dismissed';
   const [showBetaModal, setShowBetaModal] = React.useState(SimpleStorage.get(localStorageKey) !== 'true' || false);
 

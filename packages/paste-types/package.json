@@ -23,13 +23,13 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/react": "^17.0.31",
-    "@types/react-dom": "^17.0.10"
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const FontCallout: React.FC = () => {
+export const FontCallout = (): JSX.Element => {
   return (
     <Callout variant="warning" marginY="space70">
       <CalloutHeading as="h2">Don&rsquo;t forget to load your custom fonts</CalloutHeading>

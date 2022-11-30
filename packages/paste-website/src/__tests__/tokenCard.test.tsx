@@ -17,7 +17,9 @@ describe('TokenCard', () => {
   const testExampleTextColor = '#121C2D';
   const testExampleTextColorInverse = '#FFFFFF';
 
-  const BaseTokenCardComponent: React.FC<{useCamelCase?: boolean}> = ({useCamelCase = false}) => (
+  const BaseTokenCardComponent: React.FC<React.PropsWithChildren<{useCamelCase?: boolean}>> = ({
+    useCamelCase = false,
+  }) => (
     <Theme.Provider theme="default">
       <TokenCard
         name={testTokenName}

@@ -11,7 +11,7 @@ import {ReactCard} from './ReactCard';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {DoodleLoopArrow} from '../../assets/illustrations/DoodleLoopArrow';
 
-export const WorksGreatWith: React.FC = () => {
+export const WorksGreatWith = (): JSX.Element => {
   const {backgroundColors, ...theme} = useTheme();
   return (
     <Box

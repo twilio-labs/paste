@@ -11,7 +11,10 @@ import type {ThProps} from './table/Th';
  * @param {string} [element=DATA_GRID_HEADER] - customization element
  * @param {number} [colSpan] - how many columns the cell spans across
  */
-export const DataGridHeader: React.FC<ThProps> = ({element = 'DATA_GRID_HEADER', ...props}) => {
+export const DataGridHeader: React.FC<React.PropsWithChildren<ThProps>> = ({
+  element = 'DATA_GRID_HEADER',
+  ...props
+}) => {
   return <DataGridCell element={element} {...props} as="th" />;
 };
 

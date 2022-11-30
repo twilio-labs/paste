@@ -24,7 +24,7 @@ export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, ch
   return <SiteLink href={slug}>{children}</SiteLink>;
 };
 
-const Article: React.FC<ArticleProps> = ({article}) => {
+const Article: React.FC<React.PropsWithChildren<ArticleProps>> = ({article}) => {
   return (
     <Card padding="space70">
       <Heading as="h2" variant="heading20" marginBottom="space0">

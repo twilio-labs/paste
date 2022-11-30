@@ -15,7 +15,12 @@ type TextTokenInputProps = {
 };
 
 // TODO
-export const TextTokenInput: React.FC<TextTokenInputProps> = ({bucket, tokenName, tokenValue, onChange}) => {
+export const TextTokenInput: React.FC<React.PropsWithChildren<TextTokenInputProps>> = ({
+  bucket,
+  tokenName,
+  tokenValue,
+  onChange,
+}) => {
   const seed = useUIDSeed();
 
   return (

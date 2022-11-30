@@ -13,7 +13,7 @@ export type ReasonBlockProps = {
   href: string;
   linkText: string;
 };
-export const ReasonBlock: React.FC<ReasonBlockProps> = ({
+export const ReasonBlock: React.FC<React.PropsWithChildren<ReasonBlockProps>> = ({
   icon,
   headingText,
   subHeadingText,

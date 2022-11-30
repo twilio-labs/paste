@@ -15,7 +15,7 @@ export default {
   component: CustomizationProvider,
 };
 
-const ExampleComponents: React.FC = () => (
+const ExampleComponents = (): JSX.Element => (
   <Box marginBottom="space70">
     <Stack orientation="horizontal" spacing="space40">
       <Button variant="secondary">Primary</Button>

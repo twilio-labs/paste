@@ -13,7 +13,11 @@ import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
 import {useOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
 
-const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: string}> = ({href, icon, children}) => (
+const IconAnchor: React.FC<React.PropsWithChildren<{href: string; icon: React.ReactNode; children: string}>> = ({
+  href,
+  icon,
+  children,
+}) => (
   <Anchor href={href}>
     <Box as="span">
       <Box as="span" display="inline-block" marginRight="space20">
@@ -39,7 +43,7 @@ export interface GenericHeaderProps {
   shouldShowBreadcrumbs?: boolean;
 }
 
-const GenericHeader: React.FC<GenericHeaderProps> = ({
+const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   name,
   categoryRoute,
   description,

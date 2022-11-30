@@ -6,7 +6,7 @@ import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBloc
 
 const jsCode = `(num) => num + 1`;
 
-const CustomizationWrapper: React.FC = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -26,7 +26,7 @@ const CustomizationWrapper: React.FC = ({children}) => (
   </CustomizationProvider>
 );
 
-const CustomizationMyWrapper: React.FC = ({children}) => (
+const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}

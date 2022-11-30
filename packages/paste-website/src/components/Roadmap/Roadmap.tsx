@@ -13,7 +13,7 @@ import type {RoadmapProps, ReleaseData} from './types';
 import {slugify} from '../../utils/RouteUtils';
 import {AnchoredHeading} from '../Heading';
 
-const StatusIconWrapper: React.FC = ({children}) => (
+const StatusIconWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <Box display="flex" columnGap="space20" justifyContent="flex-start">
     {children}
   </Box>

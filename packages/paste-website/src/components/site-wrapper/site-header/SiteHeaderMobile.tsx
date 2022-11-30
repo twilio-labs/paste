@@ -7,7 +7,7 @@ import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
 import {SiteHeaderSearch} from './SiteHeaderSearch';
 
-const SiteHeaderMobile: React.FC = () => {
+const SiteHeaderMobile = (): JSX.Element => {
   const [navigationOpen, setNavigationOpen] = React.useState(false);
 
   return (

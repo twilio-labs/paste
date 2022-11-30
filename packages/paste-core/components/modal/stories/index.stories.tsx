@@ -27,7 +27,7 @@ import {
 } from '../src';
 
 type ModalTriggerProps = Pick<ModalProps, 'size'>;
-const ModalTrigger: React.FC<ModalTriggerProps> = ({size}) => {
+const ModalTrigger: React.FC<React.PropsWithChildren<ModalTriggerProps>> = ({size}) => {
   const [isOpen, setIsOpen] = React.useState(true);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);

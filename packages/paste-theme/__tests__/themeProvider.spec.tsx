@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {render} from '@testing-library/react';
 
 import {Theme} from '../src';
@@ -18,7 +18,8 @@ const ThemeConsumerExampleTextColor = (): React.ReactElement => {
 
 describe('Theme.Provider', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(<Theme.Provider />, document.createElement('div'));
+    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    root.render(<Theme.Provider />);
   });
 
   it('should render the sendgrid link text color', (): void => {

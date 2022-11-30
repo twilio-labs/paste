@@ -15,7 +15,7 @@ import {useDarkModeContext} from '../../context/DarkModeContext';
 import WhyPasteMobile from '../../assets/images/customization/why-paste-mobile.png';
 import WhyPasteImg from '../../assets/images/customization/why-paste.png';
 
-const WhyPasteTopAngle: React.FC = () => {
+const WhyPasteTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
   const {theme} = useDarkModeContext();
 
@@ -36,7 +36,7 @@ const WhyPasteTopAngle: React.FC = () => {
   );
 };
 
-const WhyPasteBottomAngle: React.FC = () => {
+const WhyPasteBottomAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew(-0.35);
   const {theme} = useDarkModeContext();
 
@@ -57,7 +57,7 @@ const WhyPasteBottomAngle: React.FC = () => {
   );
 };
 
-export const WhyPaste: React.FC = () => {
+export const WhyPaste = (): JSX.Element => {
   return (
     <LandingPageSection
       backgroundColor="colorBackgroundPrimaryWeakest"
