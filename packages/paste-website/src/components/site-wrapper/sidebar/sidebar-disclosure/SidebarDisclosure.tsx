@@ -12,7 +12,11 @@ export interface SidebarDisclosureProps extends DisclosurePrimitiveInitialState 
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
 }
 
-export const SidebarDisclosure: React.FC<SidebarDisclosureProps> = ({children, categoryRoute, ...props}) => {
+export const SidebarDisclosure: React.FC<React.PropsWithChildren<SidebarDisclosureProps>> = ({
+  children,
+  categoryRoute,
+  ...props
+}) => {
   const pathname = useLocationPathname();
   const disclosure = useDisclosurePrimitiveState({
     visible: pathname.startsWith(categoryRoute),

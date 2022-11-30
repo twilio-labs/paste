@@ -14,7 +14,13 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
@@ -24,7 +30,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
         return undefined;
       }
@@ -59,7 +65,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const SelectableRowsDataGrid: React.FC = () => {
+export const SelectableRowsDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
   const [checkedItems, setCheckedItems] = React.useState([...new Array(10)].map(() => false));

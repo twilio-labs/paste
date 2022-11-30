@@ -99,7 +99,7 @@ const EMPTY_PACKAGE_DATA = {
   Code: '',
 };
 
-const OpenGraphCard: React.FC<OpenGraphCardProps> = ({location, data}): React.ReactElement => {
+const OpenGraphCard: React.FC<React.PropsWithChildren<OpenGraphCardProps>> = ({location, data}): React.ReactElement => {
   const queryString = location.search;
   const urlParams = new URLSearchParams(queryString);
   const path = urlParams.get('path') || '';

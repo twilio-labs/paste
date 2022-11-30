@@ -13,7 +13,7 @@ interface InDevelopmentProps {
   name: string;
 }
 
-const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
+const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({type, name}) => {
   return (
     <>
       <Breadcrumb>

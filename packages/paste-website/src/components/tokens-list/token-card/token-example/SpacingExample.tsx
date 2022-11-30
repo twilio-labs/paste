@@ -8,7 +8,7 @@ interface SpacingExampleProps {
   color: Properties['color'];
 }
 
-export const SpacingExample: React.FC<SpacingExampleProps> = ({tokenName, spacing, color}) => {
+export const SpacingExample: React.FC<React.PropsWithChildren<SpacingExampleProps>> = ({tokenName, spacing, color}) => {
   if (spacing === '0') return null;
 
   const lineStart = 1;

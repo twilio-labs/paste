@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 
 import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID} from '../../../constants';
 
-const SiteHeaderSearch: React.FC = () => {
+const SiteHeaderSearch = (): JSX.Element => {
   return (
     <Box
       minWidth={['size20', 'size20', 'size20', 'size30']}

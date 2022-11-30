@@ -14,7 +14,7 @@ export interface ArticleProps {
 }
 
 export type ArticleLinkProps = Pick<ArticleFrontMatter, 'slug' | 'external_link'> & Pick<AnchorProps, 'children'>;
-export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, children}) => {
+export const ArticleLink: React.FC<React.PropsWithChildren<ArticleLinkProps>> = ({external_link, slug, children}) => {
   if (external_link)
     return (
       <Anchor href={external_link} showExternal>
@@ -24,7 +24,7 @@ export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, ch
   return <SiteLink to={slug}>{children}</SiteLink>;
 };
 
-const Article: React.FC<ArticleProps> = ({article}) => {
+const Article: React.FC<React.PropsWithChildren<ArticleProps>> = ({article}) => {
   return (
     <Card padding="space70">
       <Heading as="h2" variant="heading20" marginBottom="space0">

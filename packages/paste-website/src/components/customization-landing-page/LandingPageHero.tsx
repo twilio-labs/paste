@@ -9,7 +9,7 @@ import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {ImageSlider} from './image-slider';
 
-export const LandingPageHero: React.FC = () => {
+export const LandingPageHero = (): JSX.Element => {
   return (
     <Box overflow="hidden">
       <Box padding="space70">

@@ -31,7 +31,7 @@ interface BasicModalDialogProps {
   handleClose: () => void;
 }
 
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
+const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({isOpen, handleClose}) => {
   const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (

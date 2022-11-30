@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {IndexPage} from './pages/IndexPage';
 
-export const Index: React.FC = () => {
+export const Index = (): JSX.Element => {
   return (
     <App>
       <IndexPage />
@@ -12,11 +12,11 @@ export const Index: React.FC = () => {
   );
 };
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
+root.render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>,
-  document.querySelector('#root')
+  </React.StrictMode>
 );
 
 /**

@@ -63,7 +63,7 @@ export const I18n = (): React.ReactNode => {
 
 I18n.storyName = 'i18n label';
 
-export const Customized: React.FC = () => {
+export const Customized = (): JSX.Element => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space20">

@@ -39,7 +39,7 @@ export const EnglishFontFamily = (): React.ReactNode => (
   </Box>
 );
 
-export const JapaneseFontFamily = (): React.ReactNode => (
+export const JapaneseFontFamily = (): JSX.Element => (
   <>
     <Helmet>
       <html lang="ja" />

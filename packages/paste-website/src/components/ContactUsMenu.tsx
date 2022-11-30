@@ -27,7 +27,7 @@ interface ContactUsMenuProps {
     | undefined;
 }
 
-export const ContactUsMenu: React.FC<ContactUsMenuProps> = ({placement = 'right-end'}) => {
+export const ContactUsMenu: React.FC<React.PropsWithChildren<ContactUsMenuProps>> = ({placement = 'right-end'}) => {
   const menu = useMenuState({placement});
 
   const handleClick = (category: string, action: string, label: string): void => {

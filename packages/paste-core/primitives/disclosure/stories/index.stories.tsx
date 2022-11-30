@@ -13,7 +13,7 @@ export default {
   subcomponents: {DisclosurePrimitiveContent},
 };
 
-export const BasicExample: React.FC = () => {
+export const BasicExample = (): JSX.Element => {
   const disclosure = useDisclosurePrimitiveState();
   return (
     <>
@@ -31,7 +31,7 @@ export const BasicExample: React.FC = () => {
   );
 };
 
-export const ConditionalRendering: React.FC = () => {
+export const ConditionalRendering = (): JSX.Element => {
   const disclosure = useDisclosurePrimitiveState();
   return (
     <>
@@ -56,7 +56,7 @@ export const ConditionalRendering: React.FC = () => {
   );
 };
 
-export const MultipleComponents: React.FC = () => {
+export const MultipleComponents = (): JSX.Element => {
   const disclosure1 = useDisclosurePrimitiveState();
   const disclosure2 = useDisclosurePrimitiveState();
 

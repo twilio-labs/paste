@@ -18,47 +18,47 @@ export const BannerExample = `
 </Box>
 `.trim();
 
-export const ProcessError: React.FC = () => {
+export const ProcessError = (): JSX.Element => {
   return <ProcessErrorIcon color="colorTextIconError" decorative={false} title="Error" />;
 };
 
-export const ProcessWarning: React.FC = () => {
+export const ProcessWarning = (): JSX.Element => {
   return <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="Warning" />;
 };
 
-export const ProcessSuccess: React.FC = () => {
+export const ProcessSuccess = (): JSX.Element => {
   return <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="Success" />;
 };
 
-export const ProcessNeutral: React.FC = () => {
+export const ProcessNeutral = (): JSX.Element => {
   return <ProcessNeutralIcon color="colorTextIconNeutral" decorative={false} title="Neutral" />;
 };
 
-export const ProcessInProgress: React.FC = () => {
+export const ProcessInProgress = (): JSX.Element => {
   return <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In Progress" />;
 };
 
-export const ProcessDisabled: React.FC = () => {
+export const ProcessDisabled = (): JSX.Element => {
   return <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="Disabled" />;
 };
 
-export const ProcessDraft: React.FC = () => {
+export const ProcessDraft = (): JSX.Element => {
   return <ProcessDraftIcon color="colorTextIcon" decorative={false} title="Draft" />;
 };
 
-export const ConnectivityAvailable: React.FC = () => {
+export const ConnectivityAvailable = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundAvailable" />;
 };
 
-export const ConnectivityBusy: React.FC = () => {
+export const ConnectivityBusy = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundBusy" />;
 };
 
-export const ConnectivityUnavailable: React.FC = () => {
+export const ConnectivityUnavailable = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundUnavailable" />;
 };
 
-export const ConnectivityOffline: React.FC = () => {
+export const ConnectivityOffline = (): JSX.Element => {
   return (
     <Box
       borderRadius="borderRadiusCircle"

@@ -11,7 +11,7 @@ export interface ReactLogoIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ReactLogoIcon: React.FC<ReactLogoIconProps> = ({
+const ReactLogoIcon: React.FC<React.PropsWithChildren<ReactLogoIconProps>> = ({
   as,
   display,
   element = 'ICON',

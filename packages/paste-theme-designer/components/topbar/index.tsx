@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 
-const TopBar: React.FC = () => {
+const TopBar = (): JSX.Element => {
   return (
     <Box
       as="header"

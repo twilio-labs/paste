@@ -22,7 +22,7 @@ import type {CustomizationProviderProps} from './types';
  * }
  * @return {*}
  */
-const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
+const CustomizationProvider: React.FC<React.PropsWithChildren<CustomizationProviderProps>> = ({
   baseTheme = 'default',
   customBreakpoints,
   elements,

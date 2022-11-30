@@ -12,7 +12,7 @@ const styles: {[key: string]: TextStyleProps} = {
   secondary: {color: 'colorTextErrorStrong'},
   _secondaryHover: {fontStyle: 'italic'},
 };
-export const CustomizableTextExample: React.FC<CustomizableTextExampleProps> = ({
+export const CustomizableTextExample: React.FC<React.PropsWithChildren<CustomizableTextExampleProps>> = ({
   children,
   variant,
   element,

@@ -15,7 +15,7 @@ interface GetStartedInclusiveProps {
   animationDelay: number;
 }
 
-export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animationDelay}) => {
+export const GetStartedInclusive: React.FC<React.PropsWithChildren<GetStartedInclusiveProps>> = ({animationDelay}) => {
   const {theme} = useDarkModeContext();
   return (
     <GetStartedCard animationDelay={animationDelay}>

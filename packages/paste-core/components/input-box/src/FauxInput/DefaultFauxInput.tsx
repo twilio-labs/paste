@@ -5,7 +5,7 @@ import type {BoxShadow, BackgroundColor} from '@twilio-paste/style-props';
 import type {FauxInputProps} from '../types';
 import {FauxInputPropTypes} from '../types';
 
-const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
+const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildren<FauxInputProps>>(
   ({disabled, element, hasError, readOnly, children, type, variant}, ref) => {
     let backgroundColor = 'colorBackgroundBody' as BackgroundColor;
     let boxShadow = 'shadowBorder' as BoxShadow;

@@ -3,7 +3,7 @@ import {Alert} from '@twilio-paste/core/alert';
 import {Stack} from '@twilio-paste/core/stack';
 import {Text} from '@twilio-paste/core/text';
 
-const AlertPreview: React.FC = () => {
+const AlertPreview = (): JSX.Element => {
   return (
     <Stack orientation="vertical" spacing="space90">
       <Alert variant="neutral">

@@ -11,7 +11,15 @@ export interface A11yIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const A11yIcon: React.FC<A11yIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
+const A11yIcon: React.FC<React.PropsWithChildren<A11yIconProps>> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `A11yIcon-${useUID()}`;
 
   if (!decorative && title == null) {

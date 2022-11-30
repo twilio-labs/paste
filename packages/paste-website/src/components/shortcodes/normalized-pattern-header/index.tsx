@@ -11,7 +11,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
 import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
-const PackageValue: React.FC = ({children}) => {
+const PackageValue: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Text as="dd" display="inline-block">
       {children}
@@ -19,7 +19,7 @@ const PackageValue: React.FC = ({children}) => {
   );
 };
 
-const PackageLabel: React.FC = ({children}) => {
+const PackageLabel: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
       {children}
@@ -31,7 +31,7 @@ interface NormalizedPatternHeaderProps extends GenericHeaderProps {
   data: GraphqlData;
 }
 
-const NormalizedPatternHeader: React.FC<NormalizedPatternHeaderProps> = ({data, ...props}) => {
+const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatternHeaderProps>> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
   const {
     name,

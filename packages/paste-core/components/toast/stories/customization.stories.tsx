@@ -35,7 +35,7 @@ export const getStyles = (element = 'TOAST'): {[key: string]: PasteCustomCSS} =>
   [`${element}_CLOSE_ICON`]: {color: 'colorTextIconError'},
 });
 
-const ShowCustomization: React.FC<{variant: ToastVariants; isTestEnvironment: boolean}> = ({
+const ShowCustomization: React.FC<React.PropsWithChildren<{variant: ToastVariants; isTestEnvironment: boolean}>> = ({
   variant,
   isTestEnvironment,
 }): React.ReactElement => {

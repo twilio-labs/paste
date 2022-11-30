@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useMenuState, MenuButton, Menu, MenuItem, MenuSeparator} from '@twilio-paste/core/menu';
 import {ChevronDownIcon} from '@twilio-paste/icons/cjs/ChevronDownIcon';
 
-export const PlainMenu: React.FC = () => {
+export const PlainMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>

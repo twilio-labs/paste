@@ -5,14 +5,17 @@ import type {PasteCustomCSS} from '@twilio-paste/customization';
 
 import {ChatLog} from '../src';
 
-const CustomizationWrapper: React.FC<{elements?: {[key: string]: PasteCustomCSS}}> = ({children, elements}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: string]: PasteCustomCSS}}>> = ({
+  children,
+  elements,
+}) => (
   <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{CHAT_LOG: {padding: 'space100'}}}>
     {children}
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC = ({children}) => (
-  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{FOO_LOG: {padding: 'space100'}}}>
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo_log: {padding: 'space100'}}}>
     {children}
   </CustomizationProvider>
 );

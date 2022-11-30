@@ -18,7 +18,7 @@ import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 
-const PopularPatterns: React.FC = () => {
+const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
 
   return (

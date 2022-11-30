@@ -8,7 +8,7 @@ type LineHeightExampleProps = Pick<BoxProps, 'lineHeight' | 'color' | 'backgroun
   tokenName: string;
 };
 
-export const LineHeightExample: React.FC<LineHeightExampleProps> = ({
+export const LineHeightExample: React.FC<React.PropsWithChildren<LineHeightExampleProps>> = ({
   tokenName,
   lineHeight,
   color,

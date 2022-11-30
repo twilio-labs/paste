@@ -8,7 +8,7 @@ interface PeerReviewStatusProps {
   engineerStatus: string;
 }
 
-const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
+const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({designStatus, engineerStatus}) => {
   /*
    * Counts as successfully reviewed if
    * neither is null and they aren't both 'not applicable'

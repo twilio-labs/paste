@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
 import {Stack} from '@twilio-paste/core/stack';
 
@@ -15,7 +15,7 @@ const Page1 = React.lazy(async () => import('./pages/Page1'));
 // @ts-ignore
 const Page2 = React.lazy(async () => import('./pages/Page2'));
 
-export const Index: React.FC = () => {
+export const Index = (): JSX.Element => {
   return (
     <App>
       <React.Suspense fallback={<Loading />}>
@@ -41,11 +41,11 @@ export const Index: React.FC = () => {
 
 Index.displayName = 'Index';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
+root.render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>,
-  document.querySelector('#root')
+  </React.StrictMode>
 );
 
 /**

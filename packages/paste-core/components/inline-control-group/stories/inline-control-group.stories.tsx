@@ -9,17 +9,19 @@ import {useTheme} from '@twilio-paste/theme';
 import {InlineControlGroup} from '../src';
 import type {InlineControlGroupProps} from '../src';
 
-const MockChild: React.FC = ({children}) => {
+const MockChild: React.FC<React.PropsWithChildren> = ({children}) => {
   return <Box backgroundColor="colorBackground">{children}</Box>;
 };
 
-const MockControlGroup: React.FC<{
-  showRequired?: boolean;
-  showHelpText?: boolean;
-  showErrorText?: boolean;
-  element?: string;
-  orientation?: InlineControlGroupProps['orientation'];
-}> = ({showRequired, showHelpText, showErrorText, element, orientation = 'vertical'}) => {
+const MockControlGroup: React.FC<
+  React.PropsWithChildren<{
+    showRequired?: boolean;
+    showHelpText?: boolean;
+    showErrorText?: boolean;
+    element?: string;
+    orientation?: InlineControlGroupProps['orientation'];
+  }>
+> = ({showRequired, showHelpText, showErrorText, element, orientation = 'vertical'}) => {
   return (
     <InlineControlGroup
       element={element}

@@ -8,7 +8,7 @@ import {DesignerPreview} from './DesignerPreview';
 import {DesignerControls} from './DesignerControls';
 import {DesignerContext} from './DesignerContext';
 
-export const LandingPageDesigner: React.FC = () => {
+export const LandingPageDesigner = (): JSX.Element => {
   const theme = useTheme();
   const initialTokens = generateTokensFromTheme(theme);
   const [tokens, setTokens] = React.useState<Partial<GenericTokensShape>>(initialTokens);
@@ -18,7 +18,7 @@ export const LandingPageDesigner: React.FC = () => {
     setTokens(generateTokensFromTheme(theme));
   }, [theme]);
 
-  const updateToken = React.useCallback((bucket: keyof GenericTokensShape, key, value) => {
+  const updateToken = React.useCallback((bucket: keyof GenericTokensShape, key: any, value: any) => {
     setTokens((currentTokens) => ({
       ...currentTokens,
       [key]: value, // update the root key

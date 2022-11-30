@@ -50,13 +50,16 @@ const customizedMyElements: {[key: string]: PasteCustomCSS} = {
   },
 };
 
-const CustomizationWrapper: React.FC<{elements?: {[key: string]: PasteCustomCSS}}> = ({children, elements}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: string]: PasteCustomCSS}}>> = ({
+  children,
+  elements,
+}) => (
   <CustomizationProvider baseTheme="default" theme={TestTheme} elements={elements || customizedElements}>
     {children}
   </CustomizationProvider>
 );
 
-const CustomizationMyWrapper: React.FC = ({children}) => (
+const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationWrapper elements={customizedMyElements}>{children}</CustomizationWrapper>
 );
 

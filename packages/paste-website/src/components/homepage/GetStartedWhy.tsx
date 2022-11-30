@@ -11,7 +11,7 @@ import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 import {useDarkModeContext} from '../../context/DarkModeContext';
 
-export const GetStarterWhy: React.FC = () => {
+export const GetStarterWhy = (): JSX.Element => {
   const {theme} = useDarkModeContext();
   return (
     <GetStartedCard>

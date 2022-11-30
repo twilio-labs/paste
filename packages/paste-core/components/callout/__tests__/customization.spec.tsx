@@ -4,7 +4,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
 
-const CustomizationWrapper: React.FC = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -46,7 +46,7 @@ const CustomizationWrapper: React.FC = ({children}) => (
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}

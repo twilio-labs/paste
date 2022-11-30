@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {render, screen} from '@testing-library/react';
 
 import {CustomizationProvider, CustomizationConsumer} from '../src';
@@ -36,7 +36,7 @@ const ThemeConsumerElementsExample = (): React.ReactElement => {
 interface BaseThemeConsumerExampleProps {
   'data-testid'?: string;
 }
-const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props) => {
+const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsumerExampleProps>> = (props) => {
   return (
     <CustomizationConsumer>
       {({theme}) => {
@@ -51,7 +51,8 @@ const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props
 
 describe('CustomizationProvider', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(<CustomizationProvider />, document.createElement('div'));
+    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    root.render(<CustomizationProvider />);
   });
 
   it('should inherit one of two base themes', () => {

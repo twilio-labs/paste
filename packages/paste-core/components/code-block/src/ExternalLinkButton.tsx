@@ -11,7 +11,7 @@ interface ExternalLinkButtonProps {
   element?: BoxProps['element'];
 }
 
-export const ExternalLinkButton: React.FC<ExternalLinkButtonProps> = ({
+export const ExternalLinkButton: React.FC<React.PropsWithChildren<ExternalLinkButtonProps>> = ({
   i18nLinkLabel = 'Open code block in new page',
   href,
   element = 'EXTERNAL_LINK',

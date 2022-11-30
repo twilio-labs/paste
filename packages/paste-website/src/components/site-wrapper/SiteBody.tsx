@@ -38,7 +38,7 @@ const StyledSiteBody = styled.div`
   }
 `;
 
-export const SiteBody: React.FC<{pathname: string}> = ({children, pathname}) => {
+export const SiteBody: React.FC<React.PropsWithChildren<{pathname: string}>> = ({children, pathname}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
 
