@@ -30,6 +30,7 @@ module.exports = {
       statements: 100,
     },
   },
+  moduleNameMapper: {'\\.css$': 'identity-obj-proxy'},
   transformIgnorePatterns: ['node_modules/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)?$': '@swc/jest',
