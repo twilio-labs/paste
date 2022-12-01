@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679) [#2799](https://github.com/twilio-labs/paste/pull/2799) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens, theme] updated mono spaced font in default and dark themes to use the new Twilio Sans Mono font
+
 ## 8.0.3
 
 ### Patch Changes
