@@ -1,5 +1,44 @@
 # Change Log
 
+## 17.1.0
+
+### Minor Changes
+
+- [`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679) [#2799](https://github.com/twilio-labs/paste/pull/2799) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens, theme] updated mono spaced font in default and dark themes to use the new Twilio Sans Mono font
+
+* [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens]: add 7 new tokens for the Display Heading package: fontSizeDisplay10, fontSizeDisplay20, fontSizeDisplay30, fontWeightExtrabold, lineHeightDisplay10, lineHeightDisplay20, and lineHeightDisplay30.
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Composer] Creates a new ChatComposer component
+
+* [`80cb7ceb8`](https://github.com/twilio-labs/paste/commit/80cb7ceb889854d65ba5467f8060cfaa8a992c0c) [#2793](https://github.com/twilio-labs/paste/pull/2793) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ChatLog]: add useChatLogger hook
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Lexical Library] Creates a new library that re-exports lexical.
+
+* [`8290a1e1f`](https://github.com/twilio-labs/paste/commit/8290a1e1fc219b079b2fec0c5ec3a2faad1a61cd) [#2827](https://github.com/twilio-labs/paste/pull/2827) Thanks [@gloriliale](https://github.com/gloriliale)! - [In Page Navigation] add a package for the navigation component In Page Navigation
+
+- [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Display Heading]: add component package to Paste
+
+### Patch Changes
+
+- [`4ebab8bc3`](https://github.com/twilio-labs/paste/commit/4ebab8bc3149f7872aa257d0f0918db3785ec9d7) [#2854](https://github.com/twilio-labs/paste/pull/2854) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ChatComposer]: fix Lexical global styles
+
+* [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add circle and circle_small sizes to the Button PropTypes
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] refactored a ChatAttachment story
+
+* [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] removes the padding from the MinimizableDialogContents component. To add the padding back, use a Box with padding='space70' inside the MinimizableDialogContents.
+
+* Updated dependencies [[`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679), [`4ebab8bc3`](https://github.com/twilio-labs/paste/commit/4ebab8bc3149f7872aa257d0f0918db3785ec9d7), [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`80cb7ceb8`](https://github.com/twilio-labs/paste/commit/80cb7ceb889854d65ba5467f8060cfaa8a992c0c), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`8290a1e1f`](https://github.com/twilio-labs/paste/commit/8290a1e1fc219b079b2fec0c5ec3a2faad1a61cd), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554)]:
+  - @twilio-paste/design-tokens@8.2.0
+  - @twilio-paste/theme@8.1.0
+  - @twilio-paste/chat-composer@1.0.0
+  - @twilio-paste/chat-log@2.1.0
+  - @twilio-paste/lexical-library@1.0.0
+  - @twilio-paste/button@11.1.5
+  - @twilio-paste/in-page-navigation@1.0.0
+  - @twilio-paste/minimizable-dialog@1.0.3
+  - @twilio-paste/display-heading@1.0.0
+
 ## 17.0.1
 
 ### Patch Changes
