@@ -28,9 +28,10 @@ import {
    */
   HistoryPlugin,
 } from '@twilio-paste/lexical-library';
+import {StylingGlobals} from '@twilio-paste/styling-library';
 import type {LexicalComposerProps, OnChangeFunction, ContentEditableProps} from '@twilio-paste/lexical-library';
 
-import './styles.css';
+import {chatComposerLexicalStyles} from './styles';
 import {AutoLinkPlugin} from './AutoLinkPlugin';
 import {PlaceholderWrapper} from './PlaceholderWrapper';
 import {baseConfig, renderInitialText} from './helpers';
@@ -97,6 +98,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         overflowY="scroll"
         maxHeight={maxHeight}
       >
+        <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
           <>
             <RichTextPlugin
