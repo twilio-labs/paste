@@ -11,7 +11,16 @@ export interface ChatLogProps {
 const ChatLog = React.forwardRef<HTMLDivElement, ChatLogProps>(({children, element = 'CHAT_LOG', ...props}, ref) => {
   return (
     <Box role="log" padding="space70" element={element} ref={ref} {...safelySpreadBoxProps(props)}>
-      <Box as="div" role="list" margin="space0" padding="space0" overflowX="hidden">
+      <Box
+        as="div"
+        role="list"
+        margin="space0"
+        padding="space0"
+        overflowX="hidden"
+        display="flex"
+        flexDirection="column"
+        rowGap="space80"
+      >
         {children}
       </Box>
     </Box>

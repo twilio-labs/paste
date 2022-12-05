@@ -3,7 +3,7 @@ import {LexicalComposer} from '@lexical/react/LexicalComposer';
 import {OnChangePlugin} from '@lexical/react/LexicalOnChangePlugin';
 import {ContentEditable} from '@lexical/react/LexicalContentEditable';
 
-export {$getRoot, $getSelection, $createParagraphNode, $createTextNode} from 'lexical';
+export {$getRoot, $getSelection, $createParagraphNode, $createTextNode, CLEAR_EDITOR_COMMAND} from 'lexical';
 export type {EditorState, EditorThemeClasses} from 'lexical';
 
 export {AutoLinkNode} from '@lexical/link';
