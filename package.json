@@ -192,6 +192,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "eslint-plugin-unicorn": "40.1.0",
+    "evergreen-ui": "^6.13.2",
     "git-branch-is": "^3.0.0",
     "graphql": "^14.6.0",
     "highcharts": "^9.3.3",
@@ -227,6 +228,7 @@
     "turbo": "^1.2.16",
     "typedoc": "^0.20.12",
     "typescript": "^4.6.4",
+    "ui-box": "^5.4.0",
     "weak-napi": "^2.0.2",
     "webpack": "^5.70.0"
   },
