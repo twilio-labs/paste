@@ -11,6 +11,18 @@ export default {
 export const PasteButton: Story = () => {
   return <Button variant="primary">Button</Button>;
 };
+PasteButton.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
+};
 export const EvergreenButton: Story = () => {
   return <EgButton appearance="primary">Button</EgButton>;
+};
+EvergreenButton.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
 };

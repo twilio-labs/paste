@@ -21,6 +21,12 @@ export const PasteBox: Story = () => {
     </Box>
   );
 };
+PasteBox.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
+};
 export const EvergreenPane: Story = () => {
   return (
     <Pane backgroundColor="red" padding="20px" borderRadius="4px" color="white">
@@ -28,10 +34,22 @@ export const EvergreenPane: Story = () => {
     </Pane>
   );
 };
+EvergreenPane.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
+};
 export const EvergreenUIBox: Story = () => {
   return (
     <UIBox backgroundColor="red" padding="20px" borderRadius="4px" color="white">
       This is a box
     </UIBox>
   );
+};
+EvergreenUIBox.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
 };

@@ -19,6 +19,12 @@ export const PasteAlert: Story = () => {
     </Alert>
   );
 };
+PasteAlert.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
+};
 export const EvergreenAlert: Story = () => {
   return (
     <EgAlert intent="danger" title="We weren’t able to save your changes">
@@ -26,4 +32,10 @@ export const EvergreenAlert: Story = () => {
       magna aliqua.
     </EgAlert>
   );
+};
+EvergreenAlert.parameters = {
+  a11y: {
+    // no need to a11y check perf benchmarks
+    disable: true,
+  },
 };
