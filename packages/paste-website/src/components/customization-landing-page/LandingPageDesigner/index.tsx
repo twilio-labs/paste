@@ -1,9 +1,9 @@
 import * as React from 'react';
+import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {useTheme, generateTokensFromTheme} from '@twilio-paste/theme';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
 
-import {Helmet} from '../../../utils/ReactHelmetOverride';
 import {DesignerPreview} from './DesignerPreview';
 import {DesignerControls} from './DesignerControls';
 import {DesignerContext} from './DesignerContext';
