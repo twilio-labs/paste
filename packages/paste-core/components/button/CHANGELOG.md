@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.5
+
+### Patch Changes
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add circle and circle_small sizes to the Button PropTypes
+
 ## 11.1.4
 
 ### Patch Changes

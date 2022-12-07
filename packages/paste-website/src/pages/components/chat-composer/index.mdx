@@ -1,0 +1,259 @@
+---
+title: Chat Composer
+package: '@twilio-paste/chat-composer'
+description: A Chat Composer is an input made for users to type rich chat messages.
+slug: /components/chat-composer/
+---
+
+import {graphql} from 'gatsby';
+import {Avatar} from '@twilio-paste/avatar';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {
+  ChatAttachment,
+  ChatAttachmentDescription,
+  ChatAttachmentLink,
+  ChatBookend,
+  ChatBookendItem,
+  ChatBubble,
+  ChatEvent,
+  ChatLog,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  useChatLogger,
+  ChatLogger,
+} from '@twilio-paste/chat-log';
+import {ChatComposer} from '@twilio-paste/chat-composer';
+import {AutoScrollPlugin} from '@twilio-paste/lexical-library';
+import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
+import {HelpText} from '@twilio-paste/help-text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {Stack} from '@twilio-paste/stack';
+import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  ChatDialogExample,
+  RichTextExample,
+  MaxHeightExample,
+} from '../../../component-examples/ChatComposerExamples.ts';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/chat-composer"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(frontmatter: {slug: {eq: "/components/chat-composer/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Chat Composer"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer"
+  storybookUrl="/?path=/story/components-chat-composer--default"
+  data={props.data}
+  description={props.data.mdx.frontmatter.description}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{ChatComposer}} language="jsx">
+  {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A basic chat composer" />`}
+</LivePreview>
+
+## Guidelines
+
+### About Chat Composer
+
+A Chat Composer is an input made for users to type rich chat messages. Chat Composer is best used as one part of larger chat user interface to provide a seamless authoring experience.
+Within the context of Paste, Chat Composer is most typically used alongside the [`Chat Log`](/components/chat-log) component.
+
+### Accessibility
+
+Chat Composer supports a variety of aria attributes which are passed into the content editable region of the component.
+
+- If the surrounding UI includes a screen reader visible label reference the label element using `aria-labelledby`.
+- If the surrounding UI does not include a screen reader visible label, use `aria-label` to describe the input.
+- If the surrounding UI includes additional help or error text use `aria-describedby` to reference the associated element.
+
+### Lexical and plugins
+
+Chat Composer is built on top of the [Lexical](https://lexical.dev) editor. Lexical is extensible and follows a declarative approach to configuration via JSX. Developers can leverage a
+wide variety of [existing plugins](https://github.com/twilio-labs/paste/blob/main/packages/paste-libraries/lexical/src/index.tsx) via the `@twilio-paste/lexical-library` package or other
+sources. Alternatively, developers can write their own custom plugin logic. Plugins are provided to the Chat Composer via the `children` prop.
+
+#### Auto Link Plugin
+
+Chat Composer uses a custom [`AutoLinkPlugin`](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/AutoLinkPlugin.tsx) internally
+which you can see being configured [here](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/ChatComposer.tsx#L116) as a JSX child.
+
+## Examples
+
+### With placeholder
+
+Set a placeholder value using a `placeholder` prop.
+
+<LivePreview scope={{ChatComposer}} language="jsx">
+  {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A placeholder chat composer" />`}
+</LivePreview>
+
+### With initial value
+
+Set an initial value using an `initialValue` prop. This prop is limited to providing single line strings. For more complicated initial values interact with the Lexical API directly
+using the `config` prop and `editorState` callback.
+
+<LivePreview scope={{ChatComposer}} language="jsx">
+  {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} initialValue="This is my initial value" ariaLabel="An initial value chat composer" />`}
+</LivePreview>
+
+### With max height
+
+Restrict the height of the composer using a `maxHeight` prop.
+
+<LivePreview noInline language="jsx" scope={{ChatComposer, $getRoot, $createParagraphNode, $createTextNode}}>
+  {MaxHeightExample}
+</LivePreview>
+
+### With rich text
+
+Set a rich text value using one of the Lexical formatting APIs such as [`toggleFormat`](https://lexical.dev/docs/api/classes/lexical.TextNode#toggleformat)
+
+<LivePreview noInline language="jsx" scope={{ChatComposer, $getRoot, $createParagraphNode, $createTextNode}}>
+  {RichTextExample}
+</LivePreview>
+
+### With Chat Log
+
+Use Chat Composer alongside other Paste components such as [Chat Log](/components/chat-log) to build more complex chat UI. This example also makes use of a Lexical
+plugin `AutoScrollPlugin`.
+
+<LivePreview
+  noInline
+  language="jsx"
+  scope={{
+    Box,
+    ChatLog,
+    ChatBookend,
+    ChatBookendItem,
+    ChatEvent,
+    ChatMessage,
+    ChatBubble,
+    ChatMessageMeta,
+    Avatar,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    ChatMessageMetaItem,
+    ChatComposer,
+    AutoScrollPlugin,
+    Button,
+    SendIcon,
+  }}
+>
+  {ChatDialogExample}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/chat-composer - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {ChatComposer} from '@twilio-paste/core/chat-composer';
+
+export const BasicChatComposer = () => (
+  <ChatComposer
+    config={{
+      namespace: 'customer-chat',
+      onError: (e) => {
+        throw e;
+      },
+    }}
+    ariaLabel="A basic chat composer"
+    placeholder="Chat text"
+  />
+);
+```
+
+#### Props
+
+| Prop            | Type                                                        | Description                                                                               | Default           |
+| --------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------- |
+| `config`        | `LexicalComposerProps['initialConfig']`                     | Configuration provided to the Lexical Composer                                            |                   |
+| `children?`     | `LexicalComposerProps['children]`                           | Children provided to the Lexical Composer (i.e. Lexical plugins)                          |                   |
+| `element?`      | `string`                                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_COMPOSER'` |
+| `placeholder?`  | `string` or `JSX.Element`                                   | Placeholder content for the Chat Composer                                                 |                   |
+| `onChange?`     | `(editorState: EditorState, editor: LexicalEditor) => void` | Callback invoked when changes occurs within the Chat Composer                             |                   |
+| `initialValue?` | `string`                                                    | Initial value for the Chat Composer                                                       |                   |
+| `maxHeight?`    | `string`                                                    | Maximum height for the Chat Composer                                                      |                   |
+
+### Figma
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
+  <CalloutText>
+    You can find the Chat Composer components in{' '}
+    <Anchor
+      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=15140%3A99225&t=mNw9lFc5iiTDSIZ7-0"
+      showExternal
+    >
+      the Paste Components library.
+    </Anchor>
+  </CalloutText>
+</Callout>
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679) [#2799](https://github.com/twilio-labs/paste/pull/2799) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens, theme] updated mono spaced font in default and dark themes to use the new Twilio Sans Mono font
+
+* [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens]: add 7 new tokens for the Display Heading package: fontSizeDisplay10, fontSizeDisplay20, fontSizeDisplay30, fontWeightExtrabold, lineHeightDisplay10, lineHeightDisplay20, and lineHeightDisplay30.
+
 ## 8.1.2
 
 ### Patch Changes
