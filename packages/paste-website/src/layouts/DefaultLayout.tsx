@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {datadogRum} from '@datadog/browser-rum';
-import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 
+import {Helmet} from '../utils/ReactHelmetOverride';
 import packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
