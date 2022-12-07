@@ -359,6 +359,9 @@ export const ContainedWidth = (): React.ReactNode => {
     </Box>
   );
 };
+ContainedWidth.story = {
+  name: 'Contained width',
+};
 
 export const CustomizedFlex: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -421,7 +424,9 @@ export const CustomizedFlex: Story = (_args, {parameters: {isTestEnvironment}}) 
     </>
   );
 };
-
-ContainedWidth.story = {
-  name: 'Contained width',
+CustomizedFlex.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

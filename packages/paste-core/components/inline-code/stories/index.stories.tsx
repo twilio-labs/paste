@@ -102,3 +102,9 @@ export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) =
     </CustomizationProvider>
   );
 };
+Customization.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

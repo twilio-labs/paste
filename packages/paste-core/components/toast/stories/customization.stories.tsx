@@ -88,4 +88,10 @@ export const WarningCustomized: Story = (_args, {parameters: {isTestEnvironment}
 export default {
   title: 'Components/Toast/Customization',
   excludeStories: ['makeToast', 'getStyles'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

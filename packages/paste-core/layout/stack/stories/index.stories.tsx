@@ -230,3 +230,9 @@ export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}})
 CustomizedStack.story = {
   name: 'Stack - Customized',
 };
+CustomizedStack.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

@@ -123,3 +123,9 @@ export const CustomCard: Story = (_args, {parameters: {isTestEnvironment}}) => {
     </Stack>
   );
 };
+CustomCard.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

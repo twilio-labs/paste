@@ -116,6 +116,12 @@ export default {
   component: Modal,
   subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
   excludeStories: ['initStyles', 'BaseModal'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const First: Story = (_args, {parameters: {isTestEnvironment}}) => {

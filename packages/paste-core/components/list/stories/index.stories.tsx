@@ -189,6 +189,12 @@ export const CustomOrderedList: Story = (_args, {parameters: {isTestEnvironment}
     </Stack>
   );
 };
+CustomOrderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const CustomUnorderedList: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -264,4 +270,10 @@ export const CustomUnorderedList: Story = (_args, {parameters: {isTestEnvironmen
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomUnorderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

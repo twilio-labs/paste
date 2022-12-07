@@ -237,3 +237,9 @@ export const CustomText: Story = (_args, {parameters: {isTestEnvironment}}) => {
     </>
   );
 };
+CustomText.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

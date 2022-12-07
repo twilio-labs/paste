@@ -9,6 +9,12 @@ import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBloc
 export default {
   title: 'Components/Code Block/Customization',
   component: CodeBlock,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 const rubyCode = `#!/usr/bin/ruby

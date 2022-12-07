@@ -9,6 +9,12 @@ import type {ChatComposerProps} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Chat Composer/Customization',
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 const defaultConfig: ChatComposerProps['config'] = {

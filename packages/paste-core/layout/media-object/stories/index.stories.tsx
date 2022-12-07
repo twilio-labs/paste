@@ -88,6 +88,9 @@ export const ConstrainedWidth = (): React.ReactNode => {
     </Box>
   );
 };
+ConstrainedWidth.story = {
+  name: 'Constrained width',
+};
 
 export const CustomMediaObject: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -194,7 +197,9 @@ export const CustomMediaObject: Story = (_args, {parameters: {isTestEnvironment}
     </>
   );
 };
-
-ConstrainedWidth.story = {
-  name: 'Constrained width',
+CustomMediaObject.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
+import type {Story} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -497,7 +498,7 @@ TextareaDisabledInsertBeforeAndAfterInverse.story = {
   name: 'Textarea - Disabled insert before and after inverse',
 };
 
-export const CustomizedTextarea: React.FC = () => {
+export const CustomizedTextarea: Story = () => {
   const activeTheme = useTheme();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();
@@ -790,4 +791,10 @@ export const CustomizedTextarea: React.FC = () => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedTextarea.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
