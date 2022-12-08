@@ -112,3 +112,4 @@ Releasing Paste happens via CI/CD using [Changesets](https://github.com/atlassia
 ## License
 
 [MIT](/LICENSE)
+.
