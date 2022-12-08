@@ -285,13 +285,18 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Get playwright version
+        id: pw-version
+        run: |
+          echo "::set-output name=version::$(yarn playwright --version)"
+        shell: bash
+
       - name: Cache playwright binaries
         uses: actions/cache@v2
         id: playwright-cache
         with:
-          path: |
-            ~/.cache/ms-playwright
-          key: cache-playwright-linux-1.28.1
+          path: "~/.cache/ms-playwright"
+          key: cache-playwright-${{ runner.os }}-${{ steps.pw-version.outputs.version }}
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
