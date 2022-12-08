@@ -134,7 +134,7 @@
     "@storybook/jest": "0.0.10",
     "@storybook/manager-webpack5": "6.4.20",
     "@storybook/react": "6.4.20",
-    "@storybook/test-runner": "0.3.0",
+    "@storybook/test-runner": "0.9.1",
     "@storybook/testing-library": "0.0.13",
     "@swc/core": "^1.2.160",
     "@swc/jest": "^0.2.20",
@@ -205,6 +205,7 @@
     "lodash": "4.17.21",
     "lorem-ipsum": "^2.0.3",
     "netlify-cli": "^6.13.1",
+    "playwright": "^1.28.1",
     "plop": "^2.7.4",
     "plugin-error": "^1.0.1",
     "precise-commits": "^1.0.2",
@@ -235,7 +236,8 @@
   "resolutions": {
     "@storybook/react/webpack": "^5",
     "react-hot-loader": "^4.13.0",
-    "csstype": "3.0.11"
+    "csstype": "3.0.11",
+    "playwright": "1.28.1"
   },
   "husky": {
     "hooks": {
