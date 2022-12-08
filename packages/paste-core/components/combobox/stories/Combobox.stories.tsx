@@ -139,9 +139,7 @@ export const DefaultCombobox = (): React.ReactNode => {
   );
 };
 
-DefaultCombobox.story = {
-  name: 'Combobox',
-};
+DefaultCombobox.storyName = 'Combobox';
 
 const ItemToString = ({name}: {name: string}): string => name;
 
@@ -160,9 +158,7 @@ export const VirtualizedCombobox = (): React.ReactNode => {
   );
 };
 
-VirtualizedCombobox.story = {
-  name: 'Combobox - Virtualized without option template',
-};
+VirtualizedCombobox.storyName = 'Combobox - Virtualized without option template';
 
 export const VirtualizedCombobox1 = (): React.ReactNode => {
   const itemsForVirtualCombobox = React.useMemo(
@@ -188,9 +184,7 @@ export const VirtualizedCombobox1 = (): React.ReactNode => {
   );
 };
 
-VirtualizedCombobox1.story = {
-  name: 'Combobox - Virtualized with string option template',
-};
+VirtualizedCombobox1.storyName = 'Combobox - Virtualized with string option template';
 
 export const VirtualizedCombobox2 = (): React.ReactNode => {
   const itemsForVirtualCombobox = React.useMemo(
@@ -220,9 +214,7 @@ export const VirtualizedCombobox2 = (): React.ReactNode => {
   );
 };
 
-VirtualizedCombobox2.story = {
-  name: 'Combobox - Virtualized with React child option template',
-};
+VirtualizedCombobox2.storyName = 'Combobox - Virtualized with React child option template';
 
 export const ComboboxInverse = (): React.ReactNode => {
   return (
@@ -254,9 +246,7 @@ export const ComboboxInverse = (): React.ReactNode => {
   );
 };
 
-ComboboxInverse.story = {
-  name: 'Combobox - Inverse',
-};
+ComboboxInverse.storyName = 'Combobox - Inverse';
 
 export const ComboboxAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(items);
@@ -275,17 +265,13 @@ export const ComboboxAutocomplete = (): React.ReactNode => {
   );
 };
 
-ComboboxAutocomplete.story = {
-  name: 'Combobox - Autocomplete',
-};
+ComboboxAutocomplete.storyName = 'Combobox - Autocomplete';
 
 export const ComboboxRequired = (): React.ReactNode => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
 };
 
-ComboboxRequired.story = {
-  name: 'Combobox - Required',
-};
+ComboboxRequired.storyName = 'Combobox - Required';
 
 export const ComboboxRequiredInverse = (): React.ReactNode => {
   return (
@@ -301,17 +287,13 @@ export const ComboboxRequiredInverse = (): React.ReactNode => {
   );
 };
 
-ComboboxRequiredInverse.story = {
-  name: 'Combobox - Required inverse',
-};
+ComboboxRequiredInverse.storyName = 'Combobox - Required inverse';
 
 export const ComboboxError = (): React.ReactNode => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
 };
 
-ComboboxError.story = {
-  name: 'Combobox - Error',
-};
+ComboboxError.storyName = 'Combobox - Error';
 
 export const ComboboxErrorInverse = (): React.ReactNode => {
   return (
@@ -327,9 +309,7 @@ export const ComboboxErrorInverse = (): React.ReactNode => {
   );
 };
 
-ComboboxErrorInverse.story = {
-  name: 'Combobox - Error inverse',
-};
+ComboboxErrorInverse.storyName = 'Combobox - Error inverse';
 
 export const ComboboxDisabled = (): React.ReactNode => {
   return (
@@ -343,9 +323,7 @@ export const ComboboxDisabled = (): React.ReactNode => {
   );
 };
 
-ComboboxDisabled.story = {
-  name: 'Combobox - Disabled',
-};
+ComboboxDisabled.storyName = 'Combobox - Disabled';
 
 export const ComboboxDisabledItems = (): React.ReactNode => {
   return (
@@ -359,9 +337,7 @@ export const ComboboxDisabledItems = (): React.ReactNode => {
   );
 };
 
-ComboboxDisabledItems.story = {
-  name: 'Combobox - Disabled Items',
-};
+ComboboxDisabledItems.storyName = 'Combobox - Disabled Items';
 
 export const ComboboxDisabledInverse = (): React.ReactNode => {
   return (
@@ -378,9 +354,7 @@ export const ComboboxDisabledInverse = (): React.ReactNode => {
   );
 };
 
-ComboboxDisabledInverse.story = {
-  name: 'Combobox - Disabled inverse',
-};
+ComboboxDisabledInverse.storyName = 'Combobox - Disabled inverse';
 
 export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
   return (
@@ -402,9 +376,7 @@ export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-ComboboxInsertBeforeAndAfter.story = {
-  name: 'Combobox - Insert before and after',
-};
+ComboboxInsertBeforeAndAfter.storyName = 'Combobox - Insert before and after';
 
 export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   return (
@@ -427,9 +399,7 @@ export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-ComboboxDisabledInsertBeforeAndAfter.story = {
-  name: 'Combobox - Disabled insert before and after',
-};
+ComboboxDisabledInsertBeforeAndAfter.storyName = 'Combobox - Disabled insert before and after';
 
 export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
   return (
@@ -454,9 +424,7 @@ export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-ComboboxInsertBeforeAndAfterInverse.story = {
-  name: 'Combobox - Insert before and after inverse',
-};
+ComboboxInsertBeforeAndAfterInverse.storyName = 'Combobox - Insert before and after inverse';
 
 export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   return (
@@ -482,9 +450,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
   );
 };
 
-ComboboxDisabledInsertBeforeAndAfterInverse.story = {
-  name: 'Combobox - Disabled insert before and after inverse',
-};
+ComboboxDisabledInsertBeforeAndAfterInverse.storyName = 'Combobox - Disabled insert before and after inverse';
 
 export const ComboboxObject = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(objectItems);
@@ -511,9 +477,7 @@ export const ComboboxObject = (): React.ReactNode => {
   );
 };
 
-ComboboxObject.story = {
-  name: 'Combobox - Object',
-};
+ComboboxObject.storyName = 'Combobox - Object';
 
 export const ComboboxOverflowLongValue = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(items);
@@ -535,9 +499,7 @@ export const ComboboxOverflowLongValue = (): React.ReactNode => {
   );
 };
 
-ComboboxOverflowLongValue.story = {
-  name: 'Combobox - overflow long value',
-};
+ComboboxOverflowLongValue.storyName = 'Combobox - overflow long value';
 
 export const ComboboxControlled = (): React.ReactNode => {
   const [value, setValue] = React.useState('United Arab Emirates');
@@ -583,9 +545,7 @@ export const ComboboxControlled = (): React.ReactNode => {
   );
 };
 
-ComboboxControlled.story = {
-  name: 'Combobox - Controlled',
-};
+ComboboxControlled.storyName = 'Combobox - Controlled';
 
 export const ComboboxControlledUsingState: Story = () => {
   const [value, setValue] = React.useState('United Arab Emirates');
@@ -656,9 +616,7 @@ export const ComboboxControlledUsingState: Story = () => {
   );
 };
 
-ComboboxControlledUsingState.story = {
-  name: 'Combobox - Controlled using state',
-};
+ComboboxControlledUsingState.storyName = 'Combobox - Controlled using state';
 
 export const ComboboxOpen = (): React.ReactNode => {
   return (
@@ -672,9 +630,7 @@ export const ComboboxOpen = (): React.ReactNode => {
   );
 };
 
-ComboboxOpen.story = {
-  name: 'Combobox - Open',
-};
+ComboboxOpen.storyName = 'Combobox - Open';
 
 export const ComboboxOptionGroups = (): React.ReactNode => {
   return (
@@ -689,9 +645,7 @@ export const ComboboxOptionGroups = (): React.ReactNode => {
   );
 };
 
-ComboboxOptionGroups.story = {
-  name: 'Combobox - Option groups',
-};
+ComboboxOptionGroups.storyName = 'Combobox - Option groups';
 
 export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
   return (
@@ -720,9 +674,7 @@ export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
   );
 };
 
-ComboboxOptionGroupsOpen.story = {
-  name: 'Combobox - Option groups open',
-};
+ComboboxOptionGroupsOpen.storyName = 'Combobox - Option groups open';
 
 export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
@@ -746,9 +698,7 @@ export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
   );
 };
 
-ComboboxOptionGroupsAutocomplete.story = {
-  name: 'Combobox - Option groups autocomplete',
-};
+ComboboxOptionGroupsAutocomplete.storyName = 'Combobox - Option groups autocomplete';
 
 export const ComboboxListboxZIndex = (): React.ReactNode => {
   const [selectValue, setSelectValue] = React.useState('');
@@ -793,9 +743,7 @@ export const ComboboxListboxZIndex = (): React.ReactNode => {
   );
 };
 
-ComboboxListboxZIndex.story = {
-  name: 'Combobox - Listbox zIndex',
-};
+ComboboxListboxZIndex.storyName = 'Combobox - Listbox zIndex';
 
 const SampleEmptyState: React.FC = () => (
   <>
@@ -827,6 +775,4 @@ export const ComboboxEmptyState = (): React.ReactNode => {
   );
 };
 
-ComboboxEmptyState.story = {
-  name: 'Combobox - EmptyState',
-};
+ComboboxEmptyState.storyName = 'Combobox - EmptyState';

@@ -70,9 +70,7 @@ export const ShowExternalProp = (): React.ReactNode => {
   );
 };
 
-ShowExternalProp.story = {
-  name: 'showExternal prop',
-};
+ShowExternalProp.storyName = 'showExternal prop';
 
 export const CustomAnchor: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -136,6 +134,4 @@ export const i18nAnchor = (): React.ReactNode => {
   );
 };
 
-i18nAnchor.story = {
-  name: 'i18n Anchor',
-};
+i18nAnchor.storyName = 'i18n Anchor';

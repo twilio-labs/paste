@@ -37,9 +37,7 @@ export const DefinedPadding = (): React.ReactNode => (
   </Card>
 );
 
-DefinedPadding.story = {
-  name: 'Padding',
-};
+DefinedPadding.storyName = 'Padding';
 
 export const NoPadding = (): React.ReactNode => (
   <Card padding="space0">

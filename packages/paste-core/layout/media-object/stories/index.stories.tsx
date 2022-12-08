@@ -88,9 +88,7 @@ export const ConstrainedWidth = (): React.ReactNode => {
     </Box>
   );
 };
-ConstrainedWidth.story = {
-  name: 'Constrained width',
-};
+ConstrainedWidth.storyName = 'Constrained width';
 
 export const CustomMediaObject: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();

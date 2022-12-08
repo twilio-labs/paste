@@ -46,9 +46,7 @@ export const DefaultOrderedList = (): React.ReactNode => {
   );
 };
 
-DefaultOrderedList.story = {
-  name: 'Ordered List',
-};
+DefaultOrderedList.storyName = 'Ordered List';
 
 export const DefaultUnorderedList = (): React.ReactNode => {
   return (
@@ -78,9 +76,7 @@ export const DefaultUnorderedList = (): React.ReactNode => {
   );
 };
 
-DefaultUnorderedList.story = {
-  name: 'Unordered List',
-};
+DefaultUnorderedList.storyName = 'Unordered List';
 
 export const NestedUnorderedList = (): React.ReactNode => {
   return (
