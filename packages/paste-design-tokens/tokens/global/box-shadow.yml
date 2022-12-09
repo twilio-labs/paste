@@ -18,7 +18,7 @@ props:
     value: "{!shadow-elevation-10}"
     comment: Shadow for cards.
   shadow-focus:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-60-transparent-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-60-transparent-100}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-60-transparent-30}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0-transparent-40}"
@@ -27,7 +27,7 @@ props:
     value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-blue-60-transparent-70}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-focus-shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-60-transparent-70}, {!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}, {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-60-transparent-100}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-60-transparent-30}"
     comment: Shadow for simultaneous focus and border
   shadow-border-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"

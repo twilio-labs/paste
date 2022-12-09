@@ -45,7 +45,7 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
           boxShadow: boxShadowHover,
         }}
         _focusWithin={{
-          boxShadow: disabled ? boxShadow : 'shadowFocus',
+          boxShadow: disabled ? boxShadow : 'shadowFocusShadowBorder',
         }}
         _active={{
           boxShadow: boxShadowActive,
