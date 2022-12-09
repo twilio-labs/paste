@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Auto labeller
-        uses: actions/labeler@v3
+        uses: actions/labeler@v4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/opened-pr-labeler.yml
       - name: Assign Author
-        uses: technote-space/assign-author@v1.3.1
+        uses: technote-space/assign-author@v1
