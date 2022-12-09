@@ -16,7 +16,7 @@ jobs:
       - name: Create Percy Batch ID
         id: percy-batch-id
         # adding a timestamp makes the batch id more unique for re-runs
-        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+        run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
 
   cypress:
     name: Website tests
@@ -44,7 +44,7 @@ jobs:
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
