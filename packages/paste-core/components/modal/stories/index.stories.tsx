@@ -207,10 +207,10 @@ export const DirectionalFooterActions = (): React.ReactNode => {
   );
 };
 
-(DirectionalFooterActions.storyName = 'Directional footer actions'),
-  (DirectionalFooterActions.parameters = {
-    chromatic: {disableSnapshot: true},
-  });
+DirectionalFooterActions.storyName = 'Directional footer actions';
+DirectionalFooterActions.parameters = {
+  chromatic: {disableSnapshot: true},
+};
 
 export const ExtremelyLongHeading = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -531,10 +531,10 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
   );
 };
 
-(CustomInitialFocusElement.storyName = 'Custom initial focus element'),
-  (CustomInitialFocusElement.parameters = {
-    chromatic: {disableSnapshot: true},
-  });
+CustomInitialFocusElement.storyName = 'Custom initial focus element';
+CustomInitialFocusElement.parameters = {
+  chromatic: {disableSnapshot: true},
+};
 
 export const TooltipInModal = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);

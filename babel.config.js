@@ -44,5 +44,9 @@ module.exports = {
       presets: getPresets(true),
       plugins: BASE_PLUGINS,
     },
+    test: {
+      presets: getPresets(true),
+      plugins: BASE_PLUGINS,
+    },
   },
 };

@@ -102,7 +102,7 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
   );
 };
 
-(UncontrolledRadioGroupB.storyName = 'Uncontrolled RadioGroup with controlled Radios'),
-  (UncontrolledRadioGroupB.parameters = {
-    chromatic: {disableSnapshot: true},
-  });
+UncontrolledRadioGroupB.storyName = 'Uncontrolled RadioGroup with controlled Radios';
+UncontrolledRadioGroupB.parameters = {
+  chromatic: {disableSnapshot: true},
+};
