@@ -18,6 +18,7 @@ module.exports = {
     interactionsDebugger: true,
     reactOptions: {legacyRootApi: true},
     storyStoreV7: true,
+    babelModeV7: true,
   },
   staticDirs: ['./static'],
   typescript: {
