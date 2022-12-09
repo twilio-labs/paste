@@ -196,3 +196,9 @@ export const CustomBox: Story = (_args, {parameters: {isTestEnvironment}}) => {
     </>
   );
 };
+CustomBox.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

@@ -112,4 +112,10 @@ export const CustomizedRadioGroup: Story = (_args, {parameters: {isTestEnvironme
 export default {
   title: 'Components/Radio/Customization',
   component: CustomizedRadioGroup,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

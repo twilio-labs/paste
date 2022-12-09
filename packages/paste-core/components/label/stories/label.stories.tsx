@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
@@ -63,7 +64,7 @@ export const I18n = (): React.ReactNode => {
 
 I18n.storyName = 'i18n label';
 
-export const Customized: React.FC = () => {
+export const Customized: Story = () => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space20">
@@ -129,4 +130,10 @@ export const Customized: React.FC = () => {
       </Box>
     </Stack>
   );
+};
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

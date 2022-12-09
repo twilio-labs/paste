@@ -125,3 +125,9 @@ export const Customized: Story = () => {
     </CustomizationProvider>
   );
 };
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

@@ -176,4 +176,10 @@ export const PaginationNumbersAndLabel: Story = (_args, {parameters: {isTestEnvi
 export default {
   title: 'Components/Pagination/Customization',
   excludeStories: ['WrapperAndArrows', 'NumbersAndLabel'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

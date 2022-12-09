@@ -121,3 +121,9 @@ export const Customized: Story = ({element = 'FILEPICKER', ...props}) => {
     </CustomizationProvider>
   );
 };
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

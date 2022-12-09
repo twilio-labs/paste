@@ -351,3 +351,9 @@ export const CustomizedSkeletonLoader: Story = (_args, {parameters: {isTestEnvir
     </CustomizationProvider>
   );
 };
+CustomizedSkeletonLoader.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

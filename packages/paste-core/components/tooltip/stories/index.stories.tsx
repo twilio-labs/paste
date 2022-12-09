@@ -213,3 +213,9 @@ export const CustomizedTooltip: Story = (_args, {parameters: {isTestEnvironment}
 CustomizedTooltip.story = {
   name: 'Customized Tooltip',
 };
+CustomizedTooltip.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

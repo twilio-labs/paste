@@ -28,6 +28,7 @@
   },
   "include": [
     "packages/**/*",
+    "performance-benchmarks/**/*",
     "dangerfile.ts",
     ".danger/**/*",
     "./.jest/@types/index.d.ts",

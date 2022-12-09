@@ -23,6 +23,12 @@ import {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/ChatLog/Customization',
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const CustomizedMessages: Story = (_args, {parameters: {isTestEnvironment}}) => {

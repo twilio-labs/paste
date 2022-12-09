@@ -192,6 +192,12 @@ export const CustomAlert: Story = (_args, {parameters: {isTestEnvironment = fals
     </CustomizationProvider>
   );
 };
+CustomAlert.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const I18nAlerts = (): React.ReactNode => {
   const i18nStrings = {
