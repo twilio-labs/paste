@@ -252,7 +252,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Wait for Netlify
-        uses: hharnisc/wait-for-netlify-action@3
+        uses: hharnisc/wait-for-netlify-action@3.2.0
         id: waitForDeployment
         with:
           site_id: ${{ secrets.NETLIFY_SITE_ID }}
