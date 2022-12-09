@@ -1032,3 +1032,9 @@ export const CustomGrid: Story = (_args, {parameters: {isTestEnvironment}}) => {
     </Stack>
   );
 };
+CustomGrid.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

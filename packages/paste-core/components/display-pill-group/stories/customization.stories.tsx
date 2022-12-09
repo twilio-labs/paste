@@ -56,4 +56,10 @@ export const CustomDisplayPillGroup: React.FC = () => {
 export default {
   title: 'Components/Display Pill Group/Customization',
   component: DisplayPill,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

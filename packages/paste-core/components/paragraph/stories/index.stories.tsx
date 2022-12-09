@@ -74,3 +74,9 @@ export const CustomParagraph: Story = (_args, {parameters: {isTestEnvironment}})
     </Stack>
   );
 };
+CustomParagraph.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

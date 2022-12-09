@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
 import {Heading} from '@twilio-paste/heading';
@@ -217,7 +218,7 @@ DestructiveAlertDialogVRT.story = {
   name: 'Destructive Alert Dialog for VRT',
 };
 
-export const CustomizedAlertDialog: React.FC = () => {
+export const CustomizedAlertDialog: Story = () => {
   const theme = useTheme();
   return (
     <CustomizationProvider
@@ -245,8 +246,14 @@ export const CustomizedAlertDialog: React.FC = () => {
     </CustomizationProvider>
   );
 };
+CustomizedAlertDialog.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
-export const CustomizedDestructiveAlertDialog: React.FC = () => {
+export const CustomizedDestructiveAlertDialog: Story = () => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -275,4 +282,10 @@ export const CustomizedDestructiveAlertDialog: React.FC = () => {
       </AlertDialog>
     </CustomizationProvider>
   );
+};
+CustomizedDestructiveAlertDialog.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

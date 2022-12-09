@@ -16,6 +16,12 @@ import {
 export default {
   title: 'Components/Minimizable Dialog/Customization',
   component: MinimizableDialog,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const CustomizedDialog: Story = (_args, {parameters: {isTestEnvironment}}) => {

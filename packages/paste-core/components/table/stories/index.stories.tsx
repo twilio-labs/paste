@@ -1638,3 +1638,9 @@ export const CustomTable: Story = (_args, {parameters: {isTestEnvironment}}) => 
 CustomTable.story = {
   name: 'Custom table',
 };
+CustomTable.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

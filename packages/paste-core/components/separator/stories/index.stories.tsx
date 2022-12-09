@@ -222,3 +222,9 @@ export const CustomSeparator: Story = (_args, {parameters: {isTestEnvironment}})
     </Stack>
   );
 };
+CustomSeparator.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

@@ -744,3 +744,9 @@ export const CustomizedSelect: Story = (_args, {parameters: {isTestEnvironment}}
 CustomizedSelect.story = {
   name: 'Select - Customized',
 };
+CustomizedSelect.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

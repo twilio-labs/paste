@@ -359,6 +359,12 @@ export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironme
     </CustomizationProvider>
   );
 };
+CustomHorizontalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -456,6 +462,12 @@ export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment
     </CustomizationProvider>
   );
 };
+CustomVerticalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 // @TODO
 export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -549,6 +561,12 @@ export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}
       </Tabs>
     </CustomizationProvider>
   );
+};
+CustomVerticalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 // eslint-disable-next-line import/no-default-export

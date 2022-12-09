@@ -19,6 +19,12 @@ import {
 export default {
   title: 'Components/Side Modal/Customization',
   component: SideModal,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const CustomizedDialog: Story = (_args, {parameters: {isTestEnvironment}}) => {

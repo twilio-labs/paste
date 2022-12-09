@@ -424,6 +424,12 @@ export const CustomizedDatePicker: Story = (_args, {parameters: {isTestEnvironme
     </CustomizationProvider>
   );
 };
+CustomizedDatePicker.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {

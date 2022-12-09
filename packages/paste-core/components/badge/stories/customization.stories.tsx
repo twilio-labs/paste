@@ -120,4 +120,10 @@ export default {
   title: 'Components/Badge/Customization',
   component: Badge,
   excludeStories: ['getStyles', 'makeBadge'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
