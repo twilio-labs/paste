@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
+import type {GenericIconProps} from '@twilio-paste/icons/src/types';
 import {Text} from '@twilio-paste/text';
 
 import {MenuItemVariants} from './constants';
@@ -22,7 +23,7 @@ const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(
           <Box display="flex" alignItems="center" paddingX="space70" paddingY="space30" cursor="default">
             {React.isValidElement(icon) ? (
               <Box flexShrink={0} size="sizeIcon30">
-                {React.cloneElement(icon, {color: 'colorTextIcon'})}
+                {React.cloneElement(icon as React.ReactElement<GenericIconProps>, {color: 'colorTextIcon'})}
               </Box>
             ) : null}
             <Text

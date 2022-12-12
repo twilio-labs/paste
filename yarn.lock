@@ -11451,7 +11451,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/customization": ^5.0.0
@@ -11549,7 +11549,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.0
     "@twilio-paste/animation-library": ^0.3.1
@@ -11642,7 +11642,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -11781,7 +11781,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": 0.3.9
     "@twilio-paste/box": ^7.0.1
@@ -11885,7 +11885,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-virtual: 2.10.4
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -12247,7 +12247,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
     "@twilio-paste/box": ^7.0.0
@@ -12538,7 +12538,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^9.0.1
     "@twilio-paste/animation-library": ^0.3.2
@@ -12939,7 +12939,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -13668,7 +13668,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.1
     "@twilio-paste/color-contrast-utils": ^3.0.0
@@ -14027,7 +14027,7 @@ __metadata:
     react-scrollspy: ^3.4.0
     react-visibility-sensor: 5.1.1
     rollbar: ^2.25.0
-    typescript: ^4.6.4
+    typescript: ^4.9.4
     use-resize-observer: ^7.0.0
     winston: ^3.8.1
   languageName: unknown
@@ -38419,7 +38419,6 @@ fsevents@^1.2.7:
     react-ga: ^3.3.0
     react-helmet: ^6.1.0
     react-router-dom: 6.2.1
-    regenerator-runtime: ^0.13.3
     search-in-file: ^1.2.2
     shelljs: ^0.8.3
     start-server-and-test: ^1.11.5
@@ -38430,7 +38429,7 @@ fsevents@^1.2.7:
     tslib: ^2.0.3
     turbo: ^1.2.16
     typedoc: ^0.20.12
-    typescript: ^4.6.4
+    typescript: ^4.9.4
     ui-box: ^5.4.0
     weak-napi: ^2.0.2
     webpack: ^5.70.0
@@ -46817,13 +46816,13 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-typescript@^4.6.4:
-  version: 4.7.3
-  resolution: "typescript@npm:4.7.3"
+typescript@^4.9.4:
+  version: 4.9.4
+  resolution: "typescript@npm:4.9.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: fd13a1ce53790a36bb8350e1f5e5e384b5f6cb9b0635114a6d01d49cb99916abdcfbc13c7521cdae2f2d3f6d8bc4a8ae7625edf645a04ee940588cd5e7597b2f
+  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
   languageName: node
   linkType: hard
 
@@ -46857,13 +46856,13 @@ typescript@^4.6.4:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
-  version: 4.7.3
-  resolution: "typescript@patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=32657b"
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.4
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=32657b"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f619532bccd55cbc634fa506d2c52514a1bdaadcb6d2077b75d3a62b7b9a5df1c4540d8008c73b6158dafd883fd519bcfc12a68477455c31db7afffd6300b2d6
+  checksum: 8a0218b6fc89f1f3fa1acb20415aab070cd10f060c2bd5fc23295bdfb36f83a5c4eef32eadcc9fd4140c3517501d1cb83aca53d924346c7305d0112731e10e58
   languageName: node
   linkType: hard
 
