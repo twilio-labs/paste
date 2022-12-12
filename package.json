@@ -173,7 +173,7 @@
     "del": "^5.1.0",
     "dotenv": "^16.0.0",
     "esbuild": "^0.14.43",
-    "eslint": "^7.32.0",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-twilio-react": "2.0.0",
     "eslint-config-twilio-ts": "2.0.0",
