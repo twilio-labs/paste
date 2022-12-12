@@ -50,10 +50,8 @@ export const UseUid = (): React.ReactNode => {
   );
 };
 
-UseUid.story = {
-  name: 'useUID',
-  parameters: {chromatic: {disable: true}},
-};
+UseUid.storyName = 'useUID';
+UseUid.parameters = {chromatic: {disable: true}};
 
 export const UseUidSeed = (): React.ReactNode => {
   return (
@@ -69,10 +67,8 @@ export const UseUidSeed = (): React.ReactNode => {
   );
 };
 
-UseUidSeed.story = {
-  name: 'useUIDSeed',
-  parameters: {chromatic: {disable: true}},
-};
+UseUidSeed.storyName = 'useUIDSeed';
+UseUidSeed.parameters = {chromatic: {disable: true}};
 
 export const UidFork = (): React.ReactNode => {
   return (
@@ -93,10 +89,8 @@ export const UidFork = (): React.ReactNode => {
   );
 };
 
-UidFork.story = {
-  name: 'UIDFork',
-  parameters: {chromatic: {disable: true}},
-};
+UidFork.storyName = 'UIDFork';
+UidFork.parameters = {chromatic: {disable: true}};
 
 export const VanillaUid = (): React.ReactNode => {
   return (
@@ -113,7 +107,5 @@ export const VanillaUid = (): React.ReactNode => {
   );
 };
 
-VanillaUid.story = {
-  name: 'vanilla uid',
-  parameters: {chromatic: {disable: true}},
-};
+VanillaUid.storyName = 'vanilla uid';
+VanillaUid.parameters = {chromatic: {disable: true}};

@@ -56,11 +56,9 @@ export const ControlledRadioGroupA = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupA.story = {
-  name: 'Controlled RadioGroup with no (default)checked on radios',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+ControlledRadioGroupA.storyName = 'Controlled RadioGroup with no (default)checked on radios';
+ControlledRadioGroupA.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -107,11 +105,9 @@ export const ControlledRadioGroupB = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupB.story = {
-  name: 'Controlled RadioGroup with defaultChecked set on different Radio',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+ControlledRadioGroupB.storyName = 'Controlled RadioGroup with defaultChecked set on different Radio';
+ControlledRadioGroupB.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -158,11 +154,9 @@ export const ControlledRadioGroupC = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupC.story = {
-  name: 'Controlled RadioGroup with checked set on different Radio',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+ControlledRadioGroupC.storyName = 'Controlled RadioGroup with checked set on different Radio';
+ControlledRadioGroupC.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -211,9 +205,7 @@ export const ControlledRadioGroupD = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupD.story = {
-  name: 'Controlled RadioGroup with checked and defaultChecked set on different Radios',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+ControlledRadioGroupD.storyName = 'Controlled RadioGroup with checked and defaultChecked set on different Radios';
+ControlledRadioGroupD.parameters = {
+  chromatic: {disableSnapshot: true},
 };

@@ -21,12 +21,10 @@ export const GrowingInputDemo: Story = () => {
   );
 };
 
-GrowingInputDemo.story = {
-  name: 'GrowingInput',
-  parameters: {
-    // Nothing to VRT. Story for developer experience
-    chromatic: {disableSnapshot: true},
-  },
+GrowingInputDemo.storyName = 'GrowingInput';
+GrowingInputDemo.parameters = {
+  // Nothing to VRT. Story for developer experience
+  chromatic: {disableSnapshot: true},
 };
 
 // eslint-disable-next-line import/no-default-export

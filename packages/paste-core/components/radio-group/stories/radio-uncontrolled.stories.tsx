@@ -30,11 +30,9 @@ export const RadioBasic = (): React.ReactNode => {
   );
 };
 
-RadioBasic.story = {
-  name: 'Radio - no initial defaultChecked',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+RadioBasic.storyName = 'Radio - no initial defaultChecked';
+RadioBasic.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -56,11 +54,9 @@ export const RadioWithNoID = (): React.ReactNode => {
   );
 };
 
-RadioWithNoID.story = {
-  name: 'Radio - with no ID',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+RadioWithNoID.storyName = 'Radio - with no ID';
+RadioWithNoID.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -92,9 +88,7 @@ export const RadioDefaultChecked = (): React.ReactNode => {
   );
 };
 
-RadioDefaultChecked.story = {
-  name: 'Radio - initial defaultChecked',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+RadioDefaultChecked.storyName = 'Radio - initial defaultChecked';
+RadioDefaultChecked.parameters = {
+  chromatic: {disableSnapshot: true},
 };
