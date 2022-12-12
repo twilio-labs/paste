@@ -34,49 +34,33 @@ export type ZIndicesKeys = keyof typeof zIndices;
 
 // TODO Dynamically type this
 export interface GenericThemeShape {
-  backgroundColors: Partial<
-    {
-      [key in BackgroundColorsKeys]: any;
-    }
-  >;
-  borderColors: Partial<
-    {
-      [key in BorderColorsKeys]: any;
-    }
-  >;
-  borderWidths: Partial<
-    {
-      [key in BorderWidthsKeys]: any;
-    }
-  >;
+  backgroundColors: Partial<{
+    [key in BackgroundColorsKeys]: any;
+  }>;
+  borderColors: Partial<{
+    [key in BorderColorsKeys]: any;
+  }>;
+  borderWidths: Partial<{
+    [key in BorderWidthsKeys]: any;
+  }>;
   breakpoints: Partial<{
     [key: string]: any;
   }>;
-  dataVisualization: Partial<
-    {
-      [key in DataVisualizationKeys]: any;
-    }
-  >;
-  fontSizes: Partial<
-    {
-      [key in FontSizesKeys]: any;
-    }
-  >;
-  fontWeights: Partial<
-    {
-      [key in FontWeightsKeys]: any;
-    }
-  >;
-  fonts: Partial<
-    {
-      [key in FontsKeys]: any;
-    }
-  >;
-  heights: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
+  dataVisualization: Partial<{
+    [key in DataVisualizationKeys]: any;
+  }>;
+  fontSizes: Partial<{
+    [key in FontSizesKeys]: any;
+  }>;
+  fontWeights: Partial<{
+    [key in FontWeightsKeys]: any;
+  }>;
+  fonts: Partial<{
+    [key in FontsKeys]: any;
+  }>;
+  heights: Partial<{
+    [key in SizingKeys]: any;
+  }>;
   iconSizes: Partial<{
     sizeIcon05: typeof sizings['sizeIcon05'];
     sizeIcon10: typeof sizings['sizeIcon10'];
@@ -91,64 +75,40 @@ export interface GenericThemeShape {
     sizeIcon100: typeof sizings['sizeIcon100'];
     sizeIcon110: typeof sizings['sizeIcon110'];
   }>;
-  lineHeights: Partial<
-    {
-      [key in LineHeightsKeys]: any;
-    }
-  >;
-  maxHeights: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  maxWidths: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  minHeights: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  minWidths: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  radii: Partial<
-    {
-      [key in RadiiKeys]: any;
-    }
-  >;
-  shadows: Partial<
-    {
-      [key in BoxShadowsKeys]: any;
-    }
-  >;
-  sizes: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  space: Partial<
-    {
-      [key in SpacingsKeys]: any;
-    }
-  >;
-  textColors: Partial<
-    {
-      [key in TextColorsKeys]: any;
-    }
-  >;
-  widths: Partial<
-    {
-      [key in SizingKeys]: any;
-    }
-  >;
-  zIndices: Partial<
-    {
-      [key in ZIndicesKeys]: any;
-    }
-  >;
+  lineHeights: Partial<{
+    [key in LineHeightsKeys]: any;
+  }>;
+  maxHeights: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  maxWidths: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  minHeights: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  minWidths: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  radii: Partial<{
+    [key in RadiiKeys]: any;
+  }>;
+  shadows: Partial<{
+    [key in BoxShadowsKeys]: any;
+  }>;
+  sizes: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  space: Partial<{
+    [key in SpacingsKeys]: any;
+  }>;
+  textColors: Partial<{
+    [key in TextColorsKeys]: any;
+  }>;
+  widths: Partial<{
+    [key in SizingKeys]: any;
+  }>;
+  zIndices: Partial<{
+    [key in ZIndicesKeys]: any;
+  }>;
 }

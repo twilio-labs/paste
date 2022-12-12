@@ -7,11 +7,9 @@ import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
 
 import {slugify} from '../utils/RouteUtils';
 
-const anchoredHeadingSpacing: Partial<
-  {
-    [key in HeadingProps['variant']]: Partial<BoxStyleProps>;
-  }
-> = {
+const anchoredHeadingSpacing: Partial<{
+  [key in HeadingProps['variant']]: Partial<BoxStyleProps>;
+}> = {
   heading10: {
     marginBottom: 'space70',
   },

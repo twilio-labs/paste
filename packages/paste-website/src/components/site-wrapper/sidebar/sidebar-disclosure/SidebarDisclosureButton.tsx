@@ -11,11 +11,9 @@ export interface SidebarDisclosureButtonProps extends BoxProps {
   level: 0 | 1;
 }
 
-const levelPaddingMap: Partial<
-  {
-    [key in SidebarDisclosureButtonProps['level']]: Partial<BoxStyleProps>;
-  }
-> = {
+const levelPaddingMap: Partial<{
+  [key in SidebarDisclosureButtonProps['level']]: Partial<BoxStyleProps>;
+}> = {
   0: {
     padding: 'space40',
   },
