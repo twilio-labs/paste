@@ -9,14 +9,16 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-actions',
-    '@storybook/addon-viewport',
     '@storybook/addon-interactions',
     'storybook-addon-gatsby',
     './addons/google-analytics/register',
   ],
+  framework: '@storybook/react',
   features: {
     interactionsDebugger: true,
+    reactOptions: {legacyRootApi: true},
+    storyStoreV7: true,
+    babelModeV7: true,
   },
   staticDirs: ['./static'],
   typescript: {
@@ -79,6 +81,9 @@ module.exports = {
 
     // FIX: Tell Storybook to look at dev files if available
     config.resolve.mainFields = ['main:dev', 'browser', 'module', 'main'];
+
+    // https://github.com/prismicio-community/storybook-addon-gatsby/issues/7
+    config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
 
     return config;
   },

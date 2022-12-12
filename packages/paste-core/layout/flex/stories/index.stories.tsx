@@ -359,9 +359,8 @@ export const ContainedWidth = (): React.ReactNode => {
     </Box>
   );
 };
-ContainedWidth.story = {
-  name: 'Contained width',
-};
+
+ContainedWidth.storyName = 'Contained width';
 
 export const CustomizedFlex: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();

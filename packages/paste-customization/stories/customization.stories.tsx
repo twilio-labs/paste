@@ -75,9 +75,7 @@ export const Provider: Story = (_args, {parameters: {isTestEnvironment}}) => {
   );
 };
 
-Provider.story = {
-  name: 'CustomizationProvider',
-};
+Provider.storyName = 'CustomizationProvider';
 Provider.parameters = {
   a11y: {
     // no need to a11y check customization
