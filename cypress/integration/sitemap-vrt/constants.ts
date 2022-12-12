@@ -11,6 +11,7 @@ export const SITEMAP = [
   '/blog/2022-09-23-paste-newsletter/',
   '/blog/2022-10-31-paste-newsletter/',
   '/blog/2022-12-06-announcing-the-conversations-ui-kit/',
+  '/blog/2022-12-09-paste-newsletter/',
   '/components/aspect-ratio/',
   '/components/anchor/',
   '/components/alert-dialog/',

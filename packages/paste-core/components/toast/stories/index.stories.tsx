@@ -264,9 +264,7 @@ export const ToastContainerStory = (): React.ReactNode => {
   );
 };
 
-ToastContainerStory.story = {
-  name: 'Toast container',
-};
+ToastContainerStory.storyName = 'Toast container';
 
 export const ToasterStory = (): React.ReactNode => {
   const toaster = useToaster();
@@ -349,6 +347,4 @@ export const ToasterStory = (): React.ReactNode => {
   );
 };
 
-ToasterStory.story = {
-  name: 'Toaster',
-};
+ToasterStory.storyName = 'Toaster';

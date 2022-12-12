@@ -40,11 +40,9 @@ export const UncontrolledRadioGroupA = (): React.ReactNode => {
   );
 };
 
-UncontrolledRadioGroupA.story = {
-  name: 'Uncontrolled RadioGroup with uncontrolled Radios',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+UncontrolledRadioGroupA.storyName = 'Uncontrolled RadioGroup with uncontrolled Radios';
+UncontrolledRadioGroupA.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 /**
@@ -104,9 +102,7 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
   );
 };
 
-UncontrolledRadioGroupB.story = {
-  name: 'Uncontrolled RadioGroup with controlled Radios',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+UncontrolledRadioGroupB.storyName = 'Uncontrolled RadioGroup with controlled Radios';
+UncontrolledRadioGroupB.parameters = {
+  chromatic: {disableSnapshot: true},
 };

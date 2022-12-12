@@ -157,9 +157,7 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
   );
 };
 
-PseudoClassesWithHoverPseudoProps.story = {
-  name: 'Pseudo-classes with hover pseudo props',
-};
+PseudoClassesWithHoverPseudoProps.storyName = 'Pseudo-classes with hover pseudo props';
 
 const CustomTextCollection: React.FC = () => {
   return (

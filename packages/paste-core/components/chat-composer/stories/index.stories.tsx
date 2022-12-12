@@ -113,10 +113,8 @@ export const WithOnChange: Story = () => {
   );
 };
 
-WithOnChange.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+WithOnChange.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const WithInitialValue: Story = () => {

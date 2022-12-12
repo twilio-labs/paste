@@ -164,9 +164,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-ComboboxNonHooks.story = {
-  name: 'Combobox - non-hooks',
-};
+ComboboxNonHooks.storyName = 'Combobox - non-hooks';
 
 export const MultiSelectionCombobox = (): React.ReactNode => {
   const seed = useUIDSeed();
@@ -278,6 +276,4 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
   );
 };
 
-MultiSelectionCombobox.story = {
-  name: 'Combobox - multiple selection',
-};
+MultiSelectionCombobox.storyName = 'Combobox - multiple selection';

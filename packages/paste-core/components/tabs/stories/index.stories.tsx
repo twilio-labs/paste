@@ -65,9 +65,7 @@ export const HorizontalTabs: React.FC = () => {
   );
 };
 // @ts-expect-error story
-HorizontalTabs.story = {
-  name: 'Horizontal Tabs',
-};
+HorizontalTabs.storyName = 'Horizontal Tabs';
 
 export const FittedTabs: React.FC = () => {
   const selectedId = useUID();
@@ -123,9 +121,7 @@ export const FittedTabs: React.FC = () => {
   );
 };
 // @ts-expect-error story
-FittedTabs.story = {
-  name: 'Fitted Tabs',
-};
+FittedTabs.storyName = 'Fitted Tabs';
 
 export const VerticalTabs: React.FC = () => {
   const selectedId = useUID();
@@ -181,9 +177,7 @@ export const VerticalTabs: React.FC = () => {
   );
 };
 // @ts-expect-error story
-VerticalTabs.story = {
-  name: 'Vertical Tabs',
-};
+VerticalTabs.storyName = 'Vertical Tabs';
 
 const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   const tab = useTabState();
@@ -221,9 +215,7 @@ export const StateHookTabs: React.FC = () => {
   );
 };
 // @ts-expect-error story
-StateHookTabs.story = {
-  name: 'State hook example',
-};
+StateHookTabs.storyName = 'State hook example';
 
 export const CenterAlignTabTest: React.FC = () => {
   return (
@@ -246,9 +238,7 @@ export const CenterAlignTabTest: React.FC = () => {
   );
 };
 // @ts-expect-error story
-CenterAlignTabTest.story = {
-  name: 'Testing Center Alignment',
-};
+CenterAlignTabTest.storyName = 'Testing Center Alignment';
 
 export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
