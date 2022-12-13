@@ -2501,7 +2501,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-runtime@npm:^7.15.0, @babel/plugin-transform-runtime@npm:^7.16.4, @babel/plugin-transform-runtime@npm:^7.17.0":
+"@babel/plugin-transform-runtime@npm:^7.15.0, @babel/plugin-transform-runtime@npm:^7.16.4":
   version: 7.17.0
   resolution: "@babel/plugin-transform-runtime@npm:7.17.0"
   dependencies:
@@ -39794,9 +39794,7 @@ fsevents@^1.2.7:
     "@babel/plugin-proposal-class-properties": ^7.16.7
     "@babel/plugin-proposal-object-rest-spread": ^7.17.3
     "@babel/plugin-proposal-optional-chaining": 7.16.7
-    "@babel/plugin-proposal-private-methods": ^7.16.11
     "@babel/plugin-proposal-private-property-in-object": ^7.16.7
-    "@babel/plugin-transform-runtime": ^7.17.0
     "@babel/preset-env": ^7.16.11
     "@babel/preset-react": ^7.16.7
     "@babel/preset-typescript": ^7.16.7
