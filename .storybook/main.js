@@ -13,12 +13,12 @@ module.exports = {
     'storybook-addon-gatsby',
     './addons/google-analytics/register',
   ],
-  framework: '@storybook/react',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {legacyRootApi: true},
+  },
   features: {
     interactionsDebugger: true,
-    reactOptions: {legacyRootApi: true},
-    storyStoreV7: true,
-    babelModeV7: true,
   },
   staticDirs: ['./static'],
   typescript: {
@@ -62,8 +62,9 @@ module.exports = {
     },
   },
 
-  core: {
-    builder: 'webpack5',
+  docs: {
+    docsPage: 'automatic',
+    defaultName: 'Docs',
   },
 
   webpackFinal: async (config) => {
@@ -84,6 +85,8 @@ module.exports = {
 
     // https://github.com/prismicio-community/storybook-addon-gatsby/issues/7
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
+    config.module.rules[1].exclude = [/node_modules\/(?!(gatsby)\/)/];
+    config.module.rules[2].exclude = [/node_modules\/(?!(gatsby)\/)/];
 
     return config;
   },

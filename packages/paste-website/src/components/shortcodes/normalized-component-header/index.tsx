@@ -1,5 +1,5 @@
 import * as React from 'react';
-import merge from 'deepmerge';
+const merge = require('deepmerge');
 
 import {GenericHeader} from '../generic-header';
 import type {GenericHeaderProps} from '../generic-header';

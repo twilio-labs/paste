@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {ChatLog, ChatBookend, ChatBookendItem} from '../../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: 'Components/ChatBookend',
 };
 
-export const ChatBookendExample: Story = () => (
+export const ChatBookendExample: StoryFn = () => (
   <ChatLog>
     <ChatBookend>
       <ChatBookendItem>Yesterday</ChatBookendItem>

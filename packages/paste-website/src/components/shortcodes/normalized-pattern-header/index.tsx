@@ -1,5 +1,5 @@
 import * as React from 'react';
-import merge from 'deepmerge';
+const merge = require('deepmerge');
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';

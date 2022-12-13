@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
@@ -54,7 +54,7 @@ export const AnchorsWithTruncation = (): React.ReactNode => {
 
 AnchorsWithTruncation.storyName = 'Anchors with truncation ';
 
-export const CustomizationBreadcrumb: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizationBreadcrumb: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const uniqueLandmarkIdentifier = useUID();
   return (
@@ -94,7 +94,7 @@ CustomizationBreadcrumb.parameters = {
   },
 };
 
-export const CustomizationBreadcrumbWithCustomName: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizationBreadcrumbWithCustomName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const uniqueLandmarkIdentifier = useUID();
   return (

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {ChatLog, ChatEvent} from '../../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: 'Components/ChatEvent',
 };
 
-export const ChatEventExample: Story = () => (
+export const ChatEventExample: StoryFn = () => (
   <ChatLog>
     <ChatEvent>
       <strong>Lauren Gardner, Lee White, Loreina Chew </strong>have joined the chat・3:42 PM

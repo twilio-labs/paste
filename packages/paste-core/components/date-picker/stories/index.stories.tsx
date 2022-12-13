@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
@@ -324,7 +324,7 @@ export const DatePickerWithMinAndMax: React.FC = (props) => {
   );
 };
 
-export const CustomizedDatePicker: Story = (_args, {parameters: {isTestEnvironment}, props}) => {
+export const CustomizedDatePicker: StoryFn = (_args, {parameters: {isTestEnvironment}, props}) => {
   const activeTheme = useTheme();
   const uidSeed = useUIDSeed();
   return (
