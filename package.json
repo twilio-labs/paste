@@ -126,7 +126,7 @@
     "@storybook/addons": "7.0.0-beta.4",
     "@storybook/cli": "7.0.0-beta.4",
     "@storybook/react": "7.0.0-beta.4",
-    "@storybook/react-webpack5": "7.0.0-beta.4",
+    "@storybook/react-vite": "7.0.0-beta.4",
     "@storybook/test-runner": "0.9.1",
     "@storybook/testing-library": "0.0.13",
     "@swc/core": "^1.2.160",
@@ -217,14 +217,13 @@
     "turbo": "^1.2.16",
     "typedoc": "^0.20.12",
     "typescript": "^4.9.4",
-    "ui-box": "^5.4.0",
-    "webpack": "^5.70.0"
+    "ui-box": "^5.4.0"
   },
   "resolutions": {
-    "@storybook/react/webpack": "^5",
     "react-hot-loader": "^4.13.0",
     "csstype": "3.0.11",
-    "playwright": "1.28.1"
+    "playwright": "1.28.1",
+    "vite": "3.2.5"
   },
   "husky": {
     "hooks": {

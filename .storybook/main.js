@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   stories: [
     '../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)',
@@ -10,11 +8,11 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
-    'storybook-addon-gatsby',
+    // 'storybook-addon-gatsby',
     './addons/google-analytics/register',
   ],
   framework: {
-    name: '@storybook/react-webpack5',
+    name: '@storybook/react-vite',
     options: {legacyRootApi: true},
   },
   features: {
@@ -65,29 +63,5 @@ module.exports = {
   docs: {
     docsPage: 'automatic',
     defaultName: 'Docs',
-  },
-
-  webpackFinal: async (config) => {
-    // Need to custom alias react-dom and scheduler for component profiling in production
-    // mode. Without doing so, no React profiling data can be extracted from stories
-    // When they are deployed.
-    const customAlias = {
-      'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
-      'scheduler/tracing': 'scheduler/tracing-profiling',
-      '@emotion/core': path.resolve(__dirname, '../node_modules/@emotion/react'),
-      '@emotion/styled': path.resolve(__dirname, '../node_modules/@emotion/styled'),
-      'emotion-theming': path.resolve(__dirname, '../node_modules/@emotion/react'),
-    };
-    config.resolve.alias = config.resolve.alias == null ? customAlias : {...config.resolve.alias, ...customAlias};
-
-    // FIX: Tell Storybook to look at dev files if available
-    config.resolve.mainFields = ['main:dev', 'browser', 'module', 'main'];
-
-    // https://github.com/prismicio-community/storybook-addon-gatsby/issues/7
-    config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
-    config.module.rules[1].exclude = [/node_modules\/(?!(gatsby)\/)/];
-    config.module.rules[2].exclude = [/node_modules\/(?!(gatsby)\/)/];
-
-    return config;
   },
 };

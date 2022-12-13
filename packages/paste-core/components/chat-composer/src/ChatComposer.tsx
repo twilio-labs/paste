@@ -30,14 +30,12 @@ import {
 } from '@twilio-paste/lexical-library';
 import {StylingGlobals} from '@twilio-paste/styling-library';
 import type {LexicalComposerProps, OnChangeFunction, ContentEditableProps} from '@twilio-paste/lexical-library';
+import merge from 'deepmerge';
 
 import {chatComposerLexicalStyles} from './styles';
 import {AutoLinkPlugin} from './AutoLinkPlugin';
 import {PlaceholderWrapper} from './PlaceholderWrapper';
 import {baseConfig, renderInitialText} from './helpers';
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports, unicorn/prefer-module
-const merge = require('deepmerge');
 
 export interface ChatComposerProps extends ContentEditableProps {
   children?: LexicalComposerProps['children'];
