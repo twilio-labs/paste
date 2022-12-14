@@ -430,7 +430,7 @@ jobs:
         if: steps.run-chromatic-action.outputs.changeCount > 0
         uses: delivery-much/actions-assigner@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACTIONS_ASSIGNER_TOKEN }}
           team-reviewers: "twilio-labs/design-systems-pd" # comma-separated (example: "itsOliverBott, SantaClaus, b4tman, sp0derman")
 
   pr-categorizer:
