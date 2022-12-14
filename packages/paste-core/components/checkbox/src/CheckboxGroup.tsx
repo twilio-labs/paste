@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {InlineControlGroup} from '@twilio-paste/inline-control-group';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 
+import type {CheckboxProps} from './Checkbox';
 import {CheckboxContext} from './CheckboxContext';
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {
@@ -60,7 +61,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
         >
           {React.Children.map(children, (child, index) => {
             return React.isValidElement(child)
-              ? React.cloneElement(child, {
+              ? React.cloneElement(child as React.ReactElement<CheckboxProps>, {
                   isSelectAll: isSelectAll && index === 0,
                   isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
                 })
