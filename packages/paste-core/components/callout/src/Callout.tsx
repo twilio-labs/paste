@@ -8,6 +8,7 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
+// eslint-disable-next-line paste-internal/no-invalid-module-paths
 import type {GenericIconProps} from '@twilio-paste/icons/src/types';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 

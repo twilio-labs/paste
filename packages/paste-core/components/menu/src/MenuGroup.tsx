@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
+// eslint-disable-next-line paste-internal/no-invalid-module-paths
 import type {GenericIconProps} from '@twilio-paste/icons/src/types';
 import {Text} from '@twilio-paste/text';
 
