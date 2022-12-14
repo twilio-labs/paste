@@ -9,6 +9,9 @@ import {SidebarDisclosureContent} from '../src/components/site-wrapper/sidebar/s
 
 export default {
   title: 'Website/Sidebar-Navigation',
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
 };
 
 export const ComplexSidebar = (): React.ReactNode => (

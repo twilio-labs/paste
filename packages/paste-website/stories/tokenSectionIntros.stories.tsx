@@ -4,6 +4,9 @@ import {sectionIntros} from '../src/components/tokens-list/sectionIntros';
 
 export default {
   title: 'Website/Token Section Intros',
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
 };
 
 export const BackgroundColorsIntro = (): React.ReactNode => {

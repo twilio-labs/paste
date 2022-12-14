@@ -41,7 +41,7 @@ const config: StorybookConfig = {
       },
       build: {
         rollupOptions: {
-          external: ['gatsby'],
+          external: ['gatsby', '@twilio-paste/design-tokens/dist/tokens.generic'],
         },
       },
     });
