@@ -1,4 +1,5 @@
 import type {StorybookConfig} from '@storybook/react-vite';
+import {mergeConfig} from 'vite';
 
 const config: StorybookConfig = {
   stories: [
@@ -25,10 +26,25 @@ const config: StorybookConfig = {
     // enable type checking
     check: true,
   },
-
   docs: {
     docsPage: 'automatic',
     defaultName: 'Docs',
+  },
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      optimizeDeps: {
+        include: [
+          '@twilio-paste/design-tokens/dist/tokens.generic',
+          '@storybook/addon-viewport',
+          'chromatic/isChromatic',
+        ],
+      },
+      build: {
+        rollupOptions: {
+          external: ['gatsby'],
+        },
+      },
+    });
   },
 };
 
