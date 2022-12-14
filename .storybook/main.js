@@ -1,3 +1,5 @@
+import react from '@vitejs/plugin-react';
+
 module.exports = {
   stories: [
     '../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)',
@@ -63,5 +65,27 @@ module.exports = {
   docs: {
     docsPage: 'automatic',
     defaultName: 'Docs',
+  },
+
+  async viteFinal(config, {configType}) {
+    return {
+      ...config,
+      plugins: config.plugins?.map((plugin) => {
+        if (plugin?.[0]?.name === 'vite:react-babel') return react({jsxRuntime: 'classic'});
+        return plugin;
+      }),
+      build: {
+        ...config.build,
+        rollupOptions: {
+          ...config.build.rollupOptions,
+          external: [...config.build.rollupOptions.external, 'react/jsx-runtime'],
+        },
+        commonjsOptions: {
+          ...config.build.commonjsOptions,
+          include: [/node_modules/],
+          requireReturnsDefault: 'auto',
+        },
+      },
+    };
   },
 };
