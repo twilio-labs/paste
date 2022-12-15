@@ -13,7 +13,7 @@
     "build": "ts-node ./tools/create-package-mappings.ts"
   },
   "dependencies": {
-    "chalk": "2.4.2",
+    "chalk": "4.1.2",
     "execa": "3.2.0",
     "globby": "10.0.1",
     "inquirer": "7.0.0",
