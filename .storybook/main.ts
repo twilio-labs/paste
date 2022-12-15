@@ -1,5 +1,6 @@
 import type {StorybookConfig} from '@storybook/react-vite';
 import {mergeConfig} from 'vite';
+import path from 'path';
 
 const config: StorybookConfig = {
   stories: [
@@ -32,6 +33,11 @@ const config: StorybookConfig = {
   },
   async viteFinal(config) {
     return mergeConfig(config, {
+      resolve: {
+        alias: {
+          gatsby: path.resolve(__dirname, './gatsby'),
+        },
+      },
       optimizeDeps: {
         include: [
           '@twilio-paste/design-tokens/dist/tokens.generic',
@@ -41,7 +47,7 @@ const config: StorybookConfig = {
       },
       build: {
         rollupOptions: {
-          external: ['gatsby', '@twilio-paste/design-tokens/dist/tokens.generic'],
+          external: ['@twilio-paste/design-tokens/dist/tokens.generic'],
         },
       },
     });
