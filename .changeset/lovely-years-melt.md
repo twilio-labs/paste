@@ -9,7 +9,7 @@
 - ProductConnectionsIcon
 - ProductEngageIcon
 - ProductPersonasIcon
-- ProductPrivayIcon
+- ProductPrivacyIcon
 - ProductProtocolsIcon
 - ProductReverseETLIcon
 - ProductTraitsIcon
