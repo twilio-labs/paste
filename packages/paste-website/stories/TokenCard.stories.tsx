@@ -33,9 +33,6 @@ export default {
       control: {type: 'boolean'},
     },
   },
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
 } as Meta<typeof TokenCard>;
 
 const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase}) => {

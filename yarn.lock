@@ -39783,7 +39783,6 @@ fsevents@^1.2.7:
     search-in-file: ^1.2.2
     shelljs: ^0.8.3
     start-server-and-test: ^1.11.5
-    storybook-addon-gatsby: ^0.0.5
     terser: ^5.3.0
     theo: ^8.1.5
     ts-node: ^10.0.0
@@ -46004,15 +46003,6 @@ fsevents@^1.2.7:
   version: 2.14.2
   resolution: "store2@npm:2.14.2"
   checksum: 6f270fc5bab99b63f45fcc7bd8b99c2714b4adf880f557ed7ffb5ed3987131251165bccde425a00928aaf044870aee79ddeef548576d093c68703ed2edec45d7
-  languageName: node
-  linkType: hard
-
-"storybook-addon-gatsby@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "storybook-addon-gatsby@npm:0.0.5"
-  peerDependencies:
-    gatsby: ^3 || ^4
-  checksum: 36e7b61b5d2e7c700feffb10961d56d7cbba72a05b91dfaa6eaa17ec295ca7d7dc1463552c3508ace205be45d38d1788d41cbdb61e707e0c6b08dce471ddebff
   languageName: node
   linkType: hard
 

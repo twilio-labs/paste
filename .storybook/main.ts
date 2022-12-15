@@ -12,7 +12,6 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
-    // 'storybook-addon-gatsby',
     './addons/google-analytics/register',
   ],
   framework: {
@@ -39,16 +38,7 @@ const config: StorybookConfig = {
         },
       },
       optimizeDeps: {
-        include: [
-          '@twilio-paste/design-tokens/dist/tokens.generic',
-          '@storybook/addon-viewport',
-          'chromatic/isChromatic',
-        ],
-      },
-      build: {
-        rollupOptions: {
-          external: ['@twilio-paste/design-tokens/dist/tokens.generic'],
-        },
+        include: ['@storybook/addon-viewport', 'chromatic/isChromatic'],
       },
     });
   },
