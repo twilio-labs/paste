@@ -183,6 +183,7 @@ jobs:
           exitOnceUploaded: true
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+          NODE_OPTIONS: --max-old-space-size=6144
 
   # run this job first to create a single timestamped id for all percy batches on parallel machines
   percy-batch-id:
