@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {TFoot} from '@twilio-paste/table';
 import type {TFootProps} from '@twilio-paste/table';
 

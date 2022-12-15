@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {THead} from '@twilio-paste/table';
 import type {THeadProps} from '@twilio-paste/table';
 
