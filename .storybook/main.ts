@@ -38,7 +38,7 @@ const config: StorybookConfig = {
         },
       },
       optimizeDeps: {
-        include: ['@storybook/addon-viewport', 'chromatic/isChromatic'],
+        include: ['@storybook/addon-viewport', 'chromatic/isChromatic', '@emotion/react/jsx-dev-runtime'],
       },
     });
   },
