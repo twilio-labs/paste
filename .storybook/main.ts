@@ -35,6 +35,9 @@ const config: StorybookConfig = {
       resolve: {
         alias: {
           gatsby: path.resolve(__dirname, './gatsby'),
+          'react-dom/client': path.resolve(__dirname, '../node_modules/react-dom/client'),
+          'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
+          'scheduler/tracing': path.resolve(__dirname, '../node_modules/scheduler/tracing-profiling'),
         },
       },
       optimizeDeps: {
