@@ -1,9 +1,10 @@
+/// <reference types="vite/client" />
 import React from 'react';
 import isChromatic from 'chromatic/isChromatic';
 import {version} from '../packages/paste-core/core-bundle/package.json';
 
 const trackRenderPerformance = (data) => {
-  const commitSha = process.env.STORYBOOK_GITHUB_SHA ? process.env.STORYBOOK_GITHUB_SHA : 'localdev';
+  const commitSha = import.meta.env.STORYBOOK_GITHUB_SHA ? import.meta.env.STORYBOOK_GITHUB_SHA : 'localdev';
 
   fetch('https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric', {
     method: 'POST',
