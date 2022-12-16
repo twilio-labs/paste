@@ -1,6 +1,5 @@
 {
   "buildCommand": "build",
-  "node": "16.13.0",
   "packages": [
     "/packages/paste-icons",
     "/packages/paste-core/core-bundle",
