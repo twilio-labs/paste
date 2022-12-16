@@ -171,6 +171,8 @@ export const parameters = {
   },
 };
 
+// https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook/#manual-configuration
+
 global.___loader = {
   enqueue: () => {},
   hovering: () => {},
