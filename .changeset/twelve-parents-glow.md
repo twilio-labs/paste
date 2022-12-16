@@ -68,3 +68,5 @@
 ---
 
 Update packages to be ESM-compatible
+
+[Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
