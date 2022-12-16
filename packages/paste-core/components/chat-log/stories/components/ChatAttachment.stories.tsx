@@ -16,7 +16,7 @@ import {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatAttachment',
+  title: 'Components/ChatLog',
 };
 
 export const InboundChatMessageWithAttachment: StoryFn = () => (

@@ -5,7 +5,7 @@ import {ChatMessage, ChatBubble, ChatLog} from '../../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatBubble',
+  title: 'Components/ChatLog',
 };
 
 export const InboundChatMessage: StoryFn = () => (

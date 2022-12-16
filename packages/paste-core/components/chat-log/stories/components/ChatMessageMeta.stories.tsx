@@ -6,7 +6,7 @@ import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} 
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatMessageMeta',
+  title: 'Components/ChatLog',
 };
 
 export const InboundMessageWithMeta: StoryFn = () => (

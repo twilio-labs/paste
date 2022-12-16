@@ -22,16 +22,6 @@ import {
   ChatEvent,
 } from '../src';
 
-export {InboundChatMessage, OutboundChatMessage} from './components/ChatBubble.stories';
-export {InboundMessageWithMeta, OutboundMessageWithMeta} from './components/ChatMessageMeta.stories';
-export {
-  InboundChatMessageWithAttachment,
-  OutboundChatMessageWithAttachment,
-  ComposerAttachmentCardExample,
-} from './components/ChatAttachment.stories';
-export {ChatBookendExample} from './components/ChatBookend.stories';
-export {ChatEventExample} from './components/ChatEvent.stories';
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/ChatLog',

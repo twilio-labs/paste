@@ -14,7 +14,7 @@ import type {PartialIDChat} from '../../src/useChatLogger';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/UseChatLogger',
+  title: 'Components/ChatLog',
 };
 
 export const UseChatLogger: StoryFn = () => {
