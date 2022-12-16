@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.0.3
+
+### Patch Changes
+
+- [`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb) [#2878](https://github.com/twilio-labs/paste/pull/2878) Thanks [@Niznikr](https://github.com/Niznikr)! - Update to TypeScript v4.9
+
 ## 10.0.2
 
 ### Patch Changes
