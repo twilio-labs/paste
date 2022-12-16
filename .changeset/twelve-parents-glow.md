@@ -60,7 +60,6 @@
 '@twilio-paste/sibling-box': patch
 '@twilio-paste/text': patch
 '@twilio-paste/customization': patch
-'@twilio-paste/design-tokens': patch
 '@twilio-paste/data-visualization-library': patch
 '@twilio-paste/style-props': patch
 '@twilio-paste/website': patch
@@ -68,5 +67,3 @@
 ---
 
 Update packages to be ESM-compatible
-
-[Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
