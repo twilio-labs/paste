@@ -6,12 +6,18 @@ on:
 
 jobs:
   build:
-    name: Build system packages
+    name: Build system packages and type check
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -45,75 +51,21 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build
-
-      - name: Store build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: |
-            packages/**/dist/**/*
-            packages/paste-core/core-bundle/**/*
-            packages/paste-icons/cjs/**/*
-            packages/paste-icons/esm/**/*
-            packages/paste-design-tokens/types/**/*
-            packages/paste-codemods/tools/.cache/mappings.json
-
-  type_check:
-    name: Type check
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.13.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Load Yarn cache
-        uses: actions/cache@v3
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
-
-      - name: Node modules cache
-        uses: actions/cache@v3
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+        run: yarn build --base=origin/main
 
       - name: Run type checker
-        run: yarn type-check
+        run: yarn type-check --base=origin/main
 
   eslint:
     name: Lint repository
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -146,22 +98,24 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run eslint
         run: yarn lint
 
   tests:
     name: Test repository using React 18
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -194,22 +148,24 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run tests
         run: yarn test
 
   react17_tests:
     name: Test repository using React 17
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -233,6 +189,12 @@ jobs:
       # since we need to change the React version installed
       - name: Install Dependencies
         run: yarn install --immutable
+
+      # Note: Build first before we change the react version installed.
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Install React 17
         run: |
@@ -242,22 +204,19 @@ jobs:
           yarn set resolution react-dom@npm:^18.0.0 ^17.0.2
           yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
-
       - name: Run tests
         run: yarn test
 
   react16_tests:
     name: Test repository using React 16
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -282,6 +241,12 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
+      # Note: Build first before we change the react version installed.
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
       - name: Install React 16
         run: |
           yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
@@ -290,18 +255,11 @@ jobs:
           yarn set resolution react-dom@npm:^18.0.0 ^16.8.6
           yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
-
       - name: Run tests
         run: yarn test
 
   storybook_tests:
     name: Storybook test runner
-    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -309,6 +267,10 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -352,11 +314,10 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Install Playwright
         if: steps.playwright-cache.outputs.cache-hit != 'true'
@@ -367,11 +328,14 @@ jobs:
 
   prettier:
     name: Prettier checks
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -404,18 +368,16 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run prettier
         run: yarn prettier
 
   chromatic:
     name: Component Visual regression tests
-    needs: build
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
 
@@ -423,8 +385,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
-          # Chromatic needs the full git history to work
           fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -457,11 +420,10 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build --base=origin/main
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run Chromatic
         uses: chromaui/action@v1

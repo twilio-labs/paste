@@ -97,9 +97,6 @@ cypress/downloads
 !.yarn/versions
 
 
-# turborepo
-.turbo
-
 # apps
 # vs-code-intellisense
 out

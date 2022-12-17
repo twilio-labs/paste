@@ -1,7 +1,8 @@
-const {generatePackageExportsMap} = require('../generatePackageExportsMap');
+import type {PackageShape} from '../../../../tools/utils/getRepoPackages';
+import {generatePackageExportsMap} from '../generatePackageExportsMap';
 
 // This is a simplified mock of paste packages
-const mockGetPastePackages = () => [
+const mockGetPastePackages = async (): Promise<PackageShape[] | null> => [
   {
     name: '@twilio-paste/stack',
     version: '0.1.49',
@@ -51,15 +52,16 @@ describe('generatePackageExportsMap', () => {
     });
   });
 
-  /* Not useful, but leaving for documentation purposes
-  // This is the local cache of the last run of getPastePackages, which we also mock as `mockGetPastePackages`
-  // const pastePackagesFromCache = require('../../../tools/.cache/packages.json');
-  // This is the local cache of the last run of generateExportsMap
-  // const mappingsFromCache = require('../tools/.cache/mappings.json');
-
-  it('Creates mapping file successfully from cache', async () => {
-    const generatedMappings = await generatePackageExportsMap(() => pastePackagesFromCache);
-    expect(generatedMappings).toEqual(mappingsFromCache);
-  });
-  */
+  /**
+   * Not useful, but leaving for documentation purposes
+   * This is the local cache of the last run of getPastePackages, which we also mock as `mockGetPastePackages`
+   * const pastePackagesFromCache = require('../../../tools/.cache/packages.json');
+   * This is the local cache of the last run of generateExportsMap
+   * const mappingsFromCache = require('../tools/.cache/mappings.json');
+   *
+   * it('Creates mapping file successfully from cache', async () => {
+   *   const generatedMappings = await generatePackageExportsMap(() => pastePackagesFromCache);
+   *   expect(generatedMappings).toEqual(mappingsFromCache);
+   * });
+   */
 });
