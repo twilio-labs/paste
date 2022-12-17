@@ -1,6 +1,3 @@
-const path = require('path');
-const cachedPackages = require('./tools/.cache/packages.json');
-
 // Based on https://github.com/iamturns/create-exposed-app/blob/master/.eslintrc.js
 module.exports = {
   root: true,
@@ -8,7 +5,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['eslint-comments', 'jest', 'unicorn', 'promise', '@emotion/eslint-plugin'],
+  plugins: ['eslint-comments', 'jest', 'unicorn', 'promise', '@emotion/eslint-plugin', 'paste-internal'],
   extends: [
     'twilio-react',
     'twilio-ts',
@@ -25,14 +22,6 @@ module.exports = {
     jest: true,
   },
   rules: {
-    /** TWILIO STYLE OVERRIDES */
-    // ESLint has difficulty with our Paste dependencies, so we have to explicitly say where each package is
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        packageDir: [path.join(__dirname, './'), ...cachedPackages.map((package) => package.location)],
-      },
-    ],
     // Makes no sense to allow type inference for expression parameters, but require typing the response
     '@typescript-eslint/explicit-function-return-type': [
       'error',

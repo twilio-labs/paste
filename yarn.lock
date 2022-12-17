@@ -11896,6 +11896,7 @@ __metadata:
     "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
+    "@twilio-paste/text": ^7.0.1
     "@twilio-paste/theme": ^8.0.3
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
@@ -11908,6 +11909,7 @@ __metadata:
     "@twilio-paste/screen-reader-only": ^10.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
+    "@twilio-paste/text": ^7.0.1
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
@@ -11989,10 +11991,12 @@ __metadata:
     "@twilio-paste/icons": ^9.4.1
     "@twilio-paste/media-object": ^7.0.1
     "@twilio-paste/screen-reader-only": ^10.0.2
+    "@twilio-paste/stack": ^5.0.1
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/text": ^7.0.1
     "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/truncate": ^11.0.1
+    "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12006,13 +12010,15 @@ __metadata:
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/media-object": ^7.0.0
     "@twilio-paste/screen-reader-only": ^10.0.0
+    "@twilio-paste/stack": ^5.0.1
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/text": ^7.0.0
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/truncate": ^11.0.0
+    "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -12117,8 +12123,8 @@ __metadata:
     "@twilio-paste/tooltip": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -12327,6 +12333,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    ts-node: ^10.0.0
   peerDependencies:
     "@twilio-paste/icons": ^9.0.0
     prop-types: ^15.7.2
@@ -12378,9 +12385,10 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/icons": ^9.3.1
     "@twilio-paste/reakit-library": ^0.8.7
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.1
     "@twilio-paste/stack": ^5.0.1
-    "@twilio-paste/style-props": ^6.1.1
+    "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.3
     "@twilio-paste/table": ^5.1.1
     "@twilio-paste/theme": ^8.0.3
@@ -12400,6 +12408,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.0.0
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/stack": ^5.0.0
     "@twilio-paste/style-props": ^6.0.0
@@ -12655,8 +12664,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/uid-library": ^0.2.5
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -12891,8 +12900,8 @@ __metadata:
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/theme": ^8.0.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -13182,8 +13191,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -13212,6 +13221,7 @@ __metadata:
     "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/icons": ^9.3.1
     "@twilio-paste/modal-dialog-primitive": ^0.3.3
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.1
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
@@ -13231,6 +13241,7 @@ __metadata:
     "@twilio-paste/heading": ^8.0.0
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/modal-dialog-primitive": ^0.3.0
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
@@ -13343,6 +13354,7 @@ __metadata:
     "@twilio-paste/icons": ^9.3.1
     "@twilio-paste/non-modal-dialog-primitive": ^0.3.11
     "@twilio-paste/reakit-library": ^0.8.7
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.1
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
@@ -13361,6 +13373,7 @@ __metadata:
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/non-modal-dialog-primitive": ^0.3.3
     "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
@@ -13470,10 +13483,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/react-textarea-autosize-library@workspace:packages/paste-libraries/react-textarea-autosize"
   dependencies:
+    lodash: 4.17.21
     react: ^17.0.2
     react-dom: ^17.0.2
-    use-composed-ref: ^1.3.0
-    use-latest: ^1.2.1
+    use-composed-ref: 1.3.0
+    use-latest: 1.2.1
   peerDependencies:
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
@@ -13640,8 +13654,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -13808,8 +13822,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -13969,6 +13983,7 @@ __metadata:
     "@twilio-paste/icons": ^9.3.1
     netlify-cli: ^12.2.10
     next: ^12.1.6
+    react: ^17.0.2
     react-color: ^2.19.3
   languageName: unknown
   linkType: soft
@@ -14041,6 +14056,7 @@ __metadata:
     "@twilio-paste/icons": ^9.3.1
     "@twilio-paste/media-object": ^7.0.1
     "@twilio-paste/reakit-library": ^0.8.7
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.1
     "@twilio-paste/stack": ^5.0.1
     "@twilio-paste/style-props": ^6.1.1
@@ -14059,6 +14075,7 @@ __metadata:
     "@twilio-paste/icons": ^9.0.0
     "@twilio-paste/media-object": ^7.0.0
     "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/spinner": ^11.0.0
     "@twilio-paste/stack": ^5.0.0
     "@twilio-paste/style-props": ^6.0.0
@@ -14229,6 +14246,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@mdx-js/tag": ^0.20.3
     "@reach/router": ^1.3.4
+    "@testing-library/react": ^12.1.4
     "@twilio-paste/alert": ^11.0.2
     "@twilio-paste/alert-dialog": ^6.0.1
     "@twilio-paste/anchor": ^9.0.1
@@ -14249,6 +14267,7 @@ __metadata:
     "@twilio-paste/combobox": ^13.0.1
     "@twilio-paste/combobox-primitive": ^0.3.6
     "@twilio-paste/customization": ^5.0.1
+    "@twilio-paste/data-grid": ^5.0.1
     "@twilio-paste/data-visualization-library": ^2.0.1
     "@twilio-paste/date-picker": ^3.0.1
     "@twilio-paste/design-tokens": ^8.1.2
@@ -25018,6 +25037,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-module-utils@npm:^2.7.3":
+  version: 2.7.4
+  resolution: "eslint-module-utils@npm:2.7.4"
+  dependencies:
+    debug: ^3.2.7
+  peerDependenciesMeta:
+    eslint:
+      optional: true
+  checksum: 5da13645daff145a5c922896b258f8bba560722c3767254e458d894ff5fbb505d6dfd945bffa932a5b0ae06714da2379bd41011c4c20d2d59cc83e23895360f7
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-cypress@npm:2.12.1":
   version: 2.12.1
   resolution: "eslint-plugin-cypress@npm:2.12.1"
@@ -25081,7 +25112,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:2.25.4, eslint-plugin-import@npm:^2.25.3, eslint-plugin-import@npm:^2.25.4":
+"eslint-plugin-import@npm:2.26.0":
+  version: 2.26.0
+  resolution: "eslint-plugin-import@npm:2.26.0"
+  dependencies:
+    array-includes: ^3.1.4
+    array.prototype.flat: ^1.2.5
+    debug: ^2.6.9
+    doctrine: ^2.1.0
+    eslint-import-resolver-node: ^0.3.6
+    eslint-module-utils: ^2.7.3
+    has: ^1.0.3
+    is-core-module: ^2.8.1
+    is-glob: ^4.0.3
+    minimatch: ^3.1.2
+    object.values: ^1.1.5
+    resolve: ^1.22.0
+    tsconfig-paths: ^3.14.1
+  peerDependencies:
+    eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
+  checksum: 0bf77ad80339554481eafa2b1967449e1f816b94c7a6f9614ce33fb4083c4e6c050f10d241dd50b4975d47922880a34de1e42ea9d8e6fd663ebb768baa67e655
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-import@npm:^2.25.3, eslint-plugin-import@npm:^2.25.4":
   version: 2.25.4
   resolution: "eslint-plugin-import@npm:2.25.4"
   dependencies:
@@ -25176,10 +25230,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-paste-internal@link:./.eslint/rules::locator=paste%40workspace%3A.":
+"eslint-plugin-paste-internal@workspace:packages/paste-eslint/eslint-plugin-paste-internal":
   version: 0.0.0-use.local
-  resolution: "eslint-plugin-paste-internal@link:./.eslint/rules::locator=paste%40workspace%3A."
-  languageName: node
+  resolution: "eslint-plugin-paste-internal@workspace:packages/paste-eslint/eslint-plugin-paste-internal"
+  dependencies:
+    eslint: ^7.32.0
+  languageName: unknown
   linkType: soft
 
 "eslint-plugin-prettier@npm:4.2.1, eslint-plugin-prettier@npm:^4.0.0":
@@ -39499,10 +39555,9 @@ fsevents@^1.2.7:
     eslint-config-twilio-ts: 2.0.0
     eslint-plugin-cypress: 2.12.1
     eslint-plugin-eslint-comments: 3.2.0
-    eslint-plugin-import: 2.25.4
+    eslint-plugin-import: 2.26.0
     eslint-plugin-jest: 26.1.3
     eslint-plugin-jsx-a11y: 6.5.1
-    eslint-plugin-paste-internal: "link:./.eslint/rules"
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-promise: 6.0.0
     eslint-plugin-react: 7.29.4
@@ -47627,6 +47682,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"tsconfig-paths@npm:^3.14.1":
+  version: 3.14.1
+  resolution: "tsconfig-paths@npm:3.14.1"
+  dependencies:
+    "@types/json5": ^0.0.29
+    json5: ^1.0.1
+    minimist: ^1.2.6
+    strip-bom: ^3.0.0
+  checksum: 8afa01c673ebb4782ba53d3a12df97fa837ce524f8ad38ee4e2b2fd57f5ac79abc21c574e9e9eb014d93efe7fe8214001b96233b5c6ea75bd1ea82afe17a4c6d
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.0.0, tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -48922,7 +48989,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"use-composed-ref@npm:^1.3.0":
+"use-composed-ref@npm:1.3.0":
   version: 1.3.0
   resolution: "use-composed-ref@npm:1.3.0"
   peerDependencies:
@@ -48943,7 +49010,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"use-latest@npm:^1.2.1":
+"use-latest@npm:1.2.1":
   version: 1.2.1
   resolution: "use-latest@npm:1.2.1"
   dependencies:

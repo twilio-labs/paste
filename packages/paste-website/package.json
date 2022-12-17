@@ -43,6 +43,7 @@
     "@twilio-paste/combobox": "^13.0.1",
     "@twilio-paste/combobox-primitive": "^0.3.6",
     "@twilio-paste/customization": "^5.0.1",
+    "@twilio-paste/data-grid": "^5.0.1",
     "@twilio-paste/data-visualization-library": "^2.0.1",
     "@twilio-paste/date-picker": "^3.0.1",
     "@twilio-paste/design-tokens": "^8.1.2",
@@ -142,6 +143,7 @@
     "winston": "^3.8.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.4",
     "netlify-cli": "^12.2.10"
   },
   "resolutions": {

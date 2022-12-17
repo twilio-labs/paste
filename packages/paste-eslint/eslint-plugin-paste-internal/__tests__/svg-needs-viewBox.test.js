@@ -2,14 +2,9 @@
  * @fileoverview All svgs should have a viewBox attribute
  * @author Glorilí Alejandro
  */
-'use strict';
-
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
-import rule from '../rules/svg-needs-viewBox';
 import {RuleTester} from 'eslint';
+
+import rule from '../src/rules/svg-needs-viewBox';
 
 RuleTester.setDefaultConfig({
   parserOptions: {
@@ -19,10 +14,6 @@ RuleTester.setDefaultConfig({
     },
   },
 });
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run('svg-needs-viewBox', rule, {

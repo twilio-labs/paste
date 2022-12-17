@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
 import {useTheme} from '@twilio-paste/core/theme';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import {useUIDSeed} from '@twilio-paste/core/uid-library';
 import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/core/popover';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
 import {Label} from '@twilio-paste/core/label';
@@ -9,6 +9,7 @@ import {ChromePicker} from 'react-color';
 import type {ColorChangeHandler, ColorResult} from 'react-color';
 import {Input} from '@twilio-paste/core/input';
 import {ColorPickerIcon} from '@twilio-paste/icons/cjs/ColorPickerIcon';
+
 import type {TokenContextProps} from '../../context/TokenContext';
 
 type ColorTokenInputProps = {
@@ -50,19 +51,19 @@ export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({bucket, tokenNa
       (valueParts.length === 3 || valueParts.length === 4) &&
       isInRange(partOne) &&
       isInRange(partTwo) &&
-      isInRange(partThree)
+      isInRange(partThree) &&
+      (!partFour || (isRGBA && partFour <= 1 && partFour >= 0)) &&
+      onChange != null
     ) {
-      if (!partFour || (isRGBA && partFour <= 1 && partFour >= 0)) {
-        if (onChange != null) {
-          onChange(bucket, tokenName, value);
-        }
-      }
+      onChange(bucket, tokenName, value);
     }
     setLocalValue(value);
   };
 
-  // For color picker styling see:
-  // https://github.com/casesandberg/react-color/blob/master/src/components/chrome/Chrome.js#L11
+  /*
+   * For color picker styling see:
+   * https://github.com/casesandberg/react-color/blob/master/src/components/chrome/Chrome.js#L11
+   */
   return (
     <Box key={tokenName} marginBottom="space60">
       <Label htmlFor={seed(tokenName)}>{tokenName}</Label>
