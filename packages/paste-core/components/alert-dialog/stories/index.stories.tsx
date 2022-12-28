@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
 import {Heading} from '@twilio-paste/heading';
@@ -44,11 +45,9 @@ export const AlertDialogWithTwoActionsStory = (): React.ReactNode => {
   return <AlertDialogWithTwoActions />;
 };
 
-AlertDialogWithTwoActionsStory.story = {
-  name: 'Alert Dialog With Two Actions',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+AlertDialogWithTwoActionsStory.storyName = 'Alert Dialog With Two Actions';
+AlertDialogWithTwoActionsStory.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const DestructiveAlertDialog = (): JSX.Element => {
@@ -71,11 +70,9 @@ export const DestructiveAlertDialogStory = (): React.ReactNode => {
   return <DestructiveAlertDialog />;
 };
 
-DestructiveAlertDialogStory.story = {
-  name: 'Destructive Alert Dialog',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+DestructiveAlertDialogStory.storyName = 'Destructive Alert Dialog';
+DestructiveAlertDialogStory.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const OpenAlertDialogFromButton = (): JSX.Element => {
@@ -106,11 +103,9 @@ export const OpenAlertDialogFromButtonStory = (): React.ReactNode => {
   return <OpenAlertDialogFromButton />;
 };
 
-OpenAlertDialogFromButtonStory.story = {
-  name: 'Open Alert Dialog From Button',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+OpenAlertDialogFromButtonStory.storyName = 'Open Alert Dialog From Button';
+OpenAlertDialogFromButtonStory.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const OpenAlertDialogFromModal = (): JSX.Element => {
@@ -168,11 +163,9 @@ export const OpenAlertDialogFromModalStory = (): React.ReactNode => {
   return <OpenAlertDialogFromModal />;
 };
 
-OpenAlertDialogFromModalStory.story = {
-  name: 'Open Alert Dialog From Modal',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+OpenAlertDialogFromModalStory.storyName = 'Open Alert Dialog From Modal';
+OpenAlertDialogFromModalStory.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const AlertDialogVRT = (): React.ReactNode => {
@@ -189,9 +182,7 @@ export const AlertDialogVRT = (): React.ReactNode => {
   );
 };
 
-AlertDialogVRT.story = {
-  name: 'Alert Dialog for VRT',
-};
+AlertDialogVRT.storyName = 'Alert Dialog for VRT';
 
 export const DestructiveAlertDialogVRT = (): React.ReactNode => {
   const alertDialogHeadingID = useUID();
@@ -213,9 +204,7 @@ export const DestructiveAlertDialogVRT = (): React.ReactNode => {
   );
 };
 
-DestructiveAlertDialogVRT.story = {
-  name: 'Destructive Alert Dialog for VRT',
-};
+DestructiveAlertDialogVRT.storyName = 'Destructive Alert Dialog for VRT';
 
 export const CustomizedAlertDialog = (): JSX.Element => {
   const theme = useTheme();
@@ -244,6 +233,12 @@ export const CustomizedAlertDialog = (): JSX.Element => {
       </AlertDialog>
     </CustomizationProvider>
   );
+};
+CustomizedAlertDialog.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const CustomizedDestructiveAlertDialog = (): JSX.Element => {
@@ -275,4 +270,10 @@ export const CustomizedDestructiveAlertDialog = (): JSX.Element => {
       </AlertDialog>
     </CustomizationProvider>
   );
+};
+CustomizedDestructiveAlertDialog.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

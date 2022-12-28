@@ -78,49 +78,37 @@ export const HeadingVariant10 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading10" />;
 };
 
-HeadingVariant10.story = {
-  name: 'Heading variant 10',
-};
+HeadingVariant10.storyName = 'Heading variant 10';
 
 export const HeadingVariant20 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading20" />;
 };
 
-HeadingVariant20.story = {
-  name: 'Heading variant 20',
-};
+HeadingVariant20.storyName = 'Heading variant 20';
 
 export const HeadingVariant30 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading30" />;
 };
 
-HeadingVariant30.story = {
-  name: 'Heading variant 30',
-};
+HeadingVariant30.storyName = 'Heading variant 30';
 
 export const HeadingVariant40 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading40" />;
 };
 
-HeadingVariant40.story = {
-  name: 'Heading variant 40',
-};
+HeadingVariant40.storyName = 'Heading variant 40';
 
 export const HeadingVariant50 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading50" />;
 };
 
-HeadingVariant50.story = {
-  name: 'Heading variant 50',
-};
+HeadingVariant50.storyName = 'Heading variant 50';
 
 export const HeadingVariant60 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading60" />;
 };
 
-HeadingVariant60.story = {
-  name: 'Heading variant 60',
-};
+HeadingVariant60.storyName = 'Heading variant 60';
 
 export const Disabled = (): React.ReactNode => {
   return <ExampleDisclosures disabled headingVariant="heading10" />;
@@ -159,9 +147,7 @@ export const MultilineHeading = (): React.ReactNode => {
   );
 };
 
-MultilineHeading.story = {
-  name: 'Multiline heading',
-};
+MultilineHeading.storyName = 'Multiline heading';
 
 export const TruncatedHeader = (): React.ReactNode => {
   return (
@@ -183,9 +169,7 @@ export const TruncatedHeader = (): React.ReactNode => {
   );
 };
 
-TruncatedHeader.story = {
-  name: 'Truncated Header',
-};
+TruncatedHeader.storyName = 'Truncated Header';
 
 export const MediaObjectHeading = (): React.ReactNode => {
   return (
@@ -210,65 +194,49 @@ export const MediaObjectHeading = (): React.ReactNode => {
   );
 };
 
-MediaObjectHeading.story = {
-  name: 'MediaObject in Heading',
-};
+MediaObjectHeading.storyName = 'MediaObject in Heading';
 
 export const ContainedHeadingVariant10 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading10" variant="contained" />;
 };
 
-ContainedHeadingVariant10.story = {
-  name: 'Contained Heading variant 10',
-};
+ContainedHeadingVariant10.storyName = 'Contained Heading variant 10';
 
 export const ContainedHeadingVariant20 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading20" variant="contained" />;
 };
 
-ContainedHeadingVariant20.story = {
-  name: 'Contained Heading variant 20',
-};
+ContainedHeadingVariant20.storyName = 'Contained Heading variant 20';
 
 export const ContainedHeadingVariant30 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading30" variant="contained" />;
 };
 
-ContainedHeadingVariant30.story = {
-  name: 'Contained Heading variant 30',
-};
+ContainedHeadingVariant30.storyName = 'Contained Heading variant 30';
 
 export const ContainedHeadingVariant40 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading40" variant="contained" />;
 };
 
-ContainedHeadingVariant40.story = {
-  name: 'Contained Heading variant 40',
-};
+ContainedHeadingVariant40.storyName = 'Contained Heading variant 40';
 
 export const ContainedHeadingVariant50 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading50" variant="contained" />;
 };
 
-ContainedHeadingVariant50.story = {
-  name: 'Contained Heading variant 50',
-};
+ContainedHeadingVariant50.storyName = 'Contained Heading variant 50';
 
 export const ContainedHeadingVariant60 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading60" variant="contained" />;
 };
 
-ContainedHeadingVariant60.story = {
-  name: 'Contained Heading variant 60',
-};
+ContainedHeadingVariant60.storyName = 'Contained Heading variant 60';
 
 export const ContainedDisabled = (): React.ReactNode => {
   return <ExampleDisclosures disabled headingVariant="heading10" variant="contained" />;
 };
 
-ContainedDisabled.story = {
-  name: 'Contained disabled',
-};
+ContainedDisabled.storyName = 'Contained disabled';
 
 export const ContainedMultilineHeading = (): React.ReactNode => {
   return (
@@ -303,9 +271,7 @@ export const ContainedMultilineHeading = (): React.ReactNode => {
   );
 };
 
-ContainedMultilineHeading.story = {
-  name: 'Contained multiline heading',
-};
+ContainedMultilineHeading.storyName = 'Contained multiline heading';
 
 export const StateHook = (): React.ReactNode => {
   const {transitioning, ...disclosure} = useDelayedDisclosureState({
@@ -330,9 +296,7 @@ export const StateHook = (): React.ReactNode => {
   );
 };
 
-StateHook.story = {
-  name: 'State hook',
-};
+StateHook.storyName = 'State hook';
 
 export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -405,4 +369,10 @@ export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) =
       </Stack>
     </CustomizationProvider>
   );
+};
+Customization.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -46,9 +46,7 @@ export const DefaultOrderedList = (): React.ReactNode => {
   );
 };
 
-DefaultOrderedList.story = {
-  name: 'Ordered List',
-};
+DefaultOrderedList.storyName = 'Ordered List';
 
 export const DefaultUnorderedList = (): React.ReactNode => {
   return (
@@ -78,9 +76,7 @@ export const DefaultUnorderedList = (): React.ReactNode => {
   );
 };
 
-DefaultUnorderedList.story = {
-  name: 'Unordered List',
-};
+DefaultUnorderedList.storyName = 'Unordered List';
 
 export const NestedUnorderedList = (): React.ReactNode => {
   return (
@@ -189,6 +185,12 @@ export const CustomOrderedList: Story = (_args, {parameters: {isTestEnvironment}
     </Stack>
   );
 };
+CustomOrderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const CustomUnorderedList: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -264,4 +266,10 @@ export const CustomUnorderedList: Story = (_args, {parameters: {isTestEnvironmen
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomUnorderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

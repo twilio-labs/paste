@@ -192,4 +192,10 @@ export const CustomizedCheckboxDisclaimer: Story = (_args, {parameters: {isTestE
 export default {
   title: 'Components/Checkbox/Customization',
   component: CustomizedCheckboxGroup,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

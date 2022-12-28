@@ -73,34 +73,38 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}
             </Button>
           </Stack>
         </Box>
-        {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && size !== 'circle' && size !== 'circle_small' && (
-          <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
-            <Stack orientation="vertical" spacing="space40">
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                <PlusIcon title="Add item to cart" decorative={false} />
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                {children}
-                <PlusIcon title="Add item to cart" decorative={false} />
-              </Button>
-              <Button
-                variant={variant as ButtonVariants}
-                size={size as ButtonSizes}
-                fullWidth
-                loading={!isRenderingOnServer}
-              >
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth disabled>
-                {children}
-              </Button>
-            </Stack>
-          </Box>
-        )}
+        {size !== 'icon' &&
+          size !== 'icon_small' &&
+          size !== 'reset' &&
+          size !== 'circle' &&
+          size !== 'circle_small' && (
+            <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
+              <Stack orientation="vertical" spacing="space40">
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  {children}
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                </Button>
+                <Button
+                  variant={variant as ButtonVariants}
+                  size={size as ButtonSizes}
+                  fullWidth
+                  loading={!isRenderingOnServer}
+                >
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth disabled>
+                  {children}
+                </Button>
+              </Stack>
+            </Box>
+          )}
       </>
     );
   });

@@ -98,8 +98,6 @@ export const StatefulComposerAttachmentCard: Story = () => (
   </Stack>
 );
 
-StatefulComposerAttachmentCard.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+StatefulComposerAttachmentCard.parameters = {
+  chromatic: {disableSnapshot: true},
 };

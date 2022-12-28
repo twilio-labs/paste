@@ -89,9 +89,7 @@ export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
   );
 };
 
-Grid12ColumnAndGutterSupport.story = {
-  name: 'Grid - 12 Column and Gutter Support',
-};
+Grid12ColumnAndGutterSupport.storyName = 'Grid - 12 Column and Gutter Support';
 
 export const Grid1Column = (): React.ReactNode => {
   return (
@@ -105,9 +103,7 @@ export const Grid1Column = (): React.ReactNode => {
   );
 };
 
-Grid1Column.story = {
-  name: 'Grid - 1 column',
-};
+Grid1Column.storyName = 'Grid - 1 column';
 
 export const Grid2Column = (): React.ReactNode => {
   return (
@@ -126,9 +122,7 @@ export const Grid2Column = (): React.ReactNode => {
   );
 };
 
-Grid2Column.story = {
-  name: 'Grid - 2 column',
-};
+Grid2Column.storyName = 'Grid - 2 column';
 
 export const Grid3Column = (): React.ReactNode => {
   return (
@@ -152,9 +146,7 @@ export const Grid3Column = (): React.ReactNode => {
   );
 };
 
-Grid3Column.story = {
-  name: 'Grid - 3 Column',
-};
+Grid3Column.storyName = 'Grid - 3 Column';
 
 export const Grid4Column = (): React.ReactNode => {
   return (
@@ -183,9 +175,7 @@ export const Grid4Column = (): React.ReactNode => {
   );
 };
 
-Grid4Column.story = {
-  name: 'Grid - 4 Column',
-};
+Grid4Column.storyName = 'Grid - 4 Column';
 
 export const Grid6Column = (): React.ReactNode => {
   return (
@@ -224,9 +214,7 @@ export const Grid6Column = (): React.ReactNode => {
   );
 };
 
-Grid6Column.story = {
-  name: 'Grid - 6 Column',
-};
+Grid6Column.storyName = 'Grid - 6 Column';
 
 export const Grid55And2Column = (): React.ReactNode => {
   return (
@@ -250,9 +238,7 @@ export const Grid55And2Column = (): React.ReactNode => {
   );
 };
 
-Grid55And2Column.story = {
-  name: 'Grid - 5, 5, and 2 Column',
-};
+Grid55And2Column.storyName = 'Grid - 5, 5, and 2 Column';
 
 export const Grid6And6Column = (): React.ReactNode => {
   return (
@@ -271,9 +257,7 @@ export const Grid6And6Column = (): React.ReactNode => {
   );
 };
 
-Grid6And6Column.story = {
-  name: 'Grid - 6 and 6 Column',
-};
+Grid6And6Column.storyName = 'Grid - 6 and 6 Column';
 
 export const Grid8And4Column = (): React.ReactNode => {
   return (
@@ -292,9 +276,7 @@ export const Grid8And4Column = (): React.ReactNode => {
   );
 };
 
-Grid8And4Column.story = {
-  name: 'Grid - 8 and 4 Column',
-};
+Grid8And4Column.storyName = 'Grid - 8 and 4 Column';
 
 export const Grid9And3Column = (): React.ReactNode => {
   return (
@@ -313,9 +295,7 @@ export const Grid9And3Column = (): React.ReactNode => {
   );
 };
 
-Grid9And3Column.story = {
-  name: 'Grid - 9 and 3 Column',
-};
+Grid9And3Column.storyName = 'Grid - 9 and 3 Column';
 
 export const Grid10And2Column = (): React.ReactNode => {
   return (
@@ -334,9 +314,7 @@ export const Grid10And2Column = (): React.ReactNode => {
   );
 };
 
-Grid10And2Column.story = {
-  name: 'Grid - 10 and 2 Column',
-};
+Grid10And2Column.storyName = 'Grid - 10 and 2 Column';
 
 export const Grid11And1Column = (): React.ReactNode => {
   return (
@@ -355,9 +333,7 @@ export const Grid11And1Column = (): React.ReactNode => {
   );
 };
 
-Grid11And1Column.story = {
-  name: 'Grid - 11 and 1 Column',
-};
+Grid11And1Column.storyName = 'Grid - 11 and 1 Column';
 
 export const Grid2ColumnAndSingleColumns = (): React.ReactNode => {
   return (
@@ -421,9 +397,7 @@ export const Grid2ColumnAndSingleColumns = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnAndSingleColumns.story = {
-  name: 'Grid - 2 Column and Single Columns',
-};
+Grid2ColumnAndSingleColumns.storyName = 'Grid - 2 Column and Single Columns';
 
 export const Grid8ColumnAnd4SingleColumns = (): React.ReactNode => {
   return (
@@ -457,9 +431,7 @@ export const Grid8ColumnAnd4SingleColumns = (): React.ReactNode => {
   );
 };
 
-Grid8ColumnAnd4SingleColumns.story = {
-  name: 'Grid - 8 Column and 4 Single Columns',
-};
+Grid8ColumnAnd4SingleColumns.storyName = 'Grid - 8 Column and 4 Single Columns';
 
 export const Grid8ColumnSpanWithOffset = (): React.ReactNode => {
   return (
@@ -473,9 +445,7 @@ export const Grid8ColumnSpanWithOffset = (): React.ReactNode => {
   );
 };
 
-Grid8ColumnSpanWithOffset.story = {
-  name: 'Grid - 8 Column Span with Offset',
-};
+Grid8ColumnSpanWithOffset.storyName = 'Grid - 8 Column Span with Offset';
 
 export const Grid2ColumnsWithOffset = (): React.ReactNode => {
   return (
@@ -494,9 +464,7 @@ export const Grid2ColumnsWithOffset = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnsWithOffset.story = {
-  name: 'Grid - 2 Columns with Offset',
-};
+Grid2ColumnsWithOffset.storyName = 'Grid - 2 Columns with Offset';
 
 export const GridRightOffsetColumn = (): React.ReactNode => {
   return (
@@ -515,9 +483,7 @@ export const GridRightOffsetColumn = (): React.ReactNode => {
   );
 };
 
-GridRightOffsetColumn.story = {
-  name: 'Grid - Right Offset Column',
-};
+GridRightOffsetColumn.storyName = 'Grid - Right Offset Column';
 
 export const GridMultipleOffsetColumns = (): React.ReactNode => {
   return (
@@ -536,9 +502,7 @@ export const GridMultipleOffsetColumns = (): React.ReactNode => {
   );
 };
 
-GridMultipleOffsetColumns.story = {
-  name: 'Grid - Multiple Offset Columns',
-};
+GridMultipleOffsetColumns.storyName = 'Grid - Multiple Offset Columns';
 
 export const Grid2ColumnSidebar = (): React.ReactNode => {
   return (
@@ -557,9 +521,7 @@ export const Grid2ColumnSidebar = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnSidebar.story = {
-  name: 'Grid - 2 Column Sidebar',
-};
+Grid2ColumnSidebar.storyName = 'Grid - 2 Column Sidebar';
 
 export const Grid3ColumnWiderCenterColumn = (): React.ReactNode => {
   return (
@@ -583,9 +545,7 @@ export const Grid3ColumnWiderCenterColumn = (): React.ReactNode => {
   );
 };
 
-Grid3ColumnWiderCenterColumn.story = {
-  name: 'Grid - 3 Column Wider Center Column',
-};
+Grid3ColumnWiderCenterColumn.storyName = 'Grid - 3 Column Wider Center Column';
 
 export const Grid2ColumnResponsive = (): React.ReactNode => {
   return (
@@ -604,9 +564,7 @@ export const Grid2ColumnResponsive = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnResponsive.story = {
-  name: 'Grid - 2 Column Responsive',
-};
+Grid2ColumnResponsive.storyName = 'Grid - 2 Column Responsive';
 
 export const Grid2ColumnResponsiveStack = (): React.ReactNode => {
   return (
@@ -625,9 +583,7 @@ export const Grid2ColumnResponsiveStack = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnResponsiveStack.story = {
-  name: 'Grid - 2 Column Responsive Stack',
-};
+Grid2ColumnResponsiveStack.storyName = 'Grid - 2 Column Responsive Stack';
 
 export const GridNestedColumn = (): React.ReactNode => {
   return (
@@ -662,9 +618,7 @@ export const GridNestedColumn = (): React.ReactNode => {
   );
 };
 
-GridNestedColumn.story = {
-  name: 'Grid - Nested Column',
-};
+GridNestedColumn.storyName = 'Grid - Nested Column';
 
 export const Grid3ColumnCardLayout = (): React.ReactNode => {
   return (
@@ -697,9 +651,7 @@ export const Grid3ColumnCardLayout = (): React.ReactNode => {
   );
 };
 
-Grid3ColumnCardLayout.story = {
-  name: 'Grid - 3 Column Card Layout',
-};
+Grid3ColumnCardLayout.storyName = 'Grid - 3 Column Card Layout';
 
 export const GridWrapped2ColumnCardLayout = (): React.ReactNode => {
   return (
@@ -744,9 +696,7 @@ export const GridWrapped2ColumnCardLayout = (): React.ReactNode => {
   );
 };
 
-GridWrapped2ColumnCardLayout.story = {
-  name: 'Grid - Wrapped 2 Column Card Layout',
-};
+GridWrapped2ColumnCardLayout.storyName = 'Grid - Wrapped 2 Column Card Layout';
 
 export const Grid2ColumnContentWithCard = (): React.ReactNode => {
   return (
@@ -777,9 +727,7 @@ export const Grid2ColumnContentWithCard = (): React.ReactNode => {
   );
 };
 
-Grid2ColumnContentWithCard.story = {
-  name: 'Grid - 2 Column Content with Card',
-};
+Grid2ColumnContentWithCard.storyName = 'Grid - 2 Column Content with Card';
 
 export const GridEqualHeightColumns = (): React.ReactNode => {
   return (
@@ -864,9 +812,7 @@ export const GridEqualHeightColumns = (): React.ReactNode => {
   );
 };
 
-GridEqualHeightColumns.story = {
-  name: 'Grid - Equal height columns',
-};
+GridEqualHeightColumns.storyName = 'Grid - Equal height columns';
 
 export const GridContainingLongContent = (): React.ReactNode => {
   return (
@@ -902,9 +848,7 @@ export const GridContainingLongContent = (): React.ReactNode => {
   );
 };
 
-GridContainingLongContent.story = {
-  name: 'Grid - Containing long content',
-};
+GridContainingLongContent.storyName = 'Grid - Containing long content';
 
 export const CustomGrid: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -1031,4 +975,10 @@ export const CustomGrid: Story = (_args, {parameters: {isTestEnvironment}}) => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomGrid.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

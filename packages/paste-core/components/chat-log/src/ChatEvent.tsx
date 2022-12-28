@@ -18,7 +18,6 @@ const ChatEvent = React.forwardRef<HTMLDivElement, ChatEventProps>(
         color="colorTextWeak"
         element={element}
         textAlign="center"
-        marginBottom="space80"
         lineHeight="lineHeight20"
         fontSize="fontSize20"
         ref={ref}

@@ -42,9 +42,7 @@ export const DefaultStack = (): React.ReactNode => {
   );
 };
 
-DefaultStack.story = {
-  name: 'Stack',
-};
+DefaultStack.storyName = 'Stack';
 
 export const StackVertical = (): React.ReactNode => {
   return (
@@ -69,9 +67,7 @@ export const StackVertical = (): React.ReactNode => {
   );
 };
 
-StackVertical.story = {
-  name: 'Stack - Vertical',
-};
+StackVertical.storyName = 'Stack - Vertical';
 
 export const StackHorizontal = (): React.ReactNode => {
   return (
@@ -96,9 +92,7 @@ export const StackHorizontal = (): React.ReactNode => {
   );
 };
 
-StackHorizontal.story = {
-  name: 'Stack - Horizontal',
-};
+StackHorizontal.storyName = 'Stack - Horizontal';
 
 export const StackResponsive = (): React.ReactNode => {
   return (
@@ -123,9 +117,7 @@ export const StackResponsive = (): React.ReactNode => {
   );
 };
 
-StackResponsive.story = {
-  name: 'Stack - Responsive',
-};
+StackResponsive.storyName = 'Stack - Responsive';
 
 export const OneChild = (): React.ReactNode => {
   return (
@@ -143,9 +135,7 @@ export const OneChild = (): React.ReactNode => {
   );
 };
 
-OneChild.story = {
-  name: 'Stack - One Child',
-};
+OneChild.storyName = 'Stack - One Child';
 
 export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -227,6 +217,10 @@ export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}})
   );
 };
 
-CustomizedStack.story = {
-  name: 'Stack - Customized',
+CustomizedStack.storyName = 'Stack - Customized';
+CustomizedStack.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

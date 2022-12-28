@@ -1,5 +1,5 @@
 const {addons} = require('@storybook/addons');
-const {isChromatic} = require('chromatic');
+const isChromatic = require('chromatic/isChromatic').default;
 const {STORY_ERRORED, STORY_MISSING, STORY_RENDERED} = require('@storybook/core-events');
 const ReactGA = require('react-ga');
 

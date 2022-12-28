@@ -17,16 +17,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -35,7 +35,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -51,7 +51,7 @@ jobs:
         run: yarn prerelease
 
       - name: Store build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: compiled-js-and-types
           path: |
@@ -71,16 +71,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -89,7 +89,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -102,7 +102,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: compiled-js-and-types
           path: packages/
@@ -137,16 +137,16 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -155,7 +155,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -168,7 +168,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: compiled-js-and-types
           path: packages/
@@ -195,7 +195,7 @@ jobs:
       - name: Create Percy Batch ID
         id: percy-batch-id
         # adding a timestamp makes the batch id more unique for re-runs
-        run: echo "::set-output name=result::${{ github.run_id }}-$(date +%s)"
+        run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
 
   # run cypress against main so we can create Percy baselines with the latest code
   cypress:
@@ -218,19 +218,19 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -239,7 +239,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -260,7 +260,7 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Cypress run with site VRT
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4
         with:
           record: true
           parallel: true

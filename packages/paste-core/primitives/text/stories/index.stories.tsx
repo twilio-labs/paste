@@ -157,9 +157,7 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
   );
 };
 
-PseudoClassesWithHoverPseudoProps.story = {
-  name: 'Pseudo-classes with hover pseudo props',
-};
+PseudoClassesWithHoverPseudoProps.storyName = 'Pseudo-classes with hover pseudo props';
 
 const CustomTextCollection = (): JSX.Element => {
   return (
@@ -236,4 +234,10 @@ export const CustomText: Story = (_args, {parameters: {isTestEnvironment}}) => {
       </CustomizationProvider>
     </>
   );
+};
+CustomText.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

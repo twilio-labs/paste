@@ -103,9 +103,7 @@ export const AutomaticEdgePlacement = (): React.ReactNode => {
   );
 };
 
-AutomaticEdgePlacement.story = {
-  name: 'Automatic edge placement',
-};
+AutomaticEdgePlacement.storyName = 'Automatic edge placement';
 
 export const AutomaticAdjustedPlacement = (): React.ReactNode => {
   return (
@@ -119,9 +117,7 @@ export const AutomaticAdjustedPlacement = (): React.ReactNode => {
   );
 };
 
-AutomaticAdjustedPlacement.story = {
-  name: 'Automatic adjusted placement',
-};
+AutomaticAdjustedPlacement.storyName = 'Automatic adjusted placement';
 
 export const IconButtonTooltip = (): React.ReactNode => {
   return (
@@ -168,9 +164,7 @@ export const StateHookTooltip = (): React.ReactNode => {
   return <StateHookExample />;
 };
 
-StateHookTooltip.story = {
-  name: 'State hook Tooltip',
-};
+StateHookTooltip.storyName = 'State hook Tooltip';
 
 export const CustomizedTooltip: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -210,6 +204,10 @@ export const CustomizedTooltip: Story = (_args, {parameters: {isTestEnvironment}
   );
 };
 
-CustomizedTooltip.story = {
-  name: 'Customized Tooltip',
+CustomizedTooltip.storyName = 'Customized Tooltip';
+CustomizedTooltip.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

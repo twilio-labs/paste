@@ -117,9 +117,7 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
   );
 };
 
-PseudoClassesWithProps.story = {
-  name: 'Pseudo-classes with props',
-};
+PseudoClassesWithProps.storyName = 'Pseudo-classes with props';
 
 const CustomBoxCollection = (): JSX.Element => {
   return (
@@ -195,4 +193,10 @@ export const CustomBox: Story = (_args, {parameters: {isTestEnvironment}}) => {
       </CustomizationProvider>
     </>
   );
+};
+CustomBox.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

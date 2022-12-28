@@ -1,35 +1,11 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
 import type {EditorState} from '@twilio-paste/lexical-library';
-import {$getRoot, $createParagraphNode, $createTextNode, AutoScrollPlugin} from '@twilio-paste/lexical-library';
-import {
-  MinimizableDialog,
-  MinimizableDialogButton,
-  MinimizableDialogContainer,
-  MinimizableDialogHeader,
-  MinimizableDialogContent,
-} from '@twilio-paste/minimizable-dialog';
-import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {
-  ChatLog,
-  ChatMessage,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
-  ChatBubble,
-  ChatAttachment,
-  ChatEvent,
-  ChatAttachmentDescription,
-  ChatAttachmentLink,
-  ChatBookend,
-  ChatBookendItem,
-  ComposerAttachmentCard,
-} from '@twilio-paste/chat-log';
-import {Avatar} from '@twilio-paste/avatar';
+import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
 import type {Story} from '@storybook/react';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 
 import {ChatComposer} from '../src';
 import type {ChatComposerProps} from '../src';
@@ -81,9 +57,8 @@ const myOnChange = (editorState: EditorState): void => {
   });
 };
 
-const ChatComposerWrapper = React.forwardRef<HTMLDivElement, {children: React.ReactNode}>(({children}, ref) => (
+const ComposerWrapperExample: React.FC = ({children}) => (
   <Box
-    ref={ref}
     borderStyle="solid"
     borderWidth="borderWidth0"
     borderTopWidth="borderWidth10"
@@ -108,7 +83,7 @@ const ChatComposerWrapper = React.forwardRef<HTMLDivElement, {children: React.Re
       </Box>
     </Box>
   </Box>
-));
+);
 
 export const Default: Story = () => {
   return (
@@ -138,10 +113,8 @@ export const WithOnChange: Story = () => {
   );
 };
 
-WithOnChange.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+WithOnChange.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const WithInitialValue: Story = () => {
@@ -178,7 +151,7 @@ export const WithCustomInitialValue: Story = () => {
 
 export const WithMaxHeight: Story = () => {
   return (
-    <ChatComposerWrapper>
+    <ComposerWrapperExample>
       <ChatComposer
         ariaLabel="Chat composer with max height"
         maxHeight="size10"
@@ -191,7 +164,7 @@ export const WithMaxHeight: Story = () => {
         }}
         placeholder="Type here..."
       />
-    </ChatComposerWrapper>
+    </ComposerWrapperExample>
   );
 };
 
@@ -202,134 +175,6 @@ WithMaxHeight.parameters = {
      * The fix is to add a tab index to the wrapper so a user can focus it and then use their arrow keys to scroll.
      * It would be more awkward to have 2 tab stops (one for the wrapper and one for the content editable),
      * so we can leave it as is since they can focus in the content editable and scroll through the content.
-     */
-    disable: true,
-  },
-};
-
-const ChatLogExample: React.FC = () => (
-  <ChatLog>
-    <ChatBookend>
-      <ChatBookendItem>Today</ChatBookendItem>
-    </ChatBookend>
-    <ChatEvent>
-      <strong>Lauren Gardner</strong> has joined the chat ・ 4:26 PM
-    </ChatEvent>
-    <ChatMessage variant="inbound">
-      <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
-      <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
-        <ChatMessageMetaItem>
-          <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki ・ 4:30 PM
-        </ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-    <ChatMessage variant="outbound">
-      <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
-      <ChatMessageMeta aria-label="said by you at 4:32pm">
-        <ChatMessageMetaItem>4:32 PM</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-    <ChatMessage variant="outbound">
-      <ChatBubble>
-        Curabitur enim lorem, cursus et massa non, pretium faucibus lacus. Donec odio neque, consectetur a suscipit sit
-        amet, blandit id erat.
-      </ChatBubble>
-      <ChatMessageMeta aria-label="said by you at 4:48pm">
-        <ChatMessageMetaItem>4:48 PM</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-    <ChatMessage variant="inbound">
-      <ChatBubble>
-        Quisque ullamcorper ipsum vitae lorem euismod sodales. Donec a nisi eget eros laoreet pellentesque. Donec sed
-        bibendum justo, at ornare mi. Sed eget tempor metus, sed sagittis lacus. Donec commodo nisi in ligula accumsan
-        euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{' '}
-      </ChatBubble>
-      <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ChatBubble>
-      <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
-      <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-        <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-    <ChatMessage variant="outbound">
-      <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
-      <ChatMessageMeta aria-label="said by you 2 minutes ago">
-        <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
-      </ChatMessageMeta>
-      <ChatMessageMeta aria-label="(read)">
-        <ChatMessageMetaItem>Read</ChatMessageMetaItem>
-      </ChatMessageMeta>
-    </ChatMessage>
-  </ChatLog>
-);
-
-const ChatAttachmentExample: React.FC = () => (
-  <Box display="flex" flexDirection="row" columnGap="space40" overflowX="scroll" paddingX="space70" paddingY="space50">
-    <Box maxWidth="size20">
-      <ComposerAttachmentCard onDismiss={() => {}}>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ComposerAttachmentCard>
-    </Box>
-    <Box maxWidth="size20">
-      <ComposerAttachmentCard onDismiss={() => {}}>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
-          <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
-          <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
-        </ChatAttachment>
-      </ComposerAttachmentCard>
-    </Box>
-  </Box>
-);
-
-export const ChatDialog: Story = () => {
-  const scrollRef = React.createRef<HTMLDivElement>();
-
-  return (
-    <MinimizableDialogContainer visible>
-      <MinimizableDialogButton variant="primary" size="circle">
-        <ChatIcon decorative={false} title="Chat" />
-      </MinimizableDialogButton>
-      <MinimizableDialog aria-label="Live chat">
-        <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
-        <MinimizableDialogContent>
-          <Box overflowY="scroll" maxHeight="size50" tabIndex={0}>
-            <ChatLogExample />
-          </Box>
-          <ChatComposerWrapper ref={scrollRef}>
-            <ChatComposer
-              maxHeight="size10"
-              config={{
-                namespace: 'foo',
-                onError: (error: Error) => {
-                  throw error;
-                },
-              }}
-              ariaLabel="Message"
-              placeholder="Type here..."
-            >
-              <AutoScrollPlugin scrollRef={scrollRef} />
-            </ChatComposer>
-          </ChatComposerWrapper>
-          <ChatAttachmentExample />
-        </MinimizableDialogContent>
-      </MinimizableDialog>
-    </MinimizableDialogContainer>
-  );
-};
-
-ChatDialog.parameters = {
-  a11y: {
-    /*
-     * axe says that the chat attachment links and some of the bubbles are failing contrast even though they're not.
-     * Disabled the tests because all of these components are tested in other stories.
      */
     disable: true,
   },

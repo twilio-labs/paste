@@ -133,4 +133,10 @@ export const CustomizedDestructiveLinkButton: Story = (_args, {parameters: {isTe
 export default {
   title: 'Components/Button/Customization',
   excludeStories: ['AnyButton'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

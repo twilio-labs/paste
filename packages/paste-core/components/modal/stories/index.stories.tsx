@@ -74,20 +74,16 @@ export const Default = (): React.ReactNode => {
   return <ModalTrigger size="default" />;
 };
 
-Default.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+Default.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const Wide = (): React.ReactNode => {
   return <ModalTrigger size="wide" />;
 };
 
-Wide.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+Wide.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const FooterActions = (): React.ReactNode => {
@@ -126,11 +122,9 @@ export const FooterActions = (): React.ReactNode => {
   );
 };
 
-FooterActions.story = {
-  name: 'Footer actions',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+FooterActions.storyName = 'Footer actions';
+FooterActions.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const LeftAlignedFooterActions = (): React.ReactNode => {
@@ -169,11 +163,9 @@ export const LeftAlignedFooterActions = (): React.ReactNode => {
   );
 };
 
-LeftAlignedFooterActions.story = {
-  name: 'Left aligned footer actions',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+LeftAlignedFooterActions.storyName = 'Left aligned footer actions';
+LeftAlignedFooterActions.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const DirectionalFooterActions = (): React.ReactNode => {
@@ -215,11 +207,9 @@ export const DirectionalFooterActions = (): React.ReactNode => {
   );
 };
 
-DirectionalFooterActions.story = {
-  name: 'Directional footer actions',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+DirectionalFooterActions.storyName = 'Directional footer actions';
+DirectionalFooterActions.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const ExtremelyLongHeading = (): React.ReactNode => {
@@ -258,11 +248,9 @@ export const ExtremelyLongHeading = (): React.ReactNode => {
   );
 };
 
-ExtremelyLongHeading.story = {
-  name: 'Extremely long heading',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+ExtremelyLongHeading.storyName = 'Extremely long heading';
+ExtremelyLongHeading.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const OverflowingBodyContent = (): React.ReactNode => {
@@ -395,11 +383,9 @@ export const OverflowingBodyContent = (): React.ReactNode => {
   );
 };
 
-OverflowingBodyContent.story = {
-  name: 'Overflowing body content',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+OverflowingBodyContent.storyName = 'Overflowing body content';
+OverflowingBodyContent.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const HeaderContent = (): React.ReactNode => {
@@ -444,11 +430,9 @@ export const HeaderContent = (): React.ReactNode => {
   );
 };
 
-HeaderContent.story = {
-  name: 'Header content',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+HeaderContent.storyName = 'Header content';
+HeaderContent.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const i18nProp = (): React.ReactNode => {
@@ -491,11 +475,9 @@ export const i18nProp = (): React.ReactNode => {
   );
 };
 
-i18nProp.story = {
-  name: 'i18n prop',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+i18nProp.storyName = 'i18n prop';
+i18nProp.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const CustomInitialFocusElement = (): React.ReactNode => {
@@ -549,11 +531,9 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
   );
 };
 
-CustomInitialFocusElement.story = {
-  name: 'Custom initial focus element',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+CustomInitialFocusElement.storyName = 'Custom initial focus element';
+CustomInitialFocusElement.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const TooltipInModal = (): React.ReactNode => {
@@ -593,11 +573,9 @@ export const TooltipInModal = (): React.ReactNode => {
   );
 };
 
-TooltipInModal.story = {
-  name: 'Tooltip in modal',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+TooltipInModal.storyName = 'Tooltip in modal';
+TooltipInModal.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const PopoverInModal = (): React.ReactNode => {
@@ -649,11 +627,9 @@ export const PopoverInModal = (): React.ReactNode => {
   );
 };
 
-PopoverInModal.story = {
-  name: 'Popover in modal',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+PopoverInModal.storyName = 'Popover in modal';
+PopoverInModal.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 const NOOP = (): void => {};
@@ -667,9 +643,7 @@ export const ModalOverlayVRT = (): React.ReactNode => {
   );
 };
 
-ModalOverlayVRT.story = {
-  name: 'Modal Overlay for VRT',
-};
+ModalOverlayVRT.storyName = 'Modal Overlay for VRT';
 
 export const ModalDialogVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
@@ -699,9 +673,7 @@ export const ModalDialogVRT = (): React.ReactNode => {
   );
 };
 
-ModalDialogVRT.story = {
-  name: 'Modal Dialog for VRT',
-};
+ModalDialogVRT.storyName = 'Modal Dialog for VRT';
 
 export const WideModalDialogVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
@@ -731,9 +703,7 @@ export const WideModalDialogVRT = (): React.ReactNode => {
   );
 };
 
-WideModalDialogVRT.story = {
-  name: 'Wide Modal Dialog for VRT',
-};
+WideModalDialogVRT.storyName = 'Wide Modal Dialog for VRT';
 
 export const LeftAlignedFooterActionsVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
@@ -764,9 +734,7 @@ export const LeftAlignedFooterActionsVRT = (): React.ReactNode => {
   );
 };
 
-LeftAlignedFooterActionsVRT.story = {
-  name: 'Left aligned footer actions for VRT',
-};
+LeftAlignedFooterActionsVRT.storyName = 'Left aligned footer actions for VRT';
 
 export const DirectionalFooterActionsVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
@@ -800,9 +768,7 @@ export const DirectionalFooterActionsVRT = (): React.ReactNode => {
   );
 };
 
-DirectionalFooterActionsVRT.story = {
-  name: 'Directional footer actions for VRT',
-};
+DirectionalFooterActionsVRT.storyName = 'Directional footer actions for VRT';
 
 export const ExtremelyLongHeadingVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
@@ -833,9 +799,7 @@ export const ExtremelyLongHeadingVRT = (): React.ReactNode => {
   );
 };
 
-ExtremelyLongHeadingVRT.story = {
-  name: 'Extremely long heading for VRT',
-};
+ExtremelyLongHeadingVRT.storyName = 'Extremely long heading for VRT';
 
 export const OverflowingBodyContentVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
@@ -962,9 +926,7 @@ export const OverflowingBodyContentVRT = (): React.ReactNode => {
   );
 };
 
-OverflowingBodyContentVRT.story = {
-  name: 'Overflowing body content for VRT',
-};
+OverflowingBodyContentVRT.storyName = 'Overflowing body content for VRT';
 
 export const HeaderContentVRT = (): React.ReactNode => {
   const onDismiss = NOOP;
@@ -1001,9 +963,7 @@ export const HeaderContentVRT = (): React.ReactNode => {
   );
 };
 
-HeaderContentVRT.story = {
-  name: 'Header content for VRT',
-};
+HeaderContentVRT.storyName = 'Header content for VRT';
 
 export const ModalDialogTooltipVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
@@ -1033,9 +993,7 @@ export const ModalDialogTooltipVRT = (): React.ReactNode => {
   );
 };
 
-ModalDialogTooltipVRT.story = {
-  name: 'Modal Dialog with tooltip for VRT',
-};
+ModalDialogTooltipVRT.storyName = 'Modal Dialog with tooltip for VRT';
 
 export const ModalDialogPopoverVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
@@ -1071,6 +1029,4 @@ export const ModalDialogPopoverVRT = (): React.ReactNode => {
   );
 };
 
-ModalDialogPopoverVRT.story = {
-  name: 'Modal Dialog with popover for VRT',
-};
+ModalDialogPopoverVRT.storyName = 'Modal Dialog with popover for VRT';

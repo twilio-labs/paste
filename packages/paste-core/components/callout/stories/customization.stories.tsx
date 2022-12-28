@@ -9,6 +9,12 @@ import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Callout/Customization',
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const CustomizedCallout: Story = (_args, {parameters: {isTestEnvironment}}) => {

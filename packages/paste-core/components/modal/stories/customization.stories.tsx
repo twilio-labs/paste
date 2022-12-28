@@ -116,6 +116,12 @@ export default {
   component: Modal,
   subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
   excludeStories: ['initStyles', 'BaseModal'],
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };
 
 export const First: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -127,11 +133,9 @@ export const First: Story = (_args, {parameters: {isTestEnvironment}}) => {
   );
 };
 
-First.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
-  name: 'Normal variant - Default element names',
+First.storyName = 'Normal variant - Default element names';
+First.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const Second: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -143,11 +147,9 @@ export const Second: Story = (_args, {parameters: {isTestEnvironment}}) => {
   );
 };
 
-Second.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
-  name: 'Normal variant - Custom element names',
+Second.storyName = 'Normal variant - Custom element names';
+Second.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const Third: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -159,11 +161,9 @@ export const Third: Story = (_args, {parameters: {isTestEnvironment}}) => {
   );
 };
 
-Third.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
-  name: 'Wide variant - Default element names',
+Third.storyName = 'Wide variant - Default element names';
+Third.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const Fourth: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -175,9 +175,7 @@ export const Fourth: Story = (_args, {parameters: {isTestEnvironment}}) => {
   );
 };
 
-Fourth.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
-  name: 'Wide variant - Custom element names',
+Fourth.storyName = 'Wide variant - Custom element names';
+Fourth.parameters = {
+  chromatic: {disableSnapshot: true},
 };

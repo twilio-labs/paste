@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
+import type {Story} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -85,10 +86,8 @@ export const MultipleTextareas = (): React.ReactElement => {
   );
 };
 
-MultipleTextareas.story = {
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+MultipleTextareas.parameters = {
+  chromatic: {disableSnapshot: true},
 };
 
 export const TextareaInverse = (): React.ReactNode => {
@@ -114,9 +113,7 @@ export const TextareaInverse = (): React.ReactNode => {
   );
 };
 
-TextareaInverse.story = {
-  name: 'Textarea - inverse',
-};
+TextareaInverse.storyName = 'Textarea - inverse';
 
 export const TextareaResizeVertical = (): React.ReactNode => {
   const uid = useUID();
@@ -139,9 +136,7 @@ export const TextareaResizeVertical = (): React.ReactNode => {
   );
 };
 
-TextareaResizeVertical.story = {
-  name: 'Textarea - Resize Vertical',
-};
+TextareaResizeVertical.storyName = 'Textarea - Resize Vertical';
 
 export const TextareaRequired = (): React.ReactNode => {
   const uid = useUID();
@@ -164,9 +159,7 @@ export const TextareaRequired = (): React.ReactNode => {
   );
 };
 
-TextareaRequired.story = {
-  name: 'Textarea - Required',
-};
+TextareaRequired.storyName = 'Textarea - Required';
 
 export const TextareaRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -192,9 +185,7 @@ export const TextareaRequiredInverse = (): React.ReactNode => {
   );
 };
 
-TextareaRequiredInverse.story = {
-  name: 'Textarea - Required inverse',
-};
+TextareaRequiredInverse.storyName = 'Textarea - Required inverse';
 
 export const TextareaError = (): React.ReactNode => {
   const uid = useUID();
@@ -217,9 +208,7 @@ export const TextareaError = (): React.ReactNode => {
   );
 };
 
-TextareaError.story = {
-  name: 'Textarea - Error',
-};
+TextareaError.storyName = 'Textarea - Error';
 
 export const TextareaErrorInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -245,9 +234,7 @@ export const TextareaErrorInverse = (): React.ReactNode => {
   );
 };
 
-TextareaErrorInverse.story = {
-  name: 'Textarea - Error inverse',
-};
+TextareaErrorInverse.storyName = 'Textarea - Error inverse';
 
 export const TextareaDisabled = (): React.ReactNode => {
   const uid = useUID();
@@ -271,9 +258,7 @@ export const TextareaDisabled = (): React.ReactNode => {
   );
 };
 
-TextareaDisabled.story = {
-  name: 'Textarea - Disabled',
-};
+TextareaDisabled.storyName = 'Textarea - Disabled';
 
 export const TextareaDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -300,9 +285,7 @@ export const TextareaDisabledInverse = (): React.ReactNode => {
   );
 };
 
-TextareaDisabledInverse.story = {
-  name: 'Textarea - Disabled inverse',
-};
+TextareaDisabledInverse.storyName = 'Textarea - Disabled inverse';
 
 export const TextareaReadOnly = (): React.ReactNode => {
   const uid = useUID();
@@ -323,9 +306,7 @@ export const TextareaReadOnly = (): React.ReactNode => {
   );
 };
 
-TextareaReadOnly.story = {
-  name: 'Textarea - ReadOnly',
-};
+TextareaReadOnly.storyName = 'Textarea - ReadOnly';
 
 export const TextareaReadOnlyInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -351,9 +332,7 @@ export const TextareaReadOnlyInverse = (): React.ReactNode => {
   );
 };
 
-TextareaReadOnlyInverse.story = {
-  name: 'Textarea - ReadOnly inverse',
-};
+TextareaReadOnlyInverse.storyName = 'Textarea - ReadOnly inverse';
 
 export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -383,9 +362,7 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-TextareaInsertBeforeAndAfter.story = {
-  name: 'Textarea - insert before and after',
-};
+TextareaInsertBeforeAndAfter.storyName = 'Textarea - insert before and after';
 
 export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -418,9 +395,7 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-TextareaDisabledInsertBeforeAndAfter.story = {
-  name: 'Textarea - Disabled insert before and after',
-};
+TextareaDisabledInsertBeforeAndAfter.storyName = 'Textarea - Disabled insert before and after';
 
 export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -455,9 +430,7 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-TextareaInsertBeforeAndAfterInverse.story = {
-  name: 'Textarea - insert before and after inverse',
-};
+TextareaInsertBeforeAndAfterInverse.storyName = 'Textarea - insert before and after inverse';
 
 export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -493,9 +466,7 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
   );
 };
 
-TextareaDisabledInsertBeforeAndAfterInverse.story = {
-  name: 'Textarea - Disabled insert before and after inverse',
-};
+TextareaDisabledInsertBeforeAndAfterInverse.storyName = 'Textarea - Disabled insert before and after inverse';
 
 export const CustomizedTextarea = (): JSX.Element => {
   const activeTheme = useTheme();
@@ -790,4 +761,10 @@ export const CustomizedTextarea = (): JSX.Element => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedTextarea.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

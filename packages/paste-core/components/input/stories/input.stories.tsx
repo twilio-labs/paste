@@ -43,9 +43,7 @@ export const DefaultInput = (): React.ReactNode => {
   );
 };
 
-DefaultInput.story = {
-  name: 'Input',
-};
+DefaultInput.storyName = 'Input';
 
 export const InputInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -73,9 +71,7 @@ export const InputInverse = (): React.ReactNode => {
   );
 };
 
-InputInverse.story = {
-  name: 'Input - Inverse',
-};
+InputInverse.storyName = 'Input - Inverse';
 
 export const InputRequired = (): React.ReactNode => {
   const uid = useUID();
@@ -103,9 +99,7 @@ export const InputRequired = (): React.ReactNode => {
   );
 };
 
-InputRequired.story = {
-  name: 'Input - Required',
-};
+InputRequired.storyName = 'Input - Required';
 
 export const InputRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -134,9 +128,7 @@ export const InputRequiredInverse = (): React.ReactNode => {
   );
 };
 
-InputRequiredInverse.story = {
-  name: 'Input - Required inverse',
-};
+InputRequiredInverse.storyName = 'Input - Required inverse';
 
 export const InputError = (): React.ReactNode => {
   const uid = useUID();
@@ -162,9 +154,7 @@ export const InputError = (): React.ReactNode => {
   );
 };
 
-InputError.story = {
-  name: 'Input - Error',
-};
+InputError.storyName = 'Input - Error';
 
 export const InputReallyLongError = (): React.ReactNode => {
   const uid = useUID();
@@ -195,9 +185,7 @@ export const InputReallyLongError = (): React.ReactNode => {
   );
 };
 
-InputReallyLongError.story = {
-  name: 'Input - Really Long Error',
-};
+InputReallyLongError.storyName = 'Input - Really Long Error';
 
 export const InputErrorInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -226,9 +214,7 @@ export const InputErrorInverse = (): React.ReactNode => {
   );
 };
 
-InputErrorInverse.story = {
-  name: 'Input - Error inverse',
-};
+InputErrorInverse.storyName = 'Input - Error inverse';
 
 export const InputReallyLongErrorInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -262,9 +248,7 @@ export const InputReallyLongErrorInverse = (): React.ReactNode => {
   );
 };
 
-InputReallyLongErrorInverse.story = {
-  name: 'Input - Really Long Error inverse',
-};
+InputReallyLongErrorInverse.storyName = 'Input - Really Long Error inverse';
 
 export const InputDisabled = (): React.ReactNode => {
   const uid = useUID();
@@ -291,9 +275,7 @@ export const InputDisabled = (): React.ReactNode => {
   );
 };
 
-InputDisabled.story = {
-  name: 'Input - Disabled',
-};
+InputDisabled.storyName = 'Input - Disabled';
 
 export const InputDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -322,9 +304,7 @@ export const InputDisabledInverse = (): React.ReactNode => {
   );
 };
 
-InputDisabledInverse.story = {
-  name: 'Input - Disabled inverse',
-};
+InputDisabledInverse.storyName = 'Input - Disabled inverse';
 
 export const InputReadOnly = (): React.ReactNode => {
   const uid = useUID();
@@ -349,9 +329,7 @@ export const InputReadOnly = (): React.ReactNode => {
   );
 };
 
-InputReadOnly.story = {
-  name: 'Input - ReadOnly',
-};
+InputReadOnly.storyName = 'Input - ReadOnly';
 
 export const InputReadOnlyInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -380,9 +358,7 @@ export const InputReadOnlyInverse = (): React.ReactNode => {
   );
 };
 
-InputReadOnlyInverse.story = {
-  name: 'Input - ReadOnly inverse',
-};
+InputReadOnlyInverse.storyName = 'Input - ReadOnly inverse';
 
 export const InputHidden = (): React.ReactNode => {
   const uid = useUID();
@@ -404,9 +380,7 @@ export const InputHidden = (): React.ReactNode => {
   );
 };
 
-InputHidden.story = {
-  name: 'Input - Hidden',
-};
+InputHidden.storyName = 'Input - Hidden';
 
 export const InputHiddenInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -429,9 +403,7 @@ export const InputHiddenInverse = (): React.ReactNode => {
   );
 };
 
-InputHiddenInverse.story = {
-  name: 'Input - Hidden inverse',
-};
+InputHiddenInverse.storyName = 'Input - Hidden inverse';
 
 export const InputInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -465,9 +437,7 @@ export const InputInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-InputInsertBeforeAndAfter.story = {
-  name: 'Input - insert before and after',
-};
+InputInsertBeforeAndAfter.storyName = 'Input - insert before and after';
 
 export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -504,9 +474,7 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-InputDisabledInsertBeforeAndAfter.story = {
-  name: 'Input - Disabled insert before and after',
-};
+InputDisabledInsertBeforeAndAfter.storyName = 'Input - Disabled insert before and after';
 
 export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -544,9 +512,7 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-InputInsertBeforeAndAfterInverse.story = {
-  name: 'Input - insert before and after inverse',
-};
+InputInsertBeforeAndAfterInverse.storyName = 'Input - insert before and after inverse';
 
 export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -585,9 +551,7 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-InputDisabledInsertBeforeAndAfterInverse.story = {
-  name: 'Input - Disabled insert before and after inverse',
-};
+InputDisabledInsertBeforeAndAfterInverse.storyName = 'Input - Disabled insert before and after inverse';
 
 export const InputNumberError = (): React.ReactNode => {
   const uid = useUID();
@@ -613,9 +577,7 @@ export const InputNumberError = (): React.ReactNode => {
   );
 };
 
-InputNumberError.story = {
-  name: 'Input - Number Error',
-};
+InputNumberError.storyName = 'Input - Number Error';
 
 export const InputPlaceholder = (): React.ReactNode => {
   const uid = useUID();
@@ -639,9 +601,7 @@ export const InputPlaceholder = (): React.ReactNode => {
   );
 };
 
-InputPlaceholder.story = {
-  name: 'Input - Placeholder',
-};
+InputPlaceholder.storyName = 'Input - Placeholder';
 
 export const InputPlaceholderInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -668,9 +628,7 @@ export const InputPlaceholderInverse = (): React.ReactNode => {
   );
 };
 
-InputPlaceholderInverse.story = {
-  name: 'Input - Placeholder inverse',
-};
+InputPlaceholderInverse.storyName = 'Input - Placeholder inverse';
 
 export const CustomInput: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const uidOne = useUID();
@@ -970,4 +928,10 @@ export const CustomInput: Story = (_args, {parameters: {isTestEnvironment}}) => 
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomInput.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

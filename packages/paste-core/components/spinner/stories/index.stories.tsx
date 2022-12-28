@@ -217,3 +217,9 @@ export const CustomizedSpinner: Story = (_args, {parameters: {isTestEnvironment}
     </CustomizationProvider>
   );
 };
+CustomizedSpinner.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};

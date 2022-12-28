@@ -31,9 +31,7 @@ export const Horizontal = (): React.ReactNode => {
   );
 };
 
-Horizontal.story = {
-  name: 'horizontal',
-};
+Horizontal.storyName = 'horizontal';
 
 export const Vertical = (): React.ReactNode => {
   return (
@@ -87,9 +85,7 @@ export const Vertical = (): React.ReactNode => {
   );
 };
 
-Vertical.story = {
-  name: 'vertical',
-};
+Vertical.storyName = 'vertical';
 
 export const Responsive = (): React.ReactNode => {
   return (
@@ -139,9 +135,7 @@ export const Responsive = (): React.ReactNode => {
   );
 };
 
-Responsive.story = {
-  name: 'responsive',
-};
+Responsive.storyName = 'responsive';
 
 export const CustomSeparator: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -221,4 +215,10 @@ export const CustomSeparator: Story = (_args, {parameters: {isTestEnvironment}})
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomSeparator.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

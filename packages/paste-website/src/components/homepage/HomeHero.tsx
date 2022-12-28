@@ -6,6 +6,7 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 
 import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
@@ -73,21 +74,21 @@ const HomeHero = (): JSX.Element => {
             <Column span={5}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
-                  Hello!
+                  <NewIcon decorative />
+                  New
                 </Badge>
-                <NewComponentBannerText>We&rsquo;re hiring a Staff UX Software Engineer!</NewComponentBannerText>
+                <NewComponentBannerText>Check out our newest component,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://boards.greenhouse.io/twilio/jobs/4595880"
-                  showExternal
+                  to="/components/chat-composer"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Staff UX Engineer Job Ad',
+                      label: 'Chat Composer component',
                     })
                   }
                 >
-                  Apply now!
+                  Chat Composer!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text

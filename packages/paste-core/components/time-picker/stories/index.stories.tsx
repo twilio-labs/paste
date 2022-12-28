@@ -357,6 +357,12 @@ export const CustomizedTimePicker: Story = (_args, {parameters: {isTestEnvironme
     </CustomizationProvider>
   );
 };
+CustomizedTimePicker.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {

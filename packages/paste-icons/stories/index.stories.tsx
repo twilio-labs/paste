@@ -25,9 +25,7 @@ export const Default = (): React.ReactNode => {
   return <CopyIcon size={sizeValue} color={colorValue} title="Icon text" decorative />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Colors = (): React.ReactNode => {
   return (
@@ -39,9 +37,7 @@ export const Colors = (): React.ReactNode => {
   );
 };
 
-Colors.story = {
-  name: 'colors',
-};
+Colors.storyName = 'colors';
 
 export const Sizes = (): React.ReactNode => {
   return (
@@ -53,9 +49,7 @@ export const Sizes = (): React.ReactNode => {
   );
 };
 
-Sizes.story = {
-  name: 'sizes',
-};
+Sizes.storyName = 'sizes';
 
 export const Alignment = (): React.ReactNode => {
   return (
@@ -79,9 +73,7 @@ export const Alignment = (): React.ReactNode => {
   );
 };
 
-Alignment.story = {
-  name: 'alignment',
-};
+Alignment.storyName = 'alignment';
 
 export const CustomizedIcon: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -100,4 +92,10 @@ export const CustomizedIcon: Story = (_args, {parameters: {isTestEnvironment}}) 
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedIcon.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

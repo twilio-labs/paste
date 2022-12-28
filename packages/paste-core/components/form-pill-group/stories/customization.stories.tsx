@@ -69,4 +69,10 @@ export const CustomFormPillGroup = (): JSX.Element => {
 export default {
   title: 'Components/Form Pill Group/Customization',
   component: FormPillGroup,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

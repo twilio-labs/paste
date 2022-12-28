@@ -118,9 +118,7 @@ export const DefaultTable = (): React.ReactNode => {
   );
 };
 
-DefaultTable.story = {
-  name: 'Default table',
-};
+DefaultTable.storyName = 'Default table';
 
 export const DefaultFooterTable = (): React.ReactNode => {
   return (
@@ -226,9 +224,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
   );
 };
 
-DefaultFooterTable.story = {
-  name: 'Default table with footer',
-};
+DefaultFooterTable.storyName = 'Default table with footer';
 
 export const BorderlessTable = (): React.ReactNode => {
   return (
@@ -299,9 +295,7 @@ export const BorderlessTable = (): React.ReactNode => {
   );
 };
 
-BorderlessTable.story = {
-  name: 'Borderless table',
-};
+BorderlessTable.storyName = 'Borderless table';
 
 export const BorderlessFooterTable = (): React.ReactNode => {
   return (
@@ -407,9 +401,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
   );
 };
 
-BorderlessFooterTable.story = {
-  name: 'Borderless table with footer',
-};
+BorderlessFooterTable.storyName = 'Borderless table with footer';
 
 export const BorderlessStripedFooterTable = (): React.ReactNode => {
   return (
@@ -515,9 +507,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
   );
 };
 
-BorderlessStripedFooterTable.story = {
-  name: 'Borderless striped table with footer',
-};
+BorderlessStripedFooterTable.storyName = 'Borderless striped table with footer';
 
 export const StripedTable = (): React.ReactNode => {
   return (
@@ -588,9 +578,7 @@ export const StripedTable = (): React.ReactNode => {
   );
 };
 
-StripedTable.story = {
-  name: 'Striped table',
-};
+StripedTable.storyName = 'Striped table';
 
 export const StripedTableFooter = (): React.ReactNode => {
   return (
@@ -696,9 +684,7 @@ export const StripedTableFooter = (): React.ReactNode => {
   );
 };
 
-StripedTableFooter.story = {
-  name: 'Striped table with footer',
-};
+StripedTableFooter.storyName = 'Striped table with footer';
 
 export const TableLayoutFixedTable = (): React.ReactNode => {
   return (
@@ -770,9 +756,7 @@ export const TableLayoutFixedTable = (): React.ReactNode => {
   );
 };
 
-TableLayoutFixedTable.story = {
-  name: 'TableLayout: Fixed table',
-};
+TableLayoutFixedTable.storyName = 'TableLayout: Fixed table';
 
 export const ColumnWidth = (): React.ReactNode => {
   return (
@@ -854,9 +838,7 @@ export const ColumnWidth = (): React.ReactNode => {
   );
 };
 
-ColumnWidth.story = {
-  name: 'Column width',
-};
+ColumnWidth.storyName = 'Column width';
 
 export const ColumnTextAlign = (): React.ReactNode => {
   return (
@@ -932,9 +914,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
   );
 };
 
-ColumnTextAlign.story = {
-  name: 'Column textAlign',
-};
+ColumnTextAlign.storyName = 'Column textAlign';
 
 export const RowVerticalAlign = (): React.ReactNode => {
   return (
@@ -1010,9 +990,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
   );
 };
 
-RowVerticalAlign.story = {
-  name: 'Row verticalAlign',
-};
+RowVerticalAlign.storyName = 'Row verticalAlign';
 
 export const RowHeaders = (): React.ReactNode => {
   return (
@@ -1049,9 +1027,7 @@ export const RowHeaders = (): React.ReactNode => {
   );
 };
 
-RowHeaders.story = {
-  name: 'Row headers',
-};
+RowHeaders.storyName = 'Row headers';
 
 export const StickyHeaders = (): React.ReactNode => {
   return (
@@ -1093,9 +1069,7 @@ export const StickyHeaders = (): React.ReactNode => {
   );
 };
 
-StickyHeaders.story = {
-  name: 'Sticky headers',
-};
+StickyHeaders.storyName = 'Sticky headers';
 
 export const BorderlessStickyHeaders = (): React.ReactNode => {
   return (
@@ -1120,9 +1094,7 @@ export const BorderlessStickyHeaders = (): React.ReactNode => {
   );
 };
 
-BorderlessStickyHeaders.story = {
-  name: 'Borderless Sticky headers',
-};
+BorderlessStickyHeaders.storyName = 'Borderless Sticky headers';
 
 export const Truncation = (): React.ReactNode => {
   return (
@@ -1635,6 +1607,10 @@ export const CustomTable: Story = (_args, {parameters: {isTestEnvironment}}) => 
   );
 };
 
-CustomTable.story = {
-  name: 'Custom table',
+CustomTable.storyName = 'Custom table';
+CustomTable.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

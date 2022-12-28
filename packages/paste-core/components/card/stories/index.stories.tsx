@@ -37,9 +37,7 @@ export const DefinedPadding = (): React.ReactNode => (
   </Card>
 );
 
-DefinedPadding.story = {
-  name: 'Padding',
-};
+DefinedPadding.storyName = 'Padding';
 
 export const NoPadding = (): React.ReactNode => (
   <Card padding="space0">
@@ -122,4 +120,10 @@ export const CustomCard: Story = (_args, {parameters: {isTestEnvironment}}) => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomCard.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

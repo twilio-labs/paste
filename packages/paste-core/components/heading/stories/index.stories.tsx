@@ -21,9 +21,7 @@ export const Heading10 = (): React.ReactNode => {
   );
 };
 
-Heading10.story = {
-  name: 'heading10',
-};
+Heading10.storyName = 'heading10';
 
 export const Heading20 = (): React.ReactNode => {
   return (
@@ -33,9 +31,7 @@ export const Heading20 = (): React.ReactNode => {
   );
 };
 
-Heading20.story = {
-  name: 'heading20',
-};
+Heading20.storyName = 'heading20';
 
 export const Heading30 = (): React.ReactNode => {
   return (
@@ -45,9 +41,7 @@ export const Heading30 = (): React.ReactNode => {
   );
 };
 
-Heading30.story = {
-  name: 'heading30',
-};
+Heading30.storyName = 'heading30';
 
 export const Heading40 = (): React.ReactNode => {
   return (
@@ -57,9 +51,7 @@ export const Heading40 = (): React.ReactNode => {
   );
 };
 
-Heading40.story = {
-  name: 'heading40',
-};
+Heading40.storyName = 'heading40';
 
 export const Heading50 = (): React.ReactNode => {
   return (
@@ -69,9 +61,7 @@ export const Heading50 = (): React.ReactNode => {
   );
 };
 
-Heading50.story = {
-  name: 'heading50',
-};
+Heading50.storyName = 'heading50';
 
 export const Heading60 = (): React.ReactNode => {
   return (
@@ -81,9 +71,7 @@ export const Heading60 = (): React.ReactNode => {
   );
 };
 
-Heading60.story = {
-  name: 'heading60',
-};
+Heading60.storyName = 'heading60';
 
 export const Heading10NoMargin = (): React.ReactNode => {
   return (
@@ -95,9 +83,7 @@ export const Heading10NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading10NoMargin.story = {
-  name: 'heading10 no margin',
-};
+Heading10NoMargin.storyName = 'heading10 no margin';
 
 export const Heading20NoMargin = (): React.ReactNode => {
   return (
@@ -109,9 +95,7 @@ export const Heading20NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading20NoMargin.story = {
-  name: 'heading20 no margin',
-};
+Heading20NoMargin.storyName = 'heading20 no margin';
 
 export const Heading30NoMargin = (): React.ReactNode => {
   return (
@@ -123,9 +107,7 @@ export const Heading30NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading30NoMargin.story = {
-  name: 'heading30 no margin',
-};
+Heading30NoMargin.storyName = 'heading30 no margin';
 
 export const Heading40NoMargin = (): React.ReactNode => {
   return (
@@ -137,9 +119,7 @@ export const Heading40NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading40NoMargin.story = {
-  name: 'heading40 no margin',
-};
+Heading40NoMargin.storyName = 'heading40 no margin';
 
 export const Heading50NoMargin = (): React.ReactNode => {
   return (
@@ -151,9 +131,7 @@ export const Heading50NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading50NoMargin.story = {
-  name: 'heading50 no margin',
-};
+Heading50NoMargin.storyName = 'heading50 no margin';
 
 export const Heading60NoMargin = (): React.ReactNode => {
   return (
@@ -165,9 +143,7 @@ export const Heading60NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading60NoMargin.story = {
-  name: 'heading60 no margin',
-};
+Heading60NoMargin.storyName = 'heading60 no margin';
 
 export const CustomHeading: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -233,4 +209,10 @@ export const CustomHeading: Story = (_args, {parameters: {isTestEnvironment}}) =
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomHeading.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -70,6 +70,4 @@ export const CustomOverlayAndContent = (): React.ReactNode => {
   );
 };
 
-CustomOverlayAndContent.story = {
-  name: 'Custom overlay and content',
-};
+CustomOverlayAndContent.storyName = 'Custom overlay and content';

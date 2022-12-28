@@ -68,8 +68,8 @@ export const Image = (): React.ReactNode => {
   );
 };
 
-Image.story = {
-  parameters: {chromatic: {delay: 3000}},
+Image.parameters = {
+  chromatic: {delay: 3000},
 };
 
 export const Icon = (): React.ReactNode => {
@@ -143,8 +143,8 @@ export const ResponsiveIcon = (): React.ReactNode => {
   );
 };
 
-ResponsiveImage.story = {
-  parameters: {chromatic: {delay: 3000}},
+ResponsiveImage.parameters = {
+  chromatic: {delay: 3000},
 };
 
 export const CustomAvatar: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -184,4 +184,10 @@ export const CustomAvatar: Story = (_args, {parameters: {isTestEnvironment}}) =>
       </CustomizationProvider>
     </>
   );
+};
+CustomAvatar.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -272,33 +272,25 @@ export const ArrowsAsAnchors = (): React.ReactNode => {
   return <ArrowsAsAnchorsExample />;
 };
 
-ArrowsAsAnchors.story = {
-  name: 'Arrows as anchors',
-};
+ArrowsAsAnchors.storyName = 'Arrows as anchors';
 
 export const ArrowLabels = (): React.ReactNode => {
   return <ArrowLabelsExample />;
 };
 
-ArrowLabels.story = {
-  name: 'Arrows with visible labels',
-};
+ArrowLabels.storyName = 'Arrows with visible labels';
 
 export const ArrowAsAnchorLabels = (): React.ReactNode => {
   return <ArrowAsAnchorLabelsExample />;
 };
 
-ArrowAsAnchorLabels.story = {
-  name: 'Arrows as anchors with visbile labels',
-};
+ArrowAsAnchorLabels.storyName = 'Arrows as anchors with visbile labels';
 
 export const ArrowsPageLabel = (): React.ReactNode => {
   return <ArrowsPageLabelExample />;
 };
 
-ArrowsPageLabel.story = {
-  name: 'Arrows with page label',
-};
+ArrowsPageLabel.storyName = 'Arrows with page label';
 
 export const Numbers = (): React.ReactNode => {
   return <NumbersExample />;
@@ -308,17 +300,13 @@ export const NumbersAsAnchors = (): React.ReactNode => {
   return <NumbersAsAnchorsExample />;
 };
 
-NumbersAsAnchors.story = {
-  name: 'Numbers as anchors',
-};
+NumbersAsAnchors.storyName = 'Numbers as anchors';
 
 export const NumbersPageLabel = (): React.ReactNode => {
   return <NumbersPageLabelExample />;
 };
 
-NumbersPageLabel.story = {
-  name: 'Numbers with page label',
-};
+NumbersPageLabel.storyName = 'Numbers with page label';
 
 export const Label = (): React.ReactNode => {
   return <PaginationLabel>Page 1 of 10</PaginationLabel>;
@@ -332,14 +320,10 @@ export const ControlledArrowPagination = (): React.ReactNode => {
   return <ControlledArrowPaginationExample />;
 };
 
-ControlledArrowPagination.story = {
-  name: 'Controlled pagination using arrows',
-};
+ControlledArrowPagination.storyName = 'Controlled pagination using arrows';
 
 export const ControlledNumberPagination = (): React.ReactNode => {
   return <ControlledNumberPaginationExample />;
 };
 
-ControlledArrowPagination.story = {
-  name: 'Controlled pagination using numbers',
-};
+ControlledArrowPagination.storyName = 'Controlled pagination using numbers';

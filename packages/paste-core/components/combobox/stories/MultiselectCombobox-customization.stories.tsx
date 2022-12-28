@@ -108,9 +108,7 @@ export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment
   </ShowCustomization>
 );
 
-CustomizedCombobox.story = {
-  name: 'MultiselectCombobox - Default',
-};
+CustomizedCombobox.storyName = 'MultiselectCombobox - Default';
 
 export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
@@ -126,9 +124,7 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
     />
   </ShowCustomization>
 );
-CustomizedComboboxGroups.story = {
-  name: 'MultiselectCombobox - With groups',
-};
+CustomizedComboboxGroups.storyName = 'MultiselectCombobox - With groups';
 
 export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
@@ -146,12 +142,16 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
     />
   </ShowCustomization>
 );
-CustomizedComboboxBeforeAndAfter.story = {
-  name: 'MultiselectCombobox - With prefix and suffix',
-};
+CustomizedComboboxBeforeAndAfter.storyName = 'MultiselectCombobox - With prefix and suffix';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox/Customization - MultiselectCombobox',
   component: CustomizedCombobox,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

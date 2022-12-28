@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
@@ -129,4 +130,10 @@ export const Customized = (): JSX.Element => {
       </Box>
     </Stack>
   );
+};
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

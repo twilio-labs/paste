@@ -90,9 +90,7 @@ export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment
   </ShowCustomization>
 );
 
-CustomizedCombobox.story = {
-  name: 'Combobox - Default',
-};
+CustomizedCombobox.storyName = 'Combobox - Default';
 
 export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
@@ -106,9 +104,7 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
     />
   </ShowCustomization>
 );
-CustomizedComboboxGroups.story = {
-  name: 'Combobox - With groups',
-};
+CustomizedComboboxGroups.storyName = 'Combobox - With groups';
 
 export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
@@ -124,12 +120,16 @@ export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isT
     />
   </ShowCustomization>
 );
-CustomizedComboboxBeforeAndAfter.story = {
-  name: 'Combobox - With prefix and suffix',
-};
+CustomizedComboboxBeforeAndAfter.storyName = 'Combobox - With prefix and suffix';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox/Customization - Combobox',
   component: CustomizedCombobox,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
 };

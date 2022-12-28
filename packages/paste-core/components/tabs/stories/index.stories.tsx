@@ -65,9 +65,7 @@ export const HorizontalTabs = (): JSX.Element => {
   );
 };
 // @ts-expect-error story
-HorizontalTabs.story = {
-  name: 'Horizontal Tabs',
-};
+HorizontalTabs.storyName = 'Horizontal Tabs';
 
 export const FittedTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -123,9 +121,7 @@ export const FittedTabs = (): JSX.Element => {
   );
 };
 // @ts-expect-error story
-FittedTabs.story = {
-  name: 'Fitted Tabs',
-};
+FittedTabs.storyName = 'Fitted Tabs';
 
 export const VerticalTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -181,9 +177,7 @@ export const VerticalTabs = (): JSX.Element => {
   );
 };
 // @ts-expect-error story
-VerticalTabs.story = {
-  name: 'Vertical Tabs',
-};
+VerticalTabs.storyName = 'Vertical Tabs';
 
 const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   const tab = useTabState();
@@ -221,9 +215,7 @@ export const StateHookTabs = (): JSX.Element => {
   );
 };
 // @ts-expect-error story
-StateHookTabs.story = {
-  name: 'State hook example',
-};
+StateHookTabs.storyName = 'State hook example';
 
 export const CenterAlignTabTest = (): JSX.Element => {
   return (
@@ -246,9 +238,7 @@ export const CenterAlignTabTest = (): JSX.Element => {
   );
 };
 // @ts-expect-error story
-CenterAlignTabTest.story = {
-  name: 'Testing Center Alignment',
-};
+CenterAlignTabTest.storyName = 'Testing Center Alignment';
 
 export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -359,6 +349,12 @@ export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironme
     </CustomizationProvider>
   );
 };
+CustomHorizontalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -456,6 +452,12 @@ export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment
     </CustomizationProvider>
   );
 };
+CustomVerticalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 // @TODO
 export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
@@ -549,6 +551,12 @@ export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}
       </Tabs>
     </CustomizationProvider>
   );
+};
+CustomVerticalTabs.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 // eslint-disable-next-line import/no-default-export

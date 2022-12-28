@@ -32,13 +32,11 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
       <MessageVariantContext.Provider value={variant}>
         <Box
           role="listitem"
-          marginBottom="space80"
           display="flex"
           flexDirection="column"
           ref={ref}
           element={element}
           variant={variant}
-          _last={{marginBottom: 'space0'}}
           {...messageVariantStyles[variant]}
           {...safelySpreadBoxProps(props)}
         >

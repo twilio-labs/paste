@@ -54,33 +54,25 @@ export const Default = (): React.ReactNode => {
   return <CommonStories variant="default" element="INPUT_BOX" />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Readonly = (): React.ReactNode => {
   return <CommonStories readOnly variant="default" element="INPUT_BOX" />;
 };
 
-Readonly.story = {
-  name: 'readonly',
-};
+Readonly.storyName = 'readonly';
 
 export const Disabled = (): React.ReactNode => {
   return <CommonStories disabled variant="default" element="INPUT_BOX" />;
 };
 
-Disabled.story = {
-  name: 'disabled',
-};
+Disabled.storyName = 'disabled';
 
 export const Error = (): React.ReactNode => {
   return <CommonStories hasError variant="default" element="INPUT_BOX" />;
 };
 
-Error.story = {
-  name: 'error',
-};
+Error.storyName = 'error';
 
 export const Inverse = (): React.ReactNode => {
   return (
@@ -90,9 +82,7 @@ export const Inverse = (): React.ReactNode => {
   );
 };
 
-Inverse.story = {
-  name: 'inverse',
-};
+Inverse.storyName = 'inverse';
 
 export const InverseReadonly = (): React.ReactNode => {
   return (
@@ -102,9 +92,7 @@ export const InverseReadonly = (): React.ReactNode => {
   );
 };
 
-InverseReadonly.story = {
-  name: 'inverse readonly',
-};
+InverseReadonly.storyName = 'inverse readonly';
 
 export const InverseDisabled = (): React.ReactNode => {
   return (
@@ -114,9 +102,7 @@ export const InverseDisabled = (): React.ReactNode => {
   );
 };
 
-InverseDisabled.story = {
-  name: 'inverse disabled',
-};
+InverseDisabled.storyName = 'inverse disabled';
 
 export const InverseError = (): React.ReactNode => {
   return (
@@ -126,6 +112,4 @@ export const InverseError = (): React.ReactNode => {
   );
 };
 
-InverseError.story = {
-  name: 'inverse error',
-};
+InverseError.storyName = 'inverse error';

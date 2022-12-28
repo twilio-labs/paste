@@ -29,9 +29,7 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-Default.story = {
-  name: 'Default',
-};
+Default.storyName = 'Default';
 
 export const Inverse = (): React.ReactNode => {
   return (
@@ -42,9 +40,7 @@ export const Inverse = (): React.ReactNode => {
   );
 };
 
-Inverse.story = {
-  name: 'Inverse',
-};
+Inverse.storyName = 'Inverse';
 
 export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -119,4 +115,10 @@ export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
       </Stack>
     </>
   );
+};
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

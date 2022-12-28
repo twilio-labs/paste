@@ -60,9 +60,7 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxBasic.story = {
-  name: 'Basic',
-};
+MultiselectComboboxBasic.storyName = 'Basic';
 
 /*
  * Basic - Inverse
@@ -90,9 +88,7 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
     </Box>
   );
 };
-MultiselectComboboxInverse.story = {
-  name: 'variant Inverse',
-};
+MultiselectComboboxInverse.storyName = 'variant Inverse';
 
 /*
  * Basic - Disabled
@@ -119,9 +115,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxDisabled.story = {
-  name: 'Basic - Disabled',
-};
+MultiselectComboboxDisabled.storyName = 'Basic - Disabled';
 
 /*
  * Basic - Disabled, Inverse, Required
@@ -151,9 +145,7 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
     </Box>
   );
 };
-MultiselectComboboxDisabledInverseRequired.story = {
-  name: 'Basic - Disabled, Inverse, Required',
-};
+MultiselectComboboxDisabledInverseRequired.storyName = 'Basic - Disabled, Inverse, Required';
 
 /*
  * Basic - Error
@@ -181,9 +173,7 @@ export const MultiselectComboboxError = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxError.story = {
-  name: 'Basic - Error',
-};
+MultiselectComboboxError.storyName = 'Basic - Error';
 
 /*
  * Basic - Required
@@ -210,9 +200,7 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxRequired.story = {
-  name: 'Basic - Required',
-};
+MultiselectComboboxRequired.storyName = 'Basic - Required';
 
 /*
  * initialSelectedItems
@@ -238,9 +226,7 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxInitialSelectedItems.story = {
-  name: 'with initialSelectedItems',
-};
+MultiselectComboboxInitialSelectedItems.storyName = 'with initialSelectedItems';
 
 /*
  * insertBefore and insertAfter
@@ -304,9 +290,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxBeforeAfter.story = {
-  name: 'with insertBefore and insertAfter',
-};
+MultiselectComboboxBeforeAfter.storyName = 'with insertBefore and insertAfter';
 
 /*
  * maxHeight
@@ -350,9 +334,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxMaxHeight.story = {
-  name: 'with maxHeight',
-};
+MultiselectComboboxMaxHeight.storyName = 'with maxHeight';
 
 /*
  * optionTemplate
@@ -384,9 +366,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxOptionTemplate.story = {
-  name: 'with optionTemplate',
-};
+MultiselectComboboxOptionTemplate.storyName = 'with optionTemplate';
 
 /*
  * optionTemplate - disabled options
@@ -422,9 +402,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
     />
   );
 };
-MultiselectComboboxOptionTemplatedisabled.story = {
-  name: 'with optionTemplate - disabled options',
-};
+MultiselectComboboxOptionTemplatedisabled.storyName = 'with optionTemplate - disabled options';
 
 /*
  * groupedItemsBy
@@ -492,9 +470,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
   );
 };
 
-MultiselectComboboxOptionGroups.story = {
-  name: 'with groups',
-};
+MultiselectComboboxOptionGroups.storyName = 'with groups';
 
 const SampleEmptyState: React.FC = () => (
   <>
@@ -547,9 +523,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
   );
 };
 
-MultiselectComboboxEmptyState.story = {
-  name: 'with empty state',
-};
+MultiselectComboboxEmptyState.storyName = 'with empty state';
 
 // eslint-disable-next-line import/no-default-export
 export default {

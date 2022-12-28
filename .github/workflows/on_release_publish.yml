@@ -15,7 +15,7 @@ jobs:
           echo "${{ github.event.release.name }}"
           echo "${{ github.event.release.body }}"
       - name: Send message to Slack API
-        uses: archive/github-actions-slack@v2.0.0
+        uses: archive/github-actions-slack@master
         id: send-message
         with:
           slack-function: send-message

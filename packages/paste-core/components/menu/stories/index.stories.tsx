@@ -222,33 +222,25 @@ export const Default = (): React.ReactNode => {
   return <PlainMenu />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const SubMenuStory = (): React.ReactNode => {
   return <SubMenu />;
 };
 
-SubMenuStory.story = {
-  name: 'sub menu',
-};
+SubMenuStory.storyName = 'sub menu';
 
 export const ActionsDemoMenu = (): React.ReactNode => {
   return <WithActionsMenu />;
 };
 
-ActionsDemoMenu.story = {
-  name: 'actions demo menu',
-};
+ActionsDemoMenu.storyName = 'actions demo menu';
 
 export const MenuGroupsStory = (): React.ReactNode => {
   return <MenuGroups />;
 };
 
-MenuGroupsStory.story = {
-  name: 'menu groups',
-};
+MenuGroupsStory.storyName = 'menu groups';
 
 export const MenuDropdown = (): React.ReactNode => {
   const uniqueMenuLabelID = useUID();
@@ -387,9 +379,7 @@ export const MenuDropdown = (): React.ReactNode => {
   );
 };
 
-MenuDropdown.story = {
-  name: 'menu dropdown',
-};
+MenuDropdown.storyName = 'menu dropdown';
 
 export const DifferentButtonTriggers = (): React.ReactNode => {
   return (
@@ -404,9 +394,7 @@ export const DifferentButtonTriggers = (): React.ReactNode => {
   );
 };
 
-DifferentButtonTriggers.story = {
-  name: 'different button triggers',
-};
+DifferentButtonTriggers.storyName = 'different button triggers';
 
 export const AutoPlacementMenuStory = (): React.ReactNode => {
   return (
@@ -416,6 +404,4 @@ export const AutoPlacementMenuStory = (): React.ReactNode => {
   );
 };
 
-AutoPlacementMenuStory.story = {
-  name: 'auto placed menu',
-};
+AutoPlacementMenuStory.storyName = 'auto placed menu';

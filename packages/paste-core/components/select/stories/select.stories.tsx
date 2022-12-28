@@ -46,9 +46,7 @@ export const DefaultSelect = (): React.ReactNode => {
   );
 };
 
-DefaultSelect.story = {
-  name: 'Select',
-};
+DefaultSelect.storyName = 'Select';
 
 export const SelectRequired = (): React.ReactNode => {
   const uid = useUID();
@@ -79,9 +77,7 @@ export const SelectRequired = (): React.ReactNode => {
   );
 };
 
-SelectRequired.story = {
-  name: 'Select - Required',
-};
+SelectRequired.storyName = 'Select - Required';
 
 export const SelectRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -113,9 +109,7 @@ export const SelectRequiredInverse = (): React.ReactNode => {
   );
 };
 
-SelectRequiredInverse.story = {
-  name: 'Select - Required inverse',
-};
+SelectRequiredInverse.storyName = 'Select - Required inverse';
 
 export const SelectError = (): React.ReactNode => {
   const uid = useUID();
@@ -146,9 +140,7 @@ export const SelectError = (): React.ReactNode => {
   );
 };
 
-SelectError.story = {
-  name: 'Select - Error',
-};
+SelectError.storyName = 'Select - Error';
 
 export const SelectErrorInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -181,9 +173,7 @@ export const SelectErrorInverse = (): React.ReactNode => {
   );
 };
 
-SelectErrorInverse.story = {
-  name: 'Select - Error inverse',
-};
+SelectErrorInverse.storyName = 'Select - Error inverse';
 
 export const SelectDisabled = (): React.ReactNode => {
   const uid = useUID();
@@ -214,9 +204,7 @@ export const SelectDisabled = (): React.ReactNode => {
   );
 };
 
-SelectDisabled.story = {
-  name: 'Select - Disabled',
-};
+SelectDisabled.storyName = 'Select - Disabled';
 
 export const SelectDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -248,9 +236,7 @@ export const SelectDisabledInverse = (): React.ReactNode => {
   );
 };
 
-SelectDisabledInverse.story = {
-  name: 'Select - Disabled inverse',
-};
+SelectDisabledInverse.storyName = 'Select - Disabled inverse';
 
 export const SelectMultiple = (): React.ReactNode => {
   const uid = useUID();
@@ -290,9 +276,7 @@ export const SelectMultiple = (): React.ReactNode => {
   );
 };
 
-SelectMultiple.story = {
-  name: 'Select - Multiple',
-};
+SelectMultiple.storyName = 'Select - Multiple';
 
 export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -330,9 +314,7 @@ export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-SelectInsertBeforeAndAfter.story = {
-  name: 'Select - Insert before and after',
-};
+SelectInsertBeforeAndAfter.storyName = 'Select - Insert before and after';
 
 export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -373,9 +355,7 @@ export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-SelectDisabledInsertBeforeAndAfter.story = {
-  name: 'Select - Disabled insert before and after',
-};
+SelectDisabledInsertBeforeAndAfter.storyName = 'Select - Disabled insert before and after';
 
 export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -416,9 +396,7 @@ export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-SelectInsertBeforeAndAfterInverse.story = {
-  name: 'Select - Insert before and after inverse',
-};
+SelectInsertBeforeAndAfterInverse.storyName = 'Select - Insert before and after inverse';
 
 export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -460,9 +438,7 @@ export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-SelectDisabedInsertBeforeAndAfterInverse.story = {
-  name: 'Select - Disabed insert before and after inverse',
-};
+SelectDisabedInsertBeforeAndAfterInverse.storyName = 'Select - Disabed insert before and after inverse';
 
 export const SelectOptionGroups = (): React.ReactNode => {
   const uid = useUID();
@@ -494,9 +470,7 @@ export const SelectOptionGroups = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroups.story = {
-  name: 'Select - Option Groups',
-};
+SelectOptionGroups.storyName = 'Select - Option Groups';
 
 export const SelectOptionGroupsInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -531,9 +505,7 @@ export const SelectOptionGroupsInverse = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsInverse.story = {
-  name: 'Select - Option Groups inverse',
-};
+SelectOptionGroupsInverse.storyName = 'Select - Option Groups inverse';
 
 export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
   const uid = useUID();
@@ -576,9 +548,7 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsAndMultiple.story = {
-  name: 'Select - Option Groups and Multiple',
-};
+SelectOptionGroupsAndMultiple.storyName = 'Select - Option Groups and Multiple';
 
 export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -624,9 +594,7 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsAndMultipleInverse.story = {
-  name: 'Select - Option Groups and Multiple inverse',
-};
+SelectOptionGroupsAndMultipleInverse.storyName = 'Select - Option Groups and Multiple inverse';
 
 export const SelectOverflowLongValue = (): React.ReactNode => {
   const uid = useUID();
@@ -655,9 +623,7 @@ export const SelectOverflowLongValue = (): React.ReactNode => {
   );
 };
 
-SelectOverflowLongValue.story = {
-  name: 'Select - overflow long value',
-};
+SelectOverflowLongValue.storyName = 'Select - overflow long value';
 
 export const CustomizedSelect: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -741,6 +707,10 @@ export const CustomizedSelect: Story = (_args, {parameters: {isTestEnvironment}}
   );
 };
 
-CustomizedSelect.story = {
-  name: 'Select - Customized',
+CustomizedSelect.storyName = 'Select - Customized';
+CustomizedSelect.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
