@@ -25,6 +25,7 @@ aliases:
 
   ## Grays
   palette-gray-0: "#ffffff"
+  palette-gray-05: "#f9f9fa"
   palette-gray-10: "#f4f4f6"
   palette-gray-20: "#e1e3ea"
   palette-gray-30: "#cacdd8"
