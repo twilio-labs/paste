@@ -27,7 +27,7 @@ const config: StorybookConfig = {
     check: true,
   },
   docs: {
-    docsPage: 'automatic',
+    autodocs: true,
     defaultName: 'Docs',
   },
   async viteFinal(config) {
@@ -39,6 +39,7 @@ const config: StorybookConfig = {
           'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
           'scheduler/tracing': path.resolve(__dirname, '../node_modules/scheduler/tracing-profiling'),
         },
+        mainFields: ['main:dev', 'browser', 'module', 'main'],
       },
       optimizeDeps: {
         include: ['@storybook/addon-viewport', 'chromatic/isChromatic', '@emotion/react/jsx-dev-runtime'],
