@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {DocSearch} from '@docsearch/react';
 import '@docsearch/css';
 import {Box} from '@twilio-paste/box';

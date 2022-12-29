@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 
 export const BrowserSupport = (): JSX.Element => (

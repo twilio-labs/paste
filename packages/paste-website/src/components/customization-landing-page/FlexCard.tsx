@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {Anchor} from '@twilio-paste/anchor';

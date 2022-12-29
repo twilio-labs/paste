@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';
 import {Card} from '@twilio-paste/card';

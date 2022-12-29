@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useWindowSize} from '@twilio-paste/utils';
 
 import {SiteHeaderDesktop} from './SiteHeaderDesktop';
