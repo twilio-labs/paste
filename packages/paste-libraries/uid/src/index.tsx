@@ -1,8 +1,12 @@
 import * as React from 'react';
 import {useUID as useUIDLegacy, useUIDSeed as useUIDSeedLegacy, UIDFork, uid} from 'react-uid';
 
-// eslint-disable-next-line no-useless-concat -- Workaround for https://github.com/webpack/webpack/issues/14814
-const maybeReactUseId: undefined | (() => string) = (React as any)['useId' + ''];
+/**
+ * We found a workaround here but for webpack Workaround for https://github.com/webpack/webpack/issues/14814
+ * The line below is an adaptation to make it work in ESBuild (bundler we're using)
+ */
+const useId = 'useId';
+const maybeReactUseId: undefined | (() => string) = React[useId];
 
 const useUID = maybeReactUseId !== undefined ? maybeReactUseId : useUIDLegacy;
 
