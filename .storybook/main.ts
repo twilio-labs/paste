@@ -30,7 +30,7 @@ const config: StorybookConfig = {
     autodocs: true,
     defaultName: 'Docs',
   },
-  async viteFinal(config) {
+  async viteFinal(config, {configType}) {
     return mergeConfig(config, {
       resolve: {
         alias: {
@@ -39,7 +39,7 @@ const config: StorybookConfig = {
           'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
           'scheduler/tracing': path.resolve(__dirname, '../node_modules/scheduler/tracing-profiling'),
         },
-        mainFields: ['main:dev', 'browser', 'module', 'main'],
+        ...(configType === 'DEVELOPMENT' && {mainFields: ['main:dev', 'browser', 'module', 'main']}),
       },
       optimizeDeps: {
         include: ['@storybook/addon-viewport', 'chromatic/isChromatic', '@emotion/react/jsx-dev-runtime'],
