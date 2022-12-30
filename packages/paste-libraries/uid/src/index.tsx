@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {useUID as useUIDLegacy, useUIDSeed as useUIDSeedLegacy, UIDFork, uid} from 'react-uid';
 
 /**
