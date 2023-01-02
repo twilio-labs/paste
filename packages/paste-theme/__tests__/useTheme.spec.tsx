@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import {render, act} from '@testing-library/react';
 
 import {Theme, useTheme} from '../src';
@@ -10,15 +10,26 @@ const HookExampleComponent = (): React.ReactElement => {
 };
 
 describe('useTheme', () => {
-  it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
-    act(() =>
-      root.render(
-        <Theme.Provider theme="default">
-          <HookExampleComponent />
-        </Theme.Provider>
-      )
-    );
+  describe('should render without crashing', (): void => {
+    it('should render without crashing', (): void => {
+      if (ReactDOM?.client) {
+        const root = ReactDOM?.client?.createRoot(document.createElement('div') as HTMLElement);
+        act(() =>
+          root.render(
+            <Theme.Provider theme="default">
+              <HookExampleComponent />
+            </Theme.Provider>
+          )
+        );
+      } else {
+        ReactDOM.render(
+          <Theme.Provider theme="default">
+            <HookExampleComponent />
+          </Theme.Provider>,
+          document.createElement('div')
+        );
+      }
+    });
   });
 
   it('should be able to access the theme object', () => {
