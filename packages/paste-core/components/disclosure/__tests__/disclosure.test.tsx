@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor, act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -169,8 +169,8 @@ describe('Disclosure', () => {
     it('should update attributes when clicked', async () => {
       render(<MockDisclosure />);
       const renderedDisclosureButton = screen.getByRole('button');
-      await waitFor(() => {
-        userEvent.click(renderedDisclosureButton);
+      await act(async () => {
+        await userEvent.click(renderedDisclosureButton);
       });
       expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
@@ -193,11 +193,13 @@ describe('Disclosure', () => {
       const disclosureContent = screen.getByTestId('disclosure-content');
       expect(disclosureButton.getAttribute('aria-expanded')).toEqual('false');
       expect(disclosureContent).not.toBeVisible();
-      await waitFor(() => {
-        userEvent.click(toggleButton);
+      await act(async () => {
+        await userEvent.click(toggleButton);
       });
-      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
-      expect(disclosureContent).toBeVisible();
+      waitFor(() => {
+        expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
+        expect(disclosureContent).toBeVisible();
+      });
     });
   });
 

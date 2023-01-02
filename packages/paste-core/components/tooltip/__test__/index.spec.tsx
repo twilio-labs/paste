@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor, act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Button} from '@twilio-paste/button';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -43,7 +43,9 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      userEvent.click(ButtonOne);
+      await act(async () => {
+        await userEvent.click(ButtonOne);
+      });
 
       await waitFor(() => {
         tooltip = screen.queryByTestId('state-hook-tooltip');
@@ -54,7 +56,9 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      userEvent.click(ButtonTwo);
+      await act(async () => {
+        await userEvent.click(ButtonTwo);
+      });
 
       await waitFor(() => {
         tooltip = screen.queryByTestId('state-hook-tooltip');
@@ -84,13 +88,19 @@ describe('Tooltip', () => {
 
       expect(tooltip).not.toBeVisible();
 
-      screen.getByRole('button').focus();
+      const button = screen.getByRole('button');
+
+      act(() => {
+        button.focus();
+      });
 
       await waitFor(() => {
         expect(tooltip).toBeVisible();
       });
 
-      userEvent.click(screen.getByRole('button'));
+      await act(async () => {
+        await userEvent.click(button);
+      });
 
       await waitFor(() => {
         expect(focusHandlerMock).toHaveBeenCalled();

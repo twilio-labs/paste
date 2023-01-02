@@ -20,8 +20,8 @@ describe('Alert', () => {
       expect(getByRole('button')).toBeInTheDocument();
     });
 
-    it('Should call the onDismiss event handler when close button clicked', () => {
-      const eventHandlerMock: jest.Mock = jest.fn();
+    it('Should call the onDismiss event handler when close button clicked', async () => {
+      const eventHandlerMock = jest.fn();
 
       const {getByRole} = render(
         <Alert onDismiss={eventHandlerMock} variant="neutral">
@@ -30,7 +30,7 @@ describe('Alert', () => {
       );
 
       const button = getByRole('button');
-      userEvent.click(button);
+      await userEvent.click(button);
       expect(eventHandlerMock).toHaveBeenCalledTimes(1);
     });
   });

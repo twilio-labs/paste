@@ -15,7 +15,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: 
 );
 
 const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
-  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{foo_log: {padding: 'space100'}}}>
+  <CustomizationProvider baseTheme="default" theme={TestTheme} elements={{'foo-log': {padding: 'space100'}}}>
     {children}
   </CustomizationProvider>
 );
@@ -44,7 +44,7 @@ describe('Customization', () => {
   });
 
   it('should add custom styles with a custom element data attribute', () => {
-    render(<ChatLog element="FOO_LOG" />, {wrapper: CustomizationFooWrapper});
+    render(<ChatLog element="foo-log" />, {wrapper: CustomizationFooWrapper});
 
     const chatLog = screen.getByRole('log');
     expect(chatLog).toHaveStyleRule('padding', '2.25rem');

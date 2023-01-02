@@ -22,8 +22,8 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      await waitFor(() => {
-        userEvent.click(renderedPopoverButton);
+      await waitFor(async () => {
+        await userEvent.click(renderedPopoverButton);
       });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
@@ -56,8 +56,8 @@ describe('Popover', () => {
       }
       expect(popover.getAttribute('hidden')).toBeDefined();
 
-      await waitFor(() => {
-        userEvent.click(ButtonOne);
+      await waitFor(async () => {
+        await userEvent.click(ButtonOne);
       });
 
       popover = screen.queryByTestId('state-hook-popover');
@@ -66,8 +66,8 @@ describe('Popover', () => {
       }
       expect(popover).toBeVisible();
 
-      await waitFor(() => {
-        userEvent.click(ButtonTwo);
+      await waitFor(async () => {
+        await userEvent.click(ButtonTwo);
       });
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
@@ -100,8 +100,8 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      await waitFor(() => {
-        userEvent.click(renderedPopoverButton);
+      await waitFor(async () => {
+        await userEvent.click(renderedPopoverButton);
       });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
@@ -226,8 +226,8 @@ describe('Popover', () => {
       );
 
       const popoverButton = screen.getByRole('button');
-      await waitFor(() => {
-        userEvent.click(popoverButton);
+      await waitFor(async () => {
+        await userEvent.click(popoverButton);
       });
 
       const dismissButton = screen.getByRole('button', {name: 'Close popover'});
@@ -247,8 +247,8 @@ describe('Popover', () => {
       );
 
       const popoverButton = screen.getByRole('button');
-      await waitFor(() => {
-        userEvent.click(popoverButton);
+      await waitFor(async () => {
+        await userEvent.click(popoverButton);
       });
 
       const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {screen, render, waitFor, fireEvent} from '@testing-library/react';
+import {screen, render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
 import {Theme} from '@twilio-paste/theme';
@@ -98,9 +98,7 @@ describe('ChatComposer', () => {
 
     const contentEditable = screen.getByRole('textbox');
 
-    await waitFor(() => {
-      userEvent.type(contentEditable, 'foo bar');
-      expect(onChangeMock).toHaveBeenCalledTimes(1);
-    });
+    await userEvent.type(contentEditable, 'foo bar');
+    expect(onChangeMock).toHaveBeenCalledTimes(9);
   });
 });

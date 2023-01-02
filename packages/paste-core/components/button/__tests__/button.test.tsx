@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -284,7 +284,7 @@ describe('Button', () => {
   });
 
   describe('button event handlers', () => {
-    it('Should call the appropriate event handlers', () => {
+    it('Should call the appropriate event handlers', async () => {
       const onClickMock: jest.Mock = jest.fn();
       const onMouseDownMock: jest.Mock = jest.fn();
       const onMouseUpMock: jest.Mock = jest.fn();
@@ -310,21 +310,31 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      userEvent.click(button);
+      await act(async () => {
+        await userEvent.click(button);
+      });
       expect(onMouseDownMock).toHaveBeenCalledTimes(1);
       expect(onMouseUpMock).toHaveBeenCalledTimes(1);
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
-      userEvent.hover(button);
+      await act(async () => {
+        await userEvent.hover(button);
+      });
       expect(onMouseEnterMock).toHaveBeenCalledTimes(2);
 
-      userEvent.unhover(button);
+      await act(async () => {
+        await userEvent.unhover(button);
+      });
       expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
 
-      userEvent.tab();
+      await act(async () => {
+        await userEvent.tab();
+      });
       expect(onFocusMock).toHaveBeenCalledTimes(1);
 
-      userEvent.tab();
+      await act(async () => {
+        await userEvent.tab();
+      });
       expect(onBlurMock).toHaveBeenCalledTimes(1);
     });
   });
