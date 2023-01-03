@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
-import type {GenericIconProps} from '@twilio-paste/icons/src/types';
+import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import {Text} from '@twilio-paste/text';
 
 import {MenuItemVariants} from './constants';
