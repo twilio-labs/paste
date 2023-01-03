@@ -12268,7 +12268,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-composer@^1.0.0, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
+"@twilio-paste/chat-composer@^1.0.1, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer"
   dependencies:
@@ -12276,10 +12276,10 @@ __metadata:
     "@twilio-paste/box": ^7.0.0
     "@twilio-paste/customization": ^5.0.0
     "@twilio-paste/design-tokens": ^8.2.0
-    "@twilio-paste/lexical-library": ^1.0.0
+    "@twilio-paste/lexical-library": ^1.1.0
     "@twilio-paste/style-props": ^6.0.0
     "@twilio-paste/styling-library": ^1.0.0
-    "@twilio-paste/theme": ^8.1.0
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.1
     deepmerge: 4.2.2
     prop-types: ^15.7.2
@@ -12302,7 +12302,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-log@^2.0.3, @twilio-paste/chat-log@^2.1.0, @twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
+"@twilio-paste/chat-log@^2.0.3, @twilio-paste/chat-log@^2.1.1, @twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-log@workspace:packages/paste-core/components/chat-log"
   dependencies:
@@ -12312,12 +12312,12 @@ __metadata:
     "@twilio-paste/button": ^11.1.5
     "@twilio-paste/customization": ^5.0.1
     "@twilio-paste/design-tokens": ^8.2.0
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.1
     "@twilio-paste/media-object": ^7.0.1
     "@twilio-paste/screen-reader-only": ^10.0.2
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/text": ^7.0.1
-    "@twilio-paste/theme": ^8.1.0
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/truncate": ^11.0.1
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -12342,7 +12342,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/checkbox@^10.0.2, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
+"@twilio-paste/checkbox@^10.0.2, @twilio-paste/checkbox@^10.0.3, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox"
   dependencies:
@@ -12350,7 +12350,7 @@ __metadata:
     "@twilio-paste/box": ^7.1.1
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/help-text": ^10.1.1
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.1
     "@twilio-paste/inline-control-group": ^10.0.1
     "@twilio-paste/label": ^10.1.1
     "@twilio-paste/media-object": ^7.0.1
@@ -12359,7 +12359,7 @@ __metadata:
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
     "@twilio-paste/text": ^7.0.1
-    "@twilio-paste/theme": ^8.0.3
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
@@ -12577,9 +12577,9 @@ __metadata:
     "@twilio-paste/button-group": ^1.0.1
     "@twilio-paste/callout": ^1.0.1
     "@twilio-paste/card": ^6.0.1
-    "@twilio-paste/chat-composer": ^1.0.0
-    "@twilio-paste/chat-log": ^2.1.0
-    "@twilio-paste/checkbox": ^10.0.2
+    "@twilio-paste/chat-composer": ^1.0.1
+    "@twilio-paste/chat-log": ^2.1.1
+    "@twilio-paste/checkbox": ^10.0.3
     "@twilio-paste/clipboard-copy-library": ^1.0.4
     "@twilio-paste/code-block": ^1.1.1
     "@twilio-paste/color-contrast-utils": ^3.0.1
@@ -12598,20 +12598,20 @@ __metadata:
     "@twilio-paste/file-picker": ^1.1.1
     "@twilio-paste/flex": ^5.0.1
     "@twilio-paste/form-pill-group": ^5.1.1
-    "@twilio-paste/grid": ^5.0.1
+    "@twilio-paste/grid": ^5.0.2
     "@twilio-paste/heading": ^8.0.1
     "@twilio-paste/help-text": ^10.1.1
-    "@twilio-paste/icons": ^9.4.0
+    "@twilio-paste/icons": ^9.4.1
     "@twilio-paste/in-page-navigation": ^1.0.0
     "@twilio-paste/inline-code": ^1.0.1
     "@twilio-paste/inline-control-group": ^10.0.1
     "@twilio-paste/input": ^6.1.1
     "@twilio-paste/input-box": ^7.1.2
     "@twilio-paste/label": ^10.1.1
-    "@twilio-paste/lexical-library": ^1.0.0
+    "@twilio-paste/lexical-library": ^1.1.0
     "@twilio-paste/list": ^5.0.1
     "@twilio-paste/media-object": ^7.0.1
-    "@twilio-paste/menu": ^11.1.1
+    "@twilio-paste/menu": ^11.1.2
     "@twilio-paste/menu-primitive": ^0.2.11
     "@twilio-paste/minimizable-dialog": ^1.0.3
     "@twilio-paste/modal": ^13.0.1
@@ -12641,7 +12641,7 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^0.2.9
     "@twilio-paste/text": ^7.0.1
     "@twilio-paste/textarea": ^7.0.1
-    "@twilio-paste/theme": ^8.1.0
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/time-picker": ^3.0.1
     "@twilio-paste/toast": ^9.0.1
     "@twilio-paste/tooltip": ^8.0.1
@@ -13051,7 +13051,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/grid@^5.0.1, @twilio-paste/grid@workspace:packages/paste-core/layout/grid":
+"@twilio-paste/grid@^5.0.1, @twilio-paste/grid@^5.0.2, @twilio-paste/grid@workspace:packages/paste-core/layout/grid":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/grid@workspace:packages/paste-core/layout/grid"
   dependencies:
@@ -13059,7 +13059,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
-    "@twilio-paste/theme": ^8.0.3
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.9
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -13133,7 +13133,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@^9.3.1, @twilio-paste/icons@^9.4.0, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@^9.3.1, @twilio-paste/icons@^9.4.0, @twilio-paste/icons@^9.4.1, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
@@ -13141,7 +13141,7 @@ __metadata:
     "@twilio-paste/design-tokens": ^8.1.2
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
-    "@twilio-paste/theme": ^8.0.3
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     lodash: 4.17.21
@@ -13352,7 +13352,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/lexical-library@^1.0.0, @twilio-paste/lexical-library@workspace:packages/paste-libraries/lexical":
+"@twilio-paste/lexical-library@^1.1.0, @twilio-paste/lexical-library@workspace:packages/paste-libraries/lexical":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/lexical-library@workspace:packages/paste-libraries/lexical"
   dependencies:
@@ -13433,7 +13433,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/menu@^11.1.1, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
+"@twilio-paste/menu@^11.1.1, @twilio-paste/menu@^11.1.2, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/menu@workspace:packages/paste-core/components/menu"
   dependencies:
@@ -13441,7 +13441,7 @@ __metadata:
     "@twilio-paste/box": ^7.1.1
     "@twilio-paste/button": ^11.1.4
     "@twilio-paste/design-tokens": ^8.1.2
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.1
     "@twilio-paste/media-object": ^7.0.1
     "@twilio-paste/menu-primitive": ^0.2.11
     "@twilio-paste/reakit-library": ^0.8.7
@@ -13450,7 +13450,7 @@ __metadata:
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
     "@twilio-paste/text": ^7.0.1
-    "@twilio-paste/theme": ^8.0.3
+    "@twilio-paste/theme": ^8.1.1
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
@@ -14299,7 +14299,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^8.0.3, @twilio-paste/theme@^8.1.0, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^8.0.3, @twilio-paste/theme@^8.1.0, @twilio-paste/theme@^8.1.1, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:

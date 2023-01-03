@@ -1,5 +1,40 @@
 # Change Log
 
+## 17.2.0
+
+### Minor Changes
+
+- [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Lexical Library] add export for: CLEAR_EDITOR_COMMAND, CLEAR_EDITOR_COMMAND, KEY_ENTER_COMMAND, COMMAND_PRIORITY_CRITICAL, COMMAND_PRIORITY_HIGH, COMMAND_PRIORITY_NORMAL, COMMAND_PRIORITY_LOW, and COMMAND_PRIORITY_EDITOR
+
+### Patch Changes
+
+- [`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb) [#2878](https://github.com/twilio-labs/paste/pull/2878) Thanks [@Niznikr](https://github.com/Niznikr)! - Update to TypeScript v4.9
+
+* [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Composer] refactor stories, create a new one called Conversations UI Kit Example.
+
+- [`468b1b6d0`](https://github.com/twilio-labs/paste/commit/468b1b6d0bd8746a0c46d9ca298294120534e8c4) [#2894](https://github.com/twilio-labs/paste/pull/2894) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Modify ProductSegmentIcon, add new product icons:
+
+  - ProductAudiencesIcon
+  - ProductConnectionsIcon
+  - ProductEngageIcon
+  - ProductPersonasIcon
+  - ProductPrivacyIcon
+  - ProductProtocolsIcon
+  - ProductReverseETLIcon
+  - ProductTraitsIcon
+  - ProductUSSDIcon
+
+* [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] refactor styles to use row gap instead of margin bottom
+
+* Updated dependencies [[`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8)]:
+  - @twilio-paste/checkbox@10.0.3
+  - @twilio-paste/menu@11.1.2
+  - @twilio-paste/grid@5.0.2
+  - @twilio-paste/theme@8.1.1
+  - @twilio-paste/chat-composer@1.0.1
+  - @twilio-paste/lexical-library@1.1.0
+  - @twilio-paste/chat-log@2.1.1
+
 ## 17.1.0
 
 ### Minor Changes
