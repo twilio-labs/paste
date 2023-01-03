@@ -13551,6 +13551,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/listbox-primitive@workspace:packages/paste-core/primitives/listbox":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/listbox-primitive@workspace:packages/paste-core/primitives/listbox"
+  dependencies:
+    "@twilio-paste/reakit-library": ^0.8.7
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/reakit-library": ^0.8.1
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/media-object@^7.0.1, @twilio-paste/media-object@workspace:packages/paste-core/layout/media-object":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/media-object@workspace:packages/paste-core/layout/media-object"
