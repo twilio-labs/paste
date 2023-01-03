@@ -1,25 +1,24 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import type {BoxProps} from '@twilio-paste/box';
+import type {CompositeProps} from '@twilio-paste/reakit-library';
+import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 
-export interface ListboxProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  children?: React.ReactNode;
-  element?: BoxProps['element'];
-}
+const ListboxPrimitive = React.forwardRef<HTMLDivElement, CompositeProps>(({orientation, ...props}, ref) => {
+  const loop = orientation === 'horizontal';
+  const composite = useCompositeState({loop});
 
-const Listbox = React.forwardRef<HTMLDivElement, ListboxProps>(({element = "LISTBOX", ...props}, ref) => {
-  return (
-    <div ref={ref}>
-      {props.children}
-    </div>
-  );
+  return <Composite {...composite} {...props} ref={ref} role="listbox" />;
 });
 
-Listbox.displayName = 'Listbox';
+ListboxPrimitive.displayName = 'ListboxPrimitive';
 
-Listbox.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
-
-export {Listbox};
+export {ListboxPrimitive};
+export {
+  CompositeGroup as ListboxPrimitiveGroup,
+  CompositeItem as ListboxPrimitiveItem,
+  useCompositeState as useListboxPrimitiveState,
+} from '@twilio-paste/reakit-library';
+export type {
+  CompositeProps as ListboxPrimitiveProps,
+  CompositeGroupProps as ListboxPrimitiveGroupProps,
+  CompositeItemProps as ListboxPrimitiveItemProps,
+} from '@twilio-paste/reakit-library';
