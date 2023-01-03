@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, {version} from 'react-dom';
 import {render, act} from '@testing-library/react';
 
 import {Theme, useTheme} from '../src';
@@ -12,8 +12,10 @@ const HookExampleComponent = (): React.ReactElement => {
 describe('useTheme', () => {
   describe('should render without crashing', (): void => {
     it('should render without crashing', (): void => {
-      if (ReactDOM?.client) {
-        const root = ReactDOM?.client?.createRoot(document.createElement('div') as HTMLElement);
+      const useCreateRoot = parseInt(version.split('.')[0]) >= 18;
+      if (useCreateRoot) {
+        const ReactDOMClient = require('react-dom/client');
+        const root = ReactDOMClient.createRoot(document.createElement('div') as HTMLElement);
         act(() =>
           root.render(
             <Theme.Provider theme="default">
