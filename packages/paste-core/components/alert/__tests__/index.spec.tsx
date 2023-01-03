@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -30,7 +30,9 @@ describe('Alert', () => {
       );
 
       const button = getByRole('button');
-      await userEvent.click(button);
+      await act(async () => {
+        await userEvent.click(button);
+      });
       expect(eventHandlerMock).toHaveBeenCalledTimes(1);
     });
   });

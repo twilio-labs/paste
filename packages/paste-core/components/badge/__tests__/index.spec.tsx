@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
-import {renderHook} from '@testing-library/react-hooks';
+import {render, fireEvent, screen, renderHook} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 
 import {Badge} from '../src';

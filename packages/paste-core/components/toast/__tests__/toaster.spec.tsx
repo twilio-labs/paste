@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {fireEvent, render, screen, waitFor} from '@testing-library/react';
-import {renderHook, act} from '@testing-library/react-hooks';
+import {fireEvent, render, screen, waitFor, renderHook, act} from '@testing-library/react';
 import {loremIpsum} from 'lorem-ipsum';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
