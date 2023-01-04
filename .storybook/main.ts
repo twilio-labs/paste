@@ -16,7 +16,6 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: '@storybook/react-vite',
-    options: {legacyRootApi: true},
   },
   features: {
     interactionsDebugger: true,
