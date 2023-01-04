@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -62,7 +62,7 @@ export const PropPassthrough = (): React.ReactNode => (
   </Card>
 );
 
-export const CustomCard: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomCard: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

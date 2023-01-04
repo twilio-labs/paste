@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -42,7 +42,7 @@ export const Inverse = (): React.ReactNode => {
 
 Inverse.storyName = 'Inverse';
 
-export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

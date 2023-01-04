@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {useVirtual} from 'react-virtual';
 import {useUID} from '@twilio-paste/uid-library';
 import {useWindowSize} from '@twilio-paste/utils';

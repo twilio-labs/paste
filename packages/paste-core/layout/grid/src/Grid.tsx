@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import type {MarginProps, Space} from '@twilio-paste/style-props';
 import {ResponsiveProp} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story, Meta} from '@storybook/react';
+import type {StoryFn, Meta} from '@storybook/react';
 
 import {
   LexicalComposer,
@@ -34,7 +34,7 @@ const myOnChange = (editorState: EditorState): void => {
  * https://codesandbox.io/s/lexical-rich-text-example-5tncvy?file=/src/styles.css
  */
 
-export const RichTextExample: Story = () => {
+export const RichTextExample: StoryFn = () => {
   return (
     <LexicalComposer
       initialConfig={{

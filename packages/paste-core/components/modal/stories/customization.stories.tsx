@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
@@ -124,7 +124,7 @@ export default {
   },
 };
 
-export const First: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const First: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
@@ -138,7 +138,7 @@ First.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const Second: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Second: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>
@@ -152,7 +152,7 @@ Second.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const Third: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Third: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
@@ -166,7 +166,7 @@ Third.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const Fourth: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Fourth: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>

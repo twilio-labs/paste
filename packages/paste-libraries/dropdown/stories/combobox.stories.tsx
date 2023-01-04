@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story, Meta} from '@storybook/react';
+import type {StoryFn, Meta} from '@storybook/react';
 
 import {useCombobox} from '../src';
 
@@ -29,7 +29,7 @@ function getBooksFilter(inputValue: string | undefined) {
   };
 }
 
-export const ComboBox: Story = () => {
+export const ComboBox: StoryFn = () => {
   const [items, setItems] = React.useState(books);
   const {
     isOpen,

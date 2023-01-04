@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
@@ -18,7 +18,7 @@ export default {
 
 type ButtonGroupStoryProps = Partial<Omit<ButtonGroupProps, 'children'>>;
 
-export const Unattached: Story<ButtonGroupStoryProps> = (props) => (
+export const Unattached: StoryFn<ButtonGroupStoryProps> = (props) => (
   <ButtonGroup aria-label="A decisive group of buttons" {...props}>
     <Button variant="secondary">Yes</Button>
     <Button variant="secondary">No</Button>
@@ -26,7 +26,7 @@ export const Unattached: Story<ButtonGroupStoryProps> = (props) => (
   </ButtonGroup>
 );
 
-export const Attached: Story = () => (
+export const Attached: StoryFn = () => (
   <ButtonGroup attached aria-label="A decisive group of buttons">
     <Button variant="secondary">Yes</Button>
     <Button variant="secondary">No</Button>
@@ -34,14 +34,14 @@ export const Attached: Story = () => (
   </ButtonGroup>
 );
 
-export const FewButtons: Story = () => (
+export const FewButtons: StoryFn = () => (
   <ButtonGroup attached aria-label="A decisive group of buttons">
     <Button variant="secondary">Yes</Button>
     <Button variant="secondary">No</Button>
   </ButtonGroup>
 );
 
-export const ManyButtons: Story = () => (
+export const ManyButtons: StoryFn = () => (
   <ButtonGroup attached aria-label="An alphabetical group of buttons">
     {[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => (
       <Button key={letter} variant="secondary">
@@ -51,7 +51,7 @@ export const ManyButtons: Story = () => (
   </ButtonGroup>
 );
 
-export const PopoverButtons: Story = () => {
+export const PopoverButtons: StoryFn = () => {
   const id = useUID();
   return (
     <PopoverContainer baseId={id} placement="auto-end">
@@ -67,7 +67,7 @@ export const PopoverButtons: Story = () => {
   );
 };
 
-export const ToggleButtons: Story = () => {
+export const ToggleButtons: StoryFn = () => {
   const [boldPressed, setBoldPressed] = React.useState(false);
   const [italicPressed, setItalicPressed] = React.useState(false);
   const [underlinePressed, setUnderlinePressed] = React.useState(true);
@@ -108,7 +108,7 @@ export const ToggleButtons: Story = () => {
   );
 };
 
-export const Customized: Story = () => {
+export const Customized: StoryFn = () => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

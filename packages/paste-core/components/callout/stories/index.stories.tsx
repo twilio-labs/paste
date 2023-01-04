@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 
 import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
@@ -18,7 +18,7 @@ const ExampleList: React.FC<{as: 'ul' | 'ol'}> = ({as}) => (
   </CalloutList>
 );
 
-export const Variants: Story = () => {
+export const Variants: StoryFn = () => {
   return (
     <Box display="flex" flexDirection="column" rowGap="space60">
       <Callout variant="new">
@@ -45,7 +45,7 @@ export const Variants: Story = () => {
   );
 };
 
-export const VariantsWithList: Story = () => {
+export const VariantsWithList: StoryFn = () => {
   return (
     <Box display="flex" flexDirection="column" rowGap="space60">
       <Callout variant="new">
@@ -77,7 +77,7 @@ export const VariantsWithList: Story = () => {
   );
 };
 
-export const CalloutWithMargin: Story = () => (
+export const CalloutWithMargin: StoryFn = () => (
   <>
     <Callout variant="success" marginY="space70">
       <CalloutHeading as="h3">Callout with marginY</CalloutHeading>

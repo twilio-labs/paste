@@ -1,6 +1,5 @@
 import type {Properties} from 'csstype';
-
-const Color = require('color');
+import Color from 'color';
 
 enum ContrastRatingScores {
   Fail = 'Fail',

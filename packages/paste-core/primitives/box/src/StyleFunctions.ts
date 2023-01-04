@@ -1,12 +1,11 @@
 import {css, system} from '@twilio-paste/styling-library';
 import type {CSSObject, Config} from '@twilio-paste/styling-library';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
+import merge from 'deepmerge';
 
 import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledBoxProps} from './types';
 import {customStyleProps} from './CustomStyleProps';
-
-const merge = require('deepmerge');
 
 export const PasteStyleProps = system(customStyleProps as Config);
 
@@ -43,9 +42,9 @@ export const getPseudoStyles = (
  * that matches the value of the paste-element data attribute. Transform design tokens to their corresponding values as they appear on the theme
  *
  * @param {StyledBoxProps} props
- * @return {*}  {((() => CSSObject) | Record<string, never>)}
+ * @return {*}  {((() => PasteCustomCSS) | Record<string, never>)}
  */
-export const getCustomElementStyles = (props: StyledBoxProps): (() => CSSObject) | Record<string, never> => {
+export const getCustomElementStyles = (props: StyledBoxProps): (() => PasteCustomCSS) | Record<string, never> => {
   if (props != null && props.theme != null && props.theme.elements != null) {
     const themeElements = props.theme.elements;
     const targetElement = props['data-paste-element'];

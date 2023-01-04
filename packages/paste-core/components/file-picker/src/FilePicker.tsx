@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

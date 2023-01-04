@@ -43,7 +43,7 @@ export const tweakTokens = (tokenCategory: DesignToken[]): GenericDesignToken[] 
   }));
 };
 
-export const genericCommonJsTokenFormat = (result: ImmutableStyleMap): string => {
+export const genericJsTokenFormat = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
   const groupedTokens = `"tokens":{${formatGroupTokensWithTemplate(
@@ -53,5 +53,5 @@ export const genericCommonJsTokenFormat = (result: ImmutableStyleMap): string =>
     tweakTokens
   )}}`;
 
-  return `module.exports = {\n${groupedTokens}\n}`;
+  return `export default {\n${groupedTokens}\n}`;
 };
