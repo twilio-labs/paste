@@ -4,7 +4,7 @@ import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 
 const ListboxPrimitive = React.forwardRef<HTMLDivElement, CompositeProps>(({orientation, ...props}, ref) => {
   const loop = orientation === 'horizontal';
-  const composite = useCompositeState({loop});
+  const composite = useCompositeState({loop, unstable_virtual: true});
 
   return <Composite {...composite} {...props} ref={ref} role="listbox" />;
 });

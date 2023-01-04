@@ -1,17 +1,20 @@
 import * as React from 'react';
-import {Listbox} from '../src';
 
+import {useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveItem} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Listbox',
-  component: Listbox,
+  component: ListboxPrimitive,
+  subcomponents: {ListboxPrimitiveItem},
 };
 
-export const Default = (): React.ReactNode => {
+export const SimpleListbox = (): React.ReactNode => {
+  const listbox = useListboxPrimitiveState();
   return (
-    <Listbox>
-      Initial story
-    </Listbox>
+    <ListboxPrimitive {...listbox} aria-label="Example">
+      <ListboxPrimitiveItem {...listbox}>Item 1</ListboxPrimitiveItem>
+      <ListboxPrimitiveItem {...listbox}>Item 2</ListboxPrimitiveItem>
+    </ListboxPrimitive>
   );
 };
