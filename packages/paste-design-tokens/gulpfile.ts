@@ -6,7 +6,7 @@ import terser from 'gulp-terser';
 
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
 import {genericDTsTemplate} from './formatters/generic.d.ts';
-import {genericCommonJsTokenFormat} from './formatters/generic';
+import {genericJsTokenFormat} from './formatters/generic';
 import {es6TokenFormat} from './formatters/es6';
 import {dTSTokenFormat} from './formatters/d.ts';
 import {commonTokenFormat} from './formatters/common';
@@ -29,7 +29,7 @@ theo.registerFormat('es6.js', es6TokenFormat);
 theo.registerFormat('common.d.ts', dTSTokenFormat);
 theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
-theo.registerFormat('generic.js', genericCommonJsTokenFormat);
+theo.registerFormat('generic.js', genericJsTokenFormat);
 theo.registerFormat('generic.d.ts', genericDTsTemplate);
 theo.registerTransform('web', ['color/rgb']);
 

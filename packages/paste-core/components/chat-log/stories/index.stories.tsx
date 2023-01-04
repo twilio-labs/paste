@@ -6,7 +6,7 @@ import {Button} from '@twilio-paste/button';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {useUID} from '@twilio-paste/uid-library';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {
   ChatMessage,
@@ -22,29 +22,19 @@ import {
   ChatEvent,
 } from '../src';
 
-export {InboundChatMessage, OutboundChatMessage} from './components/ChatBubble.stories';
-export {InboundMessageWithMeta, OutboundMessageWithMeta} from './components/ChatMessageMeta.stories';
-export {
-  InboundChatMessageWithAttachment,
-  OutboundChatMessageWithAttachment,
-  ComposerAttachmentCardExample,
-} from './components/ChatAttachment.stories';
-export {ChatBookendExample} from './components/ChatBookend.stories';
-export {ChatEventExample} from './components/ChatEvent.stories';
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/ChatLog',
 };
 
-export const NewMessagesButton: Story = () => (
+export const NewMessagesButton: StoryFn = () => (
   <Button variant="primary" size="rounded_small">
     New message
     <ArrowDownIcon decorative />
   </Button>
 );
 
-export const ScrollingChatLog: Story = () => {
+export const ScrollingChatLog: StoryFn = () => {
   const [showButton, setShowButton] = React.useState(true);
   const chatBoxUniqueID = useUID();
   return (
@@ -147,7 +137,7 @@ export const ScrollingChatLog: Story = () => {
   );
 };
 
-export const KitchenSink: Story = () => (
+export const KitchenSink: StoryFn = () => (
   <ChatLog>
     <ChatBookend>
       <ChatBookendItem>Today</ChatBookendItem>

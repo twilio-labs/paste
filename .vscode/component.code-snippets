@@ -24,7 +24,7 @@
     "prefix": "prindexp",
     "body": [
       "import * as React from 'react';",
-      "import * as PropTypes from 'prop-types';",
+      "import PropTypes from 'prop-types';",
       "import {Box} from '@twilio-paste/box';",
       "",
       "${1:prfcp}",

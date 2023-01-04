@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
@@ -84,7 +84,7 @@ const ShowCustomization: React.FC<React.PropsWithChildren<{isTestEnvironment: bo
   );
 };
 
-export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedCombobox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox items={items} labelText="Choose a letter:" helpText="This is the help text" />
   </ShowCustomization>
@@ -92,7 +92,7 @@ export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment
 
 CustomizedCombobox.storyName = 'Combobox - Default';
 
-export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedComboboxGroups: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox
       items={groupedItems}
@@ -106,7 +106,7 @@ export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvir
 );
 CustomizedComboboxGroups.storyName = 'Combobox - With groups';
 
-export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedComboboxBeforeAndAfter: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <Combobox
       items={groupedItems}

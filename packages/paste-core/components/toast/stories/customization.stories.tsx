@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
@@ -68,19 +68,19 @@ const ShowCustomization: React.FC<React.PropsWithChildren<{variant: ToastVariant
   );
 };
 
-export const NeutralCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const NeutralCustomized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="neutral" />;
 };
 
-export const SuccessCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const SuccessCustomized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="success" />;
 };
 
-export const ErrorCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const ErrorCustomized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="error" />;
 };
 
-export const WarningCustomized: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const WarningCustomized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   return <ShowCustomization isTestEnvironment={isTestEnvironment} variant="warning" />;
 };
 

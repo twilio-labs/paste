@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
 
@@ -17,7 +17,7 @@ export default {
   },
 };
 
-export const CustomizedCallout: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCallout: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
