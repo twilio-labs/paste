@@ -9,7 +9,7 @@ import {
 import {AutoScrollPlugin, $getRoot, ClearEditorPlugin} from '@twilio-paste/lexical-library';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
 import {Box} from '@twilio-paste/box';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {
   ChatLogger,
   useChatLogger,
@@ -59,7 +59,7 @@ const ComposerAttachmentExample: React.FC = () => (
   </Box>
 );
 
-export const ConversationsUIKitExample: Story = () => {
+export const ConversationsUIKitExample: StoryFn = () => {
   const scrollRef = React.createRef<HTMLDivElement>();
   const {chats, push} = useChatLogger(
     {

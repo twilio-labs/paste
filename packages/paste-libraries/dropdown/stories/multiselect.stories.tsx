@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story, Meta} from '@storybook/react';
+import type {StoryFn, Meta} from '@storybook/react';
 
 import {useCombobox, useMultipleSelection} from '../src';
 
@@ -34,7 +34,7 @@ function getFilteredBooks(selectedItems: Book[], inputValue: string): Book[] {
   });
 }
 
-export const MultiselectComboBox: Story = () => {
+export const MultiselectComboBox: StoryFn = () => {
   const [inputValue, setInputValue] = React.useState('');
   const [selectedItems, setSelectedItems] = React.useState<Book[]>(initialSelectedItems);
   const items = React.useMemo(() => getFilteredBooks(selectedItems, inputValue), [selectedItems, inputValue]);

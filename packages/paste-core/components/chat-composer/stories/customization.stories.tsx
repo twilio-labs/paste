@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {ChatComposer} from '../src';
 import type {ChatComposerProps} from '../src';
@@ -24,7 +24,7 @@ const defaultConfig: ChatComposerProps['config'] = {
   },
 };
 
-export const Default: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Default: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   return (

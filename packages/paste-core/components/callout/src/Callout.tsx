@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
@@ -8,7 +8,7 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
-import type {GenericIconProps} from '@twilio-paste/icons/src/types';
+import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';

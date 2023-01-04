@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {SyntaxHighlighter} from '@twilio-paste/syntax-highlighter-library';
 import type {SnippetLanguages} from '@twilio-paste/syntax-highlighter-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

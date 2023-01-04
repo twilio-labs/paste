@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -197,7 +197,7 @@ export const BaseMenu: React.FC<React.PropsWithChildren<{menuButtonVariant?: But
     );
   });
 
-export const WithDefaultElementName: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('MENU')}>
@@ -212,7 +212,7 @@ export const WithDefaultElementName: Story = (_args, {parameters: {isTestEnviron
   );
 };
 
-export const WithCustomElementName: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('CUSTOM')}>

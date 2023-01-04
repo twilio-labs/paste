@@ -1,6 +1,6 @@
 import * as React from 'react';
 import _ from 'lodash';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -547,7 +547,7 @@ export const ComboboxControlled = (): React.ReactNode => {
 
 ComboboxControlled.storyName = 'Combobox - Controlled';
 
-export const ComboboxControlledUsingState: Story = () => {
+export const ComboboxControlledUsingState: StoryFn = () => {
   const [value, setValue] = React.useState('United Arab Emirates');
   const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({
     code: 'AE',

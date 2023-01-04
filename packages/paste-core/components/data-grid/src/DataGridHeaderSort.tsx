@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';

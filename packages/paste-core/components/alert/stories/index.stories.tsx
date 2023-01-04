@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {action} from '@storybook/addon-actions';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
@@ -132,7 +132,7 @@ export const Warning = (): React.ReactNode => {
   );
 };
 
-export const CustomAlert: Story = (_args, {parameters: {isTestEnvironment = false}}) => {
+export const CustomAlert: StoryFn = (_args, {parameters: {isTestEnvironment = false}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

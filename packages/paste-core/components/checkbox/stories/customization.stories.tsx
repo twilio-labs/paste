@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
@@ -9,7 +9,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 
-export const CustomizedCheckboxGroup: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCheckboxGroup: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const [checked1, setChecked1] = React.useState(true);
   const [checked2, setChecked2] = React.useState(false);
   const [checked3, setChecked3] = React.useState(false);
@@ -146,7 +146,7 @@ export const CustomizedCheckboxGroup: Story = (_args, {parameters: {isTestEnviro
   );
 };
 
-export const CustomizedCheckboxDisclaimer: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCheckboxDisclaimer: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const theme = useTheme();
   return (
     <CustomizationProvider

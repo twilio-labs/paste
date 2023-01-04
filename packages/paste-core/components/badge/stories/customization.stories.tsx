@@ -5,7 +5,7 @@ import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {Badge} from '../src';
 import type {BadgeVariants} from '../src/types';
@@ -75,43 +75,43 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<{variant: BadgeVari
   );
 };
 
-export const Neutral: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Neutral: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="neutral" />
 );
-export const Warning: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Warning: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="warning" />
 );
-export const Error: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Error: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="error" />
 );
-export const Success: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Success: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="success" />
 );
-export const New: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const New: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="new" />
 );
-export const Decorative10: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Decorative10: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="decorative10" />
 );
-export const Decorative20: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Decorative20: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="decorative20" />
 );
-export const Decorativ30: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Decorativ30: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="decorative30" />
 );
-export const Decorativ40: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Decorativ40: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="decorative40" />
 );
-export const NeutralCounter: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const NeutralCounter: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="neutral_counter" />
 );
-export const ErrorCounter: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const ErrorCounter: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="error_counter" />
 );
-export const Default: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Default: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="default" />
 );
-export const Info: Story = (_args, {parameters: {isTestEnvironment}}) => (
+export const Info: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
   <CustomizationWrapper {...isTestEnvironment} variant="info" />
 );
 

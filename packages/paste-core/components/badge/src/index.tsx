@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';

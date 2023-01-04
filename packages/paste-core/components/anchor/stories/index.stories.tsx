@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -72,7 +72,7 @@ export const ShowExternalProp = (): React.ReactNode => {
 
 ShowExternalProp.storyName = 'showExternal prop';
 
-export const CustomAnchor: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomAnchor: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
