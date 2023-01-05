@@ -11,7 +11,7 @@ const HookExampleComponent = (): React.ReactElement => {
 
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
     root.render(
       <Theme.Provider theme="default">
         <HookExampleComponent />

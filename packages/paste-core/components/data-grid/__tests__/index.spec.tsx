@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {render, screen} from '@testing-library/react';
+import {act, render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {DataGridCell, DataGridHeaderSort, DataGridHeader} from '../src';
@@ -54,7 +54,7 @@ describe('Data Grid', () => {
   });
 
   describe('Composable Cells functionality', () => {
-    it('has proper keyboard navigation behavior', () => {
+    it('has proper keyboard navigation behavior', async () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
       const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
@@ -68,20 +68,27 @@ describe('Data Grid', () => {
       }
 
       // TEST: moves with arrow keys in navigational mode
-      headerCell.focus();
-
-      userEvent.keyboard('{arrowright}');
+      await waitFor(() => {
+        headerCell.focus();
+        userEvent.keyboard('{arrowright}');
+      });
       expect(document.activeElement?.innerHTML).toBe('Last Name');
 
-      userEvent.keyboard('{arrowleft}');
+      act(() => {
+        userEvent.keyboard('{arrowleft}');
+      });
       expect(headerCell).toHaveFocus();
 
-      userEvent.keyboard('{arrowdown}');
+      act(() => {
+        userEvent.keyboard('{arrowdown}');
+      });
       expect(headerCell.getAttribute('tabindex')).toBe('-1');
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
 
-      userEvent.keyboard('{arrowup}');
+      act(() => {
+        userEvent.keyboard('{arrowup}');
+      });
       expect(firstInputCell.getAttribute('tabindex')).toBe('-1');
       expect(headerCell.getAttribute('tabindex')).toBe('0');
       expect(headerCell).toHaveFocus();
@@ -89,41 +96,57 @@ describe('Data Grid', () => {
       // TEST: toggles actionable mode with [enter] and [escape] keys
       headerCell.focus();
       expect(wrapper.getAttribute('data-actionable')).toBe('false');
-      userEvent.keyboard('{enter}');
+      act(() => {
+        userEvent.keyboard('{enter}');
+      });
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
-      userEvent.keyboard('{esc}');
+      act(() => {
+        userEvent.keyboard('{esc}');
+      });
       expect(wrapper.getAttribute('data-actionable')).toBe('false');
 
       // TEST: should enable Actionable mode when clicking into the DataGrid
       expect(wrapper.getAttribute('data-actionable')).toBe('false');
-      userEvent.click(headerCell);
+      act(() => {
+        userEvent.click(headerCell);
+      });
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
 
       // TEST: should correctly tab through focusable elements in actionable mode
       headerCell.focus();
 
-      // Down to input cell
-      userEvent.keyboard('{arrowdown}');
-      // Swap to actionable
-      userEvent.keyboard('{enter}');
+      await waitFor(async () => {
+        // Down to input cell
+        await userEvent.keyboard('{arrowdown}');
+        // Swap to actionable
+        await userEvent.keyboard('{enter}');
+      });
       expect(firstRowFirstInputCell).toHaveFocus();
-      userEvent.tab();
+      act(() => {
+        userEvent.tab();
+      });
       expect(firstRowSecondInputCell).toHaveFocus();
-      userEvent.tab();
-      userEvent.tab();
-      userEvent.tab();
+      act(() => {
+        userEvent.tab();
+        userEvent.tab();
+        userEvent.tab();
+      });
       expect(secondRowFirstInputCell).toHaveFocus();
 
       /*
        * TEST: handles entering actionable mode from a cell without focusable children correctly
        * I added this particular sequence because it was a reproducable bug in my manual tests
        */
-      headerCell.focus();
-      userEvent.keyboard('{enter}');
-      userEvent.keyboard('{arrowdown}');
+      await waitFor(async () => {
+        await headerCell.focus();
+        await userEvent.keyboard('{enter}');
+        await userEvent.keyboard('{arrowdown}');
+      });
       expect(firstInputCell).toHaveFocus();
-      userEvent.keyboard('{enter}');
-      userEvent.tab();
+      act(() => {
+        userEvent.keyboard('{enter}');
+        userEvent.tab();
+      });
       expect(firstRowSecondInputCell).toHaveFocus();
     });
 
@@ -153,19 +176,27 @@ describe('Data Grid', () => {
       beforeDataGridButton.focus();
       expect(beforeDataGridButton).toHaveFocus();
       // Tab into the DataGrid
-      userEvent.tab();
+      act(() => {
+        userEvent.tab();
+      });
       expect(headerCell).toHaveFocus();
       expect(headerCell.getAttribute('tabIndex')).toBe('0');
       // Down
-      userEvent.keyboard('{arrowdown}');
+      act(() => {
+        userEvent.keyboard('{arrowdown}');
+      });
       expect(headerCell.getAttribute('tabindex')).toBe('-1');
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
       // Tab out of the DataGrid
-      userEvent.tab();
+      act(() => {
+        userEvent.tab();
+      });
       expect(afterDataGridButton).toHaveFocus();
       // Return into the DataGrid
-      userEvent.tab({shift: true});
+      act(() => {
+        userEvent.tab({shift: true});
+      });
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
     });
@@ -176,44 +207,61 @@ describe('Data Grid', () => {
       const firstRowFirstInputCell = getByTestId('input-0-0');
 
       // Focus doesnt change when no focusable children
-      headerCell.focus();
-      userEvent.keyboard('{enter}');
+      act(() => {
+        headerCell.focus();
+        userEvent.keyboard('{enter}');
+      });
       expect(headerCell).toHaveFocus();
 
       // Down to input firstChild
-      userEvent.keyboard('{esc}');
-      userEvent.keyboard('{arrowdown}');
-      userEvent.keyboard('{enter}');
+      await waitFor(async () => {
+        await userEvent.keyboard('{esc}');
+        await userEvent.keyboard('{arrowdown}');
+        await userEvent.keyboard('{enter}');
+      });
       expect(firstRowFirstInputCell).toHaveFocus();
 
       // Up back to cell
-      userEvent.keyboard('{esc}');
+      act(() => {
+        userEvent.keyboard('{esc}');
+      });
       expect(firstRowFirstInputCell?.parentElement?.parentElement).toHaveFocus();
     });
   });
 
   describe('Paginated data grid', () => {
-    it('returns the first focused cell to the first cell in the datatable after pagination', () => {
+    it('returns the first focused cell to the first cell in the datatable after pagination', async () => {
       const {getByTestId} = render(<PaginatedDataGrid />);
       const firstThCell = getByTestId('first-cell');
       const firstTdCell = getByTestId('cell-0-0');
 
       // I added this particular sequence because it was a reproducable bug in my manual tests
-      firstThCell.focus();
+      act(() => {
+        firstThCell.focus();
+      });
       expect(firstThCell).toHaveFocus();
 
-      userEvent.keyboard('{arrowdown}');
+      act(() => {
+        userEvent.keyboard('{arrowdown}');
+      });
       expect(firstTdCell).toHaveFocus();
 
       // Swap to page 2
-      userEvent.tab();
-      userEvent.tab();
-      userEvent.tab();
-      userEvent.keyboard('{enter}');
-      // Bring the focus back to the DataGrid
-      userEvent.tab({shift: true});
-      userEvent.tab({shift: true});
-      userEvent.tab({shift: true}); // 3rd one because left arrow appears
+      await waitFor(async () => {
+        await userEvent.tab();
+        await userEvent.tab();
+        await userEvent.tab();
+      });
+
+      act(() => {
+        userEvent.keyboard('{enter}');
+      });
+      await waitFor(async () => {
+        // Bring the focus back to the DataGrid
+        await userEvent.tab({shift: true});
+        await userEvent.tab({shift: true});
+        await userEvent.tab({shift: true}); // 3rd one because left arrow appears
+      });
 
       // The first cell is focused, rather than the last cell we were on
       expect(firstThCell).toHaveFocus();
@@ -227,9 +275,13 @@ describe('Data Grid', () => {
       const headerSort = getByTestId('header-sort');
 
       expect(header.getAttribute('aria-sort')).toBe('ascending');
-      headerSort.click();
+      act(() => {
+        headerSort.click();
+      });
       expect(header.getAttribute('aria-sort')).toBe('descending');
-      headerSort.click();
+      act(() => {
+        headerSort.click();
+      });
       expect(header.getAttribute('aria-sort')).toBe('ascending');
     });
   });

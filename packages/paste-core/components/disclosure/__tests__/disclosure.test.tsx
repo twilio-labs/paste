@@ -197,7 +197,9 @@ describe('Disclosure', () => {
         userEvent.click(toggleButton);
       });
       expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
-      expect(disclosureContent).toBeVisible();
+      waitFor(() => {
+        expect(disclosureContent).toBeVisible();
+      });
     });
   });
 

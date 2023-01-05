@@ -1,7 +1,7 @@
 import * as React from 'react';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {render, screen, fireEvent, waitFor, act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
@@ -250,7 +250,9 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = items[targetIndex];
 
-      userEvent.hover(screen.getByText(target));
+      act(() => {
+        userEvent.hover(screen.getByText(target));
+      });
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -335,7 +337,9 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = groupedItems[targetIndex];
 
-      userEvent.hover(screen.getByText(target.label));
+      act(() => {
+        userEvent.hover(screen.getByText(target.label));
+      });
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -375,12 +379,16 @@ describe('Combobox', () => {
     it('should set correct aria-activedescendant when highlighted index changes', async () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
 
-      userEvent.click(screen.getByRole('textbox'));
+      act(() => {
+        userEvent.click(screen.getByRole('textbox'));
+      });
 
       const targetIndex = 1;
       const target = objectItems[targetIndex];
 
-      userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+      act(() => {
+        userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+      });
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g

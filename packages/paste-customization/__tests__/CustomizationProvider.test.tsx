@@ -51,7 +51,7 @@ const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsum
 
 describe('CustomizationProvider', () => {
   it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
     root.render(<CustomizationProvider />);
   });
 

@@ -18,7 +18,7 @@ const ThemeConsumerExampleTextColor = (): React.ReactElement => {
 
 describe('Theme.Provider', () => {
   it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
+    const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
     root.render(<Theme.Provider />);
   });
 
