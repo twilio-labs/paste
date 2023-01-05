@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {Badge} from '@twilio-paste/badge';

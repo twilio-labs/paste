@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import Image from 'next/future/image';

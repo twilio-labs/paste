@@ -1,6 +1,4 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
-
-import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 

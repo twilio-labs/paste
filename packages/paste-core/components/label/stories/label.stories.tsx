@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';

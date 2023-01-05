@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Grid, Column} from '@twilio-paste/grid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
