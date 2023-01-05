@@ -13,7 +13,8 @@ const useUID = maybeReactUseId !== undefined ? maybeReactUseId : useUIDLegacy;
 const useUIDSeed =
   maybeReactUseId !== undefined
     ? () => {
-        return (seed: string) => `${maybeReactUseId()}-${seed}`;
+        const id = maybeReactUseId();
+        return (seed: string) => `${id}-${seed}`;
       }
     : useUIDSeedLegacy;
 

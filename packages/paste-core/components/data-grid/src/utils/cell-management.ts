@@ -55,7 +55,7 @@ export const isCell = (element: Element): boolean => {
 export const getClosestCellFrom = (element: Element, dataGridId: string): HTMLElement | null => {
   if (element == null) return null;
   if (!dataGridId) return null;
-  return element.closest(`#${dataGridId} th, #${dataGridId} td`);
+  return element.closest(`[id="${dataGridId}"] th, [id="${dataGridId}"] td`);
 };
 
 /**
