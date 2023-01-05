@@ -33,7 +33,8 @@
     ".danger/**/*",
     "./.jest/@types/index.d.ts",
     "tools/**/*",
-    "cypress.config.ts"
+    "cypress.config.ts",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules",
