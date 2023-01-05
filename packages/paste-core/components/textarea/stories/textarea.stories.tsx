@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
-import type {Story} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';

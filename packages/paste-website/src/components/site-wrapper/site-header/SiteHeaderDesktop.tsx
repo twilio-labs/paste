@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import GitHubButton from 'react-github-button';

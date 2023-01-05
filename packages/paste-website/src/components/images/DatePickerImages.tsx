@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {StaticImage} from 'gatsby-plugin-image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';

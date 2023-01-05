@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Separator} from '@twilio-paste/separator';
 

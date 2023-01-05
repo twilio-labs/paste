@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';

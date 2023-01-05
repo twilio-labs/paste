@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Anchor} from '@twilio-paste/anchor';
 

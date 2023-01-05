@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Table, Tr, THead, Th, TBody, Td} from '@twilio-paste/table';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';

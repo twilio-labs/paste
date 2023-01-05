@@ -2,6 +2,7 @@
   "extends": "../../.eslintrc.js",
   "rules": {
     "import/no-default-export": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }
