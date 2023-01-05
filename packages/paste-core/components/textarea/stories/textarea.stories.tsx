@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {Anchor} from '@twilio-paste/anchor';
