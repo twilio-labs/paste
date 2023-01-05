@@ -250,9 +250,7 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = items[targetIndex];
 
-      act(() => {
-        userEvent.hover(screen.getByText(target));
-      });
+      await userEvent.hover(screen.getByText(target));
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -330,16 +328,14 @@ describe('Combobox', () => {
       expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
 
-    it('should not run react virtual\'s "scroll to" function when "groupItemsBy" is defined as a string', () => {
+    it('should not run react virtual\'s "scroll to" function when "groupItemsBy" is defined as a string', async () => {
       // bc grouped comboboxes are not yet virtualized
       render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
 
       const targetIndex = 1;
       const target = groupedItems[targetIndex];
 
-      act(() => {
-        userEvent.hover(screen.getByText(target.label));
-      });
+      await userEvent.hover(screen.getByText(target.label));
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -379,16 +375,12 @@ describe('Combobox', () => {
     it('should set correct aria-activedescendant when highlighted index changes', async () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
 
-      act(() => {
-        userEvent.click(screen.getByRole('textbox'));
-      });
+      await userEvent.click(screen.getByRole('textbox'));
 
       const targetIndex = 1;
       const target = objectItems[targetIndex];
 
-      act(() => {
-        userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
-      });
+      await userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g

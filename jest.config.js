@@ -30,7 +30,11 @@ module.exports = {
       statements: 100,
     },
   },
-  moduleNameMapper: {'\\.css$': 'identity-obj-proxy'},
+  moduleNameMapper: {
+    '\\.css$': 'identity-obj-proxy',
+    '^@testing-library/user-event$': '<rootDir>/tools/test/act-user-event.ts',
+    '^@testing-library/real-user-event$': require.resolve('@testing-library/user-event'),
+  },
   transformIgnorePatterns: ['node_modules/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)?$': '@swc/jest',
