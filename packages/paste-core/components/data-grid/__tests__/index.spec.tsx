@@ -132,7 +132,6 @@ describe('Data Grid', () => {
       await userEvent.keyboard('{enter}');
       await userEvent.keyboard('{arrowdown}');
       expect(firstInputCell).toHaveFocus();
-
       await userEvent.keyboard('{enter}');
       await userEvent.tab();
       expect(firstRowSecondInputCell).toHaveFocus();
@@ -164,22 +163,18 @@ describe('Data Grid', () => {
       beforeDataGridButton.focus();
       expect(beforeDataGridButton).toHaveFocus();
       // Tab into the DataGrid
-
       await userEvent.tab();
       expect(headerCell).toHaveFocus();
       expect(headerCell.getAttribute('tabIndex')).toBe('0');
       // Down
-
       await userEvent.keyboard('{arrowdown}');
       expect(headerCell.getAttribute('tabindex')).toBe('-1');
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
       // Tab out of the DataGrid
-
       await userEvent.tab();
       expect(afterDataGridButton).toHaveFocus();
       // Return into the DataGrid
-
       await userEvent.tab({shift: true});
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
@@ -228,7 +223,6 @@ describe('Data Grid', () => {
       await userEvent.tab();
       await userEvent.tab();
       await userEvent.tab();
-
       await userEvent.keyboard('{enter}');
       // Bring the focus back to the DataGrid
       await userEvent.tab({shift: true});
