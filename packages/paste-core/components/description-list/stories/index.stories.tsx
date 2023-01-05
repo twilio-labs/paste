@@ -1,5 +1,7 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 
 import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '../src';
 
@@ -53,5 +55,23 @@ export const EmptyState: StoryFn = () => {
       <DescriptionListTerm>Email address</DescriptionListTerm>
       <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
     </DescriptionList>
+  );
+};
+
+export const Customized: StoryFn = () => {
+  const theme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={theme}
+      elements={{
+        DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightBold'},
+        DESCRIPTION_LIST_DETAILS: {marginLeft: 'space10'},
+      }}
+    >
+      <DescriptionList>
+        <DescriptionListTerm>A</DescriptionListTerm>
+        <DescriptionListDetails>1</DescriptionListDetails>
+      </DescriptionList>
+    </CustomizationProvider>
   );
 };
