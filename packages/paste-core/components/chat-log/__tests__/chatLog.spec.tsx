@@ -45,7 +45,6 @@ describe('Customization', () => {
 
   it('should add custom styles with a custom element data attribute', () => {
     render(<ChatLog element="foo_log" />, {wrapper: CustomizationFooWrapper});
-
     const chatLog = screen.getByRole('log');
     expect(chatLog).toHaveStyleRule('padding', '2.25rem');
   });
