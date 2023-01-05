@@ -24,7 +24,7 @@ describe('Tooltip', () => {
     );
     it('should render a tooltip button with aria attributes', () => {
       const renderedTooltipButton = screen.getByRole('button');
-      expect(renderedTooltipButton.getAttribute('aria-describedby')).toEqual('paste-tooltip-1');
+      expect(renderedTooltipButton.getAttribute('aria-describedby')).toEqual('paste-tooltip-:r0:');
 
       const renderedTooltip = screen.getByTestId('tooltip-example');
       expect(renderedTooltip.getAttribute('role')).toEqual('tooltip');
