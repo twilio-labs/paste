@@ -9,7 +9,7 @@ import {
 } from '@twilio-paste/styling-library';
 import type {CreateCacheOptions} from '@twilio-paste/styling-library';
 
-import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme} from './themes';
+import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
@@ -40,6 +40,11 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
       return {
         ...SendGridTheme,
         breakpoints: customBreakpoints || SendGridTheme.breakpoints,
+      };
+    case ThemeVariants.EVERGREEN:
+      return {
+        ...EvergreenTheme,
+        breakpoints: customBreakpoints || EvergreenTheme.breakpoints,
       };
     case DeprecatedThemeVariants.CONSOLE:
       isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);

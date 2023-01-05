@@ -1,0 +1,5 @@
+global:
+  category: font-size
+  type: font-size
+imports:
+  - ../../../global/font-size.yml
