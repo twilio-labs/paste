@@ -31,6 +31,7 @@ export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProp
           _last={{marginBottom: 'space0'}}
           {...safelySpreadBoxProps(props)}
           aria-describedby={`${id}-section-description`}
+          id={id}
         >
           {children}
         </Box>
