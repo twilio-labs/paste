@@ -1,6 +1,6 @@
 /*
- * Pulled this code from https://github.com/ariakit/ariakit/pull/802/files#diff-b87c59df480f1e77ba8a0bcdb6dbb55b0fc6f4028d2a773e8278b28af3c785bc
- * Taken from a draft PR that addresses portal issues in NextJS
+ * Taken from a draft PR that addresses portal issues in NextJS - https://github.com/ariakit/ariakit/pull/802
+ * The main difference when comparing this file with the latest reakit version is the useEffect hook found here https://github.com/ariakit/ariakit/pull/802/files#diff-b87c59df480f1e77ba8a0bcdb6dbb55b0fc6f4028d2a773e8278b28af3c785bc
  * Unfortunaely this never got merged in as focus shifted towards to Ariakit
  */
 import * as React from 'react';
