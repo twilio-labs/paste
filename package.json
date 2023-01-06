@@ -221,7 +221,6 @@
     "vite": "^4.0.1"
   },
   "resolutions": {
-    "react-hot-loader": "^4.13.0",
     "csstype": "3.0.11",
     "playwright": "1.28.1"
   },
