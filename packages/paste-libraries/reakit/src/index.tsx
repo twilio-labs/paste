@@ -2,6 +2,7 @@ import {PopoverArrow} from './Popover/PopoverArrow';
 import type {PopoverArrowProps} from './Popover/PopoverArrow';
 import {TooltipArrow} from './Tooltip/TooltipArrow';
 import type {TooltipArrowProps} from './Tooltip/TooltipArrow';
+import {Tooltip} from './Tooltip/Tooltip';
 
 export {
   // https://reakit.io/docs/composite/
@@ -10,6 +11,7 @@ export {
   CompositeGroup,
   CompositeItem,
   // https://reakit.io/docs/disclosure/
+  useDisclosureContent,
   useDisclosureState,
   Disclosure,
   DisclosureContent,
@@ -35,7 +37,6 @@ export {
   TabPanel,
   // https://reakit.io/docs/tooltip/
   useTooltipState,
-  Tooltip,
   TooltipReference,
 } from 'reakit';
 
@@ -48,6 +49,8 @@ export type {
   CompositeGroupProps,
   DisclosureProps,
   DisclosureContentProps,
+  DisclosureContentOptions,
+  DisclosureContentHTMLProps,
   DisclosureState,
   DisclosureInitialState,
   DisclosureStateReturn,
@@ -82,3 +85,5 @@ export type {PopoverArrowProps};
 
 export {TooltipArrow};
 export type {TooltipArrowProps};
+
+export {Tooltip};
