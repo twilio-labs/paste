@@ -71,6 +71,7 @@
     "@twilio-paste/label": "^10.1.1",
     "@twilio-paste/lexical-library": "^1.1.0",
     "@twilio-paste/list": "^5.0.1",
+    "@twilio-paste/listbox-primitive": "^0.0.0",
     "@twilio-paste/media-object": "^7.0.1",
     "@twilio-paste/menu": "^11.1.2",
     "@twilio-paste/menu-primitive": "^0.2.11",
