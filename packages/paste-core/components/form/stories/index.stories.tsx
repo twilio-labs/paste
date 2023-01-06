@@ -2,9 +2,10 @@ import * as React from 'react';
 import type {StoryFn} from '@storybook/types';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Button} from '@twilio-paste/button';
+import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutList, CalloutListItem} from '@twilio-paste/callout';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {Combobox} from '@twilio-paste/combobox';
+import {Combobox, MultiselectCombobox} from '@twilio-paste/combobox';
 import {Heading} from '@twilio-paste/heading';
 import {HelpText} from '@twilio-paste/help-text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -13,6 +14,7 @@ import {Label} from '@twilio-paste/label';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {Select, Option} from '@twilio-paste/select';
+import {Text} from '@twilio-paste/text/src';
 import {useTheme} from '@twilio-paste/theme';
 import {useUIDSeed, useUID} from '@twilio-paste/uid-library';
 
@@ -50,63 +52,50 @@ const countriesList = [
 const statesList = [
   {value: 'AK', name: 'Alaska'},
   {value: 'AL', name: 'Alabama'},
-  {value: 'AR', name: 'Arkansas'},
-  {value: 'AS', name: 'American Samoa'},
   {value: 'AZ', name: 'Arizona'},
   {value: 'CA', name: 'California'},
   {value: 'CO', name: 'Colorado'},
   {value: 'CT', name: 'Connecticut'},
-  {value: 'DC', name: 'District of Columbia'},
-  {value: 'DE', name: 'Delaware'},
-  {value: 'FL', name: 'Florida'},
-  {value: 'GA', name: 'Georgia'},
-  {value: 'GU', name: 'Guam'},
-  {value: 'HI', name: 'Hawaii'},
-  {value: 'IA', name: 'Iowa'},
   {value: 'ID', name: 'Idaho'},
   {value: 'IL', name: 'Illinois'},
   {value: 'IN', name: 'Indiana'},
   {value: 'KS', name: 'Kansas'},
   {value: 'KY', name: 'Kentucky'},
   {value: 'LA', name: 'Louisiana'},
-  {value: 'MA', name: 'Massachusetts'},
-  {value: 'MD', name: 'Maryland'},
-  {value: 'ME', name: 'Maine'},
-  {value: 'MI', name: 'Michigan'},
   {value: 'MN', name: 'Minnesota'},
   {value: 'MO', name: 'Missouri'},
   {value: 'MS', name: 'Mississippi'},
   {value: 'MT', name: 'Montana'},
-  {value: 'NC', name: 'North Carolina'},
-  {value: 'ND', name: 'North Dakota'},
-  {value: 'NE', name: 'Nebraska'},
-  {value: 'NH', name: 'New Hampshire'},
-  {value: 'NJ', name: 'New Jersey'},
-  {value: 'NM', name: 'New Mexico'},
-  {value: 'NV', name: 'Nevada'},
-  {value: 'NY', name: 'New York'},
-  {value: 'OH', name: 'Ohio'},
-  {value: 'OK', name: 'Oklahoma'},
-  {value: 'OR', name: 'Oregon'},
-  {value: 'PA', name: 'Pennsylvania'},
-  {value: 'PR', name: 'Puerto Rico'},
-  {value: 'RI', name: 'Rhode Island'},
-  {value: 'SC', name: 'South Carolina'},
-  {value: 'SD', name: 'South Dakota'},
-  {value: 'TN', name: 'Tennessee'},
-  {value: 'TX', name: 'Texas'},
-  {value: 'UT', name: 'Utah'},
-  {value: 'VA', name: 'Virginia'},
-  {value: 'VI', name: 'Virgin Islands'},
-  {value: 'VT', name: 'Vermont'},
-  {value: 'WA', name: 'Washington'},
-  {value: 'WI', name: 'Wisconsin'},
-  {value: 'WV', name: 'West Virginia'},
-  {value: 'WY', name: 'Wyoming'},
 ];
+
+const componentsList = [
+  'Alert',
+  'Anchor',
+  'Button',
+  'Card',
+  'Heading',
+  'List',
+  'Modal',
+  'Paragraph',
+  'Popover',
+  'Tooltip',
+];
+
+function getMultiselectComboboxFilteredItems(inputValue: string): string[] {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return componentsList.filter(function filterItems(item) {
+    return item.toLowerCase().includes(lowerCasedInputValue);
+  });
+}
 
 export const Default: StoryFn = () => {
   const seed = useUIDSeed();
+  const [comboboxInputValue, setComboboxInputValue] = React.useState('');
+  const filteredItems = React.useMemo(
+    () => getMultiselectComboboxFilteredItems(comboboxInputValue),
+    [comboboxInputValue]
+  );
 
   return (
     <Form aria-labelledby={seed('form-heading')}>
@@ -126,6 +115,16 @@ export const Default: StoryFn = () => {
           <Label htmlFor={seed('email')}>Email address</Label>
           <Input id={seed('email')} type="email" />
         </FormControl>
+        <MultiselectCombobox
+          labelText="Choose a Paste component"
+          selectedItemsLabelText="Selected Paste components"
+          helpText="Paste components are the building blocks of your product UI."
+          items={filteredItems}
+          initialSelectedItems={componentsList.slice(1, 3)}
+          onInputValueChange={({inputValue: newInputValue = ''}) => {
+            setComboboxInputValue(newInputValue);
+          }}
+        />
       </FormSection>
       <FormSection>
         <FormSectionHeading>Shipping address</FormSectionHeading>
@@ -333,7 +332,7 @@ export const FixedWidthForm: StoryFn = () => {
         </FormControlTwoColumn>
       </FormSection>
       <FormControl>
-        <RadioGroup name="payment-method" legend="Select payment method" orientation="horizontal">
+        <RadioGroup name="payment-method" legend="Select payment method">
           <Radio>Credit card</Radio>
           <Radio>PayPal</Radio>
           <Radio>Direct deposit</Radio>

@@ -13,7 +13,7 @@ export const FormControlTwoColumn = React.forwardRef<HTMLLegendElement, FormCont
     <Box
       display="grid"
       gridTemplateColumns="1fr 1fr"
-      columnGap="space80"
+      columnGap="space50"
       ref={ref}
       element={element}
       {...safelySpreadBoxProps(props)}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import {isMaxWidthTokenProp} from '@twilio-paste/style-props';
 
 export interface FormProps extends Omit<React.ComponentPropsWithRef<'form'>, 'children'> {
   element?: BoxProps['element'];
@@ -31,18 +32,5 @@ Form.displayName = 'Form';
 Form.propTypes = {
   children: PropTypes.node,
   element: PropTypes.string,
-  maxWidth: PropTypes.oneOf([
-    'size10',
-    'size20',
-    'size30',
-    'size40',
-    'size50',
-    'size60',
-    'size70',
-    'size80',
-    'size90',
-    'size100',
-    'size110',
-    'size120',
-  ]),
+  maxWidth: isMaxWidthTokenProp,
 };
