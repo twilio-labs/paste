@@ -25,6 +25,7 @@ export const SITEMAP = [
   '/components/chat-log/',
   '/components/checkbox/',
   '/components/data-grid/',
+  '/components/description-list/',
   '/components/display-heading/',
   '/components/display-pill-group/',
   '/components/disclosure/',
