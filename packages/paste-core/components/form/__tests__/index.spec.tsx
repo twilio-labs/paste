@@ -113,7 +113,7 @@ describe('Form customization', () => {
           FORM: {rowGap: 'space20'},
           FORM_ACTIONS: {justifyContent: 'center'},
           FORM_CONTROL: {flexGrow: 'unset'},
-          FORM_CONTROL_TWO_COLUMNS: {columnGap: 'space20'},
+          FORM_CONTROL_TWO_COLUMN: {columnGap: 'space20'},
           FORM_SECTION: {borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder'},
           FORM_SECTION_DESCRIPTION: {fontWeight: 'fontWeightBold'},
           FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
@@ -124,7 +124,7 @@ describe('Form customization', () => {
             <FormSectionHeading data-testid="section-heading">Settings</FormSectionHeading>
             <FormSectionDescription data-testid="section-desc">These are the settings</FormSectionDescription>
           </FormSection>
-          <FormControlTwoColumn>Two column content</FormControlTwoColumn>
+          <FormControlTwoColumn data-testid="two-col">Two column content</FormControlTwoColumn>
           <FormControl>Control content</FormControl>
           <FormActions>Actions content</FormActions>
         </Form>
@@ -134,7 +134,7 @@ describe('Form customization', () => {
     expect(screen.getByRole('form')).toHaveStyleRule('row-gap', '0.25rem');
     expect(screen.getByRole('group', {name: 'Settings'})).toHaveStyleRule('border-style', 'solid');
     expect(screen.getByTestId('section-heading')).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
-    expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '1.75rem');
+    expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '0.25rem');
     expect(screen.getByText('Control content')).toHaveStyleRule('flex-grow', 'unset');
     expect(screen.getByText('Actions content')).toHaveStyleRule('justify-content', 'center');
   });
@@ -147,7 +147,7 @@ describe('Form customization', () => {
           MY_FORM: {rowGap: 'space20'},
           MY_FORM_ACTIONS: {justifyContent: 'center'},
           MY_FORM_CONTROL: {flexGrow: 'unset'},
-          MY_FORM_CONTROL_TWO_COLUMNS: {columnGap: 'space20'},
+          MY_FORM_CONTROL_TWO_COLUMN: {columnGap: 'space20'},
           MY_FORM_SECTION: {borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder'},
           MY_FORM_SECTION_DESCRIPTION: {fontWeight: 'fontWeightBold'},
           MY_FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
@@ -172,7 +172,7 @@ describe('Form customization', () => {
     expect(screen.getByRole('form')).toHaveStyleRule('row-gap', '0.25rem');
     expect(screen.getByRole('group', {name: 'Settings'})).toHaveStyleRule('border-style', 'solid');
     expect(screen.getByTestId('section-heading')).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
-    expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '1.75rem');
+    expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '0.25rem');
     expect(screen.getByText('Control content')).toHaveStyleRule('flex-grow', 'unset');
     expect(screen.getByText('Actions content')).toHaveStyleRule('justify-content', 'center');
   });
