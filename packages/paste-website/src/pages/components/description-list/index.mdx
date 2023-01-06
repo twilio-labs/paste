@@ -10,11 +10,21 @@ import {Card} from '@twilio-paste/card';
 import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/description-list';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
+import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
 import Changelog from '@twilio-paste/description-list/CHANGELOG.md';
+
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {BasicDescriptionList} from '../../../component-examples/DescriptionListExamples';
+import {
+  basicDescriptionList,
+  descriptionListWithStatusIcon,
+  descriptionListWithMultipleTerms,
+  descriptionListWithMultipleDetails,
+  descriptionListWithEmptyState,
+} from '../../../component-examples/DescriptionListExamples.ts';
 
 export const pageQuery = graphql`
   {
@@ -71,13 +81,17 @@ export const pageQuery = graphql`
 
 <content>
 
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+  {basicDescriptionList}
+</LivePreview>
+
 ## Guidelines
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 ### About Description List
 
-...
+The Description List package consists of `DescriptionList` itself, plus `DescriptionTerm` and `DescriptionListDetails`. The `DescriptionList` should wrap the other elements, and its children should always follow the order of term, details, term, details. It's okay for multiple terms to correlate to a single detail, and for multiple details to correlate to a single term. As long as they're in the proper order, the term-details association will be clear. If you have a term without details, be sure to include the empty state of the details tag (`<DescriptionListDetails />`) so that the term is associated with an empty state details, rather than the following term-details pair.
 
 #### Accessibility
 
@@ -89,13 +103,44 @@ If any of your terms are missing details, or vice versa, be sure to still includ
 
 ### Basic Description List
 
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+  {basicDescriptionList}
+</LivePreview>
+
 ### Description List with Icon
+
+<LivePreview
+  scope={{
+    DescriptionList,
+    DescriptionListTerm,
+    DescriptionListDetails,
+    ProcessSuccessIcon,
+    ProcessErrorIcon,
+    ProcessInProgressIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {descriptionListWithStatusIcon}
+</LivePreview>
 
 ### Description List with multiple Terms
 
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+  {descriptionListWithMultipleTerms}
+</LivePreview>
+
 ### Description List with multiple Details
 
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+  {descriptionListWithMultipleDetails}
+</LivePreview>
+
 ### Description List with empty state
+
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+  {descriptionListWithEmptyState}
+</LivePreview>
 
 ## Composition Notes
 
@@ -185,16 +230,32 @@ const Component = () => (
 );
 ```
 
-#### Props
+#### Description List Props
 
-| Prop          | Type                           | Description                                                                               | Default           |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ----------------- |
-| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'                                         | null              |
-| id?           | `string`                       |                                                                                           | null              |
-| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null              |
-| variant       | `displayHeadingVariants`       | 'displayHeading10', 'displayHeading20', 'displayHeading30'                                | null              |
-| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"           |
-| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'DISPLAY_HEADING' |
+All the valid attributes for `<dl>` are supported including the following props:
+
+| Prop      | Type                                                     | Description                                                                               | Default            |
+| --------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children? | `DescriptionListTerm`, `DescriptionListDetails`, `<div>` |                                                                                           | null               |
+| element?  | `string`                                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST' |
+
+#### Description List Term Props
+
+All the valid attributes for `<dt>` are supported including the following props:
+
+| Prop      | Type              | Description                                                                               | Default                 |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| children? | `React.ReactNode` |                                                                                           | null                    |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST_TERM' |
+
+#### Description List Details Props
+
+All the valid attributes for `<dd>` are supported including the following props:
+
+| Prop      | Type              | Description                                                                               | Default                    |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------------------- |
+| children? | `React.ReactNode` |                                                                                           | null                       |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST_DETAILS' |
 
 <ChangelogRevealer>
   <Changelog />

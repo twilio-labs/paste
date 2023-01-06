@@ -5,6 +5,10 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '../src';
 
+const FONT_WEIGHT = 'font-weight';
+const MARGIN_LEFT = 'margin-left';
+const COLOR = 'color';
+
 describe('DescriptionList', () => {
   render(
     <Theme.Provider theme="default">
@@ -29,13 +33,13 @@ describe('DescriptionList', () => {
 
   describe('DescriptionListTerm', () => {
     it('should have fontWeight: fontWeightSemibold', () => {
-      expect(terms[0]).toHaveStyleRule('font-weight', '600');
+      expect(terms[0]).toHaveStyleRule(FONT_WEIGHT, '600');
     });
   });
 
   describe('DescriptionListDetails', () => {
     it('should have marginLeft: space0', () => {
-      expect(details[0]).toHaveStyleRule('margin-left', '0');
+      expect(details[0]).toHaveStyleRule(MARGIN_LEFT, '0');
     });
   });
 });
@@ -50,7 +54,7 @@ describe('Customization', () => {
         </DescriptionList>
       </Theme.Provider>
     );
-    // expect(screen.getByTestId('my-description-list').dataset.pasteElement).toBe('DESCRIPTION_LIST');
+    expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('DESCRIPTION_LIST');
     expect(screen.getByRole('term').dataset.pasteElement).toBe('DESCRIPTION_LIST_TERM');
     expect(screen.getByRole('definition').dataset.pasteElement).toBe('DESCRIPTION_LIST_DETAILS');
   });
@@ -58,13 +62,13 @@ describe('Customization', () => {
   it('should set custom data paste element attribute', () => {
     render(
       <Theme.Provider theme="default">
-        <DescriptionList>
+        <DescriptionList element="FAZ">
           <DescriptionListTerm element="FOO">A</DescriptionListTerm>
           <DescriptionListDetails element="BAR">1</DescriptionListDetails>
         </DescriptionList>
       </Theme.Provider>
     );
-    // expect(screen.getByTestId('my-description-list').dataset.pasteElement).toBe('DESCRIPTION_LIST');
+    expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('FAZ');
     expect(screen.getByRole('term').dataset.pasteElement).toBe('FOO');
     expect(screen.getByRole('definition').dataset.pasteElement).toBe('BAR');
   });
@@ -75,6 +79,7 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
+          DESCRIPTION_LIST: {color: 'colorTextDecorative40'},
           DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightBold'},
           DESCRIPTION_LIST_DETAILS: {marginLeft: 'space10'},
         }}
@@ -85,8 +90,9 @@ describe('Customization', () => {
         </DescriptionList>
       </CustomizationProvider>
     );
-    expect(screen.getByRole('term')).toHaveStyleRule('font-weight', '700');
-    expect(screen.getByRole('definition')).toHaveStyleRule('margin-left', '0.125rem');
+    expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
+    expect(screen.getByRole('term')).toHaveStyleRule(FONT_WEIGHT, '700');
+    expect(screen.getByRole('definition')).toHaveStyleRule(MARGIN_LEFT, '0.125rem');
   });
 
   it('should add custom styles with a custom data paste element attribute', () => {
@@ -95,17 +101,19 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
+          FAZ: {color: 'colorTextDecorative40'},
           FOO: {fontWeight: 'fontWeightBold'},
           BAR: {marginLeft: 'space10'},
         }}
       >
-        <DescriptionList>
+        <DescriptionList element="FAZ">
           <DescriptionListTerm element="FOO">A</DescriptionListTerm>
           <DescriptionListDetails element="BAR">1</DescriptionListDetails>
         </DescriptionList>
       </CustomizationProvider>
     );
-    expect(screen.getByRole('term')).toHaveStyleRule('font-weight', '700');
-    expect(screen.getByRole('definition')).toHaveStyleRule('margin-left', '0.125rem');
+    expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
+    expect(screen.getByRole('term')).toHaveStyleRule(FONT_WEIGHT, '700');
+    expect(screen.getByRole('definition')).toHaveStyleRule(MARGIN_LEFT, '0.125rem');
   });
 });

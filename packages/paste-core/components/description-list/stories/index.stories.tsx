@@ -34,7 +34,7 @@ export const MultipleTerms: StoryFn = () => {
   );
 };
 
-export const MultipleDefinitions: StoryFn = () => {
+export const MultipleDetails: StoryFn = () => {
   return (
     <DescriptionList>
       <DescriptionListTerm>Account SIDs</DescriptionListTerm>
@@ -64,13 +64,15 @@ export const Customized: StoryFn = () => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightBold'},
-        DESCRIPTION_LIST_DETAILS: {marginLeft: 'space10'},
+        DESCRIPTION_LIST: {color: 'colorTextDecorative20', fontFamily: 'fontFamilyCode'},
+        DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightExtrabold'},
+        DESCRIPTION_LIST_DETAILS: {marginLeft: 'space50', color: 'colorTextDecorative40'},
       }}
     >
       <DescriptionList>
-        <DescriptionListTerm>A</DescriptionListTerm>
-        <DescriptionListDetails>1</DescriptionListDetails>
+        <DescriptionListTerm>Account names</DescriptionListTerm>
+        <DescriptionListDetails>My account 1</DescriptionListDetails>
+        <DescriptionListDetails>My account 2</DescriptionListDetails>
       </DescriptionList>
     </CustomizationProvider>
   );
