@@ -11,7 +11,6 @@ export {
   CompositeGroup,
   CompositeItem,
   // https://reakit.io/docs/disclosure/
-  useDisclosureContent,
   useDisclosureState,
   Disclosure,
   DisclosureContent,
@@ -49,8 +48,6 @@ export type {
   CompositeGroupProps,
   DisclosureProps,
   DisclosureContentProps,
-  DisclosureContentOptions,
-  DisclosureContentHTMLProps,
   DisclosureState,
   DisclosureInitialState,
   DisclosureStateReturn,

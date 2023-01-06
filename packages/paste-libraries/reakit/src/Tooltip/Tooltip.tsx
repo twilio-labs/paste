@@ -1,11 +1,11 @@
 import * as React from 'react';
+import {useDisclosureContent} from 'reakit';
+import type {TooltipStateReturn, DisclosureContentHTMLProps, DisclosureContentOptions} from 'reakit';
 import {createComponent} from 'reakit-system/createComponent';
 import {createHook} from 'reakit-system/createHook';
 import {useForkRef} from 'reakit-utils/useForkRef';
 import {getDocument} from 'reakit-utils/getDocument';
 
-import {useDisclosureContent} from '..';
-import type {TooltipStateReturn, DisclosureContentHTMLProps, DisclosureContentOptions} from '..';
 import {Portal} from '../Portal/Portal';
 import {TOOLTIP_KEYS} from './__keys';
 import globalState from './__globalState';
