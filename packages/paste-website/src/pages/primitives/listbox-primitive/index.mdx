@@ -6,12 +6,15 @@ slug: /primitives/listbox-primitive/
 
 import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/listbox-primitive/CHANGELOG.md';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {
   useListboxPrimitiveState,
   ListboxPrimitive,
   ListboxPrimitiveGroup,
   ListboxPrimitiveItem,
 } from '@twilio-paste/listbox-primitive';
+import {Stack} from '@twilio-paste/stack';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   defaultExample,
@@ -81,6 +84,7 @@ export const pageQuery = graphql`
     useListboxPrimitiveState,
     ListboxPrimitive,
     ListboxPrimitiveItem,
+    Stack,
   }}
   noInline
   showOverflow
@@ -108,6 +112,12 @@ This primitive should be used to compose all custom Listboxes to ensure accessib
 
 ## Examples
 
+### Selection
+
+To make items inside the Listbox selectable, you can manage the selection state yourself and combine it with the state returned from the `useListboxPrimitiveState` hook. To do so, track which item is selected in a separate store of state. When rendering the Listbox, cross reference the rendered items with the selection state, and conditionally set `selected` on each `ListboxPrimitiveItem` that requires it.
+
+The `onSelect` event handler will fire whenever the item is clicked, or the spacebar or enter key is pressed. Use this to respond to your users' selection interactions.
+
 ### Horizontal Listbox
 
 <LivePreview
@@ -130,6 +140,7 @@ This primitive should be used to compose all custom Listboxes to ensure accessib
     ListboxPrimitive,
     ListboxPrimitiveGroup,
     ListboxPrimitiveItem,
+    Stack,
   }}
   noInline
   showOverflow
@@ -143,7 +154,6 @@ This primitive should be used to compose all custom Listboxes to ensure accessib
   scope={{
     useListboxPrimitiveState,
     ListboxPrimitive,
-    ListboxPrimitiveGroup,
     ListboxPrimitiveItem,
   }}
   noInline
@@ -160,7 +170,7 @@ The listbox primitive does not come with any styling, and thus you could mix the
 
 Because these are not styled, rendering any of them _as_ another component you can mix the functionality of two components together. Styling from one, listbox functionlity from the primitive component.
 
-In the example below, we import the Paste Button `import {Button} from '@twilio-paste/button';` and use it as the Listbox options via the `as` prop. We also use `Box` from Paste to style the listbox and listbox items.
+In the example below, we import the Paste Button `import {Button} from '@twilio-paste/button';` and use it as the Listbox items via the `as` prop.
 
 <LivePreview
   scope={{
@@ -168,7 +178,7 @@ In the example below, we import the Paste Button `import {Button} from '@twilio-
     ListboxPrimitive,
     ListboxPrimitiveItem,
     Button,
-    Box,
+    Stack,
   }}
   noInline
   showOverflow
