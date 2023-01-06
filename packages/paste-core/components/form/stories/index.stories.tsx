@@ -2,7 +2,6 @@ import * as React from 'react';
 import type {StoryFn} from '@storybook/types';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutList, CalloutListItem} from '@twilio-paste/callout';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 import {Combobox, MultiselectCombobox} from '@twilio-paste/combobox';
@@ -14,7 +13,6 @@ import {Label} from '@twilio-paste/label';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {Select, Option} from '@twilio-paste/select';
-import {Text} from '@twilio-paste/text/src';
 import {useTheme} from '@twilio-paste/theme';
 import {useUIDSeed, useUID} from '@twilio-paste/uid-library';
 
