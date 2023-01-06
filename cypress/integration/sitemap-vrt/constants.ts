@@ -31,6 +31,8 @@ export const SITEMAP = [
   '/components/button/',
   '/components/button-group/',
   '/components/flex/',
+  '/components/file-picker/',
+  '/components/file-uploader/',
   '/components/combobox/',
   '/components/date-picker/',
   '/components/grid/',

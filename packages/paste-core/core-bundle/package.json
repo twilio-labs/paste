@@ -57,6 +57,7 @@
     "@twilio-paste/display-pill-group": "^5.0.1",
     "@twilio-paste/dropdown-library": "^1.1.7",
     "@twilio-paste/file-picker": "^1.1.1",
+    "@twilio-paste/file-uploader": "^0.0.0",
     "@twilio-paste/flex": "^5.0.1",
     "@twilio-paste/form-pill-group": "^5.1.1",
     "@twilio-paste/grid": "^5.0.2",
