@@ -3,3 +3,26 @@ global:
   type: number
 imports:
   - ../../../global/line-height.yml
+props:
+  line-height-10:
+    value: "1rem" # 16px
+  line-height-20:
+    value: "1rem" # 16px
+  line-height-30:
+    value: "1rem" # 16px
+  line-height-40:
+    value: "1.25rem" # 20px
+  line-height-50:
+    value: "1.5rem" # 24px
+  line-height-60:
+    value: "1.5rem" # 24px
+  line-height-70:
+    value: "1.5rem" # 24px
+  line-height-80:
+    value: "1.5rem" # 24px
+  line-height-90:
+    value: "1.5rem" # 24px
+  line-height-100:
+    value: "2rem" # 32px
+  line-height-110:
+    value: "2.5rem" # 40px
