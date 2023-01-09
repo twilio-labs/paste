@@ -12,6 +12,7 @@ import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Select, Option} from '@twilio-paste/select';
 import {useTheme} from '@twilio-paste/theme';
 import {useUIDSeed, useUID} from '@twilio-paste/uid-library';
@@ -106,8 +107,9 @@ export const Default: StoryFn = () => {
   return (
     <Form aria-labelledby={seed('form-heading')}>
       <Heading id={seed('form-heading')} as="h2" variant="heading20" marginBottom="space0">
+        Profile settings
         {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
-        Profile settings {useUID()}
+        <ScreenReaderOnly>{useUID()}</ScreenReaderOnly>
       </Heading>
       <Paragraph marginBottom="space0">Please add information to your Twilio profile.</Paragraph>
       <FormSection>
@@ -191,8 +193,9 @@ export const HorizontalForm: StoryFn = () => {
   return (
     <Form aria-labelledby={seed('form-heading')}>
       <Heading id={seed('form-heading')} as="h3" variant="heading30" marginBottom="space0">
+        Choose Network Access Profile
         {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
-        Choose Network Access Profile {useUID()}
+        <ScreenReaderOnly>{useUID()}</ScreenReaderOnly>
       </Heading>
       <Paragraph marginBottom="space0">
         Network Access Profile specifies what networks your SIM&apos;s would connect to and how you will be billed.
@@ -225,8 +228,9 @@ export const ErrorForm: StoryFn = () => {
   return (
     <Form aria-labelledby={seed('form-heading')}>
       <Heading id={seed('form-heading')} variant="heading30" as="h3" marginBottom="space0">
+        Settings
         {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
-        Settings {useUID()}
+        <ScreenReaderOnly>{useUID()}</ScreenReaderOnly>
       </Heading>
       <Callout variant="error">
         <CalloutHeading as="h4">Please fix the issues with these fields</CalloutHeading>
@@ -295,8 +299,9 @@ export const FixedWidthForm: StoryFn = () => {
   return (
     <Form maxWidth="size30" aria-labelledby={seed('form-heading')}>
       <Heading id={seed('form-heading')} as="h2" variant="heading20" marginBottom="space0">
+        Profile settings
         {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
-        Profile settings {useUID()}
+        <ScreenReaderOnly>{useUID()}</ScreenReaderOnly>
       </Heading>
       <Paragraph marginBottom="space0">Please add information to your Twilio profile.</Paragraph>
       <FormSection>
