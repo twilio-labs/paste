@@ -1,53 +1,61 @@
 export const basicDescriptionList = `
-const DescriptionList = () => {
+const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Term</DescriptionListTerm>
-      <DescriptionListDetails>Details</DescriptionListDetails>
+      <DescriptionListTerm>Term 1</DescriptionListTerm>
+      <DescriptionListDetails>Details 1</DescriptionListDetails>
+      <DescriptionListTerm>Term 2</DescriptionListTerm>
+      <DescriptionListDetails>Details 2</DescriptionListDetails>
     </DescriptionList>
   );
 };
-render(<DescriptionList />)
+render(<DescriptionListExample />)
 `.trim();
 
 export const descriptionListWithStatusIcon = `
-const DescriptionList = () => {
+const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
       <DescriptionListTerm>Phone</DescriptionListTerm>
       <DescriptionListDetails>
-        <ProcessSuccessIcon
-          color="colorTextIconSuccess"
-          decorative={false}
-          title="success" />
-        Success
+        <Box display="flex">
+          <ProcessSuccessIcon
+            color="colorTextIconSuccess"
+            decorative={false}
+            title="success" />
+          <Text marginLeft="space20">Success</Text>
+        </Box>
       </DescriptionListDetails>
       <DescriptionListTerm>Email</DescriptionListTerm>
       <DescriptionListDetails>
-        <ProcessErrorIcon
-          color="colorTextIconError"
-          decorative={false}
-          title="error" />
-        Error
+        <Box display="flex">
+          <ProcessErrorIcon
+            color="colorTextIconError"
+            decorative={false}
+            title="error" />
+          <Text marginLeft="space20">Error</Text>
+        </Box>
       </DescriptionListDetails>
       <DescriptionListTerm>SMS</DescriptionListTerm>
       <DescriptionListDetails>
-        <ProcessInProgressIcon
-          color="colorTextIconNeutral"
-          decorative={false}
-          title="in progress" />
-        In progress
+        <Box display="flex">
+          <ProcessInProgressIcon
+            color="colorTextIconNeutral"
+            decorative={false}
+            title="in progress" />
+          <Text marginLeft="space20">In progress</Text>
+        </Box>
       </DescriptionListDetails>
     </DescriptionList>
   );
 };
-render(<DescriptionList />)
+render(<DescriptionListExample />)
 `.trim();
 
 export const descriptionListWithMultipleTerms = `
-const DescriptionList = () => {
+const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
@@ -57,11 +65,11 @@ const DescriptionList = () => {
     </DescriptionList>
   );
 };
-render(<DescriptionList />)
+render(<DescriptionListExample />)
 `.trim();
 
 export const descriptionListWithMultipleDetails = `
-const DescriptionList = () => {
+const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
@@ -72,22 +80,22 @@ const DescriptionList = () => {
     </DescriptionList>
   );
 };
-render(<DescriptionList />)
+render(<DescriptionListExample />)
 `.trim();
 
 export const descriptionListWithEmptyState = `
-const DescriptionList = () => {
+const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
       <DescriptionListTerm>Name</DescriptionListTerm>
       <DescriptionListDetails>Ramon Hughes</DescriptionListDetails>
       <DescriptionListTerm>Phone number</DescriptionListTerm>
-      <DescriptionListDetails />
+      <DescriptionListDetails>-</DescriptionListDetails>
       <DescriptionListTerm>Email address</DescriptionListTerm>
       <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
     </DescriptionList>
   );
 };
-render(<DescriptionList />)
+render(<DescriptionListExample />)
 `.trim();

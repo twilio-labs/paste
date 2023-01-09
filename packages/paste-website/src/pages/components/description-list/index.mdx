@@ -7,12 +7,13 @@ slug: /components/description-list/
 
 import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
+import {Box} from '@twilio-paste/box';
 import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/description-list';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/description-list/CHANGELOG.md';
 
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -81,7 +82,7 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails, Card}} noInline>
   {basicDescriptionList}
 </LivePreview>
 
@@ -117,6 +118,8 @@ If any of your terms are missing details, or vice versa, be sure to still includ
     ProcessSuccessIcon,
     ProcessErrorIcon,
     ProcessInProgressIcon,
+    Text,
+    Box,
   }}
   language="jsx"
   noInline
