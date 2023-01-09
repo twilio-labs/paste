@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
@@ -137,7 +137,7 @@ export const OneChild = (): React.ReactNode => {
 
 OneChild.storyName = 'Stack - One Child';
 
-export const CustomizedStack: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedStack: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

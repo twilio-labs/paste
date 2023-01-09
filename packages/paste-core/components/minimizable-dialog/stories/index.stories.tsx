@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
@@ -67,10 +67,10 @@ const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = 
   );
 };
 
-export const Default: Story = () => <DialogExample />;
-export const DefaultMinimized: Story = () => <DialogExample minimized />;
+export const Default: StoryFn = () => <DialogExample />;
+export const DefaultMinimized: StoryFn = () => <DialogExample minimized />;
 
-export const FloatingButton: Story = () => {
+export const FloatingButton: StoryFn = () => {
   const nameID = useUID();
   const emailID = useUID();
   const questionID = useUID();
@@ -118,7 +118,7 @@ export const FloatingButton: Story = () => {
   );
 };
 
-export const StateHookExample: Story = () => {
+export const StateHookExample: StoryFn = () => {
   const dialog = useMinimizableDialogState({});
   return (
     <Box display="flex" flexDirection="column" rowGap="space70">

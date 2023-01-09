@@ -1,4 +1,5 @@
 import React from 'react';
+import {action} from '@storybook/addon-actions';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
 import isChromatic from 'chromatic/isChromatic';
 import {StylingGlobals} from '@twilio-paste/styling-library';
@@ -168,4 +169,17 @@ export const parameters = {
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+};
+
+// https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook/#manual-configuration
+
+global.___loader = {
+  enqueue: () => {},
+  hovering: () => {},
+};
+
+global.__BASE_PATH__ = '/';
+
+window.___navigate = (pathname) => {
+  action('NavigateTo:')(pathname);
 };

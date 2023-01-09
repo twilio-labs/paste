@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
@@ -18,7 +18,7 @@ export default {
 
 type RadioButtonGroupStoryProps = Partial<Omit<RadioButtonGroupProps, 'children'>>;
 
-export const Attached: Story<RadioButtonGroupStoryProps> = (props) => (
+export const Attached: StoryFn<RadioButtonGroupStoryProps> = (props) => (
   <RadioButtonGroup
     name="foo"
     legend={
@@ -39,7 +39,7 @@ export const Attached: Story<RadioButtonGroupStoryProps> = (props) => (
   </RadioButtonGroup>
 );
 
-export const FewRadioButtons: Story = () => (
+export const FewRadioButtons: StoryFn = () => (
   <RadioButtonGroup
     name="foo"
     legend={
@@ -56,7 +56,7 @@ export const FewRadioButtons: Story = () => (
   </RadioButtonGroup>
 );
 
-export const ManyRadioButtons: Story = () => (
+export const ManyRadioButtons: StoryFn = () => (
   <RadioButtonGroup
     name="foo"
     legend={
@@ -75,7 +75,7 @@ export const ManyRadioButtons: Story = () => (
     ))}
   </RadioButtonGroup>
 );
-export const Unattached: Story = () => {
+export const Unattached: StoryFn = () => {
   return (
     <RadioButtonGroup
       name="foo"
@@ -99,7 +99,7 @@ export const Unattached: Story = () => {
 /**
  * RadioButtonGroup passes no context value (defaults to '' empty string) with uncontrolled radios
  */
-export const Uncontrolled: Story = () => {
+export const Uncontrolled: StoryFn = () => {
   return (
     <RadioButtonGroup
       name="foo"
@@ -121,7 +121,7 @@ export const Uncontrolled: Story = () => {
   );
 };
 
-export const Controlled: Story = () => {
+export const Controlled: StoryFn = () => {
   const [value, setValue] = React.useState('2');
   return (
     <RadioButtonGroup
@@ -168,7 +168,7 @@ export const Controlled: Story = () => {
   );
 };
 
-export const Customized: Story = () => {
+export const Customized: StoryFn = () => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

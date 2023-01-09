@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Avatar} from '@twilio-paste/avatar';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, ChatLog} from '../../src';
 
@@ -9,7 +9,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const InboundMessageWithMeta: Story = () => (
+export const InboundMessageWithMeta: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>
@@ -25,7 +25,7 @@ export const InboundMessageWithMeta: Story = () => (
   </ChatLog>
 );
 
-export const OutboundMessageWithMeta: Story = () => (
+export const OutboundMessageWithMeta: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>
@@ -41,7 +41,7 @@ export const OutboundMessageWithMeta: Story = () => (
   </ChatLog>
 );
 
-export const MessageWithLongMeta: Story = () => (
+export const MessageWithLongMeta: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>

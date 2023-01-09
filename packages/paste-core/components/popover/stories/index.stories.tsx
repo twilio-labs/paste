@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
@@ -182,7 +182,7 @@ export const StateHookExample = (): JSX.Element => {
   );
 };
 
-export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const uniqueBaseID = useUID();
   return (

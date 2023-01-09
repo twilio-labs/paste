@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -147,7 +147,7 @@ ResponsiveImage.parameters = {
   chromatic: {delay: 3000},
 };
 
-export const CustomAvatar: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomAvatar: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

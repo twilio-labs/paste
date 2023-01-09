@@ -1,4 +1,4 @@
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ResponsiveProp = (type: PropTypes.Validator<any>): PropTypes.Requireable<any> => {

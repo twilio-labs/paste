@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Spinner} from '@twilio-paste/spinner';
 import {Stack} from '@twilio-paste/stack';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {
   ChatLog,
@@ -19,7 +19,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const InboundChatMessageWithAttachment: Story = () => (
+export const InboundChatMessageWithAttachment: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>
@@ -32,7 +32,7 @@ export const InboundChatMessageWithAttachment: Story = () => (
   </ChatLog>
 );
 
-export const OutboundChatMessageWithAttachment: Story = () => (
+export const OutboundChatMessageWithAttachment: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>
@@ -75,7 +75,7 @@ const StateExampleComposerAttachmentCard = (): JSX.Element => {
   );
 };
 
-export const ComposerAttachmentCardExample: Story = () => (
+export const ComposerAttachmentCardExample: StoryFn = () => (
   <Stack orientation="vertical" spacing="space60">
     <ComposerAttachmentCard>
       <ChatAttachment attachmentIcon={<Spinner decorative={false} color="colorTextIcon" title="loading..." />}>
@@ -92,7 +92,7 @@ export const ComposerAttachmentCardExample: Story = () => (
   </Stack>
 );
 
-export const StatefulComposerAttachmentCard: Story = () => (
+export const StatefulComposerAttachmentCard: StoryFn = () => (
   <Stack orientation="vertical" spacing="space60">
     <StateExampleComposerAttachmentCard />
   </Stack>

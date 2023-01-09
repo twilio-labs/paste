@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 

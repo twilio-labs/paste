@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -166,7 +166,7 @@ export const StateHookTooltip = (): React.ReactNode => {
 
 StateHookTooltip.storyName = 'State hook Tooltip';
 
-export const CustomizedTooltip: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedTooltip: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

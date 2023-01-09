@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -14,11 +14,11 @@ export default {
   component: InlineCode,
 };
 
-export const Default: Story = () => {
+export const Default: StoryFn = () => {
   return <InlineCode>0000001111111122234444444</InlineCode>;
 };
 
-export const ReallyLongContent: Story = () => {
+export const ReallyLongContent: StoryFn = () => {
   return (
     <Box maxWidth="size40">
       <InlineCode>
@@ -29,7 +29,7 @@ export const ReallyLongContent: Story = () => {
   );
 };
 
-export const InlineWithText: Story = () => {
+export const InlineWithText: StoryFn = () => {
   return (
     <Text as="span">
       If the composite has a single row or column (one-dimensional), the <InlineCode>orientation</InlineCode> value
@@ -38,7 +38,7 @@ export const InlineWithText: Story = () => {
   );
 };
 
-export const WithLineHeights: Story = () => {
+export const WithLineHeights: StoryFn = () => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Text lineHeight="lineHeight40" as="span">
@@ -55,7 +55,7 @@ export const WithLineHeights: Story = () => {
   );
 };
 
-export const WithTextSizes: Story = () => {
+export const WithTextSizes: StoryFn = () => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Text fontSize="fontSize50" as="div">
@@ -70,7 +70,7 @@ export const WithTextSizes: Story = () => {
   );
 };
 
-export const DisplayingAPIKey: Story = () => {
+export const DisplayingAPIKey: StoryFn = () => {
   return (
     <Stack orientation="vertical" spacing="space30">
       <Text fontWeight="fontWeightMedium" as="div">
@@ -81,7 +81,7 @@ export const DisplayingAPIKey: Story = () => {
   );
 };
 
-export const Customization: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

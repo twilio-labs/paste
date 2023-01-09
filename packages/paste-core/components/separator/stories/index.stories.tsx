@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -137,7 +137,7 @@ export const Responsive = (): React.ReactNode => {
 
 Responsive.storyName = 'responsive';
 
-export const CustomSeparator: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomSeparator: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

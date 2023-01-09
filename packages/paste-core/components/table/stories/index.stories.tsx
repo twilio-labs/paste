@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -1535,7 +1535,7 @@ export const Layouts = (): React.ReactNode => {
   );
 };
 
-export const CustomTable: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   return (

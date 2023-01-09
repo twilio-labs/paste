@@ -183,6 +183,8 @@ jobs:
           exitOnceUploaded: true
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+          # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
+          NODE_OPTIONS: --max-old-space-size=6144
 
   # run this job first to create a single timestamped id for all percy batches on parallel machines
   percy-batch-id:
