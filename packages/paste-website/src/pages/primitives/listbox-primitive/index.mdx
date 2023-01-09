@@ -104,7 +104,7 @@ export const pageQuery = graphql`
 
 The Listbox primitive is an unstyled, functional version of a listbox component. It can be used to build a component following the [WAI-ARIA Listbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/).
 
-This unstyled primitive is to be used when the styled Listbox provided by Paste doesn&rsquo;t meet the requirements needed to solve a unique customer problem. At that point, you are welcome to fall back to this functional primitive to roll your own styled Listbox while still providing a functional and accessible experience to your customers.
+This unstyled primitive is to be used when the listbox components, like FormPillGroup, provided by Paste don&rsquo;t meet the requirements needed to solve a unique customer problem. At that point, you are welcome to fall back to this functional primitive to roll your own styled Listbox while still providing a functional and accessible experience to your customers.
 
 This primitive should be used to compose all custom Listboxes to ensure accessibility and upgrade paths.
 
@@ -170,6 +170,8 @@ The `onSelect` event handler will fire whenever the item is clicked, or the spac
 
 ### Dual Listboxes
 
+Listboxes can be used in any situation where a user needs to select items in a list or rearrange a list. One example is a UI where users need to move items between two lists like this:
+
 <LivePreview
   scope={{
     useListboxPrimitiveState,
@@ -207,6 +209,7 @@ In the example below, we import the Paste Button `import {Button} from '@twilio-
     ListboxPrimitiveItem,
     Button,
     Stack,
+    CheckboxCheckIcon,
   }}
   noInline
   showOverflow

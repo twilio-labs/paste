@@ -14,7 +14,15 @@ export interface ListboxPrimitiveItemProps
 
 export const ListboxPrimitiveItem = React.forwardRef<HTMLButtonElement, ListboxPrimitiveItemProps>(
   ({selected = false, onSelect, ...props}, ref) => (
-    <CompositeItem as="button" {...props} ref={ref} role="option" aria-selected={selected} onClick={onSelect} />
+    <CompositeItem
+      as="button"
+      {...props}
+      ref={ref}
+      role="option"
+      aria-selected={selected}
+      type="button"
+      onClick={onSelect}
+    />
   )
 );
 

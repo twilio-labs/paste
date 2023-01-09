@@ -71,8 +71,8 @@ const ListboxMultipleMock: React.FC = () => {
 describe('Listbox Primitive', () => {
   describe('Render', () => {
     it('should render', () => {
-      const {asFragment} = render(<ListboxMock />);
-      expect(asFragment()).toMatchSnapshot();
+      render(<ListboxMock />);
+      expect(screen.getByRole('listbox')).toBeVisible();
     });
 
     it('should render a listbox', () => {

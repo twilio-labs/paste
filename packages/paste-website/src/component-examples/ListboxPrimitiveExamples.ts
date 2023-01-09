@@ -14,6 +14,9 @@ const DefaultExample = () => {
             onSelect={() => {
               setSelected(item);
             }}
+            style={{
+              ...(selected === item && {backgroundColor: '#0263e0', color: 'white'})
+            }}
           >
             {item}
           </ListboxPrimitiveItem>
@@ -43,6 +46,9 @@ const HorizontalExample = () => {
           onSelect={() => {
             setSelected(item);
           }}
+          style={{
+            ...(selected === item && {backgroundColor: '#0263e0', color: 'white'})
+          }}
         >
           {item}
         </ListboxPrimitiveItem>
@@ -60,31 +66,47 @@ export const groupsExample = `
 const GroupsExample = () => {
   const [items] = React.useState(['Item 1', 'Item 2', 'Item 3']);
   const [selected, setSelected] = React.useState();
-  const renderItem = (item, index) => (
-    <ListboxPrimitiveItem
-      key={item}
-      {...listbox}
-      selected={selected === item}
-      onSelect={() => {
-        setSelected(item);
-      }}
-    >
-      {item}
-    </ListboxPrimitiveItem>
-  );
   const listbox = useListboxPrimitiveState();
   return (
     <ListboxPrimitive {...listbox} aria-label="My listbox">
       <ListboxPrimitiveGroup aria-labelledby="group-1">
         <Stack orientation="vertical" spacing="space0">
           <span id="group-1">Even</span>
-          {items.filter((item, index) => (index + 1) % 2 === 0).map(renderItem)}
+          {items.filter((item, index) => (index + 1) % 2 === 0).map((item) =>
+            <ListboxPrimitiveItem
+              key={item}
+              {...listbox}
+              selected={selected === item}
+              onSelect={() => {
+                setSelected(item);
+              }}
+              style={{
+                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'})
+              }}
+            >
+              {item}
+            </ListboxPrimitiveItem>
+          )}
         </Stack>
       </ListboxPrimitiveGroup>
       <ListboxPrimitiveGroup aria-labelledby="group-2">
         <Stack orientation="vertical" spacing="space0">
           <span id="group-2">Odd</span>
-          {items.filter((item, index) => (index + 1) % 2 === 1).map(renderItem)}
+          {items.filter((item, index) => (index + 1) % 2 === 1).map((item) =>
+            <ListboxPrimitiveItem
+              key={item}
+              {...listbox}
+              selected={selected === item}
+              onSelect={() => {
+                setSelected(item);
+              }}
+              style={{
+                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'})
+              }}
+            >
+              {item}
+            </ListboxPrimitiveItem>
+          )}
         </Stack>
       </ListboxPrimitiveGroup>
     </ListboxPrimitive>
@@ -117,6 +139,9 @@ const MultipleExample = () => {
             }
             updateSelectedSet(newSelectedSet);
           }}
+          style={{
+            ...(selectedSet.has(item) && {backgroundColor: '#0263e0', color: 'white'})
+          }}
         >
           {item}
         </ListboxPrimitiveItem>
@@ -136,18 +161,19 @@ const DualExample = () => {
   const [favs, updateFavs] = React.useState(['Modal']);
   const [selectedComps, updateSelectedComps] = React.useState(new Set());
   const [selectedFavs, updateSelectedFavs] = React.useState(new Set());
-  const listbox = useListboxPrimitiveState();
+  const compListbox = useListboxPrimitiveState();
+  const favListbox = useListboxPrimitiveState();
   return (
     <Grid gutter="space30">
       <Column>
-        <ListboxPrimitive {...listbox} aria-label="Components" variant="multiple" as={Box} height="300px">
+        <ListboxPrimitive {...compListbox} aria-label="Components" variant="multiple" as={Box} height="300px">
           <Stack orientation="vertical" spacing="space40">
             {components.map((item) => (
               <ListboxPrimitiveItem
                 as={Button}
                 size="small"
                 key={item}
-                {...listbox}
+                {...compListbox}
                 selected={selectedComps.has(item)}
                 onSelect={() => {
                   const newSelectedComps = new Set(selectedComps);
@@ -175,14 +201,14 @@ const DualExample = () => {
         </Button>
       </Column>
       <Column>
-        <ListboxPrimitive {...listbox} aria-label="Favorite components" variant="multiple" as={Box} height="300px">
+        <ListboxPrimitive {...favListbox} aria-label="Favorite components" variant="multiple" as={Box} height="300px">
           <Stack orientation="vertical" spacing="space40">
             {favs.map((item) => (
               <ListboxPrimitiveItem
                 as={Button}
                 size="small"
                 key={item}
-                {...listbox}
+                {...favListbox}
                 selected={selectedFavs.has(item)}
                 onSelect={() => {
                   const newSelectedFavs = new Set(selectedFavs);
@@ -236,6 +262,7 @@ const CustomExample = () => {
             setSelected(item);
           }}
         >
+          {selected === item && <CheckboxCheckIcon decorative />}
           {item}
         </ListboxPrimitiveItem>
       ))}
