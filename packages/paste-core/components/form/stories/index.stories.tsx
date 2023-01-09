@@ -30,6 +30,14 @@ import {
 export default {
   title: 'Components/Form',
   component: Form,
+  subcomponents: {
+    FormActions,
+    FormControl,
+    FormControlTwoColumn,
+    FormSection,
+    FormSectionDescription,
+    FormSectionHeading,
+  },
 };
 
 const countriesList = [
