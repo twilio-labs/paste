@@ -8,150 +8,150 @@ imports:
 props:
   # body text
   color-text:
-    value: "{!palette-gray-10}"
+    value: "#474D66"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-50}"
+    value: "#696F8C"
     comment: Weak body text for visual hierarchy.
   color-text-weaker:
-    value: "{!palette-gray-80}"
+    value: "#8F95B2"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-weakest:
-    value: "{!palette-gray-110}"
+    value: "#FFFFFF"
     comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
-    value: "{!palette-gray-0}"
+    value: "#FFFFFF"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weak:
-    value: "{!palette-gray-40}"
+    value: "#8891AA"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weaker:
-    value: "{!palette-gray-70}"
+    value: "#606B85"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
-    value: "{!palette-gray-0}"
+    value: "#FFFFFF"
     comment: Text color used on any brand color
   color-text-brand-highlight:
-    value: "{!amaranth}"
+    value: "#52BD94"
     comment: Twilio brand red, accessible on large text only.
 
   # links
   color-text-link:
-    value: "{!palette-blue-50}"
+    value: "#3366FF"
     comment: Link text
   color-text-link-weak:
-    value: "{!palette-gray-80}"
+    value: "#9DB5FF"
     comment: Weak shade of link text to be used in interactions
   color-text-link-strong:
-    value: "{!palette-blue-30}"
+    value: "#1F3D99"
     comment: Strong shade of link text to be used in interactions
   color-text-link-stronger:
-    value: "{!palette-blue-10}"
+    value: "#0C1E56"
     comment: Stronger shade of link text to be used in interactions
   color-text-link-strongest:
-    value: "{!palette-gray-0}"
+    value: "#071337"
     comment: Strongest shade of link text to be used in interactions
   color-text-link-destructive:
-    value: "{!palette-red-50}"
+    value: "#D14343"
     comment: Destructive link text
   color-text-link-destructive-weak:
-    value: "{!palette-gray-80}"
+    value: "#D14343"
     comment: Weak shade of destructive link text to be used in interactions
   color-text-link-destructive-strong:
-    value: "{!palette-red-30}"
+    value: "#7D2828"
     comment: Strong shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
-    value: "{!palette-red-10}"
+    value: "#310C0C"
     comment: Stronger shade of destructive link text to be used in interactions
   color-text-link-destructive-strongest:
-    value: "{!palette-gray-0}"
+    value: "#310C0C"
     comment: Strongest shade of destructive link text to be used in interactions
 
   # status
   color-text-error-weak:
-    value: "{!palette-red-50}"
+    value: "#D14343"
     comment: Weak error text for inputs and error misc
   color-text-error:
-    value: "{!palette-red-50}"
+    value: "#A73636"
     comment: Error text for inputs and error misc
   color-text-error-strong:
-    value: "{!palette-red-30}"
+    value: "#7D2828"
     comment: Strong error text for inputs and error misc
   color-text-error-stronger:
-    value: "{!palette-red-10}"
+    value: "#310C0C"
     comment: Stronger error text for inputs and error misc
   color-text-success:
-    value: "{!palette-green-30}"
+    value: "#317159"
     comment: Text color for success text.
   color-text-warning:
-    value: "{!palette-orange-40}"
+    value: "#996A13"
     comment: Color for warning text.
   color-text-warning-strong:
-    value: "{!palette-orange-30}"
+    value: "#66460D"
     comment: Color for dark warning text.
   color-text-new:
-    value: "{!palette-purple-20}"
+    value: "#524988"
     comment: Color for text indicating a new status.
   color-text-neutral:
-    value: "{!palette-blue-20}"
+    value: "#1F3D99"
     comment: Color for text indicating a neutral status.
 
   # icon
   color-text-icon:
-    value: "{!palette-gray-50}"
+    value: "#8F95B2"
     comment: Default icon color.
   color-text-icon-available:
-    value: "{!palette-green-50}"
+    value: "#52BD94"
     comment: "Icon color for indicating a available status"
   color-text-icon-unavailable:
-    value: "{!palette-red-50}"
+    value: "#D14343"
     comment: "Icon color for indicating a unavailable status"
   color-text-icon-offline:
-    value: "{!palette-gray-10}"
+    value: "#8F95B2"
     comment: "Icon color for indicating a offline status"
   color-text-icon-busy:
-    value: "{!palette-orange-40}"
+    value: "#DE7548"
     comment: "Icon color for indicating a busy status"
   color-text-icon-inverse:
-    value: "{!palette-gray-20}"
+    value: "#8F95B2"
     comment: Default icon color for inverse backgrounds.
   color-text-icon-error:
-    value: "{!palette-red-50}"
+    value: "#D14343"
     comment: Icon color for indicating an error.
   color-text-icon-success:
-    value: "{!palette-green-50}"
+    value: "#52BD94"
     comment: Icon color for indicating success.
   color-text-icon-warning:
-    value: "{!palette-orange-40}"
+    value: "#DE7548"
     comment: Icon color for indicating a warning.
   color-text-icon-neutral:
-    value: "{!palette-blue-40}"
+    value: "#8F95B2"
     comment: Icon color for being neutral.
 
   # decorative
   color-text-decorative-10:
-    value: "{!palette-gray-20}"
+    value: "#696F8C"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
       - color-background-decorative-10
   color-text-decorative-20:
-    value: "{!palette-blue-20}"
+    value: "#2952CC"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
       - color-background-decorative-20
   color-text-decorative-30:
-    value: "{!palette-green-30}"
+    value: "#317159"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
       - color-background-decorative-30
   color-text-decorative-40:
-    value: "{!palette-purple-20}"
+    value: "#6E62B6"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
