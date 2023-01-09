@@ -32,6 +32,8 @@ module.exports = {
   },
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
+    // monkey-patch introduced for @testing-library/user-event to improve asynchronous test readability
+    // taken from this github issue: https://github.com/testing-library/user-event/issues/938#issuecomment-1111976312
     '^@testing-library/user-event$': '<rootDir>/tools/test/act-user-event.ts',
     '^@testing-library/real-user-event$': require.resolve('@testing-library/user-event'),
   },
