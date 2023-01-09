@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/types';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutHeading, CalloutList, CalloutListItem} from '@twilio-paste/callout';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
@@ -14,6 +15,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Select, Option} from '@twilio-paste/select';
+import {Separator} from '@twilio-paste/separator';
 import {useTheme} from '@twilio-paste/theme';
 import {useUIDSeed, useUID} from '@twilio-paste/uid-library';
 
@@ -136,6 +138,7 @@ export const Default: StoryFn = () => {
           />
         </FormControl>
       </FormSection>
+      <Separator orientation="horizontal" />
       <FormSection>
         <FormSectionHeading>Shipping address</FormSectionHeading>
         <FormControlTwoColumn>
@@ -316,6 +319,7 @@ export const FixedWidthForm: StoryFn = () => {
           <Input id={seed('email')} type="email" />
         </FormControl>
       </FormSection>
+      <Separator orientation="horizontal" />
       <FormSection>
         <FormSectionHeading>Shipping address</FormSectionHeading>
         <FormControlTwoColumn>
@@ -360,6 +364,9 @@ export const FixedWidthForm: StoryFn = () => {
           </FormControl>
         </FormControlTwoColumn>
       </FormSection>
+      <Box marginY="space80">
+        <Separator orientation="horizontal" />
+      </Box>
       <FormControl>
         <RadioGroup name="payment-method" legend="Select payment method">
           <Radio>Credit card</Radio>

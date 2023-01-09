@@ -22,12 +22,13 @@ export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProp
           border="none"
           margin="space0"
           padding="space0"
-          marginBottom="space60"
+          marginY="space80"
           ref={ref}
           element={element}
           display="flex"
           flexDirection="column"
           rowGap="space80"
+          _first={{marginTop: 'space0'}}
           _last={{marginBottom: 'space0'}}
           {...safelySpreadBoxProps(props)}
           aria-describedby={`${id}-section-description`}
