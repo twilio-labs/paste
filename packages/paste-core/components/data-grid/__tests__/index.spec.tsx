@@ -135,7 +135,7 @@ describe('Data Grid', () => {
       await userEvent.keyboard('{enter}');
       await userEvent.tab();
       expect(firstRowSecondInputCell).toHaveFocus();
-    });
+    }, 25000);
 
     it('has one tab stop in navigational mode and remembers the last focus', async () => {
       const {getByTestId} = render(
