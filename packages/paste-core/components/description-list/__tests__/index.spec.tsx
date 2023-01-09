@@ -8,6 +8,9 @@ import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '../s
 const FONT_WEIGHT = 'font-weight';
 const MARGIN_LEFT = 'margin-left';
 const COLOR = 'color';
+const MARGIN = 'margin';
+const FONT_SIZE = 'font-size';
+const LINE_HEIGHT = 'line-height';
 
 describe('DescriptionList', () => {
   render(
@@ -32,14 +35,22 @@ describe('DescriptionList', () => {
   });
 
   describe('DescriptionListTerm', () => {
-    it('should have fontWeight: fontWeightSemibold', () => {
+    it('should apply the correct styling', () => {
       expect(terms[0]).toHaveStyleRule(FONT_WEIGHT, '600');
+      expect(terms[0]).toHaveStyleRule(MARGIN, '0');
+      expect(terms[0]).toHaveStyleRule(COLOR, 'rgb(18, 28, 45)');
+      expect(terms[0]).toHaveStyleRule(FONT_SIZE, '0.875rem');
+      expect(terms[0]).toHaveStyleRule(LINE_HEIGHT, '1.25rem');
     });
   });
 
   describe('DescriptionListDetails', () => {
-    it('should have marginLeft: space0', () => {
-      expect(details[0]).toHaveStyleRule(MARGIN_LEFT, '0');
+    it('should apply the correct styling', () => {
+      expect(details[0]).toHaveStyleRule(MARGIN, '0');
+      expect(details[0]).toHaveStyleRule(FONT_WEIGHT, '400');
+      expect(details[0]).toHaveStyleRule(COLOR, 'rgb(18, 28, 45)');
+      expect(details[0]).toHaveStyleRule(FONT_SIZE, '0.875rem');
+      expect(details[0]).toHaveStyleRule(LINE_HEIGHT, '1.25rem');
     });
   });
 });
