@@ -169,9 +169,7 @@ describe('Disclosure', () => {
     it('should update attributes when clicked', async () => {
       render(<MockDisclosure />);
       const renderedDisclosureButton = screen.getByRole('button');
-      await waitFor(() => {
-        userEvent.click(renderedDisclosureButton);
-      });
+      await userEvent.click(renderedDisclosureButton);
       expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
     });
     it('should render a disabled disclosure', () => {
@@ -193,9 +191,7 @@ describe('Disclosure', () => {
       const disclosureContent = screen.getByTestId('disclosure-content');
       expect(disclosureButton.getAttribute('aria-expanded')).toEqual('false');
       expect(disclosureContent).not.toBeVisible();
-      await waitFor(() => {
-        userEvent.click(toggleButton);
-      });
+      await userEvent.click(toggleButton);
       expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
       waitFor(() => {
         expect(disclosureContent).toBeVisible();

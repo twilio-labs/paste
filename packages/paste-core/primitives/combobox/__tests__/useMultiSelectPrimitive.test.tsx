@@ -512,7 +512,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(getSelectedItemAtIndex(0)).toHaveFocus();
       });
 
-      test('receives state, changes and type', () => {
+      test('receives state, changes and type', async () => {
         const stateReducer = jest.fn((s, a) => {
           expect(a.type).not.toBeUndefined();
           expect(a.type).not.toBeNull();
@@ -532,7 +532,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        userEvent.click(getSelectedItemAtIndex(0));
+        await userEvent.click(getSelectedItemAtIndex(0));
       });
 
       test('changes are visible in onChange handlers', () => {
@@ -601,7 +601,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if selectedItem is the same', () => {
+      test('is not called at if selectedItem is the same', async () => {
         const onActiveIndexChange = jest.fn();
         const {getSelectedItemAtIndex} = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -611,7 +611,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        userEvent.click(getSelectedItemAtIndex(1));
+        await userEvent.click(getSelectedItemAtIndex(1));
 
         expect(onActiveIndexChange).not.toHaveBeenCalled();
       });
@@ -676,7 +676,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if items is the same', () => {
+      test('is not called at if items is the same', async () => {
         const onSelectedItemsChange = jest.fn();
         const {getSelectedItemAtIndex} = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -686,7 +686,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        userEvent.click(getSelectedItemAtIndex(0));
+        await userEvent.click(getSelectedItemAtIndex(0));
 
         expect(onSelectedItemsChange).not.toHaveBeenCalled();
       });
@@ -1171,7 +1171,7 @@ describe('useMultiSelectPrimitive', () => {
           expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
         });
 
-        test('keeps tabindex "0" to an already active item', () => {
+        test('keeps tabindex "0" to an already active item', async () => {
           const {getSelectedItemAtIndex, focusSelectedItemAtIndex} = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
@@ -1180,7 +1180,7 @@ describe('useMultiSelectPrimitive', () => {
           });
 
           focusSelectedItemAtIndex(0);
-          userEvent.click(getSelectedItemAtIndex(0));
+          await userEvent.click(getSelectedItemAtIndex(0));
 
           expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
