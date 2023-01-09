@@ -121,16 +121,18 @@ export const Default: StoryFn = () => {
           <Label htmlFor={seed('email')}>Email address</Label>
           <Input id={seed('email')} type="email" />
         </FormControl>
-        <MultiselectCombobox
-          labelText="Choose a Paste component"
-          selectedItemsLabelText="Selected Paste components"
-          helpText="Paste components are the building blocks of your product UI."
-          items={filteredItems}
-          initialSelectedItems={componentsList.slice(1, 3)}
-          onInputValueChange={({inputValue: newInputValue = ''}) => {
-            setComboboxInputValue(newInputValue);
-          }}
-        />
+        <FormControl>
+          <MultiselectCombobox
+            labelText="Choose a Paste component"
+            selectedItemsLabelText="Selected Paste components"
+            helpText="Paste components are the building blocks of your product UI."
+            items={filteredItems}
+            initialSelectedItems={componentsList.slice(1, 3)}
+            onInputValueChange={({inputValue: newInputValue = ''}) => {
+              setComboboxInputValue(newInputValue);
+            }}
+          />
+        </FormControl>
       </FormSection>
       <FormSection>
         <FormSectionHeading>Shipping address</FormSectionHeading>
@@ -222,7 +224,7 @@ export const ErrorForm: StoryFn = () => {
 
   return (
     <Form aria-labelledby={seed('form-heading')}>
-      <Heading id={seed('form-heading')} variant="heading30" as="h3">
+      <Heading id={seed('form-heading')} variant="heading30" as="h3" marginBottom="space0">
         {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
         Settings {useUID()}
       </Heading>
@@ -230,6 +232,7 @@ export const ErrorForm: StoryFn = () => {
         <CalloutHeading as="h4">Please fix the issues with these fields</CalloutHeading>
         <CalloutList as="ul">
           <CalloutListItem>Street address</CalloutListItem>
+          <CalloutListItem>Zip code</CalloutListItem>
           <CalloutListItem>Email address</CalloutListItem>
         </CalloutList>
       </Callout>
@@ -237,8 +240,16 @@ export const ErrorForm: StoryFn = () => {
         <Label htmlFor={seed('street-address')} required>
           Street address
         </Label>
-        <Input id={seed('street-address')} type="text" hasError required />
-        <HelpText variant="error">Please add a valid street address.</HelpText>
+        <Input
+          id={seed('street-address')}
+          type="text"
+          hasError
+          required
+          aria-describedby={seed('street-address-error')}
+        />
+        <HelpText variant="error" id={seed('street-address-error')}>
+          Please add a valid street address.
+        </HelpText>
       </FormControl>
       <FormControlTwoColumn>
         <FormControl>
@@ -252,16 +263,23 @@ export const ErrorForm: StoryFn = () => {
           </Select>
         </FormControl>
         <FormControl>
-          <Label htmlFor={seed('zip')}>Zip code</Label>
-          <Input id={seed('zip')} type="text" />
+          <Label htmlFor={seed('zip')} required>
+            Zip code
+          </Label>
+          <Input id={seed('zip')} aria-describedby={seed('zip-error')} type="text" hasError required />
+          <HelpText variant="error" id={seed('zip-error')}>
+            Please add a valid zip code.
+          </HelpText>
         </FormControl>
       </FormControlTwoColumn>
       <FormControl>
         <Label htmlFor={seed('email')} required>
           Email address
         </Label>
-        <Input id={seed('email')} type="email" hasError required />
-        <HelpText variant="error">Please add a valid email address.</HelpText>
+        <Input id={seed('email')} aria-describedby={seed('email-error')} type="email" hasError required />
+        <HelpText variant="error" id={seed('email-error')}>
+          Please add a valid email address.
+        </HelpText>
       </FormControl>
       <FormActions>
         <Button variant="primary">Save</Button>

@@ -15,7 +15,7 @@ import {
 describe('Form', () => {
   it('should render correctly', () => {
     render(
-      <Form aria-label="Settings">
+      <Form aria-label="My Form">
         <FormSection id="foo">
           <FormSectionHeading data-testid="section-heading">Settings</FormSectionHeading>
           <FormSectionDescription data-testid="section-desc">These are the settings</FormSectionDescription>
@@ -28,7 +28,7 @@ describe('Form', () => {
 
     const form = screen.getByRole('form');
     expect(form).toBeDefined();
-    expect(form).toHaveAttribute('aria-label', 'Settings');
+    expect(form).toHaveAttribute('aria-label', 'My Form');
 
     const description = screen.getByTestId('section-desc');
     expect(description.id).toBe('foo-section-description');
@@ -61,7 +61,7 @@ describe('Form', () => {
 describe('Form customization', () => {
   it('should set an element data attribute', () => {
     render(
-      <Form aria-label="Settings">
+      <Form aria-label="My Form">
         <FormSection id="foo">
           <FormSectionHeading data-testid="section-heading">Settings</FormSectionHeading>
           <FormSectionDescription data-testid="section-desc">These are the settings</FormSectionDescription>
@@ -82,7 +82,7 @@ describe('Form customization', () => {
 
   it('should set a custom element data attribute', () => {
     render(
-      <Form aria-label="Settings" element="MY_FORM">
+      <Form aria-label="My Form" element="MY_FORM">
         <FormSection id="foo" element="MY_FORM_SECTION">
           <FormSectionHeading data-testid="section-heading" element="MY_FORM_SECTION_HEADING">
             Settings
@@ -119,7 +119,7 @@ describe('Form customization', () => {
           FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
         }}
       >
-        <Form aria-label="Settings">
+        <Form aria-label="My Form">
           <FormSection id="foo">
             <FormSectionHeading data-testid="section-heading">Settings</FormSectionHeading>
             <FormSectionDescription data-testid="section-desc">These are the settings</FormSectionDescription>
@@ -153,7 +153,7 @@ describe('Form customization', () => {
           MY_FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
         }}
       >
-        <Form aria-label="Settings" element="MY_FORM">
+        <Form aria-label="My Form" element="MY_FORM">
           <FormSection id="foo" element="MY_FORM_SECTION">
             <FormSectionHeading data-testid="section-heading" element="MY_FORM_SECTION_HEADING">
               Settings
