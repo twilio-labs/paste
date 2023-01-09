@@ -11,7 +11,16 @@ export interface DescriptionListDetailsProps extends Omit<React.ComponentPropsWi
 const DescriptionListDetails = React.forwardRef<HTMLElement, DescriptionListDetailsProps>(
   ({element = 'DESCRIPTION_LIST_DETAILS', ...props}, ref) => {
     return (
-      <Box as="dd" ref={ref} element={element} marginLeft="space0">
+      <Box
+        as="dd"
+        ref={ref}
+        element={element}
+        margin="space0"
+        color="colorText"
+        fontWeight="fontWeightNormal"
+        lineHeight="lineHeight30"
+        fontSize="fontSize30"
+      >
         {props.children}
       </Box>
     );

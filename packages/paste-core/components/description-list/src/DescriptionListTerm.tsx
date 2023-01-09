@@ -11,7 +11,16 @@ export interface DescriptionListTermProps extends Omit<React.ComponentPropsWithR
 const DescriptionListTerm = React.forwardRef<HTMLElement, DescriptionListTermProps>(
   ({element = 'DESCRIPTION_LIST_TERM', ...props}, ref) => {
     return (
-      <Box as="dt" ref={ref} element={element} fontWeight="fontWeightSemibold">
+      <Box
+        as="dt"
+        ref={ref}
+        element={element}
+        fontWeight="fontWeightSemibold"
+        color="colorText"
+        fontSize="fontSize30"
+        lineHeight="lineHeight30"
+        margin="space0"
+      >
         {props.children}
       </Box>
     );
