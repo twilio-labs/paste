@@ -6,8 +6,13 @@ slug: /primitives/listbox-primitive/
 
 import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/listbox-primitive/CHANGELOG.md';
+import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Grid, Column} from '@twilio-paste/grid';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {
   useListboxPrimitiveState,
   ListboxPrimitive,
@@ -21,6 +26,7 @@ import {
   horizontalExample,
   groupsExample,
   multipleExample,
+  dualExample,
   customExample,
 } from '../../../component-examples/ListboxPrimitiveExamples';
 
@@ -160,6 +166,28 @@ The `onSelect` event handler will fire whenever the item is clicked, or the spac
   showOverflow
 >
   {multipleExample}
+</LivePreview>
+
+### Dual Listboxes
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+    Box,
+    Button,
+    CheckboxCheckIcon,
+    PlusIcon,
+    MinusIcon,
+    Column,
+    Grid,
+    Stack,
+  }}
+  noInline
+  showOverflow
+>
+  {dualExample}
 </LivePreview>
 
 ### Custom styling

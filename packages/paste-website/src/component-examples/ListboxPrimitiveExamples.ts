@@ -130,6 +130,94 @@ render(
 )
 `.trim();
 
+export const dualExample = `
+const DualExample = () => {
+  const [components, updateComponents] = React.useState(['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List']);
+  const [favs, updateFavs] = React.useState(['Modal']);
+  const [selectedComps, updateSelectedComps] = React.useState(new Set());
+  const [selectedFavs, updateSelectedFavs] = React.useState(new Set());
+  const listbox = useListboxPrimitiveState();
+  return (
+    <Grid gutter="space30">
+      <Column>
+        <ListboxPrimitive {...listbox} aria-label="Components" variant="multiple" as={Box} height="300px">
+          <Stack orientation="vertical" spacing="space40">
+            {components.map((item) => (
+              <ListboxPrimitiveItem
+                as={Button}
+                size="small"
+                key={item}
+                {...listbox}
+                selected={selectedComps.has(item)}
+                onSelect={() => {
+                  const newSelectedComps = new Set(selectedComps);
+                  if (newSelectedComps.has(item)) {
+                    newSelectedComps.delete(item);
+                  } else {
+                    newSelectedComps.add(item);
+                  }
+                  updateSelectedComps(newSelectedComps);
+                }}
+              >
+                {selectedComps.has(item) && <CheckboxCheckIcon decorative />}
+                {item}
+              </ListboxPrimitiveItem>
+            ))}
+          </Stack>
+        </ListboxPrimitive>
+        <Button variant="primary_icon" onClick={() => {
+          updateFavs(favs => [...favs, ...Array.from(selectedComps)]);
+          updateComponents(components.filter((item) => !selectedComps.has(item)));
+          selectedComps.clear();
+        }}
+        >
+          Add <PlusIcon decorative={false} title="Add items" />
+        </Button>
+      </Column>
+      <Column>
+        <ListboxPrimitive {...listbox} aria-label="Favorite components" variant="multiple" as={Box} height="300px">
+          <Stack orientation="vertical" spacing="space40">
+            {favs.map((item) => (
+              <ListboxPrimitiveItem
+                as={Button}
+                size="small"
+                key={item}
+                {...listbox}
+                selected={selectedFavs.has(item)}
+                onSelect={() => {
+                  const newSelectedFavs = new Set(selectedFavs);
+                  if (newSelectedFavs.has(item)) {
+                    newSelectedFavs.delete(item);
+                  } else {
+                    newSelectedFavs.add(item);
+                  }
+                  updateSelectedFavs(newSelectedFavs);
+                }}
+              >
+                {selectedFavs.has(item) && <CheckboxCheckIcon decorative />}
+                {item}
+              </ListboxPrimitiveItem>
+            ))}
+          </Stack>
+        </ListboxPrimitive>
+        <Button variant="primary_icon" onClick={() => {
+          updateComponents(components => [...components, ...Array.from(selectedFavs)]);
+          updateFavs(favs.filter((item) => !selectedFavs.has(item)));
+          selectedFavs.clear();
+        }}
+        >
+          Remove <MinusIcon decorative={false} title="Remove items" />
+        </Button>
+      </Column>
+    </Grid>
+  )
+};
+
+render(
+  <DualExample />
+)
+`.trim();
+
 export const customExample = `
 const CustomExample = () => {
   const [items] = React.useState(['Item 1', 'Item 2', 'Item 3']);
