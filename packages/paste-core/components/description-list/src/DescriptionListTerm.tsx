@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
 export interface DescriptionListTermProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
@@ -12,6 +12,7 @@ const DescriptionListTerm = React.forwardRef<HTMLElement, DescriptionListTermPro
   ({element = 'DESCRIPTION_LIST_TERM', ...props}, ref) => {
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         as="dt"
         ref={ref}
         element={element}
