@@ -17,6 +17,7 @@ export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
       display="flex"
       flexDirection="row"
       columnGap="space40"
+      marginTop="space60"
     >
       {children}
     </Box>
