@@ -126,6 +126,8 @@ The `onSelect` event handler will fire whenever the item is clicked, or the spac
 
 ### Horizontal Listbox
 
+Our listbox is vertical by default. To change it to horizontal, specify the orientation when initializing the state with `useListboxPrimitiveState({orientation: 'horizontal'})`:
+
 <LivePreview
   scope={{
     useListboxPrimitiveState,
@@ -139,6 +141,8 @@ The `onSelect` event handler will fire whenever the item is clicked, or the spac
 </LivePreview>
 
 ### Listbox with groups
+
+Use `ListboxPrimitiveGroup` to create different groupings within the same listbox:
 
 <LivePreview
   scope={{
@@ -155,6 +159,8 @@ The `onSelect` event handler will fire whenever the item is clicked, or the spac
 </LivePreview>
 
 ### Multiselect Listbox
+
+Our listbox is set for single selection by default. To change it to allow multiple selections, specify the variant as `multiple` on `ListboxPrimitive`:
 
 <LivePreview
   scope={{
