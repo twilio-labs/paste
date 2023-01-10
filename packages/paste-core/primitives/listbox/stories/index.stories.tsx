@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 
 import {useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem} from '../src';
 
@@ -61,32 +62,42 @@ export const HorizontalListbox = (): React.ReactNode => {
 export const GroupedOptions = (): React.ReactNode => {
   const [selected, setSelected] = React.useState<string>();
   const listbox = useListboxPrimitiveState();
-  const renderItem = (item: string, index: number): React.ReactNode => (
-    <ListboxPrimitiveItem
-      key={item}
-      data-testid={`item-${index}`}
-      {...listbox}
-      selected={selected === item}
-      onSelect={() => {
-        setSelected(item);
-      }}
-    >
-      {item}
-    </ListboxPrimitiveItem>
-  );
+  const seed = useUIDSeed();
 
   return (
     <ListboxPrimitive {...listbox} aria-label="Grouped">
-      <ListboxPrimitiveGroup aria-labelledby="group-1">
+      <ListboxPrimitiveGroup aria-labelledby={seed('group-1')}>
         <Stack orientation="vertical" spacing="space0">
-          <span id="group-1">Even</span>
-          {ITEMS.filter((item, index) => (index + 1) % 2 === 0).map(renderItem)}
+          <span id={seed('group-1')}>Even</span>
+          {ITEMS.filter((item, index) => (index + 1) % 2 === 0).map((item) => (
+            <ListboxPrimitiveItem
+              key={item}
+              {...listbox}
+              selected={selected === item}
+              onSelect={() => {
+                setSelected(item);
+              }}
+            >
+              {item}
+            </ListboxPrimitiveItem>
+          ))}
         </Stack>
       </ListboxPrimitiveGroup>
-      <ListboxPrimitiveGroup aria-labelledby="group-2">
+      <ListboxPrimitiveGroup aria-labelledby={seed('group-2')}>
         <Stack orientation="vertical" spacing="space0">
-          <span id="group-2">Odd</span>
-          {ITEMS.filter((item, index) => (index + 1) % 2 === 1).map(renderItem)}
+          <span id={seed('group-2')}>Odd</span>
+          {ITEMS.filter((item, index) => (index + 1) % 2 === 1).map((item) => (
+            <ListboxPrimitiveItem
+              key={item}
+              {...listbox}
+              selected={selected === item}
+              onSelect={() => {
+                setSelected(item);
+              }}
+            >
+              {item}
+            </ListboxPrimitiveItem>
+          ))}
         </Stack>
       </ListboxPrimitiveGroup>
     </ListboxPrimitive>

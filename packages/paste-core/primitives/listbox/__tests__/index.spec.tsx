@@ -14,7 +14,7 @@ const ListboxMock: React.FC = () => {
     <ListboxPrimitive {...listbox} aria-label="Code">
       <ListboxPrimitiveItem
         {...listbox}
-        data-testid="first-listbox-item"
+        data-testid={FIRST_ITEM}
         selected={selected === 1}
         onSelect={() => {
           setSelected(1);
@@ -24,7 +24,7 @@ const ListboxMock: React.FC = () => {
       </ListboxPrimitiveItem>
       <ListboxPrimitiveItem
         {...listbox}
-        data-testid="second-listbox-item"
+        data-testid={SECOND_ITEM}
         selected={selected === 2}
         onSelect={() => {
           setSelected(2);
@@ -38,10 +38,10 @@ const ListboxHorizontalMock: React.FC = () => {
   const listbox = useListboxPrimitiveState({baseId: 'listbox-horizontal-example', orientation: 'horizontal'});
   return (
     <ListboxPrimitive {...listbox} aria-label="Code">
-      <ListboxPrimitiveItem {...listbox} data-testid="first-listbox-item">
+      <ListboxPrimitiveItem {...listbox} data-testid={FIRST_ITEM}>
         Item 1
       </ListboxPrimitiveItem>
-      <ListboxPrimitiveItem {...listbox} data-testid="second-listbox-item" />
+      <ListboxPrimitiveItem {...listbox} data-testid={SECOND_ITEM} />
     </ListboxPrimitive>
   );
 };
