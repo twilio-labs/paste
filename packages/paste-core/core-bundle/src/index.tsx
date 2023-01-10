@@ -27,6 +27,7 @@ export * from '@twilio-paste/display-pill-group';
 export * from '@twilio-paste/file-picker';
 export * from '@twilio-paste/file-uploader';
 export * from '@twilio-paste/flex';
+export * from '@twilio-paste/form';
 export * from '@twilio-paste/form-pill-group';
 export * from '@twilio-paste/grid';
 export * from '@twilio-paste/heading';
