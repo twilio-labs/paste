@@ -10,13 +10,13 @@ export const StyledDescriptionListSet = styled.div(
       marginBottom: 'space60',
     },
     '& > dd:not(:last-of-type)': {
-      marginBottom: 'space20',
+      marginBottom: 'space10',
     },
     '& > dt:last-of-type': {
-      marginBottom: 'space30',
+      marginBottom: 'space20',
     },
     '& > dt:not(:last-of-type)': {
-      marginBottom: 'space20',
+      marginBottom: 'space10',
     },
   })
 );
