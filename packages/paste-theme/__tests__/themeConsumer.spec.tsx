@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {render} from '@testing-library/react';
+import {render, act} from '@testing-library/react';
 
 import {Theme} from '../src';
 
@@ -11,11 +11,13 @@ const ThemeConsumerExampleComponent = (): React.ReactElement => {
 describe('Theme.Consumer', () => {
   it('should render without crashing', (): void => {
     const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
-    root.render(
-      <Theme.Provider theme="default">
-        <ThemeConsumerExampleComponent />
-      </Theme.Provider>
-    );
+    act(() => {
+      root.render(
+        <Theme.Provider theme="default">
+          <ThemeConsumerExampleComponent />
+        </Theme.Provider>
+      );
+    });
   });
 
   it('should be able to access the theme object', () => {

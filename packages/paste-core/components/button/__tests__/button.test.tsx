@@ -310,21 +310,21 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      await userEvent.click(button);
+      userEvent.click(button);
       expect(onMouseDownMock).toHaveBeenCalledTimes(1);
       expect(onMouseUpMock).toHaveBeenCalledTimes(1);
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
-      await userEvent.hover(button);
+      userEvent.hover(button);
       expect(onMouseEnterMock).toHaveBeenCalledTimes(2);
 
-      await userEvent.unhover(button);
+      userEvent.unhover(button);
       expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
 
-      await userEvent.tab();
+      userEvent.tab();
       expect(onFocusMock).toHaveBeenCalledTimes(1);
 
-      await userEvent.tab();
+      userEvent.tab();
       expect(onBlurMock).toHaveBeenCalledTimes(1);
     });
   });

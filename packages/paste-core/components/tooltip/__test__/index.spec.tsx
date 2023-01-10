@@ -43,7 +43,7 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
-      await userEvent.click(ButtonOne);
+      userEvent.click(ButtonOne);
 
       await waitFor(() => {
         tooltip = screen.queryByTestId('state-hook-tooltip');
@@ -54,7 +54,7 @@ describe('Tooltip', () => {
       }
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
-      await userEvent.click(ButtonTwo);
+      userEvent.click(ButtonTwo);
 
       await waitFor(() => {
         tooltip = screen.queryByTestId('state-hook-tooltip');
@@ -92,7 +92,7 @@ describe('Tooltip', () => {
         expect(tooltip).toBeVisible();
       });
 
-      await userEvent.click(screen.getByRole('button'));
+      userEvent.click(screen.getByRole('button'));
 
       await waitFor(() => {
         expect(focusHandlerMock).toHaveBeenCalled();

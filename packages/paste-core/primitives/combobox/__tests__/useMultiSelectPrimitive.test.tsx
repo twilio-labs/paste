@@ -447,7 +447,7 @@ describe('useMultiSelectPrimitive', () => {
           })
         );
 
-        await userEvent.click(getSelectedItemAtIndex(0));
+        userEvent.click(getSelectedItemAtIndex(0));
 
         expect(stateReducer).toHaveBeenCalledTimes(6);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -505,7 +505,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        await userEvent.click(getSelectedItemAtIndex(0));
+        userEvent.click(getSelectedItemAtIndex(0));
 
         expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
         expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
@@ -532,7 +532,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        await userEvent.click(getSelectedItemAtIndex(0));
+        userEvent.click(getSelectedItemAtIndex(0));
       });
 
       test('changes are visible in onChange handlers', () => {
@@ -611,7 +611,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        await userEvent.click(getSelectedItemAtIndex(1));
+        userEvent.click(getSelectedItemAtIndex(1));
 
         expect(onActiveIndexChange).not.toHaveBeenCalled();
       });
@@ -686,7 +686,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        await userEvent.click(getSelectedItemAtIndex(0));
+        userEvent.click(getSelectedItemAtIndex(0));
 
         expect(onSelectedItemsChange).not.toHaveBeenCalled();
       });
@@ -1164,7 +1164,7 @@ describe('useMultiSelectPrimitive', () => {
             multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
           });
 
-          await userEvent.click(getSelectedItemAtIndex(0));
+          userEvent.click(getSelectedItemAtIndex(0));
 
           expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
@@ -1180,7 +1180,7 @@ describe('useMultiSelectPrimitive', () => {
           });
 
           focusSelectedItemAtIndex(0);
-          await userEvent.click(getSelectedItemAtIndex(0));
+          userEvent.click(getSelectedItemAtIndex(0));
 
           expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
@@ -1387,7 +1387,7 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          await userEvent.click(getSelectedItemAtIndex(1));
+          userEvent.click(getSelectedItemAtIndex(1));
 
           expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
           expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
@@ -1399,7 +1399,7 @@ describe('useMultiSelectPrimitive', () => {
           expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
           expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
 
-          await userEvent.click(getSelectedItemAtIndex(1));
+          userEvent.click(getSelectedItemAtIndex(1));
 
           expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
           expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
@@ -1672,7 +1672,7 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         focusSelectedItemAtIndex(1);
-        await userEvent.click(input);
+        userEvent.click(input);
 
         expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
 

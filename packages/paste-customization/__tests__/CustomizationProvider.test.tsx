@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {render, screen} from '@testing-library/react';
+import {render, screen, act} from '@testing-library/react';
 
 import {CustomizationProvider, CustomizationConsumer} from '../src';
 
@@ -52,7 +52,9 @@ const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsum
 describe('CustomizationProvider', () => {
   it('should render without crashing', (): void => {
     const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
-    root.render(<CustomizationProvider />);
+    act(() => {
+      root.render(<CustomizationProvider />);
+    });
   });
 
   it('should inherit one of two base themes', () => {

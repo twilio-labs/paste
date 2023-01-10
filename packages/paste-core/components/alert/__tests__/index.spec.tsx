@@ -30,7 +30,7 @@ describe('Alert', () => {
       );
 
       const button = getByRole('button');
-      await userEvent.click(button);
+      userEvent.click(button);
       expect(eventHandlerMock).toHaveBeenCalledTimes(1);
     });
   });

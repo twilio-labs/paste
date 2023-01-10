@@ -250,7 +250,7 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = items[targetIndex];
 
-      await userEvent.hover(screen.getByText(target));
+      userEvent.hover(screen.getByText(target));
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -335,7 +335,7 @@ describe('Combobox', () => {
       const targetIndex = 1;
       const target = groupedItems[targetIndex];
 
-      await userEvent.hover(screen.getByText(target.label));
+      userEvent.hover(screen.getByText(target.label));
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g
@@ -375,12 +375,12 @@ describe('Combobox', () => {
     it('should set correct aria-activedescendant when highlighted index changes', async () => {
       render(<ControlledCombobox />, {wrapper: ThemeWrapper});
 
-      await userEvent.click(screen.getByRole('textbox'));
+      userEvent.click(screen.getByRole('textbox'));
 
       const targetIndex = 1;
       const target = objectItems[targetIndex];
 
-      await userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
+      userEvent.hover(screen.getByText(target.label, {exact: false})); // text broken up by characters
 
       expect(screen.getByRole('textbox').getAttribute('aria-activedescendant')).toMatch(
         /downshift-([1-9]\d\d|[1-9]\d|\d)-item-1/g

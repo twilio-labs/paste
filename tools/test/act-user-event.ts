@@ -9,29 +9,29 @@ const original = {
   unhover: userEvent.unhover,
 };
 
-userEvent.hover = async (...args) =>
-  act(async () => {
-    await original.hover(...args);
+userEvent.hover = (...args) =>
+  act(() => {
+    original.hover(...args);
   });
 
-userEvent.click = async (...args) =>
-  act(async () => {
-    await original.click(...args);
+userEvent.click = (...args) =>
+  act(() => {
+    original.click(...args);
   });
 
-userEvent.keyboard = async (...args) =>
-  act(async () => {
-    await original.keyboard(...args);
+userEvent.keyboard = (...args) =>
+  act(() => {
+    original.keyboard(...args);
   });
 
-userEvent.tab = async (...args) =>
-  act(async () => {
-    await original.tab(...args);
+userEvent.tab = (...args) =>
+  act(() => {
+    original.tab(...args);
   });
 
-userEvent.unhover = async (...args) =>
-  act(async () => {
-    await original.unhover(...args);
+userEvent.unhover = (...args) =>
+  act(() => {
+    original.unhover(...args);
   });
 
 export default userEvent;

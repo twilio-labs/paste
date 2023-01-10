@@ -22,7 +22,9 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      await userEvent.click(renderedPopoverButton);
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
     });
@@ -54,15 +56,18 @@ describe('Popover', () => {
       }
       expect(popover.getAttribute('hidden')).toBeDefined();
 
-      await userEvent.click(ButtonOne);
-
+      await waitFor(() => {
+        userEvent.click(ButtonOne);
+      });
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
       }
       expect(popover).toBeVisible();
 
-      await userEvent.click(ButtonTwo);
+      await waitFor(() => {
+        userEvent.click(ButtonTwo);
+      });
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
@@ -94,7 +99,9 @@ describe('Popover', () => {
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('false');
       expect(renderedPopover).not.toBeVisible();
-      await userEvent.click(renderedPopoverButton);
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
       expect(renderedPopoverButton.getAttribute('aria-expanded')).toEqual('true');
       expect(renderedPopover).toBeVisible();
     });
@@ -218,8 +225,9 @@ describe('Popover', () => {
       );
 
       const popoverButton = screen.getByRole('button');
-      await userEvent.click(popoverButton);
-
+      await waitFor(() => {
+        userEvent.click(popoverButton);
+      });
       const dismissButton = screen.getByRole('button', {name: 'Close popover'});
       expect(dismissButton).toBeDefined();
     });
@@ -237,8 +245,9 @@ describe('Popover', () => {
       );
 
       const popoverButton = screen.getByRole('button');
-      await userEvent.click(popoverButton);
-
+      await waitFor(() => {
+        userEvent.click(popoverButton);
+      });
       const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
       expect(dismissButton).toBeDefined();
     });
