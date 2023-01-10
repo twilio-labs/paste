@@ -1,5 +1,4 @@
 const getPresets = (isDev) => [
-  'babel-preset-gatsby',
   [
     /** [@emotion/babel-preset-css-prop]
      * This preset is used to automatically enable Emotion’s css prop when using the classic JSX runtime.
