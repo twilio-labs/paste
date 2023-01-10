@@ -19,6 +19,7 @@ export * from '@twilio-paste/combobox';
 export * from '@twilio-paste/combobox-primitive';
 export * from '@twilio-paste/data-grid';
 export * from '@twilio-paste/date-picker';
+export * from '@twilio-paste/description-list';
 export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';
 export * from '@twilio-paste/display-heading';

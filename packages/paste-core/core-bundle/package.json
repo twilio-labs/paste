@@ -50,6 +50,7 @@
     "@twilio-paste/data-grid": "^5.0.1",
     "@twilio-paste/data-visualization-library": "^2.0.1",
     "@twilio-paste/date-picker": "^3.0.1",
+    "@twilio-paste/description-list": "^0.0.0",
     "@twilio-paste/design-tokens": "^8.2.0",
     "@twilio-paste/disclosure": "^9.0.1",
     "@twilio-paste/disclosure-primitive": "^0.3.10",
