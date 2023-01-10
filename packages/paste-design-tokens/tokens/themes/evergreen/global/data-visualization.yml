@@ -6,32 +6,32 @@ imports:
 props:
   # Data visualization colors
   color-data-visualization-1:
-    value: "{!palette-blue-60}"
+    value: "#04A2AE"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-2:
-    value: "{!palette-purple-30}"
+    value: "#D18100"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-3:
-    value: "{!palette-gray-60}"
+    value: "#1841BF"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-4:
-    value: "{!palette-blue-40}"
+    value: "#7A67E9"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-5:
-    value: "{!palette-green-70}"
+    value: "#11A76E"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-6:
-    value: "{!palette-orange-50}"
+    value: "#0A1D7B"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-7:
-    value: "{!palette-orange-70}"
+    value: "#DD36AD"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-8:
-    value: "{!palette-red-30}"
+    value: "#CE201C"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-9:
-    value: "{!palette-purple-50}"
+    value: "#698CF7"
     comment: Color used for data visualizations. Must be used in a sequence.
   color-data-visualization-10:
-    value: "{!palette-yellow-60}"
+    value: "#F3672B"
     comment: Color used for data visualizations. Must be used in a sequence.
