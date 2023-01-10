@@ -1,5 +1,5 @@
 [dev]
-  command = "yarn start"
+  command = "yarn dev"
   targetPort = 8000
   framework = "#custom"
 
