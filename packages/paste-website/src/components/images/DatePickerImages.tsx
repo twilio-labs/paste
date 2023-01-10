@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
+    <Image
       src="../../assets/images/date-picker/chrome.png"
       alt="Chrome/Edge implementation of date picker"
       width={300}
-      placeholder="blurred"
+      placeholder="blur"
       layout="fixed"
       css={css({
         margin: 'space20',
@@ -25,7 +25,7 @@ export const ChromeImage: React.FC = () => {
 export const SafariImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
+    <Image
       src="../../assets/images/date-picker/safari.png"
       alt="Safari implementation of date picker"
       css={css({
@@ -43,7 +43,7 @@ export const SafariImage: React.FC = () => {
 export const FirefoxImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
+    <Image
       src="../../assets/images/date-picker/firefox.png"
       alt="Firefox implementation of date picker"
       css={css({

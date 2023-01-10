@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -81,14 +81,7 @@ const SidebarNavigation: React.FC = () => {
           }}
         >
           <Box as="span">
-            <StaticImage
-              src="../../../assets/logo.svg"
-              alt=""
-              placeholder="blurred"
-              layout="fixed"
-              width={28}
-              height={28}
-            />
+            <Image src="../../../assets/logo.svg" alt="" placeholder="blur" layout="fixed" width={28} height={28} />
           </Box>
           <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
             Paste Home

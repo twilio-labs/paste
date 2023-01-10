@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
@@ -16,7 +16,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({onClearSearch}) => (
   <Card data-cy="word-list-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
-        <StaticImage src="../../assets/images/not-found.svg" alt="" placeholder="tracedSVG" layout="fullWidth" />
+        <Image src="../../assets/images/not-found.svg" alt="" placeholder="blur" layout="fill" />
       </Box>
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">

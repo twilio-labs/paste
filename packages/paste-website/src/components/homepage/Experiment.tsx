@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -27,12 +27,7 @@ const ExperimentEmbed: React.FC = () => {
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <>
-        <StaticImage
-          src="../../assets/images/home/codesandbox-mobile.png"
-          alt=""
-          placeholder="blurred"
-          layout="fullWidth"
-        />
+        <Image src="../../assets/images/home/codesandbox-mobile.png" alt="" placeholder="blur" layout="fill" />
         <ExperimentMobileButton />
       </>
     );
