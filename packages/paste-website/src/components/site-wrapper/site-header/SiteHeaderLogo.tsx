@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link} from 'gatsby';
+import Link from 'next/link';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
@@ -53,7 +53,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
       minWidth={subtitle ? 'sizeSidebar' : 'size0'}
     >
       <LogoLink
-        to="/"
+        href="/"
         onClick={() =>
           trackCustomEvent({
             category: 'Top Navigation',

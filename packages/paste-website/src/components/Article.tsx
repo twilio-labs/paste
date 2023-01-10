@@ -21,7 +21,7 @@ export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, ch
         {children}
       </Anchor>
     );
-  return <SiteLink to={slug}>{children}</SiteLink>;
+  return <SiteLink href={slug}>{children}</SiteLink>;
 };
 
 const Article: React.FC<ArticleProps> = ({article}) => {

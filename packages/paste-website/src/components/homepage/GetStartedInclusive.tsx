@@ -37,7 +37,7 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
           </Paragraph>
         </div>
         <GetStartedCardLink
-          to="/inclusive-design"
+          href="/inclusive-design"
           onClick={() =>
             trackCustomEvent({
               category: 'Get started',

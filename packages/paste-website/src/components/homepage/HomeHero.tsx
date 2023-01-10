@@ -79,7 +79,7 @@ const HomeHero: React.FC = () => {
                 </Badge>
                 <NewComponentBannerText>Check out our newest component,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/chat-composer"
+                  href="/components/chat-composer"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
