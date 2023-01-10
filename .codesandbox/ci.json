@@ -53,6 +53,7 @@
     "/packages/paste-core/components/label",
     "/packages/paste-libraries/lexical",
     "/packages/paste-core/components/list",
+    "/packages/paste-core/primitives/listbox",
     "/packages/paste-core/layout/media-object",
     "/packages/paste-core/components/menu",
     "/packages/paste-core/primitives/menu",

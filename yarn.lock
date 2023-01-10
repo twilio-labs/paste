@@ -12724,6 +12724,7 @@ __metadata:
     "@twilio-paste/label": ^10.1.1
     "@twilio-paste/lexical-library": ^1.1.0
     "@twilio-paste/list": ^5.0.1
+    "@twilio-paste/listbox-primitive": ^0.0.0
     "@twilio-paste/media-object": ^7.0.1
     "@twilio-paste/menu": ^11.1.2
     "@twilio-paste/menu-primitive": ^0.2.11
@@ -13614,6 +13615,20 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
+    react: ^16.8.6 || ^17.0.2
+    react-dom: ^16.8.6 || ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/listbox-primitive@^0.0.0, @twilio-paste/listbox-primitive@workspace:packages/paste-core/primitives/listbox":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/listbox-primitive@workspace:packages/paste-core/primitives/listbox"
+  dependencies:
+    "@twilio-paste/reakit-library": ^0.8.7
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  peerDependencies:
+    "@twilio-paste/reakit-library": ^0.8.1
     react: ^16.8.6 || ^17.0.2
     react-dom: ^16.8.6 || ^17.0.2
   languageName: unknown

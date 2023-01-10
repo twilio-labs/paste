@@ -120,6 +120,7 @@ export const SITEMAP = [
   '/primitives/tabs-primitive/',
   '/primitives/text/',
   '/primitives/tooltip-primitive/',
+  '/primitives/listbox-primitive/',
   '/roadmap/',
   '/theme/',
   '/theme/changing-theme/',

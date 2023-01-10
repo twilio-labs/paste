@@ -39,6 +39,7 @@ export * from '@twilio-paste/input';
 export * from '@twilio-paste/input-box';
 export * from '@twilio-paste/label';
 export * from '@twilio-paste/list';
+export * from '@twilio-paste/listbox-primitive';
 export * from '@twilio-paste/media-object';
 export * from '@twilio-paste/menu';
 export * from '@twilio-paste/menu-primitive';
