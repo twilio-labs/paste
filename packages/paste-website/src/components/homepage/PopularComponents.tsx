@@ -54,7 +54,7 @@ const PopularComponents: React.FC = () => {
               <HomeButtonIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/button">See Button</SiteLink>
+              <SiteLink href="/components/button">See Button</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -65,7 +65,7 @@ const PopularComponents: React.FC = () => {
               <HomeComboboxIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/combobox">See Combobox</SiteLink>
+              <SiteLink href="/components/combobox">See Combobox</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -74,7 +74,7 @@ const PopularComponents: React.FC = () => {
         <Text as="span" fontWeight="fontWeightSemibold">
           Explore{' '}
           <SiteLink
-            to="/components"
+            href="/components"
             onClick={() =>
               trackCustomEvent({
                 category: 'Popular',

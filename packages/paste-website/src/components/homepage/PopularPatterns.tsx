@@ -54,7 +54,7 @@ const PopularPatterns: React.FC = () => {
               <HomeCreateIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/patterns/create">See Create</SiteLink>
+              <SiteLink href="/patterns/create">See Create</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -65,7 +65,7 @@ const PopularPatterns: React.FC = () => {
               <HomeDeleteIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/patterns/delete">See Delete</SiteLink>
+              <SiteLink href="/patterns/delete">See Delete</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -74,7 +74,7 @@ const PopularPatterns: React.FC = () => {
         <Text as="span" fontWeight="fontWeightSemibold">
           Explore{' '}
           <SiteLink
-            to="/patterns"
+            href="/patterns"
             onClick={() =>
               trackCustomEvent({
                 category: 'Popular',

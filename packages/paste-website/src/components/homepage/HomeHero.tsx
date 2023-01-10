@@ -79,7 +79,7 @@ const HomeHero: React.FC = () => {
                 </Badge>
                 <NewComponentBannerText>Check out our newest Foundations page,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/foundations/spacing-and-layout"
+                  href="/foundations/spacing-and-layout"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',

@@ -77,7 +77,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
               <Tr key={Feature}>
                 <Td>
                   {Documentation === true ? (
-                    <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                    <SiteLink href={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
                   ) : (
                     <Text as="span">{Feature}</Text>
                   )}

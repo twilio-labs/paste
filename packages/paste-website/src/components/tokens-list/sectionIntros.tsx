@@ -7,7 +7,7 @@ import {SiteLink} from '../SiteLink';
 import {InlineCode} from '../Typography';
 import type {Token} from './types';
 
-const ColorGuidelinesLink: React.FC = () => <SiteLink to="/foundations/colors">Read the color guidelines</SiteLink>;
+const ColorGuidelinesLink: React.FC = () => <SiteLink href="/foundations/colors">Read the color guidelines</SiteLink>;
 
 const BackgroundColorsIntro: React.FC = () => (
   <Paragraph>
@@ -44,8 +44,8 @@ const BoxShadowsIntro: React.FC = () => (
 const DataVisualizationIntro: React.FC = () => (
   <Paragraph>
     Data visualization colors are for usage within charts.{' '}
-    <SiteLink to="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more about
-    building charts with Paste.
+    <SiteLink href="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more
+    about building charts with Paste.
   </Paragraph>
 );
 

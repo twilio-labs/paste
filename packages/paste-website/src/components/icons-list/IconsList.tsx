@@ -185,7 +185,7 @@ const IconsList: React.FC<IconsListProps> = () => {
                 </ListItem>
                 <ListItem>
                   Follow the{' '}
-                  <SiteLink to="/icons/how-to-add-an-icon">
+                  <SiteLink href="/icons/how-to-add-an-icon">
                     guide on how to add and contribute an icon to Paste
                   </SiteLink>
                   .
