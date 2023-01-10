@@ -56,18 +56,14 @@ describe('Data Grid', () => {
   describe('Composable Cells functionality', () => {
     it('has proper keyboard navigation behavior', async () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
-      const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
-      const firstRowSecondInputCell = getByTestId('input-0-1');
-      const secondRowFirstInputCell = getByTestId('input-1-0');
       const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
 
       if (firstInputCell == null) {
         throw new Error('cannot find firstInputCell');
       }
 
-      // TEST: moves with arrow keys in navigational mode
       act(() => {
         headerCell.focus();
       });
@@ -87,8 +83,19 @@ describe('Data Grid', () => {
       expect(firstInputCell.getAttribute('tabindex')).toBe('-1');
       expect(headerCell.getAttribute('tabindex')).toBe('0');
       expect(headerCell).toHaveFocus();
+    });
 
-      // TEST: toggles actionable mode with [enter] and [escape] keys
+    it('toggles actionable mode with [enter] and [escape] keys', async () => {
+      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const wrapper = getByTestId('data-grid');
+      const headerCell = getByTestId('header-1');
+      const firstRowFirstInputCell = getByTestId('input-0-0');
+      const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
+
+      if (firstInputCell == null) {
+        throw new Error('cannot find firstInputCell');
+      }
+
       act(() => {
         headerCell.focus();
       });
@@ -103,8 +110,20 @@ describe('Data Grid', () => {
 
       await userEvent.click(headerCell);
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
+    });
 
-      // TEST: should correctly tab through focusable elements in actionable mode
+    it('should correctly tab through focusable elements in actionable mode', async () => {
+      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const headerCell = getByTestId('header-1');
+      const firstRowFirstInputCell = getByTestId('input-0-0');
+      const firstRowSecondInputCell = getByTestId('input-0-1');
+      const secondRowFirstInputCell = getByTestId('input-1-0');
+      const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
+
+      if (firstInputCell == null) {
+        throw new Error('cannot find firstInputCell');
+      }
+
       act(() => {
         headerCell.focus();
       });
@@ -135,7 +154,7 @@ describe('Data Grid', () => {
       await userEvent.keyboard('{enter}');
       await userEvent.tab();
       expect(firstRowSecondInputCell).toHaveFocus();
-    }, 25000);
+    });
 
     it('has one tab stop in navigational mode and remembers the last focus', async () => {
       const {getByTestId} = render(
