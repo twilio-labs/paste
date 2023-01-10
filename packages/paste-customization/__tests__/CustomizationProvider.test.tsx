@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {attachRootToDom} from 'test-tools/react-dom';
 import {render, screen, act} from '@testing-library/react';
 
 import {CustomizationProvider, CustomizationConsumer} from '../src';
@@ -51,7 +51,7 @@ const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsum
 
 describe('CustomizationProvider', () => {
   it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.createElement('div') as HTMLElement);
+    const root = attachRootToDom(document.createElement('div') as HTMLElement);
     act(() => {
       root.render(<CustomizationProvider />);
     });

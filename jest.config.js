@@ -36,6 +36,9 @@ module.exports = {
     // taken from this github issue: https://github.com/testing-library/user-event/issues/938#issuecomment-1111976312
     '^@testing-library/user-event$': '<rootDir>/tools/test/act-user-event.ts',
     '^@testing-library/real-user-event$': require.resolve('@testing-library/user-event'),
+    '^@testing-library/react$': '<rootDir>/tools/test/react-testing-library.ts',
+    '^@testing-library/real-react$': require.resolve('@testing-library/react'),
+    '^test-tools/react-dom$': '<rootDir>/tools/test/react-render-dom.ts',
   },
   transformIgnorePatterns: ['node_modules/'],
   transform: {

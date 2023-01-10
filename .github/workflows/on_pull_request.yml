@@ -237,9 +237,10 @@ jobs:
       - name: Install React 16
         run: |
           yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
-          yarn set resolution react@npm:^17.0.2 ^16.8.6
-          yarn set resolution @types/react@npm:^17.0.31 ^16.0.0
-          yarn set resolution react-dom@npm:^17.0.2 ^16.8.6
+          yarn set resolution react@npm:^18.0.0 ^16.8.6
+          yarn set resolution @types/react@npm:^18.0.0 ^16.0.0
+          yarn set resolution react-dom@npm:^18.0.0 ^16.8.6
+          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3
