@@ -1,14 +1,19 @@
 ---
 title: Description List
 package: '@twilio-paste/description-list'
-description: A Description List is a set of terms and their definitions, or details, used to display data.
+description: A Description List is a set or sets of terms and their definitions, or details, used to display data.
 slug: /components/description-list/
 ---
 
 import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
-import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/description-list';
+import {
+  DescriptionList,
+  DescriptionListSet,
+  DescriptionListTerm,
+  DescriptionListDetails,
+} from '@twilio-paste/description-list';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
@@ -82,7 +87,7 @@ export const pageQuery = graphql`
 
 <content>
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails, Card}} noInline>
+<LivePreview scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails, Card}} noInline>
   {basicDescriptionList}
 </LivePreview>
 
@@ -92,7 +97,7 @@ export const pageQuery = graphql`
 
 ### About Description List
 
-The Description List package consists of `DescriptionList` itself, plus `DescriptionTerm` and `DescriptionListDetails`. The `DescriptionList` should wrap the other elements, and its children should always follow the order of term, details, term, details. It's okay for multiple terms to correlate to a single detail, and for multiple details to correlate to a single term. As long as they're in the proper order, the term-details association will be clear. If you have a term without details, be sure to include the empty state of the details tag (`<DescriptionListDetails />`) so that the term is associated with an empty state details, rather than the following term-details pair. Adding a '-' to signify the empty state is also acceptable.
+The Description List package consists of `DescriptionList` itself, plus `DescriptionListSet`, `DescriptionListTerm`, and `DescriptionListDetails`. The `DescriptionList` should wrap the other elements, and its children should always follow the order of term, details, term, details, each of the term-details pairs inside of a set. It's okay for multiple terms to correlate to a single detail, and for multiple details to correlate to a single term. As long as they're in the proper order, and nested inside of their unique sets, the term-details association will be clear. If you have a term without details, be sure to include either the empty state of the details tag (`<DescriptionListDetails />`) or a symbol to indicate the empty state such as `-`.
 
 #### Accessibility
 
@@ -104,15 +109,24 @@ If any of your terms are missing details, or vice versa, be sure to still includ
 
 ### Basic Description List
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+Use a basic Description List for conveying small, static bits of data.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
   {basicDescriptionList}
 </LivePreview>
 
 ### Description List with Icon
 
+The Description List can be used with [Status Pattern](/patterns/status).
+
 <LivePreview
   scope={{
     DescriptionList,
+    DescriptionListSet,
     DescriptionListTerm,
     DescriptionListDetails,
     ProcessSuccessIcon,
@@ -129,53 +143,77 @@ If any of your terms are missing details, or vice versa, be sure to still includ
 
 ### Description List with multiple Terms
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+Sometimes you'll need to pair multiple terms with a single detail. Use this example for guidance.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
   {descriptionListWithMultipleTerms}
 </LivePreview>
 
 ### Description List with multiple Details
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+Sometimes you'll need to pair multiple details with a single term. Use this example for guidance.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
   {descriptionListWithMultipleDetails}
 </LivePreview>
 
 ### Description List with empty state
 
-<LivePreview scope={{DescriptionList, DescriptionListTerm, DescriptionListDetails}} language="jsx" noInline>
+If one of your details is missing, indicate the empty state by using an empty tag (`<DescriptionListDetails />`) or using a symbol such as `-`.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
   {descriptionListWithEmptyState}
 </LivePreview>
 
 ## Composition Notes
 
-Be sure to include text in each term. The content should not be a standalone icon or other visual element.
+Be sure to include text in each term. The content of a term should not be a standalone icon or other visual element.
 
-Terms are paired with details based on their order within the Description List. If a Description List Term has an empty Description List Details, be sure to still include an empty details tag. Adding a '-' to signify the empty state is also acceptable. In the example below, the email address is paired with both terms - Phone Number and Email.
+Terms are paired with details based on their order within the Description List. If a Description List Term has an empty Description List Details, be sure to still include an empty details tag or a `-` to signify the empty state. In the example below, the email address value is paired with both terms - Phone Number and Email.
 
 <Card>
   <Codeblock>
     {`
-    <DescriptionList>
-      <DescriptionListTerm>Phone Number</DescriptionListTerm>
-      <DescriptionListTerm>Email</DescriptionListTerm>
-      <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
-    </DescriptionList>
-  `}
+<DescriptionList>
+  <DescriptionListSet>
+    <DescriptionListTerm>Phone Number</DescriptionListTerm>
+    <DescriptionListTerm>Email</DescriptionListTerm>
+    <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
+  </DescriptionListSet>
+</DescriptionList>
+`}
   </Codeblock>
 </Card>
 <br />
 
-Instead, include an empty tag (or a symbol, such as '-') to signify the empty state of a given term:
+Instead, include an empty tag (or a symbol, such as `-`) to signify the empty state of a given term, and separate out the sets:
 
 <Card>
   <Codeblock>
     {`
-    <DescriptionList>
-      <DescriptionListTerm>Phone Number</DescriptionListTerm>
-      <DescriptionListDetails />
-      <DescriptionListTerm>Email</DescriptionListTerm>
-      <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
-    </DescriptionList>
-  `}
+<DescriptionList>
+  <DescriptionListSet>
+    <DescriptionListTerm>Phone Number</DescriptionListTerm>
+    <DescriptionListDetails />
+  </DescriptionListSet>
+  <DescriptionListSet>
+    <DescriptionListTerm>Email</DescriptionListTerm>
+    <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
+  </DescriptionListSet>
+</DescriptionList>
+`}
   </Codeblock>
 </Card>
 <br />
@@ -185,12 +223,12 @@ Instead, include an empty tag (or a symbol, such as '-') to signify the empty st
 <DoDont>
   <Do
     title="Do"
-    body="Use a <div> to wrap your set of Term and Details within the Description List for extra separation and control."
+    body="Use a <DescriptionListSet> to wrap your set of Term and Details within the Description List for extra separation and control."
     center
   />
   <Dont
     title="Don't"
-    body="Don't use any other type of HTML element as children of the Description List (besides DescriptionListTerm, DescriptionListDetails, or <div>)."
+    body="Don't use any other type of HTML element as children of the Description List (besides DescriptionListSet, DescriptionListTerm, DescriptionListDetails, or <div>)."
     center
   />
 </DoDont>
@@ -223,12 +261,14 @@ yarn add @twilio-paste/description-list - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/core/description-list';
+import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/core/description-list';
 
 const Component = () => (
   <DescriptionList>
-    <DescriptionListTerm>Paste</DescriptionList>
-    <DescriptionListDetails>A design system used to build accessible, cohesive, and high-quality customer experiences at Twilio.</DescriptionListDetails>
+    <DescriptionListSet>
+      <DescriptionListTerm>Paste</DescriptionList>
+      <DescriptionListDetails>A design system used to build accessible, cohesive, and high-quality customer experiences at Twilio.</DescriptionListDetails>
+    </DescriptionListSet>
   </DescriptionList>
 );
 ```
@@ -241,6 +281,15 @@ All the valid attributes for `<dl>` are supported including the following props:
 | --------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
 | children? | `DescriptionListTerm`, `DescriptionListDetails`, `<div>` |                                                                                           | null               |
 | element?  | `string`                                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST' |
+
+#### Description List Set Props
+
+All the valid attributes for `<div>` are supported including the following props:
+
+| Prop      | Type                                            | Description                                                                               | Default            |
+| --------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children? | `DescriptionListTerm`, `DescriptionListDetails` |                                                                                           | null               |
+| element?  | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST' |
 
 #### Description List Term Props
 

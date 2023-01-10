@@ -1,9 +1,12 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {Text} from '@twilio-paste/text';
 
-import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '../src';
+import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -14,8 +17,10 @@ export default {
 export const Default: StoryFn = () => {
   return (
     <DescriptionList>
-      <DescriptionListTerm>Description list term</DescriptionListTerm>
-      <DescriptionListDetails>Description list details</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Description list term</DescriptionListTerm>
+        <DescriptionListDetails>Description list details</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -23,13 +28,15 @@ export const Default: StoryFn = () => {
 export const MultipleTerms: StoryFn = () => {
   return (
     <DescriptionList>
-      <DescriptionListTerm>Firefox</DescriptionListTerm>
-      <DescriptionListTerm>Mozilla Firefox</DescriptionListTerm>
-      <DescriptionListTerm>Fx</DescriptionListTerm>
-      <DescriptionListDetails>
-        A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds of
-        volunteers.
-      </DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Firefox</DescriptionListTerm>
+        <DescriptionListTerm>Mozilla Firefox</DescriptionListTerm>
+        <DescriptionListTerm>Fx</DescriptionListTerm>
+        <DescriptionListDetails>
+          A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds
+          of volunteers.
+        </DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -37,10 +44,53 @@ export const MultipleTerms: StoryFn = () => {
 export const MultipleDetails: StoryFn = () => {
   return (
     <DescriptionList>
-      <DescriptionListTerm>Account SIDs</DescriptionListTerm>
-      <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
-      <DescriptionListDetails>AC4c86dc110e8deadf19fde8edfda87678</DescriptionListDetails>
-      <DescriptionListDetails>AC6f0d431ab0655267387a9ab4065b9a03</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Account SIDs</DescriptionListTerm>
+        <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
+        <DescriptionListDetails>AC4c86dc110e8deadf19fde8edfda87678</DescriptionListDetails>
+        <DescriptionListDetails>AC6f0d431ab0655267387a9ab4065b9a03</DescriptionListDetails>
+      </DescriptionListSet>
+    </DescriptionList>
+  );
+};
+
+export const MultipleTermsAndDetails: StoryFn = () => {
+  return (
+    <DescriptionList>
+      <DescriptionListSet>
+        <DescriptionListTerm>Conference SID</DescriptionListTerm>
+        <DescriptionListDetails>CFdbdfc9678d4bf13f359ec53b75affa08</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Status</DescriptionListTerm>
+        <DescriptionListDetails>
+          <Box display="flex">
+            <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="complete" />
+            <Text as="span" marginLeft="space20">
+              Complete
+            </Text>
+          </Box>
+        </DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Reason ended</DescriptionListTerm>
+        <DescriptionListDetails>Moderator hung up</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Participants</DescriptionListTerm>
+        <DescriptionListDetails>Roy Hughes</DescriptionListDetails>
+        <DescriptionListDetails>Anne Finkle</DescriptionListDetails>
+        <DescriptionListDetails>Blake Johnson</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Duration</DescriptionListTerm>
+        <DescriptionListDetails>0h 6min 24sec</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Conference title</DescriptionListTerm>
+        <DescriptionListTerm>Friendly name</DescriptionListTerm>
+        <DescriptionListDetails>Brand meeting</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -48,12 +98,18 @@ export const MultipleDetails: StoryFn = () => {
 export const EmptyState: StoryFn = () => {
   return (
     <DescriptionList>
-      <DescriptionListTerm>Name</DescriptionListTerm>
-      <DescriptionListDetails>Ramon Hughes</DescriptionListDetails>
-      <DescriptionListTerm>Phone number</DescriptionListTerm>
-      <DescriptionListDetails />
-      <DescriptionListTerm>Email address</DescriptionListTerm>
-      <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Name</DescriptionListTerm>
+        <DescriptionListDetails>Ramon Hughes</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Phone number</DescriptionListTerm>
+        <DescriptionListDetails>-</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Email address</DescriptionListTerm>
+        <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -65,14 +121,17 @@ export const Customized: StoryFn = () => {
       theme={theme}
       elements={{
         DESCRIPTION_LIST: {color: 'colorTextDecorative20', fontFamily: 'fontFamilyCode'},
+        DESCRIPTION_LIST_SET: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
         DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightExtrabold'},
         DESCRIPTION_LIST_DETAILS: {marginLeft: 'space50', color: 'colorTextDecorative40'},
       }}
     >
       <DescriptionList>
-        <DescriptionListTerm>Account names</DescriptionListTerm>
-        <DescriptionListDetails>My account 1</DescriptionListDetails>
-        <DescriptionListDetails>My account 2</DescriptionListDetails>
+        <DescriptionListSet>
+          <DescriptionListTerm>Account names</DescriptionListTerm>
+          <DescriptionListDetails>My account 1</DescriptionListDetails>
+          <DescriptionListDetails>My account 2</DescriptionListDetails>
+        </DescriptionListSet>
       </DescriptionList>
     </CustomizationProvider>
   );

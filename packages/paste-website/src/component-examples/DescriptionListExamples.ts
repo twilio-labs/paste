@@ -3,10 +3,14 @@ const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Term 1</DescriptionListTerm>
-      <DescriptionListDetails>Details 1</DescriptionListDetails>
-      <DescriptionListTerm>Term 2</DescriptionListTerm>
-      <DescriptionListDetails>Details 2</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Term 1</DescriptionListTerm>
+        <DescriptionListDetails>Details 1</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Term 2</DescriptionListTerm>
+        <DescriptionListDetails>Details 2</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -18,36 +22,42 @@ const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Phone</DescriptionListTerm>
-      <DescriptionListDetails>
-        <Box display="flex">
-          <ProcessSuccessIcon
-            color="colorTextIconSuccess"
-            decorative={false}
-            title="success" />
-          <Text marginLeft="space20">Success</Text>
-        </Box>
-      </DescriptionListDetails>
-      <DescriptionListTerm>Email</DescriptionListTerm>
-      <DescriptionListDetails>
-        <Box display="flex">
-          <ProcessErrorIcon
-            color="colorTextIconError"
-            decorative={false}
-            title="error" />
-          <Text marginLeft="space20">Error</Text>
-        </Box>
-      </DescriptionListDetails>
-      <DescriptionListTerm>SMS</DescriptionListTerm>
-      <DescriptionListDetails>
-        <Box display="flex">
-          <ProcessInProgressIcon
-            color="colorTextIconNeutral"
-            decorative={false}
-            title="in progress" />
-          <Text marginLeft="space20">In progress</Text>
-        </Box>
-      </DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Phone</DescriptionListTerm>
+        <DescriptionListDetails>
+          <Box display="flex">
+            <ProcessSuccessIcon
+              color="colorTextIconSuccess"
+              decorative={false}
+              title="success" />
+            <Text as="span" marginLeft="space20">Success</Text>
+          </Box>
+        </DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Email</DescriptionListTerm>
+        <DescriptionListDetails>
+          <Box display="flex">
+            <ProcessErrorIcon
+              color="colorTextIconError"
+              decorative={false}
+              title="error" />
+            <Text as="span" marginLeft="space20">Error</Text>
+          </Box>
+        </DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>SMS</DescriptionListTerm>
+        <DescriptionListDetails>
+          <Box display="flex">
+            <ProcessInProgressIcon
+              color="colorTextIconNeutral"
+              decorative={false}
+              title="in progress" />
+            <Text as="span" marginLeft="space20">In progress</Text>
+          </Box>
+        </DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -59,9 +69,11 @@ const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Service 123</DescriptionListTerm>
-      <DescriptionListTerm>Default Service</DescriptionListTerm>
-      <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Service 123</DescriptionListTerm>
+        <DescriptionListTerm>Default Service</DescriptionListTerm>
+        <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -73,10 +85,12 @@ const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Account SIDs</DescriptionListTerm>
-      <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
-      <DescriptionListDetails>AC4c86dc110e8deadf19fde8edfda87678</DescriptionListDetails>
-      <DescriptionListDetails>AC6f0d431ab0655267387a9ab4065b9a03</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Account SIDs</DescriptionListTerm>
+        <DescriptionListDetails>AC7d08e4b7ef19bcc5240e7e9ca3978906</DescriptionListDetails>
+        <DescriptionListDetails>AC4c86dc110e8deadf19fde8edfda87678</DescriptionListDetails>
+        <DescriptionListDetails>AC6f0d431ab0655267387a9ab4065b9a03</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };
@@ -88,12 +102,18 @@ const DescriptionListExample = () => {
 
   return (
     <DescriptionList>
-      <DescriptionListTerm>Name</DescriptionListTerm>
-      <DescriptionListDetails>Ramon Hughes</DescriptionListDetails>
-      <DescriptionListTerm>Phone number</DescriptionListTerm>
-      <DescriptionListDetails>-</DescriptionListDetails>
-      <DescriptionListTerm>Email address</DescriptionListTerm>
-      <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
+      <DescriptionListSet>
+        <DescriptionListTerm>Name</DescriptionListTerm>
+        <DescriptionListDetails>Ramon Hughes</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Phone number</DescriptionListTerm>
+        <DescriptionListDetails>-</DescriptionListDetails>
+      </DescriptionListSet>
+      <DescriptionListSet>
+        <DescriptionListTerm>Email address</DescriptionListTerm>
+        <DescriptionListDetails>ramonhughes@abc.com</DescriptionListDetails>
+      </DescriptionListSet>
     </DescriptionList>
   );
 };

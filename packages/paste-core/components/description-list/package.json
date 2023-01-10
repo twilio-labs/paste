@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "typography",
   "status": "production",
-  "description": "A Description List is a set of terms and their definitions, or details, used to display data.",
+  "description": "A Description List is a set or sets of terms and their definitions, or details, used to display data.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

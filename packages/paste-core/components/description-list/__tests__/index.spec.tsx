@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-import {DescriptionList, DescriptionListTerm, DescriptionListDetails} from '../src';
+import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '../src';
 
 const FONT_WEIGHT = 'font-weight';
 const MARGIN_LEFT = 'margin-left';
@@ -11,18 +11,25 @@ const COLOR = 'color';
 const MARGIN = 'margin';
 const FONT_SIZE = 'font-size';
 const LINE_HEIGHT = 'line-height';
+const BACKGROUND_COLOR = 'background-color';
 
 describe('DescriptionList', () => {
   render(
     <Theme.Provider theme="default">
       <DescriptionList>
-        <DescriptionListTerm>A</DescriptionListTerm>
-        <DescriptionListDetails>1</DescriptionListDetails>
-        <DescriptionListTerm>B</DescriptionListTerm>
-        <DescriptionListDetails>2</DescriptionListDetails>
-        <DescriptionListTerm>C</DescriptionListTerm>
-        <DescriptionListDetails>3</DescriptionListDetails>
-        <DescriptionListDetails>Three</DescriptionListDetails>
+        <DescriptionListSet>
+          <DescriptionListTerm>A</DescriptionListTerm>
+          <DescriptionListDetails>1</DescriptionListDetails>
+        </DescriptionListSet>
+        <DescriptionListSet>
+          <DescriptionListTerm>B</DescriptionListTerm>
+          <DescriptionListDetails>2</DescriptionListDetails>
+        </DescriptionListSet>
+        <DescriptionListSet>
+          <DescriptionListTerm>C</DescriptionListTerm>
+          <DescriptionListDetails>3</DescriptionListDetails>
+          <DescriptionListDetails>Three</DescriptionListDetails>
+        </DescriptionListSet>
       </DescriptionList>
     </Theme.Provider>
   );
@@ -60,12 +67,15 @@ describe('Customization', () => {
     render(
       <Theme.Provider theme="default">
         <DescriptionList>
-          <DescriptionListTerm>A</DescriptionListTerm>
-          <DescriptionListDetails>1</DescriptionListDetails>
+          <DescriptionListSet>
+            <DescriptionListTerm>A</DescriptionListTerm>
+            <DescriptionListDetails>1</DescriptionListDetails>
+          </DescriptionListSet>
         </DescriptionList>
       </Theme.Provider>
     );
     expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('DESCRIPTION_LIST');
+    expect(screen.getByText('A').closest('div')?.dataset.pasteElement).toBe('DESCRIPTION_LIST_SET');
     expect(screen.getByRole('term').dataset.pasteElement).toBe('DESCRIPTION_LIST_TERM');
     expect(screen.getByRole('definition').dataset.pasteElement).toBe('DESCRIPTION_LIST_DETAILS');
   });
@@ -74,12 +84,15 @@ describe('Customization', () => {
     render(
       <Theme.Provider theme="default">
         <DescriptionList element="FAZ">
-          <DescriptionListTerm element="FOO">A</DescriptionListTerm>
-          <DescriptionListDetails element="BAR">1</DescriptionListDetails>
+          <DescriptionListSet element="BAZ">
+            <DescriptionListTerm element="FOO">A</DescriptionListTerm>
+            <DescriptionListDetails element="BAR">1</DescriptionListDetails>
+          </DescriptionListSet>
         </DescriptionList>
       </Theme.Provider>
     );
     expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('FAZ');
+    expect(screen.getByText('A').closest('div')?.dataset.pasteElement).toBe('BAZ');
     expect(screen.getByRole('term').dataset.pasteElement).toBe('FOO');
     expect(screen.getByRole('definition').dataset.pasteElement).toBe('BAR');
   });
@@ -91,17 +104,21 @@ describe('Customization', () => {
         theme={TestTheme}
         elements={{
           DESCRIPTION_LIST: {color: 'colorTextDecorative40'},
+          DESCRIPTION_LIST_SET: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
           DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightBold'},
           DESCRIPTION_LIST_DETAILS: {marginLeft: 'space10'},
         }}
       >
         <DescriptionList>
-          <DescriptionListTerm>A</DescriptionListTerm>
-          <DescriptionListDetails>1</DescriptionListDetails>
+          <DescriptionListSet>
+            <DescriptionListTerm>A</DescriptionListTerm>
+            <DescriptionListDetails>1</DescriptionListDetails>
+          </DescriptionListSet>
         </DescriptionList>
       </CustomizationProvider>
     );
     expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
+    expect(screen.getByText('A').closest('div')).toHaveStyleRule(BACKGROUND_COLOR, 'rgb(237, 253, 243)');
     expect(screen.getByRole('term')).toHaveStyleRule(FONT_WEIGHT, '700');
     expect(screen.getByRole('definition')).toHaveStyleRule(MARGIN_LEFT, '0.125rem');
   });
@@ -113,17 +130,21 @@ describe('Customization', () => {
         theme={TestTheme}
         elements={{
           FAZ: {color: 'colorTextDecorative40'},
+          BAZ: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
           FOO: {fontWeight: 'fontWeightBold'},
           BAR: {marginLeft: 'space10'},
         }}
       >
         <DescriptionList element="FAZ">
-          <DescriptionListTerm element="FOO">A</DescriptionListTerm>
-          <DescriptionListDetails element="BAR">1</DescriptionListDetails>
+          <DescriptionListSet element="BAZ">
+            <DescriptionListTerm element="FOO">A</DescriptionListTerm>
+            <DescriptionListDetails element="BAR">1</DescriptionListDetails>
+          </DescriptionListSet>
         </DescriptionList>
       </CustomizationProvider>
     );
     expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
+    expect(screen.getByText('A').closest('div')).toHaveStyleRule(BACKGROUND_COLOR, 'rgb(237, 253, 243)');
     expect(screen.getByRole('term')).toHaveStyleRule(FONT_WEIGHT, '700');
     expect(screen.getByRole('definition')).toHaveStyleRule(MARGIN_LEFT, '0.125rem');
   });
