@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -65,11 +65,11 @@ const MobileDesigner: React.FC = () => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <StaticImage
+      <Image
         src="../../assets/images/customization/theme-designer-mobile-screenshot.png"
         alt=""
-        placeholder="blurred"
-        layout="fullWidth"
+        placeholder="blur"
+        layout="fill"
       />
     </>
   );

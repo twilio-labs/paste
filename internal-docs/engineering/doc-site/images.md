@@ -13,7 +13,7 @@ In MDX favor Markdown syntax for including images. Let Gatsby do the rest.
 If you can't use Markdown because you are displaying your image inside a component, first **do not** compose your component in the MDX file. Create a component `tsx` file and import it. Inside you component file, use the [Gatsby Static Image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/#static-images) component.
 
 ```tsx
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 
 export const AwaitingDataImage: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const AwaitingDataImage: React.FC = () => {
       src="../../assets/images/patterns/empty-awaiting-data.png"
       alt=""
       width={150}
-      placeholder="blurred"
+      placeholder="blur"
       layout="fixed"
     />
   );
@@ -33,7 +33,7 @@ export const AwaitingDataImage: React.FC = () => {
 Favor using the [Gatsby Static Image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/#static-images) component.
 
 ```tsx
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 
 export const AwaitingDataImage: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ export const AwaitingDataImage: React.FC = () => {
       src="../../assets/images/patterns/empty-awaiting-data.png"
       alt=""
       width={150}
-      placeholder="blurred"
+      placeholder="blur"
       layout="fixed"
     />
   );

@@ -2,7 +2,7 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
@@ -118,18 +118,18 @@ export const ImageSlider: React.FC = () => {
           document.addEventListener('mousemove', handleMouseMove);
         }}
       >
-        <StaticImage
+        <Image
           src="../../../assets/images/customization/hero-back.png"
           alt="Sample components with a customized Paste theme"
-          placeholder="blurred"
-          layout="fullWidth"
+          placeholder="blur"
+          layout="fill"
           style={imageStyleProps}
         />
-        <StaticImage
+        <Image
           src="../../../assets/images/customization/hero-front.png"
           alt="Sample components with a default Paste theme"
-          placeholder="blurred"
-          layout="fullWidth"
+          placeholder="blur"
+          layout="fill"
           style={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
         />
 

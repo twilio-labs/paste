@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';
@@ -109,11 +109,11 @@ export const WhyPaste: React.FC = () => {
             </Column>
           </Grid>
           <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <StaticImage
+            <Image
               src="../../assets/images/customization/why-paste-mobile.png"
               alt=""
-              placeholder="blurred"
-              layout="fullWidth"
+              placeholder="blur"
+              layout="fill"
             />
           </Box>
           <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
@@ -128,12 +128,7 @@ export const WhyPaste: React.FC = () => {
           width={['700px', '700px', '700px', '800px']}
           maxWidth="100%"
         >
-          <StaticImage
-            src="../../assets/images/customization/why-paste.png"
-            alt=""
-            placeholder="blurred"
-            layout="fullWidth"
-          />
+          <Image src="../../assets/images/customization/why-paste.png" alt="" placeholder="blur" layout="fill" />
         </Box>
       </Box>
     </LandingPageSection>

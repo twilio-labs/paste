@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
@@ -62,11 +62,11 @@ export const LandingPageHero: React.FC = () => {
             <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <StaticImage
+              <Image
                 src="../../assets/images/customization/hero-slider-mobile.png"
                 alt=""
-                placeholder="blurred"
-                layout="fullWidth"
+                placeholder="blur"
+                layout="fill"
               />
             </Box>
           </LandingPageSectionContent>
