@@ -9,7 +9,7 @@ export interface DescriptionListTermProps extends Omit<React.ComponentPropsWithR
 }
 
 const DescriptionListTerm = React.forwardRef<HTMLElement, DescriptionListTermProps>(
-  ({element = 'DESCRIPTION_LIST_TERM', ...props}, ref) => {
+  ({element = 'DESCRIPTION_LIST_TERM', children, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -22,7 +22,7 @@ const DescriptionListTerm = React.forwardRef<HTMLElement, DescriptionListTermPro
         lineHeight="lineHeight30"
         margin="space0"
       >
-        {props.children}
+        {children}
       </Box>
     );
   }

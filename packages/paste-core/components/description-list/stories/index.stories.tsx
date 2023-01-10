@@ -114,6 +114,29 @@ export const EmptyState: StoryFn = () => {
   );
 };
 
+export const FixedWidth: StoryFn = () => {
+  return (
+    <Box
+      maxWidth="size20"
+      padding="space40"
+      borderStyle="solid"
+      borderColor="colorBorderDecorative20Weaker"
+      borderWidth="borderWidth20"
+    >
+      <DescriptionList>
+        <DescriptionListSet>
+          <DescriptionListTerm>Friendly name</DescriptionListTerm>
+          <DescriptionListDetails>My dummy account</DescriptionListDetails>
+        </DescriptionListSet>
+        <DescriptionListSet>
+          <DescriptionListTerm>Account SID</DescriptionListTerm>
+          <DescriptionListDetails>AC4c86dc110e8deadf19fde8edfda87678</DescriptionListDetails>
+        </DescriptionListSet>
+      </DescriptionList>
+    </Box>
+  );
+};
+
 export const Customized: StoryFn = () => {
   const theme = useTheme();
   return (

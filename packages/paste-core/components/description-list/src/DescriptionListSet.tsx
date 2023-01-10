@@ -7,9 +7,15 @@ import {styled, css} from '@twilio-paste/styling-library';
 export const StyledDescriptionListSet = styled.div(
   css({
     '& > dd:last-of-type': {
-      marginBottom: 'space50',
+      marginBottom: 'space60',
+    },
+    '& > dd:not(:last-of-type)': {
+      marginBottom: 'space20',
     },
     '& > dt:last-of-type': {
+      marginBottom: 'space30',
+    },
+    '& > dt:not(:last-of-type)': {
       marginBottom: 'space20',
     },
   })
@@ -21,11 +27,11 @@ export interface DescriptionSetListProps extends Omit<React.ComponentPropsWithRe
 }
 
 const DescriptionListSet = React.forwardRef<HTMLDivElement, DescriptionSetListProps>(
-  ({element = 'DESCRIPTION_LIST_SET', ...props}, ref) => {
+  ({element = 'DESCRIPTION_LIST_SET', children, ...props}, ref) => {
     return (
-      // @ts-expect-error Use a styled component to modify the div's styles
+      // @ts-expect-error Use Box as styled div to apply complex css to the child terms and details
       <Box {...safelySpreadBoxProps(props)} as={StyledDescriptionListSet} ref={ref} element={element}>
-        {props.children}
+        {children}
       </Box>
     );
   }

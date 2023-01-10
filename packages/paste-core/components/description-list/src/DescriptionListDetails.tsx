@@ -9,7 +9,7 @@ export interface DescriptionListDetailsProps extends Omit<React.ComponentPropsWi
 }
 
 const DescriptionListDetails = React.forwardRef<HTMLElement, DescriptionListDetailsProps>(
-  ({element = 'DESCRIPTION_LIST_DETAILS', ...props}, ref) => {
+  ({element = 'DESCRIPTION_LIST_DETAILS', children, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -21,8 +21,9 @@ const DescriptionListDetails = React.forwardRef<HTMLElement, DescriptionListDeta
         fontWeight="fontWeightNormal"
         lineHeight="lineHeight30"
         fontSize="fontSize30"
+        overflowWrap="break-word"
       >
-        {props.children}
+        {children}
       </Box>
     );
   }

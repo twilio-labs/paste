@@ -9,10 +9,10 @@ export interface DescriptionListProps extends Omit<React.ComponentPropsWithRef<'
 }
 
 const DescriptionList = React.forwardRef<HTMLDListElement, DescriptionListProps>(
-  ({element = 'DESCRIPTION_LIST', ...props}, ref) => {
+  ({element = 'DESCRIPTION_LIST', children, ...props}, ref) => {
     return (
       <Box {...safelySpreadBoxProps(props)} as="dl" ref={ref} element={element}>
-        {props.children}
+        {children}
       </Box>
     );
   }
