@@ -24,10 +24,9 @@ const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
-        borderBottomStyle="solid"
-        borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderWeak"
-        padding="space50"
+        paddingRight="space90"
+        paddingLeft="space90"
+        paddingTop="space90"
         element={element}
         display="flex"
         flexDirection="row"

@@ -15,10 +15,9 @@ const SideModalFooter = React.forwardRef<HTMLDivElement, SideModalFooterProps>(
         as="div"
         element={element}
         ref={ref}
-        borderTopStyle="solid"
-        borderTopWidth="borderWidth10"
-        borderTopColor="colorBorderWeak"
-        padding="space50"
+        paddingRight="space90"
+        paddingLeft="space90"
+        paddingBottom="space90"
         display="flex"
       >
         {children}
