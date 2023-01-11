@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {act, render, screen, waitFor} from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {DataGridCell, DataGridHeaderSort, DataGridHeader} from '../src';
@@ -54,7 +54,7 @@ describe('Data Grid', () => {
   });
 
   describe('Composable Cells functionality', () => {
-    it('has proper keyboard navigation behavior', async () => {
+    it('has proper keyboard navigation behavior', () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
@@ -85,7 +85,7 @@ describe('Data Grid', () => {
       expect(headerCell).toHaveFocus();
     });
 
-    it('toggles actionable mode with [enter] and [escape] keys', async () => {
+    it('toggles actionable mode with [enter] and [escape] keys', () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
       const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
@@ -112,7 +112,7 @@ describe('Data Grid', () => {
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
     });
 
-    it('should correctly tab through focusable elements in actionable mode', async () => {
+    it('should correctly tab through focusable elements in actionable mode', () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');

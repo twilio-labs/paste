@@ -8,11 +8,16 @@ import ReactDOM from 'react-dom';
 
 type createRootReturnType = {render: (elem: JSX.Element) => void};
 
-const reactMajorVersion = parseInt(ReactDOM.version.split('.')[0], 10);
+let ReactDOMClient;
+try {
+  ReactDOMClient = require('react-dom/client');
+} catch (err) {
+  // ignore.
+}
 
 function attachRootToDom(domNode: HTMLElement): createRootReturnType {
-  if (reactMajorVersion >= 18) {
-    const {createRoot} = require('react-dom/client');
+  if (ReactDOMClient) {
+    const {createRoot} = ReactDOMClient;
     return createRoot(domNode);
   }
 

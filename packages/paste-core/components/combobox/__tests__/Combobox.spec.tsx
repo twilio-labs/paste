@@ -1,7 +1,7 @@
 import * as React from 'react';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
-import {render, screen, fireEvent, waitFor, act} from '@testing-library/react';
+import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
@@ -328,7 +328,7 @@ describe('Combobox', () => {
       expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
 
-    it('should not run react virtual\'s "scroll to" function when "groupItemsBy" is defined as a string', async () => {
+    it('should not run react virtual\'s "scroll to" function when "groupItemsBy" is defined as a string', () => {
       // bc grouped comboboxes are not yet virtualized
       render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
 

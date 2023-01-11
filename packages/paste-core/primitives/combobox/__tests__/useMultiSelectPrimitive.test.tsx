@@ -491,7 +491,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('replaces prop values with user defined', async () => {
+      test('replaces prop values with user defined', () => {
         const stateReducer = jest.fn((_s, {changes}) => {
           const shallowClone = {...changes};
           shallowClone.activeIndex = 0;
@@ -512,7 +512,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(getSelectedItemAtIndex(0)).toHaveFocus();
       });
 
-      test('receives state, changes and type', async () => {
+      test('receives state, changes and type', () => {
         const stateReducer = jest.fn((s, a) => {
           expect(a.type).not.toBeUndefined();
           expect(a.type).not.toBeNull();
@@ -601,7 +601,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if selectedItem is the same', async () => {
+      test('is not called at if selectedItem is the same', () => {
         const onActiveIndexChange = jest.fn();
         const {getSelectedItemAtIndex} = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -676,7 +676,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if items is the same', async () => {
+      test('is not called at if items is the same', () => {
         const onSelectedItemsChange = jest.fn();
         const {getSelectedItemAtIndex} = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -1159,7 +1159,7 @@ describe('useMultiSelectPrimitive', () => {
 
     describe('event handlers', () => {
       describe('on click', () => {
-        test('sets tabindex to "0"', async () => {
+        test('sets tabindex to "0"', () => {
           const {getSelectedItemAtIndex} = renderMultipleCombobox({
             multipleSelectionProps: {initialSelectedItems: [items[0], items[1]]},
           });
@@ -1171,7 +1171,7 @@ describe('useMultiSelectPrimitive', () => {
           expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
         });
 
-        test('keeps tabindex "0" to an already active item', async () => {
+        test('keeps tabindex "0" to an already active item', () => {
           const {getSelectedItemAtIndex, focusSelectedItemAtIndex} = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
@@ -1380,7 +1380,7 @@ describe('useMultiSelectPrimitive', () => {
           expect(getSelectedItemAtIndex(1)).toHaveTextContent(items[1]);
         });
 
-        test('navigation works correctly with both click and arrow keys', async () => {
+        test('navigation works correctly with both click and arrow keys', () => {
           const {keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex} = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1], items[2]],
@@ -1663,7 +1663,7 @@ describe('useMultiSelectPrimitive', () => {
         });
       });
 
-      test('on click it should remove active status from item if any', async () => {
+      test('on click it should remove active status from item if any', () => {
         const {keyDownOnInput, getSelectedItemAtIndex, input, focusSelectedItemAtIndex} = renderMultipleCombobox({
           multipleSelectionProps: {
             initialSelectedItems: [items[0], items[1]],

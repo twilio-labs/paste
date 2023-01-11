@@ -16,8 +16,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "outDir": "dist/",
     "emitDeclarationOnly": false,
-    "typeRoots": ["../../@types", "../../node_modules/@types", "./types"],
-    "noUnusedLocals": false
+    "typeRoots": ["../../@types", "../../node_modules/@types", "./types"]
   },
   "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
