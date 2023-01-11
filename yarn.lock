@@ -12933,7 +12933,7 @@ __metadata:
   dependencies:
     "@twilio-paste/core": ^17.0.0
     "@twilio-paste/icons": ^9.3.1
-    "@types/node": ^17.0.33
+    "@types/node": ^18.11.13
     eslint: ^7.32.0
     next: ^12.1.6
     prop-types: ^15.7.2
@@ -14710,10 +14710,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.33":
-  version: 17.0.42
-  resolution: "@types/node@npm:17.0.42"
-  checksum: a200cd87e4f12d4d5682a893ad6e1140720c6c074a2cd075f254b3b8306d6174f5a3630e5d2347efb5e9b80d420404b5fafc8fe3c7d4c81998cd914c50b19f75
+"@types/node@npm:^18.11.13":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
   languageName: node
   linkType: hard
 
@@ -38349,7 +38349,7 @@ fsevents@^1.2.7:
     "@types/browser-sync": ^2.26.1
     "@types/color": ^3.0.0
     "@types/jest": ^24.0.18
-    "@types/node": ^17.0.33
+    "@types/node": ^18.11.13
     "@types/react": ^17.0.31
     "@types/react-color": ^3.0.6
     "@types/react-github-button": ^0.1.1
