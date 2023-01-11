@@ -9,12 +9,13 @@ import {TextExample} from './TextExample';
 import {contrastScore} from '../../../../utils/contrastScore';
 
 export const TextColorExample: React.FC<
-React.PropsWithChildren<{
-  value: keyof ThemeShape['textColors'];
-  backgroundColor: Properties['backgroundColor'];
+  React.PropsWithChildren<{
+    value: keyof ThemeShape['textColors'];
+    backgroundColor: Properties['backgroundColor'];
     textColor: Properties['color'];
-  textShadow?: Properties['textShadow'];
-}>> = ({value, backgroundColor, textColor, textShadow}) => {
+    textShadow?: Properties['textShadow'];
+  }>
+> = ({value, backgroundColor, textColor, textShadow}) => {
   const contrastRating = contrastScore(value, backgroundColor);
 
   return (

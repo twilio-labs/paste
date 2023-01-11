@@ -1,5 +1,5 @@
 import React from 'react';
-import {attachRootToDom} from 'test-tools/react-dom';
+import {createRoot} from 'react-dom/client';
 import {render, act} from '@testing-library/react';
 
 import {Theme, useTheme} from '../src';
@@ -11,7 +11,7 @@ const HookExampleComponent = (): React.ReactElement => {
 
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
-    const root = attachRootToDom(document.createElement('div') as HTMLElement);
+    const root = createRoot(document.createElement('div') as HTMLElement);
     act(() => {
       root.render(
         <Theme.Provider theme="default">

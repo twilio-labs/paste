@@ -38,7 +38,8 @@ module.exports = {
     '^@testing-library/real-user-event$': require.resolve('@testing-library/user-event'),
     '^@testing-library/react$': '<rootDir>/tools/test/react-testing-library.ts',
     '^@testing-library/real-react$': require.resolve('@testing-library/react'),
-    '^test-tools/react-dom$': '<rootDir>/tools/test/react-render-dom.ts',
+    '^react-dom/client$': '<rootDir>/tools/test/react-dom-client.ts',
+    '^real-react-dom/client$': require.resolve('react-dom/client'),
   },
   transformIgnorePatterns: ['node_modules/'],
   transform: {
