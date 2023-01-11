@@ -59,6 +59,7 @@ describe('Popover', () => {
       await waitFor(() => {
         userEvent.click(ButtonOne);
       });
+
       popover = screen.queryByTestId('state-hook-popover');
       if (popover === null) {
         return;
@@ -228,6 +229,7 @@ describe('Popover', () => {
       await waitFor(() => {
         userEvent.click(popoverButton);
       });
+
       const dismissButton = screen.getByRole('button', {name: 'Close popover'});
       expect(dismissButton).toBeDefined();
     });
@@ -248,6 +250,7 @@ describe('Popover', () => {
       await waitFor(() => {
         userEvent.click(popoverButton);
       });
+
       const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
       expect(dismissButton).toBeDefined();
     });
