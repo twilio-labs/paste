@@ -4,7 +4,6 @@ description: Tips and tricks to consider while building inclusive, accessible ex
 slug: /inclusive-design/
 ---
 
-import {graphql} from 'gatsby';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Card} from '@twilio-paste/card';
 import {Stack} from '@twilio-paste/stack';
@@ -13,7 +12,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import Link from 'next/link';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/inclusive-design/"}}) {
       fileAbsolutePath

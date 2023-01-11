@@ -4,12 +4,11 @@ description: Core principles, punctuation, grammar and formatting in Product con
 slug: /foundations/content/product-style-guide/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../../components/DoDont';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/content/product-style-guide/"}}) {
       fileAbsolutePath

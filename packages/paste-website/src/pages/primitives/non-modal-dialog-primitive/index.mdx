@@ -4,7 +4,6 @@ description: An unstyled and accessible base upon which to build a non-modal dia
 slug: /primitives/non-modal-dialog-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTheme, StyledBase} from '@twilio-paste/theme';
@@ -25,7 +24,7 @@ import {
   styledExample,
 } from '../../../component-examples/NonModalDialogPrimitiveExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/non-modal-dialog-primitive"}}) {
       edges {

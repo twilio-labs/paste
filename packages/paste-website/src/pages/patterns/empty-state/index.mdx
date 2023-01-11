@@ -4,7 +4,6 @@ description: The Empty State pattern provides the user with guidance on what ste
 slug: /patterns/empty-state/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -25,7 +24,7 @@ import {
 } from '../../../components/images/EmptyStateImages';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/empty-state/"}}) {
       fileAbsolutePath

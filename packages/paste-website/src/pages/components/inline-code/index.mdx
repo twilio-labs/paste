@@ -5,7 +5,6 @@ description: An Inline Code component visually distinguishes pieces of texts as 
 slug: /components/inline-code/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {InlineCode} from '@twilio-paste/inline-code';
@@ -15,7 +14,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/inline-code"}}) {
       edges {

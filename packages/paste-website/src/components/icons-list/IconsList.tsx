@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import debounce from 'lodash/debounce';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
@@ -17,6 +16,7 @@ import type {IconObject, IconComponent, IconsListProps, GroupedList} from './typ
 import {IconCard} from './IconCard';
 import {SiteLink} from '../SiteLink';
 import {IconListItem} from './IconListItem';
+import {event} from '../../lib/gtag';
 
 const {icons: iconsJson} = require('@twilio-paste/icons/json/icons.json');
 
@@ -58,7 +58,7 @@ const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
 
 const trackIconFilterString = debounce((filter: string): void => {
   if (filter !== '') {
-    trackCustomEvent({
+    event({
       category: 'Icons',
       action: 'filter',
       label: filter,

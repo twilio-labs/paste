@@ -4,7 +4,6 @@ description: The Screen Reader Only component should be used to visually hide co
 slug: /components/screen-reader-only/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
@@ -20,7 +19,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {InlineCode} from '../../../components/Typography';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/screen-reader-only"}}) {
       edges {

@@ -228,7 +228,8 @@
   },
   "resolutions": {
     "csstype": "3.0.11",
-    "playwright": "1.28.1"
+    "playwright": "1.28.1",
+    "@types/react": "^17.0.31"
   },
   "husky": {
     "hooks": {

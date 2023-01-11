@@ -5,14 +5,13 @@ description: An In Page Navigation is a group of styled links that lets users na
 slug: /components/in-page-navigation/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md';
 import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {basicExample, fullWidthExample} from '../../../component-examples/InPageNavigationExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/in-page-navigation"}}) {
       edges {

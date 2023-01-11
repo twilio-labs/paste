@@ -5,7 +5,6 @@ description: A Display Pill Group is a non-editable set of Pills that represent 
 slug: /components/display-pill-group/
 ---
 
-import {graphql} from 'gatsby';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {DisplayPill, DisplayPillGroup} from '@twilio-paste/display-pill-group';
@@ -43,7 +42,7 @@ import {
   iconExample,
 } from '../../../component-examples/DisplayPillGroup.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/display-pill-group"}}) {
       edges {

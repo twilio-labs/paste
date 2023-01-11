@@ -5,7 +5,6 @@ description: A File Picker is a form element used to upload files.
 slug: /components/file-picker/
 ---
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {FilePicker, FilePickerButton} from '@twilio-paste/file-picker';
 import {Anchor} from '@twilio-paste/anchor';
@@ -23,7 +22,7 @@ import {
 } from '../../../component-examples/FilePickerExamples.ts';
 import Changelog from '@twilio-paste/file-picker/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/file-picker"}}) {
       edges {

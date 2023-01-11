@@ -5,14 +5,13 @@ description: The Paste Theme Package allows easy and simple access to the design
 slug: /theme
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteThemePackage(filter: {name: {eq: "@twilio-paste/theme"}}) {
       edges {

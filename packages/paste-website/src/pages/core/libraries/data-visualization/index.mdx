@@ -4,7 +4,6 @@ description: A library that helps theme data visualizations with Paste tokens.
 slug: /core/libraries/data-visualization/
 ---
 
-import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/data-visualization-library/package.json';
 import Changelog from '@twilio-paste/data-visualization-library/CHANGELOG.md';
 import Highcharts from 'highcharts';
@@ -13,7 +12,7 @@ import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library'
 
 import {SidebarCategoryRoutes} from '../../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/libraries/data-visualization/"}}) {
       fileAbsolutePath

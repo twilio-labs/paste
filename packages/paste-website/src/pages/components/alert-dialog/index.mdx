@@ -4,7 +4,6 @@ description: An alert dialog displays content over the main page and blocks any 
 slug: /components/alert-dialog/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
@@ -16,7 +15,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {defaultExample, destructiveExample, modalExample} from '../../../component-examples/AlertDialogExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/alert-dialog"}}) {
       edges {

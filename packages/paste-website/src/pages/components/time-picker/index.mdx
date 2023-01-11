@@ -4,7 +4,6 @@ description: A form component used to select a time.
 slug: /components/time-picker/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/time-picker/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -34,7 +33,7 @@ import {
 } from '../../../component-examples/TimePickerExamples.ts';
 import {DateTimeRangePicker} from '../../../component-examples/DatePickerExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/time-picker"}}) {
       edges {

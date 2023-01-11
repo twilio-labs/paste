@@ -4,7 +4,6 @@ description: Guidance outlining best practices for Button and Anchor usage.
 slug: /patterns/button-vs-anchor/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -18,7 +17,7 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/button-vs-anchor/"}}) {
       fileAbsolutePath

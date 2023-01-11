@@ -5,7 +5,6 @@ description: A Button Group displays a set of related actions.
 slug: /components/button-group/
 ---
 
-import {graphql} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {ButtonGroup} from '@twilio-paste/button-group';
 import {Tooltip} from '@twilio-paste/tooltip';
@@ -29,7 +28,7 @@ import {
   MenuExample,
 } from '../../../component-examples/ButtonGroupExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/button-group"}}) {
       edges {

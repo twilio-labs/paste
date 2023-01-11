@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import Image from 'next/image';
 
 import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
 import HomeGetStartedIllo2Dark from '../../assets/illustrations/home_getstarted_2_dark.svg';
@@ -10,6 +10,7 @@ import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 import {useDarkModeContext} from '../../context/DarkModeContext';
+import {event} from '../../lib/gtag';
 
 export const GetStarterWhy: React.FC = () => {
   const {theme} = useDarkModeContext();
@@ -19,9 +20,9 @@ export const GetStarterWhy: React.FC = () => {
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <HomeGetStartedIllo2 aria-hidden="true" />
+              <Image src={HomeGetStartedIllo2} aria-hidden="true" />
             ) : (
-              <HomeGetStartedIllo2Dark aria-hidden="true" />
+              <Image src={HomeGetStartedIllo2Dark} aria-hidden="true" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">
@@ -35,7 +36,7 @@ export const GetStarterWhy: React.FC = () => {
         <GetStartedCardLink
           href="/introduction/about-paste"
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Get started',
               action: 'click-learn-about-paste',
               label: 'Learn about Paste',

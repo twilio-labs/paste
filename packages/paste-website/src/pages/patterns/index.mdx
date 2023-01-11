@@ -4,7 +4,6 @@ description: Common, repeatable, and extensible Twilio UX compositions that you 
 slug: /patterns/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -21,7 +20,7 @@ import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns"}}) {
       fileAbsolutePath

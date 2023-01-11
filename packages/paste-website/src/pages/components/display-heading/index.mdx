@@ -5,7 +5,6 @@ description: Display heading is large, expressive text that stands out from trad
 slug: /components/display-heading/
 ---
 
-import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
 import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,7 +12,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/display-heading/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/display-heading"}}) {
       edges {

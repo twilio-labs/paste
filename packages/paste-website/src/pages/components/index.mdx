@@ -4,7 +4,6 @@ description: Components are styled UI elements that can be composed into any web
 slug: /components/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -55,7 +54,7 @@ import {SidebarCategoryRoutes} from '../../constants';
   </CalloutList>
 </Callout>
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent {
       edges {

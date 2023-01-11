@@ -4,7 +4,6 @@ description: Guidelines and repository of illustrations that can be used in Twil
 slug: /foundations/illustrations/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
@@ -15,7 +14,7 @@ import {Card} from '@twilio-paste/card';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import Link from 'next/link';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/illustrations/"}}) {
       fileAbsolutePath

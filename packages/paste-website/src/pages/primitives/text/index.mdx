@@ -4,7 +4,6 @@ description: The Text component is a primitive of the system and can output any 
 slug: /primitives/text/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -14,7 +13,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {InlineCode} from '../../../components/Typography';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/text"}}) {
       edges {

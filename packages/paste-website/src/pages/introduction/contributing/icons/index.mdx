@@ -4,7 +4,6 @@ description: Guidelines on how to create and export SVG icons for Paste.
 slug: /introduction/contributing/icons/
 ---
 
-import {graphql} from 'gatsby';
 import Link from 'next/link';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -14,7 +13,7 @@ import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Grid} from '../../../../components/grid';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/contributing/icons/"}}) {
       fileAbsolutePath

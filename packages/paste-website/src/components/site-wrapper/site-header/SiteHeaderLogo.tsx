@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from 'next/link';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
@@ -9,6 +8,7 @@ import {useTheme} from '@twilio-paste/theme';
 
 import {PasteIcon} from '../../icons/PasteIcon';
 import {PasteIconPride} from '../../icons/PasteIconPride';
+import {event} from '../../../lib/gtag';
 
 const LogoLink = styled(Link)`
   position: relative;
@@ -55,7 +55,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
       <LogoLink
         href="/"
         onClick={() =>
-          trackCustomEvent({
+          event({
             category: 'Top Navigation',
             action: 'click-paste-logo',
             label: 'Paste logo',

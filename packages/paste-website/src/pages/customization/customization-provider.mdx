@@ -4,13 +4,12 @@ description: The Customization Provider allows a consumer to customize the style
 slug: /customization/customization-provider/
 ---
 
-import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/customization/customization-provider/"}}) {
       fileAbsolutePath

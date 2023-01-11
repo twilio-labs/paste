@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import Image from 'next/image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
@@ -16,6 +15,7 @@ import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {event} from '../../lib/gtag';
 
 interface ExperimentProps {
   showIframe: boolean;
@@ -70,7 +70,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
               <Anchor
                 href="https://codesandbox.io/s/paste-starter-kit-rj7yy"
                 onClick={() =>
-                  trackCustomEvent({
+                  event({
                     category: 'Experiment Sandbox',
                     action: 'click-sandbox',
                     label: 'Open sandbox',

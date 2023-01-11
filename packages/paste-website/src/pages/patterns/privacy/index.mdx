@@ -4,7 +4,6 @@ description: Use the Privacy pattern to inform a user of form fields that are no
 slug: /patterns/privacy/
 ---
 
-import {graphql} from 'gatsby';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
@@ -24,7 +23,7 @@ import {
 } from '../../../component-examples/PrivacyPatternExamples.tsx';
 import {Button} from '@twilio-paste/button';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/privacy/"}}) {
       fileAbsolutePath

@@ -4,14 +4,13 @@ description: Dark theme is a base theme for dark mode in any UI fully using Past
 slug: /theme/dark-theme
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../constants';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/theme/dark-theme"}}) {
       fileAbsolutePath

@@ -4,13 +4,12 @@ description: Generates unique identifiers for HTML and JS
 slug: /core/libraries/uid-library/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import PackageJSON from '@twilio-paste/uid-library/package.json';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/libraries/uid-library/"}}) {
       fileAbsolutePath

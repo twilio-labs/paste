@@ -4,7 +4,6 @@ description: Overview on how to use icons in the context of Paste projects.
 slug: /components/icons/usage-guidelines/
 ---
 
-import {graphql} from 'gatsby';
 import Link from 'next/link';
 import {SiteLink} from '../../../../components/SiteLink';
 import {Box} from '@twilio-paste/box';
@@ -17,7 +16,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../../components/DoDont';
 import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
       fileAbsolutePath

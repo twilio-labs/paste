@@ -5,7 +5,6 @@ description: A Chat Composer is an input made for users to type rich chat messag
 slug: /components/chat-composer/
 ---
 
-import {graphql} from 'gatsby';
 import {Avatar} from '@twilio-paste/avatar';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -41,7 +40,7 @@ import {
   MaxHeightExample,
 } from '../../../component-examples/ChatComposerExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/chat-composer"}}) {
       edges {

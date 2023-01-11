@@ -5,7 +5,6 @@ description: A Callout is a banner that highlights important information on a pa
 slug: /components/callout/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,7 +12,7 @@ import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from
 import Changelog from '@twilio-paste/callout/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/callout"}}) {
       edges {

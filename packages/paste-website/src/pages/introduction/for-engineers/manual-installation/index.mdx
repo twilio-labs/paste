@@ -4,7 +4,6 @@ description: Instructions to manually add Paste to a project.
 slug: /introduction/for-engineers/manual-installation/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
@@ -13,7 +12,7 @@ import IconsPkgJson from '@twilio-paste/icons/package.json';
 import {Callout, CalloutText} from '@twilio-paste/callout';
 import Package from '../../../../../../../package.json';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/manual-installation/"}}) {
       fileAbsolutePath

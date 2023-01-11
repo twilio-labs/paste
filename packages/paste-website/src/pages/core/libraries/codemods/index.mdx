@@ -4,11 +4,10 @@ description: A collection of jscodeshift codemods to help update projects built 
 slug: /core/libraries/codemods/
 ---
 
-import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/codemods/package.json';
 import {SidebarCategoryRoutes} from '../../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/libraries/codemods/"}}) {
       fileAbsolutePath

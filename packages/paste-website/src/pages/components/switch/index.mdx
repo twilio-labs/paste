@@ -5,7 +5,6 @@ description: A Switch is an interactive binary control.
 slug: /components/switch/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Text} from '@twilio-paste/text';
@@ -28,7 +27,7 @@ import {
   switchGroupInternationalized,
 } from '../../../component-examples/SwitchExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/switch"}}) {
       edges {

@@ -4,7 +4,6 @@ description: An accessible disclosure primitive for controlling the visibility o
 slug: /primitives/disclosure-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
@@ -22,7 +21,7 @@ import {
   MultipleExample,
 } from '../../../component-examples/DisclosurePrimitiveExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/disclosure-primitive"}}) {
       edges {

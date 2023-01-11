@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import Image from 'next/image';
 
 import HomeGetStartedIllo1 from '../../assets/illustrations/home_getstarted_1.svg';
 import HomeGetStartedIllo1Dark from '../../assets/illustrations/home_getstarted_1_dark.svg';
@@ -10,6 +10,7 @@ import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 import {useDarkModeContext} from '../../context/DarkModeContext';
+import {event} from '../../lib/gtag';
 
 interface GetStartedInclusiveProps {
   animationDelay: number;
@@ -23,9 +24,9 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <HomeGetStartedIllo1 aria-hidden="true" />
+              <Image src={HomeGetStartedIllo1} aria-hidden="true" />
             ) : (
-              <HomeGetStartedIllo1Dark aria-hidden="true" />
+              <Image src={HomeGetStartedIllo1Dark} aria-hidden="true" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">
@@ -39,7 +40,7 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
         <GetStartedCardLink
           href="/inclusive-design"
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Get started',
               action: 'click-see-inclusive-guidelines',
               label: 'See inclusive guidelines',

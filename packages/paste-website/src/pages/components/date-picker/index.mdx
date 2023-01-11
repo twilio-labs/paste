@@ -4,7 +4,6 @@ description: A form component used to select a date.
 slug: /components/date-picker/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/date-picker/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -35,7 +34,7 @@ import {
   MinAndMaxPicker,
 } from '../../../component-examples/DatePickerExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/date-picker"}}) {
       edges {

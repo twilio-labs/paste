@@ -5,7 +5,6 @@ description: An icon component that can used in various loading situations.
 slug: /components/spinner/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
@@ -14,7 +13,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/spinner"}}) {
       edges {

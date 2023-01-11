@@ -4,7 +4,6 @@ description: An unstyled and accessible basis upon which to style a tabset.
 slug: /primitives/tabs-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {StyledBase} from '@twilio-paste/theme';
@@ -16,7 +15,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {horizontalExample, verticalExample, styledExample} from '../../../component-examples/TabsPrimitiveExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/tabs-primitive"}}) {
       edges {

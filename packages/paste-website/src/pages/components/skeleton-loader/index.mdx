@@ -4,7 +4,6 @@ description: A component that gives users a hint of what type of information wil
 slug: /components/skeleton-loader/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
@@ -31,7 +30,7 @@ import {
   TableExample,
 } from '../../../component-examples/SkeletonLoaderExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/skeleton-loader"}}) {
       edges {

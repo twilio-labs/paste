@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useTheme} from '@twilio-paste/theme';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import Image from 'next/image';
 
 import {
   ComponentCard,
@@ -17,6 +17,7 @@ import {SiteLink} from '../SiteLink';
 import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
+import {event} from '../../lib/gtag';
 
 const PopularPatterns: React.FC = () => {
   const theme = useTheme();
@@ -51,7 +52,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeCreateIllustration aria-hidden="true" />
+              <Image src={HomeCreateIllustration} aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/patterns/create">See Create</SiteLink>
@@ -62,7 +63,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeDeleteIllustration aria-hidden="true" />
+              <Image src={HomeDeleteIllustration} aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/patterns/delete">See Delete</SiteLink>
@@ -76,7 +77,7 @@ const PopularPatterns: React.FC = () => {
           <SiteLink
             href="/patterns"
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Popular',
                 action: 'click-all-patterns',
                 label: 'Explore all patterns',

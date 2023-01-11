@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {graphql} from 'gatsby';
+
 import {Theme} from '@twilio-paste/theme';
 
 import {GraphImageWrapper} from '../../components/open-graph-card/GraphImageWrapper';
@@ -8,7 +8,7 @@ import {GraphImageDetails} from '../../components/open-graph-card/GraphImageDeta
 import type {PackageData} from '../../components/open-graph-card/types';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allAirtable(sort: {fields: [data___Feature]}, filter: {data: {status: {nin: [null, "in development"]}}}) {
       edges {

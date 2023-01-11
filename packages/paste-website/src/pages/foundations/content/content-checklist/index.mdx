@@ -4,11 +4,10 @@ description: Self-service tips and how to access UX Writer support.
 slug: /foundations/content/content-checklist/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/content/content-checklist/"}}) {
       fileAbsolutePath

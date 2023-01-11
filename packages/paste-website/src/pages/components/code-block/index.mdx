@@ -5,7 +5,6 @@ description: A component used to display readable blocks of code.
 slug: /components/code-block/
 ---
 
-import {graphql} from 'gatsby';
 import {
   CodeBlock,
   CodeBlockWrapper,
@@ -19,7 +18,7 @@ import Changelog from '@twilio-paste/code-block/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {singleLine, multiLine, tab, formattedCopyText} from '../../../component-examples/CodeBlockExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/code-block"}}) {
       edges {

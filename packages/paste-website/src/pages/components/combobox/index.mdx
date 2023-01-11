@@ -5,7 +5,6 @@ description: An accessible styled drop-down list box.
 slug: /components/combobox/
 ---
 
-import {graphql} from 'gatsby';
 import filter from 'lodash/filter';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -40,7 +39,7 @@ import {
   stateHookCombobox,
 } from '../../../component-examples/ComboboxExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/combobox"}}) {
       edges {

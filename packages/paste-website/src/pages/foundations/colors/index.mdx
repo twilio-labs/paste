@@ -4,8 +4,6 @@ description: Color helps us create cohesive experiences throughout our products 
 slug: /foundations/colors/
 ---
 
-import {graphql} from 'gatsby';
-
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
@@ -31,7 +29,7 @@ import {
   InteractingStatesImgCaption,
 } from '../../../component-examples/ColorsFoundationExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/colors/"}}) {
       fileAbsolutePath

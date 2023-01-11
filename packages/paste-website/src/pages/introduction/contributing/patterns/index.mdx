@@ -4,7 +4,6 @@ description: How to contribute a pattern to Paste.
 slug: /introduction/contributing/patterns/
 ---
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -30,7 +29,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {defaultExample, initialFocusExample, wideExample} from '../../../../component-examples/ModalExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/contributing/patterns/"}}) {
       fileAbsolutePath

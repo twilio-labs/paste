@@ -5,7 +5,6 @@ description: The Label component is used to provide a visible, accessible name t
 slug: /components/label/
 ---
 
-import {graphql} from 'gatsby';
 import {useUID} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
@@ -25,7 +24,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/label/CHANGELOG.md';
 import {RequiredDatePicker} from '../../../component-examples/DatePickerExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/label"}}) {
       edges {

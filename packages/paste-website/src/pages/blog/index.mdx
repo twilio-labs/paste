@@ -4,10 +4,9 @@ description: Articles published by the Design Systems team at Twilio
 slug: /blog/
 ---
 
-import {graphql} from 'gatsby';
 import {ArticleList} from '../../components/ArticleList';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allMdx(
       filter: {frontmatter: {slug: {glob: "/blog/*"}, status: {ne: "draft"}}}

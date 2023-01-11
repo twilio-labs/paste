@@ -5,7 +5,6 @@ description: An accessible and styled tabs component.
 slug: /components/tabs/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -30,7 +29,7 @@ import {
   StateHookTabsExample,
 } from '../../../component-examples/TabsExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/tabs"}}) {
       edges {

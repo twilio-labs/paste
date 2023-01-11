@@ -4,11 +4,10 @@ description: Instructions to create a new Paste project.
 slug: /introduction/for-engineers/quickstart/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/quickstart/"}}) {
       fileAbsolutePath

@@ -4,11 +4,10 @@ description: An overview to help you navigate product content guidance and a loo
 slug: /foundations/content/
 ---
 
-import {graphql} from 'gatsby';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/content/"}}) {
       fileAbsolutePath
