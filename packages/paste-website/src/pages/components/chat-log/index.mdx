@@ -5,7 +5,6 @@ description: A Chat Log is a collection of Chat components for displaying conver
 slug: /components/chat-log/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -48,7 +47,7 @@ import {
   chatLoggerExample,
 } from '../../../component-examples/ChatLogExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/chat-log"}}) {
       edges {

@@ -5,7 +5,6 @@ description: A File Uploader is a form element used to upload multiple files.
 slug: /components/file-uploader/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/file-uploader/CHANGELOG.md';
 import {
   FileUploader,
@@ -34,7 +33,7 @@ import {
 } from '../../../component-examples/FileUploaderExamples.ts';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/file-uploader"}}) {
       edges {

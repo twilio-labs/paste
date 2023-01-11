@@ -5,7 +5,6 @@ description: An input allows users to enter text on a single line.
 slug: /components/input/
 ---
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
@@ -22,7 +21,7 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/input"}}) {
       edges {

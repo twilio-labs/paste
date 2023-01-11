@@ -5,7 +5,6 @@ description: A multiselect combobox is a styled dropdown form element that allow
 slug: /components/multiselect-combobox/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -39,7 +38,7 @@ import {
   maxHeightExample,
 } from '../../../component-examples/MultiselectComboboxExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/combobox"}}) {
       edges {

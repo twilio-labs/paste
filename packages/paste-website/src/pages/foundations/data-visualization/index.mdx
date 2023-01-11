@@ -4,7 +4,6 @@ description: Data visualizations help communicate patterns and relationships in 
 slug: /foundations/data-visualization/
 ---
 
-import {graphql} from 'gatsby';
 import Image from 'next/image';
 
 import Highcharts from 'highcharts';
@@ -26,7 +25,7 @@ import {
 } from '../../../component-examples/DataVisualizationExamples';
 import FigmaColors from '../../../public/assets/images/foundations/data-visualization/figma-colors.png';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/data-visualization/"}}) {
       fileAbsolutePath

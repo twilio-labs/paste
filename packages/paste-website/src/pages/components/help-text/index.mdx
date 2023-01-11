@@ -5,7 +5,6 @@ description: 'Help Text that can be paired with a Paste form component.'
 slug: /components/help-text/
 ---
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Select, Option} from '@twilio-paste/select';
@@ -24,7 +23,7 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/help-text/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/help-text"}}) {
       edges {

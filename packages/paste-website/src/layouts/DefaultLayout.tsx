@@ -4,6 +4,7 @@ import Head from 'next/head';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
+import {useRouter} from 'next/router';
 
 import packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
@@ -25,9 +26,6 @@ datadogRum.init({
 interface DefaultLayoutProps {
   children?: React.ReactElement;
   data?: unknown;
-  location: {
-    pathname: string;
-  };
   pageContext: {
     frontmatter: {
       title?: string;
@@ -36,16 +34,17 @@ interface DefaultLayoutProps {
   };
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, location}) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext}) => {
   const pageTitle = pageContext.frontmatter.title
     ? `${pageContext.frontmatter.title} - ${SiteMetaDefaults.TITLE}`
     : SiteMetaDefaults.TITLE;
   const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
+  const router = useRouter();
   return (
-    <SiteWrapper pathname={location.pathname}>
+    <SiteWrapper>
       <Head>
         <title>{pageTitle}</title>
-        <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
+        <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
         <meta name="description" content={pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

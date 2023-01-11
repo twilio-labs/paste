@@ -1,8 +1,7 @@
 import kebabCase from 'lodash/kebabCase';
 import startCase from 'lodash/startCase';
 import toLower from 'lodash/toLower';
-// Gatsby uses @reach/router under the hood
-import {useLocation} from '@reach/router';
+import {useRouter} from 'next/router';
 
 import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
@@ -10,18 +9,18 @@ export const hasWindowObject = (): boolean => typeof window !== 'undefined' && w
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {
-  const {pathname} = hasWindowObject() ? window.location : useLocation();
+  const {pathname} = hasWindowObject() ? window.location : useRouter();
   return pathname;
 }
 
 // Gets the current url params
 export function useLocationSearch(): string {
-  const {search} = hasWindowObject() ? window.location : useLocation();
+  const search = hasWindowObject() ? window.location.search : '';
   return search;
 }
 
 export function useLocationOrigin(): string {
-  const {origin} = hasWindowObject() ? window.location : useLocation();
+  const origin = hasWindowObject() ? window.location.origin : '';
   // By default, assume the origin is our own domain
   return origin || 'https://paste.twilio.design';
 }
@@ -33,7 +32,7 @@ export function useOpengraphServiceUrl(path: string): string {
 
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"
 export function getNameFromPackageName(packageName: string): string {
-  return packageName.replace(PASTE_PACKAGE_PREFIX, '');
+  return packageName?.replace(PASTE_PACKAGE_PREFIX, '');
 }
 
 // Returns "Aspect Ratio" from "@twilio-paste/aspect-ratio"

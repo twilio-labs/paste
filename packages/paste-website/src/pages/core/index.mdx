@@ -4,7 +4,6 @@ description: The Core package includes all components and libraries in Paste.
 slug: /core/
 ---
 
-import {graphql} from 'gatsby';
 import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -17,7 +16,7 @@ import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/"}}) {
       fileAbsolutePath

@@ -4,7 +4,6 @@ description: Design tokens are named units that store visual design attributes.
 slug: /tokens/
 ---
 
-import {graphql} from 'gatsby';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
@@ -13,7 +12,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {ImageCaption} from '../../components/ImageCaption';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/tokens/"}}) {
       fileAbsolutePath

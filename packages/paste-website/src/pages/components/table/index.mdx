@@ -5,7 +5,6 @@ description: Tables are used to display information that is meant to be compared
 slug: /components/table/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -28,7 +27,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {SiteLink} from '../../../components/SiteLink';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/table"}}) {
       edges {

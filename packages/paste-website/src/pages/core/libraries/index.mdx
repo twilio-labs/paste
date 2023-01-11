@@ -4,9 +4,7 @@ description: Standalone tools and plugins built and supported by the Paste team.
 slug: /core/libraries/
 ---
 
-import {graphql} from 'gatsby';
-
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/libraries/"}}) {
       fileAbsolutePath

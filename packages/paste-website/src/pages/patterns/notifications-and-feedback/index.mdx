@@ -4,7 +4,6 @@ description: The Notifications and Feedback pattern communicates timely and inte
 slug: /patterns/notifications-and-feedback/
 ---
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -25,7 +24,7 @@ import {Toast} from '@twilio-paste/toast';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/notifications-and-feedback/"}}) {
       fileAbsolutePath

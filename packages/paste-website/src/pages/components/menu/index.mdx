@@ -4,7 +4,6 @@ description: A menu presents a list of menu items that a user can choose to perf
 slug: /components/menu/
 ---
 
-import {graphql} from 'gatsby';
 import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
@@ -27,7 +26,7 @@ import {
   itemContentExample,
 } from '../../../component-examples/MenuExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/menu"}}) {
       edges {

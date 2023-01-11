@@ -5,7 +5,6 @@ description: A Side Modal is a page overlay that displays information that does 
 slug: /components/side-modal/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -34,7 +33,7 @@ import {
   hookExample,
 } from '../../../component-examples/SideModalExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/side-modal"}}) {
       edges {

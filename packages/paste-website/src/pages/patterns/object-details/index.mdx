@@ -4,7 +4,6 @@ description: The Object Details pattern displays a read-only page or panel conta
 slug: /patterns/object-details/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -16,7 +15,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/object-details/"}}) {
       fileAbsolutePath

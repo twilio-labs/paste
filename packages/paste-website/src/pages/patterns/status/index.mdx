@@ -4,7 +4,6 @@ description: The status pattern informs the user of the dynamic state or conditi
 slug: /patterns/status/
 ---
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
@@ -61,7 +60,7 @@ import {
   connectivityStatusExamples,
 } from '../../../component-examples/StatusPatternExamples.tsx';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/status/"}}) {
       fileAbsolutePath

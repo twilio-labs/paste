@@ -5,13 +5,12 @@ description: The Paste Design Tokens package allows you to install design tokens
 slug: /tokens/design-tokens-package/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Link from 'next/link';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteDesignTokensPackage(filter: {name: {eq: "@twilio-paste/design-tokens"}}) {
       edges {

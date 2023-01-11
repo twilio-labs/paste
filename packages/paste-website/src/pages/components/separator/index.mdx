@@ -4,7 +4,6 @@ description: The Separator component can be used to create visual and semantic s
 slug: /components/separator/
 ---
 
-import {graphql} from 'gatsby';
 import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,7 +12,7 @@ import Changelog from '@twilio-paste/separator/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/separator"}}) {
       edges {

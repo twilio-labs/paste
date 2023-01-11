@@ -5,7 +5,6 @@ description: An Avatar is a graphical representation of a user or entity.
 slug: /components/avatar/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -17,7 +16,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/avatar"}}) {
       edges {

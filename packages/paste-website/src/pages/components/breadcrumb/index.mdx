@@ -5,7 +5,6 @@ description: Breadcrumbs are used to show navigation hierarchy on a page. They p
 slug: /components/breadcrumb/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -18,7 +17,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/breadcrumb"}}) {
       edges {

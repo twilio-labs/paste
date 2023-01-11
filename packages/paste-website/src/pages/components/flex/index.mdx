@@ -4,7 +4,6 @@ description: Flex is a layout component that allows you to build flexbox based e
 slug: /components/flex/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Heading} from '@twilio-paste/heading';
@@ -13,7 +12,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import Changelog from '@twilio-paste/flex/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteLayout(filter: {name: {eq: "@twilio-paste/flex"}}) {
       edges {

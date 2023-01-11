@@ -4,7 +4,6 @@ description: A badge is a visually highlighted text label that describes an attr
 slug: /components/badge/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/badge/CHANGELOG.md';
 
 import {Badge} from '@twilio-paste/badge';
@@ -51,7 +50,7 @@ import {
   counterExample,
 } from '../../../component-examples/BadgeExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/badge"}}) {
       edges {

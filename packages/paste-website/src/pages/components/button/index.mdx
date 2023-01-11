@@ -5,7 +5,6 @@ description: A Button communicates that users can trigger an action.
 slug: /components/button/
 ---
 
-import {graphql} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
@@ -24,7 +23,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {ToggleExample} from '../../../component-examples/ButtonExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/button"}}) {
       edges {

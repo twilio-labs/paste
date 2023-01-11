@@ -4,7 +4,6 @@ description: The Create pattern allows the user to create a new instance of some
 slug: /patterns/create/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -16,7 +15,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/patterns/create/"}}) {
       fileAbsolutePath

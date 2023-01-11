@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import Image from 'next/image';
 import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
@@ -17,6 +16,8 @@ import {SidebarDisclosureContent} from './sidebar-disclosure/SidebarDisclosureCo
 import type {SidebarDisclosureProps} from './sidebar-disclosure/SidebarDisclosure';
 import type {SidebarDisclosureButtonProps} from './sidebar-disclosure/SidebarDisclosureButton';
 import type {SidebarDisclosureContentProps} from './sidebar-disclosure/SidebarDisclosureContent';
+import Logo from '../../../assets/logo.svg';
+import {event} from '../../../lib/gtag';
 
 const CY_BASE = 'sidebar-disclosure';
 const NavigationDisclosure: React.FC<{
@@ -49,7 +50,7 @@ const SidebarNavigation: React.FC = () => {
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
   const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
 
-  const filteredPrimitives = allPastePrimitive.filter(filteredComponents);
+  const filteredPrimitives = allPastePrimitive?.filter(filteredComponents);
 
   return (
     <Box
@@ -81,7 +82,7 @@ const SidebarNavigation: React.FC = () => {
           }}
         >
           <Box as="span">
-            <Image src="../../../assets/logo.svg" alt="" placeholder="blur" layout="fixed" width={28} height={28} />
+            <Image src={Logo} alt="" layout="fixed" width={28} height={28} />
           </Box>
           <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
             Paste Home
@@ -94,7 +95,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-introduction',
               label: 'Introduction',
@@ -153,7 +154,7 @@ const SidebarNavigation: React.FC = () => {
             categoryRoute={SidebarCategoryRoutes.CONTENT}
             level={1}
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Left Navigation',
                 action: 'click-content',
                 label: 'Content',
@@ -180,7 +181,7 @@ const SidebarNavigation: React.FC = () => {
             level={1}
             href={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Left Navigation',
                 action: 'click-illustrations',
                 label: 'Illustrations',
@@ -193,7 +194,7 @@ const SidebarNavigation: React.FC = () => {
             level={1}
             href={`${SidebarCategoryRoutes.FOUNDATIONS}/localization`}
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Left Navigation',
                 action: 'click-localization',
                 label: 'Localization',
@@ -221,7 +222,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.PATTERNS}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-patterns',
               label: 'Patterns',
@@ -231,11 +232,12 @@ const SidebarNavigation: React.FC = () => {
           <SidebarAnchor level={1} href={SidebarCategoryRoutes.PATTERNS}>
             Overview
           </SidebarAnchor>
-          {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
-            <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
-              {name}
-            </SidebarAnchor>
-          ))}
+          {allPastePattern &&
+            allPastePattern.map(({name, slug}: {[key: string]: string}) => (
+              <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
+                {name}
+              </SidebarAnchor>
+            ))}
         </NavigationDisclosure>
         <SidebarSeparator />
         <NavigationDisclosure
@@ -243,7 +245,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.COMPONENTS}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-components',
               label: 'Components',
@@ -262,7 +264,7 @@ const SidebarNavigation: React.FC = () => {
                   key={slug}
                   level={1}
                   onClick={() =>
-                    trackCustomEvent({
+                    event({
                       category: 'Left Navigation',
                       action: `click-${name}`,
                       label: name,
@@ -286,7 +288,7 @@ const SidebarNavigation: React.FC = () => {
                   key={slug}
                   level={1}
                   onClick={() =>
-                    trackCustomEvent({
+                    event({
                       category: 'Left Navigation',
                       action: `click-${name}`,
                       label: name,
@@ -314,7 +316,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-primitives',
               label: 'Primitives',
@@ -324,18 +326,19 @@ const SidebarNavigation: React.FC = () => {
           <SidebarAnchor level={1} href={SidebarCategoryRoutes.PRIMITIVES}>
             Overview
           </SidebarAnchor>
-          {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
-            <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
-              {name}
-            </SidebarAnchor>
-          ))}
+          {filteredPrimitives &&
+            filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
+              <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
+                {name}
+              </SidebarAnchor>
+            ))}
         </NavigationDisclosure>
         <NavigationDisclosure
           buttonText="Tokens"
           categoryRoute={SidebarCategoryRoutes.TOKENS}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-design-tokens',
               label: 'Design Tokens',
@@ -357,7 +360,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.CORE}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-core',
               label: 'Core',
@@ -393,7 +396,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.THEME}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-theme',
               label: 'Theme',
@@ -415,7 +418,7 @@ const SidebarNavigation: React.FC = () => {
           categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
           level={0}
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-customization',
               label: 'Customization',
@@ -446,7 +449,7 @@ const SidebarNavigation: React.FC = () => {
           level={0}
           href="/blog"
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-blog',
               label: 'Blog',
@@ -459,7 +462,7 @@ const SidebarNavigation: React.FC = () => {
           level={0}
           href="/roadmap"
           onClick={() =>
-            trackCustomEvent({
+            event({
               category: 'Left Navigation',
               action: 'click-roadmap',
               label: 'Roadmap',

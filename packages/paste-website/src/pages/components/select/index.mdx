@@ -5,7 +5,6 @@ description: A select allows users to select an option from a list in a form fie
 slug: /components/select/
 ---
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Input} from '@twilio-paste/input';
@@ -25,7 +24,7 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/select/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/select"}}) {
       edges {

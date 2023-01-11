@@ -4,10 +4,9 @@ description: How to use the Twilio Voice and tonal qualities to communicate effe
 slug: /foundations/content/voice-and-tone/
 ---
 
-import {graphql} from 'gatsby';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/content/voice-and-tone/"}}) {
       fileAbsolutePath

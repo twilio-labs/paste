@@ -9,7 +9,7 @@ import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
 
-const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
+const Homepage: React.FC<{location: {pathname: string}}> = (): React.ReactElement => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)
@@ -22,7 +22,7 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
   }
 
   return (
-    <SiteWrapper pathname={location.pathname}>
+    <SiteWrapper>
       <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />

@@ -4,7 +4,6 @@ description: Creating a custom theme is the most the common way a consumer can c
 slug: /customization/creating-a-custom-theme/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
 import {AccessibilityCallout} from '../../components/page-components/customization/customization-provider/AccessibilityCallout';
@@ -13,7 +12,7 @@ import {CustomThemeKeyList} from '../../components/page-components/customization
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
       fileAbsolutePath

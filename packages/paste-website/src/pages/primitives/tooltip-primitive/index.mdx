@@ -4,7 +4,6 @@ description: An unstyled and accessible base upon which to build a tooltip.
 slug: /primitives/tooltip-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {StyledBase} from '@twilio-paste/theme';
@@ -20,7 +19,7 @@ import {
 import {SidebarCategoryRoutes} from '../../../constants';
 import {defaultExample, rightExample, styledExample} from '../../../component-examples/TooltipPrimitiveExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/tooltip-primitive"}}) {
       edges {

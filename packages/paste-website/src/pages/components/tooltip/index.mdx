@@ -5,7 +5,6 @@ description: An accessible and styled tooltip component.
 slug: /components/tooltip/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -18,7 +17,7 @@ import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {StateHookTabsExample, NonPasteChildComponentExample} from '../../../component-examples/TooltipExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/tooltip"}}) {
       edges {

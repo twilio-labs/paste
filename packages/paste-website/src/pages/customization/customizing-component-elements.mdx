@@ -4,11 +4,10 @@ description: A powerful concept for any programmable application is extending ex
 slug: /customization/customizing-component-elements/
 ---
 
-import {graphql} from 'gatsby';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/customization/customizing-component-elements/"}}) {
       fileAbsolutePath

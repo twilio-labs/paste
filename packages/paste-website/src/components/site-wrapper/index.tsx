@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {Theme} from '@twilio-paste/theme';
@@ -13,7 +12,7 @@ import type {NavigationQuery} from '../../context/NavigationContext';
 import {DarkModeContext} from '../../context/DarkModeContext';
 import {inCypress} from '../../utils/inCypress';
 
-const pageQuery = graphql`
+const pageQuery = `
   {
     allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
       edges {
@@ -71,17 +70,17 @@ const pageQuery = graphql`
   }
 `;
 
-interface SiteWrapperProps {
-  pathname: string;
-}
-
-const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
-  const navigationQueryData: NavigationQuery = useStaticQuery(pageQuery);
+const SiteWrapper: React.FC = ({children}) => {
+  const navigationQueryData: NavigationQuery = {
+    allSitePages: {edges: [{node: {}}]},
+    allPasteComponent: {edges: [{node: {}}]},
+    allPasteLayout: {edges: [{node: {}}]},
+  };
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (
     <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS} disableAnimations={inCypress()}>
-      <NavigationContext.Provider value={{...navigationQueryData, pathname}}>
+      <NavigationContext.Provider value={{...navigationQueryData}}>
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
           <SkipLinkContainer>
             <Stack orientation="horizontal" spacing="space60">
@@ -89,7 +88,7 @@ const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
               <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
             </Stack>
           </SkipLinkContainer>
-          <SiteBody pathname={pathname}>{children}</SiteBody>
+          <SiteBody>{children}</SiteBody>
         </DarkModeContext.Provider>
       </NavigationContext.Provider>
     </Theme.Provider>

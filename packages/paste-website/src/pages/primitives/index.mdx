@@ -4,7 +4,6 @@ description: Our primitives are rad
 slug: /primitives/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -54,7 +53,7 @@ import {SidebarCategoryRoutes} from '../../constants';
   </CalloutList>
 </Callout>
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive {
       edges {

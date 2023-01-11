@@ -4,7 +4,6 @@ description: Summary of Breaking Changes to Core, with actions that should be ta
 slug: /core/upgrade-guide
 ---
 
-import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -13,7 +12,7 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Codeblock} from '../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../constants';
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/core/upgrade-guide"}}) {
       fileAbsolutePath

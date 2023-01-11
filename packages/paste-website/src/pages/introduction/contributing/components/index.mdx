@@ -4,9 +4,7 @@ description: How to contribute a component to Paste.
 slug: /introduction/contributing/components/
 ---
 
-import {graphql} from 'gatsby';
-
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/contributing/components/"}}) {
       fileAbsolutePath

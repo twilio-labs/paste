@@ -5,7 +5,6 @@ description: A toast communicates an immediate and direct response to a user act
 slug: /components/toast/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -27,7 +26,7 @@ import {InlineCode} from '../../../components/Typography';
 import {ToasterExample, i18nExample} from '../../../component-examples/ToastExamples';
 import Changelog from '@twilio-paste/toast/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/toast"}}) {
       edges {

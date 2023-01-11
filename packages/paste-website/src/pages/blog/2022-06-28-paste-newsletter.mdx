@@ -10,14 +10,13 @@ external_link:
 excerpt: What's new in Paste in June 2022? Paste Intellisense, resizeable Textarea, important upgrades, and more!
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/blog/2022-06-28-paste-newsletter/"}}) {
       fileAbsolutePath

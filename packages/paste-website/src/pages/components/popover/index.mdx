@@ -5,7 +5,6 @@ description: An accessible and styled popover component.
 slug: /components/popover/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Button} from '@twilio-paste/button';
@@ -31,7 +30,7 @@ import {
   i18nExample,
 } from '../../../component-examples/PopoverExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/popover"}}) {
       edges {

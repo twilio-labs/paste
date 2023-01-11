@@ -5,7 +5,6 @@ description: An alert notifies a user to high-priority or time-sensitive informa
 slug: /components/alert/
 ---
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
@@ -20,7 +19,7 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/alert/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/alert"}}) {
       edges {

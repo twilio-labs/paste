@@ -5,7 +5,6 @@ description: A modal displays content over the main page and blocks any interact
 slug: /components/modal/
 ---
 
-import {graphql} from 'gatsby';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -25,7 +24,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {defaultExample, initialFocusExample, wideExample, i18nExample} from '../../../component-examples/ModalExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/modal"}}) {
       edges {

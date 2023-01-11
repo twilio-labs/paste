@@ -5,7 +5,6 @@ description: A data grid is an interactive table used for working with a large c
 slug: /components/data-grid/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 
 import {
@@ -25,7 +24,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {standardDataGrid, TableHeaderData, TableBodyData} from '../../../component-examples/DataGridExamples';
 import Changelog from '@twilio-paste/data-grid/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/data-grid"}}) {
       edges {

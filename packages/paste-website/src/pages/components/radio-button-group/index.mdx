@@ -5,7 +5,6 @@ description: Radio Button Group is a set of related, mutually exclusive options 
 slug: /components/radio-button-group/
 ---
 
-import {graphql} from 'gatsby';
 import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
 import {Tooltip} from '@twilio-paste/tooltip';
 import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
@@ -26,7 +25,7 @@ import {
   DisabledExample,
 } from '../../../component-examples/RadioButtonGroupExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-button-group"}}) {
       edges {

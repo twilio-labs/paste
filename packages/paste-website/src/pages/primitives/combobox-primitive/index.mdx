@@ -4,7 +4,6 @@ description: An unstyled and accessible basis upon which to build a combobox.
 slug: /primitives/combobox-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
 import {Box} from '@twilio-paste/box';
@@ -24,7 +23,7 @@ import {
 } from '../../../component-examples/ComboboxPrimitiveExamples';
 import Changelog from '@twilio-paste/combobox-primitive/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/combobox-primitive"}}) {
       edges {

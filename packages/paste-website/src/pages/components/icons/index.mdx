@@ -4,11 +4,10 @@ description: Paste comes with icons.
 slug: /components/icons/
 ---
 
-import {graphql} from 'gatsby';
 import {IconsList} from '../../../components/icons-list';
 import {P} from '../../../components/Typography';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/components/icons/"}}) {
       fileAbsolutePath

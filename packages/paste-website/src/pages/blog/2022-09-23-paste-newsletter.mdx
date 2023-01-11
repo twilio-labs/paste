@@ -10,14 +10,13 @@ external_link:
 excerpt: What's new in Paste in September 2022? NEW components, NEW icons, insights into our customer experience, and more!
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Blockquote} from '../../components/Blockquote';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/blog/2022-09-23-paste-newsletter/"}}) {
       fileAbsolutePath
@@ -219,8 +218,8 @@ We are excited to the share the following insights:
   <strong>4.00/5</strong>.
 </Paragraph>
 <Paragraph>
-  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>,
-  our participants averaged <strong>4.18/5</strong>.
+  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>
+  , our participants averaged <strong>4.18/5</strong>.
 </Paragraph>
 
 In addition, some participants specified:

@@ -4,14 +4,13 @@ description: You may encounter times where you are required to build an experien
 slug: /customization/composing-custom-components-with-design-tokens/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
       fileAbsolutePath

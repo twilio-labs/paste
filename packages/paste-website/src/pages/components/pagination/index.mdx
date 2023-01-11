@@ -5,7 +5,6 @@ description: Pagination lets users navigate through content or a dataset that’
 slug: /components/pagination/
 ---
 
-import {graphql} from 'gatsby';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -34,7 +33,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {Blockquote} from '../../../components/Blockquote';
 import {defaultExample, numberExample, positioningExample} from '../../../component-examples/PaginationExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/pagination"}}) {
       edges {

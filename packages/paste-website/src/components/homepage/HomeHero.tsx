@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -14,6 +13,7 @@ import {NewComponentBannerText} from './NewComponentBannerText';
 import {HomeHeroIllustration} from './HomeHeroIllustration';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {event} from '../../lib/gtag';
 
 const SeeRoadmapAnchor: React.FC = () => {
   const [hovered, setHovered] = React.useState(false);
@@ -33,7 +33,7 @@ const SeeRoadmapAnchor: React.FC = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() =>
-          trackCustomEvent({
+          event({
             category: 'Hero',
             action: 'click-see-roadmap',
             label: 'See our roadmap',
@@ -81,7 +81,7 @@ const HomeHero: React.FC = () => {
                 <NewComponentBannerLink
                   href="/components/chat-composer"
                   onClick={() =>
-                    trackCustomEvent({
+                    event({
                       category: 'Hero',
                       action: 'click-new-component-banner',
                       label: 'Chat Composer component',

@@ -4,9 +4,8 @@ description: Here's a glimpse of what is coming up in future releases of Paste. 
 slug: /roadmap/
 ---
 
-import {graphql} from 'gatsby';
 import {Roadmap, RoadmapAside} from '../../components/Roadmap';
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     Roadmap: allAirtable(
       sort: {fields: [data___Release_, data___Status, data___Release_feature_name]}

@@ -4,7 +4,6 @@ description: An unstyled and accessible basis upon which to build Menus.
 slug: /primitives/menu-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -23,7 +22,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {defaultExample, subMenuExample, customExample} from '../../../component-examples/MenuPrimitiveExamples';
 import MenuBar from '../../../public/assets/images/menu-primitive-images/menubar.png';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/menu-primitive"}}) {
       edges {

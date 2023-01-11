@@ -4,7 +4,6 @@ description: Media Object is a layout utility that allows an image or figure to 
 slug: /components/media-object/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Avatar} from '@twilio-paste/avatar';
@@ -19,7 +18,7 @@ import {SidebarCategoryRoutes, TWILIO_RED} from '../../../constants';
 import {PasteIcon} from '../../../components/icons/PasteIcon';
 import Changelog from '@twilio-paste/media-object/CHANGELOG.md';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteLayout(filter: {name: {eq: "@twilio-paste/media-object"}}) {
       edges {

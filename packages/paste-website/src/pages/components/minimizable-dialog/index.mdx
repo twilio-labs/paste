@@ -5,7 +5,6 @@ description: An accessible, non-modal dialog that can be minimized to the bottom
 slug: /components/minimizable-dialog/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
@@ -34,7 +33,7 @@ import {
   hookExample,
 } from '../../../component-examples/MinimizableDialogExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/minimizable-dialog"}}) {
       edges {

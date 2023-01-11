@@ -4,7 +4,6 @@ description: An overview of what Paste is, is not, and how to use the platform.
 slug: /introduction/about-paste
 ---
 
-import {graphql} from 'gatsby';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
@@ -12,7 +11,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {InlineCode} from '../../../components/Typography';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/about-paste"}}) {
       fileAbsolutePath

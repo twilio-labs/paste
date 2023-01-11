@@ -8,11 +8,10 @@ status: published
 excerpt: The Paste team has been working on something big for the past year!
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ChatHeroExample} from '../../component-examples/ConversationsUIKitAnnouncement';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/blog/2022-12-06-announcing-the-conversations-ui-kit/"}}) {
       fileAbsolutePath

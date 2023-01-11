@@ -4,7 +4,6 @@ description: The grid component controls the visual layout and spacing between e
 slug: /components/grid/
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Anchor} from '@twilio-paste/anchor';
@@ -21,7 +20,7 @@ import Changelog from '@twilio-paste/grid/CHANGELOG.md';
 import {TwilioIcon} from '../../../components/icons/TwilioIcon';
 import {TWILIO_RED} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteLayout(filter: {name: {eq: "@twilio-paste/grid"}}) {
       edges {

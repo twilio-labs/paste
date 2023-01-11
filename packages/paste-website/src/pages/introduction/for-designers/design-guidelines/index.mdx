@@ -4,7 +4,6 @@ description: Get started with Paste design tools to create your own Twilio custo
 slug: /introduction/for-designers/design-guidelines/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -17,7 +16,7 @@ import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/introduction/for-designers/design-guidelines/"}}) {
       fileAbsolutePath

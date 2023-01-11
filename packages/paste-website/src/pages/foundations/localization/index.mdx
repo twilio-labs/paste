@@ -4,13 +4,12 @@ description: Localization refers to adapting a product, service or content to fi
 slug: /foundations/localization/
 ---
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/localization/"}}) {
       fileAbsolutePath

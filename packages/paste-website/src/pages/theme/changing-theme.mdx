@@ -4,10 +4,9 @@ description: When using Paste, swapping to a different theme is simple and quick
 slug: /theme/changing-theme
 ---
 
-import {graphql} from 'gatsby';
 import {SidebarCategoryRoutes} from '../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/theme/changing-theme"}}) {
       fileAbsolutePath

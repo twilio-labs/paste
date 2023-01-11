@@ -1,9 +1,9 @@
 import * as React from 'react';
 import useResizeObserver from 'use-resize-observer';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import Image from 'next/image';
 
 import HomeGetStartedIllo3 from '../../assets/illustrations/home_getstarted_3.svg';
 import HomeGetStartedIllo3Dark from '../../assets/illustrations/home_getstarted_3_dark.svg';
@@ -12,6 +12,7 @@ import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLinks} from './GetStartedCardLinks';
 import {GetStartedCardLink} from './GetStartedCardLink';
 import {useDarkModeContext} from '../../context/DarkModeContext';
+import {event} from '../../lib/gtag';
 
 interface GetStartedRunningProps {
   animationDelay: number;
@@ -26,9 +27,9 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <HomeGetStartedIllo3 aria-hidden="true" />
+              <Image src={HomeGetStartedIllo3} aria-hidden="true" />
             ) : (
-              <HomeGetStartedIllo3Dark aria-hidden="true" />
+              <Image src={HomeGetStartedIllo3Dark} aria-hidden="true" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">
@@ -40,7 +41,7 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
           <GetStartedCardLink
             href="/introduction/for-engineers/quickstart"
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Get started',
                 action: 'click-developer-setup',
                 label: 'Developer setup',
@@ -52,7 +53,7 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
           <GetStartedCardLink
             href="/introduction/for-designers/design-guidelines"
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Get started',
                 action: 'click-designer-setup',
                 label: 'Designer setup',

@@ -5,7 +5,6 @@ description: A radio group is used for selecting a single choice from a list of 
 slug: /components/radio-group/
 ---
 
-import {graphql} from 'gatsby';
 import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
@@ -26,7 +25,7 @@ import {
   i18nExample,
 } from '../../../component-examples/RadioGroupExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-group"}}) {
       edges {

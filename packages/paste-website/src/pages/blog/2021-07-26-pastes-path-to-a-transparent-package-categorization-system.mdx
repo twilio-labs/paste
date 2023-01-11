@@ -9,10 +9,9 @@ author_link: https://www.linkedin.com/in/norakrantz/
 status: published
 ---
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/"}}) {
       fileAbsolutePath
