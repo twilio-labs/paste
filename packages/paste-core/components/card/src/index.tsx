@@ -13,7 +13,7 @@ export interface CardProps
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
   (
-    {children, element = 'CARD', padding = 'space60', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props},
+    {children, element = 'CARD', padding = 'space100', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props},
     ref
   ) => {
     return (
@@ -21,10 +21,10 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="article"
-        borderWidth="borderWidth20"
+        borderWidth="borderWidth10"
         borderColor="colorBorderWeaker"
         borderStyle="solid"
-        borderRadius="borderRadius20"
+        borderRadius="borderRadius30"
         element={element}
         padding={padding}
         paddingBottom={paddingBottom}
