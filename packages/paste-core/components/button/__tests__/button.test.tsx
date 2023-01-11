@@ -284,7 +284,7 @@ describe('Button', () => {
   });
 
   describe('button event handlers', () => {
-    it('Should call the appropriate event handlers', async () => {
+    it('Should call the appropriate event handlers', () => {
       const onClickMock: jest.Mock = jest.fn();
       const onMouseDownMock: jest.Mock = jest.fn();
       const onMouseUpMock: jest.Mock = jest.fn();
