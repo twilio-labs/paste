@@ -16,7 +16,7 @@ const BLOCKLIST = [
 
 const BASE_CODESANDBOX_CI = {
   buildCommand: 'build',
-  node: '16',
+  node: '18',
   packages: ['/packages/paste-icons', '/packages/paste-core/core-bundle'],
   sandboxes: ['/packages/paste-nextjs-template', '/packages/paste-token-contrast-checker'],
 };
