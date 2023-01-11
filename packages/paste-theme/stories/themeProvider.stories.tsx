@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
@@ -41,9 +41,9 @@ export const EnglishFontFamily = (): React.ReactNode => (
 
 export const JapaneseFontFamily = (): React.ReactNode => (
   <>
-    <Helmet>
+    <Head>
       <html lang="ja" />
-    </Helmet>
+    </Head>
     <Box>
       <Paragraph>
         「ヒラギノ角ゴシック体」は、「ヒラギノ明朝体」との混植を意識してデザインした角ゴシック体です。モダンでカウンターが広く明るいだけではなく、少しフトコロを締め気味にして、現代的な明るさを残しつつもオーソドックスなデザインになっています。文字のすき間を均等に配置することと画線両端のアクセントにより、可読性と存在感を両立させた角ゴシック体です。極小サイズの本文から、特大サイズの見出しまで、広い範囲をカバーできます。

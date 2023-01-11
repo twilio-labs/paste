@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {datadogRum} from '@datadog/browser-rum';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
@@ -43,12 +43,12 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
   const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
   return (
     <SiteWrapper pathname={location.pathname}>
-      <Helmet>
+      <Head>
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
+      </Head>
       <Box display={['block', 'block', 'none']} marginBottom="space60">
         <Alert variant="neutral">
           The responsive layout is in early preview. Please{' '}

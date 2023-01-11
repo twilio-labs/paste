@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -78,9 +78,9 @@ const GenericHeader: React.FC<GenericHeaderProps> = ({
   return (
     <Box>
       {openGraphServiceUrl && shouldHavePreview && (
-        <Helmet>
+        <Head>
           <meta property="og:image" content={openGraphServiceUrl} />
-        </Helmet>
+        </Head>
       )}
       {shouldShowBreadcrumbs && (
         <Box marginBottom="space50">
