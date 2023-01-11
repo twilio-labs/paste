@@ -6,13 +6,14 @@ slug: /components/anchor/
 ---
 
 import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
+import AnchorDont from '../../../public/assets/images/anchor-dont-1@4x.png';
 
 export const pageQuery = graphql`
   {
@@ -24,11 +25,6 @@ export const pageQuery = graphql`
           status
           version
         }
-      }
-    }
-    file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/anchor-dont-1@4x.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     mdx(frontmatter: {slug: {eq: "/components/anchor/"}}) {
@@ -153,7 +149,7 @@ You can use an anchor to navigate the user to another webpage.
     <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
   </Do>
   <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
-    <GatsbyImage image={props.data.file.childImageSharp.gatsbyImageData} />
+    <Image src={AnchorDont} layout="fill" />
   </Dont>
 </DoDont>
 

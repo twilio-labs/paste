@@ -6,7 +6,7 @@ slug: /components/card/
 ---
 
 import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -18,6 +18,10 @@ import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
+import PrimaryDo from '../../../public/assets/images/do1-primary-button.png';
+import PrimaryDont from '../../../public/assets/images/dont1-primary-button.png';
+import HeadingDo from '../../../public/assets/images/do2-heading-in-card.png';
+import MultipleDont from '../../../public/assets/images/dont2-multiple-primary.png';
 
 export const pageQuery = graphql`
   {
@@ -29,29 +33,6 @@ export const pageQuery = graphql`
           status
           version
         }
-      }
-    }
-    primaryButtonDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do1-primary-button.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    headingInCardDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do2-heading-in-card.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    multiplePrimaryDont: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/dont2-multiple-primary.png"}
-    ) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     mdx(frontmatter: {slug: {eq: "/components/card/"}}) {
@@ -223,10 +204,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Have a clear call to action when including Buttons. Avoid including more than one primary and one secondary button."
     preview={false}
   >
-    <GatsbyImage image={props.data.primaryButtonDo.childImageSharp.gatsbyImageData} />
+    <Image image={PrimaryDo} layout="fill" />
   </Do>
   <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false}>
-    <GatsbyImage image={props.data.primaryButtonDont.childImageSharp.gatsbyImageData} />
+    <Image image={PrimaryDont} layout="fill" />
   </Dont>
 </DoDont>
 
@@ -236,10 +217,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Use a Heading in your Card that appropriately reflects the information architecture of the page."
     preview={false}
   >
-    <GatsbyImage image={props.data.headingInCardDo.childImageSharp.gatsbyImageData} />
+    <Image image={HeadingDo} layout="fill" />
   </Do>
   <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false}>
-    <GatsbyImage image={props.data.multiplePrimaryDont.childImageSharp.gatsbyImageData} />
+    <Image image={MultipleDont} layout="fill" />
   </Dont>
 </DoDont>
 
