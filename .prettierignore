@@ -13,6 +13,7 @@ packages/paste-theme-designer/public/
 .cache
 .next
 .yarn
+packages/paste-core/core-bundle/tools/constants.ts
 
 tsconfig.build.tsbuildinfo
 **/*.d.ts
