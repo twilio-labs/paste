@@ -6,14 +6,13 @@
  */
 import ReactDOM from 'react-dom';
 
-export * from 'real-react-dom/client';
-
 type createRootReturnType = {render: (elem: JSX.Element) => void};
 
+const reactMajorVersion = parseInt(ReactDOM.version.split('.')[0], 10);
+
 function attachRootToDom(domNode: HTMLElement): createRootReturnType {
-  const useCreateRoot = parseInt(ReactDOM.version.split('.')[0], 10);
-  if (useCreateRoot >= 18) {
-    const {createRoot} = require('real-react-dom/client');
+  if (reactMajorVersion >= 18) {
+    const {createRoot} = require('react-dom/client');
     return createRoot(domNode);
   }
 
@@ -25,6 +24,4 @@ function attachRootToDom(domNode: HTMLElement): createRootReturnType {
   };
 }
 
-export default {
-  createRoot: attachRootToDom,
-};
+export {attachRootToDom as createRoot};

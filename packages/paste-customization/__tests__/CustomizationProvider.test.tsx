@@ -1,5 +1,6 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
+// eslint-disable-next-line import/no-unresolved
+import {createRoot} from 'testing-tools/react-dom-create-root';
 import {render, screen, act} from '@testing-library/react';
 
 import {CustomizationProvider, CustomizationConsumer} from '../src';
