@@ -1,6 +1,6 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
@@ -23,12 +23,12 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
 
   return (
     <SiteWrapper pathname={location.pathname}>
-      <Helmet>
+      <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
+      </Head>
       <HomeHero />
       <GetStarted />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>

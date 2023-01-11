@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 
 import {SiteWrapper} from '../../components/site-wrapper';
 import {SiteMetaDefaults} from '../../constants';
@@ -11,12 +11,12 @@ import {ReadyToGetStarted} from '../../components/customization-landing-page/Rea
 const CustomizationLandingPage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
   return (
     <SiteWrapper pathname={location.pathname}>
-      <Helmet>
+      <Head>
         <title>{`Customization - ${SiteMetaDefaults.TITLE}`}</title>
         <link rel="canonical" href="https://paste.twilio.design/customization" />
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
+      </Head>
       <LandingPageHero />
       <LikeTwilio />
       <WhyPaste />
