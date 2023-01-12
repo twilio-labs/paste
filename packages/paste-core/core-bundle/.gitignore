@@ -26,6 +26,7 @@
 /data-grid
 /data-visualization-library
 /date-picker
+/description-list
 /design-tokens
 /disclosure
 /disclosure-primitive
@@ -33,7 +34,9 @@
 /display-pill-group
 /dropdown-library
 /file-picker
+/file-uploader
 /flex
+/form
 /form-pill-group
 /grid
 /heading
@@ -46,6 +49,7 @@
 /label
 /lexical-library
 /list
+/listbox-primitive
 /media-object
 /menu
 /menu-primitive
