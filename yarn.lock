@@ -3067,7 +3067,7 @@ __metadata:
   resolution: "@babel/runtime@npm:7.19.0"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: db8526226aa02cfa35a5a7ac1a34b5f303c62a1f000c7db48cb06c6290e616483e5036ab3c4e7a84d0f3be6d4e2148d5fe5cec9564bf955f505c3e764b83d7f1
+  checksum: fa69c351bb05e1db3ceb9a02fdcf620c234180af68cdda02152d3561015f6d55277265d3109815992f96d910f3db709458cae4f8df1c3def66f32e0867d82294
   languageName: node
   linkType: hard
 
@@ -13026,8 +13026,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
@@ -13039,8 +13039,8 @@ __metadata:
     "@twilio-paste/theme": ^8.0.0
     "@twilio-paste/types": ^3.1.1
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13249,8 +13249,8 @@ __metadata:
     "@twilio-paste/uid-library": 0.2.6
     lodash: 4.17.21
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
@@ -13269,8 +13269,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": 0.2.6
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13354,8 +13354,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^0.3.2
@@ -13369,8 +13369,8 @@ __metadata:
     "@twilio-paste/types": ^3.1.1
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13721,12 +13721,12 @@ __metadata:
   resolution: "@twilio-paste/listbox-primitive@workspace:packages/paste-core/primitives/listbox"
   dependencies:
     "@twilio-paste/reakit-library": ^0.8.7
-    react: ^17.0.2
-    react-dom: ^17.0.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
   peerDependencies:
     "@twilio-paste/reakit-library": ^0.8.1
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -15931,17 +15931,6 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.0.0":
-  version: 18.0.26
-  resolution: "@types/react@npm:18.0.26"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b62f0ea3cdfa68e106391728325057ad36f1bde7ba2dfae029472c47e01e482bc77c6ba4f1dad59f3f04ee81cb597618ff7c30a33c157c0a20462b6dd6aa2d4d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:>=16":
   version: 18.0.26
   resolution: "@types/react@npm:18.0.26"
   dependencies:
