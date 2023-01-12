@@ -9,7 +9,7 @@ import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
 
-const Homepage: React.FC<{location: {pathname: string}}> = (): React.ReactElement => {
+const Homepage = (): React.ReactElement => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)

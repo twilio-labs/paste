@@ -67,7 +67,6 @@ out/
 
 .jest-coverage
 .jest-cache
-**/lib/*
 **/dist/*
 packages/**/docs
 **/paste-icons/cjs/*
