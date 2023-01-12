@@ -8,9 +8,9 @@ import {LikeTwilio} from '../../components/customization-landing-page/LikeTwilio
 import {WhyPaste} from '../../components/customization-landing-page/WhyPaste';
 import {ReadyToGetStarted} from '../../components/customization-landing-page/ReadyToGetStarted';
 
-const CustomizationLandingPage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
+const CustomizationLandingPage: React.FC = (): React.ReactElement => {
   return (
-    <SiteWrapper pathname={location.pathname}>
+    <SiteWrapper>
       <Head>
         <title>{`Customization - ${SiteMetaDefaults.TITLE}`}</title>
         <link rel="canonical" href="https://paste.twilio.design/customization" />

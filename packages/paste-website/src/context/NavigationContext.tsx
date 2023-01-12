@@ -1,22 +1,6 @@
 import * as React from 'react';
 
 export interface NavigationQuery {
-  allSitePages: {
-    edges: [
-      {
-        node: {
-          path: string;
-          componentChunkName: string;
-          componentPath: string;
-          id: string;
-          component: string;
-          internalComponentName: string;
-          isCreatedByStatefulCreatePages: boolean;
-          pluginCreatorId: string;
-        };
-      }
-    ];
-  };
   allPasteComponent: {
     edges: [
       {
