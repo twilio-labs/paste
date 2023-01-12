@@ -30,7 +30,19 @@ module.exports = {
       statements: 100,
     },
   },
-  moduleNameMapper: {'\\.css$': 'identity-obj-proxy'},
+  moduleNameMapper: {
+    '\\.css$': 'identity-obj-proxy',
+    // monkey-patch introduced for @testing-library/user-event to improve asynchronous test readability
+    // taken from this github issue: https://github.com/testing-library/user-event/issues/938#issuecomment-1111976312
+    '^@testing-library/user-event$': '<rootDir>/tools/test/act-user-event.ts',
+    '^@testing-library/real-user-event$': require.resolve('@testing-library/user-event'),
+    // monkey-patch to help with @testing-library/reat-hooks being deprecated
+    // the render hook method is being exported from @testing-library/react in later versions
+    '^@testing-library/react$': '<rootDir>/tools/test/react-testing-library.ts',
+    '^@testing-library/real-react$': require.resolve('@testing-library/react'),
+    // helper method to handle the changes in the react-dom api for react 18
+    '^testing-tools/react-dom-create-root$': '<rootDir>/tools/test/react-dom-create-root.ts',
+  },
   transformIgnorePatterns: ['node_modules/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)?$': '@swc/jest',

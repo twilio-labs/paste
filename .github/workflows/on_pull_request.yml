@@ -203,6 +203,54 @@ jobs:
       - name: Run tests
         run: yarn test
 
+  react17_tests:
+    name: Test repository using React 17
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 16.13
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      # Note: Yarn cache has been removed from the following step
+      # since we need to change the React version installed
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Install React 17
+        run: |
+          yarn add @types/react@^17.0.0 react@^17.0.2 react-dom@^17.0.2
+          yarn set resolution react@npm:^18.0.0 ^17.0.2
+          yarn set resolution @types/react@npm:^18.0.0 ^17.0.31
+          yarn set resolution react-dom@npm:^18.0.0 ^17.0.2
+          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: compiled-js-and-types
+          path: packages/
+
+      - name: Run tests
+        run: yarn test
+
   react16_tests:
     name: Test repository using React 16
     needs: build
@@ -229,7 +277,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn
 
-      # Note: Yarn cahce has been removed from the following step
+      # Note: Yarn cache has been removed from the following step
       # since we need to change the React version installed
       - name: Install Dependencies
         run: yarn install --immutable
@@ -237,9 +285,10 @@ jobs:
       - name: Install React 16
         run: |
           yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
-          yarn set resolution react@npm:^17.0.2 ^16.8.6
-          yarn set resolution @types/react@npm:^17.0.31 ^16.0.0
-          yarn set resolution react-dom@npm:^17.0.2 ^16.8.6
+          yarn set resolution react@npm:^18.0.0 ^16.8.6
+          yarn set resolution @types/react@npm:^18.0.0 ^16.0.0
+          yarn set resolution react-dom@npm:^18.0.0 ^16.8.6
+          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3

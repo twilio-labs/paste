@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {renderHook, act} from '@testing-library/react-hooks';
+import {renderHook, act} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 
 import {useWindowSize} from '../src/hooks/useWindowSize';

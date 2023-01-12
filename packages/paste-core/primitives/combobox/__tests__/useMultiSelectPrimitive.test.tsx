@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {act, renderHook} from '@testing-library/react-hooks';
-import {render, fireEvent, screen} from '@testing-library/react';
+import {render, fireEvent, screen, act, renderHook} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import type {FireObject} from '@testing-library/react';
@@ -435,7 +434,7 @@ describe('useMultiSelectPrimitive', () => {
           })
         );
 
-        input.click();
+        await input.click();
 
         expect(stateReducer).toHaveBeenCalledTimes(5);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -448,7 +447,7 @@ describe('useMultiSelectPrimitive', () => {
           })
         );
 
-        await userEvent.click(getSelectedItemAtIndex(0));
+        userEvent.click(getSelectedItemAtIndex(0));
 
         expect(stateReducer).toHaveBeenCalledTimes(6);
         expect(stateReducer).toHaveBeenLastCalledWith(
