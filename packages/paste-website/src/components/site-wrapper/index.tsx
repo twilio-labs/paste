@@ -12,67 +12,8 @@ import type {NavigationQuery} from '../../context/NavigationContext';
 import {DarkModeContext} from '../../context/DarkModeContext';
 import {inCypress} from '../../utils/inCypress';
 
-const pageQuery = `
-  {
-    allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
-      edges {
-        node {
-          path
-          componentChunkName
-          id
-          component
-          internalComponentName
-        }
-      }
-    }
-    allPasteComponent(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          version
-          status
-        }
-      }
-    }
-    allPastePrimitive(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          version
-          status
-        }
-      }
-    }
-    allPasteLayout(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          version
-          status
-        }
-      }
-    }
-    allPastePattern: allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {
-        data: {status: {nin: [null, "in development"]}, Component_Category: {eq: "pattern"}, Documentation: {eq: true}}
-      }
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            status
-          }
-        }
-      }
-    }
-  }
-`;
-
 const SiteWrapper: React.FC = ({children}) => {
   const navigationQueryData: NavigationQuery = {
-    allSitePages: {edges: [{node: {}}]},
     allPasteComponent: {edges: [{node: {}}]},
     allPasteLayout: {edges: [{node: {}}]},
   };
