@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
+import {screen, render, waitFor} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 
@@ -44,10 +44,11 @@ describe('Customization', () => {
   });
 
   it('should add custom styles with a custom element data attribute', () => {
-    render(<ChatLog element="FOO_LOG" />, {wrapper: CustomizationFooWrapper});
-
+    render(<ChatLog element="foo_log" />, {wrapper: CustomizationFooWrapper});
     const chatLog = screen.getByRole('log');
-    expect(chatLog).toHaveStyleRule('padding', '2.25rem');
+    waitFor(() => {
+      expect(chatLog).toHaveStyleRule('padding', '2.25rem');
+    });
   });
 
   it('should set custom element data attribute', () => {

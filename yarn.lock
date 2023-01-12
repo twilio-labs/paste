@@ -10651,7 +10651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.2.1":
+"@testing-library/user-event@npm:^13.2.1, @testing-library/user-event@npm:^13.5.0":
   version: 13.5.0
   resolution: "@testing-library/user-event@npm:13.5.0"
   dependencies:
@@ -37285,7 +37285,7 @@ fsevents@^1.2.7:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/react-hooks": ^8.0.1
-    "@testing-library/user-event": ^14.4.3
+    "@testing-library/user-event": ^13.5.0
     "@twilio-labs/svg-to-react": ^2.1.1
     "@types/browser-sync": ^2.26.1
     "@types/color": ^3.0.0

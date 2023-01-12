@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {render} from '@testing-library/react';
+// eslint-disable-next-line import/no-unresolved
+import {createRoot} from 'testing-tools/react-dom-create-root';
+import {render, act} from '@testing-library/react';
 
 import {Theme} from '../src';
 
@@ -10,12 +11,14 @@ const ThemeConsumerExampleComponent = (): React.ReactElement => {
 
 describe('Theme.Consumer', () => {
   it('should render without crashing', (): void => {
-    const root = ReactDOM.createRoot(document.querySelector('div') as HTMLElement);
-    root.render(
-      <Theme.Provider theme="default">
-        <ThemeConsumerExampleComponent />
-      </Theme.Provider>
-    );
+    const root = createRoot(document.createElement('div') as HTMLElement);
+    act(() => {
+      root.render(
+        <Theme.Provider theme="default">
+          <ThemeConsumerExampleComponent />
+        </Theme.Provider>
+      );
+    });
   });
 
   it('should be able to access the theme object', () => {

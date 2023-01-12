@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {render, screen} from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {DataGridCell, DataGridHeaderSort, DataGridHeader} from '../src';
@@ -56,19 +56,17 @@ describe('Data Grid', () => {
   describe('Composable Cells functionality', () => {
     it('has proper keyboard navigation behavior', () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
-      const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
-      const firstRowSecondInputCell = getByTestId('input-0-1');
-      const secondRowFirstInputCell = getByTestId('input-1-0');
       const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
 
       if (firstInputCell == null) {
         throw new Error('cannot find firstInputCell');
       }
 
-      // TEST: moves with arrow keys in navigational mode
-      headerCell.focus();
+      act(() => {
+        headerCell.focus();
+      });
 
       userEvent.keyboard('{arrowright}');
       expect(document.activeElement?.innerHTML).toBe('Last Name');
@@ -85,9 +83,22 @@ describe('Data Grid', () => {
       expect(firstInputCell.getAttribute('tabindex')).toBe('-1');
       expect(headerCell.getAttribute('tabindex')).toBe('0');
       expect(headerCell).toHaveFocus();
+    });
 
-      // TEST: toggles actionable mode with [enter] and [escape] keys
-      headerCell.focus();
+    it('toggles actionable mode with [enter] and [escape] keys', () => {
+      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const wrapper = getByTestId('data-grid');
+      const headerCell = getByTestId('header-1');
+      const firstRowFirstInputCell = getByTestId('input-0-0');
+      const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
+
+      if (firstInputCell == null) {
+        throw new Error('cannot find firstInputCell');
+      }
+
+      act(() => {
+        headerCell.focus();
+      });
       expect(wrapper.getAttribute('data-actionable')).toBe('false');
       userEvent.keyboard('{enter}');
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
@@ -96,16 +107,32 @@ describe('Data Grid', () => {
 
       // TEST: should enable Actionable mode when clicking into the DataGrid
       expect(wrapper.getAttribute('data-actionable')).toBe('false');
+
       userEvent.click(headerCell);
       expect(wrapper.getAttribute('data-actionable')).toBe('true');
+    });
 
-      // TEST: should correctly tab through focusable elements in actionable mode
-      headerCell.focus();
+    it('should correctly tab through focusable elements in actionable mode', () => {
+      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const headerCell = getByTestId('header-1');
+      const firstRowFirstInputCell = getByTestId('input-0-0');
+      const firstRowSecondInputCell = getByTestId('input-0-1');
+      const secondRowFirstInputCell = getByTestId('input-1-0');
+      const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
+
+      if (firstInputCell == null) {
+        throw new Error('cannot find firstInputCell');
+      }
+
+      act(() => {
+        headerCell.focus();
+      });
 
       // Down to input cell
       userEvent.keyboard('{arrowdown}');
       // Swap to actionable
       userEvent.keyboard('{enter}');
+
       expect(firstRowFirstInputCell).toHaveFocus();
       userEvent.tab();
       expect(firstRowSecondInputCell).toHaveFocus();
@@ -118,7 +145,9 @@ describe('Data Grid', () => {
        * TEST: handles entering actionable mode from a cell without focusable children correctly
        * I added this particular sequence because it was a reproducable bug in my manual tests
        */
-      headerCell.focus();
+      act(() => {
+        headerCell.focus();
+      });
       userEvent.keyboard('{enter}');
       userEvent.keyboard('{arrowdown}');
       expect(firstInputCell).toHaveFocus();
@@ -176,7 +205,9 @@ describe('Data Grid', () => {
       const firstRowFirstInputCell = getByTestId('input-0-0');
 
       // Focus doesnt change when no focusable children
-      headerCell.focus();
+      act(() => {
+        headerCell.focus();
+      });
       userEvent.keyboard('{enter}');
       expect(headerCell).toHaveFocus();
 
@@ -193,13 +224,15 @@ describe('Data Grid', () => {
   });
 
   describe('Paginated data grid', () => {
-    it('returns the first focused cell to the first cell in the datatable after pagination', () => {
+    it('returns the first focused cell to the first cell in the datatable after pagination', async () => {
       const {getByTestId} = render(<PaginatedDataGrid />);
       const firstThCell = getByTestId('first-cell');
       const firstTdCell = getByTestId('cell-0-0');
 
       // I added this particular sequence because it was a reproducable bug in my manual tests
-      firstThCell.focus();
+      act(() => {
+        firstThCell.focus();
+      });
       expect(firstThCell).toHaveFocus();
 
       userEvent.keyboard('{arrowdown}');
@@ -227,9 +260,13 @@ describe('Data Grid', () => {
       const headerSort = getByTestId('header-sort');
 
       expect(header.getAttribute('aria-sort')).toBe('ascending');
-      headerSort.click();
+      act(() => {
+        headerSort.click();
+      });
       expect(header.getAttribute('aria-sort')).toBe('descending');
-      headerSort.click();
+      act(() => {
+        headerSort.click();
+      });
       expect(header.getAttribute('aria-sort')).toBe('ascending');
     });
   });

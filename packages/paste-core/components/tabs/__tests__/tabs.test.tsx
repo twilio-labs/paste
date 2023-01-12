@@ -87,9 +87,8 @@ describe('Tabs', () => {
       expect(activePanel.getAttribute('id')).toBe(panelOneId);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
-      await waitFor(() => {
-        userEvent.click(TabTwo);
-      });
+      userEvent.click(TabTwo);
+
       activePanel = screen.queryByRole('tabpanel');
       if (activePanel === null) return false;
       expect(activePanel.getAttribute('aria-labelledby')).toBe(tabTwoId);
@@ -108,9 +107,7 @@ describe('Tabs', () => {
       expect(activePanel.getAttribute('aria-labelledby')).toBe(screen.getAllByRole('tab')[0].id);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
-      await waitFor(() => {
-        userEvent.click(ButtonOne);
-      });
+      userEvent.click(ButtonOne);
 
       expect(screen.getAllByRole('tab')[1].getAttribute('aria-selected')).toBe('true');
       activePanel = screen.queryByRole('tabpanel');

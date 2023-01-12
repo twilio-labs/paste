@@ -98,8 +98,8 @@ describe('ChatComposer', () => {
 
     const contentEditable = screen.getByRole('textbox');
 
-    await waitFor(() => {
-      userEvent.type(contentEditable, 'foo bar');
+    userEvent.type(contentEditable, 'foo bar');
+    waitFor(() => {
       expect(onChangeMock).toHaveBeenCalledTimes(1);
     });
   });
