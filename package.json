@@ -191,7 +191,6 @@
     "eslint-plugin-unicorn": "40.1.0",
     "evergreen-ui": "^6.13.2",
     "git-branch-is": "^3.0.0",
-    "graphql": "^14.6.0",
     "highcharts": "^9.3.3",
     "highcharts-react-official": "^3.1.0",
     "husky": "^3.0.0",
