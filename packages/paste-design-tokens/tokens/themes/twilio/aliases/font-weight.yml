@@ -1,0 +1,4 @@
+imports:
+  - ../../../aliases/font-weight.yml
+aliases:
+  font-weight-bold: 600
