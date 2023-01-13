@@ -3,6 +3,7 @@ import type {PopoverArrowProps} from './Popover/PopoverArrow';
 import {TooltipArrow} from './Tooltip/TooltipArrow';
 import type {TooltipArrowProps} from './Tooltip/TooltipArrow';
 import {Tooltip} from './Tooltip/Tooltip';
+import {Portal} from './Portal/Portal';
 
 export {
   // https://reakit.io/docs/composite/
@@ -28,7 +29,7 @@ export {
   Popover,
   PopoverDisclosure,
   // https://reakit.io/docs/portal/
-  Portal,
+  Portal as ReakitPortal,
   // https://reakit.io/docs/tab/
   useTabState,
   Tab,
@@ -84,3 +85,4 @@ export {TooltipArrow};
 export type {TooltipArrowProps};
 
 export {Tooltip};
+export {Portal};
