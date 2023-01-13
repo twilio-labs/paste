@@ -3,8 +3,6 @@ global:
   category: text-color
 imports:
   - ../../../global/text-color.yml
-  - ../aliases/color.yml
-  - ../aliases/color-palette.yml
 props:
   # body text
   color-text-inverse-weak:
@@ -16,11 +14,8 @@ props:
 
   # links
   color-text-link-destructive:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-65}"
     comment: Destructive link text.
-  color-text-link-destructive-stronger:
-    value: "{!palette-red-10}"
-    comment: Stronger shade of destructive link text to be used in interactions.
 
   # primary
   color-text-primary:

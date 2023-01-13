@@ -3,7 +3,6 @@ global:
   category: border-color
 imports:
   - ../../../global/border-color.yml
-
 props:
   # primary action borders
   color-border-primary:
