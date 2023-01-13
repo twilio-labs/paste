@@ -2,10 +2,10 @@ global:
   category: font
   type: font
 imports:
-  - ../../dark/global/font-family.yml
-  - ../aliases/font-family.yml
+  - ../../twilio/global/font-family.yml
+  - ../../twilio/aliases/font-family.yml
 props:
   font-family-text:
     value: "{!font-family-10}"
   font-family-display:
-    value: "{!font-family-10}"
+    value: "{!font-family-20}"

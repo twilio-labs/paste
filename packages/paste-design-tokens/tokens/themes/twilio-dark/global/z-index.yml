@@ -2,4 +2,4 @@ global:
   type: z-index
   category: z-index
 imports:
-  - ../../dark/global/z-index.yml
+  - ../../twilio/global/z-index.yml

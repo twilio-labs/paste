@@ -2,4 +2,4 @@ global:
   category: line-height
   type: number
 imports:
-  - ../../dark/global/line-height.yml
+  - ../../twilio/global/line-height.yml

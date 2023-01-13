@@ -2,4 +2,4 @@ global:
   type: size
   category: radius
 imports:
-  - ../../dark/global/border-radius.yml
+  - ../../twilio/global/border-radius.yml

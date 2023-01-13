@@ -2,4 +2,4 @@ global:
   category: font-size
   type: font-size
 imports:
-  - ../../dark/global/font-size.yml
+  - ../../twilio/global/font-size.yml

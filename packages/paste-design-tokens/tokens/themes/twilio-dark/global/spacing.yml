@@ -2,4 +2,4 @@ global:
   category: spacing
   type: size
 imports:
-  - ../../dark/global/spacing.yml
+  - ../../twilio/global/spacing.yml

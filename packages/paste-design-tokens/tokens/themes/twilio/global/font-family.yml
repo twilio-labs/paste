@@ -8,4 +8,4 @@ props:
   font-family-text:
     value: "{!font-family-10}"
   font-family-display:
-    value: "{!font-family-10}"
+    value: "{!font-family-20}"

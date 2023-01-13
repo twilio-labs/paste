@@ -2,4 +2,4 @@ global:
   type: size
   category: sizing
 imports:
-  - ../../dark/global/sizing.yml
+  - ../../twilio/global/sizing.yml
