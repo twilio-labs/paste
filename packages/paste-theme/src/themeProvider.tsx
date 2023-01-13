@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
 
-import {DefaultTheme, SendGridTheme, DarkTheme} from './themes';
+import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
@@ -14,6 +14,16 @@ export const StyledBase = styled.div(pasteBaseStyles);
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
+    case ThemeVariants.TWILIO:
+      return {
+        ...TwilioTheme,
+        breakpoints: customBreakpoints || DarkTheme.breakpoints,
+      };
+    case ThemeVariants.TWILIO_DARK:
+      return {
+        ...TwilioDarkTheme,
+        breakpoints: customBreakpoints || DarkTheme.breakpoints,
+      };
     case ThemeVariants.DARK:
       return {
         ...DarkTheme,
