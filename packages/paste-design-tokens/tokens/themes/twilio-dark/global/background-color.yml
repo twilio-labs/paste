@@ -2,7 +2,7 @@ global:
   type: color
   category: background-color
 imports:
-  - ../../../global/background-color.yml
+  - ../../dark/global/background-color.yml
 props:
   # base background
   color-background-inverse:

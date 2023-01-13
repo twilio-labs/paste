@@ -2,4 +2,4 @@ global:
   type: size
   category: sizing
 imports:
-  - ../../../global/sizing.yml
+  - ../../dark/global/sizing.yml

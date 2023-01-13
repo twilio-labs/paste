@@ -2,4 +2,4 @@ global:
   type: size
   category: radius
 imports:
-  - ../../../global/border-radius.yml
+  - ../../dark/global/border-radius.yml

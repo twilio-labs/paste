@@ -2,7 +2,7 @@ global:
   category: font
   type: font
 imports:
-  - ../../../global/font-family.yml
+  - ../../dark/global/font-family.yml
   - ../aliases/font-family.yml
 props:
   font-family-text:

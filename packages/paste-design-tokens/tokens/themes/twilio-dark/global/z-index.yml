@@ -2,4 +2,4 @@ global:
   type: z-index
   category: z-index
 imports:
-  - ../../../global/z-index.yml
+  - ../../dark/global/z-index.yml

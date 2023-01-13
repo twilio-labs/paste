@@ -2,4 +2,4 @@ global:
   category: line-height
   type: number
 imports:
-  - ../../../global/line-height.yml
+  - ../../dark/global/line-height.yml

@@ -2,4 +2,4 @@ global:
   type: size
   category: border-width
 imports:
-  - ../../../global/border-width.yml
+  - ../../dark/global/border-width.yml

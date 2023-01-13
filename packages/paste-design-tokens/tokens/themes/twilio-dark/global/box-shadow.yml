@@ -2,8 +2,7 @@ global:
   type: shadow
   category: box-shadow
 imports:
-  - ../../../global/box-shadow.yml
-  - ../aliases/box-shadow.yml
+  - ../../dark/global/box-shadow.yml
 props:
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!white}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"

@@ -2,7 +2,7 @@ global:
   type: color
   category: text-color
 imports:
-  - ../../../global/text-color.yml
+  - ../../dark/global/text-color.yml
 props:
   # body text
   color-text-inverse-weak:

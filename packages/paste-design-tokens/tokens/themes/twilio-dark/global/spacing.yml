@@ -2,4 +2,4 @@ global:
   category: spacing
   type: size
 imports:
-  - ../../../global/spacing.yml
+  - ../../dark/global/spacing.yml

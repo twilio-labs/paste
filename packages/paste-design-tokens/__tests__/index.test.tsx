@@ -45,4 +45,30 @@ describe('Design Tokens', () => {
     });
     expect(theme).toMatchSnapshot();
   });
+
+  it('matches the Twilio theme', () => {
+    const theme = theo.convertSync({
+      transform: {
+        type: 'web',
+        file: path.resolve(__dirname, '../tokens/themes/twilio/tokens.yml'),
+      },
+      format: {
+        type: 'json',
+      },
+    });
+    expect(theme).toMatchSnapshot();
+  });
+
+  it('matches the Twilio Dark theme', () => {
+    const theme = theo.convertSync({
+      transform: {
+        type: 'web',
+        file: path.resolve(__dirname, '../tokens/themes/twilio-dark/tokens.yml'),
+      },
+      format: {
+        type: 'json',
+      },
+    });
+    expect(theme).toMatchSnapshot();
+  });
 });

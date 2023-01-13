@@ -2,4 +2,4 @@ global:
   type: color
   category: data-visualization
 imports:
-  - ../../../global/palette-color.yml
+  - ../../dark/global/palette-color.yml
