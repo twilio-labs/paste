@@ -13,6 +13,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 
 import {Combobox, useCombobox} from '../src';
 
@@ -776,3 +777,50 @@ export const ComboboxEmptyState = (): React.ReactNode => {
 };
 
 ComboboxEmptyState.storyName = 'Combobox - EmptyState';
+
+export const ComboboxInModal: StoryFn = () => {
+  const [modalIsOpen, setModalIsOpen] = React.useState(true);
+  const handleOpen = (): void => setModalIsOpen(true);
+  const handleClose = (): void => setModalIsOpen(false);
+  const modalHeadingId = useUID();
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleOpen}>
+        Open modal
+      </Button>
+      <Modal ariaLabelledby={modalHeadingId} isOpen={modalIsOpen} onDismiss={handleClose} size="default">
+        <ModalHeader>
+          <ModalHeading as="h2" id={modalHeadingId}>
+            Example combobox
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+          <Combobox
+            initialIsOpen
+            items={iconItems}
+            labelText="Choose a component:"
+            helpText="This is the help text"
+            optionTemplate={(item: IconItems) => (
+              <MediaObject verticalAlign="center">
+                {item.iconLeft ? (
+                  <MediaFigure spacing="space20">
+                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  </MediaFigure>
+                ) : null}
+
+                <MediaBody>{item.label}</MediaBody>
+                {item.iconRight ? (
+                  <MediaFigure spacing="space20">
+                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  </MediaFigure>
+                ) : null}
+              </MediaObject>
+            )}
+            itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+          />
+        </ModalBody>
+      </Modal>
+    </>
+  );
+};

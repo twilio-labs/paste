@@ -25,6 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@radix-ui/react-use-rect": "1.0.0",
     "lodash": "4.17.21",
     "react-virtual": "2.10.4"
   },
