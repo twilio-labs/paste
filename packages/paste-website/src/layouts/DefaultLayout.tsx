@@ -26,19 +26,21 @@ datadogRum.init({
 interface DefaultLayoutProps {
   children?: React.ReactElement;
   data?: unknown;
-  pageContext: {
-    frontmatter: {
-      title?: string;
-      description?: string;
-    };
+  meta: {
+    title?: string;
+    description?: string;
+    package?: string;
   };
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext}) => {
-  const pageTitle = pageContext.frontmatter.title
-    ? `${pageContext.frontmatter.title} - ${SiteMetaDefaults.TITLE}`
-    : SiteMetaDefaults.TITLE;
-  const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
+// Don't display the H1 in Changelogs
+const componentOverrides = {
+  h1: () => null,
+};
+
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta}) => {
+  const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
+  const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
   const router = useRouter();
   return (
     <SiteWrapper>
@@ -64,7 +66,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext}) =>
         maxWidth="size100"
         boxSizing="content-box"
       >
-        <PasteMDXProvider>{children}</PasteMDXProvider>
+        <PasteMDXProvider componentOverrides={(meta.package && componentOverrides) || {}}>{children}</PasteMDXProvider>
       </Box>
     </SiteWrapper>
   );

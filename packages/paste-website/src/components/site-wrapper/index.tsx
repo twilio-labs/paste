@@ -12,11 +12,11 @@ import type {NavigationQuery} from '../../context/NavigationContext';
 import {DarkModeContext} from '../../context/DarkModeContext';
 import {inCypress} from '../../utils/inCypress';
 
-const SiteWrapper: React.FC = ({children}) => {
-  const navigationQueryData: NavigationQuery = {
-    allPasteComponent: {edges: [{node: {}}]},
-    allPasteLayout: {edges: [{node: {}}]},
-  };
+export interface SiteWrapperProps {
+  navigationQueryData: NavigationQuery;
+}
+
+const SiteWrapper: React.FC<SiteWrapperProps> = ({children, navigationQueryData}) => {
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (

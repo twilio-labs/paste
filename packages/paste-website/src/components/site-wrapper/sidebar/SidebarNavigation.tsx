@@ -326,12 +326,11 @@ const SidebarNavigation: React.FC = () => {
           <SidebarAnchor level={1} href={SidebarCategoryRoutes.PRIMITIVES}>
             Overview
           </SidebarAnchor>
-          {filteredPrimitives &&
-            filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
-              <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
-                {name}
-              </SidebarAnchor>
-            ))}
+          {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
+            <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
+              {name}
+            </SidebarAnchor>
+          ))}
         </NavigationDisclosure>
         <NavigationDisclosure
           buttonText="Tokens"
