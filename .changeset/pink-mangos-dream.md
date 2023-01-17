@@ -14,4 +14,3 @@
   - Add `palette-blue-05`
   - Add `palette-blue-55`
   - Add `palette-purple-05`
-  - Add `palette-gray-05`

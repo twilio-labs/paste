@@ -17,12 +17,12 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
     case ThemeVariants.TWILIO:
       return {
         ...TwilioTheme,
-        breakpoints: customBreakpoints || DarkTheme.breakpoints,
+        breakpoints: customBreakpoints || TwilioTheme.breakpoints,
       };
     case ThemeVariants.TWILIO_DARK:
       return {
         ...TwilioDarkTheme,
-        breakpoints: customBreakpoints || DarkTheme.breakpoints,
+        breakpoints: customBreakpoints || TwilioDarkTheme.breakpoints,
       };
     case ThemeVariants.DARK:
       return {
