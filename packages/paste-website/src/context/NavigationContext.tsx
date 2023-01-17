@@ -1,51 +1,33 @@
 import * as React from 'react';
 
 export interface NavigationQuery {
-  allPasteComponent: {
-    edges: [
-      {
-        node: {
-          name: string;
-          version: string;
-          status: string;
-        };
-      }
-    ];
-  };
-  allPastePrimitive: {
-    edges: [
-      {
-        node: {
-          name: string;
-          version: string;
-          status: string;
-        };
-      }
-    ];
-  };
-  allPasteLayout: {
-    edges: [
-      {
-        node: {
-          name: string;
-          version: string;
-          status: string;
-        };
-      }
-    ];
-  };
-  allPastePattern: {
-    edges: [
-      {
-        node: {
-          data: {
-            Feature: string;
-            status: string;
-          };
-        };
-      }
-    ];
-  };
+  allPasteComponent: [
+    {
+      name: string;
+      version: string;
+      status: string;
+    }
+  ];
+  allPastePrimitive: [
+    {
+      name: string;
+      version: string;
+      status: string;
+    }
+  ];
+  allPasteLayout: [
+    {
+      name: string;
+      version: string;
+      status: string;
+    }
+  ];
+  allPastePattern: [
+    {
+      Feature: string;
+      status: string;
+    }
+  ];
 }
 
 export const NavigationContext = React.createContext<NavigationQuery | null>(null);

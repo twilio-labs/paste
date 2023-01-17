@@ -1,9 +1,9 @@
----
-title: Alert
-package: '@twilio-paste/alert'
-description: An alert notifies a user to high-priority or time-sensitive information.
-slug: /components/alert/
----
+export const meta = {
+  title: 'Alert',
+  package: '@twilio-paste/alert',
+  description: 'An alert notifies a user to high-priority or time-sensitive information.',
+  slug: '/components/alert/',
+};
 
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
@@ -18,6 +18,20 @@ import {Blockquote} from '../../../components/Blockquote';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/alert/CHANGELOG.md';
+import packageJson from '@twilio-paste/alert/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+    },
+  };
+};
 
 export const pageQuery = `
   {
@@ -69,8 +83,6 @@ export const pageQuery = `
 ---
 
 <contentwrapper>
-
-<PageAside data={props.data.mdx} />
 
 <content>
 

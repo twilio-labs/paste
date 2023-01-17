@@ -13588,14 +13588,17 @@ __metadata:
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     "@twilio-paste/utils": ^2.0.1
+    "@types/airtable": ^0.10.1
     "@types/gtag.js": ^0.0.12
     "@types/lodash": ^4.14.182
     "@types/mdx-js__react": ^1.5.5
+    airtable: ^0.11.6
     chrome-aws-lambda: ^10.0.0
     color: ^3.1.2
     date-fns: 2.21.3
     deepmerge: 4.2.2
     dotenv: ^16.0.0
+    globby: ^13.1.3
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
     lodash: 4.17.21
@@ -13620,6 +13623,15 @@ __metadata:
     winston: ^3.8.1
   languageName: unknown
   linkType: soft
+
+"@types/airtable@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@types/airtable@npm:0.10.1"
+  dependencies:
+    airtable: "*"
+  checksum: 487ba57b47a78c86134c0615294a2c0e304b05c89dd6c81e2fddc44496c0a0276a34f3b0d4cb525ab56596c5ffb75b8cb180948a322e9cd23df11639d906f67f
+  languageName: node
+  linkType: hard
 
 "@types/anymatch@npm:*":
   version: 1.3.1
@@ -14251,6 +14263,13 @@ __metadata:
   version: 17.0.21
   resolution: "@types/node@npm:17.0.21"
   checksum: 89dcd2fe82f21d3634266f8384e9c865cf8af49685639fbdbd799bdd1040480fb1e8eeda2d3b9fce41edbe704d2a4be9f427118c4ae872e8d9bb7cbeb3c41a94
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.0.0 <15":
+  version: 14.18.36
+  resolution: "@types/node@npm:14.18.36"
+  checksum: da7f479b3fc996d585e60b8329987c6e310ddbf051e14f2d900ce04f7768f42fa7b760f0eb376008d3eca130ce9431018fb5c9e44027dcb7bb139c547e44b9c5
   languageName: node
   linkType: hard
 
@@ -15670,6 +15689,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"abortcontroller-polyfill@npm:^1.4.0":
+  version: 1.7.5
+  resolution: "abortcontroller-polyfill@npm:1.7.5"
+  checksum: daf4169f4228ae0e4f4dbcfa782e501b923667f2666b7c55bd3b7664e5d6b100e333a93371173985fdf21f65d7dfba15bdb2e6031bdc9e57e4ce0297147da3aa
+  languageName: node
+  linkType: hard
+
 "accepts@npm:~1.3.4, accepts@npm:~1.3.5, accepts@npm:~1.3.7":
   version: 1.3.7
   resolution: "accepts@npm:1.3.7"
@@ -15872,6 +15898,19 @@ __metadata:
     clean-stack: ^4.0.0
     indent-string: ^5.0.0
   checksum: bb3ffdfd13447800fff237c2cba752c59868ee669104bb995dfbbe0b8320e967d679e683dabb640feb32e4882d60258165cde0baafc4cd467cc7d275a13ad6b5
+  languageName: node
+  linkType: hard
+
+"airtable@npm:*, airtable@npm:^0.11.6":
+  version: 0.11.6
+  resolution: "airtable@npm:0.11.6"
+  dependencies:
+    "@types/node": ">=8.0.0 <15"
+    abort-controller: ^3.0.0
+    abortcontroller-polyfill: ^1.4.0
+    lodash: ^4.17.21
+    node-fetch: ^2.6.7
+  checksum: 758d3109914b09d2216645d10b7cff3a2a7f1821184e71dc012407b034174a1b3ada26206ea4a9eaf586a5da05178ee4ca0c76b71630c858e998e4f4d1208942
   languageName: node
   linkType: hard
 
@@ -26477,7 +26516,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.0.0, globby@npm:^13.1.2":
+"globby@npm:^13.0.0, globby@npm:^13.1.2, globby@npm:^13.1.3":
   version: 13.1.3
   resolution: "globby@npm:13.1.3"
   dependencies:
