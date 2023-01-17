@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Meta, StoryFn} from '@storybook/react';
+import type {Meta, StoryFn, StoryContext} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
@@ -571,4 +571,12 @@ export const MultiselectComboboxInModal: StoryFn = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox/MultiselectCombobox',
+  // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
+  decorators: [
+    (Story: StoryFn, context: StoryContext): React.ReactNode => (
+      <Box height="size80" width="size80">
+        {Story(context.args, context)}
+      </Box>
+    ),
+  ],
 } as Meta;

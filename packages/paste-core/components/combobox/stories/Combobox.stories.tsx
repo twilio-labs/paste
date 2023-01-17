@@ -1,6 +1,6 @@
 import * as React from 'react';
 import _ from 'lodash';
-import type {StoryFn} from '@storybook/react';
+import type {StoryFn, Meta, StoryContext} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -111,9 +111,17 @@ const groupedItems = [
 export default {
   title: 'Components/Combobox/Combobox',
   component: Combobox,
-};
+  // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
+  decorators: [
+    (Story: StoryFn, context: StoryContext): React.ReactNode => (
+      <Box height="size80" width="size80" element="HELLO">
+        {Story(context.args, context)}
+      </Box>
+    ),
+  ],
+} as Meta;
 
-export const DefaultCombobox = (): React.ReactNode => {
+export const DefaultCombobox: StoryFn = () => {
   return (
     <Combobox
       items={iconItems}
@@ -144,7 +152,7 @@ DefaultCombobox.storyName = 'Combobox';
 
 const ItemToString = ({name}: {name: string}): string => name;
 
-export const VirtualizedCombobox = (): React.ReactNode => {
+export const VirtualizedCombobox: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(() => createLargeArray((index) => (index as number).toString()), []);
 
   return (
@@ -161,7 +169,7 @@ export const VirtualizedCombobox = (): React.ReactNode => {
 
 VirtualizedCombobox.storyName = 'Combobox - Virtualized without option template';
 
-export const VirtualizedCombobox1 = (): React.ReactNode => {
+export const VirtualizedCombobox1: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
@@ -187,7 +195,7 @@ export const VirtualizedCombobox1 = (): React.ReactNode => {
 
 VirtualizedCombobox1.storyName = 'Combobox - Virtualized with string option template';
 
-export const VirtualizedCombobox2 = (): React.ReactNode => {
+export const VirtualizedCombobox2: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
@@ -217,7 +225,7 @@ export const VirtualizedCombobox2 = (): React.ReactNode => {
 
 VirtualizedCombobox2.storyName = 'Combobox - Virtualized with React child option template';
 
-export const ComboboxInverse = (): React.ReactNode => {
+export const ComboboxInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -249,7 +257,7 @@ export const ComboboxInverse = (): React.ReactNode => {
 
 ComboboxInverse.storyName = 'Combobox - Inverse';
 
-export const ComboboxAutocomplete = (): React.ReactNode => {
+export const ComboboxAutocomplete: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
     <Combobox
@@ -268,13 +276,13 @@ export const ComboboxAutocomplete = (): React.ReactNode => {
 
 ComboboxAutocomplete.storyName = 'Combobox - Autocomplete';
 
-export const ComboboxRequired = (): React.ReactNode => {
+export const ComboboxRequired: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
 };
 
 ComboboxRequired.storyName = 'Combobox - Required';
 
-export const ComboboxRequiredInverse = (): React.ReactNode => {
+export const ComboboxRequiredInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -290,13 +298,13 @@ export const ComboboxRequiredInverse = (): React.ReactNode => {
 
 ComboboxRequiredInverse.storyName = 'Combobox - Required inverse';
 
-export const ComboboxError = (): React.ReactNode => {
+export const ComboboxError: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
 };
 
 ComboboxError.storyName = 'Combobox - Error';
 
-export const ComboboxErrorInverse = (): React.ReactNode => {
+export const ComboboxErrorInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -312,7 +320,7 @@ export const ComboboxErrorInverse = (): React.ReactNode => {
 
 ComboboxErrorInverse.storyName = 'Combobox - Error inverse';
 
-export const ComboboxDisabled = (): React.ReactNode => {
+export const ComboboxDisabled: StoryFn = () => {
   return (
     <Combobox
       items={items}
@@ -326,7 +334,7 @@ export const ComboboxDisabled = (): React.ReactNode => {
 
 ComboboxDisabled.storyName = 'Combobox - Disabled';
 
-export const ComboboxDisabledItems = (): React.ReactNode => {
+export const ComboboxDisabledItems: StoryFn = () => {
   return (
     <Combobox
       items={items}
@@ -340,7 +348,7 @@ export const ComboboxDisabledItems = (): React.ReactNode => {
 
 ComboboxDisabledItems.storyName = 'Combobox - Disabled Items';
 
-export const ComboboxDisabledInverse = (): React.ReactNode => {
+export const ComboboxDisabledInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -357,7 +365,7 @@ export const ComboboxDisabledInverse = (): React.ReactNode => {
 
 ComboboxDisabledInverse.storyName = 'Combobox - Disabled inverse';
 
-export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
+export const ComboboxInsertBeforeAndAfter: StoryFn = () => {
   return (
     <Combobox
       items={items}
@@ -379,7 +387,7 @@ export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
 
 ComboboxInsertBeforeAndAfter.storyName = 'Combobox - Insert before and after';
 
-export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
+export const ComboboxDisabledInsertBeforeAndAfter: StoryFn = () => {
   return (
     <Combobox
       items={items}
@@ -402,7 +410,7 @@ export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
 
 ComboboxDisabledInsertBeforeAndAfter.storyName = 'Combobox - Disabled insert before and after';
 
-export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
+export const ComboboxInsertBeforeAndAfterInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -427,7 +435,7 @@ export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
 
 ComboboxInsertBeforeAndAfterInverse.storyName = 'Combobox - Insert before and after inverse';
 
-export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
+export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -453,7 +461,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
 
 ComboboxDisabledInsertBeforeAndAfterInverse.storyName = 'Combobox - Disabled insert before and after inverse';
 
-export const ComboboxObject = (): React.ReactNode => {
+export const ComboboxObject: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   return (
     <Combobox
@@ -480,7 +488,7 @@ export const ComboboxObject = (): React.ReactNode => {
 
 ComboboxObject.storyName = 'Combobox - Object';
 
-export const ComboboxOverflowLongValue = (): React.ReactNode => {
+export const ComboboxOverflowLongValue: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
     <Box maxWidth="size40">
@@ -502,7 +510,7 @@ export const ComboboxOverflowLongValue = (): React.ReactNode => {
 
 ComboboxOverflowLongValue.storyName = 'Combobox - overflow long value';
 
-export const ComboboxControlled = (): React.ReactNode => {
+export const ComboboxControlled: StoryFn = () => {
   const [value, setValue] = React.useState('United Arab Emirates');
   const [selectedItem, setSelectedItem] = React.useState({code: 'AE', label: 'United Arab Emirates', phone: '971'});
   const [inputItems, setInputItems] = React.useState(objectItems);
@@ -619,7 +627,7 @@ export const ComboboxControlledUsingState: StoryFn = () => {
 
 ComboboxControlledUsingState.storyName = 'Combobox - Controlled using state';
 
-export const ComboboxOpen = (): React.ReactNode => {
+export const ComboboxOpen: StoryFn = () => {
   return (
     <Combobox
       items={objectItems}
@@ -633,7 +641,7 @@ export const ComboboxOpen = (): React.ReactNode => {
 
 ComboboxOpen.storyName = 'Combobox - Open';
 
-export const ComboboxOptionGroups = (): React.ReactNode => {
+export const ComboboxOptionGroups: StoryFn = () => {
   return (
     <Combobox
       groupItemsBy="group"
@@ -648,7 +656,7 @@ export const ComboboxOptionGroups = (): React.ReactNode => {
 
 ComboboxOptionGroups.storyName = 'Combobox - Option groups';
 
-export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
+export const ComboboxOptionGroupsOpen: StoryFn = () => {
   return (
     <Combobox
       groupItemsBy="group"
@@ -677,7 +685,7 @@ export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
 
 ComboboxOptionGroupsOpen.storyName = 'Combobox - Option groups open';
 
-export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
+export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
   return (
     <Combobox
@@ -701,7 +709,7 @@ export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
 
 ComboboxOptionGroupsAutocomplete.storyName = 'Combobox - Option groups autocomplete';
 
-export const ComboboxListboxZIndex = (): React.ReactNode => {
+export const ComboboxListboxZIndex: StoryFn = () => {
   const [selectValue, setSelectValue] = React.useState('');
   const selectID = useUID();
   return (
@@ -755,7 +763,7 @@ const SampleEmptyState: React.FC = () => (
   </>
 );
 
-export const ComboboxEmptyState = (): React.ReactNode => {
+export const ComboboxEmptyState: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState<string[]>([]);
 
   return (

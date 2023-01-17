@@ -206,11 +206,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       overscan: 8,
     });
 
-    /*
-     * the dimensions of the input used to position the portal that contains the listbox
-     * const inputBoxRect = useRect(inputBoxRef, {observe: true});
-     */
-
     // Fixes issue where dynamic height items would not recompute on window resize, when list options (un)wrap
     React.useEffect(() => {
       rowVirtualizer.measure();
