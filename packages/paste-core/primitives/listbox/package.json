@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/listbox-primitive",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build listboxes.",
