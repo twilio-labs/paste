@@ -9,7 +9,7 @@ import {useTheme} from '@twilio-paste/core/theme';
 import {PasteIconInverse} from './PasteIconInverse';
 import {BetaBadge} from './BetaBadge';
 
-const StyledA = styled.a`
+const StyledA = styled(Link)`
   text-decoration: none;
   color: inherit;
 
@@ -41,9 +41,9 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
         </MediaFigure>
         <MediaBody>
           <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
-            <Link href="/" passHref>
-              <StyledA>{title}</StyledA>
-            </Link>
+            <StyledA href="/" passHref>
+              {title}
+            </StyledA>
           </Text>
           {subtitle ? (
             <Box

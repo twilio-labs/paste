@@ -81,6 +81,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref
   ) => {
+    const [showOptions, setShowOptions] = React.useState(false);
+    React.useEffect(() => {
+      setShowOptions(true);
+    }, []);
+
     return (
       <InputBox
         disabled={disabled}
@@ -102,7 +107,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             size={multiple ? size : 0}
             variant={variant}
           >
-            {children}
+            {showOptions && children}
           </SelectElement>
           {!multiple && (
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>

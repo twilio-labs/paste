@@ -7,7 +7,11 @@ import {SimpleStorage} from '../../utils/SimpleStorage';
 
 const BetaBadge = (): JSX.Element => {
   const localStorageKey = 'beta-modal-dismissed';
-  const [showBetaModal, setShowBetaModal] = React.useState(SimpleStorage.get(localStorageKey) !== 'true' || false);
+  const [showBetaModal, setShowBetaModal] = React.useState(false);
+
+  React.useEffect(() => {
+    setShowBetaModal(SimpleStorage.get(localStorageKey) !== 'true' || false);
+  }, []);
 
   const handleClick = React.useCallback(() => {
     setShowBetaModal(true);

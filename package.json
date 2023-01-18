@@ -42,7 +42,7 @@
     "start": "yarn prestart && yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
     "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook:quiet\" \"yarn:start:website\"",
     "start:storybook": "sb dev -p 9001",
-    "start:storybook:quiet": "export DROP_PROGRESS=TRUE && yarn start:storybook",
+    "start:storybook:quiet": "yarn start:storybook --quiet",
     "start:tokens": "yarn workspace @twilio-paste/design-tokens build:watch",
     "start:website": "yarn workspace @twilio-paste/website netlify dev",
     "start:theme-designer": "yarn workspace @twilio-paste/theme-designer netlify dev",
