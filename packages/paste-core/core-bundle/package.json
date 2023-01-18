@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "17.3.0",
+  "version": "17.4.0",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -60,7 +60,7 @@
     "@twilio-paste/file-picker": "^1.1.2",
     "@twilio-paste/file-uploader": "^1.0.0",
     "@twilio-paste/flex": "^5.0.2",
-    "@twilio-paste/form": "^1.0.0",
+    "@twilio-paste/form": "^8.0.0",
     "@twilio-paste/form-pill-group": "^5.1.2",
     "@twilio-paste/grid": "^5.0.3",
     "@twilio-paste/heading": "^8.0.2",
