@@ -1,5 +1,16 @@
 # Change Log
 
+## 17.4.0
+
+### Minor Changes
+
+- [`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31) [#2956](https://github.com/twilio-labs/paste/pull/2956) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form] Fix the version released, use ^8.0.0 or higher.
+
+### Patch Changes
+
+- Updated dependencies [[`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31)]:
+  - @twilio-paste/form@8.0.0
+
 ## 17.3.0
 
 ### Minor Changes

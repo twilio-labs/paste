@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "category": "layout",
   "status": "production",
   "description": "A form groups related form elements that allow users to input information or configure options.",
