@@ -11,12 +11,6 @@ props:
   color-background-inverse-strong:
     value: "{!palette-gray-90}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
-  color-background-inverse-stronger:
-    value: "{!palette-gray-80}"
-    comment: Stronger inverse background color for any container. Must be used on color-background-body-inverse.
-  color-background-weak:
-    value: "{!palette-gray-100}"
-    comment: Weak default background color.
 
   # user background
   color-background-user:
@@ -41,9 +35,6 @@ props:
   color-background-error-weakest:
     value: "{!palette-gray-100}"
     comment: Weakest error background color.
-  color-background-new-weakest:
-    value: "{!palette-gray-100}"
-    comment: Weakest background color for indicating a new status.
 
   # primary background
   color-background-primary:

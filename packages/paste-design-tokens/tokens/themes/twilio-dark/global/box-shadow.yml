@@ -5,13 +5,13 @@ imports:
   - ../../dark/global/box-shadow.yml
 props:
   shadow-focus:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!white}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!white}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-focus-inset:
-    value: "inset {!offset-0} {!offset-0} {!offset-0} 1px {!white}, inset {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0-transparent-20}"
+    value: "inset {!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0-transparent-20}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-border-primary-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
@@ -22,44 +22,11 @@ props:
   shadow-border-primary:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-55}"
     comment: Default shadow border for primary interactions.
-  shadow-border-success-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-70}"
-    comment: Weaker shadow border for success inputs.
-  shadow-border-warning-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-orange-70}"
-    comment: Weaker shadow border for warning inputs.
-  shadow-border-error-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
-    comment: Weaker shadow border for error inputs.
   shadow-border-error-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
     comment: Strong shadow border for error inputs hover.
-  shadow-border-error-strongest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-10}"
-    comment: Strongest shadow border for error inputs hover.
-  shadow-border-neutral-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
-    comment: Weaker shadow border for neutral inputs.
-  shadow-border-new-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
-    comment: Weaker shadow border for new status inputs.
-  shadow-border-decorative-10-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
-    comment: Bottom shadow border for decorative 10
-  shadow-border-decorative-20-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
-    comment: Bottom shadow border for decorative 20
-  shadow-border-decorative-30-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-70}"
-    comment: Bottom shadow border for decorative 30
-  shadow-border-decorative-40-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
-    comment: Bottom shadow border for decorative 40
 
   # Badge
-  shadow-border-bottom-primary:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-55}"
-    comment: Bottom shadow border for primary status
   shadow-border-bottom-neutral-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-blue-70}"
     comment: Weaker bottom shadow border for neutral status
@@ -81,8 +48,3 @@ props:
   shadow-border-bottom-decorative-30-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-green-70}"
     comment: Weaker bottom shadow border for decorative 30
-
-  # User
-  shadow-border-user:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
-    comment: Shadow border for user.

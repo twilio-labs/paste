@@ -13,9 +13,6 @@ props:
   color-border-success-weak:
     value: "{!palette-green-40}"
     comment: Weak success border color.
-  color-border-error-strongest:
-    value: "{!palette-red-100}"
-    comment: Strongest error border color.
   color-border-error:
     value: "{!palette-red-65}"
     comment: Error border color.
@@ -24,8 +21,3 @@ props:
   color-border-destructive:
     value: "{!palette-red-65}"
     comment: Destructive border color.
-
-  # user borders
-  color-border-user:
-    value: "{!palette-purple-20}"
-    comment: User avatar border color.

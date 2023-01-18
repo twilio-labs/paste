@@ -6,10 +6,10 @@ imports:
   - ../aliases/box-shadow.yml
 props:
   shadow-focus:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!white}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-20}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!white}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-focus-inset:
     value: "inset {!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-55}, inset {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-20}"
@@ -20,47 +20,14 @@ props:
   shadow-border-destructive:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-65}"
     comment: Shadow border for destructive interactions.
-  shadow-border-success-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-20}"
-    comment: Weaker shadow border for success inputs.
-  shadow-border-warning-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-orange-20}"
-    comment: Weaker shadow border for warning inputs.
-  shadow-border-error-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
-    comment: Weaker shadow border for error inputs.
   shadow-border-error-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
     comment: Shadow border for error inputs.
   shadow-border-error:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-65}"
     comment: Shadow border for error inputs.
-  shadow-border-error-strongest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-100}"
-    comment: Strongest shadow border for error inputs hover.
-  shadow-border-neutral-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
-    comment: Weaker shadow border for neutral inputs.
-  shadow-border-new-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
-    comment: Weaker shadow border for new status inputs.
-  shadow-border-decorative-10-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
-    comment: Bottom shadow border for decorative 10
-  shadow-border-decorative-20-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
-    comment: Bottom shadow border for decorative 20
-  shadow-border-decorative-30-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-20}"
-    comment: Bottom shadow border for decorative 30
-  shadow-border-decorative-40-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
-    comment: Bottom shadow border for decorative 40
 
   # Badge
-  shadow-border-bottom-primary:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-55}"
-    comment: Bottom shadow border for primary status
   shadow-border-bottom-neutral-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-blue-40}"
     comment: Weaker bottom shadow border for neutral status
@@ -88,8 +55,3 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-purple-30}"
     comment: Weaker bottom shadow border for decorative 40
-
-  # User
-  shadow-border-user:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
-    comment: Shadow border for user.

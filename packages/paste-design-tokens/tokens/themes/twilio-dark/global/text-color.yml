@@ -14,27 +14,7 @@ props:
     value: "{!palette-red-30}"
     comment: Stronger shade of destructive link text to be used in interactions.
 
-  # primary
-  color-text-primary:
-    value: "{!palette-blue-50}"
-    comment: Primary text.
-  color-text-primary-weak:
-    value: "{!palette-gray-80}"
-    comment: Weak primary text.
-  color-text-primary-strong:
-    value: "{!palette-blue-30}"
-    comment: Strong primary text.
-  color-text-primary-stronger:
-    value: "{!palette-blue-30}"
-    comment: Stronger primary text.
-  color-text-primary-strongest:
-    value: "{!palette-gray-0}"
-    comment: Strongest primary text.
-
   # status
-  color-text-error-strongest:
-    value: "{!palette-red-10}"
-    comment: Strongest error text for inputs and error misc.
   color-text-neutral:
     value: "{!palette-blue-40}"
     comment: Color for text indicating a neutral status.
@@ -43,9 +23,6 @@ props:
   color-text-icon-inverse:
     value: "{!palette-gray-50}"
     comment: Default icon color for inverse backgrounds.
-  color-text-icon-new:
-    value: "{!palette-purple-30}"
-    comment: Icon color for indicating a new status.
 
   # decorative
   color-text-decorative-40:
@@ -55,8 +32,3 @@ props:
       - color-background
       - color-background-body
       - color-background-decorative-40
-
-  # user
-  color-text-user:
-    value: "{!palette-purple-30}"
-    comment: Icon color for user avatar.
