@@ -13243,7 +13243,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form@^1.0.0, @twilio-paste/form@workspace:packages/paste-core/components/form":
+"@twilio-paste/form@npm:^1.0.0":
+  version: 1.6.4
+  resolution: "@twilio-paste/form@npm:1.6.4"
+  dependencies:
+    react-autosize-textarea: 7.0.0
+  peerDependencies:
+    "@twilio-paste/box": ^2.8.2
+    "@twilio-paste/design-tokens": ^6.0.0
+    "@twilio-paste/flex": ^0.3.44
+    "@twilio-paste/icons": ^2.6.3
+    "@twilio-paste/screen-reader-only": ^1.1.11
+    "@twilio-paste/style-props": ^1.4.1
+    "@twilio-paste/styling-library": ^0.1.1
+    "@twilio-paste/text": ^2.2.8
+    "@twilio-paste/theme": ^3.2.11
+    "@twilio-paste/types": ^3.0.15
+    prop-types: ^15.7.2
+    react: ^16.8.6
+    react-dom: ^16.8.6
+    react-uid: ^2.2.0
+  checksum: 1f166bc0472ae992a44d41fa85b5385ba63afa5b531470af768afaa6a4dedab2f8623242c79daafabfca2e67d97005ddf438b3b25411bfcc8bac481af7366c04
+  languageName: node
+  linkType: hard
+
+"@twilio-paste/form@workspace:packages/paste-core/components/form":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form@workspace:packages/paste-core/components/form"
   dependencies:
@@ -18790,6 +18814,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"autosize@npm:^4.0.2":
+  version: 4.0.4
+  resolution: "autosize@npm:4.0.4"
+  checksum: da3a53a699ef8a4cfea8f0eea2303459b3986754278d506f60c08084b3a0a34bd6fa525becaf1edcffe4eb9517b67a6442aacf6b02aee1d406e5a794ec47d4ce
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.5":
   version: 1.0.5
   resolution: "available-typed-arrays@npm:1.0.5"
@@ -21728,6 +21759,13 @@ __metadata:
   version: 1.0.17
   resolution: "compute-scroll-into-view@npm:1.0.17"
   checksum: b20c05a10c37813c5a6e4bf053c00f65c88d23afed7a6bd7a2a69e05e2ffc2df3483ecfe407d36bf16b8cec8be21ae1966c9c523093a03117e567156cd79a51e
+  languageName: node
+  linkType: hard
+
+"computed-style@npm:~0.1.3":
+  version: 0.1.4
+  resolution: "computed-style@npm:0.1.4"
+  checksum: 18957a36c96abf1ea6ad97241d6c88a70b192076a9d176d489a2e6d5e5d93968bb9fbb51a70a8399c4de5ec87e4465a737718cf9106bf1fb8037f0433b8fb255
   languageName: node
   linkType: hard
 
@@ -35182,6 +35220,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"line-height@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "line-height@npm:0.3.1"
+  dependencies:
+    computed-style: ~0.1.3
+  checksum: 99acec832fd29fe50bea7c5dd2fb56c53b9e60c8da93384f6e1780d68018440b952c62578f34168e78bacdd9c6c3fd4fb3b8989c7b9976b3d74c16563c9182a3
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -42159,7 +42206,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.5.7, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.5.6, prop-types@npm:^15.5.7, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -42665,6 +42712,20 @@ fsevents@^1.2.7:
     regenerator-runtime: ^0.13.9
     whatwg-fetch: ^3.6.2
   checksum: 1bb031080af15397d6eb9c69a0c2e93799991f7197a086e4409ba719398f1256b542a3d6c9a34673d516c684eef3e8226c99b335982593851f58f65f6e43571b
+  languageName: node
+  linkType: hard
+
+"react-autosize-textarea@npm:7.0.0":
+  version: 7.0.0
+  resolution: "react-autosize-textarea@npm:7.0.0"
+  dependencies:
+    autosize: ^4.0.2
+    line-height: ^0.3.1
+    prop-types: ^15.5.6
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0
+    react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+  checksum: 5201bad98eda1cc0678e0386d1e88184041f68d9b6b55c7e35558d366bf8ffe4449088bb6d8c163e4c70a734a870e2487de0d0b3f85a5ee67257928a8f302d9a
   languageName: node
   linkType: hard
 
