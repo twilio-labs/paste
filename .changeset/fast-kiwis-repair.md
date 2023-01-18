@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Form] Fix the version released.
+[Form] Fix the version released, use ^8.0.0 or higher.
