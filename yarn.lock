@@ -12710,7 +12710,7 @@ __metadata:
     "@twilio-paste/file-picker": ^1.1.2
     "@twilio-paste/file-uploader": ^1.0.0
     "@twilio-paste/flex": ^5.0.2
-    "@twilio-paste/form": ^1.0.0
+    "@twilio-paste/form": ^7.0.0
     "@twilio-paste/form-pill-group": ^5.1.2
     "@twilio-paste/grid": ^5.0.3
     "@twilio-paste/heading": ^8.0.2
@@ -13243,7 +13243,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form@^1.0.0, @twilio-paste/form@workspace:packages/paste-core/components/form":
+"@twilio-paste/form@^7.0.0, @twilio-paste/form@workspace:packages/paste-core/components/form":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form@workspace:packages/paste-core/components/form"
   dependencies:
