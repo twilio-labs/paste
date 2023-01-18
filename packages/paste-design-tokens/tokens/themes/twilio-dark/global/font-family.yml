@@ -3,9 +3,3 @@ global:
   type: font
 imports:
   - ../../twilio/global/font-family.yml
-  - ../../twilio/aliases/font-family.yml
-props:
-  font-family-text:
-    value: "{!font-family-10}"
-  font-family-display:
-    value: "{!font-family-20}"
