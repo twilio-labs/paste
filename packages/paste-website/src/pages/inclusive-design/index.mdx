@@ -13,8 +13,18 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import Link from 'next/link';
 import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllPackages} from '../../utils/api';
 
 export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const allPackages = await getAllPackages();
+  return {
+    props: {
+      navigationQueryData: allPackages,
+    },
+  };
+};
 
 <content>
 <h1>{meta.title}</h1>

@@ -10,6 +10,7 @@ import packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
 import {SiteMetaDefaults, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
+import type {NavigationQuery} from '../context/NavigationContext';
 
 datadogRum.init({
   applicationId: DATADOG_APPLICATION_ID,
@@ -31,6 +32,7 @@ interface DefaultLayoutProps {
     description?: string;
     package?: string;
   };
+  navigationQueryData: NavigationQuery;
 }
 
 // Don't display the H1 in Changelogs
@@ -38,12 +40,12 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta}) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta, navigationQueryData}) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
   const router = useRouter();
   return (
-    <SiteWrapper>
+    <SiteWrapper navigationQueryData={navigationQueryData}>
       <Head>
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
@@ -66,7 +68,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta}) => {
         maxWidth="size100"
         boxSizing="content-box"
       >
-        <PasteMDXProvider componentOverrides={(meta.package && componentOverrides) || {}}>{children}</PasteMDXProvider>
+        <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>
       </Box>
     </SiteWrapper>
   );
