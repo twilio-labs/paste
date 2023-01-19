@@ -11,14 +11,7 @@ interface SideModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
 const SideModalBody = React.forwardRef<HTMLDivElement, SideModalBodyProps>(
   ({children, element = 'SIDE_MODAL_BODY', ...props}, ref) => {
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        element={element}
-        ref={ref}
-        overflowY="auto"
-        padding="space50"
-        paddingBottom="space60"
-      >
+      <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} overflowY="auto" padding="space90">
         {children}
       </Box>
     );
