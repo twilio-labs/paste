@@ -195,6 +195,7 @@ module.exports = {
         '**/__tests__/*.test.{ts,tsx}',
         '**/__fixtures__/*.tsx',
         '**/__test__/*.spec.{ts,tsx}',
+        'performance-benchmarks/**/*.tsx',
       ],
       rules: {
         // stories and tests aren't public, they don't need display names
