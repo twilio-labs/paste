@@ -11,6 +11,7 @@ import {LandingPageDesigner} from './LandingPageDesigner';
 import {DoodleBurst} from '../../assets/illustrations/DoodleBurst';
 import {DoodleLoopMedium} from '../../assets/illustrations/DoodleLoopMedium';
 import {DoodleLoopTiny} from '../../assets/illustrations/DoodleLoopTiny';
+import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
 
 const LikeTwilioHeadline: React.FC = () => {
   return (
@@ -65,12 +66,7 @@ const MobileDesigner: React.FC = () => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <Image
-        src="../../assets/images/customization/theme-designer-mobile-screenshot.png"
-        alt=""
-        placeholder="blur"
-        layout="fill"
-      />
+      <Image src={ThemeDesigner} alt="" placeholder="blur" />
     </>
   );
 };

@@ -16,6 +16,7 @@ import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 import {event} from '../../lib/gtag';
+import CodesandboxMobile from '../../assets/images/home/codesandbox-mobile.png';
 
 interface ExperimentProps {
   showIframe: boolean;
@@ -27,7 +28,7 @@ const ExperimentEmbed: React.FC = () => {
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <>
-        <Image src="../../assets/images/home/codesandbox-mobile.png" alt="" placeholder="blur" layout="fill" />
+        <Image src={CodesandboxMobile} alt="" placeholder="blur" />
         <ExperimentMobileButton />
       </>
     );
