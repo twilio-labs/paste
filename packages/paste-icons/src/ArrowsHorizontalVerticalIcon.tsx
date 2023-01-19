@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ArrowsHorizontalVerticalIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ArrowsHorizontalVerticalIcon = React.forwardRef<HTMLElement, ArrowsHorizontalVerticalIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ArrowsHorizontalVerticalIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ArrowsHorizontalVerticalIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,9 +35,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
-            clipRule="evenodd"
+            d="M12.146 5.352a.5.5 0 00.708-.707l-2.5-2.5A.5.5 0 0010.003 2h-.006a.498.498 0 00-.35.146l-2.5 2.5a.5.5 0 10.707.707L9.5 3.706v5.793H3.707l1.647-1.647a.5.5 0 10-.708-.707l-2.5 2.5a.498.498 0 00-.146.35v.007a.497.497 0 00.146.35l2.5 2.5a.5.5 0 10.708-.707L3.707 10.5H9.5v5.793l-1.646-1.647a.5.5 0 10-.708.707l2.5 2.5a.499.499 0 00.708 0l2.5-2.5a.5.5 0 00-.708-.707L10.5 16.292v-5.793h5.793l-1.647 1.646a.5.5 0 00.708.707l2.5-2.5a.499.499 0 000-.707l-2.5-2.5a.5.5 0 00-.708.707L16.293 9.5H10.5V3.706l1.646 1.646z"
           />
         </svg>
       </IconWrapper>
@@ -45,5 +43,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ArrowsHorizontalVerticalIcon.displayName = 'ArrowsHorizontalVerticalIcon';
+export {ArrowsHorizontalVerticalIcon};

@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface InboxIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const InboxIcon = React.forwardRef<HTMLElement, InboxIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `InboxIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[InboxIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M2.44 7.44A1.5 1.5 0 013.5 7h3.055a.5.5 0 01.434.252 3.467 3.467 0 006.022 0A.5.5 0 0113.445 7H16.5A1.5 1.5 0 0118 8.5v3a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 11.5v-3c0-.398.158-.78.44-1.06zM3.5 8a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-2.776a4.467 4.467 0 01-7.448 0H3.5z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+InboxIcon.displayName = 'InboxIcon';
+export {InboxIcon};

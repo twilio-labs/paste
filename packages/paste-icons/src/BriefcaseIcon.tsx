@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface BriefcaseIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const BriefcaseIcon = React.forwardRef<HTMLElement, BriefcaseIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `BriefcaseIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[BriefcaseIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,13 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M3.5 6.5A.5.5 0 003 7v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V7a.5.5 0 00-.5-.5h-13zM2 7a1.5 1.5 0 011.5-1.5h13A1.5 1.5 0 0118 7v9a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 16V7z"
+            clipRule="evenodd"
+          />
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M8.72 2.5a1.5 1.5 0 00-.876.283zm0 1a.5.5 0 00-.448.28V5.5h3.456V3.78a.5.5 0 00-.449-.28H8.721zm0-1h2.56a1.5 1.5 0 011.422 1.025.498.498 0 01.026.158V6a.5.5 0 01-.5.5H7.772a.5.5 0 01-.5-.5V3.683a.5.5 0 01.026-.158 1.5 1.5 0 01.546-.742"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +51,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+BriefcaseIcon.displayName = 'BriefcaseIcon';
+export {BriefcaseIcon};

@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ClockIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ClockIcon = React.forwardRef<HTMLElement, ClockIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ClockIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ClockIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,8 +35,12 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
+            d="M9.53 11.17A.498.498 0 019.5 11V6a.5.5 0 011 0v4.793l1.621 1.621a.5.5 0 11-.707.707l-1.768-1.768a.498.498 0 01-.116-.182z"
+          />
+          <path
+            fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M10 2.5a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM5.404 5.404a6.5 6.5 0 119.192 9.192 6.5 6.5 0 01-9.192-9.192z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +49,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ClockIcon.displayName = 'ClockIcon';
+export {ClockIcon};

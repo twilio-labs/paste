@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface UnarchiveIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const UnarchiveIcon = React.forwardRef<HTMLElement, UnarchiveIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `UnarchiveIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[UnarchiveIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,8 +36,16 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M3.5 2.667a1.5 1.5 0 00-1.5 1.5v2a.5.5 0 00.5.5h15a.5.5 0 00.5-.5v-2a1.5 1.5 0 00-1.5-1.5h-13zm-.354 1.146a.5.5 0 01.354-.146h13a.5.5 0 01.5.5v1.5H3v-1.5a.5.5 0 01.146-.354z"
             clipRule="evenodd"
+          />
+          <path
+            fill="currentColor"
+            d="M4 8.5a.5.5 0 00-1 0v6.333a2.5 2.5 0 002.5 2.5h9a2.5 2.5 0 002.5-2.5V8.5a.5.5 0 00-1 0v6.333a1.5 1.5 0 01-1.5 1.5h-9a1.5 1.5 0 01-1.5-1.5V8.5z"
+          />
+          <path
+            fill="currentColor"
+            d="M10.191 8.538c.06.024.115.06.163.108l2 2a.5.5 0 01-.708.708L10.5 10.207V14a.5.5 0 01-1 0v-3.793l-1.146 1.147a.5.5 0 01-.708-.708l2-2m.545-.108a.498.498 0 00-.188-.038h-.006a.498.498 0 00-.348.144"
           />
         </svg>
       </IconWrapper>
@@ -45,5 +53,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+UnarchiveIcon.displayName = 'UnarchiveIcon';
+export {UnarchiveIcon};

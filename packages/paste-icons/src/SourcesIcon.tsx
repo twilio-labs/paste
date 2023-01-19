@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface SourcesIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const SourcesIcon = React.forwardRef<HTMLElement, SourcesIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `SourcesIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[SourcesIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,9 +35,11 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
-            clipRule="evenodd"
+            d="M7.89 4.049a6.5 6.5 0 11-.22 11.806.5.5 0 10-.436.9A7.5 7.5 0 107.49 3.133a.5.5 0 00.4.916z"
+          />
+          <path
+            fill="currentColor"
+            d="M10.146 7.15a.5.5 0 000 .706l1.647 1.647H2.5a.5.5 0 000 1h9.293l-1.646 1.646a.5.5 0 00.707.707l2.5-2.5a.5.5 0 000-.707l-2.5-2.5a.5.5 0 00-.707 0z"
           />
         </svg>
       </IconWrapper>
@@ -45,5 +47,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+SourcesIcon.displayName = 'SourcesIcon';
+export {SourcesIcon};

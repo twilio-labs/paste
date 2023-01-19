@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface LayoutLinearIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const LayoutLinearIcon = React.forwardRef<HTMLElement, LayoutLinearIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `LayoutLinearIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[LayoutLinearIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M2 10a2 2 0 013.937-.5h2.126a2 2 0 013.874 0h2.126a2 2 0 110 1h-2.126a2 2 0 01-3.874 0H5.937A2 2 0 012 10zm13 0a1 1 0 102 0 1 1 0 00-2 0zm-5 1a1 1 0 110-2 1 1 0 010 2zM4 9a1 1 0 100 2 1 1 0 000-2z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+LayoutLinearIcon.displayName = 'LayoutLinearIcon';
+export {LayoutLinearIcon};

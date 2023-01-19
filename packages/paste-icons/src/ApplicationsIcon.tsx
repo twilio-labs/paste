@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ApplicationsIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ApplicationsIcon = React.forwardRef<HTMLElement, ApplicationsIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ApplicationsIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ApplicationsIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M2.007 5.002a1.5 1.5 0 011.5-1.5h9a1.5 1.5 0 011.5 1.5V6.5h2.5a1.5 1.5 0 011.5 1.5v7a1.5 1.5 0 01-1.5 1.5h-9a1.5 1.5 0 01-1.5-1.5v-1.498h-2.5a1.5 1.5 0 01-1.5-1.5v-7zm1.5-.5a.5.5 0 00-.5.5v1.5h10v-1.5a.5.5 0 00-.5-.5h-9zm9.5 3h-10v4.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5v-4.5zm1 4.5v-1.5h3V15a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1.498h5.5a1.5 1.5 0 001.5-1.5zm2.5-4.502h-2.5v2.002h3V8a.5.5 0 00-.5-.5z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ApplicationsIcon.displayName = 'ApplicationsIcon';
+export {ApplicationsIcon};

@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface LocationIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const LocationIcon = React.forwardRef<HTMLElement, LocationIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `LocationIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[LocationIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,13 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M10 7.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM8.94 8.94a1.5 1.5 0 112.12 2.12 1.5 1.5 0 01-2.12-2.12z"
+            clipRule="evenodd"
+          />
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M10 2a.5.5 0 01.5.5v2.023A5.5 5.5 0 0115.477 9.5H17.5a.5.5 0 010 1h-2.023a5.5 5.5 0 01-4.977 4.977V17.5a.5.5 0 01-1 0v-2.023A5.5 5.5 0 014.523 10.5H2.5a.5.5 0 010-1h2.023A5.5 5.5 0 019.5 4.523V2.5A.5.5 0 0110 2zm4.5 8a4.5 4.5 0 10-9 0 4.5 4.5 0 009 0z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +51,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+LocationIcon.displayName = 'LocationIcon';
+export {LocationIcon};

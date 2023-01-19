@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface NotesIconProps extends IconWrapperProps {
+export interface SelectIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const NotesIcon = React.forwardRef<HTMLElement, NotesIconProps>(
+const SelectIcon = React.forwardRef<HTMLElement, SelectIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `NotesIcon-${useUID()}`;
+    const titleId = `SelectIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[NotesIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[SelectIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,12 +35,12 @@ const NotesIcon = React.forwardRef<HTMLElement, NotesIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M5 7.5a.5.5 0 01.5-.5h9a.498.498 0 01.45.717.5.5 0 01-.45.283h-9a.5.5 0 01-.5-.5zm.5 2.5a.498.498 0 00-.49.6.5.5 0 00.49.4h9a.5.5 0 100-1h-9zm-.195 3.04A.498.498 0 015.5 13h6a.498.498 0 01.481.636.5.5 0 01-.481.364h-6a.498.498 0 01-.458-.7.502.502 0 01.263-.26z"
+            d="M3.44 3.437a1.5 1.5 0 011.06-.439.5.5 0 000-1 2.5 2.5 0 00-2.5 2.5.5.5 0 001 0c0-.398.159-.78.44-1.06zM3 13.498a.5.5 0 10-1 0 2.5 2.5 0 002.5 2.5.5.5 0 000-1 1.5 1.5 0 01-1.5-1.5zm10-11a.5.5 0 01.5-.5 2.5 2.5 0 012.5 2.5.5.5 0 11-1 0 1.5 1.5 0 00-1.5-1.5.5.5 0 01-.5-.5zm3 5a.5.5 0 10-1 0v3a.5.5 0 001 0v-3zm-13.5-.5a.5.5 0 01.5.5v3a.5.5 0 01-1 0v-3a.5.5 0 01.5-.5zm5-5a.5.5 0 100 1h3a.5.5 0 100-1h-3zm-.5 13.5a.5.5 0 01.5-.5h3a.5.5 0 110 1h-3a.5.5 0 01-.5-.5z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M13.5 1a.5.5 0 00-1 0v1h-2V1a.5.5 0 00-1 0v1h-2V1a.5.5 0 00-1 0v1h-3A1.5 1.5 0 002 3.5v13A1.5 1.5 0 003.5 18h13a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0016.5 2h-3V1zm-4 2h-2v1a.5.5 0 01-1 0V3h-3a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-13a.5.5 0 00-.5-.5h-3v1a.5.5 0 01-1 0V3h-2v1a.5.5 0 01-1 0V3z"
+            d="M12.019 11.373a.5.5 0 00-.644.644l2.121 5.657a.5.5 0 00.928.021l.982-2.29 2.292-.983a.5.5 0 00-.022-.928l-5.657-2.12zm1.977 4.784l-1.298-3.461 3.461 1.298-1.33.57a.5.5 0 00-.263.262l-.57 1.33z"
             clipRule="evenodd"
           />
         </svg>
@@ -49,5 +49,5 @@ const NotesIcon = React.forwardRef<HTMLElement, NotesIconProps>(
   }
 );
 
-NotesIcon.displayName = 'NotesIcon';
-export {NotesIcon};
+SelectIcon.displayName = 'SelectIcon';
+export {SelectIcon};

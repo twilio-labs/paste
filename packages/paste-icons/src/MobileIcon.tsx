@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface MobileIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const MobileIcon = React.forwardRef<HTMLElement, MobileIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `MobileIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[MobileIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -33,10 +33,11 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
+          <path fill="currentColor" d="M9 15.5a1 1 0 102 0 1 1 0 00-2 0z" />
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M5 4.5A2.5 2.5 0 017.5 2h5A2.5 2.5 0 0115 4.5v11a2.5 2.5 0 01-2.5 2.5h-5A2.5 2.5 0 015 15.5v-11zm9 0V13H6V4.5A1.5 1.5 0 017.5 3h5A1.5 1.5 0 0114 4.5zm0 9.5H6v1.5A1.5 1.5 0 007.5 17h5a1.5 1.5 0 001.5-1.5V14z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +46,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+MobileIcon.displayName = 'MobileIcon';
+export {MobileIcon};

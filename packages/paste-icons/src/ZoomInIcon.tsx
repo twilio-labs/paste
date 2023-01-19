@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ZoomInIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ZoomInIcon = React.forwardRef<HTMLElement, ZoomInIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ZoomInIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ZoomInIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,8 +35,12 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
+            d="M5.5 8a.5.5 0 000 1H8v2.5a.5.5 0 101 0V9h2.5a.5.5 0 000-1H9V5.5a.5.5 0 00-1 0V8H5.5z"
+          />
+          <path
+            fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M12.8 13.507a6.543 6.543 0 01-10.303-7.47 6.542 6.542 0 1111.01 6.762l4.347 4.347a.5.5 0 11-.708.707l-4.345-4.346zM5.464 3.933a5.542 5.542 0 016.997 8.526l-.014.015a5.543 5.543 0 11-6.983-8.54z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +49,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ZoomInIcon.displayName = 'ZoomInIcon';
+export {ZoomInIcon};

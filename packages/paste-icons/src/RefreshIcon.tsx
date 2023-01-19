@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface RefreshIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const RefreshIcon = React.forwardRef<HTMLElement, RefreshIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `RefreshIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[RefreshIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,9 +35,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
-            clipRule="evenodd"
+            d="M8.302 4.25a6.002 6.002 0 014.009.212.5.5 0 00.383-.924 7.002 7.002 0 00-8.437 10.46H2.5a.5.5 0 100 1h2.766a.52.52 0 00.09 0H5.5a.5.5 0 00.5-.5v-3a.5.5 0 10-1 0v1.815A6.002 6.002 0 018.302 4.25zM15 8.499V6.683a6.001 6.001 0 01-7.31 8.856.5.5 0 10-.385.923 7.001 7.001 0 008.439-10.463H17.5a.5.5 0 000-1h-2.768a.501.501 0 00-.089 0H14.5a.5.5 0 00-.5.5v3a.5.5 0 001 0z"
           />
         </svg>
       </IconWrapper>
@@ -45,5 +43,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+RefreshIcon.displayName = 'RefreshIcon';
+export {RefreshIcon};

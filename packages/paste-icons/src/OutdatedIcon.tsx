@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface OutdatedIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const OutdatedIcon = React.forwardRef<HTMLElement, OutdatedIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `OutdatedIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[OutdatedIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,19 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M10.013 3.235a7.001 7.001 0 11-4.916 10.694.5.5 0 11.843-.538A6.001 6.001 0 105 10.165v1.502a.5.5 0 11-1 0v-1.502a7.002 7.002 0 016.013-6.93z"
+            clipRule="evenodd"
+          />
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M2.146 9.311a.5.5 0 01.708 0L4.5 10.958 6.146 9.31a.5.5 0 01.708.707l-2 2a.5.5 0 01-.708 0l-2-2a.5.5 0 010-.707zM11.05 13.2a.25.25 0 100-.5v-.5a.75.75 0 000 1.5v-.5z"
+            clipRule="evenodd"
+          />
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M11.05 12.2a.75.75 0 110 1.5v-.5a.25.25 0 010-.5v-.5zm0-6a.5.5 0 01.5.5v4a.5.5 0 11-1 0v-4a.5.5 0 01.5-.5z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +57,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+OutdatedIcon.displayName = 'OutdatedIcon';
+export {OutdatedIcon};

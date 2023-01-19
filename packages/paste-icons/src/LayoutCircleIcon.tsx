@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface LayoutCircleIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const LayoutCircleIcon = React.forwardRef<HTMLElement, LayoutCircleIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `LayoutCircleIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[LayoutCircleIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M8.5 2a.5.5 0 00-.5.5v1.314A6.509 6.509 0 003.815 8H2.5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h1.314A6.51 6.51 0 008 16.186V17.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-1.314A6.51 6.51 0 0016.186 12H17.5a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-1.314A6.509 6.509 0 0012 3.814V2.5a.5.5 0 00-.5-.5h-3zM12 4.876V5.5a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-.624A5.509 5.509 0 004.876 8H5.5a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-.624A5.51 5.51 0 008 15.124V14.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v.624A5.51 5.51 0 0015.124 12H14.5a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5h.624A5.509 5.509 0 0012 4.876zM11 15v2H9v-2h2zM9 4.17a.5.5 0 010 .039V5h2V3H9v1.17zM3 9h2v2H3V9zm12 0v2h2V9h-2z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+LayoutCircleIcon.displayName = 'LayoutCircleIcon';
+export {LayoutCircleIcon};

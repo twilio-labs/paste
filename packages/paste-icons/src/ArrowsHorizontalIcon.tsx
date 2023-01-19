@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ArrowsHorizontalIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ArrowsHorizontalIcon = React.forwardRef<HTMLElement, ArrowsHorizontalIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ArrowsHorizontalIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ArrowsHorizontalIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,9 +35,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
-            clipRule="evenodd"
+            d="M5.354 7.145a.5.5 0 010 .707L3.707 9.5h12.586l-1.647-1.647a.5.5 0 01.708-.707l2.5 2.5a.5.5 0 010 .707l-2.5 2.5a.5.5 0 01-.708-.707l1.647-1.646H3.707l1.647 1.646a.5.5 0 11-.708.707l-2.5-2.5a.498.498 0 01-.146-.35v-.006a.498.498 0 01.146-.35l2.5-2.5a.5.5 0 01.708 0z"
           />
         </svg>
       </IconWrapper>
@@ -45,5 +43,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ArrowsHorizontalIcon.displayName = 'ArrowsHorizontalIcon';
+export {ArrowsHorizontalIcon};

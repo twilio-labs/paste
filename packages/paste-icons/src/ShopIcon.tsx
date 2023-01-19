@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CloseCircleIconProps extends IconWrapperProps {
+export interface ShopIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
+const ShopIcon = React.forwardRef<HTMLElement, ShopIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `CloseCircleIcon-${useUID()}`;
+    const titleId = `ShopIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ShopIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -36,7 +36,7 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M10 16.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm.897-6.5l1.917 1.917a.635.635 0 01-.897.897L10 10.897l-1.917 1.917a.635.635 0 01-.897-.897L9.103 10 7.186 8.083a.635.635 0 01.897-.897L10 9.103l1.917-1.917a.635.635 0 01.897.897L10.897 10z"
+            d="M3.5 10a.5.5 0 01.5.5v6a.5.5 0 00.5.5h11a.5.5 0 00.5-.5v-6a.5.5 0 011 0v6a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-6a.5.5 0 01.5-.5zm12.599-8a1 1 0 01.976.783l.913 4.109A.501.501 0 0118 7a2 2 0 01-3.5 1.323 2 2 0 01-3 0 2 2 0 01-3 0 2 2 0 01-3 0A2 2 0 012 7a.5.5 0 01.012-.108l.913-4.11A1.003 1.003 0 013.9 2M6 7a1 1 0 002 0 .5.5 0 011 0 1 1 0 002 0 .5.5 0 011 0 1 1 0 002 0 .5.5 0 011 0 1 1 0 001.999.05l-.9-4.05H3.9L3 7.05A1 1 0 005 7a.5.5 0 011 0zm10.099-5zM3.9 2h12.2z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
   }
 );
 
-CloseCircleIcon.displayName = 'CloseCircleIcon';
-export {CloseCircleIcon};
+ShopIcon.displayName = 'ShopIcon';
+export {ShopIcon};
