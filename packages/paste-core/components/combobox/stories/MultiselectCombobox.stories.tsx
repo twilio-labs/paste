@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Meta} from '@storybook/react';
+import type {Meta, StoryFn, StoryContext} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
@@ -7,6 +7,9 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
+import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {Button} from '@twilio-paste/button';
+import {useUID} from '@twilio-paste/uid-library';
 
 import {MultiselectCombobox} from '../src';
 
@@ -525,7 +528,55 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
 
 MultiselectComboboxEmptyState.storyName = 'with empty state';
 
+export const MultiselectComboboxInModal: StoryFn = () => {
+  const [modalIsOpen, setModalIsOpen] = React.useState(true);
+  const handleOpen = (): void => setModalIsOpen(true);
+  const handleClose = (): void => setModalIsOpen(false);
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+  const modalHeadingId = useUID();
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleOpen}>
+        Open modal
+      </Button>
+      <Modal ariaLabelledby={modalHeadingId} isOpen={modalIsOpen} onDismiss={handleClose} size="default">
+        <ModalHeader>
+          <ModalHeading as="h2" id={modalHeadingId}>
+            Example combobox
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+          <MultiselectCombobox
+            labelText="Choose a Paste Component"
+            selectedItemsLabelText="Selected Paste components"
+            helpText="Paste components are the building blocks of your product UI."
+            items={filteredItems}
+            onInputValueChange={({inputValue: newInputValue = ''}) => {
+              setInputValue(newInputValue);
+            }}
+            onSelectedItemsChange={(selectedItems: string[]) => {
+              // eslint-disable-next-line no-console
+              console.log(selectedItems);
+            }}
+            initialIsOpen
+          />
+        </ModalBody>
+      </Modal>
+    </>
+  );
+};
+
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox/MultiselectCombobox',
+  // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
+  decorators: [
+    (Story: StoryFn, context: StoryContext): React.ReactNode => (
+      <Box height="size80" width="size80">
+        {Story(context.args, context)}
+      </Box>
+    ),
+  ],
 } as Meta;

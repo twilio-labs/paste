@@ -89,6 +89,7 @@ export const SITEMAP = [
   '/foundations/content/word-list/',
   '/foundations/illustrations/',
   '/foundations/data-visualization/',
+  '/foundations/spacing-and-layout/',
   '/inclusive-design/',
   '/core/',
   '/foundations/content/product-style-guide/',
