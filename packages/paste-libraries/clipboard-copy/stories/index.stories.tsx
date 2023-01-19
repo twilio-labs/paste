@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story, Meta} from '@storybook/react';
+import type {StoryFn, Meta} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
@@ -15,7 +15,7 @@ export default {
   title: 'Libraries/clipboard-copy',
 } as Meta;
 
-const Template: Story<{clipboardProps: UseClipboardProps}> = ({clipboardProps = {}}) => {
+const Template: StoryFn<{clipboardProps: UseClipboardProps}> = ({clipboardProps = {}}) => {
   const clipboard = useClipboard(clipboardProps);
   const uid = useUID();
 

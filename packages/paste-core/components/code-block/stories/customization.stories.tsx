@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -59,7 +59,7 @@ $client->messages->create(
     )
 );`;
 
-export const CustomizedCodeBlock: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   return (
@@ -95,7 +95,7 @@ export const CustomizedCodeBlock: Story = (_args, {parameters: {isTestEnvironmen
   );
 };
 
-export const CustomizedCodeBlockGroup: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlockGroup: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
 
   return (

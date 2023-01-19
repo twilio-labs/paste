@@ -24,6 +24,9 @@ props:
   color-background-inverse-strong:
     value: "{!palette-gray-80}"
     comment: Strong inverse background color used for containers.
+  color-background-weak:
+    value: "{!palette-gray-05}"
+    comment: Weak background color used for containers.
 
   # brand backgrounds
   color-background-brand:

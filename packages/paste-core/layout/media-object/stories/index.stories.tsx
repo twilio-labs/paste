@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
@@ -90,7 +90,7 @@ export const ConstrainedWidth = (): React.ReactNode => {
 };
 ConstrainedWidth.storyName = 'Constrained width';
 
-export const CustomMediaObject: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomMediaObject: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

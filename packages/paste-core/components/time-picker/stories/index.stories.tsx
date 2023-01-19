@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -257,7 +257,7 @@ export const StackOfPickers: React.FC = (props) => {
   );
 };
 
-export const CustomizedTimePicker: Story = (_args, {parameters: {isTestEnvironment}, props}) => {
+export const CustomizedTimePicker: StoryFn = (_args, {parameters: {isTestEnvironment}, props}) => {
   const activeTheme = useTheme();
   const uidSeed = useUIDSeed();
   return (

@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+- [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] add a new colorBackgroundWeak token
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
+
 ## 8.2.0
 
 ### Minor Changes

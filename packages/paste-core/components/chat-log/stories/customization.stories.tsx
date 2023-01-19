@@ -3,7 +3,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Avatar} from '@twilio-paste/avatar';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {useTheme} from '@twilio-paste/theme';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 
 import {
   ChatMessage,
@@ -31,7 +31,7 @@ export default {
   },
 };
 
-export const CustomizedMessages: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -90,7 +90,7 @@ export const CustomizedMessages: Story = (_args, {parameters: {isTestEnvironment
   );
 };
 
-export const CustomizedChatAttachments: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -171,7 +171,7 @@ export const CustomizedChatAttachments: Story = (_args, {parameters: {isTestEnvi
   );
 };
 
-export const CustomizedChatBookend: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -195,7 +195,7 @@ export const CustomizedChatBookend: Story = (_args, {parameters: {isTestEnvironm
   );
 };
 
-export const CustomizedChatEvent: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatEvent: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.3
+
+### Patch Changes
+
+- [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c) [#2901](https://github.com/twilio-labs/paste/pull/2901) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Add eslint escape for type level import using src in path
+
 ## 11.1.2
 
 ### Patch Changes

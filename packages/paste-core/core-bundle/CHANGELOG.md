@@ -1,5 +1,109 @@
 # Change Log
 
+## 17.4.0
+
+### Minor Changes
+
+- [`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31) [#2956](https://github.com/twilio-labs/paste/pull/2956) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form] Fix the version released, use ^8.0.0 or higher.
+
+### Patch Changes
+
+- Updated dependencies [[`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31)]:
+  - @twilio-paste/form@8.0.0
+
+## 17.3.0
+
+### Minor Changes
+
+- [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] add a new colorBackgroundWeak token
+
+* [`a4b9a58ad`](https://github.com/twilio-labs/paste/commit/a4b9a58ad97b745cf55274ae8cb8b99aadc7af78) [#2925](https://github.com/twilio-labs/paste/pull/2925) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form] Create a set of components to handle form layouts.
+
+- [`45f503712`](https://github.com/twilio-labs/paste/commit/45f5037122c4fd54e343e7643798fa497e6bc232) [#2928](https://github.com/twilio-labs/paste/pull/2928) Thanks [@Niznikr](https://github.com/Niznikr)! - [Listbox Primitive] create a new Listbox Primitive component used to build accessible listboxes
+
+* [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [File Uploader] create a new File Uploader component meant to be used in situations where the user needs to upload multiple files.
+
+- [`6e8b78f57`](https://github.com/twilio-labs/paste/commit/6e8b78f57127bb72e7dc8b2c23fefab2480c7616) [#2923](https://github.com/twilio-labs/paste/pull/2923) Thanks [@nkrantz](https://github.com/nkrantz)! - [Description list] create a new Description List package for displaying small static bits of data
+
+### Patch Changes
+
+- [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c) [#2901](https://github.com/twilio-labs/paste/pull/2901) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Add eslint escape for type level import using src in path
+
+* [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+- Updated dependencies [[`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb), [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c), [`a4b9a58ad`](https://github.com/twilio-labs/paste/commit/a4b9a58ad97b745cf55274ae8cb8b99aadc7af78), [`45f503712`](https://github.com/twilio-labs/paste/commit/45f5037122c4fd54e343e7643798fa497e6bc232), [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b), [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb), [`6e8b78f57`](https://github.com/twilio-labs/paste/commit/6e8b78f57127bb72e7dc8b2c23fefab2480c7616), [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b)]:
+  - @twilio-paste/design-tokens@8.3.0
+  - @twilio-paste/callout@1.0.2
+  - @twilio-paste/menu@11.1.3
+  - @twilio-paste/form@1.0.0
+  - @twilio-paste/listbox-primitive@1.0.0
+  - @twilio-paste/file-uploader@1.0.0
+  - @twilio-paste/description-list@1.0.0
+  - @twilio-paste/alert@11.0.3
+  - @twilio-paste/alert-dialog@6.0.2
+  - @twilio-paste/anchor@9.0.2
+  - @twilio-paste/avatar@6.1.3
+  - @twilio-paste/badge@5.0.2
+  - @twilio-paste/base-radio-checkbox@10.0.2
+  - @twilio-paste/breadcrumb@8.0.2
+  - @twilio-paste/button@11.1.6
+  - @twilio-paste/button-group@1.0.2
+  - @twilio-paste/card@6.0.2
+  - @twilio-paste/chat-composer@1.0.2
+  - @twilio-paste/chat-log@2.1.2
+  - @twilio-paste/checkbox@10.0.4
+  - @twilio-paste/code-block@1.1.2
+  - @twilio-paste/combobox@13.0.2
+  - @twilio-paste/data-grid@5.0.2
+  - @twilio-paste/date-picker@3.0.2
+  - @twilio-paste/disclosure@9.0.2
+  - @twilio-paste/display-heading@1.0.1
+  - @twilio-paste/file-picker@1.1.2
+  - @twilio-paste/form-pill-group@5.1.2
+  - @twilio-paste/heading@8.0.2
+  - @twilio-paste/help-text@10.1.2
+  - @twilio-paste/in-page-navigation@1.0.1
+  - @twilio-paste/inline-code@1.0.2
+  - @twilio-paste/inline-control-group@10.0.2
+  - @twilio-paste/input@6.1.2
+  - @twilio-paste/input-box@7.1.3
+  - @twilio-paste/label@10.1.2
+  - @twilio-paste/list@5.0.2
+  - @twilio-paste/minimizable-dialog@1.0.4
+  - @twilio-paste/modal@13.0.2
+  - @twilio-paste/pagination@4.0.2
+  - @twilio-paste/paragraph@7.0.2
+  - @twilio-paste/popover@10.0.2
+  - @twilio-paste/radio-button-group@1.0.3
+  - @twilio-paste/radio-group@10.0.3
+  - @twilio-paste/screen-reader-only@10.0.3
+  - @twilio-paste/select@9.1.2
+  - @twilio-paste/separator@5.0.2
+  - @twilio-paste/side-modal@1.0.3
+  - @twilio-paste/skeleton-loader@3.0.2
+  - @twilio-paste/spinner@11.0.2
+  - @twilio-paste/switch@2.0.1
+  - @twilio-paste/table@5.1.2
+  - @twilio-paste/tabs@5.0.2
+  - @twilio-paste/textarea@7.0.2
+  - @twilio-paste/time-picker@3.0.2
+  - @twilio-paste/toast@9.0.2
+  - @twilio-paste/tooltip@8.0.2
+  - @twilio-paste/truncate@11.0.2
+  - @twilio-paste/aspect-ratio@7.0.2
+  - @twilio-paste/flex@5.0.2
+  - @twilio-paste/grid@5.0.3
+  - @twilio-paste/media-object@7.0.2
+  - @twilio-paste/stack@5.0.2
+  - @twilio-paste/box@7.1.2
+  - @twilio-paste/sibling-box@6.0.3
+  - @twilio-paste/text@7.0.2
+  - @twilio-paste/customization@5.0.2
+  - @twilio-paste/data-visualization-library@2.0.2
+  - @twilio-paste/style-props@6.1.2
+
 ## 17.2.0
 
 ### Minor Changes

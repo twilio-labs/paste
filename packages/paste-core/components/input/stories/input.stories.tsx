@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {Anchor} from '@twilio-paste/anchor';
@@ -630,7 +630,7 @@ export const InputPlaceholderInverse = (): React.ReactNode => {
 
 InputPlaceholderInverse.storyName = 'Input - Placeholder inverse';
 
-export const CustomInput: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const uidOne = useUID();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();

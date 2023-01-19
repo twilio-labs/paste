@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 
 import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
@@ -54,34 +54,34 @@ $client->messages->create(
     )
 );`;
 
-export const SingleLine: Story = () => <CodeBlock variant="single-line" language="javascript" code={jsCode} />;
+export const SingleLine: StoryFn = () => <CodeBlock variant="single-line" language="javascript" code={jsCode} />;
 
-export const SingleLineWithLink: Story = () => (
+export const SingleLineWithLink: StoryFn = () => (
   <CodeBlock variant="single-line" language="javascript" code={jsCode} externalLink="https://www.google.com" />
 );
 
-export const MultiLine: Story = () => (
+export const MultiLine: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>Build a button</CodeBlockHeader>
     <CodeBlock code={rubyCode} language="ruby" />
   </CodeBlockWrapper>
 );
 
-export const MultiLineWithLineNumbers: Story = () => (
+export const MultiLineWithLineNumbers: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>Build a button</CodeBlockHeader>
     <CodeBlock code={rubyCode} language="ruby" showLineNumbers />
   </CodeBlockWrapper>
 );
 
-export const MultiLineWithLink: Story = () => (
+export const MultiLineWithLink: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>Build a button</CodeBlockHeader>
     <CodeBlock code={rubyCode} language="ruby" externalLink="https://www.google.com" />
   </CodeBlockWrapper>
 );
 
-export const MultiLineWithNoLineWrap: Story = () => (
+export const MultiLineWithNoLineWrap: StoryFn = () => (
   <Box maxWidth="size40">
     <CodeBlockWrapper>
       <CodeBlockHeader>Build a button</CodeBlockHeader>
@@ -90,7 +90,7 @@ export const MultiLineWithNoLineWrap: Story = () => (
   </Box>
 );
 
-export const MultiLineWithLineWrap: Story = () => (
+export const MultiLineWithLineWrap: StoryFn = () => (
   <Box maxWidth="size40">
     <CodeBlockWrapper>
       <CodeBlockHeader>Build a button</CodeBlockHeader>
@@ -99,14 +99,14 @@ export const MultiLineWithLineWrap: Story = () => (
   </Box>
 );
 
-export const CodeBlockWithMaxLines: Story = () => (
+export const CodeBlockWithMaxLines: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>Build a button</CodeBlockHeader>
     <CodeBlock code={rubyCode} language="ruby" maxLines={3} showLineNumbers />
   </CodeBlockWrapper>
 );
 
-export const CodeBlockTabs: Story = () => (
+export const CodeBlockTabs: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>How to set up your API</CodeBlockHeader>
     <CodeBlockTabList>
@@ -122,7 +122,7 @@ export const CodeBlockTabs: Story = () => (
   </CodeBlockWrapper>
 );
 
-export const CodeBlockTabsWithMaxLines: Story = () => (
+export const CodeBlockTabsWithMaxLines: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>How to set up your API</CodeBlockHeader>
     <CodeBlockTabList>
@@ -138,7 +138,7 @@ export const CodeBlockTabsWithMaxLines: Story = () => (
   </CodeBlockWrapper>
 );
 
-export const CustomCopyFormatter: Story = () => (
+export const CustomCopyFormatter: StoryFn = () => (
   <CodeBlock
     variant="single-line"
     language="shell"
