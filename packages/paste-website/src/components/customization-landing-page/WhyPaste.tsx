@@ -12,6 +12,8 @@ import {ThemableIcon} from '../icons/ThemableIcon';
 import {useSlantedSkew} from '../SlantedBackgroundGradient';
 import {DoodleLoopArrowLarge} from '../../assets/illustrations/DoodleLoopArrowLarge';
 import {useDarkModeContext} from '../../context/DarkModeContext';
+import WhyPasteMobile from '../../assets/images/customization/why-paste-mobile.png';
+import WhyPasteImg from '../../assets/images/customization/why-paste.png';
 
 const WhyPasteTopAngle: React.FC = () => {
   const [skewOffset] = useSlantedSkew();
@@ -109,12 +111,7 @@ export const WhyPaste: React.FC = () => {
             </Column>
           </Grid>
           <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <Image
-              src="../../assets/images/customization/why-paste-mobile.png"
-              alt=""
-              placeholder="blur"
-              layout="fill"
-            />
+            <Image src={WhyPasteMobile} alt="" placeholder="blur" />
           </Box>
           <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
             <DoodleLoopArrowLarge />
@@ -128,7 +125,7 @@ export const WhyPaste: React.FC = () => {
           width={['700px', '700px', '700px', '800px']}
           maxWidth="100%"
         >
-          <Image src="../../assets/images/customization/why-paste.png" alt="" placeholder="blur" layout="fill" />
+          <Image src={WhyPasteImg} alt="" placeholder="blur" />
         </Box>
       </Box>
     </LandingPageSection>

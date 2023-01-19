@@ -8,6 +8,8 @@ import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
 
+import NotFound from '../../assets/images/not-found.svg';
+
 interface NoTokensFoundProps {
   onClearSearch: () => void;
 }
@@ -16,7 +18,7 @@ export const NoTokensFound: React.FC<NoTokensFoundProps> = ({onClearSearch}) => 
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20">
-        <Image src="../../assets/images/not-found.svg" alt="" placeholder="blur" layout="fill" />
+        <Image src={NotFound} alt="" placeholder="blur" layout="fill" />
       </Box>
       <Stack orientation="vertical" spacing="space50">
         <Heading as="h3" variant="heading30">

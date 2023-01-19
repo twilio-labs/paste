@@ -8,6 +8,7 @@ import {Heading} from '@twilio-paste/heading';
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {ImageSlider} from './image-slider';
+import HeroSlider from '../../assets/images/customization/hero-slider-mobile.png';
 
 export const LandingPageHero: React.FC = () => {
   return (
@@ -62,12 +63,7 @@ export const LandingPageHero: React.FC = () => {
             <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <Image
-                src="../../assets/images/customization/hero-slider-mobile.png"
-                alt=""
-                placeholder="blur"
-                layout="fill"
-              />
+              <Image src={HeroSlider} alt="" placeholder="blur" />
             </Box>
           </LandingPageSectionContent>
         </Box>

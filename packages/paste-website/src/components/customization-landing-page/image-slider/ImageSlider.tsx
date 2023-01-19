@@ -8,6 +8,8 @@ import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
 import {convertPositionToInputValue, clampValueToRange} from './utils';
 import {useSvgResize} from './useSvgResize';
+import HeroBack from '../../../assets/images/customization/hero-back.png';
+import HeroFront from '../../../assets/images/customization/hero-front.png';
 
 const INPUT_ID = 'input-range-id';
 const CLIP_PATH_ID = 'clip-path-id';
@@ -119,14 +121,14 @@ export const ImageSlider: React.FC = () => {
         }}
       >
         <Image
-          src="../../../assets/images/customization/hero-back.png"
+          src={HeroBack}
           alt="Sample components with a customized Paste theme"
           placeholder="blur"
           layout="fill"
           style={imageStyleProps}
         />
         <Image
-          src="../../../assets/images/customization/hero-front.png"
+          src={HeroFront}
           alt="Sample components with a default Paste theme"
           placeholder="blur"
           layout="fill"

@@ -3,11 +3,18 @@ import Image from 'next/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
+import EmptyAwaiting from '../../assets/images/patterns/empty-awaiting-data.png';
+import EmptyRegional from '../../assets/images/patterns/empty-change-regional-data-location.png';
+import EmptyObject from '../../assets/images/patterns/empty-create-an-object.png';
+import EmptyDependency from '../../assets/images/patterns/empty-generic-dependency-state.png';
+import EmptyPermission from '../../assets/images/patterns/empty-no-permissions-to-view.png';
+import EmptyNoResults from '../../assets/images/patterns/empty-no-results-found.png';
+
 export const AwaitingDataImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-awaiting-data.png"
+      src={EmptyAwaiting}
       alt=""
       width={150}
       placeholder="blur"
@@ -25,7 +32,7 @@ export const ChangeRegionImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-change-regional-data-location.png"
+      src={EmptyRegional}
       alt=""
       width={150}
       placeholder="blur"
@@ -43,7 +50,7 @@ export const CreateObjectImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-create-an-object.png"
+      src={EmptyObject}
       alt=""
       width={150}
       placeholder="blur"
@@ -61,7 +68,7 @@ export const GenericDependencyImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-generic-dependency-state.png"
+      src={EmptyDependency}
       alt=""
       width={150}
       placeholder="blur"
@@ -79,7 +86,7 @@ export const NoPermissionsImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-no-permissions-to-view.png"
+      src={EmptyPermission}
       alt=""
       width={150}
       placeholder="blur"
@@ -97,7 +104,7 @@ export const NoResultImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/patterns/empty-no-results-found.png"
+      src={EmptyNoResults}
       alt=""
       width={150}
       placeholder="blur"

@@ -3,11 +3,15 @@ import Image from 'next/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
+import Chrome from '../../assets/images/date-picker/chrome.png';
+import Safari from '../../assets/images/date-picker/safari.png';
+import Firefox from '../../assets/images/date-picker/firefox.png';
+
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/date-picker/chrome.png"
+      src={Chrome}
       alt="Chrome/Edge implementation of date picker"
       width={300}
       placeholder="blur"
@@ -26,7 +30,7 @@ export const SafariImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/date-picker/safari.png"
+      src={Safari}
       alt="Safari implementation of date picker"
       css={css({
         margin: 'space20',
@@ -44,7 +48,7 @@ export const FirefoxImage: React.FC = () => {
   const theme = useTheme();
   return (
     <Image
-      src="../../assets/images/date-picker/firefox.png"
+      src={Firefox}
       alt="Firefox implementation of date picker"
       css={css({
         margin: 'space20',
