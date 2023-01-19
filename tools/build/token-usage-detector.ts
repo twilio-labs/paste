@@ -1,5 +1,6 @@
 /* eslint-disable import/no-mutable-exports */
 import path from 'path';
+
 import {getTokenPackageMapping} from '../utils/token-usage/getTokenPackageMapping';
 import {getUnusedTokenList} from '../utils/token-usage/getUnusedTokenList';
 import {getMinimalPackageList} from '../utils/token-usage/getMinimalPackageList';
@@ -16,6 +17,7 @@ let minimalUsedPackageList = [''];
   try {
     tokenPackageMap = await getTokenPackageMapping();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('[token-usage-detector]:', error);
   }
   unusedTokenList = getUnusedTokenList(tokenPackageMap);

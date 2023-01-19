@@ -4,6 +4,7 @@ lib
 dist
 bin
 __testfixtures__
+__fixtures__
 
 packages/paste-icons/cjs
 packages/paste-icons/esm

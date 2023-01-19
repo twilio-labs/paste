@@ -1,5 +1,6 @@
-import rule from '../rules/no-invalid-module-paths';
 import {RuleTester} from 'eslint';
+
+import rule from '../src/rules/no-invalid-module-paths';
 
 const ruleTester = new RuleTester({
   parser: require.resolve('@typescript-eslint/parser'),

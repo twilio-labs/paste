@@ -1,5 +1,6 @@
-import chalk from 'chalk';
 import {writeFile} from 'fs';
+
+import chalk from 'chalk';
 
 export function writeToFile(
   filePath: string,
@@ -22,7 +23,6 @@ export function writeToFile(
       }
       // eslint-disable-next-line no-console
       console.log(error);
-      return false;
     }
     if (successMessage != null) {
       // eslint-disable-next-line no-console

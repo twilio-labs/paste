@@ -6,15 +6,16 @@
  * Until this bites us, we should automate this because not bumping peers has bit us.
  */
 
-import chalk from 'chalk';
 import {resolve} from 'path';
+
+import chalk from 'chalk';
 
 import {getRepoPackages} from './getRepoPackages';
 import type {PackageShape} from './getRepoPackages';
 import {writeToFile} from './writeToFile';
 
-const isPasteDependency = (packageName: string) => packageName.includes('@twilio-paste/');
-const getPasteDependencyList = (dependencyObject: Record<string, string>) =>
+const isPasteDependency = (packageName: string): boolean => packageName.includes('@twilio-paste/');
+const getPasteDependencyList = (dependencyObject: Record<string, string>): string[] =>
   Object.keys(dependencyObject).filter(isPasteDependency);
 
 async function updatePackagePeerDependencies(
@@ -25,7 +26,7 @@ async function updatePackagePeerDependencies(
     name: string;
   },
   packagesList: PackageShape[]
-) {
+): Promise<void> {
   const calibratedPeerDeps: Record<string, string> = {};
   peerDepsList.forEach((peerDepName) => {
     const latestVersion = `^${packagesList.find(({name}) => name === peerDepName)?.version}`;
@@ -53,7 +54,7 @@ async function updatePackagePeerDependencies(
   });
 }
 
-export async function calibratePackagePeerDepsVersions() {
+export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[] | null> {
   // eslint-disable-next-line no-console
   console.log(chalk.green.bold(`Calibrating package peerDependencies...`));
 
@@ -82,7 +83,7 @@ export async function calibratePackagePeerDepsVersions() {
     if (packageJsonData.peerDependencies != null) {
       const peerDepsList = getPasteDependencyList(packageJsonData.peerDependencies);
 
-      if (peerDepsList.length !== 0) {
+      if (peerDepsList.length > 0) {
         await updatePackagePeerDependencies(PACKAGE_JSON_PATH, peerDepsList, packageJsonData, packagesList);
       }
     }
