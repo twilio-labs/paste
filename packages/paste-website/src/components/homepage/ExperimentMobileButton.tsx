@@ -1,9 +1,10 @@
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 
 const ExperimentMobileButton = (): JSX.Element => {
   return (
-    <>
+    <React.Fragment>
       <Box
         alignItems="center"
         backgroundColor="colorBackgroundBody"
@@ -30,7 +31,7 @@ const ExperimentMobileButton = (): JSX.Element => {
           Experiment with code
         </Button>
       </Box>
-    </>
+    </React.Fragment>
   );
 };
 

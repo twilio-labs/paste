@@ -29,7 +29,7 @@ const LikeTwilioHeadline = (): JSX.Element => {
 
 const DesktopDesigner = (): JSX.Element => {
   return (
-    <>
+    <React.Fragment>
       <Box as="span" position="absolute" display={['none', 'none', 'block']} top={-55} left={-55}>
         <DoodleBurst />
       </Box>
@@ -44,13 +44,13 @@ const DesktopDesigner = (): JSX.Element => {
           </Button>
         </Box>
       </Stack>
-    </>
+    </React.Fragment>
   );
 };
 
 const MobileDesigner = (): JSX.Element => {
   return (
-    <>
+    <React.Fragment>
       <Box
         bottom="0"
         top="0"

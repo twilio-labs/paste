@@ -37,7 +37,7 @@ export {
   useTooltipState,
   Tooltip,
   TooltipReference,
-} from 'reakit';
+} from '@niznikr/reakit';
 
 export type {
   CompositeState,
@@ -75,7 +75,7 @@ export type {
   TooltipStateReturn,
   TooltipProps,
   TooltipReferenceProps,
-} from 'reakit';
+} from '@niznikr/reakit';
 
 export {PopoverArrow};
 export type {PopoverArrowProps};

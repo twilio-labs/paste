@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Tab} from 'reakit';
+import {Tab} from '@niznikr/reakit';
 import type {DesignToken, DesignTokensJSON} from '@twilio-paste/design-tokens/types';
 import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
 

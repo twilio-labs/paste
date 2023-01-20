@@ -8,8 +8,8 @@ import * as React from 'react';
 import {createComponent} from 'reakit-system/createComponent';
 import {createHook} from 'reakit-system/createHook';
 import {useForkRef} from 'reakit-utils/useForkRef';
-import type {BoxOptions, BoxHTMLProps, PopoverStateReturn} from 'reakit';
-import {useBox} from 'reakit';
+import type {BoxOptions, BoxHTMLProps, PopoverStateReturn} from '@niznikr/reakit';
+import {useBox} from '@niznikr/reakit';
 
 import {POPOVER_ARROW_KEYS} from './__keys';
 

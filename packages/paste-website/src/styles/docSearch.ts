@@ -65,7 +65,7 @@ export const docSearchStyles = css({
     fontFamily: 'fontFamilyText',
     fontWeight: 'fontWeightNormal',
     fontStyle: 'italic',
-    'font-variation-settings': '"slnt" 0',
+    fontVariationSettings: '"slnt" 0',
     paddingX: 'space40',
   },
   '.DocSearch-Button-Key': {
