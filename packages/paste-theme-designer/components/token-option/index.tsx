@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+
 import type {TokenContextProps} from '../../context/TokenContext';
 import {ColorTokenInput} from './ColorTokenInput';
 import {UnitTokenInput} from './UnitTokenInput';
