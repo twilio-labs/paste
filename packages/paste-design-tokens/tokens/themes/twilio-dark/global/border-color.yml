@@ -26,7 +26,7 @@ props:
     value: "{!palette-orange-70}"
     comment: Weaker warning border color.
   color-border-error-weaker:
-    value: "{!palette-green-70}"
+    value: "{!palette-red-70}"
     comment: Weaker error border color.
   color-border-error-strong:
     value: "{!palette-red-40}"

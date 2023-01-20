@@ -109,16 +109,16 @@ props:
     comment: Weaker shadow border for new status inputs.
   shadow-border-decorative-10-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
-    comment: Bottom shadow border for decorative 10
+    comment: Weaker shadow border for decorative 10
   shadow-border-decorative-20-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
-    comment: Bottom shadow border for decorative 20
+    comment: Weaker shadow border for decorative 20
   shadow-border-decorative-30-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-70}"
-    comment: Bottom shadow border for decorative 30
+    comment: Weaker shadow border for decorative 30
   shadow-border-decorative-40-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
-    comment: Bottom shadow border for decorative 40
+    comment: Weaker shadow border for decorative 40
 
   # Badge
   shadow-border-bottom-primary:

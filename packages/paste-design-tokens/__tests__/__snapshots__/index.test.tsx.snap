@@ -1301,7 +1301,7 @@ exports[`Design Tokens matches the Twilio Dark theme 1`] = `
   \\"color-border-error-stronger\\": \\"rgb(252, 207, 207)\\",
   \\"color-border-warning-weak\\": \\"rgb(195, 83, 35)\\",
   \\"color-border-decorative-40-weaker\\": \\"rgb(88, 23, 189)\\",
-  \\"color-border-error-weaker\\": \\"rgb(14, 124, 58)\\",
+  \\"color-border-error-weaker\\": \\"rgb(173, 17, 17)\\",
   \\"color-border-user\\": \\"rgb(88, 23, 189)\\",
   \\"color-border-neutral-weaker\\": \\"rgb(4, 60, 181)\\",
   \\"color-border-warning\\": \\"rgb(244, 124, 34)\\",
