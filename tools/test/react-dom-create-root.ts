@@ -10,8 +10,9 @@ type createRootReturnType = {render: (elem: JSX.Element) => void};
 
 let ReactDOMClient;
 try {
+  // eslint-disable-next-line global-require
   ReactDOMClient = require('react-dom/client');
-} catch (err) {
+} catch {
   // ignore.
 }
 
