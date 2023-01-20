@@ -1,0 +1,11 @@
+global:
+  category: font
+  type: font
+imports:
+  - ../../../global/font-family.yml
+  - ../aliases/font-family.yml
+props:
+  font-family-text:
+    value: "{!font-family-70}"
+  font-family-display:
+    value: "{!font-family-80}"

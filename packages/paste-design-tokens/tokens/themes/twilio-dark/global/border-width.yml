@@ -1,0 +1,5 @@
+global:
+  type: size
+  category: border-width
+imports:
+  - ../../twilio/global/border-width.yml

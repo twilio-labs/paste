@@ -222,6 +222,23 @@ props:
       - color-background-primary-weakest
       - color-background-destructive-weakest
 
+  # primary
+  color-text-primary:
+    value: "{!palette-blue-60}"
+    comment: Primary text.
+  color-text-primary-weak:
+    value: "{!palette-blue-30}"
+    comment: Weak primary text.
+  color-text-primary-strong:
+    value: "{!palette-blue-80}"
+    comment: Strong primary text.
+  color-text-primary-stronger:
+    value: "{!palette-blue-90}"
+    comment: Stronger primary text.
+  color-text-primary-strongest:
+    value: "{!palette-blue-100}"
+    comment: Strongest primary text.
+
   # status
   color-text-error-weak:
     value: "{!palette-red-50}"
@@ -269,6 +286,9 @@ props:
       - color-background-row-striped
       - color-background-primary-weakest
       - color-background-destructive-weakest
+  color-text-error-strongest:
+    value: "{!palette-red-100}"
+    comment: Strongest error text for inputs and error misc.
   color-text-success:
     value: "{!palette-green-70}"
     comment: Text color for success text.
@@ -452,6 +472,9 @@ props:
     comment: Twilio brand icon color used for the Twilio logo on inverse backgrounds.
     text_contrast_pairing:
       - color-background-body-inverse
+  color-text-icon-new:
+    value: "{!palette-purple-60}"
+    comment: Icon color for indicating a new status.
 
   # decorative
   color-text-decorative-10:
@@ -482,3 +505,8 @@ props:
       - color-background
       - color-background-body
       - color-background-decorative-40
+
+  # user
+  color-text-user:
+    value: "{!palette-purple-60}"
+    comment: Text color for user avatar.

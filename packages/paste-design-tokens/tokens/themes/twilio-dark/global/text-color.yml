@@ -1,0 +1,34 @@
+global:
+  type: color
+  category: text-color
+imports:
+  - ../../dark/global/text-color.yml
+props:
+  # body text
+  color-text-inverse-weak:
+    value: "{!palette-gray-50}"
+    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+
+  # links
+  color-text-link-destructive-stronger:
+    value: "{!palette-red-30}"
+    comment: Stronger shade of destructive link text to be used in interactions.
+
+  # status
+  color-text-neutral:
+    value: "{!palette-blue-40}"
+    comment: Color for text indicating a neutral status.
+
+  # icon
+  color-text-icon-inverse:
+    value: "{!palette-gray-50}"
+    comment: Default icon color for inverse backgrounds.
+
+  # decorative
+  color-text-decorative-40:
+    value: "{!palette-purple-30}"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-decorative-40

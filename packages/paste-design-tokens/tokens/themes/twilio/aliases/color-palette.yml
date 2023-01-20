@@ -1,0 +1,5 @@
+imports:
+  - ../../../aliases/color-palette.yml
+aliases:
+  ## Grays transparent based on 60 gray
+  palette-gray-60-transparent-50: "rgba(96, 107, 133, 0.5)"
