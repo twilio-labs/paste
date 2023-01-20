@@ -1,4 +1,5 @@
 {
+  "extends": "../../.eslintrc.js",
   "root": true,
-  "parser": "@typescript-eslint/parser"
+  "rules": {"react/display-name": "off"}
 }

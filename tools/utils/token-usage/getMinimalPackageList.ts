@@ -1,5 +1,6 @@
 import omitBy from 'lodash/omitBy';
 import isEmpty from 'lodash/isEmpty';
+
 import type {PackageList, BestGuessMapper, TokenPackageMap} from './types';
 
 /**
@@ -39,13 +40,16 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
   do {
     bestGuessMapper = {};
     // Step 3
+    // eslint-disable-next-line no-loop-func
     Object.values(MULTI_ITEM_RESULT_MAP).forEach((packageList) => {
       const isAnyInSet = packageList.some((packageName) => {
         return minimalUsedPackageSet.has(packageName);
       });
-      // If the token has a packageList with none in the set
-      // Add or increment the count in bestGuessMapper
-      // Step 3.1 and 3.2
+      /*
+       * If the token has a packageList with none in the set
+       * Add or increment the count in bestGuessMapper
+       * Step 3.1 and 3.2
+       */
       if (!isAnyInSet) {
         packageList.forEach((packageName) => {
           if (!bestGuessMapper[packageName]) {
@@ -60,8 +64,10 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
     // Step 4
     if (!isEmpty(bestGuessMapper)) {
       const sortedEntriesByVal = Object.entries(bestGuessMapper).sort(([, v1], [, v2]) => v2 - v1);
-      // first zero for first array entry which is sorted to the largest value
-      // second zero for the array index of the key (i.e.: ["@twilio-core/button", 5]), which is the package name
+      /**
+       * first zero for first array entry which is sorted to the largest value
+       * second zero for the array index of the key (i.e.: ["@twilio-core/button", 5]), which is the package name
+       */
       const mostUsedPackage = sortedEntriesByVal[0][0];
       minimalUsedPackageSet.add(mostUsedPackage);
     }

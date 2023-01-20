@@ -1,5 +1,6 @@
 {
   "extends": "../../.eslintrc.js",
+  "root": true,
   "rules": {
     "import/no-default-export": "off",
     "react/display-name": "off"

@@ -3,10 +3,11 @@
  * Updates devDependencies with paste peerDependencies
  */
 
-import chalk from 'chalk';
-import difference from 'lodash/difference';
 import {existsSync} from 'fs';
 import {resolve, relative} from 'path';
+
+import chalk from 'chalk';
+import difference from 'lodash/difference';
 
 import {getRepoPackages} from './getRepoPackages';
 import type {PackageShape} from './getRepoPackages';
@@ -19,11 +20,15 @@ interface PackageJsonShape {
   devDependencies: Record<string, string>;
 }
 
-const isPasteDependency = (packageName: string) => packageName.includes('@twilio-paste/');
-const getPasteDependencyList = (dependencyObject: Record<string, string>) =>
+const isPasteDependency = (packageName: string): boolean => packageName.includes('@twilio-paste/');
+const getPasteDependencyList = (dependencyObject: Record<string, string>): string[] =>
   Object.keys(dependencyObject).filter(isPasteDependency);
 
-async function updateTsconfigFile(path: string, referencesList: string[] = [], packagesList: PackageShape[]) {
+async function updateTsconfigFile(
+  path: string,
+  referencesList: string[] = [],
+  packagesList: PackageShape[]
+): Promise<void> {
   const TSCONFIG_FILE_PATH = resolve(path, 'tsconfig.build.json');
   if (!existsSync(TSCONFIG_FILE_PATH)) return;
   // eslint-disable-next-line import/no-dynamic-require, global-require
@@ -49,7 +54,7 @@ async function updatePackageDevDependencies(
   packageJsonPath: string,
   pastePeerDeps: string[] = [],
   packageJson: PackageJsonShape
-) {
+): Promise<void> {
   // Let's start by assuming we need to put all pastePeerDeps into devDeps
   let missingDevDeps = pastePeerDeps;
 
@@ -82,7 +87,7 @@ async function updatePackageDevDependencies(
   });
 }
 
-async function updatePackageReferences() {
+async function updatePackageReferences(): Promise<PackageShape[] | null> {
   const packagesList = await getRepoPackages();
 
   packagesList?.forEach(async (pkg) => {

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 
-import TextareaAutosize from '..';
-import {forceHiddenStyles} from '../forceHiddenStyles';
-import {getSizingData} from '../getSizingData';
-import {useWindowResizeListener} from '../useWindowResizeListener';
-import {calculateNodeHeight} from '../calculateNodeHeight';
-import {getHeight} from '../getHeight';
-import {useHiddenTextarea} from '../useHiddenTextarea';
-import type {SizingData} from '../getSizingData';
+import TextareaAutosize from '../src';
+import {forceHiddenStyles} from '../src/forceHiddenStyles';
+import {getSizingData} from '../src/getSizingData';
+import {useWindowResizeListener} from '../src/useWindowResizeListener';
+import {calculateNodeHeight} from '../src/calculateNodeHeight';
+import {getHeight} from '../src/getHeight';
+import {useHiddenTextarea} from '../src/useHiddenTextarea';
+import type {SizingData} from '../src/getSizingData';
 
 const resizeMock: jest.Mock = jest.fn();
 
