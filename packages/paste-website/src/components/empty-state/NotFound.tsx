@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -6,7 +7,7 @@ import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 
 const NotFound = (): JSX.Element => (
-  <>
+  <React.Fragment>
     <Breadcrumb>
       <BreadcrumbItem href="/">Home</BreadcrumbItem>
     </Breadcrumb>
@@ -19,7 +20,7 @@ const NotFound = (): JSX.Element => (
         <Anchor href="https://github.com/twilio-labs/paste/issues">filing an issue</Anchor>.
       </Paragraph>
     </Box>
-  </>
+  </React.Fragment>
 );
 
 export {NotFound};

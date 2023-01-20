@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -49,7 +50,7 @@ const DataVisualizationIntro = (): JSX.Element => (
 );
 
 const FontSizesIntro = (): JSX.Element => (
-  <>
+  <React.Fragment>
     <Paragraph>
       Font size tokens use rem values, and 1 rem unit is equal to 16 pixels in Paste. Unlike em values which are
       relative to their parent element, rem values are relative to the html element.
@@ -63,7 +64,7 @@ const FontSizesIntro = (): JSX.Element => (
         tag for the font-sizes to be sized correctly as 1rem=16px.
       </CalloutText>
     </Callout>
-  </>
+  </React.Fragment>
 );
 
 const TextColorsIntro = (): JSX.Element => (
