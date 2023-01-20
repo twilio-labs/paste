@@ -16,6 +16,7 @@ const UnorderedList = React.forwardRef<HTMLUListElement, UnorderedListProps>(
         marginTop={marginTop}
         marginBottom={marginBottom}
         ref={ref}
+        listStyleType="decimal"
       >
         {children}
       </List>
