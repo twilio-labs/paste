@@ -876,7 +876,7 @@ var require_camelCase = __commonJS({
 // tools/build/__fixtures__/random_package/src/index.tsx
 import * as React from \\"react\\";
 
-// node_modules/reakit/es/_rollupPluginBabelHelpers-1f0bf8c2.js
+// node_modules/@niznikr/reakit/es/_rollupPluginBabelHelpers-1f0bf8c2.js
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -1460,7 +1460,7 @@ function createHook(options) {
   return useHook;
 }
 
-// node_modules/reakit/es/index.js
+// node_modules/@niznikr/reakit/es/index.js
 import \\"react\\";
 
 // node_modules/reakit-utils/es/useForkRef.js
@@ -1649,7 +1649,7 @@ function isFocusable(element) {
   return matches(element, selector) && isVisible(element);
 }
 
-// node_modules/reakit/es/Role/Role.js
+// node_modules/@niznikr/reakit/es/Role/Role.js
 var ROLE_KEYS = [\\"unstable_system\\"];
 var useRole = createHook({
   name: \\"Role\\",
@@ -1668,7 +1668,7 @@ var Role = createComponent({
   useHook: useRole
 });
 
-// node_modules/reakit/es/Tabbable/Tabbable.js
+// node_modules/@niznikr/reakit/es/Tabbable/Tabbable.js
 import { useRef as useRef2, useState, useCallback } from \\"react\\";
 var TABBABLE_KEYS = [\\"disabled\\", \\"focusable\\"];
 var isSafariOrFirefoxOnMac = isUA(\\"Mac\\") && !isUA(\\"Chrome\\") && (isUA(\\"Safari\\") || isUA(\\"Firefox\\"));
@@ -1789,7 +1789,7 @@ var Tabbable = createComponent({
   useHook: useTabbable
 });
 
-// node_modules/reakit/es/Clickable/Clickable.js
+// node_modules/@niznikr/reakit/es/Clickable/Clickable.js
 import { useState as useState2, useCallback as useCallback2 } from \\"react\\";
 var CLICKABLE_KEYS = [\\"unstable_clickOnEnter\\", \\"unstable_clickOnSpace\\"];
 function isNativeClick(event) {
@@ -1876,7 +1876,7 @@ function createEvent(element, type, eventInit) {
   return event;
 }
 
-// node_modules/reakit/es/getCurrentId-5aa9849e.js
+// node_modules/@niznikr/reakit/es/getCurrentId-5aa9849e.js
 function findFirstEnabledItem(items, excludeId) {
   if (excludeId) {
     return items.find(function(item) {
@@ -1898,13 +1898,13 @@ function getCurrentId(options, passedId) {
   return (_findFirstEnabledItem = findFirstEnabledItem(options.items || [])) === null || _findFirstEnabledItem === void 0 ? void 0 : _findFirstEnabledItem.id;
 }
 
-// node_modules/reakit/es/__keys-6742f591.js
+// node_modules/@niznikr/reakit/es/__keys-6742f591.js
 var COMPOSITE_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\"];
 var COMPOSITE_KEYS = COMPOSITE_STATE_KEYS;
 var COMPOSITE_GROUP_KEYS = COMPOSITE_KEYS;
 var COMPOSITE_ITEM_KEYS = COMPOSITE_GROUP_KEYS;
 
-// node_modules/reakit/es/userFocus-e16425e3.js
+// node_modules/@niznikr/reakit/es/userFocus-e16425e3.js
 function userFocus(element) {
   element.userFocus = true;
   element.focus();
@@ -1959,7 +1959,7 @@ function ensureFocus(element, _temp) {
   });
 }
 
-// node_modules/reakit/es/Id/IdProvider.js
+// node_modules/@niznikr/reakit/es/Id/IdProvider.js
 import { createContext as createContext2, useRef as useRef3, useCallback as useCallback3, createElement as createElement2 } from \\"react\\";
 var defaultPrefix = \\"id\\";
 function generateRandomString(prefix) {
@@ -1970,7 +1970,7 @@ function generateRandomString(prefix) {
 }
 var unstable_IdContext = /* @__PURE__ */ createContext2(generateRandomString);
 
-// node_modules/reakit/es/Id/Id.js
+// node_modules/@niznikr/reakit/es/Id/Id.js
 import { useContext as useContext3, useState as useState3, useMemo as useMemo2 } from \\"react\\";
 var ID_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\"];
 var ID_KEYS = [].concat(ID_STATE_KEYS, [\\"id\\"]);
@@ -2012,7 +2012,7 @@ function fireEvent(element, type, eventInit) {
   return element.dispatchEvent(createEvent(element, type, eventInit));
 }
 
-// node_modules/reakit/es/setTextFieldValue-0a221f4e.js
+// node_modules/@niznikr/reakit/es/setTextFieldValue-0a221f4e.js
 function setTextFieldValue(element, value) {
   if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
     var _Object$getOwnPropert;
@@ -2027,7 +2027,7 @@ function setTextFieldValue(element, value) {
   }
 }
 
-// node_modules/reakit/es/Composite/CompositeItem.js
+// node_modules/@niznikr/reakit/es/Composite/CompositeItem.js
 import { useRef as useRef4, useMemo as useMemo3, useEffect as useEffect3, useCallback as useCallback4 } from \\"react\\";
 function getWidget(itemElement) {
   return itemElement.querySelector(\\"[data-composite-item-widget]\\");
@@ -2258,7 +2258,7 @@ var CompositeItem = createComponent({
   useHook: useCompositeItem
 });
 
-// node_modules/reakit/es/index.js
+// node_modules/@niznikr/reakit/es/index.js
 import \\"react-dom\\";
 
 // node_modules/body-scroll-lock/lib/bodyScrollLock.esm.js
@@ -2276,13 +2276,13 @@ if (typeof window !== \\"undefined\\") {
 var passiveTestOptions;
 var isIosDevice = typeof window !== \\"undefined\\" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === \\"MacIntel\\" && window.navigator.maxTouchPoints > 1);
 
-// node_modules/reakit/es/__keys-3c0b2243.js
+// node_modules/@niznikr/reakit/es/__keys-3c0b2243.js
 var TAB_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"selectedId\\", \\"panels\\", \\"manual\\", \\"setBaseId\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\", \\"select\\", \\"setSelectedId\\", \\"registerPanel\\", \\"unregisterPanel\\"];
 var TAB_KEYS = TAB_STATE_KEYS;
 var TAB_LIST_KEYS = TAB_KEYS;
 var TAB_PANEL_KEYS = [].concat(TAB_LIST_KEYS, [\\"tabId\\"]);
 
-// node_modules/reakit/es/Tab/Tab.js
+// node_modules/@niznikr/reakit/es/Tab/Tab.js
 import { useMemo as useMemo4, useCallback as useCallback5 } from \\"react\\";
 function useTabPanelId(options) {
   return useMemo4(function() {
