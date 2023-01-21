@@ -1,10 +1,27 @@
----
-title: Roadmap
-description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all release candidates are tentative and subject to change.
-slug: /roadmap/
----
+export const meta = {
+  title: 'Roadmap',
+  description:
+    "Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all release candidates are tentative and subject to change.",
+  slug: '/roadmap/',
+};
 
 import {Roadmap, RoadmapAside} from '../../components/Roadmap';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getRoadmap, getAllPackages} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const roadmap = await getRoadmap();
+  const allPackages = await getAllPackages();
+  return {
+    props: {
+      roadmap: roadmap,
+      navigationQueryData: allPackages,
+    },
+  };
+};
+
 export const pageQuery = `
   {
     Roadmap: allAirtable(
@@ -43,15 +60,15 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<RoadmapAside data={props.data.Roadmap.group} />
+<RoadmapAside data={props.roadmap} />
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
-<Roadmap data={props.data.Roadmap.group} />
+<Roadmap data={props.roadmap} />
 
 </content>
 

@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 import {globby} from 'globby';
+import groupBy from 'lodash/groupBy';
 
-import {systemTable} from './airtable';
+import {roadmapTable, systemTable} from './airtable';
 
 export interface Package {
   name: string;
@@ -95,4 +96,22 @@ export const getAllComponents = async () => {
   const items = components.map(({id, fields}) => ({id, ...fields}));
 
   return items;
+};
+
+export const getRoadmap = async () => {
+  const roadmap = await roadmapTable
+    .select({
+      filterByFormula: 'IS_AFTER({Release date}, TODAY())',
+      sort: [{field: 'Release'}, {field: 'Status'}, {field: 'Release feature name'}],
+      fields: ['Release feature name', 'Release', 'Release Description', 'Public Description (from System)', 'Status'],
+    })
+    .all();
+  const items = roadmap.map(({id, fields}) => ({id, ...fields}));
+  const releases = groupBy(items, 'Release');
+
+  Object.values(releases).forEach((val) =>
+    val.sort((a, b) => a['Release feature name'].localeCompare(b['Release feature name']))
+  );
+
+  return releases;
 };
