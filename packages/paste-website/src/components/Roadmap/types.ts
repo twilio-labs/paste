@@ -8,18 +8,12 @@ export interface RoadmapProps {
   data: [
     {
       release: string;
-      edges: [
-        {
-          node: {
-            data: {
-              Public_Description__from_System_: string[];
-              Release_Description: string;
-              Release_feature_name: string;
-              Status: StatusTypes;
-            };
-          };
-        }
-      ];
+      data: {
+        'Public Description (from System)': string[];
+        'Release Description': string;
+        'Release feature name': string;
+        Status: StatusTypes;
+      };
     }
   ];
 }
