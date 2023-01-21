@@ -3,6 +3,8 @@ import path from 'path';
 
 import {globby} from 'globby';
 
+import {systemTable} from './airtable';
+
 export interface Package {
   name: string;
   version: string;
@@ -53,10 +55,44 @@ export const getAllPackages = async () => {
     const category = getCategory(packageJson);
     if (category) {
       const fileContents = fs.readFileSync(`${root}/${packageJson}`, 'utf8');
-      const json = JSON.parse(fileContents);
-      data[category].push(json);
+      const {name, status, version} = JSON.parse(fileContents);
+      data[category].push({name, status: status || null, version});
     }
   });
 
   return data;
+};
+
+export const getAllPatterns = async () => {
+  const patterns = await systemTable
+    .select({
+      filterByFormula: 'AND({Component Category} = "pattern", Documentation, status, status != "in development")',
+      sort: [{field: 'Feature'}],
+      fields: ['Feature', 'status'],
+    })
+    .all();
+  const items = patterns.map(({id, fields}) => ({id, ...fields}));
+
+  return {allPastePattern: items};
+};
+
+export const getAllComponents = async () => {
+  const components = await systemTable
+    .select({
+      filterByFormula: 'AND({Component Category} = "component", status)',
+      sort: [{field: 'Feature'}],
+      fields: [
+        'Feature',
+        'Documentation',
+        'Figma',
+        'Design committee review',
+        'Engineer committee review',
+        'Code',
+        'status',
+      ],
+    })
+    .all();
+  const items = components.map(({id, fields}) => ({id, ...fields}));
+
+  return items;
 };

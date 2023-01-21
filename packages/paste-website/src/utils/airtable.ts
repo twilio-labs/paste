@@ -9,3 +9,7 @@ if (!process.env.AIRTABLE_BASEID) {
 
 const airtable = new Airtable({apiKey: process.env.AIRTABLE_APIKEY});
 const base = airtable.base(process.env.AIRTABLE_BASEID);
+
+export const systemTable = base('System');
+export const roadmapTable = base('Roadmap');
+export const bpmTable = base('BPM');

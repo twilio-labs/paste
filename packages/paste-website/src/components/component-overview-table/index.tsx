@@ -60,58 +60,59 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
           </Tr>
         </THead>
         <TBody>
-          {componentsList.map(({node}) => {
-            const {
+          {componentsList.map(
+            ({
               Feature,
               Figma,
               Documentation,
-              // eslint-disable-next-line @typescript-eslint/naming-convention
-              Design_committee_review,
-              // eslint-disable-next-line @typescript-eslint/naming-convention
-              Engineer_committee_review,
+              'Design committee review': Design_committee_review,
+              'Engineer committee review': Engineer_committee_review,
               Code,
               status,
-            } = node.data;
-
-            return (
-              <Tr key={Feature}>
-                <Td>
-                  {Documentation === true ? (
-                    <SiteLink href={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
-                  ) : (
-                    <Text as="span">{Feature}</Text>
-                  )}
-                </Td>
-                <Td textAlign="center">{sentenceCase(status)}</Td>
-                <Td textAlign="center">
-                  <AssetStatus label="Code done" status={Code} />
-                </Td>
-                <Td textAlign="center">
-                  <AssetStatus label="Design assets done" status={Figma} />
-                </Td>
-                <Td textAlign="center">
-                  {Documentation === true ? (
-                    <Box display="flex" alignItems="center" justifyContent="center">
-                      <SuccessIcon
-                        display="inline-block"
-                        decorative={false}
-                        title="Documentation done"
-                        color="colorTextSuccess"
-                        size="sizeIcon30"
-                      />
-                    </Box>
-                  ) : (
-                    <Text as="span" color="colorTextWeak">
-                      Pending
-                    </Text>
-                  )}
-                </Td>
-                <Td textAlign="center">
-                  <PeerReviewStatus designStatus={Design_committee_review} engineerStatus={Engineer_committee_review} />
-                </Td>
-              </Tr>
-            );
-          })}
+            }) => {
+              return (
+                <Tr key={Feature}>
+                  <Td>
+                    {Documentation === true ? (
+                      <SiteLink href={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                    ) : (
+                      <Text as="span">{Feature}</Text>
+                    )}
+                  </Td>
+                  <Td textAlign="center">{sentenceCase(status)}</Td>
+                  <Td textAlign="center">
+                    <AssetStatus label="Code done" status={Code} />
+                  </Td>
+                  <Td textAlign="center">
+                    <AssetStatus label="Design assets done" status={Figma} />
+                  </Td>
+                  <Td textAlign="center">
+                    {Documentation === true ? (
+                      <Box display="flex" alignItems="center" justifyContent="center">
+                        <SuccessIcon
+                          display="inline-block"
+                          decorative={false}
+                          title="Documentation done"
+                          color="colorTextSuccess"
+                          size="sizeIcon30"
+                        />
+                      </Box>
+                    ) : (
+                      <Text as="span" color="colorTextWeak">
+                        Pending
+                      </Text>
+                    )}
+                  </Td>
+                  <Td textAlign="center">
+                    <PeerReviewStatus
+                      designStatus={Design_committee_review}
+                      engineerStatus={Engineer_committee_review}
+                    />
+                  </Td>
+                </Tr>
+              );
+            }
+          )}
         </TBody>
       </Table>
     </Box>

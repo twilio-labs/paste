@@ -4,11 +4,11 @@ export type PackageStatusObject = [
       data: {
         Documentation: boolean;
         Figma: string;
-        Design_committee_review: string;
-        Engineer_committee_review: string;
+        'Design committee review': string;
+        'Engineer committee review': string;
         Code: string;
         status: string;
-        Product_suitability: ['Console' | 'SendGrid' | 'Flex'];
+        'Product suitability': ['Console' | 'SendGrid' | 'Flex'];
       };
     };
   }
@@ -22,15 +22,11 @@ export interface ComponentNode {
 }
 
 export interface AirTableComponentNode {
-  node: {
-    data: {
-      Feature: string;
-      Documentation: boolean;
-      Figma: string;
-      Design_committee_review: string;
-      Engineer_committee_review: string;
-      status: string;
-      Code: string;
-    };
-  };
+  Feature: string;
+  Documentation: boolean;
+  Figma: string;
+  'Design committee review': string;
+  'Engineer committee review': string;
+  status: string;
+  Code: string;
 }
