@@ -4,7 +4,7 @@
   framework = "#custom"
 
 [build]
-  publish = "packages/paste-website/public/"
+  publish = "packages/paste-website/.next/"
   command = "yarn build:js && yarn build:tokens && yarn build:website"
 
 [build.environment]

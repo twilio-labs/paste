@@ -122,8 +122,7 @@ const getNavigationDataMutation = (key: string): MutationFunction => {
     }
 
     case 'allPastePattern': {
-      return ({data}: GraphqlData): GraphqlData => {
-        const {status, Feature} = data;
+      return ({status, Feature}: GraphqlData): GraphqlData => {
         return {
           name: Feature,
           packageStatus: status,

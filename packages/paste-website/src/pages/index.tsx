@@ -9,7 +9,7 @@ import {HomeHero} from '../components/homepage/HomeHero';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
-import {getAllPackages} from '../utils/api';
+import {getAllPackages, getAllPatterns} from '../utils/api';
 import type {NavigationQuery} from '../context/NavigationContext';
 
 const Homepage = ({navigationQueryData}: {navigationQueryData: NavigationQuery}): React.ReactElement => {
@@ -44,9 +44,11 @@ const Homepage = ({navigationQueryData}: {navigationQueryData: NavigationQuery})
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPackages = await getAllPackages();
+  const allPatterns = await getAllPatterns();
+
   return {
     props: {
-      navigationQueryData: allPackages,
+      navigationQueryData: {...allPackages, ...allPatterns},
     },
   };
 };
