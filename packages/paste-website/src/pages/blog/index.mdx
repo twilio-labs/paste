@@ -1,10 +1,25 @@
----
-title: Articles
-description: Articles published by the Design Systems team at Twilio
-slug: /blog/
----
+export const meta = {
+  title: 'Articles',
+  description: 'Articles published by the Design Systems team at Twilio',
+  slug: '/blog/',
+};
 
 import {ArticleList} from '../../components/ArticleList';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getArticles, getAllPackages} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const allPackages = await getAllPackages();
+  const articles = await getArticles();
+  return {
+    props: {
+      articles: articles,
+      navigationQueryData: allPackages,
+    },
+  };
+};
 
 export const pageQuery = `
   {
@@ -35,4 +50,4 @@ export const pageQuery = `
 
 ---
 
-<ArticleList articles={props.data.allMdx.edges} />
+<ArticleList articles={props.articles} />
