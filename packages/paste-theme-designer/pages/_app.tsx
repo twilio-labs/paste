@@ -5,6 +5,7 @@ import {datadogRum} from '@datadog/browser-rum';
 import {Theme} from '@twilio-paste/core/theme';
 import * as Tokens from '@twilio-paste/core/design-tokens';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+
 import {TokenContext} from '../context/TokenContext';
 
 datadogRum.init({

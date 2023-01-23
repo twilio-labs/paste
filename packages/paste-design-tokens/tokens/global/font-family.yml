@@ -16,3 +16,5 @@ props:
     value: "{!font-family-50}"
   font-family-text-chinese-simplified:
     value: "{!font-family-60}"
+  font-family-display:
+    value: "{!font-family-10}"

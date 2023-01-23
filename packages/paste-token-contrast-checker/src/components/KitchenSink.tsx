@@ -19,10 +19,12 @@ import {Text} from '@twilio-paste/core/text';
 import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/core/disclosure';
 import {PlusIcon} from '@twilio-paste/icons/cjs/PlusIcon';
 import {ProductTwilioOrgIcon} from '@twilio-paste/icons/cjs/ProductTwilioOrgIcon';
+
 import {ExampleForm} from './Form';
 import {PlainMenu} from './Menu';
 
 const handleClick = (): void => {
+  // eslint-disable-next-line no-alert
   alert('clicked');
 };
 
@@ -50,7 +52,7 @@ export const KitchenSink: React.FC = () => {
           Body Inverse masthead
         </Text>
         <Box>
-          <Input id="inverse-input" type="text" placeholder="Inverse input" insertAfter={'hello'} variant="inverse" />
+          <Input id="inverse-input" type="text" placeholder="Inverse input" insertAfter="hello" variant="inverse" />
         </Box>
       </Box>
       <Box as="main" padding="space70" backgroundColor="colorBackgroundBody">

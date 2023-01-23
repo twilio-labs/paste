@@ -23,7 +23,7 @@ export const globalTypes = {
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
       icon: 'paintbrush',
       // array of plain string values or MenuItem shape (see below)
-      items: ['default', 'dark', 'sendgrid'],
+      items: ['default', 'dark', 'sendgrid', 'twilio', 'twilio-dark'],
     },
   },
   theme_layout: {
@@ -150,6 +150,30 @@ export const decorators = [
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
+                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                    <Story />
+                  </Box>
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Story />
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
+                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                    <Story />
+                  </Box>
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Story />
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />

@@ -5,6 +5,8 @@ export const ThemeVariants = {
   SENDGRID: 'sendgrid',
   FLEX: 'flex',
   DARK: 'dark',
+  TWILIO: 'twilio',
+  TWILIO_DARK: 'twilio-dark',
 };
 
 export const DeprecatedThemeVariants = {
