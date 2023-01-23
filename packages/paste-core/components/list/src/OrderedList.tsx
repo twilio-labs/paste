@@ -15,6 +15,7 @@ const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
         element={element}
         marginTop={marginTop}
         marginBottom={marginBottom}
+        listStyleType="decimal"
         ref={ref}
       >
         {children}
