@@ -115,3 +115,34 @@ export const getRoadmap = async () => {
 
   return releases;
 };
+
+export const getArticles = async () => {
+  const root = path.resolve(process.cwd(), './src/pages/blog/');
+  const posts = await globby(['*.mdx', '!index.mdx'], {
+    cwd: root,
+  });
+
+  return posts
+    .map((file) => {
+      const filename = file.replace('.mdx', '');
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      const {meta} = require(`src/pages/blog/${filename}.mdx`);
+      const date = new Date(meta.date);
+      const formattedDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()).toLocaleString(
+        'en-US',
+        {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }
+      );
+
+      return {
+        ...meta,
+        date: formattedDate,
+        machineDate: meta.date,
+      };
+    })
+    .reverse()
+    .filter((entry) => entry.status !== 'draft');
+};
