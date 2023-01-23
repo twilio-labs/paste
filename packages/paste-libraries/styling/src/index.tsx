@@ -1,5 +1,6 @@
 // Base styling system (emotion)
 import styled from '@emotion/styled';
+import createCache from '@emotion/cache';
 
 /*
  * Custom styling application (styled-system)
@@ -28,7 +29,8 @@ export {
   keyframes,
   css as EmotionCSS,
   ThemeProvider,
+  CacheProvider,
   withTheme,
 } from '@emotion/react';
 
-export {styled};
+export {styled, createCache};
