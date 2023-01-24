@@ -21,31 +21,6 @@ export const getStaticProps = async () => {
   };
 };
 
-export const pageQuery = `
-  {
-    allMdx(
-      filter: {frontmatter: {slug: {glob: "/blog/*"}, status: {ne: "draft"}}}
-      sort: {fields: frontmatter___date, order: DESC}
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            machineDate: date
-            author
-            description
-            slug
-            title
-            avatar
-            external_link
-          }
-          excerpt(pruneLength: 400)
-        }
-      }
-    }
-  }
-`;
-
 # Articles and Posts about Paste
 
 ---

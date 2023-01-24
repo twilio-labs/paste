@@ -30,10 +30,10 @@ export const getNavigationData = async () => {
   return JSON.parse(data);
 };
 
-export const getAllComponents = async () => {
+export const getAllComponents = async (categories: string[]) => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
 
-  return JSON.parse(data).filter((item) => ['component', 'layout'].includes(item['Component Category']));
+  return JSON.parse(data).filter((item) => categories.includes(item['Component Category']));
 };
 
 export const getFeature = async (feature: string) => {

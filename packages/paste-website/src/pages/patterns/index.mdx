@@ -1,8 +1,9 @@
----
-title: Patterns
-description: Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.
-slug: /patterns/
----
+export const meta = {
+  title: 'Patterns',
+  description:
+    'Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.',
+  slug: '/patterns/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -19,40 +20,21 @@ import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {data: {status: {nin: [null]}, Component_Category: {eq: "pattern"}}}
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['pattern']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
 
 <content>
 
@@ -60,7 +42,7 @@ export const pageQuery = `
   <BreadcrumbItem href="/">Home</BreadcrumbItem>
 </Breadcrumb>
 <Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
+  {meta.title}
 </Heading>
 
 </content>
@@ -85,10 +67,7 @@ There are two primary goals of patterns:
   </TabList>
   <TabPanels paddingTop="space20">
     <TabPanel>
-      <ComponentOverviewTable
-        categoryRoute={SidebarCategoryRoutes.PATTERNS}
-        componentsList={props.data.allAirtable.edges}
-      />
+      <ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.PATTERNS} componentsList={props.componentList} />
     </TabPanel>
     <TabPanel>
       <Paragraph>

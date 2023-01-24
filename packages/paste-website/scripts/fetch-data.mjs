@@ -74,7 +74,7 @@ const getAllPackages = async () => {
 export const getAllFeatures = async () => {
   const features = await systemTable
     .select({
-      filterByFormula: 'AND(status, status != "in development")',
+      filterByFormula: 'status',
       sort: [{field: 'Feature'}],
       fields: [
         'Component Category',
@@ -85,6 +85,7 @@ export const getAllFeatures = async () => {
         'Engineer committee review',
         'Code',
         'status',
+        'Product suitability',
       ],
     })
     .all();
