@@ -22,42 +22,6 @@ export const getStaticProps = async () => {
   };
 };
 
-export const pageQuery = `
-  {
-    Roadmap: allAirtable(
-      sort: {fields: [data___Release_, data___Status, data___Release_feature_name]}
-      filter: {table: {eq: "Roadmap"}, isFuture: {eq: true}}
-    ) {
-      group(field: data___Release) {
-        release: fieldValue
-        edges {
-          node {
-            data {
-              Release_feature_name
-              Release
-              Release_Description
-              Public_Description__from_System_
-              Status
-            }
-          }
-        }
-      }
-    }
-    BPM: allAirtable(sort: {fields: [data___Name]}, filter: {table: {eq: "BPM"}}) {
-      edges {
-        node {
-          data {
-            Name
-            Full_name
-            Status
-            Status_description
-          }
-        }
-      }
-    }
-  }
-`;
-
 <contentwrapper>
 
 <RoadmapAside data={props.roadmap} />

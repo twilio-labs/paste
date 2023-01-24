@@ -13480,6 +13480,7 @@ __metadata:
     highcharts-react-official: ^3.1.0
     lodash: 4.17.21
     lottie-web: ^5.7.4
+    mdast-util-to-string: ^2.0.0
     netlify-cli: ^12.2.10
     next: ^12.3.4
     pretty-format: ^28.1.0
@@ -13496,6 +13497,7 @@ __metadata:
     react-visibility-sensor: 5.1.1
     rollbar: ^2.25.0
     typescript: ^4.9.4
+    unist-util-visit: ^2.0.0
     use-resize-observer: ^7.0.0
     winston: ^3.8.1
   languageName: unknown
@@ -32463,6 +32465,13 @@ fsevents@^1.2.7:
   version: 1.1.0
   resolution: "mdast-util-to-string@npm:1.1.0"
   checksum: eec1eb283f3341376c8398b67ce512a11ab3e3191e3dbd5644d32a26784eac8d5f6d0b0fb81193af00d75a2c545cde765c8b03e966bd890076efb5d357fb4fe2
+  languageName: node
+  linkType: hard
+
+"mdast-util-to-string@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mdast-util-to-string@npm:2.0.0"
+  checksum: 0b2113ada10e002fbccb014170506dabe2f2ddacaacbe4bc1045c33f986652c5a162732a2c057c5335cdb58419e2ad23e368e5be226855d4d4e280b81c4e9ec2
   languageName: node
   linkType: hard
 
