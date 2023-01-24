@@ -36,6 +36,12 @@ export const getAllComponents = async () => {
   return JSON.parse(data).filter((item) => ['component', 'layout'].includes(item['Component Category']));
 };
 
+export const getFeature = async (feature: string) => {
+  const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
+
+  return JSON.parse(data).find((item) => item.Feature === feature);
+};
+
 export const getRoadmap = async () => {
   const roadmap = await roadmapTable
     .select({

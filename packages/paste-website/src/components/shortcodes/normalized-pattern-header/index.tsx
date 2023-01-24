@@ -8,8 +8,8 @@ import {Badge} from '@twilio-paste/badge';
 import {GenericHeader} from '../generic-header';
 import type {GenericHeaderProps} from '../generic-header';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
-import type {GraphqlData} from '../../../utils/GraphqlUtils';
+import {getNormalizedHeaderData} from '../../../utils/DataUtils';
+import type {ApiData} from '../../../utils/DataUtils';
 
 const PackageValue: React.FC = ({children}) => {
   return (
@@ -28,7 +28,7 @@ const PackageLabel: React.FC = ({children}) => {
 };
 
 interface NormalizedPatternHeaderProps extends GenericHeaderProps {
-  data: GraphqlData;
+  data: ApiData;
 }
 
 const NormalizedPatternHeader: React.FC<NormalizedPatternHeaderProps> = ({data, ...props}) => {
