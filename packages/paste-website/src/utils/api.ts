@@ -19,6 +19,10 @@ export interface PastePackages {
   allPasteLibraries: Package[];
   allPasteThemePackage: Package[];
   allPasteDesignTokensPackage: Package[];
+  allPastePattern: {
+    Feature: string;
+    status: string;
+  }[];
 }
 
 export const getNavigationData = async () => {

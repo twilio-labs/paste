@@ -205,7 +205,7 @@ const SidebarNavigation: React.FC = () => {
           </SidebarAnchor>
           <SidebarAnchor
             level={1}
-            to={`${SidebarCategoryRoutes.FOUNDATIONS}/spacing-and-layout`}
+            href={`${SidebarCategoryRoutes.FOUNDATIONS}/spacing-and-layout`}
             onClick={() =>
               trackCustomEvent({
                 category: 'Left Navigation',
