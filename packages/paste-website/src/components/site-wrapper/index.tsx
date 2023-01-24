@@ -13,15 +13,15 @@ import {DarkModeContext} from '../../context/DarkModeContext';
 import {inCypress} from '../../utils/inCypress';
 
 export interface SiteWrapperProps {
-  navigationQueryData: NavigationQuery;
+  navigationData: NavigationQuery;
 }
 
-const SiteWrapper: React.FC<SiteWrapperProps> = ({children, navigationQueryData}) => {
+const SiteWrapper: React.FC<SiteWrapperProps> = ({children, navigationData}) => {
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (
     <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS} disableAnimations={inCypress()}>
-      <NavigationContext.Provider value={{...navigationQueryData}}>
+      <NavigationContext.Provider value={{...navigationData}}>
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
           <SkipLinkContainer>
             <Stack orientation="horizontal" spacing="space60">

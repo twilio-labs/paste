@@ -20,18 +20,18 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/alert/CHANGELOG.md';
 import packageJson from '@twilio-paste/alert/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
-import {getAllPackages} from '../../../utils/api';
+import {getNavigationData} from '../../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   return {
     props: {
       data: {
         ...packageJson,
       },
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };

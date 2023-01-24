@@ -15,17 +15,17 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import {getAllComponents, getAllPackages} from '../../utils/api';
+import {getAllComponents, getNavigationData} from '../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const components = await getAllComponents();
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   return {
     props: {
       componentList: components,
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };

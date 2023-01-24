@@ -6,17 +6,17 @@ export const meta = {
 
 import {ArticleList} from '../../components/ArticleList';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import {getArticles, getAllPackages} from '../../utils/api';
+import {getArticles, getNavigationData} from '../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   const articles = await getArticles();
   return {
     props: {
       articles: articles,
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };
