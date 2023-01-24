@@ -7,6 +7,7 @@ import {
   createCache,
   CacheProvider as EmotionCacheProvider,
 } from '@twilio-paste/styling-library';
+import type {CreateCacheOptions} from '@twilio-paste/styling-library';
 
 import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
@@ -56,15 +57,11 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
   }
 }
 
-interface CacheProviderProps {
-  nonce?: string;
-  key?: string;
-}
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
   theme?: ThemeVariants;
   disableAnimations?: boolean;
-  cacheProviderProps?: CacheProviderProps;
+  cacheProviderProps?: CreateCacheOptions;
 }
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({

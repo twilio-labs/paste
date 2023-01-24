@@ -2,6 +2,10 @@
 import styled from '@emotion/styled';
 import createCache from '@emotion/cache';
 
+import type {Options} from '@emotion/cache';
+
+export type CreateCacheOptions = Pick<Options, 'key' | 'nonce'>;
+
 /*
  * Custom styling application (styled-system)
  * https://github.com/styled-system/styled-system/tree/master/
