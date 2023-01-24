@@ -6,7 +6,7 @@ import {Text} from '@twilio-paste/text';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
-import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
+import {getNormalizedNavigationData} from '../../../utils/DataUtils';
 import {useNavigationContext} from '../../../context/NavigationContext';
 import {SidebarAnchor} from './SidebarAnchor';
 import {SidebarSeparator} from './SidebarSeparator';

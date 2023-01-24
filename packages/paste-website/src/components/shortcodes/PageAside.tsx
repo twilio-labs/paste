@@ -10,14 +10,7 @@ type ToCHeading = {
   depth: number;
 };
 interface PageAsideProps {
-  data: {
-    fileAbsolutePath: string;
-    frontmatter: {
-      slug: string;
-      title: string;
-    };
-    headings?: ToCHeading[];
-  };
+  data: ToCHeading[];
   hideFeedback?: boolean;
   stickyTop?: BoxProps['top'];
   topPadding?: BoxProps['padding'];
@@ -36,7 +29,7 @@ const PageAside: React.FC<PageAsideProps> = ({data, hideFeedback, stickyTop = 's
     >
       <Box position="sticky" top={stickyTop} paddingTop={topPadding}>
         {hideFeedback ? null : <FeedbackPopover />}
-        <TableOfContents headings={data.headings} />
+        <TableOfContents headings={data} />
       </Box>
     </Box>
   );
