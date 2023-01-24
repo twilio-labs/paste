@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Head from 'next/head';
-import type {GetStaticProps} from 'next';
+import type {GetStaticProps, InferGetStaticPropsType} from 'next';
 
 import {SiteWrapper} from '../../components/site-wrapper';
 import {SiteMetaDefaults} from '../../constants';
@@ -9,11 +9,15 @@ import {LikeTwilio} from '../../components/customization-landing-page/LikeTwilio
 import {WhyPaste} from '../../components/customization-landing-page/WhyPaste';
 import {ReadyToGetStarted} from '../../components/customization-landing-page/ReadyToGetStarted';
 import {getNavigationData} from '../../utils/api';
-import type {NavigationQuery} from '../../context/NavigationContext';
+import type {PastePackages} from '../../utils/api';
 
-const CustomizationLandingPage: React.FC<{navigationData: NavigationQuery}> = ({
+export interface CustomizationLandingPageProps {
+  navigationData: InferGetStaticPropsType<typeof getStaticProps>;
+}
+
+const CustomizationLandingPage = ({
   navigationData,
-}): React.ReactElement => {
+}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   return (
     <SiteWrapper navigationData={navigationData}>
       <Head>
@@ -30,7 +34,7 @@ const CustomizationLandingPage: React.FC<{navigationData: NavigationQuery}> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{navigationData: PastePackages}> = async () => {
   const navigationData = await getNavigationData();
   return {
     props: {
