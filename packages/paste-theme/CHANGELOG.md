@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Theme] Add new themes `twilio` and `twilio-dark` as part of our new unified design language to be used for Twilio products. Add Twilio Sans Text and Twilio Sans Display fonts used in the themes.
+
+* [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add `cacheProviderProps` to the ThemeProvider which allows passing a custom `key` and `nonce` into Emotion's CacheProvider to get around CSP limitations.
+
 ## 8.1.1
 
 ### Patch Changes

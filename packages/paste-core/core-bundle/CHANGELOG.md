@@ -1,5 +1,46 @@
 # Change Log
 
+## 17.5.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Theme] Add new themes `twilio` and `twilio-dark` as part of our new unified design language to be used for Twilio products. Add Twilio Sans Text and Twilio Sans Display fonts used in the themes.
+
+* [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add `cacheProviderProps` to the ThemeProvider which allows passing a custom `key` and `nonce` into Emotion's CacheProvider to get around CSP limitations.
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Add tokens for new themes `twilio` and `twilio-dark`:
+
+  - Aliases: color-palette
+    - Add `palette-red-65`
+    - Add `palette-red-05`
+    - Add `palette-orange-05`
+    - Add `palette-yellow-05`
+    - Add `palette-green-05`
+    - Add `palette-blue-05`
+    - Add `palette-blue-55`
+    - Add `palette-purple-05`
+
+* [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] Expose EmotionCacheProvider to pass in a key or nonce to help with Emotion + CSP
+
+### Patch Changes
+
+- [`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1) [#2949](https://github.com/twilio-labs/paste/pull/2949) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] Render the listbox in a portal to fix a bug where the contents of the listbox are cut off when it placed inside a scrolling container. Adds a new dependency on @radix-ui/react-use-rect.
+
+* [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2) [#2938](https://github.com/twilio-labs/paste/pull/2938) Thanks [@nkrantz](https://github.com/nkrantz)! - [Card] Update styles to align with new Paste Twilio theme
+
+- [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2) [#2938](https://github.com/twilio-labs/paste/pull/2938) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Modal] Update styles to align with new Paste Twilio theme
+
+* [`d35903dc2`](https://github.com/twilio-labs/paste/commit/d35903dc24adf334021a7609fb919efee7e23f87) [#2966](https://github.com/twilio-labs/paste/pull/2966) Thanks [@shleewhite](https://github.com/shleewhite)! - [List] explicitly set the list style type on UnorderedList and OrderedList components.
+
+* Updated dependencies [[`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1), [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2), [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2), [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2), [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5), [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2), [`d35903dc2`](https://github.com/twilio-labs/paste/commit/d35903dc24adf334021a7609fb919efee7e23f87), [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5)]:
+  - @twilio-paste/combobox@13.0.3
+  - @twilio-paste/theme@8.2.0
+  - @twilio-paste/card@6.0.3
+  - @twilio-paste/side-modal@1.0.4
+  - @twilio-paste/design-tokens@8.4.0
+  - @twilio-paste/list@5.0.3
+  - @twilio-paste/styling-library@1.1.0
+
 ## 17.4.0
 
 ### Minor Changes
