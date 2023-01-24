@@ -20,7 +20,7 @@ import {getAllComponents, getNavigationData} from '../../utils/api';
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
-  const components = await getAllComponents();
+  const components = await getAllComponents(['component', 'layout']);
   const navigationData = await getNavigationData();
   return {
     props: {
@@ -66,44 +66,3 @@ export const getStaticProps = async () => {
     </CalloutListItem>
   </CalloutList>
 </Callout>
-
-export const pageQuery = `
-  {
-    allPasteComponent {
-      edges {
-        node {
-          name
-          version
-          status
-        }
-      }
-    }
-    allPasteLayout {
-      edges {
-        node {
-          version
-          name
-          status
-        }
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {data: {status: {ne: null}, Component_Category: {in: ["component", "layout"]}}}
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;

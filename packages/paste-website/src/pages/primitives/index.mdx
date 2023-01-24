@@ -1,8 +1,8 @@
----
-title: Primitives overview
-description: Our primitives are rad
-slug: /primitives/
----
+export const meta = {
+  title: 'Primitives overview',
+  description: 'Our primitives are rad',
+  slug: '/primitives/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
@@ -13,6 +13,21 @@ import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['primitive']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
 
 <Breadcrumb>
   <BreadcrumbItem href="/">Home</BreadcrumbItem>
@@ -23,10 +38,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 
 ---
 
-<ComponentOverviewTable
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  componentsList={props.data.allAirtable.edges}
-/>
+<ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.PRIMITIVES} componentsList={props.componentList} />
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h2">Don't see a primitive, layout, or component you need listed here?</CalloutHeading>
@@ -52,35 +64,3 @@ import {SidebarCategoryRoutes} from '../../constants';
     </CalloutListItem>
   </CalloutList>
 </Callout>
-
-export const pageQuery = `
-  {
-    allPastePrimitive {
-      edges {
-        node {
-          version
-          name
-          status
-        }
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {data: {status: {ne: null}, Component_Category: {eq: "primitive"}}}
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
