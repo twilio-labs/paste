@@ -14363,7 +14363,7 @@ __metadata:
     "@styled-system/should-forward-prop": 5.1.5
     "@styled-system/theme-get": 5.1.2
     "@types/styled-system": 5.1.9
-    "@types/styled-system__css": 5.0.5
+    "@types/styled-system__css": 5.0.17
     "@types/styled-system__should-forward-prop": 5.1.2
     "@types/styled-system__theme-get": 5.0.2
     react: ^17.0.2
@@ -16083,12 +16083,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system__css@npm:5.0.5":
-  version: 5.0.5
-  resolution: "@types/styled-system__css@npm:5.0.5"
+"@types/styled-system__css@npm:5.0.17":
+  version: 5.0.17
+  resolution: "@types/styled-system__css@npm:5.0.17"
   dependencies:
-    csstype: ^2.6.6
-  checksum: 2125eed8dcd2225af9a4f9bcb62a5570aca3e74854e341305661117b0c487284c88dfaf4081207657931f6b9db6da10ac93f2eb646b1eb2c08ba3a83c42ef812
+    csstype: ^3.0.2
+  checksum: 3e2bf0d57e33df4a22076d5f1445f0337757606b2d09a9597d1438e74877985d32b3ea02036ebbf47ca2beedffaf3146ff74592282c13d23d39fe7c09375d410
   languageName: node
   linkType: hard
 
