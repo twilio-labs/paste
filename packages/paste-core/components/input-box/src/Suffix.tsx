@@ -19,13 +19,13 @@ export interface SuffixProps {
 
 const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(
   ({children, disabled, element = 'SUFFIX', variant}, ref) => {
-    let backgroundColor = 'colorBackground' as BackgroundColor;
+    let backgroundColor = 'colorBackgroundWeak' as BackgroundColor;
     let borderColor = 'colorBorderWeaker' as BorderColor;
     if (disabled && variant === 'inverse') {
       backgroundColor = 'none';
       borderColor = 'colorBorderInverseWeaker';
     } else if (variant === 'inverse') {
-      backgroundColor = 'colorBackgroundInverseStrong';
+      backgroundColor = 'colorBackgroundInverse';
       borderColor = 'colorBorderInverse';
     }
 

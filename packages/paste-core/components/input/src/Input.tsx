@@ -68,11 +68,11 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       variant={props.variant}
       ref={ref}
       _placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorText',
         fontStyle: 'italic',
       }}
       _focus_placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorText',
       }}
       _disabled={{
         color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',

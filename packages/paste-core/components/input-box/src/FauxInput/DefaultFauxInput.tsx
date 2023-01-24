@@ -9,7 +9,7 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
   ({disabled, element, hasError, readOnly, children, type, variant}, ref) => {
     let backgroundColor = 'colorBackgroundBody' as BackgroundColor;
     let boxShadow = 'shadowBorder' as BoxShadow;
-    let boxShadowHover = 'shadowBorderPrimaryStronger' as BoxShadow;
+    let boxShadowHover = 'shadowBorderPrimary' as BoxShadow;
     let boxShadowActive = 'shadowBorderPrimaryStronger' as BoxShadow;
     if (disabled && type !== 'hidden') {
       boxShadow = 'shadowBorderWeak';
