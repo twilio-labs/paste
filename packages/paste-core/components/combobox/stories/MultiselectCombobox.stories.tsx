@@ -268,7 +268,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
       initialSelectedItems={filteredItems.slice(20, 50)}
       insertBefore={
-        <Text as="span" fontWeight="fontWeightSemibold">
+        <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
           $10.99
         </Text>
       }
@@ -312,7 +312,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
       initialSelectedItems={filteredItems.slice(20, 80)}
       maxHeight="100px"
       insertBefore={
-        <Text as="span" fontWeight="fontWeightSemibold">
+        <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
           $10.99
         </Text>
       }

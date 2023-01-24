@@ -180,7 +180,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
@@ -190,7 +190,7 @@ The input component should include the base input, along with supporting element
   <Label htmlFor="message_title" required>Message title</Label>
   <Input
     aria-describedby="display_name_help_text"
-    id="display_name"
+    id="message_title"
     name="display_name"
     type="text"
     placeholder="Ahoy, World"
@@ -492,7 +492,7 @@ Use an input when users are expected to enter less than a single line of text, o
         type="text"
         onChange=""
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             Name
           </Text>
         }

@@ -19,14 +19,18 @@ export interface PrefixProps {
 
 const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
   ({children, disabled, element = 'PREFIX', variant}, ref) => {
-    let backgroundColor = 'colorBackground' as BackgroundColor;
+    let backgroundColor = 'colorBackgroundWeak' as BackgroundColor;
     let borderColor = 'colorBorderWeaker' as BorderColor;
+
     if (disabled && variant === 'inverse') {
       backgroundColor = 'none';
       borderColor = 'colorBorderInverseWeaker';
     } else if (variant === 'inverse') {
-      backgroundColor = 'colorBackgroundInverseStrong';
+      backgroundColor = 'colorBackgroundInverse';
       borderColor = 'colorBorderInverse';
+    } else if (disabled) {
+      backgroundColor = 'none';
+      borderColor = 'colorBorderWeaker';
     }
 
     if (children == null) return null;
