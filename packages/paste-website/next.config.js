@@ -1,8 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-extraneous-dependencies
-const withMDX = require('@next/mdx')({
+const nextMdx = require('@next/mdx');
+
+const headingsPlugin = require('./plugins/remark-headings-plugin');
+
+const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [headingsPlugin],
     rehypePlugins: [],
     providerImportSource: '@mdx-js/react',
   },
