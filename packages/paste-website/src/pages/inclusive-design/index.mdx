@@ -13,15 +13,15 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import Link from 'next/link';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import {getAllPackages} from '../../utils/api';
+import {getNavigationData} from '../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   return {
     props: {
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };

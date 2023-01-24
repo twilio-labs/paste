@@ -8,14 +8,14 @@ import {LandingPageHero} from '../../components/customization-landing-page/Landi
 import {LikeTwilio} from '../../components/customization-landing-page/LikeTwilio';
 import {WhyPaste} from '../../components/customization-landing-page/WhyPaste';
 import {ReadyToGetStarted} from '../../components/customization-landing-page/ReadyToGetStarted';
-import {getAllPackages} from '../../utils/api';
+import {getNavigationData} from '../../utils/api';
 import type {NavigationQuery} from '../../context/NavigationContext';
 
-const CustomizationLandingPage: React.FC<{navigationQueryData: NavigationQuery}> = ({
-  navigationQueryData,
+const CustomizationLandingPage: React.FC<{navigationData: NavigationQuery}> = ({
+  navigationData,
 }): React.ReactElement => {
   return (
-    <SiteWrapper navigationQueryData={navigationQueryData}>
+    <SiteWrapper navigationData={navigationData}>
       <Head>
         <title>{`Customization - ${SiteMetaDefaults.TITLE}`}</title>
         <link rel="canonical" href="https://paste.twilio.design/customization" />
@@ -31,10 +31,10 @@ const CustomizationLandingPage: React.FC<{navigationQueryData: NavigationQuery}>
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   return {
     props: {
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };

@@ -7,17 +7,17 @@ export const meta = {
 
 import {Roadmap, RoadmapAside} from '../../components/Roadmap';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import {getRoadmap, getAllPackages} from '../../utils/api';
+import {getRoadmap, getNavigationData} from '../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const roadmap = await getRoadmap();
-  const allPackages = await getAllPackages();
+  const navigationData = await getNavigationData();
   return {
     props: {
       roadmap: roadmap,
-      navigationQueryData: allPackages,
+      navigationData,
     },
   };
 };

@@ -6,8 +6,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
-    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "dev": "node -r dotenv/config scripts/fetch-data.mjs && NEXT_TELEMETRY_DISABLED=1 next dev",
+    "build": "node -r dotenv/config scripts/fetch-data.mjs && NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "NEXT_TELEMETRY_DISABLED=1 next start",
     "format": "prettier --write src/**/*.{js,jsx}",
     "tsc": "tsc --noEmit",

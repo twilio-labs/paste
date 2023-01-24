@@ -9,10 +9,10 @@ import {HomeHero} from '../components/homepage/HomeHero';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
-import {getAllPackages, getAllPatterns} from '../utils/api';
+import {getNavigationData} from '../utils/api';
 import type {NavigationQuery} from '../context/NavigationContext';
 
-const Homepage = ({navigationQueryData}: {navigationQueryData: NavigationQuery}): React.ReactElement => {
+const Homepage = ({navigationData}: {navigationData: NavigationQuery}): React.ReactElement => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)
@@ -25,7 +25,7 @@ const Homepage = ({navigationQueryData}: {navigationQueryData: NavigationQuery})
   }
 
   return (
-    <SiteWrapper navigationQueryData={navigationQueryData}>
+    <SiteWrapper navigationData={navigationData}>
       <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
@@ -43,12 +43,11 @@ const Homepage = ({navigationQueryData}: {navigationQueryData: NavigationQuery})
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPackages = await getAllPackages();
-  const allPatterns = await getAllPatterns();
+  const navigationData = await getNavigationData();
 
   return {
     props: {
-      navigationQueryData: {...allPackages, ...allPatterns},
+      navigationData,
     },
   };
 };
