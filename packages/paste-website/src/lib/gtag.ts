@@ -2,7 +2,7 @@ export const GA_TRACKING_ID = 'UA-145457417-1';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-export const pageview = (url: URL) => {
+export const pageview = (url: URL): void => {
   if (isProd) {
     window.gtag('config', GA_TRACKING_ID, {
       page_path: url,
@@ -17,12 +17,12 @@ type GTagEvent = {
   value?: number;
 };
 
-export const event = ({action, category, label, value}: GTagEvent) => {
+export const event = ({action, category, label, value}: GTagEvent): void => {
   if (isProd) {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
-      value: value,
+      value,
     });
   }
 };

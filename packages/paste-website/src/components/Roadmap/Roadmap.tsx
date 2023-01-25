@@ -9,7 +9,7 @@ import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 
 import {Statuses} from './constants';
-import type {RoadmapProps} from './types';
+import type {RoadmapProps, ReleaseData} from './types';
 import {slugify} from '../../utils/RouteUtils';
 import {AnchoredHeading} from '../Heading';
 
@@ -69,7 +69,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
                   </Tr>
                 </THead>
                 <TBody>
-                  {data[release].map((feature) => {
+                  {data[release].map((feature: ReleaseData) => {
                     return (
                       <Tr verticalAlign="top" key={useUID()}>
                         <Th>{feature['Release feature name']}</Th>

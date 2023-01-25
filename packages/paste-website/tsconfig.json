@@ -16,23 +16,10 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "outDir": "dist/",
     "emitDeclarationOnly": false,
-    "typeRoots": [
-      "../../@types",
-      "../../node_modules/@types",
-      "./types"
-    ],
+    "typeRoots": ["../../@types", "../../node_modules/@types", "./types"],
     "allowJs": true,
     "noEmit": true
   },
-  "include": [
-    "../../package.json",
-    "./src/**/*",
-    "./types/**/*",
-    "./static/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "public",
-    ".cache"
-  ]
+  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*", "./public/**/*"],
+  "exclude": ["node_modules", ".next"]
 }

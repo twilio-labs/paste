@@ -15,8 +15,7 @@ export function useLocationPathname(): string {
 
 // Gets the current url params
 export function useLocationSearch(): string {
-  const search = hasWindowObject() ? window.location.search : '';
-  return search;
+  return hasWindowObject() ? window.location.search : '';
 }
 
 export function useLocationOrigin(): string {
