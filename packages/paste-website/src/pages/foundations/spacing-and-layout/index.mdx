@@ -4,11 +4,15 @@ description: Spacing is the negative area between elements and components. Layou
 slug: /foundations/spacing-and-layout/
 ---
 
+import Image from 'next/image';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
 import {SidebarCategoryRoutes} from '../../../constants';
+import FullPage from '../../../assets/images/foundations/spacing-and-layout/6-full-page.png';
+import SnappingMargins from '../../../assets/images/foundations/spacing-and-layout/7-snapping-to-margins.png';
+import HorizontalSpacing from '../../../assets/images/foundations/spacing-and-layout/8-horizontal-spacing.png';
 
 export const pageQuery = `
   {
@@ -122,7 +126,7 @@ Now that we established tighter containers with the friendship spacing, you can 
 
 Here is an example of friendship spacing applied within groups of content vertically:
 
-![](../../../assets/images/foundations/spacing-and-layout/6-full-page.png)
+<Image src={FullPage} placeholder="blur" />
 
 Once you have vertical friendship spacing applied, you can continue that logic for the rest of the page.
 
@@ -132,13 +136,13 @@ Once you have vertical friendship spacing applied, you can continue that logic f
 
 When it comes to vertical spacing, we want to make sure our elements are snapping to our margins. In this example, our top margin is 64 pixels and the left and right margins are 104 pixels. Ultimately, use margins that are multiples of 8.
 
-![](../../../assets/images/foundations/spacing-and-layout/7-snapping-to-margins.png)
+<Image src={SnappingMargins} placeholder="blur" />
 
 #### Horizontal friendship spacing
 
 Horizontal spacing is very similar to vertical space, using 8 pixel multiples. Related objects or content should use the friendship method. However, horizontal spacing generally uses more spacing than vertical to visually break up section types. If using consistent horizontal spacing for sections correctly, your design becomes balanced and users don’t have to sift through lengthy content.
 
-![](../../../assets/images/foundations/spacing-and-layout/8-horizontal-spacing.png)
+<Image src={HorizontalSpacing} placeholder="blur" />
 
 ## Max widths
 

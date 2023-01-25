@@ -11,48 +11,46 @@ export const meta = {
     "What's new in Paste in July 2022? New tokens list page, Figma Slot components, Chat Log documentation, and more!",
 };
 
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import TokensPage from '../../../public/images/tokens-page.gif';
+import FigmaSlots from '../../assets/images/articles/2022-07-26-paste-newsletter/figma-slots.png';
+import ChatLog from '../../assets/images/articles/2022-07-26-paste-newsletter/chat-log-example.png';
+import FormPill from '../../assets/images/articles/2022-07-26-paste-newsletter/form-pill-example.png';
+import Nick from '../../assets/images/articles/2022-07-26-paste-newsletter/nick-sands.png';
+import Andy from '../../assets/images/articles/2022-07-26-paste-newsletter/andy-doyle.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2022-07-26-paste-newsletter/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.machineDate}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -60,7 +58,7 @@ export const pageQuery = `
 
 ### The new tokens page is live!
 
-![](/images/tokens-page.gif)
+<Image src={TokensPage} />
 
 We are extremely excited to announce that we have released a new version of the tokens list page! It has a streamlined and improved design with the ability to search through token names and values, quick copy buttons for each token, and switch between JavaScript and CSS formats. You can also watch our [walkthrough of the new features](https://www.loom.com/share/6ac6db3e5120442293c7d151d454f272).
 
@@ -72,7 +70,7 @@ We hope that you find the new tokens page easier to use. Please [send us any fee
 
 ### Figma Slot components
 
-![](../../assets/images/articles/2022-07-26-paste-newsletter/figma-slots.png)
+<Image src={FigmaSlots} placeholder="blur" />
 
 On July 28th, there was a big Figma release that introduced the concept of Slots. Slots are placeholder components that can be nested inside container components. They’re intentionally empty so that you can swap them out for your own custom content. It’s now easier for you to place custom content inside of existing Paste container components (e.g. Card, Modal, Disclosure, etc.) without having to detach them! It’s as easy as swapping out variants.
 
@@ -84,7 +82,7 @@ On July 28th, there was a big Figma release that introduced the concept of Slots
 
 ### New Chat Log documentation
 
-![](../../assets/images/articles/2022-07-26-paste-newsletter/chat-log-example.png)
+<Image src={ChatLog} placeholder="blur" />
 
 We’ve been quietly releasing components in the Chat Log package for the Conversations UI Kit and they’re finally ready for the big time! More components and documentation are coming next release, so watch this space!
 
@@ -94,7 +92,7 @@ We’ve been quietly releasing components in the Chat Log package for the Conver
 
 ### The Form Pill Group gets a design update
 
-![](../../assets/images/articles/2022-07-26-paste-newsletter/form-pill-example.png)
+<Image src={FormPill} placeholder="blur" />
 
 Form Pill Group has new and improved styles for each state. We’ve introduced a new error variant, added support for disabled Form Pills, and updated the documentation page to share how to use them in Figma along with more examples of the states.
 
@@ -119,7 +117,7 @@ Form Pill Group has new and improved styles for each state. We’ve introduced a
 
 ### Nick Sands
 
-![](../../assets/images/articles/2022-07-26-paste-newsletter/nick-sands.png)
+<Image src={Nick} placeholder="blur" />
 
 Nick Sands (he/him/his) has joined the UX Infrastructure team as a Staff Product Designer!
 
@@ -134,7 +132,7 @@ Nick enjoys 3D printing, hockey, cats, and smoothies. He is a collector of hobbi
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-![](../../assets/images/articles/2022-07-26-paste-newsletter/andy-doyle.png)
+<Image src={Andy} placeholder="blur" />
 
 Our August Pastemate is none other than the original Paste prototyping pioneer, Andy Doyle. Andy is a Product Designer on the Billing team, based in Ireland. Upon joining Twilio, Andy jumped right into the Paste world and asked how he might go about [Designing in the Browser](https://csswizardry.com/2010/10/designing-in-the-browser-leads-to-better-quality-builds/). Andy’s comfort and experience with web-based technologies has led him to participate in the research and testing of [the Paste Prototyping Kit](https://github.com/twilio-labs/paste-prototype-kit) and is still one of the most active users. When asked about why he loves prototyping his design ideas he said:
 

@@ -5,7 +5,6 @@ slug: /foundations/data-visualization/
 ---
 
 import Image from 'next/image';
-
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
@@ -24,6 +23,8 @@ import {
   LineChartCaption,
 } from '../../../component-examples/DataVisualizationExamples';
 import FigmaColors from '../../../assets/images/foundations/data-visualization/figma-colors.png';
+import PieChart from '../../../assets/images/foundations/data-visualization/pie-chart.png';
+import LineChart from '../../../assets/images/foundations/data-visualization/line-chart.png';
 
 export const pageQuery = `
   {
@@ -125,7 +126,7 @@ Although we’ve ensured that the recommended [data visualization colors](#color
 
 An example showing the use of divider lines is [this pie chart categorizing the race diversity index in the U.S. from the 2010 census data](https://www.census.gov/content/dam/Census/newsroom/blogs/2021/rsblog-meauring-race-ethnic-diversity-2020-census/rsblog-measuring-race-ethnic-diversity-2020-census-figure4.jpg). A white divider line is used to create contrast and help distinguish the difference between the categories.
 
-![](../../../assets/images/foundations/data-visualization/pie-chart.png)
+<Image src={PieChart} placeholder="blur" />
 
 <PieChartCaption />
 
@@ -133,7 +134,7 @@ An example showing the use of divider lines is [this pie chart categorizing the 
 
 Shapes can also be used in combination with color-coded data points. Using shapes in addition to color adds another layer of differentiation so that charts are not relying solely on color to communicate meaning.
 
-![](../../../assets/images/foundations/data-visualization/line-chart.png)
+<Image src={LineChart} placeholder="blur" />
 
 <LineChartCaption />
 

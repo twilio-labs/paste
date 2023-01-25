@@ -4,10 +4,13 @@ description: Localization refers to adapting a product, service or content to fi
 slug: /foundations/localization/
 ---
 
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
+import DenseLayout from '../../../assets/images/foundations/localization/dense-layout.png';
+import TextInImage from '../../../assets/images/foundations/localization/text-in-image.png';
 
 export const pageQuery = `
   {
@@ -98,7 +101,7 @@ Continue reading to learn how to build experiences in a way that's appropriate a
 - Make all UI components expandable (auto-layout).
 - Don't assign fixed-width or height to UI components, unless there's a compelling reason.
 
-![](../../../assets/images/foundations/localization/dense-layout.png)
+<Image src={DenseLayout} placeholder="blur" />
 
 ### Order in components matter
 
@@ -121,7 +124,7 @@ Avoid creating UI sentences. If the layout and functionality of your interface i
 
 - If text over images is needed, overlay it by code, using HTML and CSS.
 
-![](../../../assets/images/foundations/localization/text-in-image.png)
+<Image src={TextInImage} placeholder="blur" />
 
 ## Usage guide
 
