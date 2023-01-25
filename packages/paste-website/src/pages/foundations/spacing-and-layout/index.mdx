@@ -4,14 +4,13 @@ description: Spacing is the negative area between elements and components. Layou
 slug: /foundations/spacing-and-layout/
 ---
 
-import {graphql} from 'gatsby';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     mdx(frontmatter: {slug: {eq: "/foundations/spacing-and-layout/"}}) {
       fileAbsolutePath

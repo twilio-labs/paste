@@ -4,7 +4,6 @@ description: An unstyled and accessible basis upon which to build Listboxes.
 slug: /primitives/listbox-primitive/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/listbox-primitive/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -30,7 +29,7 @@ import {
   customExample,
 } from '../../../component-examples/ListboxPrimitiveExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPastePrimitive(filter: {name: {eq: "@twilio-paste/listbox-primitive"}}) {
       edges {

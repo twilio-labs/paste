@@ -1,8 +1,8 @@
-const visit = require(`unist-util-visit`);
-const toString = require(`mdast-util-to-string`);
+import {visit} from 'unist-util-visit';
+import {toString} from 'mdast-util-to-string';
 
 // eslint-disable-next-line unicorn/consistent-function-scoping
-module.exports = () => (tree) => {
+const transform = () => (tree) => {
   const headings = [];
 
   visit(tree, `heading`, (heading) => {
@@ -17,3 +17,5 @@ module.exports = () => (tree) => {
     value: `export const mdxHeadings = ${JSON.stringify(headings)}`,
   });
 };
+
+export default transform;
