@@ -27,6 +27,9 @@ const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(
     } else if (variant === 'inverse') {
       backgroundColor = 'colorBackgroundInverse';
       borderColor = 'colorBorderInverse';
+    } else if (disabled) {
+      backgroundColor = 'none';
+      borderColor = 'colorBorderWeaker';
     }
 
     if (children == null) return null;
