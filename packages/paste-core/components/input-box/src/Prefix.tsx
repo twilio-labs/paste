@@ -47,7 +47,6 @@ const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
         ref={ref}
       >
         {children}
-        {/* {React.cloneElement(children as React.ReactElement, {color: 'colorTextWeak'})} */}
       </Box>
     );
   }
