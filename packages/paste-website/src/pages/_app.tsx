@@ -5,6 +5,8 @@ import {useRouter} from 'next/router';
 
 import * as gtag from '../lib/gtag';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const App = ({Component, pageProps}: AppProps): React.ReactElement => {
   const router = useRouter();
   React.useEffect(() => {
@@ -21,13 +23,17 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
 
   return (
     <>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {isProd && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -36,8 +42,10 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
               anonymize_ip: true
             });
           `,
-        }}
-      />
+            }}
+          />
+        </>
+      )}
       <Component {...pageProps} />
     </>
   );
