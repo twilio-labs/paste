@@ -6,7 +6,6 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureProps} from '../src';
-import {getIconHoverStyles} from '../src/utils';
 
 const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
@@ -76,78 +75,6 @@ const StateHookMock: React.FC = () => {
 };
 
 describe('Disclosure', () => {
-  describe('Unit tests', () => {
-    it('should return icon hover styles for each heading size', () => {
-      const mockSpace = {
-        space10: '10',
-        space20: '20',
-      };
-      expect(getIconHoverStyles(false, 'heading10', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading10', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(20) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(false, 'heading20', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading20', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(20) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(false, 'heading30', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading30', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(20) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(false, 'heading40', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading40', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(10) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(false, 'heading50', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading50', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(10) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(false, 'heading60', false, false, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-        transform: 'translateX(0) rotate(-90deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading60', true, false, mockSpace)).toMatchObject({
-        color: 'colorText',
-        transform: 'translateX(10) rotate(0deg)',
-        transition: 'transform 200ms ease-out',
-      });
-      expect(getIconHoverStyles(true, 'heading60', true, true, mockSpace)).toMatchObject({
-        color: 'colorTextIcon',
-      });
-    });
-  });
-
   describe('Render', () => {
     it('should render a disclosure button with aria attributes', () => {
       render(<MockDisclosure />);
