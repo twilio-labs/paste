@@ -20,6 +20,6 @@
     "allowJs": true,
     "noEmit": true
   },
-  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*", "./public/**/*"],
+  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./public/**/*"],
   "exclude": ["node_modules", ".next"]
 }
