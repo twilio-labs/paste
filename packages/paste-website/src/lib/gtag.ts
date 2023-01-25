@@ -1,10 +1,13 @@
 export const GA_TRACKING_ID = 'UA-145457417-1';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 export const pageview = (url: URL) => {
-  console.log(url);
-  /*window.gtag('config', GA_TRACKING_ID, {
-    page_path: url,
-  })*/
+  if (isProd) {
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url,
+    });
+  }
 };
 
 type GTagEvent = {
@@ -15,10 +18,11 @@ type GTagEvent = {
 };
 
 export const event = ({action, category, label, value}: GTagEvent) => {
-  console.log(action);
-  /*window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value,
-  })*/
+  if (isProd) {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
+  }
 };
