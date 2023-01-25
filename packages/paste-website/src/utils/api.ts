@@ -86,28 +86,28 @@ export const getArticles = async (): Promise<ArticleFrontMatter[]> => {
     cwd: root,
   });
 
-  return posts
-    .map((file) => {
-      const filename = file.replace('.mdx', '');
-      // eslint-disable-next-line global-require, import/no-dynamic-require
-      const {meta} = require(`src/pages/blog/${filename}.mdx`);
-      const date = new Date(meta.date);
-      const formattedDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()).toLocaleString(
-        'en-US',
-        {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        }
-      );
+  const mdxFiles = posts.map(async (file) => {
+    const filename = file.replace('.mdx', '');
 
-      return {
-        ...meta,
-        date: formattedDate,
-        machineDate: meta.date,
-      };
-    })
-    .reverse()
-    .filter((entry) => entry.status !== 'draft');
+    // eslint-disable-next-line no-unsanitized/method
+    const meta = await import(`src/pages/blog/${filename}.mdx`).then((mod) => mod.meta);
+    const date = new Date(meta.date);
+    const formattedDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()).toLocaleString(
+      'en-US',
+      {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }
+    );
+
+    return {
+      ...meta,
+      date: formattedDate,
+      machineDate: meta.date,
+    };
+  });
+  const articles = await Promise.all(mdxFiles);
+  return articles.reverse().filter((entry) => entry.status !== 'draft');
 };
 /* eslint-enable unicorn/prefer-json-parse-buffer */
