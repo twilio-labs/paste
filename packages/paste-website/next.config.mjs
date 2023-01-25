@@ -1,11 +1,12 @@
-const nextMdx = require('@next/mdx');
+import nextMdx from '@next/mdx';
+import remarkGfm from 'remark-gfm';
 
-const headingsPlugin = require('./plugins/remark-headings-plugin');
+import headingsPlugin from './plugins/remark-headings-plugin.mjs';
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [headingsPlugin],
+    remarkPlugins: [remarkGfm, headingsPlugin],
     rehypePlugins: [],
     providerImportSource: '@mdx-js/react',
   },
@@ -23,4 +24,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+export default withMDX(nextConfig);

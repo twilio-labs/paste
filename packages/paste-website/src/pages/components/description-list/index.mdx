@@ -5,7 +5,6 @@ description: A Description List is a set or sets of terms and their definitions,
 slug: /components/description-list/
 ---
 
-import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
 import {
@@ -32,7 +31,7 @@ import {
   descriptionListWithEmptyState,
 } from '../../../component-examples/DescriptionListExamples.ts';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/description-list"}}) {
       edges {

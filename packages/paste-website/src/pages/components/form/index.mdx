@@ -5,8 +5,6 @@ description: A Form groups related form elements that allow users to input infor
 slug: /components/form/
 ---
 
-import {graphql} from 'gatsby';
-
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from '@twilio-paste/callout';
@@ -46,7 +44,7 @@ import {
   maxWidthForm,
 } from '../../../component-examples/FormExamples';
 
-export const pageQuery = graphql`
+export const pageQuery = `
   {
     allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
       edges {
