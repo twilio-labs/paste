@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-json-parse-buffer */
 import fs from 'fs';
 import path from 'path';
 
@@ -5,14 +6,15 @@ import {globby} from 'globby';
 import groupBy from 'lodash/groupBy';
 
 import {roadmapTable} from './airtable.mjs';
+import type {ArticleFrontMatter} from '../../types/Article';
 
-export interface Package {
+export type Package = {
   name: string;
   version: string;
   status: string;
-}
+};
 
-export interface PastePackages {
+export type PastePackages = {
   allPasteComponent: Package[];
   allPastePrimitive: Package[];
   allPasteLayout: Package[];
@@ -23,26 +25,44 @@ export interface PastePackages {
     Feature: string;
     status: string;
   }[];
-}
+};
 
-export const getNavigationData = async () => {
+export type Feature = {
+  Feature?: string;
+  status?: string;
+  Figma?: string;
+  'Design committee review'?: string;
+  'Engineer committee review'?: string;
+  Documentation?: boolean;
+  'Component Category'?: string;
+  Code?: string;
+};
+
+export type Release = {
+  'Public Description (from System)': string[];
+  'Release Description': string;
+  'Release feature name': string;
+  Status: string;
+};
+
+export const getNavigationData = async (): Promise<PastePackages> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/nav-data.json'), 'utf8');
   return JSON.parse(data);
 };
 
-export const getAllComponents = async (categories: string[]) => {
+export const getAllComponents = async (categories: string[]): Promise<Feature[]> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
 
-  return JSON.parse(data).filter((item) => categories.includes(item['Component Category']));
+  return JSON.parse(data).filter((item: Feature) => categories.includes(item['Component Category'] || ''));
 };
 
-export const getFeature = async (feature: string) => {
+export const getFeature = async (feature: string): Promise<Feature> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
 
-  return JSON.parse(data).find((item) => item.Feature === feature);
+  return JSON.parse(data).find((item: Feature) => item.Feature === feature);
 };
 
-export const getRoadmap = async () => {
+export const getRoadmap = async (): Promise<{[release: string]: Release[]}> => {
   const roadmap = await roadmapTable
     .select({
       filterByFormula: 'IS_AFTER({Release date}, TODAY())',
@@ -50,8 +70,8 @@ export const getRoadmap = async () => {
       fields: ['Release feature name', 'Release', 'Release Description', 'Public Description (from System)', 'Status'],
     })
     .all();
-  const items = roadmap.map(({id, fields}) => ({id, ...fields}));
-  const releases = groupBy(items, 'Release');
+  const items = roadmap.map(({fields}) => fields) as Release[];
+  const releases = groupBy<Release>(items, 'Release');
 
   Object.values(releases).forEach((val) =>
     val.sort((a, b) => a['Release feature name'].localeCompare(b['Release feature name']))
@@ -60,7 +80,7 @@ export const getRoadmap = async () => {
   return releases;
 };
 
-export const getArticles = async () => {
+export const getArticles = async (): Promise<ArticleFrontMatter[]> => {
   const root = path.resolve(process.cwd(), './src/pages/blog/');
   const posts = await globby(['*.mdx', '!index.mdx'], {
     cwd: root,
@@ -90,3 +110,4 @@ export const getArticles = async () => {
     .reverse()
     .filter((entry) => entry.status !== 'draft');
 };
+/* eslint-enable unicorn/prefer-json-parse-buffer */

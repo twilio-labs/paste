@@ -5,6 +5,7 @@
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
     "dev": "node -r dotenv/config scripts/fetch-data.mjs && NEXT_TELEMETRY_DISABLED=1 next dev",
     "build": "node -r dotenv/config scripts/fetch-data.mjs && NEXT_TELEMETRY_DISABLED=1 next build",

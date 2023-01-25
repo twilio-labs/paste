@@ -1,12 +1,25 @@
----
-title: Design tokens
-description: List of visual attributes (background colors, spacing, etc.) that our design language is based on.
-slug: /tokens/list
----
+export const meta = {
+  title: 'Design tokens',
+  description: 'List of visual attributes (background colors, spacing, etc.) that our design language is based on.',
+  slug: '/tokens/list',
+};
 
 import {Box} from '@twilio-paste/box';
 import {TokensList} from '../../../components/tokens-list';
 import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <GenericHeader
   name="Token List"
