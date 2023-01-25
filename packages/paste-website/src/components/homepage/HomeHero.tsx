@@ -77,18 +77,18 @@ const HomeHero: React.FC = () => {
                   <NewIcon decorative />
                   New
                 </Badge>
-                <NewComponentBannerText>Check out our newest component,</NewComponentBannerText>
+                <NewComponentBannerText>Check out our newest Foundations page,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/chat-composer"
+                  to="/foundations/spacing-and-layout"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
-                      action: 'click-new-component-banner',
-                      label: 'Chat Composer component',
+                      action: 'click-new-banner',
+                      label: 'Spacing and Layout page',
                     })
                   }
                 >
-                  Chat Composer!
+                  Spacing and Layout guidelines!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
