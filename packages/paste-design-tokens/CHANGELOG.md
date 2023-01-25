@@ -1,5 +1,21 @@
 # Change Log
 
+## 8.4.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Add tokens for new themes `twilio` and `twilio-dark`:
+
+  - Aliases: color-palette
+    - Add `palette-red-65`
+    - Add `palette-red-05`
+    - Add `palette-orange-05`
+    - Add `palette-yellow-05`
+    - Add `palette-green-05`
+    - Add `palette-blue-05`
+    - Add `palette-blue-55`
+    - Add `palette-purple-05`
+
 ## 8.3.0
 
 ### Minor Changes

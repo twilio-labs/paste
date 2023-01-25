@@ -1,5 +1,11 @@
 # @twilio-paste/side-modal
 
+## 1.0.4
+
+### Patch Changes
+
+- [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2) [#2938](https://github.com/twilio-labs/paste/pull/2938) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Modal] Update styles to align with new Paste Twilio theme
+
 ## 1.0.3
 
 ### Patch Changes
