@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {Alert} from '@twilio-paste/alert';
+import type {AlertProps} from '@twilio-paste/alert';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
@@ -71,6 +73,20 @@ export const Evergreen = (): React.ReactNode => (
               <Callout key={variant} variant={variant as CalloutProps['variant']}>
                 {variant} variant
               </Callout>
+            );
+          })}
+        </Stack>
+      </Box>
+      <Box>
+        <Heading as="h3" variant="heading20">
+          Alert variants
+        </Heading>
+        <Stack orientation="horizontal" spacing="space40">
+          {'error neutral warning'.split(' ').map((variant) => {
+            return (
+              <Alert key={variant} variant={variant as AlertProps['variant']}>
+                {variant} variant
+              </Alert>
             );
           })}
         </Stack>
