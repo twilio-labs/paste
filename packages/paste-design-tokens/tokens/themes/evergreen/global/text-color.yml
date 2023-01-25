@@ -81,13 +81,13 @@ props:
     value: "#310C0C"
     comment: Stronger error text for inputs and error misc
   color-text-success:
-    value: "#317159"
+    value: "#24634B"
     comment: Text color for success text.
   color-text-warning:
-    value: "#996A13"
+    value: "#B25E3A"
     comment: Color for warning text.
   color-text-warning-strong:
-    value: "#66460D"
+    value: "#85462B"
     comment: Color for dark warning text.
   color-text-new:
     value: "#524988"
