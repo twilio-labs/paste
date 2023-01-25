@@ -1,5 +1,4 @@
-import fs from 'fs';
-import mkdirp from 'mkdirp';
+import * as fs from 'fs/promises';
 import path from 'path';
 import {fileURLToPath} from 'url';
 
@@ -12,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const dataPath = path.resolve(__dirname, '../data');
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getCategory = (pkgPath) => {
   if (pkgPath.startsWith('paste-core/components')) {
     return 'allPasteComponent';
@@ -29,6 +29,7 @@ const getCategory = (pkgPath) => {
   return '';
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPatterns = async () => {
   const patterns = await systemTable
     .select({
@@ -40,6 +41,7 @@ const getAllPatterns = async () => {
   return patterns.map(({fields}) => fields);
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPackages = async () => {
   const root = path.resolve(process.cwd(), '../');
   const packages = await globby(['**/package.json', '!**/node_modules', '!**/core-bundle/**'], {
@@ -55,10 +57,11 @@ const getAllPackages = async () => {
     allPastePattern: [],
   };
 
-  packages.forEach((packageJson) => {
+  packages.forEach(async (packageJson) => {
     const category = getCategory(packageJson);
     if (category) {
-      const fileContents = fs.readFileSync(`${root}/${packageJson}`, 'utf8');
+      // eslint-disable-next-line unicorn/prefer-json-parse-buffer
+      const fileContents = await fs.readFile(`${root}/${packageJson}`, 'utf8');
       const {name, status, version} = JSON.parse(fileContents);
       data[category].push({name, status: status || null, version});
     }
@@ -67,10 +70,17 @@ const getAllPackages = async () => {
   const patterns = await getAllPatterns();
   data.allPastePattern = [...patterns];
 
-  await mkdirp(dataPath, {recursive: true});
-  fs.writeFileSync(path.join(dataPath, 'nav-data.json'), JSON.stringify(data, null, 2), 'utf8');
+  await fs.mkdir(dataPath, {recursive: true}, (err) => {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
+  });
+
+  await fs.writeFile(path.join(dataPath, 'nav-data.json'), JSON.stringify(data, null, 2), 'utf8');
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const getAllFeatures = async () => {
   const features = await systemTable
     .select({
@@ -91,7 +101,14 @@ export const getAllFeatures = async () => {
     .all();
   const items = features.map(({fields}) => fields);
 
-  fs.writeFileSync(path.join(dataPath, 'feature-data.json'), JSON.stringify(items, null, 2), 'utf8');
+  await fs.mkdir(dataPath, {recursive: true}, (err) => {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
+  });
+
+  await fs.writeFile(path.join(dataPath, 'feature-data.json'), JSON.stringify(items, null, 2), 'utf8');
 };
 
 getAllPackages();
