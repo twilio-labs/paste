@@ -1,6 +1,6 @@
 [dev]
   command = "yarn start:website"
-  targetPort = 8000
+  targetPort = 3000
   framework = "#custom"
 
 [context.deploy-preview.environment]
