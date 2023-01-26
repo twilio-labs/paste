@@ -6,7 +6,7 @@ import type {AlertProps} from '@twilio-paste/alert';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
-import {Callout} from '@twilio-paste/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import type {CalloutProps} from '@twilio-paste/callout';
 import {Input} from '@twilio-paste/input';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -75,7 +75,8 @@ export const Evergreen = (): React.ReactNode => (
           {'neutral warning error success new'.split(' ').map((variant) => {
             return (
               <Callout key={variant} variant={variant as CalloutProps['variant']}>
-                {variant} variant
+                <CalloutHeading>{variant} heading</CalloutHeading>
+                <CalloutText>{variant} variant text</CalloutText>
               </Callout>
             );
           })}
