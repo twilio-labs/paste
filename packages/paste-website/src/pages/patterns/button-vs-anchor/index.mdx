@@ -1,9 +1,10 @@
----
-title: Button vs. Anchor
-description: Guidance outlining best practices for Button and Anchor usage.
-slug: /patterns/button-vs-anchor/
----
+export const meta = {
+  title: 'Button vs. Anchor',
+  description: 'Guidance outlining best practices for Button and Anchor usage.',
+  slug: '/patterns/button-vs-anchor/',
+};
 
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -16,45 +17,31 @@ import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
+import ButtonPrimaryActionImage from '../../../assets/images/patterns/button-primary-action.png';
+import ButtonMultipleActionsImage from '../../../assets/images/patterns/button-multiple-actions.png';
+import ButtonAnchorLikeButtonsImage from '../../../assets/images/patterns/button-anchor-like-buttons.png';
+import ButtonCardExternalAnchorImage from '../../../assets/images/patterns/button-card-external-anchor.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/button-vs-anchor/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Button vs Anchor"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button vs Anchor');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizedPatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -62,7 +49,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -173,7 +160,7 @@ If you decide to place an icon in a button, all button icons should be placed to
 </Stack>`}
 </LivePreview>
 
-![table with a primary create new action button](../../../assets/images/patterns/button-primary-action.png)
+<Image src={ButtonPrimaryActionImage} placeholder="blur" alt="table with a primary create new action button" />
 
 ### Secondary button
 
@@ -187,7 +174,7 @@ There are some cases where a secondary button may be used for an irreversible ac
 </Button>`}
 </LivePreview>
 
-![table with a multiple action buttons](../../../assets/images/patterns/button-multiple-actions.png)
+<Image src={ButtonMultipleActionsImage} placeholder="blur" alt="table with multiple action buttons" />
 
 ### Link-style button (tertiary)
 
@@ -246,7 +233,11 @@ To create a button-styled anchor, use the Button component and add the `as="a"` 
 </Stack>`}
 </LivePreview>
 
-![layout with anchors and anchors that look like buttons](../../../assets/images/patterns/button-anchor-like-buttons.png)
+<Image
+  src={ButtonAnchorLikeButtonsImage}
+  placeholder="blur"
+  alt="layout with anchors and anchors that look like buttons"
+/>
 
 ## Anchors
 
@@ -265,7 +256,7 @@ For all anchors, the only functionality it supports is navigating. For this reas
 </Stack>`}
 </LivePreview>
 
-![card layout with internal and external anchors](../../../assets/images/patterns/button-card-external-anchor.png)
+<Image src={ButtonCardExternalAnchorImage} placeholder="blur" alt="card layout with internal and external anchors" />
 
 ### Anchors in text
 

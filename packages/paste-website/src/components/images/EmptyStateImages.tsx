@@ -17,6 +17,7 @@ export const AwaitingDataImage: React.FC = () => {
       src={EmptyAwaiting}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
@@ -35,6 +36,7 @@ export const ChangeRegionImage: React.FC = () => {
       src={EmptyRegional}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
@@ -53,6 +55,7 @@ export const CreateObjectImage: React.FC = () => {
       src={EmptyObject}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
@@ -71,6 +74,7 @@ export const GenericDependencyImage: React.FC = () => {
       src={EmptyDependency}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
@@ -89,6 +93,7 @@ export const NoPermissionsImage: React.FC = () => {
       src={EmptyPermission}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
@@ -107,6 +112,7 @@ export const NoResultImage: React.FC = () => {
       src={EmptyNoResults}
       alt=""
       width={150}
+      height={150}
       placeholder="blur"
       layout="fixed"
       css={css({
