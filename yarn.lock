@@ -5239,6 +5239,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@juggle/resize-observer@npm:^3.3.1":
+  version: 3.4.0
+  resolution: "@juggle/resize-observer@npm:3.4.0"
+  checksum: 2505028c05cc2e17639fcad06218b1c4b60f932a4ebb4b41ab546ef8c157031ae377e3f560903801f6d01706dbefd4943b6c4704bf19ed86dfa1c62f1473a570
+  languageName: node
+  linkType: hard
+
 "@lerna/add@npm:4.0.0":
   version: 4.0.0
   resolution: "@lerna/add@npm:4.0.0"
@@ -13484,7 +13491,7 @@ __metadata:
     netlify-cli: ^12.2.10
     next: ^12.3.4
     pretty-format: ^28.1.0
-    prism-react-renderer: ^0.1.7
+    prism-react-renderer: ^1.3.5
     prop-types: ^15.7.2
     puppeteer-core: ^10.1.0
     react: ^17.0.2
@@ -13499,7 +13506,7 @@ __metadata:
     rollbar: ^2.25.0
     typescript: ^4.9.4
     unist-util-visit: ^4.1.2
-    use-resize-observer: ^7.0.0
+    use-resize-observer: ^9.1.0
     winston: ^3.8.1
   languageName: unknown
   linkType: soft
@@ -37709,16 +37716,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@npm:^0.1.7":
-  version: 0.1.7
-  resolution: "prism-react-renderer@npm:0.1.7"
-  peerDependencies:
-    react: ">=0.14.9"
-  checksum: 22071ff58b26816cf9cc035df19b125eac7160d5550010e4c8cd28dfd6ce4a84610c008baa7e4d4e52773ffd3c2cbdf5f0572ee2df2ad7593b3e47f6746d07fd
-  languageName: node
-  linkType: hard
-
-"prism-react-renderer@npm:^1.3.1":
+"prism-react-renderer@npm:^1.3.1, prism-react-renderer@npm:^1.3.5":
   version: 1.3.5
   resolution: "prism-react-renderer@npm:1.3.5"
   peerDependencies:
@@ -39729,13 +39727,6 @@ fsevents@^1.2.7:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
-  languageName: node
-  linkType: hard
-
-"resize-observer-polyfill@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "resize-observer-polyfill@npm:1.5.1"
-  checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
   languageName: node
   linkType: hard
 
@@ -44591,15 +44582,15 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"use-resize-observer@npm:^7.0.0":
-  version: 7.0.1
-  resolution: "use-resize-observer@npm:7.0.1"
+"use-resize-observer@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "use-resize-observer@npm:9.1.0"
   dependencies:
-    resize-observer-polyfill: ^1.5.1
+    "@juggle/resize-observer": ^3.3.1
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: f61dfb59bb10fa47dd034ca7ebada56fce335defc28e77753a3fd13c9768ca7806c547d54bc84397faf32e457a475d20660c5c697ddda2b9d1ee650b9a21250a
+    react: 16.8.0 - 18
+    react-dom: 16.8.0 - 18
+  checksum: 92be0ac34a3b3cf884cd55847c90792b5b44833dc258e96d650152815ad246afe45825aa223332203004d836535a927ab74f18dc0313229e2c7c69510eddf382
   languageName: node
   linkType: hard
 
