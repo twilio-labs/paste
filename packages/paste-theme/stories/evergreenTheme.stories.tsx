@@ -55,7 +55,7 @@ export const Evergreen = (): React.ReactNode => (
           Button variants
         </Heading>
         <ButtonGroup>
-          {'primary primary_icon secondary secondary_icon destructive destructive_icon destructive_link destructive_secondary link inverse_link inverse reset'
+          {'primary primary_icon secondary secondary_icon destructive destructive_icon destructive_link destructive_secondary link inverse reset'
             .split(' ')
             .filter((variant) => !variant.includes('icon'))
             .map((variant) => (
