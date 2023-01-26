@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {Avatar} from '@twilio-paste/avatar';
+import type {AvatarProps} from '@twilio-paste/avatar';
 import {Alert} from '@twilio-paste/alert';
 import type {AlertProps} from '@twilio-paste/alert';
 import {Box} from '@twilio-paste/box';
@@ -88,6 +90,16 @@ export const Evergreen = (): React.ReactNode => (
                 {variant} variant
               </Alert>
             );
+          })}
+        </Stack>
+      </Box>
+      <Box>
+        <Heading as="h3" variant="heading20">
+          Avatar
+        </Heading>
+        <Stack orientation="horizontal" spacing="space40">
+          {'30 40 50 60 70 80 90 100 110'.split(' ').map((size) => {
+            return <Avatar key={size} size={`sizeIcon${size}` as AvatarProps['size']} name={size} />;
           })}
         </Stack>
       </Box>
