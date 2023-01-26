@@ -8,17 +8,20 @@ imports:
 props:
   # base background
   color-background:
-    value: "#F9FAFC"
+    value: "#F4F6FA"
     comment: Default background color for any container.
   color-background-strong:
-    value: "#F4F6FA"
+    value: "#E6E8F0"
     comment: Strong default background color.
   color-background-stronger:
-    value: "#EDEFF5"
+    value: "#C1C4D6"
     comment: Stronger default background color.
   color-background-strongest:
-    value: "#E2E5EE"
+    value: "#696F8C"
     comment: Strongest default background color.
+  color-background-weak:
+    value: "#F9FAFC"
+    comment: Weak default background color.
   color-background-inverse:
     value: "#101840"
     comment: Inverse background color for any container. Must be used on color-background-body-inverse.
