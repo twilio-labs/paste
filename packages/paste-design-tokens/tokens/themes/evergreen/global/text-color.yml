@@ -125,7 +125,7 @@ props:
     value: "#DE7548"
     comment: Icon color for indicating a warning.
   color-text-icon-neutral:
-    value: "#8F95B2"
+    value: "#2952CC"
     comment: Icon color for being neutral.
 
   # decorative
