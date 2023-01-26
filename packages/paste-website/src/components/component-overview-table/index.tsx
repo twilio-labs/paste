@@ -12,11 +12,11 @@ import {SiteLink} from '../SiteLink';
 import type {SidebarCategoryRoutes} from '../../constants';
 import {getPackagePath} from '../../utils/RouteUtils';
 import {sentenceCase} from '../../utils/SentenceCase';
-import type {AirTableComponentNode} from '../../utils/types';
+import type {Feature} from '../../utils/api';
 
 interface ComponentOverviewTableProps {
   categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-  componentsList?: [AirTableComponentNode];
+  componentsList?: [Feature];
 }
 
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({categoryRoute, componentsList}) => {
