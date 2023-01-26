@@ -23,8 +23,7 @@ const CustomizationLandingPage = ({
       <Head>
         <title>{`Customization - ${SiteMetaDefaults.TITLE}`}</title>
         <link rel="canonical" href="https://paste.twilio.design/customization" />
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta key="description" name="description" content="" />
       </Head>
       <LandingPageHero />
       <LikeTwilio />

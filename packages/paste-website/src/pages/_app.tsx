@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {AppProps} from 'next/app';
+import Head from 'next/head';
 import Script from 'next/script';
 import {useRouter} from 'next/router';
 
@@ -23,6 +24,9 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       {isProd && (
         <>
           <Script

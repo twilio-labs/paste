@@ -7,7 +7,6 @@ __testfixtures__
 packages/paste-icons/cjs
 packages/paste-icons/esm
 packages/paste-icons/json
-packages/paste-website/public
 packages/paste-theme-designer/public/
 .cache
 .next

@@ -49,8 +49,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta, navigation
       <Head>
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
-        <meta name="description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta key="description" name="description" content={pageDescription} />
       </Head>
       <Box display={['block', 'block', 'none']} marginBottom="space60">
         <Alert variant="neutral">
