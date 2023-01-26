@@ -1,33 +1,30 @@
----
-title: Quick Start for Paste
-description: Instructions to create a new Paste project.
-slug: /introduction/for-engineers/quickstart/
----
+export const meta = {
+  title: 'Quick Start for Paste',
+  description: 'Instructions to create a new Paste project.',
+  slug: '/introduction/for-engineers/quickstart/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/quickstart/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 </content>
 
@@ -35,7 +32,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

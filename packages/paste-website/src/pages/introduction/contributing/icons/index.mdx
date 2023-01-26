@@ -1,8 +1,8 @@
----
-title: Contributing an icon
-description: Guidelines on how to create and export SVG icons for Paste.
-slug: /introduction/contributing/icons/
----
+export const meta = {
+  title: 'Contributing an icon',
+  description: 'Guidelines on how to create and export SVG icons for Paste.',
+  slug: '/introduction/contributing/icons/',
+};
 
 import Link from 'next/link';
 import {Box} from '@twilio-paste/box';
@@ -12,29 +12,26 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Grid} from '../../../../components/grid';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/contributing/icons/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
 ---
 
