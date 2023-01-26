@@ -12,6 +12,7 @@ export type Package = {
   name: string;
   version: string;
   status: string;
+  description: string;
 };
 
 export type PastePackages = {

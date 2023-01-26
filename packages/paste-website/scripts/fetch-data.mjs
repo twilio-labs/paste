@@ -62,8 +62,8 @@ const getAllPackages = async () => {
     if (category) {
       // eslint-disable-next-line unicorn/prefer-json-parse-buffer
       const fileContents = await fs.readFile(`${root}/${packageJson}`, 'utf8');
-      const {name, status, version} = JSON.parse(fileContents);
-      data[category].push({name, status: status || null, version});
+      const {name, status, version, description} = JSON.parse(fileContents);
+      data[category].push({name, status: status || null, version, description});
     }
   });
 
