@@ -1,8 +1,9 @@
----
-title: Disclosure Primitive
-description: An accessible disclosure primitive for controlling the visibility of a content section.
-slug: /primitives/disclosure-primitive/
----
+export const meta = {
+  title: 'Disclosure Primitive',
+  package: '@twilio-paste/disclosure-primitive',
+  description: 'An accessible disclosure primitive for controlling the visibility of a content section.',
+  slug: '/primitives/disclosure-primitive/',
+};
 
 import {
   useDisclosurePrimitiveState,
@@ -10,9 +11,11 @@ import {
   DisclosurePrimitiveContent,
 } from '@twilio-paste/disclosure-primitive';
 import Changelog from '@twilio-paste/disclosure-primitive/CHANGELOG.md';
+import packageJson from '@twilio-paste/disclosure-primitive/package.json';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {
@@ -20,59 +23,38 @@ import {
   ConditionallyRenderingExample,
   MultipleExample,
 } from '../../../component-examples/DisclosurePrimitiveExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/disclosure-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/disclosure-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Disclosure Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Disclosure Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/disclosure"
   storybookUrl="/?path=/story/primitives-disclosure"
   data={props.data}
+  description={meta.description}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
