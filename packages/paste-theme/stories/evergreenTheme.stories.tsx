@@ -15,6 +15,8 @@ import {Select, Option} from '@twilio-paste/select';
 import {Stack} from '@twilio-paste/stack';
 import {ButtonGroup} from '@twilio-paste/button-group';
 import {TextArea} from '@twilio-paste/textarea';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+import type {DisclosureHeadingProps} from '@twilio-paste/disclosure';
 
 import {ThemeProvider} from '../src/themeProvider';
 
@@ -100,6 +102,23 @@ export const Evergreen = (): React.ReactNode => (
         <Stack orientation="horizontal" spacing="space40">
           {'30 40 50 60 70 80 90 100 110'.split(' ').map((size) => {
             return <Avatar key={size} size={`sizeIcon${size}` as AvatarProps['size']} name={size} />;
+          })}
+        </Stack>
+      </Box>
+      <Box>
+        <Heading as="h3" variant="heading20">
+          Disclosure
+        </Heading>
+        <Stack orientation="vertical" spacing="space70">
+          {'10 20 30 40 50 60'.split(' ').map((size) => {
+            return (
+              <Disclosure key={size}>
+                <DisclosureHeading as="h2" variant={`heading${size}` as DisclosureHeadingProps['variant']}>
+                  Disclosure Heading
+                </DisclosureHeading>
+                <DisclosureContent>Content</DisclosureContent>
+              </Disclosure>
+            );
           })}
         </Stack>
       </Box>
