@@ -64,6 +64,12 @@ export const getFeature = async (feature: string): Promise<Feature> => {
   return JSON.parse(data).find((item: Feature) => item.Feature === feature);
 };
 
+export const getAllFeatures = async (): Promise<Feature[]> => {
+  const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
+
+  return JSON.parse(data);
+};
+
 export const getRoadmap = async (): Promise<{[release: string]: Release[]}> => {
   const roadmap = await roadmapTable
     .select({

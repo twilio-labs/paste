@@ -12,10 +12,8 @@ export const ComponentStatus: React.FC<PackageData> = ({
   Figma,
   Documentation,
   Code,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  Design_committee_review,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  Engineer_committee_review,
+  'Design committee review': Design_committee_review,
+  'Engineer committee review': Engineer_committee_review,
 }) => {
   return (
     <Stack orientation="vertical" spacing="space20">
