@@ -232,12 +232,11 @@ const SidebarNavigation: React.FC = () => {
           <SidebarAnchor level={1} href={SidebarCategoryRoutes.PATTERNS}>
             Overview
           </SidebarAnchor>
-          {allPastePattern &&
-            allPastePattern.map(({name, slug}: {[key: string]: string}) => (
-              <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
-                {name}
-              </SidebarAnchor>
-            ))}
+          {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
+            <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
+              {name}
+            </SidebarAnchor>
+          ))}
         </NavigationDisclosure>
         <SidebarSeparator />
         <NavigationDisclosure

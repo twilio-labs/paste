@@ -1,39 +1,30 @@
----
-title: Design Tokens Package
-package: '@twilio-paste/design-tokens'
-description: The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, etc.)
-slug: /tokens/design-tokens-package/
----
+export const meta = {
+  title: 'Design Tokens Package',
+  package: '@twilio-paste/design-tokens',
+  description:
+    'The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, etc.)',
+  slug: '/tokens/design-tokens-package/',
+};
 
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Link from 'next/link';
+import packageJson from '@twilio-paste/design-tokens/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteDesignTokensPackage(filter: {name: {eq: "@twilio-paste/design-tokens"}}) {
-      edges {
-        node {
-          name
-          description
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/tokens/design-tokens-package/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: packageJson,
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.TOKENS}
@@ -45,7 +36,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
