@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+- [`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17) [#2927](https://github.com/twilio-labs/paste/pull/2927) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Theme, Design Tokens] Add evergreen design tokens and theme
+
 ## 8.4.0
 
 ### Minor Changes
