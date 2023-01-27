@@ -3,7 +3,7 @@
   "version": "0.3.10",
   "category": "interaction",
   "status": "production",
-  "description": "An unstyled and accessible basis upon which to build a disclosure.",
+  "description": "An accessible disclosure primitive for controlling the visibility of a content section.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

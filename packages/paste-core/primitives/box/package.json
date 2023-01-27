@@ -3,7 +3,7 @@
   "version": "7.1.2",
   "category": "layout",
   "status": "production",
-  "description": "A primitive component that can be used to create all block level styles in Paste",
+  "description": "The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
