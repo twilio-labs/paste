@@ -1,33 +1,30 @@
----
-title: Content checklist
-description: Self-service tips and how to access UX Writer support.
-slug: /foundations/content/content-checklist/
----
+export const meta = {
+  title: 'Content checklist',
+  description: 'Self-service tips and how to access UX Writer support.',
+  slug: '/foundations/content/content-checklist/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/content-checklist/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -35,7 +32,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

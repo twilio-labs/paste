@@ -161,6 +161,9 @@ const SidebarNavigation: React.FC = () => {
               })
             }
           >
+            <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.CONTENT}`}>
+              Overview
+            </SidebarAnchor>
             <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>
               Content checklist
             </SidebarAnchor>
