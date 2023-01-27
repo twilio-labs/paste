@@ -7,6 +7,7 @@ export const ThemeVariants = {
   DARK: 'dark',
   TWILIO: 'twilio',
   TWILIO_DARK: 'twilio-dark',
+  EVERGREEN: 'evergreen',
 };
 
 export const DeprecatedThemeVariants = {

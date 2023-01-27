@@ -75,10 +75,15 @@ const GlobalStyles = () => (
   />
 );
 
+// This collection of story ids will always be tested in VRT and our a11y test suites using
+// the default layout, rather than the stacked layout which renders the story across multiple
+// themes. This is important for stories that focus on an individual theme for example.
+const FORCE_DEFAULT_LAYOUT_STORY_IDS = 'theme-themes--evergreen'.split(' ');
+
 export const decorators = [
   (Story, context) => {
     const theme = context.globals.theme;
-    const layout = context.globals.theme_layout;
+    const layout = FORCE_DEFAULT_LAYOUT_STORY_IDS.includes(context.id) ? 'default' : context.globals.theme_layout;
     const lang = context.globals.locale;
     const breakpoints = context.globals.breakpoints;
 
