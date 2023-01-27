@@ -6,7 +6,7 @@
     - [Write spec for component](#write-spec-for-component)
     - [Design component](#design-component)
     - [Iterate on spec based on peer review](#iterate-on-spec-based-on-peer-review)
-    - [Finalize spec and design beta based on final reviewal-review}](#finalize-spec-and-design-beta-based-on-final-reviewal-review)
+    - [Finalize spec and design beta based on final reviewal-review}](#finalize-spec-and-design-based-on-final-review)
     - [Publish Figma component](#publish-figma-component)
   - [Engineering](#engineering)
     - [Create component API explorations](#create-component-api-explorations)
