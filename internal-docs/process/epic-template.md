@@ -46,7 +46,7 @@ _Always create this as a placeholder, add details as they come to light or close
 2. Schedule final team review
 3. Schedule final committee review
 
-### Finalize spec and design beta based on final reviewal-review}
+### Finalize spec and design beta based on final review
 
 _Create this as a placeholder. Add details as they come to light, or close the ticket as "won't do" if not needed._
 
