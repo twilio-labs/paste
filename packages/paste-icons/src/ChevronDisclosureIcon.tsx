@@ -25,17 +25,18 @@ const ChevronDisclosureIcon = React.forwardRef<HTMLElement, ChevronDisclosureIco
         <svg
           role="img"
           aria-hidden={decorative}
-          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          viewBox="0 0 24 24"
+          viewBox="0 0 20 20"
+          fill="none"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M16.258 14.882l3.67-4.371a.305.305 0 00-.052-.442.34.34 0 00-.206-.069h-7.34c-.182 0-.33.14-.33.314 0 .072.026.141.072.197l3.67 4.371a.341.341 0 00.516 0z"
+            clipRule="evenodd"
+            d="M9.707 6.293a1 1 0 00-1.497 1.32l.083.094L10.585 10l-2.292 2.293a1 1 0 00-.083 1.32l.083.094a1 1 0 001.32.083l.094-.083 3-3a1 1 0 00.083-1.32l-.083-.094-3-3z"
           />
         </svg>
       </IconWrapper>

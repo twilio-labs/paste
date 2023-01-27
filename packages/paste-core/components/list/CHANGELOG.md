@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.3
+
+### Patch Changes
+
+- [`d35903dc2`](https://github.com/twilio-labs/paste/commit/d35903dc24adf334021a7609fb919efee7e23f87) [#2966](https://github.com/twilio-labs/paste/pull/2966) Thanks [@shleewhite](https://github.com/shleewhite)! - [List] explicitly set the list style type on UnorderedList and OrderedList components.
+
 ## 5.0.2
 
 ### Patch Changes

@@ -1,0 +1,21 @@
+global:
+  category: font-weight
+  type: font-weight
+imports:
+  - ../../../global/font-weight.yml
+props:
+  font-weight-light:
+    value: "300"
+    comment: Font weight for light weight
+  font-weight-normal:
+    value: "400"
+    comment: Font weight for normal weight
+  font-weight-medium:
+    value: "500"
+    comment: Font weight for medium weight
+  font-weight-semibold:
+    value: "600"
+    comment: Font weight for semibold weight
+  font-weight-bold:
+    value: "700"
+    comment: Font weight for bold weight

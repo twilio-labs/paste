@@ -1,0 +1,10 @@
+global:
+  category: font
+  type: font
+imports:
+  - ../../../global/font-family.yml
+props:
+  font-family-text:
+    value: "'SF UI Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+  font-family-code:
+    value: "'SF Mono', Monaco, Inconsolata, 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace"
