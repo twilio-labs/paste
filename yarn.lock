@@ -12729,8 +12729,8 @@ __metadata:
     "@twilio-paste/data-visualization-library": ^2.0.2
     "@twilio-paste/date-picker": ^3.0.2
     "@twilio-paste/description-list": ^1.0.0
-    "@twilio-paste/design-tokens": ^8.4.0
-    "@twilio-paste/disclosure": ^9.0.2
+    "@twilio-paste/design-tokens": ^8.5.0
+    "@twilio-paste/disclosure": ^9.0.3
     "@twilio-paste/disclosure-primitive": ^0.3.10
     "@twilio-paste/display-heading": ^1.0.1
     "@twilio-paste/display-pill-group": ^5.0.1
@@ -12743,7 +12743,7 @@ __metadata:
     "@twilio-paste/grid": ^5.0.3
     "@twilio-paste/heading": ^8.0.2
     "@twilio-paste/help-text": ^10.1.2
-    "@twilio-paste/icons": ^9.4.1
+    "@twilio-paste/icons": ^9.4.3
     "@twilio-paste/in-page-navigation": ^1.0.1
     "@twilio-paste/inline-code": ^1.0.2
     "@twilio-paste/inline-control-group": ^10.0.2
@@ -12784,7 +12784,7 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^0.2.9
     "@twilio-paste/text": ^7.0.2
     "@twilio-paste/textarea": ^7.0.2
-    "@twilio-paste/theme": ^8.2.0
+    "@twilio-paste/theme": ^8.3.0
     "@twilio-paste/time-picker": ^3.0.2
     "@twilio-paste/toast": ^9.0.2
     "@twilio-paste/tooltip": ^8.0.2
@@ -12979,7 +12979,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^8.1.2, @twilio-paste/design-tokens@^8.3.0, @twilio-paste/design-tokens@^8.4.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^8.1.2, @twilio-paste/design-tokens@^8.3.0, @twilio-paste/design-tokens@^8.4.0, @twilio-paste/design-tokens@^8.5.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   dependencies:
@@ -13011,21 +13011,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/disclosure@^9.0.2, @twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure":
+"@twilio-paste/disclosure@^9.0.2, @twilio-paste/disclosure@^9.0.3, @twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure"
   dependencies:
     "@twilio-paste/animation-library": ^0.3.9
     "@twilio-paste/box": ^7.1.2
     "@twilio-paste/card": ^6.0.2
-    "@twilio-paste/design-tokens": ^8.3.0
+    "@twilio-paste/design-tokens": ^8.5.0
     "@twilio-paste/disclosure-primitive": ^0.3.10
     "@twilio-paste/heading": ^8.0.2
-    "@twilio-paste/icons": ^9.3.1
+    "@twilio-paste/icons": ^9.4.3
     "@twilio-paste/style-props": ^6.1.2
     "@twilio-paste/styling-library": ^1.0.3
     "@twilio-paste/text": ^7.0.2
-    "@twilio-paste/theme": ^8.0.3
+    "@twilio-paste/theme": ^8.3.0
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     prop-types: ^15.7.2
@@ -13391,15 +13391,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@^9.0.0, @twilio-paste/icons@^9.3.1, @twilio-paste/icons@^9.4.0, @twilio-paste/icons@^9.4.1, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@^9.0.0, @twilio-paste/icons@^9.3.1, @twilio-paste/icons@^9.4.0, @twilio-paste/icons@^9.4.1, @twilio-paste/icons@^9.4.3, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
     "@twilio-paste/box": ^7.1.1
-    "@twilio-paste/design-tokens": ^8.1.2
+    "@twilio-paste/design-tokens": ^8.5.0
     "@twilio-paste/style-props": ^6.1.1
     "@twilio-paste/styling-library": ^1.0.3
-    "@twilio-paste/theme": ^8.1.1
+    "@twilio-paste/theme": ^8.3.0
     "@twilio-paste/types": ^3.1.9
     "@twilio-paste/uid-library": ^0.2.6
     lodash: 4.17.21
@@ -14578,13 +14578,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^8.0.0, @twilio-paste/theme@^8.0.3, @twilio-paste/theme@^8.1.0, @twilio-paste/theme@^8.1.1, @twilio-paste/theme@^8.2.0, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^8.0.0, @twilio-paste/theme@^8.0.3, @twilio-paste/theme@^8.1.0, @twilio-paste/theme@^8.1.1, @twilio-paste/theme@^8.2.0, @twilio-paste/theme@^8.3.0, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:
     "@twilio-paste/animation-library": ^0.3.9
     "@twilio-paste/color-contrast-utils": ^3.0.1
-    "@twilio-paste/design-tokens": ^8.4.0
+    "@twilio-paste/design-tokens": ^8.5.0
     "@twilio-paste/styling-library": ^1.1.0
     "@twilio-paste/types": ^3.1.9
     react: ^17.0.2
