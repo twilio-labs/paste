@@ -1,9 +1,9 @@
----
-title: Anchor
-package: '@twilio-paste/anchor'
-description: The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.
-slug: /components/anchor/
----
+export const meta = {
+  title: 'Anchor',
+  package: '@twilio-paste/anchor',
+  description: 'The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.',
+  slug: '/components/anchor/',
+};
 
 import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
@@ -13,46 +13,25 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import AnchorDont from '../../../assets/images/anchor-dont-1@4x.png';
+import packageJson from '@twilio-paste/anchor/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/anchor"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/anchor/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Anchor"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Anchor');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -65,7 +44,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -79,7 +58,7 @@ export const pageQuery = `
 
 ### About anchors
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 Example use cases may include:
 
@@ -169,7 +148,7 @@ There are many different ways you can achieve this based on the router you are u
 
 <iframe
   src="https://codesandbox.io/embed/using-anchor-with-react-router-butmi?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Using Anchor with React Router"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

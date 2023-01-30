@@ -1,9 +1,9 @@
----
-title: Chat Composer
-package: '@twilio-paste/chat-composer'
-description: A Chat Composer is an input made for users to type rich chat messages.
-slug: /components/chat-composer/
----
+export const meta = {
+  title: 'Chat Composer',
+  package: '@twilio-paste/chat-composer',
+  description: 'A Chat Composer is an input made for users to type rich chat messages.',
+  slug: '/components/chat-composer/',
+};
 
 import {Avatar} from '@twilio-paste/avatar';
 import {Anchor} from '@twilio-paste/anchor';
@@ -39,61 +39,39 @@ import {
   RichTextExample,
   MaxHeightExample,
 } from '../../../component-examples/ChatComposerExamples.ts';
+import packageJson from '@twilio-paste/chat-composer/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/chat-composer"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/chat-composer/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Chat Composer"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chat Composer');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer"
   storybookUrl="/?path=/story/components-chat-composer--default"
   data={props.data}
-  description={props.data.mdx.frontmatter.description}
+  description={meta.description}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
