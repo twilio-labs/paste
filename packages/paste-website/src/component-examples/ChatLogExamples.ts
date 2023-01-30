@@ -314,9 +314,9 @@ render(
 
 export const chatLoggerExample = `
 const chatFactory = ([ message, variant, metaLabel, meta ]) => {
-  const time = new Date().toLocaleString(
+  const time = new Date(0).toLocaleString(
     'en-US',
-    { hour: 'numeric', minute: "numeric", hour12: true }
+    { hour: 'numeric', minute: 'numeric', timeZone: 'UTC', hour12: true }
   )
 
   return {
