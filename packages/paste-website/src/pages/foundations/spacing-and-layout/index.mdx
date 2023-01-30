@@ -1,8 +1,9 @@
----
-title: Spacing and Layout
-description: Spacing is the negative area between elements and components. Layouts use spacing to establish harmony, balance, and hierarchy.
-slug: /foundations/spacing-and-layout/
----
+export const meta = {
+  title: 'Spacing and Layout',
+  description:
+    'Spacing is the negative area between elements and components. Layouts use spacing to establish harmony, balance, and hierarchy.',
+  slug: '/foundations/spacing-and-layout/',
+};
 
 import Image from 'next/image';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -10,33 +11,31 @@ import {Anchor} from '@twilio-paste/anchor';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 
 import {SidebarCategoryRoutes} from '../../../constants';
+import SpacingBlocks from '../../../assets/images/foundations/spacing-and-layout/1-spacing-blocks.png';
+import BestFriends from '../../../assets/images/foundations/spacing-and-layout/2-best-friends.png';
+import EqualSpacing from '../../../assets/images/foundations/spacing-and-layout/3-equal-spacing.png';
+import FriendshipSpacing from '../../../assets/images/foundations/spacing-and-layout/4-friendship-spacing.png';
+import EmphasizeHierarchy from '../../../assets/images/foundations/spacing-and-layout/5-emphasizing-hierarchy.png';
 import FullPage from '../../../assets/images/foundations/spacing-and-layout/6-full-page.png';
 import SnappingMargins from '../../../assets/images/foundations/spacing-and-layout/7-snapping-to-margins.png';
 import HorizontalSpacing from '../../../assets/images/foundations/spacing-and-layout/8-horizontal-spacing.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/spacing-and-layout/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<GenericHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
-/>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
 </content>
 
@@ -44,7 +43,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -62,7 +61,7 @@ We also express our product traits of _clean, professional, and neighborly_ thro
 
 ## Making connections with your grid
 
-![Visual representation of the 4-pixel and 8-pixel spacing grids](../../../assets/images/foundations/spacing-and-layout/1-spacing-blocks.png)
+<Image src={SpacingBlocks} placeholder="blur" alt="Visual representation of the 4-pixel and 8-pixel spacing grids" />
 
 To create a stronger design point of view, and make consistency with spacing easier, we've opted to use an **8-pixel UI grid**, paired with a 4-pixel baseline grid. The spacing options between elements should be multiples of 8 (8, 16, 24, 32, 48, 64, 72, 80, 88, 104, 112, 120.) However, multiples of 4 are available if you require more flexibility and granularity in your designs.
 
@@ -92,7 +91,11 @@ A spacing system draws on a “friendship” analogy. Some elements of a design 
 
 Now, let’s look at a visual demonstrating explaining spacing relationships:
 
-![Visual representation of the 8-pixel spacing grid with their respective relationship analogies (120px: Who are you?; 80px: Distant Acquaintances; 64px: Acquaintances; 32px: We're Close Friends; 16px: Best Friends; 8px: Best Friends Forever)](../../../assets/images/foundations/spacing-and-layout/2-best-friends.png)
+<Image
+  src={BestFriends}
+  placeholder="blur"
+  alt="Visual representation of the 8-pixel spacing grid with their respective relationship analogies (120px: Who are you?; 80px: Distant Acquaintances; 64px: Acquaintances; 32px: We're Close Friends; 16px: Best Friends; 8px: Best Friends Forever)"
+/>
 
 ## Spacing in action
 
@@ -102,13 +105,21 @@ In this visual, you see the same spacing of 32 pixels between the heading, subhe
 
 When there is equal spacing all-around, it’s unclear what purpose the subheading (“Authentication tokens”) serves, potentially making it look like it made its way into the layout by mistake.
 
-![Mock of a card with Heading, Paragraph text, and a Button with 32px spacing everywhere](../../../assets/images/foundations/spacing-and-layout/3-equal-spacing.png)
+<Image
+  src={EqualSpacing}
+  placeholder="blur"
+  alt="Mock of a card with Heading, Paragraph text, and a Button with 32px spacing everywhere"
+/>
 
 ### Exercise 2: Using friendship spacing
 
 Now imagine if we were to implement friendship spacing to this same example:
 
-![Same mock as the above image, this time using friendship spacing guidelines](../../../assets/images/foundations/spacing-and-layout/4-friendship-spacing.png)
+<Image
+  src={FriendshipSpacing}
+  placeholder="blur"
+  alt="Same mock as the above image, this time using friendship spacing guidelines"
+/>
 
 In the above example, we are creating a closer friendship between the subheading and paragraph. The heading and call-to-action are able to have breathing room, helping them stand out, so it's clear to the user what content they can expect in this section and what action they need to take.
 
@@ -118,7 +129,11 @@ Now let's take a look at if we were to use the same above example but put a spri
 
 As you can see in the previous example, using friendship spacing can make it easier to stylize and create emphasis on important elements in your design once the spacing is established. 😋
 
-![Identical side-by-side mocks (same as above), but the one on the right has just a few subtle changes: the subtitle text is 2px smaller and went from bold to semibold](../../../assets/images/foundations/spacing-and-layout/5-emphasizing-hierarchy.png)
+<Image
+  src={EmphasizeHierarchy}
+  placeholder="blur"
+  alt="Identical side-by-side mocks (same as above), but the one on the right has just a few subtle changes: the subtitle text is 2px smaller and went from bold to semibold"
+/>
 
 ## Friendship spacing in full page Layouts
 

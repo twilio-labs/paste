@@ -1,33 +1,31 @@
----
-title: Guideline Usage
-description: An overview to help you navigate product content guidance and a look at what's coming soon.
-slug: /foundations/content/
----
+export const meta = {
+  title: 'Guideline Usage',
+  description: "An overview to help you navigate product content guidance and a look at what's coming soon.",
+  slug: '/foundations/content/',
+};
 
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -35,7 +33,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
