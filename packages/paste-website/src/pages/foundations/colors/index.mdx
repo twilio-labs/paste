@@ -1,8 +1,8 @@
----
-title: Colors
-description: Color helps us create cohesive experiences throughout our products and distinguishes the Twilio brand.
-slug: /foundations/colors/
----
+export const meta = {
+  title: 'Colors',
+  description: 'Color helps us create cohesive experiences throughout our products and distinguishes the Twilio brand.',
+  slug: '/foundations/colors/',
+};
 
 import Image from 'next/image';
 import {Button} from '@twilio-paste/button';
@@ -32,30 +32,23 @@ import {
   TokensDiagramImgCaption,
   InteractingStatesImgCaption,
 } from '../../../component-examples/ColorsFoundationExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/colors/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<GenericHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
-/>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
 </content>
 
@@ -63,7 +56,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
