@@ -1,9 +1,10 @@
----
-title: Side Modal
-package: '@twilio-paste/side-modal'
-description: A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.
-slug: /components/side-modal/
----
+export const meta = {
+  title: 'Side Modal',
+  package: '@twilio-paste/side-modal',
+  description:
+    'A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.',
+  slug: '/components/side-modal/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -32,53 +33,31 @@ import {
   sideModalButtonExample,
   hookExample,
 } from '../../../component-examples/SideModalExamples';
+import packageJson from '@twilio-paste/side-modal/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/side-modal"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/side-modal/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Side Modal"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Modal');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-modal"
   storybookUrl="/?path=/story/components-side-modal--default"
-  description={props.data.mdx.frontmatter.description}
+  description={meta.description}
   data={props.data}
 />
 
@@ -86,7 +65,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

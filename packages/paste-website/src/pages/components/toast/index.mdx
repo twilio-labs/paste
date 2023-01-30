@@ -1,9 +1,9 @@
----
-title: Toast
-package: '@twilio-paste/toast'
-description: A toast communicates an immediate and direct response to a user action.
-slug: /components/toast/
----
+export const meta = {
+  title: 'Toast',
+  package: '@twilio-paste/toast',
+  description: 'A toast communicates an immediate and direct response to a user action.',
+  slug: '/components/toast/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -25,46 +25,25 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {InlineCode} from '../../../components/Typography';
 import {ToasterExample, i18nExample} from '../../../component-examples/ToastExamples';
 import Changelog from '@twilio-paste/toast/CHANGELOG.md';
+import packageJson from '@twilio-paste/toast/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/toast"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/toast/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Toast"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Toast');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -77,7 +56,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

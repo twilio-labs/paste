@@ -1,9 +1,9 @@
----
-title: Description List
-package: '@twilio-paste/description-list'
-description: A Description List is a set or sets of terms and their definitions, or details, used to display data.
-slug: /components/description-list/
----
+export const meta = {
+  title: 'Description List',
+  package: '@twilio-paste/description-list',
+  description: 'A Description List is a set or sets of terms and their definitions, or details, used to display data.',
+  slug: '/components/description-list/',
+};
 
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
@@ -30,46 +30,25 @@ import {
   descriptionListWithMultipleDetails,
   descriptionListWithEmptyState,
 } from '../../../component-examples/DescriptionListExamples.ts';
+import packageJson from '@twilio-paste/description-list/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/description-list"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/description-list/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Description List"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Description List');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -82,7 +61,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -92,7 +71,7 @@ export const pageQuery = `
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Description List
 

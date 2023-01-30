@@ -1,8 +1,9 @@
----
-title: Skeleton Loader - Components
-description: A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.
-slug: /components/skeleton-loader/
----
+export const meta = {
+  title: 'Skeleton Loader - Components',
+  description:
+    'A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.',
+  slug: '/components/skeleton-loader/',
+};
 
 import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
@@ -29,46 +30,25 @@ import {
   CardExample,
   TableExample,
 } from '../../../component-examples/SkeletonLoaderExamples';
+import packageJson from '@twilio-paste/skeleton-loader/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/skeleton-loader"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/skeleton-loader/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Skeleton Loader"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Skeleton Loader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -81,7 +61,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

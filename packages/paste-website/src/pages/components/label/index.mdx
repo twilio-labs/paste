@@ -1,9 +1,9 @@
----
-title: Label - Components
-package: '@twilio-paste/label'
-description: The Label component is used to provide a visible, accessible name to any form element.
-slug: /components/label/
----
+export const meta = {
+  title: 'Label - Components',
+  package: '@twilio-paste/label',
+  description: 'The Label component is used to provide a visible, accessible name to any form element.',
+  slug: '/components/label/',
+};
 
 import {useUID} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
@@ -23,46 +23,25 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/label/CHANGELOG.md';
 import {RequiredDatePicker} from '../../../component-examples/DatePickerExamples.ts';
+import packageJson from '@twilio-paste/label/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/label"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/label/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Label"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Label');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -75,7 +54,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

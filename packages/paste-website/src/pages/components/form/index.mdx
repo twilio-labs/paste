@@ -1,9 +1,9 @@
----
-title: Form
-package: '@twilio-paste/form'
-description: A Form groups related form elements that allow users to input information or configure options.
-slug: /components/form/
----
+export const meta = {
+  title: 'Form',
+  package: '@twilio-paste/form',
+  description: 'A Form groups related form elements that allow users to input information or configure options.',
+  slug: '/components/form/',
+};
 
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -43,61 +43,40 @@ import {
   errorExample,
   maxWidthForm,
 } from '../../../component-examples/FormExamples';
+import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import packageJson from '@twilio-paste/form/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/form/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Form"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Form');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
   storybookUrl="/?path=/story/components-form--default"
   data={props.data}
-  description={props.pageContext.frontmatter.description}
+  description={meta.description}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -684,6 +663,10 @@ Further reading on Forms best practices.
 3. Andrew Coyle, [Design Better Forms](https://uxdesign.cc/design-better-forms-96fadca0f49c) (UX Collective, 2016)
 4. Adam Silver, [Form Design: From zero to hero all in one blog post](https://adamsilver.io/blog/form-design-from-zero-to-hero-all-in-one-blog-post/) (2019)
 5. Luke Wroblewski, [Web Form Design: Filling in the blanks](https://www.lukew.com/resources/web_form_design.asp) (2008)
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
 
 </content>
 

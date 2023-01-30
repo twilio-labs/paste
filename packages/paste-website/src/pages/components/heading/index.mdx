@@ -1,9 +1,10 @@
----
-title: Heading
-package: '@twilio-paste/heading'
-description: Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page headings, as well as content subsections within the page.
-slug: /components/heading/
----
+export const meta = {
+  title: 'Heading',
+  package: '@twilio-paste/heading',
+  description:
+    'Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page headings, as well as content subsections within the page.',
+  slug: '/components/heading/',
+};
 
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -12,46 +13,25 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/heading/CHANGELOG.md';
+import packageJson from '@twilio-paste/heading/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/heading"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/heading/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Heading"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Heading');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -64,7 +44,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -76,7 +56,7 @@ export const pageQuery = `
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Heading
 
