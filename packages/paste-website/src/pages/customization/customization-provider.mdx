@@ -1,32 +1,30 @@
----
-title: Customization Provider
-description: The Customization Provider allows a consumer to customize the style of Paste components.
-slug: /customization/customization-provider/
----
+export const meta = {
+  title: 'Customization Provider',
+  package: '@twilio-paste/customization',
+  description: 'The Customization Provider allows a consumer to customize the style of Paste components.',
+  slug: '/customization/customization-provider/',
+};
 
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/customization-provider/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <GenericHeader
-  name={props.pageContext.frontmatter.title}
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-customization"
   storybookUrl="?path=/story/theme-customization--provider"
@@ -39,7 +37,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
