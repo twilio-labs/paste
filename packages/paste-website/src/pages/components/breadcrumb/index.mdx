@@ -1,9 +1,10 @@
----
-title: Breadcrumb
-package: '@twilio-paste/breadcrumb'
-description: Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.
-slug: /components/breadcrumb/
----
+export const meta = {
+  title: 'Breadcrumb',
+  package: '@twilio-paste/breadcrumb',
+  description:
+    'Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.',
+  slug: '/components/breadcrumb/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -16,46 +17,25 @@ import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/breadcrumb/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/breadcrumb"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/breadcrumb/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Breadcrumb"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Breadcrumb');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -68,7 +48,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -168,7 +148,7 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
 
 <iframe
   src="https://codesandbox.io/embed/using-breadcrumb-with-react-router-t24en?fontsize=14&hidenavigation=1&theme=dark&initialpath=/page2"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Using BreadcrumbItem with React Router"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

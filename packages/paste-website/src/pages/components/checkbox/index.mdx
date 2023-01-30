@@ -1,9 +1,10 @@
----
-title: Checkbox - Components
-package: '@twilio-paste/checkbox'
-description: The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.
-slug: /components/checkbox/
----
+export const meta = {
+  title: 'Checkbox - Components',
+  package: '@twilio-paste/checkbox',
+  description:
+    'The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.',
+  slug: '/components/checkbox/',
+};
 
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '@twilio-paste/checkbox';
 import {Box} from '@twilio-paste/box';
@@ -20,46 +21,25 @@ import {
   uncontrolledCheckbox,
   controlledCheckbox,
 } from '../../../component-examples/CheckboxExamples';
+import packageJson from '@twilio-paste/checkbox/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = `
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/checkbox"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/checkbox/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Checkbox"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Checkbox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -72,7 +52,7 @@ export const pageQuery = `
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -86,7 +66,7 @@ export const pageQuery = `
 
 ### About Checkbox Group
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 Checkbox groups are used when you have multiple binary choices to make but all choices belong to a single group or field. For example, choosing capabilities when searching for a Phone Number to provision from Twilio. By placing them in a group, users should be able to clearly understand which options make up the collection and also how those options are related to each other.
 
