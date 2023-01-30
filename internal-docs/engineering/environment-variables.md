@@ -4,7 +4,7 @@ Full list of Environment variables and where they are needed.
 
 | Variable                           | Description                                                           | Local | GH Secrets | Netlify paste | Netlify remix |
 | ---------------------------------- | --------------------------------------------------------------------- | ----- | ---------- | ------------- | ------------- |
-| AIRTABLE_APIKEY                    | Airtable API key for Gatsby                                           | ✅    |            | ✅            |               |
+| AIRTABLE_APIKEY                    | Airtable API key for Next                                             | ✅    |            | ✅            |               |
 | AIRTABLE_BASEID                    | Airtable Base to look up data                                         | ✅    |            | ✅            |               |
 | CHROMA_APP_CODE                    | Chromatic app key                                                     | ✅    | ✅         |               |               |
 | DATADOG_API_KEY                    | Datadog API key for GH actions metric tracking                        |       | ✅         |               |               |
@@ -15,7 +15,7 @@ Full list of Environment variables and where they are needed.
 | NEXT_PUBLIC_DOCSEARCHV3_APIKEY     | Algolia API key                                                       | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_DOCSEARCHV3_APPID      | Algolia app ID                                                        | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_DOCSEARCHV3_INDEXNAME  | Algolia Index name                                                    | ✅    |            | ✅            |               |
-| GATSBY_ENVIRONMENT_CONTEXT         | Informs gatsby which deployment environment its in                    | ✅    |            | ✅            |               |
+| NEXT_PUBLIC_ENVIRONMENT_CONTEXT    | Informs Next which deployment environment its in                      | ✅    |            | ✅            |               |
 | NETLIFY_SITE_ID                    | Docsite site ID for Netlify deployment wait in GH actions             |       | ✅         |               |               |
 | NETLIFY_TOKEN                      | Docsite token for Netlify deployment wait in GH actions               |       | ✅         |               |               |
 | NPM_TOKEN                          | NPM package publish token                                             |       | ✅         |               |               |

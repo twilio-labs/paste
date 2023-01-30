@@ -151,7 +151,7 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 
 <table>
   <tr>
-   <td>GATSBY_ENVIRONMENT_CONTEXT
+   <td>NEXT_PUBLIC_ENVIRONMENT_CONTEXT
    </td>
    <td>Set to “local”. This replicates <a href="https://docs.netlify.com/configure-builds/environment-variables/#build-metadata">Netlify deployment context</a>
    </td>
