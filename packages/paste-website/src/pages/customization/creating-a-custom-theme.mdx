@@ -1,8 +1,9 @@
----
-title: Creating a Custom Theme
-description: Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.
-slug: /customization/creating-a-custom-theme/
----
+export const meta = {
+  title: 'Creating a Custom Theme',
+  description:
+    'Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.',
+  slug: '/customization/creating-a-custom-theme/',
+};
 
 import {Box} from '@twilio-paste/box';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
@@ -11,32 +12,29 @@ import {FontCallout} from '../../components/page-components/customization/custom
 import {CustomThemeKeyList} from '../../components/page-components/customization/customization-provider/CustomThemeKeyList';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<GenericHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
-<P variant="lead">{props.pageContext.frontmatter.description}</P>
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+
+<P variant="lead">{meta.description}</P>
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -168,7 +166,7 @@ This will apply your companies brand color as the primary accent to all Paste co
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/custom-branding-uh7cc?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
     title="Custom Branding"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -214,7 +212,7 @@ To achieve the result displayed below, we have provided Paste with the following
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/custom-typography-ioudh?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
     title="Custom Typography"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
