@@ -1,54 +1,51 @@
----
-title: Paste Design System Newsletter - January 2023 Edition
-slug: /blog/2023-01-27-paste-newsletter/
-date: 2023-01-27
-author: Paste
-status: published
-excerpt: What's new in Paste in January 2023? New components, new design language, and more!
----
+export const meta = {
+  title: 'Paste Design System Newsletter - January 2023 Edition',
+  slug: '/blog/2023-01-27-paste-newsletter/',
+  date: '2023-01-27',
+  author: 'Paste',
+  status: 'published',
+  excerpt: "What's new in Paste in January 2023? New components, new design language, and more!",
+};
 
-import {graphql} from 'gatsby';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Blockquote} from '../../components/Blockquote';
+import DependencyIntake from '../../assets/images/articles/2023-01-27-paste-newsletter/dependency-intake.png';
+import Spacing from '../../assets/images/articles/2023-01-27-paste-newsletter/spacing-guidelines.png';
+import OneTwilio from '../../assets/images/articles/2023-01-27-paste-newsletter/one-twilio.png';
+import DescriptionList from '../../assets/images/articles/2023-01-27-paste-newsletter/description-list.png';
+import Nathan from '../../assets/images/articles/2023-01-27-paste-newsletter/nathan-sharp.jpg';
+import DesignLanguage from '../../assets/images/articles/2023-01-27-paste-newsletter/design-language.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2023-01-27-paste-newsletter/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -56,7 +53,7 @@ export const pageQuery = graphql`
 
 ### Submit feature requests through our new dependency intake form
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/dependency-intake.png)
+<Image src={DependencyIntake} placeholder="blur" />
 
 To help us prioritize our work and keep us accountable, we now have an Airtable form that you and your team can use to submit dependencies for the features and components you need from us.
 
@@ -68,7 +65,7 @@ We factor your requests directly into our roadmap planning, so submit a request 
 
 ### Page spacing and layout guidelines
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/spacing-guidelines.png)
+<Image src={Spacing} placeholder="blur" />
 
 Want to learn more about spacing and hierarchy within your flows? Then these spacing and layout guidelines are for you! This foundational page breaks down the importance of creating visual relationships with your elements.
 
@@ -78,7 +75,7 @@ Want to learn more about spacing and hierarchy within your flows? Then these spa
 
 ### One Twilio: Design language update in Figma
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/one-twilio.png)
+<Image src={OneTwilio} placeholder="blur" />
 
 We are excited to announce the new design language is live in Figma! This update comes from the One Twilio initiative to create a cohesive design language to unify Twilio’s product suite. Learn more about the work on the Twilio Blog: “[Bringing Cohesion to the Twilio Product Suite](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i).”
 
@@ -86,7 +83,7 @@ Stay tuned for more news about this design language update and what product team
 
 ### Description List component
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/description-list.png)
+<Image src={DescriptionList} placeholder="blur" />
 
 As product builders, we are constantly trying to find ways to organize our content within a layout that feels digestible and manageable. We want our customers to be able to quickly find the right information they need to make decisions. We now have a component that helps with organizing lots of pieces of small information at once, the Description List!
 
@@ -171,7 +168,7 @@ The Listbox Primitive is a component used to create accessible Listboxes that ca
 
 <Box marginBottom="space70" />
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/nathan-sharp.jpg)
+<Image src={Nathan} placeholder="blur" />
 
 In this edition of Pastemates, we're spotlighting a mate from Twilio Brand, Nathan Sharp! Nathan has been such a huge support with our One Twilio efforts, and we’d like to say thanks! We’re truly grateful for our relationship with the Brand team and excited about what we will collab on next!
 
@@ -181,7 +178,7 @@ Not only did we work across product teams to land on this design language, but i
 
 Marketing energizes customers and invites them in, while product UI reassures customers that we’re here every step of the way to make their experience seamless.
 
-![](../../assets/images/articles/2023-01-27-paste-newsletter/design-language.png)
+<Image src={DesignLanguage} placeholder="blur" />
 
 Finding that balance can be a tricky endeavor. However, with Nathan’s help, we were able to keep the brand personality that makes us, well, us. We started using our new super family typeface, Twilio Sans, and also collaborated on lighter color hues, thoughtful brand moments to celebrate success, more negative space, and other visual elements, to give designers tools to set a customer up for success.
 
