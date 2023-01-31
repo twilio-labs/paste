@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+
 import {Theme} from '../types';
 
 export const getThemeSetting = (): Theme =>

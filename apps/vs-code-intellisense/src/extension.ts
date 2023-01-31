@@ -1,11 +1,11 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import kebabCase from 'lodash.kebabcase';
 
 import {pasteTokenAttributes} from './tokens';
 import {PasteToken} from './types';
 import {getThemeSetting, getThemeTokens, remToPx} from './utils';
-import kebabCase from 'lodash.kebabcase';
 
 export function findPasteToken(word?: string): PasteToken | undefined {
   if (!word) {

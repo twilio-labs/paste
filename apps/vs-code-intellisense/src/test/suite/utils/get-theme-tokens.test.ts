@@ -1,5 +1,6 @@
-import {getThemeTokens} from '../../../utils';
 import assert from 'assert';
+
+import {getThemeTokens} from '../../../utils';
 import {
   darkThemeTokens,
   defaultThemeTokens,

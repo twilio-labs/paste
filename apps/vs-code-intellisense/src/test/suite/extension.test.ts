@@ -2,7 +2,6 @@ import assert from 'assert';
 import vscode from 'vscode';
 
 import * as myExtension from '../../extension';
-import {PasteToken} from '../../types';
 
 suite('Extension Test Suite', () => {
   vscode.window.showInformationMessage('Start all tests.');

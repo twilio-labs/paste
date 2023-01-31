@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import {remToPx} from '../../../utils/rem-to-px';
 
 suite('remToPx', () => {
