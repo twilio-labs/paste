@@ -6,7 +6,6 @@ import {globby} from 'globby';
 import groupBy from 'lodash/groupBy';
 
 import {roadmapTable} from './airtable.mjs';
-import type {ArticleFrontMatter} from '../../types/Article';
 
 export type Package = {
   name: string;
@@ -45,6 +44,31 @@ export type Release = {
   'Release Description': string;
   'Release feature name': string;
   Status: string;
+};
+
+export type ArticleData = {
+  author: string;
+  avatar: string;
+  date: string;
+  description: string;
+  /**
+   * Use this to manually create an article excerpt, when the article is an external linked source.
+   *
+   * @type {string}
+   * @memberof ArticleData
+   */
+  excerpt?: string;
+  /**
+   * Set an external link when the article is an external linked source.s
+   *
+   * @type {string}
+   * @memberof ArticleData
+   */
+  external_link?: string;
+  machineDate: string;
+  slug: string;
+  status: 'published' | 'draft';
+  title: string;
 };
 
 export const getNavigationData = async (): Promise<PastePackages> => {
@@ -88,7 +112,7 @@ export const getRoadmap = async (): Promise<{[release: string]: Release[]}> => {
   return releases;
 };
 
-export const getArticles = async (): Promise<ArticleFrontMatter[]> => {
+export const getArticles = async (): Promise<ArticleData[]> => {
   const root = path.resolve(process.cwd(), './src/pages/blog/');
   const posts = await globby(['*.mdx', '!index.mdx'], {
     cwd: root,

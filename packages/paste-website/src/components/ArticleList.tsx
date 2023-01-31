@@ -3,10 +3,10 @@ import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
 
 import {Article} from './Article';
-import type {ArticleFrontMatter} from '../../types/Article';
+import type {ArticleData} from '../utils/api';
 
 export interface ArticleListProps {
-  articles: ArticleFrontMatter[];
+  articles: ArticleData[];
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({articles}) => {

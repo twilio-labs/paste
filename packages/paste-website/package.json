@@ -12,7 +12,8 @@
     "start": "NEXT_TELEMETRY_DISABLED=1 next start",
     "format": "prettier --write src/**/*.{js,jsx}",
     "tsc": "tsc --noEmit",
-    "tsc:watch": "yarn type-check -- --watch"
+    "tsc:watch": "yarn type-check -- --watch",
+    "lint": "NEXT_TELEMETRY_DISABLED=1 next lint"
   },
   "dependencies": {
     "@datadog/browser-rum": "^2.8.1",
@@ -134,6 +135,7 @@
     "winston": "^3.8.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.3.4",
     "@testing-library/react": "^12.1.4",
     "netlify-cli": "^12.2.10"
   },

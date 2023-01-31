@@ -7,13 +7,13 @@ import type {AnchorProps} from '@twilio-paste/anchor';
 
 import {SiteLink} from './SiteLink';
 import {ArticleAuthor} from './ArticleAuthor';
-import type {ArticleFrontMatter} from '../../types/Article';
+import type {ArticleData} from '../utils/api';
 
 export interface ArticleProps {
-  article: ArticleFrontMatter;
+  article: ArticleData;
 }
 
-export type ArticleLinkProps = Pick<ArticleFrontMatter, 'slug' | 'external_link'> & Pick<AnchorProps, 'children'>;
+export type ArticleLinkProps = Pick<ArticleData, 'slug' | 'external_link'> & Pick<AnchorProps, 'children'>;
 export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, children}) => {
   if (external_link)
     return (

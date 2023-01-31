@@ -1,5 +1,5 @@
 {
-  "extends": "../../.eslintrc.js",
+  "extends": ["../../.eslintrc.js", "plugin:@next/next/recommended", "plugin:@next/next/core-web-vitals"],
   "root": true,
   "rules": {
     "import/no-default-export": "off",
