@@ -1,28 +1,25 @@
----
-title: Core Package Changelog
-slug: /core/changelog
----
+export const meta = {
+  title: 'Core Package Changelog',
+  slug: '/core/changelog',
+};
 
 import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../constants';
+import {getNavigationData} from '../../utils/api';
+import DefaultLayout from '../../layouts/DefaultLayout';
 
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/core/changelog/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<GenericHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CORE} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} />
 
 ---
 

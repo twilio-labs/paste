@@ -1,8 +1,8 @@
----
-title: Upgrade Guide
-description: Summary of Breaking Changes to Core, with actions that should be taken before upgrading
-slug: /core/upgrade-guide
----
+export const meta = {
+  title: 'Upgrade Guide',
+  description: 'Summary of Breaking Changes to Core, with actions that should be taken before upgrading',
+  slug: '/core/upgrade-guide',
+};
 
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
@@ -12,30 +12,28 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Codeblock} from '../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../constants';
-export const pageQuery = `
-  {
-    mdx(frontmatter: {slug: {eq: "/core/upgrade-guide"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import {getNavigationData} from '../../utils/api';
+import DefaultLayout from '../../layouts/DefaultLayout';
 
-<GenericHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CORE} />
-<p>{props.pageContext.frontmatter.description}</p>
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} />
+<p>{meta.description}</p>
 
 ---
 
  <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
