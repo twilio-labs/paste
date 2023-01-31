@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "17.5.0",
+  "version": "17.6.0",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -51,8 +51,8 @@
     "@twilio-paste/data-visualization-library": "^2.0.2",
     "@twilio-paste/date-picker": "^3.0.2",
     "@twilio-paste/description-list": "^1.0.0",
-    "@twilio-paste/design-tokens": "^8.4.0",
-    "@twilio-paste/disclosure": "^9.0.2",
+    "@twilio-paste/design-tokens": "^8.5.0",
+    "@twilio-paste/disclosure": "^9.0.3",
     "@twilio-paste/disclosure-primitive": "^0.3.10",
     "@twilio-paste/display-heading": "^1.0.1",
     "@twilio-paste/display-pill-group": "^5.0.1",
@@ -105,7 +105,7 @@
     "@twilio-paste/tabs-primitive": "^0.2.9",
     "@twilio-paste/text": "^7.0.2",
     "@twilio-paste/textarea": "^7.0.2",
-    "@twilio-paste/theme": "^8.2.0",
+    "@twilio-paste/theme": "^8.3.0",
     "@twilio-paste/time-picker": "^3.0.2",
     "@twilio-paste/toast": "^9.0.2",
     "@twilio-paste/tooltip": "^8.0.2",
@@ -122,7 +122,7 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^9.4.1",
+    "@twilio-paste/icons": "^9.4.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
