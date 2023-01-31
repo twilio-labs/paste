@@ -52,6 +52,7 @@
     "@twilio-paste/date-picker": "^3.0.2",
     "@twilio-paste/description-list": "^1.0.0",
     "@twilio-paste/design-tokens": "^8.5.0",
+    "@twilio-paste/detail-text": "^0.0.0",
     "@twilio-paste/disclosure": "^9.0.3",
     "@twilio-paste/disclosure-primitive": "^0.3.10",
     "@twilio-paste/display-heading": "^1.0.1",
