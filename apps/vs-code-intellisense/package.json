@@ -42,6 +42,25 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "vs-code-intellisense.theme": {
+          "default": "Default",
+          "description": "Theme to show hover/completion items for",
+          "enum": [
+            "Default",
+            "Dark",
+            "Evergreen",
+            "SendGrid",
+            "Twilio",
+            "Twilio Dark"
+          ],
+          "type": "string"
+        }
+      }
+    }
+  },
   "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "yarn run compile",
@@ -51,8 +70,13 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "dependencies": {
+    "@twilio-paste/design-tokens": "^8.5.0",
+    "lodash.kebabcase": "^4.1.1"
+  },
   "devDependencies": {
     "@types/glob": "^7.2.0",
+    "@types/lodash.kebabcase": "^4.1.7",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.68.0",

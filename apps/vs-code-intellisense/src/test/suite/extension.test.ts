@@ -2,7 +2,7 @@ import assert from 'assert';
 import vscode from 'vscode';
 
 import * as myExtension from '../../extension';
-import {PasteToken} from '../../models/paste-token';
+import {PasteToken} from '../../types';
 
 suite('Extension Test Suite', () => {
   vscode.window.showInformationMessage('Start all tests.');
@@ -12,43 +12,42 @@ suite('Extension Test Suite', () => {
       const colorBackgroundWord = 'colorBackground';
       const colorBackgroundToken = myExtension.findPasteToken(colorBackgroundWord);
 
-      assert.strictEqual(colorBackgroundToken?.label, 'color-background');
-      assert.strictEqual(colorBackgroundToken?.value, 'rgb(244, 244, 246)');
-      assert.strictEqual(colorBackgroundToken?.description, 'Background color used for containers.');
+      assert.strictEqual(colorBackgroundToken?.name, 'color-background');
+      assert.strictEqual(colorBackgroundToken?.value, '#f4f4f6');
+      assert.strictEqual(colorBackgroundToken?.comment, 'Default background color for any container.');
 
       const fontSize10Word = 'fontSize10';
       const fontSize10Token = myExtension.findPasteToken(fontSize10Word);
 
-      assert.strictEqual(fontSize10Token?.label, 'font-size-10');
-      assert.strictEqual(fontSize10Token?.value, '0.625rem (10px)');
-      assert.strictEqual(fontSize10Token?.description, 'Constant typography token for font size 10');
+      assert.strictEqual(fontSize10Token?.name, 'font-size-10');
+      assert.strictEqual(fontSize10Token?.value, '0.625rem');
+      assert.strictEqual(fontSize10Token?.comment, 'Constant typography token for font size 10');
 
       const colorTextWord = 'colorText';
       const colorTextToken = myExtension.findPasteToken(colorTextWord);
 
-      assert.strictEqual(colorTextToken?.label, 'color-text');
-      assert.strictEqual(colorTextToken?.value, 'rgb(18, 28, 45)');
-      assert.strictEqual(colorTextToken?.description, 'Body text color');
+      assert.strictEqual(colorTextToken?.name, 'color-text');
+      assert.strictEqual(colorTextToken?.value, '#121c2d');
+      assert.strictEqual(colorTextToken?.comment, 'Body text color');
     });
 
     test('when we don`t find twilio paste token', () => {
       const borderWidth0Word = 'borderWidth0';
       const borderWidth0Token = myExtension.findPasteToken(borderWidth0Word);
 
-      assert.strictEqual(borderWidth0Token?.label, 'border-width-0');
+      assert.strictEqual(borderWidth0Token?.name, 'border-width-0');
       assert.strictEqual(borderWidth0Token?.value, '0');
-      assert.strictEqual(borderWidth0Token?.description, 'Border width reset');
 
       const notFoundWord = 'notFoundWord';
       const notFoundToken = myExtension.findPasteToken(notFoundWord);
 
-      assert.strictEqual(notFoundToken, null);
+      assert.strictEqual(notFoundToken, undefined);
     });
 
     test('when word is undefined', () => {
-      const nullToken = myExtension.findPasteToken(undefined);
+      const result = myExtension.findPasteToken(undefined);
 
-      assert.strictEqual(nullToken, null);
+      assert.strictEqual(result, undefined);
     });
   });
 
@@ -111,48 +110,41 @@ suite('Extension Test Suite', () => {
   });
 
   suite('getCompletionItem', () => {
-    test('completion color item', () => {
-      const pasteTokenEntry: [string, PasteToken] = ['backgroundColors', {value: 'rgb(244, 244, 246)'} as PasteToken];
-      const backgroundColorsItem = myExtension.getCompletionItem('backgroundColors', pasteTokenEntry);
+    test('returns completion color item when type is color', () => {
+      const result = myExtension.getCompletionItem({
+        type: 'color',
+        category: 'background-color',
+        value: '#1f304c',
+        comment: 'Strong default background color.',
+        name: 'color-background-strong',
+      });
 
-      const result = {
-        label: 'backgroundColors',
-        documentation: 'rgb(244, 244, 246)',
+      const expected = {
+        label: 'color-background-strong',
+        documentation: '#1f304c',
         kind: vscode.CompletionItemKind.Color,
-        detail: 'rgb(244, 244, 246)',
+        detail: '#1f304c',
       };
-      assert.deepStrictEqual(backgroundColorsItem, result);
+      assert.deepStrictEqual(result, expected);
     });
 
-    test('when paste token key is empty', () => {
-      const pasteTokenEntry: [string, PasteToken] = ['', {value: 'rgb(244, 244, 246)'} as PasteToken];
-      const backgroundColorsItem = myExtension.getCompletionItem('backgroundColors', pasteTokenEntry);
+    test('returns basic completion when type is not color', () => {
+      const result = myExtension.getCompletionItem({
+        type: 'size',
+        category: 'radius',
+        value: '0',
+        comment: 'Border radius reset',
+        name: 'border-radius-0',
+      });
 
-      const result = {
-        label: 'backgroundColors',
-        documentation: 'rgb(244, 244, 246)',
-        kind: vscode.CompletionItemKind.Color,
-        detail: 'rgb(244, 244, 246)',
-      };
-      assert.notDeepStrictEqual(backgroundColorsItem, result);
-    });
-  });
-
-  suite('isColor', () => {
-    test('when token name is colors', () => {
-      const isBackgroundColors = myExtension.isColor('backgroundColors');
-
-      assert.strictEqual(isBackgroundColors, true);
-
-      const isBorderColors = myExtension.isColor('borderColors');
-
-      assert.strictEqual(isBorderColors, true);
-    });
-
-    test('when token name is borderWidths', () => {
-      const isColor = myExtension.isColor('borderWidths');
-
-      assert.strictEqual(isColor, false);
+      const expected = new vscode.CompletionItem(
+        {
+          description: '0',
+          label: 'border-radius-0',
+        },
+        vscode.CompletionItemKind.Constant
+      );
+      assert.deepStrictEqual(result, expected);
     });
   });
 });
