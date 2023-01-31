@@ -119,7 +119,7 @@ suite('Extension Test Suite', () => {
       });
 
       const expected = {
-        label: 'color-background-strong',
+        label: 'colorBackgroundStrong',
         documentation: '#1f304c',
         kind: vscode.CompletionItemKind.Color,
         detail: '#1f304c',
@@ -139,7 +139,7 @@ suite('Extension Test Suite', () => {
       const expected = new vscode.CompletionItem(
         {
           description: '0',
-          label: 'border-radius-0',
+          label: 'borderRadius0',
         },
         vscode.CompletionItemKind.Constant
       );

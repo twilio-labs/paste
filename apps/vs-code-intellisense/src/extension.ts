@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import camelCase from 'lodash.camelcase';
 import kebabCase from 'lodash.kebabcase';
 
 import {pasteTokenAttributes} from './tokens';
@@ -35,9 +36,10 @@ export function getAttributeName(linePrefix: string) {
 
 export function getCompletionItem(token: PasteToken) {
   const {name, value, type} = token;
+  const label = camelCase(name);
   if (type === 'color') {
     return {
-      label: name,
+      label,
       documentation: value,
       kind: vscode.CompletionItemKind.Color,
       detail: value,
@@ -45,7 +47,7 @@ export function getCompletionItem(token: PasteToken) {
   }
 
   const completionItemLabel = {
-    label: name,
+    label,
     description: value,
   };
   return new vscode.CompletionItem(completionItemLabel, vscode.CompletionItemKind.Constant);

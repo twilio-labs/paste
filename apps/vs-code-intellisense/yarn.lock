@@ -132,6 +132,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.camelcase@npm:^4.3.7":
+  version: 4.3.7
+  resolution: "@types/lodash.camelcase@npm:4.3.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: ef068b921ab439f7b1a2c0ebbd890ba64ba437fc6aeb5e3ac18d34da30f9054fceaac5ccfdfa9e12b2fc403e10910439d3ebf92ba2f93de03c2f02261adfc000
+  languageName: node
+  linkType: hard
+
 "@types/lodash.kebabcase@npm:^4.1.7":
   version: 4.1.7
   resolution: "@types/lodash.kebabcase@npm:4.1.7"
@@ -1484,6 +1493,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
+  languageName: node
+  linkType: hard
+
 "lodash.kebabcase@npm:^4.1.1":
   version: 4.1.1
   resolution: "lodash.kebabcase@npm:4.1.1"
@@ -2399,6 +2415,7 @@ typescript@^4.9.4:
   dependencies:
     "@twilio-paste/design-tokens": ^8.5.0
     "@types/glob": ^7.2.0
+    "@types/lodash.camelcase": ^4.3.7
     "@types/lodash.kebabcase": ^4.1.7
     "@types/mocha": ^9.1.1
     "@types/node": 16.x
@@ -2408,6 +2425,7 @@ typescript@^4.9.4:
     "@vscode/test-electron": ^2.1.5
     eslint: ^8.18.0
     glob: ^8.0.3
+    lodash.camelcase: ^4.3.0
     lodash.kebabcase: ^4.1.1
     mocha: ^10.0.0
     typescript: ^4.9.4
