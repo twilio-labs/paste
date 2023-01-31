@@ -5,7 +5,7 @@
 
 We use [Netlify](https://netlify.com/) to host and deploy our web site and web apps.
 
-Because we use either [Gatsby](https://www.gatsbyjs.com/) or [NextJS](https://nextjs.org/) we take advantage of the [Essential Next.js Plugin](https://docs.netlify.com/integrations/frameworks/next-js/#essential-next-js-build-plugin) and [Essential Gatsby.js Plugin](https://docs.netlify.com/integrations/frameworks/gatsby/#essential-gatsby-build-plugin).
+Because we use [NextJS](https://nextjs.org/) we take advantage of the [Essential Next.js Plugin](https://docs.netlify.com/integrations/frameworks/next-js/#essential-next-js-build-plugin).
 
 We have a Netlify project for:
 
