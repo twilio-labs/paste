@@ -1,7 +1,12 @@
+import nextBundleAnalyzer from '@next/bundle-analyzer';
 import nextMdx from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 
 import headingsPlugin from './plugins/remark-headings-plugin.mjs';
+
+const withBundleAnalyzer = nextBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
@@ -24,4 +29,4 @@ const nextConfig = {
   },
 };
 
-export default withMDX(nextConfig);
+export default withBundleAnalyzer(withMDX(nextConfig));

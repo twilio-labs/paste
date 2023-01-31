@@ -13,7 +13,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "tsc": "tsc --noEmit",
     "tsc:watch": "yarn type-check -- --watch",
-    "lint": "NEXT_TELEMETRY_DISABLED=1 next lint"
+    "lint": "NEXT_TELEMETRY_DISABLED=1 next lint",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@datadog/browser-rum": "^2.8.1",
@@ -23,6 +24,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@next/bundle-analyzer": "^12.3.4",
     "@next/mdx": "^12.3.2",
     "@twilio-paste/alert": "^11.0.3",
     "@twilio-paste/alert-dialog": "^6.0.2",
