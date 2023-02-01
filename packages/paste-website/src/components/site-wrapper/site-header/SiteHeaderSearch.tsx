@@ -17,12 +17,9 @@ const SiteHeaderSearch: React.FC = () => {
     if (DocSearchModal) {
       return;
     }
-    const docssearch = await Promise.all([
-      import(/* webpackChunkName: 'DocSearchModal' */ '@docsearch/react/modal') as Promise<
-        typeof import('@docsearch/react')
-      >,
-    ]);
-    const [{DocSearchModal: Modal}] = docssearch;
+    const {DocSearchModal: Modal}: typeof import('@docsearch/react') = await import(
+      /* webpackChunkName: 'DocSearchModal' */ '@docsearch/react/modal'
+    );
     DocSearchModal = Modal;
   }, []);
 
