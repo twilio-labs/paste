@@ -7,6 +7,7 @@ export const meta = {
   excerpt: "What's new in Paste in January 2023? New components, new design language, and more!",
 };
 
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
@@ -17,6 +18,9 @@ import DependencyIntake from '../../assets/images/articles/2023-01-27-paste-news
 import Spacing from '../../assets/images/articles/2023-01-27-paste-newsletter/spacing-guidelines.png';
 import OneTwilio from '../../assets/images/articles/2023-01-27-paste-newsletter/one-twilio.png';
 import DescriptionList from '../../assets/images/articles/2023-01-27-paste-newsletter/description-list.png';
+import Form from '../../assets/images/articles/2023-01-27-paste-newsletter/form.gif';
+import FileUploader from '../../assets/images/articles/2023-01-27-paste-newsletter/file-uploader.gif';
+import ListboxPrimitive from '../../assets/images/articles/2023-01-27-paste-newsletter/listbox-primitive.gif';
 import Nathan from '../../assets/images/articles/2023-01-27-paste-newsletter/nathan-sharp.jpg';
 import DesignLanguage from '../../assets/images/articles/2023-01-27-paste-newsletter/design-language.png';
 import DefaultLayout from '../../layouts/DefaultLayout';
@@ -94,12 +98,13 @@ As product builders, we are constantly trying to find ways to organize our conte
 ### Form Component
 
 <Box
-  as="img"
-  src="/images/gifs-2023-01-27-paste-newsletter/form.gif"
-  alt=""
+  as={Image}
   maxWidth="size60"
   borderRadius="borderRadius20"
   border="1px solid lightgray"
+  src={Form}
+  alt=""
+  style={{objectFit: 'contain'}}
 />
 
 A Form groups related form elements that allow users to input information or configure options. This component package enhances the HTML form element with preset spacing, so forms remain visually consistent across different pages.
@@ -111,12 +116,13 @@ A Form groups related form elements that allow users to input information or con
 ### File Uploader
 
 <Box
-  as="img"
-  src="/images/gifs-2023-01-27-paste-newsletter/file-uploader.gif"
-  alt=""
+  as={Image}
   maxWidth="size60"
   borderRadius="borderRadius20"
   border="1px solid lightgray"
+  src={FileUploader}
+  alt=""
+  style={{objectFit: 'contain'}}
 />
 
 The File Uploader is a visually enhanced form element that is used to upload multiple attachments. It is fully accessible and supports dragging-and-dropping attachments.
@@ -128,12 +134,13 @@ The File Uploader is a visually enhanced form element that is used to upload mul
 ### Listbox primitive
 
 <Box
-  as="img"
-  src="/images/gifs-2023-01-27-paste-newsletter/listbox-primitive.gif"
-  alt=""
+  as={Image}
   maxWidth="size60"
   borderRadius="borderRadius20"
   border="1px solid lightgray"
+  src={ListboxPrimitive}
+  alt=""
+  style={{objectFit: 'contain'}}
 />
 
 The Listbox Primitive is a component used to create accessible Listboxes that can be styled to create interactive, list-based components.Listboxes can also be used in any situation where a user needs to select items in a list or rearrange a list.

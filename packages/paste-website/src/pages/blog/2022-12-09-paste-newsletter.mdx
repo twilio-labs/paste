@@ -7,12 +7,16 @@ export const meta = {
   excerpt: "What's new in Paste in December 2022? New components, new variants, and more!",
 };
 
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
+import ChatLog from '../../assets/images/articles/2022-12-09-paste-newsletter/animated-chat-log.gif';
+import PageNav from '../../assets/images/articles/2022-12-09-paste-newsletter/in-page-nav.gif';
+import ChatComposer from '../../assets/images/articles/2022-12-09-paste-newsletter/chat-composer.gif';
 import DisplayHeading from '../../assets/images/articles/2022-12-09-paste-newsletter/display-heading.png';
 import Robb from '../../assets/images/articles/2022-12-09-paste-newsletter/robb-niznik.jpeg';
 import Justin from '../../assets/images/articles/2022-12-09-paste-newsletter/justin-young.png';
@@ -50,7 +54,7 @@ export const getStaticProps = async () => {
 
 ### Chat Log animations
 
-<Box as="img" src="/images/gifs-2022-12-09-paste-newsletter/animated-chat-log.gif" alt="" maxWidth="size60" />
+<Box as={Image} maxWidth="size60" src={ChatLog} alt="" style={{objectFit: 'contain'}} />
 
 The final piece of [the Chat Log package](/components/chat-log) is complete— animation! There is a new useChatLogger hook that manages a list of messages, bookends, and events and a new ChatLogger component that animates the list into a Chat Log.
 
@@ -60,7 +64,7 @@ The final piece of [the Chat Log package](/components/chat-log) is complete— a
 
 ### In Page Navigation
 
-<Box as="img" src="/images/gifs-2022-12-09-paste-newsletter/in-page-nav.gif" alt="" maxWidth="size60" />
+<Box as={Image} maxWidth="size60" src={PageNav} alt="" style={{objectFit: 'contain'}} />
 
 The In Page Navigation component is a collection of links that navigate users to related pages. Although stylistically similar to Tabs, this component’s structure allows for straightforward integration with routers like React Router.
 
@@ -70,7 +74,7 @@ The In Page Navigation component is a collection of links that navigate users to
 
 ### Chat Composer
 
-<Box as="img" src="/images/gifs-2022-12-09-paste-newsletter/chat-composer.gif" alt="" maxWidth="size60" />
+<Box as={Image} maxWidth="size60" src={ChatComposer} alt="" style={{objectFit: 'contain'}} />
 
 A highly anticipated component, the Chat Composer is a rich text input that users can type chat messages into. It is built with [the Lexical text editor](https://lexical.dev/) and can be extended to include the features you need through Lexical’s plugins.
 
