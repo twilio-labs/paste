@@ -1,20 +1,22 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import camelCase from 'lodash.camelcase';
+import kebabCase from 'lodash.kebabcase';
 
-import pasteTokens, {pasteTokenAttributes} from './tokens';
-import {PasteToken} from './models/paste-token';
+import {pasteTokenAttributes} from './tokens';
+import {PasteToken} from './types';
+import {getThemeSetting, getThemeTokens, remToPx} from './utils';
 
-export function findPasteToken(word?: string): PasteToken | null {
+export function findPasteToken(word?: string): PasteToken | undefined {
   if (!word) {
-    return null;
+    return undefined;
   }
-  for (const pasteToken of Object.values(pasteTokens)) {
-    if (pasteToken[word]) {
-      return pasteToken[word];
-    }
-  }
-  return null;
+
+  const theme = getThemeSetting();
+  const tokens = getThemeTokens(theme);
+
+  return tokens[kebabCase(word)];
 }
 
 export function getAttributeName(linePrefix: string) {
@@ -32,49 +34,33 @@ export function getAttributeName(linePrefix: string) {
   return attributeName;
 }
 
-export function isColor(pasteToken: keyof typeof pasteTokens) {
-  if (
-    pasteToken === 'backgroundColors' ||
-    pasteToken === 'borderColors' ||
-    pasteToken === 'colors' ||
-    pasteToken === 'textColors'
-  ) {
-    return true;
-  }
-  return false;
-}
-
-export function getCompletionItem(pasteTokenName: keyof typeof pasteTokens, pasteTokenEntry: [string, PasteToken]) {
-  const [key, pasteToken] = pasteTokenEntry;
-  if (isColor(pasteTokenName)) {
+export function getCompletionItem(token: PasteToken) {
+  const {name, value, type} = token;
+  const label = camelCase(name);
+  if (type === 'color') {
     return {
-      label: key,
-      documentation: pasteToken.value,
+      label,
+      documentation: value,
       kind: vscode.CompletionItemKind.Color,
-      detail: pasteToken.value,
+      detail: value,
     };
   }
 
   const completionItemLabel = {
-    label: key,
-    description: pasteToken.value,
+    label,
+    description: value,
   };
   return new vscode.CompletionItem(completionItemLabel, vscode.CompletionItemKind.Constant);
 }
 
 export function getAttributeTokens(attributeName: string) {
-  const items: vscode.CompletionItem[] = [];
-  const pasteTokenName = pasteTokenAttributes[attributeName];
-  if (pasteTokens[pasteTokenName]) {
-    for (const pasteTokenEntry of Object.entries(pasteTokens[pasteTokenName])) {
-      const completionItem = getCompletionItem(pasteTokenName, pasteTokenEntry);
+  const tokenCategory = pasteTokenAttributes[attributeName];
+  const theme = getThemeSetting();
+  const tokens = getThemeTokens(theme);
 
-      items.push(completionItem);
-    }
-    return items;
-  }
+  const tokensByCategory = Object.values(tokens).filter((token) => token.category === tokenCategory);
 
-  return items;
+  return tokensByCategory.map(getCompletionItem);
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -86,19 +72,27 @@ export function activate(context: vscode.ExtensionContext) {
       provideHover(document, position) {
         const word = document.getText(document.getWordRangeAtPosition(position));
         const foundPasteToken = findPasteToken(word);
-        if (foundPasteToken) {
-          const hoverMessage = new vscode.MarkdownString();
-
-          hoverMessage.appendMarkdown(`${foundPasteToken.label}: \`${foundPasteToken.value}\`\n`);
-          hoverMessage.appendMarkdown(`___\n`);
-          if (foundPasteToken.description) {
-            hoverMessage.appendMarkdown(`${foundPasteToken.description}\n`);
-          }
-          hoverMessage.isTrusted = true;
-
-          return new vscode.Hover(hoverMessage);
+        if (!foundPasteToken) {
+          return null;
         }
-        return null;
+
+        const hoverMessage = new vscode.MarkdownString();
+
+        const {name, value, comment} = foundPasteToken;
+
+        // Run any formatters/converters on value before appending
+        const formattedValue = remToPx(value);
+
+        hoverMessage.appendMarkdown(`${name}: \`${formattedValue}\`\n`);
+        hoverMessage.appendMarkdown(`___\n`);
+
+        if (comment) {
+          hoverMessage.appendMarkdown(`${comment}\n`);
+        }
+
+        hoverMessage.isTrusted = true;
+
+        return new vscode.Hover(hoverMessage);
       },
     }
   );

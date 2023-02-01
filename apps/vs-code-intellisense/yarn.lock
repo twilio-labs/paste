@@ -108,6 +108,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@twilio-paste/design-tokens@npm:^8.5.0":
+  version: 8.5.0
+  resolution: "@twilio-paste/design-tokens@npm:8.5.0"
+  checksum: c4b0f2a2e833ae01ce20296a6192cfcf1e78dd037d18b796b552ab61882d90823b35174b81261ae9c385c01f282e5d48292094b1b3010df1ff4dcaa597acb3a4
+  languageName: node
+  linkType: hard
+
 "@types/glob@npm:^7.2.0":
   version: 7.2.0
   resolution: "@types/glob@npm:7.2.0"
@@ -122,6 +129,31 @@ __metadata:
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
+  languageName: node
+  linkType: hard
+
+"@types/lodash.camelcase@npm:^4.3.7":
+  version: 4.3.7
+  resolution: "@types/lodash.camelcase@npm:4.3.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: ef068b921ab439f7b1a2c0ebbd890ba64ba437fc6aeb5e3ac18d34da30f9054fceaac5ccfdfa9e12b2fc403e10910439d3ebf92ba2f93de03c2f02261adfc000
+  languageName: node
+  linkType: hard
+
+"@types/lodash.kebabcase@npm:^4.1.7":
+  version: 4.1.7
+  resolution: "@types/lodash.kebabcase@npm:4.1.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.191
+  resolution: "@types/lodash@npm:4.14.191"
+  checksum: ba0d5434e10690869f32d5ea49095250157cae502f10d57de0a723fd72229ce6c6a4979576f0f13e0aa9fbe3ce2457bfb9fa7d4ec3d6daba56730a51906d1491
   languageName: node
   linkType: hard
 
@@ -1461,6 +1493,20 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
+  languageName: node
+  linkType: hard
+
+"lodash.kebabcase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.kebabcase@npm:4.1.1"
+  checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -2284,23 +2330,23 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-typescript@^4.6.4:
-  version: 4.7.4
-  resolution: "typescript@npm:4.7.4"
+typescript@^4.9.4:
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5750181b1cd7e6482c4195825547e70f944114fb47e58e4aa7553e62f11b3f3173766aef9c281783edfd881f7b8299cf35e3ca8caebe73d8464528c907a164df
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
-  version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=32657b"
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=32657b"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 0b078b97f27848c2d10fc0777b7cb4cb85374426620edac25b2fe62459a4344569655e7f1a989d0ce9d5618cdeb958451eb2ee9436e78f7af86a99e800df967b
+  checksum: dc93a8cb88f42a4b5f074798a38ddf3ba5a8e083663cad6170f4fbfbdb69fe8dfb782584cb47c1e1814f38218699d76bcb39ae83b91333f116058b685c566a4d
   languageName: node
   linkType: hard
 
@@ -2367,7 +2413,10 @@ typescript@^4.6.4:
   version: 0.0.0-use.local
   resolution: "vs-code-intellisense@workspace:."
   dependencies:
+    "@twilio-paste/design-tokens": ^8.5.0
     "@types/glob": ^7.2.0
+    "@types/lodash.camelcase": ^4.3.7
+    "@types/lodash.kebabcase": ^4.1.7
     "@types/mocha": ^9.1.1
     "@types/node": 16.x
     "@types/vscode": ^1.68.0
@@ -2376,8 +2425,10 @@ typescript@^4.6.4:
     "@vscode/test-electron": ^2.1.5
     eslint: ^8.18.0
     glob: ^8.0.3
+    lodash.camelcase: ^4.3.0
+    lodash.kebabcase: ^4.1.1
     mocha: ^10.0.0
-    typescript: ^4.6.4
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
