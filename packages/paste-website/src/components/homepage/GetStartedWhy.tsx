@@ -20,9 +20,9 @@ export const GetStarterWhy: React.FC = () => {
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <Image src={HomeGetStartedIllo2} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo2} aria-hidden="true" alt="" />
             ) : (
-              <Image src={HomeGetStartedIllo2Dark} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo2Dark} aria-hidden="true" alt="" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">

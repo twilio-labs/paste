@@ -27,9 +27,9 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <Image src={HomeGetStartedIllo3} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo3} aria-hidden="true" alt="" />
             ) : (
-              <Image src={HomeGetStartedIllo3Dark} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo3Dark} aria-hidden="true" alt="" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">

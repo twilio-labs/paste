@@ -24,9 +24,9 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
         <div>
           <GetStartedCardIllustration>
             {theme === 'default' ? (
-              <Image src={HomeGetStartedIllo1} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo1} aria-hidden="true" alt="" />
             ) : (
-              <Image src={HomeGetStartedIllo1Dark} aria-hidden="true" />
+              <Image src={HomeGetStartedIllo1Dark} aria-hidden="true" alt="" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">

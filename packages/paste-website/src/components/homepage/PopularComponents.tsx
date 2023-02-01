@@ -52,7 +52,7 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Button</ComponentCardHeader>
             <ComponentCardIllustration>
-              <Image src={HomeButtonIllustration} aria-hidden="true" />
+              <Image src={HomeButtonIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/components/button">See Button</SiteLink>
@@ -63,7 +63,7 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Combobox</ComponentCardHeader>
             <ComponentCardIllustration>
-              <Image src={HomeComboboxIllustration} aria-hidden="true" />
+              <Image src={HomeComboboxIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/components/combobox">See Combobox</SiteLink>
