@@ -48,8 +48,6 @@ yarn start:website
 
 Once both the website and netlify functions have started running, both will be available on `localhost:8888`.
 
-🚨 **It takes some time for Gastby to boot up. Be patient** 🚨
-
 Once running, the function can be reached at `localhost:8888/.netlify/functions/opengraph/` for testing.
 
 Whilst running, changes to the function code will restart the function with the new code changes applied. (Hot reloading for Node, using Nodemon) This is all handled for us using the Netlify CLI.
