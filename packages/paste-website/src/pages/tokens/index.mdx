@@ -4,11 +4,11 @@ export const meta = {
   slug: '/tokens/',
 };
 
-import Image from 'next/image';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../constants';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {ImageCaption} from '../../components/ImageCaption';
@@ -51,7 +51,7 @@ As the attributes of a design language are never hard-coded into any file, an ev
 
 All Paste components use design tokens. Additionally, [styling primitives with tokens unlocks the ability to create custom UI](/customization/composing-custom-components-with-design-tokens) that still uses Paste.
 
-<Image src={InputTokens} placeholder="blur" />
+<ResponsiveImage src={InputTokens} />
 
 <ImageCaption>
   For example, an Input in an error state is styled using a number of tokens that set styles such as border color and
@@ -160,7 +160,7 @@ Another benefit of the approach is that it enables flexibility. If there’s a n
 
 Alternatively, if we want to make a change to a design token, and not the alias, we can isolate the change to just the design token. For example, if we want to change the `$color-background-primary` token to use orange instead of blue, we can point that token at a different alias rather than changing the alias itself.
 
-<Image src={AliasTokens} placeholder="blur" />
+<ResponsiveImage src={AliasTokens} />
 
 <ImageCaption>
   In this example, the $color-background-primary and $color-text-link tokens reference the $color-palette-blue-60 alias

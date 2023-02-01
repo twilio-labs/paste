@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import {
   ComponentCard,
@@ -52,7 +52,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
-              <Image src={HomeCreateIllustration} aria-hidden="true" />
+              <Image src={HomeCreateIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/patterns/create">See Create</SiteLink>
@@ -63,7 +63,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
-              <Image src={HomeDeleteIllustration} aria-hidden="true" />
+              <Image src={HomeDeleteIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <SiteLink href="/patterns/delete">See Delete</SiteLink>

@@ -5,7 +5,7 @@ export const meta = {
   slug: '/primitives/menu-primitive/',
 };
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -168,7 +168,9 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
     desktop software menubar you see at the top of your screen. These have limited use cases on the web unless you're
     building a desktop replacement like Figma or Google Docs. We may reconsider this in the future if we see a good use
     for this.
-    <Image src={MenuBar} placeholder="blur" />
+    <Box display="flex" justifyContent="center">
+      <Image src={MenuBar} placeholder="blur" style={{height: '100%', maxWidth: '100%'}} />
+    </Box>
   </CalloutText>
 </Callout>
 

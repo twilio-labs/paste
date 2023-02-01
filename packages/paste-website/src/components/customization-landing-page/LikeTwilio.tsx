@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -66,7 +66,7 @@ const MobileDesigner: React.FC = () => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <Image src={ThemeDesigner} alt="" placeholder="blur" />
+      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
     </>
   );
 };

@@ -7,11 +7,11 @@ export const meta = {
   excerpt: "What's new in Paste in January 2023? New components, new design language, and more!",
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
 import DependencyIntake from '../../assets/images/articles/2023-01-27-paste-newsletter/dependency-intake.png';
 import Spacing from '../../assets/images/articles/2023-01-27-paste-newsletter/spacing-guidelines.png';
@@ -53,7 +53,7 @@ export const getStaticProps = async () => {
 
 ### Submit feature requests through our new dependency intake form
 
-<Image src={DependencyIntake} placeholder="blur" />
+<ResponsiveImage src={DependencyIntake} />
 
 To help us prioritize our work and keep us accountable, we now have an Airtable form that you and your team can use to submit dependencies for the features and components you need from us.
 
@@ -65,7 +65,7 @@ We factor your requests directly into our roadmap planning, so submit a request 
 
 ### Page spacing and layout guidelines
 
-<Image src={Spacing} placeholder="blur" />
+<ResponsiveImage src={Spacing} />
 
 Want to learn more about spacing and hierarchy within your flows? Then these spacing and layout guidelines are for you! This foundational page breaks down the importance of creating visual relationships with your elements.
 
@@ -75,7 +75,7 @@ Want to learn more about spacing and hierarchy within your flows? Then these spa
 
 ### One Twilio: Design language update in Figma
 
-<Image src={OneTwilio} placeholder="blur" />
+<ResponsiveImage src={OneTwilio} />
 
 We are excited to announce the new design language is live in Figma! This update comes from the One Twilio initiative to create a cohesive design language to unify Twilio’s product suite. Learn more about the work on the Twilio Blog: “[Bringing Cohesion to the Twilio Product Suite](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i).”
 
@@ -83,7 +83,7 @@ Stay tuned for more news about this design language update and what product team
 
 ### Description List component
 
-<Image src={DescriptionList} placeholder="blur" />
+<ResponsiveImage src={DescriptionList} />
 
 As product builders, we are constantly trying to find ways to organize our content within a layout that feels digestible and manageable. We want our customers to be able to quickly find the right information they need to make decisions. We now have a component that helps with organizing lots of pieces of small information at once, the Description List!
 
@@ -168,7 +168,7 @@ The Listbox Primitive is a component used to create accessible Listboxes that ca
 
 <Box marginBottom="space70" />
 
-<Image src={Nathan} placeholder="blur" />
+<ResponsiveImage src={Nathan} />
 
 In this edition of Pastemates, we're spotlighting a mate from Twilio Brand, Nathan Sharp! Nathan has been such a huge support with our One Twilio efforts, and we’d like to say thanks! We’re truly grateful for our relationship with the Brand team and excited about what we will collab on next!
 
@@ -178,7 +178,7 @@ Not only did we work across product teams to land on this design language, but i
 
 Marketing energizes customers and invites them in, while product UI reassures customers that we’re here every step of the way to make their experience seamless.
 
-<Image src={DesignLanguage} placeholder="blur" />
+<ResponsiveImage src={DesignLanguage} />
 
 Finding that balance can be a tricky endeavor. However, with Nathan’s help, we were able to keep the brand personality that makes us, well, us. We started using our new super family typeface, Twilio Sans, and also collaborated on lighter color hues, thoughtful brand moments to celebrate success, more negative space, and other visual elements, to give designers tools to set a customer up for success.
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
@@ -124,14 +124,12 @@ export const ImageSlider: React.FC = () => {
           src={HeroBack}
           alt="Sample components with a customized Paste theme"
           placeholder="blur"
-          layout="fill"
           style={imageStyleProps}
         />
         <Image
           src={HeroFront}
           alt="Sample components with a default Paste theme"
           placeholder="blur"
-          layout="fill"
           style={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
         />
 

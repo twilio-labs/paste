@@ -4,7 +4,6 @@ export const meta = {
   slug: '/patterns/object-details/',
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -15,6 +14,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import ObjectDetailsStandardImage from '../../../assets/images/patterns/object-details-standard@3x.png';
 import ObjectDetailsStandardReorderedImage from '../../../assets/images/patterns/object-details-standard-reordered@3x.png';
 import ObjectDetailsTabbedImage from '../../../assets/images/patterns/object-details-tabbed@3x.png';
@@ -171,7 +171,7 @@ The most common way to structure an object details page is to first show an over
   </CalloutText>
 </Callout>
 
-<Image src={ObjectDetailsStandardImage} placeholder="blur" alt="Screen of message details and list of properties" />
+<ResponsiveImage src={ObjectDetailsStandardImage} alt="Screen of message details and list of properties" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -188,9 +188,8 @@ While this might be the most common structure for object details, use customer r
 
 For example, when viewing the details of a sent email campaign, a customer may want to quickly see how well their campaign has been performing over time. In this case, placing a group of stats cards and a chart first may be most appropriate.
 
-<Image
+<ResponsiveImage
   src={ObjectDetailsStandardReorderedImage}
-  placeholder="blur"
   alt="Screen of email campaign details showing a chart first"
 />
 
@@ -207,11 +206,7 @@ For example, when viewing the details of a sent email campaign, a customer may w
 
 When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](/components/tabs).
 
-<Image
-  src={ObjectDetailsTabbedImage}
-  placeholder="blur"
-  alt="Screen of call details with tabs and list of properties"
-/>
+<ResponsiveImage src={ObjectDetailsTabbedImage} alt="Screen of call details with tabs and list of properties" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">

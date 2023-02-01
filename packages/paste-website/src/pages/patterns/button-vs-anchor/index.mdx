@@ -4,7 +4,7 @@ export const meta = {
   slug: '/patterns/button-vs-anchor/',
 };
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -17,6 +17,7 @@ import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import ButtonPrimaryActionImage from '../../../assets/images/patterns/button-primary-action.png';
 import ButtonMultipleActionsImage from '../../../assets/images/patterns/button-multiple-actions.png';
 import ButtonAnchorLikeButtonsImage from '../../../assets/images/patterns/button-anchor-like-buttons.png';
@@ -160,7 +161,7 @@ If you decide to place an icon in a button, all button icons should be placed to
 </Stack>`}
 </LivePreview>
 
-<Image src={ButtonPrimaryActionImage} placeholder="blur" alt="table with a primary create new action button" />
+<ResponsiveImage src={ButtonPrimaryActionImage} alt="table with a primary create new action button" />
 
 ### Secondary button
 
@@ -174,7 +175,7 @@ There are some cases where a secondary button may be used for an irreversible ac
 </Button>`}
 </LivePreview>
 
-<Image src={ButtonMultipleActionsImage} placeholder="blur" alt="table with multiple action buttons" />
+<ResponsiveImage src={ButtonMultipleActionsImage} alt="table with multiple action buttons" />
 
 ### Link-style button (tertiary)
 
@@ -233,11 +234,7 @@ To create a button-styled anchor, use the Button component and add the `as="a"` 
 </Stack>`}
 </LivePreview>
 
-<Image
-  src={ButtonAnchorLikeButtonsImage}
-  placeholder="blur"
-  alt="layout with anchors and anchors that look like buttons"
-/>
+<ResponsiveImage src={ButtonAnchorLikeButtonsImage} alt="layout with anchors and anchors that look like buttons" />
 
 ## Anchors
 
@@ -256,7 +253,7 @@ For all anchors, the only functionality it supports is navigating. For this reas
 </Stack>`}
 </LivePreview>
 
-<Image src={ButtonCardExternalAnchorImage} placeholder="blur" alt="card layout with internal and external anchors" />
+<ResponsiveImage src={ButtonCardExternalAnchorImage} alt="card layout with internal and external anchors" />
 
 ### Anchors in text
 

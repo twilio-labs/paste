@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -15,7 +15,6 @@ export const ChromeImage: React.FC = () => {
       alt="Chrome/Edge implementation of time picker"
       width={300}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',

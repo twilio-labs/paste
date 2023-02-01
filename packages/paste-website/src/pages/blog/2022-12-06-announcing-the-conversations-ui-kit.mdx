@@ -8,8 +8,8 @@ export const meta = {
   excerpt: 'The Paste team has been working on something big for the past year!',
 };
 
-import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {ChatHeroExample} from '../../component-examples/ConversationsUIKitAnnouncement';
 import ComponentBreakdown from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/component-breakdown.png';
 import Figma from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/figma-screenshot.png';
@@ -51,7 +51,7 @@ Twilio currently has multiple chat-related products. Some include a UI, like [Fr
 
 Before we could build, the team had to hammer down the specifics. We audited Figma screens and met with the people who think about these UIs all the time: the engineers, designers, and product managers who work on Twilio’s chat products.
 
-<Image src={ComponentBreakdown} placeholder="blur" />
+<ResponsiveImage src={ComponentBreakdown} />
 
 From this work, we gathered a list of the potential new components and new variants of existing components that Paste needed for the initial release of the Conversations UI Kit:
 
@@ -87,7 +87,7 @@ Like all Paste components, they are composable, presentational, and customizable
 
 For designers, the Conversations UI Kit is available as a set of components in [the Twilio Paste Components library](https://www.figma.com/community/file/1012844215105752327).
 
-<Image src={Figma} placeholder="blur" />
+<ResponsiveImage src={Figma} />
 
 ## Wrapping up
 

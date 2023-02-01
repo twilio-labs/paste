@@ -4,7 +4,6 @@ export const meta = {
   slug: '/introduction/for-designers/design-guidelines/',
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
@@ -12,6 +11,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Text} from '@twilio-paste/text';
+import {ResponsiveImage} from '../../../../components/ResponsiveImage';
 import TokenStyles from '../../../../assets/images/design-guidelines/token-styles.png';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
@@ -174,11 +174,7 @@ When you have a theme library linked, you'll have access to:
 - Color styles (fill and stroke for background, border, and text colors)
 - Effect styles (drop shadows, etc.)
 
-<Image
-  src={TokenStyles}
-  alt="Menu in Figma when you can navigate through tokens for the Default theme"
-  placeholder="blur"
-/>
+<ResponsiveImage src={TokenStyles} alt="Menu in Figma when you can navigate through tokens for the Default theme" />
 
 ---
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -19,7 +19,6 @@ export const AwaitingDataImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -38,7 +37,6 @@ export const ChangeRegionImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -57,7 +55,6 @@ export const CreateObjectImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -76,7 +73,6 @@ export const GenericDependencyImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -95,7 +91,6 @@ export const NoPermissionsImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -114,7 +109,6 @@ export const NoResultImage: React.FC = () => {
       width={150}
       height={150}
       placeholder="blur"
-      layout="fixed"
       css={css({
         margin: 'space20',
         display: 'block',

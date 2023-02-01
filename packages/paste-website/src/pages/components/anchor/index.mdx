@@ -5,7 +5,7 @@ export const meta = {
   slug: '/components/anchor/',
 };
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -127,7 +127,7 @@ You can use an anchor to navigate the user to another webpage.
     <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
   </Do>
   <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
-    <Image src={AnchorDont} layout="fill" />
+    <Image src={AnchorDont} fill />
   </Dont>
 </DoDont>
 

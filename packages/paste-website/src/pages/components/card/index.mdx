@@ -5,7 +5,7 @@ export const meta = {
   slug: '/components/card/',
 };
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -182,10 +182,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Have a clear call to action when including Buttons. Avoid including more than one primary and one secondary button."
     preview={false}
   >
-    <Image image={PrimaryDo} layout="fill" />
+    <Image src={PrimaryDo} alt="" fill />
   </Do>
   <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false}>
-    <Image image={PrimaryDont} layout="fill" />
+    <Image src={PrimaryDont} alt="" fill />
   </Dont>
 </DoDont>
 
@@ -195,10 +195,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Use a Heading in your Card that appropriately reflects the information architecture of the page."
     preview={false}
   >
-    <Image image={HeadingDo} layout="fill" />
+    <Image src={HeadingDo} alt="" fill />
   </Do>
   <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false}>
-    <Image image={MultipleDont} layout="fill" />
+    <Image src={MultipleDont} alt="" fill />
   </Dont>
 </DoDont>
 

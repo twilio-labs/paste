@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';
@@ -111,7 +111,7 @@ export const WhyPaste: React.FC = () => {
             </Column>
           </Grid>
           <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <Image src={WhyPasteMobile} alt="" placeholder="blur" />
+            <Image src={WhyPasteMobile} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
           </Box>
           <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
             <DoodleLoopArrowLarge />
@@ -125,7 +125,7 @@ export const WhyPaste: React.FC = () => {
           width={['700px', '700px', '700px', '800px']}
           maxWidth="100%"
         >
-          <Image src={WhyPasteImg} alt="" placeholder="blur" />
+          <Image src={WhyPasteImg} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
         </Box>
       </Box>
     </LandingPageSection>

@@ -16,6 +16,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
 import SwitchExample from '../../../public/images/gifs-2022-09-23-paste-newsletter/switch-example.gif';
 import InlineCodeExample from '../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png';
@@ -65,7 +66,9 @@ export const getStaticProps = async () => {
 
 #### Switch
 
-<Image src={SwitchExample} />
+<Paragraph>
+  <Image src={SwitchExample} />
+</Paragraph>
 
 The Switch component makes interacting with binary states a breeze.
 Our Switch incorporates animation and icons to make its pressed/unpressed state visually clear, while its built-in
@@ -77,7 +80,7 @@ accessibility features communicate the state clearly to users. Take it for a spi
 
 #### Inline Code
 
-<Image src={InlineCodeExample} placeholder="blur" />
+<ResponsiveImage src={InlineCodeExample} />
 
 If your snippet of code is small and inline with the rest of your text,
 Inline Code is the way to go. Its contents stand out with a subtle background and monospace font.
@@ -89,7 +92,9 @@ Use it for code, ID&apos;s, and keys.
 
 #### Code Block
 
-<Image src={CodeBlockExample} />
+<Paragraph>
+  <Image src={CodeBlockExample} />
+</Paragraph>
 
 Presenting Code Block! This component allows you to display code with syntax highlighting for 13 programming languages.
 It features tabs to show different blocks of code in the same area, a copy code button, and an optional external link button leading to the source code.
@@ -100,7 +105,7 @@ It features tabs to show different blocks of code in the same area, a copy code 
 
 #### Callout
 
-<Image src={CalloutExample} placeholder="blur" />
+<ResponsiveImage src={CalloutExample} />
 
 With five different variants to choose from, all your imperative, static information will be
 hard to miss inside of the Callout component! Don&apos;t forget to set its heading level according
@@ -112,7 +117,9 @@ to the outline of your page for the best user experience.
 
 #### Minimizable Dialog
 
-<Image src={MinimizableDialog} />
+<Paragraph>
+  <Image src={MinimizableDialog} />
+</Paragraph>
 
 As part of our Conversations UI kit, we&apos;ve added the Minimizable Dialog component.
 Its power lies in its flexibility; use it with a static button, a floating button, or use its included state hook
@@ -124,7 +131,7 @@ for full control of its internal state. Making a chat log has never been easier 
 
 #### 42 new icons, including a full suite of contact center icons!
 
-<Image src={NewIcons} placeholder="blur" />
+<ResponsiveImage src={NewIcons} />
 
 We&apos;ve got new icons! A full suite of contact center icons and more are now available.
 Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin Chin</strong> for their close collaboration on these icons.
@@ -133,7 +140,7 @@ Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin C
 
 #### Conversations UI Kit added to Figma
 
-<Image src={UiKit} placeholder="blur" />
+<ResponsiveImage src={UiKit} />
 
 Our Conversations UI Kit, which includes all of Paste&apos;s chat components and the new minimizable dialog,
 is now available in Figma. The components in this kit work together seamlessly for designing conversational UI,
@@ -149,7 +156,9 @@ no matter the complexity.
 
 #### Button variant: toggle!
 
-<Image src={ToggleButton} />
+<Paragraph>
+  <Image src={ToggleButton} />
+</Paragraph>
 
 Let&apos;s toggle! To make a button a toggle simply add the `pressed` prop to a secondary button or secondary icon button.
 
@@ -159,7 +168,9 @@ Let&apos;s toggle! To make a button a toggle simply add the `pressed` prop to a 
 
 #### Sticky headers in Table and Data Grid &#40;contribution&#41;
 
-<Image src={StickyHeaders} />
+<Paragraph>
+  <Image src={StickyHeaders} />
+</Paragraph>
 
 Contributed by Mark Yang from the Billing Platform team, sticky headers for our
 Table and Data Grid components are now available! Use this functionality to make perusing data easier,
@@ -221,8 +232,8 @@ We are excited to the share the following insights:
   <strong>4.00/5</strong>.
 </Paragraph>
 <Paragraph>
-  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>,
-  our participants averaged <strong>4.18/5</strong>.
+  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>
+  , our participants averaged <strong>4.18/5</strong>.
 </Paragraph>
 
 In addition, some participants specified:
@@ -243,7 +254,7 @@ These results are music to our ears 🎶
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-<Image src={Ramona} placeholder="blur" />
+<ResponsiveImage src={Ramona} />
 
 Since our last update, Ramona Thompson joined the [One Twilio BPM](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#bookmark=kix.xj165t52alhv) crew to partner with us in our
 user research efforts. Ramona collaborated with us to help us dig into what customers consider friendly,

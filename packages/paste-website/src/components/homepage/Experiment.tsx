@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -28,7 +28,7 @@ const ExperimentEmbed: React.FC = () => {
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <>
-        <Image src={CodesandboxMobile} alt="" placeholder="blur" />
+        <Image src={CodesandboxMobile} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
         <ExperimentMobileButton />
       </>
     );

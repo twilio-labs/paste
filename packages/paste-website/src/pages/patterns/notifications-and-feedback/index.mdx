@@ -4,7 +4,6 @@ export const meta = {
   slug: '/patterns/notifications-and-feedback/',
 };
 
-import Image from 'next/image';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -24,6 +23,7 @@ import {Text} from '@twilio-paste/text';
 import {Toast} from '@twilio-paste/toast';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import NotificationsAlertImage from '../../../assets/images/patterns/notifications-alert@3x.png';
 import NotificationsToastImage from '../../../assets/images/patterns/notifications-toast@3x.png';
 import NotificationsModalImage from '../../../assets/images/patterns/notifications-modal@3x.png';
@@ -167,7 +167,7 @@ Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element]
 
 To communicate information from the system that isn't triggered by a user action, use an **[alert](/components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
-<Image src={NotificationsAlertImage} placeholder="blur" alt="Screen with alert informing users of a server error" />
+<ResponsiveImage src={NotificationsAlertImage} alt="Screen with alert informing users of a server error" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -192,9 +192,8 @@ Use a Toast when
 - You're providing only one link or button to help a user continue a flow.
 - There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast may not be needed when a modal closes after a user presses “Save” in it. The modal dismissal may sufficiently communicate that the information in the modal was saved, without needing further messaging.
 
-<Image
+<ResponsiveImage
   src={NotificationsToastImage}
-  placeholder="blur"
   alt="Screen with toast confirming a password reset email has been sent"
 />
 
@@ -219,7 +218,7 @@ Use a Modal when
 - You’re focusing a user’s attention and confirming a definitive action at the end of a Modal flow.
 - You’re providing lengthy text, multiple links, or multiple buttons to help a user continue a flow.
 
-<Image src={NotificationsModalImage} placeholder="blur" alt="Modal congratulating a user at the end of a Modal flow" />
+<ResponsiveImage src={NotificationsModalImage} alt="Modal congratulating a user at the end of a Modal flow" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -238,11 +237,7 @@ Use contextual, inline messaging (e.g., inline errors on form fields) when
 - You’re providing links or buttons that are contextual to a UI element and help a user continue a flow.
 - You’re communicating dynamically changing content, like a progress bar.
 
-<Image
-  src={NotificationsInlineMessagingImage}
-  placeholder="blur"
-  alt="Screen with inline error with anchor on a form field"
-/>
+<ResponsiveImage src={NotificationsInlineMessagingImage} alt="Screen with inline error with anchor on a form field" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -260,9 +255,8 @@ Use in-page messaging (e.g., full-page confirmation composition) when
 - You’re communicating a direct response to a _high-emotion_ user action or flow.
 - You’re providing information that a user might want to copy, screenshot, or save, like a confirmation number or invoice details.
 
-<Image
+<ResponsiveImage
   src={NotificationsInpageMessagingImage}
-  placeholder="blur"
   alt="Full-page congratulations message on setting up a Twilio Messaging Service with SIDs to copy"
 />
 

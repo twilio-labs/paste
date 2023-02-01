@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
@@ -63,7 +63,7 @@ export const LandingPageHero: React.FC = () => {
             <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <Image src={HeroSlider} alt="" placeholder="blur" />
+              <Image src={HeroSlider} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
             </Box>
           </LandingPageSectionContent>
         </Box>

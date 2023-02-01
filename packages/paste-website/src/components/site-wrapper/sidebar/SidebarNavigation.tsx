@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -81,9 +81,7 @@ const SidebarNavigation: React.FC = () => {
             textDecoration: 'underline',
           }}
         >
-          <Box as="span">
-            <Image src={Logo} alt="" layout="fixed" width={28} height={28} />
-          </Box>
+          <Image src={Logo} alt="" width={28} height={28} />
           <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
             Paste Home
           </Text>

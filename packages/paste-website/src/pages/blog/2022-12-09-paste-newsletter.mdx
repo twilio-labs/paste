@@ -7,11 +7,11 @@ export const meta = {
   excerpt: "What's new in Paste in December 2022? New components, new variants, and more!",
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
 import DisplayHeading from '../../assets/images/articles/2022-12-09-paste-newsletter/display-heading.png';
 import Robb from '../../assets/images/articles/2022-12-09-paste-newsletter/robb-niznik.jpeg';
@@ -80,7 +80,7 @@ A highly anticipated component, the Chat Composer is a rich text input that user
 
 ### Display Heading
 
-<Image src={DisplayHeading} placeholder="blur" />
+<ResponsiveImage src={DisplayHeading} />
 
 Many marketing pages use large text to call attention to information or express their brand. Display Heading is a new component that is meant to be used for large text that does not provide any hierarchical structure to the page.
 
@@ -108,7 +108,7 @@ Many marketing pages use large text to call attention to information or express 
 
 ### Robb Niznik
 
-<Image src={Robb} placeholder="blur" />
+<ResponsiveImage src={Robb} />
 
 Robb Niznik (he/him/his) has joined the UX Infrastructure team as a Staff UX Engineer!
 
@@ -125,7 +125,7 @@ Robb enjoys going on hikes, listening to his records, and volunteering at Therap
 
 <Box marginBottom="space70" />
 
-<Image src={Justin} placeholder="blur" />
+<ResponsiveImage src={Justin} />
 
 In this edition of Pastemates, we're spotlighting a mate from Twilio Contact Center Sales, Justin Young! Justin has been busy emboldening the Twilio Builder Spirit, stitching together the new Flex UI and its inbuilt support of Paste, with builder.io, to create a drag and drop Flex UI builder!
 

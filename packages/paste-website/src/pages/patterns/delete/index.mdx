@@ -5,7 +5,6 @@ export const meta = {
   slug: '/patterns/delete/',
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -15,6 +14,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import DeleteMediumSeverityImage from '../../../assets/images/patterns/delete-medium-severity.png';
 import DeleteHighSeverityImage from '../../../assets/images/patterns/delete-high-severity.png';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -120,7 +120,7 @@ A deletion is considered medium-severity when the action cannot be undone, and t
 
 For medium-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion.
 
-<Image src={DeleteMediumSeverityImage} placeholder="blur" alt="modal with a destrctive button to confirm deletion" />
+<ResponsiveImage src={DeleteMediumSeverityImage} alt="modal with a destrctive button to confirm deletion" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -137,11 +137,7 @@ A deletion is considered high-severity when the action cannot be undone, and it 
 
 For high-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
 
-<Image
-  src={DeleteHighSeverityImage}
-  placeholder="blur"
-  alt="modal with an input and a destructive button to confirm deletion"
-/>
+<ResponsiveImage src={DeleteHighSeverityImage} alt="modal with an input and a destructive button to confirm deletion" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">

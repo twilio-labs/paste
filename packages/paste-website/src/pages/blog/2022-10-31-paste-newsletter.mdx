@@ -10,11 +10,11 @@ export const meta = {
   excerpt: "What's new in Paste in October 2022? New components, new variants, and more!",
 };
 
-import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
 import RadioButtonGroup from '../../assets/images/articles/2022-10-31-paste-newsletter/radio-button-group.png';
 import ButtonGroup from '../../assets/images/articles/2022-10-31-paste-newsletter/button-group.png';
@@ -57,7 +57,7 @@ export const getStaticProps = async () => {
 
 ### Radio Button Group
 
-<Image src={RadioButtonGroup} placeholder="blur" />
+<ResponsiveImage src={RadioButtonGroup} />
 
 Radio Buttons are here! This component is functionally similar to the Radio Group, but renders the controls visually as buttons instead of radios. They can be used either attached, like in the above screenshot, or unattached, for two stylistic varieties.
 
@@ -67,7 +67,7 @@ Radio Buttons are here! This component is functionally similar to the Radio Grou
 
 ### Button Group
 
-<Image src={ButtonGroup} placeholder="blur" />
+<ResponsiveImage src={ButtonGroup} />
 
 The Button Group component is stylistically similar to the Radio Button Group, but doesn’t operate as a Radio Group. The Button Group is used for sets of related actions, rather than mutually exclusive options, that would otherwise be separate buttons.
 
@@ -77,7 +77,7 @@ The Button Group component is stylistically similar to the Radio Button Group, b
 
 ### Side Modal
 
-<Image src={SideModal} placeholder="blur" />
+<ResponsiveImage src={SideModal} />
 
 Presenting Code Block! This component allows you to display code with syntax highlighting for 13 programming languages.
 It features tabs to show different blocks of code in the same area, a copy code button, and an optional external link button leading to the source code.
@@ -88,7 +88,7 @@ It features tabs to show different blocks of code in the same area, a copy code 
 
 ### File Picker
 
-<Image src={FilePicker} placeholder="blur" />
+<ResponsiveImage src={FilePicker} />
 
 Say goodbye to those boring, native `input type=”file”`s, and say hello to our styled File Picker! This component is actually the native HTML element under the hood, so you get all the same functionality, but we Pastified it so that it fits seamlessly into your form layouts.
 
@@ -140,7 +140,7 @@ Say goodbye to those boring, native `input type=”file”`s, and say hello to o
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-<Image src={Brandon} placeholder="blur" />
+<ResponsiveImage src={Brandon} />
 
 Brandon Templar just recently joined Twilio, but has already hit the ground running. He’s partnering with Segment and the UX Infrastructure team to lead the Evergreen-UI to Paste migration efforts. Brandon has demonstrated excellent collaboration, empathy, and a structured way of thinking to help dig into the specifics around migrating between two large design systems. He rallied many teams in creative ways to collect feedback and is the only designer outside of our team to ever leverage our reporting infrastructure to get quantitative data in his research. We have enjoyed our partnership with Brandon and are grateful for his efforts.
 

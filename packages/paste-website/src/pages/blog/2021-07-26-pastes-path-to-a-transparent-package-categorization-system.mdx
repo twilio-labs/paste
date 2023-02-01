@@ -12,8 +12,8 @@ export const meta = {
     'When integrating a library into a project, you’ll likely want to ensure that it’s a mature and well-maintained library that won’t be deprecated a month down the line. If your project is a customer-facing platform and the library maintains your frontend components, all the more reason to have trust. Transparency between the library and the consumer is integral to building that trust. Our previous...',
 };
 
-import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import Overview from '../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-1.png';
 import Overview2 from '../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-2.png';
 import DefaultLayout from '../../layouts/DefaultLayout';
@@ -56,10 +56,9 @@ When we first started releasing packages and documenting them on our website, we
 
 <contentspacer>
 
-<Image
+<ResponsiveImage
   src={Overview}
   alt="Screenshot of the Component Overview page before we changed our categorization system"
-  placeholder="blur"
 />
 
 </contentspacer>
@@ -76,10 +75,9 @@ After making the switch to align our definitions of _alpha_, _beta_ and _product
 
 <contentspacer>
 
-<Image
+<ResponsiveImage
   src={Overview2}
   alt="Screenshot of the Component Overview page after we updated our categorization system"
-  placeholder="blur"
 />
 
 </contentspacer>
