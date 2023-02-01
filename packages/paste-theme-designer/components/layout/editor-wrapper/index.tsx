@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
 import {Button} from '@twilio-paste/core/button';
-
 import {TokenSelector} from './TokenSelector';
 import {TopBar} from '../../topbar';
 import {Preview} from '../../preview';

@@ -2,12 +2,12 @@ import {resolve} from 'path';
 
 import * as theo from 'theo';
 
-import {genericJsTokenFormat} from '../generic';
+import {genericCommonJsTokenFormat} from '../generic';
 
-theo.registerFormat('generic.js', genericJsTokenFormat);
+theo.registerFormat('generic.js', genericCommonJsTokenFormat);
 
 describe('generic JS formatter', () => {
-  it('should return js formatted tokens', async () => {
+  it('should return commonjs formatted tokens', async () => {
     return theo
       .convert({
         transform: {

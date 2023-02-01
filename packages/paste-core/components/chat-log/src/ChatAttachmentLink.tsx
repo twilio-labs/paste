@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Anchor} from '@twilio-paste/anchor';
 import type {AnchorProps} from '@twilio-paste/anchor';
 import type {BoxElementProps} from '@twilio-paste/box';

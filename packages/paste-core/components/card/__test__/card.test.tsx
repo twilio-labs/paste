@@ -22,7 +22,7 @@ describe('Card', () => {
       </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('card');
-    expect(renderedCard).toHaveStyleRule('padding', '2.25rem');
+    expect(renderedCard).toHaveStyleRule('padding', '1.25rem');
   });
 
   it('should render custom padding values', (): void => {

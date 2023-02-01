@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type {EditorState} from '@twilio-paste/lexical-library';
 import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
@@ -85,13 +85,13 @@ const ComposerWrapperExample: React.FC = ({children}) => (
   </Box>
 );
 
-export const Default: StoryFn = () => {
+export const Default: Story = () => {
   return (
     <ChatComposer config={defaultConfig} testid="foo" ariaLabel="Basic chat composer" placeholder="Type here..." />
   );
 };
 
-export const LongPlaceholderText: StoryFn = () => {
+export const LongPlaceholderText: Story = () => {
   return (
     <ChatComposer
       config={defaultConfig}
@@ -102,7 +102,7 @@ export const LongPlaceholderText: StoryFn = () => {
   );
 };
 
-export const WithOnChange: StoryFn = () => {
+export const WithOnChange: Story = () => {
   return (
     <ChatComposer
       onChange={myOnChange}
@@ -117,7 +117,7 @@ WithOnChange.parameters = {
   chromatic: {disableSnapshot: true},
 };
 
-export const WithInitialValue: StoryFn = () => {
+export const WithInitialValue: Story = () => {
   return (
     <ChatComposer
       initialValue="This is my initial value"
@@ -133,7 +133,7 @@ export const WithInitialValue: StoryFn = () => {
   );
 };
 
-export const WithCustomInitialValue: StoryFn = () => {
+export const WithCustomInitialValue: Story = () => {
   return (
     <ChatComposer
       ariaLabel="Chat composer with custom initial value"
@@ -149,7 +149,7 @@ export const WithCustomInitialValue: StoryFn = () => {
   );
 };
 
-export const WithMaxHeight: StoryFn = () => {
+export const WithMaxHeight: Story = () => {
   return (
     <ComposerWrapperExample>
       <ChatComposer

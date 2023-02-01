@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
 import {DefaultTheme, useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -75,7 +75,7 @@ export const Alignment = (): React.ReactNode => {
 
 Alignment.storyName = 'alignment';
 
-export const CustomizedIcon: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedIcon: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

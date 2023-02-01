@@ -5,7 +5,6 @@ import {Heading} from '@twilio-paste/core/heading';
 import {Separator} from '@twilio-paste/core/separator';
 import {Stack} from '@twilio-paste/core/stack';
 import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/core/tabs';
-
 import {AlertPreview} from './AlertPreview';
 import {AnchorPreview} from './AnchorPreview';
 import {AvatarPreview} from './AvatarPreview';

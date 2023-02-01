@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 
 import {ChatLog, ChatEvent} from '../../src';
 
@@ -8,7 +8,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const ChatEventExample: StoryFn = () => (
+export const ChatEventExample: Story = () => (
   <ChatLog>
     <ChatEvent>
       <strong>Lauren Gardner, Lee White, Loreina Chew </strong>have joined the chat・3:42 PM

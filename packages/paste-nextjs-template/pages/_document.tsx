@@ -5,7 +5,7 @@ const Document: React.FC = () => {
     <Html>
       <Head>
         <link rel="preconnect" href="https://assets.twilio.com" crossOrigin="" />
-        <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.0/fonts.css" />
+        <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.4.1/fonts.css" />
       </Head>
       <body>
         <Main />

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
@@ -28,7 +28,7 @@ export default {
   component: SideModal,
 };
 
-export const Default: StoryFn = () => {
+export const Default: Story = () => {
   const nameID = useUID();
   const emailID = useUID();
   const questionID = useUID();
@@ -73,7 +73,7 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const StateHookExample: StoryFn = () => {
+export const StateHookExample: Story = () => {
   const dialog = useSideModalState({});
   return (
     <Box display="flex" flexDirection="column" rowGap="space70">

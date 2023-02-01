@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {IndexPage} from './pages/IndexPage';

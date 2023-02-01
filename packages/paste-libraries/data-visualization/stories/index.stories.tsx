@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
+import type {Story, Meta} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 /* eslint-disable import/no-extraneous-dependencies */
 import Highcharts from 'highcharts';
@@ -22,7 +22,7 @@ export default {
   },
 } as Meta;
 
-export const LineChart: StoryFn = () => {
+export const LineChart: Story = () => {
   const themedLineChartOptions = usePasteHighchartsTheme(lineChartOptions);
 
   return (
@@ -33,7 +33,7 @@ export const LineChart: StoryFn = () => {
   );
 };
 
-export const LineChartWithAnnotations: StoryFn = () => {
+export const LineChartWithAnnotations: Story = () => {
   const themedLineChartWithAnnotationsOptions = usePasteHighchartsTheme(lineChartWithAnnotationsOptions);
 
   return (
@@ -44,7 +44,7 @@ export const LineChartWithAnnotations: StoryFn = () => {
   );
 };
 
-export const TimeSeries: StoryFn = () => {
+export const TimeSeries: Story = () => {
   const themedTimeSeriesChartOptions = usePasteHighchartsTheme(timeSeriesOptions);
 
   return (
@@ -55,7 +55,7 @@ export const TimeSeries: StoryFn = () => {
   );
 };
 
-export const ColumnChart: StoryFn = () => {
+export const ColumnChart: Story = () => {
   const themedColumnChartOptions = usePasteHighchartsTheme(columnChartOptions);
 
   return (
@@ -66,7 +66,7 @@ export const ColumnChart: StoryFn = () => {
   );
 };
 
-export const BasicAreaChart: StoryFn = () => {
+export const BasicAreaChart: Story = () => {
   const themedBasicAreaChartOptions = usePasteHighchartsTheme(basicAreaChartOptions);
 
   return (
@@ -77,7 +77,7 @@ export const BasicAreaChart: StoryFn = () => {
   );
 };
 
-export const PieChart: StoryFn = () => {
+export const PieChart: Story = () => {
   const themedPieChartOptions = usePasteHighchartsTheme(pieChartOptions);
 
   return (

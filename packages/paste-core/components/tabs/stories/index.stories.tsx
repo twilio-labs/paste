@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
@@ -240,7 +240,7 @@ export const CenterAlignTabTest: React.FC = () => {
 // @ts-expect-error story
 CenterAlignTabTest.storyName = 'Testing Center Alignment';
 
-export const CustomHorizontalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomHorizontalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -356,7 +356,7 @@ CustomHorizontalTabs.parameters = {
   },
 };
 
-export const CustomVerticalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomVerticalTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -460,7 +460,7 @@ CustomVerticalTabs.parameters = {
 };
 
 // @TODO
-export const CustomFittedTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomFittedTabs: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();

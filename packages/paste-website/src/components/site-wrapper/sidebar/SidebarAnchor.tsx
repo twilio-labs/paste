@@ -13,9 +13,11 @@ interface SidebarAnchorProps {
   onClick?: () => void;
 }
 
-const levelPaddingMap: Partial<{
-  [key in SidebarAnchorProps['level']]: Partial<BoxStyleProps>;
-}> = {
+const levelPaddingMap: Partial<
+  {
+    [key in SidebarAnchorProps['level']]: Partial<BoxStyleProps>;
+  }
+> = {
   0: {
     paddingY: 'space40',
     paddingLeft: ['space110', 'space110', 'space90'],

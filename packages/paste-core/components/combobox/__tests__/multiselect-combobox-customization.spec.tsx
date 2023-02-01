@@ -70,11 +70,9 @@ describe('MultiselectCombobox data-paste-element attributes', () => {
       container.querySelectorAll(`[data-paste-element="MULTISELECT_COMBOBOX_PILL"]`)[0].getAttribute('role')
     ).toEqual('option');
 
-    const dropdownlistbox = screen.getByRole('listbox', {name: 'Choose a letter:'});
-
-    expect(dropdownlistbox.querySelectorAll(`[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]`).length).toEqual(3);
+    expect(container.querySelectorAll(`[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]`).length).toEqual(3);
     expect(
-      dropdownlistbox.querySelectorAll(`[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]`)[0].getAttribute('role')
+      container.querySelectorAll(`[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]`)[0].getAttribute('role')
     ).toEqual('option');
 
     const [pillgroupListbox, comboboxListbox] = screen.getAllByRole('listbox');
@@ -86,9 +84,7 @@ describe('MultiselectCombobox data-paste-element attributes', () => {
       'MULTISELECT_COMBOBOX_GROUPNAME'
     );
 
-    expect(dropdownlistbox.querySelectorAll('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM_TEXT"]')).toHaveLength(
-      3
-    );
+    expect(container.querySelectorAll('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM_TEXT"]')).toHaveLength(3);
     expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_SUFFIX"]')).toBeInTheDocument();
   });
@@ -102,20 +98,19 @@ describe('MultiselectCombobox data-paste-element attributes', () => {
     expect(container.querySelectorAll(`[data-paste-element="FOO_PILL"]`).length).toEqual(2);
     expect(container.querySelectorAll(`[data-paste-element="FOO_PILL"]`)[0].getAttribute('role')).toEqual('option');
 
-    const [pillgroupListbox, comboboxListbox] = screen.getAllByRole('listbox');
-
-    expect(comboboxListbox.querySelectorAll(`[data-paste-element="FOO_LIST_ITEM"]`).length).toEqual(3);
-    expect(comboboxListbox.querySelectorAll(`[data-paste-element="FOO_LIST_ITEM"]`)[0].getAttribute('role')).toEqual(
+    expect(container.querySelectorAll(`[data-paste-element="FOO_LIST_ITEM"]`).length).toEqual(3);
+    expect(container.querySelectorAll(`[data-paste-element="FOO_LIST_ITEM"]`)[0].getAttribute('role')).toEqual(
       'option'
     );
 
+    const [pillgroupListbox, comboboxListbox] = screen.getAllByRole('listbox');
     expect(pillgroupListbox.getAttribute('data-paste-element')).toEqual('FOO_PILL_GROUP');
     expect(comboboxListbox.getAttribute('data-paste-element')).toEqual('FOO_LISTBOX');
     expect(screen.getAllByRole('group')[0].getAttribute('data-paste-element')).toEqual('FOO_LIST');
     expect(screen.getAllByRole('presentation')).toHaveLength(2);
     expect(screen.getAllByRole('presentation')[0].getAttribute('data-paste-element')).toEqual('FOO_GROUPNAME');
 
-    expect(comboboxListbox.querySelectorAll('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveLength(3);
+    expect(container.querySelectorAll('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveLength(3);
     expect(container.querySelector('[data-paste-element="FOO_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="FOO_SUFFIX"]')).toBeInTheDocument();
   });
@@ -142,23 +137,23 @@ describe('MultiselectCombobox customization', () => {
       'background-color',
       'rgba(242, 47, 70, 0.1)'
     );
-
-    const dropdownlistbox = screen.getByRole('listbox', {name: 'Choose a letter:'});
-
-    expect(dropdownlistbox).toHaveStyleRule('background-color', 'rgb(204, 228, 255)');
-    expect(dropdownlistbox.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LISTBOX"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(204, 228, 255)'
+    );
+    expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST"]')).toHaveStyleRule(
       'background-color',
       'rgb(153, 205, 255)'
     );
-    expect(dropdownlistbox.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_GROUPNAME"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_GROUPNAME"]')).toHaveStyleRule(
       'cursor',
       'help'
     );
-    expect(dropdownlistbox.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
       'rgb(0, 20, 137)'
     );
-    expect(dropdownlistbox.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM_TEXT"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="MULTISELECT_COMBOBOX_LIST_ITEM_TEXT"]')).toHaveStyleRule(
       'font-weight',
       '700'
     );
@@ -187,23 +182,20 @@ describe('MultiselectCombobox customization', () => {
       'background-color',
       'rgba(242, 47, 70, 0.1)'
     );
-
-    const dropdownlistbox = screen.getByRole('listbox', {name: 'Choose a letter:'});
-
-    expect(dropdownlistbox).toHaveStyleRule('background-color', 'rgb(204, 228, 255)');
-    expect(dropdownlistbox.querySelector('[data-paste-element="FOO_LIST"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="FOO_LISTBOX"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(204, 228, 255)'
+    );
+    expect(container.querySelector('[data-paste-element="FOO_LIST"]')).toHaveStyleRule(
       'background-color',
       'rgb(153, 205, 255)'
     );
-    expect(dropdownlistbox.querySelector('[data-paste-element="FOO_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
-    expect(dropdownlistbox.querySelector('[data-paste-element="FOO_LIST_ITEM"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="FOO_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
+    expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
       'rgb(0, 20, 137)'
     );
-    expect(dropdownlistbox.querySelector('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveStyleRule(
-      'font-weight',
-      '700'
-    );
+    expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveStyleRule('font-weight', '700');
     expect(container.querySelector('[data-paste-element="FOO_PREFIX"]')).toHaveStyleRule(
       'background-color',
       'rgb(235, 86, 86)'

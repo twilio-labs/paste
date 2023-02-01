@@ -17,10 +17,9 @@
     "@twilio-paste/core": "^17.0.0",
     "@twilio-paste/icons": "^9.3.1",
     "next": "^12.1.6",
-    "react": "^17.0.2",
     "react-color": "^2.19.3"
   },
   "devDependencies": {
-    "netlify-cli": "^12.2.10"
+    "netlify-cli": "^6.13.1"
   }
 }

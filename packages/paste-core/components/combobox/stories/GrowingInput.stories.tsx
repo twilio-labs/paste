@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {useUID} from '@twilio-paste/uid-library';
 
 import {GrowingInput} from '../src/multiselect/GrowingInput';
 
-export const GrowingInputDemo: StoryFn = () => {
+export const GrowingInputDemo: Story = () => {
   const id = useUID();
 
   return (

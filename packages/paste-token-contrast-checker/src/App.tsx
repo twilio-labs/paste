@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Theme} from '@twilio-paste/core/theme';
+import {Theme} from '@twilio-paste/theme';
 import type {ThemeVariants} from '@twilio-paste/theme';
-import {StylingGlobals, css} from '@twilio-paste/core/styling-library';
+import {StylingGlobals, css} from '@twilio-paste/styling-library';
 
 interface SelectedThemeContextProps {
   selectedTheme: string;

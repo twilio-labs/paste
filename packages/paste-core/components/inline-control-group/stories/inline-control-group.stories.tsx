@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -102,7 +102,7 @@ export const ControlSpacingTest = (): React.ReactNode => {
   );
 };
 
-export const Customized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customized: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

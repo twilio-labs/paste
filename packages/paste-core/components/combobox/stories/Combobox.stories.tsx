@@ -1,6 +1,6 @@
 import * as React from 'react';
 import _ from 'lodash';
-import type {StoryFn, Meta, StoryContext} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -13,7 +13,6 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 
 import {Combobox, useCombobox} from '../src';
 
@@ -111,17 +110,9 @@ const groupedItems = [
 export default {
   title: 'Components/Combobox/Combobox',
   component: Combobox,
-  // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
-  decorators: [
-    (Story: StoryFn, context: StoryContext): React.ReactNode => (
-      <Box height="size80" width="size80" element="HELLO">
-        {Story(context.args, context)}
-      </Box>
-    ),
-  ],
-} as Meta;
+};
 
-export const DefaultCombobox: StoryFn = () => {
+export const DefaultCombobox = (): React.ReactNode => {
   return (
     <Combobox
       items={iconItems}
@@ -152,7 +143,7 @@ DefaultCombobox.storyName = 'Combobox';
 
 const ItemToString = ({name}: {name: string}): string => name;
 
-export const VirtualizedCombobox: StoryFn = () => {
+export const VirtualizedCombobox = (): React.ReactNode => {
   const itemsForVirtualCombobox = React.useMemo(() => createLargeArray((index) => (index as number).toString()), []);
 
   return (
@@ -169,7 +160,7 @@ export const VirtualizedCombobox: StoryFn = () => {
 
 VirtualizedCombobox.storyName = 'Combobox - Virtualized without option template';
 
-export const VirtualizedCombobox1: StoryFn = () => {
+export const VirtualizedCombobox1 = (): React.ReactNode => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
@@ -195,7 +186,7 @@ export const VirtualizedCombobox1: StoryFn = () => {
 
 VirtualizedCombobox1.storyName = 'Combobox - Virtualized with string option template';
 
-export const VirtualizedCombobox2: StoryFn = () => {
+export const VirtualizedCombobox2 = (): React.ReactNode => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
@@ -225,7 +216,7 @@ export const VirtualizedCombobox2: StoryFn = () => {
 
 VirtualizedCombobox2.storyName = 'Combobox - Virtualized with React child option template';
 
-export const ComboboxInverse: StoryFn = () => {
+export const ComboboxInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -257,7 +248,7 @@ export const ComboboxInverse: StoryFn = () => {
 
 ComboboxInverse.storyName = 'Combobox - Inverse';
 
-export const ComboboxAutocomplete: StoryFn = () => {
+export const ComboboxAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
     <Combobox
@@ -276,13 +267,13 @@ export const ComboboxAutocomplete: StoryFn = () => {
 
 ComboboxAutocomplete.storyName = 'Combobox - Autocomplete';
 
-export const ComboboxRequired: StoryFn = () => {
+export const ComboboxRequired = (): React.ReactNode => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
 };
 
 ComboboxRequired.storyName = 'Combobox - Required';
 
-export const ComboboxRequiredInverse: StoryFn = () => {
+export const ComboboxRequiredInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -298,13 +289,13 @@ export const ComboboxRequiredInverse: StoryFn = () => {
 
 ComboboxRequiredInverse.storyName = 'Combobox - Required inverse';
 
-export const ComboboxError: StoryFn = () => {
+export const ComboboxError = (): React.ReactNode => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
 };
 
 ComboboxError.storyName = 'Combobox - Error';
 
-export const ComboboxErrorInverse: StoryFn = () => {
+export const ComboboxErrorInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -320,7 +311,7 @@ export const ComboboxErrorInverse: StoryFn = () => {
 
 ComboboxErrorInverse.storyName = 'Combobox - Error inverse';
 
-export const ComboboxDisabled: StoryFn = () => {
+export const ComboboxDisabled = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
@@ -334,7 +325,7 @@ export const ComboboxDisabled: StoryFn = () => {
 
 ComboboxDisabled.storyName = 'Combobox - Disabled';
 
-export const ComboboxDisabledItems: StoryFn = () => {
+export const ComboboxDisabledItems = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
@@ -348,7 +339,7 @@ export const ComboboxDisabledItems: StoryFn = () => {
 
 ComboboxDisabledItems.storyName = 'Combobox - Disabled Items';
 
-export const ComboboxDisabledInverse: StoryFn = () => {
+export const ComboboxDisabledInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -365,7 +356,7 @@ export const ComboboxDisabledInverse: StoryFn = () => {
 
 ComboboxDisabledInverse.storyName = 'Combobox - Disabled inverse';
 
-export const ComboboxInsertBeforeAndAfter: StoryFn = () => {
+export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
@@ -387,7 +378,7 @@ export const ComboboxInsertBeforeAndAfter: StoryFn = () => {
 
 ComboboxInsertBeforeAndAfter.storyName = 'Combobox - Insert before and after';
 
-export const ComboboxDisabledInsertBeforeAndAfter: StoryFn = () => {
+export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
@@ -410,7 +401,7 @@ export const ComboboxDisabledInsertBeforeAndAfter: StoryFn = () => {
 
 ComboboxDisabledInsertBeforeAndAfter.storyName = 'Combobox - Disabled insert before and after';
 
-export const ComboboxInsertBeforeAndAfterInverse: StoryFn = () => {
+export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -435,7 +426,7 @@ export const ComboboxInsertBeforeAndAfterInverse: StoryFn = () => {
 
 ComboboxInsertBeforeAndAfterInverse.storyName = 'Combobox - Insert before and after inverse';
 
-export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
+export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
@@ -461,7 +452,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
 
 ComboboxDisabledInsertBeforeAndAfterInverse.storyName = 'Combobox - Disabled insert before and after inverse';
 
-export const ComboboxObject: StoryFn = () => {
+export const ComboboxObject = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   return (
     <Combobox
@@ -488,7 +479,7 @@ export const ComboboxObject: StoryFn = () => {
 
 ComboboxObject.storyName = 'Combobox - Object';
 
-export const ComboboxOverflowLongValue: StoryFn = () => {
+export const ComboboxOverflowLongValue = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
     <Box maxWidth="size40">
@@ -510,7 +501,7 @@ export const ComboboxOverflowLongValue: StoryFn = () => {
 
 ComboboxOverflowLongValue.storyName = 'Combobox - overflow long value';
 
-export const ComboboxControlled: StoryFn = () => {
+export const ComboboxControlled = (): React.ReactNode => {
   const [value, setValue] = React.useState('United Arab Emirates');
   const [selectedItem, setSelectedItem] = React.useState({code: 'AE', label: 'United Arab Emirates', phone: '971'});
   const [inputItems, setInputItems] = React.useState(objectItems);
@@ -556,7 +547,7 @@ export const ComboboxControlled: StoryFn = () => {
 
 ComboboxControlled.storyName = 'Combobox - Controlled';
 
-export const ComboboxControlledUsingState: StoryFn = () => {
+export const ComboboxControlledUsingState: Story = () => {
   const [value, setValue] = React.useState('United Arab Emirates');
   const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({
     code: 'AE',
@@ -627,7 +618,7 @@ export const ComboboxControlledUsingState: StoryFn = () => {
 
 ComboboxControlledUsingState.storyName = 'Combobox - Controlled using state';
 
-export const ComboboxOpen: StoryFn = () => {
+export const ComboboxOpen = (): React.ReactNode => {
   return (
     <Combobox
       items={objectItems}
@@ -641,7 +632,7 @@ export const ComboboxOpen: StoryFn = () => {
 
 ComboboxOpen.storyName = 'Combobox - Open';
 
-export const ComboboxOptionGroups: StoryFn = () => {
+export const ComboboxOptionGroups = (): React.ReactNode => {
   return (
     <Combobox
       groupItemsBy="group"
@@ -656,7 +647,7 @@ export const ComboboxOptionGroups: StoryFn = () => {
 
 ComboboxOptionGroups.storyName = 'Combobox - Option groups';
 
-export const ComboboxOptionGroupsOpen: StoryFn = () => {
+export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
   return (
     <Combobox
       groupItemsBy="group"
@@ -685,7 +676,7 @@ export const ComboboxOptionGroupsOpen: StoryFn = () => {
 
 ComboboxOptionGroupsOpen.storyName = 'Combobox - Option groups open';
 
-export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
+export const ComboboxOptionGroupsAutocomplete = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
   return (
     <Combobox
@@ -709,7 +700,7 @@ export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
 
 ComboboxOptionGroupsAutocomplete.storyName = 'Combobox - Option groups autocomplete';
 
-export const ComboboxListboxZIndex: StoryFn = () => {
+export const ComboboxListboxZIndex = (): React.ReactNode => {
   const [selectValue, setSelectValue] = React.useState('');
   const selectID = useUID();
   return (
@@ -763,7 +754,7 @@ const SampleEmptyState: React.FC = () => (
   </>
 );
 
-export const ComboboxEmptyState: StoryFn = () => {
+export const ComboboxEmptyState = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState<string[]>([]);
 
   return (
@@ -785,50 +776,3 @@ export const ComboboxEmptyState: StoryFn = () => {
 };
 
 ComboboxEmptyState.storyName = 'Combobox - EmptyState';
-
-export const ComboboxInModal: StoryFn = () => {
-  const [modalIsOpen, setModalIsOpen] = React.useState(true);
-  const handleOpen = (): void => setModalIsOpen(true);
-  const handleClose = (): void => setModalIsOpen(false);
-  const modalHeadingId = useUID();
-
-  return (
-    <>
-      <Button variant="primary" onClick={handleOpen}>
-        Open modal
-      </Button>
-      <Modal ariaLabelledby={modalHeadingId} isOpen={modalIsOpen} onDismiss={handleClose} size="default">
-        <ModalHeader>
-          <ModalHeading as="h2" id={modalHeadingId}>
-            Example combobox
-          </ModalHeading>
-        </ModalHeader>
-        <ModalBody>
-          <Combobox
-            initialIsOpen
-            items={iconItems}
-            labelText="Choose a component:"
-            helpText="This is the help text"
-            optionTemplate={(item: IconItems) => (
-              <MediaObject verticalAlign="center">
-                {item.iconLeft ? (
-                  <MediaFigure spacing="space20">
-                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
-                  </MediaFigure>
-                ) : null}
-
-                <MediaBody>{item.label}</MediaBody>
-                {item.iconRight ? (
-                  <MediaFigure spacing="space20">
-                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
-                  </MediaFigure>
-                ) : null}
-              </MediaObject>
-            )}
-            itemToString={(item: IconItems) => (item ? String(item.label) : '')}
-          />
-        </ModalBody>
-      </Modal>
-    </>
-  );
-};

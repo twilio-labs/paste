@@ -1,5 +1,5 @@
 import React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 
 import {FigmaButton} from '../src/components/site-wrapper/site-header/FigmaButton';
 
@@ -8,4 +8,4 @@ export default {
   component: FigmaButton,
 };
 
-export const FigmaButtonStory: StoryFn = () => <FigmaButton />;
+export const FigmaButtonStory: Story = () => <FigmaButton />;

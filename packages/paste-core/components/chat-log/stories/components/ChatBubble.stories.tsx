@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 
 import {ChatMessage, ChatBubble, ChatLog} from '../../src';
 
@@ -8,7 +8,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const InboundChatMessage: StoryFn = () => (
+export const InboundChatMessage: Story = () => (
   <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>
@@ -19,7 +19,7 @@ export const InboundChatMessage: StoryFn = () => (
   </ChatLog>
 );
 
-export const OutboundChatMessage: StoryFn = () => (
+export const OutboundChatMessage: Story = () => (
   <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>

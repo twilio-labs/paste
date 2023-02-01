@@ -1,10 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import type {MarginProps, Space} from '@twilio-paste/style-props';
 import {ResponsiveProp} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-import type {ColumnProps, GridProps} from './types';
+import type {GridProps} from './types';
 import {getOuterGutterPull, getSpacing, getResponsiveSpacing} from './utils';
 
 export const getGutterStyles = (
@@ -48,7 +48,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
       () =>
         React.Children.map(children, (child) =>
           React.isValidElement(child)
-            ? React.cloneElement(child as React.ReactElement<ColumnProps>, {
+            ? React.cloneElement(child, {
                 count: React.Children.count(children),
                 gutter,
                 vertical,

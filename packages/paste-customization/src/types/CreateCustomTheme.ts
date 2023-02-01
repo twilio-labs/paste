@@ -5,6 +5,6 @@ import type {PasteCustomCSS} from './PasteCSS';
 export interface CreateCustomTheme {
   baseTheme: Partial<GenericThemeShape>;
   customBreakpoints?: string[];
-  elements?: {[key: string]: PasteCustomCSS};
+  elements?: PasteCustomCSS;
   overrides: Partial<GenericThemeShape>;
 }

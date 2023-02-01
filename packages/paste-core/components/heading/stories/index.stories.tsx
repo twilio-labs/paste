@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
@@ -145,7 +145,7 @@ export const Heading60NoMargin = (): React.ReactNode => {
 
 Heading60NoMargin.storyName = 'heading60 no margin';
 
-export const CustomHeading: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomHeading: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

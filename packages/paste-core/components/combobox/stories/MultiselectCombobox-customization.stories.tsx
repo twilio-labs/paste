@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
@@ -96,7 +96,7 @@ const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
   );
 };
 
-export const CustomizedCombobox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedCombobox: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <MultiselectCombobox
       items={items}
@@ -110,7 +110,7 @@ export const CustomizedCombobox: StoryFn = (_args, {parameters: {isTestEnvironme
 
 CustomizedCombobox.storyName = 'MultiselectCombobox - Default';
 
-export const CustomizedComboboxGroups: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedComboboxGroups: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <MultiselectCombobox
       items={groupedItems}
@@ -126,7 +126,7 @@ export const CustomizedComboboxGroups: StoryFn = (_args, {parameters: {isTestEnv
 );
 CustomizedComboboxGroups.storyName = 'MultiselectCombobox - With groups';
 
-export const CustomizedComboboxBeforeAndAfter: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedComboboxBeforeAndAfter: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization isTestEnvironment={isTestEnvironment}>
     <MultiselectCombobox
       items={groupedItems}

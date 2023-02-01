@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -15,7 +15,7 @@ export default {
   component: FilePicker,
 };
 
-export const Default: StoryFn = ({...props}) => {
+export const Default: Story = ({...props}) => {
   const id = useUID();
   const helpText = useUID();
   return (
@@ -29,7 +29,7 @@ export const Default: StoryFn = ({...props}) => {
   );
 };
 
-export const Required: StoryFn = ({...props}) => {
+export const Required: Story = ({...props}) => {
   const id = useUID();
   return (
     <>
@@ -43,7 +43,7 @@ export const Required: StoryFn = ({...props}) => {
   );
 };
 
-export const Disabled: StoryFn = () => {
+export const Disabled: Story = () => {
   const id = useUID();
   return (
     <>
@@ -57,7 +57,7 @@ export const Disabled: StoryFn = () => {
   );
 };
 
-export const I18n: StoryFn = () => {
+export const I18n: Story = () => {
   const id = useUID();
   return (
     <>
@@ -69,7 +69,7 @@ export const I18n: StoryFn = () => {
   );
 };
 
-export const ContainedWidth: StoryFn = () => {
+export const ContainedWidth: Story = () => {
   const id = useUID();
   return (
     <Box width="size40">
@@ -81,7 +81,7 @@ export const ContainedWidth: StoryFn = () => {
   );
 };
 
-export const OnChange: StoryFn = () => {
+export const OnChange: Story = () => {
   const id = useUID();
   const [uploadedFileName, setUploadedFileName] = React.useState('upload a file to see the onChange run');
   return (
@@ -100,7 +100,7 @@ export const OnChange: StoryFn = () => {
   );
 };
 
-export const Customized: StoryFn = ({element = 'FILEPICKER', ...props}) => {
+export const Customized: Story = ({element = 'FILEPICKER', ...props}) => {
   const id = useUID();
   const helpText = useUID();
   const theme = useTheme();

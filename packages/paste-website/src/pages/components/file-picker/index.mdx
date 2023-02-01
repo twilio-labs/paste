@@ -14,6 +14,7 @@ import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useUID} from '@twilio-paste/uid-library';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   defaultFilePicker,
@@ -117,12 +118,6 @@ Use a File Picker when users need to upload a document in a form flow. The File 
     prop on the File Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
   </ListItem>
 </UnorderedList>
-
-### File Uploader vs. File Picker
-
-[File Uploader](/components/file-uploader) is another form component that, like File Picker, allows the user to upload an attachment. There are a few key differences between the two components. File Uploader is more dynamic than File Picker – it allows multiple attachments and all of them are removable by the user. File Picker allows the user to upload only one file at a time with no way to clear the selection if a file has already been uploaded (besides selecting a new file). Because File Uploader has the ability to display loading and real-time error states, it’s a safer bet than File Picker for complex or potentially risky user flows.
-
-Visually, File Picker is much more compact than the File Uploader, so it will fit snugly into your form UI, and won’t stand out as much as File Uploader, which takes up more vertical and horizontal space.
 
 ## Examples
 

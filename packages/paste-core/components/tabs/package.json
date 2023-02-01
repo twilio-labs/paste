@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs",
-  "version": "5.0.2",
+  "version": "5.0.1",
   "category": "interaction",
   "status": "production",
   "description": "Tabs are labeled controls that allow users to switch between multiple views within a page.",
@@ -39,11 +39,11 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^7.1.2",
-    "@twilio-paste/design-tokens": "^8.3.0",
-    "@twilio-paste/flex": "^5.0.2",
+    "@twilio-paste/box": "^7.1.1",
+    "@twilio-paste/design-tokens": "^8.1.2",
+    "@twilio-paste/flex": "^5.0.1",
     "@twilio-paste/reakit-library": "^0.8.7",
-    "@twilio-paste/style-props": "^6.1.2",
+    "@twilio-paste/style-props": "^6.1.1",
     "@twilio-paste/styling-library": "^1.0.3",
     "@twilio-paste/tabs-primitive": "^0.2.9",
     "@twilio-paste/theme": "^8.0.3",

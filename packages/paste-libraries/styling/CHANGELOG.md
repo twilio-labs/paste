@@ -1,11 +1,5 @@
 # Change Log
 
-## 1.1.0
-
-### Minor Changes
-
-- [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] Expose EmotionCacheProvider to pass in a key or nonce to help with Emotion + CSP
-
 ## 1.0.3
 
 ### Patch Changes

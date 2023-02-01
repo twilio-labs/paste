@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import merge from 'deepmerge';
 
 import {
   baseCloseStyles,
@@ -12,6 +11,9 @@ import {
   selectedCloseColorStyles,
 } from './FormPill.styles';
 import type {PillVariant} from './types';
+
+// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
+const merge = require('deepmerge');
 
 interface PillCloseIconProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -42,7 +44,6 @@ export const PillCloseIcon: React.FC<PillCloseIconProps> = ({
     <Box
       element={element}
       onClick={onClick}
-      {...computedStyles}
       position="absolute"
       right={0}
       top={0}
@@ -56,6 +57,7 @@ export const PillCloseIcon: React.FC<PillCloseIconProps> = ({
       borderStyle="solid"
       borderColor="transparent"
       transition="color 150ms ease-in, border-color 150ms ease-in, background-color 150ms ease-in"
+      {...computedStyles}
     >
       <CloseIcon decorative size="sizeIcon10" color="inherit" />
     </Box>

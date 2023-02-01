@@ -1,5 +1,0 @@
-global:
-  category: spacing
-  type: size
-imports:
-  - ../../../global/spacing.yml

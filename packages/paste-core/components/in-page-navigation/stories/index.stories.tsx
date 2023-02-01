@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
@@ -12,7 +12,7 @@ export default {
   component: InPageNavigation,
 };
 
-export const Default: StoryFn = () => {
+export const Default: Story = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
     <InPageNavigation aria-label={`get started ${useUID()}`}>
@@ -24,7 +24,7 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const FullWidth: StoryFn = () => {
+export const FullWidth: Story = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
     <InPageNavigation aria-label={`privacy ${useUID()}`} variant="fullWidth">
@@ -37,7 +37,7 @@ export const FullWidth: StoryFn = () => {
   );
 };
 
-export const LinkOverflowExample: StoryFn = () => {
+export const LinkOverflowExample: Story = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
     <InPageNavigation aria-label={`get started ${useUID()}`}>
@@ -55,7 +55,7 @@ export const LinkOverflowExample: StoryFn = () => {
   );
 };
 
-export const Customized: StoryFn = () => {
+export const Customized: Story = () => {
   const theme = useTheme();
   return (
     <CustomizationProvider

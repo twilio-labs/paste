@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
@@ -31,7 +31,7 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const CustomParagraph: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomParagraph: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

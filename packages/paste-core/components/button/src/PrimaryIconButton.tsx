@@ -1,11 +1,13 @@
 import * as React from 'react';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
+
+// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
+const merge = require('deepmerge');
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous

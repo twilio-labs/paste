@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
@@ -25,7 +25,7 @@ const ExampleComponents: React.FC = () => (
   </Box>
 );
 
-export const Provider: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Provider: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

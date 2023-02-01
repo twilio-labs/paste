@@ -10,7 +10,6 @@ const MyApp: React.FC<AppProps> = ({Component, pageProps}) => {
 };
 
 export function reportWebVitals(metric: NextWebVitalsMetric): void {
-  // eslint-disable-next-line no-console
   console.log(metric);
 }
 

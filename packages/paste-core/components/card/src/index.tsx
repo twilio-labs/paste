@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {PaddingProps} from '@twilio-paste/style-props';
@@ -13,7 +13,7 @@ export interface CardProps
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
   (
-    {children, element = 'CARD', padding = 'space100', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props},
+    {children, element = 'CARD', padding = 'space60', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props},
     ref
   ) => {
     return (
@@ -21,10 +21,10 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="article"
-        borderWidth="borderWidth10"
+        borderWidth="borderWidth20"
         borderColor="colorBorderWeaker"
         borderStyle="solid"
-        borderRadius="borderRadius30"
+        borderRadius="borderRadius20"
         element={element}
         padding={padding}
         paddingBottom={paddingBottom}

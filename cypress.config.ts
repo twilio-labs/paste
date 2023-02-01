@@ -8,7 +8,7 @@ export default defineConfig({
       USE_CYPRESS_VRT: process.env.USE_CYPRESS_VRT,
     },
     viewportWidth: 1440,
-    viewportHeight: 1440,
+    viewportHeight: 1020,
     projectId: 'pe4h41',
     retries: {
       runMode: 2,

@@ -2,7 +2,8 @@ import * as React from 'react';
 import {ThemeContext} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
 import type Highcharts from 'highcharts';
-import merge from 'deepmerge';
+
+const merge = require('deepmerge');
 
 /**
  * A hook to apply the Paste theme to Highcharts options.

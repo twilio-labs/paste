@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 
 import {ChatLog, ChatBookend, ChatBookendItem} from '../../src';
 
@@ -8,7 +8,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const ChatBookendExample: StoryFn = () => (
+export const ChatBookendExample: Story = () => (
   <ChatLog>
     <ChatBookend>
       <ChatBookendItem>Yesterday</ChatBookendItem>

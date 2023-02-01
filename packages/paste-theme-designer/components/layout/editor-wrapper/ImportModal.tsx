@@ -1,12 +1,11 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/core/button';
-import {useUID} from '@twilio-paste/core/uid-library';
+import {useUID} from '@twilio-paste/uid-library';
 import {TextArea} from '@twilio-paste/core/textarea';
 import {useToaster, Toaster} from '@twilio-paste/core/toast';
 import {generateTokensFromTheme} from '@twilio-paste/core/theme';
 import {Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/core/modal';
 import type {ModalProps} from '@twilio-paste/core/modal';
-
 import {TokenContext} from '../../../context/TokenContext';
 
 type ImportModalProps = {
@@ -30,7 +29,6 @@ export const ImportModal: React.FC<ImportModalProps> = ({isOpen, onDismiss}) => 
       JSON.parse(importValue);
     } catch (error) {
       hasError = true;
-      // eslint-disable-next-line no-console
       console.error(error);
     }
 

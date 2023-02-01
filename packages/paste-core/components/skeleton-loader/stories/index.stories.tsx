@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -327,7 +327,7 @@ export const TableLoading: React.FC = () => {
   );
 };
 
-export const CustomizedSkeletonLoader: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedSkeletonLoader: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const activeTheme = useTheme();
   return (
     <CustomizationProvider

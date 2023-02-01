@@ -19,7 +19,7 @@ const STORAGE_SHIM: Storage = {
 let storage: Storage;
 try {
   storage = window.localStorage;
-} catch {
+} catch (error) {
   storage = STORAGE_SHIM;
 }
 

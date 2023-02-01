@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -362,7 +362,7 @@ export const ContainedWidth = (): React.ReactNode => {
 
 ContainedWidth.storyName = 'Contained width';
 
-export const CustomizedFlex: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedFlex: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

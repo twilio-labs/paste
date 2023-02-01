@@ -1,12 +1,12 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 import type {AsTags, BaseListProps} from './types';
 
 const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps>(
-  ({as, children, element = 'LIST', listStyleType = 'disc', ...props}, ref) => {
+  ({as, children, element = 'LIST', ...props}, ref) => {
     return (
       <Text
         {...props}
@@ -17,7 +17,6 @@ const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps
         fontWeight="fontWeightNormal"
         lineHeight="lineHeight40"
         marginLeft="space70"
-        listStyleType={listStyleType}
         ref={ref}
       >
         {children}

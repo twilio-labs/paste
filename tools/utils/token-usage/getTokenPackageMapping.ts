@@ -1,10 +1,7 @@
 import path from 'path';
-
 import camelCase from 'lodash/camelCase';
 import {fileSearch} from 'search-in-file';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import tokenJson from '@twilio-paste/design-tokens/dist/tokens.json';
-
 import {convertFilePathsToPackageNames} from './convertFilePathsToPackageNames';
 import type {TokenPackageMap} from './types';
 
@@ -37,9 +34,8 @@ export async function getTokenPackageMapping(): Promise<TokenPackageMap> {
     let filesPathsThatContainToken: string[] = [];
     try {
       filesPathsThatContainToken = await findFilesWithWord(tokenName);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('[getTokenPackageMapping]:', error);
+    } catch (e) {
+      console.error('[getTokenPackageMapping]: ', e);
     }
     tokenPackageMap[tokenName] = convertFilePathsToPackageNames(filesPathsThatContainToken);
   }

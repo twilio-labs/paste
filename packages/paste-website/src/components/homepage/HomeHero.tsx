@@ -6,7 +6,6 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 
 import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
@@ -74,21 +73,21 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
-                  <NewIcon decorative />
-                  New
+                  Hello!
                 </Badge>
-                <NewComponentBannerText>Check out our newest Foundations page,</NewComponentBannerText>
+                <NewComponentBannerText>We&rsquo;re hiring a Staff UX Software Engineer!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/foundations/spacing-and-layout"
+                  to="https://boards.greenhouse.io/twilio/jobs/4595880"
+                  showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
-                      action: 'click-new-banner',
-                      label: 'Spacing and Layout page',
+                      action: 'click-new-component-banner',
+                      label: 'Staff UX Engineer Job Ad',
                     })
                   }
                 >
-                  Spacing and Layout guidelines!
+                  Apply now!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text

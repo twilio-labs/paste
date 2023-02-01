@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
@@ -15,9 +15,10 @@ const SideModalFooter = React.forwardRef<HTMLDivElement, SideModalFooterProps>(
         as="div"
         element={element}
         ref={ref}
-        paddingRight="space90"
-        paddingLeft="space90"
-        paddingBottom="space90"
+        borderTopStyle="solid"
+        borderTopWidth="borderWidth10"
+        borderTopColor="colorBorderWeak"
+        padding="space50"
         display="flex"
       >
         {children}

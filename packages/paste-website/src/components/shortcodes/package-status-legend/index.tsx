@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Badge} from '@twilio-paste/badge';
-import type {BadgeProps} from '@twilio-paste/badge';
+import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
 import {useUID} from '@twilio-paste/uid-library';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
@@ -9,7 +9,6 @@ import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
 import {StatusDescriptions} from '../../../constants';
 
-type BadgeVariants = BadgeProps['variant'];
 interface PackageStatusLegendProps {
   packageStatus?: string | null;
   figmaStatus?: string | null;

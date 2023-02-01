@@ -64,9 +64,7 @@ describe('Combobox data-paste-element attributes', () => {
     expect(screen.getAllByRole('presentation')[0].getAttribute('data-paste-element')).toEqual('COMBOBOX_GROUPNAME');
     expect(screen.getAllByRole('option')).toHaveLength(3);
     expect(screen.getAllByRole('option')[0].getAttribute('data-paste-element')).toEqual('COMBOBOX_LIST_ITEM');
-    expect(screen.getByRole('listbox').querySelectorAll('[data-paste-element="COMBOBOX_LIST_ITEM_TEXT"]')).toHaveLength(
-      3
-    );
+    expect(container.querySelectorAll('[data-paste-element="COMBOBOX_LIST_ITEM_TEXT"]')).toHaveLength(3);
     expect(container.querySelector('[data-paste-element="COMBOBOX_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="COMBOBOX_SUFFIX"]')).toBeInTheDocument();
   });
@@ -82,7 +80,7 @@ describe('Combobox data-paste-element attributes', () => {
     expect(screen.getAllByRole('presentation')[0].getAttribute('data-paste-element')).toEqual('FOO_GROUPNAME');
     expect(screen.getAllByRole('option')).toHaveLength(3);
     expect(screen.getAllByRole('option')[0].getAttribute('data-paste-element')).toEqual('FOO_LIST_ITEM');
-    expect(screen.getByRole('listbox').querySelectorAll('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveLength(3);
+    expect(container.querySelectorAll('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveLength(3);
     expect(container.querySelector('[data-paste-element="FOO_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="FOO_SUFFIX"]')).toBeInTheDocument();
   });
@@ -104,20 +102,20 @@ describe('Combobox customization', () => {
       'background-color',
       'rgba(242, 47, 70, 0.1)'
     );
-
-    const listbox = screen.getByRole('listbox');
-
-    expect(listbox).toHaveStyleRule('background-color', 'rgb(204, 228, 255)');
-    expect(listbox.querySelector('[data-paste-element="COMBOBOX_LIST"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="COMBOBOX_LISTBOX"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(204, 228, 255)'
+    );
+    expect(container.querySelector('[data-paste-element="COMBOBOX_LIST"]')).toHaveStyleRule(
       'background-color',
       'rgb(153, 205, 255)'
     );
-    expect(listbox.querySelector('[data-paste-element="COMBOBOX_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
-    expect(listbox.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="COMBOBOX_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
+    expect(container.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
       'rgb(0, 20, 137)'
     );
-    expect(listbox.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM_TEXT"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="COMBOBOX_LIST_ITEM_TEXT"]')).toHaveStyleRule(
       'font-weight',
       '700'
     );
@@ -146,23 +144,20 @@ describe('Combobox customization', () => {
       'background-color',
       'rgba(242, 47, 70, 0.1)'
     );
-    expect(screen.getByRole('listbox')).toHaveStyleRule('background-color', 'rgb(204, 228, 255)');
-    expect(screen.getByRole('listbox').querySelector('[data-paste-element="FOO_LIST"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="FOO_LISTBOX"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(204, 228, 255)'
+    );
+    expect(container.querySelector('[data-paste-element="FOO_LIST"]')).toHaveStyleRule(
       'background-color',
       'rgb(153, 205, 255)'
     );
-    expect(screen.getByRole('listbox').querySelector('[data-paste-element="FOO_GROUPNAME"]')).toHaveStyleRule(
-      'cursor',
-      'help'
-    );
-    expect(screen.getByRole('listbox').querySelector('[data-paste-element="FOO_LIST_ITEM"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="FOO_GROUPNAME"]')).toHaveStyleRule('cursor', 'help');
+    expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM"]')).toHaveStyleRule(
       'background-color',
       'rgb(0, 20, 137)'
     );
-    expect(screen.getByRole('listbox').querySelector('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveStyleRule(
-      'font-weight',
-      '700'
-    );
+    expect(container.querySelector('[data-paste-element="FOO_LIST_ITEM_TEXT"]')).toHaveStyleRule('font-weight', '700');
     expect(container.querySelector('[data-paste-element="FOO_PREFIX"]')).toHaveStyleRule(
       'background-color',
       'rgb(235, 86, 86)'

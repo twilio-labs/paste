@@ -398,6 +398,52 @@ The only thing you **must not** do is place a focusable element inside the `Disc
 </Disclosure>`}
 </LivePreview>
 
+## Anatomy
+
+### Disclosure
+
+#### Contained
+
+Contained Disclosure variants share the Paste [Card anatomy](/components/card/#anatomy).
+
+### DisclosureHeading
+
+Same Anatomy as [Heading](/components/heading), plus:
+
+| Property                   | Default token                                         | Modifiable? |
+| -------------------------- | ----------------------------------------------------- | ----------- |
+| background-color           | color-background-body                                 | No          |
+| border-radius              | border-radius-20                                      | No          |
+| border-bottom-left-radius  | Default: border-radius-20, Contained: border-radius-0 | No          |
+| border-bottom-right-radius | Default: border-radius-20, Contained: border-radius-0 | No          |
+| padding                    | space-30                                              | No          |
+
+#### Expanded
+
+| Property         | Default token    | Modifiable? |
+| ---------------- | ---------------- | ----------- |
+| background-color | color-background | No          |
+
+#### Hover
+
+| Property         | Default token           | Modifiable? |
+| ---------------- | ----------------------- | ----------- |
+| background-color | color-background-strong | No          |
+
+#### Focus
+
+| Property   | Default token | Modifiable? |
+| ---------- | ------------- | ----------- |
+| box-shadow | shadow-focus  | No          |
+
+### DisclosureContent
+
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| padding  | space-50      | No          |
+
+---
+
 ## Usage Guide
 
 ### API

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {DefaultTheme} from '@twilio-paste/theme';
 
 import {propValidator} from './utils/propValidator';

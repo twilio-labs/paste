@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {TokenContext} from '../../context/TokenContext';
 import {EditorWrapper} from '../../components/layout/editor-wrapper';
 import {OptionsList} from '../../components/token-option';

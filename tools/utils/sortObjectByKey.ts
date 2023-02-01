@@ -1,7 +1,6 @@
-export function sortObjectByKey(unorderedObject: Record<string, string>): Record<string, string> {
-  const orderedObject: Record<string, string> = {};
+export function sortObjectByKey(unorderedObject: Record<string, any>) {
+  const orderedObject: Record<string, any> = {};
 
-  // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
   Object.keys(unorderedObject)
     .sort()
     .forEach((key) => {

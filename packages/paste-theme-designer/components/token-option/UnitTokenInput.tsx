@@ -1,11 +1,10 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
-import {useUIDSeed} from '@twilio-paste/core/uid-library';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/core/input';
 import {Label} from '@twilio-paste/core/label';
 import {HelpText} from '@twilio-paste/core/help-text';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
-
 import type {TokenContextProps} from '../../context/TokenContext';
 
 type UnitTokenInputProps = {
@@ -17,7 +16,6 @@ type UnitTokenInputProps = {
 };
 
 // Get a number value from a string like '10.23rem' => '10.23'
-// eslint-disable-next-line consistent-return
 const getTokenNumberValue = (value: string): number | undefined => {
   const numbersFromValue = value.split(/(\d+\.?\d*)/).find(Boolean);
   if (numbersFromValue != null) {

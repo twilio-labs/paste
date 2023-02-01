@@ -7,7 +7,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTheme} from '@twilio-paste/theme';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 
 import {
   Pagination,
@@ -136,7 +136,7 @@ const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({
   [`${prefix}_NUMBER_TEXT`]: paginationStyles,
 });
 
-export const PaginationWrapperAndArrows: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const PaginationWrapperAndArrows: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <BeforeAndAfter
@@ -154,7 +154,7 @@ export const PaginationWrapperAndArrows: StoryFn = (_args, {parameters: {isTestE
   );
 };
 
-export const PaginationNumbersAndLabel: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const PaginationNumbersAndLabel: Story = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <BeforeAndAfter

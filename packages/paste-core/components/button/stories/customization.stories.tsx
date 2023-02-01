@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type {Story} from '@storybook/react';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
@@ -81,7 +81,7 @@ export const AnyButton: React.FC<{element?: BoxElementProps['element']; variant:
   </Button>
 );
 
-export const CustomizedPrimaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedPrimaryButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="primary" />}
@@ -89,7 +89,7 @@ export const CustomizedPrimaryButton: StoryFn = (_args, {parameters: {isTestEnvi
   />
 );
 
-export const CustomizedSecondaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedSecondaryButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="secondary" />}
@@ -97,7 +97,7 @@ export const CustomizedSecondaryButton: StoryFn = (_args, {parameters: {isTestEn
   />
 );
 
-export const CustomizedLinkButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedLinkButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="link" />}
@@ -105,7 +105,7 @@ export const CustomizedLinkButton: StoryFn = (_args, {parameters: {isTestEnviron
   />
 );
 
-export const CustomizedDestructivePrimaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructivePrimaryButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive" />}
@@ -113,7 +113,7 @@ export const CustomizedDestructivePrimaryButton: StoryFn = (_args, {parameters: 
   />
 );
 
-export const CustomizedDestructiveSecondaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructiveSecondaryButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive_secondary" />}
@@ -121,7 +121,7 @@ export const CustomizedDestructiveSecondaryButton: StoryFn = (_args, {parameters
   />
 );
 
-export const CustomizedDestructiveLinkButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructiveLinkButton: Story = (_args, {parameters: {isTestEnvironment}}) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive_link" />}

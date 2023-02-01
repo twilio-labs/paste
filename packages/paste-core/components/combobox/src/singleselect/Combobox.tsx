@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {useVirtual} from 'react-virtual';
 import {useUID} from '@twilio-paste/uid-library';
 import {useWindowSize} from '@twilio-paste/utils';
@@ -10,8 +10,6 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
-import {Portal} from '@twilio-paste/reakit-library';
-import {useRect} from '@radix-ui/react-use-rect';
 
 import {ComboboxInputSelect} from '../styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from '../styles/ComboboxInputWrapper';
@@ -71,10 +69,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const parentRef = React.useRef<HTMLElement>(null);
     const helpTextId = useUID();
     const {width} = useWindowSize();
-
-    // gets the dimensions of the inputBox to position the listbox
-    const inputBoxRef = React.useRef<HTMLDivElement>(null);
-    const inputBoxDimensions = useRect(inputBoxRef.current);
 
     const {
       getComboboxProps,
@@ -154,7 +148,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           insertBefore={insertBefore}
           insertAfter={insertAfter}
           variant={variant}
-          ref={inputBoxRef}
         >
           <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
             <ComboboxInputSelect
@@ -177,34 +170,22 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             )}
           </ComboboxInputWrapper>
         </InputBox>
-        <Portal>
-          <Box
-            position="absolute"
-            top={inputBoxDimensions?.bottom}
-            left={inputBoxDimensions?.left}
-            right={inputBoxDimensions?.right}
-            width={inputBoxDimensions?.width}
-            zIndex="zIndex90"
-            display={isOpen ? 'block' : 'none'}
-          >
-            <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>
-              <ComboboxItems
-                ref={scrollToIndexRef}
-                items={items}
-                element={element}
-                getItemProps={getItemProps}
-                highlightedIndex={highlightedIndex}
-                disabledItems={disabledItems}
-                optionTemplate={optionTemplate}
-                groupItemsBy={groupItemsBy}
-                groupLabelTemplate={groupLabelTemplate}
-                totalSize={rowVirtualizer.totalSize}
-                virtualItems={rowVirtualizer.virtualItems}
-                emptyState={emptyState}
-              />
-            </ComboboxListbox>
-          </Box>
-        </Portal>
+        <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>
+          <ComboboxItems
+            ref={scrollToIndexRef}
+            items={items}
+            element={element}
+            getItemProps={getItemProps}
+            highlightedIndex={highlightedIndex}
+            disabledItems={disabledItems}
+            optionTemplate={optionTemplate}
+            groupItemsBy={groupItemsBy}
+            groupLabelTemplate={groupLabelTemplate}
+            totalSize={rowVirtualizer.totalSize}
+            virtualItems={rowVirtualizer.virtualItems}
+            emptyState={emptyState}
+          />
+        </ComboboxListbox>
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
             {helpText}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {TextProps} from '@twilio-paste/text';
 import {Text} from '@twilio-paste/text';

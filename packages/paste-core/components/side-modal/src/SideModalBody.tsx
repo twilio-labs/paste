@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -11,7 +11,14 @@ interface SideModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
 const SideModalBody = React.forwardRef<HTMLDivElement, SideModalBodyProps>(
   ({children, element = 'SIDE_MODAL_BODY', ...props}, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} overflowY="auto" padding="space90">
+      <Box
+        {...safelySpreadBoxProps(props)}
+        element={element}
+        ref={ref}
+        overflowY="auto"
+        padding="space50"
+        paddingBottom="space60"
+      >
         {children}
       </Box>
     );
