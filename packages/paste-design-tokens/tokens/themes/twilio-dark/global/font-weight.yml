@@ -1,0 +1,10 @@
+global:
+  category: font-weight
+  type: font-weight
+imports:
+  - ../../twilio/global/font-weight.yml
+  - ../../twilio/aliases/font-weight.yml
+props:
+  font-weight-bold:
+    value: "{!font-weight-bold}"
+    comment: Font weight for bold weight

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {safelySpreadTextProps} from '@twilio-paste/text';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 
@@ -15,6 +15,7 @@ const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
         element={element}
         marginTop={marginTop}
         marginBottom={marginBottom}
+        listStyleType="decimal"
         ref={ref}
       >
         {children}

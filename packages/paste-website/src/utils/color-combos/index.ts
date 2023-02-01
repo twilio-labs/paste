@@ -1,7 +1,5 @@
 import uniq from 'lodash/uniq';
-
-// Traditional import as the color package isn't exported and typed correctly
-const Color = require('color');
+import Color from 'color';
 
 interface ColorObject {
   color: number[];
@@ -66,6 +64,8 @@ const ColorCombos = (
 
   if (!Array.isArray(colors)) {
     if (typeof colors === 'object') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       arr = Object.keys(colors).map((key) => {
         if (Object.prototype.hasOwnProperty.call(colors, key)) {
           return Color(colors[key]);
@@ -88,6 +88,8 @@ const ColorCombos = (
     }
 
     if (uniqueColors !== null) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       arr = uniqueColors.map((color) => Color(color));
     }
   }

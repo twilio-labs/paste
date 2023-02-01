@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
 import {styled, css} from '@twilio-paste/styling-library';
 import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';

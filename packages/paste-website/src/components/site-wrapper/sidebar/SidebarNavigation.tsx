@@ -209,6 +209,19 @@ const SidebarNavigation: React.FC = () => {
           >
             Localization
           </SidebarAnchor>
+          <SidebarAnchor
+            level={1}
+            to={`${SidebarCategoryRoutes.FOUNDATIONS}/spacing-and-layout`}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-spacing-and-layout',
+                label: 'Spacing and layout',
+              })
+            }
+          >
+            Spacing and layout
+          </SidebarAnchor>
         </NavigationDisclosure>
         <NavigationDisclosure
           buttonText="Patterns"

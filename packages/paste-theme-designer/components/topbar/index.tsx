@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
+
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 
 const TopBar: React.FC = () => {

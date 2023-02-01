@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.1.3
+
+### Patch Changes
+
+- [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c) [#2901](https://github.com/twilio-labs/paste/pull/2901) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Add eslint escape for type level import using src in path
+
+## 11.1.2
+
+### Patch Changes
+
+- [`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb) [#2878](https://github.com/twilio-labs/paste/pull/2878) Thanks [@Niznikr](https://github.com/Niznikr)! - Update to TypeScript v4.9
+
 ## 11.1.1
 
 ### Patch Changes

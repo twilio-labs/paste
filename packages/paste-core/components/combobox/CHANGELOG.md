@@ -1,5 +1,17 @@
 # Change Log
 
+## 13.0.3
+
+### Patch Changes
+
+- [`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1) [#2949](https://github.com/twilio-labs/paste/pull/2949) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] Render the listbox in a portal to fix a bug where the contents of the listbox are cut off when it placed inside a scrolling container. Adds a new dependency on @radix-ui/react-use-rect.
+
+## 13.0.2
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
 ## 13.0.1
 
 ### Patch Changes

@@ -1,5 +1,37 @@
 # Change Log
 
+## 8.5.0
+
+### Minor Changes
+
+- [`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17) [#2927](https://github.com/twilio-labs/paste/pull/2927) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Theme, Design Tokens] Add evergreen design tokens and theme
+
+## 8.4.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Add tokens for new themes `twilio` and `twilio-dark`:
+
+  - Aliases: color-palette
+    - Add `palette-red-65`
+    - Add `palette-red-05`
+    - Add `palette-orange-05`
+    - Add `palette-yellow-05`
+    - Add `palette-green-05`
+    - Add `palette-blue-05`
+    - Add `palette-blue-55`
+    - Add `palette-purple-05`
+
+## 8.3.0
+
+### Minor Changes
+
+- [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] add a new colorBackgroundWeak token
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
+
 ## 8.2.0
 
 ### Minor Changes

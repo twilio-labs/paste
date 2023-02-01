@@ -1,4 +1,4 @@
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {isWidthTokenProp} from '@twilio-paste/style-props';
 
 import {TableAlignmentObject, TableLayoutObject, TableVariantObject, TableVerticalAlignmentObject} from './constants';

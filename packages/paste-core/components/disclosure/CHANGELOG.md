@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.3
+
+### Patch Changes
+
+- [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Disclosure] Update styles to align with new Paste Twilio theme
+
+## 9.0.2
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
 ## 9.0.1
 
 ### Patch Changes

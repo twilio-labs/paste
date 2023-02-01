@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
@@ -24,10 +24,9 @@ const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
-        borderBottomStyle="solid"
-        borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderWeak"
-        padding="space50"
+        paddingRight="space90"
+        paddingLeft="space90"
+        paddingTop="space90"
         element={element}
         display="flex"
         flexDirection="row"

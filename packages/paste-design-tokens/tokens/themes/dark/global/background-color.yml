@@ -25,6 +25,12 @@ props:
   color-background-inverse-strong:
     value: "{!palette-gray-80}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-stronger:
+    value: "{!palette-gray-80}"
+    comment: Stronger inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-weak:
+    value: "{!palette-gray-100}"
+    comment: Weak default background color.
 
   # brand backgrounds
   color-background-brand:
@@ -98,6 +104,9 @@ props:
   color-background-new:
     value: "{!palette-purple-80}"
     comment: Background color for indicating a new status.
+  color-background-new-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest background color for indicating a new status.
 
   # row backgrounds
   color-background-row-striped:

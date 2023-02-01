@@ -1,5 +1,33 @@
 # Change Log
 
+## 9.4.3
+
+### Patch Changes
+
+- [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] update the ChevronDisclosureIcon, deprecate ChevronDisclosureExpandedIcon and ChevronDisclosureCollapsedIcon
+
+## 9.4.2
+
+### Patch Changes
+
+- [`2719716a4`](https://github.com/twilio-labs/paste/commit/2719716a450e2c434c3453eac947e5c26c0254b7) [#2906](https://github.com/twilio-labs/paste/pull/2906) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Remove logical assignment support
+
+## 9.4.1
+
+### Patch Changes
+
+- [`468b1b6d0`](https://github.com/twilio-labs/paste/commit/468b1b6d0bd8746a0c46d9ca298294120534e8c4) [#2894](https://github.com/twilio-labs/paste/pull/2894) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Modify ProductSegmentIcon, add new product icons:
+
+  - ProductAudiencesIcon
+  - ProductConnectionsIcon
+  - ProductEngageIcon
+  - ProductPersonasIcon
+  - ProductPrivacyIcon
+  - ProductProtocolsIcon
+  - ProductReverseETLIcon
+  - ProductTraitsIcon
+  - ProductUSSDIcon
+
 ## 9.4.0
 
 ### Minor Changes

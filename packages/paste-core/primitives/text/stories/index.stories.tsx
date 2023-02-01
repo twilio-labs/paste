@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {Separator} from '@twilio-paste/separator';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {
@@ -98,7 +98,7 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const FontFamilies: Story = () => {
+export const FontFamilies: StoryFn = () => {
   return (
     <>
       <Text as="div">
@@ -180,7 +180,7 @@ const CustomTextCollection: React.FC = () => {
   );
 };
 
-export const CustomText: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomText: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

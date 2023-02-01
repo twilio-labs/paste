@@ -1,0 +1,23 @@
+global:
+  type: color
+  category: border-color
+imports:
+  - ../../../global/border-color.yml
+props:
+  # primary action borders
+  color-border-primary:
+    value: "{!palette-blue-55}"
+    comment: Primary border color.
+
+  # status borders
+  color-border-success-weak:
+    value: "{!palette-green-40}"
+    comment: Weak success border color.
+  color-border-error:
+    value: "{!palette-red-65}"
+    comment: Error border color.
+
+  # destructive borders
+  color-border-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive border color.

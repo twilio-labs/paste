@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
@@ -17,7 +17,7 @@ export default {
   title: 'Components/ChatLog',
 };
 
-export const UseChatLogger: Story = () => {
+export const UseChatLogger: StoryFn = () => {
   const pushID = useUID();
   const popID = useUID();
   const messageID = useUID();

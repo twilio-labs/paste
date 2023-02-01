@@ -3,7 +3,7 @@ import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import camelCase from 'lodash/camelCase';
-import type {ComponentStory, ComponentMeta} from '@storybook/react';
+import type {StoryFn, Meta} from '@storybook/react';
 
 import {TokenCard} from '../src/components/tokens-list/token-card';
 
@@ -33,9 +33,9 @@ export default {
       control: {type: 'boolean'},
     },
   },
-} as ComponentMeta<typeof TokenCard>;
+} as Meta<typeof TokenCard>;
 
-const Template: ComponentStory<typeof TokenCard> = ({name, category, useCamelCase}) => {
+const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
   const backgroundColor = theme.backgroundColors.colorBackgroundBody;

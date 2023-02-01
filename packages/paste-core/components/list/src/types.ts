@@ -3,7 +3,9 @@ import type {Space} from '@twilio-paste/style-props';
 
 export type AsTags = 'ol' | 'ul';
 
-export interface BaseListProps extends React.OlHTMLAttributes<HTMLElement>, Pick<TextProps, 'element'> {
+export interface BaseListProps
+  extends React.OlHTMLAttributes<HTMLElement>,
+    Pick<TextProps, 'element' | 'listStyleType'> {
   className?: never;
   style?: never;
   as: AsTags;

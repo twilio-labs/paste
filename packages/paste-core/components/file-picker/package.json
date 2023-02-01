@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/file-picker",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "category": "interaction",
   "status": "production",
   "description": "A File Picker is a form element used to upload files.",
@@ -34,16 +34,16 @@
     "@twilio-paste/theme": "^8.0.0",
     "@twilio-paste/uid-library": "^0.2.5",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^16.8.6 || ^17.0.2",
+    "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^7.1.1",
-    "@twilio-paste/button": "^11.1.4",
-    "@twilio-paste/design-tokens": "^8.1.2",
-    "@twilio-paste/sibling-box": "^6.0.2",
-    "@twilio-paste/style-props": "^6.1.1",
-    "@twilio-paste/text": "^7.0.1",
+    "@twilio-paste/box": "^7.1.2",
+    "@twilio-paste/button": "^11.1.6",
+    "@twilio-paste/design-tokens": "^8.3.0",
+    "@twilio-paste/sibling-box": "^6.0.3",
+    "@twilio-paste/style-props": "^6.1.2",
+    "@twilio-paste/text": "^7.0.2",
     "@twilio-paste/theme": "^8.0.3",
     "@twilio-paste/uid-library": "^0.2.6",
     "prop-types": "^15.7.2",

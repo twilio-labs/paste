@@ -1,5 +1,11 @@
 # @twilio-paste/date-picker
 
+## 3.0.2
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,3 +1,4 @@
+import type {PasteCustomCSS} from '../src/types/PasteCSS';
 import {createCustomTheme} from '../src/utils';
 import {mockTheme} from '../__fixtures__/mockThemes';
 
@@ -79,7 +80,7 @@ describe('createCustomTheme', () => {
         elements: {
           CARD: {
             backgroundColor: 'red',
-          },
+          } as PasteCustomCSS,
         },
       })
     ).toEqual({
@@ -104,10 +105,10 @@ describe('createCustomTheme', () => {
         elements: {
           CARD: {
             backgroundColor: 'red',
-          },
+          } as PasteCustomCSS,
           card: {
             backgroundColor: 'pink',
-          },
+          } as PasteCustomCSS,
         },
       });
     }).toThrow(

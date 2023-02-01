@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
@@ -850,7 +850,7 @@ export const GridContainingLongContent = (): React.ReactNode => {
 
 GridContainingLongContent.storyName = 'Grid - Containing long content';
 
-export const CustomGrid: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomGrid: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/core/box';
+
 import {KitchenSink} from '../components/KitchenSink';
 import {SideBar} from '../components/SideBar';
 

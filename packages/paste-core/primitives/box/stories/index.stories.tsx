@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
+import type {StoryFn} from '@storybook/react';
 import {useTheme} from '@twilio-paste/theme';
 import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -140,7 +140,7 @@ const CustomBoxCollection: React.FC = () => {
   );
 };
 
-export const CustomBox: Story = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomBox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
     <>

@@ -1,0 +1,12 @@
+{
+  "name": "eslint-plugin-paste-internal",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "publisher": "TwilioPaste",
+  "author": "Twilio Inc.",
+  "main": "src/index.js",
+  "devDependencies": {
+    "eslint": "^8.29.0"
+  }
+}

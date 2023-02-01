@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {safelySpreadTextProps} from '@twilio-paste/text';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 
@@ -16,6 +16,7 @@ const UnorderedList = React.forwardRef<HTMLUListElement, UnorderedListProps>(
         marginTop={marginTop}
         marginBottom={marginBottom}
         ref={ref}
+        listStyleType="disc"
       >
         {children}
       </List>
