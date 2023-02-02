@@ -22,6 +22,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {DetailText} from '@twilio-paste/detail-text';
 import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -813,7 +814,7 @@ description text. In this example, the send time is not being compared across ro
 click rates are; instead, the send time is used to add additional detail that helps the user identify and
 understand data in an individual row.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, DetailText}} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -825,30 +826,30 @@ understand data in an individual row.
   <TBody>
     <Tr>
       <Th scope="row">
-        <Text as="p">
+        <Text as="span">
           Adam Brown
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adam@brown.com</Text>
+        <DetailText marginTop='space0'>adam@brown.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">
-        <Text as="p" fontWeight="fontWeightBold">
+        <Text as="span">
           Adriana Lovelock
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adriana@lovelock.com</Text>
+        <DetailText marginTop='space0'>adriana@lovelock.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">
-        <Text as="p">
+        <Text as="span">
           Amanda Cutlack
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">amanda@cutlack.com</Text>
+        <DetailText marginTop='space0'>amanda@cutlack.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">7</Td>
