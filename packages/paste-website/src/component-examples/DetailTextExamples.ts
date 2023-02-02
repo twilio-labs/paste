@@ -146,10 +146,10 @@ const DetailTextExample = () => {
     <>
       <Heading as='h2' variant='heading20'>Auth tokens</Heading>
       <Paragraph>
-        Auth tokens can be used to authenticate while making API requests. You will need to use HTTP Basic Authentication with user=Account SID and password = AuthToken. Auth tokens are specific to your account and can be used to access all API’s for the account.
+        Auth tokens can be used to authenticate while making API requests. You will need to use HTTP Basic Authentication with user = Account SID and password = AuthToken. Auth tokens are specific to your account and can be used to access all API’s for the account.
       </Paragraph>
       <DetailText>
-        *Please keep the auth tokens in a secure place and rotate them priodically.
+        *Please keep the auth tokens in a secure place and rotate them periodically.
       </DetailText>
     </>
   );
