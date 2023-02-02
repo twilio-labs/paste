@@ -19,7 +19,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '1.5rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '2rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '2.75rem');
     });
 
@@ -35,7 +35,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '1.25rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '1.5rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '2rem');
     });
 
@@ -51,7 +51,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '1rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '1.25rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '1.75rem');
     });
 
@@ -67,7 +67,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '0.75rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '1rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '1.5rem');
     });
 
@@ -83,7 +83,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '0.5rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '0.875rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '1.25rem');
     });
 
@@ -99,7 +99,7 @@ describe('Heading', () => {
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '0.5rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '0.75rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '1.25rem');
     });
 
@@ -117,7 +117,7 @@ describe('Heading', () => {
       expect(renderedHeadingIdiomatic).not.toBeNull();
       expect(renderedHeading).toHaveStyleRule('margin-bottom', '1.25rem');
       expect(renderedHeading).toHaveStyleRule('font-size', '1.5rem');
-      expect(renderedHeading).toHaveStyleRule('font-weight', '700');
+      expect(renderedHeading).toHaveStyleRule('font-weight', '600');
       expect(renderedHeading).toHaveStyleRule('line-height', '2rem');
     });
 
