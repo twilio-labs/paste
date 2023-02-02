@@ -29,7 +29,7 @@ const DetailTextExample = () => {
             <Text as="span">
               Adam Brown
             </Text>
-            <DetailText>adam@brown.com</DetailText>
+            <DetailText marginTop='space0'>adam@brown.com</DetailText>
           </Th>
           <Td>English, French, Sales, Spanish</Td>
           <Td textAlign="right">35</Td>
@@ -39,7 +39,7 @@ const DetailTextExample = () => {
             <Text as="span">
               Adriana Lovelock
             </Text>
-            <DetailText>adriana@lovelock.com</DetailText>
+            <DetailText marginTop='space0'>adriana@lovelock.com</DetailText>
           </Th>
           <Td>English, French, Sales, Spanish</Td>
           <Td textAlign="right">28</Td>
@@ -49,7 +49,7 @@ const DetailTextExample = () => {
             <Text as="span">
               Amanda Cutlack
             </Text>
-            <DetailText>amanda@cutlack.com</DetailText>
+            <DetailText marginTop='space0'>amanda@cutlack.com</DetailText>
           </Th>
           <Td>English, French, Sales, Spanish</Td>
           <Td textAlign="right">7</Td>
