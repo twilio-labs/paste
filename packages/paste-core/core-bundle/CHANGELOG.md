@@ -1,5 +1,16 @@
 # Change Log
 
+## 17.7.0
+
+### Minor Changes
+
+- [`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c) [#3006](https://github.com/twilio-labs/paste/pull/3006) Thanks [@brandongregoryscott](https://github.com/brandongregoryscott)! - [Theme] Export EvergreenTheme, TwilioTheme and TwilioDarkTheme objects and types
+
+### Patch Changes
+
+- Updated dependencies [[`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c)]:
+  - @twilio-paste/theme@8.4.0
+
 ## 17.6.0
 
 ### Minor Changes
