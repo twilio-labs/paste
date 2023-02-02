@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "17.6.0",
+  "version": "17.7.0",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -106,7 +106,7 @@
     "@twilio-paste/tabs-primitive": "^0.2.9",
     "@twilio-paste/text": "^7.0.2",
     "@twilio-paste/textarea": "^7.0.2",
-    "@twilio-paste/theme": "^8.3.0",
+    "@twilio-paste/theme": "^8.4.0",
     "@twilio-paste/time-picker": "^3.0.2",
     "@twilio-paste/toast": "^9.0.2",
     "@twilio-paste/tooltip": "^8.0.2",
