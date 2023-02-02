@@ -11,36 +11,41 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
       return {
         marginBottom: marginBottom || 'space70',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight90',
+        letterSpacing: '-.02em',
       };
     case 'heading30':
       return {
         marginBottom: marginBottom || 'space50',
         fontSize: 'fontSize60',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
+        letterSpacing: '-.02em',
       };
     case 'heading40':
       return {
         marginBottom: marginBottom || 'space40',
         fontSize: 'fontSize40',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight40',
+        letterSpacing: '-.02em',
       };
     case 'heading50':
       return {
         marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize30',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight30',
+        letterSpacing: '-.02em',
       };
     case 'heading60':
       return {
         marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize20',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight20',
+        letterSpacing: '-.02em',
       };
     /**
      * heading20 is out of order because its also default.
@@ -51,8 +56,9 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
       return {
         marginBottom: marginBottom || 'space60',
         fontSize: 'fontSize70',
-        fontWeight: 'fontWeightBold',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight70',
+        letterSpacing: '-.02em',
       };
   }
 }
