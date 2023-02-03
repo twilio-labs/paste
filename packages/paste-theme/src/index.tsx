@@ -12,9 +12,25 @@ export {pasteGlobalStyles} from './styles/global';
 export {pasteFonts} from './styles/fonts';
 export {StyledBase};
 export type {ThemeProviderProps};
-export type {ThemeShape, SendGridThemeShape, ConsoleThemeShape, DarkThemeShape} from './types/themes';
+export type {
+  ThemeShape,
+  SendGridThemeShape,
+  ConsoleThemeShape,
+  DarkThemeShape,
+  EvergreenThemeShape,
+  TwilioThemeShape,
+  TwilioDarkThemeShape,
+} from './types/themes';
 export type {GenericThemeShape} from './types/GenericThemeShape';
-export {DefaultTheme, ConsoleTheme, SendGridTheme, DarkTheme} from './themes';
+export {
+  DefaultTheme,
+  ConsoleTheme,
+  SendGridTheme,
+  DarkTheme,
+  EvergreenTheme,
+  TwilioTheme,
+  TwilioDarkTheme,
+} from './themes';
 export {withTheme} from './withTheme';
 export {useTheme} from './useTheme';
 export {ThemeVariants} from './constants';

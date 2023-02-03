@@ -1,5 +1,33 @@
 # Change Log
 
+## 17.7.0
+
+### Minor Changes
+
+- [`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c) [#3006](https://github.com/twilio-labs/paste/pull/3006) Thanks [@brandongregoryscott](https://github.com/brandongregoryscott)! - [Theme] Export EvergreenTheme, TwilioTheme and TwilioDarkTheme objects and types
+
+### Patch Changes
+
+- Updated dependencies [[`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c)]:
+  - @twilio-paste/theme@8.4.0
+
+## 17.6.0
+
+### Minor Changes
+
+- [`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17) [#2927](https://github.com/twilio-labs/paste/pull/2927) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Theme, Design Tokens] Add evergreen design tokens and theme
+
+### Patch Changes
+
+- [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] update the ChevronDisclosureIcon, deprecate ChevronDisclosureExpandedIcon and ChevronDisclosureCollapsedIcon
+
+* [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Disclosure] Update styles to align with new Paste Twilio theme
+
+* Updated dependencies [[`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17), [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449)]:
+  - @twilio-paste/design-tokens@8.5.0
+  - @twilio-paste/theme@8.3.0
+  - @twilio-paste/disclosure@9.0.3
+
 ## 17.5.0
 
 ### Minor Changes
