@@ -1,4 +1,4 @@
-import {globby} from 'globby';
+import {globby} from 'globby-esm';
 import type {GetServerSideProps} from 'next';
 
 const Sitemap = (): React.ReactElement | null => {

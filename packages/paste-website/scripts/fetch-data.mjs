@@ -2,7 +2,7 @@ import * as fs from 'fs/promises';
 import path from 'path';
 import {fileURLToPath} from 'url';
 
-import {globby} from 'globby';
+import {globby} from 'globby-esm';
 
 import {systemTable} from '../src/utils/airtable.mjs';
 

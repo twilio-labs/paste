@@ -1,4 +1,4 @@
-import {visit} from 'unist-util-visit';
+import {visit} from 'unist-util-visit-esm';
 import {toString} from 'mdast-util-to-string';
 
 // eslint-disable-next-line unicorn/consistent-function-scoping

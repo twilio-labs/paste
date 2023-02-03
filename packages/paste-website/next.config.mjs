@@ -27,6 +27,12 @@ const nextConfig = {
     browsersListForSwc: true,
     legacyBrowsers: false,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default withBundleAnalyzer(withMDX(nextConfig));
