@@ -19,6 +19,7 @@ export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadin
       element={element}
       color="currentColor"
       lineHeight="lineHeight40"
+      fontWeight="fontWeightSemibold"
     >
       {children}
     </Text>
