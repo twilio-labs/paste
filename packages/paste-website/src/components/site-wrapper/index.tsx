@@ -20,7 +20,12 @@ const SiteWrapper: React.FC<SiteWrapperProps> = ({children, navigationData}) => 
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (
-    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS} disableAnimations={inCypress()}>
+    <Theme.Provider
+      theme={theme}
+      customBreakpoints={SITE_BREAKPOINTS}
+      disableAnimations={inCypress()}
+      cacheProviderProps={{key: 'next'}}
+    >
       <NavigationContext.Provider value={{...navigationData}}>
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
           <SkipLinkContainer>
