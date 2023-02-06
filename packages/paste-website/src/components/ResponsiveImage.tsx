@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Image from 'next/future/image';
 import type {ImageProps} from 'next/future/image';
 import {Box} from '@twilio-paste/box';

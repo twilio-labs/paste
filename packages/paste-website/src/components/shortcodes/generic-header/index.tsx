@@ -74,6 +74,11 @@ const GenericHeader: React.FC<GenericHeaderProps> = ({
   const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
     categoryRoute
   );
+  const showPackageStatus = [
+    SidebarCategoryRoutes.COMPONENTS,
+    SidebarCategoryRoutes.PATTERNS,
+    SidebarCategoryRoutes.PRIMITIVES,
+  ].includes(categoryRoute);
 
   return (
     <Box>
@@ -93,12 +98,14 @@ const GenericHeader: React.FC<GenericHeaderProps> = ({
             {name}
           </Heading>
         </Box>
-        <PackageStatusLegend
-          packageStatus={packageStatus}
-          figmaStatus={figmaStatus}
-          designCommitteeReview={designCommitteeReview}
-          engineerCommitteeReview={engineerCommitteeReview}
-        />
+        {showPackageStatus && (
+          <PackageStatusLegend
+            packageStatus={packageStatus}
+            figmaStatus={figmaStatus}
+            designCommitteeReview={designCommitteeReview}
+            engineerCommitteeReview={engineerCommitteeReview}
+          />
+        )}
       </Box>
       {description && (
         <Box maxWidth="size70">

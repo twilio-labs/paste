@@ -50,7 +50,7 @@ const SidebarNavigation: React.FC = () => {
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
   const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
 
-  const filteredPrimitives = allPastePrimitive?.filter(filteredComponents);
+  const filteredPrimitives = allPastePrimitive?.filter(filteredComponents).sort(alphabetizeComponents);
 
   return (
     <Box
