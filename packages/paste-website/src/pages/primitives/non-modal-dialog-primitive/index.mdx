@@ -33,7 +33,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Non-Modal Dialog Primitive');
+  const feature = await getFeature('Non-modal Dialog Primitive');
   return {
     props: {
       data: {

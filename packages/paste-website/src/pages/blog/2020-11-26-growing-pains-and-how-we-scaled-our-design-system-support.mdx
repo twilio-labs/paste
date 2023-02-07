@@ -10,3 +10,17 @@ export const meta = {
   excerpt:
     "If you're building a new platform team, your customers are going to go through many changes. In the case of a design system, tools, hacks, and practices that made your team wildly successful are also the cause of long term design and technical debt. Making corrective changes to mitigate these problems with a platform can often mean taking away these...",
 };
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
