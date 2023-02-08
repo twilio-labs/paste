@@ -25,7 +25,10 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^7.0.0",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
+    "@twilio-paste/customization": "^5.0.0",
     "@twilio-paste/design-tokens": "^8.0.0",
     "@twilio-paste/icons": "^9.0.0",
     "@twilio-paste/style-props": "^6.0.0",
@@ -39,7 +42,10 @@
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^7.1.2",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
+    "@twilio-paste/customization": "^5.0.0",
     "@twilio-paste/design-tokens": "^8.3.0",
     "@twilio-paste/icons": "^9.3.1",
     "@twilio-paste/style-props": "^6.1.2",
