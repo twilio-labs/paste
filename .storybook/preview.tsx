@@ -199,16 +199,3 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
   },
 };
-
-// https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook/#manual-configuration
-
-global.___loader = {
-  enqueue: () => {},
-  hovering: () => {},
-};
-
-global.__BASE_PATH__ = '/';
-
-window.___navigate = (pathname) => {
-  action('NavigateTo:')(pathname);
-};

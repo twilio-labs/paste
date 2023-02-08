@@ -1,10 +1,10 @@
----
-title: Delete
-description: The Delete pattern allows the user to destroy an existing object and communicates any critical consequences of that action.
-slug: /patterns/delete/
----
+export const meta = {
+  title: 'Delete',
+  description:
+    'The Delete pattern allows the user to destroy an existing object and communicates any critical consequences of that action.',
+  slug: '/patterns/delete/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -14,45 +14,30 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import DeleteMediumSeverityImage from '../../../assets/images/patterns/delete-medium-severity.png';
+import DeleteHighSeverityImage from '../../../assets/images/patterns/delete-high-severity.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/delete/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Delete"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Delete');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizedPatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -60,7 +45,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -135,7 +120,7 @@ A deletion is considered medium-severity when the action cannot be undone, and t
 
 For medium-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion.
 
-![modal with a destrctive button to confirm deletion](../../../assets/images/patterns/delete-medium-severity.png)
+<ResponsiveImage src={DeleteMediumSeverityImage} alt="modal with a destrctive button to confirm deletion" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -152,7 +137,7 @@ A deletion is considered high-severity when the action cannot be undone, and it 
 
 For high-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
 
-![modal with an input and a destructive button to confirm deletion](../../../assets/images/patterns/delete-high-severity.png)
+<ResponsiveImage src={DeleteHighSeverityImage} alt="modal with an input and a destructive button to confirm deletion" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">

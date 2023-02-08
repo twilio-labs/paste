@@ -3,6 +3,7 @@ import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
+import {useRouter} from 'next/router';
 
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
@@ -38,9 +39,10 @@ const StyledSiteBody = styled.div`
   }
 `;
 
-export const SiteBody: React.FC<{pathname: string}> = ({children, pathname}) => {
+export const SiteBody: React.FC = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
+  const router = useRouter();
 
   /**
    * The Tokens List page has a sticky filter when scrolled, which means that we need to set a
@@ -57,7 +59,7 @@ export const SiteBody: React.FC<{pathname: string}> = ({children, pathname}) => 
   const defaultScrollOffset = 16;
   let scrollOffset = defaultScrollOffset;
 
-  if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(pathname)) {
+  if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(router.pathname)) {
     scrollOffset = TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + defaultScrollOffset;
   }
 

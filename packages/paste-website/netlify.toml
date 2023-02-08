@@ -1,10 +1,10 @@
 [dev]
-  command = "yarn start"
-  targetPort = 8000
+  command = "yarn dev"
+  targetPort = 3000
   framework = "#custom"
 
 [build]
-  publish = "packages/paste-website/public/"
+  publish = "packages/paste-website/.next/"
   command = "yarn build:js && yarn build:tokens && yarn build:website"
 
 [build.environment]
@@ -12,13 +12,13 @@
   YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
 
 [context.deploy-preview.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "deploy-preview"
 
 [context.branch-deploy.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "branch-deploy"
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "branch-deploy"
 
 [context.production.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "production"
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "production"
 
 [functions]
   directory = "functions"

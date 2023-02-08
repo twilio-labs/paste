@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -11,6 +11,7 @@ import {LandingPageDesigner} from './LandingPageDesigner';
 import {DoodleBurst} from '../../assets/illustrations/DoodleBurst';
 import {DoodleLoopMedium} from '../../assets/illustrations/DoodleLoopMedium';
 import {DoodleLoopTiny} from '../../assets/illustrations/DoodleLoopTiny';
+import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
 
 const LikeTwilioHeadline: React.FC = () => {
   return (
@@ -65,12 +66,7 @@ const MobileDesigner: React.FC = () => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <StaticImage
-        src="../../assets/images/customization/theme-designer-mobile-screenshot.png"
-        alt=""
-        placeholder="blurred"
-        layout="fullWidth"
-      />
+      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
     </>
   );
 };

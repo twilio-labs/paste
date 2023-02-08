@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/future/image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -16,6 +15,8 @@ import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {event} from '../../lib/gtag';
+import CodesandboxMobile from '../../assets/images/home/codesandbox-mobile.png';
 
 interface ExperimentProps {
   showIframe: boolean;
@@ -27,12 +28,7 @@ const ExperimentEmbed: React.FC = () => {
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <>
-        <StaticImage
-          src="../../assets/images/home/codesandbox-mobile.png"
-          alt=""
-          placeholder="blurred"
-          layout="fullWidth"
-        />
+        <Image src={CodesandboxMobile} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
         <ExperimentMobileButton />
       </>
     );
@@ -75,7 +71,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
               <Anchor
                 href="https://codesandbox.io/s/paste-starter-kit-rj7yy"
                 onClick={() =>
-                  trackCustomEvent({
+                  event({
                     category: 'Experiment Sandbox',
                     action: 'click-sandbox',
                     label: 'Open sandbox',

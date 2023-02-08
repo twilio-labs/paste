@@ -1,17 +1,20 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/future/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
+
+import Chrome from '../../assets/images/date-picker/chrome.png';
+import Safari from '../../assets/images/date-picker/safari.png';
+import Firefox from '../../assets/images/date-picker/firefox.png';
 
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/date-picker/chrome.png"
+    <Image
+      src={Chrome}
       alt="Chrome/Edge implementation of date picker"
       width={300}
-      placeholder="blurred"
-      layout="fixed"
+      placeholder="blur"
       css={css({
         margin: 'space20',
         display: 'block',
@@ -25,8 +28,8 @@ export const ChromeImage: React.FC = () => {
 export const SafariImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/date-picker/safari.png"
+    <Image
+      src={Safari}
       alt="Safari implementation of date picker"
       css={css({
         margin: 'space20',
@@ -43,8 +46,8 @@ export const SafariImage: React.FC = () => {
 export const FirefoxImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/date-picker/firefox.png"
+    <Image
+      src={Firefox}
       alt="Firefox implementation of date picker"
       css={css({
         margin: 'space20',

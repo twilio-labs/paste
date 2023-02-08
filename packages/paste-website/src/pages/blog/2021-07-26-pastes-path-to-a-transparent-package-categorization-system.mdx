@@ -1,54 +1,50 @@
----
-title: Paste's Path to a Transparent Package Categorization System
-description: A brief outline detailing how Twilio's Design System previously categorized component and pattern packages and what sparked a change.
-slug: /blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/
-date: 2021-07-26
-author: Nora Krantz
-avatar: https://avatars.githubusercontent.com/u/75342690?v=4
-author_link: https://www.linkedin.com/in/norakrantz/
-status: published
----
+export const meta = {
+  title: "Paste's Path to a Transparent Package Categorization System",
+  description:
+    "A brief outline detailing how Twilio's Design System previously categorized component and pattern packages and what sparked a change.",
+  slug: '/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/',
+  date: '2021-07-26',
+  author: 'Nora Krantz',
+  avatar: 'https://avatars.githubusercontent.com/u/75342690?v=4',
+  author_link: 'https://www.linkedin.com/in/norakrantz/',
+  status: 'published',
+  excerpt:
+    'When integrating a library into a project, you’ll likely want to ensure that it’s a mature and well-maintained library that won’t be deprecated a month down the line. If your project is a customer-facing platform and the library maintains your frontend components, all the more reason to have trust. Transparency between the library and the consumer is integral to building that trust. Our previous...',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import Overview from '../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-1.png';
+import Overview2 from '../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-2.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2021-07-26-pastes-path-to-a-transparent-package-categorization-system/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -60,7 +56,10 @@ When we first started releasing packages and documenting them on our website, we
 
 <contentspacer>
 
-![Screenshot of the Component Overview page before we changed our categorization system](../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-1.png)
+<ResponsiveImage
+  src={Overview}
+  alt="Screenshot of the Component Overview page before we changed our categorization system"
+/>
 
 </contentspacer>
 
@@ -76,7 +75,10 @@ After making the switch to align our definitions of _alpha_, _beta_ and _product
 
 <contentspacer>
 
-![Screenshot of the Component Overview page after we updated our categorization system](../../assets/images/articles/pastes-path-to-a-transparent-package-categorization-system/overview-2.png)
+<ResponsiveImage
+  src={Overview2}
+  alt="Screenshot of the Component Overview page after we updated our categorization system"
+/>
 
 </contentspacer>
 

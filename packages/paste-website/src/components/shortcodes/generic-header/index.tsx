@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
@@ -74,13 +74,18 @@ const GenericHeader: React.FC<GenericHeaderProps> = ({
   const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
     categoryRoute
   );
+  const showPackageStatus = [
+    SidebarCategoryRoutes.COMPONENTS,
+    SidebarCategoryRoutes.PATTERNS,
+    SidebarCategoryRoutes.PRIMITIVES,
+  ].includes(categoryRoute);
 
   return (
     <Box>
       {openGraphServiceUrl && shouldHavePreview && (
-        <Helmet>
+        <Head>
           <meta property="og:image" content={openGraphServiceUrl} />
-        </Helmet>
+        </Head>
       )}
       {shouldShowBreadcrumbs && (
         <Box marginBottom="space50">
@@ -93,12 +98,14 @@ const GenericHeader: React.FC<GenericHeaderProps> = ({
             {name}
           </Heading>
         </Box>
-        <PackageStatusLegend
-          packageStatus={packageStatus}
-          figmaStatus={figmaStatus}
-          designCommitteeReview={designCommitteeReview}
-          engineerCommitteeReview={engineerCommitteeReview}
-        />
+        {showPackageStatus && (
+          <PackageStatusLegend
+            packageStatus={packageStatus}
+            figmaStatus={figmaStatus}
+            designCommitteeReview={designCommitteeReview}
+            engineerCommitteeReview={engineerCommitteeReview}
+          />
+        )}
       </Box>
       {description && (
         <Box maxWidth="size70">

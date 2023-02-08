@@ -9,7 +9,7 @@ interface PeerReviewStatusProps {
 }
 
 const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
-  if (designStatus === null || engineerStatus === null) {
+  if (!designStatus || !engineerStatus) {
     return (
       <Text fontSize="fontSize60" lineHeight="lineHeight60" as="span" color="colorTextWeak">
         Pending

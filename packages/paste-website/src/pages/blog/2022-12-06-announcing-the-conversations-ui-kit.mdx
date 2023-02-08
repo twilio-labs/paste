@@ -1,52 +1,39 @@
----
-title: Announcing the Conversations UI Kit
-slug: /blog/2022-12-06-announcing-the-conversations-ui-kit/
-date: 2022-12-06
-author: Lee White
-avatar: https://avatars.githubusercontent.com/u/8482334?v=4
-status: published
-excerpt: The Paste team has been working on something big for the past year!
----
+export const meta = {
+  title: 'Announcing the Conversations UI Kit',
+  slug: '/blog/2022-12-06-announcing-the-conversations-ui-kit/',
+  date: '2022-12-06',
+  author: 'Lee White',
+  avatar: 'https://avatars.githubusercontent.com/u/8482334?v=4',
+  status: 'published',
+  excerpt: 'The Paste team has been working on something big for the past year!',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {ChatHeroExample} from '../../component-examples/ConversationsUIKitAnnouncement';
+import ComponentBreakdown from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/component-breakdown.png';
+import Figma from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/figma-screenshot.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2022-12-06-announcing-the-conversations-ui-kit/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader title={meta.title} date={meta.date} machineDate={meta.date} author={meta.author} avatar={meta.avatar} />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -64,7 +51,7 @@ Twilio currently has multiple chat-related products. Some include a UI, like [Fr
 
 Before we could build, the team had to hammer down the specifics. We audited Figma screens and met with the people who think about these UIs all the time: the engineers, designers, and product managers who work on Twilio’s chat products.
 
-![](../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/component-breakdown.png)
+<ResponsiveImage src={ComponentBreakdown} />
 
 From this work, we gathered a list of the potential new components and new variants of existing components that Paste needed for the initial release of the Conversations UI Kit:
 
@@ -90,7 +77,7 @@ Like all Paste components, they are composable, presentational, and customizable
 
 <iframe
   src="https://codesandbox.io/embed/conversations-ui-kit-example-vhcjnw?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Conversations UI Kit Example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -100,7 +87,7 @@ Like all Paste components, they are composable, presentational, and customizable
 
 For designers, the Conversations UI Kit is available as a set of components in [the Twilio Paste Components library](https://www.figma.com/community/file/1012844215105752327).
 
-![](../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/figma-screenshot.png)
+<ResponsiveImage src={Figma} />
 
 ## Wrapping up
 

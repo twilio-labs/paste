@@ -37,7 +37,13 @@ const SiteHeaderDesktop: React.FC = () => {
         <DarkModeToggle />
         <Box marginTop="space10">
           <Stack orientation="horizontal" spacing="space60">
-            <SiteHeaderSearch />
+            <Box
+              minWidth={['size20', 'size20', 'size20', 'size30']}
+              data-cy="paste-docsearch-container"
+              id="paste-docs-search-input"
+            >
+              <SiteHeaderSearch />
+            </Box>
             <Stack orientation="horizontal" spacing="space40">
               <FigmaButton />
               <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />

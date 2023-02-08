@@ -1,10 +1,9 @@
----
-title: Paste Manual Installation
-description: Instructions to manually add Paste to a project.
-slug: /introduction/for-engineers/manual-installation/
----
+export const meta = {
+  title: 'Paste Manual Installation',
+  description: 'Instructions to manually add Paste to a project.',
+  slug: '/introduction/for-engineers/manual-installation/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
@@ -12,28 +11,25 @@ import CorePkgJson from '@twilio-paste/core/package.json';
 import IconsPkgJson from '@twilio-paste/icons/package.json';
 import {Callout, CalloutText} from '@twilio-paste/callout';
 import Package from '../../../../../../../package.json';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/manual-installation/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 </content>
 
@@ -41,7 +37,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

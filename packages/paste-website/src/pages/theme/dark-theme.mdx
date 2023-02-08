@@ -1,43 +1,35 @@
----
-title: Dark Theme
-description: Dark theme is a base theme for dark mode in any UI fully using Paste.
-slug: /theme/dark-theme
----
+export const meta = {
+  title: 'Dark Theme',
+  description: 'Dark theme is a base theme for dark mode in any UI fully using Paste.',
+  slug: '/theme/dark-theme',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../constants';
 import {DoDont, Do, Dont} from '../../components/DoDont';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/theme/dark-theme"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<GenericHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.THEME}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME} />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

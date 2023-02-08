@@ -1,17 +1,17 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {useRouter} from 'next/router';
 
 import {SiteFooterIllustration} from './SiteFooterIllustration';
 import {SiteFooterNav} from './SiteFooterNav';
 import {SiteFooterTopAngle} from './SiteFooterTopAngle';
-import {useNavigationContext} from '../../../context/NavigationContext';
 import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 
 const SiteFooter: React.FC = () => {
-  const {pathname} = useNavigationContext();
+  const router = useRouter();
   return (
     <Box as="footer" margin="space70" marginTop="space200" paddingTop="space200" position="relative">
-      {pathname === '/' && <SiteFooterTopAngle />}
+      {router.pathname === '/' && <SiteFooterTopAngle />}
       <Box
         borderRadius="borderRadius20"
         backgroundColor="colorBackgroundBrandStronger"

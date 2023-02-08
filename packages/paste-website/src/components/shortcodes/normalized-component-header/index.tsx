@@ -3,15 +3,16 @@ import merge from 'deepmerge';
 
 import {GenericHeader} from '../generic-header';
 import type {GenericHeaderProps} from '../generic-header';
-import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
-import type {GraphqlData} from '../../../utils/GraphqlUtils';
+import {getNormalizedHeaderData} from '../../../utils/DataUtils';
+import type {ApiData} from '../../../utils/DataUtils';
 
 interface NormalizedComponentHeaderProps extends GenericHeaderProps {
-  data: GraphqlData;
+  data: ApiData;
 }
 
 export const NormalizedComponentHeader: React.FC<NormalizedComponentHeaderProps> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
+
   const {
     name,
     packageName,
