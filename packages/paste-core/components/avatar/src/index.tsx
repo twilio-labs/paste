@@ -78,15 +78,7 @@ const variants: Record<AvatarVariants, BoxStyleProps> = {
 };
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  (
-    {name, children, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props},
-    ref
-  ) => {
-    if (name === undefined) {
-      // eslint-disable-next-line no-console
-      console.error('[Paste Avatar]: name prop is required');
-    }
-
+  ({name, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
