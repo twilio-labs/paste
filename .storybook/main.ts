@@ -1,5 +1,6 @@
 import type {StorybookConfig} from '@storybook/react-vite';
 import {mergeConfig} from 'vite';
+import turbosnap from 'vite-plugin-turbosnap';
 import path from 'path';
 
 const config: StorybookConfig = {
@@ -32,6 +33,7 @@ const config: StorybookConfig = {
   async viteFinal(config, {configType}) {
     const isDev = configType === 'DEVELOPMENT' && process.env.NODE_ENV !== 'test';
     return mergeConfig(config, {
+      plugins: configType === 'PRODUCTION' ? [turbosnap({rootDir: config.root ?? process.cwd()})] : [],
       resolve: {
         alias: {
           'next/link': path.resolve(__dirname, './next'),
@@ -42,7 +44,7 @@ const config: StorybookConfig = {
         ...(isDev && {mainFields: ['main:dev', 'browser', 'module', 'main']}),
       },
       optimizeDeps: {
-        include: ['@storybook/addon-viewport', 'chromatic/isChromatic', '@emotion/react/jsx-dev-runtime'],
+        include: ['@storybook/addon-viewport', 'chromatic', '@emotion/react/jsx-dev-runtime'],
       },
     });
   },

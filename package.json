@@ -165,7 +165,7 @@
     "babel-plugin-macros": "^3.1.0",
     "browser-sync": "^2.26.9",
     "chalk": "4.1.2",
-    "chromatic": "^5.5.0",
+    "chromatic": "^6.17.0",
     "chrome-aws-lambda": "^10.0.0",
     "color": "^3.1.2",
     "commander": "^2.20.0",
@@ -226,7 +226,8 @@
     "typescript": "^4.9.4",
     "ui-box": "^5.4.0",
     "unist-util-visit-esm": "npm:unist-util-visit@^4.1.2",
-    "vite": "^4.0.1"
+    "vite": "^4.0.1",
+    "vite-plugin-turbosnap": "^1.0.1"
   },
   "resolutions": {
     "csstype": "3.0.11",

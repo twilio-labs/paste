@@ -181,6 +181,9 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+          onlyChanged: true
+          externals: |
+            - '.storybook/static/**'
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
           # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
