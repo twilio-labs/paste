@@ -183,6 +183,8 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           externals: |
+            - 'packages/paste-design-tokens/tokens/**'
+            - 'packages/paste-icons/src/**'
             - '.storybook/static/**'
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
