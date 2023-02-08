@@ -75,11 +75,11 @@
     "test:coverage": "jest --coverage",
     "test:website": "yarn cypress run --record",
     "test:website-percy": "percy exec -- yarn cypress run --record",
-    "test:website-gui": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:8000 'yarn cypress open'",
-    "test:website-gui-percy": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:8000 'percy exec -- yarn cypress open'",
+    "test:website-gui": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:3000 'yarn cypress open'",
+    "test:website-gui-percy": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:3000 'percy exec -- yarn cypress open'",
     "test:storybook": "test-storybook --url http://localhost:9001",
     "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
-    "serve:website": "yarn workspace @twilio-paste/website serve",
+    "serve:website": "yarn workspace @twilio-paste/website start",
     "package-size-action-build": "yarn build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
@@ -163,7 +163,6 @@
     "axe-playwright": "^1.1.11",
     "babel-loader": "^9.1.0",
     "babel-plugin-macros": "^3.1.0",
-    "babel-preset-gatsby": "^2.11.1",
     "browser-sync": "^2.26.9",
     "chalk": "4.1.2",
     "chromatic": "^5.5.0",
@@ -192,7 +191,7 @@
     "eslint-plugin-unicorn": "40.1.0",
     "evergreen-ui": "^6.13.2",
     "git-branch-is": "^3.0.0",
-    "graphql": "^14.6.0",
+    "globby-esm": "npm:globby@^13.1.3",
     "highcharts": "^9.3.3",
     "highcharts-react-official": "^3.1.0",
     "husky": "^3.0.0",
@@ -225,11 +224,13 @@
     "typedoc": "^0.20.12",
     "typescript": "^4.9.4",
     "ui-box": "^5.4.0",
+    "unist-util-visit-esm": "npm:unist-util-visit@^4.1.2",
     "vite": "^4.0.1"
   },
   "resolutions": {
     "csstype": "3.0.11",
-    "playwright": "1.28.1"
+    "playwright": "1.28.1",
+    "@types/react": "^17.0.31"
   },
   "husky": {
     "hooks": {

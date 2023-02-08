@@ -2,12 +2,14 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/future/image';
 
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
 import {convertPositionToInputValue, clampValueToRange} from './utils';
 import {useSvgResize} from './useSvgResize';
+import HeroBack from '../../../assets/images/customization/hero-back.png';
+import HeroFront from '../../../assets/images/customization/hero-front.png';
 
 const INPUT_ID = 'input-range-id';
 const CLIP_PATH_ID = 'clip-path-id';
@@ -118,18 +120,16 @@ export const ImageSlider: React.FC = () => {
           document.addEventListener('mousemove', handleMouseMove);
         }}
       >
-        <StaticImage
-          src="../../../assets/images/customization/hero-back.png"
+        <Image
+          src={HeroBack}
           alt="Sample components with a customized Paste theme"
-          placeholder="blurred"
-          layout="fullWidth"
+          placeholder="blur"
           style={imageStyleProps}
         />
-        <StaticImage
-          src="../../../assets/images/customization/hero-front.png"
+        <Image
+          src={HeroFront}
           alt="Sample components with a default Paste theme"
-          placeholder="blurred"
-          layout="fullWidth"
+          placeholder="blur"
           style={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
         />
 

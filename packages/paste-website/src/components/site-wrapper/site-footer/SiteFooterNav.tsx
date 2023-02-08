@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -8,6 +7,7 @@ import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
 import {STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL} from '../../../constants';
+import {event} from '../../../lib/gtag';
 
 const SiteFooterNav: React.FC = () => {
   const theme = useTheme();
@@ -27,7 +27,7 @@ const SiteFooterNav: React.FC = () => {
               href="/introduction/about-paste"
               variant="inverse"
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-about',
                   label: 'About',
@@ -40,7 +40,7 @@ const SiteFooterNav: React.FC = () => {
               href="/roadmap"
               variant="inverse"
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-our-roadmap',
                   label: 'Our roadmap',
@@ -53,7 +53,7 @@ const SiteFooterNav: React.FC = () => {
               href="/introduction/for-designers/design-guidelines"
               variant="inverse"
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-design-guidelines',
                   label: 'Design guidelines',
@@ -66,7 +66,7 @@ const SiteFooterNav: React.FC = () => {
               href="/introduction/for-engineers/quickstart"
               variant="inverse"
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-quickstart',
                   label: 'Quick Start',
@@ -84,7 +84,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-github',
                   label: 'Github',
@@ -98,7 +98,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-figma',
                   label: 'Figma',
@@ -112,7 +112,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-storybook',
                   label: 'Storybook',
@@ -126,7 +126,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-remix',
                   label: 'Theme Designer',
@@ -144,7 +144,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-get-support',
                   label: 'Get support',
@@ -158,7 +158,7 @@ const SiteFooterNav: React.FC = () => {
               variant="inverse"
               showExternal
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-report-a-bug',
                   label: 'Report a bug',
@@ -171,7 +171,7 @@ const SiteFooterNav: React.FC = () => {
               href="/introduction/working-with-us"
               variant="inverse"
               onClick={() =>
-                trackCustomEvent({
+                event({
                   category: 'Footer',
                   action: 'click-how-we-work',
                   label: 'How we work',

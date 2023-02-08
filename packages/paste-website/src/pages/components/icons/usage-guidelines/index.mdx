@@ -1,11 +1,10 @@
----
-title: Icon Usage Guidelines
-description: Overview on how to use icons in the context of Paste projects.
-slug: /components/icons/usage-guidelines/
----
+export const meta = {
+  title: 'Icon Usage Guidelines',
+  description: 'Overview on how to use icons in the context of Paste projects.',
+  slug: '/components/icons/usage-guidelines/',
+};
 
-import {graphql} from 'gatsby';
-import {Link} from 'gatsby';
+import Link from 'next/link';
 import {SiteLink} from '../../../../components/SiteLink';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -16,36 +15,33 @@ import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../../components/DoDont';
 import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/components/icons/usage-guidelines/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h2">Can't find the icon you need?</CalloutHeading>
   <CalloutText>
     Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute it to the library following{' '}
-    <SiteLink to="/introduction/contributing/icons">our guidelines.</SiteLink>
+    <SiteLink href="/introduction/contributing/icons">our guidelines.</SiteLink>
   </CalloutText>
 </Callout>
 

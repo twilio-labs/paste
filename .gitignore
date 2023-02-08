@@ -58,10 +58,6 @@ typings/
 .env
 .env.local
 
-# gatsby files
-packages/paste-website/.cache/
-packages/paste-website/public
-
 # next.js build output
 .next
 out/
@@ -71,7 +67,6 @@ out/
 
 .jest-coverage
 .jest-cache
-**/lib/*
 **/dist/*
 packages/**/docs
 **/paste-icons/cjs/*

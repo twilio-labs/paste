@@ -48,8 +48,6 @@ yarn start:website
 
 Once both the website and netlify functions have started running, both will be available on `localhost:8888`.
 
-🚨 **It takes some time for Gastby to boot up. Be patient** 🚨
-
 Once running, the function can be reached at `localhost:8888/.netlify/functions/opengraph/` for testing.
 
 Whilst running, changes to the function code will restart the function with the new code changes applied. (Hot reloading for Node, using Nodemon) This is all handled for us using the Netlify CLI.
@@ -68,7 +66,7 @@ Inside our function we use `chrome-aws-lambda` for grabbing the Chrome Browser b
 
 Using Puppeteer, we instruct Chrome to visit a url on the website, which renders a dynamic page based on the parameters we give it. We then tell puppeteer to use Chrome to take a screenshot of the page, and that image is then returned as the response of the function.
 
-The page on the website renders a box 800px x 420px. The information is display for the component being requested comes from Airtable, via the Gatsby integration.
+The page on the website renders a box 800px x 420px. The information is display for the component being requested comes from Airtable, via the JS client.
 
 [Winston](https://github.com/winstonjs/winston) does our logging, so we can observe the function running in real time in the Netlify UI.
 

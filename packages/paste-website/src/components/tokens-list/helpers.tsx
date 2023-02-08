@@ -1,12 +1,12 @@
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import type {Properties} from 'csstype';
 import debounce from 'lodash/debounce';
 
 import type {Token, Tokens, TokenExampleColors} from './types';
+import {event} from '../../lib/gtag';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
   if (filter !== '') {
-    trackCustomEvent({
+    event({
       category: 'Design Tokens',
       action: 'filter',
       label: filter,

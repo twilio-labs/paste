@@ -6,7 +6,7 @@
       "dom",
       "esnext"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "module": "esnext" /* Specify what module code is generated. */,
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
@@ -16,8 +16,10 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "outDir": "dist/",
     "emitDeclarationOnly": false,
-    "typeRoots": ["../../@types", "../../node_modules/@types", "./types"]
+    "typeRoots": ["../../@types", "../../node_modules/@types", "./types"],
+    "allowJs": true,
+    "noEmit": true
   },
-  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*"],
-  "exclude": ["node_modules", "public", ".cache"]
+  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./public/**/*"],
+  "exclude": ["node_modules", ".next"]
 }

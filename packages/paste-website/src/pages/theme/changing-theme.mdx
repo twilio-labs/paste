@@ -1,39 +1,31 @@
----
-title: Changing the Theme
-description: When using Paste, swapping to a different theme is simple and quick.
-slug: /theme/changing-theme
----
+export const meta = {
+  title: 'Changing the Theme',
+  description: 'When using Paste, swapping to a different theme is simple and quick.',
+  slug: '/theme/changing-theme',
+};
 
-import {graphql} from 'gatsby';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/theme/changing-theme"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<GenericHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.THEME}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME} />
 
 ---
 
  <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

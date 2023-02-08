@@ -1,35 +1,32 @@
----
-title: Product style guide
-description: Core principles, punctuation, grammar and formatting in Product content.
-slug: /foundations/content/product-style-guide/
----
+export const meta = {
+  title: 'Product style guide',
+  description: 'Core principles, punctuation, grammar and formatting in Product content.',
+  slug: '/foundations/content/product-style-guide/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {DoDont, Do, Dont} from '../../../../components/DoDont';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/product-style-guide/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import {DoDont, Do, Dont} from '../../../../components/DoDont';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -37,7 +34,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -130,13 +127,13 @@ export const pageQuery = graphql`
 
 **Do** use an apostrophe to indicate possession or belonging.
 
-- The APIs of Twilio > Twilio's APIs
+- The APIs of Twilio &gt; Twilio's APIs
   - _The phone number's prefix._
   - _Choose from one of SendGrid's responsive email designs._
 
 **Do** use an apostrophe to indicate missing letters.
 
-- You are > you're
+- You are &gt; you're
   - _You're not logged in._
 
 **Don't** use apostrophes to make a plural. We should never see _Upgrade to buy phone number's_, _Install plugin's_, or _SID's_.

@@ -1,59 +1,62 @@
----
-title: Paste Design System Newsletter - September 2022 Edition
-slug: /blog/2022-09-23-paste-newsletter/
-date: 2022-09-23
-author: Paste
-avatar:
-author_link:
-status: published
-external_link:
-excerpt: What's new in Paste in September 2022? NEW components, NEW icons, insights into our customer experience, and more!
----
+export const meta = {
+  title: 'Paste Design System Newsletter - September 2022 Edition',
+  slug: '/blog/2022-09-23-paste-newsletter/',
+  date: '2022-09-23',
+  author: 'Paste',
+  avatar: null,
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt:
+    "What's new in Paste in September 2022? NEW components, NEW icons, insights into our customer experience, and more!",
+};
 
-import {graphql} from 'gatsby';
+import Image from 'next/future/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
 import {Blockquote} from '../../components/Blockquote';
+import SwitchExample from '../../assets/images/articles/2022-09-23-paste-newsletter/switch-example.gif';
+import InlineCodeExample from '../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png';
+import CodeBlockExample from '../../assets/images/articles/2022-09-23-paste-newsletter/code-block-example.gif';
+import CalloutExample from '../../assets/images/articles/2022-09-23-paste-newsletter/callout-example.png';
+import MinimizableDialog from '../../assets/images/articles/2022-09-23-paste-newsletter/minimizable-dialog-example.gif';
+import NewIcons from '../../assets/images/articles/2022-09-23-paste-newsletter/new-icons-example.png';
+import UiKit from '../../assets/images/articles/2022-09-23-paste-newsletter/ui-kit-example.png';
+import ToggleButton from '../../assets/images/articles/2022-09-23-paste-newsletter/toggle-button-example.gif';
+import StickyHeaders from '../../assets/images/articles/2022-09-23-paste-newsletter/sticky-headers-example.gif';
+import Ramona from '../../assets/images/articles/2022-09-23-paste-newsletter/ramona-pastemate.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2022-09-23-paste-newsletter/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -63,7 +66,9 @@ export const pageQuery = graphql`
 
 #### Switch
 
-![](/images/gifs-2022-09-23-paste-newsletter/switch-example.gif)
+<Paragraph>
+  <Image src={SwitchExample} />
+</Paragraph>
 
 The Switch component makes interacting with binary states a breeze.
 Our Switch incorporates animation and icons to make its pressed/unpressed state visually clear, while its built-in
@@ -75,7 +80,7 @@ accessibility features communicate the state clearly to users. Take it for a spi
 
 #### Inline Code
 
-![](../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png)
+<ResponsiveImage src={InlineCodeExample} />
 
 If your snippet of code is small and inline with the rest of your text,
 Inline Code is the way to go. Its contents stand out with a subtle background and monospace font.
@@ -87,7 +92,9 @@ Use it for code, ID&apos;s, and keys.
 
 #### Code Block
 
-![](/images/gifs-2022-09-23-paste-newsletter/code-block-example.gif)
+<Paragraph>
+  <Image src={CodeBlockExample} />
+</Paragraph>
 
 Presenting Code Block! This component allows you to display code with syntax highlighting for 13 programming languages.
 It features tabs to show different blocks of code in the same area, a copy code button, and an optional external link button leading to the source code.
@@ -98,7 +105,7 @@ It features tabs to show different blocks of code in the same area, a copy code 
 
 #### Callout
 
-![](../../assets/images/articles/2022-09-23-paste-newsletter/callout-example.png)
+<ResponsiveImage src={CalloutExample} />
 
 With five different variants to choose from, all your imperative, static information will be
 hard to miss inside of the Callout component! Don&apos;t forget to set its heading level according
@@ -110,7 +117,9 @@ to the outline of your page for the best user experience.
 
 #### Minimizable Dialog
 
-![](/images/gifs-2022-09-23-paste-newsletter/minimizable-dialog-example.gif)
+<Paragraph>
+  <Image src={MinimizableDialog} />
+</Paragraph>
 
 As part of our Conversations UI kit, we&apos;ve added the Minimizable Dialog component.
 Its power lies in its flexibility; use it with a static button, a floating button, or use its included state hook
@@ -122,7 +131,7 @@ for full control of its internal state. Making a chat log has never been easier 
 
 #### 42 new icons, including a full suite of contact center icons!
 
-![](../../assets/images/articles/2022-09-23-paste-newsletter/new-icons-example.png)
+<ResponsiveImage src={NewIcons} />
 
 We&apos;ve got new icons! A full suite of contact center icons and more are now available.
 Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin Chin</strong> for their close collaboration on these icons.
@@ -131,7 +140,7 @@ Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin C
 
 #### Conversations UI Kit added to Figma
 
-![](../../assets/images/articles/2022-09-23-paste-newsletter/ui-kit-example.png)
+<ResponsiveImage src={UiKit} />
 
 Our Conversations UI Kit, which includes all of Paste&apos;s chat components and the new minimizable dialog,
 is now available in Figma. The components in this kit work together seamlessly for designing conversational UI,
@@ -147,7 +156,9 @@ no matter the complexity.
 
 #### Button variant: toggle!
 
-![](/images/gifs-2022-09-23-paste-newsletter/toggle-button-example.gif)
+<Paragraph>
+  <Image src={ToggleButton} />
+</Paragraph>
 
 Let&apos;s toggle! To make a button a toggle simply add the `pressed` prop to a secondary button or secondary icon button.
 
@@ -157,7 +168,9 @@ Let&apos;s toggle! To make a button a toggle simply add the `pressed` prop to a 
 
 #### Sticky headers in Table and Data Grid &#40;contribution&#41;
 
-![](/images/gifs-2022-09-23-paste-newsletter/sticky-headers-example.gif)
+<Paragraph>
+  <Image src={StickyHeaders} />
+</Paragraph>
 
 Contributed by Mark Yang from the Billing Platform team, sticky headers for our
 Table and Data Grid components are now available! Use this functionality to make perusing data easier,
@@ -219,8 +232,8 @@ We are excited to the share the following insights:
   <strong>4.00/5</strong>.
 </Paragraph>
 <Paragraph>
-  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>,
-  our participants averaged <strong>4.18/5</strong>.
+  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>
+  , our participants averaged <strong>4.18/5</strong>.
 </Paragraph>
 
 In addition, some participants specified:
@@ -241,7 +254,7 @@ These results are music to our ears 🎶
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-![](../../assets/images/articles/2022-09-23-paste-newsletter/ramona-pastemate.png)
+<ResponsiveImage src={Ramona} />
 
 Since our last update, Ramona Thompson joined the [One Twilio BPM](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#bookmark=kix.xj165t52alhv) crew to partner with us in our
 user research efforts. Ramona collaborated with us to help us dig into what customers consider friendly,

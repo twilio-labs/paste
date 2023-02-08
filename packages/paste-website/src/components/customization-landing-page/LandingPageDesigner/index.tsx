@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
 import {Box} from '@twilio-paste/box';
 import {useTheme, generateTokensFromTheme} from '@twilio-paste/theme';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
@@ -35,14 +35,14 @@ export const LandingPageDesigner: React.FC = () => {
       boxShadow="shadowCard"
       display="flex"
     >
-      <Helmet>
+      <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" cross-origin />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-      </Helmet>
+      </Head>
       <DesignerContext.Provider value={{tokens, updateToken}}>
         <DesignerPreview />
         <DesignerControls />

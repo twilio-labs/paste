@@ -1,6 +1,7 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import {Helmet} from 'react-helmet';
+import Head from 'next/head';
+import type {GetStaticProps, InferGetStaticPropsType} from 'next';
 
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
@@ -8,8 +9,10 @@ import {HomeHero} from '../components/homepage/HomeHero';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
+import {getNavigationData} from '../utils/api';
+import type {PastePackages} from '../utils/api';
 
-const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
+const Homepage = ({navigationData}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)
@@ -22,13 +25,12 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
   }
 
   return (
-    <SiteWrapper pathname={location.pathname}>
-      <Helmet>
+    <SiteWrapper navigationData={navigationData}>
+      <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
-        <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
+        <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
+      </Head>
       <HomeHero />
       <GetStarted />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
@@ -37,6 +39,16 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
       <Experiment showIframe={showIframe} />
     </SiteWrapper>
   );
+};
+
+export const getStaticProps: GetStaticProps<{navigationData: PastePackages}> = async () => {
+  const navigationData = await getNavigationData();
+
+  return {
+    props: {
+      navigationData,
+    },
+  };
 };
 
 export default Homepage;

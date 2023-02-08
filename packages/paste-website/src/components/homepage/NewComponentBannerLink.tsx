@@ -8,11 +8,11 @@ import {SiteLink} from '../SiteLink';
 export interface NewComponentBannerAnchorProps {
   children: NonNullable<React.ReactNode>;
   showExternal?: boolean;
-  to: SiteLinkProps['to'];
+  href: SiteLinkProps['href'];
   onClick?: () => void;
 }
 
-const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to, onClick, showExternal}) => {
+const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, href, onClick, showExternal}) => {
   return (
     <Box
       as="span"
@@ -22,11 +22,11 @@ const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({childr
       lineHeight={['lineHeight20', 'lineHeight30']}
     >
       {showExternal ? (
-        <Anchor href={to} onClick={onClick} showExternal={showExternal}>
+        <Anchor href={href} onClick={onClick} showExternal={showExternal}>
           {children}
         </Anchor>
       ) : (
-        <SiteLink to={to} onClick={onClick}>
+        <SiteLink href={href} onClick={onClick}>
           {children}
         </SiteLink>
       )}

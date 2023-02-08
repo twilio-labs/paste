@@ -1,38 +1,34 @@
----
-title: About Paste
-description: An overview of what Paste is, is not, and how to use the platform.
-slug: /introduction/about-paste
----
+export const meta = {
+  title: 'About Paste',
+  description: 'An overview of what Paste is, is not, and how to use the platform.',
+  slug: '/introduction/about-paste',
+};
 
-import {graphql} from 'gatsby';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {InlineCode} from '../../../components/Typography';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/about-paste"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 </content>
 
@@ -40,7 +36,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
