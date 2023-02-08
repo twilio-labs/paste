@@ -62,10 +62,7 @@ export const DefaultTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -75,10 +72,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -88,10 +82,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -101,10 +92,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -134,10 +122,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -152,10 +137,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -170,10 +152,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -188,10 +167,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -208,13 +184,9 @@ export const DefaultFooterTable = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" color="inherit" fontFamily="fontFamilyCode">
               4
             </Text>
           </Td>
@@ -239,10 +211,7 @@ export const BorderlessTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -252,10 +221,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -265,10 +231,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -278,10 +241,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -311,10 +271,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -329,10 +286,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -347,10 +301,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -365,10 +316,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -385,13 +333,9 @@ export const BorderlessFooterTable = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
               4
             </Text>
           </Td>
@@ -417,10 +361,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -435,10 +376,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -453,10 +391,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -471,10 +406,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -491,13 +423,9 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
               4
             </Text>
           </Td>
@@ -522,10 +450,7 @@ export const StripedTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -535,10 +460,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -548,10 +470,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -561,10 +480,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -594,10 +510,7 @@ export const StripedTableFooter = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -612,10 +525,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -630,10 +540,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -648,10 +555,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -668,13 +572,9 @@ export const StripedTableFooter = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
               4
             </Text>
           </Td>
@@ -857,7 +757,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -872,7 +772,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -887,7 +787,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -933,7 +833,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Top aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -948,7 +848,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Middle aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -963,7 +863,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Bottom aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -1045,7 +945,7 @@ export const StickyHeaders = (): React.ReactNode => {
         </Tr>
       </THead>
       <TBody>
-        {[...new Array(50).keys()].map((index) => (
+        {[...new Array(40).keys()].map((index) => (
           <Tr key={index}>
             <Td>Content</Td>
             <Td>Content</Td>
@@ -1082,7 +982,7 @@ export const BorderlessStickyHeaders = (): React.ReactNode => {
         </Tr>
       </THead>
       <TBody>
-        {[...new Array(50).keys()].map((index) => (
+        {[...new Array(40).keys()].map((index) => (
           <Tr key={index}>
             <Td>Content</Td>
             <Td>Content</Td>
