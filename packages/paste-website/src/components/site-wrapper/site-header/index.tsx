@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useWindowSize} from '@twilio-paste/utils';
 
 import {SiteHeaderDesktop} from './SiteHeaderDesktop';
@@ -10,10 +9,10 @@ export const SiteHeader = (): JSX.Element => {
   // While SSR, render both and let CSS handle it (fixes FoUC)
   if (breakpointIndex === undefined) {
     return (
-      <React.Fragment>
+      <>
         <SiteHeaderMobile />
         <SiteHeaderDesktop />
-      </React.Fragment>
+      </>
     );
   }
 

@@ -8,7 +8,11 @@ interface GetStartedCardLinkProps {
   href: SiteLinkProps['href'];
   onClick?: () => void;
 }
-export const GetStartedCardLink: React.FC<GetStartedCardLinkProps> = ({children, onClick, href}) => {
+export const GetStartedCardLink: React.FC<React.PropsWithChildren<GetStartedCardLinkProps>> = ({
+  children,
+  onClick,
+  href,
+}) => {
   return (
     <Text as="p" fontWeight="fontWeightSemibold">
       <SiteLink href={href} onClick={onClick}>

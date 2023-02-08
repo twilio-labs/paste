@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';

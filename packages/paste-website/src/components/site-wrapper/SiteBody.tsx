@@ -39,7 +39,7 @@ const StyledSiteBody = styled.div`
   }
 `;
 
-export const SiteBody: React.FC = ({children}) => {
+export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
