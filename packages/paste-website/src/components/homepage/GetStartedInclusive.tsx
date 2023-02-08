@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import HomeGetStartedIllo1 from '../../assets/illustrations/home_getstarted_1.svg';
 import HomeGetStartedIllo1Dark from '../../assets/illustrations/home_getstarted_1_dark.svg';

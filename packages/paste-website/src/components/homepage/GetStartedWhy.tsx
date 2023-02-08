@@ -1,7 +1,7 @@
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
 import HomeGetStartedIllo2Dark from '../../assets/illustrations/home_getstarted_2_dark.svg';

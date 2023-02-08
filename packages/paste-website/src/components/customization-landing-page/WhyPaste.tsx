@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';

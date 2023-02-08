@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 

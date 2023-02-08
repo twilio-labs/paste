@@ -3,7 +3,7 @@ import useResizeObserver from 'use-resize-observer';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import HomeGetStartedIllo3 from '../../assets/illustrations/home_getstarted_3.svg';
 import HomeGetStartedIllo3Dark from '../../assets/illustrations/home_getstarted_3_dark.svg';

@@ -1,6 +1,6 @@
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import FooterBuildingBlocks from '../../../assets/illustrations/footer_building_blocks.svg';
 

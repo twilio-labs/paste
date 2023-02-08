@@ -2,7 +2,7 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';

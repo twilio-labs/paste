@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';

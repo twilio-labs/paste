@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
