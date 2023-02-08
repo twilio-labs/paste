@@ -15,7 +15,7 @@ const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engine
    */
 
   // One is null, so overall the review is pending
-  if (designStatus === null || engineerStatus === null) {
+  if (!designStatus || !engineerStatus) {
     return (
       <Text as="span" color="colorTextWeak">
         Pending

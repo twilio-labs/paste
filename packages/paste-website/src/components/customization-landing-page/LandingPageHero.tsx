@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
+import Image from 'next/future/image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
@@ -8,6 +8,7 @@ import {Heading} from '@twilio-paste/heading';
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {ImageSlider} from './image-slider';
+import HeroSlider from '../../assets/images/customization/hero-slider-mobile.png';
 
 export const LandingPageHero: React.FC = () => {
   return (
@@ -62,12 +63,7 @@ export const LandingPageHero: React.FC = () => {
             <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <StaticImage
-                src="../../assets/images/customization/hero-slider-mobile.png"
-                alt=""
-                placeholder="blurred"
-                layout="fullWidth"
-              />
+              <Image src={HeroSlider} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
             </Box>
           </LandingPageSectionContent>
         </Box>

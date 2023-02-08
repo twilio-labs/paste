@@ -9,7 +9,7 @@ import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 const NotFound: React.FC = () => (
   <>
     <Breadcrumb>
-      <BreadcrumbItem to="/">Home</BreadcrumbItem>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
     </Breadcrumb>
     <Heading as="h1" variant="heading10">
       Oops, this page doesn&apos;t exist

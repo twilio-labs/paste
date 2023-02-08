@@ -12,9 +12,13 @@ export const AlertCard = (): React.ReactNode => {
     Documentation: true,
     Figma: 'false',
     Code: 'true',
-    Design_committee_review: 'true',
-    Engineer_committee_review: 'true',
+    'Design committee review': 'true',
+    'Engineer committee review': 'true',
     type: 'components',
+    version: '1.0.0',
+    status: 'production',
+    'Component Category': 'component',
+    'Product suitability': '',
   };
 
   return (
@@ -33,9 +37,13 @@ export const ButtonCard = (): React.ReactNode => {
     Documentation: false,
     Figma: 'not applicable',
     Code: 'yes',
-    Design_committee_review: null,
-    Engineer_committee_review: null,
+    'Design committee review': '',
+    'Engineer committee review': '',
     type: 'components',
+    version: '1.0.0',
+    status: 'production',
+    'Component Category': 'component',
+    'Product suitability': '',
   };
 
   return (

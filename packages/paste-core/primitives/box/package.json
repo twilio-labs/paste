@@ -3,7 +3,7 @@
   "version": "7.1.2",
   "category": "layout",
   "status": "production",
-  "description": "A primitive component that can be used to create all block level styles in Paste",
+  "description": "The Box primitive is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -29,6 +29,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.2",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
     "@twilio-paste/customization": "^5.0.0",
     "@twilio-paste/design-tokens": "^8.0.0",
     "@twilio-paste/style-props": "^6.0.0",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.9",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
     "@twilio-paste/customization": "^5.0.2",
     "@twilio-paste/design-tokens": "^8.3.0",
     "@twilio-paste/style-props": "^6.1.2",

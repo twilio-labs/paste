@@ -1,10 +1,10 @@
----
-title: Time Picker - Components
-description: A form component used to select a time.
-slug: /components/time-picker/
----
+export const meta = {
+  title: 'Time Picker - Components',
+  package: '@twilio-paste/time-picker',
+  description: 'A form component used to select a time.',
+  slug: '/components/time-picker/',
+};
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/time-picker/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -33,46 +33,25 @@ import {
   StackOfPickers,
 } from '../../../component-examples/TimePickerExamples.ts';
 import {DateTimeRangePicker} from '../../../component-examples/DatePickerExamples.ts';
+import packageJson from '@twilio-paste/time-picker/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/time-picker"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/time-picker/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Time Picker"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Time Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -85,7 +64,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

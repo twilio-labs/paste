@@ -1,11 +1,10 @@
----
-title: Table
-package: '@twilio-paste/table'
-description: Tables are used to display information that is meant to be compared across columns and rows.
-slug: /components/table/
----
+export const meta = {
+  title: 'Table',
+  package: '@twilio-paste/table',
+  description: 'Tables are used to display information that is meant to be compared across columns and rows.',
+  slug: '/components/table/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -22,51 +21,31 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {DetailText} from '@twilio-paste/detail-text';
 import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {SiteLink} from '../../../components/SiteLink';
+import packageJson from '@twilio-paste/table/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/table"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/table/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Table"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Table');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -79,7 +58,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -162,7 +141,7 @@ Accessibility recommendations:
   than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
   50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
   times to get past that table. If you do need to include interactive elements (such as linking to object details,
-  selecting rows, or deleting rows), use <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
+  selecting rows, or deleting rows), use <SiteLink href="/components/data-grid">Data Grid</SiteLink> instead.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight: navigating tables with a screen reader</CalloutHeading>
@@ -813,7 +792,7 @@ description text. In this example, the send time is not being compared across ro
 click rates are; instead, the send time is used to add additional detail that helps the user identify and
 understand data in an individual row.
 
-<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, DetailText}} language="jsx">
   {`<Table>
   <THead>
     <Tr>
@@ -825,30 +804,30 @@ understand data in an individual row.
   <TBody>
     <Tr>
       <Th scope="row">
-        <Text as="p">
+        <Text as="span">
           Adam Brown
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adam@brown.com</Text>
+        <DetailText marginTop='space0'>adam@brown.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">
-        <Text as="p" fontWeight="fontWeightBold">
+        <Text as="span">
           Adriana Lovelock
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adriana@lovelock.com</Text>
+        <DetailText marginTop='space0'>adriana@lovelock.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">
-        <Text as="p">
+        <Text as="span">
           Amanda Cutlack
         </Text>
-        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">amanda@cutlack.com</Text>
+        <DetailText marginTop='space0'>amanda@cutlack.com</DetailText>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
       <Td textAlign="right">7</Td>

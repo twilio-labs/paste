@@ -71,6 +71,7 @@
   "DescriptionListSet": "@twilio-paste/core/description-list",
   "DescriptionListTerm": "@twilio-paste/core/description-list",
   "StyledDescriptionListSet": "@twilio-paste/core/description-list",
+  "DetailText": "@twilio-paste/core/detail-text",
   "AnimatedDisclosureContent": "@twilio-paste/core/disclosure",
   "Disclosure": "@twilio-paste/core/disclosure",
   "DisclosureContent": "@twilio-paste/core/disclosure",

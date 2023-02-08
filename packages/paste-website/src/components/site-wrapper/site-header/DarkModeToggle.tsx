@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {styled, css} from '@twilio-paste/styling-library';
 import {useUID} from '@twilio-paste/uid-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
@@ -10,6 +9,7 @@ import {LightModeIcon} from '@twilio-paste/icons/esm/LightModeIcon';
 
 import {useDarkModeContext} from '../../../context/DarkModeContext';
 import {DarkModeBadge} from './DarkModeBadge';
+import {event} from '../../../lib/gtag';
 
 const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>((props) =>
   css({
@@ -78,7 +78,7 @@ export const DarkModeToggle: React.FC = () => {
               type="radio"
               value="light"
               onClick={() => {
-                trackCustomEvent({
+                event({
                   category: 'Top Navigation',
                   action: 'click-dark-mode',
                   label: 'Light',
@@ -98,7 +98,7 @@ export const DarkModeToggle: React.FC = () => {
               type="radio"
               value="dark"
               onClick={() => {
-                trackCustomEvent({
+                event({
                   category: 'Top Navigation',
                   action: 'click-dark-mode',
                   label: 'Dark',

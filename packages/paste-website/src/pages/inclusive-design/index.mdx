@@ -1,38 +1,35 @@
----
-title: Inclusive Design Guide
-description: Tips and tricks to consider while building inclusive, accessible experiences for Twilio users. These guidlines are geared towards designers and developers alike.
-slug: /inclusive-design/
----
+export const meta = {
+  title: 'Inclusive Design Guide',
+  description:
+    'Tips and tricks to consider while building inclusive, accessible experiences for Twilio users. These guidlines are geared towards designers and developers alike.',
+  slug: '/inclusive-design/',
+};
 
-import {graphql} from 'gatsby';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Card} from '@twilio-paste/card';
 import {Stack} from '@twilio-paste/stack';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
-import {Link} from 'gatsby';
+import Link from 'next/link';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/inclusive-design/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -40,7 +37,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

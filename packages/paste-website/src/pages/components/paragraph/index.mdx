@@ -1,11 +1,11 @@
----
-title: Paragraph
-package: '@twilio-paste/paragraph'
-description: The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.
-slug: /components/paragraph/
----
+export const meta = {
+  title: 'Paragraph',
+  package: '@twilio-paste/paragraph',
+  description:
+    'The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.',
+  slug: '/components/paragraph/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,46 +13,25 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
+import packageJson from '@twilio-paste/paragraph/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/paragraph"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/paragraph/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Paragraph"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Paragraph');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -65,7 +44,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
