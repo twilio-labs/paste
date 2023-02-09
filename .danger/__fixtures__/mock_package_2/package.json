@@ -2,7 +2,7 @@
   "name": "mock-package-2",
   "version": "2.0.0",
   "dependencies": {
-    "csstype": "^3.0.11",
+    "csstype": "3.0.11",
     "lodash": "4.17.21"
   },
   "peerDependencies": {

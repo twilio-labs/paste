@@ -74,6 +74,7 @@
 '@twilio-paste/tabs-primitive': minor
 '@twilio-paste/text': minor
 '@twilio-paste/tooltip-primitive': minor
+'@twilio-paste/cra-template': minor
 '@twilio-paste/customization': minor
 '@twilio-paste/icons': minor
 '@twilio-paste/animation-library': minor
