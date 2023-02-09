@@ -14048,7 +14048,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": ^18.0.0
+    "@types/react": 18.0.0
     "@types/react-dom": 18.0.0
     react: ^18.0.0
   peerDependencies:
@@ -15139,7 +15139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.0":
+"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.0.0":
   version: 18.0.27
   resolution: "@types/react@npm:18.0.27"
   dependencies:
@@ -15147,6 +15147,28 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 600fdbc39a92ea4a77047db3e12f05f67776a710f5918248c0189a59ac2a38900c9db5a5d2e433a16df528a3ecab1aa114b322cacea573bb1ca2fc0b094c52d1
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.0.0":
+  version: 18.0.0
+  resolution: "@types/react@npm:18.0.0"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 8a9769e2cabe335c86179881577e6ca32f3a6abdd5adbe2d498e48b78d532130da828a53ef25f21915179da454654b811292e0a8191c8a81af3bf4b05f5673bd
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^16.9.5":
+  version: 16.14.35
+  resolution: "@types/react@npm:16.14.35"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: ed9c551a7d50d073a5fb0295c1d939536c66c3286d42b6c94c20749464492ed95a408e6d3694bf49df0012da69e22202065c8c2fac0406356972a7fcb4960dd3
   languageName: node
   linkType: hard
 
