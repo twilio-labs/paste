@@ -12,7 +12,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
   width: sizeIcon30;
   height: sizeIcon30;
   background-color: colorBackgroundUser;
-  color: colorText;
+  color: colorTextUser;
   border-radius: borderRadiusCircle;
 }
 
@@ -77,8 +77,9 @@ exports[`Avatar intials should render responsive css 1`] = `
   flex-shrink: 0;
   width: sizeIcon10;
   height: sizeIcon10;
+  box-shadow: shadowBorderUser;
   background-color: colorBackgroundUser;
-  color: colorText;
+  color: colorTextUser;
   border-radius: borderRadiusCircle;
 }
 
@@ -103,7 +104,7 @@ exports[`Avatar intials should render responsive css 1`] = `
   font-size: fontSize10;
   line-height: lineHeight10;
   display: inline-block;
-  font-weight: fontWeightBold;
+  font-weight: fontWeightSemibold;
   vertical-align: top;
   -webkit-text-decoration: none;
   text-decoration: none;
