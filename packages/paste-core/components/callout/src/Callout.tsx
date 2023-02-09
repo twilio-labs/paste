@@ -8,7 +8,6 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
-import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
@@ -25,31 +24,36 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
     backgroundColor: 'colorBackgroundSuccessWeakest',
     color: 'colorTextSuccess',
+    borderColor: 'colorBorderSuccessWeaker',
   },
   error: {
     backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
+    color: 'colorTextError',
+    borderColor: 'colorBorderErrorWeaker',
   },
   warning: {
     backgroundColor: 'colorBackgroundWarningWeakest',
     color: 'colorTextWarningStrong',
+    borderColor: 'colorBorderWarningWeaker',
   },
   new: {
-    backgroundColor: 'colorBackgroundNew',
+    backgroundColor: 'colorBackgroundNewWeakest',
     color: 'colorTextNew',
+    borderColor: 'colorBorderNewWeaker',
   },
   neutral: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
+    borderColor: 'colorBorderNeutralWeaker',
   },
 };
 
-const variantIcons: Record<CalloutVariants, React.FC<GenericIconProps>> = {
-  success: SuccessIcon,
-  error: ErrorIcon,
-  warning: WarningIcon,
-  new: NewIcon,
-  neutral: NeutralIcon,
+const variantIcons: Record<CalloutVariants, React.ReactElement> = {
+  success: <SuccessIcon decorative color="colorTextIconSuccess" />,
+  error: <ErrorIcon decorative color="colorTextIconError" />,
+  warning: <WarningIcon decorative color="colorTextIconWarning" />,
+  new: <NewIcon decorative color="colorTextIconNew" />,
+  neutral: <NeutralIcon decorative color="colorTextIconNeutral" />,
 };
 
 const defaultIconLabels: Record<CalloutVariants, string> = {
@@ -72,16 +76,18 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         element={element}
         display="flex"
         marginY={marginY}
-        padding="space70"
-        borderRadius="borderRadius20"
+        padding="space60"
+        borderStyle="solid"
+        borderWidth="borderWidth10"
+        borderRadius="borderRadius30"
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box marginRight="space40" paddingTop="space10" element={`${element}_ICON`}>
-          <IconComponent decorative />
+        <Box marginRight="space60" paddingTop="space10" element={`${element}_ICON`}>
+          {IconComponent}
           <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
         </Box>
-        <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
+        <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
           {children}
         </Box>
       </Box>

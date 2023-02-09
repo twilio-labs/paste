@@ -17,14 +17,12 @@ const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({element = 'TD', tex
       element={element}
       fontSize="fontSize30"
       lineHeight="lineHeight30"
-      paddingBottom="space40"
-      paddingLeft="space50"
-      paddingRight="space50"
-      paddingTop="space40"
+      padding="space50"
       position="relative"
       textAlign={textAlign}
       verticalAlign="inherit"
       wordWrap="break-word"
+      color="inherit"
     />
   );
 });

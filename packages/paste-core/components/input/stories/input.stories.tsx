@@ -422,7 +422,7 @@ export const InputInsertBeforeAndAfter = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -458,7 +458,7 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -497,7 +497,7 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -535,7 +535,7 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -658,7 +658,7 @@ export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
           insertBefore={
-            <Text as="span" fontWeight="fontWeightSemibold">
+            <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
               $10.99
             </Text>
           }
@@ -756,7 +756,7 @@ export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
               onFocus={action('handleFocus')}
               onBlur={action('handleBlur')}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -782,7 +782,7 @@ export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
               onFocus={action('handleFocus')}
               onBlur={action('handleBlur')}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -886,7 +886,7 @@ export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
               onFocus={action('handleFocus')}
               onBlur={action('handleBlur')}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -913,7 +913,7 @@ export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
               onFocus={action('handleFocus')}
               onBlur={action('handleBlur')}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }

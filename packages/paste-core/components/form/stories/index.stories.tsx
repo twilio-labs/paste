@@ -119,7 +119,11 @@ export const Default: StoryFn = () => {
         <FormSectionDescription>Please add the details of your contact information.</FormSectionDescription>
         <FormControl>
           <Label htmlFor={seed('phone-number')}>Phone number</Label>
-          <Input id={seed('phone-number')} type="tel" insertAfter={<InformationIcon decorative />} />
+          <Input
+            id={seed('phone-number')}
+            type="tel"
+            insertAfter={<InformationIcon color="colorTextIcon" decorative />}
+          />
         </FormControl>
         <FormControl>
           <Label htmlFor={seed('email')}>Email address</Label>
@@ -312,7 +316,11 @@ export const FixedWidthForm: StoryFn = () => {
         <FormSectionDescription>Please add the details of your contact information.</FormSectionDescription>
         <FormControl>
           <Label htmlFor={seed('phone-number')}>Phone number</Label>
-          <Input id={seed('phone-number')} type="tel" insertAfter={<InformationIcon decorative />} />
+          <Input
+            id={seed('phone-number')}
+            type="tel"
+            insertAfter={<InformationIcon color="colorTextIcon" decorative />}
+          />
         </FormControl>
         <FormControl>
           <Label htmlFor={seed('email')}>Email address</Label>

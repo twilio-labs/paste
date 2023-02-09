@@ -96,7 +96,7 @@ const MultiselectComboboxExample = () => {
         console.log(selectedItems);
       }}
       insertBefore={
-        <Text as="span" fontWeight="fontWeightSemibold">
+        <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
           $10.99
         </Text>
       }
