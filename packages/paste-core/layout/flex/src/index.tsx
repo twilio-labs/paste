@@ -84,27 +84,29 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       [basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap]
     );
 
-    if (size && (width || height)) {
-      // eslint-disable-next-line no-console
-      console.error('[Paste Flex]: you cannot set a height or width when using the size attribute');
-    }
-    if (
-      (marginX && (margin || marginBottom || marginLeft || marginRight || marginTop)) ||
-      (marginY && (margin || marginBottom || marginLeft || marginRight || marginTop))
-    ) {
-      // eslint-disable-next-line no-console
-      console.error(
-        '[Paste Flex]: you cannot set a top, right, bottom or left margin when using the marginX or marginY attributes.'
-      );
-    }
-    if (
-      (paddingX && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop)) ||
-      (paddingY && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop))
-    ) {
-      // eslint-disable-next-line no-console
-      console.error(
-        '[Paste Flex]: you cannot set a top, right, bottom or left padding when using the paddingX or paddingY attributes.'
-      );
+    if (process.env.NODE_ENV === 'development') {
+      if (size && (width || height)) {
+        // eslint-disable-next-line no-console
+        console.error('[Paste Flex]: you cannot set a height or width when using the size attribute');
+      }
+      if (
+        (marginX && (margin || marginBottom || marginLeft || marginRight || marginTop)) ||
+        (marginY && (margin || marginBottom || marginLeft || marginRight || marginTop))
+      ) {
+        // eslint-disable-next-line no-console
+        console.error(
+          '[Paste Flex]: you cannot set a top, right, bottom or left margin when using the marginX or marginY attributes.'
+        );
+      }
+      if (
+        (paddingX && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop)) ||
+        (paddingY && (padding || paddingBottom || paddingLeft || paddingRight || paddingTop))
+      ) {
+        // eslint-disable-next-line no-console
+        console.error(
+          '[Paste Flex]: you cannot set a top, right, bottom or left padding when using the paddingX or paddingY attributes.'
+        );
+      }
     }
 
     const margins =

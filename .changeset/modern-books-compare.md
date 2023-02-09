@@ -68,8 +68,9 @@
 '@twilio-paste/customization': major
 '@twilio-paste/icons': major
 '@twilio-paste/style-props': major
+'@twilio-paste/core': minor
 ---
 
-This major version included listing all the missing peer dependencies for each Paste package.
+This version included listing all the missing peer dependencies for each Paste package.
 
 If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
