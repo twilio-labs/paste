@@ -1,11 +1,10 @@
----
-title: Select - Components
-package: '@twilio-paste/select'
-description: A select allows users to select an option from a list in a form field.
-slug: /components/select/
----
+export const meta = {
+  title: 'Select - Components',
+  package: '@twilio-paste/select',
+  description: 'A select allows users to select an option from a list in a form field.',
+  slug: '/components/select/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Input} from '@twilio-paste/input';
@@ -24,46 +23,25 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/select/CHANGELOG.md';
+import packageJson from '@twilio-paste/select/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/select"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/select/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Select"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Select');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -76,7 +54,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -243,7 +221,7 @@ The Select component should include the base Select, along with supporting eleme
   <Select
     id="select_add_ons_prefix_demo"
     htmlFor="select_add_ons_prefix_demo"
-    insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
+    insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">+1</Text>}
   >
     <Option value="cats">(415) 555-CATS</Option>
     <Option value="dogs">(415) 555-DOGS</Option>

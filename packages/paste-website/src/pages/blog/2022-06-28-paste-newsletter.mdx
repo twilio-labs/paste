@@ -1,59 +1,56 @@
----
-title: Paste Design System Newsletter - June 2022 Edition
-slug: /blog/2022-06-28-paste-newsletter/
-date: 2022-06-28
-author: Paste
-avatar:
-author_link:
-status: published
-external_link:
-excerpt: What's new in Paste in June 2022? Paste Intellisense, resizeable Textarea, important upgrades, and more!
----
+export const meta = {
+  title: 'Paste Design System Newsletter - June 2022 Edition',
+  slug: '/blog/2022-06-28-paste-newsletter/',
+  date: '2022-06-28',
+  author: 'Paste',
+  avatar: null,
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt: "What's new in Paste in June 2022? Paste Intellisense, resizeable Textarea, important upgrades, and more!",
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import PasteIntellisense from '../../assets/images/articles/2022-06-28-paste-newsletter/paste-intellisense.png';
+import TextArea from '../../assets/images/articles/2022-06-28-paste-newsletter/textarea.png';
+import OneTwilio from '../../assets/images/articles/2022-06-28-paste-newsletter/one-twilio.png';
+import Emotion from '../../assets/images/articles/2022-06-28-paste-newsletter/emotion.png';
+import Nextjs from '../../assets/images/articles/2022-06-28-paste-newsletter/nextjs.png';
+import Gapur from '../../assets/images/articles/2022-06-28-paste-newsletter/gapur.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2022-06-28-paste-newsletter/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -74,7 +71,7 @@ for the next half of the year, please reach out to [Loreina Chew](mailto:lchew@t
 
 ### Paste Intellisense
 
-![Screenshot of the Paste Intellisense plugin being used in VS Code](../../assets/images/articles/2022-06-28-paste-newsletter/paste-intellisense.png)
+<ResponsiveImage src={PasteIntellisense} alt="Screenshot of the Paste Intellisense plugin being used in VS Code" />
 
 Engineers, get ready for your lives to become a whole lot easier! <b>Gapur Kassym</b> from the Frontline team recently developed and contributed an exciting new tool: a VS Code extension
 that allows the user to easily view the pixel or rem value of a design token.
@@ -90,7 +87,7 @@ monorepo!
 
 ### Textarea component can now be resized!
 
-![Paste textarea component with label and help text showing the resize option](../../assets/images/articles/2022-06-28-paste-newsletter/textarea.png)
+<ResponsiveImage src={TextArea} alt="Paste textarea component with label and help text showing the resize option" />
 
 We recently released a major update to Paste (v14.0.0) to upgrade our Textarea component. It no longer has a dependency on `react-autosize-textarea` and instead has a peerDependency on `@twilio-paste/react-textarea-autosize-library` (which is bundled in `@twilio-paste/core`). The reason we changed this is to add a new resize prop, which defaults to ‘none’ and allows vertical. This prop allows users to resize the Textarea to whatever height they want.
 
@@ -100,7 +97,10 @@ We recently released a major update to Paste (v14.0.0) to upgrade our Textarea c
 
 ### One Twilio blog post
 
-![Text on a blue background reading 'Bringing Cohesion to the Twilio Product Suite; Part I'](../../assets/images/articles/2022-06-28-paste-newsletter/one-twilio.png)
+<ResponsiveImage
+  src={OneTwilio}
+  alt="Text on a blue background reading 'Bringing Cohesion to the Twilio Product Suite; Part I"
+/>
 
 The One Twilio team wrote a blog post about the research phase of their initiative to bring cohesion to Twilio’s full product suite. The post was published on [Twilio’s blog](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i) and was featured in [Issue 133 of Design Systems News](https://news.design.systems/issues/133).
 
@@ -114,7 +114,7 @@ Give it a read if you’d like to learn more about the customer research, market
 
 ### Emotion updated to version 11
 
-![Screenshot of the emotion 11 upgrade PR in github](../../assets/images/articles/2022-06-28-paste-newsletter/emotion.png)
+<ResponsiveImage src={Emotion} alt="Screenshot of the emotion 11 upgrade PR in github" />
 
 We recently released a major update to Paste in order to upgrade [Emotion](https://emotion.sh/docs/introduction), the style library on which Paste is built. Make sure to upgrade the version of `@twilio-paste/core` you’re using when convenient, and [keep an eye on the changelog](https://paste.twilio.design/core/changelog/) to make sure you don’t miss any future releases. If you’re curious about the changes that came along with version 11 of Emotion, [read about them on the Emotion docs](https://emotion.sh/docs/emotion-11).
 
@@ -124,7 +124,7 @@ We recently released a major update to Paste in order to upgrade [Emotion](https
 
 ### We updated our NextJS starter template
 
-![NextJS logo](../../assets/images/articles/2022-06-28-paste-newsletter/nextjs.png)
+<ResponsiveImage src={Nextjs} alt="NextJS logo" />
 
 Starting a brand new project with Paste and NextJS? [Our starter template](/introduction/for-engineers/quickstart/#using-create-next-app) can get you up and running in no time! We’ve recently updated the template to use the latest version of NextJS so you can spin-up a project on the cutting edge. This version drops support for Node v12, so make sure you’re up to date in your Node versions. As always, if you encounter any issues, [reach out to let us know](https://github.com/twilio-labs/paste/discussions).
 
@@ -141,7 +141,7 @@ Starting a brand new project with Paste and NextJS? [Our starter template](/intr
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-![This month's Pastemate, Gapur Kassym](../../assets/images/articles/2022-06-28-paste-newsletter/gapur.png)
+<ResponsiveImage src={Gapur} alt="This month's Pastemate, Gapur Kassym" />
 
 We’re excited and inspired by this Pastemate’s contribution. Gapur Kassym from the Frontline team created a VS Code extension that blew us all away! [Visual Studio Code](https://code.visualstudio.com/) (aka VS Code) is a dev environment that allows for customization through extensions, and Gapur’s [Paste Intellisense extension](https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense) allows developers to more easily use Paste in their projects. Gapur’s work uses autocomplete and hover features to show the name and value of Paste’s design tokens as they’re used in the code. By integrating this knowledge into the development space, Gapur has made a tool with the potential to simplify and empower all builders who use Paste! He recently demoed the extension for us and told us about his ideas for future features, so stay tuned! He lived all four values of the [Twilio Magic 2.0](https://switchboard.twilio.com/sites/all-about-us/SitePageModern/13749/twilio-magic-2-0), and we can’t wait to add his contribution to our system soon. Thank you, Gapur!
 

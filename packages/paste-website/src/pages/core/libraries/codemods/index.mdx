@@ -1,42 +1,42 @@
----
-title: Codemods
-description: A collection of jscodeshift codemods to help update projects built with Paste.
-slug: /core/libraries/codemods/
----
+export const meta = {
+  title: 'Codemods',
+  package: '@twilio-paste/codemods',
+  description: 'A collection of codemods for maintaining projects built with Paste.',
+  slug: '/core/libraries/codemods/',
+};
 
-import {graphql} from 'gatsby';
-import PackageJSON from '@twilio-paste/codemods/package.json';
 import {SidebarCategoryRoutes} from '../../../../constants';
+import {getNavigationData} from '../../../../utils/api';
+import packageJson from '@twilio-paste/codemods/package.json';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/libraries/codemods/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
 
 <GenericHeader
-  name="Codemods"
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-codemods"
-  packageName={PackageJSON.name}
-  version={PackageJSON.version}
-  description={PackageJSON.description}
+  packageName={props.data.name}
+  version={props.data.version}
+  description={props.data.description}
 />
 
 ---
 
 <contentwrapper>
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 <content>
 
 ## About

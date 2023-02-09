@@ -1,56 +1,34 @@
----
-title: In Page Navigation
-package: '@twilio-paste/in-page-navigation'
-description: An In Page Navigation is a group of styled links that lets users navigate between related pages.
-slug: /components/in-page-navigation/
----
+export const meta = {
+  title: 'In Page Navigation',
+  package: '@twilio-paste/in-page-navigation',
+  description: 'An In Page Navigation is a group of styled links that lets users navigate between related pages.',
+  slug: '/components/in-page-navigation/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md';
 import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {basicExample, fullWidthExample} from '../../../component-examples/InPageNavigationExamples';
+import packageJson from '@twilio-paste/in-page-navigation/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/in-page-navigation"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/in-page-navigation/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "In Page Navigation"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('In Page Navigation');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -63,7 +41,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

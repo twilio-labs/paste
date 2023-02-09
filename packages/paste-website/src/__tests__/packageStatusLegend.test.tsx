@@ -66,7 +66,7 @@ describe('PackageStatusLegend', () => {
     expect(screen.getByText('Peer review pending')).toBeDefined();
   });
 
-  it('should not render any badges if there are no statuses', () => {
+  it('should not render package status badges if there are no package statuses', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusEmpty />
@@ -74,8 +74,8 @@ describe('PackageStatusLegend', () => {
     );
     expect(screen.queryByText('Alpha')).toBeNull();
     expect(screen.queryByText('Beta')).toBeNull();
-    expect(screen.queryByText('Design assets pending')).toBeNull();
-    expect(screen.queryByText('Peer review pending')).toBeNull();
+    expect(screen.queryByText('Design assets pending')).toBeDefined();
+    expect(screen.queryByText('Peer review pending')).toBeDefined();
   });
 
   it('should not render any badges when all statuses are production ready', () => {

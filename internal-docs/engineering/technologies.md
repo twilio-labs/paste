@@ -92,13 +92,13 @@ For more information on how to use the theme see our [Theme Package documentatio
 
 ## Documentation site
 
-The documentation site is a [Gatsby](https://www.gatsbyjs.com/) website using the latest Paste components and Design language.
+The documentation site is a [NextJS](https://nextjs.org/) website using the latest Paste components and Design language.
 
 The content is largely written in [MDX](https://mdxjs.com/) pages.
 
 The search is provided by [Algolia Docsearch](https://docsearch.algolia.com/).
 
-The [roadmap](https://paste.twilio.design/roadmap/) is stored in an [Airtable](https://airtable.com/) and imported upon building the website via the [Airtable Gatsby plugin](https://www.gatsbyjs.com/plugins/gatsby-source-airtable/).
+The [roadmap](https://paste.twilio.design/roadmap/) is stored in an [Airtable](https://airtable.com/) and imported upon building the website via the [Airtable JS client](https://github.com/Airtable/airtable.js).
 
 ## Theme designer web application
 

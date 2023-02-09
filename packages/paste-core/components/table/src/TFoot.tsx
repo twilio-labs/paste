@@ -1,19 +1,22 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 
 import type {TFootProps} from './types';
 import {TFootPropTypes} from './proptypes';
 
+const footerCellStyles: BoxStyleProps = {
+  borderBottomWidth: 'borderWidth0',
+  borderTopWidth: 'borderWidth10',
+  fontWeight: 'fontWeightSemibold',
+  paddingY: 'space40',
+};
+
 const StyledTFoot = styled.tfoot<TFootProps>(
   css({
-    '& > tr > td': {
-      borderBottomWidth: 'borderWidth0',
-      borderTopWidth: 'borderWidth20',
-    },
-    '& > tr > th': {
-      borderBottomWidth: 'borderWidth0',
-    },
+    '& > tr > td': footerCellStyles,
+    '& > tr > th': footerCellStyles,
   })
 );
 
@@ -24,10 +27,8 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 
       {...safelySpreadBoxProps(props)}
       ref={ref}
       as={StyledTFoot as any}
-      backgroundColor="colorBackground"
-      borderTopStyle="solid"
-      borderTopWidth="borderWidth20"
-      borderTopColor="colorBorderWeaker"
+      backgroundColor="colorBackgroundWeak"
+      color="colorTextWeak"
       element={element}
     />
   );

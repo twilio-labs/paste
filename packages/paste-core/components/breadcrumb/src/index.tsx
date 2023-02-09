@@ -48,7 +48,6 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, Bre
       <Box
         alignItems="center"
         as="li"
-        color="colorText"
         display="inline-flex"
         element={`${elementName}_ITEM`}
         fontSize="fontSize20"
@@ -68,6 +67,7 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, Bre
             {...safelySpreadTextProps(props)}
             aria-current="page"
             as="span"
+            color="colorTextWeak"
             element={`${elementName}_TEXT`}
             fontSize="fontSize20"
             lineHeight="lineHeight20"

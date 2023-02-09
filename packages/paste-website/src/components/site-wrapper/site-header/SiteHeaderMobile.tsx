@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {DocSearch} from '@docsearch/react';
 
-import '@docsearch/css';
 import {HamburgerToggle} from './HamburgerToggle';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
-import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME} from '../../../constants';
+import {SiteHeaderSearch} from './SiteHeaderSearch';
 
 const SiteHeaderMobile: React.FC = () => {
   const [navigationOpen, setNavigationOpen] = React.useState(false);
@@ -24,12 +22,7 @@ const SiteHeaderMobile: React.FC = () => {
       zIndex="zIndex80"
     >
       <Box margin="space60">
-        <DocSearch
-          placeholder={`Try "button" or "token"`}
-          appId={DOCSEARCHV3_APPID}
-          indexName={DOCSEARCHV3_INDEXNAME || ''}
-          apiKey={DOCSEARCHV3_APIKEY || ''}
-        />
+        <SiteHeaderSearch />
       </Box>
       <SiteHeaderLogo title="Paste" />
       <Box margin="space60">

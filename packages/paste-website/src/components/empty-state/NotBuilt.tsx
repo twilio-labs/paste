@@ -18,8 +18,8 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
   return (
     <>
       <Breadcrumb>
-        <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
       </Breadcrumb>
       <Heading as="h1" variant="heading10">
         {getHumanizedNameFromPackageName(name)}

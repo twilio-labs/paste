@@ -1,41 +1,33 @@
----
-title: Theme Package
-package: '@twilio-paste/theme'
-description: The Paste Theme Package allows easy and simple access to the design tokens via a theme provider to React components
-slug: /theme
----
+export const meta = {
+  title: 'Theme Package',
+  package: '@twilio-paste/theme',
+  description:
+    'The Paste Theme Package allows easy and simple access to the design tokens via a theme provider to React components',
+  slug: '/theme',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
 import {SidebarCategoryRoutes} from '../../constants';
+import packageJson from '@twilio-paste/theme/package.json';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteThemePackage(filter: {name: {eq: "@twilio-paste/theme"}}) {
-      edges {
-        node {
-          name
-          description
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/theme"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.THEME}
@@ -47,7 +39,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

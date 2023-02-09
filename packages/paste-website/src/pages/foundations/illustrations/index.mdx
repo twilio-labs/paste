@@ -1,45 +1,32 @@
----
-title: Illustrations
-description: Guidelines and repository of illustrations that can be used in Twilio UIs.
-slug: /foundations/illustrations/
----
+export const meta = {
+  title: 'Illustrations',
+  description: 'Guidelines and repository of illustrations that can be used in Twilio UIs.',
+  slug: '/foundations/illustrations/',
+};
 
-import {graphql} from 'gatsby';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Flex} from '@twilio-paste/flex';
-import {Anchor} from '@twilio-paste/anchor';
-import {Grid} from '@twilio-paste/grid';
-import {Card} from '@twilio-paste/card';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
-import {Link} from 'gatsby';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/illustrations/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 ---
 
