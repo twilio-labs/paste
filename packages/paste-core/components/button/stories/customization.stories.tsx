@@ -33,11 +33,12 @@ const customButtonStyles = {
 } as PasteCustomCSS;
 
 const ShowCustomization: React.FC<
-React.PropsWithChildren<{
+  React.PropsWithChildren<{
     button: React.ReactNode;
-   customButton: React.ReactNode;
-  isTestEnvironment: boolean;
-}>> = ({button, customButton, isTestEnvironment}) => {
+    customButton: React.ReactNode;
+    isTestEnvironment: boolean;
+  }>
+> = ({button, customButton, isTestEnvironment}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space90">

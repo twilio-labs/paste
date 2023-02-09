@@ -13,11 +13,12 @@ import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} fr
 import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
 
 export const ExampleDisclosures: React.FC<
-React.PropsWithChildren<{
+  React.PropsWithChildren<{
     disabled?: boolean;
-   variant?: DisclosureVariants;
-  headingVariant: DisclosureHeadingProps['variant'];
-}>> = (props) => {
+    variant?: DisclosureVariants;
+    headingVariant: DisclosureHeadingProps['variant'];
+  }>
+> = (props) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <Disclosure visible variant={props.variant}>
