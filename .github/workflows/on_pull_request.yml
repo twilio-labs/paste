@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -113,7 +113,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -161,7 +161,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -209,7 +209,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -256,7 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -319,7 +319,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -369,7 +369,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Chromatic needs the full git history to work
           fetch-depth: 0
@@ -434,7 +434,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -477,7 +477,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
