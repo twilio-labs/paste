@@ -14048,8 +14048,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": 18.0.0
-    "@types/react-dom": 18.0.0
+    "@types/react": 18.0.27
+    "@types/react-dom": 18.0.10
     react: ^18.0.0
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15067,12 +15067,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@types/react-dom@npm:18.0.0"
+"@types/react-dom@npm:18.0.10":
+  version: 18.0.10
+  resolution: "@types/react-dom@npm:18.0.10"
   dependencies:
     "@types/react": "*"
-  checksum: 0d8c9cb3e72aefe0dd2b58a49845a200369f01ae92f3f11f642e04efc95dfd1c9380b6592d4273dd6113fb8707947d15b66d56c75c41f39f28bd897f0c08dfa9
+  checksum: ff8282d5005a0b1cd95fb65bf79d3d8485e4cfe2aaf052129033a178684b940014a3f4536bc20d573f8a01cf4c6f4770c74988cef7c2b5cac3041d9f172647e3
   languageName: node
   linkType: hard
 
@@ -15139,7 +15139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.0.0":
+"@types/react@npm:*, @types/react@npm:18.0.27, @types/react@npm:>=16":
   version: 18.0.27
   resolution: "@types/react@npm:18.0.27"
   dependencies:
@@ -15147,17 +15147,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 600fdbc39a92ea4a77047db3e12f05f67776a710f5918248c0189a59ac2a38900c9db5a5d2e433a16df528a3ecab1aa114b322cacea573bb1ca2fc0b094c52d1
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@types/react@npm:18.0.0"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 8a9769e2cabe335c86179881577e6ca32f3a6abdd5adbe2d498e48b78d532130da828a53ef25f21915179da454654b811292e0a8191c8a81af3bf4b05f5673bd
   languageName: node
   linkType: hard
 
@@ -37350,7 +37339,7 @@ fsevents@^1.2.7:
     "@types/jest": ^24.0.18
     "@types/node": ^18.11.13
     "@types/prop-types": ^15.7.5
-    "@types/react": ^18.0.0
+    "@types/react": 18.0.27
     "@types/react-color": ^3.0.6
     "@types/react-github-button": ^0.1.1
     "@types/react-helmet": ^6.1.6
