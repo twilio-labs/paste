@@ -11,16 +11,17 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {PopoverArrow} from './PopoverArrow';
 import {PopoverContext} from './PopoverContext';
 
-const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
+const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, width, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
+      width={width}
       backgroundColor="colorBackgroundBody"
       borderStyle="solid"
       borderWidth="borderWidth10"
       borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
-      boxShadow="shadowCard"
+      borderRadius="borderRadius30"
+      boxShadow="shadowLow"
       maxWidth="size50"
       zIndex="zIndex80"
       _focus={{outline: 'none'}}
@@ -36,18 +37,27 @@ export interface PopoverProps extends Pick<BoxProps, 'element'> {
   'aria-label': string;
   children: React.ReactNode;
   i18nDismissLabel?: string;
+  width?: 'size10' | 'size20' | 'size30' | 'size40' | 'size50';
+  initialFocusRef?: React.RefObject<any>;
 }
 
 const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
-  ({children, element = 'POPOVER', i18nDismissLabel = 'Close popover', ...props}, ref) => {
+  ({children, element = 'POPOVER', i18nDismissLabel = 'Close popover', initialFocusRef, ...props}, ref) => {
     const popover = React.useContext(PopoverContext);
+
+    React.useEffect(() => {
+      if (popover.visible && initialFocusRef) {
+        initialFocusRef.current?.focus();
+      }
+    }, [popover.visible, initialFocusRef]);
+
     return (
       <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref} preventBodyScroll={false}>
         {/* import Paste Theme Based Styles due to portal positioning. */}
         <StyledBase>
           <PopoverArrow {...(popover as any)} />
-          <Box element={element} paddingX="space80" paddingY="space70">
-            <Box position="absolute" right={8} top={8}>
+          <Box element={element} padding="space90">
+            <Box position="absolute" right={16} top={16}>
               <Button
                 element={`${element}_CLOSE_BUTTON`}
                 variant="secondary_icon"

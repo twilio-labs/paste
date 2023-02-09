@@ -3,7 +3,7 @@
   "version": "10.0.2",
   "category": "interaction",
   "status": "production",
-  "description": "A Popover is a page overlay triggered by a click that displays additional interactive content.",
+  "description": "A Popover is a page overlay triggered by a button that displays additional interactive content.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
