@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "dependencies": {
     "csstype": "^3.0.11",
-    "lodash": "^4.17.21"
+    "lodash": "4.17.21"
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^8.0.0",

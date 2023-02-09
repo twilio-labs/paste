@@ -14048,8 +14048,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": ^18.0.0
-    "@types/react-dom": ^18.0.0
+    "@types/react": 18.0.0
+    "@types/react-dom": 18.0.0
     react: ^18.0.0
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15063,6 +15063,15 @@ __metadata:
     "@types/react": "*"
     "@types/reactcss": "*"
   checksum: 8cd881d6eb725190be942c1d71f7917d3dd1b418417740f64fa6c03ae3ba16cb91d07c4b3b348cf5bae20071c8ca5d4aaf514c9a5318077d5e50bd782a5e8da2
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:18.0.0":
+  version: 18.0.0
+  resolution: "@types/react-dom@npm:18.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 0d8c9cb3e72aefe0dd2b58a49845a200369f01ae92f3f11f642e04efc95dfd1c9380b6592d4273dd6113fb8707947d15b66d56c75c41f39f28bd897f0c08dfa9
   languageName: node
   linkType: hard
 

@@ -33,7 +33,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || 'all');
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(!(defaultRoomType || defaultDateRange));
 
-  const handleApplyFilters = (): void => {
+  const handleApplyFilters = React.useCallback((): void => {
     const filtered = data.filter(({uniqueName, sid, roomType, dateCompleted}) => {
       return (
         filterBySearchString(uniqueName, sid, searchValue) &&
@@ -43,7 +43,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     });
 
     setFilteredTableData(filtered);
-  };
+  }, [data, filterDateRange, filterRoomType, searchValue]);
 
   const handleClearAll = (): void => {
     setFilterDateRange('all');
@@ -55,7 +55,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   React.useEffect(() => {
     handleApplyFilters();
-  }, []);
+  }, [handleApplyFilters]);
 
   React.useEffect(() => {
     setAreButtonsDisabled(filterDateRange === 'all' && filterRoomType === 'All');

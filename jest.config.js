@@ -12,6 +12,8 @@ module.exports = {
     '<rootDir>/cypress/',
     '<rootDir>/packages/paste-cra-template/',
     '<rootDir>/apps/',
+    '<rootDir>/packages/(?:.+?)/.next/',
+    '<rootDir>/packages/(?:.+?)/.netlify/',
   ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
