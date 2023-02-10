@@ -98,7 +98,7 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
 
 Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
   cy.visit(url);
-  cy.wait(1000);
+  cy.get('.DocSearch-Button-Keys').should('be.visible');
   cy.log('[VRT]: checking if VRT is enabled');
 
   if (vrtIsEnabled()) {
