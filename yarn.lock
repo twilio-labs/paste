@@ -7489,9 +7489,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@niznikr/reakit@npm:1.3.12":
-  version: 1.3.12
-  resolution: "@niznikr/reakit@npm:1.3.12"
+"@niznikr/reakit@npm:1.3.14":
+  version: 1.3.14
+  resolution: "@niznikr/reakit@npm:1.3.14"
   dependencies:
     "@popperjs/core": ^2.5.4
     body-scroll-lock: ^3.1.5
@@ -7501,7 +7501,7 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
-  checksum: 79fc7c440993f73dec290b959eb10ebbbe6aaa9eb9bb2aceaddc85f02ac9eda96a0783161a9988c81f0ef37e67b033fd6a04158d35c335e36c8501234f96c937
+  checksum: 45a90b4b8d8c5f5e99af09a70b36b160d92f26756f013cdcc64869d6905443645fc12ff9ae83215a756513cd39ea9ef51e64ba60745ceb0276b7c5f41cfaefcc
   languageName: node
   linkType: hard
 
@@ -13291,7 +13291,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
   dependencies:
-    "@niznikr/reakit": 1.3.12
+    "@niznikr/reakit": 1.3.14
     react: ^18.0.0
     react-dom: ^18.0.0
     reakit-system: 0.15.2
