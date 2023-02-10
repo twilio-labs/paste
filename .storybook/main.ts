@@ -15,9 +15,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     './addons/google-analytics/register',
   ],
-  framework: {
-    name: '@storybook/react-vite',
-  },
+  framework: '@storybook/react-vite',
   features: {
     interactionsDebugger: true,
   },
@@ -40,7 +38,14 @@ const config: StorybookConfig = {
           'react-dom/client': path.resolve(__dirname, '../node_modules/react-dom/client'),
           'react-dom': path.resolve(__dirname, '../node_modules/react-dom/profiling'),
           'scheduler/tracing': path.resolve(__dirname, '../node_modules/scheduler/tracing-profiling'),
+          // Avoid initial render issues for code blocks in prod build
+          'react-syntax-highlighter/dist/esm': path.resolve(
+            __dirname,
+            '../node_modules/react-syntax-highlighter/dist/cjs'
+          ),
+          'react-syntax-highlighter': path.resolve(__dirname, '../node_modules/react-syntax-highlighter/dist/cjs'),
         },
+        // Use source files for HMR and TurboSnap dependency map
         ...(!isTest && {mainFields: ['main:dev', 'browser', 'module', 'main']}),
       },
       optimizeDeps: {
