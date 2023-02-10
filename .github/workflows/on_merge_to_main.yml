@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
@@ -131,7 +131,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Chromatic needs the full git history to work
           fetch-depth: 0
@@ -181,6 +181,11 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+          onlyChanged: true
+          externals: |
+            - 'packages/paste-design-tokens/tokens/**'
+            - 'packages/paste-icons/src/**'
+            - '.storybook/static/**'
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
           # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
@@ -217,7 +222,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js 16.13
         uses: actions/setup-node@v3
