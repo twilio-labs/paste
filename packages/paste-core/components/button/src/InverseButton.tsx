@@ -13,24 +13,18 @@ import {DirectButtonPropTypes} from './proptypes';
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextInverse',
-  fontWeight: 'fontWeightSemibold',
   backgroundColor: 'colorBackgroundInverse',
-  boxShadow: 'shadowBorderInverse',
+  boxShadow: 'shadowBorderInverseWeaker',
   _hover: {
     color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
     backgroundColor: 'colorBackgroundInverseStrong',
-    boxShadow: 'shadowBorderInverseStrongest',
+    boxShadow: 'shadowBorderInverseStronger',
   },
   _focus: {
-    color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseStrong',
     boxShadow: 'shadowFocusInverse',
   },
   _active: {
     color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
     backgroundColor: 'colorBackgroundInverseStrong',
     boxShadow: 'shadowBorderInverseStrongest',
   },
@@ -38,14 +32,12 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextInverse',
-  fontWeight: 'fontWeightSemibold',
   backgroundColor: 'colorBackgroundInverseStrong',
   boxShadow: 'shadowBorderInverseWeaker',
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
-  fontWeight: 'fontWeightSemibold',
   backgroundColor: 'colorBackgroundInverse',
   boxShadow: 'shadowBorderInverseWeakest',
 });

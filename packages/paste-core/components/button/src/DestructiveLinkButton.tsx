@@ -11,13 +11,12 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLinkDestructive',
   textAlign: 'left',
   transition: 'none',
-  _hover: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
+  _hover: {color: 'colorTextLinkDestructiveStrongest', textDecoration: 'underline'},
   _active: {color: 'colorTextLinkDestructiveStrongest', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextLinkDestructiveStronger',
+  color: 'colorTextLinkDestructive',
   textAlign: 'left',
   _hover: {color: 'colorTextLinkDestructiveStronger'},
   _active: {color: 'colorTextLinkDestructiveStronger'},
@@ -25,7 +24,7 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
-  color: 'colorTextLinkDestructiveWeak',
+  color: 'colorTextWeaker',
   textAlign: 'left',
   _hover: {color: 'colorTextLinkDestructiveWeak'},
   _active: {color: 'colorTextLinkDestructiveWeak'},

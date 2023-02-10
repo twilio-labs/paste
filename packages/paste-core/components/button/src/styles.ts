@@ -93,15 +93,19 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
 
 export const ToggleStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
+  color: 'colorText',
+  backgroundColor: 'colorBackgroundBody',
+  // Glorilí is here adding the rest of the toggle button specific styles
+  boxShadow: 'shadowBorderWeak',
   _pressed: {
-    backgroundColor: 'colorBackgroundPrimaryStronger',
-    color: 'colorTextWeakest',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    color: 'colorTextPrimary',
+    boxShadow: 'shadowBorderPrimary',
   },
   _pressed_hover: {
-    backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'shadowBorderPrimary',
-    color: 'colorTextInverse',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimaryStronger',
   },
   _pressed_focus: {
     boxShadow: 'shadowFocusShadowBorder',

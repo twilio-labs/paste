@@ -8,21 +8,20 @@ import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextLink',
+  color: 'colorTextPrimary',
   textAlign: 'left',
   transition: 'none',
-  _hover: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
-  _active: {color: 'colorTextLinkStrongest', textDecoration: 'underline'},
+  _hover: {color: 'colorTextPrimaryStrongest', textDecoration: 'underline'},
+  _active: {color: 'colorTextPrimaryStrongest', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextLinkStronger',
+  color: 'colorTextPrimary',
   textAlign: 'left',
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
-  color: 'colorTextLinkWeak',
+  color: 'colorTextWeaker',
   textAlign: 'left',
 });
 
