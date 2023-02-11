@@ -6,10 +6,12 @@ import {Heading} from '@twilio-paste/heading';
 import camelCase from 'lodash/camelCase';
 
 import type {TokenCardProps} from '../types';
+import {Theme} from '@twilio-paste/theme';
 
-export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pairing' | 'name'>> = ({
+export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pairing' | 'name' | 'selectedTheme'>> = ({
   text_contrast_pairing,
   name,
+  selectedTheme,
 }) => {
   return (
     <Box as="div" marginTop="space50">
@@ -25,26 +27,28 @@ export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pai
             Here are some colors that meet accessible contrast ratios when paired with <strong>{name}</strong>.
           </Paragraph>
 
-          <Box display="flex" rowGap="space30" columnGap="space30" flexWrap="wrap">
-            {text_contrast_pairing?.map((color) => (
-              <Box
-                backgroundColor={camelCase(color) as BoxProps['backgroundColor']}
-                color={camelCase(name) as BoxProps['color']}
-                borderRadius="borderRadius20"
-                paddingX="space30"
-                paddingY="space10"
-                fontFamily="fontFamilyCode"
-                fontSize="fontSize20"
-                lineHeight="lineHeight10"
-                borderStyle="solid"
-                borderColor="colorBorderWeak"
-                borderWidth="borderWidth10"
-                key={`color${color}`}
-              >
-                ${color}
-              </Box>
-            ))}
-          </Box>
+          <Theme.Provider theme={selectedTheme}>
+            <Box display="flex" rowGap="space30" columnGap="space30" flexWrap="wrap">
+              {text_contrast_pairing?.map((color) => (
+                <Box
+                  backgroundColor={camelCase(color) as BoxProps['backgroundColor']}
+                  color={camelCase(name) as BoxProps['color']}
+                  borderRadius="borderRadius20"
+                  paddingX="space30"
+                  paddingY="space10"
+                  fontFamily="fontFamilyCode"
+                  fontSize="fontSize20"
+                  lineHeight="lineHeight10"
+                  borderStyle="solid"
+                  borderColor="colorBorderWeak"
+                  borderWidth="borderWidth10"
+                  key={`color${color}`}
+                >
+                  ${color}
+                </Box>
+              ))}
+            </Box>
+          </Theme.Provider>
         </Popover>
       </PopoverContainer>
     </Box>

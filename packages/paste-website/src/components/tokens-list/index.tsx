@@ -211,6 +211,7 @@ export const TokensList = (): JSX.Element => {
                         onCopyText={handleCopyName}
                         isCopied={clipboard.copied && lastCopiedValue === name}
                         text_contrast_pairing={text_contrast_pairing}
+                        selectedTheme={selectedTheme}
                       />
                     ))
                   ) : (

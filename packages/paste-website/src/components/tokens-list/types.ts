@@ -41,4 +41,5 @@ export interface TokenCardProps extends TokenExampleProps {
   useCamelCase?: boolean;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;
+  selectedTheme: 'default' | 'dark';
 }

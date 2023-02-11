@@ -70,6 +70,7 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onCopyText = () => {},
     isCopied = false,
+    selectedTheme,
     ...props
   }) => {
     const tooltipState = useTooltipState();
@@ -188,7 +189,11 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
           </TokenCardValue>
           <TokenCardComment>{comment}</TokenCardComment>
           {text_contrast_pairing && text_contrast_pairing.length > 0 && (
-            <AccessiblePairing name={tokenName} text_contrast_pairing={text_contrast_pairing} />
+            <AccessiblePairing
+              name={tokenName}
+              text_contrast_pairing={text_contrast_pairing}
+              selectedTheme={selectedTheme}
+            />
           )}
         </TokenCardContent>
       </Box>
