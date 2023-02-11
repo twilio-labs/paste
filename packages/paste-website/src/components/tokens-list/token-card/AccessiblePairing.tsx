@@ -28,7 +28,7 @@ export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pai
           <Box display="flex" rowGap="space30" columnGap="space30" flexWrap="wrap">
             {text_contrast_pairing?.map((color) => (
               <Box
-                backgroundColor={camelCase(color) as BoxProps['color']}
+                backgroundColor={camelCase(color) as BoxProps['backgroundColor']}
                 color={camelCase(name) as BoxProps['color']}
                 borderRadius="borderRadius20"
                 paddingX="space30"

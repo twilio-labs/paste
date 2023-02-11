@@ -35,7 +35,7 @@ export default {
   },
 } as Meta<typeof TokenCard>;
 
-const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase}) => {
+const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase, text_contrast_pairing}) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
   const backgroundColor = theme.backgroundColors.colorBackgroundBody;
@@ -91,6 +91,7 @@ const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase}) => 
         textColorInverse={textColorInverse}
         borderColor={borderColor}
         useCamelCase={useCamelCase}
+        text_contrast_pairing={text_contrast_pairing}
       />
     </Box>
   );
@@ -214,6 +215,7 @@ export const TextColorToken = Template.bind({});
 TextColorToken.args = {
   category: 'text-colors',
   name: 'color-text-success',
+  text_contrast_pairing: ['color-background', 'color-background-new', 'color-background-user'],
 };
 
 export const TextColorConditionalToken = Template.bind({});
