@@ -58,8 +58,7 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
       isFirstRender.current = false;
       return;
     }
-    tooltipState.hide();
-    setTimeout(() => tooltipState.show(), 0);
+    tooltipState.unstable_update();
   }, [tooltipText]);
 
   return (
