@@ -193,7 +193,7 @@ export const TokensList = (): JSX.Element => {
                 {sectionIntro}
                 <Box marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens ? (
-                    categoryTokens.map(({name, value, altValue, comment}) => (
+                    categoryTokens.map(({name, value, altValue, comment, text_contrast_pairing}) => (
                       <TokenCard
                         key={`token${name}`}
                         category={tokenCategory}
@@ -210,6 +210,7 @@ export const TokensList = (): JSX.Element => {
                         useCamelCase={useJavascriptNames}
                         onCopyText={handleCopyName}
                         isCopied={clipboard.copied && lastCopiedValue === name}
+                        text_contrast_pairing={text_contrast_pairing}
                       />
                     ))
                   ) : (

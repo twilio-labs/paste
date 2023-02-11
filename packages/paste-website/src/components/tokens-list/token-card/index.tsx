@@ -10,6 +10,7 @@ import {styled, css} from '@twilio-paste/styling-library';
 
 import {TokenExample} from './token-example';
 import type {TokenCardProps} from '../types';
+import {AccessiblePairing} from './AccessiblePairing';
 
 const TokenCardContent = styled.dl(
   css({
@@ -65,6 +66,7 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
     textColor,
     textColorInverse,
     useCamelCase,
+    text_contrast_pairing,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onCopyText = () => {},
     isCopied = false,
@@ -185,6 +187,9 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
             </Box>
           </TokenCardValue>
           <TokenCardComment>{comment}</TokenCardComment>
+          {text_contrast_pairing && text_contrast_pairing.length > 0 && (
+            <AccessiblePairing name={tokenName} text_contrast_pairing={text_contrast_pairing} />
+          )}
         </TokenCardContent>
       </Box>
     );

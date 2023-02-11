@@ -32,6 +32,7 @@ export interface TokenExampleProps extends TokenExampleColors {
   category: Token['category'];
   name: Token['name'];
   value: Token['value'];
+  text_contrast_pairing?: Token['text_contrast_pairing'];
 }
 
 export interface TokenCardProps extends TokenExampleProps {
