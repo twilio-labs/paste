@@ -202,7 +202,7 @@ const FormExample = () => {
             type="text"
             value="11200 - HTTP retrieval failure"
             insertAfter={
-              <SearchIcon decorative/>
+              <SearchIcon color="colorTextIcon" decorative/>
             }
           />
         </FormControl>

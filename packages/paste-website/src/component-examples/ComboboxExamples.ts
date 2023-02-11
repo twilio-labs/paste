@@ -20,7 +20,7 @@ const PrefixSuffixCombobox = () => {
     <Combobox
       items={numbers}
       labelText="Select a phone number"
-      insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
+      insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">+1</Text>}
       insertAfter={
         <Anchor href="#" display="flex">
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />

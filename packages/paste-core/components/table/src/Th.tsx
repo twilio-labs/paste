@@ -27,6 +27,7 @@ const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
         verticalAlign="inherit"
         width={width}
         wordWrap="break-word"
+        color="inherit"
       />
     );
   }

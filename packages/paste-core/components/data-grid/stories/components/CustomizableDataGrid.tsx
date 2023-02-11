@@ -15,11 +15,13 @@ export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} 
     backgroundColor: 'colorBackgroundStrong',
     fontWeight: 'fontWeightSemibold',
     borderColor: 'colorBorderStrong',
+    color: 'colorText',
   },
   [`${prefix}_FOOT`]: {
     backgroundColor: 'colorBackgroundStrong',
     fontWeight: 'fontWeightSemibold',
     borderColor: 'colorBorderStrong',
+    color: 'colorText',
   },
   [`${prefix}_HEADER`]: {
     padding: 'space10',
