@@ -6,10 +6,10 @@ export interface CustomizationProviderProps {
   /**
    * Choose the base theme you would like your application to extend from
    *
-   * @type {('default' | 'dark')}
+   * @type {('default' | 'sendgrid' | 'flex' | 'dark' | 'twilio' | 'twilio-dark' | 'evergreen')}
    * @memberof CustomizationProviderProps
    */
-  baseTheme?: 'default' | 'dark';
+  baseTheme?: 'default' | 'sendgrid' | 'flex' | 'dark' | 'twilio' | 'twilio-dark' | 'evergreen';
   /**
    * Provide an array of breakpoint sizes that you would like to be able to use in responsive
    * layouts, using the responsive style props
