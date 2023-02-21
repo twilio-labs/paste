@@ -7,62 +7,78 @@ export const badgeVariantStyles: {
     backgroundColor: BoxStyleProps['backgroundColor'];
     color: BoxStyleProps['color'];
     borderRadius?: BoxStyleProps['borderRadius'];
+    boxShadow: BoxStyleProps['boxShadow'];
   };
 } = {
   success: {
     backgroundColor: 'colorBackgroundSuccessWeakest',
     color: 'colorTextSuccess',
+    boxShadow: 'shadowBorderSuccessWeaker',
   },
   error: {
     backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
+    color: 'colorTextError',
+    boxShadow: 'shadowBorderErrorWeaker',
   },
   warning: {
     backgroundColor: 'colorBackgroundWarningWeakest',
-    color: 'colorTextWarningStrong',
+    color: 'colorTextWarning',
+    boxShadow: 'shadowBorderWarningWeaker',
   },
   new: {
-    backgroundColor: 'colorBackgroundNew',
+    backgroundColor: 'colorBackgroundNewWeakest',
     color: 'colorTextNew',
+    boxShadow: 'shadowBorderNewWeaker',
   },
   neutral: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
+    boxShadow: 'shadowBorderNeutralWeaker',
   },
   decorative10: {
     backgroundColor: 'colorBackgroundDecorative10Weakest',
     color: 'colorTextDecorative10',
+    boxShadow: 'shadowBorderDecorative10Weaker',
   },
   decorative20: {
     backgroundColor: 'colorBackgroundDecorative20Weakest',
     color: 'colorTextDecorative20',
+    boxShadow: 'shadowBorderDecorative20Weaker',
   },
   decorative30: {
     backgroundColor: 'colorBackgroundDecorative30Weakest',
     color: 'colorTextDecorative30',
+    boxShadow: 'shadowBorderDecorative30Weaker',
   },
   decorative40: {
     backgroundColor: 'colorBackgroundDecorative40Weakest',
     color: 'colorTextDecorative40',
+    boxShadow: 'shadowBorderDecorative40Weaker',
   },
   neutral_counter: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
     borderRadius: 'borderRadiusPill',
+    boxShadow: 'shadowBorderNeutralWeaker',
   },
   error_counter: {
     backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
+    color: 'colorTextError',
     borderRadius: 'borderRadiusPill',
+    boxShadow: 'shadowBorderErrorWeaker',
   },
-  // the following variants are outdated but still supported to prevent breaking changes
+  /*
+   * the following variants are outdated but still supported to prevent breaking changes
+   */
   default: {
     backgroundColor: 'colorBackground',
     color: 'colorTextWeak',
+    boxShadow: 'shadowBorderDecorative10Weaker',
   },
   info: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
+    boxShadow: 'shadowBorderNeutralWeaker',
   },
 };
 
