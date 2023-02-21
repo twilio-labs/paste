@@ -4,6 +4,7 @@ import type {ValueOf} from '@twilio-paste/types';
 import {useReducedMotion} from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';
+import Image from 'next/future/image';
 
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
 import {inCypress} from '../../utils/inCypress';
@@ -18,7 +19,7 @@ type IllustrationStatesType = ValueOf<typeof IllustrationStates>;
 const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}) => {
   switch (state) {
     case IllustrationStates.STATIC:
-      return <HomeHeroIllu />;
+      return <Image src={HomeHeroIllu} aria-hidden="true" role="img" alt="" fill />;
     // null for dynamic because lottie injects children
     case IllustrationStates.DYNAMIC:
     case IllustrationStates.UNINITIALIZED:
@@ -89,6 +90,7 @@ const HomeHeroIllustration: React.FC = () => {
         maxWidth="size70"
         height={['400px', '400px', '500px']}
         marginLeft="auto"
+        position="relative"
         ref={containerRef}
       >
         <IllustrationChildren state={illustrationState} />
