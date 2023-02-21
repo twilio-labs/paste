@@ -105,6 +105,22 @@ When a package has a peer dependency on another internal package in the mono rep
 }
 ```
 
+### Checking and fixing peer deps
+
+To ensure peer dependencies are listed correctly, a check is run on the monorepo on every build.
+
+```bash
+yarn packages:check
+```
+
+If missing deps are detected you will be informed of which packages are missing what deps.
+
+To fix missing peer deps, run the fix command.
+
+```bash
+yarn packages:fix
+```
+
 ## Releasing
 
 Releasing Paste happens via CI/CD using [Changesets](https://github.com/atlassian/changesets).

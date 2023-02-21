@@ -1,10 +1,10 @@
----
-title: Empty state
-description: The Empty State pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.
-slug: /patterns/empty-state/
----
+export const meta = {
+  title: 'Empty state',
+  description:
+    'The Empty State pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.',
+  slug: '/patterns/empty-state/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -24,45 +24,27 @@ import {
   NoResultImage,
 } from '../../../components/images/EmptyStateImages';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/empty-state/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Empty state"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Empty state');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizedPatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -70,7 +52,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -155,7 +137,7 @@ When a page is in an empty state, its call-to-action (CTA) should appear in the 
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-state-with-immediate-next-step-bmxe1?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '350px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
     title="Empty state requiring a customer to wait"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -177,7 +159,7 @@ In most cases, an empty state has a [Heading](/components/heading) to summarize 
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-states-with-immediate-next-steps-7tbp3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '350px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
     title="Empty state with an immediate next step"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -193,7 +175,7 @@ If the customer might need to start another workflow, consider giving them a way
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-state-requiring-a-customer-to-wait-uyxu3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '350px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
     title="Empty state requiring a customer to wait"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -221,7 +203,7 @@ Open the sandbox in a new tab and resize the browser for an example of responsiv
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-state-sizing-responsiveness-euj5p?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
     title="Empty state requiring a customer to wait"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

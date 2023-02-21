@@ -11,10 +11,10 @@ import {Button} from '@twilio-paste/button';
 import {ThumbsUpIcon} from '@twilio-paste/icons/esm/ThumbsUpIcon';
 import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 
 import {SimpleStorage} from '../../../utils/SimpleStorage';
 import {useLocationPathname} from '../../../utils/RouteUtils';
+import {event} from '../../../lib/gtag';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
@@ -104,7 +104,7 @@ export const FeedbackPopover: React.FC = () => {
   const likePage = React.useCallback((): void => {
     SimpleStorage.set(localStorageKey, 'like');
     setPageRating('like');
-    trackCustomEvent({
+    event({
       category: 'page-rating',
       label: pathname,
       action: 'like-page',
@@ -114,7 +114,7 @@ export const FeedbackPopover: React.FC = () => {
   const dislikePage = React.useCallback((): void => {
     SimpleStorage.set(localStorageKey, 'dislike');
     setPageRating('dislike');
-    trackCustomEvent({
+    event({
       category: 'page-rating',
       label: pathname,
       action: 'dislike-page',

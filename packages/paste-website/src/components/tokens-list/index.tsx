@@ -154,13 +154,9 @@ export const TokensList: React.FC = () => {
   return tokens ? (
     <ContentWrapper>
       <PageAside
-        data={{
-          fileAbsolutePath: '',
-          frontmatter: {slug: '/tokens/list', title: 'Design tokens'},
-          headings: tokenCategories
-            .filter((value) => value !== 'colors') // filter out colors section
-            .map((value) => ({value: sentenceCase(value), depth: 2})),
-        }}
+        data={tokenCategories
+          .filter((value) => value !== 'colors') // filter out colors section
+          .map((value) => ({value: sentenceCase(value), depth: 2}))}
         stickyTop="space0"
         topPadding="space130"
       />

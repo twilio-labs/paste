@@ -1,11 +1,10 @@
----
-title: Disclosure
-package: '@twilio-paste/disclosure'
-description: The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.
-slug: /components/disclosure/
----
+export const meta = {
+  title: 'Disclosure',
+  package: '@twilio-paste/disclosure',
+  description: 'The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.',
+  slug: '/components/disclosure/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -18,46 +17,25 @@ import {Disclosure, DisclosureHeading, DisclosureContent, useDisclosureState} fr
 import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {StateHookExample, StateHookToggleExample} from '../../../component-examples/DisclosureExamples';
+import packageJson from '@twilio-paste/disclosure/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/disclosure"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/disclosure/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Disclosure"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Disclosure');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -70,7 +48,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -96,8 +74,8 @@ export const pageQuery = graphql`
 ### About Disclosure
 
 <p>
-  {props.pageContext.frontmatter.description} It uses the <Anchor href="/components/heading">Paste Heading</Anchor>{' '}
-  component to create consistency across pages and content hierarchy.
+  {meta.description} It uses the <Anchor href="/components/heading">Paste Heading</Anchor> component to create
+  consistency across pages and content hierarchy.
 </p>
 
 ### Accessibility

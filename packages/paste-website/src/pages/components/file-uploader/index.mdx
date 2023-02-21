@@ -1,11 +1,10 @@
----
-title: File Uploader
-package: '@twilio-paste/file-uploader'
-description: A File Uploader is a form element used to upload multiple files.
-slug: /components/file-uploader/
----
+export const meta = {
+  title: 'File Uploader',
+  package: '@twilio-paste/file-uploader',
+  description: 'A File Uploader is a form element used to upload multiple files.',
+  slug: '/components/file-uploader/',
+};
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/file-uploader/CHANGELOG.md';
 import {
   FileUploader,
@@ -33,60 +32,39 @@ import {
   dragDropExample,
 } from '../../../component-examples/FileUploaderExamples.ts';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import packageJson from '@twilio-paste/file-uploader/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/file-uploader"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/file-uploader/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "File Uploader"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Uploader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader"
   storybookUrl="/?path=/story/components-file-uploader--"
   data={props.data}
-  description={props.pageContext.frontmatter.description}
+  description={meta.description}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

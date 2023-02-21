@@ -1,11 +1,10 @@
----
-title: Input - Components
-package: '@twilio-paste/input'
-description: An input allows users to enter text on a single line.
-slug: /components/input/
----
+export const meta = {
+  title: 'Input - Components',
+  package: '@twilio-paste/input',
+  description: 'An input allows users to enter text on a single line.',
+  slug: '/components/input/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
@@ -21,46 +20,25 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
+import packageJson from '@twilio-paste/input/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/input"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/input/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Input"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Input');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -73,7 +51,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -180,7 +158,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
@@ -190,7 +168,7 @@ The input component should include the base input, along with supporting element
   <Label htmlFor="message_title" required>Message title</Label>
   <Input
     aria-describedby="display_name_help_text"
-    id="display_name"
+    id="message_title"
     name="display_name"
     type="text"
     placeholder="Ahoy, World"
@@ -492,7 +470,7 @@ Use an input when users are expected to enter less than a single line of text, o
         type="text"
         onChange=""
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             Name
           </Text>
         }

@@ -1,11 +1,10 @@
----
-title: Chat Log
-package: '@twilio-paste/chat-log'
-description: A Chat Log is a collection of Chat components for displaying conversations between people.
-slug: /components/chat-log/
----
+export const meta = {
+  title: 'Chat Log',
+  package: '@twilio-paste/chat-log',
+  description: 'A Chat Log is a collection of Chat components for displaying conversations between people.',
+  slug: '/components/chat-log/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -47,61 +46,39 @@ import {
   kitchenSink,
   chatLoggerExample,
 } from '../../../component-examples/ChatLogExamples.ts';
+import packageJson from '@twilio-paste/chat-log/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/chat-log"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/chat-log/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Chat Log"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chat Log');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-log"
   storybookUrl="/?path=/story/components-chatlog--scrolling-chat-log"
   data={props.data}
-  description={props.data.mdx.frontmatter.description}
+  description={meta.description}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {ProductSupportIcon} from '@twilio-paste/icons/esm/ProductSupportIcon';
+
+import {event} from '../lib/gtag';
 
 interface ContactUsMenuProps {
   placement?:
@@ -32,7 +33,7 @@ export const ContactUsMenu: React.FC<ContactUsMenuProps> = ({placement = 'right-
 
   const handleClick = (category: string, action: string, label: string): void => {
     menu.hide();
-    trackCustomEvent({
+    event({
       category,
       action,
       label,
@@ -47,7 +48,7 @@ export const ContactUsMenu: React.FC<ContactUsMenuProps> = ({placement = 'right-
         size="reset"
         fullWidth
         onClick={() =>
-          trackCustomEvent({
+          event({
             category: 'Left Navigation',
             action: 'click-contact-us',
             label: 'Contact us',

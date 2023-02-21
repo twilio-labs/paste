@@ -1,5 +1,11 @@
 import {PackageStatus} from '../constants';
-import type {ComponentNode} from './types';
+
+export interface ComponentNode {
+  name: string;
+  packageName?: string;
+  version?: string;
+  packageStatus?: string;
+}
 
 export const filteredComponents = (component: ComponentNode): boolean => {
   return (

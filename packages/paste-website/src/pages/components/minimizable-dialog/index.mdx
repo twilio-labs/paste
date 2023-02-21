@@ -1,11 +1,10 @@
----
-title: Minimizable Dialog
-package: '@twilio-paste/minimizable-dialog'
-description: An accessible, non-modal dialog that can be minimized to the bottom of the page.
-slug: /components/minimizable-dialog/
----
+export const meta = {
+  title: 'Minimizable Dialog',
+  package: '@twilio-paste/minimizable-dialog',
+  description: 'An accessible, non-modal dialog that can be minimized to the bottom of the page.',
+  slug: '/components/minimizable-dialog/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
@@ -33,53 +32,31 @@ import {
   minimizableDialogButtonExample,
   hookExample,
 } from '../../../component-examples/MinimizableDialogExamples';
+import packageJson from '@twilio-paste/minimizable-dialog/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/minimizable-dialog"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/minimizable-dialog/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Minimizable Dialog"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Minimizable Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog"
   storybookUrl="/?path=/story/components-minimizable-dialog--default"
-  description={props.data.mdx.frontmatter.description}
+  description={meta.description}
   data={props.data}
 />
 
@@ -87,7 +64,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

@@ -1,10 +1,10 @@
----
-title: Alert Dialog - Components
-description: An alert dialog displays content over the main page and blocks any interaction with the page.
-slug: /components/alert-dialog/
----
+export const meta = {
+  title: 'Alert Dialog - Components',
+  package: '@twilio-paste/alert-dialog',
+  description: 'An alert dialog displays content over the main page and blocks any interaction with the page.',
+  slug: '/components/alert-dialog/',
+};
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
@@ -15,46 +15,25 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {defaultExample, destructiveExample, modalExample} from '../../../component-examples/AlertDialogExamples';
+import packageJson from '@twilio-paste/alert-dialog/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/alert-dialog"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/alert-dialog/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Alert Dialog"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Alert Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -67,7 +46,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

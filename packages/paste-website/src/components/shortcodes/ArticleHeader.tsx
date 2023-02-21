@@ -15,17 +15,34 @@ interface ArticleHeaderProps {
 }
 
 const ArticleHeader: React.FC<ArticleHeaderProps> = ({title, author, avatar, date, authorLink, machineDate}) => {
+  const articleDate = new Date(date);
+  const formattedDate = new Date(
+    articleDate.getUTCFullYear(),
+    articleDate.getUTCMonth(),
+    articleDate.getUTCDate()
+  ).toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <>
       <Breadcrumb>
-        <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to="/blog">Blog</BreadcrumbItem>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/blog">Blog</BreadcrumbItem>
       </Breadcrumb>
       <Box marginBottom="space70">
         <Heading as="h1" variant="heading10" marginBottom="space0">
           {title}
         </Heading>
-        <ArticleAuthor author={author} avatar={avatar} date={date} machineDate={machineDate} authorLink={authorLink} />
+        <ArticleAuthor
+          author={author}
+          avatar={avatar}
+          date={formattedDate}
+          machineDate={machineDate}
+          authorLink={authorLink}
+        />
       </Box>
     </>
   );

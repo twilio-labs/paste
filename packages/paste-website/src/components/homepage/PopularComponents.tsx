@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useTheme} from '@twilio-paste/theme';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import Image from 'next/future/image';
 
 import {
   ComponentCard,
@@ -17,6 +17,7 @@ import {SiteLink} from '../SiteLink';
 import ComponentsIcon from '../icons/ComponentsIcon';
 import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
+import {event} from '../../lib/gtag';
 
 const PopularComponents: React.FC = () => {
   const theme = useTheme();
@@ -51,10 +52,10 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Button</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeButtonIllustration aria-hidden="true" />
+              <Image src={HomeButtonIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/button">See Button</SiteLink>
+              <SiteLink href="/components/button">See Button</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -62,10 +63,10 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Combobox</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeComboboxIllustration aria-hidden="true" />
+              <Image src={HomeComboboxIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/combobox">See Combobox</SiteLink>
+              <SiteLink href="/components/combobox">See Combobox</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -74,9 +75,9 @@ const PopularComponents: React.FC = () => {
         <Text as="span" fontWeight="fontWeightSemibold">
           Explore{' '}
           <SiteLink
-            to="/components"
+            href="/components"
             onClick={() =>
-              trackCustomEvent({
+              event({
                 category: 'Popular',
                 action: 'click-all-components',
                 label: 'Explore all components',

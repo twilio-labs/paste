@@ -1,41 +1,38 @@
----
-title: How to build custom UI with Paste Tokens and Primitives
-description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.
-slug: /customization/composing-custom-components-with-design-tokens/
----
+export const meta = {
+  title: 'How to build custom UI with Paste Tokens and Primitives',
+  description:
+    "You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.",
+  slug: '/customization/composing-custom-components-with-design-tokens/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<GenericHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
-<P variant="lead">{props.pageContext.frontmatter.description}</P>
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+
+<P variant="lead">{meta.description}</P>
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 

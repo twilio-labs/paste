@@ -66,7 +66,7 @@ const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-js
           <StyledCode className={_className} style={style}>
             {tokens.map((line, i) => {
               // Codeblocks keep adding an extra blank line, this checks for that and removes it
-              if (i === lastLineIndex && line.length === 1 && line[0].content === '') {
+              if (i === lastLineIndex && line.length === 1 && (line[0].content === '' || line[0].empty)) {
                 return null;
               }
 

@@ -1,11 +1,10 @@
----
-title: Table
-package: '@twilio-paste/table'
-description: Tables are used to display information that is meant to be compared across columns and rows.
-slug: /components/table/
----
+export const meta = {
+  title: 'Table',
+  package: '@twilio-paste/table',
+  description: 'Tables are used to display information that is meant to be compared across columns and rows.',
+  slug: '/components/table/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -28,46 +27,25 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {SiteLink} from '../../../components/SiteLink';
+import packageJson from '@twilio-paste/table/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/table"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/table/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Table"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Table');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
@@ -80,7 +58,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -163,7 +141,7 @@ Accessibility recommendations:
   than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
   50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
   times to get past that table. If you do need to include interactive elements (such as linking to object details,
-  selecting rows, or deleting rows), use <SiteLink to="/components/data-grid">Data Grid</SiteLink> instead.
+  selecting rows, or deleting rows), use <SiteLink href="/components/data-grid">Data Grid</SiteLink> instead.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight: navigating tables with a screen reader</CalloutHeading>
