@@ -508,5 +508,5 @@ props:
 
   # user
   color-text-user:
-    value: "{!palette-purple-60}"
+    value: "{!palette-gray-100}"
     comment: Text color for user avatar.

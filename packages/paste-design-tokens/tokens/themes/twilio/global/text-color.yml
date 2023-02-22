@@ -53,3 +53,8 @@ props:
       - color-background
       - color-background-body
       - color-background-decorative-30
+
+  # user
+  color-text-user:
+    value: "{!palette-purple-60}"
+    comment: Text color for user avatar.

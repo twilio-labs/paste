@@ -31,7 +31,7 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
       as="abbr"
       display="inline-block"
       fontSize={computedTokenNames.fontSize}
-      fontWeight="fontWeightBold"
+      fontWeight="fontWeightSemibold"
       lineHeight={computedTokenNames.lineHeight}
       verticalAlign="top"
       textDecoration="none"
@@ -48,7 +48,7 @@ AvatarContents.displayName = 'AvatarContents';
 const colorVariants: Record<ColorVariants, BoxStyleProps> = {
   default: {
     backgroundColor: 'colorBackgroundUser',
-    color: 'colorText',
+    color: 'colorTextUser',
   },
   decorative10: {
     backgroundColor: 'colorBackgroundDecorative10Weakest',
@@ -77,6 +77,24 @@ const variants: Record<AvatarVariants, BoxStyleProps> = {
   },
 };
 
+const shadowVariants: Record<ColorVariants, BoxStyleProps> = {
+  default: {
+    boxShadow: 'shadowBorderUser',
+  },
+  decorative10: {
+    boxShadow: 'shadowBorderDecorative10Weaker',
+  },
+  decorative20: {
+    boxShadow: 'shadowBorderDecorative20Weaker',
+  },
+  decorative30: {
+    boxShadow: 'shadowBorderDecorative30Weaker',
+  },
+  decorative40: {
+    boxShadow: 'shadowBorderDecorative40Weaker',
+  },
+};
+
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   (
     {name, children, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props},
@@ -97,6 +115,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         flexShrink={0}
         ref={ref}
         size={size}
+        {...(src ? undefined : shadowVariants[color])}
         {...colorVariants[color]}
         {...variants[variant]}
       >

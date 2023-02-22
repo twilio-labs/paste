@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
-import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
+import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 
 import {SidebarDisclosureContext} from './SidebarDisclosureContext';
 
@@ -64,14 +64,10 @@ const StyledButton = React.forwardRef<HTMLButtonElement, SidebarDisclosureButton
         as="span"
         alignItems="center"
         display="flex"
-        transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
+        transform={props['aria-expanded'] ? 'rotate(90deg)' : 'rotate(0deg)'}
         transition="transform 100ms ease-out"
       >
-        <ChevronDisclosureExpandedIcon
-          color="colorTextIcon"
-          decorative
-          size={['sizeIcon40', 'sizeIcon40', 'sizeIcon10']}
-        />
+        <ChevronDisclosureIcon color="colorTextIcon" decorative size={['sizeIcon40', 'sizeIcon40', 'sizeIcon10']} />
       </Box>
       <Box flexGrow={1}>{props.children}</Box>
     </Box>
