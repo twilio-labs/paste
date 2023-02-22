@@ -7,6 +7,7 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
 
 import {PopoverArrow} from './PopoverArrow';
 import {PopoverContext} from './PopoverContext';
@@ -33,11 +34,13 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, width,
 
 StyledPopover.displayName = 'StyledPopover';
 
+type WidthOptions = 'size10' | 'size20' | 'size30' | 'size40' | 'size50';
+
 export interface PopoverProps extends Pick<BoxProps, 'element'> {
   'aria-label': string;
   children: React.ReactNode;
   i18nDismissLabel?: string;
-  width?: 'size10' | 'size20' | 'size30' | 'size40' | 'size50';
+  width?: ResponsiveValue<WidthOptions>;
   initialFocusRef?: React.RefObject<any>;
 }
 
@@ -83,6 +86,8 @@ Popover.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
   i18nDismissLabel: PropTypes.string,
+  initialFocusRef: PropTypes.object as any,
+  width: PropTypes.oneOf(['size10', 'size20', 'size30', 'size40', 'size50'] as WidthOptions[]),
 };
 
 Popover.displayName = 'Popover';

@@ -142,7 +142,7 @@ const PopoverPositionExample = () => {
     <Box display='flex' columnGap='space40'>
       <PopoverContainer baseId="popover-top-example" placement="top-start">
         <PopoverButton variant="primary">Open top</PopoverButton>
-        <Popover aria-label="Popover">
+        <Popover aria-label="Popover" width={['size20', 'size40']}>
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
           </Text>
@@ -150,7 +150,7 @@ const PopoverPositionExample = () => {
       </PopoverContainer>
       <PopoverContainer baseId="popover-right-example" placement="right-start">
         <PopoverButton variant="primary">Open right</PopoverButton>
-        <Popover aria-label="Popover">
+        <Popover aria-label="Popover" width={['size20', 'size40']}>
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
           </Text>
@@ -158,7 +158,7 @@ const PopoverPositionExample = () => {
       </PopoverContainer>
       <PopoverContainer baseId="popover-bottom-example" placement="bottom-start">
         <PopoverButton variant="primary">Open bottom</PopoverButton>
-        <Popover aria-label="Popover">
+        <Popover aria-label="Popover" width={['size20', 'size40']}>
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
           </Text>
@@ -166,7 +166,7 @@ const PopoverPositionExample = () => {
       </PopoverContainer>
       <PopoverContainer baseId="popover-left-example" placement="left-start">
         <PopoverButton variant="primary">Open left</PopoverButton>
-        <Popover aria-label="Popover">
+        <Popover aria-label="Popover" width={['size20', 'size40']}>
           <Text as="span">
             This is the Twilio styled popover that you can use in all your applications.
           </Text>
@@ -185,7 +185,7 @@ export const StateHookPopoverExample = `
 const StateHookExample = () => {
   const popover = usePopoverState({baseId: 'test-id'});
   return (
-    <Stack orientation="horizontal" spacing="space60">
+    <Box display='flex' columnGap='space40'>
       <PopoverContainer state={popover}>
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
@@ -198,7 +198,7 @@ const StateHookExample = () => {
       <Button variant="primary" onClick={() => popover.hide()}>
         Close popover on click
       </Button>
-    </Stack>
+    </Box>
   );
 };
 

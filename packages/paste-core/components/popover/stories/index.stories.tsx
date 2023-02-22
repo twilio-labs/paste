@@ -109,7 +109,18 @@ export const InitialFocus: React.FC = () => {
   );
 };
 
-export const WideContent = (): JSX.Element => {
+export const ResponsiveWidth: StoryFn = () => {
+  return (
+    <PopoverContainer baseId={useUID()} visible>
+      <PopoverButton variant="primary">Open popover</PopoverButton>
+      <Popover aria-label="Popover" width={['size20', 'size40']}>
+        <Text as="span">Responsive width Popover</Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+export const WideContent: React.FC = () => {
   const date1ID = useUID();
   const time1ID = useUID();
   const date2ID = useUID();
