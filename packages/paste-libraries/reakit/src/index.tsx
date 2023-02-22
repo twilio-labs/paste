@@ -37,7 +37,7 @@ export {
   useTooltipState,
   Tooltip,
   TooltipReference,
-} from '@niznikr/reakit';
+} from '@twilio-paste/paste-reakit-fork';
 
 export type {
   CompositeState,
@@ -75,7 +75,7 @@ export type {
   TooltipStateReturn,
   TooltipProps,
   TooltipReferenceProps,
-} from '@niznikr/reakit';
+} from '@twilio-paste/paste-reakit-fork';
 
 export {PopoverArrow};
 export type {PopoverArrowProps};
