@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Table, THead, TBody, Td, Tr, Th} from '@twilio-paste/core/table';
 
-const TablePreview: React.FC = () => {
+const TablePreview = (): JSX.Element => {
   return (
     <Table>
       <THead>

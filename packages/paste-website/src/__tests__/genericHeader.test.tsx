@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore react import is flagged as unused by tsx but required when running the tests
 import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
 import {render, screen} from '@testing-library/react';
@@ -5,7 +7,7 @@ import {render, screen} from '@testing-library/react';
 import {GenericHeader} from '../components/shortcodes/generic-header';
 
 describe('GenericHeader', () => {
-  const FullHeader: React.FC = () => {
+  const FullHeader = (): JSX.Element => {
     return (
       <Theme.Provider theme="default">
         <GenericHeader
@@ -57,7 +59,7 @@ describe('GenericHeader', () => {
     );
   });
 
-  const BasicHeader: React.FC = () => {
+  const BasicHeader = (): JSX.Element => {
     return (
       <Theme.Provider theme="default">
         <GenericHeader name="Alert" categoryRoute="/components" />;

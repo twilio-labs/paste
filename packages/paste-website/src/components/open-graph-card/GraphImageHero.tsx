@@ -10,7 +10,7 @@ export interface GraphImageHeroProps {
   description: PackageData['description'];
 }
 
-const GraphImageHero: React.FC<GraphImageHeroProps> = ({feature, description}) => {
+const GraphImageHero: React.FC<React.PropsWithChildren<GraphImageHeroProps>> = ({feature, description}) => {
   return (
     <MediaObject as="div" verticalAlign="center">
       <MediaBody as="div">

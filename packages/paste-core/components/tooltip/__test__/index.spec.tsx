@@ -7,7 +7,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 
-const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) => {
+const TooltipWithoutTheme: React.FC<React.PropsWithChildren<{elementName?: string}>> = ({elementName}) => {
   return (
     <Tooltip text="Welcome to Paste!" element={elementName} data-testid="tooltip-example">
       <Button variant="primary">Open Tooltip</Button>
@@ -24,7 +24,9 @@ describe('Tooltip', () => {
     );
     it('should render a tooltip button with aria attributes', () => {
       const renderedTooltipButton = screen.getByRole('button');
-      expect(renderedTooltipButton.getAttribute('aria-describedby')).toEqual('paste-tooltip-1');
+      const isReact18 = parseInt(React.version.split('.')[0], 10) >= 18;
+      const expectedAriaDescribedBy = isReact18 ? 'paste-tooltip-:r0:' : 'paste-tooltip-1';
+      expect(renderedTooltipButton.getAttribute('aria-describedby')).toEqual(expectedAriaDescribedBy);
 
       const renderedTooltip = screen.getByTestId('tooltip-example');
       expect(renderedTooltip.getAttribute('role')).toEqual('tooltip');
@@ -84,7 +86,9 @@ describe('Tooltip', () => {
 
       expect(tooltip).not.toBeVisible();
 
-      screen.getByRole('button').focus();
+      await waitFor(async () => {
+        await screen.getByRole('button').focus();
+      });
 
       await waitFor(() => {
         expect(tooltip).toBeVisible();

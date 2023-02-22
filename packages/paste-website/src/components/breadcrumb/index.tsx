@@ -5,7 +5,7 @@ import {Text} from '@twilio-paste/text';
 
 import {SiteLink} from '../SiteLink';
 
-const CrumbSlash: React.FC = () => (
+const CrumbSlash = (): JSX.Element => (
   <Box display="inline" paddingLeft="space20" paddingRight="space20">
     <Text as="span" color="colorTextWeak">
       /
@@ -13,7 +13,7 @@ const CrumbSlash: React.FC = () => (
   </Box>
 );
 
-const Breadcrumb: React.FC = ({children}) => {
+const Breadcrumb: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <nav aria-label="breadcrumb">
       <Box

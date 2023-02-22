@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import kebabCase from 'lodash/kebabCase';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -20,13 +20,15 @@ import Logo from '../../../assets/logo.svg';
 import {event} from '../../../lib/gtag';
 
 const CY_BASE = 'sidebar-disclosure';
-const NavigationDisclosure: React.FC<{
-  children: SidebarDisclosureContentProps['children'];
-  categoryRoute: SidebarDisclosureProps['categoryRoute'];
-  level: SidebarDisclosureButtonProps['level'];
-  buttonText: string;
-  onClick?: SidebarDisclosureButtonProps['onClick'];
-}> = ({children, categoryRoute, level, buttonText, onClick}) => {
+const NavigationDisclosure: React.FC<
+  React.PropsWithChildren<{
+    children: SidebarDisclosureContentProps['children'];
+    categoryRoute: SidebarDisclosureProps['categoryRoute'];
+    level: SidebarDisclosureButtonProps['level'];
+    buttonText: string;
+    onClick?: SidebarDisclosureButtonProps['onClick'];
+  }>
+> = ({children, categoryRoute, level, buttonText, onClick}) => {
   const buttonAttribute = `${CY_BASE}-button-${kebabCase(buttonText)}`;
   const contentAttribute = `${CY_BASE}-content-${kebabCase(buttonText)}`;
 
@@ -42,7 +44,7 @@ const NavigationDisclosure: React.FC<{
   );
 };
 
-const SidebarNavigation: React.FC = () => {
+const SidebarNavigation = (): JSX.Element => {
   const data = useNavigationContext();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);

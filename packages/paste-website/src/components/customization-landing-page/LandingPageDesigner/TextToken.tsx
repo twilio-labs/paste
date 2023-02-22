@@ -15,7 +15,13 @@ type TextTokenInputProps = {
   onChange: DesignerContextProps['updateToken'];
 };
 
-export const TextTokenInput: React.FC<TextTokenInputProps> = ({bucket, labelText, tokenName, tokenValue, onChange}) => {
+export const TextTokenInput: React.FC<React.PropsWithChildren<TextTokenInputProps>> = ({
+  bucket,
+  labelText,
+  tokenName,
+  tokenValue,
+  onChange,
+}) => {
   const seed = useUIDSeed();
 
   return (

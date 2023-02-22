@@ -11,7 +11,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
 import type {TabStateReturn} from '../src';
 
-export const HorizontalTabs: React.FC = () => {
+export const HorizontalTabs = (): JSX.Element => {
   const selectedId = useUID();
   const uniqueBaseID = useUID();
   return (
@@ -67,7 +67,7 @@ export const HorizontalTabs: React.FC = () => {
 // @ts-expect-error story
 HorizontalTabs.storyName = 'Horizontal Tabs';
 
-export const FittedTabs: React.FC = () => {
+export const FittedTabs = (): JSX.Element => {
   const selectedId = useUID();
   const uniqueBaseID = useUID();
   return (
@@ -123,7 +123,7 @@ export const FittedTabs: React.FC = () => {
 // @ts-expect-error story
 FittedTabs.storyName = 'Fitted Tabs';
 
-export const VerticalTabs: React.FC = () => {
+export const VerticalTabs = (): JSX.Element => {
   const selectedId = useUID();
   const uniqueBaseID = useUID();
   return (
@@ -187,7 +187,7 @@ const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   };
 };
 
-export const StateHookTabs: React.FC = () => {
+export const StateHookTabs = (): JSX.Element => {
   const uniqueBaseID = useUID();
   const {...tab} = useButtonClickTabState(uniqueBaseID);
 
@@ -217,7 +217,7 @@ export const StateHookTabs: React.FC = () => {
 // @ts-expect-error story
 StateHookTabs.storyName = 'State hook example';
 
-export const CenterAlignTabTest: React.FC = () => {
+export const CenterAlignTabTest = (): JSX.Element => {
   return (
     <Tabs>
       <TabList aria-label="Testing horizontal alignment on small Tabs">

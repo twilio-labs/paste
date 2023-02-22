@@ -7,7 +7,10 @@ import {HelpText} from '@twilio-paste/help-text';
 
 import {useUID, useUIDSeed, UIDFork} from '../src';
 
-const SignupForm: React.FC<{emailId: string; passwordId: string}> = ({emailId, passwordId}) => {
+const SignupForm: React.FC<React.PropsWithChildren<{emailId: string; passwordId: string}>> = ({
+  emailId,
+  passwordId,
+}) => {
   return (
     <>
       <Label htmlFor={emailId}>Email</Label>
@@ -21,13 +24,13 @@ const SignupForm: React.FC<{emailId: string; passwordId: string}> = ({emailId, p
   );
 };
 
-const UseUIDExample: React.FC = () => {
+const UseUIDExample = (): JSX.Element => {
   const emailId = useUID();
   const passwordId = useUID();
   return <SignupForm emailId={emailId} passwordId={passwordId} />;
 };
 
-const UseUIDSeedExample: React.FC = () => {
+const UseUIDSeedExample = (): JSX.Element => {
   const uidSeed = useUIDSeed();
   return <SignupForm emailId={uidSeed('email')} passwordId={uidSeed('password')} />;
 };

@@ -8,7 +8,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 
 import {NoResultsIllustration} from './NoResultsIllustration';
 
-export const EmptyState: React.FC<{handleClearAll: () => void}> = ({handleClearAll}) => (
+export const EmptyState: React.FC<React.PropsWithChildren<{handleClearAll: () => void}>> = ({handleClearAll}) => (
   <Box
     height="size30"
     borderStyle="solid"

@@ -6,7 +6,7 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 import {Paragraph} from '@twilio-paste/core/paragraph';
 import {Select, Option} from '@twilio-paste/core/select';
 
-const ModalPreview: React.FC = () => {
+const ModalPreview = (): JSX.Element => {
   const [value, setValue] = React.useState('');
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);

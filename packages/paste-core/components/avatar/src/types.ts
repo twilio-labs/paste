@@ -9,7 +9,7 @@ export type AvatarProps = React.HTMLAttributes<'div'> &
   Pick<BoxProps, 'element'> & {
     name: string;
     size?: IconSize;
-    icon?: React.FC<GenericIconProps>;
+    icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
     src?: string;
     color?: ColorVariants;
     variant?: AvatarVariants;
@@ -18,6 +18,6 @@ export type AvatarProps = React.HTMLAttributes<'div'> &
 export type AvatarContentProps = {
   name: string;
   size?: IconSize;
-  icon?: React.FC<GenericIconProps>;
+  icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
   src?: string;
 };

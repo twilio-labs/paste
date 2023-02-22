@@ -26,7 +26,7 @@ const groupedItems = [
   {letter: 'd', number: 7},
 ];
 
-const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
+const ShowCustomization: React.FC<React.PropsWithChildren<{isTestEnvironment: boolean}>> = ({
   isTestEnvironment,
   children,
 }): React.ReactElement => {

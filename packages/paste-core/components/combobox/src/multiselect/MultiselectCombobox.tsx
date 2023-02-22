@@ -64,7 +64,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
     const inputBoxDimensions = useRect(inputBoxRef.current);
 
     const onSelectedItemsChange = React.useCallback(
-      (changes) => {
+      (changes: any) => {
         if (onSelectedItemsChangeProp) {
           // Only pass the selectedItems, not the other downshift state data
           onSelectedItemsChangeProp(changes.selectedItems);
@@ -216,7 +216,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
      * https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
      */
     const scrollToIndexRef = React.useCallback(
-      (node) => {
+      (node: any) => {
         // Do nothing if the ref hasn't been set yet
         if (node == null) {
           return;

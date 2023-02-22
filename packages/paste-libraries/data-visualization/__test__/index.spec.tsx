@@ -6,7 +6,7 @@ import {usePasteHighchartsTheme} from '../src';
 import {lineChartOptions} from '../stories/options/lineChartOptions';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TestComponent: React.FC<{options?: {[key: string]: any}}> = ({options = {}}) => {
+const TestComponent: React.FC<React.PropsWithChildren<{options?: {[key: string]: any}}>> = ({options = {}}) => {
   const chartOptions = usePasteHighchartsTheme(options);
   return <span data-testid="test">{JSON.stringify(chartOptions)}</span>;
 };

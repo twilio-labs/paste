@@ -85,7 +85,7 @@ const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
   }
 );
 
-const SiblingBox: React.FC<SiblingBoxProps> = ({
+const SiblingBox: React.FC<React.PropsWithChildren<SiblingBoxProps>> = ({
   'aria-hidden': ariaHidden = 'true',
   alignItems = 'center',
   display = 'inline-flex',

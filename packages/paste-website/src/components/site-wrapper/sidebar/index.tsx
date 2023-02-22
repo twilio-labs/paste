@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {styled} from '@twilio-paste/styling-library';
 
@@ -11,7 +10,7 @@ const StyledSidebar = styled(Box)(() => ({
   WebkitOverflowScrolling: 'touch',
 }));
 
-const Sidebar: React.FC = () => {
+const Sidebar = (): JSX.Element => {
   return (
     <StyledSidebar
       as="aside"

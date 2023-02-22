@@ -19,7 +19,11 @@ import {SampleDataGrid} from './SampleDataGrid';
 import {EmptyState} from './EmptyState';
 
 // Note: update the codesandboxes if update this
-export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoomType, defaultDateRange}) => {
+export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
+  data,
+  defaultRoomType,
+  defaultDateRange,
+}) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 
@@ -29,7 +33,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoo
   const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || 'all');
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(!(defaultRoomType || defaultDateRange));
 
-  const handleApplyFilters = (): void => {
+  const handleApplyFilters = React.useCallback((): void => {
     const filtered = data.filter(({uniqueName, sid, roomType, dateCompleted}) => {
       return (
         filterBySearchString(uniqueName, sid, searchValue) &&
@@ -39,7 +43,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoo
     });
 
     setFilteredTableData(filtered);
-  };
+  }, [data, filterDateRange, filterRoomType, searchValue]);
 
   const handleClearAll = (): void => {
     setFilterDateRange('all');
@@ -51,7 +55,7 @@ export const DefaultFilterGroup: React.FC<FilterGroupProps> = ({data, defaultRoo
 
   React.useEffect(() => {
     handleApplyFilters();
-  }, []);
+  }, [handleApplyFilters]);
 
   React.useEffect(() => {
     setAreButtonsDisabled(filterDateRange === 'all' && filterRoomType === 'All');

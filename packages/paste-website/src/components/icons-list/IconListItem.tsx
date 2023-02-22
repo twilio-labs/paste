@@ -19,7 +19,11 @@ interface IconListItemProps extends CompositeStateReturn {
   icon: IconObject;
   setSelectedIcon: (icon: IconObject) => void;
 }
-export const IconListItem: React.FC<IconListItemProps> = ({icon, setSelectedIcon, ...props}) => {
+export const IconListItem: React.FC<React.PropsWithChildren<IconListItemProps>> = ({
+  icon,
+  setSelectedIcon,
+  ...props
+}) => {
   if (icon.name !== 'index') {
     const {Component} = icon;
     return (

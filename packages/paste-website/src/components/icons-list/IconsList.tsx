@@ -66,7 +66,7 @@ const trackIconFilterString = debounce((filter: string): void => {
   }
 }, 500);
 
-const IconsList: React.FC<IconsListProps> = () => {
+const IconsList: React.FC<React.PropsWithChildren<IconsListProps>> = () => {
   const filterID = useUID();
   const iconKeySeed = useUIDSeed();
   const [filterString, setFilterString] = React.useState('');

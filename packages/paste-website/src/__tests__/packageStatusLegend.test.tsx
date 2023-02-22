@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore react import is flagged as unused by tsx but required when running the tests
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
@@ -5,7 +7,7 @@ import {Theme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../components/shortcodes/package-status-legend';
 
 // This component only exists to use React (to silence a config catch-22 error)
-const PackageStatusEmpty: React.FC = () => (
+const PackageStatusEmpty = (): JSX.Element => (
   <Theme.Provider theme="default">
     <PackageStatusLegend />
   </Theme.Provider>

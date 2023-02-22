@@ -56,7 +56,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
      * - Sets the last focused element before blurring to be the active tab stop (line 43)
      */
     const handleBlur = React.useCallback(
-      (event) => {
+      (event: any) => {
         const isDataGridBlurred = !event.currentTarget.contains(event.relatedTarget);
 
         if (isDataGridBlurred) {

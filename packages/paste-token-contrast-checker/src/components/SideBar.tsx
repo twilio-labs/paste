@@ -10,7 +10,7 @@ import {SelectedThemeContext} from '../App';
 import {ThemeSelector} from './ThemeSelector';
 import {TokenPairRating} from './TokenPairRating';
 
-export const SideBar: React.FC = () => {
+export const SideBar = (): JSX.Element => {
   const {selectedTheme, setSelectedTheme} = React.useContext(SelectedThemeContext);
 
   const {textContrastRating, uiControlContrastRating, totalFailures} = useThemeContrastCheck();

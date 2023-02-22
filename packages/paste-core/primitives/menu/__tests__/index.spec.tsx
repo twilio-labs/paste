@@ -34,7 +34,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
   );
 });
 
-const MenuMock: React.FC = () => {
+const MenuMock = (): JSX.Element => {
   const menu = useMenuPrimitiveState({baseId: 'menu-example'});
   return (
     <>

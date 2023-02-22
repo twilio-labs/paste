@@ -30,7 +30,7 @@ const anchoredHeadingSpacing: Partial<{
   },
 };
 
-const StyledAnchorHyperlink: React.FC<{href: string}> = ({children, ...props}) => {
+const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{href: string}>> = ({children, ...props}) => {
   return (
     <Box
       {...props}
@@ -54,7 +54,12 @@ type AnchoredHeadingProps = HeadingProps & {
   existingSlug?: string;
 };
 
-const AnchoredHeading: React.FC<AnchoredHeadingProps> = ({variant, as, existingSlug, ...props}) => {
+const AnchoredHeading: React.FC<React.PropsWithChildren<AnchoredHeadingProps>> = ({
+  variant,
+  as,
+  existingSlug,
+  ...props
+}) => {
   // Only generate slugs for headings where children is 'string'
   if (typeof props.children === 'string') {
     const id = slugify(props.children);

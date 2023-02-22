@@ -10,11 +10,11 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 interface FancyBoxProps {
   padding: BoxStyleProps['padding'];
 }
-const FancyBox: React.FC<FancyBoxProps> = styled(Box)({
+const FancyBox: React.FC<React.PropsWithChildren<FancyBoxProps>> = styled(Box)({
   width: '40%',
 });
 
-export const IndexPage: React.FC = () => {
+export const IndexPage = (): JSX.Element => {
   return (
     <Box margin="space60">
       <Heading as="h1" variant="heading10">

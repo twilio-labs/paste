@@ -7,7 +7,7 @@ import type {AnchorProps} from '@twilio-paste/anchor';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
-const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({element}) => (
+const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{element: BoxElementProps['element']}>> = ({element}) => (
   <Text
     as="span"
     color="colorTextWeak"

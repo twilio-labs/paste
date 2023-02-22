@@ -2,7 +2,7 @@ import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import {SVGThumb} from './SVGThumb';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
@@ -24,7 +24,7 @@ const imageStyleProps: React.CSSProperties = {
   objectPosition: 'center center',
 };
 
-export const ImageSlider: React.FC = () => {
+export const ImageSlider = (): JSX.Element => {
   const uidSeed = useUIDSeed();
 
   // Set the initial state of the slider to be roughly at the 60% position.
@@ -56,7 +56,7 @@ export const ImageSlider: React.FC = () => {
   const clip = (value / MAX_VALUE) * containerWidth;
 
   const handleMouseMove = React.useCallback(
-    (event): void => {
+    (event: any): void => {
       const {clientX} = event;
       const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
 
@@ -66,7 +66,7 @@ export const ImageSlider: React.FC = () => {
   );
 
   const handleMouseUp = React.useCallback(
-    (event): void => {
+    (event: any): void => {
       setIsDragging(false);
 
       // We must unbind these manually managed events

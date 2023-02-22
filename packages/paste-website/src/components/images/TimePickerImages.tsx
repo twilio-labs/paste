@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {css} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -25,7 +25,7 @@ export const ChromeImage: React.FC = () => {
   );
 };
 
-export const SafariImage: React.FC = () => {
+export const SafariImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image
@@ -43,7 +43,7 @@ export const SafariImage: React.FC = () => {
   );
 };
 
-export const FirefoxImage: React.FC = () => {
+export const FirefoxImage = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Image

@@ -8,7 +8,7 @@ import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 
-export const ToasterExample: React.FC = () => {
+export const ToasterExample = (): JSX.Element => {
   const toaster = useToaster();
   const messageID = useUID();
   const dismissAfterID = useUID();

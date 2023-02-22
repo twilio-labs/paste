@@ -9,7 +9,7 @@ type TextExampleProps = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'
   textShadow?: Properties['textShadow'];
 };
 
-export const TextExample: React.FC<TextExampleProps> = ({
+export const TextExample: React.FC<React.PropsWithChildren<TextExampleProps>> = ({
   fontFamily,
   fontSize = 'fontSize60',
   fontWeight,

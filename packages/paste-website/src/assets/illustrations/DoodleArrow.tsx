@@ -5,7 +5,7 @@ import {useTheme} from '@twilio-paste/theme';
 
 const dashArray = 250;
 
-export const DoodleArrow: React.FC = () => {
+export const DoodleArrow = (): JSX.Element => {
   const [show, setShow] = React.useState(false);
   const theme = useTheme();
 

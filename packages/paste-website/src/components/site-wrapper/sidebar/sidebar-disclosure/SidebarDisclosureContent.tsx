@@ -18,7 +18,10 @@ const StyledNestedList = React.forwardRef<HTMLUListElement, SidebarDisclosureCon
   )
 );
 
-export const SidebarDisclosureContent: React.FC<SidebarDisclosureContentProps> = ({children, ...props}) => {
+export const SidebarDisclosureContent: React.FC<React.PropsWithChildren<SidebarDisclosureContentProps>> = ({
+  children,
+  ...props
+}) => {
   const {disclosure} = React.useContext(SidebarDisclosureContext);
 
   return (

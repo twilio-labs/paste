@@ -4,7 +4,7 @@ import {Stack} from '@twilio-paste/core/stack';
 import {Text} from '@twilio-paste/core/text';
 import {Toast} from '@twilio-paste/core/toast';
 
-const ToastPreview: React.FC = () => {
+const ToastPreview = (): JSX.Element => {
   return (
     <Stack orientation="vertical" spacing="space40">
       <Toast onDismiss={() => alert('dismissed')} variant="neutral">

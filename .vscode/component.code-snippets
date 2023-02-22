@@ -39,7 +39,7 @@
       "  children: NonNullable<React.ReactNode>;",
       "}",
       "",
-      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({children}) => {",
+      "const ${1:ComponentName}: React.FC<React.PropsWithChildren<${1:ComponentName}Props>> = ({children}) => {",
       "  return (",
       "    ${2:<Box>{children\\}</Box>}",
       "  );",
@@ -81,7 +81,7 @@
   "Paste React Function Component": {
     "prefix": "prfc",
     "body": [
-      "export const ${1:ComponentName}: React.FC = ({children}) => {",
+      "export const ${1:ComponentName}: React.FC<React.PropsWithChildren> = ({children}) => {",
       "  return (",
       "    ${2:<Box>{children\\}</Box>}",
       "  );",

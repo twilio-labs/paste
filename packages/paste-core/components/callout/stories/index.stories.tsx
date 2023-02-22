@@ -10,7 +10,7 @@ export default {
   component: Callout,
 };
 
-const ExampleList: React.FC<{as: 'ul' | 'ol'}> = ({as}) => (
+const ExampleList: React.FC<React.PropsWithChildren<{as: 'ul' | 'ol'}>> = ({as}) => (
   <CalloutList as={as}>
     <CalloutListItem>Item one</CalloutListItem>
     <CalloutListItem>Item two</CalloutListItem>

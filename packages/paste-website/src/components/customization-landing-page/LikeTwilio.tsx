@@ -1,5 +1,4 @@
-import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -13,7 +12,7 @@ import {DoodleLoopMedium} from '../../assets/illustrations/DoodleLoopMedium';
 import {DoodleLoopTiny} from '../../assets/illustrations/DoodleLoopTiny';
 import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
 
-const LikeTwilioHeadline: React.FC = () => {
+const LikeTwilioHeadline = (): JSX.Element => {
   return (
     <Box maxWidth="size60" marginX="auto" paddingBottom="space100" textAlign="center">
       <Heading as="h2" variant="heading10">
@@ -27,7 +26,7 @@ const LikeTwilioHeadline: React.FC = () => {
   );
 };
 
-const DesktopDesigner: React.FC = () => {
+const DesktopDesigner = (): JSX.Element => {
   return (
     <>
       <Box as="span" position="absolute" display={['none', 'none', 'block']} top={-55} left={-55}>
@@ -48,7 +47,7 @@ const DesktopDesigner: React.FC = () => {
   );
 };
 
-const MobileDesigner: React.FC = () => {
+const MobileDesigner = (): JSX.Element => {
   return (
     <>
       <Box
@@ -71,7 +70,7 @@ const MobileDesigner: React.FC = () => {
   );
 };
 
-export const LikeTwilio: React.FC = () => {
+export const LikeTwilio = (): JSX.Element => {
   return (
     <LandingPageSection zIndex="zIndex10" overflow="hidden">
       <LandingPageSectionContent variant="narrow" paddingTop={['space200', 'space200', 'space0']}>

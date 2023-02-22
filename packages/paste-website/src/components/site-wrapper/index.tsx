@@ -16,7 +16,7 @@ export interface SiteWrapperProps {
   navigationData: NavigationQuery;
 }
 
-const SiteWrapper: React.FC<SiteWrapperProps> = ({children, navigationData}) => {
+const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({children, navigationData}) => {
   const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (

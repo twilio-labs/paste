@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
 import {Column, Grid} from '@twilio-paste/grid';
 import {Card} from '@twilio-paste/card';
@@ -9,7 +8,7 @@ import {css} from '@twilio-paste/styling-library';
 
 import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
 
-export const ReadyToGetStarted: React.FC = () => {
+export const ReadyToGetStarted = (): JSX.Element => {
   const theme = useTheme();
   return (
     <LandingPageSection

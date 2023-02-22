@@ -51,7 +51,7 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(7, 1fr);
 `;
 
-export const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) => {
+export const ColorGradient: React.FC<React.PropsWithChildren<{aliasPrefix: string}>> = ({aliasPrefix}) => {
   const {theme} = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
 
@@ -64,7 +64,7 @@ export const ColorGradient: React.FC<{aliasPrefix: string}> = ({aliasPrefix}) =>
   );
 };
 
-export const ColorGradientRainbow: React.FC = () => {
+export const ColorGradientRainbow = (): JSX.Element => {
   return (
     <StyledGrid>
       {aliasPrefixes.map((prefix) => (

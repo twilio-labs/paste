@@ -74,7 +74,7 @@ interface MobileNavigationProps {
   onClose: () => void;
 }
 
-const MobileNavigation: React.FC<MobileNavigationProps> = ({isOpen, onClose}) => {
+const MobileNavigation: React.FC<React.PropsWithChildren<MobileNavigationProps>> = ({isOpen, onClose}) => {
   const [burgerOpen, setBurgerOpen] = React.useState(false);
 
   /*

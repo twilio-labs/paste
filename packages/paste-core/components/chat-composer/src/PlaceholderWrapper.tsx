@@ -4,10 +4,12 @@ import {Box} from '@twilio-paste/box';
 
 import type {ChatComposerProps} from '.';
 
-export const PlaceholderWrapper: React.FC<{
-  placeholder: ChatComposerProps['placeholder'];
-  element?: BoxProps['element'];
-}> = ({placeholder, element}) => (
+export const PlaceholderWrapper: React.FC<
+  React.PropsWithChildren<{
+    placeholder: ChatComposerProps['placeholder'];
+    element?: BoxProps['element'];
+  }>
+> = ({placeholder, element}) => (
   <Box
     position="absolute"
     top="space30"

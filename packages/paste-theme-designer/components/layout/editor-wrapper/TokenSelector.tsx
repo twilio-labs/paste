@@ -6,11 +6,11 @@ import {Select, Option} from '@twilio-paste/core/select';
 
 import {Routes} from '../../../constants/Routes';
 
-const TokenSelector: React.FC = () => {
+const TokenSelector = (): JSX.Element => {
   const router = useRouter();
   const [value, setValue] = React.useState(router.pathname.replace(`/`, ''));
 
-  const handleChange = React.useCallback((event) => {
+  const handleChange = React.useCallback((event: any) => {
     setValue(event.target.value);
     router.push(Routes.EDIT_BUCKET(event.target.value), undefined, {shallow: true});
   }, []);

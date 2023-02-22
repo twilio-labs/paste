@@ -1,6 +1,7 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {render} from '@testing-library/react';
+import React from 'react';
+// eslint-disable-next-line import/no-unresolved
+import {createRoot} from 'testing-tools/react-dom-create-root';
+import {render, act} from '@testing-library/react';
 
 import {Theme} from '../src';
 
@@ -18,7 +19,10 @@ const ThemeConsumerExampleTextColor = (): React.ReactElement => {
 
 describe('Theme.Provider', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(<Theme.Provider />, document.createElement('div'));
+    const root = createRoot(document.createElement('div') as HTMLElement);
+    act(() => {
+      root.render(<Theme.Provider />);
+    });
   });
 
   it('should render the sendgrid link text color', (): void => {

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -6,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 
-const NotFound: React.FC = () => (
+const NotFound = (): JSX.Element => (
   <>
     <Breadcrumb>
       <BreadcrumbItem href="/">Home</BreadcrumbItem>

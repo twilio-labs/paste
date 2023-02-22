@@ -26,8 +26,6 @@ const nextConfig = {
     emotion: true,
   },
   experimental: {
-    newNextLinkBehavior: true,
-    browsersListForSwc: true,
     legacyBrowsers: false,
   },
   typescript: {

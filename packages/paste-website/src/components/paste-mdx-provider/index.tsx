@@ -38,7 +38,7 @@ const StyledSup = styled.sup`
   top: -0.4rem;
 `;
 
-const MdxLink: React.FC<AnchorProps> = (props) => {
+const MdxLink: React.FC<React.PropsWithChildren<AnchorProps>> = (props) => {
   return <Anchor {...props} showExternal={isExternalUrl(props.href)} />;
 };
 
@@ -111,7 +111,7 @@ const MDXPoviderComponents = {
 interface PasteMDXProviderProps {
   componentOverrides?: {[key: string]: (props: unknown) => React.ReactNode};
 }
-export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = ({
+export const PasteMDXProvider: React.FC<React.PropsWithChildren<PasteMDXProviderProps>> = ({
   componentOverrides,
   children,
 }): React.ReactElement => {

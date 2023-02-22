@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -9,7 +8,7 @@ import TwilioLogo from '../../icons/TwilioLogo';
 import {STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL} from '../../../constants';
 import {event} from '../../../lib/gtag';
 
-const SiteFooterNav: React.FC = () => {
+const SiteFooterNav = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box position="relative">

@@ -13,7 +13,7 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 
 const handleCloseMock: jest.Mock = jest.fn();
 
-const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
+const MockModal: React.FC<React.PropsWithChildren<{children?: React.ReactNode}>> = ({children}) => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
     <CustomizationProvider baseTheme="default" theme={TestTheme}>
@@ -51,7 +51,7 @@ const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
   );
 };
 
-const MockInitalFocusModal: React.FC = () => {
+const MockInitalFocusModal = (): JSX.Element => {
   const [name, setName] = React.useState('');
   const modalHeadingID = `modal-${useUID()}`;
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
@@ -96,7 +96,7 @@ const MockInitalFocusModal: React.FC = () => {
   );
 };
 
-const I18nMockModal: React.FC = () => {
+const I18nMockModal = (): JSX.Element => {
   const modalHeadingID = `modal-${useUID()}`;
   return (
     <CustomizationProvider baseTheme="default" theme={TestTheme}>
