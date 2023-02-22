@@ -4,7 +4,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
-import {modalFooterStyles} from '@twilio-paste/modal';
 
 export interface AlertDialogFooterProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
   destructive?: boolean;
@@ -25,11 +24,13 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
       <Box
         {...safelySpreadBoxProps(props)}
         as="div"
-        {...modalFooterStyles}
+        flexShrink={0}
+        display="flex"
+        padding="space90"
+        paddingTop="space0"
         border="none"
         element={element}
         justifyContent="flex-end"
-        paddingTop="space0"
         ref={ref}
       >
         <Stack orientation="horizontal" spacing="space50">
