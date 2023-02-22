@@ -57,7 +57,7 @@ const myOnChange = (editorState: EditorState): void => {
   });
 };
 
-const ComposerWrapperExample: React.FC = ({children}) => (
+const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({children}) => (
   <Box
     borderStyle="solid"
     borderWidth="borderWidth0"

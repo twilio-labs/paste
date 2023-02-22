@@ -285,7 +285,7 @@ const AvatarExample = () => {
 | name     | `string`                                                                    | Provide the name of the user, entity or object.                                           |              |
 | size?    | `IconSize[]`                                                                | Responsive size property that takes IconSize token names.                                 | `sizeIcon70` |
 | src?     | `string`                                                                    | Used to set the image `src` attribute when setting an image as the Avatar.                |              |
-| icon?    | `React.FC<GenericIconProps>`                                                | Specify a Paste Icon to be displayed in the Avatar.                                       |              |
+| icon?    | `React.FC<React.PropsWithChildren<GenericIconProps>>`                       | Specify a Paste Icon to be displayed in the Avatar.                                       |              |
 | variant? | `'user', 'entity'`                                                          | Specify the variant of the Avatar based on what it represents.                            | `'user'`     |
 | color?   | `'default', 'decorative10', 'decorative20', 'decorative30', 'decorative40'` | Used to set the color of the Avatar.                                                      | `'default'`  |
 | element? | `string`                                                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'AVATAR'`   |

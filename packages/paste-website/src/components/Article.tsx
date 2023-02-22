@@ -14,7 +14,7 @@ export interface ArticleProps {
 }
 
 export type ArticleLinkProps = Pick<ArticleData, 'slug' | 'external_link'> & Pick<AnchorProps, 'children'>;
-export const ArticleLink: React.FC<ArticleLinkProps> = ({external_link, slug, children}) => {
+export const ArticleLink: React.FC<React.PropsWithChildren<ArticleLinkProps>> = ({external_link, slug, children}) => {
   if (external_link)
     return (
       <Anchor href={external_link} showExternal>

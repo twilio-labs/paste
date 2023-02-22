@@ -12,7 +12,12 @@ export interface NewComponentBannerAnchorProps {
   onClick?: () => void;
 }
 
-const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, href, onClick, showExternal}) => {
+const NewComponentBannerLink: React.FC<React.PropsWithChildren<NewComponentBannerAnchorProps>> = ({
+  children,
+  href,
+  onClick,
+  showExternal,
+}) => {
   return (
     <Box
       as="span"

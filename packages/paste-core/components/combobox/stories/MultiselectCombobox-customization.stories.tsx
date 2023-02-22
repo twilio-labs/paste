@@ -28,7 +28,7 @@ const groupedItems = [
 ];
 const initialSelectedGroupedItems = [groupedItems[0], groupedItems[1], groupedItems[2]];
 
-const ShowCustomization: React.FC<{isTestEnvironment: boolean}> = ({
+const ShowCustomization: React.FC<React.PropsWithChildren<{isTestEnvironment: boolean}>> = ({
   isTestEnvironment,
   children,
 }): React.ReactElement => {

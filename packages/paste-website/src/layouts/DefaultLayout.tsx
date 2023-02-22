@@ -40,7 +40,7 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, meta, navigationData}) => {
+const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({children, meta, navigationData}) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
   const router = useRouter();

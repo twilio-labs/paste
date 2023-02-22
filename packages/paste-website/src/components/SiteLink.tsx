@@ -31,7 +31,7 @@ export interface SiteLinkProps {
   onClick?: () => void;
 }
 
-const SiteLink: React.FC<SiteLinkProps> = ({children, href, ...props}) => (
+const SiteLink: React.FC<React.PropsWithChildren<SiteLinkProps>> = ({children, href, ...props}) => (
   <StyledLink href={href} {...props}>
     {children}
   </StyledLink>
