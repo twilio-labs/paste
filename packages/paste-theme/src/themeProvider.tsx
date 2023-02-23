@@ -18,6 +18,34 @@ import {isDeprecatedTheme} from './utils/isDeprecatedTheme';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
+const getThemeFromHash = (): string | undefined => {
+  try {
+    if (window.location.hash.includes('paste-theme-override')) {
+      return window.location.hash.split('=')[1];
+    }
+    // eslint-disable-next-line unicorn/prefer-optional-catch-binding
+  } catch (error) {}
+  return undefined;
+};
+
+const useThemeOverwriteHook = (): string | undefined => {
+  const [overwriteTheme, setOverwriteTheme] = React.useState(getThemeFromHash());
+
+  const handleLocationChange = (): void => {
+    setOverwriteTheme(getThemeFromHash());
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('popstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  });
+
+  return overwriteTheme;
+};
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
@@ -84,8 +112,9 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
       skipAnimation: disableAnimations || prefersReducedMotion,
     });
   }, [disableAnimations, prefersReducedMotion]);
+  const overwriteTheme = useThemeOverwriteHook();
 
-  const providerThemeProps = getProviderThemeProps(theme, customBreakpoints);
+  const providerThemeProps = getProviderThemeProps(overwriteTheme || theme, customBreakpoints);
 
   if (cache) {
     return (
