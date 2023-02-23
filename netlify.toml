@@ -14,7 +14,7 @@
 
 [functions]
   directory = "packages/paste-website/functions"
-  external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core"]
 
 # INTRODUCTION/
 [[redirects]]
