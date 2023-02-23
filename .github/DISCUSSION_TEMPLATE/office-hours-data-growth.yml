@@ -1,5 +1,4 @@
-title: "Office hours"
-description: "Questions and discussion topics for office hours"
+title: ""
 body:
   - type: "textarea"
     id: "background"
