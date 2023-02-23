@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
-import {modalHeaderStyles} from '@twilio-paste/modal';
 
 export interface AlertDialogHeaderProps extends React.HTMLAttributes<HTMLHeadElement>, Pick<BoxProps, 'element'> {
   children: string;
@@ -16,10 +15,10 @@ export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHe
       <Box
         {...safelySpreadBoxProps(props)}
         as="div"
-        {...modalHeaderStyles}
+        padding="space90"
+        flexShrink={0}
         border="none"
         element={`${element}_WRAPPER`}
-        paddingBottom="space0"
         ref={ref}
       >
         <Heading as="h3" element={element} marginBottom="space0" variant="heading30" id={headingID}>
