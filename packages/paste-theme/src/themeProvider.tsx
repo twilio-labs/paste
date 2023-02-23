@@ -13,13 +13,12 @@ import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, Ev
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
-import {ThemeVariants, DeprecatedThemeVariants} from './constants';
-import {isDeprecatedTheme} from './utils/isDeprecatedTheme';
+import {ThemeVariants} from './constants';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, customBreakpoints?: string[]): {} {
+function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.TWILIO:
       return {
@@ -46,13 +45,6 @@ function getProviderThemeProps(theme: ThemeVariants | DeprecatedThemeVariants, c
         ...EvergreenTheme,
         breakpoints: customBreakpoints || EvergreenTheme.breakpoints,
       };
-    case DeprecatedThemeVariants.CONSOLE:
-      isDeprecatedTheme(DeprecatedThemeVariants.CONSOLE);
-      return {
-        ...DefaultTheme,
-        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
-      };
-    case ThemeVariants.FLEX:
     case ThemeVariants.DEFAULT:
     default:
       return {

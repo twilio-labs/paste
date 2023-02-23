@@ -49,7 +49,7 @@ export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironme
           color: 'colorTextInverse',
           variants: {
             inbound: {backgroundColor: 'colorBackgroundPrimary'},
-            outbound: {backgroundColor: 'colorBackgroundPrimaryDarker'},
+            outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
           },
         },
         CHAT_MESSAGE_META: {
