@@ -28,7 +28,7 @@ const ButtonSizeOptions = [
 const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}>> = ({variant}) => {
   const allButtons: React.ReactNode[] = [];
 
-  ButtonSizeOptions.forEach((size) => {
+  ButtonSizeOptions.forEach((size, index) => {
     if (variant === 'reset' && size !== 'reset') return;
     const children =
       size === 'icon' || size === 'icon_small' || size === 'circle' || size === 'circle_small' ? (
@@ -39,7 +39,7 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}
 
     allButtons.push(
       <>
-        <Box key={`variant-${variant}-${size}`} padding="space30">
+        <Box key={`variant-${variant}-${size}-horizontal`} padding="space30">
           <Stack orientation="horizontal" spacing="space40">
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
               {children}
@@ -78,7 +78,7 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}
           size !== 'reset' &&
           size !== 'circle' &&
           size !== 'circle_small' && (
-            <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
+            <Box key={`variant-${variant}-${size}-vert-${index}`} marginBottom="space40" padding="space30">
               <Stack orientation="vertical" spacing="space40">
                 <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
                   {children}
