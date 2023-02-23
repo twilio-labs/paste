@@ -16,7 +16,7 @@ import {generateThemeFromTokens} from '@twilio-paste/theme';
 import {useDarkModeContext} from '../../../context/DarkModeContext';
 import {DesignerContext} from './DesignerContext';
 
-export const DesignerPreview: React.FC = () => {
+export const DesignerPreview = (): JSX.Element => {
   const {theme: currentThemeMode} = useDarkModeContext();
   const {tokens} = React.useContext(DesignerContext);
   // @ts-expect-error tokens from context are based on GenericTokenShape which states that sizing keys are as optional as the rest, but generateThemeFromTokens expects sizing keys to be required

@@ -13,7 +13,7 @@ type ExportModalProps = {
   isOpen: ModalProps['isOpen'];
   onDismiss: ModalProps['onDismiss'];
 };
-const ExportModal: React.FC<ExportModalProps> = ({isOpen, onDismiss}) => {
+const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({isOpen, onDismiss}) => {
   const {tokens} = React.useContext(TokenContext);
   const modalHeadingID = useUID();
   const modalTextareaID = useUID();

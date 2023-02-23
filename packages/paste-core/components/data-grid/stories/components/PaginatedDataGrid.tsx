@@ -66,7 +66,11 @@ interface DataGridPaginationProps {
   onPageChange: (newPageNumber: number) => void;
 }
 
-const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1, pageCount, onPageChange}) => {
+const DataGridPagination: React.FC<React.PropsWithChildren<DataGridPaginationProps>> = ({
+  currentPage = 1,
+  pageCount,
+  onPageChange,
+}) => {
   // purely to create unique landmark names when used in stack or side-by-side stories
   const uniqueLandmarkIdentifier = useUID();
   const goToNextPage = React.useCallback(() => {
@@ -136,7 +140,13 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
@@ -146,7 +156,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
         return undefined;
       }
@@ -181,7 +191,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const PaginatedDataGrid: React.FC = () => {
+export const PaginatedDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
   const [checkedItems, setCheckedItems] = React.useState(PaginatedTableBodyData.map(() => false));
@@ -193,7 +203,7 @@ export const PaginatedDataGrid: React.FC = () => {
   const rowIndexStart = (currentPage - 1) * PAGE_SIZE;
   const rowIndexEnd = Math.min(rowIndexStart + PAGE_SIZE - 1, TOTAL_ROWS);
 
-  const handlePagination = React.useCallback((newPage) => {
+  const handlePagination = React.useCallback((newPage: any) => {
     setCurrentPage(newPage);
   }, []);
 

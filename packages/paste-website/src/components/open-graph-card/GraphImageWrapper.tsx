@@ -5,7 +5,7 @@ export interface GraphImageWrapperProps {
   children: NonNullable<React.ReactNode>;
 }
 
-const GraphImageWrapper: React.FC<GraphImageWrapperProps> = ({children}) => {
+const GraphImageWrapper: React.FC<React.PropsWithChildren<GraphImageWrapperProps>> = ({children}) => {
   return (
     <Box
       padding="space140"

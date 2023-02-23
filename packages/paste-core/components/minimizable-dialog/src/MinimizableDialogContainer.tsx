@@ -34,7 +34,7 @@ export interface MinimizableDialogContainerProps extends NonModalDialogPrimitive
   minimized?: boolean;
 }
 
-const BaseMinimizableDialogContainer: React.FC<MinimizableDialogContainerProps> = ({
+const BaseMinimizableDialogContainer: React.FC<React.PropsWithChildren<MinimizableDialogContainerProps>> = ({
   gutter,
   children,
   placement,

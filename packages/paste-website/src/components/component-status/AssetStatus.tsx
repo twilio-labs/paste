@@ -8,7 +8,7 @@ interface PackageStatusProps {
   label: string;
 }
 
-const AssetStatus: React.FC<PackageStatusProps> = ({label, status}) => {
+const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({label, status}) => {
   if (status === 'yes') {
     return (
       <Box display="flex" alignItems="center" justifyContent="center">

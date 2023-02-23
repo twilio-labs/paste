@@ -11,7 +11,10 @@ interface ExampleOptionProps extends OptionProps {
   element?: string;
 }
 
-const ExampleOption: React.FC<ExampleOptionProps> = ({suffix = 'test', ...props}): React.ReactElement => {
+const ExampleOption: React.FC<React.PropsWithChildren<ExampleOptionProps>> = ({
+  suffix = 'test',
+  ...props
+}): React.ReactElement => {
   return (
     <Option data-testid={`option-${suffix}`} {...props}>
       Option 1

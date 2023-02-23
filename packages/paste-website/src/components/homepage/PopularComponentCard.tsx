@@ -6,7 +6,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 
-const ComponentCardHeader: React.FC = ({children}) => {
+const ComponentCardHeader: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Heading as="h3" variant="heading40">
       {children}
@@ -14,7 +14,7 @@ const ComponentCardHeader: React.FC = ({children}) => {
   );
 };
 
-const ComponentCardIllustration: React.FC = ({children}) => {
+const ComponentCardIllustration: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Box marginLeft="auto" marginRight="auto" maxWidth="size20">
       {children}
@@ -22,7 +22,7 @@ const ComponentCardIllustration: React.FC = ({children}) => {
   );
 };
 
-const ComponentCardFooter: React.FC = ({children}) => {
+const ComponentCardFooter: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <Text as="span" display="inline-block" fontWeight="fontWeightSemibold" marginTop="space30">
       {children}
@@ -32,7 +32,7 @@ const ComponentCardFooter: React.FC = ({children}) => {
 
 const AnimatedCard = animated(Card);
 
-const ComponentCard: React.FC = ({children}) => {
+const ComponentCard: React.FC<React.PropsWithChildren> = ({children}) => {
   const [show, setShow] = React.useState(false);
 
   const handleVisibilityChange = (isVisible: boolean): void => {

@@ -165,7 +165,7 @@ export interface DisclosureHeadingProps
   variant: HeadingProps['variant'];
 }
 
-const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({
+const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps>> = ({
   children,
   as,
   element = 'DISCLOSURE_HEADING',

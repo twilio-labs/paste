@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/core/anchor';
 import {Stack} from '@twilio-paste/core/stack';
 
-const AnchorPreview: React.FC = () => {
+const AnchorPreview = (): JSX.Element => {
   return (
     <Stack orientation="horizontal" spacing="space60">
       <Anchor href="#">Anchor text</Anchor>

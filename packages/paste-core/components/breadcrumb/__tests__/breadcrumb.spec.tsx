@@ -5,7 +5,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Breadcrumb, BreadcrumbItem} from '../src';
 
 describe('Breadcrumb', () => {
-  const BreadcrumbExample: React.FC = () => {
+  const BreadcrumbExample = (): JSX.Element => {
     return (
       <Breadcrumb>
         <BreadcrumbItem href="#">foo</BreadcrumbItem>

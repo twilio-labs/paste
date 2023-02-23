@@ -1,6 +1,7 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {render} from '@testing-library/react';
+import React from 'react';
+// eslint-disable-next-line import/no-unresolved
+import {createRoot} from 'testing-tools/react-dom-create-root';
+import {render, act} from '@testing-library/react';
 
 import {Theme, useTheme} from '../src';
 
@@ -11,12 +12,14 @@ const HookExampleComponent = (): React.ReactElement => {
 
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(
-      <Theme.Provider theme="default">
-        <HookExampleComponent />
-      </Theme.Provider>,
-      document.createElement('div')
-    );
+    const root = createRoot(document.createElement('div') as HTMLElement);
+    act(() => {
+      root.render(
+        <Theme.Provider theme="default">
+          <HookExampleComponent />
+        </Theme.Provider>
+      );
+    });
   });
 
   it('should be able to access the theme object', () => {

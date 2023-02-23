@@ -16,7 +16,7 @@ type OptionsListProps = {
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
-export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handleChange}) => {
+export const OptionsList: React.FC<React.PropsWithChildren<OptionsListProps>> = ({bucket, options, handleChange}) => {
   const sortedNames = React.useMemo(() => Object.keys(options).sort(collator.compare), [options]);
 
   switch (bucket) {

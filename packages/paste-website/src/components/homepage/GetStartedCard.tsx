@@ -7,7 +7,10 @@ const AnimatedCard = animated(Card);
 interface GetStartedCardProps {
   animationDelay?: number;
 }
-export const GetStartedCard: React.FC<GetStartedCardProps> = ({animationDelay = 0, children}) => {
+export const GetStartedCard: React.FC<React.PropsWithChildren<GetStartedCardProps>> = ({
+  animationDelay = 0,
+  children,
+}) => {
   const [show, setShow] = React.useState(false);
 
   const handleVisibilityChange = (isVisible: boolean): void => {

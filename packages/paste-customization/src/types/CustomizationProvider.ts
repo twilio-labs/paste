@@ -3,6 +3,7 @@ import type {ThemeProviderProps, GenericThemeShape} from '@twilio-paste/theme';
 import type {PasteCustomCSS} from './PasteCSS';
 
 export interface CustomizationProviderProps {
+  children?: React.ReactNode | undefined;
   /**
    * Choose the base theme you would like your application to extend from
    *

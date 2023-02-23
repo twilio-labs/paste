@@ -4,7 +4,7 @@ import {SkeletonLoader} from '@twilio-paste/skeleton-loader';
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
 import {TableHeaderData, TableBodyData} from './constants';
 
-export const LoadingDataGrid: React.FC = () => {
+export const LoadingDataGrid = (): JSX.Element => {
   // Used for random looking column widths
   const widths = [67, 53, 79, 59, 73, 61, 89, 97, 71, 83];
   const widthsLength = widths.length;

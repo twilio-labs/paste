@@ -10,7 +10,7 @@ const authors = [
   'Nnedi Okorafor',
 ];
 
-export const BasicCombobox: React.FC = () => {
+export const BasicCombobox = (): JSX.Element => {
   return <Combobox items={authors} labelText="Select an author" required />;
 };
 

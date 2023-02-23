@@ -51,7 +51,7 @@ const TokenCardComment = styled.dd(
   })
 );
 
-export const TokenCard: React.FC<TokenCardProps> = React.memo(
+export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = React.memo(
   ({
     category,
     name,

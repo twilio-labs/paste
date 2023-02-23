@@ -4,6 +4,7 @@ import type {ValueOf} from '@twilio-paste/types';
 import {useReducedMotion} from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';
+import Image from 'next/image';
 
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
 import {inCypress} from '../../utils/inCypress';
@@ -15,10 +16,10 @@ const IllustrationStates = {
 };
 type IllustrationStatesType = ValueOf<typeof IllustrationStates>;
 
-const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}) => {
+const IllustrationChildren: React.FC<React.PropsWithChildren<{state: IllustrationStatesType}>> = ({state}) => {
   switch (state) {
     case IllustrationStates.STATIC:
-      return <HomeHeroIllu />;
+      return <Image src={HomeHeroIllu} aria-hidden="true" role="img" alt="" fill />;
     // null for dynamic because lottie injects children
     case IllustrationStates.DYNAMIC:
     case IllustrationStates.UNINITIALIZED:
@@ -34,7 +35,7 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
  * - If dynamic fails, render static.
  * - If prefers reduced motion, render static.
  */
-const HomeHeroIllustration: React.FC = () => {
+const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
   /*
    * lottie doesn't honour our disableAnimations global, so we have to
    * manually detect running in cypress to stop the animation on the homepage
@@ -89,6 +90,7 @@ const HomeHeroIllustration: React.FC = () => {
         maxWidth="size70"
         height={['400px', '400px', '500px']}
         marginLeft="auto"
+        position="relative"
         ref={containerRef}
       >
         <IllustrationChildren state={illustrationState} />

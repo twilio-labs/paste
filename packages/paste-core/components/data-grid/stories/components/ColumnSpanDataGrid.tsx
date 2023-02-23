@@ -4,7 +4,9 @@ import type {BoxProps} from '@twilio-paste/box';
 import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
 import {TableBodyData} from './constants';
 
-export const ColumnSpanDataGrid: React.FC<{element?: BoxProps['element']}> = ({element = 'DATA_GRID'}) => {
+export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({
+  element = 'DATA_GRID',
+}) => {
   return (
     <DataGrid aria-label="User information table" data-testid="data-grid" element={element} striped>
       <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`}>

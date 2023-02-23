@@ -12,7 +12,7 @@ const styles: {[key: string]: BoxStyleProps} = {
   secondary: {backgroundColor: 'colorBackground'},
   _secondaryHover: {fontStyle: 'italic'},
 };
-export const CustomizableBoxExample: React.FC<CustomizableBoxExampleProps> = ({
+export const CustomizableBoxExample: React.FC<React.PropsWithChildren<CustomizableBoxExampleProps>> = ({
   children,
   variant,
   element,

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {Badge} from '@twilio-paste/badge';
@@ -7,7 +6,7 @@ import {Anchor} from '@twilio-paste/anchor';
 
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
 
-export const ComingSoonCard: React.FC = () => {
+export const ComingSoonCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

@@ -9,7 +9,7 @@ export interface ArticleListProps {
   articles: ArticleData[];
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({articles}) => {
+const ArticleList: React.FC<React.PropsWithChildren<ArticleListProps>> = ({articles}) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       {articles.map((article) => (

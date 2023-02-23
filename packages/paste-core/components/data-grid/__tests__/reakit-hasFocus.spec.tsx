@@ -7,7 +7,7 @@ import {render, screen} from '@testing-library/react';
 
 import {hasFocus} from '../src/utils/reakit/reakit-hasFocus';
 
-const TestComponent: React.FC = () => {
+const TestComponent = (): JSX.Element => {
   return (
     <>
       <div aria-label="item1">

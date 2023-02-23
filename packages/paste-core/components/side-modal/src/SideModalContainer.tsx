@@ -15,7 +15,7 @@ export interface SideModalContainerProps extends NonModalDialogPrimitivePopoverI
   state?: SideModalStateReturn;
 }
 
-const BaseSideModalContainer: React.FC<SideModalContainerProps> = ({
+const BaseSideModalContainer: React.FC<React.PropsWithChildren<SideModalContainerProps>> = ({
   gutter,
   children,
   placement,

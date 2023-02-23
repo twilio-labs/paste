@@ -13,7 +13,13 @@ export interface ArticleAuthorProps {
   authorLink?: string;
 }
 
-const ArticleAuthor: React.FC<ArticleAuthorProps> = ({author, avatar, date, authorLink, machineDate}) => {
+const ArticleAuthor: React.FC<React.PropsWithChildren<ArticleAuthorProps>> = ({
+  author,
+  avatar,
+  date,
+  authorLink,
+  machineDate,
+}) => {
   return (
     <Box marginY="space40">
       <Stack orientation="horizontal" spacing="space40">

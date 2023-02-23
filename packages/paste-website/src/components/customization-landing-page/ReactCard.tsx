@@ -1,11 +1,10 @@
-import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Anchor} from '@twilio-paste/anchor';
 
 import {ReactLogoIcon} from '../icons/ReactLogoIcon';
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
 
-export const ReactCard: React.FC = () => {
+export const ReactCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

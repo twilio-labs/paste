@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useMenuState, MenuButton, Menu, MenuItem} from '@twilio-paste/core/menu';
 import {ChevronDownIcon} from '@twilio-paste/icons/cjs/ChevronDownIcon';
 
-const MenuPreview: React.FC = () => {
+const MenuPreview = (): JSX.Element => {
   const menu = useMenuState();
 
   return (

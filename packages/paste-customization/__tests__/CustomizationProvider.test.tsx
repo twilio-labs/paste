@@ -1,6 +1,7 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {render, screen} from '@testing-library/react';
+import React from 'react';
+// eslint-disable-next-line import/no-unresolved
+import {createRoot} from 'testing-tools/react-dom-create-root';
+import {render, screen, act} from '@testing-library/react';
 
 import {CustomizationProvider, CustomizationConsumer} from '../src';
 
@@ -36,7 +37,7 @@ const ThemeConsumerElementsExample = (): React.ReactElement => {
 interface BaseThemeConsumerExampleProps {
   'data-testid'?: string;
 }
-const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props) => {
+const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsumerExampleProps>> = (props) => {
   return (
     <CustomizationConsumer>
       {({theme}) => {
@@ -51,7 +52,10 @@ const BaseThemeConsumerExample: React.FC<BaseThemeConsumerExampleProps> = (props
 
 describe('CustomizationProvider', () => {
   it('should render without crashing', (): void => {
-    ReactDOM.render(<CustomizationProvider />, document.createElement('div'));
+    const root = createRoot(document.createElement('div') as HTMLElement);
+    act(() => {
+      root.render(<CustomizationProvider />);
+    });
   });
 
   it('should inherit one of two base themes', () => {

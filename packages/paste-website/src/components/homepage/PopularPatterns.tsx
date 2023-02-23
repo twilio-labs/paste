@@ -1,11 +1,10 @@
-import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import {
   ComponentCard,
@@ -19,7 +18,7 @@ import HomeCreateIllustration from '../../assets/illustrations/home_create_illus
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 import {event} from '../../lib/gtag';
 
-const PopularPatterns: React.FC = () => {
+const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
 
   return (

@@ -9,7 +9,7 @@ interface Props {
   sourceUrl?: string;
 }
 
-const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
+const Citation: React.FC<React.PropsWithChildren<Props>> = ({name, source, sourceUrl}) => {
   return (
     <Text as="footer" fontWeight="fontWeightSemibold" marginTop="space40">
       &mdash; {name}
@@ -29,7 +29,7 @@ const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
   );
 };
 
-export const Blockquote: React.FC<Props> = ({children, name, source, sourceUrl}) => {
+export const Blockquote: React.FC<React.PropsWithChildren<Props>> = ({children, name, source, sourceUrl}) => {
   return (
     <Box
       borderLeftWidth="borderWidth20"

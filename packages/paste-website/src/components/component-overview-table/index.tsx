@@ -19,7 +19,10 @@ interface ComponentOverviewTableProps {
   componentsList?: [Feature];
 }
 
-const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({categoryRoute, componentsList}) => {
+const ComponentOverviewTable: React.FC<React.PropsWithChildren<ComponentOverviewTableProps>> = ({
+  categoryRoute,
+  componentsList,
+}) => {
   if (componentsList == null || categoryRoute == null) {
     return null;
   }

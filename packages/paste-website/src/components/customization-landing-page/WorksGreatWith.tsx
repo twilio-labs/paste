@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {useTheme} from '@twilio-paste/theme';
@@ -11,7 +10,7 @@ import {ReactCard} from './ReactCard';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {DoodleLoopArrow} from '../../assets/illustrations/DoodleLoopArrow';
 
-export const WorksGreatWith: React.FC = () => {
+export const WorksGreatWith = (): JSX.Element => {
   const {backgroundColors, ...theme} = useTheme();
   return (
     <Box

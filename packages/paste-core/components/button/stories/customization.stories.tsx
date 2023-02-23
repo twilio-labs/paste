@@ -32,11 +32,13 @@ const customButtonStyles = {
   },
 } as PasteCustomCSS;
 
-const ShowCustomization: React.FC<{
-  button: React.ReactNode;
-  customButton: React.ReactNode;
-  isTestEnvironment: boolean;
-}> = ({button, customButton, isTestEnvironment}) => {
+const ShowCustomization: React.FC<
+  React.PropsWithChildren<{
+    button: React.ReactNode;
+    customButton: React.ReactNode;
+    isTestEnvironment: boolean;
+  }>
+> = ({button, customButton, isTestEnvironment}) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space90">
@@ -72,10 +74,9 @@ const ShowCustomization: React.FC<{
   );
 };
 
-export const AnyButton: React.FC<{element?: BoxElementProps['element']; variant: ButtonVariants}> = ({
-  element = 'BUTTON',
-  variant,
-}) => (
+export const AnyButton: React.FC<
+  React.PropsWithChildren<{element?: BoxElementProps['element']; variant: ButtonVariants}>
+> = ({element = 'BUTTON', variant}) => (
   <Button variant={variant} element={element} data-testid="button_for_customization">
     Click me
   </Button>

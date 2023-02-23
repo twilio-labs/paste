@@ -134,7 +134,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
      * https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
      */
     const scrollToIndexRef = React.useCallback(
-      (node) => {
+      (node: any) => {
         if (node) {
           rowVirtualizer.scrollToIndex(items.indexOf(internalSelectedItem));
         }

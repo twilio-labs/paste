@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import GitHubButton from 'react-github-button';
@@ -10,7 +9,7 @@ import {FigmaButton} from './FigmaButton';
 
 import 'react-github-button/assets/style.css';
 
-const SiteHeaderDesktop: React.FC = () => {
+const SiteHeaderDesktop = (): JSX.Element => {
   return (
     <Box
       as="header"

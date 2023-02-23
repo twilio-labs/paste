@@ -14,7 +14,10 @@ interface DataGridHeaderSortIconProps {
   element?: BoxProps['element'];
 }
 
-const DataGridHeaderSortIcon: React.FC<DataGridHeaderSortIconProps> = ({direction, element}) => {
+const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSortIconProps>> = ({
+  direction,
+  element,
+}) => {
   switch (direction) {
     case 'ascending':
       return <ArrowUpIcon decorative element={element} />;
@@ -43,7 +46,7 @@ export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
  * @param {function} onClick - callback for when the button is clicked
  * @param {string} element - customization element
  */
-export const DataGridHeaderSort: React.FC<DataGridHeaderSortProps> = ({
+export const DataGridHeaderSort: React.FC<React.PropsWithChildren<DataGridHeaderSortProps>> = ({
   direction,
   onClick,
   element = 'DATA_GRID_HEADER_SORT',

@@ -11,7 +11,7 @@ import {
   PaginationNumbers,
 } from '../src';
 
-export const ArrowExample: React.FC = () => {
+export const ArrowExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -24,7 +24,7 @@ export const ArrowExample: React.FC = () => {
   );
 };
 
-export const ArrowsAsAnchorsExample: React.FC = () => {
+export const ArrowsAsAnchorsExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -37,7 +37,7 @@ export const ArrowsAsAnchorsExample: React.FC = () => {
   );
 };
 
-export const ArrowLabelsExample: React.FC = () => {
+export const ArrowLabelsExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -50,7 +50,7 @@ export const ArrowLabelsExample: React.FC = () => {
   );
 };
 
-export const ArrowAsAnchorLabelsExample: React.FC = () => {
+export const ArrowAsAnchorLabelsExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -63,7 +63,7 @@ export const ArrowAsAnchorLabelsExample: React.FC = () => {
   );
 };
 
-export const ArrowsPageLabelExample: React.FC<{staticLabel?: string}> = ({staticLabel}) => {
+export const ArrowsPageLabelExample: React.FC<React.PropsWithChildren<{staticLabel?: string}>> = ({staticLabel}) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -77,7 +77,7 @@ export const ArrowsPageLabelExample: React.FC<{staticLabel?: string}> = ({static
   );
 };
 
-export const NumbersExample: React.FC = () => {
+export const NumbersExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -101,7 +101,7 @@ export const NumbersExample: React.FC = () => {
   );
 };
 
-export const NumbersAsAnchorsExample: React.FC = () => {
+export const NumbersAsAnchorsExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -133,7 +133,7 @@ export const NumbersAsAnchorsExample: React.FC = () => {
   );
 };
 
-export const NumbersPageLabelExample: React.FC = () => {
+export const NumbersPageLabelExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -157,7 +157,7 @@ export const NumbersPageLabelExample: React.FC = () => {
   );
 };
 
-export const ControlledArrowPaginationExample: React.FC = () => {
+export const ControlledArrowPaginationExample = (): JSX.Element => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const totalPages = 7;
 
@@ -198,7 +198,7 @@ export const ControlledArrowPaginationExample: React.FC = () => {
   );
 };
 
-export const ControlledNumberPaginationExample: React.FC = () => {
+export const ControlledNumberPaginationExample = (): JSX.Element => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const pages = [1, 2, 3, 4, 5, 6, 7];
   const totalPages = pages.length;

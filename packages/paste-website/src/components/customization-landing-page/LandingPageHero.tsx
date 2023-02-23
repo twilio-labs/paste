@@ -1,5 +1,4 @@
-import * as React from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
@@ -10,7 +9,7 @@ import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {ImageSlider} from './image-slider';
 import HeroSlider from '../../assets/images/customization/hero-slider-mobile.png';
 
-export const LandingPageHero: React.FC = () => {
+export const LandingPageHero = (): JSX.Element => {
   return (
     <Box overflow="hidden">
       <Box padding="space70">
