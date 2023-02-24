@@ -4,9 +4,9 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Popover, PopoverBadgeButton, PopoverContainer} from '@twilio-paste/popover';
 import {Heading} from '@twilio-paste/heading';
 import camelCase from 'lodash/camelCase';
+import {Theme} from '@twilio-paste/theme';
 
 import type {TokenCardProps} from '../types';
-import {Theme} from '@twilio-paste/theme';
 
 export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pairing' | 'name' | 'selectedTheme'>> = ({
   text_contrast_pairing,

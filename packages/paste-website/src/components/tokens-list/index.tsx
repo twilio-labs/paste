@@ -17,6 +17,22 @@ import {SimpleStorage} from '../../utils/SimpleStorage';
 import {sectionIntros} from './sectionIntros';
 import {ScrollToTopLink} from './ScrollToTopLink';
 
+const getTokenContrastPairs = (Tokens: typeof DefaultThemeTokens): Record<string, string[]> => {
+  const {tokens} = Tokens;
+  const tokensWithPairs: Record<string, string[]> = {};
+  const tokenCategories = Object.keys(tokens) as [keyof typeof tokens];
+  tokenCategories.forEach((tokenCatgory) => {
+    tokens[tokenCatgory].forEach((token) => {
+      if (token.hasOwnProperty('text_contrast_pairing')) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore This typing is weird and I can't work it out. text_contrast_pairing definitely is part of token
+        tokensWithPairs[token.name] = token.text_contrast_pairing;
+      }
+    });
+  });
+  return tokensWithPairs;
+};
+
 const sentenceCase = (catName: string): string => {
   return catName
     .split('-')
@@ -46,19 +62,22 @@ export const TokensList = (): JSX.Element => {
 
   // State related to select and filter controls
   const [filterString, setFilterString] = React.useState('');
-  const [selectedTheme, setSelectedTheme] = React.useState(defaultTheme);
+  const [selectedTheme, setSelectedTheme] = React.useState<'default' | 'dark'>(defaultTheme);
   const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // State related to the clipboard
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
 
+  // Get a static list of tokens and color contrast pairs
+  const tokenContrastPairs = getTokenContrastPairs(DefaultThemeTokens);
+
   /*
    * This runs on hydration, grabs any settings from the client's localStorage,
    * and populates the token list.
    */
   React.useEffect(() => {
-    const userTheme = SimpleStorage.get('themeControl') || defaultTheme;
+    const userTheme = (SimpleStorage.get('themeControl') as 'dark' | 'default') || defaultTheme;
     const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
     let tokenList: Tokens = DefaultThemeTokens.tokens;
 
@@ -98,7 +117,7 @@ export const TokensList = (): JSX.Element => {
     const newTokens = value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens;
 
     SimpleStorage.set('themeControl', value);
-    setSelectedTheme(value);
+    setSelectedTheme(value as 'default' | 'dark');
     setTokens(newTokens);
     setExampleColors(getTokenExampleColors(newTokens));
   };
@@ -193,7 +212,7 @@ export const TokensList = (): JSX.Element => {
                 {sectionIntro}
                 <Box marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens ? (
-                    categoryTokens.map(({name, value, altValue, comment, text_contrast_pairing}) => (
+                    categoryTokens.map(({name, value, altValue, comment}) => (
                       <TokenCard
                         key={`token${name}`}
                         category={tokenCategory}
@@ -210,7 +229,7 @@ export const TokensList = (): JSX.Element => {
                         useCamelCase={useJavascriptNames}
                         onCopyText={handleCopyName}
                         isCopied={clipboard.copied && lastCopiedValue === name}
-                        text_contrast_pairing={text_contrast_pairing}
+                        text_contrast_pairing={tokenContrastPairs[name]}
                         selectedTheme={selectedTheme}
                       />
                     ))

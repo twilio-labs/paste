@@ -3,7 +3,6 @@ global:
   category: box-shadow
 imports:
   - ../../../global/box-shadow.yml
-  - ../aliases/box-shadow.yml
 props:
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-20}"

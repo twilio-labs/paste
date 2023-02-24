@@ -132,28 +132,12 @@ props:
   color-text-decorative-10:
     value: "#696F8C"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-10
   color-text-decorative-20:
     value: "#2952CC"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-20
   color-text-decorative-30:
     value: "#317159"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-30
   color-text-decorative-40:
     value: "#6E62B6"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-40
