@@ -8,18 +8,18 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 
 import {useModalContext} from './ModalContext';
-import {modalHeaderStyles} from './styles';
 
 export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
   i18nDismissLabel?: string;
 }
+
 const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
   ({children, element = 'MODAL_HEADER', i18nDismissLabel = 'Close modal', ...props}, ref) => {
     const {onDismiss} = useModalContext();
     return (
-      <Box {...safelySpreadBoxProps(props)} as="div" {...modalHeaderStyles} element={element} ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} as="div" element={element} ref={ref} padding="space90" flexShrink={0}>
         <Flex hAlignContent="between">
           <Flex vAlignContent="center" grow={1} marginRight="space70">
             {children}

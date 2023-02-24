@@ -13,7 +13,6 @@ import {
   props as stylingProps,
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
-import {isDeprecatedBoxShadowTokenProp, isDeprecatedTextColorTokenProp} from '@twilio-paste/style-props';
 
 import type {TextProps, StyledTextProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
@@ -62,10 +61,6 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
 );
 
 Text.displayName = 'Text';
-Text.propTypes = {
-  boxShadow: isDeprecatedBoxShadowTokenProp,
-  color: isDeprecatedTextColorTokenProp,
-};
 
 export {Text};
 export * from './types';

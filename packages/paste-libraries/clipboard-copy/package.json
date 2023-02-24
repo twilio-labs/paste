@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/clipboard-copy-library",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "category": "library",
   "status": "production",
   "description": "A library that allows the user to copy text with the click of a button.",
