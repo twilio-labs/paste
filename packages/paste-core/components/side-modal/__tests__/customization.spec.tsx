@@ -38,7 +38,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
         fontSize: 'fontSize60',
       },
       SIDE_MODAL_HEADER_CLOSE_BUTTON: {
-        borderColor: 'colorBorderLight',
+        borderColor: 'colorBorderWeak',
       },
       SIDE_MODAL_HEADER_CLOSE_ICON: {
         width: 'sizeIcon50',
@@ -79,7 +79,7 @@ const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) =
         fontSize: 'fontSize60',
       },
       FOO_DIALOG_HEADER_CLOSE_BUTTON: {
-        borderColor: 'colorBorderLight',
+        borderColor: 'colorBorderWeak',
       },
       FOO_DIALOG_HEADER_CLOSE_ICON: {
         width: 'sizeIcon50',

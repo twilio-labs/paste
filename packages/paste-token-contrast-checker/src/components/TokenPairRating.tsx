@@ -42,7 +42,7 @@ const TokenPairRating: React.FC<React.PropsWithChildren<TokenPairRatingProps>> =
       borderStyle="solid"
       borderWidth="borderWidth0"
       borderTopWidth="borderWidth10"
-      borderTopColor="colorBorderLight"
+      borderTopColor="colorBorderWeak"
       paddingX="space40"
     >
       <MediaObject verticalAlign="center" key={uidSeed('text')}>

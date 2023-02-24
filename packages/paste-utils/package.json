@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/utils",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Paste Design System shared utilities and React hooks.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -26,22 +26,22 @@
     "lodash": "4.17.21"
   },
   "peerDependencies": {
-    "@twilio-paste/animation-library": "^0.3.1",
-    "@twilio-paste/color-contrast-utils": "^3.0.0",
-    "@twilio-paste/design-tokens": "^8.0.0",
-    "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/theme": "^8.0.0",
-    "@twilio-paste/types": "^3.1.1",
+    "@twilio-paste/animation-library": "^1.0.0",
+    "@twilio-paste/color-contrast-utils": "^4.0.0",
+    "@twilio-paste/design-tokens": "^9.0.0",
+    "@twilio-paste/styling-library": "^2.0.0",
+    "@twilio-paste/theme": "^9.0.0",
+    "@twilio-paste/types": "^4.0.0",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^0.3.9",
-    "@twilio-paste/color-contrast-utils": "^3.0.1",
-    "@twilio-paste/design-tokens": "^8.1.2",
-    "@twilio-paste/styling-library": "^1.0.3",
-    "@twilio-paste/theme": "^8.0.3",
-    "@twilio-paste/types": "^3.1.9",
+    "@twilio-paste/animation-library": "^1.0.0",
+    "@twilio-paste/color-contrast-utils": "^4.0.0",
+    "@twilio-paste/design-tokens": "^9.0.0",
+    "@twilio-paste/styling-library": "^2.0.0",
+    "@twilio-paste/theme": "^9.0.0",
+    "@twilio-paste/types": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   }

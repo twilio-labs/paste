@@ -1,5 +1,156 @@
 # Change Log
 
+## 18.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] remove deprecated light/dark color tokens from the system
+
+### Minor Changes
+
+- [`b1ae14e22`](https://github.com/twilio-labs/paste/commit/b1ae14e2223bd5f094b76c10cfedc3ff0b0a4103) [#3000](https://github.com/twilio-labs/paste/pull/3000) Thanks [@shleewhite](https://github.com/shleewhite)! - [Detail Text] create the new DetailText component, meant to be used for short pieces of secondary text content.
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Version bump of internal pacakges
+
+- [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text, Style Props, Theme]: remove checking and warning for deprecated design tokens and themes that have been removed from the system
+
+* [`5f5790d1c`](https://github.com/twilio-labs/paste/commit/5f5790d1cad547537843b9ebc60916647939fd1e) [#3032](https://github.com/twilio-labs/paste/pull/3032) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add new props:
+
+  - initialFocusRef: focuses a ref when the Popover opens
+  - width: sets the width of the Popover, up to size50.
+
+  Update styles to align with new Paste Twilio theme
+
+### Patch Changes
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Breadcrumb] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Anchor] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Separator] Update styles to align with new Paste Twilio theme
+
+* [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5) [#3042](https://github.com/twilio-labs/paste/pull/3042) Thanks [@shleewhite](https://github.com/shleewhite)! - [Modal] Update styles to align with new Paste Twilio theme
+
+- [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c) [#3028](https://github.com/twilio-labs/paste/pull/3028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update evergreen theme font-sizes
+
+* [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - [Select] Render options after mounted
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Callout] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Table] Update styles to align with new Paste Twilio theme
+
+* [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] update the value of colorTextUser for default and dark themes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - [CodeBlock] Fix concurrent render of copy button tooltip
+
+* [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Input Box] Update styles to align with new Paste Twilio theme
+
+* [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5) [#3042](https://github.com/twilio-labs/paste/pull/3042) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert Dialog] Update styles to align with new Paste Twilio theme
+
+- [`62983adb8`](https://github.com/twilio-labs/paste/commit/62983adb8acf447a644b6eaa933628cb3d4c6742) [#3029](https://github.com/twilio-labs/paste/pull/3029) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Heading] Update styles to align with new Paste Twilio theme
+
+* Updated dependencies [[`b1ae14e22`](https://github.com/twilio-labs/paste/commit/b1ae14e2223bd5f094b76c10cfedc3ff0b0a4103), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5), [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5), [`62983adb8`](https://github.com/twilio-labs/paste/commit/62983adb8acf447a644b6eaa933628cb3d4c6742), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`5f5790d1c`](https://github.com/twilio-labs/paste/commit/5f5790d1cad547537843b9ebc60916647939fd1e)]:
+  - @twilio-paste/detail-text@1.0.0
+  - @twilio-paste/breadcrumb@9.0.0
+  - @twilio-paste/anchor@10.0.0
+  - @twilio-paste/separator@6.0.0
+  - @twilio-paste/modal@14.0.0
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/alert@12.0.0
+  - @twilio-paste/alert-dialog@7.0.0
+  - @twilio-paste/avatar@7.0.0
+  - @twilio-paste/badge@6.0.0
+  - @twilio-paste/base-radio-checkbox@11.0.0
+  - @twilio-paste/button@12.0.0
+  - @twilio-paste/button-group@2.0.0
+  - @twilio-paste/callout@2.0.0
+  - @twilio-paste/card@7.0.0
+  - @twilio-paste/chat-composer@2.0.0
+  - @twilio-paste/chat-log@3.0.0
+  - @twilio-paste/checkbox@11.0.0
+  - @twilio-paste/code-block@2.0.0
+  - @twilio-paste/combobox@14.0.0
+  - @twilio-paste/data-grid@6.0.0
+  - @twilio-paste/date-picker@4.0.0
+  - @twilio-paste/description-list@2.0.0
+  - @twilio-paste/disclosure@10.0.0
+  - @twilio-paste/display-heading@2.0.0
+  - @twilio-paste/display-pill-group@6.0.0
+  - @twilio-paste/file-picker@2.0.0
+  - @twilio-paste/file-uploader@2.0.0
+  - @twilio-paste/form@9.0.0
+  - @twilio-paste/form-pill-group@6.0.0
+  - @twilio-paste/heading@9.0.0
+  - @twilio-paste/help-text@11.0.0
+  - @twilio-paste/in-page-navigation@2.0.0
+  - @twilio-paste/inline-code@2.0.0
+  - @twilio-paste/inline-control-group@11.0.0
+  - @twilio-paste/input@7.0.0
+  - @twilio-paste/input-box@8.0.0
+  - @twilio-paste/label@11.0.0
+  - @twilio-paste/list@6.0.0
+  - @twilio-paste/menu@12.0.0
+  - @twilio-paste/minimizable-dialog@2.0.0
+  - @twilio-paste/pagination@5.0.0
+  - @twilio-paste/paragraph@8.0.0
+  - @twilio-paste/popover@11.0.0
+  - @twilio-paste/radio-button-group@2.0.0
+  - @twilio-paste/radio-group@11.0.0
+  - @twilio-paste/screen-reader-only@11.0.0
+  - @twilio-paste/select@10.0.0
+  - @twilio-paste/side-modal@2.0.0
+  - @twilio-paste/skeleton-loader@4.0.0
+  - @twilio-paste/spinner@12.0.0
+  - @twilio-paste/switch@3.0.0
+  - @twilio-paste/table@6.0.0
+  - @twilio-paste/tabs@6.0.0
+  - @twilio-paste/textarea@8.0.0
+  - @twilio-paste/time-picker@4.0.0
+  - @twilio-paste/toast@10.0.0
+  - @twilio-paste/tooltip@9.0.0
+  - @twilio-paste/truncate@12.0.0
+  - @twilio-paste/aspect-ratio@8.0.0
+  - @twilio-paste/flex@6.0.0
+  - @twilio-paste/grid@6.0.0
+  - @twilio-paste/media-object@8.0.0
+  - @twilio-paste/stack@6.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/combobox-primitive@1.0.0
+  - @twilio-paste/disclosure-primitive@1.0.0
+  - @twilio-paste/listbox-primitive@2.0.0
+  - @twilio-paste/menu-primitive@1.0.0
+  - @twilio-paste/modal-dialog-primitive@1.0.0
+  - @twilio-paste/non-modal-dialog-primitive@1.0.0
+  - @twilio-paste/sibling-box@7.0.0
+  - @twilio-paste/tabs-primitive@1.0.0
+  - @twilio-paste/text@8.0.0
+  - @twilio-paste/tooltip-primitive@1.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/clipboard-copy-library@2.0.0
+  - @twilio-paste/data-visualization-library@3.0.0
+  - @twilio-paste/dropdown-library@2.0.0
+  - @twilio-paste/lexical-library@2.0.0
+  - @twilio-paste/react-textarea-autosize-library@2.0.0
+  - @twilio-paste/reakit-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/syntax-highlighter-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/utils@3.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
 ## 17.7.0
 
 ### Minor Changes

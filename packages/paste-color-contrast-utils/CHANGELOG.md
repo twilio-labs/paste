@@ -1,5 +1,12 @@
 # @twilio-paste/color-contrast-utils
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df)]:
+  - @twilio-paste/design-tokens@9.0.0
+
 ## 3.0.1
 
 ### Patch Changes
