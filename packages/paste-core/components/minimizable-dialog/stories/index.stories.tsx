@@ -18,6 +18,8 @@ import {
   MinimizableDialogContent,
   useMinimizableDialogState,
 } from '../src';
+import {MinimizableDialogContext} from '../src/MinimizableDialogContext';
+import {StyledMinimizableDialog} from '../src/StyledMinimizableDialog';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -30,12 +32,11 @@ const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = 
   const emailID = useUID();
   const questionID = useUID();
 
+  const dialog = useMinimizableDialogState({minimized, visible: true});
+
   return (
-    <MinimizableDialogContainer visible minimized={minimized}>
-      <MinimizableDialogButton variant="primary" size="circle">
-        <ChatIcon decorative={false} title="Chat" />
-      </MinimizableDialogButton>
-      <MinimizableDialog aria-label="Live chat">
+    <MinimizableDialogContext.Provider value={{...dialog}}>
+      <StyledMinimizableDialog>
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
           <Box padding="space70">
@@ -62,13 +63,13 @@ const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = 
             </Box>
           </Box>
         </MinimizableDialogContent>
-      </MinimizableDialog>
-    </MinimizableDialogContainer>
+      </StyledMinimizableDialog>
+    </MinimizableDialogContext.Provider>
   );
 };
 
-export const Default: StoryFn = () => <DialogExample />;
-export const DefaultMinimized: StoryFn = () => <DialogExample minimized />;
+export const DefaultForVRT: StoryFn = () => <DialogExample />;
+export const DefaultMinimizedForVRT: StoryFn = () => <DialogExample minimized />;
 
 export const FloatingButton: StoryFn = () => {
   const nameID = useUID();
@@ -118,8 +119,13 @@ export const FloatingButton: StoryFn = () => {
   );
 };
 
+FloatingButton.parameters = {
+  chromatic: {disableSnapshot: true},
+};
+
 export const StateHookExample: StoryFn = () => {
   const dialog = useMinimizableDialogState({});
+
   return (
     <Box display="flex" flexDirection="column" rowGap="space70">
       <Box>
@@ -155,6 +161,20 @@ export const StateHookExample: StoryFn = () => {
           Expand dialog
         </Button>
       </Box>
+      <Box>
+        <Button variant="primary" onClick={() => dialog.toggle()}>
+          Toggle dialog
+        </Button>
+      </Box>
+      <Box>
+        <Button variant="primary" onClick={() => dialog.toggleMinimized()}>
+          Toggle minimized
+        </Button>
+      </Box>
     </Box>
   );
+};
+
+StateHookExample.parameters = {
+  chromatic: {disableSnapshot: true},
 };
