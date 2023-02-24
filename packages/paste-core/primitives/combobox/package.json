@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox-primitive",
-  "version": "0.3.6",
+  "version": "1.0.0",
   "category": "user input",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build a combobox.",
@@ -25,13 +25,13 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/dropdown-library": "^1.1.1",
+    "@twilio-paste/dropdown-library": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/dropdown-library": "^1.1.7",
+    "@twilio-paste/dropdown-library": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

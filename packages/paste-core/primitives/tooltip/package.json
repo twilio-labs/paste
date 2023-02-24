@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip-primitive",
-  "version": "0.2.10",
+  "version": "1.0.0",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tooltip.",
@@ -25,12 +25,12 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.1",
+    "@twilio-paste/reakit-library": "^1.0.0",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.7",
+    "@twilio-paste/reakit-library": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   }
