@@ -15,12 +15,6 @@ import {
   props as defaultStylingProps,
 } from '@twilio-paste/styling-library';
 import type {StyledComponent} from '@twilio-paste/styling-library';
-import {
-  isDeprecatedBackgroundColorTokenProp,
-  isDeprecatedBorderColorTokenProp,
-  isDeprecatedBoxShadowTokenProp,
-  isDeprecatedTextColorTokenProp,
-} from '@twilio-paste/style-props';
 
 import type {BoxProps, StyledBoxProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
@@ -58,12 +52,6 @@ const Box = React.forwardRef<HTMLElement, BoxProps>(({children, element = 'BOX',
 });
 
 Box.displayName = 'Box';
-Box.propTypes = {
-  backgroundColor: isDeprecatedBackgroundColorTokenProp,
-  borderColor: isDeprecatedBorderColorTokenProp,
-  boxShadow: isDeprecatedBoxShadowTokenProp,
-  color: isDeprecatedTextColorTokenProp,
-};
 
 export {Box, getCustomElementStyles};
 export * from './types';

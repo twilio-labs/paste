@@ -13,7 +13,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
         color: 'colorTextInverse',
         variants: {
           inbound: {backgroundColor: 'colorBackgroundPrimary'},
-          outbound: {backgroundColor: 'colorBackgroundPrimaryDarker'},
+          outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
         },
       },
     }}
@@ -31,7 +31,7 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) 
         color: 'colorTextInverse',
         variants: {
           inbound: {backgroundColor: 'colorBackgroundPrimary'},
-          outbound: {backgroundColor: 'colorBackgroundPrimaryDarker'},
+          outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
         },
       },
     }}
