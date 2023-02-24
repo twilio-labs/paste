@@ -9,6 +9,7 @@ import {
 } from '@twilio-paste/styling-library';
 import type {CreateCacheOptions} from '@twilio-paste/styling-library';
 
+import {getThemeFromHash} from './utils/getThemeFromHash';
 import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
@@ -16,16 +17,6 @@ import {pasteFonts} from './styles/fonts';
 import {ThemeVariants} from './constants';
 
 export const StyledBase = styled.div(pasteBaseStyles);
-
-const getThemeFromHash = (): string | undefined => {
-  try {
-    if (window.location.hash.includes('paste-theme-override')) {
-      return window.location.hash.split('=')[1];
-    }
-    // eslint-disable-next-line unicorn/prefer-optional-catch-binding
-  } catch (error) {}
-  return undefined;
-};
 
 const useThemeOverwriteHook = (): string | undefined => {
   const [overwriteTheme, setOverwriteTheme] = React.useState(getThemeFromHash());
