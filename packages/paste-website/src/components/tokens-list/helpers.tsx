@@ -1,7 +1,7 @@
 import type {Properties} from 'csstype';
 import debounce from 'lodash/debounce';
 
-import type {Token, Tokens, TokenExampleColors} from './types';
+import type {Token, Tokens, TokenExampleColors, TokensShape} from './types';
 import {event} from '../../lib/gtag';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
@@ -62,4 +62,20 @@ export const getTokenExampleColors = (tokens: Tokens): TokenExampleColors => {
     textColorInverse: tokens['text-colors'].find((token) => token.name === 'color-text-inverse')
       ?.value as Properties['color'],
   };
+};
+
+export const getTokenContrastPairs = (Tokens: TokensShape): Record<string, string[]> => {
+  const {tokens} = Tokens;
+  const tokensWithPairs: Record<string, string[]> = {};
+  const tokenCategories = tokens ? (Object.keys(tokens) as [keyof typeof tokens]) : [];
+  tokenCategories.forEach((tokenCatgory) => {
+    if (tokens) {
+      tokens[tokenCatgory].forEach((token) => {
+        if (token.text_contrast_pairing) {
+          tokensWithPairs[token.name] = token.text_contrast_pairing;
+        }
+      });
+    }
+  });
+  return tokensWithPairs;
 };

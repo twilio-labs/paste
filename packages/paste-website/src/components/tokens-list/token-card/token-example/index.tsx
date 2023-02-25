@@ -125,7 +125,6 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
           backgroundColor={backgroundColor}
           textColor={textColor}
           textShadow={textShadow}
-          text_contrast_pairing={text_contrast_pairing}
         />
       );
   }

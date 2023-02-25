@@ -7,7 +7,7 @@ import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import kebabCase from 'lodash/kebabCase';
 
 import {AnchoredHeading} from '../Heading';
-import {trackTokenFilterString, filterTokenList, getTokenExampleColors} from './helpers';
+import {trackTokenFilterString, filterTokenList, getTokenExampleColors, getTokenContrastPairs} from './helpers';
 import type {Tokens, TokenExampleColors} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
@@ -16,22 +16,6 @@ import {TokensListFilter} from './TokensListFilter';
 import {SimpleStorage} from '../../utils/SimpleStorage';
 import {sectionIntros} from './sectionIntros';
 import {ScrollToTopLink} from './ScrollToTopLink';
-
-const getTokenContrastPairs = (Tokens: typeof DefaultThemeTokens): Record<string, string[]> => {
-  const {tokens} = Tokens;
-  const tokensWithPairs: Record<string, string[]> = {};
-  const tokenCategories = Object.keys(tokens) as [keyof typeof tokens];
-  tokenCategories.forEach((tokenCatgory) => {
-    tokens[tokenCatgory].forEach((token) => {
-      if (token.hasOwnProperty('text_contrast_pairing')) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore This typing is weird and I can't work it out. text_contrast_pairing definitely is part of token
-        tokensWithPairs[token.name] = token.text_contrast_pairing;
-      }
-    });
-  });
-  return tokensWithPairs;
-};
 
 const sentenceCase = (catName: string): string => {
   return catName
