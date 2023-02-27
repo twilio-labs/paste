@@ -38,7 +38,7 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 
 const disabledStyles = merge(BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
-  backgroundColor: 'colorBackgroundInverse',
+  backgroundColor: 'colorBackgroundInverseStrong',
   boxShadow: 'shadowBorderInverseWeakest',
 });
 

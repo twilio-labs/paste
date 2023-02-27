@@ -95,8 +95,22 @@ export const ToggleStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
   color: 'colorText',
   backgroundColor: 'colorBackgroundBody',
-  // Glorilí is here adding the rest of the toggle button specific styles
   boxShadow: 'shadowBorderWeak',
+  _disabled: {
+    boxShadow: 'shadowBorderWeaker',
+    backgroundColor: 'colorBackgroundBody',
+    color: 'colorTextWeaker',
+  },
+  _hover: {
+    color: 'colorTextPrimary',
+    boxShadow: 'shadowBorderPrimary',
+    backgroundColor: 'colorBackgroundBody',
+  },
+  _active: {
+    color: 'colorTextPrimaryStrongest',
+    boxShadow: 'shadowBorderPrimaryStrongest',
+    backgroundColor: 'colorBackgroundBody',
+  },
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryWeakest',
     color: 'colorTextPrimary',
@@ -112,11 +126,33 @@ export const ToggleStyles: BoxStyleProps = {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
   },
+  _pressed_disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    boxShadow: 'shadowBorderWeaker',
+    color: 'colorTextWeakest',
+  },
 };
 
 export const ToggleIconButtonStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
-
+  color: 'colorTextIcon',
+  backgroundColor: 'colorBackgroundBody',
+  boxShadow: 'shadowBorderWeak',
+  _hover: {
+    color: 'colorTextPrimaryStronger',
+    boxShadow: 'shadowBorderPrimary',
+    backgroundColor: 'colorBackgroundBody',
+  },
+  _active: {
+    color: 'colorTextPrimaryStrongest',
+    boxShadow: 'shadowBorderPrimaryStrongest',
+    backgroundColor: 'colorBackgroundBody',
+  },
+  _disabled: {
+    color: 'colorTextWeaker',
+    boxShadow: 'shadowBorderWeaker',
+    backgroundColor: 'colorBackgroundBody',
+  },
   _pressed: {
     backgroundColor: 'colorBackgroundPrimaryStronger',
     color: 'colorTextWeakest',
@@ -130,6 +166,11 @@ export const ToggleIconButtonStyles: BoxStyleProps = {
   _pressed_focus: {
     boxShadow: 'shadowFocus',
     backgroundColor: 'colorBackgroundPrimaryStronger',
+    color: 'colorTextWeakest',
+  },
+  _pressed_disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    boxShadow: 'shadowBorderWeaker',
     color: 'colorTextWeakest',
   },
 };
