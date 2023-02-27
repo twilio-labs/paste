@@ -5,7 +5,7 @@ import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 
-import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
+import {PopoverTop, StateHookExample, BadgePopover, InitialFocus} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 describe('Popover', () => {
@@ -37,6 +37,38 @@ describe('Popover', () => {
       );
       const renderedPopover = screen.getByLabelText('Popover');
       expect(renderedPopover.getAttribute('role')).toEqual('dialog');
+    });
+
+    it('should focus the close button when the popover opens', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverTop />
+        </Theme.Provider>
+      );
+
+      const renderedPopoverButton = screen.getByRole('button');
+
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
+
+      expect(document.activeElement).toEqual(screen.getByRole('button', {name: 'Close popover'}));
+    });
+
+    it('should focus the initialFocusRef when the popver opens', async () => {
+      render(
+        <Theme.Provider theme="default">
+          <InitialFocus />
+        </Theme.Provider>
+      );
+
+      const renderedPopoverButton = screen.getByRole('button');
+
+      await waitFor(() => {
+        userEvent.click(renderedPopoverButton);
+      });
+
+      expect(document.activeElement).toEqual(screen.getByRole('button', {name: 'Click me'}));
     });
 
     it('should render a popover and show/hide on external button click', async () => {

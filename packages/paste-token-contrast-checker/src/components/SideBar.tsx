@@ -24,7 +24,7 @@ export const SideBar = (): JSX.Element => {
           borderStyle="solid"
           borderWidth="borderWidth0"
           borderBottomWidth="borderWidth10"
-          borderBottomColor="colorBorderLight"
+          borderBottomColor="colorBorderWeak"
         >
           <ThemeSelector
             value={selectedTheme}

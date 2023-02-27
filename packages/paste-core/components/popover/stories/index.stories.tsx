@@ -39,15 +39,69 @@ export const Default = (): JSX.Element => {
   );
 };
 
-export const SmallerSize = (): JSX.Element => {
+export const Sizes: React.FC = () => {
+  return (
+    <Box height="300px" display="grid" gridTemplateColumns="1fr 1fr" gridTemplateRows="auto auto auto">
+      <Box>
+        <PopoverContainer baseId={useUID()} visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover" width="size50">
+            <Text as="span">width is &apos;size50&apos;</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+      <Box>
+        <PopoverContainer baseId={useUID()} visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover" width="size40">
+            <Text as="span">width is &apos;size40&apos;</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+      <Box>
+        <PopoverContainer baseId={useUID()} visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover" width="size30">
+            <Text as="span">width is &apos;size30&apos;</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+      <Box>
+        <PopoverContainer baseId={useUID()} visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover" width="size20">
+            <Text as="span">width is &apos;size20&apos;</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+      <Box>
+        <PopoverContainer baseId={useUID()} visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover" width="size10">
+            <Text as="span">width is &apos;size10&apos;</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+    </Box>
+  );
+};
+
+export const InitialFocus: React.FC = () => {
   const uniqueBaseID = useUID();
+  const buttonRef = React.createRef<HTMLButtonElement>();
+
   return (
     <Box height="300px">
-      <PopoverContainer baseId={uniqueBaseID} visible>
+      <PopoverContainer baseId={uniqueBaseID}>
         <PopoverButton variant="primary">Open popover</PopoverButton>
-        <Popover aria-label="Popover">
-          <Box width="size30">
+        <Popover aria-label="Popover" initialFocusRef={buttonRef}>
+          <Box display="flex" flexDirection="column" rowGap="space70">
             <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+            <Box>
+              <Button variant="primary" size="small" ref={buttonRef}>
+                Click me
+              </Button>
+            </Box>
           </Box>
         </Popover>
       </PopoverContainer>
@@ -55,7 +109,18 @@ export const SmallerSize = (): JSX.Element => {
   );
 };
 
-export const WideContent = (): JSX.Element => {
+export const ResponsiveWidth: StoryFn = () => {
+  return (
+    <PopoverContainer baseId={useUID()} visible>
+      <PopoverButton variant="primary">Open popover</PopoverButton>
+      <Popover aria-label="Popover" width={['size20', 'size40']}>
+        <Text as="span">Responsive width Popover</Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+export const WideContent: React.FC = () => {
   const date1ID = useUID();
   const time1ID = useUID();
   const date2ID = useUID();

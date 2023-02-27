@@ -1,5 +1,24 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+### Minor Changes
+
+- [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text, Style Props, Theme]: remove checking and warning for deprecated design tokens and themes that have been removed from the system
+
+### Patch Changes
+
+- Updated dependencies [[`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df)]:
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
 ## 8.4.0
 
 ### Minor Changes

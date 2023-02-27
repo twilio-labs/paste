@@ -41,9 +41,12 @@ export const getStaticProps = async () => {
 
 - Adds [support for React 18](https://github.com/twilio-labs/paste/pull/2965). This should "just work" and remains backwards compatible. [Let us know if you have any issues](https://github.com/twilio-labs/paste/discussions).
 - This major version included listing all the missing peer dependencies for each Paste package.
+- Deprecated light/dark named design tokens have been removed.
 
 **ACTION NEEDED**: If you are using a package from Paste in isolation (not from `@twilio-paste/core`), be sure to correctly
 install all the missing peer dependencies.
+
+**ACTION NEEDED**: If you are using the deprecated light/dark named design tokens, you will need to update your references to the new weak/strong named design tokens. You can find the new design tokens in the [design tokens changelog](/tokens/design-tokens-package#6-7-0).
 
 ### Core 17.0.0
 

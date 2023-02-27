@@ -17,7 +17,7 @@ const customButtonStyles = {
     destructive_link: {
       padding: 'space40',
       borderRadius: 'borderRadiusCircle',
-      backgroundColor: 'colorBackgroundDestructiveLight',
+      backgroundColor: 'colorBackgroundDestructiveWeak',
       color: 'colorTextWarningStrong',
       fontWeight: 'fontWeightBold',
     },

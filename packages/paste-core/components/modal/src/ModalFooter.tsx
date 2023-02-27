@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
-import {modalFooterStyles} from './styles';
-
 export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
@@ -12,7 +10,16 @@ export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
   ({children, element = 'MODAL_FOOTER', ...props}, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} {...modalFooterStyles} as="div" element={element} ref={ref}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        flexShrink={0}
+        display="flex"
+        padding="space90"
+        paddingTop="space0"
+        as="div"
+        element={element}
+        ref={ref}
+      >
         {children}
       </Box>
     );

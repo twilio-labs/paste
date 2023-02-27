@@ -62,7 +62,7 @@ The code that generates the opengraph preview page lives in:
 
 Netlify Functions are just AWS Lambdas in disguise. They take an incoming request and you can return a response.
 
-Inside our function we use `chrome-aws-lambda` for grabbing the Chrome Browser binary for AWS Lambdas, and puppeteer to run and control the browser.
+Inside our function we use `@sparticuz/chromium` for grabbing the Chrome Browser binary for AWS Lambdas, and puppeteer to run and control the browser.
 
 Using Puppeteer, we instruct Chrome to visit a url on the website, which renders a dynamic page based on the parameters we give it. We then tell puppeteer to use Chrome to take a screenshot of the page, and that image is then returned as the response of the function.
 
@@ -71,9 +71,3 @@ The page on the website renders a box 800px x 420px. The information is display 
 [Winston](https://github.com/winstonjs/winston) does our logging, so we can observe the function running in real time in the Netlify UI.
 
 [Rollbar](https://docs.rollbar.com/docs/aws-lambda) wraps our function and helps log errors to the Rollbar service so we are alerted if it starts to break.
-
-## Node runtime
-
-🚨 **Node v14** 🚨
-
-The Netlify function must run using Node v14 for the Chrome binary to work correctly. We are explicitly opting out of Node 16 runtime in Netlify functions by setting the `AWS_LAMBDA_JS_RUNTIME` environment variable in the Netlify UI.

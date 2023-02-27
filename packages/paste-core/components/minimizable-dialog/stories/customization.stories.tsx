@@ -53,7 +53,7 @@ export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment
         MINIMIZABLE_DIALOG_HEADER_CLOSE_BUTTON: {
           borderStyle: 'solid',
           borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderLight',
+          borderColor: 'colorBorderWeak',
         },
         MINIMIZABLE_DIALOG_HEADER_CLOSE_ICON: {
           width: 'sizeIcon50',
@@ -61,7 +61,7 @@ export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment
         MINIMIZABLE_DIALOG_HEADER_MINIMIZE_BUTTON: {
           borderStyle: 'solid',
           borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderLight',
+          borderColor: 'colorBorderWeak',
         },
         MINIMIZABLE_DIALOG_HEADER_MINIMIZE_ICON: {
           width: 'sizeIcon50',

@@ -22,7 +22,7 @@
 
 [functions]
   directory = "functions"
-  external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core"]
 
 # need to all add redirects to ./netlify.toml as well
 # INTRODUCTION/

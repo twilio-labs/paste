@@ -1,11 +1,8 @@
 imports:
-  - ./background-color-deprecated.yml
   - ./background-color.yml
-  - ./border-color-deprecated.yml
   - ./border-color.yml
   - ./border-radius.yml
   - ./border-width.yml
-  - ./box-shadow-deprecated.yml
   - ./box-shadow.yml
   - ./data-visualization.yml
   - ./font-family.yml
@@ -15,6 +12,5 @@ imports:
   - ./palette-color.yml
   - ./sizing.yml
   - ./spacing.yml
-  - ./text-color-deprecated.yml
   - ./text-color.yml
   - ./z-index.yml

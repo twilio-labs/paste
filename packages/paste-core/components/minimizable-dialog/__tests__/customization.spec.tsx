@@ -16,10 +16,10 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
     theme={TestTheme}
     elements={{
       MINIMIZABLE_DIALOG_BUTTON: {
-        backgroundColor: 'colorBackgroundDark',
+        backgroundColor: 'colorBackgroundStrong',
       },
       MINIMIZABLE_DIALOG: {
-        backgroundColor: 'colorBackgroundPrimaryLighter',
+        backgroundColor: 'colorBackgroundPrimaryWeaker',
       },
       MINIMIZABLE_DIALOG_CONTENT: {
         margin: 'space0',
@@ -54,10 +54,10 @@ const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) =
     theme={TestTheme}
     elements={{
       FOO_DIALOG_BUTTON: {
-        backgroundColor: 'colorBackgroundDark',
+        backgroundColor: 'colorBackgroundStrong',
       },
       FOO_DIALOG: {
-        backgroundColor: 'colorBackgroundPrimaryLighter',
+        backgroundColor: 'colorBackgroundPrimaryWeaker',
       },
       FOO_DIALOG_CONTENT: {
         margin: 'space0',

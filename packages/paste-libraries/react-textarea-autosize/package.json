@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/react-textarea-autosize-library",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "category": "library",
   "status": "production",
   "description": "textarea component for React which grows with content",

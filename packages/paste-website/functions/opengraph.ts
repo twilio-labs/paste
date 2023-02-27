@@ -13,7 +13,7 @@
  * or 900 seconds (Enterprise plan).
  */
 import puppeteer from 'puppeteer-core';
-import chromium from 'chrome-aws-lambda';
+import chromium from '@sparticuz/chromium';
 import Rollbar from 'rollbar';
 import type {LambdaHandler} from 'rollbar';
 
@@ -50,7 +50,7 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
   }
 
   return {
-    executablePath: await chromium.executablePath,
+    executablePath: await chromium.executablePath(),
     args: chromium.args,
     headless: chromium.headless,
   };

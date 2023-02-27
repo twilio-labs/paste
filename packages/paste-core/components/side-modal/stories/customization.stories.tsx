@@ -60,7 +60,7 @@ export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment
         SIDE_MODAL_HEADER_CLOSE_BUTTON: {
           borderStyle: 'solid',
           borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderLight',
+          borderColor: 'colorBorderWeak',
         },
         SIDE_MODAL_HEADER_CLOSE_ICON: {
           width: 'sizeIcon50',
