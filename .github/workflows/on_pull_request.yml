@@ -303,6 +303,9 @@ jobs:
     name: Storybook test runner
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -360,7 +363,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Storybook test runner
-        run: yarn start:test:storybook
+        run: yarn start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook --shard=${{ matrix.shard }}'
 
   prettier:
     name: Prettier checks
