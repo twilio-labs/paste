@@ -55,9 +55,7 @@ export const getStaticProps = async () => {
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
-  <Text as="span">
     <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for reducing it.
-  </Text>
 </Alert>`}
 </LivePreview>
 
@@ -81,7 +79,7 @@ To interrupt a user flow or provide the user with more than one action, use an a
 
 ### Accessibility
 
-- On all alerts, pass in `role="alert"` or `role="status"` through [props](#props).
+- Pass in `role="alert"` or `role="status"` through [props](#props). Otherwise, the default role is `status` for neutral alerts and `alert` for warning and error alerts.
 - Screen readers will announce error and warning alert text immediately. Alerts that persist across multiple pages will announce themselves repeatedly which may become annoying. Consider making alerts in these cases dismissible.
 - Render an alert only when it's needed. Assistive technologies will be able to read a visually hidden element. Don't visually hide an alert and then make it visible through client-side code.
 
@@ -91,34 +89,26 @@ Our alerts have icons that both announce the type of alert it is to screen reade
 
 Here are ways that you can compose neutral, warning, error, and dismissible alerts.
 
-<Box marginBottom="space40">
+<Box marginBottom="space30">
   <Alert variant="neutral">
-    <Text as="span">
-      <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat now.
-    </Text>
+    <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat now.
   </Alert>
 </Box>
-<Box marginBottom="space40">
+<Box marginBottom="space30">
   <Alert variant="warning">
-    <Text as="span">
-      <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
-      within.
-    </Text>
+    <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
+    within.
   </Alert>
 </Box>
-<Box marginBottom="space40">
+<Box marginBottom="space30">
   <Alert variant="error">
-    <Text as="span">
-      <strong>Audre Lorde:</strong> It is not our differences that divide us. It is our inability to recognize, accept,
-      and celebrate those differences.
-    </Text>
+    <strong>Audre Lorde:</strong> It is not our differences that divide us. It is our inability to recognize, accept,
+    and celebrate those differences.
   </Alert>
 </Box>
 <Box marginBottom="space70">
   <Alert onDismiss={() => alert('dismissed')} variant="warning">
-    <Text as="span">
-      <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
-    </Text>
+    <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
   </Alert>
 </Box>
 
@@ -126,7 +116,9 @@ Here are ways that you can compose neutral, warning, error, and dismissible aler
 
 Use a neutral alert to notify a user of a change that's relevant for them to achieve their current goal. Don't use an alert to communicate general promotional information.
 
-In most cases, a neutral alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`
+In most cases, a neutral alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`.
+
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextNeutral"` for neutral alerts.
 
 <Blockquote
   name="Nielsen Norman Group"
@@ -139,9 +131,7 @@ In most cases, a neutral alert should be dismissible (_i.e._, have a close butto
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="neutral">
-  <Text as="span">
     <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard. <Anchor href="#">Go to contact preferences</Anchor>
-  </Text>
 </Alert>`}
 </LivePreview>
 
@@ -151,11 +141,11 @@ Use a warning alert to help a user avoid an issue. If the user can take an immed
 
 Be cautious about using a warning alert because they can be stressful for a user to see. In most cases, a warning alert should be assigned `role="alert"`.
 
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextWarningStrong"` for warning alerts.
+
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
-  <Text as="span">
     <strong>Some information on this page may be out-of-date.</strong> This page was last updated at 9:00 AM PST. We're currently looking into this issue.
-  </Text>
 </Alert>`}
 </LivePreview>
 
@@ -163,18 +153,18 @@ Be cautious about using a warning alert because they can be stressful for a user
 
 Use an error alert to help a user understand a critical issue at the system level. Provide a way to resolve the issue in the alert.
 
-Be cautious about using an error alert because they can be stressful for a user to see. In most cases, error alerts should be assigned `role="error"`.
+Be cautious about using an error alert because they can be stressful for a user to see. In most cases, error alerts should be assigned `role="alert"`.
 
 There's a good chance you need to use an error alert if both these conditions are met:
 
 - The system-level issue is preventing the user from continuing a flow.
 - The user must take an action to resolve the issue.
 
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextError"` for error alerts.
+
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="error">
-  <Text as="span">
     <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
-  </Text>
 </Alert>`}
 </LivePreview>
 
@@ -192,9 +182,7 @@ Keep in mind that the longer an alert is present, the more it starts looking lik
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert onDismiss={() => alert('dismissed')} variant="neutral">
-  <Text as="span">
     We've enabled new security options for your account. <Anchor href="#">Learn more</Anchor>
-  </Text>
 </Alert>`}
 </LivePreview>
 
@@ -239,24 +227,16 @@ In general, the persistence and behavior on scroll of an alert should match the 
 <DoDont>
   <Do
     title="Do"
-    body="Use only 1 alert per page. Use 2 alerts only if absolutely necessary and if the alerts are placed in different containers."
+    body="Use only 1 alert per page. Use 2 alerts only if absolutely necessary and if the alerts are placed in different containers. Be sure to add 0.5rem spacing if using 2 alerts."
   >
     <Alert variant="error">
-      <Text as="span">
-        Your account balance is low and your credit card has expired. As a result we have suspended your account
-      </Text>
+      Your account balance is low and your credit card has expired. As a result we have suspended your account
     </Alert>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 alerts per page.">
-    <Alert variant="error">
-      <Text as="span">Your credit card has expired</Text>
-    </Alert>
-    <Alert variant="warning">
-      <Text as="span">Your account balance is low</Text>
-    </Alert>
-    <Alert variant="error">
-      <Text as="span">Your account is suspended</Text>
-    </Alert>
+    <Alert variant="error">Your credit card has expired</Alert>
+    <Alert variant="warning">Your account balance is low</Alert>
+    <Alert variant="error">Your account is suspended</Alert>
   </Dont>
 </DoDont>
 
@@ -295,19 +275,15 @@ In general, the persistence and behavior on scroll of an alert should match the 
     body="Use anchors to link to more information that may be helpful for users to resolve or clarify an alert message."
   >
     <Alert variant="neutral">
-      <Text as="span">
-        A call to action <Anchor href="#">Learn more</Anchor>
-      </Text>
+      A call to action <Anchor href="#">Learn more</Anchor>
     </Alert>
   </Do>
   <Dont title="Don't" body="Avoid using buttons in alerts unless it triggers an action.">
     <Alert variant="neutral">
-      <Text as="span">
-        A call to action{' '}
-        <Button size="small" variant="primary">
-          Learn more
-        </Button>
-      </Text>
+      A call to action{' '}
+      <Button size="small" variant="primary">
+        Learn more
+      </Button>
     </Alert>
   </Dont>
 </DoDont>
@@ -320,20 +296,6 @@ In general, the persistence and behavior on scroll of an alert should match the 
     center
   />
 </DoDont>
-
-## Anatomy
-
-| Property         | Default token                                                                                                                                                                                         | Modifiable? |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| background-color | <ul><li>Error: color-background-error-weakest</li><li>Neutral: color-background-primary-weakest</li><li>Warning: color-background-warning-weakest</li></ul>                                           | No          |
-| border-color     | <ul><li>Error: color-border-error-weak</li><li>Neutral: color-border-neutral</li><li>Warning: color-border-warning-weak</li></ul>                                                                     | No          |
-| border-radius    | border-radius-0                                                                                                                                                                                       | No          |
-| border-width     | Bottom border: border-width-20                                                                                                                                                                        | No          |
-| icon color       | <ul><li>Error: color-text-error</li><li>Neutral: color-text-neutral</li><li>Warning: color-text-warning</li><li>Close: color-text-icon</li></ul>                                                      | No          |
-| icon size        | <ul><li>Alert icon: size-icon-20</li><li>Close icon: size-icon-20</li></ul>                                                                                                                           | No          |
-| spacing          | <ul><li>Top padding: space-50</li><li>Bottom padding: space-50</li><li>left/right padding: space-60</li><li>Between icon and body: space-30</li><li>Between body and close button: space-60</li></ul> | No          |
-
----
 
 ## Usage Guide
 
@@ -350,26 +312,22 @@ yarn add @twilio-paste/alert - or - yarn add @twilio-paste/core
 ```jsx
 import {Alert} from '@twilio-paste/core/alert';
 
-const Component = () => (
-  <Alert variant="error">
-    <Text>There is an error in the system.</Text>
-  </Alert>
-);
+const Component = () => <Alert variant="error">There is an error in the system.</Alert>;
 ```
 
 #### Props
 
-| Prop              | Type         | Description                                                                                      | Default         |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | --------------- |
-| children?         | `ReactNode`  |                                                                                                  | null            |
-| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null            |
-| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | null            |
-| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null            |
-| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert' |
-| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'       |
-| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)' |
-| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'     |
-| element?          | `string`     | Overrides the default element name to apply unique styles with the Customization Provider        | 'ALERT'         |
+| Prop              | Type         | Description                                                                                      | Default                                                           |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| children?         | `ReactNode`  |                                                                                                  | null                                                              |
+| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null                                                              |
+| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | `status` for neutral alerts, `alert` for warning and error alerts |
+| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null                                                              |
+| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert'                                                   |
+| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'                                                         |
+| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)'                                                   |
+| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'                                                       |
+| element?          | `string`     | Overrides the default element name to apply unique styles with the Customization Provider        | 'ALERT'                                                           |
 
 <ChangelogRevealer>
   <Changelog />

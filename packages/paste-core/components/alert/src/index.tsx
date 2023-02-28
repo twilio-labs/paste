@@ -28,10 +28,10 @@ export const AlertBackgroundColors = {
   NEUTRAL: 'colorBackgroundNeutralWeakest',
   WARNING: 'colorBackgroundWarningWeakest',
 } as const;
-export const AlertBorderColors = {
-  ERROR: 'colorBorderErrorWeak',
-  NEUTRAL: 'colorBorderNeutralWeak',
-  WARNING: 'colorBorderWarningWeak',
+export const AlertTextColors = {
+  ERROR: 'colorTextError',
+  NEUTRAL: 'colorTextNeutral',
+  WARNING: 'colorTextWarningStrong',
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -39,9 +39,9 @@ export type AlertVariants = ValueOf<typeof AlertVariants>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertBackgroundColors = ValueOf<typeof AlertBackgroundColors>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export type AlertBorderColors = ValueOf<typeof AlertBorderColors>;
-// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertRoles = ValueOf<typeof AlertRoles>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export type AlertTextColors = ValueOf<typeof AlertTextColors>;
 
 export interface AlertProps extends Pick<BoxProps, 'element'> {
   id?: never;
@@ -118,13 +118,10 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
-        borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
-        borderBottomWidth="borderWidth20"
-        borderBottomStyle="solid"
         paddingLeft="space60"
         paddingRight="space60"
-        paddingTop="space50"
-        paddingBottom="space50"
+        paddingTop="space60"
+        paddingBottom="space60"
         element={element}
         variant={variant}
         ref={ref}
@@ -134,7 +131,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <MediaFigure as="div" spacing="space30">
             {renderAlertIcon(variant, element, i18nLabelVariantMap[variant])}
           </MediaFigure>
-          <MediaBody as="div">{children}</MediaBody>
+          <MediaBody as="div">
+            <Box color={AlertTextColors[variant.toUpperCase() as AlertVariantKeys]}>{children}</Box>
+          </MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (
             <MediaFigure align="end" spacing="space60">
               <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
