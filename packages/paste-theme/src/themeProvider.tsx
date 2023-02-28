@@ -9,6 +9,7 @@ import {
 } from '@twilio-paste/styling-library';
 import type {CreateCacheOptions} from '@twilio-paste/styling-library';
 
+import {getThemeFromHash} from './utils/getThemeFromHash';
 import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
@@ -16,6 +17,24 @@ import {pasteFonts} from './styles/fonts';
 import {ThemeVariants} from './constants';
 
 export const StyledBase = styled.div(pasteBaseStyles);
+
+const useThemeOverwriteHook = (): string | undefined => {
+  const [overwriteTheme, setOverwriteTheme] = React.useState(getThemeFromHash());
+
+  const handleLocationChange = (): void => {
+    setOverwriteTheme(getThemeFromHash());
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('popstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  });
+
+  return overwriteTheme;
+};
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
@@ -76,8 +95,9 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
       skipAnimation: disableAnimations || prefersReducedMotion,
     });
   }, [disableAnimations, prefersReducedMotion]);
+  const overwriteTheme = useThemeOverwriteHook();
 
-  const providerThemeProps = getProviderThemeProps(theme, customBreakpoints);
+  const providerThemeProps = getProviderThemeProps(overwriteTheme || theme, customBreakpoints);
 
   if (cache) {
     return (

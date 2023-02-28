@@ -35,6 +35,22 @@ describe('Theme.Provider', () => {
     expect(getByText('Color: rgb(2, 99, 224)')).toBeDefined();
   });
 
+  it('should override selected theme with hash value', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete window.location;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.location = new URL('https://www.example.com#paste-theme-override=evergreen');
+
+    const {getByText} = render(
+      <Theme.Provider>
+        <ThemeConsumerExampleTextColor />
+      </Theme.Provider>
+    );
+    expect(getByText('Color: rgb(51, 102, 255)')).toBeDefined();
+  });
+
   it('should rely on the default breakpoints set on the theme object', () => {
     const {getByText} = render(
       <Theme.Provider theme="default">
