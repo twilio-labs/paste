@@ -156,12 +156,19 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             borderRadius="borderRadiusCircle"
             disabled={state.disabled}
             type="radio"
+            _disabledSibling={{
+              borderColor: 'colorBorderWeaker',
+              backgroundColor: 'colorBackground',
+            }}
+            _checkedAndDisabledSibling={{
+              color: 'colorTextWeaker',
+            }}
           >
             <Box
               as="span"
               element={`${element}_CONTROL_CIRCLE`}
               lineHeight="lineHeight0"
-              display="block"
+              display={state.checked || state.defaultChecked ? 'block' : 'none'}
               color="inherit"
               size="sizeIcon10"
             >
@@ -170,7 +177,9 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               </svg>
             </Box>
           </BaseRadioCheckboxControl>
-          <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`}>{children}</BaseRadioCheckboxLabelText>
+          <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`} fontWeight="fontWeightMedium">
+            {children}
+          </BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
         {helpText && (
           <BaseRadioCheckboxHelpText element={`${element}_HELP_TEXT_WRAPPER`} helpTextId={helpTextId}>
