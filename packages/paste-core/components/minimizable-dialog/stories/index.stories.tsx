@@ -71,6 +71,10 @@ const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = 
 export const DefaultForVRT: StoryFn = () => <DialogExample />;
 export const DefaultMinimizedForVRT: StoryFn = () => <DialogExample minimized />;
 
+/*
+ * Run chromatic on this story even though all the dialogs are on top of
+ * each other to verify that they are positioned correctly on the screen
+ */
 export const FloatingButton: StoryFn = () => {
   const nameID = useUID();
   const emailID = useUID();
@@ -117,10 +121,6 @@ export const FloatingButton: StoryFn = () => {
       </MinimizableDialogContainer>
     </Box>
   );
-};
-
-FloatingButton.parameters = {
-  chromatic: {disableSnapshot: true},
 };
 
 export const StateHookExample: StoryFn = () => {
