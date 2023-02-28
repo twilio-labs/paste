@@ -11,7 +11,6 @@ import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
 import {Alert} from '@twilio-paste/alert';
 import {Toast, ToastContainer, Toaster, useToaster} from '@twilio-paste/toast';
 import {useUID} from '@twilio-paste/uid-library';
@@ -60,11 +59,9 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{Toast, Text}} language="jsx">
+<LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
-  <Text as="span">
     Your function is currently being deployed.
-  </Text>
 </Toast>`}
 </LivePreview>
 
@@ -123,27 +120,18 @@ Here are ways that you can compose neutral, warning, error, success, and dismiss
 <Box marginBottom="space80">
   <Stack orientation="vertical" spacing="space40">
     <Toast onDismiss={() => alert('dismissed')} variant="neutral">
-      <Text as="span">
-        <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat
-        now.
-      </Text>
+      <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat now.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="warning">
-      <Text as="span">
-        <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
-        within.
-      </Text>
+      <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
+      within.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="error">
-      <Text as="span">
-        <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
-        reducing it.
-      </Text>
+      <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
+      reducing it.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="success">
-      <Text as="span">
-        <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
-      </Text>
+      <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
     </Toast>
   </Stack>
 </Box>
@@ -251,11 +239,11 @@ return <Toaster {...toaster} />;
 
 Let a user know that a background process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
 
-<LivePreview scope={{Toast, Text}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextNeutral"` for neutral toasts.
+
+<LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
-  <Text as="span">
     Your function is currently being deployed.
-  </Text>
 </Toast>`}
 </LivePreview>
 
@@ -269,11 +257,11 @@ Provide an "undo" action in the toast if it's easily and safely reversible, and 
 
 - They deleted non-sensitive information we'd want them to easily retrieve.
 
-<LivePreview scope={{Toast, Text, Anchor}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextSuccess"` for success toasts.
+
+<LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="success">
-  <Text as="span">
     Your email address has been updated. You can view your profile <Anchor href="#">here</Anchor>.
-  </Text>
 </Toast>`}
 </LivePreview>
 
@@ -296,11 +284,11 @@ Use a warning toast to help a user avoid a potential future issue that might hap
 
 Be cautious when using a warning toast because they can be stressful for a user to see. If the information you're trying to convey is not very critical, consider using a neutral toast instead.
 
-<LivePreview scope={{Toast, Text, Anchor}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextWarningStrong"` for warning toasts.
+
+<LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="warning">
-  <Text as="span">
     The phone number has been deleted. Functions still using this phone number may fail. Verify there are no functions tied to that number <Anchor href="#">here</Anchor>.
-  </Text>
 </Toast>`}
 </LivePreview>
 
@@ -310,11 +298,11 @@ Use an error toast to help a user understand an issue that's preventing them fro
 
 Be cautious when using an error alert because they can be stressful for a user to see.
 
-<LivePreview scope={{Toast, Text}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextError"` for error toasts.
+
+<LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="error">
-  <Text as="span">
     There was an error when deleting the profile. Please try again.
-  </Text>
 </Toast>`}
 </LivePreview>
 
@@ -329,7 +317,6 @@ For a `success` variant, for example, set the `i18nSuccessLabel` prop.
 <LivePreview
   scope={{
     Toast,
-    Text,
   }}
   noInline
 >
@@ -400,25 +387,6 @@ To communicate information from the system that isn't triggered by a user action
   />
   <Dont title="Don't" body="Don't add an automatic time-out to a toast if it has a link or button." preview={false} />
 </DoDont>
-
----
-
-## Anatomy
-
-| Property          | Default token                                                                                                                                                                                         | Modifiable? |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| background-color  | color-background-body                                                                                                                                                                                 | No          |
-| border-color      | color-border-weaker                                                                                                                                                                                   | No          |
-| border-radius     | border-radius-20                                                                                                                                                                                      | No          |
-| border-width      | border-width-10                                                                                                                                                                                       | No          |
-| border-left-color | <ul><li>Error: color-border-error-weak</li><li>Neutral: color-border-neutral</li><li>Success: color-border-success-weak</li><li>Warning: color-border-warning-weak</li></ul>                          | No          |
-| border-left-width | border-width-30                                                                                                                                                                                       | No          |
-| icon color        | <ul><li>Error: color-text-error</li><li>Neutral: color-text-neutral</li><li>Success: color-text-success</li><li>Warning: color-text-warning</li><li>Close: color-text-icon</li></ul>                  | No          |
-| icon size         | <ul><li>Alert icon: size-icon-20</li><li>Close icon: size-icon-20</li></ul>                                                                                                                           | No          |
-| spacing           | <ul><li>Top padding: space-60</li><li>Bottom padding: space-60</li><li>left/right padding: space-60</li><li>Between icon and body: space-60</li><li>Between body and close button: space-40</li></ul> | No          |
-| width             | size-40                                                                                                                                                                                               | No          |
-
----
 
 ## Usage Guide
 

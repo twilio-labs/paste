@@ -9,13 +9,12 @@ const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
+      color="colorTextWarningStrong"
+      backgroundColor="colorBackgroundWarningWeakest"
+      borderColor="colorBorderWarningWeak"
+      borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderWarningWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"
