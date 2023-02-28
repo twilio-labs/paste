@@ -2,21 +2,27 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
 import {useTheme} from '@twilio-paste/theme';
+import type {TextColor} from '@twilio-paste/style-props';
 
 const getSwitchKnobTransformValue = (disabled: boolean, checked: boolean, isHovering: boolean): string => {
   if (!disabled) {
-    if (!checked && isHovering) return 'translateX(5%)';
-    if (checked && !isHovering) return 'translateX(100%)';
-    if (checked && isHovering) return 'translateX(95%)';
+    if (!checked && isHovering) return 'translateX(15%)';
+    if (checked && !isHovering) return 'translateX(105%)';
+    if (checked && isHovering) return 'translateX(100%)';
   } else if (disabled) {
     if (!checked) return 'translate(0%)';
     if (checked) return 'translateX(100%)';
   }
-  return 'translate(0%)';
+  return 'translate(10%)';
 };
 
+const getSwitchKnobIconColor = (hasError: boolean, disabled: boolean, checked: boolean): TextColor => {
+  if (hasError && !disabled) return 'colorTextIconError';
+  if (checked && disabled) return 'colorTextWeaker';
+  return 'currentColor';
+};
 export interface SwitchKnobProps {
   element: BoxProps['element'];
   disabled?: boolean;
@@ -51,16 +57,13 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
           ref={ref}
           height={height}
           width={height}
+          marginTop="space10"
           transform={checked ? 'translateX(-100%)' : 'translateX(0%)'}
           transition="transform .2s ease-in-out"
           borderColor="colorBorder"
           borderWidth="borderWidth10"
           borderRadius="borderRadiusCircle"
           backgroundColor="colorBackgroundBody"
-          boxShadow="shadowLow"
-          _disabled={{
-            boxShadow: 'none',
-          }}
         >
           <Box
             display="flex"
@@ -70,11 +73,11 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
             opacity={checked ? '1' : '0'}
             transition="opacity .2s ease-in-out, color .2s ease-in-out"
           >
-            <CheckboxCheckIcon
+            <SelectedIcon
               decorative
               size="sizeIcon05"
               element={`${element}_ICON`}
-              color={hasError && !disabled ? 'colorTextIconError' : 'currentColor'}
+              color={getSwitchKnobIconColor(hasError, disabled, checked)}
             />
           </Box>
         </Box>
