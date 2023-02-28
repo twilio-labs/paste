@@ -57,6 +57,7 @@ const DisplayHeading = React.forwardRef<HTMLHeadingElement, DisplayHeadingProps>
         element={element}
         id={id}
         color="colorText"
+        fontFamily="fontFamilyDisplay"
         variant={variant}
         ref={ref}
       >
