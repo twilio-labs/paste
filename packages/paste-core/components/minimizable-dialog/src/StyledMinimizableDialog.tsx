@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 
-export const StyledMinimizableDialog: React.FC<{element?: string; children: React.ReactNode}> = ({
+export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxProps, 'element'>>> = ({
   element,
   children,
 }) => (
