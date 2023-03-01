@@ -29,6 +29,12 @@ const mockPackList = [
     private: true,
     location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/primitives/box',
   },
+  {
+    name: '@twilio-paste/design-tokens',
+    version: '0.0.0',
+    private: false,
+    location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-design-tokens',
+  },
 ];
 
 describe('getMissingPackagesFromChangesets()', () => {
@@ -54,9 +60,15 @@ describe('getMissingPackagesFromChangesets()', () => {
           './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
-        ['@twilio-paste/avatar', '@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core']
+        [
+          '@twilio-paste/avatar',
+          '@twilio-paste/box',
+          '@twilio-paste/icons',
+          '@twilio-paste/core',
+          '@twilio-paste/design-tokens',
+        ]
       )
-    ).toEqual(['@twilio-paste/core']);
+    ).toEqual(['@twilio-paste/core', '@twilio-paste/design-tokens']);
 
     expect(
       getMissingPackagesFromChangesets(
@@ -92,6 +104,7 @@ describe('missingChangesetCheck()', () => {
           'packages/paste-icons/src/index.tsx',
           'packages/paste-core/components/avatar/src/index.tsx',
           'packages/paste-core/primitives/box/src/index.tsx',
+          'packages/paste-design-tokens/tokens/themes/evergreen/global/background-color.yml',
           'yarn.lock',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
@@ -99,7 +112,7 @@ describe('missingChangesetCheck()', () => {
       },
     };
     missingChangesetCheck(mockPackList);
-    expect(global.fail).toHaveBeenCalledTimes(1);
+    expect(global.fail).toHaveBeenCalledTimes(2);
   });
 
   it('should fail twice for two packages that are not in a changeset', () => {

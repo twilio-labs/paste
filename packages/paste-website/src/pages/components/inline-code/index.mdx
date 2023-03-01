@@ -69,7 +69,7 @@ The most common use for Inline Code is inside of other pieces of text. Inline Co
 <LivePreview scope={{InlineCode, Text}} language="jsx">
   {`<Text as="span">
       A  <InlineCode>Service</InlineCode> is the top-level scope of all other resources in the REST API. It owns
-      <InlineCode>Sessions</InlineCode> and <InlineCode>Participants</InlineCode> for a Proxy application.
+      {' '}<InlineCode>Sessions</InlineCode> and <InlineCode>Participants</InlineCode> for a Proxy application.
     </Text>`}
 </LivePreview>
 
@@ -84,6 +84,14 @@ Inline Code is also commonly used standalone for key pieces of code text, such a
       <InlineCode>WQC0000001111111122234444444</InlineCode>
     </Stack>
 `}
+</LivePreview>
+
+### Minimal variant
+
+Set `variant="minimal"` to use a more subtle snippet of code.
+
+<LivePreview scope={{InlineCode, Text}} language="jsx">
+  {`<InlineCode variant='minimal'>WQC0000001111111122234444444</InlineCode>`}
 </LivePreview>
 
 ## Usage Guide
@@ -106,10 +114,11 @@ const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</
 
 #### Props
 
-| Prop     | Type     | Description                                                                               | Default       |
-| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children | `string` | text to display inline as code                                                            |               |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
+| Prop     | Type                   | Description                                                                               | Default       |
+| -------- | ---------------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| children | `string`               | text to display inline as code                                                            |               |
+| element? | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
+| variant? | `'default', 'minimal'` | Sets the variant to display                                                               | 'default'     |
 
 ### Figma
 

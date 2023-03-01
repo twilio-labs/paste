@@ -68,7 +68,14 @@ export const getUnpublishedPackageNames = (touchedFiles: string[], publicPackage
   touchedFiles.forEach((filePath) => {
     const packageName = getPackageNameFromPath(filePath, publicPackages);
 
-    if (filePath.includes('/src/')) {
+    // all packages are uniform, except for design tokens. Source files are in the src directory.
+    // any changes to tokens, formatters or types in design tokens also need to be released
+    if (
+      filePath.includes('/src/') ||
+      filePath.includes('/paste-design-tokens/tokens/') ||
+      filePath.includes('/paste-design-tokens/formatters/') ||
+      filePath.includes('/paste-design-tokens/types/')
+    ) {
       uniquePackages.add(packageName);
     }
   });

@@ -5,6 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {Heading} from '@twilio-paste/heading';
 
 import {InlineCode} from '../src';
 
@@ -18,14 +19,30 @@ export const Default: StoryFn = () => {
   return <InlineCode>0000001111111122234444444</InlineCode>;
 };
 
+export const Minimal: StoryFn = () => {
+  return <InlineCode variant="minimal">0000001111111122234444444</InlineCode>;
+};
+
 export const ReallyLongContent: StoryFn = () => {
   return (
-    <Box maxWidth="size40">
-      <InlineCode>
-        000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122
-        2344444 44
-      </InlineCode>
-    </Box>
+    <>
+      <Box maxWidth="size40">
+        <InlineCode>
+          000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111
+          1122 2344444 44
+        </InlineCode>
+      </Box>
+      <Box maxWidth="size40">
+        <Heading variant="heading10" as="h2">
+          This is my heading
+          <InlineCode>
+            000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111 1122 2344444 44 000 00 0111111
+            1122 2344444 44
+          </InlineCode>
+          it is really really long
+        </Heading>
+      </Box>
+    </>
   );
 };
 
