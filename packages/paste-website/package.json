@@ -53,6 +53,7 @@
     "@twilio-paste/design-tokens": "^9.0.0",
     "@twilio-paste/disclosure": "^10.0.0",
     "@twilio-paste/disclosure-primitive": "^1.0.0",
+    "@twilio-paste/display-heading": "^2.0.0",
     "@twilio-paste/display-pill-group": "^6.0.0",
     "@twilio-paste/dropdown-library": "^2.0.0",
     "@twilio-paste/flex": "^6.0.0",

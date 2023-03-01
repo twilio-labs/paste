@@ -4,6 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
+import {DisplayHeading} from '@twilio-paste/display-heading';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 
@@ -94,8 +95,10 @@ const HomeHero = (): JSX.Element => {
               <Text
                 as="h1"
                 color="colorTextInverse"
-                fontSize={['fontSize90', 'fontSize110']}
-                lineHeight={['lineHeight90', 'lineHeight110']}
+                fontFamily="fontFamilyDisplay"
+                fontSize={['fontSizeDisplay30', 'fontSizeDisplay20']}
+                fontWeight="fontWeightExtrabold"
+                lineHeight={['lineHeightDisplay30', 'lineHeightDisplay20']}
                 marginTop={['space80', 'space120']}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
