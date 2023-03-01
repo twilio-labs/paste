@@ -232,6 +232,41 @@ describe('danger utils', () => {
         )
       ).toEqual(['@twilio-paste/style-props', '@twilio-paste/alert-dialog']);
     });
+
+    it('should return the design-tokens package with even though no src files are updated', () => {
+      expect(
+        getUnpublishedPackageNames(
+          [
+            'package.json',
+            'packages/paste-style-props/src/index.ts',
+            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
+            'packages/paste-design-tokens/tokens/themes/evergreen/global/background-color.yml',
+            'yarn.lock',
+            '.changeset/pretty-cameras-burn.md',
+          ],
+          [
+            {
+              name: '@twilio-paste/alert-dialog',
+              version: '3.1.0',
+              private: false,
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-core/components/alert-dialog',
+            },
+            {
+              name: '@twilio-paste/style-props',
+              version: '3.1.0',
+              private: false,
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
+            },
+            {
+              name: '@twilio-paste/design-tokens',
+              version: '3.1.0',
+              private: false,
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-design-tokens',
+            },
+          ]
+        )
+      ).toEqual(['@twilio-paste/style-props', '@twilio-paste/design-tokens']);
+    });
   });
 
   describe('getChangesetsFromFiles', () => {
