@@ -5,6 +5,7 @@ export type MinimizableDialogContextProps = Partial<NonModalDialogPrimitiveState
   minimized?: boolean;
   minimize?: () => void;
   expand?: () => void;
+  toggleMinimized?: () => void;
 };
 
 const MinimizableDialogContext = React.createContext<MinimizableDialogContextProps>({});

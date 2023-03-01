@@ -7,21 +7,20 @@ import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive'
 
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 import type {MinimizableDialogContextProps} from './MinimizableDialogContext';
+import {StyledMinimizableDialog} from './StyledMinimizableDialog';
 
 interface StyledMinimizableDialogProps extends BoxProps, MinimizableDialogContextProps {
   minimized?: boolean;
 }
 
-const StyledMinimizableDialog = React.forwardRef<HTMLDivElement, StyledMinimizableDialogProps>(
+const StyledMinimizableDialogContainer = React.forwardRef<HTMLDivElement, StyledMinimizableDialogProps>(
   ({minimized, style, ...props}, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      boxShadow="shadow"
-      width="size40"
       zIndex="zIndex80"
-      borderRadius="borderRadius20"
       transform="none!important"
+      position="absolute"
       // Note: not able to use themeGet here, so this needs to change if space70 changes
       inset={`auto 1.5rem ${minimized === true ? '0' : '1.5'}rem auto!important`}
       _focus={{outline: 'none'}}
@@ -30,7 +29,7 @@ const StyledMinimizableDialog = React.forwardRef<HTMLDivElement, StyledMinimizab
   )
 );
 
-StyledMinimizableDialog.displayName = 'StyledMinimizableDialog';
+StyledMinimizableDialogContainer.displayName = 'StyledMinimizableDialog';
 
 export interface MinimizableDialogProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -46,16 +45,14 @@ export const MinimizableDialog = React.forwardRef<HTMLDivElement, MinimizableDia
       <NonModalDialogPrimitive
         {...(dialog as any)}
         {...props}
-        as={StyledMinimizableDialog}
+        as={StyledMinimizableDialogContainer}
         ref={ref}
         preventBodyScroll={false}
         hideOnClickOutside={false}
       >
         {/* import Paste Theme Based Styles due to portal positioning. */}
         <StyledBase>
-          <Box element={element} display="flex" flexDirection="column" backgroundColor="colorBackgroundBody">
-            {children}
-          </Box>
+          <StyledMinimizableDialog element={element}>{children}</StyledMinimizableDialog>
         </StyledBase>
       </NonModalDialogPrimitive>
     );

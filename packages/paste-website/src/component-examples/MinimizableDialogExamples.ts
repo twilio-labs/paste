@@ -8,26 +8,28 @@ const MinimizableDialogExample = () => {
       <MinimizableDialog aria-label="Live chat">
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
-          <Heading as="div" variant="heading30">
-            Hi there!
-          </Heading>
-          <Paragraph>We’re here to help. Please give us some info to get started.</Paragraph>
-          <Box display="flex" flexDirection="column" rowGap="space60">
-            <Box>
-              <Label htmlFor='name-input'>Name</Label>
-              <Input id='name-input' type="text" />
+          <Box padding='space70'>
+            <Heading as="div" variant="heading30">
+              Hi there!
+            </Heading>
+            <Paragraph>We’re here to help. Please give us some info to get started.</Paragraph>
+            <Box display="flex" flexDirection="column" rowGap="space60">
+              <Box>
+                <Label htmlFor='name-input'>Name</Label>
+                <Input id='name-input' type="text" />
+              </Box>
+              <Box>
+                <Label htmlFor='email-input'>Email address</Label>
+                <Input id='email-input' type="email" />
+              </Box>
+              <Box>
+                <Label htmlFor='question-textarea'>How can we help you?</Label>
+                <TextArea id='question-textarea' />
+              </Box>
             </Box>
-            <Box>
-              <Label htmlFor='email-input'>Email address</Label>
-              <Input id='email-input' type="email" />
+            <Box marginTop="space190">
+              <Button variant="primary">Start chat</Button>
             </Box>
-            <Box>
-              <Label htmlFor='question-textarea'>How can we help you?</Label>
-              <TextArea id='question-textarea' />
-            </Box>
-          </Box>
-          <Box marginTop="space190">
-            <Button variant="primary">Start chat</Button>
           </Box>
         </MinimizableDialogContent>
       </MinimizableDialog>
@@ -51,7 +53,9 @@ const MinimizableDialogButtonExample = () => {
         <MinimizableDialog aria-label="Dialog">
           <MinimizableDialogHeader>Dialog</MinimizableDialogHeader>
           <MinimizableDialogContent>
-            This is the Twilio styled minimizable dialog that you can use in all your applications.
+            <Box padding='space70'>
+              This is the Twilio styled minimizable dialog that you can use in all your applications.
+            </Box>
           </MinimizableDialogContent>
         </MinimizableDialog>
       </MinimizableDialogContainer>
@@ -62,7 +66,9 @@ const MinimizableDialogButtonExample = () => {
         <MinimizableDialog aria-label="Dialog">
           <MinimizableDialogHeader>Dialog</MinimizableDialogHeader>
           <MinimizableDialogContent>
-            This is the Twilio styled minimizable dialog that you can use in all your applications.
+            <Box padding='space70'>
+              This is the Twilio styled minimizable dialog that you can use in all your applications.
+            </Box>
           </MinimizableDialogContent>
         </MinimizableDialog>
       </MinimizableDialogContainer>
@@ -73,7 +79,9 @@ const MinimizableDialogButtonExample = () => {
         <MinimizableDialog aria-label="Dialog">
           <MinimizableDialogHeader>Dialog</MinimizableDialogHeader>
           <MinimizableDialogContent>
-            This is the Twilio styled minimizable dialog that you can use in all your applications.
+            <Box padding='space70'>
+              This is the Twilio styled minimizable dialog that you can use in all your applications.
+            </Box>
           </MinimizableDialogContent>
         </MinimizableDialog>
       </MinimizableDialogContainer>
@@ -99,7 +107,9 @@ const HookExample = () => {
           <MinimizableDialog aria-label="Dialog">
             <MinimizableDialogHeader>Dialog</MinimizableDialogHeader>
             <MinimizableDialogContent>
-              This is the Twilio styled minimizable dialog that you can use in all your applications.
+              <Box padding='space70'>
+                This is the Twilio styled minimizable dialog that you can use in all your applications.
+              </Box>
             </MinimizableDialogContent>
           </MinimizableDialog>
         </MinimizableDialogContainer>
