@@ -23,9 +23,8 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
         ref={ref}
         element={element}
         display="flex"
-        columnGap="space50"
-        backgroundColor="colorBackgroundInverse"
-        paddingBottom="space40"
+        columnGap="space80"
+        backgroundColor="colorBackgroundInverseStrong"
         paddingX="space60"
       >
         {children}

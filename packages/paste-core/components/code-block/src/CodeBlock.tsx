@@ -32,11 +32,14 @@ const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
     gridTemplateColumns: '1fr auto',
     gridTemplateAreas: '"code-block button-group"',
     columnGap: 'space40',
+    borderRadius: 'borderRadius20',
+    paddingY: 'space60',
   },
   'multi-line': {
     gridTemplateRows: 'auto 1fr',
     gridTemplateAreas: '"button-group" "code-block"',
     rowGap: 'space20',
+    paddingY: 'space50',
   },
 };
 
@@ -66,7 +69,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         variant={variant}
         {...safelySpreadBoxProps(props)}
         backgroundColor="colorBackgroundBodyInverse"
-        padding="space50"
+        paddingX="space70"
         display="grid"
         {...CodeBlockVariantStyles[variant]}
       >
@@ -74,7 +77,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
           display="flex"
           flexDirection="row"
           alignItems="center"
-          columnGap="space30"
+          columnGap="space40"
           justifyContent={variant === 'multi-line' ? 'flex-end' : undefined}
           gridArea="button-group"
         >

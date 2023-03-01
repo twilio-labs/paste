@@ -23,7 +23,7 @@ export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrappe
 
     return (
       <CodeBlockTabsContext.Provider value={tabState}>
-        <Box element={element} ref={ref}>
+        <Box element={element} ref={ref} borderRadius="borderRadius20" overflow="hidden">
           {children}
         </Box>
       </CodeBlockTabsContext.Provider>
