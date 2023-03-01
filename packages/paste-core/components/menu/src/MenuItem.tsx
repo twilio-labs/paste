@@ -47,7 +47,6 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
   ({element = 'STYLED_MENU_ITEM', href, variant = 'default', tabIndex, children, ...props}, ref) => {
     return (
       <Box
-        data-paste-variant={variant}
         variant={variant}
         {...(href && secureExternalLink(href))}
         href={href}
