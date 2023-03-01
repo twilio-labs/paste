@@ -39,13 +39,16 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         display="grid"
         gridTemplateColumns="1fr auto auto"
         columnGap="space30"
-        backgroundColor="colorBackgroundInverse"
+        backgroundColor="colorBackground"
         paddingX="space70"
         paddingY="space40"
-        color="colorTextInverse"
+        color="colorTextWeak"
         overflow="hidden"
-        borderTopLeftRadius="borderRadius20"
+        borderBottomWidth="borderWidth10"
+        borderBottomStyle="solid"
+        borderBottomColor="colorBorderWeaker"
         borderTopRightRadius="borderRadius20"
+        borderTopLeftRadius="borderRadius20"
         element={element}
       >
         <Box

@@ -15,14 +15,7 @@ const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDia
     const {minimized} = React.useContext(MinimizableDialogContext);
 
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        element={element}
-        ref={ref}
-        display={minimized ? 'none' : 'block'}
-        borderBottomLeftRadius="borderRadius20"
-        borderBottomRightRadius="borderRadius20"
-      >
+      <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} display={minimized ? 'none' : 'block'}>
         {children}
       </Box>
     );
