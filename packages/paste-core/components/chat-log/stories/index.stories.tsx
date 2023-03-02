@@ -72,17 +72,17 @@ export const ScrollingChatLog: StoryFn = () => {
           <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
             <ChatMessageMetaItem>
               <Avatar name="Gibby Radki" size="sizeIcon20" />
-              Gibby Radki ・ 4:30 PM
+              Gibby Radki ・ 4:30pm
             </ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatEvent>
-          <strong>Lauren Gardner, Lee White, Loreina Chew</strong> have joined the chat ・ 4:31 PM
+          <strong>Lauren Gardner, Lee White, Loreina Chew</strong> have joined the chat ・ 4:31pm
         </ChatEvent>
         <ChatMessage variant="outbound">
           <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
           <ChatMessageMeta aria-label="said by you at 4:32pm">
-            <ChatMessageMetaItem>4:32 PM</ChatMessageMetaItem>
+            <ChatMessageMetaItem>4:32pm</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="outbound">
@@ -91,7 +91,7 @@ export const ScrollingChatLog: StoryFn = () => {
             sit amet, blandit id erat.
           </ChatBubble>
           <ChatMessageMeta aria-label="said by you at 4:48pm">
-            <ChatMessageMetaItem>4:48 PM</ChatMessageMetaItem>
+            <ChatMessageMetaItem>4:48pm</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="inbound">
@@ -102,7 +102,7 @@ export const ScrollingChatLog: StoryFn = () => {
           </ChatBubble>
           <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
           <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-            <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
+            <ChatMessageMetaItem>Gibby Radki ・ 5:04pm</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
         <ChatMessage variant="outbound">
@@ -137,7 +137,7 @@ export const ScrollingChatLog: StoryFn = () => {
   );
 };
 
-export const KitchenSink: StoryFn = () => (
+export const ExampleChatLog: StoryFn = () => (
   <ChatLog>
     <ChatBookend>
       <ChatBookendItem>Today</ChatBookendItem>
@@ -150,28 +150,28 @@ export const KitchenSink: StoryFn = () => (
         </ChatAttachment>
       </ChatBubble>
       <ChatMessageMeta aria-label="said by you at 4:32pm">
-        <ChatMessageMetaItem>4:25 PM</ChatMessageMetaItem>
+        <ChatMessageMetaItem>4:25pm</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatEvent>
-      <strong>Lauren Gardner</strong> has joined the chat ・ 4:26 PM
+      <strong>Lauren Gardner</strong> has joined the chat ・ 4:26pm
     </ChatEvent>
     <ChatEvent>
-      <strong>Gibby Radki</strong> sent transfer request to <strong>Technical Support Team</strong> ・ 3:42 PM
+      <strong>Gibby Radki</strong> sent transfer request to <strong>Technical Support Team</strong> ・ 3:42pm
     </ChatEvent>
     <ChatMessage variant="inbound">
       <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 4:30pm">
         <ChatMessageMetaItem>
           <Avatar name="Gibby Radki" size="sizeIcon20" />
-          Gibby Radki ・ 4:30 PM
+          Gibby Radki ・ 4:30pm
         </ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">
       <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
       <ChatMessageMeta aria-label="said by you at 4:32pm">
-        <ChatMessageMetaItem>4:32 PM</ChatMessageMetaItem>
+        <ChatMessageMetaItem>4:32pm</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">
@@ -180,7 +180,7 @@ export const KitchenSink: StoryFn = () => (
         amet, blandit id erat.
       </ChatBubble>
       <ChatMessageMeta aria-label="said by you at 4:48pm">
-        <ChatMessageMetaItem>4:48 PM</ChatMessageMetaItem>
+        <ChatMessageMetaItem>4:48pm</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="inbound">
@@ -197,7 +197,7 @@ export const KitchenSink: StoryFn = () => (
       </ChatBubble>
       <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
       <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
-        <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
+        <ChatMessageMetaItem>Gibby Radki ・ 5:04pm</ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">

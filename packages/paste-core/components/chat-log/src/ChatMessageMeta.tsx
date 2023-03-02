@@ -17,6 +17,7 @@ export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaP
 
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
         display="flex"
@@ -25,7 +26,7 @@ export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaP
         alignItems="center"
         variant={variant}
         columnGap="space40"
-        {...safelySpreadBoxProps(props)}
+        fontWeight="fontWeightMedium"
       >
         {children}
       </Box>
