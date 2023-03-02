@@ -217,6 +217,19 @@ TextColorToken.args = {
   name: 'color-text-success',
   text_contrast_pairing: ['color-background', 'color-background-new', 'color-background-user'],
 };
+TextColorToken.parameters = {
+  a11y: {
+    config: {
+      rules: [
+        {
+          // this rule is technically wrong https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
+          id: 'definition-list',
+          enabled: false,
+        },
+      ],
+    },
+  },
+};
 
 export const TextColorConditionalToken = Template.bind({});
 TextColorConditionalToken.args = {
