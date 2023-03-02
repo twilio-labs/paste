@@ -7,7 +7,7 @@ import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import kebabCase from 'lodash/kebabCase';
 
 import {AnchoredHeading} from '../Heading';
-import {trackTokenFilterString, filterTokenList, getTokenExampleColors} from './helpers';
+import {trackTokenFilterString, filterTokenList, getTokenExampleColors, getTokenContrastPairs} from './helpers';
 import type {Tokens, TokenExampleColors} from './types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
@@ -46,19 +46,22 @@ export const TokensList = (): JSX.Element => {
 
   // State related to select and filter controls
   const [filterString, setFilterString] = React.useState('');
-  const [selectedTheme, setSelectedTheme] = React.useState(defaultTheme);
+  const [selectedTheme, setSelectedTheme] = React.useState<'default' | 'dark'>(defaultTheme);
   const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // State related to the clipboard
   const [lastCopiedValue, setLastCopiedValue] = React.useState('');
 
+  // Get a static list of tokens and color contrast pairs
+  const tokenContrastPairs = getTokenContrastPairs(DefaultThemeTokens);
+
   /*
    * This runs on hydration, grabs any settings from the client's localStorage,
    * and populates the token list.
    */
   React.useEffect(() => {
-    const userTheme = SimpleStorage.get('themeControl') || defaultTheme;
+    const userTheme = (SimpleStorage.get('themeControl') as 'dark' | 'default') || defaultTheme;
     const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
     let tokenList: Tokens = DefaultThemeTokens.tokens;
 
@@ -98,7 +101,7 @@ export const TokensList = (): JSX.Element => {
     const newTokens = value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens;
 
     SimpleStorage.set('themeControl', value);
-    setSelectedTheme(value);
+    setSelectedTheme(value as 'default' | 'dark');
     setTokens(newTokens);
     setExampleColors(getTokenExampleColors(newTokens));
   };
@@ -210,6 +213,8 @@ export const TokensList = (): JSX.Element => {
                         useCamelCase={useJavascriptNames}
                         onCopyText={handleCopyName}
                         isCopied={clipboard.copied && lastCopiedValue === name}
+                        text_contrast_pairing={tokenContrastPairs[name]}
+                        selectedTheme={selectedTheme}
                       />
                     ))
                   ) : (

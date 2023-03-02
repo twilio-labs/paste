@@ -49,10 +49,6 @@ props:
   color-text-decorative-30:
     value: "{!palette-green-80}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-30
 
   # user
   color-text-user:

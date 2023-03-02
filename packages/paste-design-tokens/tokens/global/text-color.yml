@@ -483,28 +483,28 @@ props:
     text_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-decorative-10
+      - color-background-decorative-10-weakest
   color-text-decorative-20:
     value: "{!palette-blue-80}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-decorative-20
+      - color-background-decorative-20-weakest
   color-text-decorative-30:
     value: "{!palette-green-70}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-decorative-30
+      - color-background-decorative-30-weakest
   color-text-decorative-40:
     value: "{!palette-purple-60}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
     text_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-decorative-40
+      - color-background-decorative-40-weakest
 
   # user
   color-text-user:

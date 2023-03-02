@@ -19,6 +19,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
   borderColor,
   textColorInverse,
   highlightColor,
+  text_contrast_pairing,
   ...props
 }) => {
   const backgroundColor = name.toLowerCase().match('inverse') ? backgroundColorInverse : props.backgroundColor;

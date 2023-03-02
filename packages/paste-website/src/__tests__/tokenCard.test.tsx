@@ -33,6 +33,7 @@ describe('TokenCard', () => {
         textColor={testExampleTextColor}
         textColorInverse={testExampleTextColorInverse}
         useCamelCase={useCamelCase}
+        selectedTheme="default"
       />
     </Theme.Provider>
   );
@@ -66,6 +67,7 @@ describe('TokenCard', () => {
           value="70.5rem"
           altValue="1128px"
           comment="Generic sizing token scale for UI components."
+          selectedTheme="default"
         />
       </Theme.Provider>
     );
@@ -86,6 +88,7 @@ describe('TokenCard', () => {
           backgroundColorInverse={testExampleBackgroundInverse}
           textColor={testExampleTextColor}
           textColorInverse={testExampleTextColorInverse}
+          selectedTheme="default"
         />
       </Theme.Provider>
     );
@@ -105,6 +108,7 @@ describe('TokenCard', () => {
           comment="Light inverse background color for any container. Must be used on color-background-body-inverse."
           backgroundColor={testExampleBackground}
           backgroundColorInverse={testExampleBackgroundInverse}
+          selectedTheme="default"
         />
       </Theme.Provider>
     );
@@ -127,6 +131,7 @@ describe('TokenCard', () => {
           backgroundColorInverse={testExampleBackgroundInverse}
           textColor={testExampleTextColor}
           textColorInverse={testExampleTextColorInverse}
+          selectedTheme="default"
         />
       </Theme.Provider>
     );
@@ -149,6 +154,7 @@ describe('TokenCard', () => {
           highlightColor={testExampleHighlightColor}
           textColor={testExampleTextColor}
           textColorInverse={testExampleTextColorInverse}
+          selectedTheme="default"
         />
       </Theme.Provider>
     );
