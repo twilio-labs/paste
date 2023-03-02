@@ -239,7 +239,7 @@ return <Toaster {...toaster} />;
 
 Let a user know that a background process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
 
-You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextNeutral"` for neutral toasts.
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for neutral toasts.
 
 <LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
@@ -257,7 +257,7 @@ Provide an "undo" action in the toast if it's easily and safely reversible, and 
 
 - They deleted non-sensitive information we'd want them to easily retrieve.
 
-You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextSuccess"` for success toasts.
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for success toasts.
 
 <LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="success">
@@ -284,7 +284,7 @@ Use a warning toast to help a user avoid a potential future issue that might hap
 
 Be cautious when using a warning toast because they can be stressful for a user to see. If the information you're trying to convey is not very critical, consider using a neutral toast instead.
 
-You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextWarningStrong"` for warning toasts.
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for warning toasts.
 
 <LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="warning">
@@ -298,7 +298,7 @@ Use an error toast to help a user understand an issue that's preventing them fro
 
 Be cautious when using an error alert because they can be stressful for a user to see.
 
-You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="colorTextError"` for error toasts.
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for error toasts.
 
 <LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="error">

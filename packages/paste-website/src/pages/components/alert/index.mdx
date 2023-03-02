@@ -118,7 +118,7 @@ Use a neutral alert to notify a user of a change that's relevant for them to ach
 
 In most cases, a neutral alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`.
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextNeutral"` for neutral alerts.
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for neutral alerts.
 
 <Blockquote
   name="Nielsen Norman Group"
@@ -141,7 +141,7 @@ Use a warning alert to help a user avoid an issue. If the user can take an immed
 
 Be cautious about using a warning alert because they can be stressful for a user to see. In most cases, a warning alert should be assigned `role="alert"`.
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextWarningStrong"` for warning alerts.
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning alerts.
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
@@ -160,7 +160,7 @@ There's a good chance you need to use an error alert if both these conditions ar
 - The system-level issue is preventing the user from continuing a flow.
 - The user must take an action to resolve the issue.
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="colorTextError"` for error alerts.
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error alerts.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="error">
