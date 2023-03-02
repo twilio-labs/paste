@@ -40,6 +40,8 @@ const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
     gridTemplateAreas: '"button-group" "code-block"',
     rowGap: 'space20',
     paddingY: 'space50',
+    borderBottomLeftRadius: 'borderRadius20',
+    borderBottomRightRadius: 'borderRadius20',
   },
 };
 
