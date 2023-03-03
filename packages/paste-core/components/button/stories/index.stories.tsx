@@ -315,6 +315,7 @@ export const ToggleButtons = (): React.ReactNode => {
         <ToggleButton size="circle" icons={pauseIcons}>
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
+        <ToggleButton variant="secondary" size="icon" icons={boldIcons} />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton defaultPressed={true} icons={followIcons}>
@@ -324,6 +325,7 @@ export const ToggleButtons = (): React.ReactNode => {
         <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons}>
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton icons={followIcons} disabled>
@@ -333,6 +335,7 @@ export const ToggleButtons = (): React.ReactNode => {
         <ToggleButton size="circle" icons={pauseIcons} disabled>
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
+        <ToggleButton variant="secondary" size="icon" icons={boldIcons} disabled />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton defaultPressed={true} icons={followIcons} disabled>
@@ -342,6 +345,7 @@ export const ToggleButtons = (): React.ReactNode => {
         <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons} disabled>
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} disabled />
       </Box>
     </Box>
   );
