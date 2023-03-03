@@ -25,7 +25,7 @@ export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaP
         textAlign={variant === 'outbound' ? 'right' : 'left'}
         alignItems="center"
         variant={variant}
-        columnGap="space40"
+        columnGap="space30"
         fontWeight="fontWeightMedium"
       >
         {children}

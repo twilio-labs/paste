@@ -36,7 +36,7 @@ export const OutboundChatMessageWithAttachment: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextInverse" decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
+import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
 import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
@@ -144,7 +145,7 @@ export const ExampleChatLog: StoryFn = () => (
     </ChatBookend>
     <ChatMessage variant="outbound">
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextInverse" decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>
@@ -217,13 +218,13 @@ export const ExampleChatLog: StoryFn = () => (
       <ChatMessageMeta aria-label="Message failed">
         <ChatMessageMetaItem>
           <HelpText variant="error" marginTop="space0">
-            Message failed
+            <Stack orientation="horizontal" spacing="space30">
+              Message failed
+              <Button variant="link" onClick={() => {}}>
+                Resend
+              </Button>
+            </Stack>
           </HelpText>
-        </ChatMessageMetaItem>
-        <ChatMessageMetaItem>
-          <Button variant="link" onClick={() => {}}>
-            Resend
-          </Button>
         </ChatMessageMetaItem>
       </ChatMessageMeta>
     </ChatMessage>

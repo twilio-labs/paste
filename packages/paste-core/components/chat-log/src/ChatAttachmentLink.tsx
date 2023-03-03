@@ -5,6 +5,8 @@ import type {AnchorProps} from '@twilio-paste/anchor';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 
+import {MessageVariantContext} from './MessageVariantContext';
+
 export interface ChatAttachmentLinkProps extends AnchorProps {
   children: string;
   element?: BoxElementProps['element'];
@@ -12,8 +14,15 @@ export interface ChatAttachmentLinkProps extends AnchorProps {
 
 const ChatAttachmentLink = React.forwardRef<HTMLElement, ChatAttachmentLinkProps>(
   ({children, href, element = 'CHAT_ATTACHMENT_LINK', ...props}, ref) => {
+    const variant = React.useContext(MessageVariantContext);
     return (
-      <Anchor href={href} ref={ref} element={element} {...props}>
+      <Anchor
+        href={href}
+        ref={ref}
+        element={element}
+        variant={variant === 'inbound' ? 'default' : 'inverse'}
+        {...props}
+      >
         <Truncate title={children}>{children}</Truncate>
       </Anchor>
     );
