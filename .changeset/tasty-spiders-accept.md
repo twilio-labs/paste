@@ -3,4 +3,4 @@
 '@twilio-paste/box': minor
 ---
 
-[Box] Add `_pressed_disabled` pseudo style.
+[Box] Add `_pressed_disabled` and `_pressed_active` pseudo styles.

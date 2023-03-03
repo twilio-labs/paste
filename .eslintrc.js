@@ -69,6 +69,7 @@ module.exports = {
           '_pressed_focus',
           '_pressed_hover',
           '_pressed_disabled',
+          '_pressed_active',
           '__moz_focus_inner',
           '__webkit_datetime_edit',
           '__webkit_calendar_picker_indicator_hover',
