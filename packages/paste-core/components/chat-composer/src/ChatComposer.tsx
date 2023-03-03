@@ -45,6 +45,7 @@ export interface ChatComposerProps extends ContentEditableProps {
   onChange?: OnChangeFunction;
   maxHeight?: BoxStyleProps['maxHeight'];
   initialValue?: string;
+  disabled?: boolean;
 
   /** Mapped to ariaOwneeID on the Lexical ContentEditable component.  */
   ariaOwns?: ContentEditableProps['ariaOwneeID'];
@@ -73,12 +74,14 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       maxHeight,
       ariaOwns,
       ariaActiveDescendant,
+      disabled,
       ...props
     },
     ref
   ) => {
     const baseConfigWithEditorState = {
       ...baseConfig,
+      editable: disabled ? false : true,
       editorState: initialValue ? () => renderInitialText(initialValue) : undefined,
     };
 
@@ -95,6 +98,12 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         _focusWithin={{boxShadow: 'shadowFocus'}}
         overflowY="scroll"
         maxHeight={maxHeight}
+        disabled={disabled}
+        aria-disabled={disabled}
+        _disabled={{
+          color: 'colorTextWeaker',
+          backgroundColor: 'colorBackground',
+        }}
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>

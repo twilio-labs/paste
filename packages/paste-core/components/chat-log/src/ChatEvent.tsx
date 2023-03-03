@@ -20,6 +20,7 @@ const ChatEvent = React.forwardRef<HTMLDivElement, ChatEventProps>(
         textAlign="center"
         lineHeight="lineHeight20"
         fontSize="fontSize20"
+        fontWeight="fontWeightMedium"
         ref={ref}
       >
         {children}

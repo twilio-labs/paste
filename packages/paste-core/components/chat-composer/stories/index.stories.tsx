@@ -91,6 +91,18 @@ export const Default: StoryFn = () => {
   );
 };
 
+export const Disabled: StoryFn = () => {
+  return (
+    <ChatComposer
+      disabled
+      config={defaultConfig}
+      testid="foo"
+      ariaLabel="Disabled chat composer"
+      initialValue="Type here..."
+    />
+  );
+};
+
 export const LongPlaceholderText: StoryFn = () => {
   return (
     <ChatComposer
