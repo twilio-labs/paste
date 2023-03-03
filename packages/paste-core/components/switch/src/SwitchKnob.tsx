@@ -12,8 +12,8 @@ const getSwitchKnobTransformValue = (disabled: boolean, checked: boolean, isHove
     if (checked && !isHovering) return 'translateX(105%)';
     if (checked && isHovering) return 'translateX(100%)';
   } else if (disabled) {
-    if (!checked) return 'translate(0%)';
-    if (checked) return 'translateX(100%)';
+    if (!checked) return 'translate(10%)';
+    if (checked) return 'translateX(105%)';
   }
   return 'translate(10%)';
 };
