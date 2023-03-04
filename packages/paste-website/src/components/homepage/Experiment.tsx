@@ -5,6 +5,7 @@ import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
+import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useWindowSize} from '@twilio-paste/utils';
 
@@ -63,9 +64,9 @@ const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({showIfr
           zIndex="zIndex10"
         >
           <Box textAlign="center">
-            <Heading as="h2" variant="heading10">
+            <DisplayHeading as="h2" variant="displayHeading20">
               Experiment with your ideas
-            </Heading>
+            </DisplayHeading>
             <Paragraph>
               Create and play with our React components in the{' '}
               <Anchor

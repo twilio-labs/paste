@@ -51,14 +51,6 @@ const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({c
         <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
         <meta key="description" name="description" content={pageDescription} />
       </Head>
-      <Box display={['block', 'block', 'none']} marginBottom="space60">
-        <Alert variant="neutral">
-          The responsive layout is in early preview. Please{' '}
-          <Anchor showExternal href="https://github.com/twilio-labs/paste/issues">
-            report any bugs.
-          </Anchor>
-        </Alert>
-      </Box>
       <Box
         paddingTop={['space40', 'space40', 'space100']}
         paddingX={['space70', 'space200', 'space200']}

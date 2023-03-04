@@ -11,6 +11,8 @@ import {PASTE_DOCS_CONTENT_AREA, PASTE_DOCS_SEARCH_INPUT, SITE_BREAKPOINTS} from
 import type {NavigationQuery} from '../../context/NavigationContext';
 import {DarkModeContext} from '../../context/DarkModeContext';
 import {inCypress} from '../../utils/inCypress';
+import {PreviewThemeContext} from '../../context/PreviewThemeContext';
+import type {Themes} from '../../context/PreviewThemeContext';
 
 export interface SiteWrapperProps {
   navigationData: NavigationQuery;
@@ -18,6 +20,7 @@ export interface SiteWrapperProps {
 
 const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({children, navigationData}) => {
   const [theme, toggleMode, componentMounted] = useDarkMode();
+  const [previewTheme, setPreviewTheme] = React.useState('twilio');
 
   return (
     <Theme.Provider
@@ -28,13 +31,15 @@ const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({child
     >
       <NavigationContext.Provider value={{...navigationData}}>
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
-          <SkipLinkContainer>
-            <Stack orientation="horizontal" spacing="space60">
-              <Anchor href={`#${PASTE_DOCS_CONTENT_AREA}`}>Skip to content</Anchor>
-              <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
-            </Stack>
-          </SkipLinkContainer>
-          <SiteBody>{children}</SiteBody>
+          <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
+            <SkipLinkContainer>
+              <Stack orientation="horizontal" spacing="space60">
+                <Anchor href={`#${PASTE_DOCS_CONTENT_AREA}`}>Skip to content</Anchor>
+                <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
+              </Stack>
+            </SkipLinkContainer>
+            <SiteBody>{children}</SiteBody>
+          </PreviewThemeContext.Provider>
         </DarkModeContext.Provider>
       </NavigationContext.Provider>
     </Theme.Provider>

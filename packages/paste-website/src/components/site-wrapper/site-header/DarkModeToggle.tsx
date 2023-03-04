@@ -65,13 +65,12 @@ export const DarkModeToggle = (): JSX.Element => {
       >
         <Box as="fieldset" display="flex" borderWidth="borderWidth0" padding="space0" margin="space0">
           <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
-
-          <StyledThemeSwitcherLabel htmlFor={lightModeID} checked={theme === 'default'}>
+          <StyledThemeSwitcherLabel htmlFor={lightModeID} checked={theme === 'twilio'}>
             <Stack spacing="space10" orientation="horizontal">
               <LightModeIcon decorative /> Light
             </Stack>
             <StyledThemeSwitcherRadio
-              checked={theme === 'default'}
+              checked={theme === 'twilio'}
               id={lightModeID}
               name="darkmode"
               onChange={handleChange}
@@ -86,12 +85,12 @@ export const DarkModeToggle = (): JSX.Element => {
               }}
             />
           </StyledThemeSwitcherLabel>
-          <StyledThemeSwitcherLabel htmlFor={darkModeID} checked={theme === 'dark'}>
+          <StyledThemeSwitcherLabel htmlFor={darkModeID} checked={theme === 'twilio-dark'}>
             <Stack spacing="space10" orientation="horizontal">
               <DarkModeIcon decorative /> Dark
             </Stack>
             <StyledThemeSwitcherRadio
-              checked={theme === 'dark'}
+              checked={theme === 'twilio-dark'}
               id={darkModeID}
               name="darkmode"
               onChange={handleChange}
@@ -108,7 +107,6 @@ export const DarkModeToggle = (): JSX.Element => {
           </StyledThemeSwitcherLabel>
         </Box>
       </Box>
-      {theme === 'dark' && <DarkModeBadge />}
     </Box>
   );
 };
