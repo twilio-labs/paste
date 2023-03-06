@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {EditorState} from '@twilio-paste/lexical-library';
+import type {EditorState} from '@twilio-paste/lexical-library';
 import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
 import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
