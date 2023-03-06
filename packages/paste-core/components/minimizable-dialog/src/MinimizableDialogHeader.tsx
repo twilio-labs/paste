@@ -54,7 +54,7 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         <Box
           as="h2"
           element={`${element}_HEADING`}
-          fontWeight="fontWeightBold"
+          fontWeight="fontWeightSemibold"
           fontSize="fontSize30"
           lineHeight="lineHeight30"
           margin="space0"
@@ -63,7 +63,7 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         </Box>
         <Button
           element={`${element}_MINIMIZE_BUTTON`}
-          variant="reset"
+          variant="secondary_icon"
           size="reset"
           onClick={minimized ? expand : minimize}
           aria-pressed={minimized === undefined ? false : minimized}
@@ -75,7 +75,7 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
           )}
           <ScreenReaderOnly>{i18nMinimizeLabel}</ScreenReaderOnly>
         </Button>
-        <Button element={`${element}_CLOSE_BUTTON`} variant="reset" size="reset" onClick={hide}>
+        <Button element={`${element}_CLOSE_BUTTON`} variant="secondary_icon" size="reset" onClick={hide}>
           <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon20" />
           <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
         </Button>
