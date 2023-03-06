@@ -21,7 +21,7 @@ const ChatAttachmentDescription = React.forwardRef<HTMLElement, ChatAttachmentDe
         as="div"
         fontSize="fontSize20"
         color={variant === 'inbound' ? 'colorTextWeak' : 'colorTextInverse'}
-        lineHeight="lineHeight10"
+        lineHeight="lineHeight20"
       >
         {children}
       </Text>
