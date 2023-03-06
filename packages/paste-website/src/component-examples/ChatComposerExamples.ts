@@ -102,8 +102,8 @@ export const ChatDialogExample = `const ChatDialog = () => {
       display="flex"
       flexDirection="row"
       columnGap="space30"
-      paddingX="space70"
-      paddingTop="space50"
+      paddingX="space40"
+      paddingY="space30"
     >
       <ChatComposer
         ariaLabel="Message"
