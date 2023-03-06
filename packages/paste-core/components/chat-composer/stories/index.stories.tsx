@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {EditorState} from '@twilio-paste/lexical-library';
+import {EditorState} from '@twilio-paste/lexical-library';
 import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
 import type {StoryFn} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
@@ -21,6 +21,17 @@ const defaultConfig: ChatComposerProps['config'] = {
   onError: (error: Error) => {
     throw error;
   },
+};
+
+const disabledInitialText = (): void => {
+  const root = $getRoot();
+
+  if (root.getFirstChild() === null) {
+    const paragraph = $createParagraphNode();
+    paragraph.append($createTextNode('Type here...').toggleFormat('italic'));
+
+    root.append(paragraph);
+  }
 };
 
 const initialText = (): void => {
@@ -95,10 +106,15 @@ export const Disabled: StoryFn = () => {
   return (
     <ChatComposer
       disabled
-      config={defaultConfig}
+      config={{
+        editorState: disabledInitialText,
+        namespace: 'foo',
+        onError: (error: Error) => {
+          throw error;
+        },
+      }}
       testid="foo"
       ariaLabel="Disabled chat composer"
-      initialValue="Type here..."
     />
   );
 };
