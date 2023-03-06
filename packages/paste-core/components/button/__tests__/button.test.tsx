@@ -357,7 +357,7 @@ describe('Button', () => {
       const button = getByTestId('primary-icon-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextLink');
+      expect(button).toHaveStyleRule('color', 'colorTextPrimary');
     });
 
     it('should have the correct styles for the secondary variant', () => {
@@ -372,7 +372,7 @@ describe('Button', () => {
       expect(button).not.toHaveStyleRule('text-align', 'left');
       expect(button).toHaveStyleRule('color', 'colorText');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorder');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderWeak');
 
       expect(getByText('Secondary')).toHaveStyleRule('justify-content', 'center');
     });
@@ -431,7 +431,7 @@ describe('Button', () => {
       expect(button).not.toHaveStyleRule('text-align', 'left');
       expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderWeak');
 
       expect(getByText('Destructive secondary')).toHaveStyleRule('justify-content', 'center');
     });
@@ -461,7 +461,7 @@ describe('Button', () => {
       const button = getByTestId('link-styles');
 
       expect(button).toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextLink');
+      expect(button).toHaveStyleRule('color', 'colorTextPrimary');
       expect(button).toHaveStyleRule('transition', 'none');
 
       expect(getByText('Link')).not.toHaveStyleRule('justify-content', 'center');
@@ -515,7 +515,7 @@ describe('Button', () => {
       const buttonComponent = getByTestId('disabled-link-styles');
 
       expect(buttonComponent).toHaveStyleRule('text-align', 'left');
-      expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
+      expect(buttonComponent).toHaveStyleRule('color', 'colorTextWeaker');
 
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');
     });

@@ -24,6 +24,8 @@ export const PseudoPropStyles = {
   _pressed: '&[aria-pressed=true]',
   _pressed_focus: '&[aria-pressed=true]:focus',
   _pressed_hover: '&[aria-pressed=true]:hover',
+  _pressed_active: '&[aria-pressed=true]:active, &[aria-pressed=true][data-active=true]',
+  _pressed_disabled: '&[aria-pressed=true]:disabled, &[aria-pressed=true][aria-disabled=true]',
   _readOnly: '&[aria-readonly=true], &[readonly]',
   _first: '&:first-of-type',
   _last: '&:last-of-type',

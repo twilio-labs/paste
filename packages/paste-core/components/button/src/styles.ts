@@ -93,39 +93,86 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
 
 export const ToggleStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
+  color: 'colorText',
+  backgroundColor: 'colorBackgroundBody',
+  _disabled: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderWeaker',
+    color: 'colorTextWeaker',
+  },
+  _hover: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimary',
+    color: 'colorTextPrimary',
+  },
+  _active: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimaryStrongest',
+    color: 'colorTextPrimaryStrongest',
+  },
   _pressed: {
-    backgroundColor: 'colorBackgroundPrimaryStronger',
-    color: 'colorTextWeakest',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimary',
+    color: 'colorTextPrimary',
   },
   _pressed_hover: {
-    backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'shadowBorderPrimary',
-    color: 'colorTextInverse',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimaryStronger',
+  },
+  _pressed_active: {
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStrongest',
+    color: 'colorTextPrimaryStrongest',
   },
   _pressed_focus: {
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
     boxShadow: 'shadowFocusShadowBorder',
-    backgroundColor: 'colorBackgroundPrimaryStronger',
+    color: 'colorTextPrimary',
+  },
+  _pressed_disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    boxShadow: 'shadowBorderWeaker',
     color: 'colorTextWeakest',
   },
 };
 
 export const ToggleIconButtonStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
-
+  color: 'colorTextIcon',
+  backgroundColor: 'colorBackgroundBody',
+  _hover: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimary',
+    color: 'colorTextPrimaryStronger',
+  },
+  _active: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimaryStrongest',
+    color: 'colorTextPrimaryStrongest',
+  },
+  _disabled: {
+    backgroundColor: 'colorBackgroundBody',
+    color: 'colorTextWeaker',
+  },
   _pressed: {
-    backgroundColor: 'colorBackgroundPrimaryStronger',
-    color: 'colorTextWeakest',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimary',
+    color: 'colorTextPrimary',
   },
   _pressed_hover: {
-    backgroundColor: 'colorBackgroundPrimary',
-    boxShadow: 'shadowBorderPrimary',
-    color: 'colorTextInverse',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimaryStronger',
   },
   _pressed_focus: {
-    boxShadow: 'shadowFocus',
-    backgroundColor: 'colorBackgroundPrimaryStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowFocusShadowBorder',
+    color: 'colorTextPrimary',
+  },
+  _pressed_disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    boxShadow: 'shadowBorderWeaker',
     color: 'colorTextWeakest',
   },
 };

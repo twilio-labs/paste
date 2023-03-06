@@ -16,32 +16,30 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   backgroundColor: 'colorBackgroundPrimary',
   boxShadow: 'shadowBorderPrimary',
   _hover: {
-    color: 'colorTextWeakest',
-    backgroundColor: 'colorBackgroundPrimaryStronger',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimary',
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimary',
   },
   _focus: {
-    color: 'colorTextWeakest',
-    backgroundColor: 'colorBackgroundPrimaryStronger',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextWeakest',
-    backgroundColor: 'colorBackgroundPrimaryStrongest',
-    boxShadow: 'shadowBorderPrimaryStrongest',
+    color: 'colorTextPrimaryStrong',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStrong',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextWeakest',
-  backgroundColor: 'colorBackgroundPrimaryStronger',
-  boxShadow: 'shadowBorderPrimaryStronger',
+  color: 'colorTextPrimary',
+  backgroundColor: 'colorBackgroundBody',
+  boxShadow: 'shadowBorderWeak',
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
   color: 'colorTextWeakest',
-  backgroundColor: 'colorBackgroundPrimaryWeak',
-  boxShadow: 'shadowBorderPrimaryWeak',
+  backgroundColor: 'colorBackgroundStrong',
+  boxShadow: 'shadowBorderWeaker',
 });
 
 const ButtonStyleMapping = {

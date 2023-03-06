@@ -11,9 +11,9 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextInverse',
   textAlign: 'left',
   transition: 'none',
-  _hover: {color: 'colorTextInverseWeaker', textDecoration: 'underline'},
-  _focus: {color: 'colorTextInverseWeaker', boxShadow: 'shadowFocusInverse', textDecoration: 'underline'},
-  _active: {textDecoration: 'underline'},
+  _hover: {color: 'colorTextInverseWeak', textDecoration: 'underline'},
+  _focus: {boxShadow: 'shadowFocusInverse'},
+  _active: {color: 'colorTextInverseWeak', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
