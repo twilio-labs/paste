@@ -91,6 +91,12 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       );
     }
 
+    /*
+     * Keeps track of the `checked` state on uncontrolled Radios
+     * in order to properly render the Radio dot icon svg.
+     */
+    const [checkedState, setCheckedState] = React.useState(defaultChecked);
+
     const radioGroupContext = React.useContext(RadioContext);
     const helpTextId = useUID();
     const radioId = id ? id : useUID();
@@ -99,13 +105,16 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
-        if (onChange) {
+        if (!isControlled) {
+          // we need to keep track of checked state when uncontrolled to render the svg correctly
+          setCheckedState(event.target.checked);
+        } else if (onChange) {
           onChange(event);
         } else {
           radioGroupContext.onChange(event);
         }
       },
-      [onChange, radioGroupContext.onChange]
+      [onChange, radioGroupContext, isControlled]
     );
 
     const state: HiddenRadioState = {
@@ -130,6 +139,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       // Lastly fall back to default checked if state isn't controlled
       state.defaultChecked = defaultChecked;
     }
+    // Determines if the checkbox is checked in either controlled or uncontrolled environments specifically for the svg
+    const mergedChecked = isControlled ? state.checked || state.defaultChecked : checkedState;
 
     return (
       <Box
@@ -156,10 +167,6 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             borderRadius="borderRadiusCircle"
             disabled={state.disabled}
             type="radio"
-            _disabledSibling={{
-              borderColor: 'colorBorderWeaker',
-              backgroundColor: 'colorBackground',
-            }}
             _checkedAndDisabledSibling={{
               color: 'colorTextWeaker',
             }}
@@ -168,7 +175,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               as="span"
               element={`${element}_CONTROL_CIRCLE`}
               lineHeight="lineHeight0"
-              display={state.checked || state.defaultChecked ? 'block' : 'none'}
+              display={mergedChecked ? 'block' : 'none'}
               color="inherit"
               size="sizeIcon10"
             >
