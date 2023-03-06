@@ -12,24 +12,21 @@ import {DirectButtonPropTypes} from './proptypes';
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextLink',
+  color: 'colorTextPrimary',
   _hover: {
-    color: 'colorTextLinkStronger',
-  },
-  _focus: {
-    color: 'colorTextLinkStronger',
+    color: 'colorTextPrimaryStrongest',
   },
   _active: {
-    color: 'colorTextLinkStrongest',
+    color: 'colorTextPrimaryStrongest',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextLinkStronger',
+  color: 'colorTextPrimary',
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextLinkWeak',
+  color: 'colorTextWeaker',
 });
 
 const ButtonStyleMapping = {

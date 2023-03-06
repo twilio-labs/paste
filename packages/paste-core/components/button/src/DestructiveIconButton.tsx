@@ -14,10 +14,7 @@ import {DirectButtonPropTypes} from './proptypes';
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLinkDestructive',
   _hover: {
-    color: 'colorTextLinkDestructiveStronger',
-  },
-  _focus: {
-    color: 'colorTextLinkDestructiveStronger',
+    color: 'colorTextLinkDestructiveStrongest',
   },
   _active: {
     color: 'colorTextLinkDestructiveStrongest',
@@ -25,11 +22,11 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextLinkDestructiveStronger',
+  color: 'colorTextLinkDestructive',
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextLinkDestructiveWeak',
+  color: 'colorTextWeaker',
 });
 
 const ButtonStyleMapping = {

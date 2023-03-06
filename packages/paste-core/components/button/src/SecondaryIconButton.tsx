@@ -14,18 +14,15 @@ import {DirectButtonPropTypes} from './proptypes';
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextIcon',
   _hover: {
-    color: 'colorText',
-  },
-  _focus: {
-    color: 'colorText',
+    color: 'colorTextPrimaryStrongest',
   },
   _active: {
-    color: 'colorText',
+    color: 'colorTextPrimaryStrongest',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorText',
+  color: 'colorTextPrimary',
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {

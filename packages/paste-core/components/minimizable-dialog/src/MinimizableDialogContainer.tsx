@@ -22,10 +22,11 @@ export const useMinimizableDialogState = ({
   const [minimized, setMinimized] = React.useState(minimizedArg);
   const minimize = (): void => setMinimized(true);
   const expand = (): void => setMinimized(false);
+  const toggleMinimized = (): void => setMinimized((prev) => !prev);
 
   const dialog = useNonModalDialogPrimitiveState({...initialState});
 
-  return {...dialog, minimized, minimize, expand};
+  return {...dialog, minimized, minimize, expand, toggleMinimized};
 };
 
 export interface MinimizableDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {

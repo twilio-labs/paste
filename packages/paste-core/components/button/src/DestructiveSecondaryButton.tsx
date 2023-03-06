@@ -14,28 +14,26 @@ import {DirectButtonPropTypes} from './proptypes';
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLinkDestructive',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderDestructive',
+  boxShadow: 'shadowBorderWeak',
   _hover: {
-    color: 'colorTextLinkDestructiveStronger',
-    backgroundColor: 'colorBackgroundDestructiveWeakest',
-    boxShadow: 'shadowBorderDestructiveStronger',
+    color: 'colorTextLinkDestructive',
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderDestructive',
   },
   _focus: {
-    color: 'colorTextLinkDestructiveStronger',
-    backgroundColor: 'colorBackgroundDestructiveWeakest',
-    boxShadow: 'shadowFocus',
+    boxShadow: 'shadowFocusShadowBorder',
   },
   _active: {
-    color: 'colorTextLinkDestructiveStronger',
-    backgroundColor: 'colorBackgroundDestructiveWeaker',
-    boxShadow: 'shadowBorderDestructiveStronger',
+    color: 'colorTextLinkDestructive',
+    backgroundColor: 'colorBackgroundDestructiveWeakest',
+    boxShadow: 'shadowBorderDestructive',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkDestructiveStronger',
-  backgroundColor: 'colorBackgroundDestructiveWeaker',
-  boxShadow: 'shadowBorderDestructiveWeaker',
+  color: 'colorTextLinkDestructive',
+  backgroundColor: 'colorBackgroundBody',
+  boxShadow: 'shadowBorderWeak',
 };
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
@@ -46,9 +44,9 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextLinkDestructiveWeak',
+  color: 'colorTextWeaker',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderDestructiveWeak',
+  boxShadow: 'shadowBorderWeaker',
 };
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {

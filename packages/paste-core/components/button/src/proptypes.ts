@@ -4,7 +4,8 @@ export const DirectButtonPropTypes = {
   as: PropTypes.string as any,
   fullWidth: PropTypes.bool,
   href: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'default', 'icon', 'icon_small', 'reset', 'rounded_small']).isRequired as any,
+  size: PropTypes.oneOf(['small', 'default', 'icon', 'icon_small', 'reset', 'rounded_small', 'circle', 'circle_small'])
+    .isRequired as any,
   tabIndex: PropTypes.oneOf([0, -1]) as any,
   type: PropTypes.oneOf(['submit', 'button', 'reset']) as any,
   disabled: PropTypes.bool,

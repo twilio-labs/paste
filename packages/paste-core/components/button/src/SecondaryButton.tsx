@@ -14,28 +14,26 @@ import {DirectButtonPropTypes} from './proptypes';
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorText',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorder',
+  boxShadow: 'shadowBorderWeak',
   _hover: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimary',
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderPrimary',
   },
   _focus: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
     boxShadow: 'shadowFocusShadowBorder',
   },
   _active: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeaker',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    color: 'colorTextPrimaryStrong',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStrong',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkStronger',
-  backgroundColor: 'colorBackgroundPrimaryWeaker',
-  boxShadow: 'shadowBorderPrimaryWeaker',
+  color: 'colorTextPrimary',
+  backgroundColor: 'colorBackgroundBody',
+  boxShadow: 'shadowBorderWeak',
 };
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
@@ -48,7 +46,7 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 const baseDisabledStyles: BoxStyleProps = {
   color: 'colorTextWeaker',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeak',
+  boxShadow: 'shadowBorderWeaker',
 };
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
@@ -85,8 +83,8 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
         width={fullWidth ? '100%' : 'auto'}
         aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
-        {...toggleStyles}
         {...ButtonStyleMapping[buttonState]}
+        {...toggleStyles}
         {...SizeStyles[size]}
       />
     );

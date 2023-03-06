@@ -3,14 +3,16 @@ global:
   category: box-shadow
 imports:
   - ../../../global/box-shadow.yml
-  - ../aliases/box-shadow.yml
 props:
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-20}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-gray-0-transparent-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
+  shadow-focus-shadow-border:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-30}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-blue-20}"
+    comment: Shadow for simultaneous focus and border
   shadow-focus-inset:
     value: "inset {!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-55}, inset {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-20}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.

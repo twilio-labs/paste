@@ -28,10 +28,6 @@ props:
   color-text-decorative-40:
     value: "{!palette-purple-30}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-40
 
   # user
   color-text-user:
