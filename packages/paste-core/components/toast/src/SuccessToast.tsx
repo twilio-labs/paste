@@ -9,13 +9,12 @@ const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
+      color="colorTextSuccess"
+      backgroundColor="colorBackgroundSuccessWeakest"
+      borderColor="colorBorderSuccessWeak"
+      borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderSuccessWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"

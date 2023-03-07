@@ -9,13 +9,12 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOA
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
+      color="colorTextError"
+      backgroundColor="colorBackgroundErrorWeakest"
+      borderColor="colorBorderErrorWeak"
+      borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderErrorWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"

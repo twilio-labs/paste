@@ -4,7 +4,6 @@ import {loremIpsum} from 'lorem-ipsum';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
-import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
 import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
@@ -26,35 +25,25 @@ export const Neutral = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
       <ToastContainer>
-        <Toast variant="neutral">
-          <Text as="div">I am a toast</Text>
-        </Toast>
+        <Toast variant="neutral">I am a toast</Toast>
         <Toast variant="neutral" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="neutral">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast variant="neutral" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -65,35 +54,25 @@ export const Success = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
       <ToastContainer>
-        <Toast variant="success">
-          <Text as="div">I am a toast</Text>
-        </Toast>
+        <Toast variant="success">I am a toast</Toast>
         <Toast variant="success" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="success">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast variant="success" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -104,35 +83,25 @@ export const Error = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
       <ToastContainer>
-        <Toast variant="error">
-          <Text as="div">I am a toast</Text>
-        </Toast>
+        <Toast variant="error">I am a toast</Toast>
         <Toast variant="error" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="error">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast variant="error" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -143,35 +112,25 @@ export const Warning = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
       <ToastContainer>
-        <Toast variant="warning">
-          <Text as="div">I am a toast</Text>
-        </Toast>
+        <Toast variant="warning">I am a toast</Toast>
         <Toast variant="warning" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="warning">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast variant="warning" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -183,7 +142,7 @@ export const I18n = (): React.ReactNode => {
     <Box minHeight="size90">
       <ToastContainer>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
-          <Text as="div">Soy una notificacion</Text>
+          Soy una notificacion
         </Toast>
         <Toast
           variant="neutral"
@@ -191,15 +150,11 @@ export const I18n = (): React.ReactNode => {
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
-          <Text as="div">
-            <strong>Título</strong> Soy una notificacion
-          </Text>
+          <strong>Título</strong> Soy una notificacion
         </Toast>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast
           variant="neutral"
@@ -207,20 +162,16 @@ export const I18n = (): React.ReactNode => {
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -252,11 +203,11 @@ export const ToastContainerStory = (): React.ReactNode => {
       </Button>
       <ToastContainer>
         <Toast variant="success" onDismiss={() => {}}>
-          <Text as="div">I am a toast</Text>
+          I am a toast
         </Toast>
         {toasts.map((toast) => (
           <Toast variant={toast.variant} onDismiss={() => {}} key={toast.message}>
-            <Text as="div">{toast.message}</Text>
+            {toast.message}
           </Toast>
         ))}
       </ToastContainer>

@@ -89,7 +89,7 @@ export const i18nExample = `
 const I18nExample = () => {
   return (
     <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
-      <Text as="div">Soy una notificacion</Text>
+      Soy una notificación
     </Toast>
   );
 };
