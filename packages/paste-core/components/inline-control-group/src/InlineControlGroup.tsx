@@ -58,7 +58,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
           {legend}
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
-        <Box element={`${element}_SET`} marginLeft="space20" marginRight="space20">
+        <Box element={`${element}_SET`} marginRight="space20">
           {React.Children.map(children, (child) => {
             return (
               <Box

@@ -13,7 +13,7 @@ export const ChatBookendExample: StoryFn = () => (
     <ChatBookend>
       <ChatBookendItem>Yesterday</ChatBookendItem>
       <ChatBookendItem>
-        <strong>Chat started</strong>・3:45 PM
+        <strong>Chat started</strong>・3:45pm
       </ChatBookendItem>
     </ChatBookend>
     <ChatBookend>

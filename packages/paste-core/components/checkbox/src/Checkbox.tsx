@@ -20,14 +20,14 @@ const selectAllStyleProps = {
   paddingTop: 'space20',
   paddingRight: 'space30',
   paddingBottom: 'space20',
-  paddingLeft: 'space20',
+  paddingLeft: 'space30',
   borderRadius: 'borderRadius10',
   backgroundColor: 'colorBackground',
 };
 
 const selectAllActiveStyleProps = {
   ...selectAllStyleProps,
-  backgroundColor: 'colorBackgroundPrimaryWeakest',
+  backgroundColor: 'colorBackground',
 };
 
 const selectAllChildStyleProps = {
@@ -188,7 +188,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         <BaseRadioCheckboxLabel disabled={disabled} htmlFor={checkboxId}>
           <BaseRadioCheckboxControl
             alignItems="center"
-            borderRadius="borderRadius10"
+            borderRadius="borderRadius20"
             element={`${element}_CONTROL`}
             disabled={disabled}
             position="relative"

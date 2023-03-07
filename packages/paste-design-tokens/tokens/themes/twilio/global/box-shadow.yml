@@ -57,3 +57,8 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-purple-30}"
     comment: Weaker bottom shadow border for decorative 40
+
+  # User
+  shadow-border-user:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
+    comment: Shadow border for user.

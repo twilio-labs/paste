@@ -23,6 +23,17 @@ const defaultConfig: ChatComposerProps['config'] = {
   },
 };
 
+const disabledInitialText = (): void => {
+  const root = $getRoot();
+
+  if (root.getFirstChild() === null) {
+    const paragraph = $createParagraphNode();
+    paragraph.append($createTextNode('Type here...').toggleFormat('italic'));
+
+    root.append(paragraph);
+  }
+};
+
 const initialText = (): void => {
   const root = $getRoot();
 
@@ -88,6 +99,23 @@ const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({children}) =
 export const Default: StoryFn = () => {
   return (
     <ChatComposer config={defaultConfig} testid="foo" ariaLabel="Basic chat composer" placeholder="Type here..." />
+  );
+};
+
+export const Disabled: StoryFn = () => {
+  return (
+    <ChatComposer
+      disabled
+      config={{
+        editorState: disabledInitialText,
+        namespace: 'foo',
+        onError: (error: Error) => {
+          throw error;
+        },
+      }}
+      testid="foo"
+      ariaLabel="Disabled chat composer"
+    />
   );
 };
 
