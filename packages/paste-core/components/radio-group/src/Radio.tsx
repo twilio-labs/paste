@@ -105,13 +105,14 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
-        if (!isControlled) {
-          // we need to keep track of checked state when uncontrolled to render the svg correctly
-          setCheckedState(event.target.checked);
-        } else if (onChange) {
+        if (onChange) {
           onChange(event);
         } else {
           radioGroupContext.onChange(event);
+        }
+        if (!isControlled) {
+          // we need to keep track of checked state when uncontrolled to render the svg correctly
+          setCheckedState(event.target.checked);
         }
       },
       [onChange, radioGroupContext, isControlled]
