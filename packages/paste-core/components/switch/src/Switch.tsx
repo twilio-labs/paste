@@ -203,7 +203,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               padding="space10"
               aria-hidden={true}
               role="presentation"
-              marginRight="space30"
+              marginRight="space20"
               display="inline-block"
               element={`${element}_HELP_TEXT_SPACER`}
             />
