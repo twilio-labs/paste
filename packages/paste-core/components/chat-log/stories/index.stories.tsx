@@ -145,7 +145,7 @@ export const ExampleChatLog: StoryFn = () => (
     </ChatBookend>
     <ChatMessage variant="outbound">
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextInverse" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>
@@ -191,7 +191,7 @@ export const ExampleChatLog: StoryFn = () => (
         euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{' '}
       </ChatBubble>
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>

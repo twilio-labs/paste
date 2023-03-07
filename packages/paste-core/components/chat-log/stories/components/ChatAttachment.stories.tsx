@@ -23,7 +23,7 @@ export const InboundChatMessageWithAttachment: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="inbound">
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>
@@ -36,7 +36,7 @@ export const OutboundChatMessageWithAttachment: StoryFn = () => (
   <ChatLog>
     <ChatMessage variant="outbound">
       <ChatBubble>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextInverse" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>
@@ -47,11 +47,7 @@ export const OutboundChatMessageWithAttachment: StoryFn = () => (
 
 const StateExampleComposerAttachmentCard = (): JSX.Element => {
   const [loading, setLoading] = React.useState(true);
-  const attachmentIcon = loading ? (
-    <Spinner decorative={false} title="loading..." />
-  ) : (
-    <DownloadIcon color="colorTextIcon" decorative />
-  );
+  const attachmentIcon = loading ? <Spinner decorative={false} title="loading..." /> : <DownloadIcon decorative />;
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -78,13 +74,13 @@ const StateExampleComposerAttachmentCard = (): JSX.Element => {
 export const ComposerAttachmentCardExample: StoryFn = () => (
   <Stack orientation="vertical" spacing="space60">
     <ComposerAttachmentCard>
-      <ChatAttachment attachmentIcon={<Spinner decorative={false} color="colorTextIcon" title="loading..." />}>
+      <ChatAttachment attachmentIcon={<Spinner decorative={false} title="loading..." />}>
         <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
         <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
       </ChatAttachment>
     </ComposerAttachmentCard>
     <ComposerAttachmentCard onDismiss={() => {}}>
-      <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+      <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
         <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
         <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
       </ChatAttachment>
