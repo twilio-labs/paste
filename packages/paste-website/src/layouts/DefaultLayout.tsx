@@ -1,28 +1,12 @@
 import * as React from 'react';
-import {datadogRum} from '@datadog/browser-rum';
 import Head from 'next/head';
 import {Box} from '@twilio-paste/box';
-import {Alert} from '@twilio-paste/alert';
-import {Anchor} from '@twilio-paste/anchor';
 import {useRouter} from 'next/router';
 
-import packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
-import {SiteMetaDefaults, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
+import {SiteMetaDefaults} from '../constants';
 import type {NavigationQuery} from '../context/NavigationContext';
-
-datadogRum.init({
-  applicationId: DATADOG_APPLICATION_ID,
-  clientToken: DATADOG_CLIENT_TOKEN,
-  site: 'datadoghq.com',
-  env: ENVIRONMENT_CONTEXT,
-  service: 'paste',
-  // paste core version
-  version: packageJSON.version,
-  sampleRate: 100,
-  trackInteractions: true,
-});
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;
@@ -45,6 +29,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({c
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
   const router = useRouter();
   return (
+    // TODO: move to app directory layout
     <SiteWrapper navigationData={navigationData}>
       <Head>
         <title>{pageTitle}</title>
