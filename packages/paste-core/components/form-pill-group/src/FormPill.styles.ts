@@ -46,6 +46,7 @@ export const pillStyles: VariantStyles = {
   default: {
     color: 'colorText',
     backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryWeaker',
 
     _focus: {
       boxShadow: 'shadowFocus',
@@ -53,6 +54,7 @@ export const pillStyles: VariantStyles = {
     },
     _selected: {
       backgroundColor: 'colorBackgroundPrimaryStronger',
+      boxShadow: 'shadowBorderPrimaryStronger',
       color: 'colorTextWeakest',
     },
     _selected_focus: {
@@ -61,13 +63,15 @@ export const pillStyles: VariantStyles = {
     },
     _disabled: {
       backgroundColor: 'colorBackgroundStrong',
+      boxShadow: 'shadowBorderWeaker',
       cursor: 'not-allowed',
       color: 'colorText',
     },
   },
   error: {
     backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
+    boxShadow: 'shadowBorderErrorWeaker',
+    color: 'colorTextError',
 
     _focus: {
       boxShadow: 'shadowFocus',
@@ -75,6 +79,7 @@ export const pillStyles: VariantStyles = {
     },
     _selected: {
       backgroundColor: 'colorBackgroundError',
+      boxShadow: 'shadowBorderError',
       color: 'colorTextInverse',
     },
     _selected_focus: {
@@ -83,6 +88,7 @@ export const pillStyles: VariantStyles = {
     },
     _disabled: {
       backgroundColor: 'colorBackgroundStrong',
+      boxShadow: 'shadowBorderWeaker',
       cursor: 'not-allowed',
       color: 'colorText',
     },
@@ -93,35 +99,39 @@ export const hoverPillStyles: VariantStyles = {
   default: {
     cursor: 'pointer',
     color: 'colorText',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryWeaker',
 
     _hover: {
-      borderColor: 'colorBorderPrimaryStronger',
-      color: 'colorTextLinkStronger',
+      boxShadow: 'shadowBorderPrimaryStronger',
+      color: 'colorTextPrimaryStronger',
     },
     _selected_hover: {
       backgroundColor: 'colorBackgroundPrimary',
-      borderColor: 'transparent',
+      boxShadow: 'shadowBorderPrimary',
       color: 'colorTextInverse',
     },
     _focus_hover: {
-      borderColor: 'transparent',
+      boxShadow: 'shadowFocus',
     },
   },
   error: {
     cursor: 'pointer',
-    color: 'colorTextErrorStrong',
+    backgroundColor: 'colorBackgroundErrorWeakest',
+    boxShadow: 'shadowBorderErrorWeaker',
+    color: 'colorTextError',
 
     _hover: {
-      borderColor: 'colorBorderErrorStronger',
+      boxShadow: 'shadowBorderErrorStronger',
       color: 'colorTextErrorStronger',
     },
     _selected_hover: {
       backgroundColor: 'colorBackgroundErrorStrongest',
-      borderColor: 'transparent',
+      boxShadow: 'shadowBorderErrorStrongest',
       color: 'colorTextWeakest',
     },
     _focus_hover: {
-      borderColor: 'transparent',
+      boxShadow: 'shadowFocus',
     },
   },
 };
@@ -134,13 +144,14 @@ export const baseCloseStyles: VariantStyles = {
   default: {
     _hover: {
       cursor: 'pointer',
-      borderColor: 'colorBorderPrimaryStronger',
+      boxShadow: 'shadowBorderPrimaryStronger',
     },
   },
   error: {
     _hover: {
+      backgroundColor: 'colorBackgroundErrorWeakest',
+      boxShadow: 'shadowBorderErrorStronger',
       cursor: 'pointer',
-      borderColor: 'colorBorderErrorStronger',
     },
   },
 };
@@ -149,15 +160,15 @@ export const selectedBaseCloseStyles: VariantStyles = {
   default: {
     _hover: {
       cursor: 'pointer',
-      borderColor: 'transparent',
       backgroundColor: 'colorBackgroundPrimary',
+      boxShadow: 'shadowBorderPrimary',
     },
   },
   error: {
     _hover: {
       cursor: 'pointer',
-      borderColor: 'transparent',
       backgroundColor: 'colorBackgroundErrorStrongest',
+      boxShadow: 'shadowBorderErrorStrongest',
     },
   },
 };
@@ -173,7 +184,7 @@ export const closeColorStyles: VariantStyles = {
   default: {
     color: 'colorTextIcon',
     _hover: {
-      color: 'colorTextLinkStronger',
+      color: 'colorTextPrimaryStronger',
     },
   },
   error: {
