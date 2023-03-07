@@ -23,6 +23,7 @@ const StyledCodeBlockTab = React.forwardRef<HTMLButtonElement, CodeBlockTabProps
     borderBottomWidth="borderWidth10"
     color="colorTextInverseWeak"
     cursor={props.disabled ? 'not-allowed' : 'pointer'}
+    fontFamily="fontFamilyText"
     fontSize="fontSize30"
     lineHeight="lineHeight10"
     fontWeight="fontWeightMedium"

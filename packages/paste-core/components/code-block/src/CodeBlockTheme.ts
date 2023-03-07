@@ -92,6 +92,10 @@ export const getPasteSyntaxTheme = (maxLines?: number): CSSObject => {
       color: 'rgb(136, 145, 170)',
       fontStyle: 'italic',
     },
+    linenumber: {
+      color: 'colorTextInverseWeak',
+      fontStyle: 'none',
+    },
     prolog: {
       color: 'rgb(99, 119, 119)',
       fontStyle: 'italic',
