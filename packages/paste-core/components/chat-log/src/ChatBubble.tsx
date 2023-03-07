@@ -19,8 +19,9 @@ const bubbleVariantStyles: {
     alignSelf: 'flex-start',
   },
   outbound: {
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    backgroundColor: 'colorBackgroundInverseStronger',
     alignSelf: 'flex-end',
+    color: 'colorTextInverse',
   },
 };
 
@@ -33,7 +34,7 @@ export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
         display="inline-block"
         fontSize="fontSize30"
         lineHeight="lineHeight20"
-        borderRadius="borderRadius30"
+        borderRadius="borderRadius20"
         paddingY="space30"
         paddingX="space40"
         marginBottom="space30"

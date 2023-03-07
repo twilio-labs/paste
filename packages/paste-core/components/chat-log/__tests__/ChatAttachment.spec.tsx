@@ -18,6 +18,9 @@ const customizedElements: {[key: string]: PasteCustomCSS} = {
   CHAT_ATTACHMENT: {
     marginLeft: 'space50',
   },
+  CHAT_ATTACHMENT_ICON: {
+    color: 'colorTextBrandHighlight',
+  },
   CHAT_ATTACHMENT_BODY: {
     padding: 'space20',
   },
@@ -38,6 +41,9 @@ const customizedMyElements: {[key: string]: PasteCustomCSS} = {
   },
   MY_CHAT_ATTACHMENT: {
     marginLeft: 'space50',
+  },
+  MY_CHAT_ATTACHMENT_ICON: {
+    color: 'colorTextBrandHighlight',
   },
   MY_CHAT_ATTACHMENT_BODY: {
     padding: 'space20',
@@ -123,6 +129,7 @@ describe('Customization', () => {
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
     const composerAttachmentCardRemoveButton = screen.getByRole('button');
     const chatAttachment = screen.getByTestId('chat-attachment');
+    const chatAttachmentIcon = chatAttachment.firstChild?.firstChild as HTMLElement;
     const chatAttachmentBody = chatAttachment.lastChild as HTMLElement;
     const chatAttachmentLink = screen.getByTestId('chat-attachment-link');
     const chatAttachmentDescription = screen.getByTestId('chat-attachment-description');
@@ -132,6 +139,7 @@ describe('Customization', () => {
       'COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON'
     );
     expect(chatAttachment.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT');
+    expect(chatAttachmentIcon.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT_ICON');
     expect(chatAttachmentBody.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT_BODY');
     expect(chatAttachmentLink.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT_LINK');
     expect(chatAttachmentDescription.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT_DESCRIPTION');
@@ -167,6 +175,7 @@ describe('Customization', () => {
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
     const composerAttachmentCardRemoveButton = screen.getByRole('button');
     const chatAttachment = screen.getByTestId('chat-attachment');
+    const chatAttachmentIcon = chatAttachment.firstChild?.firstChild as HTMLElement;
     const chatAttachmentLink = screen.getByTestId('chat-attachment-link');
     const chatAttachmentDescription = screen.getByTestId('chat-attachment-description');
     const chatAttachmentBody = chatAttachment.lastChild as HTMLElement;
@@ -176,6 +185,7 @@ describe('Customization', () => {
       'MY_COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON'
     );
     expect(chatAttachment.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT');
+    expect(chatAttachmentIcon.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT_ICON');
     expect(chatAttachmentBody.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT_BODY');
     expect(chatAttachmentLink.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT_LINK');
     expect(chatAttachmentDescription.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT_DESCRIPTION');
@@ -197,6 +207,7 @@ describe('Customization', () => {
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
     const composerAttachmentCardRemoveButton = screen.getByRole('button');
     const chatAttachment = screen.getByTestId('chat-attachment');
+    const chatAttachmentIcon = chatAttachment.firstChild?.firstChild as HTMLElement;
     const chatAttachmentBody = chatAttachment.lastChild as HTMLElement;
     const chatAttachmentLink = screen.getByTestId('chat-attachment-link');
     const chatAttachmentDescription = screen.getByTestId('chat-attachment-description');
@@ -205,6 +216,7 @@ describe('Customization', () => {
     expect(composerAttachmentCardRemoveButton).toHaveStyleRule('color', 'rgb(0, 20, 137)');
     expect(chatAttachmentBody).toHaveStyleRule('padding', '0.25rem');
     expect(chatAttachment).toHaveStyleRule('margin-left', '1rem');
+    expect(chatAttachmentIcon).toHaveStyleRule('color', 'rgb(242, 47, 70)');
     expect(chatAttachmentLink).toHaveStyleRule('font-size', '1.125rem');
     expect(chatAttachmentDescription).toHaveStyleRule('color', 'rgb(18, 28, 45)');
   });
@@ -239,6 +251,7 @@ describe('Customization', () => {
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
     const composerAttachmentCardRemoveButton = screen.getByRole('button');
     const chatAttachment = screen.getByTestId('chat-attachment');
+    const chatAttachmentIcon = chatAttachment.firstChild?.firstChild as HTMLElement;
     const chatAttachmentBody = chatAttachment.lastChild as HTMLElement;
     const chatAttachmentLink = screen.getByTestId('chat-attachment-link');
     const chatAttachmentDescription = screen.getByTestId('chat-attachment-description');
@@ -246,6 +259,7 @@ describe('Customization', () => {
     expect(composerAttachmentCard).toHaveStyleRule('padding', '2.25rem');
     expect(composerAttachmentCardRemoveButton).toHaveStyleRule('color', 'rgb(0, 20, 137)');
     expect(chatAttachment).toHaveStyleRule('margin-left', '1rem');
+    expect(chatAttachmentIcon).toHaveStyleRule('color', 'rgb(242, 47, 70)');
     expect(chatAttachmentBody).toHaveStyleRule('padding', '0.25rem');
     expect(chatAttachmentLink).toHaveStyleRule('font-size', '1.125rem');
     expect(chatAttachmentDescription).toHaveStyleRule('color', 'rgb(18, 28, 45)');
