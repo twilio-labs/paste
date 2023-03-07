@@ -9,7 +9,7 @@ import {Label, RequiredDot} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 
-import {SWITCH_HEIGHT, SWITCH_WIDTH} from './constants';
+import {SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH} from './constants';
 import {SwitchContext} from './SwitchContext';
 import {SwitchKnob} from './SwitchKnob';
 
@@ -123,8 +123,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               boxSizing="content-box"
               height={SWITCH_HEIGHT}
               width={SWITCH_WIDTH}
+              marginTop="space10"
               overflow="hidden"
-              padding="space10"
               borderColor="colorBorder"
               borderWidth="borderWidth10"
               borderRadius="borderRadiusPill"
@@ -144,8 +144,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 boxShadow: 'shadowFocus',
               }}
               _checkedSibling={{
-                backgroundColor: 'colorBackgroundPrimaryStronger',
-                color: 'colorTextLinkStronger',
+                backgroundColor: 'colorBackgroundPrimary',
+                color: 'colorTextPrimary',
               }}
               _disabledSibling={{
                 backgroundColor: 'colorBackgroundStrong',
@@ -153,8 +153,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 cursor: 'not-allowed',
               }}
               _checkedAndHoverSibling={{
-                backgroundColor: 'colorBackgroundPrimary',
-                color: 'colorTextLink',
+                color: 'colorTextIcon',
+                backgroundColor: 'colorBackgroundStrongest',
               }}
               _invalidSibling={{
                 backgroundColor: 'colorBackgroundError',
@@ -171,7 +171,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 disabled={disabled}
                 checked={mergedChecked}
                 isHovering={isHovering}
-                height={SWITCH_HEIGHT}
+                height={SWITCH_KNOB_SIZE}
                 hasError={hasError}
               />
             </SiblingBox>
@@ -203,7 +203,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               padding="space10"
               aria-hidden={true}
               role="presentation"
-              marginRight="space30"
+              marginRight="space20"
               display="inline-block"
               element={`${element}_HELP_TEXT_SPACER`}
             />

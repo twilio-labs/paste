@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {action} from '@storybook/addon-actions';
 import type {StoryFn} from '@storybook/react';
-import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -18,36 +17,26 @@ export default {
 export const Neutral = (): React.ReactNode => {
   return (
     <>
-      <Alert variant="neutral">
-        <Text as="div">I am an alert</Text>
-      </Alert>
+      <Alert variant="neutral">I am an alert</Alert>
       <Alert variant="neutral" onDismiss={action('dismiss')}>
-        <Text as="div">
-          <strong>Alert title</strong> I am an alert
-        </Text>
+        <strong>Alert title</strong> I am an alert
       </Alert>
       <Alert variant="neutral">
-        <Text as="div">
-          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-          commodo cursus magna.
-        </Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+        commodo cursus magna.
       </Alert>
       <Box width="size50">
         <Alert variant="neutral" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Alert>
       </Box>
     </>
@@ -58,35 +47,27 @@ export const Error = (): React.ReactNode => {
   return (
     <>
       <Alert variant="error" onDismiss={action('dismiss')}>
-        <Text as="div">I am an alert</Text>
+        I am an alert
       </Alert>
       <Alert variant="error">
-        <Text as="div">
-          <strong>Alert title</strong> I am an alert
-        </Text>
+        <strong>Alert title</strong> I am an alert
       </Alert>
       <Alert variant="error" onDismiss={action('dismiss')}>
-        <Text as="div">
-          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-          commodo cursus magna.
-        </Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+        commodo cursus magna.
       </Alert>
       <Box width="size50">
         <Alert variant="error">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Alert>
       </Box>
     </>
@@ -96,36 +77,26 @@ export const Error = (): React.ReactNode => {
 export const Warning = (): React.ReactNode => {
   return (
     <>
-      <Alert variant="warning">
-        <Text as="div">I am an alert</Text>
-      </Alert>
+      <Alert variant="warning">I am an alert</Alert>
       <Alert variant="warning" onDismiss={action('dismiss')}>
-        <Text as="div">
-          <strong>Alert title</strong> I am an alert
-        </Text>
+        <strong>Alert title</strong> I am an alert
       </Alert>
       <Alert variant="warning">
-        <Text as="div">
-          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-          commodo cursus magna.
-        </Text>
+        Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+        commodo cursus magna.
       </Alert>
       <Box width="size50">
         <Alert variant="warning" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Alert>
       </Box>
     </>
@@ -166,28 +137,18 @@ export const CustomAlert: StoryFn = (_args, {parameters: {isTestEnvironment = fa
         },
       }}
     >
-      <Alert variant="neutral">
-        <Text as="div">I am a custom neutral alert</Text>
-      </Alert>
+      <Alert variant="neutral">I am a custom neutral alert</Alert>
 
-      <Alert variant="warning">
-        <Text as="div">I am a custom warning alert</Text>
-      </Alert>
+      <Alert variant="warning">I am a custom warning alert</Alert>
 
-      <Alert variant="error">
-        <Text as="div">I am a custom error alert</Text>
-      </Alert>
+      <Alert variant="error">I am a custom error alert</Alert>
 
       <Alert variant="neutral" onDismiss={action('dismiss')}>
-        <Text as="div">
-          <strong>Dismissable:</strong> I am a dismissable custom alert
-        </Text>
+        <strong>Dismissable:</strong> I am a dismissable custom alert
       </Alert>
 
       <Alert variant="error" onDismiss={action('dismiss')}>
-        <Text as="p">
-          <strong>Dismissable:</strong> I am a dismissable custom alert
-        </Text>
+        <strong>Dismissable:</strong> I am a dismissable custom alert
       </Alert>
     </CustomizationProvider>
   );
@@ -209,13 +170,13 @@ export const I18nAlerts = (): React.ReactNode => {
   return (
     <>
       <Alert variant="error" {...i18nStrings} onDismiss={action('dismiss')}>
-        <Text as="div">C&apos;est une alerte d&apos;erreur.</Text>
+        C&apos;est une alerte d&apos;erreur.
       </Alert>
       <Alert variant="warning" {...i18nStrings} onDismiss={action('dismiss')}>
-        <Text as="div">C&apos;est une alerte d&apos;avertissement.</Text>
+        C&apos;est une alerte d&apos;avertissement.
       </Alert>
       <Alert variant="neutral" {...i18nStrings} onDismiss={action('dismiss')}>
-        <Text as="div">C&apos;est une alerte neutre.</Text>
+        C&apos;est une alerte neutre.
       </Alert>
     </>
   );
