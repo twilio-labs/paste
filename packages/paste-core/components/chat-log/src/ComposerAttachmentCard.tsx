@@ -40,7 +40,8 @@ const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachme
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
-        padding="space30"
+        paddingY="space30"
+        paddingX="space40"
         borderStyle="solid"
         borderColor="colorBorderWeaker"
         borderRadius="borderRadius30"
