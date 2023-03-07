@@ -33,21 +33,28 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           element={element}
           as={props.href ? 'a' : 'div'}
           alignItems="center"
-          backgroundColor="colorBackgroundStrong"
+          backgroundColor="colorBackgroundWeak"
           borderRadius="borderRadiusPill"
-          color="colorText"
+          boxShadow="shadowBorderWeaker"
+          color="colorTextWeak"
           columnGap="space20"
           cursor={props.href ? 'pointer' : 'default'}
           display="flex"
           fontSize="fontSize20"
-          fontWeight="fontWeightSemibold"
+          fontWeight="fontWeightMedium"
           lineHeight="lineHeight10"
           paddingX="space30"
           paddingY="space20"
           outline="none"
-          _hover={{
-            textDecoration: 'none',
-          }}
+          _hover={
+            props.href
+              ? {
+                  backgroundColor: 'colorBackground',
+                  boxShadow: 'shadowBorder',
+                  textDecoration: 'none',
+                }
+              : undefined
+          }
           _focus={{
             boxShadow: 'shadowFocus',
             textDecoration: 'none',

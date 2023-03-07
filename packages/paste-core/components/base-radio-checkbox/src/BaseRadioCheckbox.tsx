@@ -27,7 +27,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         borderStyle="solid"
         borderWidth="borderWidth10"
         height="sizeSquare50"
-        marginX="space20"
+        marginRight="space20"
         marginY="space10"
         width="sizeSquare50"
         color="colorTextWeakest"
@@ -38,7 +38,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         _focusSibling={{
           borderColor: 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: 'colorTextWeakest',
+          color: 'colorTextInverse',
         }}
         _activeSibling={
           !disabled
@@ -56,6 +56,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         }}
         _disabledSibling={{
           borderColor: 'colorBorderWeaker',
+          backgroundColor: 'colorBackgroundStrong',
         }}
         _invalidSibling={{
           borderColor: 'colorBorderError',
@@ -72,9 +73,9 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
           color: 'colorTextWeakest',
         }}
         _checkedAndFocusSibling={{
-          borderColor: 'colorBorderPrimaryStronger',
-          backgroundColor: 'colorBackgroundPrimaryStronger',
-          color: 'colorTextWeakest',
+          borderColor: 'colorBorderPrimary',
+          backgroundColor: 'colorBackgroundPrimary',
+          color: 'colorTextInverse',
         }}
         _checkedAndActiveSibling={
           !disabled
@@ -87,7 +88,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         _checkedAndDisabledSibling={{
           borderColor: 'colorBorderWeaker',
           backgroundColor: 'colorBackgroundStrong',
-          color: 'colorTextWeakest',
+          color: 'colorTextWeaker',
         }}
         _checkedAndInvalidSibling={{
           borderColor: 'colorBorderError',
@@ -101,7 +102,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         _checkedAndInvalidAndDisabledSibling={{
           borderColor: 'colorBorderWeaker',
           backgroundColor: 'colorBackgroundStrong',
-          color: 'colorTextWeakest',
+          color: 'colorTextWeaker',
         }}
         {...props}
       >
@@ -141,15 +142,7 @@ export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'>, 
 const BaseRadioCheckboxLabelText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxLabelTextProps>(
   ({children, element = 'BASE_RADIO_CHECKBOX_LABEL_TEXT', ...props}, ref) => {
     return (
-      <Text
-        as="span"
-        color="currentColor"
-        marginLeft="space20"
-        fontWeight="fontWeightMedium"
-        element={element}
-        ref={ref}
-        {...props}
-      >
+      <Text as="span" color="currentColor" marginLeft="space20" element={element} ref={ref} {...props}>
         {children}
       </Text>
     );
@@ -168,7 +161,7 @@ export interface BaseRadioCheckboxHelpTextProps extends Pick<BoxProps, 'element'
 const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxHelpTextProps>(
   ({children, helpTextId, element = 'BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER'}, ref) => {
     return (
-      <Box as="span" display="block" element={element} marginLeft="space80" ref={ref}>
+      <Box as="span" display="block" element={element} marginLeft="space70" ref={ref}>
         <HelpText id={helpTextId} marginTop="space0">
           {children}
         </HelpText>
