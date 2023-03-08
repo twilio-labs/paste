@@ -43,7 +43,7 @@ export const getPasteSyntaxTheme = (maxLines?: number): CSSObject => {
       hyphens: 'none',
       margin: '0',
       overflow: 'auto',
-      background: '#121C2D',
+      background: 'inherit',
       display: '-webkit-box',
       WebkitLineClamp: `${maxLines}`,
       WebkitBoxOrient: 'vertical',
@@ -51,35 +51,35 @@ export const getPasteSyntaxTheme = (maxLines?: number): CSSObject => {
     },
     'pre[class*="language-"]::-moz-selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'pre[class*="language-"] ::-moz-selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'code[class*="language-"]::-moz-selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'code[class*="language-"] ::-moz-selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'pre[class*="language-"]::selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'pre[class*="language-"] ::selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'code[class*="language-"]::selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     'code[class*="language-"] ::selection': {
       textShadow: 'none',
-      background: 'rgba(29, 59, 83, 0.99)',
+      background: 'inherit',
     },
     ':not(pre) > code[class*="language-"]': {
       color: 'white',
@@ -91,6 +91,10 @@ export const getPasteSyntaxTheme = (maxLines?: number): CSSObject => {
     comment: {
       color: 'rgb(136, 145, 170)',
       fontStyle: 'italic',
+    },
+    linenumber: {
+      color: 'colorTextInverseWeak',
+      fontStyle: 'none',
     },
     prolog: {
       color: 'rgb(99, 119, 119)',
