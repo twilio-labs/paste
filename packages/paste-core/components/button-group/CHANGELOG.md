@@ -1,5 +1,11 @@
 # @twilio-paste/button-group
 
+## 2.0.1
+
+### Patch Changes
+
+- [`ee0abba79`](https://github.com/twilio-labs/paste/commit/ee0abba79bbffaf845e4643d4e9cb7c4115b5e2d) [#3075](https://github.com/twilio-labs/paste/pull/3075) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button group] Fix disabled hover state styles
+
 ## 2.0.0
 
 ### Major Changes

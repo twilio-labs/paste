@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`b942178ad`](https://github.com/twilio-labs/paste/commit/b942178adbcf9c0cb5359936169b8a7268d2b689) [#3052](https://github.com/twilio-labs/paste/pull/3052) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add theme override via url by using `#paste-theme-override=[newtheme]`.
+
 ## 9.0.0
 
 ### Major Changes

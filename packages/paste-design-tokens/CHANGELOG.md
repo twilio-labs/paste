@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update default theme token to fix Avatar styles, no changes to new Twilio theme
+
+* [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update shadow focuc shadow border design tokens for the twilio themes
+
+- [`a081285f2`](https://github.com/twilio-labs/paste/commit/a081285f29cca470ff09a9faa2b4aac4bed7b0a5) [#3034](https://github.com/twilio-labs/paste/pull/3034) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens]: correct color contrast token pair naming for decorative background 10
+
+* [`fa0596ead`](https://github.com/twilio-labs/paste/commit/fa0596ead628d49adb8ff766ad865e18b08e0996) [#3055](https://github.com/twilio-labs/paste/pull/3055) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Fix modal background overlay color for evergreen theme
+
 ## 9.0.0
 
 ### Major Changes

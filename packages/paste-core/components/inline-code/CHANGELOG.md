@@ -1,5 +1,11 @@
 # @twilio-paste/inline-code
 
+## 2.1.0
+
+### Minor Changes
+
+- [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af) [#3043](https://github.com/twilio-labs/paste/pull/3043) Thanks [@shleewhite](https://github.com/shleewhite)! - [Inline Code] Add variant prop, with "default" and "minimal" styles. Update styles to align with new Paste Twilio theme.
+
 ## 2.0.0
 
 ### Major Changes

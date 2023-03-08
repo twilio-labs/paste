@@ -1,5 +1,13 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Checkbox, Radio group] Update to styles for the One Twilio Design Language refresh
+
+* [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Radio group] Improved checked state tracking for uncontrolled radios to help with styling
+
 ## 11.0.0
 
 ### Major Changes

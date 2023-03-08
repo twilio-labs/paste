@@ -1,5 +1,15 @@
 # @twilio-paste/minimizable-dialog
 
+## 2.1.0
+
+### Minor Changes
+
+- [`b87a7c720`](https://github.com/twilio-labs/paste/commit/b87a7c720d45b5839969e51d30d3a420ee951677) [#3053](https://github.com/twilio-labs/paste/pull/3053) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] Add toggleMinimized function to the object useMinimizableDialogState returns. Update styles to align with new Paste Twilio theme.
+
+### Patch Changes
+
+- [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Minimizable dialog] Update styles to align with new Paste Twilio theme.
+
 ## 2.0.0
 
 ### Major Changes
