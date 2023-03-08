@@ -1,4 +1,3 @@
-title: ""
 body:
   - type: "textarea"
     id: "background"
