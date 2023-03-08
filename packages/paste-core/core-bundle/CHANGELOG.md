@@ -20,7 +20,7 @@
 
 - [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Update styles to align with new Paste Twilio theme.
 
-  In order to see all of the new style updates, you may have to remove any <Text> component children from your Alerts, passing in the string as a direct child of Alert.
+  In order to see all of the new style updates, you may have to remove any `<Text>` component children from your Alerts, passing in the string as a direct child of Alert.
 
 * [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update default theme token to fix Avatar styles, no changes to new Twilio theme
 
@@ -58,7 +58,7 @@
 
 - [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Update styles to align with new Paste Twilio theme.
 
-  In order to see all of the new style updates, you may have to remove any <Text> component children from your Toasts, passing in the string as a direct child of Toast.
+  In order to see all of the new style updates, you may have to remove any `<Text>` component children from your Toasts, passing in the string as a direct child of Toast.
 
 * [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af) [#3043](https://github.com/twilio-labs/paste/pull/3043) Thanks [@shleewhite](https://github.com/shleewhite)! - [Display Heading] Update styles to align with new Paste Twilio theme
 
