@@ -79,7 +79,7 @@ const MessageWithAttachment = () => {
     <ChatLog>
       <ChatMessage variant='inbound'>
         <ChatBubble>
-          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
             <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
             <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
           </ChatAttachment>
@@ -98,7 +98,7 @@ const MessageWithAttachment = () => {
     <ChatLog>
       <ChatMessage variant='outbound'>
         <ChatBubble>
-          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
             <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
             <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
           </ChatAttachment>
@@ -122,7 +122,7 @@ const ComplexMessage = () => {
           I have a copy of the receipt, can you print it?
         </ChatBubble>
         <ChatBubble>
-          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
             <ChatAttachmentLink href="#">receipt.pdf</ChatAttachmentLink>
             <ChatAttachmentDescription>9 MB</ChatAttachmentDescription>
           </ChatAttachment>
@@ -150,7 +150,7 @@ const ComplexMessage = () => {
         Here is the document:
         </ChatBubble>
         <ChatBubble>
-          <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+          <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
             <ChatAttachmentLink href="#">document-FINAL.doc</ChatAttachmentLink>
             <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
           </ChatAttachment>
@@ -241,7 +241,7 @@ const SampleChat = () => {
             You have 30 days to send your items back. Here is the full policy if you would like to read more.
           </ChatBubble>
           <ChatBubble>
-            <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
               <ChatAttachmentLink href="#">RETURN_POLICY.pdf</ChatAttachmentLink>
               <ChatAttachmentDescription>17 MB</ChatAttachmentDescription>
             </ChatAttachment>

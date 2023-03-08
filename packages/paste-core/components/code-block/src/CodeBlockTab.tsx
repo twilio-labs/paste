@@ -17,29 +17,39 @@ const StyledCodeBlockTab = React.forwardRef<HTMLButtonElement, CodeBlockTabProps
     as="button"
     {...safelySpreadBoxProps(props)}
     transition="background-color 150ms ease-in, color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in"
-    backgroundColor="colorBackgroundInverse"
+    border="none"
+    borderBottomColor="transparent"
+    borderBottomStyle="solid"
+    borderBottomWidth="borderWidth10"
     color="colorTextInverseWeak"
+    cursor={props.disabled ? 'not-allowed' : 'pointer'}
+    fontFamily="fontFamilyText"
     fontSize="fontSize30"
-    lineHeight="lineHeight30"
-    paddingY="space30"
-    paddingX="space40"
-    margin="space0"
-    borderStyle="solid"
-    borderWidth="borderWidth10"
-    borderColor="transparent"
-    borderRadius="borderRadius20"
-    _focus={{outline: 'none', boxShadow: 'shadowFocusInverse'}}
-    _hover={{backgroundColor: 'colorBackgroundPrimary', color: 'colorTextInverse'}}
+    lineHeight="lineHeight10"
+    fontWeight="fontWeightMedium"
+    position="relative"
+    display="inline-block"
+    paddingX="space20"
+    paddingTop="space40"
+    paddingBottom="space50"
+    backgroundColor="transparent"
+    textAlign="center"
     _selected={{
-      backgroundColor: 'colorBackgroundBodyInverse',
-      color: 'colorTextBrandInverse',
-      borderColor: 'colorBorderInverseWeaker',
+      borderBottomColor: 'colorBorderInverseStrong',
+      color: 'colorTextInverse',
     }}
-    _selected_focus={{borderColor: 'transparent'}}
-    _selected_hover={{
-      backgroundColor: 'colorBackgroundPrimaryStronger',
-      color: 'colorTextWeakest',
-      borderColor: 'transparent',
+    _hover={{
+      borderBottomColor: 'colorBorderInverse',
+      color: 'colorTextInverseWeak',
+    }}
+    _disabled={{
+      borderBottomColor: 'transparent',
+      color: 'colorTextInverseWeaker',
+    }}
+    _focus={{
+      boxShadow: 'shadowFocusInverse',
+      outline: 'none',
+      borderRadius: 'borderRadius20',
     }}
   >
     {children}

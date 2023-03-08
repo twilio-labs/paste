@@ -115,6 +115,9 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
         CHAT_ATTACHMENT_DESCRIPTION: {
           color: 'colorTextDecorative10',
         },
+        CHAT_ATTACHMENT_ICON: {
+          color: 'colorTextBrandHighlight',
+        },
         MY_COMPOSER_ATTACHMENT_CARD: {
           paddingY: 'space60',
         },
@@ -138,7 +141,7 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
       <ChatLog>
         <ChatMessage variant="inbound">
           <ChatBubble>
-            <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
               <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
               <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
             </ChatAttachment>
@@ -146,7 +149,7 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
         </ChatMessage>
         <ChatMessage variant="outbound">
           <ChatBubble>
-            <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+            <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
               <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
               <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
             </ChatAttachment>
@@ -154,13 +157,13 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
         </ChatMessage>
       </ChatLog>
       <ComposerAttachmentCard onDismiss={() => {}}>
-        <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
           <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
         </ChatAttachment>
       </ComposerAttachmentCard>
       <ComposerAttachmentCard element="MY_COMPOSER_ATTACHMENT_CARD" onDismiss={() => {}}>
-        <ChatAttachment element="MY_CHAT_ATTACHMENT" attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+        <ChatAttachment element="MY_CHAT_ATTACHMENT" attachmentIcon={<DownloadIcon decorative />}>
           <ChatAttachmentLink element="MY_CHAT_ATTACHMENT_LINK" href="www.google.com">
             Document-FINAL.doc
           </ChatAttachmentLink>

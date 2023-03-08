@@ -16,13 +16,16 @@ import {getElementName} from './utils';
  * shouldn't get the fitted variant.
  */
 const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleProps => {
+  const isInverse = variant === 'inverse' || variant === 'inverse_fitted';
+  const isFitted = variant === 'fitted' || variant === 'inverse_fitted';
+
   switch (orientation) {
     case 'vertical':
       return {
         borderLeftColor: 'transparent',
         borderLeftStyle: 'solid',
-        borderLeftWidth: 'borderWidth20',
-        color: 'colorTextWeak',
+        borderLeftWidth: 'borderWidth10',
+        color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
         display: 'block',
         marginBottom: 'space40',
         paddingBottom: 'space30',
@@ -33,22 +36,21 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           marginBottom: 'space0',
         },
         _selected: {
-          borderLeftColor: 'colorBorderPrimary',
-          color: 'colorTextLink',
+          borderLeftColor: isInverse ? 'colorBorderInverseStrong' : 'colorBorderPrimary',
+          color: isInverse ? 'colorTextInverse' : 'colorTextLink',
         },
         _hover: {
-          borderLeftColor: 'colorBorderPrimaryStronger',
-          color: 'colorTextLinkStronger',
+          borderLeftColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimaryStronger',
+          color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
         },
         _disabled: {
           borderLeftColor: 'transparent',
-          color: 'colorTextWeaker',
+          color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
         },
         _focus: {
-          borderLeftColor: 'colorBorderPrimaryStronger',
-          boxShadow: 'shadowFocus',
-          color: 'colorTextLinkStronger',
+          boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
           outline: 'none',
+          borderRadius: 'borderRadius20',
         },
       };
     case 'horizontal':
@@ -56,39 +58,37 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
       return {
         borderBottomColor: 'transparent',
         borderBottomStyle: 'solid',
-        borderBottomWidth: 'borderWidth20',
-        color: 'colorTextWeak',
+        borderBottomWidth: 'borderWidth10',
+        color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
         display: 'inline-block',
-        flexBasis: variant === 'fitted' ? '50%' : undefined,
-        flexGrow: variant === 'fitted' ? 1 : undefined,
-        flexShrink: variant === 'fitted' ? 1 : undefined,
-        marginRight: variant === 'fitted' ? 'space0' : 'space70',
+        flexBasis: isFitted ? '50%' : undefined,
+        flexGrow: isFitted ? 1 : undefined,
+        flexShrink: isFitted ? 1 : undefined,
+        marginRight: isFitted ? 'space0' : 'space80',
         minWidth: 'sizeSquare130',
-        paddingBottom: 'space40',
-        paddingLeft: 'space20',
-        paddingRight: 'space20',
+        paddingBottom: 'space50',
+        paddingX: 'space20',
         paddingTop: 'space40',
         textAlign: 'center',
         _last: {
           marginRight: 'space0',
         },
         _selected: {
-          borderBottomColor: 'colorBorderPrimary',
-          color: 'colorTextLink',
+          borderBottomColor: isInverse ? 'colorBorderInverseStrong' : 'colorBorderPrimary',
+          color: isInverse ? 'colorTextInverse' : 'colorTextLink',
         },
         _hover: {
-          borderBottomColor: 'colorBorderPrimaryStronger',
-          color: 'colorTextLinkStronger',
+          borderBottomColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimaryStronger',
+          color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
         },
         _disabled: {
           borderBottomColor: 'transparent',
-          color: 'colorTextWeaker',
+          color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
         },
         _focus: {
-          borderBottomColor: 'colorBorderPrimaryStronger',
-          boxShadow: 'shadowFocus',
-          color: 'colorTextLinkStronger',
+          boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
           outline: 'none',
+          borderRadius: 'borderRadius20',
         },
       };
   }
@@ -127,7 +127,8 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
             element={elementName}
             fontSize="fontSize30"
-            fontWeight="fontWeightSemibold"
+            lineHeight="lineHeight10"
+            fontWeight="fontWeightMedium"
             overflow={orientation !== 'vertical' ? 'hidden' : undefined}
             position="relative"
             textOverflow={orientation !== 'vertical' ? 'ellipsis' : undefined}

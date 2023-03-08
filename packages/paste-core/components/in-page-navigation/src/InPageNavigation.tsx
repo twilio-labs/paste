@@ -15,6 +15,8 @@ export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<
 
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
   ({element = 'IN_PAGE_NAVIGATION', variant = 'default', children, ...props}, ref) => {
+    const isFullWidth = variant === 'fullWidth' || variant === 'inverse_fullWidth';
+
     return (
       <InPageNavigationContext.Provider value={{variant}}>
         <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
@@ -23,15 +25,11 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             listStyleType="none"
             element={`${element}_ITEMS`}
             display="flex"
-            justifyContent={variant === 'fullWidth' ? 'space-evenly' : 'flex-start'}
-            borderBottomWidth="borderWidth10"
-            borderBottomColor="colorBorderWeak"
-            borderBottomStyle="solid"
+            justifyContent={isFullWidth ? 'space-evenly' : 'flex-start'}
             margin="space0"
             marginBottom="space60"
-            paddingLeft="space0"
-            paddingRight={variant === 'default' ? 'space70' : 'space0'}
-            columnGap={variant === 'default' ? 'space70' : 'space0'}
+            padding="space0"
+            columnGap={!isFullWidth ? 'space80' : 'space0'}
           >
             {children}
           </Box>

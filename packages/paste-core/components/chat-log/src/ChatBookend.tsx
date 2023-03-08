@@ -21,6 +21,7 @@ const ChatBookend = React.forwardRef<HTMLDivElement, ChatBookendProps>(
         marginBottom="space20"
         lineHeight="lineHeight20"
         fontSize="fontSize20"
+        fontWeight="fontWeightMedium"
         ref={ref}
       >
         {children}

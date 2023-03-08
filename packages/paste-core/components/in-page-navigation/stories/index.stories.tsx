@@ -3,6 +3,7 @@ import type {StoryFn} from '@storybook/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
+import {Box} from '@twilio-paste/box';
 
 import {InPageNavigation, InPageNavigationItem} from '../src';
 
@@ -34,6 +35,36 @@ export const FullWidth: StoryFn = () => {
       <InPageNavigationItem href="#">Detection</InPageNavigationItem>
       <InPageNavigationItem href="#">Settings</InPageNavigationItem>
     </InPageNavigation>
+  );
+};
+
+export const Inverse: StoryFn = () => {
+  /* using UID here to make unique labels for landmarks in Storybook for axe testing */
+  return (
+    <Box backgroundColor="colorBackgroundInverse" padding="space60">
+      <InPageNavigation aria-label={`privacy ${useUID()}`} variant="inverse">
+        <InPageNavigationItem href="#" currentPage>
+          Home
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Detection</InPageNavigationItem>
+        <InPageNavigationItem href="#">Settings</InPageNavigationItem>
+      </InPageNavigation>
+    </Box>
+  );
+};
+
+export const InverseFullWidth: StoryFn = () => {
+  /* using UID here to make unique labels for landmarks in Storybook for axe testing */
+  return (
+    <Box backgroundColor="colorBackgroundInverse" padding="space60">
+      <InPageNavigation aria-label={`privacy ${useUID()}`} variant="inverse_fullWidth">
+        <InPageNavigationItem href="#" currentPage>
+          Home
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Detection</InPageNavigationItem>
+        <InPageNavigationItem href="#">Settings</InPageNavigationItem>
+      </InPageNavigation>
+    </Box>
   );
 };
 

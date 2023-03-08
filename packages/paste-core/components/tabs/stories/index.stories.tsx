@@ -7,6 +7,8 @@ import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useTheme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 
 import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
 import type {TabStateReturn} from '../src';
@@ -178,6 +180,149 @@ export const VerticalTabs = (): JSX.Element => {
 };
 // @ts-expect-error story
 VerticalTabs.storyName = 'Vertical Tabs';
+
+export const HorizontalInverseTabs = (): JSX.Element => {
+  const selectedId = useUID();
+  const uniqueBaseID = useUID();
+  return (
+    <Box backgroundColor="colorBackgroundInverse" padding="space60">
+      <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-horizontal-tabs-example`} variant="inverse">
+        <TabList aria-label="LGBTQ+ Projects">
+          <Tab>Inside Out</Tab>
+          <Tab>Transgender District</Tab>
+          <Tab id={selectedId}>Audre Lorde Project</Tab>
+          <Tab disabled>Coming soon...</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern
+              Colorado. Inside Out does this by creating safe spaces, support systems and teaching life skills to all
+              youth in the community and working to make the community safer and more accepting of gender and sexual
+              orientation diversity.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The mission of the Transgender District is to create an urban environment that fosters the rich history,
+              culture, legacy, and empowerment of transgender people and its deep roots in the southeastern Tenderloin
+              neighborhood. The transgender district aims to stabilize and economically empower the transgender
+              community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of
+              Color center for community organizing, focusing on the New York City area. Through mobilization, education
+              and capacity-building, they work for community wellness and progressive social and economic justice.
+              Committed to struggling across differences, they seek to responsibly reflect, represent and serve their
+              various communities.
+            </Text>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
+  );
+};
+// @ts-expect-error story
+HorizontalInverseTabs.storyName = 'Horizontal Inverse Tabs';
+
+export const InverseFittedTabs = (): JSX.Element => {
+  const selectedId = useUID();
+  const uniqueBaseID = useUID();
+  return (
+    <Box backgroundColor="colorBackgroundInverse" padding="space60">
+      <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-fitted-tabs-example`} variant="inverse_fitted">
+        <TabList aria-label="LGBTQ+ Projects">
+          <Tab>Inside Out</Tab>
+          <Tab id={selectedId}>Transgender District</Tab>
+          <Tab>Audre Lorde Project</Tab>
+          <Tab disabled>Coming soon...</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern
+              Colorado. Inside Out does this by creating safe spaces, support systems and teaching life skills to all
+              youth in the community and working to make the community safer and more accepting of gender and sexual
+              orientation diversity.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The mission of the Transgender District is to create an urban environment that fosters the rich history,
+              culture, legacy, and empowerment of transgender people and its deep roots in the southeastern Tenderloin
+              neighborhood. The transgender district aims to stabilize and economically empower the transgender
+              community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of
+              Color center for community organizing, focusing on the New York City area. Through mobilization, education
+              and capacity-building, they work for community wellness and progressive social and economic justice.
+              Committed to struggling across differences, they seek to responsibly reflect, represent and serve their
+              various communities.
+            </Text>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
+  );
+};
+// @ts-expect-error story
+InverseFittedTabs.storyName = 'Inverse Fitted Tabs';
+
+export const VerticalInverseTabs = (): JSX.Element => {
+  const selectedId = useUID();
+  const uniqueBaseID = useUID();
+  return (
+    <Box backgroundColor="colorBackgroundInverse" padding="space60">
+      <Tabs
+        orientation="vertical"
+        selectedId={selectedId}
+        baseId={`${uniqueBaseID}-vertical-tabs-example`}
+        variant="inverse"
+      >
+        <TabList aria-label="LGBTQ+ Projects">
+          <Tab id={selectedId}>Inside Out</Tab>
+          <Tab>Transgender District</Tab>
+          <Tab>Audre Lorde Project</Tab>
+          <Tab disabled>Coming soon...</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern
+              Colorado. Inside Out does this by creating safe spaces, support systems and teaching life skills to all
+              youth in the community and working to make the community safer and more accepting of gender and sexual
+              orientation diversity.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The mission of the Transgender District is to create an urban environment that fosters the rich history,
+              culture, legacy, and empowerment of transgender people and its deep roots in the southeastern Tenderloin
+              neighborhood. The transgender district aims to stabilize and economically empower the transgender
+              community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
+            </Text>
+          </TabPanel>
+          <TabPanel>
+            <Text as="p" color="colorTextInverse">
+              The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of
+              Color center for community organizing, focusing on the New York City area. Through mobilization, education
+              and capacity-building, they work for community wellness and progressive social and economic justice.
+              Committed to struggling across differences, they seek to responsibly reflect, represent and serve their
+              various communities.
+            </Text>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
+  );
+};
+// @ts-expect-error story
+VerticalInverseTabs.storyName = 'Vertical Inverse Tabs';
 
 const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   const tab = useTabState();
