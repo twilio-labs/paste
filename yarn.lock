@@ -11013,6 +11013,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^10.0.0
     "@twilio-paste/animation-library": ^1.0.0
@@ -13140,6 +13141,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^10.0.0
     "@twilio-paste/animation-library": ^1.0.0
