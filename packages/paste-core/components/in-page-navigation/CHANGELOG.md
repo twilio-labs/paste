@@ -1,5 +1,11 @@
 # @twilio-paste/in-page-navigation
 
+## 2.1.0
+
+### Minor Changes
+
+- [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90) [#3067](https://github.com/twilio-labs/paste/pull/3067) Thanks [@shleewhite](https://github.com/shleewhite)! - [In Page Navigation] Add inverse and inverse_fullWidth variants. Update styles to align with new Paste Twilio theme.
+
 ## 2.0.0
 
 ### Major Changes

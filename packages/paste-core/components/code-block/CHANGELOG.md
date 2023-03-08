@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 2.0.1
+
+### Patch Changes
+
+- [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90) [#3067](https://github.com/twilio-labs/paste/pull/3067) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] Update styles to align with new Paste Twilio theme
+
 ## 2.0.0
 
 ### Major Changes

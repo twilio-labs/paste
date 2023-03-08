@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+- [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [input box]: ensure inputs use the correct focus shadow for new design language'
+
 ## 8.0.0
 
 ### Major Changes

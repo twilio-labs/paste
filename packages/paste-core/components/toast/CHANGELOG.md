@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.0.1
+
+### Patch Changes
+
+- [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Update styles to align with new Paste Twilio theme.
+
+  In order to see all of the new style updates, you may have to remove any `<Text>` component children from your Toasts, passing in the string as a direct child of Toast.
+
 ## 10.0.0
 
 ### Major Changes

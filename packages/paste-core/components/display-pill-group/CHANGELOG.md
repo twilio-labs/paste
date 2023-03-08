@@ -1,5 +1,11 @@
 # @twilio-paste/display-pill-group
 
+## 6.0.1
+
+### Patch Changes
+
+- [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display and Form pill group] Update styles for new design language
+
 ## 6.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a) [#3063](https://github.com/twilio-labs/paste/pull/3063) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tooltip] Update styles to align with new Paste Twilio theme
+
 ## 9.0.0
 
 ### Major Changes

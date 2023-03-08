@@ -1,5 +1,11 @@
 # @twilio-paste/chat-composer
 
+## 2.0.1
+
+### Patch Changes
+
+- [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat composer] Update Update styles to align with new Paste Twilio theme.
+
 ## 2.0.0
 
 ### Major Changes

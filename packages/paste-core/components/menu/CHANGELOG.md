@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+- [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a) [#3063](https://github.com/twilio-labs/paste/pull/3063) Thanks [@shleewhite](https://github.com/shleewhite)! - [Menu] Add destructive_group_item variant to MenuItem. Update styles to align with new Paste Twilio theme.
+
 ## 12.0.0
 
 ### Major Changes
