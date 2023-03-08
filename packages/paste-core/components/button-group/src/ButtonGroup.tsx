@@ -13,6 +13,9 @@ const AttachedStyled = styled.span(
     '& > button:hover': {
       zIndex: 1,
     },
+    '& > button:hover:disabled': {
+      zIndex: 0,
+    },
     '& > button:focus': {
       zIndex: 2,
     },
