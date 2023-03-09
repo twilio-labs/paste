@@ -33,6 +33,9 @@ export const ThemeSwitcher: React.FC<React.PropsWithChildren> = () => {
         <RadioButton id={useUID()} value="twilio-dark" name={nameSeed('theme')}>
           Twilio Dark
         </RadioButton>
+        <RadioButton id={useUID()} value="evergreen" name={nameSeed('theme')}>
+          Evergreen
+        </RadioButton>
       </RadioButtonGroup>
     </Box>
   );

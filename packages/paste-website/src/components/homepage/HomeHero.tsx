@@ -4,7 +4,6 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {Badge} from '@twilio-paste/badge';
-import {DisplayHeading} from '@twilio-paste/display-heading';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 

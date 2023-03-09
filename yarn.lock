@@ -12052,7 +12052,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/display-heading@^2.0.1, @twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading":
+"@twilio-paste/display-heading@^2.0.0, @twilio-paste/display-heading@^2.0.1, @twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/display-heading@workspace:packages/paste-core/components/display-heading"
   dependencies:

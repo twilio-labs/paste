@@ -88,8 +88,11 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
                   Theme
                 </Label>
                 <Select id={themeControlId} value={selectedTheme} onChange={handleThemeChange} data-cy="theme-control">
+                  <Option value="twilio">Twilio</Option>
+                  <Option value="twilio-dark">Twilio Dark</Option>
                   <Option value="default">Default</Option>
                   <Option value="dark">Dark</Option>
+                  <Option value="evergreen">Evergreen</Option>
                 </Select>
               </Column>
               <Column span={6}>

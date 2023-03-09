@@ -8,7 +8,6 @@ import {DarkModeIcon} from '@twilio-paste/icons/esm/DarkModeIcon';
 import {LightModeIcon} from '@twilio-paste/icons/esm/LightModeIcon';
 
 import {useDarkModeContext} from '../../../context/DarkModeContext';
-import {DarkModeBadge} from './DarkModeBadge';
 import {event} from '../../../lib/gtag';
 
 const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>((props) =>

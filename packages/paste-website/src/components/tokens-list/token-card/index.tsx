@@ -188,7 +188,7 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
             </Box>
           </TokenCardValue>
           <TokenCardComment>{comment}</TokenCardComment>
-          {text_contrast_pairing && text_contrast_pairing.length > 0 && (
+          {text_contrast_pairing && text_contrast_pairing.length > 0 && selectedTheme !== 'evergreen' && (
             <AccessiblePairing
               name={tokenName}
               text_contrast_pairing={text_contrast_pairing}

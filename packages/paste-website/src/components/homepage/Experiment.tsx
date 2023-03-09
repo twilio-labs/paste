@@ -4,7 +4,6 @@ import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
 import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useWindowSize} from '@twilio-paste/utils';

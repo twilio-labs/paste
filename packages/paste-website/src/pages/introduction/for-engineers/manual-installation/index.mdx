@@ -9,7 +9,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import CorePkgJson from '@twilio-paste/core/package.json';
 import IconsPkgJson from '@twilio-paste/icons/package.json';
-import {Callout, CalloutText} from '@twilio-paste/callout';
+import {Callout, CalloutText, CalloutHeading} from '@twilio-paste/callout';
 import Package from '../../../../../../../package.json';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
@@ -80,6 +80,14 @@ yarn add react react-dom prop-types
 npm install react react-dom prop-types
 ```
 
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">A special callout on @types/react</CalloutHeading>
+  <CalloutText>
+    @types/react is bundled with Paste Core. To ensure you are using the correct version of @types/react, please do not
+    install it in your project. If you have already installed it, please remove it.
+  </CalloutText>
+</Callout>
+
 ## Paste Packages
 
 Paste is split into two main packages: `@twilio-paste/core` and `@twilio-paste/icons`. Everything provided by Paste
@@ -120,7 +128,6 @@ npm install @twilio-paste/core @twilio-paste/icons
 
 For Paste components to be styled correctly, you must provide them with a theme.
 To do so you must wrap the root of your app with the theme provider and select a theme.
-We recommend the default theme.
 
 ```jsx
 import {Theme} from '@twilio-paste/core/theme';
@@ -133,11 +140,23 @@ const App = () => (
 );
 ```
 
+#### Choosing a theme
+
+Paste includes a number of themes out of the box. Choosing the right one for your project will depend on who you are and what you are building.
+
+| Theme       | When to use                                                                            |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Default     | If you are not building an application for Twilio, use this theme                      |
+| Dark        | If you are not building an application for Twilio and want a dark mode, use this theme |
+| Twilio      | If you are building an application for Twilio, use this theme                          |
+| Twilio Dark | If you are building an application for Twilio and want a dark mode, use this theme     |
+| Evergreen   | If you are building an application for Segment, use this theme                         |
+
 ## How to Load the Right Font
 
-### Default theme
+### Out of the box themes
 
-Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
+Fonts for our out of the box themes are available via the Twilio CDN and published from an [internal git repository](https://www.github.com/twilio-internal/paste-fonts).
 
 The **best and most performant way** to load the fonts is to include the following snippet in the `<head />` of your web page.
 
@@ -155,6 +174,14 @@ The **best and most performant way** to load the fonts is to include the followi
 
 Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider`
 and select the `default` theme. **Note:** this will result in slower download times than including the fonts in the `<head />`.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">A special note on Twilio Sans</CalloutHeading>
+  <CalloutText>
+    Only Twilio applications are licensed to use Twilio Sans. If you are not building an application for Twilio, please
+    use the default and dark themes which use an open source font called Inter.
+  </CalloutText>
+</Callout>
 
 ### Other themes
 

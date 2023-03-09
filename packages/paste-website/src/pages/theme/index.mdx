@@ -79,8 +79,20 @@ import {Theme} from '@twilio-paste/theme';
 
 | Prop               | Type     | Description                                                                               | Default           |
 | ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| theme?             | enum     | 'default', 'sendgrid'                                                                     | 'default'         |
+| theme?             | enum     | 'default', 'dark', 'twilio', 'twilio-dark' and 'evergreen'                                | 'default'         |
 | customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
+
+### Choosing a theme
+
+Paste includes a number of themes out of the box. Choosing the right one for your project will depend on who you are and what you are building.
+
+| Theme       | When to use                                                                            |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Default     | If you are not building an application for Twilio, use this theme                      |
+| Dark        | If you are not building an application for Twilio and want a dark mode, use this theme |
+| Twilio      | If you are building an application for Twilio, use this theme                          |
+| Twilio Dark | If you are building an application for Twilio and want a dark mode, use this theme     |
+| Evergreen   | If you are building an application for Segment, use this theme                         |
 
 ## Using tokens in custom components
 

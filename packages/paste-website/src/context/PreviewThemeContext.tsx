@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-export type Themes = 'default' | 'dark' | 'twilio' | 'twilio-dark';
 type PreviewThemeContextValue = {
   theme: string;
   selectTheme: (theme: string) => void;

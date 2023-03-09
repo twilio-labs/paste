@@ -3,12 +3,16 @@ import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import DefaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
+import TwilioThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic';
+import TwilioDarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic';
+import EvergreenThemeTokens from '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic';
 import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import kebabCase from 'lodash/kebabCase';
 
 import {AnchoredHeading} from '../Heading';
 import {trackTokenFilterString, filterTokenList, getTokenExampleColors, getTokenContrastPairs} from './helpers';
 import type {Tokens, TokenExampleColors} from './types';
+import type {Themes} from '../../types';
 import {PageAside} from '../shortcodes/PageAside';
 import {NoTokensFound} from './NoTokensFound';
 import {TokenCard} from './token-card';
@@ -33,8 +37,32 @@ const Content: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
   <Box as="div" position="relative" maxWidth="size70" minWidth="0" width="100%" {...props} />
 );
 
-const defaultTheme = 'default';
+const defaultTheme = 'twilio';
 const defaultFormat = 'css';
+
+const getTokenListByTheme = (theme: Themes): Tokens => {
+  let tokenList: Tokens = TwilioThemeTokens.tokens;
+
+  // Set the theme tokens based on the user's preference
+  switch (theme) {
+    case 'default':
+      tokenList = DefaultThemeTokens.tokens;
+      break;
+    case 'dark':
+      tokenList = DarkThemeTokens.tokens;
+      break;
+    case 'twilio-dark':
+      tokenList = TwilioDarkThemeTokens.tokens;
+      break;
+    case 'evergreen':
+      tokenList = EvergreenThemeTokens.tokens;
+      break;
+    default:
+      tokenList = TwilioThemeTokens.tokens;
+      break;
+  }
+  return tokenList;
+};
 
 export const TokensList = (): JSX.Element => {
   // State related to the list of tokens
@@ -46,7 +74,7 @@ export const TokensList = (): JSX.Element => {
 
   // State related to select and filter controls
   const [filterString, setFilterString] = React.useState('');
-  const [selectedTheme, setSelectedTheme] = React.useState<'default' | 'dark'>(defaultTheme);
+  const [selectedTheme, setSelectedTheme] = React.useState<Themes>(defaultTheme);
   const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
@@ -61,14 +89,10 @@ export const TokensList = (): JSX.Element => {
    * and populates the token list.
    */
   React.useEffect(() => {
-    const userTheme = (SimpleStorage.get('themeControl') as 'dark' | 'default') || defaultTheme;
+    const userTheme = (SimpleStorage.get('themeControl') as Themes) || defaultTheme;
     const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
-    let tokenList: Tokens = DefaultThemeTokens.tokens;
 
-    // Set the theme tokens based on the user's preference
-    if (userTheme === 'dark') {
-      tokenList = DarkThemeTokens.tokens;
-    }
+    const tokenList = getTokenListByTheme(userTheme);
 
     setSelectedTheme(userTheme);
     setSelectedFormat(userFormat);
@@ -98,10 +122,10 @@ export const TokensList = (): JSX.Element => {
   // Event handler for Theme select change
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     const {value} = e.currentTarget;
-    const newTokens = value === 'dark' ? DarkThemeTokens.tokens : DefaultThemeTokens.tokens;
+    const newTokens = getTokenListByTheme(value as Themes);
 
     SimpleStorage.set('themeControl', value);
-    setSelectedTheme(value as 'default' | 'dark');
+    setSelectedTheme(value as Themes);
     setTokens(newTokens);
     setExampleColors(getTokenExampleColors(newTokens));
   };
