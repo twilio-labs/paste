@@ -1,5 +1,6 @@
 import type {BoxProps} from '@twilio-paste/box';
 import type {ValueOf} from '@twilio-paste/types';
+import type {Left} from '@twilio-paste/style-props';
 
 import type {ToastVariantObject} from './constants';
 
@@ -44,11 +45,13 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
+  left?: Left;
 }
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
+  left?: Left;
 }
 
 export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
@@ -80,4 +83,6 @@ export interface UseToasterReturnedProps {
   pop: (id: ToasterToast['id']) => void;
 }
 
-export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {}
+export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
+  left?: Left;
+}

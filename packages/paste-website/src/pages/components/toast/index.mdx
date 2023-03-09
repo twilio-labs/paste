@@ -306,6 +306,12 @@ You may use [the Text primitive](/primitives/text) as a child of Toast, but if y
 </Toast>`}
 </LivePreview>
 
+### Toast on small screen sizes
+
+Set the `left` position of the Toast Container to use your app's breakpoints in order to make Toast fully responsive.
+
+TODO: example
+
 ### Internationalization
 
 To internationalize a toast, simply pass different text as children to the toast.
@@ -461,11 +467,10 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### Toaster Props
 
-| Prop               | Type             | Description                                             | Default |
-| ------------------ | ---------------- | ------------------------------------------------------- | ------- |
-| toasts             | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
-| pop?               | `(id) => void`   | Method called when a toast is dismissed                 | null    |
-| \_\_console_patch? | `boolean`        | A temporary z-index fix for the Console product         | null    |
+| Prop   | Type             | Description                                             | Default |
+| ------ | ---------------- | ------------------------------------------------------- | ------- |
+| toasts | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
+| pop?   | `(id) => void`   | Method called when a toast is dismissed                 | null    |
 
 ##### ToasterToast
 
@@ -478,10 +483,10 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### ToastContainer Props
 
-| Prop               | Type        | Description                                     | Default |
-| ------------------ | ----------- | ----------------------------------------------- | ------- |
-| children           | `ReactNode` |                                                 | null    |
-| \_\_console_patch? | `boolean`   | A temporary z-index fix for the Console product | null    |
+| Prop     | Type        | Description                                                                      | Default |
+| -------- | ----------- | -------------------------------------------------------------------------------- | ------- |
+| children | `ReactNode` |                                                                                  | null    |
+| left?    | `Left[]`    | Sets the `left` value of the ToastContainer to add breakpoints for small screens | null    |
 
 <ChangelogRevealer>
   <Changelog />
