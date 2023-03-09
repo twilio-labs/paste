@@ -5,6 +5,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {SiblingBox} from '@twilio-paste/sibling-box';
+import type {TextColor} from '@twilio-paste/style-props';
 
 export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
   accept?: string;
@@ -15,6 +16,13 @@ export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>,
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name?: string;
 }
+
+const getTextColor = (disabled: boolean, fileDescription: string, i18nNoSelectionText: string): TextColor => {
+  const noFileUploaded = fileDescription === i18nNoSelectionText;
+  if (disabled) return 'colorTextWeaker';
+  if (noFileUploaded) return 'colorTextWeak';
+  return 'colorText';
+};
 
 const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
   (
@@ -75,28 +83,34 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             element={element}
             as="span"
             type="file"
-            borderRadius="borderRadius10"
+            borderRadius="borderRadius30"
             padding="space20"
-            paddingLeft="space30"
-            boxShadow="shadowBorderWeak"
+            boxShadow="shadowBorder"
+            backgroundColor="colorBackgroundBody"
             _focusSibling={{
               borderRadius: 'borderRadius10',
               padding: 'space20',
-              paddingLeft: 'space30',
               boxShadow: 'shadowFocus',
+              backgroundColor: 'colorBackgroundBody',
+            }}
+            _disabledSibling={{
+              backgroundColor: 'colorBackground',
+              boxShadow: 'shadowBorderWeaker',
             }}
           >
+            {React.cloneElement(children, {disabled, element: `${element}_BUTTON`})}
             <Text
               id={textId}
               as="span"
-              color={disabled ? 'colorTextWeaker' : 'currentColor'}
               marginRight="space40"
-              fontWeight="fontWeightMedium"
+              paddingLeft="space30"
+              color={getTextColor(disabled, fileDescription, i18nNoSelectionText)}
+              fontWeight={fileDescription === i18nNoSelectionText ? 'fontWeightNormal' : 'fontWeightMedium'}
+              fontStyle={fileDescription === i18nNoSelectionText ? 'italic' : 'none'}
               element={`${element}_TEXT`}
             >
               {fileDescription}
             </Text>
-            {React.cloneElement(children, {disabled, element: `${element}_BUTTON`})}
           </SiblingBox>
         </label>
       </>

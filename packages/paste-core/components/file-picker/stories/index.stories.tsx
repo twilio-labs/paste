@@ -22,7 +22,7 @@ export const Default: StoryFn = ({...props}) => {
     <>
       <Label htmlFor={id}>Proof of employment</Label>
       <FilePicker id={id} accept=".pdf" aria-describedby={helpText} {...props}>
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file</FilePickerButton>
       </FilePicker>
       <HelpText id={helpText}>Only PDF files please</HelpText>
     </>
@@ -37,7 +37,7 @@ export const Required: StoryFn = ({...props}) => {
         Choose a profile picture
       </Label>
       <FilePicker id={id} required accept="image/*" {...props}>
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -51,7 +51,7 @@ export const Disabled: StoryFn = () => {
         Attach your receipt
       </Label>
       <FilePicker id={id} disabled data-testid="test-file-picker">
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file</FilePickerButton>
       </FilePicker>
     </>
   );
@@ -75,7 +75,7 @@ export const ContainedWidth: StoryFn = () => {
     <Box width="size40">
       <Label htmlFor={id}>Profile picture</Label>
       <FilePicker id={id}>
-        <FilePickerButton variant="secondary">Upload a file with a long name</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file with a long name</FilePickerButton>
       </FilePicker>
     </Box>
   );
@@ -83,7 +83,7 @@ export const ContainedWidth: StoryFn = () => {
 
 export const OnChange: StoryFn = () => {
   const id = useUID();
-  const [uploadedFileName, setUploadedFileName] = React.useState('upload a file to see the onChange run');
+  const [uploadedFileName, setUploadedFileName] = React.useState('Select file to see the onChange run');
   return (
     <>
       <Label htmlFor={id}>Profile picture</Label>
@@ -93,7 +93,7 @@ export const OnChange: StoryFn = () => {
           if (evt.currentTarget.files) setUploadedFileName(evt.currentTarget.files[0].name);
         }}
       >
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file</FilePickerButton>
       </FilePicker>
       {uploadedFileName}
     </>
@@ -115,7 +115,7 @@ export const Customized: StoryFn = ({element = 'FILEPICKER', ...props}) => {
     >
       <Label htmlFor={id}>What&apos;s your favorite song?</Label>
       <FilePicker id={id} accept="audio/*" aria-describedby={helpText} element={element} {...props}>
-        <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+        <FilePickerButton variant="secondary">Select file</FilePickerButton>
       </FilePicker>
       <HelpText id={helpText}>Upload an audio file</HelpText>
     </CustomizationProvider>
