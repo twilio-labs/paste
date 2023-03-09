@@ -20,11 +20,6 @@ const ChevronDisclosureCollapsedIcon = React.forwardRef<HTMLElement, ChevronDisc
       throw new Error('[ChevronDisclosureCollapsedIcon]: Missing a title for non-decorative icon.');
     }
 
-    // eslint-disable-next-line no-console
-    console.error(
-      '[ChevronDisclosureCollapsedIcon]: This icon is deprecated. Please use ChevronDisclosureIcon instead. This icon will be removed after the 2023.05.16 release.'
-    );
-
     return (
       <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
         <svg
