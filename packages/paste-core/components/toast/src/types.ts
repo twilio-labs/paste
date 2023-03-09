@@ -44,15 +44,11 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
 }
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
 }
 
 export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
@@ -84,7 +80,4 @@ export interface UseToasterReturnedProps {
   pop: (id: ToasterToast['id']) => void;
 }
 
-export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
-}
+export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {}
