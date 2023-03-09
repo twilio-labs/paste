@@ -16,7 +16,7 @@ export const FileUploaderHelpText = React.forwardRef<HTMLDivElement, FileUploade
     const {id} = React.useContext(FileUploaderContext);
 
     return (
-      <Box marginBottom="space40" ref={ref} element={element} {...safelySpreadBoxProps(props)} id={`${id}-help-text`}>
+      <Box ref={ref} element={element} {...safelySpreadBoxProps(props)} id={`${id}-help-text`}>
         <HelpText marginTop="space0">{children}</HelpText>
       </Box>
     );
