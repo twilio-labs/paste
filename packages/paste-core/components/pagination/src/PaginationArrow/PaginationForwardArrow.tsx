@@ -22,7 +22,14 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
         visibleLabel={visibleLabel}
       >
         {visibleLabel ? (
-          <Text aria-hidden="true" as="span" color="inherit" marginRight="space30" element={`${element}_TEXT`}>
+          <Text
+            aria-hidden="true"
+            as="span"
+            color={isHovered ? 'colorTextLink' : 'inherit'}
+            fontWeight="fontWeightMedium"
+            marginRight="space30"
+            element={`${element}_TEXT`}
+          >
             {visibleLabel}
           </Text>
         ) : null}

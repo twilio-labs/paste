@@ -20,12 +20,12 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         href={href}
         appearance="none"
         background="none"
-        backgroundColor={isCurrent ? 'colorBackgroundPrimaryStronger' : 'transparent'}
-        borderColor="transparent"
-        borderRadius="borderRadius10"
+        backgroundColor={isCurrent ? 'colorBackgroundPrimaryWeakest' : 'transparent'}
+        borderColor={isCurrent ? 'colorBorderPrimary' : 'transparent'}
+        borderRadius="borderRadius20"
         borderStyle="solid"
         borderWidth="borderWidth10"
-        color={isCurrent ? 'colorTextWeakest' : 'colorText'}
+        color={isCurrent ? 'colorTextLink' : 'colorTextWeak'}
         display="inline-block"
         fontFamily="inherit"
         fontSize="fontSize30"
@@ -42,23 +42,22 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         textDecoration="none"
         transition="background-color 100ms ease-in, border-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in"
         _hover={{
-          backgroundColor: isCurrent ? 'colorBackgroundPrimaryStronger' : 'colorBackgroundPrimaryWeakest',
-          borderColor: isCurrent ? 'transparent' : 'colorBorderPrimaryStronger',
-          color: isCurrent ? 'colorTextWeakest' : 'colorTextLinkStronger',
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderColor: isCurrent ? 'colorBorderPrimaryStronger' : 'transparent',
+          boxShadow: isCurrent ? 'none' : 'shadowBorderPrimaryStronger',
+          color: isCurrent ? 'colorTextLinkStronger' : 'colorTextLink',
           cursor: 'pointer',
           textDecoration: 'none',
         }}
         _focus={{
-          backgroundColor: isCurrent ? 'colorBackgroundPrimaryStronger' : 'colorBackgroundPrimaryWeakest',
-          borderColor: isCurrent ? 'transparent' : 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: isCurrent ? 'colorTextWeakest' : 'colorTextLinkStronger',
+          borderColor: 'transparent',
           textDecoration: 'none',
         }}
         _active={{textDecoration: 'none'}}
       >
         {children ? (
-          <Text aria-hidden="true" as="span" color="inherit" element={`${element}_TEXT`}>
+          <Text aria-hidden="true" as="span" color="inherit" fontWeight="fontWeightMedium" element={`${element}_TEXT`}>
             {children}
           </Text>
         ) : null}
