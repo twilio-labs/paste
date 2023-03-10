@@ -26,7 +26,7 @@ export const GetStartedRunning: React.FC<React.PropsWithChildren<GetStartedRunni
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
-            {theme === 'default' ? (
+            {theme === 'twilio' ? (
               <Image src={HomeGetStartedIllo3} aria-hidden="true" alt="" />
             ) : (
               <Image src={HomeGetStartedIllo3Dark} aria-hidden="true" alt="" />

@@ -48,7 +48,10 @@ export const DesignerPreview = (): JSX.Element => {
         borderRadius="borderRadius30"
         borderStyle="dashed"
       >
-        <CustomizationProvider baseTheme={currentThemeMode} theme={{...customThemeFromTokens}}>
+        <CustomizationProvider
+          baseTheme={currentThemeMode === 'twilio' ? 'default' : 'dark'}
+          theme={{...customThemeFromTokens}}
+        >
           <Heading as="h3" variant="heading30">
             Contact information
           </Heading>

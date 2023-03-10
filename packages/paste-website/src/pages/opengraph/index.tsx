@@ -112,7 +112,7 @@ const OpenGraphCard = ({data}: InferGetStaticPropsType<typeof getStaticProps>): 
 
   return (
     <div>
-      <Theme.Provider theme="default" aria-label="Open Graph Template">
+      <Theme.Provider theme="twilio" aria-label="Open Graph Template">
         <GraphImageWrapper>
           <GraphImageHero feature={packageData.Feature} description={packageData.description} />
           <GraphImageDetails {...packageData} />

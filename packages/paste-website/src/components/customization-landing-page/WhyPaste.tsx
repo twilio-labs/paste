@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
+import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Column, Grid} from '@twilio-paste/grid';
 
 import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
@@ -73,9 +74,9 @@ export const WhyPaste = (): JSX.Element => {
             <Heading as="h2" variant="heading40">
               Why Paste
             </Heading>
-            <Heading as="h3" variant="heading10">
+            <DisplayHeading as="h3" variant="displayHeading30">
               A fully extensible and accessible customization platform
-            </Heading>
+            </DisplayHeading>
           </Box>
           <Grid gutter={['space60', 'space120', 'space200']} vertical={[true, false, false]}>
             <Column span={6}>

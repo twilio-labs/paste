@@ -44,9 +44,10 @@ export const LandingPageHero = (): JSX.Element => {
               </Heading>
               <Text
                 as="h1"
-                fontSize={['fontSize90', 'fontSize110']}
-                fontWeight="fontWeightBold"
-                lineHeight={['lineHeight90', 'lineHeight110']}
+                fontFamily="fontFamilyDisplay"
+                fontSize={['fontSizeDisplay20', 'fontSizeDisplay30']}
+                fontWeight="fontWeightExtrabold"
+                lineHeight={['lineHeightDisplay20', 'lineHeightDisplay30']}
                 marginBottom="space70"
               >
                 Customize your Twilio-powered apps using Paste
