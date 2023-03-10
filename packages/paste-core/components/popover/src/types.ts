@@ -2,7 +2,10 @@ import type {BadgeBaseProps, BadgeButtonProps} from '@twilio-paste/badge';
 import type {ButtonProps} from '@twilio-paste/button';
 import type {BoxProps} from '@twilio-paste/box';
 
-export type ButtonBadgeProps = BadgeBaseProps & BadgeButtonProps;
+export type ButtonBadgeProps = BadgeBaseProps &
+  Omit<BadgeButtonProps, 'onClick'> & {
+    onClick?: BadgeButtonProps['onClick'];
+  };
 
 type PopoverButtonBaseProps = Pick<BoxProps, 'element'> & {
   id?: string;
