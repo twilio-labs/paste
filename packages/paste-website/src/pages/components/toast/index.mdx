@@ -18,7 +18,6 @@ import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/code-block';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {InlineCode} from '../../../components/Typography';
@@ -187,27 +186,25 @@ Below is a form you can use to create toasts dynamically using the Toaster. The 
 You can push a Toast to the Toaster stack based on any action or event. In this example it's based on a button click:
 
 ```
-
 const MyComponent = () => {
-const toaster = useToaster();
+  const toaster = useToaster();
 
-const handleClick = () => {
-toaster.push({
-message: 'Selection was successfully saved to your profile',
-variant: 'success',
-})
+  const handleClick = () => {
+    toaster.push({
+      message: 'Selection was successfully saved to your profile',
+      variant: 'success',
+    })
+  }
+
+  return(
+    <>
+      <Button variant="primary" onClick={handleClick}>
+        Add a toast
+      </Button>
+      <Toaster left={['space40', 'unset', 'unset']} {...toaster} />
+    </>
+  )
 }
-
-return(
-<>
-<Button variant="primary" onClick={handleClick}>
-Add a toast
-</Button>
-<Toaster left={['space40', 'unset', 'unset']} {...toaster} />
-</>
-)
-}
-
 ```
 
 ##### Removing a Toast
@@ -215,15 +212,13 @@ Add a toast
 You can optionally provide an `id` to a toast when you push it to the stack. The ID can then be used to programmatically `pop` the Toast from the stack:
 
 ```
-
 toaster.push({
-message: 'Selection was successfully saved to your profile',
-variant: 'success',
-id: 'custom_id',
+  message: 'Selection was successfully saved to your profile',
+  variant: 'success',
+  id: 'custom_id',
 })
 
 toaster.pop('custom_id')
-
 ```
 
 When providing your own custom ID, make sure they are unique.
@@ -233,14 +228,12 @@ When providing your own custom ID, make sure they are unique.
 You can optionally provide a time-out to a toast, after which the Toast is automatically dismissed. This can be done by setting a `dismissAfter` value. The value must be a valid time-out, set in milliseconds.
 
 ```
-
 toaster.push({
-message: 'Selection was successfully saved to your profile',
-variant: 'success',
-id: 'custom_id',
-dismissAfter: 4000
+  message: 'Selection was successfully saved to your profile',
+  variant: 'success',
+  id: 'custom_id',
+  dismissAfter: 4000
 })
-
 ```
 
 Add an automatic time-out if all these conditions are true:
