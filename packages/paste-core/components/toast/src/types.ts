@@ -1,5 +1,6 @@
 import type {BoxProps} from '@twilio-paste/box';
 import type {ValueOf} from '@twilio-paste/types';
+import type {Left} from '@twilio-paste/style-props';
 
 import type {ToastVariantObject} from './constants';
 
@@ -44,15 +45,13 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+  left?: Left;
 }
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+  left?: Left;
 }
 
 export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
@@ -85,6 +84,5 @@ export interface UseToasterReturnedProps {
 }
 
 export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+  left?: Left;
 }
