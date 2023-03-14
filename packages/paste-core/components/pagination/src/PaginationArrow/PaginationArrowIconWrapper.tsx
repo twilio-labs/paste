@@ -14,8 +14,8 @@ const PaginationArrowIconWrapper: React.FC<React.PropsWithChildren<PaginationArr
     <Box
       element={element}
       alignItems="center"
-      backgroundColor={isHovered || isFocused ? 'colorBackgroundPrimaryWeakest' : 'none'}
-      boxShadow="shadowBorderWeak"
+      backgroundColor="colorBackgroundBody"
+      boxShadow={isHovered && !isFocused ? 'shadowBorderPrimary' : 'shadowBorderWeak'}
       borderRadius="borderRadiusCircle"
       display="flex"
       height="sizeSquare80"

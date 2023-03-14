@@ -34,7 +34,13 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
           </Text>
         ) : null}
         <PaginationArrowIconWrapper isFocused={isFocused} isHovered={isHovered} element={`${element}_ICON_WRAPPER`}>
-          <ArrowForwardIcon decorative={false} display="block" title={label} element={`${element}_ICON`} />
+          <ArrowForwardIcon
+            decorative={false}
+            color={isHovered ? 'colorTextPrimary' : 'colorText'}
+            display="block"
+            title={label}
+            element={`${element}_ICON`}
+          />
         </PaginationArrowIconWrapper>
       </PaginationArrowButton>
     );

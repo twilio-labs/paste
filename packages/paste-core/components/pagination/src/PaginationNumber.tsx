@@ -45,7 +45,7 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
           backgroundColor: 'colorBackgroundPrimaryWeakest',
           borderColor: isCurrent ? 'colorBorderPrimaryStronger' : 'transparent',
           boxShadow: isCurrent ? 'none' : 'shadowBorderPrimaryStronger',
-          color: isCurrent ? 'colorTextLinkStronger' : 'colorTextLink',
+          color: 'colorTextLinkStronger',
           cursor: 'pointer',
           textDecoration: 'none',
         }}
@@ -53,6 +53,7 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
           boxShadow: 'shadowFocus',
           borderColor: 'transparent',
           textDecoration: 'none',
+          color: 'colorTextLink',
         }}
         _active={{textDecoration: 'none'}}
       >

@@ -88,7 +88,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             boxShadow="shadowBorder"
             backgroundColor="colorBackgroundBody"
             _focusSibling={{
-              borderRadius: 'borderRadius10',
+              borderRadius: 'borderRadius30',
               padding: 'space20',
               boxShadow: 'shadowFocus',
               backgroundColor: 'colorBackgroundBody',
@@ -102,8 +102,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             <Text
               id={textId}
               as="span"
-              marginRight="space40"
-              paddingLeft="space30"
+              paddingX="space30"
               color={getTextColor(disabled, fileDescription, i18nNoSelectionText)}
               fontWeight={fileDescription === i18nNoSelectionText ? 'fontWeightNormal' : 'fontWeightMedium'}
               fontStyle={fileDescription === i18nNoSelectionText ? 'italic' : 'none'}
