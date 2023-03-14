@@ -10,7 +10,7 @@ interface SelectedThemeContextProps {
 export const SelectedThemeContext = React.createContext<SelectedThemeContextProps>({} as SelectedThemeContextProps);
 
 const App: React.FC<React.PropsWithChildren> = ({children}) => {
-  const [selectedTheme, setSelectedTheme] = React.useState('default');
+  const [selectedTheme, setSelectedTheme] = React.useState('twilio');
   return (
     <SelectedThemeContext.Provider value={{selectedTheme, setSelectedTheme}}>
       <Theme.Provider theme={selectedTheme as ThemeVariants}>

@@ -1,5 +1,7 @@
 import type {Properties} from 'csstype';
 
+import type {Themes} from '../../types';
+
 export interface Token {
   type: string;
   category: string;
@@ -41,5 +43,5 @@ export interface TokenCardProps extends TokenExampleProps {
   useCamelCase?: boolean;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;
-  selectedTheme: 'default' | 'dark';
+  selectedTheme: Themes;
 }

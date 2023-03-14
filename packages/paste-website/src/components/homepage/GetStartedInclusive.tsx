@@ -23,7 +23,7 @@ export const GetStartedInclusive: React.FC<React.PropsWithChildren<GetStartedInc
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
-            {theme === 'default' ? (
+            {theme === 'twilio' ? (
               <Image src={HomeGetStartedIllo1} aria-hidden="true" alt="" />
             ) : (
               <Image src={HomeGetStartedIllo1Dark} aria-hidden="true" alt="" />

@@ -22,9 +22,10 @@ const SiteFooterHeader = (): JSX.Element => {
       <Text
         as="h2"
         color="colorTextInverse"
-        fontSize={['fontSize60', 'fontSize90']}
-        fontWeight="fontWeightBold"
-        lineHeight={['lineHeight60', 'lineHeight90']}
+        fontFamily="fontFamilyDisplay"
+        fontSize={['fontSize60', 'fontSizeDisplay10']}
+        fontWeight="fontWeightExtrabold"
+        lineHeight={['lineHeight60', 'lineHeightDisplay10']}
         marginLeft={['space0', 'space40']}
         marginTop={['space40', 'space0']}
       >

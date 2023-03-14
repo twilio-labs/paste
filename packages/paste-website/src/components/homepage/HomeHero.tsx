@@ -71,7 +71,7 @@ const HomeHero = (): JSX.Element => {
           zIndex="zIndex10"
         >
           <Grid vertical={[true, false, false]}>
-            <Column span={5}>
+            <Column span={6}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
                   <NewIcon decorative />
@@ -94,8 +94,15 @@ const HomeHero = (): JSX.Element => {
               <Text
                 as="h1"
                 color="colorTextInverse"
-                fontSize={['fontSize90', 'fontSize110']}
-                lineHeight={['lineHeight90', 'lineHeight110']}
+                fontFamily="fontFamilyDisplay"
+                fontSize={['fontSizeDisplay10', 'fontSizeDisplay20', 'fontSizeDisplay20', 'fontSizeDisplay30']}
+                fontWeight="fontWeightExtrabold"
+                lineHeight={[
+                  'lineHeightDisplay10',
+                  'lineHeightDisplay20',
+                  'lineHeightDisplay20',
+                  'lineHeightDisplay30',
+                ]}
                 marginTop={['space80', 'space120']}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
@@ -111,7 +118,7 @@ const HomeHero = (): JSX.Element => {
                 <SeeRoadmapAnchor />
               </Text>
             </Column>
-            <Column span={7} height="100%">
+            <Column span={6} height="100%">
               <HomeHeroIllustration />
             </Column>
           </Grid>

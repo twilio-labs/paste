@@ -18,7 +18,7 @@ export const GetStarterWhy = (): JSX.Element => {
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
-            {theme === 'default' ? (
+            {theme === 'twilio' ? (
               <Image src={HomeGetStartedIllo2} aria-hidden="true" alt="" />
             ) : (
               <Image src={HomeGetStartedIllo2Dark} aria-hidden="true" alt="" />

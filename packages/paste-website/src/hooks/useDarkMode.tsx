@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-type Theme = 'default' | 'dark';
+type Theme = 'twilio' | 'twilio-dark';
 export type UseDarkModeReturn = [Theme, () => void, boolean];
 
 export const useDarkMode = (): UseDarkModeReturn => {
-  const [theme, setTheme] = React.useState<Theme>('default');
+  const [theme, setTheme] = React.useState<Theme>('twilio');
   const [componentMounted, setComponentMounted] = React.useState(false);
 
   const setMode = (mode: Theme): void => {
@@ -13,10 +13,10 @@ export const useDarkMode = (): UseDarkModeReturn => {
   };
 
   const toggleTheme = (): void => {
-    if (theme === 'default') {
-      setMode('dark');
+    if (theme === 'twilio') {
+      setMode('twilio-dark');
     } else {
-      setMode('default');
+      setMode('twilio');
     }
   };
 
@@ -24,11 +24,11 @@ export const useDarkMode = (): UseDarkModeReturn => {
     const localTheme = window.localStorage.getItem('theme') as Theme;
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme) {
-      setMode('dark');
+      setMode('twilio-dark');
     } else if (localTheme) {
       setTheme(localTheme);
     } else {
-      setMode('default');
+      setMode('twilio');
     }
 
     setComponentMounted(true);
