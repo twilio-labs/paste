@@ -10,6 +10,7 @@ const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
       {...safelySpreadBoxProps(props)}
       ref={ref}
       color="colorTextNeutral"
+      width={['100%', 'size40', 'size40']}
       backgroundColor="colorBackgroundNeutralWeakest"
       borderColor="colorBorderNeutralWeak"
       borderRadius="borderRadius30"
@@ -19,7 +20,6 @@ const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
       element={element}
       padding="space60"
       variant={variant}
-      width="size40"
     >
       {props.children}
     </Box>
