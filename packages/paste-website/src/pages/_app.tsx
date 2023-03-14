@@ -3,12 +3,35 @@ import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import {useRouter} from 'next/router';
+import {datadogRum} from '@datadog/browser-rum';
+import {Theme} from '@twilio-paste/theme';
 
+import packageJSON from '../../../paste-core/core-bundle/package.json';
+import {useDarkMode} from '../hooks/useDarkMode';
 import * as gtag from '../lib/gtag';
+import {DarkModeContext} from '../context/DarkModeContext';
+import {inCypress} from '../utils/inCypress';
+import {PreviewThemeContext} from '../context/PreviewThemeContext';
+import {SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
 
 const isProd = process.env.NODE_ENV === 'production';
 
+datadogRum.init({
+  applicationId: DATADOG_APPLICATION_ID,
+  clientToken: DATADOG_CLIENT_TOKEN,
+  site: 'datadoghq.com',
+  env: ENVIRONMENT_CONTEXT,
+  service: 'paste',
+  // paste core version
+  version: packageJSON.version,
+  sampleRate: 100,
+  trackInteractions: true,
+});
+
 const App = ({Component, pageProps}: AppProps): React.ReactElement => {
+  const [theme, toggleMode, componentMounted] = useDarkMode();
+  const [previewTheme, setPreviewTheme] = React.useState('twilio');
+
   const router = useRouter();
   React.useEffect(() => {
     const handleRouteChange = (url: URL): void => {
@@ -21,6 +44,10 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
       router.events.off('hashChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  React.useEffect(() => {
+    setPreviewTheme(theme);
+  }, [theme]);
 
   return (
     <>
@@ -50,7 +77,18 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
           />
         </>
       )}
-      <Component {...pageProps} />
+      <Theme.Provider
+        theme={theme}
+        customBreakpoints={SITE_BREAKPOINTS}
+        disableAnimations={inCypress()}
+        cacheProviderProps={{key: 'next'}}
+      >
+        <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
+          <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
+            <Component {...pageProps} />
+          </PreviewThemeContext.Provider>
+        </DarkModeContext.Provider>
+      </Theme.Provider>
     </>
   );
 };

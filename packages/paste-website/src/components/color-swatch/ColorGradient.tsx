@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {styled, themeGet} from '@twilio-paste/styling-library';
-import DefaultRawTokens from '@twilio-paste/design-tokens/dist/tokens.raw.json';
-import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.raw.json';
+import DefaultRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json';
+import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json';
 import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
 
 import {useDarkModeContext} from '../../context/DarkModeContext';
+import type {Themes} from '../../types';
 
 type ThemeShape = Record<string, Record<string, string | number>>;
 
@@ -27,7 +28,7 @@ export const sortAliasNames = (aliasNames: string[]): string[] => {
 export const filterAliasNames = (aliasName: string, prefix: string): boolean =>
   aliasName.includes(prefix) && !aliasName.includes('transparent') && !excludedAliases.has(aliasName);
 
-export const getAliasValuesFromPrefix = (prefix: string, theme: 'default' | 'dark'): string[] => {
+export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[] => {
   const themeColors: ThemeShape = theme === 'default' ? DefaultRawTokens.aliases : DarkRawTokens.aliases;
   const filteredAliasNames = Object.keys(themeColors).filter((aliasName) => filterAliasNames(aliasName, prefix));
 

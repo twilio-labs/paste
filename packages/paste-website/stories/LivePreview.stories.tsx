@@ -2,15 +2,19 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 
+import {PreviewThemeContext} from '../src/context/PreviewThemeContext';
 import {LivePreview} from '../src/components/shortcodes/live-preview';
 
 export const SmallLivePreview = (): React.ReactNode => {
+  const [previewTheme, setPreviewTheme] = React.useState('twilio');
   return (
-    <LivePreview scope={{Anchor}} language="jsx">
-      {`<Anchor href="/components">
+    <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
+      <LivePreview scope={{Anchor}} language="jsx">
+        {`<Anchor href="/components">
   Go to Paste components
 </Anchor>`}
-    </LivePreview>
+      </LivePreview>
+    </PreviewThemeContext.Provider>
   );
 };
 SmallLivePreview.parameters = {
@@ -21,9 +25,11 @@ SmallLivePreview.parameters = {
 };
 
 export const LargeLivePreview = (): React.ReactNode => {
+  const [previewTheme, setPreviewTheme] = React.useState('twilio');
   return (
-    <LivePreview scope={{Anchor, Stack}} language="jsx">
-      {`<Stack orientation="vertical" spacing="space50">
+    <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
+      <LivePreview scope={{Anchor, Stack}} language="jsx">
+        {`<Stack orientation="vertical" spacing="space50">
   <Anchor href="/components">
     Go to Paste components
   </Anchor>
@@ -31,7 +37,8 @@ export const LargeLivePreview = (): React.ReactNode => {
     Go to Paste components
   </Anchor>
 </Stack>`}
-    </LivePreview>
+      </LivePreview>
+    </PreviewThemeContext.Provider>
   );
 };
 LargeLivePreview.parameters = {

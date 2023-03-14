@@ -36,7 +36,7 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
 
   return (
     <TokenContext.Provider value={{tokens, updateToken, loadTokens}}>
-      <Theme.Provider theme="default">
+      <Theme.Provider theme="twilio">
         <Head>
           <title>Home: Paste Remix</title>
           <link rel="icon" href="/logo.svg" />

@@ -45,6 +45,7 @@ const NavigationDisclosure: React.FC<
 };
 
 const SidebarNavigation = (): JSX.Element => {
+  // TODO: move to a server component in the App directory
   const data = useNavigationContext();
 
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);

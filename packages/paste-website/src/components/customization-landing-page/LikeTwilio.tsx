@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
+import {DisplayHeading} from '@twilio-paste/display-heading';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
@@ -15,9 +15,9 @@ import ThemeDesigner from '../../assets/images/customization/theme-designer-mobi
 const LikeTwilioHeadline = (): JSX.Element => {
   return (
     <Box maxWidth="size60" marginX="auto" paddingBottom="space100" textAlign="center">
-      <Heading as="h2" variant="heading10">
+      <DisplayHeading as="h2" variant="displayHeading20">
         Like Twilio, but for UI
-      </Heading>
+      </DisplayHeading>
       <Text as="p" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
         Have you ever thought to yourself, &ldquo;Wow, I wish building beautiful, accessible UIs for my brand was as
         easy as sending an SMS through Twilio&rdquo;? Well, gosh, you’re in luck.
