@@ -26,6 +26,7 @@ const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersPr
           justifyContent="center"
           paddingLeft="space40"
           paddingRight="space40"
+          paddingBottom="space30"
           width="100%"
         >
           {validChildren.map((child, index) => {

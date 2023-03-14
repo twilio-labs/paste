@@ -17,7 +17,7 @@ export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderI
         ref={ref}
         as="div"
         fontSize="fontSize30"
-        lineHeight="lineHeight20"
+        lineHeight="lineHeight30"
         color="colorText"
         wordBreak="break-word"
       >

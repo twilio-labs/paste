@@ -18,6 +18,7 @@ const PaginationEllipsis = React.forwardRef<HTMLSpanElement, PaginationEllipsisP
         paddingLeft="space30"
         paddingRight="space30"
         paddingTop="space20"
+        fontWeight="fontWeightMedium"
       >
         &hellip;
       </Text>

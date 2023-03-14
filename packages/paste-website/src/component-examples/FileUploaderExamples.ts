@@ -6,7 +6,7 @@ const FileUploaderExample = () => {
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
         <FileUploaderDropzoneText>
-          Click to browse or drag files here.
+          Browse for files or drag them here
         </FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderItemsList>
@@ -36,7 +36,7 @@ const FileUploaderExample = () => {
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
         <FileUploaderDropzoneText>
-          Click to browse or drag files here.
+          Browse for files or drag them here
         </FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderItemsList>
@@ -70,7 +70,7 @@ const FileUploaderExample = () => {
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
         <FileUploaderDropzoneText>
-          Click to browse or drag files here.
+          Browse for files or drag them here
         </FileUploaderDropzoneText>
       </FileUploaderDropzone>
     </FileUploader>
@@ -90,7 +90,7 @@ const FileUploaderExample = () => {
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
         <FileUploaderDropzoneText>
-          Click to browse or drag files here.
+          Browse for files or drag them here
         </FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderItemsList>
@@ -124,7 +124,7 @@ const FileUploaderExample = () => {
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
         <FileUploaderDropzoneText>
-          Click to browse or drag files here.
+          Browse for files or drag them here
         </FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderErrorText>
@@ -267,7 +267,7 @@ const DragDropExample = () => {
           onDragLeave={handleDragLeave}
           onInputChange={handleInputChange}
         >
-          <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+          <FileUploaderDropzoneText>Browse for files or drag them here</FileUploaderDropzoneText>
         </FileUploaderDropzone>
         <FileUploaderItemsList>
           {files.map(({variant, title, description, id}) => (

@@ -32,7 +32,7 @@ export const Default: StoryFn = () => {
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['text/css', 'image/jpeg', 'image/png', 'application/pdf']}>
-        <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+        <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderItemsList>
         <FileUploaderItem variant="loading">
@@ -54,7 +54,7 @@ export const Error: StoryFn = () => {
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
-        <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+        <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderErrorText>One of your files failed to upload. Please try again.</FileUploaderErrorText>
       <FileUploaderItemsList>
@@ -83,7 +83,7 @@ export const Disabled: StoryFn = () => {
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
-        <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+        <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
     </FileUploader>
   );
@@ -95,7 +95,7 @@ export const Required: StoryFn = () => {
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
       <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
-        <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+        <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
     </FileUploader>
   );
@@ -223,7 +223,7 @@ export const DragDropExample: StoryFn = () => {
           onDragLeave={handleDragLeave}
           onInputChange={handleInputChange}
         >
-          <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+          <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
         </FileUploaderDropzone>
         <FileUploaderItemsList>
           {files.map(({variant, title, description, id}) => (
@@ -310,7 +310,7 @@ export const Customized: StoryFn = ({element = 'FILE_UPLOADER', ...props}) => {
         <FileUploaderLabel>Upload files</FileUploaderLabel>
         <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
         <FileUploaderDropzone acceptedMimeTypes={['text/css', 'image/jpeg', 'image/png', 'application/pdf']}>
-          <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
+          <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
         </FileUploaderDropzone>
         <FileUploaderItemsList>
           <FileUploaderItem variant="loading">
