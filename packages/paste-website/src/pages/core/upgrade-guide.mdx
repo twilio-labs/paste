@@ -37,6 +37,12 @@ export const getStaticProps = async () => {
 
 <content>
 
+### Core 19.0.0
+
+- Removes the `__console_patch` prop from the Toast package. This was a temporary z-index fix for Twilio Console that is no longer necessary.
+
+**ACTION NEEDED**: No action should be necessary. If you are still using the `__console_patch` prop with Toast and this change affects your codebase, please [reach out to us with a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
+
 ### Core 18.0.0
 
 - Adds [support for React 18](https://github.com/twilio-labs/paste/pull/2965). This should "just work" and remains backwards compatible. [Let us know if you have any issues](https://github.com/twilio-labs/paste/discussions).

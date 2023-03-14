@@ -16,14 +16,10 @@ export const ToastPropTypes = {
 
 export const ToastPortalPropTypes = {
   children: PropTypes.node.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
 };
 
 export const ToastContainerPropTypes = {
   children: PropTypes.node.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
 };
 
 export const ToasterPropTypes = {
@@ -36,6 +32,4 @@ export const ToasterPropTypes = {
     })
   ).isRequired as any,
   pop: PropTypes.func.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
 };

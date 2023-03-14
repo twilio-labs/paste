@@ -25,18 +25,19 @@ const ProductTraitsIcon = React.forwardRef<HTMLElement, ProductTraitsIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          viewBox="0 0 20 20"
           fill="none"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
             fillRule="evenodd"
-            clipRule="evenodd"
             d="M10 6.174c-.96 0-1.74.779-1.74 1.739C8.26 8.873 9.04 10 10 10s1.74-1.127 1.74-2.087c0-.96-.78-1.74-1.74-1.74zm-2.783 7.304h5.566a.348.348 0 00.347-.348v-.775c0-.617-.407-1.16-1-1.335a7.634 7.634 0 00-2.13-.324 7.593 7.593 0 00-2.134.32 1.391 1.391 0 00-.996 1.335v.78c0 .191.155.347.347.347z"
+            clipRule="evenodd"
           />
           <path
             fill="currentColor"

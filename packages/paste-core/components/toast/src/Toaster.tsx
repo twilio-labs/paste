@@ -132,8 +132,6 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
 
 Toaster.displayName = 'Toaster';
 
-if (process.env.NODE_ENV === 'development') {
-  Toaster.propTypes = ToasterPropTypes;
-}
+Toaster.propTypes = ToasterPropTypes;
 
 export {Toaster};
