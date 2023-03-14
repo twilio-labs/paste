@@ -25,10 +25,11 @@ const ProductConnectionsIcon = React.forwardRef<HTMLElement, ProductConnectionsI
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          viewBox="0 0 20 20"
           fill="none"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
@@ -39,8 +40,8 @@ const ProductConnectionsIcon = React.forwardRef<HTMLElement, ProductConnectionsI
           <path
             fill="currentColor"
             fillRule="evenodd"
-            clipRule="evenodd"
             d="M15.077 5.695l-2.255 2.254-.771-.771 2.254-2.255.772.772zm-7.2 7.2l-2.219 2.218-.771-.771 2.218-2.219.772.772zM5.662 5.072L7.88 7.327l-.778.765-2.218-2.255.778-.765zm7.048 7.085l2.218 2.181-.765.778-2.218-2.182.765-.777z"
+            clipRule="evenodd"
           />
         </svg>
       </IconWrapper>

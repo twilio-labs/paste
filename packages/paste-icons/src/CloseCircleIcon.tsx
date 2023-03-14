@@ -20,11 +20,6 @@ const CloseCircleIcon = React.forwardRef<HTMLElement, CloseCircleIconProps>(
       throw new Error('[CloseCircleIcon]: Missing a title for non-decorative icon.');
     }
 
-    // eslint-disable-next-line no-console
-    console.error(
-      '[CloseCircleIcon]: This icon is deprecated. Please use ClearIcon instead. This icon will be removed in after the 2023.05.16 release.'
-    );
-
     return (
       <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
         <svg
