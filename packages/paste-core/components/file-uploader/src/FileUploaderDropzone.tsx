@@ -145,7 +145,9 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         transition="all 150ms ease-in"
         borderWidth="borderWidth10"
         borderRadius="borderRadius30"
-        padding="space40"
+        paddingY="space160"
+        paddingX="space50"
+        marginTop="space40"
         textAlign="center"
         display="flex"
         flexDirection="column"
@@ -166,22 +168,15 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         onDragLeave={handleDragLeave}
       >
         <Box
-          backgroundColor={disabled ? 'colorBackgroundStrong' : 'colorBackground'}
+          backgroundColor={disabled ? 'colorBackgroundStrong' : 'colorBackgroundBody'}
           borderRadius="borderRadiusCircle"
           padding="space30"
           pointerEvents="none"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
         >
-          <Box
-            backgroundColor={disabled ? 'colorBackgroundStrong' : 'colorBackgroundBody'}
-            borderRadius="borderRadiusCircle"
-            display="flex"
-            height="sizeIcon70"
-            width="sizeIcon70"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <UploadToCloudIcon decorative size="sizeIcon60" />
-          </Box>
+          <UploadToCloudIcon decorative size="sizeIcon60" color={disabled ? 'colorTextWeaker' : 'colorTextIcon'} />
         </Box>
         <>{children}</>
         <Box
