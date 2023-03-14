@@ -27,14 +27,7 @@ const PaginationArrowButton = React.forwardRef<HTMLButtonElement, PaginationArro
         margin="space0"
         outline="none"
         opacity={disabled ? '0' : '1'}
-        /*
-         * make a loom tomorrow
-         * issue: the current focus state uses 2 box shadows, one on the icon wrapper and one on the arrow button
-         * on button focus, the inner gray box shadow is too close to the outer blue box shadow and it doesn't accurately resemble the shadowFocusShadowBorder token
-         * adding 1px padding to the button fixes it... but is janky
-         * semi-related: having enough padding on the button on background colors
-         */
-        padding="1px"
+        padding="space0"
         position="relative"
         textDecoration="none"
         transition="border-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in, opacity 150ms ease-in, visibility 150ms ease-in"
