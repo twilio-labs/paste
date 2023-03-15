@@ -96,6 +96,45 @@ export const Unattached: StoryFn = () => {
   );
 };
 
+export const WithoutHelpText: StoryFn<RadioButtonGroupStoryProps> = (props) => (
+  <RadioButtonGroup
+    name="foo"
+    legend={
+      <Text as="span" color="currentColor">
+        This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
+      </Text>
+    }
+    errorText="This is the error text."
+    attached
+    {...props}
+  >
+    <RadioButton value="1">First</RadioButton>
+    <RadioButton value="2" defaultChecked>
+      Second
+    </RadioButton>
+    <RadioButton value="3">Third</RadioButton>
+  </RadioButtonGroup>
+);
+
+export const Disabled: StoryFn<RadioButtonGroupStoryProps> = (props) => (
+  <RadioButtonGroup
+    name="foo"
+    legend={
+      <Text as="span" color="currentColor">
+        This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
+      </Text>
+    }
+    errorText="This is the error text."
+    attached
+    disabled
+    {...props}
+  >
+    <RadioButton value="1">First</RadioButton>
+    <RadioButton value="2">Second</RadioButton>
+    <RadioButton value="3">Third</RadioButton>
+  </RadioButtonGroup>
+);
+
 /**
  * RadioButtonGroup passes no context value (defaults to '' empty string) with uncontrolled radios
  */

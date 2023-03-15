@@ -64,7 +64,6 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
           border="none"
           display="flex"
           flexDirection="column"
-          rowGap="space40"
           ref={ref}
           {...safelySpreadBoxProps(props)}
         >
@@ -79,18 +78,19 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
           >
             {legend}
           </Label>
-          {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
+          {helpText && (
+            <HelpText variant="default" marginTop="space0">
+              {helpText}
+            </HelpText>
+          )}
           <Box
             // @ts-expect-error Use a styled component to modify the Button's styles
             as={attached ? AttachedRadioButtonGroupWrapper : UnattachedRadioButtonGroupWrapper}
+            marginTop="space20"
           >
             {children}
           </Box>
-          {errorText && (
-            <HelpText variant="error" marginTop="space0">
-              {errorText}
-            </HelpText>
-          )}
+          {errorText && <HelpText variant="error">{errorText}</HelpText>}
         </Box>
       </RadioButtonContext.Provider>
     );
