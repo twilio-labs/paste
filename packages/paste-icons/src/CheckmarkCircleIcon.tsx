@@ -20,11 +20,6 @@ const CheckmarkCircleIcon = React.forwardRef<HTMLElement, CheckmarkCircleIconPro
       throw new Error('[CheckmarkCircleIcon]: Missing a title for non-decorative icon.');
     }
 
-    // eslint-disable-next-line no-console
-    console.error(
-      '[CheckmarkCircleIcon]: This icon is deprecated. Please use AcceptIcon instead. This icon will be removed in after the 2023.05.16 release.'
-    );
-
     return (
       <IconWrapper as={as} display={display} element={element} size={size} color={color} ref={ref}>
         <svg

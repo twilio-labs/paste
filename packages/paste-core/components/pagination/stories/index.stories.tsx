@@ -284,7 +284,7 @@ export const ArrowAsAnchorLabels = (): React.ReactNode => {
   return <ArrowAsAnchorLabelsExample />;
 };
 
-ArrowAsAnchorLabels.storyName = 'Arrows as anchors with visbile labels';
+ArrowAsAnchorLabels.storyName = 'Arrows as anchors with visible labels';
 
 export const ArrowsPageLabel = (): React.ReactNode => {
   return <ArrowsPageLabelExample />;

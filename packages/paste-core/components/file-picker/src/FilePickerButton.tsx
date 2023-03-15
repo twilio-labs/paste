@@ -8,7 +8,7 @@ const FilePickerButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({children, element, disabled, ...props}, ref) => {
     return (
       <Box whiteSpace="nowrap">
-        <Button {...props} element={element} ref={ref} size="small" disabled={disabled} as="span" type="button">
+        <Button {...props} element={element} ref={ref} size="default" disabled={disabled} as="span" type="button">
           {children}
         </Button>
       </Box>

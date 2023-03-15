@@ -98,8 +98,8 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
           <Box display="flex" flexDirection="column" rowGap="space10" element={`${element}_CONTENT`}>
             {children}
           </Box>
-          <Box>
-            <Button variant="secondary_icon" onClick={onButtonClick} element={`${element}_BUTTON`}>
+          <Box display="flex" paddingRight="space30">
+            <Button variant="secondary_icon" size="reset" onClick={onButtonClick} element={`${element}_BUTTON`}>
               {buttonIcon}
             </Button>
           </Box>
