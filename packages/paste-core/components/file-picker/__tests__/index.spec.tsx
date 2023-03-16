@@ -12,7 +12,7 @@ const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
 describe('FilePicker', () => {
   it('should render', () => {
     const {getByText} = render(<Default data-testid="test-file-picker" />);
-    expect(getByText('Upload a file')).toBeDefined();
+    expect(getByText('Select file')).toBeDefined();
     expect(screen.getByTestId('test-file-picker')).toHaveAttribute('type', 'file');
   });
   it('should render as disabled', () => {

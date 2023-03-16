@@ -24,7 +24,7 @@ export default {
 export const Neutral = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="neutral">I am a toast</Toast>
         <Toast variant="neutral" onDismiss={action('dismiss')}>
           <strong>Toast title</strong> I am a toast
@@ -53,7 +53,7 @@ export const Neutral = (): React.ReactNode => {
 export const Success = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="success">I am a toast</Toast>
         <Toast variant="success" onDismiss={action('dismiss')}>
           <strong>Toast title</strong> I am a toast
@@ -82,7 +82,7 @@ export const Success = (): React.ReactNode => {
 export const Error = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="error">I am a toast</Toast>
         <Toast variant="error" onDismiss={action('dismiss')}>
           <strong>Toast title</strong> I am a toast
@@ -111,7 +111,7 @@ export const Error = (): React.ReactNode => {
 export const Warning = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="warning">I am a toast</Toast>
         <Toast variant="warning" onDismiss={action('dismiss')}>
           <strong>Toast title</strong> I am a toast
@@ -140,7 +140,7 @@ export const Warning = (): React.ReactNode => {
 export const I18n = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
           Soy una notificacion
         </Toast>
@@ -201,7 +201,7 @@ export const ToastContainerStory = (): React.ReactNode => {
       >
         Add toast
       </Button>
-      <ToastContainer>
+      <ToastContainer left={['space40', 'unset', 'unset']}>
         <Toast variant="success" onDismiss={() => {}}>
           I am a toast
         </Toast>
@@ -293,7 +293,7 @@ export const ToasterStory = (): React.ReactNode => {
           </Button>
         </Stack>
       </form>
-      <Toaster {...toaster} />
+      <Toaster left={['space40', 'unset', 'unset']} {...toaster} />
     </div>
   );
 };

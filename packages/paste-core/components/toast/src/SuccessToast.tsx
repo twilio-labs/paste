@@ -10,6 +10,7 @@ const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
       {...safelySpreadBoxProps(props)}
       ref={ref}
       color="colorTextSuccess"
+      width={['100%', 'size40', 'size40']}
       backgroundColor="colorBackgroundSuccessWeakest"
       borderColor="colorBorderSuccessWeak"
       borderRadius="borderRadius30"
@@ -19,7 +20,6 @@ const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
       element={element}
       padding="space60"
       variant={variant}
-      width="size40"
     >
       {props.children}
     </Box>

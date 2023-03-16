@@ -10,6 +10,7 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOA
       {...safelySpreadBoxProps(props)}
       ref={ref}
       color="colorTextError"
+      width={['100%', 'size40', 'size40']}
       backgroundColor="colorBackgroundErrorWeakest"
       borderColor="colorBorderErrorWeak"
       borderRadius="borderRadius30"
@@ -19,7 +20,6 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOA
       element={element}
       padding="space60"
       variant={variant}
-      width="size40"
     >
       {props.children}
     </Box>

@@ -36,7 +36,7 @@ export const FileUploaderItemDescription = React.forwardRef<HTMLElement, FileUpl
         ref={ref}
         as="div"
         fontSize="fontSize20"
-        lineHeight="lineHeight10"
+        lineHeight="lineHeight20"
         {...variantStyles[variant]}
       >
         {children}
