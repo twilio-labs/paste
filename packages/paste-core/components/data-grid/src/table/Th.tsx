@@ -32,6 +32,7 @@ export const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
         position="relative"
         textAlign={textAlign}
         verticalAlign="inherit"
+        color="inherit"
         _first={{
           paddingLeft: 'space50',
         }}

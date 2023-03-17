@@ -14,10 +14,10 @@ export interface TrProps {
 const StyledTr = styled.tr<TrProps>(
   css({
     '&[aria-selected=true] > td': {
-      borderColor: 'colorBorderWeak',
+      borderColor: 'colorBorderPrimaryWeaker',
     },
     '&[aria-selected=true] > th': {
-      borderColor: 'colorBorderWeak',
+      borderColor: 'colorBorderPrimaryWeaker',
     },
   })
 );
@@ -33,7 +33,6 @@ export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         as={StyledTr}
         aria-selected={props.selected}
         _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
-        _last={{borderWidth: 'borderWidth0'}}
         _selected={{
           backgroundColor: 'colorBackgroundPrimaryWeakest',
         }}
