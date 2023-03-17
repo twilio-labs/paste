@@ -11,6 +11,7 @@ import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
+import typography1 from '../../../assets/images/foundations/typography/typography1.png';
 
 export default DefaultLayout;
 
@@ -55,8 +56,9 @@ For our products, we have simplified the fonts used within Twilio Sans in order 
 
 <strong>Twilio Sans Mono:</strong> Used for code
 <br />
+<br />
 
-TODO: img 1
+<ResponsiveImage src={typography1} alt="example of twilio sans display, text, and mono fonts" />
 
 #### Font weight
 
@@ -138,11 +140,13 @@ We specifically have color-text-_ and color-text-icon-_ tokens, since icons have
 
 [Take a look at all our color text tokens.](/foundations/colors/#text-and-icon-colors)
 
+TODO: img 9
+
 ## Our components
 
 We know how time-consuming it is to fiddle with type styles to get the correct one. This is why we have created type components, so they have style built into them. You can focus on designing full layouts, and we can worry about the nitty-gritty.
 
-TODO: img 9
+TODO: img 10
 
 Here are some of our typography components:
 
@@ -159,7 +163,7 @@ Here are some of our typography components:
 
 Most of our block-level Typography components like Heading, Paragraph, and Detail Text have preset margins so that stacking components will give your layout the ideal amount of spacing without having to adjust margins manually too much yourself.
 
-TODO: live example
+TODO: img 11
 
 ## Ever wonder why we make the choices we make when it comes to styling type?
 
@@ -171,25 +175,25 @@ Let’s do a <small>small</small> deep dive into some of our favorite tips for t
 
 We suggest using a left alignment for styling UI copy in left-to-right languages. This provides a stronger vertical alignment of your design and a better reading experience while seeing the hierarchy of the content. This also makes it easier to scan content, especially for users of screen magnifiers or higher zoom levels.
 
-TODO: img 10
+TODO: img 12
 
 #### When to center type
 
 We don’t suggest centering large groups of text, it’s not always the most effective in information design and legibility. However, it may make sense within a card or under a data visual or image if it's a small amount of content.
 
-TODO: imgs 11, 12, 13
+TODO: imgs 13, 14
 
 #### Base alignment
 
 In some instances, it is helpful to bottom align your units of type instead of centering your type. This helps when you have multiple type sizes and gives a unified look. It's that it's easier for humans to scan text content when it's on the same baseline.
 
-TODO: img 14
+TODO: img 15
 
 #### Leading (line height)
 
 Leading helps with legibility in your designs. Having leading too tight or too open can be strenuous on the reader. Lucky for you, Paste already uses the best line-height tokens within our type-based components to have the perfect leading already built in.
 
-TODO: img 15
+TODO: img 16
 
 ### Case styles
 
@@ -197,7 +201,7 @@ TODO: img 15
 
 We recommend avoiding forced capitalization. It’s not accessible with screen readers, and in many languages, does not translate. It also tends to be less legible than sentence case.
 
-TODO: img 16
+TODO: img 17
 
 #### In almost all cases in Twilio, use title case
 
@@ -227,7 +231,7 @@ However, it’s good to be mindful of awkward ragged edges in our content blocks
 
 Though we may not be able to adjust content blocks as screen sizes vary, we can still be mindful of these sorts of type accidents. They are especially noticeable in headings. We suggest stacking a headline into two or three lines, versus one long line, which helps to avoid widows.
 
-TODO: img 17
+TODO: img 18
 
 For this example, you can see the top example has a nice stacked heading that makes the headline and the body copy a compact unit.
 
@@ -237,7 +241,7 @@ In the below examples, you can see one heading and one word in the paragraph are
 
 We want to create comfortable reading for our customers. We suggest no more than 120 characters per line. When working with line lengths we want to create short, but efficient lines of text, so the content is easier to scan, it's readable, and not overwhelming.
 
-TODO: imgs 18, 19
+TODO: imgs 19
 
 It's also good practice to give more padding (space) if your content is within a container. Just like us humans, our type doesn’t like to feel claustrophobic.
 
