@@ -27,6 +27,7 @@ const BaseSideModalContainer: React.FC<React.PropsWithChildren<SideModalContaine
     state ||
     useNonModalDialogPrimitiveState({
       modal: true,
+      unstable_fixed: true,
       ...initialState,
     });
 
