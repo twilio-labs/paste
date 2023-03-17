@@ -69,10 +69,10 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
             ? 'colorTextWeaker'
             : // eslint-disable-next-line unicorn/no-nested-ternary
             highlighted
-            ? 'colorTextLinkStronger'
+            ? 'colorTextPrimary'
             : // eslint-disable-next-line unicorn/no-nested-ternary
             selected
-            ? 'colorTextLink'
+            ? 'colorTextPrimary'
             : 'colorText'
         }
         display="flex"
@@ -83,7 +83,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         ref={ref}
         transition="background-color 150ms ease, color 150ms ease"
         borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderDecorative10Weaker"
+        borderBottomColor="colorBorderWeaker"
         borderBottomStyle="solid"
         _before={{
           content: `""`,
@@ -91,8 +91,8 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
           top: 0,
           bottom: 0,
           left: 0,
-          borderLeftWidth: 'borderWidth30',
-          borderLeftColor: highlighted ? 'colorBorderPrimaryStronger' : 'transparent',
+          borderLeftWidth: 'borderWidth20',
+          borderLeftColor: highlighted ? 'colorBorderPrimary' : 'transparent',
           borderLeftStyle: 'solid',
         }}
         _last={{
