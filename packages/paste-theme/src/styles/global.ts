@@ -2,7 +2,7 @@ import {css} from '@twilio-paste/styling-library';
 
 export const pasteGlobalStyles = css({
   html: {
-    fontSize: '100%',
+    fontSize: 'fontSizeBase',
     fontFamily: 'fontFamilyText',
   },
   'html:lang(ja), html:lang(ja-JP)': {
@@ -28,7 +28,6 @@ export const pasteGlobalStyles = css({
   body: {
     backgroundColor: 'colorBackgroundBody',
     margin: 0,
-    fontSize: 'fontSize30',
   },
   '*, *::after, *::before': {
     boxSizing: 'border-box',
