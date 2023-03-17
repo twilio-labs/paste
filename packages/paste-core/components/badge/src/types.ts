@@ -16,13 +16,24 @@ export type BadgeVariants =
   | 'default'
   | 'info';
 
-type BadgeBaseProps = Pick<BoxProps, 'element'> &
-  React.HTMLAttributes<HTMLSpanElement> &
-  React.HTMLAttributes<HTMLButtonElement> &
-  React.HTMLAttributes<HTMLAnchorElement> & {
-    children: NonNullable<React.ReactNode>;
-    variant: BadgeVariants;
-    as: 'span' | 'button' | 'a';
-    href?: string;
-  };
-export type BadgeProps = BadgeBaseProps;
+export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
+  children: NonNullable<React.ReactNode>;
+  variant: BadgeVariants;
+};
+export type BadgeSpanProps = React.HTMLAttributes<HTMLSpanElement> & {
+  as: 'span';
+  href?: never;
+  onClick?: never;
+};
+export type BadgeButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+  as: 'button';
+  onClick: React.HTMLAttributes<HTMLButtonElement>['onClick'];
+  href?: never;
+};
+export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
+  as: 'a';
+  href: string;
+  onClick?: never;
+};
+
+export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);
