@@ -14,14 +14,10 @@
  */
 import puppeteer from 'puppeteer-core';
 import chromium from '@sparticuz/chromium';
+import type {NextApiRequest, NextApiResponse} from 'next';
 import Rollbar from 'rollbar';
-import type {LambdaHandler} from 'rollbar';
 
-import {logger} from '../functions-utils/logger';
-
-const rollbar = new Rollbar({
-  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
-});
+import {logger} from '../../functions-utils/logger';
 
 /**
  * The code below determines the executable location for Chrome to
@@ -38,6 +34,9 @@ const PlatformPath = {
   linux: '/usr/bin/google-chrome',
   darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 };
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore complaining about process.platform containing more options than listed in PlatformPath object
 const exePath = PlatformPath[process.platform] || PlatformPath.darwin;
 
 async function getOptions(isDev: boolean): Promise<{args: any; executablePath: any; headless: any}> {
@@ -56,15 +55,27 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
   };
 }
 
-const handler: LambdaHandler<Event, any, any> = rollbar.lambdaHandler(async (event) => {
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
+
+type Data = {
+  body: string;
+  headers?: Record<string, string>;
+  isBase64Encoded?: boolean;
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>): void {
   /*
    * pass in this parameter if you are developing locally
    * to ensure puppeteer picks up your machine installation of
    * Chrome via the configurable options
    */
-  const isDev = event.queryStringParameters.isDev === 'true';
-  const hostURL = isDev ? 'http://localhost:8888' : `https://${event.headers.host}`;
-  const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
+  const isDev = req.query.isDev === 'true';
+  const hostURL = isDev ? 'http://localhost:3000' : `https://${req.headers.host}`;
+  const {componentRequested} = req.query;
   const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
 
   logger.info('Page to visit', {pageToVisit});
@@ -72,11 +83,10 @@ const handler: LambdaHandler<Event, any, any> = rollbar.lambdaHandler(async (eve
   // check for a legit link
   if (!componentRequested || !componentRequested.includes('/')) {
     logger.error('Page not found');
-    rollbar.error('pPage not found for screenshotting', {page: pageToVisit});
-    return {
-      statusCode: 404,
+    rollbar.error('Page not found for screenshotting', {page: pageToVisit});
+    res.status(404).json({
       body: "Sorry, we couldn't screenshot that page. Did you include a page?",
-    };
+    });
   }
 
   try {
@@ -114,22 +124,19 @@ const handler: LambdaHandler<Event, any, any> = rollbar.lambdaHandler(async (eve
 
     logger.info('close browser');
 
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'image/png',
-      },
-      body: file,
-      isBase64Encoded: true,
-    };
+    const imageResp = Buffer.from(file, 'base64');
+
+    res.writeHead(200, {
+      'Cache-Control': 'max-age=0, s-maxage=86400',
+      'Content-Type': 'image/png',
+      'Content-Length': imageResp.length,
+    });
+    res.end(imageResp);
   } catch (error) {
     logger.error('500 error', {error});
     rollbar.error(error as Error);
-    return {
-      statusCode: 500,
+    res.status(500).json({
       body: JSON.stringify(error),
-    };
+    });
   }
-});
-
-export {handler};
+}
