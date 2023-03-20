@@ -30,6 +30,10 @@ import typography5 from '../../../assets/images/foundations/typography/typograph
 import typography6 from '../../../assets/images/foundations/typography/typography6.png';
 import typography7 from '../../../assets/images/foundations/typography/typography7.png';
 import typography8 from '../../../assets/images/foundations/typography/typography8.png';
+import typography9 from '../../../assets/images/foundations/typography/typography9.png';
+import typography10 from '../../../assets/images/foundations/typography/typography10.png';
+import typography11 from '../../../assets/images/foundations/typography/typography11.png';
+import typography12 from '../../../assets/images/foundations/typography/typography12.png';
 import typography13 from '../../../assets/images/foundations/typography/typography13.png';
 import typography14 from '../../../assets/images/foundations/typography/typography14.png';
 import typography15 from '../../../assets/images/foundations/typography/typography15.png';
@@ -489,7 +493,10 @@ We suggest using a left alignment for styling UI copy in left-to-right languages
   </Text>
 </Box>
 
-<ResponsiveImage src={typography2} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography2}
+  alt="do: left-aligned UI with a heading, paragraph, and button; don't: right-aligned UI with a heading, paragraph, and button"
+/>
 
 #### When to center type
 
@@ -500,19 +507,25 @@ We don’t suggest centering large groups of text, it’s not always the most ef
     Do
   </Text>
 </Box>
-<ResponsiveImage src={typography3} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage src={typography3} alt="do: centered content with a heading, paragraph, and button" />
 <Box display="flex" justifyContent="center" marginBottom="space40">
   <Text fontWeight="fontWeightBold" fontSize="fontSize40">
     Do
   </Text>
 </Box>
-<ResponsiveImage src={typography4} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography4}
+  alt="do: left-aligned content with a heading, paragraph, and button, next to an image with a centered caption underneath"
+/>
 <Box display="flex" justifyContent="center" marginBottom="space40">
   <Text fontWeight="fontWeightBold" fontSize="fontSize40">
     Don't
   </Text>
 </Box>
-<ResponsiveImage src={typography5} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography5}
+  alt="don't: left-aligned content with a heading, paragraph, and button, next to an image with a centered heading and caption underneath"
+/>
 
 #### Base alignment
 
@@ -523,7 +536,10 @@ In some instances, it is helpful to bottom align your units of type instead of c
     Do
   </Text>
 </Box>
-<ResponsiveImage src={typography6} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography6}
+  alt="do: examples of UIs next to each other, where the headers and paragraphs all line up appropriately vertically"
+/>
 
 #### Leading (line height)
 
@@ -538,7 +554,10 @@ Leading helps with legibility in your designs. Having leading too tight or too o
   </Text>
 </Box>
 
-<ResponsiveImage src={typography7} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography7}
+  alt="do: appropriately spaced line height in a paragraph; don't: too much spacing in between lines in a paragraph"
+/>
 
 ### Case styles
 
@@ -555,7 +574,10 @@ We recommend avoiding forced capitalization. It’s not accessible with screen r
   </Text>
 </Box>
 
-<ResponsiveImage src={typography8} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography8}
+  alt="do: use sentence casing in general UI; don't: use all caps unless absolutely necessary"
+/>
 
 #### In almost all cases in Twilio, use title case
 
@@ -585,7 +607,22 @@ However, it’s good to be mindful of awkward ragged edges in our content blocks
 
 Though we may not be able to adjust content blocks as screen sizes vary, we can still be mindful of these sorts of type accidents. They are especially noticeable in headings. We suggest stacking a headline into two or three lines, versus one long line, which helps to avoid widows.
 
-TODO: imgs
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage src={typography9} alt="do: wrap headings and paragraphs so that they are cohesive" />
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography10}
+  alt="don't: wrap headings and paragraphs so that one word is wrapped by itself on a new line, or so that headings stay on one line and look disjointed from the paragraph"
+/>
 
 For this example, you can see the top example has a nice stacked heading that makes the headline and the body copy a compact unit.
 
@@ -595,7 +632,19 @@ In the below examples, you can see one heading and one word in the paragraph are
 
 We want to create comfortable reading for our customers. We suggest no more than 120 characters per line. When working with line lengths we want to create short, but efficient lines of text, so the content is easier to scan, it's readable, and not overwhelming.
 
-TODO: imgs 19
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage src={typography11} alt="do: keep characters per line to a reasonable amount" />
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+<ResponsiveImage src={typography12} alt="don't: let sections of content become to wide and short, or narrow and tall" />
 
 It's also good practice to give more padding (space) if your content is within a container. Just like us humans, our type doesn’t like to feel claustrophobic.
 
@@ -608,7 +657,10 @@ It's also good practice to give more padding (space) if your content is within a
   </Text>
 </Box>
 
-<ResponsiveImage src={typography13} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage
+  src={typography13}
+  alt="do: make use of padding in text content areas; don't: let paragrapht text reach the borders of its parent component"
+/>
 
 ## Let’s play with type ✨
 
@@ -620,8 +672,11 @@ It's also good practice to give more padding (space) if your content is within a
 
 ### Elevating your designs with type
 
-<ResponsiveImage src={typography14} alt="examples of Paste's various font weight tokens" />
-<ResponsiveImage src={typography15} alt="examples of Paste's various font weight tokens" />
+<ResponsiveImage src={typography14} alt="example of a UI with clean, easy to digest spacing and typography" />
+<ResponsiveImage
+  src={typography15}
+  alt="example of a UI with extra unnecessary text content and typographical choices that make the content harder to digest"
+/>
 
 ## Here’s some typography resources we are loving
 
