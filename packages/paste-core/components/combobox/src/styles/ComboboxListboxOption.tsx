@@ -65,10 +65,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
         color={
-          disabled
-            ? 'colorTextWeaker'
-            : // eslint-disable-next-line unicorn/no-nested-ternary
-            highlighted
+          highlighted
             ? 'colorTextPrimary'
             : // eslint-disable-next-line unicorn/no-nested-ternary
             selected
@@ -85,6 +82,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         borderBottomWidth="borderWidth10"
         borderBottomColor="colorBorderWeaker"
         borderBottomStyle="solid"
+        opacity={disabled ? 0.4 : 1}
         _before={{
           content: `""`,
           position: 'absolute',
