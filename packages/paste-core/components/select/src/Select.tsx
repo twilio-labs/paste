@@ -33,7 +33,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
          */
         height={undefined}
         appearance="none"
-        backgroundColor="transparent"
+        backgroundColor="inherit"
         border="none"
         borderRadius="borderRadius20"
         boxShadow="none"
