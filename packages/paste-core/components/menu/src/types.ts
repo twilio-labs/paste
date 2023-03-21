@@ -1,5 +1,5 @@
 import type {ValueOf} from '@twilio-paste/types';
-import type {BoxElementProps} from '@twilio-paste/box';
+import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
 import type {
   MenuPrimitiveItemProps,
   MenuPrimitiveProps,
@@ -11,6 +11,10 @@ import type {MenuItemVariants} from './constants';
 export type MenuProps = MenuPrimitiveProps & {'aria-label': string; element?: BoxElementProps['element']};
 
 export type MenuItemVariant = ValueOf<typeof MenuItemVariants>;
+
+export type MenuItemVariantStyles = {
+  [key in MenuItemVariant]?: BoxStyleProps;
+};
 
 export interface MenuItemProps extends MenuPrimitiveItemProps {
   href?: string;
