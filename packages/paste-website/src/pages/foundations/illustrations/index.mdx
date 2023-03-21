@@ -6,6 +6,7 @@ export const meta = {
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
+import {SidebarCategoryRoutes} from '../../../constants';
 
 export default DefaultLayout;
 
@@ -18,17 +19,19 @@ export const getStaticProps = async () => {
   };
 };
 
+<content>
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
+
+</content>
+
+---
+
 <contentwrapper>
 
 <PageAside data={mdxHeadings} />
 
 <content>
-
-<h1>{meta.title}</h1>
-
-<p>{meta.description}</p>
-
----
 
 Illustrations help breathe life into our brand. It can take a complex idea and make it easier to understand. It is a tool that allows us to communicate our product in a way that feels human and fun.
 
