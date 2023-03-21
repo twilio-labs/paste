@@ -82,7 +82,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         borderBottomWidth="borderWidth10"
         borderBottomColor="colorBorderWeaker"
         borderBottomStyle="solid"
-        opacity={disabled ? 0.4 : 1}
+        opacity={disabled ? 0.3 : 1}
         _before={{
           content: `""`,
           position: 'absolute',
