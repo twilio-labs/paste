@@ -1,17 +1,21 @@
 import * as React from 'react';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
 
-import type {MenuItemProps, MenuItemVariant} from './types';
+import type {MenuItemProps, MenuItemVariantStyles} from './types';
 import {MenuGroupContext} from './MenuGroup';
 import {MenuItemVariants} from './constants';
 
-const variantStyles: Record<MenuItemVariant, BoxStyleProps> = {
+const baseVariantStyles: MenuItemVariantStyles = {
   [MenuItemVariants.DEFAULT]: {
     color: 'colorText',
     _hover: {
+      color: 'colorTextPrimary',
+      backgroundColor: 'colorBackgroundPrimaryWeakest',
+      borderColor: 'colorBorderPrimary',
+    },
+    _focus: {
       color: 'colorTextPrimary',
       backgroundColor: 'colorBackgroundPrimaryWeakest',
       borderColor: 'colorBorderPrimary',
@@ -23,24 +27,25 @@ const variantStyles: Record<MenuItemVariant, BoxStyleProps> = {
       backgroundColor: 'colorBackgroundDestructiveWeakest',
       borderColor: 'colorBorderDestructive',
     },
-  },
-  [MenuItemVariants.GROUP_ITEM]: {
-    paddingLeft: 'space90',
-    color: 'colorText',
-    _hover: {
-      color: 'colorTextPrimary',
-      backgroundColor: 'colorBackgroundPrimaryWeakest',
-      borderColor: 'colorBorderPrimary',
-    },
-  },
-  [MenuItemVariants.DESTRUCTIVE_GROUP_ITEM]: {
-    color: 'colorTextLinkDestructive',
-    paddingLeft: 'space90',
-    _hover: {
+    _focus: {
       backgroundColor: 'colorBackgroundDestructiveWeakest',
       borderColor: 'colorBorderDestructive',
     },
   },
+};
+const groupVariantStyles: MenuItemVariantStyles = {
+  [MenuItemVariants.GROUP_ITEM]: {
+    ...baseVariantStyles[MenuItemVariants.DEFAULT],
+    paddingLeft: 'space90',
+  },
+  [MenuItemVariants.DESTRUCTIVE_GROUP_ITEM]: {
+    ...baseVariantStyles[MenuItemVariants.DESTRUCTIVE],
+    paddingLeft: 'space90',
+  },
+};
+const variantStyles: MenuItemVariantStyles = {
+  ...baseVariantStyles,
+  ...groupVariantStyles,
 };
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
