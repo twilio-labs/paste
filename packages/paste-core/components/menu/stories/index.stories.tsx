@@ -195,7 +195,9 @@ const MenuGroups = (): JSX.Element => {
         </MenuGroup>
         <MenuSeparator {...menu} />
         <MenuGroup icon={<AttachIcon decorative />} label="Search Options">
-          <MenuItem {...menu}>Search with Google</MenuItem>
+          <MenuItem {...menu} variant="destructive">
+            Search with Google
+          </MenuItem>
           <MenuItem {...menu} disabled>
             Search with Bing
           </MenuItem>
