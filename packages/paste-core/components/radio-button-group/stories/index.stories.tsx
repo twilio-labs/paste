@@ -27,12 +27,52 @@ export const Attached: StoryFn<RadioButtonGroupStoryProps> = (props) => (
       </Text>
     }
     helpText="Help text should go here."
+    attached
+    {...props}
+  >
+    <RadioButton value="1">First</RadioButton>
+    <RadioButton value="2" defaultChecked>
+      Second
+    </RadioButton>
+    <RadioButton value="3">Third</RadioButton>
+  </RadioButtonGroup>
+);
+
+export const ButtonGroupHasError: StoryFn<RadioButtonGroupStoryProps> = (props) => (
+  <RadioButtonGroup
+    name="foo"
+    legend={
+      <Text as="span" color="currentColor">
+        This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
+      </Text>
+    }
+    helpText="Help text should go here."
     errorText="This is the error text."
     attached
     {...props}
   >
     <RadioButton value="1">First</RadioButton>
     <RadioButton value="2" defaultChecked>
+      Second
+    </RadioButton>
+    <RadioButton value="3">Third</RadioButton>
+  </RadioButtonGroup>
+);
+
+export const ButtonHasError: StoryFn<RadioButtonGroupStoryProps> = (props) => (
+  <RadioButtonGroup
+    name="foo"
+    legend={
+      <Text as="span" color="currentColor">
+        This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
+      </Text>
+    }
+    helpText="Help text should go here."
+    attached
+    {...props}
+  >
+    <RadioButton value="1">First</RadioButton>
+    <RadioButton value="2" hasError>
       Second
     </RadioButton>
     <RadioButton value="3">Third</RadioButton>
@@ -48,7 +88,6 @@ export const FewRadioButtons: StoryFn = () => (
       </Text>
     }
     helpText="Help text should go here."
-    errorText="This is the error text."
     attached
   >
     <RadioButton value="1">First</RadioButton>
@@ -65,7 +104,6 @@ export const ManyRadioButtons: StoryFn = () => (
       </Text>
     }
     helpText="Help text should go here."
-    errorText="This is the error text."
     attached
   >
     {[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => (
@@ -85,7 +123,6 @@ export const Unattached: StoryFn = () => {
         </Text>
       }
       helpText="Help text should go here."
-      errorText="This is the error text."
     >
       <RadioButton value="1">First</RadioButton>
       <RadioButton value="2" defaultChecked>
@@ -104,7 +141,6 @@ export const WithoutHelpText: StoryFn<RadioButtonGroupStoryProps> = (props) => (
         This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
       </Text>
     }
-    errorText="This is the error text."
     attached
     {...props}
   >
@@ -124,12 +160,34 @@ export const Disabled: StoryFn<RadioButtonGroupStoryProps> = (props) => (
         This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
       </Text>
     }
-    errorText="This is the error text."
     attached
     disabled
     {...props}
   >
-    <RadioButton value="1">First</RadioButton>
+    <RadioButton value="1" defaultChecked>
+      First
+    </RadioButton>
+    <RadioButton value="2">Second</RadioButton>
+    <RadioButton value="3">Third</RadioButton>
+  </RadioButtonGroup>
+);
+
+export const DisabledError: StoryFn<RadioButtonGroupStoryProps> = (props) => (
+  <RadioButtonGroup
+    name="foo"
+    legend={
+      <Text as="span" color="currentColor">
+        This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
+      </Text>
+    }
+    errorText="This is error text."
+    attached
+    disabled
+    {...props}
+  >
+    <RadioButton value="1" defaultChecked>
+      First
+    </RadioButton>
     <RadioButton value="2">Second</RadioButton>
     <RadioButton value="3">Third</RadioButton>
   </RadioButtonGroup>
@@ -148,7 +206,6 @@ export const Uncontrolled: StoryFn = () => {
         </Text>
       }
       helpText="Help text should go here."
-      errorText="This is the error text."
       attached
     >
       <RadioButton value="1">First</RadioButton>
@@ -171,7 +228,6 @@ export const Controlled: StoryFn = () => {
         </Text>
       }
       helpText="Help text should go here."
-      errorText="This is the error text."
     >
       <RadioButton
         id={useUID()}
