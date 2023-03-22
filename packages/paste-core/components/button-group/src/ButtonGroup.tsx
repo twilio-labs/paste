@@ -10,14 +10,17 @@ const AttachedStyled = styled.span(
      * NOTE: allow hover and focus indication to remain visible on all sides of a button despite
      * sibling elements being rendered immediately adjacent under the attached styles
      */
-    '& > button:hover': {
+    '& > button': {
       zIndex: 1,
     },
-    '& > button:hover:disabled': {
-      zIndex: 0,
+    '& > button:hover, & > button[aria-pressed=true]': {
+      zIndex: 2,
     },
     '& > button:focus': {
-      zIndex: 2,
+      zIndex: 3,
+    },
+    '& > button:disabled': {
+      zIndex: 0,
     },
     '& > button:first-of-type': {
       borderTopRightRadius: 0,
