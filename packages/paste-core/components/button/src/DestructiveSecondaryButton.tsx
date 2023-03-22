@@ -3,7 +3,7 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import {SizeStyles, BaseStyles} from './styles';
+import {SizeStyles, BaseStyles, DestructiveSecondaryToggleStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
@@ -63,14 +63,18 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+    const toggleStyles = pressed === undefined ? {} : DestructiveSecondaryToggleStyles;
+
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
         width={fullWidth ? '100%' : 'auto'}
+        aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
+        {...toggleStyles}
         {...SizeStyles[size]}
       />
     );

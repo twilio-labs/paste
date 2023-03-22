@@ -2,6 +2,7 @@ export const ToggleExample = `const ToggleButtons = () => {
   const [followPressed, setFollowPressed] = React.useState(false);
   const [boldPressed, setBoldPressed] = React.useState(false);
   const [pausePressed, setPausePressed] = React.useState(true);
+  const [destructivePressed, setDestructivePressed] = React.useState(true)
 
 return (
   <Box display="flex" flexDirection="row" columnGap="space60">
@@ -15,6 +16,9 @@ return (
     <Button variant="secondary" size="circle" pressed={pausePressed} onClick={() => setPausePressed(!pausePressed)}>
       <ScreenReaderOnly>Pause</ScreenReaderOnly>
       {pausePressed ? <PlayIcon decorative /> : <PauseIcon decorative />}
+    </Button>
+    <Button variant="destructive_secondary" size="icon" pressed={destructivePressed} onClick={() => setDestructivePressed(!destructivePressed)}>
+      <BoldIcon decorative={false} title="Destructive" />
     </Button>
   </Box>
 ); };
