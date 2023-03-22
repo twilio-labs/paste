@@ -35,7 +35,8 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
          * FIX: Mostly works, hack fix to get the height just
          * right between no pills selected and some pills selected
          */
-        height="24px"
+        height="28px"
+        alignContent="center"
         _after={{
           content: `"${text}"`,
           fontFamily: 'inherit',

@@ -79,16 +79,16 @@ const HomeHero = (): JSX.Element => {
                 </Badge>
                 <NewComponentBannerText>Check out our newest Foundations page,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  href="/foundations/spacing-and-layout"
+                  href="/foundations/typography"
                   onClick={() =>
                     event({
                       category: 'Hero',
                       action: 'click-new-banner',
-                      label: 'Spacing and Layout page',
+                      label: 'Typography page',
                     })
                   }
                 >
-                  Spacing and Layout guidelines!
+                  Typography guidelines!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text

@@ -213,7 +213,9 @@ export const VirtualizedCombobox2: StoryFn = () => {
         optionTemplate={({name, subtext}) => (
           <Box as="span" display="flex" flexDirection="column">
             <Box as="span">{name}</Box>
-            <Box as="span">{subtext}</Box>
+            <Box as="span" color="colorTextWeak">
+              {subtext}
+            </Box>
           </Box>
         )}
         labelText="Select a virtualized item"
