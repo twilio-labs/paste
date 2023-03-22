@@ -36,7 +36,6 @@ export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   size: ButtonSizes;
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
-  ref?: any;
   fullWidth?: boolean;
   href?: string;
   tabIndex?: ButtonTabIndexes;
@@ -52,7 +51,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant: ButtonVariants;
   size?: ButtonSizes;
   as?: keyof JSX.IntrinsicElements;
-  ref?: any;
   fullWidth?: boolean;
   href?: string;
   tabIndex?: ButtonTabIndexes;

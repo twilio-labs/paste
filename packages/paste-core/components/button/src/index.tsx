@@ -175,7 +175,7 @@ ButtonContents.displayName = 'ButtonContents';
 
 const getButtonComponent = (
   variant: ButtonVariants
-): React.FunctionComponent<React.PropsWithChildren<DirectButtonProps>> => {
+): React.ForwardRefExoticComponent<DirectButtonProps & React.RefAttributes<HTMLButtonElement>> => {
   switch (variant) {
     case 'primary_icon':
       return PrimaryIconButton;
