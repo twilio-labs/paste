@@ -22,18 +22,34 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         margin="space0"
         padding="space0"
         listStyleType="none"
+        borderBottomStyle="solid"
+        borderBottomWidth="borderWidth10"
+        borderBottomColor="colorBorderWeaker"
+        _last={{
+          borderWidth: 'borderWidth0',
+        }}
       >
         {groupName ? (
           <Box
             as="li"
-            backgroundColor="colorBackground"
+            backgroundColor="colorBackgroundWeak"
+            borderBottomStyle="solid"
+            borderBottomWidth="borderWidth10"
+            borderBottomColor="colorBorderWeaker"
             role="presentation"
             paddingY="space30"
             paddingLeft="space50"
             paddingRight="space50"
             element={`${element}_GROUPNAME`}
           >
-            <Text as="span" fontWeight="fontWeightBold" color="colorTextWeak" element={`${element}_GROUPNAME_TEXT`}>
+            <Text
+              as="span"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightSemibold"
+              color="colorText"
+              element={`${element}_GROUPNAME_TEXT`}
+            >
               {groupLabelTemplate ? groupLabelTemplate(groupName) : groupName}
             </Text>
           </Box>

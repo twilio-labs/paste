@@ -280,7 +280,9 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
       optionTemplate={({title, author}: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
-          <Box as="span">{author}</Box>
+          <Box as="span" color="colorTextWeak">
+            {author}
+          </Box>
         </Box>
       )}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
@@ -324,7 +326,9 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
       optionTemplate={({title, author}: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
-          <Box as="span">{author}</Box>
+          <Box as="span" color="colorTextWeak">
+            {author}
+          </Box>
         </Box>
       )}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
@@ -356,7 +360,9 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
       optionTemplate={({title, author}: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
-          <Box as="span">{author}</Box>
+          <Box as="span" color="colorTextWeak">
+            {author}
+          </Box>
         </Box>
       )}
       onInputValueChange={({inputValue: newInputValue = ''}) => {

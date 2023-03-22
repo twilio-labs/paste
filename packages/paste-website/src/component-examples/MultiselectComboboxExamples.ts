@@ -268,7 +268,7 @@ const MultiselectComboboxExample = () => {
       optionTemplate={({label, group}) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{label}</Box>
-          <Box as="span">{group}</Box>
+          <Box as="span" color="colorTextWeak">{group}</Box>
         </Box>
       )}
       onInputValueChange={({inputValue: newInputValue = ''}) => {
