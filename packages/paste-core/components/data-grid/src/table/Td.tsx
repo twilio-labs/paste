@@ -24,12 +24,12 @@ export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
         borderBottomWidth="borderWidth10"
         fontSize="fontSize30"
         lineHeight="lineHeight30"
-        paddingY="space40"
-        paddingX="space50"
+        padding="space50"
         position="relative"
         textAlign={textAlign}
         verticalAlign="inherit"
         wordWrap="break-word"
+        color="inherit"
         _first={{
           paddingLeft: 'space50',
         }}

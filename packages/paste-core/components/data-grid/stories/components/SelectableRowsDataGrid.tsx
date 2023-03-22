@@ -68,7 +68,18 @@ const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
 export const SelectableRowsDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
-  const [checkedItems, setCheckedItems] = React.useState([...new Array(10)].map(() => false));
+  const [checkedItems, setCheckedItems] = React.useState([
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   const allChecked = checkedItems.every(Boolean);
   const indeterminate = checkedItems.some(Boolean) && !allChecked;
