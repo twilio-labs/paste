@@ -25,9 +25,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
   element?: BoxProps['element'];
 }
 
-type HiddenRadioProps = Pick<RadioProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'> & {
-  ref?: any | undefined;
-};
+type HiddenRadioProps = Pick<RadioProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'>;
 const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props, ref) => (
   <Box
     as="input"
