@@ -137,6 +137,52 @@ export const ToggleStyles: BoxStyleProps = {
   },
 };
 
+export const DestructiveSecondaryToggleStyles: BoxStyleProps = {
+  transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
+  color: 'colorTextError',
+  backgroundColor: 'colorBackgroundBody',
+  _disabled: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderWeaker',
+    color: 'colorTextWeaker',
+  },
+  _hover: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderError',
+    color: 'colorTextError',
+  },
+  _active: {
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: 'shadowBorderErrorStrongest',
+    color: 'colorTextErrorStrongest',
+  },
+  _pressed: {
+    backgroundColor: 'colorBackgroundErrorWeakest',
+    boxShadow: 'shadowBorderError',
+    color: 'colorTextError',
+  },
+  _pressed_hover: {
+    backgroundColor: 'colorBackgroundErrorWeakest',
+    boxShadow: 'shadowBorderError',
+    color: 'colorTextError',
+  },
+  _pressed_active: {
+    backgroundColor: 'colorBackgroundErrorWeakest',
+    boxShadow: 'shadowBorderError',
+    color: 'colorTextError',
+  },
+  _pressed_focus: {
+    backgroundColor: 'colorBackgroundErrorWeakest',
+    boxShadow: 'shadowFocusShadowBorder',
+    color: 'colorTextError',
+  },
+  _pressed_disabled: {
+    backgroundColor: 'colorBackgroundStrong',
+    boxShadow: 'shadowBorderWeaker',
+    color: 'colorTextWeakest',
+  },
+};
+
 export const ToggleIconButtonStyles: BoxStyleProps = {
   transition: 'background-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in',
   color: 'colorTextIcon',
