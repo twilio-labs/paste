@@ -141,8 +141,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
-    "@testing-library/react": "^13.4.0",
-    "netlify-cli": "^12.2.10"
+    "@testing-library/react": "^13.4.0"
   },
   "resolutions": {
     "@types/lodash": "^4.14.182"

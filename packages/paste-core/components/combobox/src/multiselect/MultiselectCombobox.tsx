@@ -272,16 +272,22 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             aria-expanded={ariaExpanded}
             position="relative"
             width="100%"
-            paddingY="space30"
+            lineHeight="lineHeight50"
+            paddingY="space20"
             paddingLeft="space40"
             paddingRight="space100"
             maxHeight={maxHeight}
             overflowY="auto"
+            display="flex"
+            alignItems="center"
+            flexDirection="row"
+            flexWrap="wrap"
+            columnGap="space20"
           >
             <FormPillGroup
               {...pillState}
               element={`${element}_PILL_GROUP`}
-              display="inline-flex"
+              display="flex"
               aria-label={selectedItemsLabelText}
               aria-describedby={a11yLabelId}
               i18nKeyboardControls=""
@@ -296,7 +302,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                   groupItemsBy != null && typeof selectedItemPill !== 'string'
                     ? `${selectedItemPill[groupItemsBy]}-${itemToString(selectedItemPill)}`
                     : itemToString(selectedItemPill);
-
                 return (
                   <FormPill
                     variant={hasError ? 'error' : 'default'}
@@ -320,19 +325,17 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 );
               })}
             </FormPillGroup>
-            <Box as="span" marginLeft="space20">
-              <GrowingInput
-                // we spread props into `getInputProps` so that Downshift handles events correctly
-                {...getInputProps({
-                  ...getDropdownProps({ref, preventKeyAction: isOpen}),
-                  disabled,
-                  required,
-                  ...props,
-                })}
-                aria-describedby={helpTextId}
-                element={`${element}_ELEMENT`}
-              />
-            </Box>
+            <GrowingInput
+              // we spread props into `getInputProps` so that Downshift handles events correctly
+              {...getInputProps({
+                ...getDropdownProps({ref, preventKeyAction: isOpen}),
+                disabled,
+                required,
+                ...props,
+              })}
+              aria-describedby={helpTextId}
+              element={`${element}_ELEMENT`}
+            />
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
               <ChevronDownIcon decorative color={getInputChevronIconColor('default', false, false)} size="sizeIcon30" />
             </InputChevronWrapper>

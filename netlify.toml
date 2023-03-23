@@ -1,7 +1,5 @@
-[dev]
-  command = "yarn start:website"
-  targetPort = 3000
-  framework = "#custom"
+[functions]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core", "@swc"]
 
 [context.deploy-preview.environment]
   NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "deploy-preview"
@@ -11,10 +9,6 @@
 
 [context.production.environment]
   NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "production"
-
-[functions]
-  directory = "packages/paste-website/functions"
-  external_node_modules = ["@sparticuz/chromium", "puppeteer-core"]
 
 # INTRODUCTION/
 [[redirects]]
