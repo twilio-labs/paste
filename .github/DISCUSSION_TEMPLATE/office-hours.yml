@@ -7,6 +7,13 @@ body:
     validations:
       required: true
   - type: "textarea"
+    id: "feedback"
+    attributes:
+      label: "Feedback"
+      description: "What feedback are you hoping to get? What specific questions do you have?"
+    validations:
+      required: true
+  - type: "textarea"
     id: "stage"
     attributes:
       label: "Stage of design"
