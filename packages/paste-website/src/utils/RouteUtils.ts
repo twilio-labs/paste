@@ -26,7 +26,7 @@ export function useLocationOrigin(): string {
 
 export function useOpengraphServiceUrl(path: string): string {
   const origin = useLocationOrigin();
-  return `${origin}/.netlify/functions/opengraph/${path}`;
+  return `${origin}/api/opengraph/?componentRequested=${path}`;
 }
 
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"

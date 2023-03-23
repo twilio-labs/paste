@@ -19,8 +19,5 @@
     "next": "^13.1.6",
     "react": "^18.0.0",
     "react-color": "^2.19.3"
-  },
-  "devDependencies": {
-    "netlify-cli": "^12.2.10"
   }
 }
