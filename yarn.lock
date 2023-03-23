@@ -10791,8 +10791,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -10818,8 +10818,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -10847,8 +10847,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -10870,8 +10870,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -10893,8 +10893,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -10911,8 +10911,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -10946,8 +10946,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -10961,8 +10961,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -10985,8 +10985,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     "@types/react-is": 17.0.3
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11005,8 +11005,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11031,8 +11031,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11052,8 +11052,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11082,8 +11082,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11106,8 +11106,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11126,8 +11126,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11142,8 +11142,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11167,8 +11167,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11186,8 +11186,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11208,8 +11208,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11223,8 +11223,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11249,8 +11249,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11271,8 +11271,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11296,8 +11296,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11315,8 +11315,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11336,8 +11336,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11351,8 +11351,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11373,8 +11373,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11391,8 +11391,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
@@ -11422,8 +11422,8 @@ __metadata:
     "@twilio-paste/truncate": ^12.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11447,8 +11447,8 @@ __metadata:
     "@twilio-paste/truncate": ^12.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11479,8 +11479,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11506,8 +11506,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11555,8 +11555,8 @@ __metadata:
     "@twilio-paste/tooltip-primitive": ^1.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -11586,8 +11586,8 @@ __metadata:
     "@twilio-paste/tooltip-primitive": ^1.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11675,8 +11675,8 @@ __metadata:
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^3.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11712,8 +11712,8 @@ __metadata:
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^3.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11816,16 +11816,16 @@ __metadata:
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^3.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
     ts-node: ^10.0.0
   peerDependencies:
     "@twilio-paste/icons": ^10.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11849,8 +11849,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11863,8 +11863,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11894,8 +11894,8 @@ __metadata:
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^3.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11920,8 +11920,8 @@ __metadata:
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^3.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11938,8 +11938,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
@@ -11952,8 +11952,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     highcharts: ^9.3.3
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -11976,8 +11976,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     date-fns: 2.21.3
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -11995,8 +11995,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12016,8 +12016,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12032,8 +12032,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12069,8 +12069,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12085,8 +12085,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12129,8 +12129,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12151,8 +12151,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12173,8 +12173,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12190,8 +12190,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12214,8 +12214,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12232,8 +12232,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12274,8 +12274,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12297,8 +12297,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12329,8 +12329,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": 1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -12357,8 +12357,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": 1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12378,8 +12378,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12393,8 +12393,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12418,8 +12418,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -12438,8 +12438,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12462,8 +12462,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12481,8 +12481,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12502,8 +12502,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12518,8 +12518,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12539,8 +12539,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12554,8 +12554,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12577,8 +12577,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12594,8 +12594,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12616,8 +12616,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     lodash: 4.17.21
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -12634,8 +12634,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12658,8 +12658,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12677,8 +12677,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12698,8 +12698,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12713,8 +12713,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12742,8 +12742,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12766,8 +12766,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12788,8 +12788,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12804,8 +12804,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12827,8 +12827,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12844,8 +12844,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12869,8 +12869,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12888,8 +12888,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12924,8 +12924,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12939,8 +12939,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12974,8 +12974,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -12989,8 +12989,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13035,8 +13035,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13061,8 +13061,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13091,8 +13091,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13115,8 +13115,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13160,8 +13160,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13186,8 +13186,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13240,8 +13240,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13258,8 +13258,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13279,8 +13279,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13294,8 +13294,8 @@ __metadata:
     "@twilio-paste/text": ^8.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13342,8 +13342,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13369,8 +13369,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13404,8 +13404,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13434,8 +13434,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13466,8 +13466,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13493,8 +13493,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13546,8 +13546,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13563,8 +13563,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13587,8 +13587,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13605,8 +13605,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13626,8 +13626,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13641,8 +13641,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13663,8 +13663,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13680,8 +13680,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13712,8 +13712,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13738,8 +13738,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13759,8 +13759,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13774,8 +13774,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13797,8 +13797,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13814,8 +13814,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13836,8 +13836,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13852,8 +13852,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13870,8 +13870,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     csstype: 3.0.11
     lodash: 4.17.21
     prop-types: ^15.7.2
@@ -13884,8 +13884,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13938,8 +13938,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -13964,8 +13964,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13999,8 +13999,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14014,8 +14014,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14052,8 +14052,8 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^1.0.0
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14070,8 +14070,8 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^1.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14090,8 +14090,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -14106,8 +14106,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14130,8 +14130,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14148,8 +14148,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14179,8 +14179,8 @@ __metadata:
     "@twilio-paste/design-tokens": ^9.0.1
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
     react-helmet: ^6.1.0
@@ -14191,8 +14191,8 @@ __metadata:
     "@twilio-paste/design-tokens": ^9.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
@@ -14214,8 +14214,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     date-fns: 2.21.3
     prop-types: ^15.7.2
     react: ^18.0.0
@@ -14233,8 +14233,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14263,8 +14263,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.1
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14288,8 +14288,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14344,8 +14344,8 @@ __metadata:
     "@twilio-paste/tooltip-primitive": ^1.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14365,8 +14365,8 @@ __metadata:
     "@twilio-paste/tooltip-primitive": ^1.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14388,8 +14388,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14405,8 +14405,8 @@ __metadata:
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14417,12 +14417,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
-    "@types/react": 18.0.27
-    "@types/react-dom": 18.0.10
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     react: ^18.0.0
   peerDependencies:
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
@@ -14450,8 +14450,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
     lodash: 4.17.21
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -14462,8 +14462,8 @@ __metadata:
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^9.0.0
     "@twilio-paste/types": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.0
-    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
@@ -15444,30 +15444,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.10":
-  version: 18.0.10
-  resolution: "@types/react-dom@npm:18.0.10"
-  dependencies:
-    "@types/react": "*"
-  checksum: ff8282d5005a0b1cd95fb65bf79d3d8485e4cfe2aaf052129033a178684b940014a3f4536bc20d573f8a01cf4c6f4770c74988cef7c2b5cac3041d9f172647e3
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^16.8.6 || ^17.0.2 || ^18.0.0":
-  version: 18.0.11
-  resolution: "@types/react-dom@npm:18.0.11"
-  dependencies:
-    "@types/react": "*"
-  checksum: 579691e4d5ec09688087568037c35edf8cfb1ab3e07f6c60029280733ee7b5c06d66df6fcc90786702c93ac8cb13bc7ff16c79ddfc75d082938fbaa36e1cdbf4
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^18.0.0":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
     "@types/react": "*"
   checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:^18.0.10":
+  version: 18.0.11
+  resolution: "@types/react-dom@npm:18.0.11"
+  dependencies:
+    "@types/react": "*"
+  checksum: 579691e4d5ec09688087568037c35edf8cfb1ab3e07f6c60029280733ee7b5c06d66df6fcc90786702c93ac8cb13bc7ff16c79ddfc75d082938fbaa36e1cdbf4
   languageName: node
   linkType: hard
 
@@ -15525,7 +15516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.27, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.0.27
   resolution: "@types/react@npm:18.0.27"
   dependencies:
@@ -15533,17 +15524,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 600fdbc39a92ea4a77047db3e12f05f67776a710f5918248c0189a59ac2a38900c9db5a5d2e433a16df528a3ecab1aa114b322cacea573bb1ca2fc0b094c52d1
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^16.8.6 || ^17.0.2 || ^18.0.0":
-  version: 18.0.28
-  resolution: "@types/react@npm:18.0.28"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: e752df961105e5127652460504785897ca6e77259e0da8f233f694f9e8f451cde7fa0709d4456ade0ff600c8ce909cfe29f9b08b9c247fa9b734e126ec53edd7
   languageName: node
   linkType: hard
 
@@ -15555,6 +15535,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: ed9c551a7d50d073a5fb0295c1d939536c66c3286d42b6c94c20749464492ed95a408e6d3694bf49df0012da69e22202065c8c2fac0406356972a7fcb4960dd3
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.0.27":
+  version: 18.0.28
+  resolution: "@types/react@npm:18.0.28"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: e752df961105e5127652460504785897ca6e77259e0da8f233f694f9e8f451cde7fa0709d4456ade0ff600c8ce909cfe29f9b08b9c247fa9b734e126ec53edd7
   languageName: node
   linkType: hard
 
@@ -37758,7 +37749,7 @@ fsevents@^1.2.7:
     "@types/jest": ^24.0.18
     "@types/node": ^18.11.13
     "@types/prop-types": ^15.7.5
-    "@types/react": 18.0.27
+    "@types/react": ^18.0.27
     "@types/react-color": ^3.0.6
     "@types/react-github-button": ^0.1.1
     "@types/react-helmet": ^6.1.6

@@ -43,6 +43,12 @@ export const getStaticProps = async () => {
 
 **ACTION NEEDED**: No action should be necessary. If you are still using the `__console_patch` prop with Toast and this change affects your codebase, please [reach out to us with a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
 
+- We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries. Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+**Action needed**
+
+Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
 ### Core 18.0.0
 
 - Adds [support for React 18](https://github.com/twilio-labs/paste/pull/2965). This should "just work" and remains backwards compatible. [Let us know if you have any issues](https://github.com/twilio-labs/paste/discussions).
