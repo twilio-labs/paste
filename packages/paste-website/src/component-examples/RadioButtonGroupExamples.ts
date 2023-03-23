@@ -45,9 +45,9 @@ render(<RadioButtonGroupExample />)`.trim();
 export const DisabledExample = `const RadioButtonGroupExample = () => {
   return (
     <RadioButtonGroup attached name="foo" legend="Choose a letter" helpText="Don't get it wrong!">
-      <RadioButton value="a" hasError>A</RadioButton>
-      <RadioButton value="b" hasError>B</RadioButton>
-      <RadioButton value="c" hasError disabled>C</RadioButton>
+      <RadioButton value="a">A</RadioButton>
+      <RadioButton value="b">B</RadioButton>
+      <RadioButton value="c" disabled>C</RadioButton>
     </RadioButtonGroup>
   )
 }

@@ -110,7 +110,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           id={radioId}
           ref={ref}
         />
-        <Button variant="secondary" as="span" disabled={state.disabled}>
+        <Button variant={state.hasError ? 'destructive_secondary' : 'secondary'} as="span" disabled={state.disabled}>
           {children}
         </Button>
       </Box>
