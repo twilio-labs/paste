@@ -67,7 +67,7 @@ type Data = {
   isBase64Encoded?: boolean;
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>): void {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>): Promise<void> {
   /*
    * pass in this parameter if you are developing locally
    * to ensure puppeteer picks up your machine installation of
