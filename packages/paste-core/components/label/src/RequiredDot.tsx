@@ -23,6 +23,7 @@ export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = 
       cursor="pointer"
       display="flex"
       height="sizeIcon30"
+      title={i18nLabel || 'Required'}
       element={`${element}_WRAPPER`}
     >
       <Box
