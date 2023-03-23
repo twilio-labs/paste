@@ -179,26 +179,6 @@ describe('Badge', () => {
         expect(getByRole('button')).toBeInTheDocument();
       });
 
-      it('should show an error if as is "button" but href is provided', () => {
-        expect(() =>
-          render(
-            <Badge as="button" variant="neutral" href="#">
-              test
-            </Badge>
-          )
-        ).toThrow();
-      });
-
-      it('should show an error if as is "button" and onClick is not given', () => {
-        expect(() =>
-          render(
-            <Badge as="button" variant="neutral">
-              test
-            </Badge>
-          )
-        ).toThrow();
-      });
-
       it('should render badge as button with correct styles', () => {
         render(
           <Badge as="button" onClick={() => null} variant="success">
@@ -299,26 +279,6 @@ describe('Badge', () => {
           </Badge>
         );
         expect(getByRole('link')).toBeInTheDocument();
-      });
-
-      it('should show an error if as is "a" but onClick is provided', () => {
-        expect(() =>
-          render(
-            <Badge as="a" variant="neutral" onClick={() => {}}>
-              test
-            </Badge>
-          )
-        ).toThrow();
-      });
-
-      it('should show an error if as is "a" and href is not given', () => {
-        expect(() =>
-          render(
-            <Badge as="a" variant="neutral">
-              test
-            </Badge>
-          )
-        ).toThrow();
       });
 
       it('should render badge as anchor with correct styles', () => {

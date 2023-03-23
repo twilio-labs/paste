@@ -65,14 +65,11 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
         color={
-          disabled
-            ? 'colorTextWeaker'
-            : // eslint-disable-next-line unicorn/no-nested-ternary
-            highlighted
-            ? 'colorTextLinkStronger'
+          highlighted
+            ? 'colorTextPrimary'
             : // eslint-disable-next-line unicorn/no-nested-ternary
             selected
-            ? 'colorTextLink'
+            ? 'colorTextPrimary'
             : 'colorText'
         }
         display="flex"
@@ -83,16 +80,17 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         ref={ref}
         transition="background-color 150ms ease, color 150ms ease"
         borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderDecorative10Weaker"
+        borderBottomColor="colorBorderWeaker"
         borderBottomStyle="solid"
+        opacity={disabled ? 0.3 : 1}
         _before={{
           content: `""`,
           position: 'absolute',
           top: 0,
           bottom: 0,
           left: 0,
-          borderLeftWidth: 'borderWidth30',
-          borderLeftColor: highlighted ? 'colorBorderPrimaryStronger' : 'transparent',
+          borderLeftWidth: 'borderWidth20',
+          borderLeftColor: highlighted ? 'colorBorderPrimary' : 'transparent',
           borderLeftStyle: 'solid',
         }}
         _last={{

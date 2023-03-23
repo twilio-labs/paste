@@ -8,24 +8,8 @@ import type {BadgeProps, BadgeVariants} from './types';
 import {useResizeChildIcons} from './hooks';
 import {badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
-const handlePropValidation = ({as, href, onClick}: Partial<BadgeProps>): void => {
-  if (as === 'a') {
-    if (href === null || href === undefined)
-      throw new Error('[Paste: Badge] Badge is being used as an anchor (`as="a"`). Provide an href.');
-    if (onClick != null)
-      throw new Error('[Paste: Badge] An onClick was provided. To use as a button, use `as="button"`.');
-  }
-  if (as === 'button') {
-    if (onClick === null || onClick === undefined)
-      throw new Error('[Paste: Badge] Badge is being used as an button (`as="button"`). Provide an onClick.');
-    if (href === null) throw new Error('[Paste: Badge] An href was provided. To use as an anchor, use `as="a"`.');
-  }
-};
-
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
   ({as, href, variant, children, element = 'BADGE', ...props}, ref) => {
-    handlePropValidation({as, href, ...props});
-
     const resizedChildren = useResizeChildIcons(children);
 
     let badgeStyles = badgeVariantStyles[variant];
@@ -98,4 +82,4 @@ Badge.propTypes = {
   onClick: PropTypes.func,
 };
 
-export type {BadgeProps} from './types';
+export * from './types';

@@ -18,7 +18,7 @@ export const StickyHeaderDataGrid: React.FC<React.PropsWithChildren<{element?: B
           </DataGridRow>
         </DataGridHead>
         <DataGridBody data-testid="data-grid-body" element={`${element}_BODY`}>
-          {[...new Array(50).keys()].map((rowIndex) => (
+          {[...new Array(20).keys()].map((rowIndex) => (
             <DataGridRow key={`row-${rowIndex}`} data-testid="data-grid-row" element={`${element}_ROW`}>
               <DataGridCell element={`${element}_CELL`} key="col-0" data-testid="data-grid-cell">
                 content
