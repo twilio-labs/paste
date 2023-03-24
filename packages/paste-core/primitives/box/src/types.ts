@@ -75,8 +75,6 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   accept?: string;
   as?: keyof JSX.IntrinsicElements;
   type?: string;
-  /** Typed as any because Box can literally be any HTML element */
-  ref?: any | null;
   // image props
   alt?: string;
   src?: string;

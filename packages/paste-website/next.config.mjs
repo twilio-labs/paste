@@ -29,9 +29,11 @@ const nextConfig = {
     legacyBrowsers: false,
   },
   typescript: {
+    // This is because we only build JS assets in Netlify for a quicker build time.
     ignoreBuildErrors: true,
   },
   eslint: {
+    // This is because we only build JS assets in Netlify for a quicker build time.
     ignoreDuringBuilds: true,
   },
 };

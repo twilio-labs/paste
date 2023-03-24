@@ -59,9 +59,7 @@ type HiddenCheckboxProps = Pick<
   | 'onChange'
   | 'required'
   | 'value'
-> & {
-  ref?: any | undefined;
-};
+>;
 const HiddenCheckbox = React.forwardRef<HTMLInputElement, HiddenCheckboxProps>((props, ref) => (
   <Box
     {...props}

@@ -38,7 +38,6 @@ export interface ColumnProps extends React.HTMLAttributes<any>, ColumnStyleProps
   count?: number;
   gutter?: Space;
   offset?: ColumnOffset;
-  ref?: any;
   span?: ColumnSpan;
   stretchColumnContent?: boolean;
   vertical?: ResponsiveValue<boolean>;
