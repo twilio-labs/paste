@@ -1,5 +1,73 @@
 # @twilio-paste/website
 
+## 2.23.27
+
+### Patch Changes
+
+- Updated dependencies [[`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`1e100909f`](https://github.com/twilio-labs/paste/commit/1e100909f279ddb0b52287a1ad45de97fb3b4981), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`e45d34c14`](https://github.com/twilio-labs/paste/commit/e45d34c143a4b2cd5c9905506eea1f5365417133), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`b47e13173`](https://github.com/twilio-labs/paste/commit/b47e13173161cad7ffc78b94ff4b1c776260c7db), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`bba742ebd`](https://github.com/twilio-labs/paste/commit/bba742ebd404274cbe78bf1726d2a83c7070bc02), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`dc07ca41b`](https://github.com/twilio-labs/paste/commit/dc07ca41b7ae9a3045c44210d2d25cdc9b84f0dd), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`fb0005bb2`](https://github.com/twilio-labs/paste/commit/fb0005bb2bbf06b6598dec5eee56680cac990e41)]:
+  - @twilio-paste/button@13.0.0
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/pagination@6.0.0
+  - @twilio-paste/radio-button-group@3.0.0
+  - @twilio-paste/combobox@15.0.0
+  - @twilio-paste/form-pill-group@7.0.0
+  - @twilio-paste/anchor@11.0.0
+  - @twilio-paste/design-tokens@9.0.2
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/toast@11.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/sibling-box@8.0.0
+  - @twilio-paste/text@9.0.0
+  - @twilio-paste/chat-log@4.0.0
+  - @twilio-paste/menu@13.0.0
+  - @twilio-paste/grid@7.0.0
+  - @twilio-paste/data-grid@7.0.0
+  - @twilio-paste/checkbox@12.0.0
+  - @twilio-paste/inline-control-group@12.0.0
+  - @twilio-paste/radio-group@12.0.0
+  - @twilio-paste/side-modal@3.0.0
+  - @twilio-paste/alert@13.0.0
+  - @twilio-paste/alert-dialog@8.0.0
+  - @twilio-paste/avatar@8.0.0
+  - @twilio-paste/badge@7.0.0
+  - @twilio-paste/base-radio-checkbox@12.0.0
+  - @twilio-paste/breadcrumb@10.0.0
+  - @twilio-paste/callout@3.0.0
+  - @twilio-paste/card@8.0.0
+  - @twilio-paste/date-picker@5.0.0
+  - @twilio-paste/disclosure@11.0.0
+  - @twilio-paste/display-heading@3.0.0
+  - @twilio-paste/display-pill-group@7.0.0
+  - @twilio-paste/heading@10.0.0
+  - @twilio-paste/help-text@12.0.0
+  - @twilio-paste/input@8.0.0
+  - @twilio-paste/input-box@9.0.0
+  - @twilio-paste/label@12.0.0
+  - @twilio-paste/list@7.0.0
+  - @twilio-paste/modal@15.0.0
+  - @twilio-paste/paragraph@9.0.0
+  - @twilio-paste/popover@12.0.0
+  - @twilio-paste/screen-reader-only@12.0.0
+  - @twilio-paste/select@11.0.0
+  - @twilio-paste/separator@7.0.0
+  - @twilio-paste/skeleton-loader@5.0.0
+  - @twilio-paste/spinner@13.0.0
+  - @twilio-paste/table@7.0.0
+  - @twilio-paste/tabs@7.0.0
+  - @twilio-paste/textarea@9.0.0
+  - @twilio-paste/time-picker@5.0.0
+  - @twilio-paste/tooltip@10.0.0
+  - @twilio-paste/truncate@13.0.0
+  - @twilio-paste/aspect-ratio@9.0.0
+  - @twilio-paste/flex@7.0.0
+  - @twilio-paste/media-object@9.0.0
+  - @twilio-paste/stack@7.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/data-visualization-library@4.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+  - @twilio-paste/utils@4.0.0
+
 ## 2.23.26
 
 ### Patch Changes
