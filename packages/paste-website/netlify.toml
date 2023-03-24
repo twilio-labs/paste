@@ -1,7 +1,5 @@
-[dev]
-  command = "yarn dev"
-  targetPort = 3000
-  framework = "#custom"
+[functions]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core", "@swc"]
 
 [build]
   publish = "packages/paste-website/.next/"
@@ -19,10 +17,6 @@
 
 [context.production.environment]
   NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "production"
-
-[functions]
-  directory = "functions"
-  external_node_modules = ["@sparticuz/chromium", "puppeteer-core"]
 
 # need to all add redirects to ./netlify.toml as well
 # INTRODUCTION/

@@ -262,7 +262,7 @@ export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions var
 
 interface ToggleButtonProps {
   defaultPressed?: boolean;
-  variant?: 'secondary' | 'secondary_icon';
+  variant?: 'secondary' | 'secondary_icon' | 'destructive_secondary';
   size?: 'icon' | 'circle';
   disabled?: boolean;
   icons: {
@@ -316,6 +316,7 @@ export const ToggleButtons = (): React.ReactNode => {
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
         <ToggleButton variant="secondary" size="icon" icons={boldIcons} />
+        <ToggleButton variant="destructive_secondary" size="icon" icons={boldIcons} />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton defaultPressed={true} icons={followIcons}>
@@ -326,6 +327,7 @@ export const ToggleButtons = (): React.ReactNode => {
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
         <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} />
+        <ToggleButton defaultPressed={true} variant="destructive_secondary" size="icon" icons={boldIcons} />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton icons={followIcons} disabled>
@@ -336,6 +338,7 @@ export const ToggleButtons = (): React.ReactNode => {
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
         <ToggleButton variant="secondary" size="icon" icons={boldIcons} disabled />
+        <ToggleButton variant="destructive_secondary" size="icon" icons={boldIcons} disabled />
       </Box>
       <Box display="flex" flexDirection="row" columnGap="space50">
         <ToggleButton defaultPressed={true} icons={followIcons} disabled>
@@ -346,6 +349,7 @@ export const ToggleButtons = (): React.ReactNode => {
           <ScreenReaderOnly>Pause</ScreenReaderOnly>
         </ToggleButton>
         <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} disabled />
+        <ToggleButton defaultPressed={true} variant="destructive_secondary" size="icon" icons={boldIcons} disabled />
       </Box>
     </Box>
   );

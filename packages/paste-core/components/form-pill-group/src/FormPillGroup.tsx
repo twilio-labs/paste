@@ -22,6 +22,7 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
       element={element}
       ref={ref}
       role="listbox"
+      lineHeight="lineHeight30"
       margin="space0"
       padding="space0"
       display={display}

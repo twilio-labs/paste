@@ -28,7 +28,10 @@ import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
 
-export {ToggleStyles as ButtonToggleStyles} from './styles';
+export {
+  ToggleStyles as ButtonToggleStyles,
+  DestructiveSecondaryToggleStyles as DestructiveSecondaryButtonToggleStyles,
+} from './styles';
 
 const AnimatedBox = animated(Box);
 
@@ -123,8 +126,10 @@ const handlePropValidation = ({
   }
 
   // Toggle button validaton
-  if (pressed && !(variant === 'secondary' || variant === 'secondary_icon')) {
-    throw new Error(`[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" variants.`);
+  if (pressed && !(variant === 'secondary' || variant === 'secondary_icon' || variant === 'destructive_secondary')) {
+    throw new Error(
+      `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`
+    );
   }
 };
 
