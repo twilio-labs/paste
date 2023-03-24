@@ -39,15 +39,15 @@ export const getStaticProps = async () => {
 
 ### Core 19.0.0
 
-- Removes the `__console_patch` prop from the Toast package. This was a temporary z-index fix for Twilio Console that is no longer necessary.
-
-**ACTION NEEDED**: No action should be necessary. If you are still using the `__console_patch` prop with Toast and this change affects your codebase, please [reach out to us with a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
-
 - We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries. Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
 
 **Action needed**
 
 Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+- Removes the `__console_patch` prop from the Toast package. This was a temporary z-index fix for Twilio Console that is no longer necessary.
+
+**ACTION NEEDED**: No action should be necessary. If you are still using the `__console_patch` prop with Toast and this change affects your codebase, please [reach out to us with a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
 
 ### Core 18.0.0
 
