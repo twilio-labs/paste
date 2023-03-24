@@ -1,0 +1,218 @@
+export const meta = {
+  title: 'Error state',
+  description: 'An error state notifies a user that something went wrong.',
+  slug: '/patterns/error-state/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
+import {Text} from '@twilio-paste/text';
+import {useUID} from '@twilio-paste/uid-library';
+import {Callout, CalloutText} from '@twilio-paste/callout';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {
+  AwaitingDataImage,
+  ChangeRegionImage,
+  CreateObjectImage,
+  GenericDependencyImage,
+  NoPermissionsImage,
+  NoResultImage,
+} from '../../../components/images/EmptyStateImages';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Empty state');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Usage
+
+### General
+
+Use an error state after a problem occurs. For example, a user tried to submit a form with required fields missing; a failed connection terminates a user action.
+
+To proactively call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example, telling a user an action might increase their bill; telling a user they’re about to hit a limit; telling a user a selection has notable limitations; telling a user an action could result in lost data.
+
+### Composition
+
+When developing an error message:
+
+<UnorderedList>
+  <ListItem>
+    <strong>Tell the user what happened, why it happened, and how to fix it (if they can).</strong>
+    <UnorderedList marginBottom="space0">
+      <ListItem>If you’re tight on space, prioritize what happened and how to fix it.</ListItem>
+      <ListItem>If you have extra room, explain what happens if the error isn’t fixed.</ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    <strong>Be as specific as possible.</strong> Develop a tailored error message for each possible cause.
+  </ListItem>
+  <ListItem>
+    <strong>Use plain, human-readable language.</strong> Prioritize active voice, but consider passive voice when the
+    emphasis should be on the outcome and not who/what caused the outcome.
+  </ListItem>
+  <ListItem>
+    <strong>Avoid blaming the user.</strong> Focus on what the user needs to do to move forward, not what they did not
+    do.
+  </ListItem>
+  <ListItem>
+    <strong>Avoid certain words.</strong> The language we use during an undesirable experience matters. Avoid the
+    following language:
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        <strong>Technical jargon.</strong> Don’t introduce terms your users may not understand.
+      </ListItem>
+      <ListItem>
+        <strong>Negative or alarmist words</strong> like: forbidden, illegal, prohibited, valid/invalid.
+      </ListItem>
+      <ListItem>
+        <strong>“Please.”</strong> It makes the action sound optional.
+      </ListItem>
+      <ListItem>
+        <strong>“Sorry.”</strong> Overusing it makes it lose its meaning. Reserve this for situations where something
+        highly detrimental has happened, like lost data.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    <strong>Place the error message as close to the source of the error as possible.</strong>
+  </ListItem>
+</UnorderedList>
+
+### Accessibility
+
+When possible, use an icon and color to indicate an error. When using only an icon or color, ensure the content clearly indicates something went wrong.
+
+## Recommended phrasings and templates
+
+### Generic errors
+
+TODO: table 1
+
+### Network errors
+
+TODO: table 2
+
+### Validation errors
+
+TODO: table 3
+
+### Access errors
+
+TODO: table 4
+
+### Settings errors
+
+TODO: table 5
+
+### Actions errors
+
+TODO: table 6
+
+Work with engineers to try to avoid an endless “try again” loop. Explore whether you can offer a series of things to check if the user hits a particular error several times in a row.
+
+## Variations
+
+### Error codes
+
+Include error codes only when the user can use it to troubleshoot by themselves or by giving the code to customer support. Ensure there is either public documentation or support team documentation that maps error codes to specific resolution instructions before including error codes.
+
+Place error codes at the end of the message inside parentheses.
+
+### Empty states
+
+An empty state can also be an error state when content does not appear. Error empty states are different from empty states resulting from a lack of data to show. Error empty states can result from problems like a system issue or access issue. If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
+
+## Specific component guidance
+
+### When to use which component
+
+<strong>Alert</strong>
+<UnorderedList>
+  <ListItem>
+    Alerts communicate a critical issue at the system level, like site-wide service disruptions, active incidents, or
+    expired billing information.
+  </ListItem>
+  <ListItem>Alert error messages do not result from a user action.</ListItem>
+</UnorderedList>
+
+<strong>Callout</strong>
+<UnorderedList>
+  <ListItem>
+    Callouts communicate:
+    <UnorderedList marginBottom="space0">
+      <ListItem>An error specific to a particular section of a page, or that applies to a whole page.</ListItem>
+      <ListItem>
+        An error summary of multiple errors on the page. When used for form validation, still include the inline error
+        messages.
+      </ListItem>
+      <ListItem>
+        Use Callouts for situations like operation failures with multiple pieces of information, or a form submission
+        missing many required fields.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>Callout error messages can result from a user action, but don’t have to.</ListItem>
+</UnorderedList>
+
+<strong>Toast</strong>
+<UnorderedList>
+  <ListItem>
+    Toasts communicate brief, easily comprehended error messages that are not the user’s fault, like a failed
+    connection.
+  </ListItem>
+  <ListItem>Toast error messages usually result from a user action.</ListItem>
+  <ListItem>Toast error messages should never automatically disappear.</ListItem>
+</UnorderedList>
+
+<strong>Help Text:</strong>
+<UnorderedList>
+  <ListItem>Help Text communicates contextual errors, like field validation.</ListItem>
+  <ListItem>Help Text can result from a user action, but don’t have to.</ListItem>
+</UnorderedList>
+
+### Components with additional error guidance
+
+<UnorderedList>
+  <ListItem>TODO: linked list</ListItem>
+</UnorderedList>
+
+## Examples
+
+TODO: table 7
+
+</content>
+
+</contentwrapper>
