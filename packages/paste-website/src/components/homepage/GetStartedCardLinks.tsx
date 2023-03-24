@@ -4,7 +4,6 @@ import {Grid, Column} from '@twilio-paste/grid';
 
 interface GetStartedCardLinksProps {
   children: NonNullable<React.ReactNode>;
-  ref?: any;
   vertical: GridProps['vertical'];
 }
 export const GetStartedCardLinks = React.forwardRef<HTMLDivElement, GetStartedCardLinksProps>(

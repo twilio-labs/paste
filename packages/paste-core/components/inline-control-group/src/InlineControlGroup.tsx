@@ -14,7 +14,6 @@ export interface InlineControlGroupProps
   helpText?: string | React.ReactNode;
   legend: string | NonNullable<React.ReactNode>;
   orientation?: 'vertical' | 'horizontal';
-  ref?: any;
   required?: boolean;
   i18nRequiredLabel?: string;
 }

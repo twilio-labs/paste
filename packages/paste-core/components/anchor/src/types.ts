@@ -12,7 +12,6 @@ export interface AnchorProps
     Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   href: string;
-  ref?: any;
   rel?: string;
   showExternal?: boolean;
   tabIndex?: AnchorTabIndexes;

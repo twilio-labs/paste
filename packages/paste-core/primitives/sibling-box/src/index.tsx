@@ -85,29 +85,35 @@ const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
   }
 );
 
-const SiblingBox: React.FC<React.PropsWithChildren<SiblingBoxProps>> = ({
-  'aria-hidden': ariaHidden = 'true',
-  alignItems = 'center',
-  display = 'inline-flex',
-  element = 'SIBLING_BOX',
-  flexShrink = 0,
-  justifyContent = 'center',
-  transition = 'all 120ms',
-  ...props
-}) => {
-  return (
-    <StyledSiblingBox
-      alignItems={alignItems}
-      aria-hidden={ariaHidden}
-      display={display}
-      element={element}
-      flexShrink={flexShrink}
-      justifyContent={justifyContent}
-      transition={transition}
-      {...props}
-    />
-  );
-};
+const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<SiblingBoxProps>>(
+  (
+    {
+      'aria-hidden': ariaHidden = 'true',
+      alignItems = 'center',
+      display = 'inline-flex',
+      element = 'SIBLING_BOX',
+      flexShrink = 0,
+      justifyContent = 'center',
+      transition = 'all 120ms',
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <StyledSiblingBox
+        alignItems={alignItems}
+        aria-hidden={ariaHidden}
+        display={display}
+        element={element}
+        flexShrink={flexShrink}
+        justifyContent={justifyContent}
+        ref={ref}
+        transition={transition}
+        {...props}
+      />
+    );
+  }
+);
 
 SiblingBox.displayName = 'SiblingBox';
 
