@@ -25,9 +25,7 @@ export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>
 type HiddenSwitchProps = Pick<
   SwitchProps,
   'checked' | 'defaultChecked' | 'element' | 'disabled' | 'id' | 'name' | 'onChange' | 'required' | 'value'
-> & {
-  ref?: any | undefined;
-};
+>;
 const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>((props, ref) => (
   <Box
     {...props}

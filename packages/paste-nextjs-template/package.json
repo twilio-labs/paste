@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/nextjs-template",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,8 +10,8 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@twilio-paste/core": "^18.0.0",
-    "@twilio-paste/icons": "^10.0.0",
+    "@twilio-paste/core": "^19.0.0",
+    "@twilio-paste/icons": "^11.0.0",
     "next": "^13.1.6",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",

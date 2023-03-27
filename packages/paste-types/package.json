@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/types",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Shared typescript typings for Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -22,14 +22,14 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
-  "dependencies": {
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10"
-  },
   "peerDependencies": {
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "react": "^18.0.0"
   }
 }

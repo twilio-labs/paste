@@ -44,13 +44,11 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
 
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
-  ref?: any;
   left?: Left;
 }
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
-  ref?: any;
   left?: Left;
 }
 

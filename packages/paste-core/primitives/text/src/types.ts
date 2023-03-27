@@ -32,8 +32,6 @@ export interface TextStyleProps extends TextBaseStyleProps, TextPseudoStyleProps
 export interface TextElementProps extends Omit<React.HTMLAttributes<HTMLElement>, 'color'> {
   as: keyof JSX.IntrinsicElements;
   href?: string;
-  /** Typed as any because Text can literally be any HTML element */
-  ref?: any | null;
   rel?: string;
   target?: string;
   dateTime?: string;
