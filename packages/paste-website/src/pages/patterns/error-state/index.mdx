@@ -12,7 +12,6 @@ import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Toast} from '@twilio-paste/toast';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -67,48 +66,22 @@ To proactively call a user’s attention to information that can help them avoid
 
 When developing an error message:
 
-<UnorderedList>
-  <ListItem>
-    <strong>Tell the user what happened, why it happened, and how to fix it (if they can).</strong>
-    <UnorderedList marginBottom="space0">
-      <ListItem>If you’re tight on space, prioritize what happened and how to fix it.</ListItem>
-      <ListItem>If you have extra room, explain what happens if the error isn’t fixed.</ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    <strong>Be as specific as possible.</strong> Develop a tailored error message for each possible cause.
-  </ListItem>
-  <ListItem>
-    <strong>Use plain, human-readable language.</strong> Prioritize active voice, but consider passive voice when the
-    emphasis should be on the outcome and not who/what caused the outcome.
-  </ListItem>
-  <ListItem>
-    <strong>Avoid blaming the user.</strong> Focus on what the user needs to do to move forward, not what they did not
-    do.
-  </ListItem>
-  <ListItem>
-    <strong>Avoid certain words.</strong> The language we use during an undesirable experience matters. Avoid the
-    following language:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        <strong>Technical jargon.</strong> Don’t introduce terms your users may not understand.
-      </ListItem>
-      <ListItem>
-        <strong>Negative or alarmist words</strong> like: forbidden, illegal, prohibited, valid/invalid.
-      </ListItem>
-      <ListItem>
-        <strong>“Please.”</strong> It makes the action sound optional.
-      </ListItem>
-      <ListItem>
-        <strong>“Sorry.”</strong> Overusing it makes it lose its meaning. Reserve this for situations where something
-        highly detrimental has happened, like lost data.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    <strong>Place the error message as close to the source of the error as possible.</strong>
-  </ListItem>
-</UnorderedList>
+- **Tell the user what happened, why it happened, and how to fix it (if they can).**
+  - If you’re tight on space, prioritize what happened and how to fix it.
+  - If you have extra room, explain what happens if the error isn’t fixed.
+- **Be as specific as possible.** Develop a tailored error message for each possible cause.
+- **Use plain, human-readable language.** Prioritize active voice, but consider passive voice when the
+  emphasis should be on the outcome and not who/what caused the outcome.
+- **Avoid blaming the user.** Focus on what the user needs to do to move forward, not what they did not
+  do.
+- **Avoid certain words.** The language we use during an undesirable experience matters. Avoid the
+  following language:
+  - **Technical jargon.** Don’t introduce terms your users may not understand.
+  - **Negative or alarmist words** like: forbidden, illegal, prohibited, valid/invalid.
+  - **“Please.”** It makes the action sound optional.
+  - **“Sorry.”** Overusing it makes it lose its meaning. Reserve this for situations where something
+    highly detrimental has happened, like lost data.
+- **Place the error message as close to the source of the error as possible.**
 
 ### Accessibility
 
@@ -366,108 +339,54 @@ An empty state is also an error state when content fails to load. Error empty st
 
 ### When to use which component
 
-<strong>Alert</strong>
-<UnorderedList>
-  <ListItem>
-    Alerts communicate a critical issue at the system level, like site-wide service disruptions, active incidents, or
-    expired billing information.
-  </ListItem>
-  <ListItem>Alert error messages do not result from a user action.</ListItem>
-</UnorderedList>
+**Alert**
 
-<strong>Callout</strong>
-<UnorderedList>
-  <ListItem>
-    Callouts communicate:
-    <UnorderedList marginBottom="space0">
-      <ListItem>An error specific to a particular section of a page, or that applies to a whole page.</ListItem>
-      <ListItem>
-        An error summary of multiple errors on the page. When used for form validation, still include the inline error
-        messages.
-      </ListItem>
-      <ListItem>
-        Use Callouts for situations like operation failures with multiple pieces of information, or a form submission
-        missing many required fields.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>Callout error messages can result from a user action, but don’t have to.</ListItem>
-</UnorderedList>
+- Alerts communicate a critical issue at the system level, like site-wide service disruptions, active incidents, or
+  expired billing information.
+- Alert error messages do not result from a user action.
 
-<strong>Toast</strong>
-<UnorderedList>
-  <ListItem>
-    Toasts communicate brief, easily comprehended error messages that are not the user’s fault, like a failed
-    connection.
-  </ListItem>
-  <ListItem>Toast error messages usually result from a user action.</ListItem>
-  <ListItem>Toast error messages should never automatically disappear.</ListItem>
-</UnorderedList>
+**Callout**
 
-<strong>Help Text:</strong>
-<UnorderedList>
-  <ListItem>Help Text communicates contextual errors, like field validation.</ListItem>
-  <ListItem>Help Text can result from a user action, but doesn’t have to.</ListItem>
-</UnorderedList>
+- Callouts communicate:
+  - An error specific to a particular section of a page, or that applies to a whole page.
+  - An error summary of multiple errors on the page. When used for form validation, still include the inline error
+    messages.
+  - Use Callouts for situations like operation failures with multiple pieces of information, or a form submission
+    missing many required fields.
+- Callout error messages can result from a user action, but don’t have to.
+
+**Toast**
+
+- Toasts communicate brief, easily comprehended error messages that are not the user’s fault, like a failed
+  connection.
+- Toast error messages usually result from a user action.
+- Toast error messages should never automatically disappear.
+
+**Help Text**
+
+- Help Text communicates contextual errors, like field validation.
+- Help Text can result from a user action, but doesn’t have to.
 
 ### Components with additional error guidance
 
-<UnorderedList>
-  <ListItem>
-    <Anchor href="/components/alert">Alert</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/badge">Badge</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/combobox">Combobox - Single</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/multiselect-combobox">Combobox - Multi</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/date-picker">Date picker</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/disclosure">Disclosure</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/file-picker">File picker</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/file-uploader">File uploader</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/form">Form</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/form-pill-group">Form pill group</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/help-text">Help text</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/input">Input</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/radio-button-group">Radio button group</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/radio-group">Radio group</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/select">Select</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/textarea">Textarea</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/time-picker">Time picker</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/toast">Toast</Anchor>
-  </ListItem>
-</UnorderedList>
+- [Alert](/components/alert)
+- [Badge](/components/badge)
+- [Combobox - Single](/components/combobox)
+- [Combobox - Multi](/components/multiselect-combobox)
+- [Date picker](/components/date-picker)
+- [Disclosure](/components/disclosure)
+- [File picker](/components/file-picker)
+- [File uploader](/components/file-uploader)
+- [Form](/components/form)
+- [Form pill group](/components/form-pill-group)
+- [Help text](/components/help-text)
+- [Input](/components/input)
+- [Radio button group](/components/radio-button-group)
+- [Radio group](/components/radio-group)
+- [Select](/components/select)
+- [Textarea](/components/textarea)
+- [Time picker](/components/time-picker)
+- [Toast](/components/toast)
 
 ## Examples
 
@@ -475,14 +394,14 @@ An empty state is also an error state when content fails to load. Error empty st
   <Do title="Do" body="Focus on what the user can do to fix the issue." center>
     <Box padding="space30">
       <Label htmlFor="do1">Phone number</Label>
-      <Input id="do1" />
+      <Input id="do1" type="number" />
       <HelpText variant="error">Enter a phone number.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Avoid phrasing error messages in a way that blames the user." center>
     <Box padding="space30">
       <Label htmlFor="dont1">Phone number</Label>
-      <Input id="dont1" />
+      <Input id="dont1" type="number" />
       <HelpText variant="error">You did not enter a phone number.</HelpText>
     </Box>
   </Dont>
@@ -509,7 +428,7 @@ An empty state is also an error state when content fails to load. Error empty st
   <Do title="Do" body="Use individual error messages for different validations." center>
     <Box padding="space50">
       <Label htmlFor="do2">Password</Label>
-      <Input id="do2" />
+      <Input id="do2" type="password" />
       <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
       <HelpText variant="error">Your password cannot have spaces.</HelpText>
     </Box>
@@ -517,7 +436,7 @@ An empty state is also an error state when content fails to load. Error empty st
   <Dont title="Don't" body="Don’t combine possible error causes if we can validate against each one." center>
     <Box padding="space50">
       <Label htmlFor="dont2">Password</Label>
-      <Input id="dont2" />
+      <Input id="dont2" type="password" />
       <HelpText variant="error">
         Your password might be too long, too short, have spaces, or lack a number or special character.
       </HelpText>
@@ -533,7 +452,7 @@ An empty state is also an error state when content fails to load. Error empty st
   >
     <Box padding="space50">
       <Label htmlFor="do3">Password</Label>
-      <Input id="do3" />
+      <Input id="do3" type="password" />
       <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
       <HelpText variant="error">Your password cannot include special characters.</HelpText>
     </Box>
@@ -545,10 +464,10 @@ An empty state is also an error state when content fails to load. Error empty st
   >
     <Box padding="space50">
       <Label htmlFor="dont3">Password</Label>
-      <Input id="dont3" defaultValue="· · · · · · ·" />
+      <Input id="dont3" type="password" defaultValue="· · · · · · ·" />
       <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
       <Label htmlFor="dont3">Password</Label>
-      <Input id="dont3" defaultValue="· · · · · · · ·" />
+      <Input id="dont3" type="password" defaultValue="· · · · · · · ·" />
       <HelpText variant="error">Your password cannot include special characters.</HelpText>
     </Box>
   </Dont>
@@ -558,14 +477,14 @@ An empty state is also an error state when content fails to load. Error empty st
   <Do title="Do" body="Use plain language to explain what went wrong." center>
     <Box padding="space50">
       <Label htmlFor="do4">Password</Label>
-      <Input id="do4" />
+      <Input id="do4" type="password" />
       <HelpText variant="error">Name cannot contain special characters. Use only letters and numbers.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don’t use scary or negative words." center>
     <Box padding="space50">
       <Label htmlFor="dont4">Password</Label>
-      <Input id="dont4" />
+      <Input id="dont4" type="password" />
       <HelpText variant="error">Name is invalid. You entered an illegal character.</HelpText>
     </Box>
   </Dont>
