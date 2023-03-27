@@ -51,9 +51,17 @@ export const getStaticProps = async () => {
 
 ### General
 
-Use an error state after a problem occurs. For example, a user tried to submit a form with required fields missing; a failed connection terminates a user action.
+Use an error state after a problem occurs. For example:
 
-To proactively call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example, telling a user an action might increase their bill; telling a user they’re about to hit a limit; telling a user a selection has notable limitations; telling a user an action could result in lost data.
+- A user tried to submit a form with required fields missing.
+- A failed connection terminates a user action.
+
+To proactively call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example:
+
+- Telling a user an action might increase their bill.
+- Telling a user they’re about to hit a limit.
+- Telling a user a selection has notable limitations.
+- Telling a user an action could result in lost data.
 
 ### Composition
 
@@ -158,7 +166,7 @@ When possible, use an icon and color to indicate an error. When using only an ic
     <Tr verticalAlign="top">
       <Td>Another service is down</Td>
       <Td>[Service] could not be reached. Check [website] for more information.</Td>
-      <Td>If there is a status page you can link to, like https://status.twilio.com/, do so.</Td>
+      <Td>Link to a status page if available. For example, https://status.twilio.com/.</Td>
     </Tr>
   </TBody>
 </Table>
@@ -352,7 +360,7 @@ Place error codes at the end of the message inside parentheses.
 
 ### Empty states
 
-An empty state can also be an error state when content does not appear. Error empty states are different from empty states resulting from a lack of data to show. Error empty states can result from problems like a system issue or access issue. If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
+An empty state is also an error state when content fails to load. Error empty states can result from problems like a system issue or access issue. Error empty states are different from empty states that result from a lack of data to show. If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
 
 ## Specific component guidance
 
@@ -399,7 +407,7 @@ An empty state can also be an error state when content does not appear. Error em
 <strong>Help Text:</strong>
 <UnorderedList>
   <ListItem>Help Text communicates contextual errors, like field validation.</ListItem>
-  <ListItem>Help Text can result from a user action, but don’t have to.</ListItem>
+  <ListItem>Help Text can result from a user action, but doesn’t have to.</ListItem>
 </UnorderedList>
 
 ### Components with additional error guidance
