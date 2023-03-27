@@ -11,7 +11,7 @@ export interface RequiredDotProps {
 
 export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = ({
   element = 'REQUIRED_DOT',
-  i18nLabel = '',
+  i18nLabel = 'Required',
   ...props
 }) => {
   return (
@@ -23,7 +23,7 @@ export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = 
       cursor="pointer"
       display="flex"
       height="sizeIcon30"
-      title={i18nLabel || 'Required'}
+      title={i18nLabel}
       element={`${element}_WRAPPER`}
     >
       <Box
