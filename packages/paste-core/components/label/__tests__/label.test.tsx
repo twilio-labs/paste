@@ -75,10 +75,10 @@ describe('Customization', () => {
 });
 
 describe('RequiredDot', () => {
-  it('should not have text by default', () => {
+  it('should have text "Required" by default', () => {
     render(<RequiredDot data-testid="test-dot" />);
     const dot = screen.getByTestId('test-dot');
-    expect(dot?.textContent).toEqual('');
+    expect(dot?.textContent).toEqual('Required');
   });
 
   it('should use i18nLabel prop for the dot text', () => {
