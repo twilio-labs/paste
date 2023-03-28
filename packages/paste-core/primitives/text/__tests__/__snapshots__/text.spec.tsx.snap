@@ -4,8 +4,8 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -142,8 +142,8 @@ exports[`as should render as a provided HTML element 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -176,8 +176,8 @@ exports[`color should set a color property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -210,8 +210,8 @@ exports[`color should set a responsive color property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -250,8 +250,8 @@ exports[`display should set a display property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -285,8 +285,8 @@ exports[`display should set a responsive display property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -326,8 +326,8 @@ exports[`fontFamily should set a font family property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -361,8 +361,8 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -402,8 +402,8 @@ exports[`fontSize should set a font size property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -436,8 +436,8 @@ exports[`fontSize should set a responsive font size property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -476,8 +476,8 @@ exports[`fontStyle should set a font style property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -511,8 +511,8 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -552,8 +552,8 @@ exports[`fontWeight should set a font weight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -587,8 +587,8 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -628,8 +628,8 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -663,8 +663,8 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -704,8 +704,8 @@ exports[`lineHeight should set a line height property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -738,8 +738,8 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -778,8 +778,8 @@ exports[`margin should set a margin property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -812,8 +812,8 @@ exports[`margin should set a responsive margin property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -852,8 +852,8 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -887,8 +887,8 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -928,8 +928,8 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -963,8 +963,8 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1004,8 +1004,8 @@ exports[`marginRight should set a marginRight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1039,8 +1039,8 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1080,8 +1080,8 @@ exports[`marginTop should set a marginTop property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1115,8 +1115,8 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1156,8 +1156,8 @@ exports[`padding should set a padding property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1190,8 +1190,8 @@ exports[`padding should set a responsive padding property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1230,8 +1230,8 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1265,8 +1265,8 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1306,8 +1306,8 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1341,8 +1341,8 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1382,8 +1382,8 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1417,8 +1417,8 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1458,8 +1458,8 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1493,8 +1493,8 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1534,8 +1534,8 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1575,8 +1575,8 @@ exports[`textAlign should set a textAlign property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1610,8 +1610,8 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -1653,8 +1653,8 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
-  -webkit-print-color-scheme: colorScheme;
-  color-scheme: colorScheme;
+  -webkit-print-color-scheme: light;
+  color-scheme: light;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
