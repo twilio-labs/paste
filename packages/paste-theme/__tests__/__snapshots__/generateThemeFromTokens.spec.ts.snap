@@ -16,6 +16,9 @@ Object {
     "1px",
     "1px",
   ],
+  "colorSchemes": Object {
+    "colorScheme": "dark",
+  },
   "dataVisualization": Object {
     "colorDataVisualization1": "red",
     "colorDataVisualization2": "blue",

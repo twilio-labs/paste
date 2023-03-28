@@ -4,6 +4,8 @@ exports[`Separator Render should set horizontal margins 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
+  -webkit-print-color-scheme: colorScheme;
+  color-scheme: colorScheme;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -39,6 +41,8 @@ exports[`Separator Render should set responsive horizontal margins 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
+  -webkit-print-color-scheme: colorScheme;
+  color-scheme: colorScheme;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -88,6 +92,8 @@ exports[`Separator Render should set responsive vertical margins 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
+  -webkit-print-color-scheme: colorScheme;
+  color-scheme: colorScheme;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;
@@ -137,6 +143,8 @@ exports[`Separator Render should set vertical margins 1`] = `
 <DocumentFragment>
   .emotion-0 {
   color: rgb(18, 28, 45);
+  -webkit-print-color-scheme: colorScheme;
+  color-scheme: colorScheme;
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.25rem;

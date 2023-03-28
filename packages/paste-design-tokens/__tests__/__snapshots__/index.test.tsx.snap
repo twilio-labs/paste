@@ -388,7 +388,8 @@ exports[`Design Tokens matches the Dark theme 1`] = `
   \\"z-index-40\\": \\"40\\",
   \\"z-index-30\\": \\"30\\",
   \\"z-index-20\\": \\"20\\",
-  \\"z-index-10\\": \\"10\\"
+  \\"z-index-10\\": \\"10\\",
+  \\"color-scheme\\": \\"dark\\"
 }"
 `;
 
@@ -780,7 +781,8 @@ exports[`Design Tokens matches the Global theme 1`] = `
   \\"z-index-40\\": \\"40\\",
   \\"z-index-30\\": \\"30\\",
   \\"z-index-20\\": \\"20\\",
-  \\"z-index-10\\": \\"10\\"
+  \\"z-index-10\\": \\"10\\",
+  \\"color-scheme\\": \\"light\\"
 }"
 `;
 
@@ -1172,7 +1174,8 @@ exports[`Design Tokens matches the Sendgrid theme 1`] = `
   \\"z-index-40\\": \\"40\\",
   \\"z-index-30\\": \\"30\\",
   \\"z-index-20\\": \\"20\\",
-  \\"z-index-10\\": \\"10\\"
+  \\"z-index-10\\": \\"10\\",
+  \\"color-scheme\\": \\"light\\"
 }"
 `;
 
@@ -1564,7 +1567,8 @@ exports[`Design Tokens matches the Twilio Dark theme 1`] = `
   \\"z-index-40\\": \\"40\\",
   \\"z-index-30\\": \\"30\\",
   \\"z-index-20\\": \\"20\\",
-  \\"z-index-10\\": \\"10\\"
+  \\"z-index-10\\": \\"10\\",
+  \\"color-scheme\\": \\"dark\\"
 }"
 `;
 
@@ -1956,6 +1960,7 @@ exports[`Design Tokens matches the Twilio theme 1`] = `
   \\"z-index-40\\": \\"40\\",
   \\"z-index-30\\": \\"30\\",
   \\"z-index-20\\": \\"20\\",
-  \\"z-index-10\\": \\"10\\"
+  \\"z-index-10\\": \\"10\\",
+  \\"color-scheme\\": \\"light\\"
 }"
 `;
