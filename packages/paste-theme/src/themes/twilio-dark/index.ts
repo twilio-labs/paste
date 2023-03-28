@@ -14,6 +14,7 @@ import {
   zIndices,
   dataVisualization,
   colors,
+  colorSchemes,
 } from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.es6';
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
@@ -34,4 +35,5 @@ export const TwilioDarkTheme = generateThemeFromTokens({
   zIndices,
   dataVisualization,
   colors,
+  colorSchemes,
 });

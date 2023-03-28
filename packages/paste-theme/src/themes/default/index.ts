@@ -14,6 +14,7 @@ import {
   zIndices,
   dataVisualization,
   colors,
+  colorSchemes,
 } from '@twilio-paste/design-tokens';
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
@@ -34,4 +35,5 @@ export const DefaultTheme = generateThemeFromTokens({
   zIndices,
   dataVisualization,
   colors,
+  colorSchemes,
 });

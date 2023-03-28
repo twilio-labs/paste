@@ -6,6 +6,7 @@ interface GenerateTokensFromTheme {
   backgroundColors: GenericThemeShape['backgroundColors'];
   borderColors: GenericThemeShape['borderColors'];
   borderWidths: GenericThemeShape['borderWidths'];
+  colorSchemes: GenericThemeShape['colorSchemes'];
   radii: GenericThemeShape['radii'];
   fonts: GenericThemeShape['fonts'];
   fontSizes: GenericThemeShape['fontSizes'];
@@ -24,6 +25,7 @@ export const generateTokensFromTheme = ({
   backgroundColors,
   borderColors,
   borderWidths,
+  colorSchemes,
   radii,
   fonts,
   fontSizes,
@@ -50,6 +52,7 @@ export const generateTokensFromTheme = ({
     sizings: sizes,
     spacings: space,
     zIndices,
+    colorSchemes,
     // The `colors` bucket currently holds tokens, but we do not expose them
     colors: {},
     dataVisualization,

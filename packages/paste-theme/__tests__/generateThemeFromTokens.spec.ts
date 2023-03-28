@@ -71,6 +71,9 @@ describe('generateThemeFromTokens', () => {
           colorDataVisualization2: 'blue',
           colorDataVisualization3: 'green',
         },
+        colorSchemes: {
+          colorScheme: 'dark',
+        },
       })
     ).toMatchSnapshot();
   });

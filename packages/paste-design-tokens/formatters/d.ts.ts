@@ -5,7 +5,7 @@ import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTemplate';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
-import {isNumeric} from './utils';
+import {isNumeric} from '../utils/isNumeric';
 
 export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
   `export declare const ${camelCase(name)} = "${value}";`;

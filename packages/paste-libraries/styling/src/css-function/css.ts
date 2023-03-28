@@ -130,6 +130,7 @@ const scales = {
   // svg
   fill: 'fillColors',
   stroke: 'strokeColors',
+  colorScheme: 'colorSchemes',
 };
 
 const positiveOrNegative = (scale: any, value: any): string | number => {
