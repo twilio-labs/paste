@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/text",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "category": "typography",
   "status": "production",
   "description": "The Text component is a primitive of the system and can output any supported text style provided by our design tokens. Coupled with Box, it underpins most of our components.",
@@ -30,12 +30,14 @@
   "peerDependencies": {
     "@twilio-paste/animation-library": "^1.0.0",
     "@twilio-paste/color-contrast-utils": "^4.0.0",
-    "@twilio-paste/customization": "^6.0.0",
+    "@twilio-paste/customization": "^7.0.0",
     "@twilio-paste/design-tokens": "^9.0.0",
-    "@twilio-paste/style-props": "^7.0.0",
+    "@twilio-paste/style-props": "^8.0.0",
     "@twilio-paste/styling-library": "^2.0.0",
-    "@twilio-paste/theme": "^9.0.0",
-    "@twilio-paste/types": "^4.0.0",
+    "@twilio-paste/theme": "^10.0.0",
+    "@twilio-paste/types": "^5.0.0",
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
     "prop-types": "^15.7.2",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
@@ -43,14 +45,17 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^1.0.0",
     "@twilio-paste/color-contrast-utils": "^4.0.0",
-    "@twilio-paste/customization": "^6.0.0",
-    "@twilio-paste/design-tokens": "^9.0.0",
-    "@twilio-paste/style-props": "^7.0.0",
+    "@twilio-paste/customization": "^7.0.0",
+    "@twilio-paste/design-tokens": "^9.0.2",
+    "@twilio-paste/style-props": "^8.0.0",
     "@twilio-paste/styling-library": "^2.0.0",
-    "@twilio-paste/theme": "^9.0.0",
-    "@twilio-paste/types": "^4.0.0",
+    "@twilio-paste/theme": "^10.0.0",
+    "@twilio-paste/types": "^5.0.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "typescript": "^4.9.4"
   }
 }

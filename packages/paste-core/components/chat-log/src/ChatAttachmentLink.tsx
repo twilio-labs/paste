@@ -12,7 +12,7 @@ export interface ChatAttachmentLinkProps extends AnchorProps {
   element?: BoxElementProps['element'];
 }
 
-const ChatAttachmentLink = React.forwardRef<HTMLElement, ChatAttachmentLinkProps>(
+const ChatAttachmentLink = React.forwardRef<HTMLAnchorElement, ChatAttachmentLinkProps>(
   ({children, href, element = 'CHAT_ATTACHMENT_LINK', ...props}, ref) => {
     const variant = React.useContext(MessageVariantContext);
     return (
