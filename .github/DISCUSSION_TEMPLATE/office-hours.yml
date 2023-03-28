@@ -7,6 +7,13 @@ body:
     validations:
       required: true
   - type: "textarea"
+    id: "feedback"
+    attributes:
+      label: "Feedback"
+      description: "What feedback are you hoping to get? What specific questions do you have? Examples:  - How do I make sure the way I've used this icon is clear to all users? - I've tried a few different ways of making my CTA prominent. Are there any concerns with how I've used the components on any of these explorations? - See my comments in the mockup for DSYS questions."
+    validations:
+      required: true
+  - type: "textarea"
     id: "stage"
     attributes:
       label: "Stage of design"
