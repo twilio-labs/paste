@@ -4,6 +4,7 @@ import type {
   BackgroundColorsKeys,
   BorderColorsKeys,
   BorderWidthsKeys,
+  ColorSchemeKeys,
   DataVisualizationKeys,
   FontSizesKeys,
   FontWeightsKeys,
@@ -33,6 +34,7 @@ interface GenerateThemeFromTokensArgs {
   textColors: Partial<{[key in TextColorsKeys]: any}>;
   zIndices: Partial<{[key in ZIndicesKeys]: any}>;
   colors: Partial<{[key in ColorsKeys]: any}>;
+  colorSchemes: Partial<{[key in ColorSchemeKeys]: any}>;
   dataVisualization: Partial<{[key in DataVisualizationKeys]: any}>;
 }
 
@@ -40,6 +42,8 @@ export const generateThemeFromTokens = ({
   backgroundColors,
   borderColors,
   borderWidths,
+  dataVisualization,
+  colorSchemes,
   radii,
   fonts,
   fontSizes,
@@ -50,7 +54,6 @@ export const generateThemeFromTokens = ({
   spacings,
   textColors,
   zIndices,
-  dataVisualization,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
@@ -61,6 +64,7 @@ export const generateThemeFromTokens = ({
     radii,
     breakpoints,
     textColors,
+    colorSchemes,
     borderColors,
     backgroundColors,
     fonts,

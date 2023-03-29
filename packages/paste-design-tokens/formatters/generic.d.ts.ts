@@ -2,11 +2,13 @@ import type {ImmutableStyleMap} from 'theo';
 
 import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
-import {isNumeric, pluralCategoryMap} from './utils';
+import {isNumeric} from '../utils/isNumeric';
 import {tweakTokens} from './generic';
+import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
+
 const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
   return `"${categoryName}": [
     ${props
@@ -24,57 +26,15 @@ const categoryTemplate = (categoryName: string, props: DesignToken[]): string =>
 ]`;
 };
 
-const getPluralCatName = (name: string): string => {
-  const pluralName = pluralCategoryMap.get(name);
-  if (pluralName === undefined) {
-    throw new Error(
-      "[@twilio-paste/design-tokens formatGroupTokensWithTemplate]: This category doesn't have a plural equivelant, please add one"
-    );
-  }
-  return pluralName;
-};
-
-export const formatGroupTokensWithTemplate = (
-  tokens: ImmutableStyleMap,
-  categories: any, // @TODO fix.
-  template: (cat: string, props: DesignToken[], isLast?: boolean) => string
-): string => {
-  const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-  let count = 0;
-
-  return categories
-    .map((cat: string): string | null => {
-      count += 1;
-      let catProps = tokens
-        .get('props')
-        .sort((a, b) => {
-          if (cat === 'font-weight') {
-            return collator.compare(a.get('value') as string, b.get('value') as string);
-          }
-          return collator.compare(a.get('name') as string, b.get('name') as string);
-        })
-        .filter((prop) => prop !== undefined && cat === prop.get('category'))
-        .toJS();
-
-      /*
-       * Filter out deprecated tokens in exported file
-       * Add alt values
-       * Remove originalValue
-       */
-      catProps = tweakTokens(catProps);
-
-      if (typeof cat === 'string') {
-        return template(getPluralCatName(cat), catProps, count === categories.size);
-      }
-      return null;
-    })
-    .join(',\n');
-};
-
 export const genericDTsTemplate = (result: ImmutableStyleMap): string => {
   const categories = getTokenCategories(result);
 
-  const groupedTokens = `{\n"tokens":{${formatGroupTokensWithTemplate(result, categories, categoryTemplate)}}\n}`;
+  const groupedTokens = `{\n"tokens":{${formatGroupTokensWithTemplate(
+    result,
+    categories,
+    categoryTemplate,
+    tweakTokens
+  )}}\n}`;
 
   return `declare const Tokens: ${groupedTokens}\nexport default Tokens;`;
 };

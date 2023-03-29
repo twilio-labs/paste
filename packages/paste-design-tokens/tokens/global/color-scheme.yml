@@ -1,0 +1,6 @@
+global:
+  type: string
+  category: color-scheme
+props:
+  color-scheme:
+    value: light

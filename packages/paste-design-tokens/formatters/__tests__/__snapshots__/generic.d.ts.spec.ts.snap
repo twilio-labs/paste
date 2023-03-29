@@ -171,7 +171,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"color_background_warning_light\\";
    altValue: \\"#F9B147\\";
 }
-],
+]
 \\"colors\\": [
     {
    type: \\"color\\";
@@ -277,7 +277,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"color_gray_10\\";
    altValue: null;
 }
-],
+]
 \\"font-sizes\\": [
     {
    category: \\"font-size\\";
@@ -359,7 +359,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"font_size_9\\";
    altValue: \\"36px\\";
 }
-],
+]
 \\"spacings\\": [
     {
    category: \\"spacing\\";
@@ -473,7 +473,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"space_15\\";
    altValue: \\"64px\\";
 }
-],
+]
 \\"text-colors\\": [
     {
    type: \\"color\\";
@@ -659,7 +659,7 @@ exports[`generic declaration file formatter should return typescript definitions
    name: \\"color_text_weak\\";
    altValue: \\"#E6E6E6\\";
 }
-],
+]
 \\"z-indices\\": [
     {
    type: \\"z-index\\";

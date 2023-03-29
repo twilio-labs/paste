@@ -1,3 +1,4 @@
+// These plurals should map to the default styled system theme keys where possible
 export const pluralCategoryMap = new Map(
   Object.entries({
     'background-color': 'background-colors',
@@ -10,6 +11,7 @@ export const pluralCategoryMap = new Map(
     'data-visualization': 'data-visualization',
     'drop-shadow': 'drop-shadows',
     color: 'colors',
+    'color-scheme': 'color-schemes',
     font: 'fonts',
     'font-family': 'font-families',
     'font-size': 'font-sizes',
@@ -31,8 +33,12 @@ export const pluralCategoryMap = new Map(
   })
 );
 
-export const isNumeric = (value: string): boolean => {
-  // To check if a string is a number, we check if it isn't a number
-  // eslint-disable-next-line no-restricted-globals,unicorn/prefer-number-properties
-  return !isNaN(value as unknown as number);
+export const getPluralCatName = (name: string): string => {
+  const pluralName = pluralCategoryMap.get(name);
+  if (pluralName === undefined) {
+    throw new Error(
+      `[@twilio-paste/design-tokens]: This category ${name} doesn't have a plural equivelant, please add one`
+    );
+  }
+  return pluralName;
 };

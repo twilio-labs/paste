@@ -1,0 +1,5 @@
+global:
+  type: string
+  category: color-scheme
+imports:
+  - ../../../global/color-scheme.yml
