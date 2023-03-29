@@ -139,7 +139,6 @@ Text length should be kept short.
 ### Accessibility
 
 - Ensure that Badge text is clear enough to understand immediately without having to rely on color to communicate meaning.
-  For example, an error badge should say “Token missing” rather than just “Token”, so the error is communicated via the Badge label.
 - For Status Badges, the inclusion of an icon is recommended to further reinforce the meaning.
 
 ## Examples
@@ -190,6 +189,10 @@ impending error. When using the Warning Badge, it is recommended that you includ
 
 Use the Error Badge to highlight attributes of an object that the user must be made aware of because they are considered
 to be in a bad or broken state and should be addressed. When using the Error Badge, it is recommended that you include an Error icon.
+
+Do not use an Error Badge unless there is additional guidance elsewhere on the page that explains to the user how to fix the broken state.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -337,6 +340,8 @@ of the Popover docs to add a Popover to a Badge.
 ## Composition Notes
 
 Use a Badge when you want to add a label to a piece of UI for quick identification and navigation.
+
+Badge labels should be 1 to 3 words, or numbers.
 
 ### Use cases
 
@@ -545,6 +550,25 @@ Use a Badge when you want to add a label to a piece of UI for quick identificati
       <Badge variant="success" as="span">
         Success
         <SuccessIcon title="success" size="sizeIcon10" />
+      </Badge>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Ensure badge text communicates the problem.">
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="error" as="span">
+        <ErrorIcon title="error" size="sizeIcon10" />
+        Token missing
+      </Badge>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t rely just on color to communicate meaning.">
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="error" as="span">
+        <ErrorIcon title="error" size="sizeIcon10" />
+        Token
       </Badge>
     </Box>
   </Dont>

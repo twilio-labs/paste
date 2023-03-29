@@ -290,15 +290,19 @@ Use validation and [error messaging](/components/form#errors) to indicate when a
 
 Validate form fields on form submission. Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
 #### Errors
 
-Use inline error messaging to inform users when they cannot continue completing a form, then provide guidance on next steps and ways to remedy the situation.
+Use [Help Text](/components/help-text) to show inline error messaging that informs users that they cannot continue. Provide guidance on next steps and how to remedy the situation.
 
-To provide further clarity, doubling on the use of [Callouts](/components/callout) and inline error messages helps users quickly notice, find, and remedy errors. If there are multiple errors, summarize them in a logical order (e.g. for forms that are missing several required fields from the user). Callouts should be placed below the Form title or section title, if applicable, and above the form elements.
+If there are multiple errors, use Help Text to show inline error messages and a [Callout to show an error summary](/components/callout#callout-with-a-list). Place the Callout below the form title or section title, if applicable, and above the form elements.
 
 If your form lives within a Modal or Side Modal and has a form action to submit or save the information, we suggest closing the modal on submit, then display a Toast that indicates the action was successful or experienced a system error.
+
+Error messaging for required fields should explain how to resolve the error and not reiterate that the field is required. The required field indicator is sufficient. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+Ideally, Help Text should have enough information to help users prevent errors. If Help Text is already on a form field, change it to variant=“error” and add error copy before the original help text copy.
 
 <LivePreview
   scope={{
@@ -503,6 +507,18 @@ Use a Form when users are expected to enter more than a single form component to
     preview={false}
     body="Don’t implement a full-width form for every design, especially within a page. Long line lengths, with characters
     greater than 80 characters per line, are difficult to read."
+  />
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    preview={false}
+    body="Error text should explain how to resolve the error. For example, 'Add a valid zip code.'"
+  />
+  <Dont
+    title="Don't"
+    preview={false}
+    body="Don’t blame the user for the error, such as: 'You did not add a valid zip code.' Don’t focus on whether a field is required within error text, such as: 'Adding a valid zip code is required.'"
   />
 </DoDont>
 

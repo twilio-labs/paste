@@ -151,14 +151,15 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 ### Error
 
-Use an error alert to help a user understand a critical issue at the system level. Provide a way to resolve the issue in the alert.
+Use an error alert to help a user understand a critical issue at the system level, like site-wide service disruptions, active incidents, or expired billing information. Alerts should not appear in response to user action or inputs.
 
-Be cautious about using an error alert because they can be stressful for a user to see. In most cases, error alerts should be assigned `role="alert"`.
+When possible, Pprovide a way to resolve the issue in the alert.
 
-There's a good chance you need to use an error alert if both these conditions are met:
+In most cases, error alerts should be assigned `role="alert"`.
 
-- The system-level issue is preventing the user from continuing a flow.
-- The user must take an action to resolve the issue.
+For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error alerts.
 
@@ -200,9 +201,35 @@ For an `error` variant, for example, set the `i18nErrorLabel` prop.
 </Alert>`}
 </LivePreview>
 
+## Alert vs. Callout vs. Toast vs. Help Text
+
+Alert
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+Callout
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+Toast
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+Help Text
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
+
 ## Composition Notes
 
-Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
+Keep alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
 
 <Blockquote
   name="Matthew Butterick"
@@ -215,8 +242,9 @@ Keep alert text brief by placing only the highest priority information in an ale
 
 Compose an alert with:
 
-- **A title (optional).** Bold this text at the beginning of the alert. This should be the most scannable text in the alert.
-- **Body text.** Use the default text style. Provide specificity on the issue and a resolution if applicable via an [anchor](/components/anchor). Be cautious about using a button in an alert since it may compete with other buttons on the screen and should be used only to trigger an action. If you must use a button, use a [small button](/components/button/#small-button).
+- **A title (optional).** Bold the text at the beginning of the alert. The title should be concise and convey the essence of the issue..
+- **Body text.** Use the default text style. Do not repeat information contained in a title. Explain what happened, and if something is wrong, how to fix it. If the resolution requires going to a different page, include an [anchor](/components/anchor). Use buttons sparingly, since they may compete with other buttons on the screen. Only use a small button if it will trigger an action.
+- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
 
 ### When to Use an Alert
 

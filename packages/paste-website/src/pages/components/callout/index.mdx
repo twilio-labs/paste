@@ -58,7 +58,7 @@ export const getStaticProps = async () => {
 
 ### About Callout
 
-Use a Callout to highlight important, static information in a page of text. Callouts should not be used to provide feedback to a user or alert them to a change in the system. If the information is not static, use a [Toast](/components/toast) or [Alert](/components/alert) instead.
+Use a Callout to highlight important information on a page or in a page section. Callouts can result from user action, but don’t have to. Do not use a Callouts to tell users about a system-level issue; use an [Alert](/components/alert) instead. Do not use a Callout to convey brief, low-complexity information; use a [Toast](/components/toast) instead. For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
 
 ### Accessibility
 
@@ -66,42 +66,75 @@ We recommend Callouts have a CalloutHeading so that the information is easier to
 
 ## Examples
 
-### Callout variants
-
 There are five variants of Callouts: `neutral`, `success`, `warning`, `error`, and `new`. Each variant includes an icon.
 
-Callouts are for important, static information on the page. If it is not static, use a [Toast](/components/toast) or [Alert](/components/alert) instead.
+Each variant includes an icon. To internationalize the icon label for a variant, simply pass the `i18nLabel` prop.
 
-To internationalize the icon label for a variant, simply pass the `i18nLabel` prop.
+### Neutral Callout
 
-<LivePreview scope={{Stack, Callout, CalloutHeading, CalloutText}} language="jsx">
-  {`<Stack orientation='vertical' spacing='space70'>
+Use a neutral Callout to communicate relevant information to the page or flow. The information is often static.
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`
   <Callout variant='neutral'>
     <CalloutHeading>Neutral Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
+  </Callout>`}
+</LivePreview>
+
+### Success Callout
+
+Use a success Callout to communicate that the desired outcome was achieved. A success callout can be appropriate when the outcome is relevant to a particular part of the page, or when additional information or context needs to be provided.
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`
   <Callout variant='success'>
     <CalloutHeading>Success Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
+  </Callout>`}
+</LivePreview>
+
+### Warning Callout
+
+Use a warning Callout to help users avoid an undesirable outcome, or inform users of unexpected behaviors or outcomes.
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`
   <Callout variant='warning'>
     <CalloutHeading>Warning Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
+  </Callout>`}
+</LivePreview>
+
+### Error Callout
+
+Use an error Callout to communicate errors for a particular section of a page, or that applies to the whole page. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`
   <Callout variant='error'>
     <CalloutHeading>Error Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
+  </Callout>`}
+</LivePreview>
+
+### New Callout
+
+Use a new Callout to spotlight a recent addition or update.
+
+<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+  {`
   <Callout variant='new'>
     <CalloutHeading>New Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
-</Stack>`}
+  </Callout>`}
 </LivePreview>
 
 ### Callout with a list
 
-Callouts can have lists of information within them. Use the `CalloutList` and `CalloutListItem` components to make sure the text is the appropriate color for the variant.
+Callouts can have lists of information within them, and are useful for providing error summaries when there are many errors on the page. When creating an error summary, still include inline error messaging using the Help Text component for each field.
+
+Use the `CalloutList` and `CalloutListItem` components to make sure the text is the appropriate color for the variant.
 
 <LivePreview scope={{Callout, CalloutHeading, CalloutList, CalloutListItem}} language="jsx">
   {`<Callout variant='warning'>
@@ -134,6 +167,40 @@ Callouts can be inline with text, so use the `marginY` prop to add a vertical ma
   </Paragraph>
 </>`}
 </LivePreview>
+
+### Composition notes
+
+Compose a Callout with:
+
+- **A title (option).** The title should be concise and convey the essense of the issue.
+- **Body text.** Use the default text style. Do not repeat information contained in a title. If the user needs to take action on another page, or more information would be helpful, include an [Anchor](/components/anchor).
+- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
+
+## Alert vs. Callout vs. Toast vs. Help Text
+
+Alert
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+Callout
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+Toast
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+Help Text
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
 
 ## Usage Guide
 

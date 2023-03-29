@@ -198,9 +198,9 @@ By default, the textarea is not resizable. To change this, add the prop `resize=
 
 ### Textarea with inline error
 
-Change a form field to its error state and add an inline error if the value entered doesn't pass validation requirements.
+Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+The Help Text inline error is placed below the field to inform a user of any errors in their value. The error text should replace and repeat the help text.
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
@@ -285,20 +285,11 @@ Validate form fields on form submission.
 
 Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
-
-Ideally, help text should have enough information to help users prevent errors. If you need to show an error and`HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
-
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for textarea errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+Use Help Text to show an inline error that to explains how to fix the error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 ### Optional compositional elements
 

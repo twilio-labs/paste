@@ -297,7 +297,7 @@ const FormExample = () => {
       </Heading>
       <Callout variant="error">
         <CalloutHeading as="h4">
-          Please fix the issues with these fields
+          These fields are missing values:
         </CalloutHeading>
         <CalloutList as="ul">
           <CalloutListItem>Street address</CalloutListItem>
@@ -317,7 +317,7 @@ const FormExample = () => {
           aria-describedby={seed('street-address-error')}
         />
         <HelpText variant="error" id={seed('street-address-error')}>
-          Please add a valid street address.
+          Enter a street address.
         </HelpText>
       </FormControl>
       <FormControlTwoColumn>
@@ -337,7 +337,7 @@ const FormExample = () => {
           </Label>
           <Input id={seed('zip')} aria-describedby={seed('zip-error')} type="text" hasError required />
           <HelpText variant="error" id={seed('zip-error')}>
-            Please add a valid zip code.
+            Enter a zip code.
           </HelpText>
         </FormControl>
       </FormControlTwoColumn>
@@ -354,7 +354,7 @@ const FormExample = () => {
           value="email@xyz.yxz"
         />
         <HelpText variant="error" id={seed('email-error')}>
-          Please add a valid email address.
+          Enter an email address.
         </HelpText>
       </FormControl>
       <FormActions>

@@ -71,7 +71,7 @@ export const getStaticProps = async () => {
 
 Help Text is placed below a form field to help users prevent an error and describe what makes the form field successful. It’s also used in compact UI situations to communicate feedback on specific page elements, like in a <Anchor href="/components/chat-log">Chat Log</Anchor>.
 
-If you’re highlighting important information, especially if it’s unrelated to an interactive element or a user action, consider using a <Anchor href="/components/callout">Callout</Anchor> or <Anchor href="/components/alert">Alert</Anchor> instead.
+If you’re highlighting important information, especially if it’s unrelated to an interactive element or a user action, consider using a <Anchor href="/components/callout">Callout</Anchor> or <Anchor href="/components/alert">Alert</Anchor> instead. For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
 
 ### Accessibility
 
@@ -152,12 +152,7 @@ Give users enough information in Help Text to prevent input and formatting error
 
 An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy. If only rendering error text, be sure to include the appropriate attributes on the form element and the Help Text.
 
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -198,6 +193,32 @@ Success Help Text should be used to:
   <HelpText id="email_success_help_text" variant="success">Valid work email address.</HelpText>
 </>`}
 </LivePreview>
+
+## Alert vs. Callout vs. Toast vs. Help Text
+
+Alert
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+Callout
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+Toast
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+Help Text
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
 
 ## When to use Help Text
 
