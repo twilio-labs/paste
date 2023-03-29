@@ -12,10 +12,11 @@ const StyledSideModal = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...p
   <Box
     {...safelySpreadBoxProps(props)}
     ref={ref}
-    style={{...style, position: 'fixed'}}
+    style={style}
     boxShadow="shadow"
     width="size80"
     zIndex="zIndex80"
+    position="fixed"
     top="0 !important"
     left="auto !important"
     right="0 !important"
@@ -53,37 +54,39 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
     const dialog = React.useContext(SideModalContext);
     const transitions = useTransition(dialog.visible, getAnimationStates());
 
-    return (
-      <div>
-        {transitions(
-          (styles, item) =>
-            item && (
-              <NonModalDialogPrimitive
-                {...dialog}
-                {...safelySpreadBoxProps(props)}
-                as={AnimatedStyledSideModal}
-                element={`${element}_CONTAINER`}
-                ref={ref}
-                preventBodyScroll={false}
-                hideOnClickOutside={false}
-                style={styles}
+    /*
+     * The portal from Reakit closes/cleans up before the animation can handle the unmount.
+     * To enable an unmount animation we need to hardcode `visible={true}` on NonModalDialogPrimitive
+     * so that react-spring can manage cleanup. That said, I think it looks better to close instantly.
+     */
+    return transitions((styles, item) => {
+      return (
+        item && (
+          <NonModalDialogPrimitive
+            {...dialog}
+            {...safelySpreadBoxProps(props)}
+            as={AnimatedStyledSideModal}
+            element={`${element}_CONTAINER`}
+            ref={ref}
+            preventBodyScroll={false}
+            hideOnClickOutside={false}
+            style={styles}
+          >
+            <StyledBase>
+              <Box
+                element={element}
+                display="grid"
+                gridTemplateRows="auto 1fr auto"
+                height="100vh"
+                backgroundColor="colorBackgroundBody"
               >
-                <StyledBase>
-                  <Box
-                    element={element}
-                    display="grid"
-                    gridTemplateRows="auto 1fr auto"
-                    height="100vh"
-                    backgroundColor="colorBackgroundBody"
-                  >
-                    {children}
-                  </Box>
-                </StyledBase>
-              </NonModalDialogPrimitive>
-            )
-        )}
-      </div>
-    );
+                {children}
+              </Box>
+            </StyledBase>
+          </NonModalDialogPrimitive>
+        )
+      );
+    });
   }
 );
 
