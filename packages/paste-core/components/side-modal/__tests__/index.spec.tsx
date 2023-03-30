@@ -35,17 +35,16 @@ describe('SideModal', () => {
       );
 
       const dialogButton = screen.getByRole('button', {name: 'Button'});
-      const dialog = screen.getByRole('dialog', {hidden: true});
-
       expect(dialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
-      expect(dialogButton.getAttribute('aria-controls')).toEqual(dialog.id);
       expect(dialogButton.getAttribute('aria-expanded')).toEqual('false');
 
-      expect(dialog).not.toBeVisible();
       await waitFor(() => {
         fireEvent.click(dialogButton);
       });
-      expect(dialog).toBeVisible();
+
+      const dialog = screen.getByRole('dialog', {hidden: true});
+      expect(dialogButton.getAttribute('aria-controls')).toEqual(dialog.id);
+      expect(dialog).toBeInTheDocument();
     });
 
     it('should render a dialog and toggle visible and minimized with external buttons', async () => {
@@ -53,13 +52,13 @@ describe('SideModal', () => {
 
       const showButton = screen.getByRole('button', {name: 'Open dialog'});
       const closeButton = screen.getByRole('button', {name: 'Close dialog'});
-      const dialog = screen.getByRole('dialog', {hidden: true});
 
-      expect(dialog).not.toBeVisible();
       await waitFor(() => {
         fireEvent.click(showButton);
       });
-      expect(dialog).toBeVisible();
+
+      const dialog = screen.getByRole('dialog', {hidden: true});
+      expect(dialog).toBeInTheDocument();
 
       await waitFor(() => {
         fireEvent.click(closeButton);
@@ -74,13 +73,20 @@ describe('SideModal', () => {
         <SideModalContainer>
           <SideModalButton variant="primary">Button</SideModalButton>
           <SideModal aria-label="My custom dialog">
-            <SideModalHeader>
+            <SideModalHeader data-testid="dialog-header">
               <SideModalHeading>My custom dialog</SideModalHeading>
             </SideModalHeader>
             <SideModalBody>This is a dialog.</SideModalBody>
           </SideModal>
         </SideModalContainer>
       );
+
+      const dialogButton = screen.getByRole('button', {name: 'Button'});
+      await waitFor(() => {
+        fireEvent.click(dialogButton);
+      });
+
+      expect(screen.getByRole('dialog', {hidden: true})).toBeInTheDocument();
 
       const dismissButton = screen.getByRole('button', {name: 'close', hidden: true});
       expect(dismissButton).toBeDefined();
