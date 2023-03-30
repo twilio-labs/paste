@@ -97,7 +97,7 @@ const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) =
 );
 
 describe('Customization', () => {
-  it('should have default element data attributes', () => {
+  it('should have default element data attributes', async () => {
     render(
       <SideModalContainer>
         <SideModalButton variant="primary">Button</SideModalButton>
@@ -115,7 +115,11 @@ describe('Customization', () => {
       </SideModalContainer>
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
+    const showButton = screen.getByRole('button', {name: 'Button'});
+    await waitFor(() => {
+      fireEvent.click(showButton);
+    });
+
     const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
     const dialog = screen.getByRole('dialog', {hidden: true});
     const dialogContents = screen.getByTestId('dialog-contents');
@@ -124,7 +128,7 @@ describe('Customization', () => {
     const dialogFooter = screen.getByTestId('dialog-footer');
     const dialogFooterActions = screen.getByTestId('dialog-footer-actions');
 
-    expect(dialogButton.dataset.pasteElement).toEqual('SIDE_MODAL_BUTTON');
+    expect(showButton.dataset.pasteElement).toEqual('SIDE_MODAL_BUTTON');
     expect(closeButton.dataset.pasteElement).toEqual('SIDE_MODAL_HEADER_CLOSE_BUTTON');
     expect(dialogContents.dataset.pasteElement).toEqual('SIDE_MODAL_BODY');
     expect(dialogHeader.dataset.pasteElement).toEqual('SIDE_MODAL_HEADER');
@@ -155,10 +159,9 @@ describe('Customization', () => {
       {wrapper: CustomizationWrapper}
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
-
+    const showButton = screen.getByRole('button', {name: 'Button'});
     await waitFor(() => {
-      fireEvent.click(dialogButton);
+      fireEvent.click(showButton);
     });
     const closeButton = screen.getByRole('button', {name: 'close'});
     const closeIcon = closeButton.querySelector('[data-paste-element="SIDE_MODAL_HEADER_CLOSE_ICON"]');
@@ -169,7 +172,7 @@ describe('Customization', () => {
     const dialogFooter = screen.getByTestId('dialog-footer');
     const dialogFooterActions = screen.getByTestId('dialog-footer-actions');
 
-    expect(dialogButton).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+    expect(showButton).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
     expect(dialogHeader).toHaveStyleRule('padding', '1.75rem');
     expect(dialogHeading).toHaveStyleRule('font-size', '1.25rem');
     expect(dialogContents).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
@@ -184,7 +187,7 @@ describe('Customization', () => {
     expect(dialogFooterActions).toHaveStyleRule('justify-content', 'flex-start');
   });
 
-  it('should set custom element data attributes', () => {
+  it('should set custom element data attributes', async () => {
     render(
       <SideModalContainer>
         <SideModalButton variant="primary" element="FOO_DIALOG_BUTTON">
@@ -206,7 +209,11 @@ describe('Customization', () => {
       </SideModalContainer>
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
+    const showButton = screen.getByRole('button', {name: 'Button'});
+    await waitFor(() => {
+      fireEvent.click(showButton);
+    });
+
     const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
     const dialog = screen.getByRole('dialog', {hidden: true});
     const dialogContents = screen.getByTestId('dialog-contents');
@@ -215,7 +222,7 @@ describe('Customization', () => {
     const dialogFooter = screen.getByTestId('dialog-footer');
     const dialogFooterActions = screen.getByTestId('dialog-footer-actions');
 
-    expect(dialogButton.dataset.pasteElement).toEqual('FOO_DIALOG_BUTTON');
+    expect(showButton.dataset.pasteElement).toEqual('FOO_DIALOG_BUTTON');
     expect(closeButton.dataset.pasteElement).toEqual('FOO_DIALOG_HEADER_CLOSE_BUTTON');
     expect(dialogContents.dataset.pasteElement).toEqual('FOO_DIALOG_BODY');
     expect(dialogHeader.dataset.pasteElement).toEqual('FOO_DIALOG_HEADER');
