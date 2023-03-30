@@ -356,17 +356,13 @@ Keep toast text brief, scannable, and specific to the current user action. Only 
 
 Compose a Toast with:
 
-- **A title (optional)**. Bold the text at the beginning of the Toast. The title should be concise and convey the essence of the issue.
+- **Title (optional)**. Bold the text at the beginning of the Toast. The title should be concise and convey the essence of the issue.
 - **Body text**. Use the default text style. Do not repeat information contained in a title.
 - **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
 
 If the user needs to take action on another page, or more information would be helpful to them, use an [Anchor](/components/anchor). Be cautious about using a button in a toast since it should be used only to trigger an action. If you must use a button, use a [small secondary button](/components/button#small-button).
 
-## When to use a Toast
-
-Do not show more than 3 toasts at a time. If more than 3 could appear at a time, show only one toast that summarizes the information.
-
-## Alert vs. Callout vs. Toast vs. Help Text
+### Alert vs. Callout vs. Toast vs. Help Text
 
 Alert
 
@@ -391,6 +387,10 @@ Help Text
 
 - Help Text communicates contextual responses.
 - Help Text can result from a user action, but don’t have to.
+
+## When to use a Toast
+
+Do not show more than 3 toasts at a time. If more than 3 could appear at a time, show only one toast that summarizes the information.
 
 <DoDont>
   <Do
@@ -418,15 +418,6 @@ Help Text
   />
   <Dont title="Don't" body="Don't use toasts to communicate dynamically changing content, including progress bars. Use a non-modal dialog, modal, or show the changing content on the underlying page instead." preview={false} />
 
-</DoDont>
-
-<DoDont>
-  <Do
-    title="Do"
-    body="Allow toasts to persist on a page until a user closes them, especially if the toast has a link or button. Success toasts are an exception. Add an automatic time-out to a success toast if the only thing it does is confirm that the action was completed."
-    preview={false}
-  />
-  <Dont title="Don't" body="Don't add an automatic time-out to a toast if it has a link or button." preview={false} />
 </DoDont>
 
 ## Usage Guide

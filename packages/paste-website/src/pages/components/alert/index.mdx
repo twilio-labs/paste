@@ -153,7 +153,7 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 Use an error alert to help a user understand a critical issue at the system level, like site-wide service disruptions, active incidents, or expired billing information. Alerts should not appear in response to user action or inputs.
 
-When possible, Pprovide a way to resolve the issue in the alert.
+When possible, provide a way to resolve the issue in the alert.
 
 In most cases, error alerts should be assigned `role="alert"`.
 
@@ -201,7 +201,26 @@ For an `error` variant, for example, set the `i18nErrorLabel` prop.
 </Alert>`}
 </LivePreview>
 
-## Alert vs. Callout vs. Toast vs. Help Text
+## Composition Notes
+
+Keep alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
+
+<Blockquote
+  name="Matthew Butterick"
+  source="Butterick's Practical Typography"
+  sourceUrl="https://practicaltypography.com/responsive-web-design.html"
+>
+  Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that
+  text elements stay within this range.
+</Blockquote>
+
+Compose an alert with:
+
+- **Title (optional).** Bold the text at the beginning of the alert. The title should be concise and convey the essence of the issue..
+- **Body text.** Use the default text style. Do not repeat information contained in a title. Explain what happened, and if something is wrong, how to fix it. If the resolution requires going to a different page, include an [anchor](/components/anchor). Use buttons sparingly, since they may compete with other buttons on the screen. Only use a small button if it will trigger an action.
+- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
+
+### Alert vs. Callout vs. Toast vs. Help Text
 
 Alert
 
@@ -227,30 +246,13 @@ Help Text
 - Help Text communicates contextual responses.
 - Help Text can result from a user action, but don’t have to.
 
-## Composition Notes
-
-Keep alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
-
-<Blockquote
-  name="Matthew Butterick"
-  source="Butterick's Practical Typography"
-  sourceUrl="https://practicaltypography.com/responsive-web-design.html"
->
-  Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that
-  text elements stay within this range.
-</Blockquote>
-
-Compose an alert with:
-
-- **A title (optional).** Bold the text at the beginning of the alert. The title should be concise and convey the essence of the issue..
-- **Body text.** Use the default text style. Do not repeat information contained in a title. Explain what happened, and if something is wrong, how to fix it. If the resolution requires going to a different page, include an [anchor](/components/anchor). Use buttons sparingly, since they may compete with other buttons on the screen. Only use a small button if it will trigger an action.
-- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
-
-### When to Use an Alert
+## Placement and behavior
 
 Place an alert where it makes the most contextual sense. Don't cover other UI elements with an alert.
 
 In general, the persistence and behavior on scroll of an alert should match the element it's scoped to. For example, if an alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the alert should similarly be sticky and persist across several pages. However, don't persist the alert across too many pages in a user session since it may lose its interruptive intent.
+
+### Do & Don't
 
 <DoDont>
   <Do

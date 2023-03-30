@@ -30,8 +30,8 @@ export const ErrorExample = `const RadioButtonGroupExample = () => {
       attached
       name="foo"
       legend="What is your preferred programming language?"
-      errorText="Select a programming language"
-      helpText="Select the language with which you are most familiar"
+      errorText="Select a programming language."
+      helpText="Select the language with which you are most familiar."
     >
       <RadioButton value="js" hasError>JavaScript</RadioButton>
       <RadioButton value="py" hasError>Python</RadioButton>
