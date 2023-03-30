@@ -5,6 +5,7 @@ export const meta = {
 };
 
 import {Anchor} from '@twilio-paste/anchor';
+import {Alert} from '@twilio-paste/alert';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Label} from '@twilio-paste/label';
@@ -339,13 +340,23 @@ An empty state is also an error state when content fails to load. Error empty st
 
 ### When to use which component
 
-**Alert**
+**[Alert](/components/alert)**
+
+<Alert variant="error">
+  <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew
+  your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
+</Alert>
 
 - Alerts communicate a critical issue at the system level, like site-wide service disruptions, active incidents, or
   expired billing information.
 - Alert error messages do not result from a user action.
 
-**Callout**
+**[Callout](/components/callout)**
+
+<Callout variant="error">
+  <CalloutHeading as="h4">Missing information</CalloutHeading>
+  <CalloutText>Enter values for all required fields.</CalloutText>
+</Callout>
 
 - Callouts communicate:
   - An error specific to a particular section of a page, or that applies to a whole page.
@@ -355,14 +366,22 @@ An empty state is also an error state when content fails to load. Error empty st
     missing many required fields.
 - Callout error messages can result from a user action, but don’t have to.
 
-**Toast**
+**[Toast](/components/toast)**
+
+<Toast onDismiss={() => alert('dismissed')} variant="error">
+  There was an error when deleting the profile. Please try again.
+</Toast>
 
 - Toasts communicate brief, easily comprehended error messages that are not the user’s fault, like a failed
   connection.
 - Toast error messages usually result from a user action.
 - Toast error messages should never automatically disappear.
 
-**Help Text**
+**[Help Text](/components/help-text)**
+
+<HelpText id="email_error_help_text" variant="error">
+  Enter a valid email. Use your work email address.
+</HelpText>
 
 - Help Text communicates contextual errors, like field validation.
 - Help Text can result from a user action, but doesn’t have to.
@@ -388,7 +407,7 @@ An empty state is also an error state when content fails to load. Error empty st
 - [Time picker](/components/time-picker)
 - [Toast](/components/toast)
 
-## Examples
+## Do & Don't
 
 <DoDont>
   <Do title="Do" body="Focus on what the user can do to fix the issue." center>
