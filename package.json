@@ -50,7 +50,6 @@
     "start:nextjs-template": "yarn workspace @twilio-paste/nextjs-template dev",
     "start:contrast-checking": "concurrently \"yarn:start:tokens\" \"yarn:start:token-contrast-checker\"",
     "prebuild": "ts-node ./tools/build/pre-build.ts && yarn packages:check",
-    "build:affected": "yarn prebuild && yarn nx affected --parallel --target=build --exclude @twilio-paste/website @twilio-paste/theme-designer @twilio-paste/nextjs-template @twilio-paste/token-contrast-checker",
     "build": "yarn prebuild && yarn nx affected --parallel --target=build --exclude @twilio-paste/website @twilio-paste/theme-designer @twilio-paste/nextjs-template @twilio-paste/token-contrast-checker",
     "build:js": "yarn prebuild && yarn nx affected --parallel --target=build:js --exclude @twilio-paste/website @twilio-paste/theme-designer",
     "build:core": "yarn nx run @twilio-paste/core:build",
