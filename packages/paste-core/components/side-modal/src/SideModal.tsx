@@ -37,9 +37,9 @@ const getAnimationStates = (): any => ({
   leave: {opacity: 0, transform: `translateX(100%)`},
   // https://www.react-spring.io/docs/hooks/api
   config: {
-    mass: 0.5,
-    tension: 370,
-    friction: 26,
+    mass: 0.3,
+    tension: 288,
+    friction: 15,
   },
 });
 
