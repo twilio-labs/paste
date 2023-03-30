@@ -44,6 +44,8 @@ module.exports = {
     '^@testing-library/real-react$': require.resolve('@testing-library/react'),
     // helper method to handle the changes in the react-dom api for react 18
     '^testing-tools/react-dom-create-root$': '<rootDir>/tools/test/react-dom-create-root.ts',
+    // jest can't find lerna for the codemod tests, so we need to tell it where to look
+    '^lerna$': require.resolve('lerna'),
   },
   transformIgnorePatterns: ['node_modules/'],
   transform: {

@@ -224,7 +224,7 @@ Paste is a monorepo. It means most of the packages and projects Paste distribute
 
 For example, our Button depends on our Box package. Box depends on Theme, and Theme depends on Design Tokens. If you make a change to Design Tokens, it’s easier to observe and manage the side effects that it will have on dependent packages, if all packages are managed under a single repo.
 
-We use [Lerna](https://lerna.js.org/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to link all the internal dependencies together whilst working locally.
+We use [Nx](https://nx.dev/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to link all the internal dependencies together whilst working locally.
 
 All packages and projects that rely on the latest version of components, live under the packages directory.
 

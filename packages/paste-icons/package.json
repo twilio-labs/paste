@@ -17,7 +17,6 @@
     "build": "yarn clean && NODE_ENV=production node build.js && tsc && yarn list-icons && yarn postbuild",
     "postbuild": "cp -R ./types/* ./cjs && cp -R ./types/* ./esm",
     "build:js": "NODE_ENV=development node build.js && yarn list-icons",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",
     "list-icons": "ts-node ./tools/cli.ts list-icons",

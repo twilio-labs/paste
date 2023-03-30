@@ -135,7 +135,7 @@ export const decorators = [
         return (
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
             <GlobalStyles />
-            <Stack orientation="vertical">
+            <Stack orientation="vertical" spacing="space0">
               <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />

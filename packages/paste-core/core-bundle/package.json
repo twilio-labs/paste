@@ -12,6 +12,53 @@
   "publishConfig": {
     "access": "public"
   },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/*/package.json",
+          "{projectRoot}/types"
+        ]
+      },
+      "build:js": {
+        "dependsOn": [
+          "^build:js"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/*/package.json"
+        ]
+      },
+      "build:dev": {
+        "dependsOn": [
+          "^build:dev"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/*/package.json",
+          "{projectRoot}/types"
+        ]
+      },
+      "build:types": {
+        "dependsOn": [
+          "^build:types"
+        ],
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      }
+    },
+    "includedScripts": [
+      "build",
+      "build:dev",
+      "build:js",
+      "build:types"
+    ]
+  },
   "scripts": {
     "build": "yarn clean && yarn generate-packages && yarn compile && yarn build:types",
     "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",

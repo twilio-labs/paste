@@ -49,7 +49,7 @@ Then we think about the development and technical debt incurred by this product.
 ### Component Library specific
 
 - The `package.json` file contains
-  - [ ] the required yarn scripts: `[build, build:js, build:props, clean, tsc]`.
+  - [ ] the required yarn scripts: `[build, build:js, clean, tsc]`.
   - [ ] the following keys: `[name, version, category, status, description, author, license (MIT), main:dev, main, module, types, sideEffects, files]`
 - [ ] The components have defined a `displayName` static.
 - [ ] The package is compiled with esbuild and typescript.
