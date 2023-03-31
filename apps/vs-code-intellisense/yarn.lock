@@ -108,10 +108,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twilio-paste/design-tokens@npm:^8.5.0":
-  version: 8.5.0
-  resolution: "@twilio-paste/design-tokens@npm:8.5.0"
-  checksum: c4b0f2a2e833ae01ce20296a6192cfcf1e78dd037d18b796b552ab61882d90823b35174b81261ae9c385c01f282e5d48292094b1b3010df1ff4dcaa597acb3a4
+"@twilio-paste/design-tokens@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "@twilio-paste/design-tokens@npm:9.0.2"
+  checksum: 9b2dc11fe5327e42af49f700f50489e40d96673dfdd6b4a63ebef6727b8347b0eb3b725144cdcb56fa5ed0b5e0b6948b9c5626511a5bc83d1135732af52815ae
   languageName: node
   linkType: hard
 
@@ -2413,7 +2413,7 @@ typescript@^4.9.4:
   version: 0.0.0-use.local
   resolution: "vs-code-intellisense@workspace:."
   dependencies:
-    "@twilio-paste/design-tokens": ^8.5.0
+    "@twilio-paste/design-tokens": ^9.0.2
     "@types/glob": ^7.2.0
     "@types/lodash.camelcase": ^4.3.7
     "@types/lodash.kebabcase": ^4.1.7

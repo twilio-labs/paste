@@ -71,7 +71,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "dependencies": {
-    "@twilio-paste/design-tokens": "^8.5.0",
+    "@twilio-paste/design-tokens": "^9.0.2",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1"
   },
