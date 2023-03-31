@@ -47,7 +47,7 @@ const MultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (pr
       }}
       onSelectedItemsChange={(selectedItems: string[]) => {
         // eslint-disable-next-line no-console
-        console.log(selectedItems);
+        // console.log(selectedItems);
       }}
       required
       {...props}
@@ -142,6 +142,30 @@ describe('MultiselectCombobox', () => {
       // Label matches the input id
       const renderedLabel = document.querySelector('label');
       expect(renderedLabel!.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
+    });
+
+    it('should clear the input on selection', async () => {
+      render(<MultiselectComboboxMock initialIsOpen={false} />, {
+        wrapper: ThemeWrapper,
+      });
+
+      // Open the combobox
+      const renderedCombobox = screen.getByRole('combobox');
+      fireEvent.click(renderedCombobox);
+
+      // Focus the textbox
+      const renderedTextbox = screen.getByRole('textbox');
+      renderedTextbox.focus();
+      // Value should be ''
+      expect(renderedTextbox.getAttribute('value')).toEqual('');
+      // Change the value to 'Al'
+      renderedTextbox.setAttribute('value', 'Al');
+      expect(renderedTextbox.getAttribute('value')).toEqual('Al');
+
+      // Selecting an option clears the value in the input box
+      const renderedOptions = screen.getAllByRole('option');
+      fireEvent.click(renderedOptions[0]);
+      expect(renderedTextbox.getAttribute('value')).toEqual('');
     });
   });
 
