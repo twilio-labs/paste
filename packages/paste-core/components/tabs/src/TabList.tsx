@@ -18,7 +18,14 @@ export interface TabListProps {
 }
 
 const HorizontalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
-  <Box display="flex" element={element} marginBottom="space60">
+  <Box
+    display="flex"
+    element={element}
+    borderBottomStyle="solid"
+    borderBottomWidth="borderWidth10"
+    borderBottomColor="colorBorderWeaker"
+    marginBottom="space60"
+  >
     {children}
   </Box>
 );

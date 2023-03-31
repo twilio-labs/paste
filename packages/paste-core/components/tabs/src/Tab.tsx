@@ -56,29 +56,32 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
     case 'horizontal':
     default:
       return {
-        borderBottomColor: 'transparent',
+        borderColor: 'transparent',
+        borderStyle: 'solid',
+        borderWidth: 'borderWidth10',
+        borderBottomColor: 'colorBorderWeaker',
         borderBottomStyle: 'solid',
         borderBottomWidth: 'borderWidth10',
+        borderTopLeftRadius: 'borderRadius30',
+        borderTopRightRadius: 'borderRadius30',
         color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
         display: 'inline-block',
         flexBasis: isFitted ? '50%' : undefined,
         flexGrow: isFitted ? 1 : undefined,
         flexShrink: isFitted ? 1 : undefined,
-        marginRight: isFitted ? 'space0' : 'space80',
         minWidth: 'sizeSquare130',
-        paddingBottom: 'space50',
-        paddingX: 'space20',
-        paddingTop: 'space40',
+        paddingY: 'space30',
+        paddingX: 'space50',
         textAlign: 'center',
-        _last: {
-          marginRight: 'space0',
-        },
+        marginBottom: '-1px',
         _selected: {
-          borderBottomColor: isInverse ? 'colorBorderInverseStrong' : 'colorBorderPrimary',
+          borderColor: 'colorBorderWeaker',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderInverseStrongest',
           color: isInverse ? 'colorTextInverse' : 'colorTextLink',
         },
         _hover: {
-          borderBottomColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimaryStronger',
           color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
         },
         _disabled: {
@@ -88,7 +91,6 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         _focus: {
           boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
           outline: 'none',
-          borderRadius: 'borderRadius20',
         },
       };
   }
