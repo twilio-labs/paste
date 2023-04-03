@@ -1,5 +1,11 @@
 # @twilio-paste/side-modal
 
+## 3.0.1
+
+### Patch Changes
+
+- [`819c87512`](https://github.com/twilio-labs/paste/commit/819c875123f8c7f1795224ea3f6f32e2c56be47f) [#3059](https://github.com/twilio-labs/paste/pull/3059) Thanks [@TheSisb](https://github.com/TheSisb)! - [Side modal] Add an opening animation
+
 ## 3.0.0
 
 ### Major Changes

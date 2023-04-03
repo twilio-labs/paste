@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.0.1
+
+### Patch Changes
+
+- [`845eb62ba`](https://github.com/twilio-labs/paste/commit/845eb62ba326291bf2f5b05fa65e3f38573f5beb) [#3119](https://github.com/twilio-labs/paste/pull/3119) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Add "required" title to required dot
+
 ## 12.0.0
 
 ### Major Changes
