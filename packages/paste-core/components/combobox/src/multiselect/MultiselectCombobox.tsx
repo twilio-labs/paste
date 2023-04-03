@@ -173,6 +173,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               ...changes,
               highlightedIndex: -2,
             };
+          /* Fixes issue where controlled input values were getting blown away by Downshift */
+          case useComboboxPrimitive.stateChangeTypes.ControlledPropUpdatedSelectedItem:
+            return {...changes, inputValue};
         }
         return changes;
       },
