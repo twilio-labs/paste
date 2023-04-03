@@ -159,7 +159,7 @@ describe('MultiselectCombobox', () => {
       // Value should be ''
       expect(renderedTextbox.getAttribute('value')).toEqual('');
       // Change the value to 'Al'
-      renderedTextbox.setAttribute('value', 'Al');
+      fireEvent.change(renderedTextbox, {target: {value: 'Al'}});
       expect(renderedTextbox.getAttribute('value')).toEqual('Al');
 
       // Selecting an option clears the value in the input box
