@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493) [#3130](https://github.com/twilio-labs/paste/pull/3130) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Enable the ability to theme the [color-scheme css property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) which can be used to control native HTML elements and the way they render in light or dark mode
+
 ## 2.0.0
 
 ### Major Changes
