@@ -72,8 +72,8 @@
   },
   "dependencies": {
     "@twilio-paste/design-tokens": "^9.0.2",
-    "lodash.camelcase": "^4.3.0",
-    "lodash.kebabcase": "^4.1.1"
+    "lodash.camelcase": "4.3.0",
+    "lodash.kebabcase": "4.1.1"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
