@@ -2,7 +2,7 @@
   "name": "vs-code-intellisense",
   "displayName": "Twilio Paste Intellisense",
   "description": "Intelligent Twilio Paste Design tooling for VS Code",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "license": "MIT",
   "publisher": "TwilioPaste",
@@ -71,21 +71,21 @@
     "test": "node ./out/test/runTest.js"
   },
   "dependencies": {
-    "@twilio-paste/design-tokens": "^8.5.0",
-    "lodash.camelcase": "^4.3.0",
-    "lodash.kebabcase": "^4.1.1"
+    "@twilio-paste/design-tokens": "^9.0.2",
+    "lodash.camelcase": "4.3.0",
+    "lodash.kebabcase": "4.1.1"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
     "@types/lodash.camelcase": "^4.3.7",
     "@types/lodash.kebabcase": "^4.1.7",
     "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
+    "@types/node": "^18.11.13",
     "@types/vscode": "^1.68.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.0",
-    "@typescript-eslint/parser": "^5.30.0",
+    "@typescript-eslint/eslint-plugin": "^5.46.0",
+    "@typescript-eslint/parser": "^5.46.0",
     "@vscode/test-electron": "^2.1.5",
-    "eslint": "^8.18.0",
+    "eslint": "^8.29.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
     "typescript": "^4.9.4"
