@@ -6,30 +6,10 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
-    "apps": [
-      "apps/vs-code-intellisense"
-    ],
     "packages": [
-      "packages/paste-codemods",
-      "packages/paste-color-contrast-utils",
-      "packages/paste-core/components/**",
-      "packages/paste-core/layout/**",
-      "packages/paste-core/primitives/**",
-      "packages/paste-core/core-bundle",
-      "packages/paste-cra-template",
-      "packages/paste-customization",
-      "packages/paste-design-tokens",
-      "packages/paste-eslint/**",
-      "packages/paste-icons",
-      "packages/paste-libraries/**",
-      "packages/paste-nextjs-template",
-      "packages/paste-style-props",
-      "packages/paste-theme",
-      "packages/paste-theme-designer",
-      "packages/paste-token-contrast-checker",
-      "packages/paste-types",
-      "packages/paste-utils",
-      "packages/paste-website"
+      "apps/**/*",
+      "packages/**/*",
+      "!packages/paste-core/core-bundle/**/*"
     ]
   },
   "types": "./types/index.d.ts",
