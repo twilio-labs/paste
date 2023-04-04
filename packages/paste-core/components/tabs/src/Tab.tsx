@@ -56,15 +56,12 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
     case 'horizontal':
     default:
       return {
+        color: isInverse ? 'colorTextInverse' : 'colorTextWeak',
         borderColor: 'transparent',
         borderStyle: 'solid',
         borderWidth: 'borderWidth10',
-        borderBottomColor: 'colorBorderWeaker',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: 'borderWidth10',
         borderTopLeftRadius: 'borderRadius30',
         borderTopRightRadius: 'borderRadius30',
-        color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
         display: 'inline-block',
         flexBasis: isFitted ? '50%' : undefined,
         flexGrow: isFitted ? 1 : undefined,
@@ -74,23 +71,44 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         paddingX: 'space50',
         textAlign: 'center',
         marginBottom: '-1px',
+        /* Selected State */
         _selected: {
-          borderColor: 'colorBorderWeaker',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
+          borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
           borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderInverseStrongest',
-          color: isInverse ? 'colorTextInverse' : 'colorTextLink',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
         },
-        _hover: {
-          color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
-        },
+        /* Disabled state */
         _disabled: {
           borderBottomColor: 'transparent',
           color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
         },
+        /* Hover states */
+        _hover: {
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
+          borderBottomColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderPrimary',
+        },
+        _selected_hover: {
+          borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimaryStronger',
+          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderInverseStrongest',
+        },
+        /* Focus states */
         _focus: {
-          boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
           outline: 'none',
+          borderColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimary',
+          boxShadow: 'shadowFocusInset',
+          borderBottomColor: 'colorBorderPrimary',
+        },
+        _selected_focus: {
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          boxShadow: 'shadowFocusInset',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
+          borderBottomColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderPrimary',
+        },
+        _disabled_focus: {
+          borderColor: isInverse ? 'colorBorderInverseWeak' : 'colorBorderWeak',
+          boxShadow: 'none',
         },
       };
   }
