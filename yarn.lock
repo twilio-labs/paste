@@ -30627,7 +30627,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.3.0":
+"lodash.camelcase@npm:4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
@@ -30809,7 +30809,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.kebabcase@npm:^4.1.1":
+"lodash.kebabcase@npm:4.1.1":
   version: 4.1.1
   resolution: "lodash.kebabcase@npm:4.1.1"
   checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
@@ -43363,8 +43363,8 @@ typescript@^4.9.4:
     "@vscode/test-electron": ^2.1.5
     eslint: ^8.29.0
     glob: ^8.0.3
-    lodash.camelcase: ^4.3.0
-    lodash.kebabcase: ^4.1.1
+    lodash.camelcase: 4.3.0
+    lodash.kebabcase: 4.1.1
     mocha: ^10.0.0
     typescript: ^4.9.4
   languageName: unknown
