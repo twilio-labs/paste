@@ -1,5 +1,30 @@
 # Change Log
 
+## 19.0.1
+
+### Patch Changes
+
+- [`819c87512`](https://github.com/twilio-labs/paste/commit/819c875123f8c7f1795224ea3f6f32e2c56be47f) [#3059](https://github.com/twilio-labs/paste/pull/3059) Thanks [@TheSisb](https://github.com/TheSisb)! - [Side modal] Add an opening animation
+
+* [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb) [#3142](https://github.com/twilio-labs/paste/pull/3142) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix incorrect dropdown menu position when Combobox is opened on a scrolled page.
+
+- [`845eb62ba`](https://github.com/twilio-labs/paste/commit/845eb62ba326291bf2f5b05fa65e3f38573f5beb) [#3119](https://github.com/twilio-labs/paste/pull/3119) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Add "required" title to required dot
+
+* [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b) [#3140](https://github.com/twilio-labs/paste/pull/3140) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Multiselect Combobox now correctly clears the input value when selecting an item in the dropdown.
+
+- [`ac5a84407`](https://github.com/twilio-labs/paste/commit/ac5a84407c1305ebb60fa317dd98fb8c99332d81) [#3110](https://github.com/twilio-labs/paste/pull/3110) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] Fixed a bug in dark mode on Windows where the options list was still white and the options were unreadable
+
+* [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493) [#3130](https://github.com/twilio-labs/paste/pull/3130) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Enable the ability to theme the [color-scheme css property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) which can be used to control native HTML elements and the way they render in light or dark mode
+
+* Updated dependencies [[`819c87512`](https://github.com/twilio-labs/paste/commit/819c875123f8c7f1795224ea3f6f32e2c56be47f), [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb), [`845eb62ba`](https://github.com/twilio-labs/paste/commit/845eb62ba326291bf2f5b05fa65e3f38573f5beb), [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b), [`ac5a84407`](https://github.com/twilio-labs/paste/commit/ac5a84407c1305ebb60fa317dd98fb8c99332d81), [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493)]:
+  - @twilio-paste/side-modal@3.0.1
+  - @twilio-paste/combobox@15.0.1
+  - @twilio-paste/label@12.0.1
+  - @twilio-paste/select@11.0.1
+  - @twilio-paste/design-tokens@9.0.3
+  - @twilio-paste/styling-library@2.0.1
+  - @twilio-paste/theme@10.0.1
+
 ## 19.0.0
 
 ### Major Changes

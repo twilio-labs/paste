@@ -1,5 +1,13 @@
 # Change Log
 
+## 15.0.1
+
+### Patch Changes
+
+- [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb) [#3142](https://github.com/twilio-labs/paste/pull/3142) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix incorrect dropdown menu position when Combobox is opened on a scrolled page.
+
+* [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b) [#3140](https://github.com/twilio-labs/paste/pull/3140) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Multiselect Combobox now correctly clears the input value when selecting an item in the dropdown.
+
 ## 15.0.0
 
 ### Major Changes

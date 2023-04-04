@@ -179,7 +179,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         </InputBox>
         <Portal>
           <Box
-            position="absolute"
+            position="fixed"
             top={inputBoxDimensions?.bottom}
             left={inputBoxDimensions?.left}
             right={inputBoxDimensions?.right}

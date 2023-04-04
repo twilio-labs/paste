@@ -15,6 +15,10 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
   ({element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props}, ref) => {
     const [text, setText] = React.useState(value || initialValue);
 
+    React.useEffect(() => {
+      setText(value || '');
+    }, [value]);
+
     /*
      * The trick is to make the input 100% width of the wrapper
      * and the wrapper is sized based on the content of the _after
@@ -53,10 +57,11 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
           ref={ref}
           element={element}
           type="text"
-          value={text}
+          value={value != null ? value.replace(/  +/g, ' ') : text}
           padding="space0"
           onChange={(event) => {
             event.preventDefault();
+            // Used to set the width of the growing input
             setText(event.currentTarget.value.replace(/  +/g, ' '));
 
             if (onChange != null) {
