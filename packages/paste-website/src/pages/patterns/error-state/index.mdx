@@ -51,12 +51,12 @@ export const getStaticProps = async () => {
 
 ### General
 
-Use an error state after a problem occurs. For example:
+Use an error state _after_ a problem occurs. For example:
 
 - A user tried to submit a form with required fields missing.
 - A failed connection terminates a user action.
 
-To proactively call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example:
+To _proactively_ call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example:
 
 - Telling a user an action might increase their bill.
 - Telling a user they’re about to hit a limit.
@@ -334,7 +334,7 @@ Place error codes at the end of the message inside parentheses.
 
 ### Empty states
 
-An empty state is also an error state when content fails to load. Error empty states can result from problems like a system issue or access issue. Error empty states are different from empty states that result from a lack of data to show. If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
+An empty state is also an error state when content fails to load. Error empty states can result from problems like a system issue or access issue. Error empty states are different from [empty states that result from a lack of data to show](/patterns/empty-state). If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
 
 ## Specific component guidance
 
@@ -407,7 +407,7 @@ An empty state is also an error state when content fails to load. Error empty st
 - [Time picker](/components/time-picker)
 - [Toast](/components/toast)
 
-## Do & Don't
+## Dos & Don'ts
 
 <DoDont>
   <Do title="Do" body="Focus on what the user can do to fix the issue." center>
@@ -510,7 +510,11 @@ An empty state is also an error state when content fails to load. Error empty st
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Include error codes in parentheses at the end of the message." center>
+  <Do
+    title="Do"
+    body="Include error codes in parentheses at the end of the message only when the user can use it to troubleshoot by themselves or by giving the code to customer support."
+    center
+  >
     <Box padding="space50">
       <Callout variant="error">
         <CalloutText>Something went wrong. Contact customer support. (Error code: 6789)</CalloutText>
