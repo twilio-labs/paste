@@ -8,6 +8,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Alert} from '@twilio-paste/alert';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
@@ -46,6 +47,47 @@ export const getStaticProps = async () => {
 <PageAside data={mdxHeadings} />
 
 <content>
+
+## Ingredients
+
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/alert">Alert</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/callout">Callout</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/toast">Toast</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/help-text">Help Text</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+
+```jsx
+// import one of the following ingredients for the error state pattern
+import {Alert} from '@twilio-paste/core/alert';
+import {Callout} from '@twilio-paste/core/callout';
+import {Toast} from '@twilio-paste/core/toast';
+import {HelpText} from '@twilio-paste/core/help-text';
+```
 
 ## Usage
 
