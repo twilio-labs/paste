@@ -66,10 +66,18 @@ vsce login <publisher name>
 
 ### Publish an extension
 
-Now, we can publish an extension using `vsce` with the `publish` command:
+#### Note: `vsce` DOES NOT support yarn workspaces
+
+First, we have an `installConfig` defined in the `package.json` that tells yarn not to hoist this packages dependencies. That's because the `vsce` cli doesn't support yarn workspaces and when it tries to publish, it can't find the dependencies in the workspace root.
+
+We also need to tell `vsce` not to do a dep check when it publishes as we bundle everything into a single file to overcome the lack of workspace support.
+
+---
+
+Now, we can publish an extension using `vsce` with the `publish --no-dependencies` command:
 
 ```sh
-vsce publish --no-yarn
+vsce publish --no-dependencies
 ```
 
 We can auto-increment an extension's version number when we publish by specifying the [SemVer](https://semver.org) compatible number to increment: `major`, `minor`, or `patch`.
@@ -77,7 +85,7 @@ We can auto-increment an extension's version number when we publish by specifyin
 For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
 
 ```sh
-vsce publish minor
+vsce publish --no-dependencies minor
 ```
 
 Great! This will modify the extension's `package.json` version attribute before publishing the extension.
@@ -85,8 +93,28 @@ Great! This will modify the extension's `package.json` version attribute before 
 Also we can just specify the version:
 
 ```sh
-vsce publish 2.0.1
+vsce publish --no-dependencies 2.0.1
 ```
+
+## Scripts, testing, compiling and bundling
+
+Because this package lives in a monorepo but `vsce` doesn't natively support monorepos or yarn, we have to do some creative things.
+
+### Testing
+
+We write tests in ts, but the testing framework for vscode extensions only runs in javascript code. We can probably look to change that later, it's quite a change to make. As such, we need to compile the typescript to javascript so that vscode test can run mocha against the extension.
+
+The tests do run against the compiled extension though, so it's a nice integration test. That comes with a caveat, we must:
+
+- Compile the test src, then bundle the extension, then run tests.
+
+The `test` script will do this for you.
+
+### Bundling
+
+We want to skip publishing a bunch of `node_modules` because `vsce` gets confused where dependencies are in this monorepo. Instead we bundle the extension into a single JS file, which includes any dependencies it needs. We let ESbuild do that for us, we only list vscode as an external dependency.
+
+We don't want to bundle or distribute our test files, so we run a full clean before we bundle and publish to clear away those compiled test source files mentioned early. We should only be publishing the compiled extension.
 
 ## Go further
 
