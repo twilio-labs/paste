@@ -70,7 +70,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         paddingY: 'space30',
         paddingX: 'space50',
         textAlign: 'center',
-        marginBottom: '-1px',
+        bottom: '-1px',
         /* Selected State */
         _selected: {
           borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
@@ -107,7 +107,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderBottomColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderPrimary',
         },
         _disabled_focus: {
-          borderColor: isInverse ? 'colorBorderInverseWeak' : 'colorBorderWeak',
+          borderColor: isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak',
           boxShadow: 'none',
         },
       };
