@@ -18,6 +18,9 @@ props:
   color-border-weaker:
     value: "#EDEFF5"
     comment: Weaker border color
+  color-border-weakest:
+    value: "#FFFFFF"
+    comment: Weakest border color
 
   # primary action borders
   color-border-primary-strongest:
