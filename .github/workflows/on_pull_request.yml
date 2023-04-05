@@ -51,10 +51,10 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
 
       - name: Run type checker
-        run: yarn type-check --base=origin/main
+        run: yarn type-check
 
   eslint:
     name: Lint repository
@@ -99,7 +99,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -149,7 +149,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -192,7 +192,7 @@ jobs:
 
       # Note: Build first before we change the react version installed.
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -243,7 +243,7 @@ jobs:
 
       # Note: Build first before we change the react version installed.
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -315,7 +315,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -369,7 +369,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -421,7 +421,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build packages
-        run: yarn build --base=origin/main
+        run: yarn build
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
