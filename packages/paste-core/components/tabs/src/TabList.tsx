@@ -32,7 +32,6 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; e
       borderBottomColor={isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak'}
       columnGap="space20"
       element={element}
-      marginBottom="space60"
     >
       {children}
     </Box>

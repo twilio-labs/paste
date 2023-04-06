@@ -8,6 +8,7 @@ import {TabsContext} from './TabsContext';
 import {getElementName} from './utils';
 
 export const tabPanelStyles = {
+  paddingTop: 'space60',
   borderRadius: 'borderRadius20',
   _focusVisible: {
     boxShadow: 'shadowFocus',
