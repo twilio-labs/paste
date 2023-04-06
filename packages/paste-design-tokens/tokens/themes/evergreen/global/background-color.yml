@@ -152,7 +152,7 @@ props:
 
   # overlay backgrounds
   color-background-overlay:
-    value: "#4D4D6664"
+    value: "rgba(71, 77, 102, 0.64)"
     comment: Default background for overlays.
 
   #availability
