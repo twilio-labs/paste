@@ -73,7 +73,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         bottom: '-1px',
         /* Selected State */
         _selected: {
-          borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
+          borderColor: isInverse ? 'colorBorderInverse' : 'colorBorderWeak',
           borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderWeakest',
           color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
         },
@@ -90,12 +90,12 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         _selected_hover: {
           borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
           color: isInverse ? 'colorTextInverse' : 'colorTextPrimaryStronger',
-          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderInverseStrongest',
+          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderWeakest',
         },
         /* Focus states */
         _focus: {
           outline: 'none',
-          borderColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimary',
+          borderColor: 'colorBorderPrimary',
           boxShadow: 'shadowFocusInset',
           borderBottomColor: 'colorBorderPrimary',
         },
@@ -104,8 +104,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderWidth: 'borderWidth10',
           boxShadow: 'shadowFocusInset',
           color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
-          borderColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimary',
-          borderBottomColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderPrimary',
+          borderColor: 'colorBorderPrimary',
         },
         _disabled_focus: {
           borderColor: isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak',
@@ -148,7 +147,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
             element={elementName}
             fontSize="fontSize30"
-            lineHeight="lineHeight10"
+            lineHeight="lineHeight30"
             fontWeight="fontWeightMedium"
             overflow={orientation !== 'vertical' ? 'hidden' : undefined}
             position="relative"
