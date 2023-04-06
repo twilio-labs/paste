@@ -17,11 +17,26 @@ export interface TabListProps {
   variant?: Variants;
 }
 
-const HorizontalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
-  <Box display="flex" element={element} marginBottom="space60">
-    {children}
-  </Box>
-);
+const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; element?: BoxProps['element']}>> = ({
+  children,
+  variant,
+  element,
+}) => {
+  const isInverse = variant === 'inverse' || variant === 'inverse_fitted';
+
+  return (
+    <Box
+      display="flex"
+      borderBottomStyle="solid"
+      borderBottomWidth="borderWidth10"
+      borderBottomColor={isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak'}
+      columnGap="space20"
+      element={element}
+    >
+      {children}
+    </Box>
+  );
+};
 
 HorizontalTabList.displayName = 'HorizontalTabList';
 
@@ -41,7 +56,9 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, eleme
 
   return (
     <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={elementName} ref={ref}>
-      <TabListWrapper element={`${elementName}_CHILD`}>{children}</TabListWrapper>
+      <TabListWrapper variant={variant || tab.variant} element={`${elementName}_CHILD`}>
+        {children}
+      </TabListWrapper>
     </TabPrimitiveList>
   );
 });

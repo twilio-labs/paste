@@ -63,6 +63,7 @@ module.exports = {
           '_focus_hover',
           '_focus_placeholder',
           '_checked_hover',
+          '_disabled_focus',
           '_selected_hover',
           '_selected_focus',
           '_selected_focusVisible',

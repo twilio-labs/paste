@@ -9,6 +9,11 @@ props:
     value: "{!palette-blue-55}"
     comment: Primary border color.
 
+  # inverse borders
+  color-border-inverse-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest border on inverse backgrounds. Must be used on color-background-body-inverse.
+
   # status borders
   color-border-success-weak:
     value: "{!palette-green-40}"
