@@ -163,8 +163,8 @@ export const DestructiveSecondaryToggleStyles: BoxStyleProps = {
   },
   _pressed_hover: {
     backgroundColor: 'colorBackgroundErrorWeakest',
-    boxShadow: 'shadowBorderError',
-    color: 'colorTextError',
+    boxShadow: 'shadowBorderErrorStronger',
+    color: 'colorTextErrorStronger',
   },
   _pressed_active: {
     backgroundColor: 'colorBackgroundErrorWeakest',
