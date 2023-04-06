@@ -10,6 +10,9 @@ props:
   shadow-focus-inverse:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
+  shadow-border-inverse-weakest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-100}"
+    comment: Weakest shadow border on interactive elements on inverse backgrounds.
   shadow-focus-shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-30}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-blue-20}"
     comment: Shadow for simultaneous focus and border
