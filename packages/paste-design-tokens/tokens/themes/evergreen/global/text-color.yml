@@ -141,3 +141,9 @@ props:
   color-text-decorative-40:
     value: "#6E62B6"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+
+  # user
+  color-text-user:
+    value: "#6D2ED1"
+    comment: Text color for user avatar.
+    
