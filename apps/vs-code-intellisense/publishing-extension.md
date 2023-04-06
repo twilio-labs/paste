@@ -68,9 +68,7 @@ vsce login <publisher name>
 
 #### Note: `vsce` DOES NOT support yarn workspaces
 
-First, we have an `installConfig` defined in the `package.json` that tells yarn not to hoist this packages dependencies. That's because the `vsce` cli doesn't support yarn workspaces and when it tries to publish, it can't find the dependencies in the workspace root.
-
-We also need to tell `vsce` not to do a dep check when it publishes as we bundle everything into a single file to overcome the lack of workspace support.
+We need to tell `vsce` not to do a dep check because the `vsce` cli doesn't support yarn workspaces and when it tries to publish, it can't find the dependencies in the workspace root. So we provide the `--no-dependencies` flag.
 
 ---
 
