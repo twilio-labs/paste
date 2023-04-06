@@ -1164,134 +1164,6 @@ and email addresses.
   <Dont title="Don't" body="Don't use color as the only indicator of status in a table row." preview={false} />
 </DoDont>
 
-## Anatomy
-
-##### Table
-
-| Property     | Default token                                        | Modifiable? |
-| ------------ | ---------------------------------------------------- | ----------- |
-| border-color | color-border-weaker                                  | No          |
-| border-width | Default: border-width-10, Borderless: border-width-0 | No          |
-| width        | 100%                                                 | No          |
-
-##### THead
-
-| Property            | Default token       | Modifiable? |
-| ------------------- | ------------------- | ----------- |
-| background-color    | color-background    | No          |
-| border-bottom-width | border-width-20     | No          |
-| border-bottom-color | color-border-weaker | No          |
-
-##### TBody
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-
-##### TFoot
-
-| Property         | Default token       | Modifiable? |
-| ---------------- | ------------------- | ----------- |
-| background-color | color-background    | No          |
-| border-top-width | border-width-20     | No          |
-| border-top-color | color-border-weaker | No          |
-
-##### Tr
-
-| Property            | Default token                                   | Modifiable? |
-| ------------------- | ----------------------------------------------- | ----------- |
-| background-color    | Striped even rows: color-background-row-striped | No          |
-| border-bottom-width | border-width-10                                 | No          |
-| border-bottom-color | color-border-weaker                             | No          |
-
-##### Th
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>font-size</Td>
-        <Td>font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>line-height</Td>
-        <Td>line-height-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-weight</Td>
-        <Td>font-weight-semibold</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>padding</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Top: space-40</ListItem>
-            <ListItem>Bottom: space-40</ListItem>
-            <ListItem>Left: space-50</ListItem>
-            <ListItem>Right: space-50</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
-##### Td
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>font-size</Td>
-        <Td>font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>line-height</Td>
-        <Td>line-height-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-weight</Td>
-        <Td>font-weight-normal</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>padding</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Top: space-40</ListItem>
-            <ListItem>Bottom: space-40</ListItem>
-            <ListItem>Left: space-50</ListItem>
-            <ListItem>Right: space-50</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
 ## Usage Guide
 
 ### API
@@ -1305,14 +1177,16 @@ yarn add @twilio-paste/table - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Table} from ‘@twilio-paste/core/table';
+import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/core/table';
 
 const TableExample: React.FC = () => {
   return (
     <Table tableLayout="fixed" variant="default" striped>
       <THead>
         <Tr verticalAlign="middle">
-          <Th width="size40" textAlign="left">Column 1</Th>
+          <Th width="size40" textAlign="left">
+            Column 1
+          </Th>
           <Th>Column 2</Th>
         </Tr>
       </THead>

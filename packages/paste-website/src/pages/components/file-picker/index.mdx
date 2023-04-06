@@ -159,7 +159,14 @@ Labels should clearly describe the object being requested. They should be concis
 - Use help text to provide instruction if needed. For example, don't use "Upload an image in the form of a jpeg or png" as label text. Instead, use "Profile photo" as a label and "Upload an image file" as help text.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
-Give users enough information in help text to prevent upload and file type errors. Keep it concise and scoped to information that will help with validation.
+File limitations should be communicated to the user up front to help avoid errors, like uploading an incompatible file type or one that’s too large.
+
+Make each limitation its own sentence. Use positive framing to clearly communicate limitations to the user:
+
+| Requirements | Recommended phrasing                          |
+| ------------ | --------------------------------------------- |
+| File type    | You can upload [x], [x] and [x] file formats. |
+| File size    | Files can be up to [file limit].              |
 
 ### Validation
 
@@ -167,20 +174,33 @@ Validate form fields on form submission.
 
 Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
+Use [Help Text](/components/help-text) to show inline error text that explains how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+Help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
-Error text should:
+Recommended phrasing for File Picker error copy:
 
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+| Status                                                                                         | Recommended phrasing                                                                              |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Invalid file type                                                                              | This file is not an accepted format. You can upload [x], [x] and [x] file formats.                |
+| Exceeds file size limit                                                                        | This file size is too big. You can upload files up to [file limit].                               |
+| Network errors (internet connection dropped while uploading, request timeout, service is down) | Something went wrong with the network. Check your internet connection, then try again.            |
+| Too many uploads in a certain amount of time                                                   | We couldn’t upload so many files so quickly. Try uploading files more slowly, or try again later. |
+| Generic (encountered an internal error)                                                        | Something went wrong. Try uploading your files again.                                             |
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx">
+  {`<>
+    <Label htmlFor='error'>Profile picture</Label>
+    <FilePicker id='error' accept="image/*" aria-describedby='error-ht'>
+      <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+    </FilePicker>
+    <HelpText variant="error" id='error-ht'>This file is not an accepted format. You can upload .png and .jpeg file formats.</HelpText>
+  </>`}
+</LivePreview>
 
 ## Usage guide
 

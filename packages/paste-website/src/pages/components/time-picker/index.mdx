@@ -250,7 +250,7 @@ The function accepts two parameters: (1) the time value that should be formatted
 
 Change a Time Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+Use [Help Text](/components/help-text) to show an inline error below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy.
 
 <LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {HasErrorPicker}
@@ -325,22 +325,21 @@ Validate Time Picker fields on form submission.
 
 Validating a field input when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
-Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Time Picker is discouraged as browser support is varied and limited.
+Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> properties on Time Picker is discouraged as browser support is varied and limited.
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
+Use inline error text to explain how to fix an error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-Ideally, Help Text should have enough information to help users prevent errors. If Help Text exists and you need to show an error, the error text should replace and repeat the Help Text until the error has been resolved.
+Use Help Text to help users avoid errors.
 
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+| Situation                             | Recommended phrasing                       |
+| ------------------------------------- | ------------------------------------------ |
+| User didn't pick a time               | Select a time.                             |
+| The end time is before the start date | The end time occurs before the start time. |
+| The start date is after the end date  | The start time occurs after the end time.  |
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">

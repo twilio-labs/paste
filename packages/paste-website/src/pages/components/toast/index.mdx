@@ -75,11 +75,11 @@ Toasts appear over content on a page and stack vertically. All toasts have a clo
 Use a toast for one of these types of responses:
 
 - **Success.** Confirm a successful or completed action.
-- **Warning.** Help a user avoid a future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action was successful but may have triggered a related issue, or that their action can't be completed because of an issue that they need to fix outside their current flow.
-- **Error.** Communicate an issue that's preventing a user from completing their current action and can be fixed within their current flow.
+- **Warning.** Help a user avoid a future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action was successful but may have triggered a related issue.
+- **Error.** Communicate an issue that's preventing a user from completing their current action.
 - **Neutral or general response.** Let a user know that an asynchronous process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a workflow. This could include a large download or a request that's been sent to a third party.
 
-In general, use Toasts for response to user action. To decide whether you should use Toasts or another type of messaging, jump to [Toasts vs. Alerts vs. Inline messaging](#toast-vs-alerts-vs-inline-messaging).
+In general, use Toasts for response to user action. To decide whether you should a Toast, refer to the [Alerts vs. Callouts vs. Toasts vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
 
 ### Responsive Toast
 
@@ -257,7 +257,7 @@ return <Toaster left={['space40', 'unset', 'unset']} {...toaster} />;
 
 ### Neutral Toast
 
-Let a user know that a background process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
+Use a neutral Toast to communicate that a background process was triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
 
 You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for neutral toasts.
 
@@ -300,7 +300,7 @@ You may use [the Text primitive](/primitives/text) as a child of Toast, but if y
 
 ### Warning Toast
 
-Use a warning toast to help a user avoid a potential future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action completed but may have triggered a related issue, or that their action can't be completed because of an issue that they need to fix outside their current flow.
+Use a warning toast to help a user avoid a potential future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action completed but may have triggered a related issue.
 
 Be cautious when using a warning toast because they can be stressful for a user to see. If the information you're trying to convey is not very critical, consider using a neutral toast instead.
 
@@ -314,9 +314,16 @@ You may use [the Text primitive](/primitives/text) as a child of Toast, but if y
 
 ### Error Toast
 
-Use an error toast to help a user understand an issue that's preventing them from completing their current action. Provide a way to resolve the issue either in the underlying page content or in the toast.
+Use an error toast to communicate a brief, easily comprehended issue that's preventing them from completing their current action. Error toasts should communicate issues that are not the user's fault. Provide a way to resolve the issue either in the underlying page content or in the toast.
 
-Be cautious when using an error alert because they can be stressful for a user to see.
+Consider using a Callout instead if:
+
+- The issue or the resolution require more than two short sentences.
+- The error is specific to a particular part of the page, since Toasts do not appear in contextually relevant locations on the page.
+
+Never allow an error toast to automatically time out.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for error toasts.
 
@@ -345,59 +352,45 @@ For a `success` variant, for example, set the `i18nSuccessLabel` prop.
 
 ## Composition Notes
 
-Keep toast text brief and scannable by placing only the highest priority information in it. Too much text in a toast can overwhelm a user. Aim for no more than 140 characters in a toast, and keep the text directly related to the user's current action. Success toasts generally run about 50 characters long, while all other alerts might run about 100 characters long. However, don't [sacrifice being direct and straightforward](/foundations/content/product-style-guide#be-direct-and-straightforward) for a shorter message.
+Keep toast text brief, scannable, and specific to the current user action. Only include the highest priority information and aim for no more than 140 characters. Success toasts generally run about 50 characters long, while all other alerts might run about 100 characters long.
 
-Be specific in your response to the user's action and if applicable, provide a resolution by navigating a user to another page using an [anchor](/components/anchor/). Be cautious about using a button in a toast since it should be used only to trigger an action. If you must use a button, use a [small secondary button](/components/button#small-button) in a toast.
+Compose a Toast with:
+
+- **Title (optional)**. Bold the text at the beginning of the Toast. The title should be concise and convey the essence of the issue.
+- **Body text**. Use the default text style. Do not repeat information contained in a title.
+- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
+
+If the user needs to take action on another page, or more information would be helpful to them, use an [Anchor](/components/anchor). Be cautious about using a button in a toast since it should be used only to trigger an action. If you must use a button, use a [small secondary button](/components/button#small-button).
+
+### Alert vs. Callout vs. Toast vs. Help Text
+
+Alert
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+Callout
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+Toast
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+Help Text
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
 
 ## When to use a Toast
 
-Help users avoid scenarios where more than 3 toasts could show at a time. If more than 3 could appear at a time, show only one toast that summarizes the information you were intending to show in all of the toasts.
-
-### Toast vs. Alerts vs. Inline messaging
-
-To communicate feedback on a user action, use a toast or in-page validation (_e.g._, full-page confirmation, inline error). You may also want to pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
-
-To communicate information from the system that isn't triggered by a user action, use an [alert](/components/alert) or other in-page messaging.
-
-##### Use Toasts when...
-
-- You need to communicate a direct response to a user action. Example: _"asset.jpg" successfully added._
-- You're providing only one link or button to help a user continue a flow.
-
-##### Use Alerts when...
-
-- You need to notify a user about a high-priority or time-sensitive change that isn't triggered by a user action.
-- You're providing only one link or button to help a user resolve an issue.
-
-##### Use in-page messaging, e.g., inline errors, in-page call-outs when...
-
-- You need to communicate a direct and contextual response to a user action.
-- You need to provide links or buttons next to an in-page element.
-- You need to communicate dynamically changing content, like a progress bar. Use a [non-modal dialog](/primitives/non-modal-dialog-primitive) instead.
-- You need to communicate general promotional information to a user that is unrelated to completing their current action.
-
-##### Use an alert dialog or modal when...
-
-- You need to interrupt a user flow.
-- You need to provide multiple links or buttons to help a user continue a flow.
-
-<DoDont>
-  <Do title="Do" body="Show only 1 toast in response to a single user action." preview={false} />
-  <Dont
-    title="Don't"
-    body="Avoid putting users in scenarios where more than 3 toasts could show at once. If you need to use more than 3, consider batching them."
-    preview={false}
-  />
-</DoDont>
-
-<DoDont>
-  <Do title="Do" body="Use a toast to communicate a single, focused text status update." preview={false} />
-  <Dont
-    title="Don't"
-    body="Don't use toasts to communicate dynamically changing content, including progress bars. Use a non-modal dialog, modal, or show the changing content on the underlying page instead."
-    preview={false}
-  />
-</DoDont>
+Do not show more than 3 toasts at a time. If more than 3 could appear at a time, show only one toast that summarizes the information.
 
 <DoDont>
   <Do
@@ -406,6 +399,25 @@ To communicate information from the system that isn't triggered by a user action
     preview={false}
   />
   <Dont title="Don't" body="Don't add an automatic time-out to a toast if it has a link or button." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Show only one toast in response to a single user action." preview={false} />
+  <Dont
+    title="Don't"
+    body="Avoid putting users in scenarios where more than three toasts could show at once. If you need to use more than three, consider batching them."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a toast to communicate a single, focused text status update."
+    preview={false}
+  />
+  <Dont title="Don't" body="Don't use toasts to communicate dynamically changing content, including progress bars. Use a non-modal dialog, modal, or show the changing content on the underlying page instead." preview={false} />
+
 </DoDont>
 
 ## Usage Guide

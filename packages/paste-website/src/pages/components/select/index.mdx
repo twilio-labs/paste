@@ -310,7 +310,7 @@ Use an `OptionGroup` to create groupings of options within the select element.
 
 Avoid errors on selects by removing or disabling invalid options from the list of options.
 
-If a user is able to choose an invalid option, change a select to its error state and add an inline error. An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+If a user is able to choose an invalid option, change a Select to its error state and use [Help Text](/components/help-text) to add an inline error. The Help Text inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
 <LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
@@ -440,31 +440,13 @@ If a field is required and there’s no safe default selected value, default to 
 
 Disable or remove any options in a select that would result in an error if possible. Validate form fields on form submission.
 
-Don’t prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don’t prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use An error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Disable or remove any options in a select that would result in an error if possible. If an error occurs, use inline error text to explain how to fix an error.
+Disable or remove any options in a select that would result in an error if possible. If an error occurs, use Help Text to show an inline error that explains how to fix the error.
 
-Ideally, help text should have enough information to help users prevent errors. If you need to show an error and `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
-
-Error text should:
-
-<UnorderedList>
-  <ListItem>
-    Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in
-    the future.
-  </ListItem>
-  <ListItem>Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.</ListItem>
-  <ListItem>
-    Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is
-    required.”
-  </ListItem>
-  <ListItem>
-    Use the active voice for system errors. For example, “Our systems are currently down. Please contact our support
-    team.”
-  </ListItem>
-</UnorderedList>
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 ### Optional compositional elements
 

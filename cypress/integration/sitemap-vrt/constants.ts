@@ -111,6 +111,7 @@ export const SITEMAP = [
   '/patterns/filter-group/',
   '/patterns/',
   '/patterns/empty-state/',
+  '/patterns/error-state/',
   '/patterns/notifications-and-feedback/',
   '/patterns/object-details/',
   '/patterns/privacy/',

@@ -86,13 +86,13 @@ Radio groups should:
 - Use the same name attribute on all radio buttons in the group. This ensures that if there is more than one group in the form, each one stays associated with its own group
 - If a radio group is “Optional”, users won't be able to unselect a selected radio. If you need to give users a way to unselect, consider adding a clear button or using another type of form field.
 
-### Accessibility information
+### Accessibility
 
 - A radio group must have a visible label that is in close proximity to the control
 - HTML radio groups don't natively support the `required` attribute. In cases where a radio is required to be checked:
   - Display a required indicator
   - Ensure the radio label text includes wording that successfully describes the requirement to the user that they should select the radio
-- When in an error state, display an inline error message below the offending radio group that clearly describes the error.
+- When in an error state, display an inline error message below the radio group that clearly describes the error.
 - Radio groups act as a single tab stop. When focused on a radio, use the arrow keys to navigate to the other radios.
 
 ## Controlled vs. uncontrolled RadioGroup
@@ -200,9 +200,16 @@ To internationalize a radio group, simply pass different text as children to the
 
 ### Group error
 
-If the selected items don't pass the group validation requirements an inline error message should be displayed.
+If the selected items don't pass the group validation requirements, use [Help Text](/components/help-text) to show an inline error message below the group.
 
-An inline error is placed at the bottom of the group to inform a user of any errors in their choices.
+For simple required field errors, consider the following formats depending on the use case:
+
+| Situation                                     | Recommended phrasing            |
+| --------------------------------------------- | ------------------------------- |
+| When the option being selected is not a noun. | Select an option.               |
+| When the option to be selected is a noun      | Select a [noun in group label]. |
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {errorExample}
