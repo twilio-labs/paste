@@ -20,7 +20,7 @@ props:
 
   # page body
   color-background-body-inverse:
-    value: "{!palette-gray-110}"
+    value: "{!palette-gray-100}"
     comment: Inverse background color used for the main page body.
 
   # status

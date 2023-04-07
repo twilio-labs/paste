@@ -56,39 +56,59 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
     case 'horizontal':
     default:
       return {
-        borderBottomColor: 'transparent',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: 'borderWidth10',
-        color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: isInverse ? 'colorTextInverse' : 'colorTextWeak',
+        borderColor: 'transparent',
+        borderStyle: 'solid',
+        borderWidth: 'borderWidth10',
+        borderTopLeftRadius: 'borderRadius30',
+        borderTopRightRadius: 'borderRadius30',
         display: 'inline-block',
         flexBasis: isFitted ? '50%' : undefined,
         flexGrow: isFitted ? 1 : undefined,
         flexShrink: isFitted ? 1 : undefined,
-        marginRight: isFitted ? 'space0' : 'space80',
         minWidth: 'sizeSquare130',
-        paddingBottom: 'space50',
-        paddingX: 'space20',
-        paddingTop: 'space40',
+        paddingY: 'space30',
+        paddingX: 'space50',
         textAlign: 'center',
-        _last: {
-          marginRight: 'space0',
-        },
+        bottom: '-1px',
+        /* Selected State */
         _selected: {
-          borderBottomColor: isInverse ? 'colorBorderInverseStrong' : 'colorBorderPrimary',
-          color: isInverse ? 'colorTextInverse' : 'colorTextLink',
+          borderColor: isInverse ? 'colorBorderInverse' : 'colorBorderWeak',
+          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderWeakest',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
         },
-        _hover: {
-          borderBottomColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimaryStronger',
-          color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
-        },
+        /* Disabled state */
         _disabled: {
           borderBottomColor: 'transparent',
           color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
         },
+        /* Hover states */
+        _hover: {
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
+          borderBottomColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderPrimary',
+        },
+        _selected_hover: {
+          borderColor: isInverse ? 'colorBorderInverseStrongest' : 'colorBorderWeak',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimaryStronger',
+          borderBottomColor: isInverse ? 'colorBorderInverseWeakest' : 'colorBorderWeakest',
+        },
+        /* Focus states */
         _focus: {
-          boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
           outline: 'none',
-          borderRadius: 'borderRadius20',
+          borderColor: 'colorBorderPrimary',
+          boxShadow: 'shadowFocusInset',
+          borderBottomColor: 'colorBorderPrimary',
+        },
+        _selected_focus: {
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          boxShadow: 'shadowFocusInset',
+          color: isInverse ? 'colorTextInverse' : 'colorTextPrimary',
+          borderColor: 'colorBorderPrimary',
+        },
+        _disabled_focus: {
+          borderColor: isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak',
+          boxShadow: 'none',
         },
       };
   }
@@ -127,7 +147,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
             element={elementName}
             fontSize="fontSize30"
-            lineHeight="lineHeight10"
+            lineHeight="lineHeight30"
             fontWeight="fontWeightMedium"
             overflow={orientation !== 'vertical' ? 'hidden' : undefined}
             position="relative"

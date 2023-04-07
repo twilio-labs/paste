@@ -13,6 +13,7 @@ export const PseudoPropStyles = {
   _odd: '&:nth-of-type(odd)',
   _disabled:
     '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
+  _disabled_focus: '&:disabled:focus,&[aria-disabled=true]:focus',
   _checked: '&:checked, &[aria-checked=true]',
   _checked_hover: '&:checked:hover, &[aria-checked=true]:hover',
   _mixed: '&:indeterminate, &[aria-checked=mixed]',
