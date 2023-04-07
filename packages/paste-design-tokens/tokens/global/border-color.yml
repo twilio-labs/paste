@@ -52,6 +52,9 @@ props:
   color-border-weaker:
     value: "{!palette-gray-20}"
     comment: Weaker border color
+  color-border-weakest:
+    value: "{!palette-gray-0}"
+    comment: Weakest border color
   color-border-inverse-weakest:
     value: "{!palette-gray-90}"
     comment: Weakest border on inverse backgrounds. Must be used on color-background-body-inverse.

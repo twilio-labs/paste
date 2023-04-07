@@ -16,7 +16,7 @@ export const globalTypes = {
   theme: {
     name: 'Paste Theme',
     description: 'Global theme for components',
-    defaultValue: 'default',
+    defaultValue: 'twilio',
     toolbar: {
       // All available icons
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
@@ -115,14 +115,18 @@ export const decorators = [
             <GlobalStyles />
             <Grid>
               <Column>
-                <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
                 </Theme.Provider>
               </Column>
               <Column>
-                <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+                <Theme.Provider
+                  theme="twilio-dark"
+                  disableAnimations={isTestEnvironment}
+                  customBreakpoints={breakpoints}
+                >
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
