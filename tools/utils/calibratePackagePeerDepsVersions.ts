@@ -13,10 +13,7 @@ import chalk from 'chalk';
 import {getRepoPackages} from './getRepoPackages';
 import type {PackageShape} from './getRepoPackages';
 import {writeToFile} from './writeToFile';
-
-const isPasteDependency = (packageName: string): boolean => packageName.includes('@twilio-paste/');
-const getPasteDependencyList = (dependencyObject: Record<string, string>): string[] =>
-  Object.keys(dependencyObject).filter(isPasteDependency);
+import {getPasteDependencyList} from './getPasteDeps';
 
 async function updatePackagePeerDependencies(
   packageJsonPath: string,

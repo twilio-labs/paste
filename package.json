@@ -7,7 +7,7 @@
   "license": "MIT",
   "types": "./types/index.d.ts",
   "engines": {
-    "node": "^16.13.0"
+    "node": "^16.14.0"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -40,6 +40,7 @@
     "release:next": "pnpm lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
     "version": "pnpm changeset version && pnpm i --lockfile-only",
     "sync-internal-peer-dependencies": "ts-node ./tools/build/version.ts",
+    "set-internal-workspace-protocol": "ts-node ./tools/build/workspace-protocol.ts",
     "clean": "ts-node ./tools/build/clean-repo.ts && pnpm -r clean && pnpm install",
     "clean:full": "ts-node ./tools/build/clean-repo.ts && pnpm -r clean && rm -rf node_modules/ && pnpm install",
     "clean:core": "pnpm nx run @twilio-paste/core:clean",
@@ -51,7 +52,7 @@
     "test:website-gui": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'pnpm start:website' http://localhost:8000 'pnpm cypress open'",
     "test:website-gui-percy": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'pnpm start:website' http://localhost:3000 'percy exec -- pnpm cypress open'",
     "test:storybook": "test-storybook --url http://localhost:9001",
-    "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
+    "start:test:storybook": "start-server-and-test 'NODE_ENV=test pnpm start:storybook' http://localhost:9001 'pnpm test:storybook'",
     "serve:website": "pnpm nx run @twilio-paste/website:start",
     "package-size-action-build": "pnpm build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
@@ -65,7 +66,7 @@
     "lint:vscode-intellisense": "eslint -c ./apps/vs-code-intellisense/.eslintrc.json --ext .tsx,.ts ./apps/vs-code-intellisense",
     "lint:repo": "eslint -c .eslintrc.repo.js --ext .tsx,.ts .",
     "type-check": "pnpm nx run-many --target=tsc",
-    "tsc": "echo 'Did you mean to run yarn type-check?'",
+    "tsc": "echo 'Did you mean to run pnpm type-check?'",
     "chromatic": "chromatic",
     "packages:check": "manypkg check && monopeers check",
     "packages:fix": "manypkg fix && monopeers fix",

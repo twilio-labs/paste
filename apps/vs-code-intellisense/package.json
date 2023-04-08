@@ -63,10 +63,10 @@
   },
   "main": "./out/extension.js",
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
+    "vscode:prepublish": "pnpm compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile && yarn run lint",
+    "pretest": "pnpm compile && pnpm lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },

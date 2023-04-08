@@ -19,7 +19,7 @@
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
     "test": "jest",
-    "tsc": "yarn build"
+    "tsc": "pnpm build"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
