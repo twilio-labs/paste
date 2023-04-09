@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@datadog/browser-rum": "^2.8.1",
-    "@twilio-paste/core": "^19.0.0",
-    "@twilio-paste/icons": "^11.0.0",
+    "@twilio-paste/core": "workspace:^",
+    "@twilio-paste/icons": "workspace:^",
     "next": "^13.1.6",
     "react": "^18.0.0",
     "react-color": "^2.19.3"

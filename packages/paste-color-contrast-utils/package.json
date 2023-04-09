@@ -26,9 +26,9 @@
     "lodash": "4.17.21"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "workspace:*"
+    "@twilio-paste/design-tokens": "workspace:^"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "workspace:*"
+    "@twilio-paste/design-tokens": "workspace:^"
   }
 }

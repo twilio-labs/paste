@@ -56,9 +56,15 @@ export async function convertAllToWorkspaceProtocol(): Promise<void> {
 
     const newPackageJson = {
       ...packageJsonData,
-      dependencies: {...packageJsonData.dependencies, ...convertedDependencies},
-      peerDependencies: {...packageJsonData.peerDependencies, ...convertedPeerDependencies},
-      devDependencies: {...packageJsonData.devDependencies, ...convertedDevDependencies},
+      ...(packageJsonData.dependencies != null && {
+        dependencies: {...packageJsonData.dependencies, ...convertedDependencies},
+      }),
+      ...(packageJsonData.peerDependencies != null && {
+        peerDependencies: {...packageJsonData.peerDependencies, ...convertedPeerDependencies},
+      }),
+      ...(packageJsonData.devDependencies != null && {
+        devDependencies: {...packageJsonData.devDependencies, ...convertedDevDependencies},
+      }),
     };
 
     // Formatted and with a new line at the end for prettier

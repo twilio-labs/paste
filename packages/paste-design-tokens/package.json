@@ -59,7 +59,7 @@
     "webpack": "^5.70.0"
   },
   "peerDependencies": {
-    "@twilio-paste/types": "workspace:*"
+    "@twilio-paste/types": "workspace:^"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",

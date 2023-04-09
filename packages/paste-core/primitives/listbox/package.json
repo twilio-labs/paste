@@ -24,12 +24,12 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^1.0.0",
+    "@twilio-paste/reakit-library": "workspace:^",
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^1.0.0",
+    "@twilio-paste/reakit-library": "workspace:^",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   }

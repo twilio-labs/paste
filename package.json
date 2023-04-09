@@ -68,7 +68,7 @@
     "type-check": "pnpm nx run-many --target=tsc",
     "tsc": "echo 'Did you mean to run pnpm type-check?'",
     "chromatic": "chromatic",
-    "packages:check": "manypkg check && monopeers check",
+    "packages:check": "monopeers check",
     "packages:fix": "manypkg fix && monopeers fix",
     "changeset": "changeset",
     "create:package": "plop create-package",

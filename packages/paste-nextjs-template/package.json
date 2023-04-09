@@ -10,8 +10,8 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@twilio-paste/core": "^19.0.0",
-    "@twilio-paste/icons": "^11.0.0",
+    "@twilio-paste/core": "workspace:^",
+    "@twilio-paste/icons": "workspace:^",
     "next": "^13.1.6",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
