@@ -69,7 +69,7 @@
     "tsc": "echo 'Did you mean to run pnpm type-check?'",
     "chromatic": "chromatic",
     "packages:check": "monopeers check",
-    "packages:fix": "manypkg fix && monopeers fix",
+    "packages:fix": "monopeers fix",
     "changeset": "changeset",
     "create:package": "plop create-package",
     "token-usage": "ts-node tools/build/token-usage-detector.ts",

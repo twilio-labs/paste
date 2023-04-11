@@ -26,9 +26,17 @@
     "lodash": "4.17.21"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "workspace:^"
+    "@twilio-paste/design-tokens": "workspace:^",
+    "@twilio-paste/types": "workspace:^",
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "workspace:^"
+    "@twilio-paste/design-tokens": "workspace:^",
+    "@twilio-paste/types": "workspace:^",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "react": "^18.0.0"
   }
 }

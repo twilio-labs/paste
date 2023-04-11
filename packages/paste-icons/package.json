@@ -8,14 +8,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "cjs",
-    "esm",
-    "json"
-  ],
+  "files": ["cjs", "esm", "json"],
   "scripts": {
     "build": "pnpm clean && NODE_ENV=production node build.js && pnpm tsc && pnpm list-icons && pnpm postbuild",
-    "postbuild": "cp -R ./types/* ./cjs && cp -R ./types/* ./esm",
+    "postbuild": "cp -R ./types/src/* ./cjs && cp -R ./types/src/* ./esm",
     "build:js": "NODE_ENV=development node build.js && pnpm list-icons",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",

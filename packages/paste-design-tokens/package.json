@@ -59,17 +59,24 @@
     "webpack": "^5.70.0"
   },
   "peerDependencies": {
-    "@twilio-paste/types": "workspace:^"
+    "@twilio-paste/types": "workspace:^",
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
+    "@twilio-paste/types": "workspace:^",
     "@types/gulp": "^4.0.6",
     "@types/gulp-if": "^0.0.33",
     "@types/gulp-terser": "^1.2.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-if": "^3.0.0",
     "gulp-terser": "^2.0.1",
     "gulp-theo": "2.0.1",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "react": "^18.0.0"
   }
 }

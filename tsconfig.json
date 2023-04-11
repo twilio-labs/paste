@@ -29,6 +29,17 @@
     "paths": {
       "@emotion/styled": ["./packages/paste-libraries/styling/node_modules/@emotion/styled"],
       "@emotion/react": ["./packages/paste-libraries/styling/node_modules/@emotion/react"],
+      "@emotion/react/types": ["./packages/paste-libraries/styling/node_modules/@emotion/react/types"],
+      "@react-spring/web": [
+        "./packages/paste-libraries/animation/node_modules/@react-spring/web/dist/react-spring-web.cjs.d.ts"
+      ],
+      "@react-spring/shared": [
+        "./packages/paste-libraries/animation/node_modules/@react-spring/shared",
+        "./packages/paste-libraries/animation/node_modules/@react-spring/shared/dist/declarations/src/fluids.d.ts"
+      ],
+      "@reach/dialog": [
+        "./packages/paste-core/primitives/modal-dialog/node_modules/@reach/dialog/dist/declarations/src"
+      ],
       "@twilio-paste/styling-library": ["./packages/paste-libraries/styling/src/index.tsx"]
     }
   },
@@ -43,11 +54,7 @@
     "vite.config.ts"
   ],
   "files": [],
-  "references": [
-    {"path": "./packages/component"},
-    {"path": "./packages/library"},
-    {"path": "./packages/shared-library"}
-  ],
+  "references": [{"path": "packages/paste-libraries/styling/tsconfig.json"}],
   "exclude": [
     "node_modules",
     "docs",

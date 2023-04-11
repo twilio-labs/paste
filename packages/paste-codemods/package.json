@@ -10,7 +10,7 @@
   },
   "bin": "./bin/paste-codemod.js",
   "scripts": {
-    "build": "ts-node ./tools/create-package-mappings.ts"
+    "do-not-build-right-nowbuild": "ts-node ./tools/create-package-mappings.ts"
   },
   "dependencies": {
     "chalk": "4.1.2",

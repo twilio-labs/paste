@@ -77,9 +77,11 @@ Badge.propTypes = {
     'default',
     'info',
   ] as BadgeVariants[]).isRequired,
-  as: PropTypes.oneOf(['span', 'button', 'a']).isRequired,
-  href: PropTypes.string,
-  onClick: PropTypes.func,
+  /*
+   * as: PropTypes.oneOf(['span', 'button', 'a']),
+   * href: PropTypes.string,
+   * onClick: PropTypes.func,
+   */
 };
 
 export * from './types';

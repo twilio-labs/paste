@@ -416,7 +416,7 @@ importers:
         specifier: ^7.16.11
         version: 7.18.0(@babel/core@7.18.0)
       '@twilio-paste/core':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../paste-core/core-bundle
 
   packages/paste-color-contrast-utils:
@@ -429,61 +429,73 @@ importers:
         version: 4.17.21
     devDependencies:
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../paste-design-tokens
+      '@twilio-paste/types':
+        specifier: workspace:^
+        version: link:../paste-types
+      '@types/react':
+        specifier: ^18.0.27
+        version: 18.0.33
+      '@types/react-dom':
+        specifier: ^18.0.10
+        version: 18.0.11
+      react:
+        specifier: ^18.0.0
+        version: 18.2.0
 
   packages/paste-core/components/alert:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/media-object':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -504,67 +516,67 @@ importers:
   packages/paste-core/components/alert-dialog:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/heading':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/modal':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../modal
       '@twilio-paste/modal-dialog-primitive':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/modal-dialog
       '@twilio-paste/screen-reader-only':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -585,37 +597,37 @@ importers:
   packages/paste-core/components/anchor:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -646,40 +658,40 @@ importers:
         version: 18.0.0
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -700,46 +712,46 @@ importers:
   packages/paste-core/components/badge:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/spinner':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -763,58 +775,58 @@ importers:
   packages/paste-core/components/base-radio-checkbox:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/label':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/sibling-box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -835,43 +847,43 @@ importers:
   packages/paste-core/components/breadcrumb:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -896,46 +908,46 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/spinner':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -959,34 +971,34 @@ importers:
   packages/paste-core/components/button-group:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1007,43 +1019,43 @@ importers:
   packages/paste-core/components/callout:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1064,31 +1076,31 @@ importers:
   packages/paste-core/components/card:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -1113,34 +1125,34 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/lexical-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/lexical
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -1164,61 +1176,61 @@ importers:
   packages/paste-core/components/chat-log:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/truncate':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../truncate
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1239,64 +1251,64 @@ importers:
   packages/paste-core/components/checkbox:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/base-radio-checkbox':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../base-radio-checkbox
       '@twilio-paste/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/inline-control-group':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../inline-control-group
       '@twilio-paste/label':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/sibling-box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/style-props':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1320,76 +1332,76 @@ importers:
   packages/paste-core/components/code-block:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: 1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/clipboard-copy-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/clipboard-copy
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/syntax-highlighter-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/syntax-highlighter
       '@twilio-paste/tabs-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/tabs
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/tooltip':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../tooltip
       '@twilio-paste/tooltip-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/tooltip
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1423,88 +1435,88 @@ importers:
         version: 2.10.4(react@18.2.0)
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/combobox-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/combobox
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/dropdown-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/dropdown
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/form-pill-group':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../form-pill-group
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/input':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../input
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/label':
-        specifier: ^12.0.1
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.1
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@twilio-paste/utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-utils
       '@types/react':
         specifier: ^18.0.27
@@ -1532,61 +1544,61 @@ importers:
         version: 4.17.21
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/table':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../table
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@twilio-paste/utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-utils
       '@types/react':
         specifier: ^18.0.27
@@ -1611,40 +1623,40 @@ importers:
         version: 2.21.3
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/input':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../input
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1665,31 +1677,31 @@ importers:
   packages/paste-core/components/description-list:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -1713,31 +1725,31 @@ importers:
   packages/paste-core/components/detail-text:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -1761,52 +1773,52 @@ importers:
   packages/paste-core/components/disclosure:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/card':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../card
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/disclosure-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/disclosure
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1827,34 +1839,34 @@ importers:
   packages/paste-core/components/display-heading:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -1878,40 +1890,40 @@ importers:
   packages/paste-core/components/display-pill-group:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -1932,55 +1944,55 @@ importers:
   packages/paste-core/components/file-picker:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2005,64 +2017,64 @@ importers:
         version: 4.17.21
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: 1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2086,40 +2098,40 @@ importers:
   packages/paste-core/components/form:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2147,43 +2159,43 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2204,31 +2216,31 @@ importers:
   packages/paste-core/components/heading:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -2249,37 +2261,37 @@ importers:
   packages/paste-core/components/help-text:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2300,40 +2312,40 @@ importers:
   packages/paste-core/components/in-page-navigation:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2357,31 +2369,31 @@ importers:
   packages/paste-core/components/inline-code:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -2402,55 +2414,55 @@ importers:
   packages/paste-core/components/inline-control-group:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2474,37 +2486,37 @@ importers:
   packages/paste-core/components/input:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2525,34 +2537,34 @@ importers:
   packages/paste-core/components/input-box:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2573,43 +2585,43 @@ importers:
   packages/paste-core/components/label:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.1
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2630,31 +2642,31 @@ importers:
   packages/paste-core/components/list:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -2675,64 +2687,64 @@ importers:
   packages/paste-core/components/menu:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/menu-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/menu
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/separator':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../separator
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2753,58 +2765,58 @@ importers:
   packages/paste-core/components/minimizable-dialog:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/non-modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/non-modal-dialog
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2825,64 +2837,64 @@ importers:
   packages/paste-core/components/modal:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/modal-dialog
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2903,40 +2915,40 @@ importers:
   packages/paste-core/components/pagination:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -2957,31 +2969,31 @@ importers:
   packages/paste-core/components/paragraph:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -3002,64 +3014,64 @@ importers:
   packages/paste-core/components/popover:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/badge':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../badge
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/non-modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/non-modal-dialog
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3083,73 +3095,73 @@ importers:
   packages/paste-core/components/radio-button-group:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/inline-control-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../inline-control-group
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3173,64 +3185,64 @@ importers:
   packages/paste-core/components/radio-group:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/base-radio-checkbox':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../base-radio-checkbox
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/inline-control-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../inline-control-group
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3254,37 +3266,37 @@ importers:
   packages/paste-core/components/screen-reader-only:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3305,40 +3317,40 @@ importers:
   packages/paste-core/components/select:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.1
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3359,31 +3371,31 @@ importers:
   packages/paste-core/components/separator:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -3404,64 +3416,64 @@ importers:
   packages/paste-core/components/side-modal:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../heading
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/non-modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/non-modal-dialog
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.1
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3482,31 +3494,31 @@ importers:
   packages/paste-core/components/skeleton-loader:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -3527,37 +3539,37 @@ importers:
   packages/paste-core/components/spinner:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3578,61 +3590,61 @@ importers:
   packages/paste-core/components/switch:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/inline-control-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../inline-control-group
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../label
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../primitives/sibling-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3656,31 +3668,31 @@ importers:
   packages/paste-core/components/table:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -3701,40 +3713,40 @@ importers:
   packages/paste-core/components/tabs:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/flex
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/tabs-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/tabs
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -3755,40 +3767,40 @@ importers:
   packages/paste-core/components/textarea:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/react-textarea-autosize-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/react-textarea-autosize
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3813,40 +3825,40 @@ importers:
         version: 2.21.3
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/input':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../input
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../input-box
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3867,58 +3879,58 @@ importers:
   packages/paste-core/components/toast:
     devDependencies:
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../button
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../layout/media-object
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../screen-reader-only
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -3942,49 +3954,49 @@ importers:
   packages/paste-core/components/tooltip:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../spinner
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/text
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/tooltip-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../primitives/tooltip
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -4005,37 +4017,37 @@ importers:
   packages/paste-core/components/truncate:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../../paste-icons
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -4056,281 +4068,281 @@ importers:
   packages/paste-core/core-bundle:
     dependencies:
       '@twilio-paste/alert':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../components/alert
       '@twilio-paste/alert-dialog':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../components/alert-dialog
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../components/anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/animation
       '@twilio-paste/aspect-ratio':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../layout/aspect-ratio
       '@twilio-paste/avatar':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../components/avatar
       '@twilio-paste/badge':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/badge
       '@twilio-paste/base-radio-checkbox':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/base-radio-checkbox
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../primitives/box
       '@twilio-paste/breadcrumb':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../components/breadcrumb
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../components/button
       '@twilio-paste/button-group':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/button-group
       '@twilio-paste/callout':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/callout
       '@twilio-paste/card':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../components/card
       '@twilio-paste/chat-composer':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/chat-composer
       '@twilio-paste/chat-log':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../components/chat-log
       '@twilio-paste/checkbox':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/checkbox
       '@twilio-paste/clipboard-copy-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/clipboard-copy
       '@twilio-paste/code-block':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/code-block
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../paste-color-contrast-utils
       '@twilio-paste/combobox':
-        specifier: ^15.0.1
+        specifier: workspace:^
         version: link:../components/combobox
       '@twilio-paste/combobox-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/combobox
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../paste-customization
       '@twilio-paste/data-grid':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/data-grid
       '@twilio-paste/data-visualization-library':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/data-visualization
       '@twilio-paste/date-picker':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../components/date-picker
       '@twilio-paste/description-list':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/description-list
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../../paste-design-tokens
       '@twilio-paste/detail-text':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../components/detail-text
       '@twilio-paste/disclosure':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../components/disclosure
       '@twilio-paste/disclosure-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/disclosure
       '@twilio-paste/display-heading':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/display-heading
       '@twilio-paste/display-pill-group':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/display-pill-group
       '@twilio-paste/dropdown-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/dropdown
       '@twilio-paste/file-picker':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/file-picker
       '@twilio-paste/file-uploader':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/file-uploader
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../layout/flex
       '@twilio-paste/form':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../components/form
       '@twilio-paste/form-pill-group':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/form-pill-group
       '@twilio-paste/grid':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../layout/grid
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../components/heading
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/help-text
       '@twilio-paste/in-page-navigation':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/in-page-navigation
       '@twilio-paste/inline-code':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/inline-code
       '@twilio-paste/inline-control-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/inline-control-group
       '@twilio-paste/input':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../components/input
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../components/input-box
       '@twilio-paste/label':
-        specifier: ^12.0.1
+        specifier: workspace:^
         version: link:../components/label
       '@twilio-paste/lexical-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/lexical
       '@twilio-paste/list':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/list
       '@twilio-paste/listbox-primitive':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../primitives/listbox
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../layout/media-object
       '@twilio-paste/menu':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../components/menu
       '@twilio-paste/menu-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/menu
       '@twilio-paste/minimizable-dialog':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/minimizable-dialog
       '@twilio-paste/modal':
-        specifier: ^15.0.0
+        specifier: workspace:^
         version: link:../components/modal
       '@twilio-paste/modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/modal-dialog
       '@twilio-paste/non-modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/non-modal-dialog
       '@twilio-paste/pagination':
-        specifier: ^6.0.0
+        specifier: workspace:^
         version: link:../components/pagination
       '@twilio-paste/paragraph':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../components/paragraph
       '@twilio-paste/popover':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/popover
       '@twilio-paste/radio-button-group':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../components/radio-button-group
       '@twilio-paste/radio-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/radio-group
       '@twilio-paste/react-textarea-autosize-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/react-textarea-autosize
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../components/screen-reader-only
       '@twilio-paste/select':
-        specifier: ^11.0.1
+        specifier: workspace:^
         version: link:../components/select
       '@twilio-paste/separator':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/separator
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../primitives/sibling-box
       '@twilio-paste/side-modal':
-        specifier: ^3.0.1
+        specifier: workspace:^
         version: link:../components/side-modal
       '@twilio-paste/skeleton-loader':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../components/skeleton-loader
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../components/spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../../paste-libraries/styling
       '@twilio-paste/switch':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../components/switch
       '@twilio-paste/syntax-highlighter-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/syntax-highlighter
       '@twilio-paste/table':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/table
       '@twilio-paste/tabs':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../components/tabs
       '@twilio-paste/tabs-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/tabs
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../primitives/text
       '@twilio-paste/textarea':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../components/textarea
       '@twilio-paste/theme':
-        specifier: ^10.0.1
+        specifier: workspace:^
         version: link:../../paste-theme
       '@twilio-paste/time-picker':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../components/time-picker
       '@twilio-paste/toast':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../components/toast
       '@twilio-paste/tooltip':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../components/tooltip
       '@twilio-paste/tooltip-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../primitives/tooltip
       '@twilio-paste/truncate':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../components/truncate
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../paste-libraries/uid
       '@twilio-paste/utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../paste-utils
     devDependencies:
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../../paste-icons
       '@types/react':
         specifier: ^18.0.27
@@ -4536,31 +4548,31 @@ importers:
   packages/paste-core/layout/aspect-ratio:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -4581,31 +4593,31 @@ importers:
   packages/paste-core/layout/flex:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -4626,31 +4638,31 @@ importers:
   packages/paste-core/layout/grid:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -4674,31 +4686,31 @@ importers:
   packages/paste-core/layout/media-object:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -4719,34 +4731,34 @@ importers:
   packages/paste-core/layout/stack:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../../primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -4771,28 +4783,28 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -4816,7 +4828,7 @@ importers:
   packages/paste-core/primitives/combobox:
     devDependencies:
       '@twilio-paste/dropdown-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/dropdown
       prop-types:
         specifier: ^15.7.2
@@ -4831,7 +4843,7 @@ importers:
   packages/paste-core/primitives/disclosure:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       prop-types:
         specifier: ^15.7.2
@@ -4846,7 +4858,7 @@ importers:
   packages/paste-core/primitives/listbox:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       react:
         specifier: ^18.0.0
@@ -4858,7 +4870,7 @@ importers:
   packages/paste-core/primitives/menu:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       react:
         specifier: ^18.0.0
@@ -4883,7 +4895,7 @@ importers:
   packages/paste-core/primitives/non-modal-dialog:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       react:
         specifier: ^18.0.0
@@ -4895,34 +4907,34 @@ importers:
   packages/paste-core/primitives/sibling-box:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -4946,7 +4958,7 @@ importers:
   packages/paste-core/primitives/tabs:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       react:
         specifier: ^18.0.0
@@ -4962,28 +4974,28 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../../../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../../../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5007,7 +5019,7 @@ importers:
   packages/paste-core/primitives/tooltip:
     devDependencies:
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../../../paste-libraries/reakit
       react:
         specifier: ^18.0.0
@@ -5025,25 +5037,25 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5099,9 +5111,6 @@ importers:
       '@babel/register':
         specifier: ^7.8.3
         version: 7.17.7(@babel/core@7.18.0)
-      '@twilio-paste/types':
-        specifier: workspace:*
-        version: link:../paste-types
       '@types/browser-sync':
         specifier: ^2.26.1
         version: 2.26.3
@@ -5171,6 +5180,19 @@ importers:
       webpack:
         specifier: ^5.70.0
         version: 5.72.1(@swc/core@1.3.46)(esbuild@0.15.18)
+    devDependencies:
+      '@twilio-paste/types':
+        specifier: workspace:^
+        version: link:../paste-types
+      '@types/react':
+        specifier: ^18.0.27
+        version: 18.0.33
+      '@types/react-dom':
+        specifier: ^18.0.10
+        version: 18.0.11
+      react:
+        specifier: ^18.0.0
+        version: 18.2.0
 
   packages/paste-eslint/eslint-plugin-paste-internal:
     devDependencies:
@@ -5181,34 +5203,34 @@ importers:
   packages/paste-icons:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/box
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-customization
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/uid
       '@types/react':
         specifier: ^18.0.27
@@ -5268,22 +5290,22 @@ importers:
         version: 4.2.2
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../../paste-color-contrast-utils
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../../paste-design-tokens
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5449,10 +5471,10 @@ importers:
   packages/paste-nextjs-template:
     dependencies:
       '@twilio-paste/core':
-        specifier: ^19.0.0
+        specifier: workspace:^
         version: link:../paste-core/core-bundle
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-icons
       next:
         specifier: ^13.1.6
@@ -5487,22 +5509,22 @@ importers:
         version: 4.17.21
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5523,19 +5545,19 @@ importers:
   packages/paste-theme:
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.3
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/styling-library':
-        specifier: ^2.0.1
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5562,10 +5584,10 @@ importers:
         specifier: ^2.8.1
         version: 2.18.0
       '@twilio-paste/core':
-        specifier: ^19.0.0
+        specifier: workspace:^
         version: link:../paste-core/core-bundle
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-icons
       next:
         specifier: ^13.1.6
@@ -5580,10 +5602,10 @@ importers:
   packages/paste-token-contrast-checker:
     dependencies:
       '@twilio-paste/core':
-        specifier: ^19.0.0
+        specifier: workspace:^
         version: link:../paste-core/core-bundle
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-icons
       lodash:
         specifier: 4.17.21
@@ -5626,22 +5648,22 @@ importers:
         version: 4.17.21
     devDependencies:
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-theme
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@types/react':
         specifier: ^18.0.27
@@ -5692,232 +5714,232 @@ importers:
         specifier: ^110.0.0
         version: 110.0.1
       '@twilio-paste/alert':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/alert
       '@twilio-paste/alert-dialog':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/alert-dialog
       '@twilio-paste/anchor':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/anchor
       '@twilio-paste/animation-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/animation
       '@twilio-paste/aspect-ratio':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/layout/aspect-ratio
       '@twilio-paste/avatar':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/avatar
       '@twilio-paste/badge':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/badge
       '@twilio-paste/base-radio-checkbox':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/base-radio-checkbox
       '@twilio-paste/box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/box
       '@twilio-paste/breadcrumb':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/breadcrumb
       '@twilio-paste/button':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/button
       '@twilio-paste/callout':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/callout
       '@twilio-paste/card':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/card
       '@twilio-paste/chat-log':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/chat-log
       '@twilio-paste/checkbox':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/checkbox
       '@twilio-paste/clipboard-copy-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/clipboard-copy
       '@twilio-paste/color-contrast-utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-color-contrast-utils
       '@twilio-paste/combobox':
-        specifier: ^15.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/combobox
       '@twilio-paste/combobox-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/combobox
       '@twilio-paste/customization':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-customization
       '@twilio-paste/data-grid':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/data-grid
       '@twilio-paste/data-visualization-library':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/data-visualization
       '@twilio-paste/date-picker':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/date-picker
       '@twilio-paste/design-tokens':
-        specifier: ^9.0.2
+        specifier: workspace:^
         version: link:../paste-design-tokens
       '@twilio-paste/disclosure':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/disclosure
       '@twilio-paste/disclosure-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/disclosure
       '@twilio-paste/display-heading':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/display-heading
       '@twilio-paste/display-pill-group':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/display-pill-group
       '@twilio-paste/dropdown-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/dropdown
       '@twilio-paste/flex':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/layout/flex
       '@twilio-paste/form-pill-group':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/form-pill-group
       '@twilio-paste/grid':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/layout/grid
       '@twilio-paste/heading':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/heading
       '@twilio-paste/help-text':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/help-text
       '@twilio-paste/icons':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-icons
       '@twilio-paste/inline-control-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/inline-control-group
       '@twilio-paste/input':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/input
       '@twilio-paste/input-box':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/input-box
       '@twilio-paste/label':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/label
       '@twilio-paste/list':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/list
       '@twilio-paste/media-object':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/layout/media-object
       '@twilio-paste/menu':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/menu
       '@twilio-paste/menu-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/menu
       '@twilio-paste/modal':
-        specifier: ^15.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/modal
       '@twilio-paste/modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/modal-dialog
       '@twilio-paste/non-modal-dialog-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/non-modal-dialog
       '@twilio-paste/pagination':
-        specifier: ^6.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/pagination
       '@twilio-paste/paragraph':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/paragraph
       '@twilio-paste/popover':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/popover
       '@twilio-paste/radio-button-group':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/radio-button-group
       '@twilio-paste/radio-group':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/radio-group
       '@twilio-paste/reakit-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/reakit
       '@twilio-paste/screen-reader-only':
-        specifier: ^12.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/screen-reader-only
       '@twilio-paste/select':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/select
       '@twilio-paste/separator':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/separator
       '@twilio-paste/sibling-box':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/sibling-box
       '@twilio-paste/side-modal':
-        specifier: ^3.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/side-modal
       '@twilio-paste/skeleton-loader':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/skeleton-loader
       '@twilio-paste/spinner':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/spinner
       '@twilio-paste/stack':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/layout/stack
       '@twilio-paste/style-props':
-        specifier: ^8.0.0
+        specifier: workspace:^
         version: link:../paste-style-props
       '@twilio-paste/styling-library':
-        specifier: ^2.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/styling
       '@twilio-paste/table':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/table
       '@twilio-paste/tabs':
-        specifier: ^7.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/tabs
       '@twilio-paste/tabs-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/tabs
       '@twilio-paste/text':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/text
       '@twilio-paste/textarea':
-        specifier: ^9.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/textarea
       '@twilio-paste/theme':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-theme
       '@twilio-paste/time-picker':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/time-picker
       '@twilio-paste/toast':
-        specifier: ^11.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/toast
       '@twilio-paste/tooltip':
-        specifier: ^10.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/tooltip
       '@twilio-paste/tooltip-primitive':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-core/primitives/tooltip
       '@twilio-paste/truncate':
-        specifier: ^13.0.0
+        specifier: workspace:^
         version: link:../paste-core/components/truncate
       '@twilio-paste/types':
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:../paste-types
       '@twilio-paste/uid-library':
-        specifier: ^1.0.0
+        specifier: workspace:^
         version: link:../paste-libraries/uid
       '@twilio-paste/utils':
-        specifier: ^4.0.0
+        specifier: workspace:^
         version: link:../paste-utils
       '@types/airtable':
         specifier: ^0.10.1

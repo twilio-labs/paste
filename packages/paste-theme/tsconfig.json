@@ -4,5 +4,6 @@
     "outDir": "dist/"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "__tests__"]
+  "exclude": ["node_modules", "__tests__"],
+  "references": [{"path": "../paste-libraries/styling/tsconfig.json"}]
 }
