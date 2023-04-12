@@ -13460,6 +13460,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/base-64@npm:1.0.0"
+  checksum: bcb1b52b404a0a6e3cfdefab6d2eb04a0a23dd3881890944f56e0885866b97e8b7e13988b2fd74359a1258b68c7e399d58c0e2aaed3f03fcd801af62a0040ee2
+  languageName: node
+  linkType: hard
+
 "@types/body-parser@npm:*":
   version: 1.19.2
   resolution: "@types/body-parser@npm:1.19.2"
@@ -14575,6 +14582,13 @@ __metadata:
   version: 2.0.3
   resolution: "@types/unist@npm:2.0.3"
   checksum: 4427306b094561da28164e7e5250c4e6b382cb8eac40bf7e6bb0ff1e6e00c13e47aaf32e4a08fc8ba54602d07f79a39fb9ba304cc9dc886b1e3caf824649edbd
+  languageName: node
+  linkType: hard
+
+"@types/utf8@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/utf8@npm:3.0.1"
+  checksum: d6f0de86a1bb025e876d896fc0c1120aea2989986c862c979968558ee4c668c0c785e574bff59348afc060c8860d621bbe8c6d81c4a71782fc5044de9025aa6b
   languageName: node
   linkType: hard
 
@@ -17498,6 +17512,13 @@ __metadata:
   version: 1.0.0
   resolution: "balanced-match@npm:1.0.0"
   checksum: 9b67bfe558772f40cf743a3469b48b286aecec2ea9fe80c48d74845e53aab1cef524fafedf123a63019b49ac397760573ef5f173f539423061f7217cbb5fbd40
+  languageName: node
+  linkType: hard
+
+"base-64@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "base-64@npm:1.0.0"
+  checksum: d10b64a1fc9b2c5a5f39f1ce1e6c9d1c5b249222bbfa3a0604c592d90623caf74419983feadd8a170f27dc0c3389704f72faafa3e645aeb56bfc030c93ff074a
   languageName: node
   linkType: hard
 
@@ -43214,6 +43235,13 @@ typescript@^4.9.4:
   languageName: node
   linkType: hard
 
+"utf8@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "utf8@npm:3.0.0"
+  checksum: cb89a69ad9ab393e3eae9b25305b3ff08bebca9adc839191a34f90777eb2942f86a96369d2839925fea58f8f722f7e27031d697f10f5f39690f8c5047303e62d
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:^1.0.2, util-deprecate@npm:~1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -43612,15 +43640,18 @@ typescript@^4.9.4:
   resolution: "vs-code-intellisense@workspace:apps/vs-code-intellisense"
   dependencies:
     "@twilio-paste/design-tokens": ^9.0.2
+    "@types/base-64": ^1.0.0
     "@types/glob": ^8.1.0
     "@types/lodash.camelcase": ^4.3.7
     "@types/lodash.kebabcase": ^4.1.7
     "@types/mocha": ^10.0.1
     "@types/node": ^18.11.13
+    "@types/utf8": ^3.0.1
     "@types/vscode": ^1.68.0
     "@typescript-eslint/eslint-plugin": ^5.46.0
     "@typescript-eslint/parser": ^5.46.0
     "@vscode/test-electron": ^2.1.5
+    base-64: ^1.0.0
     esbuild: ^0.15.18
     eslint: ^8.29.0
     glob: ^8.0.3
@@ -43628,6 +43659,7 @@ typescript@^4.9.4:
     lodash.kebabcase: 4.1.1
     mocha: ^10.0.0
     typescript: ^4.9.4
+    utf8: ^3.0.0
     vsce: ^2.15.0
   languageName: unknown
   linkType: soft
