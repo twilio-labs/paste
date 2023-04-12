@@ -24,7 +24,7 @@ props:
 
   # primary action borders
   color-border-primary-strongest:
-    value: "#OC1E56"
+    value: "#0C1E56"
     comment: Strongest primary border color
   color-border-primary-stronger:
     value: "#1F3D99"
