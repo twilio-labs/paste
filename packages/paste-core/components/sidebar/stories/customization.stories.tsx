@@ -4,7 +4,6 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
 import type {StoryFn} from '@storybook/react';
 
 import {Sidebar, PushSidebarContentWrapper, OverlaySidebarContentWrapper} from '../src';
@@ -20,8 +19,6 @@ export default {
   title: 'Components/Sidebar/Customization',
   decorators: [(storyFn) => <div style={styles}>{storyFn()}</div>],
 };
-
-type ElementOverrides = Record<string, PasteCustomCSS>;
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
