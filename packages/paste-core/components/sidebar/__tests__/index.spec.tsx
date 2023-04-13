@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 
 import {Sidebar, PushSidebarContentWrapper, OverlaySidebarContentWrapper} from '../src';

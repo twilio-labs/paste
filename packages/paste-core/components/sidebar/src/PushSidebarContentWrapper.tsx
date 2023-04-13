@@ -5,15 +5,10 @@ import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import type {Variants} from './types';
 
-interface StyledContentWrapperProps extends BoxProps {
-  style?: any;
-}
-
-const StyledContentWrapper = React.forwardRef<HTMLDivElement, StyledContentWrapperProps>(({style, ...props}, ref) => (
-  <Box {...safelySpreadBoxProps(props)} as="div" position="relative" ref={ref} style={style} />
+const StyledContentWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
+  <Box {...props} as="div" position="relative" ref={ref} />
 ));
 StyledContentWrapper.displayName = 'StyledContentWrapper';
-
 const AnimatedStyledContentWrapper = animated(StyledContentWrapper);
 
 export interface PushSidebarContentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,7 +21,7 @@ export interface PushSidebarContentWrapperProps extends React.HTMLAttributes<HTM
 export const PushSidebarContentWrapper = React.forwardRef<HTMLDivElement, PushSidebarContentWrapperProps>(
   ({collapsed = false, variant = 'default', element = 'PUSH_SIDEBAR_CONTENT_WRAPPER', children}, ref) => {
     const theme = useTheme();
-    const isCompact = variant === 'compact' || variant === 'compact_inverse';
+    const isCompact = variant === 'compact';
 
     const styles = useSpring({
       // eslint-disable-next-line unicorn/no-nested-ternary

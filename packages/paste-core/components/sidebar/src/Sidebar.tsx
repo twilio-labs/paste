@@ -5,11 +5,7 @@ import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import type {Variants} from './types';
 
-interface StyledSidebarProps extends BoxProps {
-  isInverse: boolean;
-  style?: any;
-}
-const StyledSidebar = React.forwardRef<HTMLDivElement, StyledSidebarProps>(({style, isInverse, ...props}, ref) => (
+const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
     aria-label="Main Navigation"
     {...props}
@@ -17,9 +13,8 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, StyledSidebarProps>(({sty
     role="navigation"
     display="block"
     ref={ref}
-    style={style}
-    boxShadow={isInverse ? 'shadowBorderInverse' : 'shadowBorderWeaker'}
-    backgroundColor={isInverse ? 'colorBackgroundInverse' : 'colorBackgroundWeak'}
+    boxShadow="shadowBorderInverse"
+    backgroundColor="colorBackgroundInverse"
     zIndex="zIndex40"
     position="fixed"
     top={0}
@@ -60,7 +55,7 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({collapsed = false, variant = 'default', element = 'SIDEBAR', children, ...props}, ref) => {
     const theme = useTheme();
-    const isCompact = variant === 'compact' || variant === 'compact_inverse';
+    const isCompact = variant === 'compact';
     const styles = useSpring(
       isCompact
         ? getCompactSpringConfig(collapsed, theme.sizes.sizeSidebar, theme.sizes.sizeSidebarCompact)
@@ -74,7 +69,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         element={element}
         width={isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar'}
         style={styles}
-        isInverse={variant === 'inverse' || variant === 'compact_inverse'}
         aria-label={props['aria-label']}
         aria-expanded={!collapsed}
       >

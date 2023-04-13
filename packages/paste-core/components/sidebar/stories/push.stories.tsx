@@ -7,7 +7,10 @@ import type {StoryFn} from '@storybook/react';
 import {Sidebar, PushSidebarContentWrapper} from '../src';
 
 // Fix for docs page examples overflowing the container
-const styles = {};
+const styles = {
+  transform: 'scale(1)',
+  height: '100vh',
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -40,31 +43,6 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const DefaultInverse: StoryFn = () => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
-
-  return (
-    <Box>
-      {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarCollapsed} variant="inverse">
-        <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
-        </Stack>
-      </Sidebar>
-
-      {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="inverse">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
-      </PushSidebarContentWrapper>
-    </Box>
-  );
-};
-
 export const Compact: StoryFn = () => {
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
@@ -82,31 +60,6 @@ export const Compact: StoryFn = () => {
 
       {/* Must wrap content area */}
       <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
-      </PushSidebarContentWrapper>
-    </Box>
-  );
-};
-
-export const CompactInverse: StoryFn = () => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
-
-  return (
-    <Box>
-      {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarCollapsed} variant="compact_inverse">
-        <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
-        </Stack>
-      </Sidebar>
-
-      {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="compact_inverse">
         <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>

@@ -7,7 +7,10 @@ import type {StoryFn} from '@storybook/react';
 import {Sidebar, OverlaySidebarContentWrapper} from '../src';
 
 // Fix for docs page examples overflowing the container
-const styles = {};
+const styles = {
+  transform: 'scale(1)',
+  height: '100vh',
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -40,31 +43,6 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const DefaultInverse: StoryFn = () => {
-  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
-
-  return (
-    <Box>
-      {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={overlaySidebarExpanded} variant="inverse">
-        <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-            Toggle Overlay Sidebar
-          </Button>
-        </Stack>
-      </Sidebar>
-
-      {/* Must wrap content area */}
-      <OverlaySidebarContentWrapper collapsed={overlaySidebarExpanded} variant="inverse">
-        <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-          Toggle Overlay Sidebar
-        </Button>
-      </OverlaySidebarContentWrapper>
-    </Box>
-  );
-};
-
 export const Compact: StoryFn = () => {
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
 
@@ -82,31 +60,6 @@ export const Compact: StoryFn = () => {
 
       {/* Must wrap content area */}
       <OverlaySidebarContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-          Toggle Overlay Sidebar
-        </Button>
-      </OverlaySidebarContentWrapper>
-    </Box>
-  );
-};
-
-export const CompactInverse: StoryFn = () => {
-  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
-
-  return (
-    <Box>
-      {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={overlaySidebarExpanded} variant="compact_inverse">
-        <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-            Toggle Overlay Sidebar
-          </Button>
-        </Stack>
-      </Sidebar>
-
-      {/* Must wrap content area */}
-      <OverlaySidebarContentWrapper collapsed={overlaySidebarExpanded} variant="compact_inverse">
         <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
           Toggle Overlay Sidebar
         </Button>

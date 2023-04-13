@@ -6,12 +6,13 @@ import type {Variants} from './types';
 export interface OverlaySidebarContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   element?: BoxProps['element'];
+  collapsed?: boolean;
   variant?: Variants;
 }
 
 export const OverlaySidebarContentWrapper = React.forwardRef<HTMLDivElement, OverlaySidebarContentWrapper>(
   ({variant = 'default', element = 'OVERLAY_SIDEBAR_CONTENT_WRAPPER', children, ...props}, ref) => {
-    if (variant === 'compact' || variant === 'compact_inverse') {
+    if (variant === 'compact') {
       return (
         <Box display="flex" justifyContent="flex-start">
           <Box role="presentation" width="sizeSidebarCompact" height="100%" minHeight="1px" />

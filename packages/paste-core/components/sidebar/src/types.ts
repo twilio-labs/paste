@@ -1,1 +1,1 @@
-export type Variants = 'default' | 'inverse' | 'compact' | 'compact_inverse';
+export type Variants = 'default' | 'compact';
