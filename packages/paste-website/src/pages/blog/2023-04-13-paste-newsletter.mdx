@@ -1,0 +1,185 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - April 2023 Edition',
+  slug: '/blog/2023-04-13-paste-newsletter/',
+  date: '2023-04-13',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'published',
+  excerpt: "What's new in Paste in April 2023? New components, new design language, and more!",
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import DesignLanguageImage from '../../assets/images/articles/2023-04-13-paste-newsletter/design-language.png';
+import ThemeSwitcherImage from '../../assets/images/articles/2023-04-13-paste-newsletter/theming.gif';
+import TypographyImage from '../../assets/images/articles/2023-04-13-paste-newsletter/typography.png';
+import DetailTextImage from '../../assets/images/articles/2023-04-13-paste-newsletter/detail-text.png';
+import Colleen from '../../assets/images/articles/2023-04-13-paste-newsletter/cy.png';
+import Editor from '../../assets/images/articles/2023-04-13-paste-newsletter/mc.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### 100% of Paste components updated to the new design language
+
+<ResponsiveImage src={DesignLanguageImage} alt="" />
+
+We are excited to announce that the new One Twilio Design Language is fully live!
+
+This update comes from an initiative to create a cohesive design language to unify Twilio’s product suite. Learn more about the work on the Twilio Blog: ["Bringing Cohesion to the Twilio Product Suite"](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i)
+
+<Box
+  borderColor="colorBorderWeaker"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+  borderRadius="borderRadius20"
+  marginBottom="space120"
+>
+<Box
+  as={Image}
+  maxWidth="100%"
+  src={ThemeSwitcherImage}
+  alt=""
+  style={{objectFit: 'contain'}}
+/>
+</Box>
+
+The update can be seen now on the Paste site. This update comes through 3 new themes: **twilio, twilio-dark, and evergreen**. For details on each theme, visit our [theme documentation](https://paste.twilio.design/theme).
+
+To determine a timeline for upgrading to the new design language in your product, check out our [recommended process](https://www.figma.com/proto/wAXdm0CAM3rnjn3RJsWb2v/One-Twilio-Updates-Shareout-for-Team-UX?node-id=1-17899&scaling=contain&page-id=0%3A1) and [suggested timeline strategy](https://www.figma.com/proto/wAXdm0CAM3rnjn3RJsWb2v/One-Twilio-Updates-Shareout-for-Team-UX?node-id=154-164616&scaling=contain&page-id=0%3A1). We recommend most product teams migrate their top and side navigation bars to use Paste Navigation UI Kit components (estimated for Q2 release) before swapping from their existing theme to the `twilio` theme (recommend Q3–Q4).
+
+Look for even more details about this design language update and the **Tess Hannel** for her leadership on this project with the Paste team 🌟.
+
+[**Check out the new design language on display**](/)
+
+### [Typography Guidelines](/foundations/typography)
+
+<ResponsiveImage src={TypographyImage} alt="" />
+
+Our newest [foundations page on Typography](/foundations/typography) shares guidelines on how to set type in Twilio products, using our new design language and typefaces, Twilio Sans Display, Twilio Sans Text, and Twilio Sans Mono. If you’re looking for help in making a decision on how to use a near-infinite combination of font families, sizes, colors, weights, line-heights, and more, and make sure all those text combinations work together on a page, these guidelines are for you!
+
+### [Detail Text Component](/components/detail-text)
+
+<ResponsiveImage src={DetailTextImage} alt="" />
+
+The [Detail Text](/components/detail-text) component is used for small pieces of text that are secondary to body text in a page. Use it for an image caption, in a chart legend, or as a paragraph footnote.
+
+### Additional updates
+
+#### New
+
+- Added [68 new icons](/components/icons) to support: Segment, Rich-text editing, Aion (TimeIcon), Console (TrendUpIcon, TrendDownIcon, ProductVoiceIntelligenceIcon), and Twilio customer requests (StoreIcon). Thanks, **Emma Sims** and **Colleen Yerkes** for their collaboration and reviews on these!
+
+#### Improvements
+
+- [Popover](/components/popover): Updated with more detailed documentation and examples based on feedback from the Design Systems Committee. Thanks, all!
+- [Toast](/components/toast#reponsive-toast): Added a `left` prop to make Toasts more mobile-compatible. Thanks for the suggestion, **Claudia Zhou**!
+- [Side Modal](/components/side-modal): Increased the default width of Side Modal to better align with Segment use cases and content. Thanks for the suggestion, **Darci Meachin and Chris Chan**! Side Modal also received a little TLC with a new animation ✨.
+
+## 🚦 Q1 OKR results
+
+**Objective:** Establish Paste as the standard UI framework for Segment, and unify Twilio customer experiences in a single, beautiful Design Language update.
+
+| Key Result | Status | Notes |
+| --- | --- | --- |
+| 100% of Paste components updated to new design language | 🎉 **Complete** |  |
+| Designs for a unified or universal Navigation and Masthead reviewed and approved by downstream applications; Aion, Console, Sendgrid and Segment | 🎉 **Complete** |  |
+| Segment-themed Paste shipped in Segment Core App with 1 Paste component in production. | 🎉 **Complete** |  |
+
+**Objective:** Drive reliability, resiliency, and quality in Twilio products through investments in infrastructure
+
+| Key Result | Status | Notes |
+| --- | --- | --- |
+| Monorepo dependency management is automated and key dependencies are updated on an agreed cadence | ❌ **Incomplete** | Mid-quarter revision: Replanned for Q2 due to capacity constraints |
+| Fully support the use of Paste inside a React 18 application | 🎉 **Complete** |  |
+| Decrease resiliency ticket backlog by 25% | ❌ **Incomplete** | Mid-quarter revision: Replanned for Q2 due to capacity constraints |
+| Avg CI runtime/s is reduced by 20% | 🎉 **Complete** |  |
+| Graduate 2 components out of stage 1 status | 🎉 **Complete** [Popover](components/popover) |  Mid-quarter revision: Decreased KR to 1 component from 2. |
+
+**Objective:** Establish the foundations for best in class product and visual design at Twilio
+
+| Key Result | Status | Notes |
+| --- | --- | --- |
+| Creation of 1 content design pattern | 🎉 **Complete** | [Error Pattern](patterns/error-state)  |
+| 10 designers attend visual design office hours | ❌ **Incomplete** | Mid-quarter revision: No longer tracking.  |
+| 2 new Design Foundations Guideline added to the Paste docs site | 🎉 **Complete** | [Typography](foundations/typography) and [Spacing and Layout](foundations/spacing-and-layout) |
+| Establish the baseline CSAT score for Foundational design guidelines in Paste | 🎉 **Complete** | 38% of respondents are familiar with them but haven’t used them. 56% of respondents have used them. <br /><br /> Most useful guidelines: Spacing & Layout. Least useful guidelines: Illustrations |
+
+<Box marginBottom="space120" />
+
+## ⚡️ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<Box marginBottom="space70" />
+
+<ResponsiveImage src={Colleen} alt="" />
+
+In this edition of Pastemates, we're spotlighting a mate from Twilio’s Data & Applications BU, Colleen Yerkes! Colleen’s been instrumental in advocating for Paste within SendGrid Marketing Campaigns.
+
+Despite her product team’s tight timeline and unique use case within Twilio’s product suite, Colleen has been highly adaptable in her collaboration, leveraging office hours, GitHub Discussions, and our dependency tracker in the best ways depending on the type of questions that came up as design and development progressed. Colleen’s leadership in this work and thoughtful questions have pushed our design system and team to more deeply consider how components and layouts provided through Paste can be used throughout canvas-based customer experiences.
+
+<Box
+  borderColor="colorBorderWeaker"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+  borderRadius="borderRadius20"
+  marginBottom="space120"
+>
+  <ResponsiveImage src={Editor} alt="" />
+</Box>
+
+Look for more updates from Colleen as these features move into Twilio Engage!
+
+## 👀 What we’re working on next
+
+| Feature | Description |
+| --- | --- |
+| **Navigation UI Kit** | A collection of components that can be used to build shared, global navigation patterns for Twilio, Segment, and Flex applications. Available in React and Figma. |
+| **Avatar Group component** | A component that stacks avatars horizontally with an expanded menu for overflows. |
+| **Avatar component, refined** | This update to [Avatar](/components/avatar) refines the documentation in preparation for Avatar Group. |
+| **Tabs component, refined** | This update to [Tabs](/components/tabs) refines the design to create distinct visual hierarchy within a page for tabbed content and when paired with the [In Page Navigation](/components/in-page-navigation) component. |
+
+<Box marginBottom="space120" />
+
+As always, we’re better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>
