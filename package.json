@@ -218,7 +218,7 @@
       "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
   },
-  "packageManager": "yarn@3.1.0",
+  "packageManager": "yarn@3.5.0",
   "browserslist": [
     "last 2 versions",
     "not dead",
