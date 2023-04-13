@@ -184,6 +184,7 @@
   "SideModalHeader": "@twilio-paste/core/side-modal",
   "SideModalHeading": "@twilio-paste/core/side-modal",
   "useSideModalState": "@twilio-paste/core/side-modal",
+  "OverlaySidebarContentWrapper": "@twilio-paste/core/sidebar",
   "PushSidebarContentWrapper": "@twilio-paste/core/sidebar",
   "Sidebar": "@twilio-paste/core/sidebar",
   "SkeletonLoader": "@twilio-paste/core/skeleton-loader",

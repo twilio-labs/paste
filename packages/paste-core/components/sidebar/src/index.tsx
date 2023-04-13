@@ -1,3 +1,4 @@
 export * from './Sidebar';
 export * from './PushSidebarContentWrapper';
-export * from './OverlaySidebarContentWrapper.tsx';
+export * from './OverlaySidebarContentWrapper';
+export * from './types';

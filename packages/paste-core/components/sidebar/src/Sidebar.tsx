@@ -12,11 +12,10 @@ interface StyledSidebarProps extends BoxProps {
 const StyledSidebar = React.forwardRef<HTMLDivElement, StyledSidebarProps>(({style, isInverse, ...props}, ref) => (
   <Box
     aria-label="Main Navigation"
-    {...safelySpreadBoxProps(props)}
+    {...props}
     as="nav"
     role="navigation"
     display="block"
-    width="sizeSidebar"
     ref={ref}
     style={style}
     boxShadow={isInverse ? 'shadowBorderInverse' : 'shadowBorderWeaker'}
@@ -61,19 +60,23 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({collapsed = false, variant = 'default', element = 'SIDEBAR', children, ...props}, ref) => {
     const theme = useTheme();
+    const isCompact = variant === 'compact' || variant === 'compact_inverse';
     const styles = useSpring(
-      variant === 'compact' || variant === 'compact_inverse'
+      isCompact
         ? getCompactSpringConfig(collapsed, theme.sizes.sizeSidebar, theme.sizes.sizeSidebarCompact)
         : getHiddenSpringConfig(collapsed)
     );
 
     return (
       <AnimatedStyledSidebar
+        {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
+        width={isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar'}
         style={styles}
         isInverse={variant === 'inverse' || variant === 'compact_inverse'}
         aria-label={props['aria-label']}
+        aria-expanded={!collapsed}
       >
         {children}
       </AnimatedStyledSidebar>

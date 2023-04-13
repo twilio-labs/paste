@@ -16,23 +16,23 @@ export default {
 };
 
 export const Default: StoryFn = () => {
-  const [pushSidebarExpanded, setPushSidebarExpanded] = React.useState(false);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarExpanded} variant="default">
+      <Sidebar collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarExpanded} variant="default">
-        <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
       </PushSidebarContentWrapper>
@@ -41,23 +41,23 @@ export const Default: StoryFn = () => {
 };
 
 export const DefaultInverse: StoryFn = () => {
-  const [pushSidebarExpanded, setPushSidebarExpanded] = React.useState(false);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarExpanded} variant="inverse">
+      <Sidebar collapsed={pushSidebarCollapsed} variant="inverse">
         <Stack orientation="vertical" spacing="space100">
           <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarExpanded} variant="inverse">
-        <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="inverse">
+        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
       </PushSidebarContentWrapper>
@@ -66,23 +66,23 @@ export const DefaultInverse: StoryFn = () => {
 };
 
 export const Compact: StoryFn = () => {
-  const [pushSidebarExpanded, setPushSidebarExpanded] = React.useState(true);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarExpanded} variant="compact">
+      <Sidebar collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarExpanded} variant="compact">
-        <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
       </PushSidebarContentWrapper>
@@ -91,23 +91,23 @@ export const Compact: StoryFn = () => {
 };
 
 export const CompactInverse: StoryFn = () => {
-  const [pushSidebarExpanded, setPushSidebarExpanded] = React.useState(true);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={pushSidebarExpanded} variant="compact_inverse">
+      <Sidebar collapsed={pushSidebarCollapsed} variant="compact_inverse">
         <Stack orientation="vertical" spacing="space100">
           <div>Sidebar header</div>
-          <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarExpanded} variant="compact_inverse">
-        <Button variant="primary" onClick={() => setPushSidebarExpanded(!pushSidebarExpanded)}>
+      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="compact_inverse">
+        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
       </PushSidebarContentWrapper>
