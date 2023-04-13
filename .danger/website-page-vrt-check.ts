@@ -5,7 +5,7 @@ declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
 export const FAIL_MESSAGE = `You have created a new Paste website page, but have not added a corresponding VRT entry.
-Please update the VRT sitemap file to test any new website pages added to Paste.`;
+Please update the VRT sitemap file (/cypress/integration/sitemap-vrt/constants.ts) to test any new website pages added to Paste.`;
 
 /**
  * Check if the filepath matches our website pages directory
