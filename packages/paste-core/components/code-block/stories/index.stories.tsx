@@ -148,3 +148,5 @@ export const CustomCopyFormatter: StoryFn = () => (
     }}
   />
 );
+
+export const Default: StoryFn = MultiLine;
