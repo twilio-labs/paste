@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Sidebar, PushSidebarContentWrapper, OverlaySidebarContentWrapper} from '../src';
 import type {Variants} from '../src';
@@ -8,12 +9,9 @@ import type {Variants} from '../src';
 const MockPushSidebar = ({collapsed, variant = 'default'}: {collapsed?: boolean; variant?: Variants}): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={collapsed} variant={variant}>
         <div>Sidebar area</div>
       </Sidebar>
-
-      {/* Must wrap content area */}
       <PushSidebarContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
       </PushSidebarContentWrapper>
@@ -30,12 +28,9 @@ const MockOverlaySidebar = ({
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={collapsed} variant={variant}>
         <div>Sidebar area</div>
       </Sidebar>
-
-      {/* Must wrap content area */}
       <OverlaySidebarContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
       </OverlaySidebarContentWrapper>
@@ -99,6 +94,69 @@ describe('Sidebar', () => {
       render(<MockOverlaySidebar collapsed={true} variant="compact" />);
       const nav = screen.getByRole('navigation');
       expect(nav.style.width).toBe('4.75rem');
+    });
+  });
+
+  /**
+   * Customization
+   */
+  describe('Customization', () => {
+    it('should work with default element values', async () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          theme={TestTheme}
+          elements={{
+            SIDEBAR: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            PUSH_SIDEBAR_CONTENT_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+          }}
+        >
+          <Sidebar variant="compact" data-testid="aaa">
+            <div>Sidebar area</div>
+          </Sidebar>
+
+          {/* Must wrap content area */}
+          <PushSidebarContentWrapper variant="compact" data-testid="contentwrapper">
+            <div>Content area</div>
+          </PushSidebarContentWrapper>
+        </CustomizationProvider>
+      );
+      const nav = screen.getByRole('navigation');
+      expect(nav).toHaveStyleRule('margin', '1rem');
+      expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+
+      const contentWrapper = screen.getByTestId('contentwrapper');
+      expect(contentWrapper).toHaveStyleRule('margin', '1rem');
+      expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+    });
+
+    it('should work with custom element values', async () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          theme={TestTheme}
+          elements={{
+            XSIDE: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            XSIDE_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+          }}
+        >
+          <Sidebar variant="compact" element="XSIDE">
+            <div>Sidebar area</div>
+          </Sidebar>
+
+          {/* Must wrap content area */}
+          <PushSidebarContentWrapper variant="compact" element="XSIDE_WRAPPER" data-testid="contentwrapper">
+            <div>Content area</div>
+          </PushSidebarContentWrapper>
+        </CustomizationProvider>
+      );
+      const nav = screen.getByRole('navigation');
+      expect(nav).toHaveStyleRule('margin', '1rem');
+      expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+
+      const contentWrapper = screen.getByTestId('contentwrapper');
+      expect(contentWrapper).toHaveStyleRule('margin', '1rem');
+      expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
     });
   });
 });

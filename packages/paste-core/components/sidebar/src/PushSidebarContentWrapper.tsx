@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
@@ -20,7 +20,7 @@ export interface PushSidebarContentWrapperProps extends React.HTMLAttributes<HTM
 }
 
 export const PushSidebarContentWrapper = React.forwardRef<HTMLDivElement, PushSidebarContentWrapperProps>(
-  ({collapsed = false, variant = 'default', element = 'PUSH_SIDEBAR_CONTENT_WRAPPER', children}, ref) => {
+  ({collapsed = false, variant = 'default', element = 'PUSH_SIDEBAR_CONTENT_WRAPPER', children, ...props}, ref) => {
     const theme = useTheme();
     const isCompact = variant === 'compact';
     const {breakpointIndex} = useWindowSize();
@@ -36,7 +36,12 @@ export const PushSidebarContentWrapper = React.forwardRef<HTMLDivElement, PushSi
     });
 
     return (
-      <AnimatedStyledContentWrapper ref={ref} element={element} style={breakpointIndex === 0 ? undefined : styles}>
+      <AnimatedStyledContentWrapper
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        element={element}
+        style={breakpointIndex === 0 ? undefined : styles}
+      >
         {children}
       </AnimatedStyledContentWrapper>
     );
