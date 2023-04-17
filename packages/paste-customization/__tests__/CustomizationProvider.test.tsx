@@ -89,7 +89,7 @@ describe('CustomizationProvider', () => {
         <ThemeConsumerBreakpointsExample />
       </CustomizationProvider>
     );
-    expect(screen.getByTestId('breakpoint-test').textContent).toEqual('Breakpoints: ["25rem","64rem","77rem"]');
+    expect(screen.getByTestId('breakpoint-test').textContent).toEqual('Breakpoints: ["400px","1024px","1232px"]');
   });
 
   it('should set a custom set of breakpoints if they are provided', () => {

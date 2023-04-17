@@ -4,6 +4,7 @@ import type {BoxProps} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
+
 import type {Variants} from './types';
 
 const StyledContentWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
