@@ -33,7 +33,7 @@ props:
     comment: Text color used on any brand color
   color-text-brand-highlight:
     value: "#52BD94"
-    comment: Twilio brand red, accessible on large text only.
+    comment: Segment brand color.
 
   # links
   color-text-link:
@@ -127,6 +127,9 @@ props:
   color-text-icon-neutral:
     value: "#2952CC"
     comment: Icon color for being neutral.
+  color-text-icon-brand-highlight:
+    value: "#52BD94"
+    comment: Segment brand color used for the Segment logo.
 
   # decorative
   color-text-decorative-10:
@@ -141,3 +144,9 @@ props:
   color-text-decorative-40:
     value: "#6E62B6"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+
+  # user
+  color-text-user:
+    value: "#6D2ED1"
+    comment: Text color for user avatar.
+    
