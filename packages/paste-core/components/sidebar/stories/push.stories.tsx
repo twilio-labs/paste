@@ -42,6 +42,12 @@ export const Default: StoryFn = () => {
     </Box>
   );
 };
+Default.parameters = {
+  a11y: {
+    // false positives in CI due to hiding button behind sidebar when open
+    disable: true,
+  },
+};
 
 export const Compact: StoryFn = () => {
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
@@ -66,4 +72,10 @@ export const Compact: StoryFn = () => {
       </PushSidebarContentWrapper>
     </Box>
   );
+};
+Compact.parameters = {
+  a11y: {
+    // false positives in CI due to hiding button behind sidebar when open
+    disable: true,
+  },
 };

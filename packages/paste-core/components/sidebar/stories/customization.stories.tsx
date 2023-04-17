@@ -59,6 +59,12 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
     </CustomizationProvider>
   );
 };
+WithDefaultElementName.parameters = {
+  a11y: {
+    // false positives in CI due to hiding button behind sidebar when open
+    disable: true,
+  },
+};
 
 export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
@@ -102,4 +108,10 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
       </Box>
     </CustomizationProvider>
   );
+};
+WithCustomElementName.parameters = {
+  a11y: {
+    // false positives in CI due to hiding button behind sidebar when open
+    disable: true,
+  },
 };
