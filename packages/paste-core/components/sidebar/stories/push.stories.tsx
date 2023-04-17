@@ -26,7 +26,7 @@ export const Default: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
+          <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
@@ -51,7 +51,7 @@ export const Compact: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
+          <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

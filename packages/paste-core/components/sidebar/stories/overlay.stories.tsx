@@ -26,7 +26,7 @@ export const Default: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={overlaySidebarExpanded} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
+          <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>
@@ -51,7 +51,7 @@ export const Compact: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar collapsed={overlaySidebarExpanded} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <div>Sidebar header</div>
+          <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>

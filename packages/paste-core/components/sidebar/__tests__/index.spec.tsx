@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Sidebar, PushSidebarContentWrapper, OverlaySidebarContentWrapper} from '../src';
@@ -10,7 +11,7 @@ const MockPushSidebar = ({collapsed, variant = 'default'}: {collapsed?: boolean;
   return (
     <Theme.Provider theme="twilio">
       <Sidebar collapsed={collapsed} variant={variant}>
-        <div>Sidebar area</div>
+        <Box color="colorTextInverse">Sidebar header</Box>
       </Sidebar>
       <PushSidebarContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
@@ -29,7 +30,7 @@ const MockOverlaySidebar = ({
   return (
     <Theme.Provider theme="twilio">
       <Sidebar collapsed={collapsed} variant={variant}>
-        <div>Sidebar area</div>
+        <Box color="colorTextInverse">Sidebar header</Box>
       </Sidebar>
       <OverlaySidebarContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
@@ -112,7 +113,7 @@ describe('Sidebar', () => {
           }}
         >
           <Sidebar variant="compact" data-testid="aaa">
-            <div>Sidebar area</div>
+            <Box color="colorTextInverse">Sidebar header</Box>
           </Sidebar>
 
           {/* Must wrap content area */}
@@ -141,7 +142,7 @@ describe('Sidebar', () => {
           }}
         >
           <Sidebar variant="compact" element="XSIDE">
-            <div>Sidebar area</div>
+            <Box color="colorTextInverse">Sidebar header</Box>
           </Sidebar>
 
           {/* Must wrap content area */}
