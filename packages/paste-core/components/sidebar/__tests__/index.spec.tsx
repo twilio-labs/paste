@@ -69,7 +69,7 @@ describe('Sidebar', () => {
     it('should render compact width', async () => {
       render(<MockPushSidebar collapsed={true} variant="compact" />);
       const nav = screen.getByRole('navigation');
-      expect(nav).toHaveStyleRule('width', '4.75rem');
+      expect(nav.style.width).toBe('4.75rem');
     });
   });
 
@@ -98,7 +98,7 @@ describe('Sidebar', () => {
     it('should render compact width', async () => {
       render(<MockOverlaySidebar collapsed={true} variant="compact" />);
       const nav = screen.getByRole('navigation');
-      expect(nav).toHaveStyleRule('width', '4.75rem');
+      expect(nav.style.width).toBe('4.75rem');
     });
   });
 });
