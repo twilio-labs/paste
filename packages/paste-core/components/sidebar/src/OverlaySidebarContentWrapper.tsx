@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import {useWindowSize} from '@twilio-paste/utils';
 import type {Variants} from './types';
 
 export interface OverlaySidebarContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,7 +13,10 @@ export interface OverlaySidebarContentWrapper extends React.HTMLAttributes<HTMLD
 
 export const OverlaySidebarContentWrapper = React.forwardRef<HTMLDivElement, OverlaySidebarContentWrapper>(
   ({variant = 'default', element = 'OVERLAY_SIDEBAR_CONTENT_WRAPPER', children, ...props}, ref) => {
-    if (variant === 'compact') {
+    const {breakpointIndex} = useWindowSize();
+    const isMobile = breakpointIndex === 0;
+
+    if (!isMobile && variant === 'compact') {
       return (
         <Box display="flex" justifyContent="flex-start">
           <Box role="presentation" width="sizeSidebarCompact" height="100%" minHeight="1px" />

@@ -3,6 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
+import {useWindowSize} from '@twilio-paste/utils';
 import type {Variants} from './types';
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
@@ -26,22 +27,35 @@ StyledSidebar.displayName = 'StyledSidebar';
 
 const AnimatedStyledSidebar = animated(StyledSidebar);
 
+const config = {
+  mass: 0.3,
+  tension: 288,
+  friction: 20,
+};
+
+/**
+ * Since we are potentially alternating between three different spring configs
+ * between re-renders (i.e.: mobile and hidden as the window size changes),
+ * we need to have the exact same style keys applied so we don't have
+ * lingering styles from a previous `useSpring` that breaks the UI
+ */
 const getCompactSpringConfig = (collapsed: boolean, sizeSidebar: string, sizeSidebarCompact: string): any => ({
+  opacity: 1, // Needed to overwrite the styles from getMobileSpringConfig
   width: collapsed ? sizeSidebarCompact : sizeSidebar,
-  config: {
-    mass: 0.3,
-    tension: 288,
-    friction: 20,
-  },
+  transform: `translateX(0%)`,
+  config,
 });
-const getHiddenSpringConfig = (collapsed: boolean): any => ({
+const getHiddenSpringConfig = (collapsed: boolean, sizeSidebar: string): any => ({
   opacity: collapsed ? 0 : 1,
+  width: sizeSidebar,
   transform: collapsed ? `translateX(-100%)` : `translateX(0%)`,
-  config: {
-    mass: 0.3,
-    tension: 288,
-    friction: 20,
-  },
+  config,
+});
+const getMobileSpringConfig = (collapsed: boolean): any => ({
+  opacity: collapsed ? 0 : 1,
+  width: '100%',
+  transform: collapsed ? `translateX(-100%)` : `translateX(0%)`,
+  config,
 });
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -54,20 +68,29 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({collapsed = false, variant = 'default', element = 'SIDEBAR', children, ...props}, ref) => {
+    const {breakpointIndex} = useWindowSize();
     const theme = useTheme();
+
+    const isMobile = breakpointIndex === 0;
     const isCompact = variant === 'compact';
-    const styles = useSpring(
-      isCompact
-        ? getCompactSpringConfig(collapsed, theme.sizes.sizeSidebar, theme.sizes.sizeSidebarCompact)
-        : getHiddenSpringConfig(collapsed)
-    );
+
+    let springConfig;
+    if (isMobile) {
+      springConfig = getMobileSpringConfig(collapsed);
+    } else if (isCompact) {
+      springConfig = getCompactSpringConfig(collapsed, theme.sizes.sizeSidebar, theme.sizes.sizeSidebarCompact);
+    } else {
+      springConfig = getHiddenSpringConfig(collapsed, theme.sizes.sizeSidebar);
+    }
+
+    const styles = useSpring(springConfig);
 
     return (
       <AnimatedStyledSidebar
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        width={isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar'}
+        width={['100%', isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar']}
         style={styles}
         aria-label={props['aria-label']}
         aria-expanded={!collapsed}
