@@ -59,7 +59,7 @@ module.exports = {
     borderRadius30: '8px',
     borderRadiusCircle: '50%',
   },
-  breakpoints: ['25rem', '64rem', '77rem'],
+  breakpoints: ['400px', '1024px', '1232px'],
   textColors: {
     colorText: 'rgb(18, 28, 45)',
     colorTextBrandHighlight: 'rgb(242, 47, 70)',

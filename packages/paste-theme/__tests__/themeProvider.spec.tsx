@@ -58,11 +58,11 @@ describe('Theme.Provider', () => {
       </Theme.Provider>
     );
 
-    expect(getByText('25rem,64rem,77rem,')).toBeDefined();
+    expect(getByText('400px,1024px,1232px,')).toBeDefined();
   });
 
   it('should set custom breakpoints when provided', () => {
-    const customBreakpoints = ['30rem', '20rem', '90rem'];
+    const customBreakpoints = ['480px', '320px', '1440px'];
 
     const {getByText} = render(
       <Theme.Provider customBreakpoints={customBreakpoints}>
@@ -70,6 +70,6 @@ describe('Theme.Provider', () => {
       </Theme.Provider>
     );
 
-    expect(getByText('30rem,20rem,90rem,')).toBeDefined();
+    expect(getByText('480px,320px,1440px,')).toBeDefined();
   });
 });
