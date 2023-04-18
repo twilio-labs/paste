@@ -44,25 +44,25 @@ describe('Sidebar', () => {
    * PUSH
    */
   describe('Push Sidebar', () => {
-    it('should render collapsed', async () => {
+    it('should render collapsed', () => {
       render(<MockPushSidebar collapsed />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('false');
     });
 
-    it('should render expanded', async () => {
+    it('should render expanded', () => {
       render(<MockPushSidebar collapsed={false} />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('true');
     });
 
-    it('should render expanded by default', async () => {
+    it('should render expanded by default', () => {
       render(<MockPushSidebar />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('true');
     });
 
-    it('should render compact width', async () => {
+    it('should render compact width', () => {
       render(<MockPushSidebar collapsed={true} variant="compact" />);
       const nav = screen.getByRole('navigation');
       expect(nav.style.width).toBe('4.75rem');
@@ -73,25 +73,25 @@ describe('Sidebar', () => {
    * OVERLAY
    */
   describe('Overlay Sidebar', () => {
-    it('should render collapsed', async () => {
+    it('should render collapsed', () => {
       render(<MockOverlaySidebar collapsed />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('false');
     });
 
-    it('should render expanded', async () => {
+    it('should render expanded', () => {
       render(<MockOverlaySidebar collapsed={false} />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('true');
     });
 
-    it('should render expanded by default', async () => {
+    it('should render expanded by default', () => {
       render(<MockOverlaySidebar />);
       const nav = screen.getByRole('navigation');
       expect(nav.getAttribute('aria-expanded')).toEqual('true');
     });
 
-    it('should render compact width', async () => {
+    it('should render compact width', () => {
       render(<MockOverlaySidebar collapsed={true} variant="compact" />);
       const nav = screen.getByRole('navigation');
       expect(nav.style.width).toBe('4.75rem');
@@ -102,7 +102,7 @@ describe('Sidebar', () => {
    * Customization
    */
   describe('Customization', () => {
-    it('should work with default element values', async () => {
+    it('should work with default element values', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
@@ -131,7 +131,7 @@ describe('Sidebar', () => {
       expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
     });
 
-    it('should work with custom element values', async () => {
+    it('should work with custom element values', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
