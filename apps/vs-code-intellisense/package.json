@@ -77,10 +77,10 @@
   },
   "dependencies": {
     "@twilio-paste/design-tokens": "^9.0.2",
-    "base-64": "^1.0.0",
+    "base-64": "1.0.0",
     "lodash.camelcase": "4.3.0",
     "lodash.kebabcase": "4.1.1",
-    "utf8": "^3.0.0"
+    "utf8": "3.0.0"
   },
   "devDependencies": {
     "@types/base-64": "^1.0.0",
