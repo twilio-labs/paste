@@ -11,11 +11,12 @@ import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 import {Separator} from '@twilio-paste/separator';
 import type {SeparatorProps} from '@twilio-paste/separator';
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
+import {InlineCode} from '@twilio-paste/inline-code';
 
-import {Codeblock} from '../codeblock';
 import type {CodeblockProps} from '../codeblock';
+import {Codeblock} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
-import {InlineCode, Pre} from '../Typography';
+import {Pre} from '../Typography';
 // Shortcode imports
 import {GenericHeader} from '../shortcodes/generic-header';
 import {NormalizedPatternHeader} from '../shortcodes/normalized-pattern-header';

@@ -2,9 +2,9 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code';
 
 import {SiteLink} from '../SiteLink';
-import {InlineCode} from '../Typography';
 import type {Token} from './types';
 
 const ColorGuidelinesLink: React.FC = () => <SiteLink href="/foundations/colors">Read the color guidelines</SiteLink>;
