@@ -10,7 +10,7 @@ import type {Variants} from '../src';
 const MockPushSidebar = ({collapsed, variant = 'default'}: {collapsed?: boolean; variant?: Variants}): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      <Sidebar collapsed={collapsed} variant={variant}>
+      <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
         <Box color="colorTextInverse">Sidebar header</Box>
       </Sidebar>
       <PushSidebarContentWrapper collapsed={collapsed} variant={variant}>
@@ -29,7 +29,7 @@ const MockOverlaySidebar = ({
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      <Sidebar collapsed={collapsed} variant={variant}>
+      <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
         <Box color="colorTextInverse">Sidebar header</Box>
       </Sidebar>
       <OverlaySidebarContentWrapper collapsed={collapsed} variant={variant}>
@@ -112,7 +112,7 @@ describe('Sidebar', () => {
             PUSH_SIDEBAR_CONTENT_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
           }}
         >
-          <Sidebar variant="compact" data-testid="aaa">
+          <Sidebar aria-label="main" variant="compact" data-testid="aaa">
             <Box color="colorTextInverse">Sidebar header</Box>
           </Sidebar>
 
@@ -141,7 +141,7 @@ describe('Sidebar', () => {
             XSIDE_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
           }}
         >
-          <Sidebar variant="compact" element="XSIDE">
+          <Sidebar aria-label="main" variant="compact" element="XSIDE">
             <Box color="colorTextInverse">Sidebar header</Box>
           </Sidebar>
 

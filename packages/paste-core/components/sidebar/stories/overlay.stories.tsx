@@ -24,7 +24,7 @@ export const Default: StoryFn = () => {
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={overlaySidebarExpanded} variant="default">
+      <Sidebar aria-label="main" collapsed={overlaySidebarExpanded} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
@@ -55,7 +55,7 @@ export const Compact: StoryFn = () => {
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar aria-label="main" collapsed={overlaySidebarExpanded} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>

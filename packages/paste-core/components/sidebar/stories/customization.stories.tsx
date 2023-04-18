@@ -40,7 +40,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar collapsed={pushSidebarCollapsed} variant="default">
+        <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
           <Stack orientation="vertical" spacing="space100">
             <Box color="colorTextInverse">Sidebar header</Box>
             <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
@@ -86,7 +86,7 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
+        <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <Stack orientation="vertical" spacing="space100">
             <Box color="colorTextInverse">Sidebar header</Box>
             <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>

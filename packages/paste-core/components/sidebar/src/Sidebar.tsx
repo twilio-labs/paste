@@ -9,7 +9,6 @@ import type {Variants} from './types';
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
-    aria-label="Main Navigation"
     {...props}
     as="nav"
     role="navigation"
@@ -61,7 +60,7 @@ const getMobileSpringConfig = (collapsed: boolean): any => ({
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  'aria-label'?: string;
+  'aria-label': string;
   element?: BoxProps['element'];
   collapsed?: boolean;
   variant: Variants;
