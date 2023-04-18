@@ -20,7 +20,7 @@ describe('GenericHeader', () => {
           githubUrl="https://google.com"
           packageName="@twilio-paste/alert"
           packageStatus="alpha"
-          storybookUrl="/?path=/story/components-alert--neutral"
+          storybookUrl="/?path=/story/components-alert--"
           version="1.0.0"
         />
       </Theme.Provider>
@@ -55,7 +55,7 @@ describe('GenericHeader', () => {
     render(<FullHeader />);
     const storybookLink = screen.getByRole('link', {name: 'Storybook'});
     expect(storybookLink.getAttribute('href')).toEqual(
-      'https://paste-storybook.twilio.design/?path=/story/components-alert--neutral'
+      'https://paste-storybook.twilio.design/?path=/story/components-alert--'
     );
   });
 
