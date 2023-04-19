@@ -24,6 +24,7 @@ export const SidebarCollapseButton = React.forwardRef<HTMLButtonElement, Sidebar
     return (
       <Button
         ref={ref}
+        size="icon"
         variant="inverse"
         element={element}
         {...props}
