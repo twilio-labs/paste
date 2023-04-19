@@ -4,7 +4,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
 
-import {Sidebar, OverlaySidebarContentWrapper} from '../src';
+import {Sidebar, SidebarCollapseButton, SidebarCollapseButtonWrapper, SidebarOverlayContentWrapper} from '../src';
 
 // Fix for docs page examples overflowing the container
 const styles = {
@@ -27,18 +27,22 @@ export const Default: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={overlaySidebarExpanded} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-            Toggle Overlay Sidebar
-          </Button>
+          <SidebarCollapseButtonWrapper>
+            <SidebarCollapseButton
+              onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+              i18nCollapseLabel="Close sidebar"
+              i18nExpandLabel="Open sidebar"
+            />
+          </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <OverlaySidebarContentWrapper collapsed={overlaySidebarExpanded} variant="default">
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default">
         <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
           Toggle Overlay Sidebar
         </Button>
-      </OverlaySidebarContentWrapper>
+      </SidebarOverlayContentWrapper>
     </Box>
   );
 };
@@ -58,18 +62,22 @@ export const Compact: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={overlaySidebarExpanded} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-            Toggle Overlay Sidebar
-          </Button>
+          <SidebarCollapseButtonWrapper>
+            <SidebarCollapseButton
+              onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+              i18nCollapseLabel="Close sidebar"
+              i18nExpandLabel="Open sidebar"
+            />
+          </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <OverlaySidebarContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
         <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
           Toggle Overlay Sidebar
         </Button>
-      </OverlaySidebarContentWrapper>
+      </SidebarOverlayContentWrapper>
     </Box>
   );
 };

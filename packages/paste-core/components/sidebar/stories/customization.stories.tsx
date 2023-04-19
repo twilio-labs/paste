@@ -6,7 +6,13 @@ import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {StoryFn} from '@storybook/react';
 
-import {Sidebar, PushSidebarContentWrapper, OverlaySidebarContentWrapper} from '../src';
+import {
+  Sidebar,
+  SidebarCollapseButton,
+  SidebarCollapseButtonWrapper,
+  SidebarPushContentWrapper,
+  SidebarOverlayContentWrapper,
+} from '../src';
 
 // Fix for docs page examples overflowing the container
 const styles = {
@@ -32,7 +38,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         SIDEBAR: {
           backgroundColor: 'colorBackgroundBrand',
         },
-        PUSH_SIDEBAR_CONTENT_WRAPPER: {
+        SIDEBAR_COLLAPSE_BUTTON: {
+          padding: 'space40',
+        },
+        SIDEBAR_COLLAPSE_BUTTON_WRAPPER: {
+          padding: 'space40',
+        },
+        SIDEBAR_PUSH_CONTENT_WRAPPER: {
           backgroundColor: 'colorBackground',
           padding: 'space40',
         },
@@ -43,18 +55,22 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
           <Stack orientation="vertical" spacing="space100">
             <Box color="colorTextInverse">Sidebar header</Box>
-            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-              Toggle Push Sidebar
-            </Button>
+            <SidebarCollapseButtonWrapper>
+              <SidebarCollapseButton
+                onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+                i18nCollapseLabel="Close sidebar"
+                i18nExpandLabel="Open sidebar"
+              />
+            </SidebarCollapseButtonWrapper>
           </Stack>
         </Sidebar>
 
         {/* Must wrap content area */}
-        <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+        <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
-        </PushSidebarContentWrapper>
+        </SidebarPushContentWrapper>
       </Box>
     </CustomizationProvider>
   );
@@ -78,7 +94,13 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         SIDECAR: {
           backgroundColor: 'colorBackgroundBrand',
         },
-        OVERLAY_SIDECAR_WRAPPER: {
+        SIDECAR_COLLAPSE_BUTTON: {
+          padding: 'space40',
+        },
+        SIDECAR_COLLAPSE_BUTTON_WRAPPER: {
+          padding: 'space40',
+        },
+        SIDECAR_OVERLAY_WRAPPER: {
           backgroundColor: 'colorBackground',
           padding: 'space40',
         },
@@ -89,14 +111,19 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <Stack orientation="vertical" spacing="space100">
             <Box color="colorTextInverse">Sidebar header</Box>
-            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-              Toggle Push Sidebar
-            </Button>
+            <SidebarCollapseButtonWrapper element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
+              <SidebarCollapseButton
+                element="SIDECAR_COLLAPSE_BUTTON"
+                onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+                i18nCollapseLabel="Close sidebar"
+                i18nExpandLabel="Open sidebar"
+              />
+            </SidebarCollapseButtonWrapper>
           </Stack>
         </Sidebar>
 
         {/* Must wrap content area */}
-        <OverlaySidebarContentWrapper
+        <SidebarOverlayContentWrapper
           collapsed={pushSidebarCollapsed}
           variant="compact"
           element="OVERLAY_SIDECAR_WRAPPER"
@@ -104,7 +131,7 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
-        </OverlaySidebarContentWrapper>
+        </SidebarOverlayContentWrapper>
       </Box>
     </CustomizationProvider>
   );

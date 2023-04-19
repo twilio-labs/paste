@@ -4,7 +4,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
 
-import {Sidebar, PushSidebarContentWrapper} from '../src';
+import {Sidebar, SidebarCollapseButton, SidebarCollapseButtonWrapper, SidebarPushContentWrapper} from '../src';
 
 // Fix for docs page examples overflowing the container
 const styles = {
@@ -27,18 +27,22 @@ export const Default: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <SidebarCollapseButtonWrapper>
+            <SidebarCollapseButton
+              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+              i18nCollapseLabel="Close sidebar"
+              i18nExpandLabel="Open sidebar"
+            />
+          </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
         <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
-      </PushSidebarContentWrapper>
+      </SidebarPushContentWrapper>
     </Box>
   );
 };
@@ -58,18 +62,22 @@ export const Compact: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <Box color="colorTextInverse">Sidebar header</Box>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <SidebarCollapseButtonWrapper>
+            <SidebarCollapseButton
+              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+              i18nCollapseLabel="Close sidebar"
+              i18nExpandLabel="Open sidebar"
+            />
+          </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
 
       {/* Must wrap content area */}
-      <PushSidebarContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
-      </PushSidebarContentWrapper>
+      </SidebarPushContentWrapper>
     </Box>
   );
 };
