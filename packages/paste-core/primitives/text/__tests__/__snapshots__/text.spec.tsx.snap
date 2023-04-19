@@ -227,7 +227,7 @@ exports[`color should set a responsive color property 1`] = `
   line-height: 1.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     color: rgb(14, 124, 58);
   }
@@ -303,7 +303,7 @@ exports[`display should set a responsive display property 1`] = `
   display: inline-block;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     display: block;
   }
@@ -379,7 +379,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     font-family: 'TwilioSansMono',Courier,monospace;
   }
@@ -453,7 +453,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
   line-height: 1.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     font-size: 0.875rem;
   }
@@ -529,7 +529,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   font-style: italic;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     font-style: normal;
   }
@@ -605,7 +605,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   font-weight: 400;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     font-weight: 600;
   }
@@ -681,7 +681,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   letter-spacing: -2px;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     letter-spacing: 3px;
   }
@@ -755,7 +755,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   line-height: 1.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     line-height: 1.25rem;
   }
@@ -829,7 +829,7 @@ exports[`margin should set a responsive margin property 1`] = `
   line-height: 1.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     margin: 0.5rem;
   }
@@ -905,7 +905,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   margin-bottom: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     margin-bottom: 0.5rem;
   }
@@ -981,7 +981,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   margin-left: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     margin-left: 0.5rem;
   }
@@ -1057,7 +1057,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   margin-right: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     margin-right: 0.5rem;
   }
@@ -1133,7 +1133,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   margin-top: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     margin-top: 0.5rem;
   }
@@ -1207,7 +1207,7 @@ exports[`padding should set a responsive padding property 1`] = `
   line-height: 1.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     padding: 0.5rem;
   }
@@ -1283,7 +1283,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   padding-bottom: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     padding-bottom: 0.5rem;
   }
@@ -1359,7 +1359,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   padding-left: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     padding-left: 0.5rem;
   }
@@ -1435,7 +1435,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   padding-right: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     padding-right: 0.5rem;
   }
@@ -1511,7 +1511,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   padding-top: 0.25rem;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     padding-top: 0.5rem;
   }
@@ -1552,7 +1552,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   text-align: center;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     text-align: left;
   }
@@ -1629,7 +1629,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   text-decoration: underline;
 }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 400px) {
   .emotion-1 {
     -webkit-text-decoration: normal;
     text-decoration: normal;

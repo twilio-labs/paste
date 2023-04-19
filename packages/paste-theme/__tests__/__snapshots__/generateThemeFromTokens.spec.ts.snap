@@ -12,9 +12,9 @@ Object {
     "borderWidth0": "10px",
   },
   "breakpoints": Array [
-    "1px",
-    "1px",
-    "1px",
+    "16px",
+    "16px",
+    "16px",
   ],
   "colorSchemes": Object {
     "colorScheme": "dark",
