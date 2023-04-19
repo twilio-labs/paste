@@ -15,6 +15,7 @@ const PaginationLabel = React.forwardRef<HTMLDivElement, PaginationLabelProps>(
         color="colorTextWeak"
         textAlign="center"
         fontWeight="fontWeightNormal"
+        lineHeight="lineHeight50"
       >
         {children}
       </Text>
