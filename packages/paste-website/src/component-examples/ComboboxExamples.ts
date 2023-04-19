@@ -472,7 +472,7 @@ const authors = ['James Baldwin', 'Adrienne Maree Brown', 'Octavia Butler', 'Ta-
 
 const SampleEmptyState = () => (
   <Box paddingY="space40" paddingX="space50">
-    <Text as="span" fontStyle="italic">
+    <Text as="span" fontStyle="italic" color="colorTextWeak">
       No results found
     </Text>
   </Box>

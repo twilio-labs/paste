@@ -81,6 +81,9 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
         <label htmlFor={id}>
           <SiblingBox
             element={element}
+            width="100%"
+            display="flex"
+            justifyContent="start"
             as="span"
             type="file"
             borderRadius="borderRadius30"
