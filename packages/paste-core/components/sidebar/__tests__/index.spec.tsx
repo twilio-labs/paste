@@ -126,6 +126,7 @@ describe('Sidebar', () => {
       const nav = screen.getByRole('navigation');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('false');
+      expect(toggleButton.textContent).toBe('Open sidebar');
     });
 
     it('should have aria-expanded and aria-controls set correctly when expanded', async () => {
@@ -134,6 +135,7 @@ describe('Sidebar', () => {
       const nav = screen.getByRole('navigation');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(toggleButton.textContent).toBe('Close sidebar');
     });
   });
 

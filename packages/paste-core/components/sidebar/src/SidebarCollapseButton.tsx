@@ -9,7 +9,7 @@ import {ChevronDoubleRightIcon} from '@twilio-paste/icons/esm/ChevronDoubleRight
 
 import {SidebarContext} from './SidebarContext';
 
-export interface SidebarCollapseButtonProps extends React.HTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
+export interface SidebarCollapseButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   i18nCollapseLabel: string;
   i18nExpandLabel: string;
   element?: BoxProps['element'];
