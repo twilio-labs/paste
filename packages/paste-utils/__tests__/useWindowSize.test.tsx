@@ -31,7 +31,7 @@ describe('useWindowSize', () => {
       jest.advanceTimersByTime(100);
     });
     expect(typeof data.result.current).toBe('object');
-    expect(data.result.current).toMatchObject({width: 150, height: 150, breakpointIndex: 2});
+    expect(data.result.current).toMatchObject({width: 150, height: 150, breakpointIndex: 0});
     resizeTo(500, 500);
     act(() => {
       jest.advanceTimersByTime(100);

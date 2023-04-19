@@ -240,10 +240,10 @@ describe('Flex Options', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-grow', '0', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-grow', '1', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-grow', '1');
   });
@@ -256,10 +256,10 @@ describe('Flex Options', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-shrink', '0', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-shrink', '1', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-shrink', '1');
   });
@@ -272,10 +272,10 @@ describe('Flex Options', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-basis', '100px', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-basis', '200px', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-basis', '400px');
   });
@@ -296,10 +296,10 @@ describe('Flex Row', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-direction', 'column');
   });
@@ -320,10 +320,10 @@ describe('Flex Wrap', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-wrap', 'nowrap', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap');
   });
@@ -344,10 +344,10 @@ describe('Vertical Alignment', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('align-items', 'center', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('align-items', 'flex-end', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('align-items', 'flex-start');
   });
@@ -368,10 +368,10 @@ describe('Horizontal Alignment', () => {
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('justify-content', 'center', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedFlex).toHaveStyleRule('justify-content', 'flex-end', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedFlex).toHaveStyleRule('justify-content', 'flex-start');
   });
