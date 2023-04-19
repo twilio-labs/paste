@@ -29,7 +29,7 @@ describe('Backgrounds', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -78,15 +78,15 @@ describe('Color mappings', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('color', 'rgb(18, 28, 45)');
     expect(renderedBox).toHaveStyleRule('color', 'rgb(255, 255, 255)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 
@@ -130,17 +130,17 @@ describe('Color mappings', () => {
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(255, 255, 255)', {
       target: ':hover',
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {target: ':hover'});
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {
       target: ':hover',
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('color', 'rgb(214, 31, 31)', {target: ':hover'});
     expect(renderedBox).toHaveStyleRule('color', 'rgb(136, 145, 170)', {
       target: ':hover',
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -184,22 +184,22 @@ describe('Borders', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'dashed');
     expect(renderedBox).toHaveStyleRule('border-style', 'dotted', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('border-style', 'solid', {
-      media: 'screen and (min-width:64rem)',
+      media: 'screen and (min-width:1024px)',
     });
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(0, 20, 137)');
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(102, 179, 255)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('border-width', '1px');
     expect(renderedBox).toHaveStyleRule('border-width', '2px', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('border-radius', '0');
     expect(renderedBox).toHaveStyleRule('border-radius', '2px', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -249,27 +249,27 @@ describe('Sizes', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('width', '5.5rem');
     expect(renderedBox).toHaveStyleRule('width', '12rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('min-width', '0');
     expect(renderedBox).toHaveStyleRule('min-width', '5.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('max-width', '12rem');
     expect(renderedBox).toHaveStyleRule('max-width', '18.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('height', '5.5rem');
     expect(renderedBox).toHaveStyleRule('height', '12rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('min-height', '0');
     expect(renderedBox).toHaveStyleRule('min-height', '5.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('max-height', '12rem');
     expect(renderedBox).toHaveStyleRule('max-height', '18.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -298,7 +298,7 @@ describe('Spaces', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin', '0.25rem');
     expect(renderedBox).toHaveStyleRule('margin', '0.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 
@@ -334,19 +334,19 @@ describe('Spaces', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.25rem');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('margin-right', '0.25rem');
     expect(renderedBox).toHaveStyleRule('margin-right', '0.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('margin-bottom', '0.5rem');
     expect(renderedBox).toHaveStyleRule('margin-bottom', '0.75rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('margin-left', '0.5rem');
     expect(renderedBox).toHaveStyleRule('margin-left', '0.75rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 
@@ -376,10 +376,10 @@ describe('Spaces', () => {
     expect(renderedBox).toHaveStyleRule('row-gap', '0.5rem');
 
     expect(renderedBox).toHaveStyleRule('column-gap', '0.5rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('row-gap', '0.75rem', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -412,7 +412,7 @@ describe('Grid CSS', () => {
     expect(renderedBox).toHaveStyleRule('grid-auto-flow', 'column');
     expect(renderedBox).toHaveStyleRule('grid-auto-rows', '100px');
     expect(renderedBox).toHaveStyleRule('grid-auto-rows', '150px', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
     expect(renderedBox).toHaveStyleRule('grid-auto-columns', '160px');
     expect(renderedBox).toHaveStyleRule('grid-area', '2/1/span 2/span 3');
@@ -446,7 +446,7 @@ describe('Shadows', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18, 28, 45, 0.1)');
     expect(renderedBox).toHaveStyleRule('box-shadow', '0 0 0 4px rgba(2, 99, 224, 0.7)', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 });
@@ -475,7 +475,7 @@ describe('ZIndex', () => {
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('z-index', '10');
     expect(renderedBox).toHaveStyleRule('z-index', '20', {
-      media: 'screen and (min-width:25rem)',
+      media: 'screen and (min-width:400px)',
     });
   });
 

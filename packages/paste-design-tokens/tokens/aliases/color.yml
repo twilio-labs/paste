@@ -1,5 +1,8 @@
 aliases:
   amaranth: "#F22F46"
   amaranth-transparent-10: "rgba(242, 47, 70, 0.1)"
+  mint: "#6ADDB2"
   black: "#000000"
+  saffron: "#F2BE5A"
+  sky: "#51A9E3"
   white: "#FFFFFF"

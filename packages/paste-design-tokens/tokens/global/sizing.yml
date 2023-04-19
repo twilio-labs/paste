@@ -155,3 +155,6 @@ props:
   size-sidebar:
     value: "{!size-sidebar}"
     comment: "Sizing token for sidebar width."
+  size-sidebar-compact:
+    value: "{!size-sidebar-compact}"
+    comment: "Sizing token for the compact sidebar width."

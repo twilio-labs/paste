@@ -17,6 +17,7 @@ import type {
   TextColorsKeys,
   ZIndicesKeys,
 } from './types/GenericThemeShape';
+import {remToPx} from './utils/remToPx';
 
 interface GenerateThemeFromTokensArgs {
   backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
@@ -56,7 +57,11 @@ export const generateThemeFromTokens = ({
   zIndices,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
-  const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
+  const breakpoints = [
+    remToPx(sizings.size40, 'string'),
+    remToPx(sizings.size100, 'string'),
+    remToPx(sizings.size120, 'string'),
+  ];
 
   return {
     shadows: boxShadows,

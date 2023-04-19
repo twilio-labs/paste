@@ -6,7 +6,9 @@ import kebabCase from 'lodash.kebabcase';
 
 import {pasteTokenAttributes} from './tokens';
 import {PasteToken} from './types';
-import {getThemeSetting, getThemeTokens, remToPx} from './utils';
+import {getColorPreview, getThemeSetting, getThemeTokens, remToPx, isColorCategory} from './utils';
+
+const DIVIDER = `___\n`;
 
 export function findPasteToken(word?: string): PasteToken | undefined {
   if (!word) {
@@ -78,16 +80,20 @@ export function activate(context: vscode.ExtensionContext) {
 
         const hoverMessage = new vscode.MarkdownString();
 
-        const {name, value, comment} = foundPasteToken;
+        const {name, value, comment, category} = foundPasteToken;
 
         // Run any formatters/converters on value before appending
         const formattedValue = remToPx(value);
 
-        hoverMessage.appendMarkdown(`${name}: \`${formattedValue}\`\n`);
-        hoverMessage.appendMarkdown(`___\n`);
+        hoverMessage.appendMarkdown(`${name}: \`${formattedValue}\`\n`).appendMarkdown(DIVIDER);
 
         if (comment) {
           hoverMessage.appendMarkdown(`${comment}\n`);
+        }
+
+        if (isColorCategory(category)) {
+          const preview = getColorPreview(value);
+          hoverMessage.appendMarkdown(DIVIDER).appendMarkdown(preview);
         }
 
         hoverMessage.isTrusted = true;
