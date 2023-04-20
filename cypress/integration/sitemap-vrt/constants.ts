@@ -13,6 +13,7 @@ export const SITEMAP = [
   '/blog/2022-12-06-announcing-the-conversations-ui-kit/',
   '/blog/2022-12-09-paste-newsletter/',
   '/blog/2023-01-27-paste-newsletter/',
+  '/blog/2023-04-13-paste-newsletter/',
   '/components/aspect-ratio/',
   '/components/anchor/',
   '/components/alert-dialog/',

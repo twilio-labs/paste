@@ -2,7 +2,6 @@ import type {StorybookConfig} from '@storybook/react-vite';
 import {mergeConfig} from 'vite';
 import turbosnap from 'vite-plugin-turbosnap';
 import path from 'path';
-
 const config: StorybookConfig = {
   stories: [
     '../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)',
@@ -14,6 +13,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
     './addons/google-analytics/register',
+    '@storybook/addon-mdx-gfm',
   ],
   framework: '@storybook/react-vite',
   features: {
@@ -31,7 +31,14 @@ const config: StorybookConfig = {
   async viteFinal(config, {configType}) {
     const isTest = process.env.NODE_ENV === 'test';
     return mergeConfig(config, {
-      plugins: configType === 'PRODUCTION' ? [turbosnap({rootDir: config.root ?? process.cwd()})] : [],
+      plugins:
+        configType === 'PRODUCTION'
+          ? [
+              turbosnap({
+                rootDir: config.root ?? process.cwd(),
+              }),
+            ]
+          : [],
       resolve: {
         alias: {
           'next/link': path.resolve(__dirname, './next'),
@@ -46,7 +53,9 @@ const config: StorybookConfig = {
           'react-syntax-highlighter': path.resolve(__dirname, '../node_modules/react-syntax-highlighter/dist/cjs'),
         },
         // Use source files for HMR and TurboSnap dependency map
-        ...(!isTest && {mainFields: ['main:dev', 'browser', 'module', 'main']}),
+        ...(!isTest && {
+          mainFields: ['main:dev', 'browser', 'module', 'main'],
+        }),
       },
       optimizeDeps: {
         include: ['@storybook/addon-viewport', 'chromatic', '@emotion/react/jsx-dev-runtime'],
@@ -54,5 +63,4 @@ const config: StorybookConfig = {
     });
   },
 };
-
 export default config;
