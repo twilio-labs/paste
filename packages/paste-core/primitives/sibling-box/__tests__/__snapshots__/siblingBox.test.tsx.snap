@@ -100,6 +100,7 @@ input[type=checkbox][aria-invalid=true]+label .emotion-1 {
     <div
       aria-hidden="true"
       class="emotion-1"
+      data-paste-core-version="19.0.1"
       data-paste-element="SIBLING_BOX"
     >
       child
