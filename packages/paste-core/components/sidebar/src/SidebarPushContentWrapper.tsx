@@ -13,15 +13,15 @@ const StyledContentWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, 
 StyledContentWrapper.displayName = 'StyledContentWrapper';
 const AnimatedStyledContentWrapper = animated(StyledContentWrapper);
 
-export interface PushSidebarContentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarPushContentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   element?: BoxProps['element'];
   collapsed?: boolean;
   variant?: Variants;
 }
 
-export const PushSidebarContentWrapper = React.forwardRef<HTMLDivElement, PushSidebarContentWrapperProps>(
-  ({collapsed = false, variant = 'default', element = 'PUSH_SIDEBAR_CONTENT_WRAPPER', children, ...props}, ref) => {
+export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, SidebarPushContentWrapperProps>(
+  ({collapsed = false, variant = 'default', element = 'SIDEBAR_PUSH_CONTENT_WRAPPER', children, ...props}, ref) => {
     const theme = useTheme();
     const isCompact = variant === 'compact';
     const {breakpointIndex} = useWindowSize();
@@ -48,4 +48,4 @@ export const PushSidebarContentWrapper = React.forwardRef<HTMLDivElement, PushSi
     );
   }
 );
-PushSidebarContentWrapper.displayName = 'PushSidebarContentWrapper';
+SidebarPushContentWrapper.displayName = 'SidebarPushContentWrapper';

@@ -4,7 +4,9 @@ import type {BoxProps} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
+import {useUID} from '@twilio-paste/uid-library';
 
+import {SidebarContext} from './SidebarContext';
 import type {Variants} from './types';
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
@@ -23,7 +25,6 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
   />
 ));
 StyledSidebar.displayName = 'StyledSidebar';
-
 const AnimatedStyledSidebar = animated(StyledSidebar);
 
 const config = {
@@ -67,6 +68,7 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({collapsed = false, variant = 'default', element = 'SIDEBAR', children, ...props}, ref) => {
+    const sidebarId = useUID();
     const {breakpointIndex} = useWindowSize();
     const theme = useTheme();
 
@@ -85,17 +87,19 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     const styles = useSpring(springConfig);
 
     return (
-      <AnimatedStyledSidebar
-        {...safelySpreadBoxProps(props)}
-        ref={ref}
-        element={element}
-        width={['100%', isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar']}
-        style={styles}
-        aria-label={props['aria-label']}
-        aria-expanded={!collapsed}
-      >
-        {children}
-      </AnimatedStyledSidebar>
+      <SidebarContext.Provider value={{collapsed, variant, sidebarId}}>
+        <AnimatedStyledSidebar
+          {...safelySpreadBoxProps(props)}
+          ref={ref}
+          element={element}
+          width={['100%', isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar']}
+          style={styles}
+          aria-label={props['aria-label']}
+          id={sidebarId}
+        >
+          {children}
+        </AnimatedStyledSidebar>
+      </SidebarContext.Provider>
     );
   }
 );

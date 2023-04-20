@@ -5,15 +5,15 @@ import {useWindowSize} from '@twilio-paste/utils';
 
 import type {Variants} from './types';
 
-export interface OverlaySidebarContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarOverlayContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   element?: BoxProps['element'];
   collapsed?: boolean;
   variant?: Variants;
 }
 
-export const OverlaySidebarContentWrapper = React.forwardRef<HTMLDivElement, OverlaySidebarContentWrapper>(
-  ({variant = 'default', element = 'OVERLAY_SIDEBAR_CONTENT_WRAPPER', children, ...props}, ref) => {
+export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, SidebarOverlayContentWrapper>(
+  ({variant = 'default', element = 'SIDEBAR_OVERLAY_CONTENT_WRAPPER', children, ...props}, ref) => {
     const {breakpointIndex} = useWindowSize();
     const isMobile = breakpointIndex === 0;
 
@@ -34,4 +34,4 @@ export const OverlaySidebarContentWrapper = React.forwardRef<HTMLDivElement, Ove
     );
   }
 );
-OverlaySidebarContentWrapper.displayName = 'OverlaySidebarContentWrapper';
+SidebarOverlayContentWrapper.displayName = 'SidebarOverlayContentWrapper';

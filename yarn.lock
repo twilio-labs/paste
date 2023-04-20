@@ -12690,15 +12690,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/sidebar@workspace:packages/paste-core/components/sidebar"
   dependencies:
+    "@twilio-paste/anchor": ^11.0.0
     "@twilio-paste/animation-library": ^1.0.0
     "@twilio-paste/box": ^9.0.0
+    "@twilio-paste/button": ^13.0.0
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.2
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/screen-reader-only": ^12.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^4.0.0
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -12706,15 +12713,22 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
   peerDependencies:
+    "@twilio-paste/anchor": ^11.0.0
     "@twilio-paste/animation-library": ^1.0.0
     "@twilio-paste/box": ^9.0.0
+    "@twilio-paste/button": ^13.0.0
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.0
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/screen-reader-only": ^12.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/utils": ^4.0.0
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
