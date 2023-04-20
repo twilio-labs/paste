@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {
   Sidebar,
+  SidebarHeader,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
@@ -23,7 +24,7 @@ const MockPushSidebar = ({
   return (
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
-        <Box color="colorTextInverse">Sidebar header</Box>
+        <SidebarHeader>Twilio Console</SidebarHeader>
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
         </SidebarCollapseButtonWrapper>
@@ -45,7 +46,7 @@ const MockOverlaySidebar = ({
   return (
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
-        <Box color="colorTextInverse">Sidebar header</Box>
+        <SidebarHeader>Twilio Console</SidebarHeader>
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
         </SidebarCollapseButtonWrapper>
@@ -122,7 +123,7 @@ describe('Sidebar', () => {
   describe('Sidebar Collapse Button', () => {
     it('should have aria-expanded and aria-controls set correctly when collapsed', async () => {
       render(<MockOverlaySidebar collapsed />);
-      const toggleButton = screen.getByRole('button');
+      const toggleButton = screen.getAllByRole('button')[1];
       const nav = screen.getByRole('navigation');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('false');
@@ -131,11 +132,22 @@ describe('Sidebar', () => {
 
     it('should have aria-expanded and aria-controls set correctly when expanded', async () => {
       render(<MockOverlaySidebar collapsed={false} />);
-      const toggleButton = screen.getByRole('button');
+      const toggleButton = screen.getAllByRole('button')[1];
       const nav = screen.getByRole('navigation');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('true');
       expect(toggleButton.textContent).toBe('Close sidebar');
+    });
+  });
+
+  /**
+   * SIDEBAR HEADER
+   */
+  describe('Sidebar Header', () => {
+    it('hides the text when collapsed', async () => {
+      render(<MockOverlaySidebar collapsed />);
+      const headerText = screen.getByText('Twilio Console');
+      expect(headerText).toHaveStyleRule('opacity', '0');
     });
   });
 

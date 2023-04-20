@@ -3,8 +3,15 @@ import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 
-import {Sidebar, SidebarCollapseButton, SidebarCollapseButtonWrapper, SidebarPushContentWrapper} from '../src';
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarCollapseButton,
+  SidebarCollapseButtonWrapper,
+  SidebarPushContentWrapper,
+} from '../src';
 
 // Fix for docs page examples overflowing the container
 const styles = {
@@ -26,7 +33,7 @@ export const Default: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <Box color="colorTextInverse">Sidebar header</Box>
+          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -61,7 +68,7 @@ export const Compact: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <Box color="colorTextInverse">Sidebar header</Box>
+          <SidebarHeader>Twilio Console</SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}

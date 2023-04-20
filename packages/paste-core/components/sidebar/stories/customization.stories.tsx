@@ -5,9 +5,11 @@ import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {StoryFn} from '@storybook/react';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 
 import {
   Sidebar,
+  SidebarHeader,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
@@ -38,6 +40,18 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         SIDEBAR: {
           backgroundColor: 'colorBackgroundBrand',
         },
+        SIDEBAR_HEADER: {
+          backgroundColor: 'colorBackgroundBrandHighlight',
+        },
+        SIDEBAR_HEADER_BUTTON: {
+          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
+        },
+        SIDEBAR_HEADER_ICON: {
+          color: 'colorText',
+        },
+        SIDEBAR_HEADER_TEXT: {
+          color: 'colorText',
+        },
         SIDEBAR_COLLAPSE_BUTTON: {
           padding: 'space40',
         },
@@ -54,7 +68,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
           <Stack orientation="vertical" spacing="space100">
-            <Box color="colorTextInverse">Sidebar header</Box>
+            <SidebarHeader>Twilio Console</SidebarHeader>
             <SidebarCollapseButtonWrapper>
               <SidebarCollapseButton
                 onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -94,6 +108,18 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         SIDECAR: {
           backgroundColor: 'colorBackgroundBrand',
         },
+        SIDECAR_HEADER: {
+          backgroundColor: 'colorBackgroundBrandHighlight',
+        },
+        SIDECAR_HEADER_BUTTON: {
+          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
+        },
+        SIDECAR_HEADER_ICON: {
+          color: 'colorText',
+        },
+        SIDECAR_HEADER_TEXT: {
+          color: 'colorText',
+        },
         SIDECAR_COLLAPSE_BUTTON: {
           padding: 'space40',
         },
@@ -110,7 +136,12 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <Stack orientation="vertical" spacing="space100">
-            <Box color="colorTextInverse">Sidebar header</Box>
+            <SidebarHeader
+              element="SIDECAR_HEADER"
+              productIcon={<ProductFlexIcon size="sizeIcon20" decorative element="SIDECAR_HEADER_ICON" />}
+            >
+              Twilio Flex
+            </SidebarHeader>
             <SidebarCollapseButtonWrapper element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
               <SidebarCollapseButton
                 element="SIDECAR_COLLAPSE_BUTTON"
