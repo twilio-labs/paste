@@ -15,6 +15,7 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:paste-internal/all',
+    'plugin:storybook/recommended',
   ],
   env: {
     node: true,
@@ -104,12 +105,16 @@ module.exports = {
         ],
       },
     ],
-
     /**
      * TEMPORARY TWILIO STYLE OVERRIDES
      * There are PRs open to update these rules in twilio-style
      */
-    'react/no-multi-comp': ['error', {ignoreStateless: true}],
+    'react/no-multi-comp': [
+      'error',
+      {
+        ignoreStateless: true,
+      },
+    ],
     'jsx-a11y/label-has-associated-control': [
       2,
       {
@@ -117,7 +122,6 @@ module.exports = {
         depth: 3,
       },
     ],
-
     /**
      * FIXES FOR ANOTHER TICKET
      * these take a little more work to fix (there are 535 errors)
@@ -141,21 +145,23 @@ module.exports = {
     complexity: 'off',
     // this rule should be kept warning once it is fixed
     'sonarjs/no-duplicate-string': 'warn',
-
     /** MISC OVERRIDES */
 
     // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'off',
-
     '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
-    '@typescript-eslint/no-shadow': ['error', {ignoreFunctionTypeParameterNameValueShadow: true}],
+    '@typescript-eslint/no-shadow': [
+      'error',
+      {
+        ignoreFunctionTypeParameterNameValueShadow: true,
+      },
+    ],
     // This rule tells people to do something (import foo = require('foo')) which doesn't work
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
     // Warn about incorrect type imports
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-imports.md
     '@typescript-eslint/consistent-type-imports': 'warn',
-
     // Common abbreviations are known and readable
     'unicorn/prevent-abbreviations': 'off',
     // We don't really have a style yet.  To be discussed
@@ -173,7 +179,6 @@ module.exports = {
     'unicorn/prefer-module': 'warn',
     // This conflicts with consistent-return
     'unicorn/no-useless-undefined': 'off',
-
     // New rules
     'unicorn/no-array-reduce': 'off',
     'unicorn/no-array-for-each': 'off',
@@ -188,7 +193,6 @@ module.exports = {
     'unicorn/prefer-regexp-test': 'off',
     'unicorn/no-new-array': 'off',
     'unicorn/prefer-object-from-entries': 'off',
-
     // We don't use jasmine and this clashes with danger js
     'jest/no-jasmine-globals': 'off',
     'jest/no-conditional-expect': 'off',
