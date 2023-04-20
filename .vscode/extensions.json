@@ -2,7 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "silvenon.mdx",
+    "unifiedjs.vscode-mdx",
     "styled-components.vscode-styled-components",
     "eamodio.gitlens",
     "patbenatar.advanced-new-file",
