@@ -13,6 +13,7 @@ exports[`Grid render should render a Column 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="COLUMN"
   >
     child
@@ -39,6 +40,7 @@ exports[`Grid render should render a Grid 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="GRID"
   >
     child
@@ -65,6 +67,7 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
 
 <section
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="GRID"
   >
     child
@@ -174,14 +177,17 @@ exports[`Grid render should render responsive css 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="GRID"
   >
     <div
       class="emotion-1"
+      data-paste-core-version="19.0.1"
       data-paste-element="COLUMN"
     />
     <div
       class="emotion-2"
+      data-paste-core-version="19.0.1"
       data-paste-element="COLUMN"
     />
   </div>

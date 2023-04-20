@@ -19,6 +19,8 @@ import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleF
 import {customStyleProps} from './CustomStyleProps';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
+const coreVersionNumberPlaceholder: string = '[VI]{{inject}}[/VI]';
+
 const shouldForwardProp = createShouldForwardProp([
   ...stylingProps,
   ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
@@ -48,6 +50,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
     return (
       <StyledText
         data-paste-element={element}
+        data-paste-core-version={coreVersionNumberPlaceholder}
         ref={ref}
         color={color}
         fontSize={fontSize}

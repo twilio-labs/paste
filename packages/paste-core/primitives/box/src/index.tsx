@@ -21,6 +21,8 @@ import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleF
 import {customStyleProps} from './CustomStyleProps';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
+const coreVersionNumberPlaceholder: string = '[VI]{{inject}}[/VI]';
+
 // we need size to hit the DOM for <select /> elements
 const stylingPropsWithoutSize = defaultStylingProps.filter((item: string) => item !== 'size');
 
@@ -45,7 +47,7 @@ export const StyledBox = styled('div', {shouldForwardProp})<StyledBoxProps>(
 
 const Box = React.forwardRef<HTMLElement, BoxProps>(({children, element = 'BOX', ...props}, ref) => {
   return (
-    <StyledBox data-paste-element={element} ref={ref} {...props}>
+    <StyledBox data-paste-element={element} data-paste-core-version={coreVersionNumberPlaceholder} ref={ref} {...props}>
       {children}
     </StyledBox>
   );

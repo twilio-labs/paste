@@ -130,6 +130,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       PseudoBox
@@ -164,6 +165,7 @@ exports[`as should render as a provided HTML element 1`] = `
   >
     <label
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       background single
@@ -198,6 +200,7 @@ exports[`color should set a color property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       color single
@@ -238,6 +241,7 @@ exports[`color should set a responsive color property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       color responsive
@@ -273,6 +277,7 @@ exports[`display should set a display property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       display single
@@ -314,6 +319,7 @@ exports[`display should set a responsive display property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       display responsive
@@ -349,6 +355,7 @@ exports[`fontFamily should set a font family property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font family single
@@ -390,6 +397,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font family responsive
@@ -424,6 +432,7 @@ exports[`fontSize should set a font size property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font size single
@@ -464,6 +473,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font size responsive
@@ -499,6 +509,7 @@ exports[`fontStyle should set a font style property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font style single
@@ -540,6 +551,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font style responsive
@@ -575,6 +587,7 @@ exports[`fontWeight should set a font weight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font weight single
@@ -616,6 +629,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       font weight responsive
@@ -651,6 +665,7 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       letter spacing single
@@ -692,6 +707,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       letter spacing responsive
@@ -726,6 +742,7 @@ exports[`lineHeight should set a line height property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       line height single
@@ -766,6 +783,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       line height responsive
@@ -800,6 +818,7 @@ exports[`margin should set a margin property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       margin single
@@ -840,6 +859,7 @@ exports[`margin should set a responsive margin property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       margin responsive
@@ -875,6 +895,7 @@ exports[`marginBottom should set a marginBottom property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginBottom single
@@ -916,6 +937,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginBottom responsive
@@ -951,6 +973,7 @@ exports[`marginLeft should set a marginLeft property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginLeft single
@@ -992,6 +1015,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginLeft responsive
@@ -1027,6 +1051,7 @@ exports[`marginRight should set a marginRight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginRight single
@@ -1068,6 +1093,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginRight responsive
@@ -1103,6 +1129,7 @@ exports[`marginTop should set a marginTop property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginTop single
@@ -1144,6 +1171,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       marginTop responsive
@@ -1178,6 +1206,7 @@ exports[`padding should set a padding property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       padding single
@@ -1218,6 +1247,7 @@ exports[`padding should set a responsive padding property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       padding responsive
@@ -1253,6 +1283,7 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingBottom single
@@ -1294,6 +1325,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingBottom responsive
@@ -1329,6 +1361,7 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingLeft single
@@ -1370,6 +1403,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingLeft responsive
@@ -1405,6 +1439,7 @@ exports[`paddingRight should set a paddingRight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingRight single
@@ -1446,6 +1481,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingRight responsive
@@ -1481,6 +1517,7 @@ exports[`paddingTop should set a paddingTop property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingTop single
@@ -1522,6 +1559,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       paddingTop responsive
@@ -1563,6 +1601,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       textAlign responsive
@@ -1598,6 +1637,7 @@ exports[`textAlign should set a textAlign property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       textAlign single
@@ -1641,6 +1681,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       textDecoration responsive
@@ -1677,6 +1718,7 @@ exports[`textDecoration should set a textDecoration property 1`] = `
   >
     <span
       class="emotion-1"
+      data-paste-core-version="[VI]{{inject}}[/VI]"
       data-paste-element="TEXT"
     >
       textDecoration single

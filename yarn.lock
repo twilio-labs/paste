@@ -7744,6 +7744,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/result@npm:^2.6.0":
+  version: 2.6.2
+  resolution: "@sapphire/result@npm:2.6.2"
+  dependencies:
+    tslib: ^2.5.0
+  checksum: 8ee850ba29cbf6d862c34084eb316f8b4ac0f12cb3adb1f7d74580b34bff4d4196735f2957bcea0471866f700af2dc0041d9ecabe1622d2f8e2d94d3a868eb0e
+  languageName: node
+  linkType: hard
+
 "@segment/react-tiny-virtual-list@npm:^2.2.1":
   version: 2.2.1
   resolution: "@segment/react-tiny-virtual-list@npm:2.2.1"
@@ -22184,6 +22193,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-plugin-version-injector@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "esbuild-plugin-version-injector@npm:1.1.0"
+  dependencies:
+    "@sapphire/result": ^2.6.0
+  checksum: 441a379eba7979eae9423056097aab7db9ea049967f322a3a65bec8fc361cf352d41425383954d0954a05cb38c3b5c035e8d11e629e78b9d85dae9f7b9360eea
+  languageName: node
+  linkType: hard
+
 "esbuild-register@npm:^3.4.0":
   version: 3.4.2
   resolution: "esbuild-register@npm:3.4.2"
@@ -34555,6 +34573,7 @@ fsevents@^1.2.7:
     danger: ^10.6.6
     dotenv: ^16.0.0
     esbuild: ^0.15.18
+    esbuild-plugin-version-injector: ^1.1.0
     eslint: ^8.29.0
     eslint-config-prettier: 8.5.0
     eslint-config-twilio-react: 2.0.0
@@ -41347,7 +41366,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2":
+"tslib@npm:^2, tslib@npm:^2.5.0":
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
