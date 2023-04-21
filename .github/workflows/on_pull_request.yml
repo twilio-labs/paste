@@ -299,6 +299,10 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
       - name: Get playwright version
         id: pw-version
         run: echo "version=$(yarn playwright --version)" >> $GITHUB_OUTPUT
@@ -309,10 +313,6 @@ jobs:
         with:
           path: "~/.cache/ms-playwright"
           key: cache-playwright-${{ runner.os }}-${{ steps.pw-version.outputs.version }}
-
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
 
       - name: Build packages
         run: yarn build
