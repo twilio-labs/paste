@@ -1,4 +1,7 @@
+const path = require('path');
 const esbuild = require('esbuild');
+const {esbuildPluginVersionInjector} = require('esbuild-plugin-version-injector');
+
 const {PasteCJSResolverPlugin} = require('./plugins/PasteCJSResolver');
 const {EsmExternalsPlugin} = require('./plugins/EsmExternals');
 
@@ -34,7 +37,8 @@ async function build(packageJson) {
   const config = {
     color: true,
     entryPoints,
-    /** From docs:
+    /**
+     * From docs:
      * The main fields setting is set to main,module. This means tree shaking
      * will likely not happen for packages that provide both module and main
      * since tree shaking works with ECMAScript modules but not with CommonJS
@@ -49,13 +53,19 @@ async function build(packageJson) {
     // Fixes issues related to SSR (website builds)
     platform: 'node',
     bundle: true,
-    // Sets the target environment so the code is changed into a format that
-    // works  with node12 and the listed browsers
+    /**
+     * Sets the target environment so the code is changed into a format that
+     * works  with node12 and the listed browsers
+     */
     target: ['chrome66', 'firefox58', 'safari11', 'edge79', 'node12.19.0'],
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },
     external,
+  };
+
+  const versionInjectorConfig = {
+    packageJsonPath: path.join(__dirname, '../../packages/paste-core/core-bundle/package.json'),
   };
 
   // Minified
@@ -68,7 +78,7 @@ async function build(packageJson) {
       format: 'cjs',
       outfile: outFileCJS,
       // Needed to fix ES6 module import paths for CJS builds
-      plugins: [PasteCJSResolverPlugin],
+      plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -85,7 +95,7 @@ async function build(packageJson) {
       format: 'esm',
       outfile: outFileESM,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({externals: external})],
+      plugins: [EsmExternalsPlugin({externals: external}), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -100,7 +110,7 @@ async function build(packageJson) {
       format: 'cjs',
       outfile: outFileCJS.replace('.js', '.debug.js'),
       // Needed to fix ES6 module import paths for CJS builds
-      plugins: [PasteCJSResolverPlugin],
+      plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -114,7 +124,7 @@ async function build(packageJson) {
       format: 'esm',
       outfile: outFileESM.replace('.es.js', '.debug.es.js'),
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({externals: external})],
+      plugins: [EsmExternalsPlugin({externals: external}), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);

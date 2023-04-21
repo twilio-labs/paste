@@ -53,11 +53,13 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="AVATAR"
   >
     <img
       alt="avatar example"
       class="emotion-1"
+      data-paste-core-version="19.0.1"
       data-paste-element="BOX"
       src="/avatars/avatar2.png"
       title="avatar example"
@@ -126,10 +128,12 @@ exports[`Avatar intials should render responsive css 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-core-version="19.0.1"
     data-paste-element="AVATAR"
   >
     <abbr
       class="emotion-1"
+      data-paste-core-version="19.0.1"
       data-paste-element="TEXT"
       title="Simon Taggart"
     >
