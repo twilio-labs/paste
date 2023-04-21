@@ -90,11 +90,22 @@ Tabs are labeled controls that allow users to switch between multiple views with
 
 Panels within a set of Tabs should present different views of similar, parallel information. For example, [these Twilio docs](https://www.twilio.com/docs/usage/api) contain a block of code on the right side of the page with Tabs, allowing users to view the code in different languages. [Reddit also uses tabs](https://www.reddit.com/t/technology/), switching the user’s view between **Posts**, **Communities**, and **Related Topics**. The Tabs in both of these examples control views; they don’t direct to a new page. Conversely, [the Github website](https://github.com/twilio-labs/paste) demonstrates how some interactions may seem like Tabs, but are actually in-page navigation. Clicking on one of the sections at the top, like **Code** or **Pull Requests**, changes the URL.
 
+Having a distinction between the two components (Tabs and In Page Nav) leads to an improved user experience by visually communicating that interacting will lead to different behaviors. It's also important for accessibility to select the correct component to use based on your use case, as using the correct component gives users of assistive technologies a better idea of where the interaction will lead.
+
 Choose Tabs when users don’t need to see content from multiple views simultaneously. When thinking through what type of content to put in your Tabs, remember that the content should be parallel across the board. What lives in one Tab should be a different view of what lives in another Tab.
 
 _Source: [Nielsen Norman Group](https://www.nngroup.com/articles/tabs-used-right/)_
 
+The Tabs component contains the following elements:
+
+- Tabset: a composition of a Tablist and Tabpanels
+- Tablist: a collection of Tabs
+- Tab: clickable element that causes a selection within the Tabset
+- Tabpanel: contains the content associated with the selected Tab
+
 ### Accessibility
+
+Tabs should never contain interactive elements, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the Tab Panels.
 
 When the user is focused on a tab in a TabList, the following keyboard interactions apply:
 
@@ -204,6 +215,8 @@ You could use this if you want to add functionality to a Button within the Tab c
 </LivePreview>
 
 ## Composition notes
+
+Tabs should never contain interactive elements, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the Tab Panels.
 
 Tab labels should be relatively short to improve readability. Users should be able to easily scan the Tabs and know what type of content to expect. Try to keep labels to 1-2 words each.
 
