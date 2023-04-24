@@ -286,13 +286,13 @@ const HorizontalTabsExample: React.FC = () => {
 
 #### Tabs props
 
-| Property     | Variants                                           | Description                                                                                                                  | Default                              |
-| ------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| orientation? | "horizontal", "vertical", "undefined"              | Changes the Tabs' direction to either have the panels below or on the right side.                                            | "horizontal"                         |
-| variant?     | "fitted", "inverse", "inverse_fitted", "undefined" | Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.                 | "undefined"                          |
-| selectedId?  | `string, null`                                     | Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed. | `null`                               |
-| baseId?      | `string`                                           | Sets the prefix for the auto-generated IDs on each Tab and TabPanel. Useful for consistent renders, like for tests.          |                                      |
-| element?     | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider.                                   | "HORIZONTAL_TABS" or "VERTICAL_TABS" |
+| Property     | Variants                              | Description                                                                                                                  | Default                              |
+| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| orientation? | "horizontal", "vertical", "undefined" | Changes the Tabs' direction to either have the panels below or on the right side.                                            | "horizontal"                         |
+| variant?     | "fitted", "inverse", "inverse_fitted" | Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.                 | "undefined"                          |
+| selectedId?  | `string, null`                        | Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed. |                                      |
+| baseId?      | `string`                              | Sets the prefix for the auto-generated IDs on each Tab and TabPanel. Useful for consistent renders, like for tests.          |                                      |
+| element?     | `string`                              | Overrides the default element name to apply unique styles with the Customization Provider.                                   | "HORIZONTAL_TABS" or "VERTICAL_TABS" |
 
 #### TabList props
 
@@ -303,12 +303,12 @@ const HorizontalTabsExample: React.FC = () => {
 
 #### Tab props
 
-| Property   | Variants             | Description                                                                                                                                            | Default                            |
-| ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
-| id?        | `string, undefined`  | Same as the HTML attribute.                                                                                                                            | `null`                             |
-| focusable? | `boolean, undefined` | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set. |                                    |
-| disabled?  | `boolean, undefined` | Same as HTML attribute.                                                                                                                                |                                    |
-| element?   | `string`             | Overrides the default element name to apply unique styles with the Customization Provider.                                                             | "HORIZONTAL_TAB" or "VERTICAL_TAB" |
+| Property   | Variants  | Description                                                                                                                                            | Default                            |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| id?        | `string`  | Same as the HTML attribute.                                                                                                                            |                                    |
+| focusable? | `boolean` | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set. |                                    |
+| disabled?  | `boolean` | Same as HTML attribute.                                                                                                                                |                                    |
+| element?   | `string`  | Overrides the default element name to apply unique styles with the Customization Provider.                                                             | "HORIZONTAL_TAB" or "VERTICAL_TAB" |
 
 #### TabPanels props
 
@@ -318,11 +318,11 @@ const HorizontalTabsExample: React.FC = () => {
 
 #### TabPanel props
 
-| Property | Variants            | Description                                                                                | Default                                        |
-| -------- | ------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| id?      | `string, undefined` | Same as the HTML attribute.                                                                |                                                |
-| tabId?   | `string, undefined` | The ID of the Tab component this Panel pairs with.                                         |                                                |
-| element? | `string`            | Overrides the default element name to apply unique styles with the Customization Provider. | "HORIZONTAL_TAB_PANEL" or "VERTICAL_TAB_PANEL" |
+| Property | Variants | Description                                                                                | Default                                        |
+| -------- | -------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| id?      | `string` | Same as the HTML attribute.                                                                |                                                |
+| tabId?   | `string` | The ID of the Tab component this Panel pairs with.                                         |                                                |
+| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider. | "HORIZONTAL_TAB_PANEL" or "VERTICAL_TAB_PANEL" |
 
 <ChangelogRevealer>
   <Changelog />
