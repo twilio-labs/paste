@@ -204,6 +204,78 @@ export const App = () => {
 };
 ```
 
+## Elements API
+
+The `CustomizationProvider` has an `elements` object that you can use to customize any component in Paste. Here's an example of what the `elements` object looks like:
+
+```ts
+type Elements = {
+  // elementName is the name of the component you want to customize
+  [elementName: string]: SystemStyleObject &
+    AllStyleProps & {
+      // variants is an optional object that allows you to customize a specific variant of a component
+      variants?: {
+        [key: string]: (SystemCssProperties | CSSPseudoSelectorProps | CSSSelectorObject) & AllStyleProps;
+      };
+    };
+};
+```
+
+To use the `elements` object, you need to know the name of the component you want to customize. For example, if you want to customize the Alert component, you would use the element name `ALERT`.
+
+The `elements` object is made up of two parts: the `SystemStyleObject` and `AllStyleProps`. The `SystemStyleObject` is a [styled-system](https://styled-system.com/) object that accepts any valid CSS properties. It extends [Emotion style props](https://emotion.sh/docs/object-styles) such that properties that are part of the `Theme` will be transformed to their corresponding values. `AllStyleProps` is a Paste flavoured extension, that ties certain CSS properties to [Paste Design Tokens](/tokens/list) based on their categories. `SystemStyleObject` and `AllStyleProps` combined also allows for the use of [pseudo selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and [pseudo elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements).
+
+Here's an example of how to use the `elements` object:
+
+```jsx
+<CustomizationProvider
+  elements={{
+    ALERT: {
+      // a valid CSS property
+      display: 'block',
+      // a valid Paste style property, which takes a token name as a value
+      backgroundColor: 'colorBackgroundSuccessWeakest',
+      // a CSS pseudo selector
+      ':hover': {
+        // a valid CSS property
+        display: 'block',
+        // a valid Paste style property, which takes a token name as a value
+        backgroundColor: 'colorBackgroundSuccessWeakest',
+      },
+      // a CSS selector
+      '> div': {
+        // a valid CSS property
+        display: 'block',
+        // a valid Paste style property, which takes a token name as a value
+        backgroundColor: 'colorBackgroundSuccessWeakest',
+      },
+    },
+  }}
+/>
+```
+
+In the example above, we're customizing the Alert component by changing its `display` and `backgroundColor` properties. We're also using a CSS pseudo selector and a CSS selector to target specific parts of the component.
+
+You can also use the `variants` key to customize a specific variant of a component. Here's an example:
+
+```jsx
+<CustomizationProvider
+  elements={{
+    ALERT: {
+      variants: {
+        neutral: {
+          backgroundColor: 'colorBackgroundSuccessWeakest',
+        },
+      },
+    },
+  }}
+/>
+```
+
+In the example above, we're customizing the `neutral` variant of the Alert component by changing its `backgroundColor` property.
+
+The `elements` object is a very powerful API that allows you to customize any component in Paste. It's incredibly flexible, and allows you to customize almost all parts of a component with any valid, Paste flavoured [Emotion Style Object](https://emotion.sh/docs/object-styles).
+
 By following these examples, you can easily customize Paste components to achieve the desired look and feel for your software interfaces. Below we've included a Codesandbox for you to fork and experiment with:
 
 <iframe
