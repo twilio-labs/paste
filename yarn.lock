@@ -10487,6 +10487,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.2
+    "@twilio-paste/flex": ^7.0.0
     "@twilio-paste/heading": ^10.0.0
     "@twilio-paste/icons": ^11.0.0
     "@twilio-paste/reakit-library": ^1.0.0
@@ -10519,6 +10520,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.0
+    "@twilio-paste/flex": ^7.0.0
     "@twilio-paste/heading": ^10.0.0
     "@twilio-paste/icons": ^11.0.0
     "@twilio-paste/reakit-library": ^1.0.0
