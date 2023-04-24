@@ -18,6 +18,7 @@ import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {DetailText} from '@twilio-paste/detail-text';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
@@ -90,28 +91,36 @@ Tabs are labeled controls that allow users to switch between multiple views with
 
 Panels within a set of Tabs should present different views of similar, parallel information. For example, [these Twilio docs](https://www.twilio.com/docs/usage/api) contain a block of code on the right side of the page with Tabs, allowing users to view the code in different languages. [Reddit also uses tabs](https://www.reddit.com/t/technology/), switching the user’s view between **Posts**, **Communities**, and **Related Topics**. The Tabs in both of these examples control views; they don’t direct to a new page. Conversely, [the Github website](https://github.com/twilio-labs/paste) demonstrates how some interactions may seem like Tabs, but are actually in-page navigation. Clicking on one of the sections at the top, like **Code** or **Pull Requests**, changes the URL.
 
-Having a distinction between the two components (Tabs and In Page Nav) leads to an improved user experience by visually communicating that interacting will lead to different behaviors. It's also important for accessibility to select the correct component to use based on your use case, as using the correct component gives users of assistive technologies a better idea of where the interaction will lead.
+Distinguishing between the two components (Tabs and In Page Navigation) leads to an improved user experience by visually communicating that interacting will lead to different behaviors. Selecting the correct component based on your use case also gives users of assistive technologies a better idea of where the interaction will lead.
 
 Choose Tabs when users don’t need to see content from multiple views simultaneously. When thinking through what type of content to put in your Tabs, remember that the content should be parallel across the board. What lives in one Tab should be a different view of what lives in another Tab.
 
-_Source: [Nielsen Norman Group](https://www.nngroup.com/articles/tabs-used-right/)_
+<DetailText>
+  Source:{' '}
+  <Anchor showExternal href="https://www.nngroup.com/articles/tabs-used-right/">
+    Nielsen Norman Group
+  </Anchor>
+</DetailText>
+
+<br />
 
 The Tabs component contains the following elements:
 
-- Tabset: a composition of a Tablist and Tabpanels
-- Tablist: a collection of Tabs
-- Tab: clickable element that causes a selection within the Tabset
-- Tabpanel: contains the content associated with the selected Tab
+- `Tab`: Clickable element that causes a selection within a tabset
+- `TabPanel`: Contains the content associated with the selected `Tab`
+- `TabList`: A collection of `Tab`s
+- `TabPanels`: A collection of `TabPanel`s
+- Tabset (or `Tabs`): Composition of `TabList` and `TabPanel`s
 
 ### Accessibility
 
-Tabs should never contain interactive elements, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the Tab Panels.
+A Tab should never contain an interactive element, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the TabPanels.
 
 When the user is focused on a tab in a TabList, the following keyboard interactions apply:
 
 - Horizontal Tabs: `Right` and `Left` arrow keys move the user between Tabs and open the currently focused Tab's panel
 - Vertical Tabs: `Up` and `Down` arrow keys move between Tabs and open the currently focused Tab's panel
-- If the currently focused Tab is disabled, the Tab panel does not open
+- If the currently focused Tab is disabled, the TabPanel does not open
 
 ### Tabs vs. In Page Navigation
 
@@ -121,7 +130,7 @@ Tabs are used to layer related pieces of information together and display one la
 
 ### Horizontal Tabs
 
-Use Horizontal Tabs in most cases, as they most realistically mimic a physical tab, and they catch the user’s eye because they live directly above the content.
+Use Horizontal Tabs in most cases, as they most realistically mimic a physical tab, and they catch the user’s attention because they live directly above the content.
 
 <LivePreview
   scope={{
@@ -165,7 +174,7 @@ Use Fitted Tabs to fill a parent element with a set width. Each Tab will equally
 
 ### Vertical Tabs
 
-Use Vertical Tabs when the Tab Panels are tall and narrow, or when users tend to swap views often as they scroll through the content.
+Use Vertical Tabs when the TabPanels are tall and narrow, or when users tend to swap views often as they scroll through the content.
 
 <LivePreview
   scope={{
@@ -216,11 +225,11 @@ You could use this if you want to add functionality to a Button within the Tab c
 
 ## Composition notes
 
-Tabs should never contain interactive elements, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the Tab Panels.
+Don't add interactive elements to a Tab, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the TabPanels.
 
-Tab labels should be relatively short to improve readability. Users should be able to easily scan the Tabs and know what type of content to expect. Try to keep labels to 1-2 words each.
+Tab labels should be short to improve readability. Users should be able to easily scan the Tabs and know what type of content to expect. Try to keep labels to 1-2 words each.
 
-Labels should be parallel. For example, all nouns (Documents, Images, Downloads).
+Labels should be parallel parts of speech. For example, all nouns (Documents, Images, Downloads).
 
 ## When to use Tabs
 
@@ -280,9 +289,9 @@ const HorizontalTabsExample: React.FC = () => {
 | Property     | Variants                                           | Description                                                                                                                  | Default                              |
 | ------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
 | orientation? | "horizontal", "vertical", "undefined"              | Changes the Tabs' direction to either have the panels below or on the right side.                                            | "horizontal"                         |
-| variant?     | "fitted", "inverse", "inverse_fitted", "undefined" | Changes the Tabs' to either fit the width of the containing element or not.                                                  | "undefined"                          |
+| variant?     | "fitted", "inverse", "inverse_fitted", "undefined" | Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.                 | "undefined"                          |
 | selectedId?  | `string, null`                                     | Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed. | `null`                               |
-| baseId?      | `string`                                           | Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.          |                                      |
+| baseId?      | `string`                                           | Sets the prefix for the auto-generated IDs on each Tab and TabPanel. Useful for consistent renders, like for tests.          |                                      |
 | element?     | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider.                                   | "HORIZONTAL_TABS" or "VERTICAL_TABS" |
 
 #### TabList props
