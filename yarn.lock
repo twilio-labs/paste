@@ -10496,6 +10496,7 @@ __metadata:
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/syntax-highlighter-library": ^2.0.0
+    "@twilio-paste/tabs": ^7.0.0
     "@twilio-paste/tabs-primitive": ^1.0.0
     "@twilio-paste/text": ^9.0.0
     "@twilio-paste/theme": ^10.0.0
@@ -10527,6 +10528,7 @@ __metadata:
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/syntax-highlighter-library": ^2.0.0
+    "@twilio-paste/tabs": ^7.0.0
     "@twilio-paste/tabs-primitive": ^1.0.0
     "@twilio-paste/text": ^9.0.0
     "@twilio-paste/theme": ^10.0.0
@@ -13058,6 +13060,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^1.0.0
     "@twilio-paste/box": ^9.0.0

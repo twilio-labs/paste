@@ -21,14 +21,23 @@ export interface TabPanelProps {
   tabId?: string | undefined;
   children: React.ReactNode;
   element?: BoxProps['element'];
+  paddingTop?: 'space0';
 }
 
-const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, element, ...props}, ref) => {
+const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, element, paddingTop, ...props}, ref) => {
   const tab = React.useContext(TabsContext);
   const elementName = getElementName(tab.orientation, 'TAB_PANEL', element);
 
   return (
-    <TabPrimitivePanel {...(tab as any)} {...tabPanelStyles} {...props} element={elementName} as={Box} ref={ref}>
+    <TabPrimitivePanel
+      {...(tab as any)}
+      {...tabPanelStyles}
+      paddingTop={paddingTop}
+      {...props}
+      element={elementName}
+      as={Box}
+      ref={ref}
+    >
       {children}
     </TabPrimitivePanel>
   );
