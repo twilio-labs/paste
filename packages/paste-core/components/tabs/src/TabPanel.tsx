@@ -7,15 +7,6 @@ import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import {getElementName} from './utils';
 
-export const tabPanelStyles = {
-  paddingTop: 'space60',
-  borderRadius: 'borderRadius20',
-  _focusVisible: {
-    boxShadow: 'shadowFocus',
-    outline: 'none',
-  },
-} as Partial<BoxStyleProps>;
-
 export interface TabPanelProps {
   id?: string | undefined;
   tabId?: string | undefined;
@@ -24,24 +15,30 @@ export interface TabPanelProps {
   paddingTop?: 'space0';
 }
 
-const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, element, paddingTop, ...props}, ref) => {
-  const tab = React.useContext(TabsContext);
-  const elementName = getElementName(tab.orientation, 'TAB_PANEL', element);
+const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
+  ({children, element, paddingTop = 'space60', ...props}, ref) => {
+    const tab = React.useContext(TabsContext);
+    const elementName = getElementName(tab.orientation, 'TAB_PANEL', element);
 
-  return (
-    <TabPrimitivePanel
-      {...(tab as any)}
-      {...tabPanelStyles}
-      paddingTop={paddingTop}
-      {...props}
-      element={elementName}
-      as={Box}
-      ref={ref}
-    >
-      {children}
-    </TabPrimitivePanel>
-  );
-});
+    return (
+      <TabPrimitivePanel
+        {...(tab as any)}
+        paddingTop={paddingTop}
+        borderRadius="borderRadius20"
+        _focusVisible={{
+          boxShadow: 'shadowFocus',
+          outline: 'none',
+        }}
+        {...props}
+        element={elementName}
+        as={Box}
+        ref={ref}
+      >
+        {children}
+      </TabPrimitivePanel>
+    );
+  }
+);
 
 if (process.env.NODE_ENV === 'development') {
   TabPanel.propTypes = {
