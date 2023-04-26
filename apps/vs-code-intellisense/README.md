@@ -21,7 +21,7 @@ Twilio Paste is a great design system, but working with tokens is time consuming
 
 ## Installation
 
-**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense)**
+**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=TwilioPaste.vs-code-intellisense)**
 
 ## Features
 
