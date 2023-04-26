@@ -18,7 +18,7 @@ export default {
 export const CacheProviderContainer = (): React.ReactNode => {
   const [emotionCache, setEmotionCache] = React.useState<any>(null);
 
-  function setShadowRef(ref) {
+  function setShadowRef(ref): void {
     if (ref && !emotionCache) {
       const createdEmotionWithRef = {
         container: ref,
