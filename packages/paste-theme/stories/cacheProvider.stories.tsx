@@ -13,6 +13,16 @@ import {ThemeProvider} from '../src/themeProvider';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Theme/ThemeProvider/CacheProvider',
+  parameters: {
+    a11y: {
+      /*
+       * Since this story hardcodes its own theme, it doesnt inherit the theme
+       * from storybook and fails on darkmode in vrt. This is a false positive.
+       * This story is the same as the English Font Family story which passes.
+       */
+      disable: true,
+    },
+  },
 };
 
 export const CacheProviderContainer = (): React.ReactNode => {
