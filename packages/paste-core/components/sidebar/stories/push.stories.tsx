@@ -68,7 +68,7 @@ export const Compact: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>Twilio Console</SidebarHeader>
+          <SidebarHeader>Twilio Console is the best console</SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}

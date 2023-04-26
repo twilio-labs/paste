@@ -43,6 +43,8 @@ export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderPr
           letterSpacing="-.02em"
           color="colorTextInverse"
           whiteSpace="nowrap"
+          textOverflow="ellipsis"
+          overflow="hidden"
           margin="space0"
         >
           {children}
