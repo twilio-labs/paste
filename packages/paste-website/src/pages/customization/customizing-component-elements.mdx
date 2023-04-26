@@ -1,10 +1,11 @@
 export const meta = {
-  title: 'Customizing Component Elements',
+  title: 'Customizing components',
   description:
-    'A powerful concept for any programmable application is extending existing components and customizing their look and feel.',
+    'Customizing components is a powerful feature that allows any programmable application to extend existing components and add custom styles.',
   slug: '/customization/customizing-component-elements/',
 };
 
+import {Box} from '@twilio-paste/box';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
 import DefaultLayout from '../../layouts/DefaultLayout';
@@ -33,7 +34,257 @@ export const getStaticProps = async () => {
 
 <content>
 
-We are currently working on this feature and providing support for it gradually across the entire suite of components. Watch this space!
+As a designer or developer of a Twilio Programmable App, you may need to customize a component to match your specific design requirements. Use Paste’s Customization Provider API to customize individual components or create entirely new ones based on existing components.
+
+The Customization Provider seamlessly integrates with the [current theme](/customization/creating-a-custom-theme) so that your customizations work perfectly with the default or dark base themes, or any fully custom theme you provide. To make that as easy as possible for you, we have taken the decision to provide some guardrails with that API, only allowing design token values on certain CSS properties where it makes sense.
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/customizing-components-7lf2we?fontsize=14&hidenavigation=1&theme=dark"
+    style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
+    title="Customizing Components"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+## Understand the element prop and data attributes
+
+Each Paste component has a collection of tagged DOM nodes within it, each with a `data-paste-element` data attribute that identifies each stylable element you can target.
+
+To customize a specific element, you need to know its identifier. You can find these identifiers in the rendered HTML for each component. The `data-paste-element` data attribute can be used to identify specific elements. For example, the following code will render an alert component with various element identifiers:
+
+```jsx
+export const Component = () => {
+  return <Alert variant="neutral">I am a neutral alert</Alert>;
+};
+```
+
+The resulting markup will look like this:
+
+```html
+<div data-paste-element="ALERT" role="alert" class="next-1lh60q0">
+  <div data-paste-element="MEDIA_OBJECT" class="next-1sekzvp">
+    <div data-paste-element="MEDIA_FIGURE" class="next-1llkq7k">
+      <span data-paste-element="ALERT_ICON" class="next-1onn7bo">
+        <svg />
+      </span>
+    </div>
+    <div data-paste-element="MEDIA_BODY" class="next-1i39mnm">
+      <div data-paste-element="BOX" class="next-18dbjl">
+        <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
+        reducing it.
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+You can use these identifiers, such as `ALERT`, to target each specific element for customization and apply custom CSS to.
+
+The `element` prop on each Paste component can also be used to change or override the element name for that particular instance of the component. When this prop is set, it renders a custom `data-paste-element` data attribute extending the base Paste component to being something completely new.
+
+For example, the following code will render a custom neutral alert with the element name `"MY_CUSTOM_ALERT"` and that can be used to apply custom CSS to the Alert:
+
+```jsx
+export const App = () => {
+  return (
+    <CustomizationProvider
+      elements={{
+        MY_CUSTOM_ALERT: {
+          paddingY: 'space100',
+        },
+        MY_CUSTOM_ALERT_DISMISS_BUTTON: {
+          backgroundColor: 'colorBackgroundBodyInverse',
+          borderRadius: 'borderRadius20',
+        },
+      }}
+    >
+      <Alert element="MY_CUSTOM_ALERT" variant="neutral">
+        I am a custom neutral alert
+      </Alert>
+    </CustomizationProvider>
+  );
+};
+```
+
+## Customize all instances of a component
+
+To customize all instances of a specific Paste component, use the `elements` prop on the `CustomizationProvider` component. Each key on the elements object should match an elements name that you identified in the applications rendered DOM. For example, the following code will customize all alert components to have a custom padding:
+
+```jsx
+export const App = () => {
+  return (
+    <CustomizationProvider
+      elements={{
+        ALERT: {
+          paddingY: 'space100',
+        },
+      }}
+    >
+      <Alert variant="neutral">I am a custom neutral alert</Alert>
+    </CustomizationProvider>
+  );
+};
+```
+
+## Customize variants of a component
+
+Some Paste components have variants, such as the [Alert](/components/alert) component with variants of `info`, `success`, `warning`, and `error`. To customize a variant of a component, add a `variants` object to the element identifier in the `CustomizationProvider`. For example, to change the background color of the `neutral` variant of the Alert component, you can add the following code:
+
+```jsx
+<CustomizationProvider
+  elements={{
+    ALERT: {
+      paddingY: 'space100',
+      variants: {
+        neutral: {
+          backgroundColor: 'colorBackgroundSuccessWeakest',
+        },
+      },
+    },
+  }}
+>
+  <Alert variant="neutral">I am a custom neutral alert</Alert>
+</CustomizationProvider>
+```
+
+## Create new custom components
+
+Create entirely new custom components based on existing Paste components by giving them a new "element" name. These custom components will be isolated from the base component exported from Paste. For example, the following code will create a new custom alert component with the element name `"MY_CUSTOM_ALERT"`:
+
+```jsx
+export const MyCustomAlert = (props) => {
+  return <Alert {...props} element="MY_CUSTOM_ALERT" />;
+};
+```
+
+This will generate new data attributes for your custom Alert component similar to the below:
+
+```html
+<div data-paste-element="MY_CUSTOM_ALERT" role="alert" class="next-1lh60q0">
+  <div data-paste-element="MEDIA_OBJECT" class="next-1sekzvp">
+    <div data-paste-element="MEDIA_FIGURE" class="next-1llkq7k">
+      <span data-paste-element="MY_CUSTOM_ALERT_ICON" class="next-1onn7bo">
+        <svg />
+      </span>
+    </div>
+    <div data-paste-element="MEDIA_BODY" class="next-1i39mnm">
+      <div data-paste-element="BOX" class="next-18dbjl">
+        <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
+        reducing it.
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Customize new custom components
+
+Customizing variants of new custom components works similarly to customizing variants of existing components. Find the newly created element names in the DOM and use those to style your component elements. For example, the following code will customize the neutral variant of the new custom alert component to have a custom background color:
+
+```jsx
+export const App = () => {
+  return (
+    <CustomizationProvider
+      elements={{
+        MY_CUSTOM_ALERT: {
+          paddingY: 'space100',
+          variants: {
+            neutral: {
+              backgroundColor: 'colorBackgroundSuccessWeakest',
+            },
+          },
+        },
+      }}
+    >
+      <MyCustomAlert variant="neutral">I am a custom neutral alert</MyCustomAlert>
+    </CustomizationProvider>
+  );
+};
+```
+
+## Elements API
+
+The `CustomizationProvider` has an `elements` object that you can use to customize any component in Paste. Here's an example of what the `elements` object looks like:
+
+```ts
+type Elements = {
+  // elementName is the name of the component you want to customize
+  [elementName: string]: SystemStyleObject &
+    AllStyleProps & {
+      // variants is an optional object that allows you to customize a specific variant of a component
+      variants?: {
+        [key: string]: (SystemCssProperties | CSSPseudoSelectorProps | CSSSelectorObject) & AllStyleProps;
+      };
+    };
+};
+```
+
+To use the `elements` object, you need to know the name of the component you want to customize. For example, if you want to customize the Alert component, you would use the element name `ALERT`.
+
+The `elements` object is made up of two parts: the `SystemStyleObject` and `AllStyleProps`. The `SystemStyleObject` is a [styled-system](https://styled-system.com/) object that accepts any valid CSS properties. It extends [Emotion style props](https://emotion.sh/docs/object-styles) such that properties that are part of the `Theme` will be transformed to their corresponding values. `AllStyleProps` is a Paste flavoured extension, that ties certain CSS properties to [Paste Design Tokens](/tokens/list) based on their categories. `SystemStyleObject` and `AllStyleProps` combined also allows for the use of [pseudo selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and [pseudo elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements).
+
+Here's an example of how to use the `elements` object:
+
+```jsx
+<CustomizationProvider
+  elements={{
+    ALERT: {
+      // a valid CSS property
+      display: 'block',
+      // a valid Paste style property, which takes a token name as a value
+      backgroundColor: 'colorBackgroundSuccessWeakest',
+      // a CSS pseudo selector
+      ':hover': {
+        // a valid CSS property
+        display: 'block',
+        // a valid Paste style property, which takes a token name as a value
+        backgroundColor: 'colorBackgroundSuccessWeakest',
+      },
+      // a CSS selector
+      '> div': {
+        // a valid CSS property
+        display: 'block',
+        // a valid Paste style property, which takes a token name as a value
+        backgroundColor: 'colorBackgroundSuccessWeakest',
+      },
+    },
+  }}
+/>
+```
+
+In the example above, we're customizing the Alert component by changing its `display` and `backgroundColor` properties. We're also using a CSS pseudo selector and a CSS selector to target specific parts of the component.
+
+You can also use the `variants` key to customize a specific variant of a component. Here's an example:
+
+```jsx
+<CustomizationProvider
+  elements={{
+    ALERT: {
+      variants: {
+        neutral: {
+          backgroundColor: 'colorBackgroundSuccessWeakest',
+        },
+      },
+    },
+  }}
+/>
+```
+
+In the example above, we're customizing the `neutral` variant of the Alert component by changing its `backgroundColor` property.
+
+The `elements` object is a very powerful API that allows you to customize any component in Paste. It's incredibly flexible, and allows you to customize almost all parts of a component with any valid, Paste flavoured [Emotion Style Object](https://emotion.sh/docs/object-styles).
+
+By following these examples, you can easily customize Paste components to achieve the desired look and feel for your software interfaces. Below we've included a Codesandbox for you to fork and experiment with:
+
+<iframe
+  src="https://codesandbox.io/embed/customizing-components-7lf2we?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
+  title="Customizing Components"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 </content>
 
