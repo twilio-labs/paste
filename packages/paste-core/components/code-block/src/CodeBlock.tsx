@@ -39,9 +39,8 @@ const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
     gridTemplateRows: 'auto 1fr',
     gridTemplateAreas: '"button-group" "code-block"',
     rowGap: 'space20',
-    paddingY: 'space50',
-    borderBottomLeftRadius: 'borderRadius20',
-    borderBottomRightRadius: 'borderRadius20',
+    paddingTop: 'space50',
+    paddingBottom: 'space100',
   },
 };
 

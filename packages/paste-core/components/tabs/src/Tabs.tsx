@@ -50,7 +50,7 @@ Tabs.propTypes = {
   element: PropTypes.string,
   selectedId: PropTypes.string,
   orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
-  variant: PropTypes.oneOf(['fitted', null]),
+  variant: PropTypes.oneOf(['fitted', 'inverse', 'inverse_fitted', null]),
 };
 
 Tabs.displayName = 'Tabs';

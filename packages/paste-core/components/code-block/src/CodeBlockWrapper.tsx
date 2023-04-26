@@ -2,31 +2,33 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {useTabPrimitiveState} from '@twilio-paste/tabs-primitive';
-import type {TabPrimitiveInitialState, TabPrimitiveStateReturn} from '@twilio-paste/tabs-primitive';
+import {Tabs} from '@twilio-paste/tabs';
+import type {TabStateReturn} from '@twilio-paste/tabs';
 
-import {CodeBlockTabsContext} from './CodeBlockTabsContext';
-
-export interface CodeBlockTabStateReturn extends TabPrimitiveStateReturn {
+export interface CodeBlockTabStateReturn extends TabStateReturn {
   [key: string]: any;
 }
 
-export interface CodeBlockWrapperProps extends Omit<TabPrimitiveInitialState, 'orientation'> {
+export interface CodeBlockWrapperProps {
   children?: React.ReactNode;
   element?: BoxProps['element'];
   state?: CodeBlockTabStateReturn;
 }
 
 export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrapperProps>(
-  ({children, state, element = 'CODE_BLOCK_WRAPPER', ...initialState}, ref) => {
-    const tabState = state || useTabPrimitiveState({orientation: 'horizontal', ...initialState});
-
+  ({children, state, element = 'CODE_BLOCK_WRAPPER'}, ref) => {
     return (
-      <CodeBlockTabsContext.Provider value={tabState}>
-        <Box element={element} ref={ref}>
+      <Tabs variant="inverse" state={state}>
+        <Box
+          backgroundColor="colorBackgroundInverseStrong"
+          borderRadius="borderRadius20"
+          overflow="hidden"
+          element={element}
+          ref={ref}
+        >
           {children}
         </Box>
-      </CodeBlockTabsContext.Provider>
+      </Tabs>
     );
   }
 );

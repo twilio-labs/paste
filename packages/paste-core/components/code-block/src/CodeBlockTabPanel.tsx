@@ -1,10 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
-
-import {CodeBlockTabsContext} from './CodeBlockTabsContext';
+import {TabPanel} from '@twilio-paste/tabs';
 
 export interface CodeBlockTabPanelProps extends Partial<Omit<HTMLDivElement, 'children'>> {
   children?: React.ReactNode;
@@ -13,12 +10,10 @@ export interface CodeBlockTabPanelProps extends Partial<Omit<HTMLDivElement, 'ch
 
 export const CodeBlockTabPanel = React.forwardRef<HTMLDivElement, CodeBlockTabPanelProps>(
   ({children, element = 'CODE_BLOCK_TAB_PANEL', ...props}, ref) => {
-    const tabState = React.useContext(CodeBlockTabsContext);
-
     return (
-      <TabPrimitivePanel {...safelySpreadBoxProps(props)} {...tabState} as={Box} element={element} ref={ref}>
+      <TabPanel {...props} paddingTop="space0" element={element} ref={ref}>
         {children}
-      </TabPrimitivePanel>
+      </TabPanel>
     );
   }
 );

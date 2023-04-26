@@ -67,6 +67,12 @@ export const MultiLine: StoryFn = () => (
   </CodeBlockWrapper>
 );
 
+export const MultiLineHeaderless: StoryFn = () => (
+  <CodeBlockWrapper>
+    <CodeBlock code={rubyCode} language="ruby" />
+  </CodeBlockWrapper>
+);
+
 export const MultiLineWithLineNumbers: StoryFn = () => (
   <CodeBlockWrapper>
     <CodeBlockHeader>Build a button</CodeBlockHeader>
