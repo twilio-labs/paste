@@ -12716,6 +12716,7 @@ __metadata:
     "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
+    "@twilio-paste/text": ^9.0.0
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
@@ -12739,6 +12740,7 @@ __metadata:
     "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
+    "@twilio-paste/text": ^9.0.0
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
