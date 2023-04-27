@@ -10765,6 +10765,7 @@ __metadata:
     "@twilio-paste/toast": ^11.0.0
     "@twilio-paste/tooltip": ^10.0.1
     "@twilio-paste/tooltip-primitive": ^1.0.0
+    "@twilio-paste/topbar": ^0.0.1
     "@twilio-paste/truncate": ^13.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
@@ -13381,7 +13382,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/topbar@workspace:packages/paste-core/components/topbar":
+"@twilio-paste/topbar@^0.0.1, @twilio-paste/topbar@workspace:packages/paste-core/components/topbar":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/topbar@workspace:packages/paste-core/components/topbar"
   dependencies:
