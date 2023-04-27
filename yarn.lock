@@ -13381,6 +13381,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/topbar@workspace:packages/paste-core/components/topbar":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/topbar@workspace:packages/paste-core/components/topbar"
+  dependencies:
+    "@twilio-paste/box": ^9.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  peerDependencies:
+    "@twilio-paste/box": ^9.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    prop-types: ^15.7.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/truncate@^13.0.0, @twilio-paste/truncate@workspace:packages/paste-core/components/truncate":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/truncate@workspace:packages/paste-core/components/truncate"
