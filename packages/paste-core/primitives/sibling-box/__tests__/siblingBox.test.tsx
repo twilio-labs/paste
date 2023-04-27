@@ -6,9 +6,10 @@ import {SiblingBox} from '../src';
 
 describe('SiblingBox render', () => {
   it('should render', (): void => {
-    const {asFragment} = render(
+    render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <SiblingBox
+          data-testid="sibling-box"
           width="sizeSquare50"
           _hover={{
             backgroundColor: 'colorBackgroundBody',
@@ -57,7 +58,43 @@ describe('SiblingBox render', () => {
         </SiblingBox>
       </CustomizationProvider>
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('width', '1.75rem');
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('color', 'rgb(18, 28, 45)', {
+      target: 'input[type=checkbox]:active+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('padding', '0.125rem', {
+      target: 'input[type=checkbox][aria-checked=mixed]+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('height', '2.5rem', {
+      target: 'input[type=checkbox][aria-checked=mixed]:active+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('padding-bottom', '0.5rem', {
+      target: 'input[type=checkbox][aria-checked=mixed]+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('width', '1.75rem', {
+      target: 'input[type=checkbox][aria-checked=mixed]:disabled+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('min-height', '70.5rem', {
+      target: 'input[type=checkbox][aria-checked=mixed]:focus+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('border-radius', '2px', {
+      target: 'input[type=checkbox][aria-checked=mixed]:hover:not(:disabled)+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('margin-right', '1.75rem', {
+      target: 'input[type=checkbox][aria-invalid=true]:checked+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('border-color', 'rgb(136, 145, 170)', {
+      target: 'input[type=checkbox]:disabled+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('margin', '0.125rem', {
+      target: 'input[type=checkbox]:focus+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('padding-left', '1rem', {
+      target: 'input[type=checkbox]:hover:not(:disabled):not(:checked)+label',
+    });
+    expect(screen.getByTestId('sibling-box')).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {
+      target: 'input[type=checkbox][aria-invalid=true]+label',
+    });
   });
 
   describe('HTML attributes', () => {
