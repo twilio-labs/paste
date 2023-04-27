@@ -92,6 +92,7 @@
     "/packages/paste-core/components/toast",
     "/packages/paste-core/components/tooltip",
     "/packages/paste-core/primitives/tooltip",
+    "/packages/paste-core/components/topbar",
     "/packages/paste-core/components/truncate",
     "/packages/paste-types",
     "/packages/paste-libraries/uid",
