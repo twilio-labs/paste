@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import {render, screen, act, fireEvent} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 
 import {
@@ -38,7 +38,7 @@ describe('SideModal', () => {
       expect(dialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
       expect(dialogButton.getAttribute('aria-expanded')).toEqual('false');
 
-      await waitFor(() => {
+      await act(async () => {
         fireEvent.click(dialogButton);
       });
 
@@ -53,14 +53,13 @@ describe('SideModal', () => {
       const showButton = screen.getByRole('button', {name: 'Open dialog'});
       const closeButton = screen.getByRole('button', {name: 'Close dialog'});
 
-      await waitFor(() => {
+      await act(async () => {
         fireEvent.click(showButton);
       });
-
       const dialog = screen.getByRole('dialog', {hidden: true});
       expect(dialog).toBeInTheDocument();
 
-      await waitFor(() => {
+      await act(async () => {
         fireEvent.click(closeButton);
       });
       expect(dialog).not.toBeVisible();
@@ -82,7 +81,7 @@ describe('SideModal', () => {
       );
 
       const dialogButton = screen.getByRole('button', {name: 'Button'});
-      await waitFor(() => {
+      await act(async () => {
         fireEvent.click(dialogButton);
       });
 
