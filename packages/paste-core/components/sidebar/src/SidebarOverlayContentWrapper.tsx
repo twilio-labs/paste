@@ -21,7 +21,7 @@ export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, Sid
       return (
         <Box display="flex" justifyContent="flex-start">
           <Box role="presentation" width="sizeSidebarCompact" height="100%" minHeight="1px" />
-          <Box {...safelySpreadBoxProps(props)} element={element} as="div" ref={ref}>
+          <Box {...safelySpreadBoxProps(props)} element={element} as="div" ref={ref} width="100%">
             {children}
           </Box>
         </Box>
