@@ -1,5 +1,11 @@
 # @twilio-paste/pagination
 
+## 6.0.1
+
+### Patch Changes
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Pagination] specify label line height to fix alignment issue
+
 ## 6.0.0
 
 ### Major Changes

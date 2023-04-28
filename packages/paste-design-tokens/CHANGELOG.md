@@ -1,5 +1,23 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design-tokens] add the `color-border-weakest` token
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-sidebar-compact` token
+
+### Patch Changes
+
+- [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f) [#3146](https://github.com/twilio-labs/paste/pull/3146) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Fixed visual bugs in Evergreen theme tokens: $color-text-icon-brand-highlight, $color-background-overlay, $color-background-primary-strongest, $color-text-user
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] adjusting inverse colors for the `Twilio` and `Twilio-Dark` themes
+
+  - `color-background-body-inverse` from `gray-110` to `gray-100`
+  - `shadow-border-inverse-weakest` from `gray-90` to `gray-100`
+  - `color-border-inverse-weakest` from `gray-90` to `gray-100`
+
 ## 9.0.3
 
 ### Patch Changes

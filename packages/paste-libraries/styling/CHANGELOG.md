@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- [`b27913706`](https://github.com/twilio-labs/paste/commit/b2791370651de378a819f77e8980a97ebad8b3ba) [#3200](https://github.com/twilio-labs/paste/pull/3200) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] expand the types allowed for emotion's CacheProvider. This change allows passing `container` which helps with setting styles on specific elements and shadow dom.
+
 ## 2.0.1
 
 ### Patch Changes

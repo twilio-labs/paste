@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] add `_disabled_focus` pseudoprop style
+
+### Patch Changes
+
+- [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619) [#3173](https://github.com/twilio-labs/paste/pull/3173) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text]: inject the Paste Core version into the DOM for better debugging in consumer applications and remote inspection
+
 ## 9.0.0
 
 ### Major Changes
