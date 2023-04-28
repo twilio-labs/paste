@@ -23,39 +23,75 @@ describe('Separator', () => {
     });
 
     it('should set horizontal margins', (): void => {
-      const {asFragment} = render(
+      render(
         <Theme.Provider theme="default">
-          <Separator orientation="horizontal" horizontalSpacing="space50" />
+          <Separator data-testid="separator" orientation="vertical" horizontalSpacing="space50" />
         </Theme.Provider>
       );
-      expect(asFragment()).toMatchSnapshot();
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '1rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-left', '1rem');
     });
 
     it('should set vertical margins', (): void => {
-      const {asFragment} = render(
+      render(
         <Theme.Provider theme="default">
-          <Separator orientation="vertical" verticalSpacing="space100" />
+          <Separator data-testid="separator" orientation="horizontal" verticalSpacing="space100" />
         </Theme.Provider>
       );
-      expect(asFragment()).toMatchSnapshot();
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '2.25rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-bottom', '2.25rem');
     });
 
     it('should set responsive horizontal margins', (): void => {
-      const {asFragment} = render(
+      render(
         <Theme.Provider theme="default">
-          <Separator orientation="horizontal" horizontalSpacing={['space20', 'space100', 'space190']} />
+          <Separator
+            data-testid="separator"
+            orientation="vertical"
+            horizontalSpacing={['space20', 'space100', 'space190']}
+          />
         </Theme.Provider>
       );
-      expect(asFragment()).toMatchSnapshot();
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '0.25rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '2.25rem', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '4.5rem', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-left', '0.25rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-left', '2.25rem', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-left', '4.5rem', {
+        media: 'screen and (min-width:52em)',
+      });
     });
 
     it('should set responsive vertical margins', (): void => {
-      const {asFragment} = render(
+      render(
         <Theme.Provider theme="default">
-          <Separator orientation="vertical" verticalSpacing={['space20', 'space100', 'space190']} />
+          <Separator
+            data-testid="separator"
+            orientation="horizontal"
+            verticalSpacing={['space20', 'space100', 'space190']}
+          />
         </Theme.Provider>
       );
-      expect(asFragment()).toMatchSnapshot();
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '0.25rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '2.25rem', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '4.5rem', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-bottom', '0.25rem');
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-bottom', '2.25rem', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(screen.getByTestId('separator')).toHaveStyleRule('margin-bottom', '4.5rem', {
+        media: 'screen and (min-width:52em)',
+      });
     });
   });
 

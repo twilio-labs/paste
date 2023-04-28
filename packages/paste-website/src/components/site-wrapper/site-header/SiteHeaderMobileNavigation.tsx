@@ -94,7 +94,7 @@ const MobileNavigation: React.FC<React.PropsWithChildren<MobileNavigationProps>>
     from: {width: '0px', height: '0px', opacity: 0.3},
     enter: {width: ModalDimensions.MAX_WIDTH, height: ModalDimensions.MAX_HEIGHT, opacity: 1},
     leave: {width: '0px', height: '0px', opacity: 0.1},
-    // https://www.react-spring.io/docs/hooks/api
+    // https://www.react-spring.dev/docs/advanced/config
     config: {
       mass: 0.5,
       tension: 150,

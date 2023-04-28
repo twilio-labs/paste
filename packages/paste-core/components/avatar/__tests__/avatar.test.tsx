@@ -109,8 +109,15 @@ describe('Avatar', () => {
 
   describe('intials', () => {
     it('should render responsive css', (): void => {
-      const {asFragment} = render(<Avatar size={['sizeIcon10', 'sizeIcon60', 'sizeIcon100']} name="Simon Taggart" />);
-      expect(asFragment()).toMatchSnapshot();
+      render(<Avatar data-testid="avatar" size={['sizeIcon10', 'sizeIcon60', 'sizeIcon100']} name="Simon Taggart" />);
+      const renderedAvatar = screen.getByTestId('avatar');
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon10');
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon60', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon100', {
+        media: 'screen and (min-width:52em)',
+      });
     });
   });
   describe('image', () => {
@@ -120,10 +127,22 @@ describe('Avatar', () => {
       expect(screen.getByRole('img').getAttribute('alt')).toEqual('avatar example');
     });
     it('should render responsive css with an image', (): void => {
-      const {asFragment} = render(
-        <Avatar size={['sizeIcon30', 'sizeIcon40', 'sizeIcon90']} name="avatar example" src="/avatars/avatar2.png" />
+      render(
+        <Avatar
+          data-testid="avatar"
+          size={['sizeIcon30', 'sizeIcon40', 'sizeIcon90']}
+          name="avatar example"
+          src="/avatars/avatar2.png"
+        />
       );
-      expect(asFragment()).toMatchSnapshot();
+      const renderedAvatar = screen.getByTestId('avatar');
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon30');
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon40', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon90', {
+        media: 'screen and (min-width:52em)',
+      });
     });
 
     it('should render an image if src and icon are passed', () => {

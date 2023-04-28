@@ -310,31 +310,100 @@ describe('Grid', () => {
   });
 
   describe('render', () => {
-    it('should render a Grid', () => {
-      const {asFragment} = render(<Grid>child</Grid>);
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('should render a Grid as any HTML element', () => {
-      const {asFragment} = render(<Grid as="section">child</Grid>);
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('should render a Column', () => {
-      const {asFragment} = render(<Column>child</Column>);
-      expect(asFragment()).toMatchSnapshot();
+      render(
+        <>
+          <Grid as="section" data-testid="grid-container">
+            child
+          </Grid>
+          <Grid as="span" data-testid="grid-container-2">
+            child
+          </Grid>
+        </>
+      );
+      expect(screen.getByTestId('grid-container').tagName).toBe('SECTION');
+      expect(screen.getByTestId('grid-container-2').tagName).toBe('SPAN');
     });
 
     it('should render responsive css', () => {
-      const {asFragment} = render(
-        <Grid gutter={['space10', 'space20', 'space30']} vertical={[true, true, false]}>
-          <Column span={[2, 4, 2]} offset={[8, 6, 8]} />
-
-          <Column />
+      render(
+        <Grid gutter={['space10', 'space20', 'space30']} vertical={[true, true, false]} data-testid="grid">
+          <Column span={[2, 4, 2]} offset={[8, 6, 8]} data-testid="column" />
         </Grid>
       );
+      const renderedGrid = screen.getByTestId('grid');
+      const renderedColumn = screen.getByTestId('column');
 
-      expect(asFragment()).toMatchSnapshot();
+      // responsive gutters on grid
+      expect(renderedGrid).toHaveStyleRule('margin-right', 'auto');
+      expect(renderedGrid).toHaveStyleRule('margin-left', 'auto');
+      expect(renderedGrid).toHaveStyleRule('margin-right', 'auto', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedGrid).toHaveStyleRule('margin-left', 'auto', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedGrid).toHaveStyleRule('margin-right', 'spaceNegative30', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(renderedGrid).toHaveStyleRule('margin-left', 'spaceNegative30', {
+        media: 'screen and (min-width:52em)',
+      });
+      // responsive orientation on grid
+      expect(renderedGrid).toHaveStyleRule('flex-direction', 'column');
+      expect(renderedGrid).toHaveStyleRule('flex-direction', 'column', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedGrid).toHaveStyleRule('flex-direction', 'row', {
+        media: 'screen and (min-width:52em)',
+      });
+
+      // responsive gutters on column
+      expect(renderedColumn).toHaveStyleRule('padding-left', 'space0');
+      expect(renderedColumn).toHaveStyleRule('padding-right', 'space0');
+      expect(renderedColumn).toHaveStyleRule('padding-top', 'space10');
+      expect(renderedColumn).toHaveStyleRule('padding-bottom', 'space10');
+      expect(renderedColumn).toHaveStyleRule('padding-left', 'space0', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-right', 'space0', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-top', 'space20', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-bottom', 'space20', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-left', 'space30', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-right', 'space30', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-top', 'space0', {
+        media: 'screen and (min-width:52em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('padding-bottom', 'space0', {
+        media: 'screen and (min-width:52em)',
+      });
+
+      // responsive offset on column
+      expect(renderedColumn).toHaveStyleRule('margin-left', '66.66666666666666%');
+      expect(renderedColumn).toHaveStyleRule('margin-left', '50%', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('margin-left', '66.66666666666666%', {
+        media: 'screen and (min-width:52em)',
+      });
+      // responsive width on column
+      expect(renderedColumn).toHaveStyleRule('width', '16.666666666666664%');
+      expect(renderedColumn).toHaveStyleRule('width', '33.33333333333333%', {
+        media: 'screen and (min-width:40em)',
+      });
+      expect(renderedColumn).toHaveStyleRule('width', '16.666666666666664%', {
+        media: 'screen and (min-width:52em)',
+      });
     });
   });
 

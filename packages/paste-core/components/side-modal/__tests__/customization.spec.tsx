@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {waitFor, fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, act, render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Button} from '@twilio-paste/button';
 
@@ -116,7 +116,7 @@ describe('Customization', () => {
     );
 
     const showButton = screen.getByRole('button', {name: 'Button'});
-    await waitFor(() => {
+    await act(async () => {
       fireEvent.click(showButton);
     });
 
@@ -160,7 +160,7 @@ describe('Customization', () => {
     );
 
     const showButton = screen.getByRole('button', {name: 'Button'});
-    await waitFor(() => {
+    await act(async () => {
       fireEvent.click(showButton);
     });
     const closeButton = screen.getByRole('button', {name: 'close'});
@@ -210,7 +210,7 @@ describe('Customization', () => {
     );
 
     const showButton = screen.getByRole('button', {name: 'Button'});
-    await waitFor(() => {
+    await act(async () => {
       fireEvent.click(showButton);
     });
 
@@ -259,7 +259,7 @@ describe('Customization', () => {
 
     const dialogButton = screen.getByRole('button', {name: 'Button'});
 
-    await waitFor(() => {
+    await act(async () => {
       fireEvent.click(dialogButton);
     });
 
