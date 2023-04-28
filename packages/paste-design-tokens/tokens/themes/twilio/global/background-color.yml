@@ -18,6 +18,11 @@ props:
     value: "{!palette-purple-05}"
     comment: User avatar background color.
 
+  # account backgrounds
+  color-background-subaccount:
+    value: "{!palette-yellow-10}"
+    comment: Background color used for subaccounts.
+
   # page body
   color-background-body-inverse:
     value: "{!palette-gray-100}"

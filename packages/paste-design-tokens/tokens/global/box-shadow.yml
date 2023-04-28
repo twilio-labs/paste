@@ -137,6 +137,12 @@ props:
   shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
     comment: Strongest shadow border on interactive elements on inverse backgrounds.
+  shadow-border-subaccount:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-yellow-20}"
+    comment: Shadow border for subaccount badge.
+  shadow-border-inverse-new-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    comment: Shadow border for the sidebar beta badge.
 
   # Bottom borders
   shadow-border-bottom-primary:
@@ -169,6 +175,12 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-purple-20}"
     comment: Weaker bottom shadow border for decorative 40
+  shadow-border-bottom-subaccount:
+    value: "{!offset-0} 1px {!offset-0} {!palette-yellow-40}"
+    comment: Bottom shadow border for subaccount badge
+  shadow-border-bottom-inverse-new-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    comment: Bottom shadow border for the sidebar beta badge
 
   # User
   shadow-border-user:
