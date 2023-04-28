@@ -4,21 +4,21 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
-import type {BadgeProps, BadgeVariants} from './types';
+import type {BadgeProps, BadgeVariants, BadgeSizes} from './types';
 import {useResizeChildIcons} from './hooks';
-import {badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
+import {badgeBaseStyles, badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
-  ({as, href, variant, children, element = 'BADGE', ...props}, ref) => {
+  ({as, href, variant, size = 'default', children, element = 'BADGE', ...props}, ref) => {
     const resizedChildren = useResizeChildIcons(children);
 
-    let badgeStyles = badgeVariantStyles[variant];
+    let badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles[variant]};
 
     if (as === 'a') {
-      badgeStyles = {...badgeStyles, ...getBadgeAnchorStyles()};
+      badgeStyles = {...badgeBaseStyles, ...badgeStyles, ...getBadgeAnchorStyles()};
     }
     if (as === 'button') {
-      badgeStyles = {...badgeStyles, ...getBadgeButtonStyles(variant)};
+      badgeStyles = {...badgeBaseStyles, ...badgeStyles, ...getBadgeButtonStyles(variant)};
     }
 
     return (
@@ -26,25 +26,10 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
         {...safelySpreadBoxProps(props)}
         {...(href ? secureExternalLink(href) : {})}
         href={href}
-        alignItems="center"
         as={as}
-        border="unset"
-        borderRadius="borderRadius20"
-        columnGap="space20"
-        display="flex"
         element={element}
-        fontSize="fontSize20"
-        fontWeight="fontWeightSemibold"
-        lineHeight="lineHeight10"
-        maxWidth="max-content"
-        paddingX="space30"
-        paddingY="space20"
-        // these next props are from button-reset styles
-        appearance="none"
-        background="none"
-        outline="none"
-        fontFamily="inherit"
-        position="relative"
+        paddingX={size === 'small' ? 'space20' : 'space30'}
+        paddingY={size === 'small' ? 'space10' : 'space20'}
         variant={variant}
         ref={ref}
         {...badgeStyles}
@@ -67,6 +52,7 @@ Badge.propTypes = {
     'error',
     'success',
     'new',
+    'subaccount',
     'decorative10',
     'decorative20',
     'decorative30',
@@ -77,9 +63,12 @@ Badge.propTypes = {
     'default',
     'info',
   ] as BadgeVariants[]).isRequired,
+  size: PropTypes.oneOf(['default', 'small'] as BadgeSizes[]),
   as: PropTypes.oneOf(['span', 'button', 'a']).isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
 };
 
 export * from './types';
+export {badgeBaseStyles} from './styles';
+export {useResizeChildIcons} from './hooks';
