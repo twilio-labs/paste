@@ -1,5 +1,15 @@
 # @twilio-paste/code-block
 
+## 3.1.0
+
+### Minor Changes
+
+- [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Code Block] Switch the Code block tabs to use the inverse variant of the Tabs component
+
+### Patch Changes
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codeblock] small adjustment to the backgroundColor on `CodeBlockHeader`
+
 ## 3.0.0
 
 ### Major Changes

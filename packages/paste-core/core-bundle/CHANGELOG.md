@@ -1,5 +1,69 @@
 # Change Log
 
+## 19.1.0
+
+### Minor Changes
+
+- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarCollapseButtonWrapper` components. Renamed ContentWrappers
+
+* [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Code Block] Switch the Code block tabs to use the inverse variant of the Tabs component
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] add `_disabled_focus` pseudoprop style
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add new Sidebar component with several variant styles
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design-tokens] add the `color-border-weakest` token
+
+* [`6d845fd69`](https://github.com/twilio-labs/paste/commit/6d845fd69e62d900e74eac9b29833c0375294098) [#3178](https://github.com/twilio-labs/paste/pull/3178) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add `SidebarHeader` component
+
+- [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-sidebar-compact` token
+
+### Patch Changes
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Pagination] specify label line height to fix alignment issue
+
+* [`80c9f85f7`](https://github.com/twilio-labs/paste/commit/80c9f85f7a46856f01ee262418f7d0e394999e69) [#3172](https://github.com/twilio-labs/paste/pull/3172) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] babel dependency update
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Fix secondary destructive toggle button hover styles
+
+* [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f) [#3146](https://github.com/twilio-labs/paste/pull/3146) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Fixed visual bugs in Evergreen theme tokens: $color-text-icon-brand-highlight, $color-background-overlay, $color-background-primary-strongest, $color-text-user
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [File picker] set width to 100% to match other input components
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codeblock] small adjustment to the backgroundColor on `CodeBlockHeader`
+
+- [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] theme breakpoint values are now represented as `px` values instead of `rem` values. MediaQueries are more easily grokked as `px` values, and it simplifies development by eliminating variability in widths. In rare cases, some tests - like snapshot tests - may need to be updated.
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] adjusting inverse colors for the `Twilio` and `Twilio-Dark` themes
+
+  - `color-background-body-inverse` from `gray-110` to `gray-100`
+  - `shadow-border-inverse-weakest` from `gray-90` to `gray-100`
+  - `color-border-inverse-weakest` from `gray-90` to `gray-100`
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs] update horizontal tabs style. They are now visually distinct from the InPageNavigation component.
+
+* [`b27913706`](https://github.com/twilio-labs/paste/commit/b2791370651de378a819f77e8980a97ebad8b3ba) [#3200](https://github.com/twilio-labs/paste/pull/3200) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] expand the types allowed for emotion's CacheProvider. This change allows passing `container` which helps with setting styles on specific elements and shadow dom.
+
+- [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs] allow removing the top padding in the tab panel for greater control over the tab content alignment. Improved prop types to include inverse variants as being valid values to the variant prop.
+
+* [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619) [#3173](https://github.com/twilio-labs/paste/pull/3173) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text]: inject the Paste Core version into the DOM for better debugging in consumer applications and remote inspection
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] improve border color of the Tooltip
+
+- Updated dependencies [[`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263), [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f), [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`b27913706`](https://github.com/twilio-labs/paste/commit/b2791370651de378a819f77e8980a97ebad8b3ba), [`6d845fd69`](https://github.com/twilio-labs/paste/commit/6d845fd69e62d900e74eac9b29833c0375294098), [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5), [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d)]:
+  - @twilio-paste/pagination@6.0.1
+  - @twilio-paste/button@13.0.1
+  - @twilio-paste/sidebar@0.1.0
+  - @twilio-paste/design-tokens@9.1.0
+  - @twilio-paste/code-block@3.1.0
+  - @twilio-paste/box@9.1.0
+  - @twilio-paste/file-picker@3.0.1
+  - @twilio-paste/theme@10.0.2
+  - @twilio-paste/tabs@7.0.1
+  - @twilio-paste/styling-library@2.0.2
+  - @twilio-paste/text@9.0.1
+  - @twilio-paste/tooltip@10.0.1
+
 ## 19.0.1
 
 ### Patch Changes

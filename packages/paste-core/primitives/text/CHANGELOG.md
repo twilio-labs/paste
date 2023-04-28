@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619) [#3173](https://github.com/twilio-labs/paste/pull/3173) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text]: inject the Paste Core version into the DOM for better debugging in consumer applications and remote inspection
+
 ## 9.0.0
 
 ### Major Changes

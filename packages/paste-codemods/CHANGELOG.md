@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.3.3
+
+### Patch Changes
+
+- [`80c9f85f7`](https://github.com/twilio-labs/paste/commit/80c9f85f7a46856f01ee262418f7d0e394999e69) [#3172](https://github.com/twilio-labs/paste/pull/3172) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] babel dependency update
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add Sidebar package to package mappings
+
 ## 0.3.2
 
 ### Patch Changes

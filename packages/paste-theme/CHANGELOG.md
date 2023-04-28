@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.0.2
+
+### Patch Changes
+
+- [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] theme breakpoint values are now represented as `px` values instead of `rem` values. MediaQueries are more easily grokked as `px` values, and it simplifies development by eliminating variability in widths. In rare cases, some tests - like snapshot tests - may need to be updated.
+
 ## 10.0.1
 
 ### Patch Changes
