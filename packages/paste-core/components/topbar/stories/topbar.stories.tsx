@@ -19,7 +19,7 @@ export default {
   title: 'Components/Topbar',
 };
 
-const TonsOfContent = () => {
+const TonsOfContent: React.FC = () => {
   const content = [];
   for (let i = 0; i < 100; i++) {
     content.push(<Paragraph key={i}>Dummy content</Paragraph>);
