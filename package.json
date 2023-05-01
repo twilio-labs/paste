@@ -57,7 +57,7 @@
     "test:website-percy": "percy exec -- yarn cypress run --record",
     "test:website-gui": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:3000 'yarn cypress open'",
     "test:website-gui-percy": "WAIT_ON_TIMEOUT=600000 start-server-and-test 'yarn start:website' http://localhost:3000 'percy exec -- yarn cypress open'",
-    "test:storybook": "test-storybook --url http://localhost:9001",
+    "test:storybook": "test-storybook --url http://localhost:9001 --maxWorkers=2",
     "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
     "serve:website": "yarn workspace @twilio-paste/website start",
     "package-size-action-build": "yarn build",
