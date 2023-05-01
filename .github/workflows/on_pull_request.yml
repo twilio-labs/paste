@@ -264,7 +264,12 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        shard: [1/1]
+        os: [macos-latest]
+        shard: [1/4, 2/4, 3/4, 4/4]
+        include:
+          - os: macos-latest
+            node: 16
+            npm: 6
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
