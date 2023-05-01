@@ -21,7 +21,7 @@ export default {
 
 const TonsOfContent: React.FC = () => {
   const content = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     content.push(<Paragraph key={i}>Dummy content</Paragraph>);
   }
   return <>{content}</>;
