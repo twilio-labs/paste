@@ -24,10 +24,6 @@ const config: StorybookConfig = {
     // enable type checking
     check: true,
   },
-  docs: {
-    autodocs: true,
-    defaultName: 'Docs',
-  },
   async viteFinal(config, {configType}) {
     const isTest = process.env.NODE_ENV === 'test';
     return mergeConfig(config, {
