@@ -19,10 +19,6 @@ export const Default: StoryFn = () => {
   return <InlineCode>0000001111111122234444444</InlineCode>;
 };
 
-export const Minimal: StoryFn = () => {
-  return <InlineCode variant="minimal">0000001111111122234444444</InlineCode>;
-};
-
 export const ReallyLongContent: StoryFn = () => {
   return (
     <>
