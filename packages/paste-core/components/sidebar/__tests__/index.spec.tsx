@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -11,6 +11,7 @@ import {
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
+  SidebarBetaBadge,
 } from '../src';
 import type {SidebarProps} from '../src';
 
@@ -152,6 +153,51 @@ describe('Sidebar', () => {
   });
 
   /**
+   * SIDEBAR BETA BADGE
+   */
+  describe('Sidebar Beta Badge', () => {
+    it('should set ref to a span element if "as" is "span"', () => {
+      const betaBadgeRef = React.createRef<HTMLElement>();
+      render(
+        <SidebarBetaBadge as="span" ref={betaBadgeRef}>
+          Beta
+        </SidebarBetaBadge>
+      );
+      expect(betaBadgeRef?.current?.tagName).toEqual('SPAN');
+    });
+    it('should render as button if "as" is "button"', () => {
+      const {getByRole} = render(
+        <SidebarBetaBadge as="button" onClick={() => null}>
+          Button
+        </SidebarBetaBadge>
+      );
+      expect(getByRole('button')).toBeInTheDocument();
+    });
+
+    it('should set ref to a button element if "as" is "button"', () => {
+      const betaBadgeRef = React.createRef<HTMLElement>();
+      render(
+        <SidebarBetaBadge as="button" onClick={() => {}} ref={betaBadgeRef}>
+          Beta
+        </SidebarBetaBadge>
+      );
+      expect(betaBadgeRef?.current?.tagName).toEqual('BUTTON');
+    });
+
+    it('should handle onclick event', () => {
+      const onClickMock: jest.Mock = jest.fn();
+      const {getByRole} = render(
+        <SidebarBetaBadge as="button" onClick={onClickMock}>
+          Button
+        </SidebarBetaBadge>
+      );
+      const button = getByRole('button');
+      fireEvent.click(button);
+      expect(onClickMock).toBeCalledTimes(1);
+    });
+  });
+
+  /**
    * Customization
    */
   describe('Customization', () => {
@@ -169,10 +215,14 @@ describe('Sidebar', () => {
               padding: 'space40',
             },
             SIDEBAR_PUSH_CONTENT_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            SIDEBAR_BETA_BADGE: {
+              backgroundColor: 'colorBackgroundAvailable',
+            },
           }}
         >
           <Sidebar aria-label="main" variant="compact" data-testid="aaa">
             <Box color="colorTextInverse">Sidebar header</Box>
+            <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
             <SidebarCollapseButtonWrapper data-testid="collapseButtonWrapper">
               <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
             </SidebarCollapseButtonWrapper>
@@ -197,6 +247,9 @@ describe('Sidebar', () => {
       const contentWrapper = screen.getByTestId('contentwrapper');
       expect(contentWrapper).toHaveStyleRule('margin', '1rem');
       expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+
+      const sidebarBetaBadge = screen.getByText('Beta');
+      expect(sidebarBetaBadge).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
 
     it('should work with custom element values', () => {
@@ -213,10 +266,16 @@ describe('Sidebar', () => {
             XSIDE_COLLAPSE_BUTTON_WRAPPER: {
               padding: 'space40',
             },
+            XSIDE_BETA_BADGE: {
+              backgroundColor: 'colorBackgroundAvailable',
+            },
           }}
         >
           <Sidebar aria-label="main" variant="compact" element="XSIDE">
             <Box color="colorTextInverse">Sidebar header</Box>
+            <SidebarBetaBadge as="span" element="XSIDE_BETA_BADGE">
+              Beta
+            </SidebarBetaBadge>
             <SidebarCollapseButtonWrapper element="XSIDE_COLLAPSE_BUTTON_WRAPPER" data-testid="collapseButtonWrapper">
               <SidebarCollapseButton
                 element="XSIDE_COLLAPSE_BUTTON"
@@ -245,6 +304,9 @@ describe('Sidebar', () => {
       const contentWrapper = screen.getByTestId('contentwrapper');
       expect(contentWrapper).toHaveStyleRule('margin', '1rem');
       expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+
+      const sidebarBetaBadge = screen.getByText('Beta');
+      expect(sidebarBetaBadge).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
   });
 });

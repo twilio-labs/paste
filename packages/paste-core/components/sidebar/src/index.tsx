@@ -5,3 +5,4 @@ export * from './SidebarCollapseButton';
 export * from './SidebarCollapseButtonWrapper';
 export * from './SidebarContext';
 export * from './SidebarHeader';
+export * from './SidebarBetaBadge';

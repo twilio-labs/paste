@@ -359,7 +359,7 @@ of the Popover docs to add a Popover to a Badge.
 
 ### Small Badges
 
-Pass `size="small"` if you need a slightly smaller-sized Badge. Use the Small Badge sparingly as it's reserved for specific use cases only.
+Use small Badges sparingly, only when needed for vertical density. Guidelines for using variants in small Badge are the same as in their default size.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -650,14 +650,15 @@ const BadgeExample = () => (
 
 #### Props
 
-| Prop     | Type                                   | Description                                                                                                                                         | Default     |
-| -------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                     | `null`      |
-| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
-| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                 | `null`      |
-| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                         | `undefined` |
-| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                  | `undefined` |
-| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                           | 'BADGE'     |
+| Prop     | Type                                   | Description                                                                                                                                                       | Default     |
+| -------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                                   | `null`      |
+| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
+| size     | `BadgeSizes`                           | `default`, `small`                                                                                                                                                | `default`   |
+| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                               | `null`      |
+| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
+| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
+| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |
 
 <ChangelogRevealer>
   <Changelog />

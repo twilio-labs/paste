@@ -14,6 +14,7 @@ import {
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
+  SidebarBetaBadge,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -55,6 +56,10 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           backgroundColor: 'colorBackground',
           padding: 'space40',
         },
+        SIDEBAR_BETA_BADGE: {
+          backgroundColor: 'colorBackgroundAvailable',
+          color: 'colorText',
+        },
       }}
     >
       <Box>
@@ -62,6 +67,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
           <Stack orientation="vertical" spacing="space100">
             <SidebarHeader>Twilio Console</SidebarHeader>
+            <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
             <SidebarCollapseButtonWrapper>
               <SidebarCollapseButton
                 onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -124,6 +130,10 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           backgroundColor: 'colorBackground',
           padding: 'space40',
         },
+        SIDECAR_BETA_BADGE: {
+          backgroundColor: 'colorBackgroundAvailable',
+          color: 'colorText',
+        },
       }}
     >
       <Box>
@@ -136,6 +146,9 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
             >
               Twilio Flex
             </SidebarHeader>
+            <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
+              Beta
+            </SidebarBetaBadge>
             <SidebarCollapseButtonWrapper element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
               <SidebarCollapseButton
                 element="SIDECAR_COLLAPSE_BUTTON"
