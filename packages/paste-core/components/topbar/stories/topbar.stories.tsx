@@ -1,5 +1,7 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
+import {Button} from '@twilio-paste/button';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -44,7 +46,14 @@ export const PushDefaultTopbar: StoryFn = () => {
         </Stack>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Topbar>Topbar</Topbar>
+        <Topbar>
+          <Box display="flex" justifyContent="space-between">
+            <div>Topbar Left</div>
+            <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Sidebar
+            </Button>
+          </Box>
+        </Topbar>
         <TonsOfContent />
       </SidebarPushContentWrapper>
     </>
@@ -68,7 +77,14 @@ export const PushCompactTopbar: StoryFn = () => {
         </Stack>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar>Topbar</Topbar>
+        <Topbar>
+          <Box display="flex" justifyContent="space-between">
+            <div>Topbar Left</div>
+            <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Sidebar
+            </Button>
+          </Box>
+        </Topbar>
         <TonsOfContent />
       </SidebarPushContentWrapper>
     </>
@@ -76,23 +92,34 @@ export const PushCompactTopbar: StoryFn = () => {
 };
 
 export const OverlayDefaultTopbar: StoryFn = () => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar aria-label="main" collapsed={overlaySidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
-              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
           </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
-      <SidebarOverlayContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Topbar>Topbar</Topbar>
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="default">
+        <Topbar>
+          <Box display="flex" justifyContent="space-between">
+            <div>Topbar Left</div>
+            <Button
+              variant="secondary"
+              size="small"
+              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
+            >
+              Toggle Sidebar
+            </Button>
+          </Box>
+        </Topbar>
         <TonsOfContent />
       </SidebarOverlayContentWrapper>
     </>
@@ -100,23 +127,34 @@ export const OverlayDefaultTopbar: StoryFn = () => {
 };
 
 export const OverlayCompactTopbar: StoryFn = () => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar aria-label="main" collapsed={overlaySidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
-              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
           </SidebarCollapseButtonWrapper>
         </Stack>
       </Sidebar>
-      <SidebarOverlayContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar>Topbar</Topbar>
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="compact">
+        <Topbar>
+          <Box display="flex" justifyContent="space-between">
+            <div>Topbar Left</div>
+            <Button
+              variant="secondary"
+              size="small"
+              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
+            >
+              Toggle Sidebar
+            </Button>
+          </Box>
+        </Topbar>
         <TonsOfContent />
       </SidebarOverlayContentWrapper>
     </>
