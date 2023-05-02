@@ -14,6 +14,7 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(({element = 
       ref={ref}
       element={element}
       width="100%"
+      minHeight="sizeTopbar"
       backgroundColor="colorBackgroundWeak"
       boxShadow="shadowBorderWeaker"
       paddingX="space70"

@@ -22,7 +22,7 @@ export default {
 };
 
 const TonsOfContent: React.FC = () => {
-  const content = [];
+  const content: React.ReactNode[] = [];
   for (let i = 0; i < 10; i++) {
     content.push(<Paragraph key={i}>Dummy content</Paragraph>);
   }
@@ -47,7 +47,7 @@ export const PushDefaultTopbar: StoryFn = () => {
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
         <Topbar>
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" alignItems="center" justifyContent="space-between">
             <div>Topbar Left</div>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
               Toggle Sidebar
@@ -81,7 +81,7 @@ export const PushCompactTopbar: StoryFn = () => {
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Topbar>
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" alignItems="center" justifyContent="space-between">
             <div>Topbar Left</div>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
               Toggle Sidebar
@@ -115,7 +115,7 @@ export const OverlayDefaultTopbar: StoryFn = () => {
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="default">
         <Topbar>
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" alignItems="center" justifyContent="space-between">
             <div>Topbar Left</div>
             <Button
               variant="secondary"
@@ -153,7 +153,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="compact">
         <Topbar>
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" alignItems="center" justifyContent="space-between">
             <div>Topbar Left</div>
             <Button
               variant="secondary"
