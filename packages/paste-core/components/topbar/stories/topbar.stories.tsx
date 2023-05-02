@@ -59,6 +59,9 @@ export const PushDefaultTopbar: StoryFn = () => {
     </>
   );
 };
+PushDefaultTopbar.parameters = {
+  padding: false,
+};
 
 export const PushCompactTopbar: StoryFn = () => {
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
@@ -89,6 +92,9 @@ export const PushCompactTopbar: StoryFn = () => {
       </SidebarPushContentWrapper>
     </>
   );
+};
+PushCompactTopbar.parameters = {
+  padding: false,
 };
 
 export const OverlayDefaultTopbar: StoryFn = () => {
@@ -125,6 +131,9 @@ export const OverlayDefaultTopbar: StoryFn = () => {
     </>
   );
 };
+OverlayDefaultTopbar.parameters = {
+  padding: false,
+};
 
 export const OverlayCompactTopbar: StoryFn = () => {
   const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
@@ -159,4 +168,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
       </SidebarOverlayContentWrapper>
     </>
   );
+};
+OverlayCompactTopbar.parameters = {
+  padding: false,
 };

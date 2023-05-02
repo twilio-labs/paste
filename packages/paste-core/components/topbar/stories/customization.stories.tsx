@@ -24,6 +24,9 @@ export const DefaultElement: StoryFn = () => {
     </CustomizationProvider>
   );
 };
+DefaultElement.parameters = {
+  padding: false,
+};
 
 export const CustomElement: StoryFn = () => {
   return (
@@ -39,4 +42,7 @@ export const CustomElement: StoryFn = () => {
       <Topbar element="CUSTOM_TOPBAR">Topbar</Topbar>
     </CustomizationProvider>
   );
+};
+CustomElement.parameters = {
+  padding: false,
 };
