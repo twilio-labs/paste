@@ -20,7 +20,7 @@ export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, Sid
     if (!isMobile && variant === 'compact') {
       return (
         <Box display="flex" justifyContent="flex-start">
-          <Box role="presentation" width="sizeSidebarCompact" height="100%" minHeight="1px" />
+          <Box role="presentation" width="sizeSidebarCompact" height="100%" minHeight="1px" flexShrink={0} />
           <Box {...safelySpreadBoxProps(props)} element={element} as="div" ref={ref} width="100%">
             {children}
           </Box>
