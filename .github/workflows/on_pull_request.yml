@@ -381,6 +381,7 @@ jobs:
     name: Storybook test runner
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    needs: chromatic
     strategy:
       matrix:
         shard: [1/4, 1/4, 1/4, 1/4]
