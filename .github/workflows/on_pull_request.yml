@@ -440,7 +440,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Storybook test runner
-        run: yarn test-storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --ci --shard=${{ matrix.shard }}'
+        run: yarn test-storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --ci --shard=${{ matrix.shard }}
 
   pr-categorizer:
     name: Categorize the PR using labels
