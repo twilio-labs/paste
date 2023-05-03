@@ -312,6 +312,8 @@ jobs:
     name: Component Visual regression tests
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
+    outputs:
+      storybookUrl: ${{ steps.chromaticaction.outputs.storybookUrl }}
 
     steps:
       - name: Checkout Repo
@@ -358,7 +360,7 @@ jobs:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run Chromatic
-        id: chromatic
+        id: chromaticaction
         uses: chromaui/action@v1
         with:
           zip: true
@@ -438,7 +440,9 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Storybook test runner
-        run: yarn test-storybook --url ${{ steps.chromatic.outputs.storybookUrl }} --ci --shard=${{ matrix.shard }}'
+        env:
+          STORYBOOK_URL: ${{ needs.chromatic.outputs.storybookUrl }}
+        run: yarn test-storybook --url $STORYBOOK_URL --ci --shard=${{ matrix.shard }}'
 
   pr-categorizer:
     name: Categorize the PR using labels
