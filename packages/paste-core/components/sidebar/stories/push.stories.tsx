@@ -13,16 +13,9 @@ import {
   SidebarPushContentWrapper,
 } from '../src';
 
-// Fix for docs page examples overflowing the container
-const styles = {
-  transform: 'scale(1)',
-  height: '100vh',
-};
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Sidebar/Push',
-  decorators: [(storyFn) => <div style={styles}>{storyFn()}</div>],
 };
 
 export const Default: StoryFn = () => {
@@ -58,6 +51,7 @@ Default.parameters = {
     // false positives in CI due to hiding button behind sidebar when open
     disable: true,
   },
+  padding: false,
 };
 
 export const Compact: StoryFn = () => {
@@ -93,4 +87,5 @@ Compact.parameters = {
     // false positives in CI due to hiding button behind sidebar when open
     disable: true,
   },
+  padding: false,
 };

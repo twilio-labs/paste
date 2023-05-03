@@ -103,7 +103,11 @@ export const decorators = [
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
             <GlobalStyles />
             <Theme.Provider theme={theme} disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-              <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+              <Box
+                backgroundColor="colorBackgroundBody"
+                color="colorText"
+                padding={context.parameters.padding === false ? 'space0' : 'space80'}
+              >
                 <Story />
               </Box>
             </Theme.Provider>
@@ -116,7 +120,11 @@ export const decorators = [
             <Grid>
               <Column>
                 <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Box
+                    backgroundColor="colorBackgroundBody"
+                    color="colorText"
+                    padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                  >
                     <Story />
                   </Box>
                 </Theme.Provider>
@@ -127,7 +135,11 @@ export const decorators = [
                   disableAnimations={isTestEnvironment}
                   customBreakpoints={breakpoints}
                 >
-                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Box
+                    backgroundColor="colorBackgroundBody"
+                    color="colorText"
+                    padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                  >
                     <Story />
                   </Box>
                 </Theme.Provider>
@@ -141,49 +153,97 @@ export const decorators = [
             <GlobalStyles />
             <Stack orientation="vertical" spacing="space0">
               <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                >
                   <Story />
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
-                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space20'}
+                >
+                  <Box
+                    margin={context.parameters.padding === false ? 'space0' : 'space40'}
+                    padding={context.parameters.padding === false ? 'space0' : 'space40'}
+                    backgroundColor="colorBackground"
+                  >
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                >
                   <Story />
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
-                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space20'}
+                >
+                  <Box
+                    margin={context.parameters.padding === false ? 'space0' : 'space40'}
+                    padding={context.parameters.padding === false ? 'space0' : 'space40'}
+                    backgroundColor="colorBackground"
+                  >
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                >
                   <Story />
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
-                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space20'}
+                >
+                  <Box
+                    margin={context.parameters.padding === false ? 'space0' : 'space40'}
+                    padding={context.parameters.padding === false ? 'space0' : 'space40'}
+                    backgroundColor="colorBackground"
+                  >
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space80'}
+                >
                   <Story />
                 </Box>
               </Theme.Provider>
               <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
-                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? 'space0' : 'space20'}
+                >
+                  <Box
+                    margin={context.parameters.padding === false ? 'space0' : 'space40'}
+                    padding={context.parameters.padding === false ? 'space0' : 'space40'}
+                    backgroundColor="colorBackground"
+                  >
                     <Story />
                   </Box>
                 </Box>

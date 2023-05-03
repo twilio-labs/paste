@@ -158,3 +158,6 @@ props:
   size-sidebar-compact:
     value: "{!size-sidebar-compact}"
     comment: "Sizing token for the compact sidebar width."
+  size-topbar:
+    value: "{!size-topbar}"
+    comment: "Sizing token for the minimum topbar height."
