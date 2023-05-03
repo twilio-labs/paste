@@ -1,4 +1,7 @@
 import type {BoxProps} from '@twilio-paste/box';
+import type {ValueOf} from '@twilio-paste/types';
+
+import type {StatusNames} from './constants';
 
 export type BadgeVariants =
   | 'neutral'
@@ -18,6 +21,7 @@ export type BadgeVariants =
   | 'info';
 
 export type BadgeSizes = 'default' | 'small';
+export type StatusBadgeVariants = ValueOf<typeof StatusNames>;
 
 export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
@@ -41,3 +45,7 @@ export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
 };
 
 export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);
+
+export type StatusBadgeProps = Omit<BadgeProps, 'variant'> & {
+  variant: StatusBadgeVariants;
+};
