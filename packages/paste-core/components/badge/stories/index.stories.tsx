@@ -5,6 +5,7 @@ import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {UsersIcon} from '@twilio-paste/icons/esm/UsersIcon';
 import {styled, css} from '@twilio-paste/styling-library';
 
 import {Badge} from '../src';
@@ -43,6 +44,9 @@ export const AllBadges = (): JSX.Element => (
     <Badge as="span" variant="new">
       New
     </Badge>
+    <Badge as="span" variant="subaccount">
+      Subaccount
+    </Badge>
     <Badge as="span" variant="decorative10">
       Decorative10
     </Badge>
@@ -59,6 +63,46 @@ export const AllBadges = (): JSX.Element => (
       1
     </Badge>
     <Badge as="span" variant="error_counter">
+      1
+    </Badge>
+  </Wrapper>
+);
+export const SmallBadges = (): JSX.Element => (
+  <Wrapper>
+    <Badge as="span" size="small" variant="neutral">
+      Neutral
+    </Badge>
+    <Badge as="span" size="small" variant="warning">
+      Warning
+    </Badge>
+    <Badge as="span" size="small" variant="error">
+      Error
+    </Badge>
+    <Badge as="span" size="small" variant="success">
+      Success
+    </Badge>
+    <Badge as="span" size="small" variant="new">
+      New
+    </Badge>
+    <Badge as="span" size="small" variant="subaccount">
+      Subaccount
+    </Badge>
+    <Badge as="span" size="small" variant="decorative10">
+      Decorative10
+    </Badge>
+    <Badge as="span" size="small" variant="decorative20">
+      Decorative20
+    </Badge>
+    <Badge as="span" size="small" variant="decorative30">
+      Decorative30
+    </Badge>
+    <Badge as="span" size="small" variant="decorative40">
+      Decorative40
+    </Badge>
+    <Badge as="span" size="small" variant="neutral_counter">
+      1
+    </Badge>
+    <Badge as="span" size="small" variant="error_counter">
       1
     </Badge>
   </Wrapper>
@@ -332,6 +376,59 @@ export const NewBadge = (): JSX.Element => (
       <Badge as="button" onClick={() => {}} variant="new">
         New
         <NewIcon decorative />
+      </Badge>
+    </Wrapper>
+  </>
+);
+
+export const SubaccountBadge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="span" variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="span" variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="a" href="#" variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="a" href="#" variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
       </Badge>
     </Wrapper>
   </>

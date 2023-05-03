@@ -56,7 +56,7 @@ props:
 
   # account backgrounds
   color-background-subaccount:
-    value: "{!palette-gray-90}"
+    value: "{!palette-gray-100}"
     comment: Subaccount background color.
   color-background-trial:
     value: "{!palette-green-100}"

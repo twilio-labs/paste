@@ -119,6 +119,12 @@ props:
   shadow-border-decorative-40-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
     comment: Weaker shadow border for decorative 40
+  shadow-border-subaccount:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-yellow-70}"
+    comment: Shadow border for subaccount badge.
+  shadow-border-inverse-new-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    comment: Shadow border for the sidebar beta badge.
 
   # Badge
   shadow-border-bottom-primary:
@@ -151,6 +157,12 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
     comment: Weaker bottom shadow border for decorative 40
+  shadow-border-bottom-subaccount:
+    value: "{!offset-0} 1px {!offset-0} {!palette-yellow-70}"
+    comment: Bottom shadow border for subaccount badge
+  shadow-border-bottom-inverse-new-weaker:
+    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    comment: Bottom shadow border for the sidebar beta badge
 
   # User
   shadow-border-user:

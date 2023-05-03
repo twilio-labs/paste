@@ -360,6 +360,11 @@ props:
       - color-background-row-striped
       - color-background-primary-weakest
       - color-background-destructive-weakest
+  color-text-inverse-new:
+    value: "{!palette-purple-30}"
+    comment: Inverse color for indicating a new status.
+    text_contrast_pairing:
+      - color-background-inverse-strong
 
   # icon
   color-text-icon:
@@ -510,3 +515,8 @@ props:
   color-text-user:
     value: "{!palette-gray-100}"
     comment: Text color for user avatar.
+
+  # product
+  color-text-subaccount:
+    value: "{!palette-yellow-90}"
+    comment: Text color for the subaccount badge

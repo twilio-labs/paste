@@ -65,7 +65,7 @@ describe('Alert Dialog `element` prop', () => {
 describe('Alert Dialog customization', () => {
   it('should apply styles to Alert Dialog', () => {
     const {container} = render(<CustomizedAlertDialog />);
-    expect(screen.getByTestId('alert_dialog')).toHaveStyleRule('background-color', 'rgb(255, 241, 179)');
+    expect(screen.getByTestId('alert_dialog')).toHaveStyleRule('background-color', 'rgb(255, 251, 234)');
     expect(container.querySelector('[data-paste-element="ALERT_DIALOG_HEADER_WRAPPER"]')).toHaveStyleRule(
       'border',
       'inherit'

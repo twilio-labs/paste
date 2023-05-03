@@ -2,6 +2,24 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 
 import type {BadgeVariants} from './types';
 
+export const badgeBaseStyles: BoxStyleProps = {
+  alignItems: 'center',
+  border: 'unset',
+  borderRadius: 'borderRadius20',
+  columnGap: 'space20',
+  display: 'flex',
+  fontSize: 'fontSize20',
+  fontWeight: 'fontWeightSemibold',
+  lineHeight: 'lineHeight10',
+  maxWidth: 'max-content',
+  // these next props are from button-reset styles
+  appearance: 'none',
+  background: 'none',
+  outline: 'none',
+  fontFamily: 'inherit',
+  position: 'relative',
+};
+
 export const badgeVariantStyles: {
   [key in BadgeVariants]: {
     backgroundColor: BoxStyleProps['backgroundColor'];
@@ -34,6 +52,11 @@ export const badgeVariantStyles: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
     boxShadow: 'shadowBorderNeutralWeaker',
+  },
+  subaccount: {
+    backgroundColor: 'colorBackgroundSubaccount',
+    color: 'colorTextSubaccount',
+    boxShadow: 'shadowBorderSubaccount',
   },
   decorative10: {
     backgroundColor: 'colorBackgroundDecorative10Weakest',
@@ -101,6 +124,9 @@ export const badgeButtonStyles: {
   },
   neutral: {
     boxShadow: 'shadowBorderBottomNeutralWeaker',
+  },
+  subaccount: {
+    boxShadow: 'shadowBorderBottomSubaccount',
   },
   decorative10: {
     boxShadow: 'shadowBorderBottomDecorative10Weaker',

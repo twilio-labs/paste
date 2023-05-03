@@ -12,6 +12,11 @@ props:
     value: "{!palette-gray-90}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
 
+  # account backgrounds
+  color-background-subaccount:
+    value: "{!palette-gray-100}"
+    comment: Background color used for subaccounts.
+
   # user background
   color-background-user:
     value: "{!palette-purple-90}"

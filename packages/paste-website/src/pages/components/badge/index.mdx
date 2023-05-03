@@ -19,6 +19,7 @@ import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {UsersIcon} from '@twilio-paste/icons/esm/UsersIcon';
 import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ProductElasticSIPTrunkingIcon} from '@twilio-paste/icons/esm/ProductElasticSIPTrunkingIcon';
 import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
@@ -101,6 +102,9 @@ export const getStaticProps = async () => {
   </Badge>
   <Badge as="span" variant="new">
     New
+  </Badge>
+  <Badge as="span" variant="subaccount">
+    Subaccount
   </Badge>
   <Badge as="span" variant="decorative10">
     Decorative 10
@@ -243,6 +247,24 @@ When using the New Badge, it is recommended that you include a New icon.
 `.trim()}
 </LivePreview>
 
+#### Subaccount Badge
+
+The Subaccount Badge is reserved for specific use cases only. Consult with the Console team before implementing this variant.
+When using the Subaccount Badge, it is recommended that you include a Users icon.
+
+<LivePreview scope={{Box, Badge, UsersIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="subaccount">
+    Subaccount
+  </Badge>
+  <Badge as="span" variant="subaccount">
+    <UsersIcon decorative />
+    Subaccount
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
 ### Decorative
 
 Use Decorative Badges to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
@@ -333,6 +355,34 @@ of the Popover docs to add a Popover to a Badge.
   noInline
 >
   {badgeModalExample}
+</LivePreview>
+
+### Small Badges
+
+Use small Badges sparingly, only when needed for vertical density. Guidelines for using variants in small Badge are the same as in their default size.
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
+  <Badge as="span" size="small" variant="neutral">
+    Neutral
+  </Badge>
+  <Badge as="span" size="small" variant="warning">
+    Warning
+  </Badge>
+  <Badge as="span" size="small" variant="error">
+    Error
+  </Badge>
+  <Badge as="span" size="small" variant="success">
+    Success
+  </Badge>
+  <Badge as="span" size="small" variant="new">
+    New
+  </Badge>
+  <Badge as="span" size="small" variant="subaccount">
+    Subaccount
+  </Badge>
+</Box>
+`.trim()}
 </LivePreview>
 
 ---
@@ -600,14 +650,15 @@ const BadgeExample = () => (
 
 #### Props
 
-| Prop     | Type                                   | Description                                                                                                                                         | Default     |
-| -------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                     | `null`      |
-| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
-| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                 | `null`      |
-| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                         | `undefined` |
-| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                  | `undefined` |
-| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                           | 'BADGE'     |
+| Prop     | Type                                   | Description                                                                                                                                                       | Default     |
+| -------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                                   | `null`      |
+| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
+| size     | `BadgeSizes`                           | `default`, `small`                                                                                                                                                | `default`   |
+| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                               | `null`      |
+| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
+| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
+| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |
 
 <ChangelogRevealer>
   <Changelog />

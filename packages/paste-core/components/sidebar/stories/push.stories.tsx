@@ -11,6 +11,7 @@ import {
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
+  SidebarBetaBadge,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -27,6 +28,7 @@ export const Default: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
           <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -63,6 +65,7 @@ export const Compact: StoryFn = () => {
       <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
           <SidebarHeader>Twilio Console is the best console</SidebarHeader>
+          <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}

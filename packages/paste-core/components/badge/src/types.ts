@@ -6,6 +6,7 @@ export type BadgeVariants =
   | 'error'
   | 'success'
   | 'new'
+  | 'subaccount'
   | 'decorative10'
   | 'decorative20'
   | 'decorative30'
@@ -16,9 +17,12 @@ export type BadgeVariants =
   | 'default'
   | 'info';
 
+export type BadgeSizes = 'default' | 'small';
+
 export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
   variant: BadgeVariants;
+  size?: BadgeSizes;
 };
 export type BadgeSpanProps = React.HTMLAttributes<HTMLSpanElement> & {
   as: 'span';
