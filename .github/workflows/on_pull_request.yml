@@ -386,7 +386,7 @@ jobs:
     needs: chromatic
     strategy:
       matrix:
-        shard: [1/2, 2/2]
+        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -440,7 +440,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Storybook test runner
-        run: yarn test-storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --ci --maxWorkers=2 --shard=${{ matrix.shard }}
+        run: yarn test-storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --ci --shard=${{ matrix.shard }}
 
   pr-categorizer:
     name: Categorize the PR using labels
