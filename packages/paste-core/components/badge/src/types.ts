@@ -46,6 +46,7 @@ export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
 
 export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);
 
-export type StatusBadgeProps = Omit<BadgeProps, 'variant'> & {
-  variant: StatusBadgeVariants;
-};
+export type StatusBadgeProps = Omit<BadgeBaseProps, 'variant'> &
+  (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps) & {
+    variant: StatusBadgeVariants;
+  };

@@ -15,23 +15,35 @@ export type MenuBadgeProps = MenuPrimitiveButtonProps &
     buttonLabel: string;
   };
 
+export type MenuBadgeContentProps = Omit<MenuBadgeProps, 'variant'>;
+export const MenuBadgeContent = React.forwardRef<HTMLButtonElement, MenuBadgeContentProps>(
+  ({children, element, buttonLabel, ...props}, ref) => {
+    return (
+      <Box as="span" display="flex" flexDirection="row" columnGap="space20" alignItems="center">
+        {children}
+        <MenuPrimitiveButton
+          {...props}
+          variant="secondary_icon"
+          size="reset"
+          element={`${element}_BUTTON`}
+          as={Button}
+          ref={ref}
+        >
+          <ChevronDownIcon decorative={false} size="sizeIcon10" title={buttonLabel} />
+        </MenuPrimitiveButton>
+      </Box>
+    );
+  }
+);
+MenuBadgeContent.displayName = 'MenuBadgeContent';
+
 const MenuBadge = React.forwardRef<HTMLButtonElement, MenuBadgeProps>(
   ({children, element = 'MENU_BADGE', variant = 'default', buttonLabel, ...props}, ref) => {
     return (
-      <Badge element={element} as="span" variant={variant} ref={ref}>
-        <Box as="span" display="flex" flexDirection="row" columnGap="space20" alignItems="center">
+      <Badge element={element} as="span" variant={variant}>
+        <MenuBadgeContent {...props} element={element} buttonLabel={buttonLabel} ref={ref}>
           {children}
-          <MenuPrimitiveButton
-            {...props}
-            variant="secondary_icon"
-            size="reset"
-            element={`${element}_BUTTON`}
-            as={Button}
-            ref={ref}
-          >
-            <ChevronDownIcon decorative={false} size="sizeIcon10" title={buttonLabel} />
-          </MenuPrimitiveButton>
-        </Box>
+        </MenuBadgeContent>
       </Badge>
     );
   }

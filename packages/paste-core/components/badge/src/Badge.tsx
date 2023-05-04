@@ -1,10 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
-import type {BadgeProps, BadgeVariants, BadgeSizes} from './types';
+import type {BadgeProps} from './types';
 import {BadgePropTypes} from './propTypes';
 import {useResizeChildIcons} from './hooks';
 import {badgeBaseStyles, badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';

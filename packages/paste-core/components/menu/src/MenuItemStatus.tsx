@@ -2,9 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import type {ValueOf} from '@twilio-paste/types';
 import {Box} from '@twilio-paste/box';
+import {StatusIcons} from '@twilio-paste/badge';
+import type {StatusNames} from '@twilio-paste/badge';
 
-import {StatusIcons} from './constants';
-import type {StatusNames} from './constants';
 import {MenuItem} from './MenuItem';
 import type {MenuItemProps} from './types';
 
