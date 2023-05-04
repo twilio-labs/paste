@@ -5,11 +5,15 @@ import {Button} from '@twilio-paste/button';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {Paragraph} from '@twilio-paste/paragraph';
+// ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
+import {useUID} from '@twilio-paste/uid-library';
 import {
   Sidebar,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
   SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
 } from '@twilio-paste/sidebar';
@@ -30,12 +34,18 @@ const TonsOfContent: React.FC = () => {
 };
 
 export const PushDefaultTopbar: StoryFn = () => {
+  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -64,12 +74,18 @@ PushDefaultTopbar.parameters = {
 };
 
 export const PushCompactTopbar: StoryFn = () => {
+  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -98,12 +114,18 @@ PushCompactTopbar.parameters = {
 };
 
 export const OverlayDefaultTopbar: StoryFn = () => {
+  const id = useUID();
   const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={overlaySidebarCollapsed} variant="default">
+      <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
@@ -136,12 +158,18 @@ OverlayDefaultTopbar.parameters = {
 };
 
 export const OverlayCompactTopbar: StoryFn = () => {
+  const id = useUID();
   const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label="main" collapsed={overlaySidebarCollapsed} variant="compact">
+      <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}

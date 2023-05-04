@@ -4,10 +4,14 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+// ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
+import {useUID} from '@twilio-paste/uid-library';
 
 import {
   Sidebar,
   SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
@@ -20,14 +24,20 @@ export default {
 };
 
 export const Default: StoryFn = () => {
+  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader productIcon={<ProductFlexIcon size="sizeIcon20" decorative />}>Twilio Flex</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
@@ -49,22 +59,24 @@ export const Default: StoryFn = () => {
   );
 };
 Default.parameters = {
-  a11y: {
-    // false positives in CI due to hiding button behind sidebar when open
-    disable: true,
-  },
   padding: false,
 };
 
 export const Compact: StoryFn = () => {
+  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>Twilio Console is the best console</SidebarHeader>
+          <SidebarHeader>
+            <SidebarHeaderIconButton>
+              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          </SidebarHeader>
           <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
@@ -86,9 +98,5 @@ export const Compact: StoryFn = () => {
   );
 };
 Compact.parameters = {
-  a11y: {
-    // false positives in CI due to hiding button behind sidebar when open
-    disable: true,
-  },
   padding: false,
 };

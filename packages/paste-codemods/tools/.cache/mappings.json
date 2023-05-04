@@ -192,6 +192,8 @@
   "SidebarCollapseButtonWrapper": "@twilio-paste/core/sidebar",
   "SidebarContext": "@twilio-paste/core/sidebar",
   "SidebarHeader": "@twilio-paste/core/sidebar",
+  "SidebarHeaderIconButton": "@twilio-paste/core/sidebar",
+  "SidebarHeaderLabel": "@twilio-paste/core/sidebar",
   "SidebarOverlayContentWrapper": "@twilio-paste/core/sidebar",
   "SidebarPushContentWrapper": "@twilio-paste/core/sidebar",
   "SkeletonLoader": "@twilio-paste/core/skeleton-loader",
