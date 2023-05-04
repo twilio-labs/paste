@@ -11971,6 +11971,7 @@ __metadata:
   dependencies:
     "@twilio-paste/anchor": ^11.0.0
     "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
     "@twilio-paste/box": ^9.0.0
     "@twilio-paste/button": ^13.0.0
     "@twilio-paste/color-contrast-utils": ^4.0.0
@@ -11997,6 +11998,7 @@ __metadata:
   peerDependencies:
     "@twilio-paste/anchor": ^11.0.0
     "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
     "@twilio-paste/box": ^9.0.0
     "@twilio-paste/button": ^13.0.0
     "@twilio-paste/color-contrast-utils": ^4.0.0
