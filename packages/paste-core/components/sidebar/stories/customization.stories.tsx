@@ -40,14 +40,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           backgroundColor: 'colorBackgroundBrand',
         },
         SIDEBAR_HEADER: {
-          backgroundColor: 'colorBackgroundBrandHighlight',
+          padding: 'space40',
         },
         SIDEBAR_HEADER_ICON_BUTTON: {
-          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
-          color: 'colorText',
+          padding: 'space40',
         },
         SIDEBAR_HEADER_LABEL: {
-          color: 'colorText',
+          fontWeight: 'fontWeightNormal',
         },
         SIDEBAR_COLLAPSE_BUTTON: {
           padding: 'space40',
@@ -60,8 +59,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           padding: 'space40',
         },
         SIDEBAR_BETA_BADGE: {
-          backgroundColor: 'colorBackgroundAvailable',
-          color: 'colorText',
+          padding: 'space40',
         },
       }}
     >
@@ -114,14 +112,13 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           backgroundColor: 'colorBackgroundBrand',
         },
         SIDECAR_HEADER: {
-          backgroundColor: 'colorBackgroundBrandHighlight',
+          padding: 'space40',
         },
         SIDECAR_HEADER_ICON_BUTTON: {
-          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
-          color: 'colorText',
+          padding: 'space40',
         },
         SIDECAR_HEADER_LABEL: {
-          color: 'colorText',
+          padding: 'space40',
         },
         SIDECAR_COLLAPSE_BUTTON: {
           padding: 'space40',
@@ -134,8 +131,7 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           padding: 'space40',
         },
         SIDECAR_BETA_BADGE: {
-          backgroundColor: 'colorBackgroundAvailable',
-          color: 'colorText',
+          padding: 'space40',
         },
       }}
     >
