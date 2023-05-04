@@ -152,7 +152,7 @@ export const decorators = [
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="stacked">
             <GlobalStyles />
             <Stack orientation="vertical" spacing="space0">
-              <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="default" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -161,7 +161,7 @@ export const decorators = [
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="default" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="default" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -176,7 +176,7 @@ export const decorators = [
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="dark" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -185,7 +185,7 @@ export const decorators = [
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="dark" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -200,7 +200,7 @@ export const decorators = [
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="twilio" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -209,7 +209,7 @@ export const decorators = [
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="twilio" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="twilio" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -224,7 +224,7 @@ export const decorators = [
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="twilio-dark" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
@@ -233,7 +233,7 @@ export const decorators = [
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="twilio-dark" disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Theme.Provider theme="twilio-dark" disableAnimations customBreakpoints={breakpoints}>
                 <Box
                   backgroundColor="colorBackgroundBody"
                   color="colorText"
