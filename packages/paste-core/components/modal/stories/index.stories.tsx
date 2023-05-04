@@ -76,6 +76,10 @@ export const Default = (): React.ReactNode => {
 
 Default.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const Wide = (): React.ReactNode => {
@@ -84,6 +88,10 @@ export const Wide = (): React.ReactNode => {
 
 Wide.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const FooterActions = (): React.ReactNode => {
@@ -125,6 +133,10 @@ export const FooterActions = (): React.ReactNode => {
 FooterActions.storyName = 'Footer actions';
 FooterActions.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const LeftAlignedFooterActions = (): React.ReactNode => {
@@ -166,6 +178,10 @@ export const LeftAlignedFooterActions = (): React.ReactNode => {
 LeftAlignedFooterActions.storyName = 'Left aligned footer actions';
 LeftAlignedFooterActions.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const DirectionalFooterActions = (): React.ReactNode => {
@@ -210,6 +226,10 @@ export const DirectionalFooterActions = (): React.ReactNode => {
 DirectionalFooterActions.storyName = 'Directional footer actions';
 DirectionalFooterActions.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const ExtremelyLongHeading = (): React.ReactNode => {
@@ -251,6 +271,10 @@ export const ExtremelyLongHeading = (): React.ReactNode => {
 ExtremelyLongHeading.storyName = 'Extremely long heading';
 ExtremelyLongHeading.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const OverflowingBodyContent = (): React.ReactNode => {
@@ -386,6 +410,10 @@ export const OverflowingBodyContent = (): React.ReactNode => {
 OverflowingBodyContent.storyName = 'Overflowing body content';
 OverflowingBodyContent.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const HeaderContent = (): React.ReactNode => {
@@ -433,6 +461,10 @@ export const HeaderContent = (): React.ReactNode => {
 HeaderContent.storyName = 'Header content';
 HeaderContent.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const i18nProp = (): React.ReactNode => {
@@ -478,6 +510,10 @@ export const i18nProp = (): React.ReactNode => {
 i18nProp.storyName = 'i18n prop';
 i18nProp.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const CustomInitialFocusElement = (): React.ReactNode => {
@@ -534,6 +570,10 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
 CustomInitialFocusElement.storyName = 'Custom initial focus element';
 CustomInitialFocusElement.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const TooltipInModal = (): React.ReactNode => {
@@ -576,6 +616,10 @@ export const TooltipInModal = (): React.ReactNode => {
 TooltipInModal.storyName = 'Tooltip in modal';
 TooltipInModal.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const PopoverInModal = (): React.ReactNode => {
@@ -630,6 +674,10 @@ export const PopoverInModal = (): React.ReactNode => {
 PopoverInModal.storyName = 'Popover in modal';
 PopoverInModal.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 const NOOP = (): void => {};

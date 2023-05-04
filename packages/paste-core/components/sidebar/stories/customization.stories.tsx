@@ -6,10 +6,14 @@ import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+// ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
+import {useUID} from '@twilio-paste/uid-library';
 
 import {
   Sidebar,
   SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
@@ -23,6 +27,7 @@ export default {
 };
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
 
@@ -35,16 +40,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           backgroundColor: 'colorBackgroundBrand',
         },
         SIDEBAR_HEADER: {
-          backgroundColor: 'colorBackgroundBrandHighlight',
+          padding: 'space40',
         },
-        SIDEBAR_HEADER_BUTTON: {
-          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
+        SIDEBAR_HEADER_ICON_BUTTON: {
+          padding: 'space40',
         },
-        SIDEBAR_HEADER_ICON: {
-          color: 'colorText',
-        },
-        SIDEBAR_HEADER_TEXT: {
-          color: 'colorText',
+        SIDEBAR_HEADER_LABEL: {
+          fontWeight: 'fontWeightNormal',
         },
         SIDEBAR_COLLAPSE_BUTTON: {
           padding: 'space40',
@@ -57,16 +59,20 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           padding: 'space40',
         },
         SIDEBAR_BETA_BADGE: {
-          backgroundColor: 'colorBackgroundAvailable',
-          color: 'colorText',
+          padding: 'space40',
         },
       }}
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="default">
+        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
           <Stack orientation="vertical" spacing="space100">
-            <SidebarHeader>Twilio Console</SidebarHeader>
+            <SidebarHeader>
+              <SidebarHeaderIconButton>
+                <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+              </SidebarHeaderIconButton>
+              <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+            </SidebarHeader>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
             <SidebarCollapseButtonWrapper>
               <SidebarCollapseButton
@@ -89,14 +95,11 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
   );
 };
 WithDefaultElementName.parameters = {
-  a11y: {
-    // false positives in CI due to hiding button behind sidebar when open
-    disable: true,
-  },
   padding: false,
 };
 
 export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
 
@@ -109,16 +112,13 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           backgroundColor: 'colorBackgroundBrand',
         },
         SIDECAR_HEADER: {
-          backgroundColor: 'colorBackgroundBrandHighlight',
+          padding: 'space40',
         },
-        SIDECAR_HEADER_BUTTON: {
-          backgroundColor: 'colorBackgroundBrandHighlightWeakest',
+        SIDECAR_HEADER_ICON_BUTTON: {
+          padding: 'space40',
         },
-        SIDECAR_HEADER_ICON: {
-          color: 'colorText',
-        },
-        SIDECAR_HEADER_TEXT: {
-          color: 'colorText',
+        SIDECAR_HEADER_LABEL: {
+          padding: 'space40',
         },
         SIDECAR_COLLAPSE_BUTTON: {
           padding: 'space40',
@@ -131,20 +131,19 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           padding: 'space40',
         },
         SIDECAR_BETA_BADGE: {
-          backgroundColor: 'colorBackgroundAvailable',
-          color: 'colorText',
+          padding: 'space40',
         },
       }}
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label="main" collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
+        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <Stack orientation="vertical" spacing="space100">
-            <SidebarHeader
-              element="SIDECAR_HEADER"
-              productIcon={<ProductFlexIcon size="sizeIcon20" decorative element="SIDECAR_HEADER_ICON" />}
-            >
-              Twilio Flex
+            <SidebarHeader element="SIDECAR_HEADER">
+              <SidebarHeaderIconButton element="SIDECAR_HEADER_ICON_BUTTON">
+                <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+              </SidebarHeaderIconButton>
+              <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
             </SidebarHeader>
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
@@ -175,9 +174,5 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
   );
 };
 WithCustomElementName.parameters = {
-  a11y: {
-    // false positives in CI due to hiding button behind sidebar when open
-    disable: true,
-  },
   padding: false,
 };

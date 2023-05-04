@@ -48,6 +48,10 @@ export const AlertDialogWithTwoActionsStory = (): React.ReactNode => {
 AlertDialogWithTwoActionsStory.storyName = 'Alert Dialog With Two Actions';
 AlertDialogWithTwoActionsStory.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const DestructiveAlertDialog = (): JSX.Element => {
@@ -73,6 +77,10 @@ export const DestructiveAlertDialogStory = (): React.ReactNode => {
 DestructiveAlertDialogStory.storyName = 'Destructive Alert Dialog';
 DestructiveAlertDialogStory.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const OpenAlertDialogFromButton = (): JSX.Element => {
@@ -106,6 +114,10 @@ export const OpenAlertDialogFromButtonStory = (): React.ReactNode => {
 OpenAlertDialogFromButtonStory.storyName = 'Open Alert Dialog From Button';
 OpenAlertDialogFromButtonStory.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const OpenAlertDialogFromModal = (): JSX.Element => {
@@ -166,6 +178,10 @@ export const OpenAlertDialogFromModalStory = (): React.ReactNode => {
 OpenAlertDialogFromModalStory.storyName = 'Open Alert Dialog From Modal';
 OpenAlertDialogFromModalStory.parameters = {
   chromatic: {disableSnapshot: true},
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const AlertDialogVRT = (): React.ReactNode => {

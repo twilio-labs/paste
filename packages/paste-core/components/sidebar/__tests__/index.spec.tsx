@@ -3,10 +3,13 @@ import {render, screen, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 
 import {
   Sidebar,
   SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
@@ -25,7 +28,12 @@ const MockPushSidebar = ({
   return (
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
-        <SidebarHeader>Twilio Console</SidebarHeader>
+        <SidebarHeader>
+          <SidebarHeaderIconButton>
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
         </SidebarCollapseButtonWrapper>
@@ -47,7 +55,12 @@ const MockOverlaySidebar = ({
   return (
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
-        <SidebarHeader>Twilio Console</SidebarHeader>
+        <SidebarHeader>
+          <SidebarHeaderIconButton>
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
         </SidebarCollapseButtonWrapper>
@@ -147,7 +160,7 @@ describe('Sidebar', () => {
   describe('Sidebar Header', () => {
     it('hides the text when collapsed', async () => {
       render(<MockOverlaySidebar collapsed />);
-      const headerText = screen.getByText('Twilio Console');
+      const headerText = screen.getByText('Twilio Flex');
       expect(headerText).toHaveStyleRule('opacity', '0');
     });
   });
