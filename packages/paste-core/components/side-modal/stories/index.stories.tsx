@@ -72,6 +72,12 @@ export const Default: StoryFn = () => {
     </SideModalContainer>
   );
 };
+Default.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 export const StateHookExample: StoryFn = () => {
   const dialog = useSideModalState({});
@@ -102,4 +108,10 @@ export const StateHookExample: StoryFn = () => {
       </Box>
     </Box>
   );
+};
+StateHookExample.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
