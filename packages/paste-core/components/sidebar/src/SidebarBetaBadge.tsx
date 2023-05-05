@@ -31,7 +31,7 @@ export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgePr
     const resizedChildren = useResizeChildIcons(children);
     const styles = as === 'button' ? SidebarBetaBadgeButtonStyles : SidebarBetaBadgeSpanStyles;
     // We don't want the provided onClick to function if as = span
-    const handleOnClick = as === 'button' ? onClick : () => {};
+    const handleOnClick = as === 'button' ? onClick : undefined;
 
     return (
       <Box {...safelySpreadBoxProps(props)} {...styles} as={as} ref={ref} element={element} onClick={handleOnClick}>
