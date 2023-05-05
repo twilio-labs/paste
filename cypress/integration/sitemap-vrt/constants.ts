@@ -65,6 +65,7 @@ export const SITEMAP = [
   '/components/screen-reader-only/',
   '/components/select/',
   '/components/separator/',
+  '/components/sidebar/',
   '/components/stack/',
   '/components/spinner/',
   '/components/skeleton-loader/',
