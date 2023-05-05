@@ -209,3 +209,116 @@ render(
   <ItemsExample />
 )
 `.trim();
+
+export const menuBadgeExample = `
+const MenuBadgeExample = () => {
+  const [account, setAccount] = React.useState('Account name');
+  const menu = useMenuState();
+  const onClick = (newAccount) => {
+    menu.hide();
+    setAccount(newAccount);
+  };
+  return (
+    <>
+      <MenuBadge {...menu} buttonLabel="Change account" variant="decorative10">
+        {account}
+      </MenuBadge>
+      <Menu {...menu} aria-label="Accounts">
+        <MenuItem {...menu} onClick={()=>onClick('Account one')}>
+          Account one
+        </MenuItem>
+        <MenuItem {...menu} onClick={()=>onClick('Account two')}>
+          Account two
+        </MenuItem>
+        <MenuItem {...menu} onClick={()=>onClick('Account three')}>
+          Account three
+        </MenuItem>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <MenuBadgeExample />
+)
+`.trim();
+
+export const processStatusMenuExample = `
+const ProcessStatusMenuExample = () => {
+  const menu = useMenuState();
+  const onClick = () => {
+    menu.hide();
+  };
+  return (
+    <>
+      <MenuBadgeStatus {...menu} buttonLabel="Change progess status" variant="ProcessInProgress">
+        In progress
+      </MenuBadgeStatus>
+      <Menu {...menu} aria-label="Progress Status">
+        <MenuItemStatus {...menu} variant="ProcessSuccess" onClick={onClick}>
+          Success
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessNeutral" onClick={onClick}>
+          Neutral
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessWarning" onClick={onClick}>
+          Warning
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessError">
+          Error
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessInProgress" onClick={onClick}>
+          In progress
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessDisabled" onClick={onClick}>
+          Disabled
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessDraft" onClick={onClick}>
+          Draft
+        </MenuItemStatus>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <ProcessStatusMenuExample />
+)
+`.trim();
+
+export const availabilityStatusMenuExample = `
+const ProcessStatusMenuExample = () => {
+  const menu = useMenuState();
+  const onClick = () => {
+    menu.hide();
+  };
+  return (
+    <>
+      <MenuBadgeStatus {...menu} buttonLabel="Change availability" variant="AvailabilityAvailable">
+        Online | 00:01:23
+      </MenuBadgeStatus>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItemStatus variant="AvailabilityAvailable" {...menu} onClick={onClick}>
+          Available
+        </MenuItemStatus>
+        <MenuItemStatus variant="AvailabilityBusy" {...menu} onClick={onClick}>
+          Busy
+        </MenuItemStatus>
+        <MenuItemStatus variant="AvailabilityUnavailable" {...menu} onClick={onClick}>
+          Unavailable
+        </MenuItemStatus>
+        <MenuItemStatus variant="AvailabilityNeutral" {...menu} onClick={onClick}>
+          Neutral
+        </MenuItemStatus>
+        <MenuItemStatus variant="AvailabilityOffline" {...menu} onClick={onClick}>
+          Break
+        </MenuItemStatus>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <ProcessStatusMenuExample />
+)
+`.trim();

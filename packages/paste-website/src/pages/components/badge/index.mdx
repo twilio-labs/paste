@@ -7,7 +7,7 @@ export const meta = {
 
 import Changelog from '@twilio-paste/badge/CHANGELOG.md';
 
-import {Badge} from '@twilio-paste/badge';
+import {Badge, StatusBadge} from '@twilio-paste/badge';
 import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
@@ -147,7 +147,7 @@ Text length should be kept short.
 
 ## Examples
 
-### Status
+### Variants
 
 Status Badges should be used in cases where the Badge is intended to communicate a specific,
 semantic attribute, such as “warning” or “new”. Status Badges should generally have an Icon that
@@ -261,6 +261,56 @@ When using the Subaccount Badge, it is recommended that you include a Users icon
     <UsersIcon decorative />
     Subaccount
   </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+### Status Badge
+
+Following the [Paste Status Pattern](/patterns/status), Status Badges can be used in cases where a Badge represents either a Process or Availability. These composed Status Badges choose the right color and icon pairing for you, based on the variant you choose. The variants available are mapped to the Status Pattern.
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge as="span" variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessInProgress">
+      In Progress
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge as="span" variant="AvailabilityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge as="span" variant="AvailabilityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge as="span" variant="AvailabilityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge as="span" variant="AvailabilityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="AvailabilityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
 </Box>
 `.trim()}
 </LivePreview>
@@ -650,6 +700,8 @@ const BadgeExample = () => (
 
 #### Props
 
+##### Badge
+
 | Prop     | Type                                   | Description                                                                                                                                                       | Default     |
 | -------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | children | `NonNullable<React.ReactNode>`         |                                                                                                                                                                   | `null`      |
@@ -659,6 +711,14 @@ const BadgeExample = () => (
 | href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
 | onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
 | element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |
+
+##### StatusBadge
+
+All the same props as Badge, with different variants.
+
+| Prop    | Type                  | Description                                                                                                                                                                                                                                        | Default |
+| ------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| variant | `StatusBadgeVariants` | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`  |
 
 <ChangelogRevealer>
   <Changelog />

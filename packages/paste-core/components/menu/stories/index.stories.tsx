@@ -9,7 +9,17 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
+import {
+  Menu,
+  MenuButton,
+  SubMenuButton,
+  MenuGroup,
+  MenuItem,
+  MenuSeparator,
+  useMenuState,
+  MenuItemCheckbox,
+  MenuItemRadio,
+} from '../src';
 
 const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   const menu = useMenuState();
@@ -271,6 +281,8 @@ export const MenuDropdown = (): React.ReactNode => {
     registerItem: () => {},
     unregisterItem: () => {},
     tabIndex: -1,
+    unstable_values: {},
+    unstable_setValue: () => {},
   };
   return (
     <Menu {...menuMockProps} aria-label={`Code ${uniqueMenuLabelID}`} placement="auto">
@@ -377,6 +389,44 @@ export const MenuDropdown = (): React.ReactNode => {
       <SubMenuButton {...menuItemMockProps} toggle={() => {}} placement="auto" baseId="test" show={() => {}}>
         Sub menu button
       </SubMenuButton>
+      <MenuSeparator />
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox">
+        Checkbox Item
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" variant="destructive">
+        Checkbox Item Destructive
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" disabled>
+        Checkbox Item Disabled
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" checked>
+        Checkbox Item Checked
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" variant="destructive" checked>
+        Checkbox Item Destructive Checked
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" checked disabled>
+        Checkbox Item Checked Disabled
+      </MenuItemCheckbox>
+      <MenuSeparator />
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="">
+        Radio Item
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" variant="destructive">
+        Radio Item Destructive
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" disabled>
+        Radio Item Disabled
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" checked>
+        Radio Item Checked
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" variant="destructive" checked>
+        Radio Item Destructive Checked
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" checked disabled>
+        Radio Item Checked Disabled
+      </MenuItemRadio>
     </Menu>
   );
 };

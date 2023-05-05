@@ -5,7 +5,18 @@ export const meta = {
   slug: '/components/menu/',
 };
 
-import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, useMenuState} from '@twilio-paste/menu';
+import {
+  Menu,
+  MenuButton,
+  MenuBadge,
+  SubMenuButton,
+  MenuItemStatus,
+  MenuBadgeStatus,
+  MenuItem,
+  MenuGroup,
+  MenuSeparator,
+  useMenuState,
+} from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -25,6 +36,9 @@ import {
   iconButtonExample,
   actionsExample,
   itemContentExample,
+  menuBadgeExample,
+  processStatusMenuExample,
+  availabilityStatusMenuExample,
 } from '../../../component-examples/MenuExamples.ts';
 import packageJson from '@twilio-paste/menu/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -187,6 +201,61 @@ For example, you can create an icon button menu trigger like so:
   {iconButtonExample}
 </LivePreview>
 
+## Composed variants
+
+Paste provides a few composed variants of the Menu component. These compositions are designed to help you build menus for common scenarios and use cases.
+
+### Menu Badge
+
+Using a Badge to contain a menu trigger can be useful when you want display a dynamic identifier. A example use case might be an account, or availability of an agent.
+
+The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter`
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadge,
+    MenuItem,
+  }}
+  noInline
+  showOverflow
+>
+  {menuBadgeExample}
+</LivePreview>
+
+### Status menus
+
+#### Process
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadgeStatus,
+    MenuItemStatus,
+  }}
+  noInline
+  showOverflow
+>
+  {processStatusMenuExample}
+</LivePreview>
+
+#### Availability
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadgeStatus,
+    MenuItemStatus,
+  }}
+  noInline
+  showOverflow
+>
+  {availabilityStatusMenuExample}
+</LivePreview>
+
 ## Composition notes
 
 ### Performing actions
@@ -244,65 +313,6 @@ Use the `variant` prop in `MenuItem` to use a default or destructive item. We re
 >
   {itemContentExample}
 </LivePreview>
-
-## Anatomy
-
-### MenuButton
-
-See the [button](/components/button) component.
-
-### Menu
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-| border-width     | border-width-10       | No          |
-| border-color     | color-border-weak     | No          |
-| border-radius    | border-radius-20      | No          |
-| box-shadow       | shadow                | No          |
-| max-width        | size-30               | No          |
-| min-width        | size-20               | No          |
-| padding-top      | space-30              | No          |
-| padding-bottom   | space-30              | No          |
-| z-index          | z-index-20            | No          |
-
-### SubMenuButton and MenuItem
-
-#### Default
-
-| Property       | Default token                                                                                 | Modifiable? |
-| -------------- | --------------------------------------------------------------------------------------------- | ----------- |
-| color          | color-text (default), color-text-link-destructive (destructive), color-text-weaker (disabled) | No          |
-| padding-top    | space-30                                                                                      | No          |
-| padding-bottom | space-30                                                                                      | No          |
-| padding-left   | space-90 (in-group) or space-70 (regular)                                                     | No          |
-| padding-right  | space-90 (in-group) or space-70 (regular)                                                     | No          |
-
-#### Hover & focused
-
-| Property | Default token                                                                 | Modifiable? |
-| -------- | ----------------------------------------------------------------------------- | ----------- |
-| color    | color-text-link (default), color-text-link-destructive-stronger (destructive) | No          |
-
-### MenuGroup
-
-| Property       | Default token    | Modifiable? |
-| -------------- | ---------------- | ----------- |
-| padding-top    | space-30         | No          |
-| padding-bottom | space-30         | No          |
-| padding-left   | space-70         | No          |
-| padding-right  | space-70         | No          |
-| color          | color-text       | No          |
-| font-weight    | font-weight-bold | No          |
-
-### MenuSeparator
-
-See the [separator](/components/separator) component.
-
-| Property       | Default token | Modifiable? |
-| -------------- | ------------- | ----------- |
-| padding-top    | space-40      | No          |
-| padding-bottom | space-40      | No          |
 
 ---
 

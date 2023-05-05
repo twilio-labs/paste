@@ -90,14 +90,14 @@ export const badgeVariantStyles: {
     borderRadius: 'borderRadiusPill',
     boxShadow: 'shadowBorderErrorWeaker',
   },
+  default: {
+    backgroundColor: 'colorBackgroundBody',
+    color: 'colorTextWeak',
+    boxShadow: 'shadowBorderWeaker',
+  },
   /*
    * the following variants are outdated but still supported to prevent breaking changes
    */
-  default: {
-    backgroundColor: 'colorBackground',
-    color: 'colorTextWeak',
-    boxShadow: 'shadowBorderDecorative10Weaker',
-  },
   info: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',

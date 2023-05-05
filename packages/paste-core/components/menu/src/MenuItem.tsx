@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
+import {MenuPrimitiveItem, MenuPrimitiveItemCheckbox, MenuPrimitiveItemRadio} from '@twilio-paste/menu-primitive';
+import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
 
-import type {MenuItemProps, MenuItemVariantStyles} from './types';
+import type {MenuItemProps, MenuItemCheckboxProps, MenuItemRadioProps, MenuItemVariantStyles} from './types';
 import {MenuGroupContext} from './MenuGroup';
 import {MenuItemVariants} from './constants';
 
@@ -85,7 +86,14 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         }}
         ref={ref}
       >
-        {children}
+        {props['aria-checked'] === true ? (
+          <Box as="span" display="flex" justifyContent="space-between" alignItems="center">
+            {children}
+            <SelectedIcon decorative color={props.disabled ? 'colorTextWeaker' : 'colorTextPrimary'} />
+          </Box>
+        ) : (
+          children
+        )}
       </Box>
     );
   }
@@ -105,3 +113,29 @@ const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
 );
 MenuItem.displayName = 'MenuItem';
 export {MenuItem};
+
+const MenuItemCheckbox = React.forwardRef<HTMLDivElement, MenuItemCheckboxProps>(
+  ({as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM_CHECKBOX', ...props}, ref) => {
+    let variant = _variant;
+    const isGrouped = React.useContext(MenuGroupContext) === MenuItemVariants.GROUP_ITEM;
+    if (isGrouped && _variant === MenuItemVariants.DESTRUCTIVE) variant = MenuItemVariants.DESTRUCTIVE_GROUP_ITEM;
+    else if (isGrouped) variant = MenuItemVariants.GROUP_ITEM;
+
+    return <MenuPrimitiveItemCheckbox {...props} element={element} variant={variant} as={as} ref={ref} />;
+  }
+);
+MenuItemCheckbox.displayName = 'MenuItemCheckbox';
+export {MenuItemCheckbox};
+
+const MenuItemRadio = React.forwardRef<HTMLDivElement, MenuItemRadioProps>(
+  ({as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM_RADIO', ...props}, ref) => {
+    let variant = _variant;
+    const isGrouped = React.useContext(MenuGroupContext) === MenuItemVariants.GROUP_ITEM;
+    if (isGrouped && _variant === MenuItemVariants.DESTRUCTIVE) variant = MenuItemVariants.DESTRUCTIVE_GROUP_ITEM;
+    else if (isGrouped) variant = MenuItemVariants.GROUP_ITEM;
+
+    return <MenuPrimitiveItemRadio {...props} element={element} variant={variant} as={as} ref={ref} />;
+  }
+);
+MenuItemRadio.displayName = 'MenuItemRadio';
+export {MenuItemRadio};
