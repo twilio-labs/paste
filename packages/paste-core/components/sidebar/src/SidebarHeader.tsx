@@ -4,8 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
 export interface SidebarHeaderProps extends React.HTMLAttributes<HTMLButtonElement> {
-  productIcon?: React.ReactNode;
-  onClick?: () => void;
+  children: React.ReactNode;
   element?: BoxProps['element'];
 }
 
@@ -33,9 +32,8 @@ export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderPr
 );
 
 SidebarHeader.propTypes = {
-  productIcon: PropTypes.node,
+  children: PropTypes.node,
   element: PropTypes.string,
-  onClick: PropTypes.func,
 };
 
 SidebarHeader.displayName = 'SidebarHeader';
