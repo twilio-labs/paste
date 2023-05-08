@@ -44,7 +44,7 @@ const ProcessStatusMenu: React.FC<React.PropsWithChildren<{variant: MenuBadgeSta
     </>
   );
 };
-const AvailabilityStatusMenu: React.FC<React.PropsWithChildren<{variant: MenuBadgeStatusProps['variant']}>> = ({
+const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{variant: MenuBadgeStatusProps['variant']}>> = ({
   variant,
   children,
 }) => {
@@ -58,20 +58,144 @@ const AvailabilityStatusMenu: React.FC<React.PropsWithChildren<{variant: MenuBad
         {children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItemStatus variant="AvailabilityAvailable" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityAvailable" {...menu} onClick={onClick}>
           Available
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityBusy" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityBusy" {...menu} onClick={onClick}>
           Busy
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityUnavailable" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityUnavailable" {...menu} onClick={onClick}>
           Unavailable
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityNeutral" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityNeutral" {...menu} onClick={onClick}>
           Neutral
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityOffline" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityOffline" {...menu} onClick={onClick}>
           Break
+        </MenuItemStatus>
+      </Menu>
+    </>
+  );
+};
+
+const ConnectivityObject = {
+  Available: {
+    variant: 'ConnectivityAvailable',
+    children: 'Available',
+  },
+  Busy: {
+    variant: 'ConnectivityBusy',
+    children: 'Busy',
+  },
+  Unavailable: {
+    variant: 'ConnectivityUnavailable',
+    children: 'Unavailable',
+  },
+  Neutral: {
+    variant: 'ConnectivityNeutral',
+    children: 'Neutral',
+  },
+  Offline: {
+    variant: 'ConnectivityOffline',
+    children: 'Offline',
+  },
+} as const;
+const WorkingConnectivityStatusMenu: React.FC = () => {
+  const [availability, setConnectivity] = React.useState(ConnectivityObject.Available);
+  const menu = useMenuState();
+  const onClick = (status): void => {
+    setConnectivity(ConnectivityObject[status]);
+    menu.hide();
+  };
+  return (
+    <>
+      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={availability.variant}>
+        {availability.children}
+      </MenuBadgeStatus>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItemStatus variant="ConnectivityAvailable" {...menu} onClick={() => onClick('Available')}>
+          Available
+        </MenuItemStatus>
+        <MenuItemStatus variant="ConnectivityBusy" {...menu} onClick={() => onClick('Busy')}>
+          Busy
+        </MenuItemStatus>
+        <MenuItemStatus variant="ConnectivityUnavailable" {...menu} onClick={() => onClick('Unavailable')}>
+          Unavailable
+        </MenuItemStatus>
+        <MenuItemStatus variant="ConnectivityNeutral" {...menu} onClick={() => onClick('Neutral')}>
+          Neutral
+        </MenuItemStatus>
+        <MenuItemStatus variant="ConnectivityOffline" {...menu} onClick={() => onClick('Offline')}>
+          Break
+        </MenuItemStatus>
+      </Menu>
+    </>
+  );
+};
+
+const ProcessObject = {
+  Success: {
+    variant: 'ProcessSuccess',
+    children: 'Success',
+  },
+  Neutral: {
+    variant: 'ProcessNeutral',
+    children: 'Neutral',
+  },
+  Warning: {
+    variant: 'ProcessWarning',
+    children: 'Warning',
+  },
+  Error: {
+    variant: 'ProcessError',
+    children: 'Error',
+  },
+  InProgress: {
+    variant: 'ProcessInProgress',
+    children: 'In progress',
+  },
+  Disabled: {
+    variant: 'ProcessDisabled',
+    children: 'Disabled',
+  },
+  Draft: {
+    variant: 'ProcessDraft',
+    children: 'Draft',
+  },
+} as const;
+const WorkingProcessStatusMenu: React.FC = () => {
+  const [process, setProcess] = React.useState(ProcessObject.Success);
+  const menu = useMenuState();
+  const onClick = (status): void => {
+    setProcess(ProcessObject[status]);
+    menu.hide();
+  };
+  return (
+    <>
+      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={process.variant}>
+        {process.children}
+      </MenuBadgeStatus>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItemStatus {...menu} variant="ProcessSuccess" onClick={() => onClick('Success')}>
+          Success
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessNeutral" onClick={() => onClick('Neutral')}>
+          Neutral
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessWarning" onClick={() => onClick('Warning')}>
+          Warning
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessError" onClick={() => onClick('Error')}>
+          Error
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessInProgress" onClick={() => onClick('InProgress')}>
+          In progress
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessDisabled" onClick={() => onClick('Disabled')}>
+          Disabled
+        </MenuItemStatus>
+        <MenuItemStatus {...menu} variant="ProcessDraft" onClick={() => onClick('Draft')}>
+          Draft
         </MenuItemStatus>
       </Menu>
     </>
@@ -99,12 +223,15 @@ export const Process: StoryFn = () => (
   </Stack>
 );
 
-export const Availability: StoryFn = () => (
+export const Connectivity: StoryFn = () => (
   <Stack orientation="vertical" spacing="space40">
-    <AvailabilityStatusMenu variant="AvailabilityAvailable">Available</AvailabilityStatusMenu>
-    <AvailabilityStatusMenu variant="AvailabilityBusy">Busy</AvailabilityStatusMenu>
-    <AvailabilityStatusMenu variant="AvailabilityUnavailable">Unavailable</AvailabilityStatusMenu>
-    <AvailabilityStatusMenu variant="AvailabilityNeutral">Neutral</AvailabilityStatusMenu>
-    <AvailabilityStatusMenu variant="AvailabilityOffline">Offline</AvailabilityStatusMenu>
+    <ConnectivityStatusMenu variant="ConnectivityAvailable">Available</ConnectivityStatusMenu>
+    <ConnectivityStatusMenu variant="ConnectivityBusy">Busy</ConnectivityStatusMenu>
+    <ConnectivityStatusMenu variant="ConnectivityUnavailable">Unavailable</ConnectivityStatusMenu>
+    <ConnectivityStatusMenu variant="ConnectivityNeutral">Neutral</ConnectivityStatusMenu>
+    <ConnectivityStatusMenu variant="ConnectivityOffline">Offline</ConnectivityStatusMenu>
   </Stack>
 );
+
+export const WorkingConnectivity: StoryFn = () => <WorkingConnectivityStatusMenu />;
+export const WorkingProcess: StoryFn = () => <WorkingProcessStatusMenu />;

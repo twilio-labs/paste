@@ -62,10 +62,10 @@ const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivEl
             Search with Bing
           </MenuItem>
         </MenuGroup>
-        <MenuItemCheckbox {...menu} name="display-view" value="wrap">
+        <MenuItemCheckbox {...menu} name="formatting" value="wrap">
           Check Wrap
         </MenuItemCheckbox>
-        <MenuItemCheckbox {...menu} name="display-view" value="no-wrap">
+        <MenuItemCheckbox {...menu} name="formatting" value="no-wrap">
           Check No Wrap
         </MenuItemCheckbox>
         <MenuItemRadio {...menu} name="display-view" value="wrap">

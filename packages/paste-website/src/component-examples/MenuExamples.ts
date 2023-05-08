@@ -243,37 +243,69 @@ render(
 )
 `.trim();
 
+export const ProcessObject = {
+  Success: {
+    variant: 'ProcessSuccess',
+    children: 'Complete',
+  },
+  Neutral: {
+    variant: 'ProcessNeutral',
+    children: 'In review',
+  },
+  Warning: {
+    variant: 'ProcessWarning',
+    children: 'Needs attention',
+  },
+  Error: {
+    variant: 'ProcessError',
+    children: 'Rejected',
+  },
+  InProgress: {
+    variant: 'ProcessInProgress',
+    children: 'In progress',
+  },
+  Disabled: {
+    variant: 'ProcessDisabled',
+    children: 'Paused',
+  },
+  Draft: {
+    variant: 'ProcessDraft',
+    children: 'Draft',
+  },
+};
 export const processStatusMenuExample = `
-const ProcessStatusMenuExample = () => {
+const ProcessStatusMenu = () => {
+  const [process, setProcess] = React.useState(ProcessObject.Success);
   const menu = useMenuState();
-  const onClick = () => {
+  const onClick = (status) => {
+    setProcess(ProcessObject[status]);
     menu.hide();
   };
   return (
     <>
-      <MenuBadgeStatus {...menu} buttonLabel="Change progess status" variant="ProcessInProgress">
-        In progress
+      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={process.variant}>
+        {process.children}
       </MenuBadgeStatus>
-      <Menu {...menu} aria-label="Progress Status">
-        <MenuItemStatus {...menu} variant="ProcessSuccess" onClick={onClick}>
-          Success
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItemStatus {...menu} variant="ProcessSuccess" onClick={() => onClick('Success')}>
+          Complete
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessNeutral" onClick={onClick}>
-          Neutral
+        <MenuItemStatus {...menu} variant="ProcessNeutral" onClick={() => onClick('Neutral')}>
+          In review
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessWarning" onClick={onClick}>
-          Warning
+        <MenuItemStatus {...menu} variant="ProcessWarning" onClick={() => onClick('Warning')}>
+          Needs attention
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessError">
-          Error
+        <MenuItemStatus {...menu} variant="ProcessError" onClick={() => onClick('Error')}>
+          Rejected
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessInProgress" onClick={onClick}>
+        <MenuItemStatus {...menu} variant="ProcessInProgress" onClick={() => onClick('InProgress')}>
           In progress
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessDisabled" onClick={onClick}>
-          Disabled
+        <MenuItemStatus {...menu} variant="ProcessDisabled" onClick={() => onClick('Disabled')}>
+          Paused
         </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessDraft" onClick={onClick}>
+        <MenuItemStatus {...menu} variant="ProcessDraft" onClick={() => onClick('Draft')}>
           Draft
         </MenuItemStatus>
       </Menu>
@@ -282,36 +314,60 @@ const ProcessStatusMenuExample = () => {
 };
 
 render(
-  <ProcessStatusMenuExample />
+  <ProcessStatusMenu />
 )
 `.trim();
 
+export const ConnectivityObject = {
+  Available: {
+    variant: 'ConnectivityAvailable',
+    children: 'Online',
+  },
+  Busy: {
+    variant: 'ConnectivityBusy',
+    children: 'Busy',
+  },
+  Unavailable: {
+    variant: 'ConnectivityUnavailable',
+    children: 'Unavailable',
+  },
+  Neutral: {
+    variant: 'ConnectivityNeutral',
+    children: 'Neutral',
+  },
+  Offline: {
+    variant: 'ConnectivityOffline',
+    children: 'Offline',
+  },
+};
 export const availabilityStatusMenuExample = `
-const ProcessStatusMenuExample = () => {
+const ConnectivityStatusMenu = () => {
+  const [availability, setConnectivity] = React.useState(ConnectivityObject.Available);
   const menu = useMenuState();
-  const onClick = () => {
+  const onClick = (status) => {
+    setConnectivity(ConnectivityObject[status]);
     menu.hide();
   };
   return (
     <>
-      <MenuBadgeStatus {...menu} buttonLabel="Change availability" variant="AvailabilityAvailable">
-        Online | 00:01:23
+      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={availability.variant}>
+        {availability.children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItemStatus variant="AvailabilityAvailable" {...menu} onClick={onClick}>
-          Available
+        <MenuItemStatus variant="ConnectivityAvailable" {...menu} onClick={() => onClick('Available')}>
+          Online
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityBusy" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityBusy" {...menu} onClick={() => onClick('Busy')}>
           Busy
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityUnavailable" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityUnavailable" {...menu} onClick={() => onClick('Unavailable')}>
           Unavailable
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityNeutral" {...menu} onClick={onClick}>
+        <MenuItemStatus variant="ConnectivityNeutral" {...menu} onClick={() => onClick('Neutral')}>
           Neutral
         </MenuItemStatus>
-        <MenuItemStatus variant="AvailabilityOffline" {...menu} onClick={onClick}>
-          Break
+        <MenuItemStatus variant="ConnectivityOffline" {...menu} onClick={() => onClick('Offline')}>
+          Offline
         </MenuItemStatus>
       </Menu>
     </>
@@ -319,6 +375,91 @@ const ProcessStatusMenuExample = () => {
 };
 
 render(
-  <ProcessStatusMenuExample />
+  <ConnectivityStatusMenu />
+)
+`.trim();
+
+export const CheckboxMenuExample = `
+const CheckboxMenu = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="secondary">
+        Text formatting <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Display view">
+        <MenuItemCheckbox {...menu} name="display-view" value="bold">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <BoldIcon decorative={true} /> Bold
+          </Box>
+        </MenuItemCheckbox>
+        <MenuItemCheckbox {...menu} name="display-view" value="underlined">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnderlineIcon decorative={true} /> Underlined
+          </Box>
+        </MenuItemCheckbox>
+        <MenuItemCheckbox {...menu} name="display-view" value="italic">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <ItalicIcon decorative={true} /> Italic
+          </Box>
+        </MenuItemCheckbox>
+        <MenuSeparator {...menu} />
+        <MenuItemCheckbox {...menu} name="display-view" value="strike">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <StrikethroughIcon decorative={true} /> Strike
+          </Box>
+        </MenuItemCheckbox>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <CheckboxMenu />
+)
+`.trim();
+
+export const RadioMenuExample = `
+const RadioMenu = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="secondary">
+        Display view <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Display view">
+        <MenuItemRadio {...menu} name="display-view" value="grid">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataTableIcon decorative={true} /> Data grid
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" value="bar">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataBarChartIcon decorative={true} /> Bar chart
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" value="line">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataLineChartIcon decorative={true} /> Line chart
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" disabled value="pie">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataPieChartIcon decorative={true} /> Pie chart
+          </Box>
+        </MenuItemRadio>
+        <MenuSeparator {...menu} />
+        <MenuItemRadio {...menu} name="display-view" value="list">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnorderedListIcon decorative={true} /> List
+          </Box>
+        </MenuItemRadio>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <RadioMenu />
 )
 `.trim();

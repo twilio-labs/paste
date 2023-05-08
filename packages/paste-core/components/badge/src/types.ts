@@ -1,31 +1,35 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
+import type {TextColorOptions} from '@twilio-paste/style-props';
 
-import type {StatusNames} from './constants';
+import type {BadgeVariants} from './constants';
 
-export type BadgeVariants =
-  | 'neutral'
-  | 'warning'
-  | 'error'
-  | 'success'
-  | 'new'
-  | 'subaccount'
-  | 'decorative10'
-  | 'decorative20'
-  | 'decorative30'
-  | 'decorative40'
-  | 'neutral_counter'
-  | 'error_counter'
-  // the following variants are outdated but still supported to prevent breaking changes
-  | 'default'
-  | 'info';
+export type StatusBadgeVariants =
+  | 'ProcessError'
+  | 'ProcessWarning'
+  | 'ProcessSuccess'
+  | 'ProcessNeutral'
+  | 'ProcessInProgress'
+  | 'ProcessDisabled'
+  | 'ProcessDraft'
+  | 'ConnectivityAvailable'
+  | 'ConnectivityBusy'
+  | 'ConnectivityUnavailable'
+  | 'ConnectivityOffline'
+  | 'ConnectivityNeutral';
 
 export type BadgeSizes = 'default' | 'small';
-export type StatusBadgeVariants = ValueOf<typeof StatusNames>;
+
+export type StatusBadges = {
+  [key in StatusBadgeVariants]: {
+    badgeVariant: typeof BadgeVariants[number];
+    icon: React.ReactNode;
+    color: TextColorOptions;
+  };
+};
 
 export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
-  variant: BadgeVariants;
+  variant: typeof BadgeVariants[number];
   size?: BadgeSizes;
 };
 export type BadgeSpanProps = React.HTMLAttributes<HTMLSpanElement> & {
@@ -47,6 +51,6 @@ export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
 export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);
 
 export type StatusBadgeProps = Omit<BadgeBaseProps, 'variant'> &
-  (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps) & {
+  BadgeSpanProps & {
     variant: StatusBadgeVariants;
   };

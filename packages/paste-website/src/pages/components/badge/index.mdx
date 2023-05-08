@@ -149,8 +149,8 @@ Text length should be kept short.
 
 ### Variants
 
-Status Badges should be used in cases where the Badge is intended to communicate a specific,
-semantic attribute, such as “warning” or “new”. Status Badges should generally have an Icon that
+Badges variants such as `success` and `warning` should be used in cases where the Badge is intended to communicate a specific,
+semantic attribute, such as “warning” or “new”. These Badges should generally have an Icon that
 should be prefixed before the text.
 
 #### Neutral
@@ -267,7 +267,7 @@ When using the Subaccount Badge, it is recommended that you include a Users icon
 
 ### Status Badge
 
-Following the [Paste Status Pattern](/patterns/status), Status Badges can be used in cases where a Badge represents either a Process or Availability. These composed Status Badges choose the right color and icon pairing for you, based on the variant you choose. The variants available are mapped to the Status Pattern.
+Following the [Paste Status Pattern](/patterns/status), Status Badges can be used in cases where a Badge represents either a Process or Connectivity. These composed Status Badges choose the right color and icon pairing for you, based on the variant you choose. The variants available are mapped to the [Status Pattern](/patterns/status).
 
 <LivePreview scope={{Box, StatusBadge}} language="jsx">
   {`<Box display="flex" flexDirection="column" rowGap="space40">
@@ -295,19 +295,19 @@ Following the [Paste Status Pattern](/patterns/status), Status Badges can be use
     </StatusBadge>
   </Box>
   <Box display="flex" columnGap="space40">
-    <StatusBadge as="span" variant="AvailabilityAvailable">
+    <StatusBadge as="span" variant="ConnectivityAvailable">
       Available
     </StatusBadge>
-    <StatusBadge as="span" variant="AvailabilityUnavailable">
+    <StatusBadge as="span" variant="ConnectivityUnavailable">
       Unavailable
     </StatusBadge>
-    <StatusBadge as="span" variant="AvailabilityBusy">
+    <StatusBadge as="span" variant="ConnectivityBusy">
       Busy
     </StatusBadge>
-    <StatusBadge as="span" variant="AvailabilityNeutral">
+    <StatusBadge as="span" variant="ConnectivityNeutral">
       Neutral
     </StatusBadge>
-    <StatusBadge as="span" variant="AvailabilityOffline">
+    <StatusBadge as="span" variant="ConnectivityOffline">
       Offline
     </StatusBadge>
   </Box>
@@ -714,11 +714,12 @@ const BadgeExample = () => (
 
 ##### StatusBadge
 
-All the same props as Badge, with different variants.
-
-| Prop    | Type                  | Description                                                                                                                                                                                                                                        | Default |
-| ------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| variant | `StatusBadgeVariants` | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`  |
+| Prop     | Type                           | Description                                                                                                                                                                                                                                        | Default        |
+| -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| children | `NonNullable<React.ReactNode>` |                                                                                                                                                                                                                                                    | `null`         |
+| variant  | `StatusBadgeVariants`          | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`         |
+| size     | `BadgeSizes`                   | `default`, `small`                                                                                                                                                                                                                                 | `default`      |
+| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                          | 'STATUS_BADGE' |
 
 <ChangelogRevealer>
   <Changelog />

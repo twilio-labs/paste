@@ -1,14 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import type {ValueOf} from '@twilio-paste/types';
 import {Box} from '@twilio-paste/box';
-import {StatusIcons} from '@twilio-paste/badge';
-import type {StatusNames} from '@twilio-paste/badge';
+import {StatusObject} from '@twilio-paste/badge';
+import type {StatusBadgeVariants} from '@twilio-paste/badge';
 
 import {MenuItem} from './MenuItem';
 import type {MenuItemProps} from './types';
 
-type MenuItemStatusVariant = ValueOf<typeof StatusNames>;
+type MenuItemStatusVariant = StatusBadgeVariants;
 
 export interface MenuItemStatusProps extends Omit<MenuItemProps, 'variant'> {
   variant: MenuItemStatusVariant;
@@ -18,7 +17,7 @@ const MenuItemStatus = React.forwardRef<HTMLDivElement, MenuItemStatusProps>(({c
   return (
     <MenuItem ref={ref} {...props} variant="default">
       <Box display="flex" flexDirection="row" columnGap="space20" alignItems="center">
-        {StatusIcons[variant]}
+        {StatusObject[variant].icon}
         {children}
       </Box>
     </MenuItem>

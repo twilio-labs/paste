@@ -11982,6 +11982,7 @@ __metadata:
     "@twilio-paste/media-object": ^9.0.0
     "@twilio-paste/menu-primitive": ^1.0.0
     "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": ^12.0.0
     "@twilio-paste/separator": ^7.0.0
     "@twilio-paste/spinner": ^13.0.0
     "@twilio-paste/stack": ^7.0.0
@@ -12009,6 +12010,7 @@ __metadata:
     "@twilio-paste/media-object": ^9.0.0
     "@twilio-paste/menu-primitive": ^1.0.0
     "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": ^12.0.0
     "@twilio-paste/separator": ^7.0.0
     "@twilio-paste/spinner": ^13.0.0
     "@twilio-paste/stack": ^7.0.0

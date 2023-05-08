@@ -16,6 +16,8 @@ import {
   MenuGroup,
   MenuSeparator,
   useMenuState,
+  MenuItemRadio,
+  MenuItemCheckbox,
 } from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
@@ -24,6 +26,15 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -39,6 +50,10 @@ import {
   menuBadgeExample,
   processStatusMenuExample,
   availabilityStatusMenuExample,
+  ConnectivityObject,
+  ProcessObject,
+  RadioMenuExample,
+  CheckboxMenuExample,
 } from '../../../component-examples/MenuExamples.ts';
 import packageJson from '@twilio-paste/menu/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -201,6 +216,55 @@ For example, you can create an icon button menu trigger like so:
   {iconButtonExample}
 </LivePreview>
 
+### Selectable menu items
+
+Menu items come with the ability to be selected, in the same way as a checkbox or radio button. This is useful when a user is asked to perform a persistant action, where the selection should be preserved for future reference. Selections can either be single, or multiple, just like radio and checkboxes.
+
+#### Single select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemRadio,
+    MenuSeparator,
+    ChevronDownIcon,
+    UnorderedListIcon,
+    DataBarChartIcon,
+    DataLineChartIcon,
+    DataPieChartIcon,
+    DataTableIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {RadioMenuExample}
+</LivePreview>
+
+#### Multi select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemCheckbox,
+    MenuSeparator,
+    ChevronDownIcon,
+    BoldIcon,
+    UnderlineIcon,
+    ItalicIcon,
+    StrikethroughIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {CheckboxMenuExample}
+</LivePreview>
+
 ## Composed variants
 
 Paste provides a few composed variants of the Menu component. These compositions are designed to help you build menus for common scenarios and use cases.
@@ -226,6 +290,10 @@ The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `succ
 
 ### Status menus
 
+Status menus follow the [Process and Connectivity Status Patterns](/patterns/status). They can be used to display and update Connectivity and Process statuses.
+
+Status is represented via the `MenuBadgeStatus` and `MenuItemStatus` components. `MenuBadgeStatus` is a wrapper around the [`StatusBadge`](/components/badge#status-badge) that accepts both `MenuButton` props and the `StatusBadge` variant prop. The `MenuItemStatus` component is a wrapper around the `MenuItem` component that also provides a collection of variants that map to the [Status Pattern](/patterns/status).
+
 #### Process
 
 <LivePreview
@@ -234,6 +302,7 @@ The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `succ
     Menu,
     MenuBadgeStatus,
     MenuItemStatus,
+    ProcessObject,
   }}
   noInline
   showOverflow
@@ -241,7 +310,7 @@ The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `succ
   {processStatusMenuExample}
 </LivePreview>
 
-#### Availability
+#### Connectivity
 
 <LivePreview
   scope={{
@@ -249,6 +318,7 @@ The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `succ
     Menu,
     MenuBadgeStatus,
     MenuItemStatus,
+    ConnectivityObject,
   }}
   noInline
   showOverflow
@@ -285,7 +355,7 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 ### Composing menu items
 
 <Callout variant="neutral" marginY="space70">
-  <CalloutHeading>Note</CalloutHeading>
+  <CalloutHeading as="h4">Note</CalloutHeading>
   <CalloutText>
     Menu item content is composible however you want. We'll have more complete best practice guidelines soon, but in the
     meantime here are some example compositions using Paste components.

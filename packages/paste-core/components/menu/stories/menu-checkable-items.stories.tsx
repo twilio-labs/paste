@@ -1,14 +1,15 @@
 import * as React from 'react';
-import {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
+import type {StoryFn} from '@storybook/react';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {useUID} from '@twilio-paste/uid-library';
+import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
 
 import {
   Menu,
@@ -21,6 +22,7 @@ import {
   useMenuState,
   MenuItemRadio,
 } from '../src';
+import {Box} from '@twilio-paste/box';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -38,24 +40,29 @@ export const CheckboxMenu: StoryFn = () => {
   return (
     <>
       <MenuButton {...menu} variant="secondary">
-        Disaply view
+        Text formatting <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Display view">
-        <MenuItemCheckbox {...menu} name="display-view" value="wrap">
-          Word wrap
-        </MenuItemCheckbox>
         <MenuItemCheckbox {...menu} name="display-view" value="bold">
-          Bold
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <BoldIcon decorative={true} /> Bold
+          </Box>
         </MenuItemCheckbox>
         <MenuItemCheckbox {...menu} name="display-view" value="underlined">
-          Underlined
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnderlineIcon decorative={true} /> Underlined
+          </Box>
         </MenuItemCheckbox>
-        <MenuItemCheckbox {...menu} name="display-view" disabled value="italic">
-          Italic
+        <MenuItemCheckbox {...menu} name="display-view" value="italic">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <ItalicIcon decorative={true} /> Italic
+          </Box>
         </MenuItemCheckbox>
         <MenuSeparator {...menu} />
         <MenuItemCheckbox {...menu} name="display-view" value="strike">
-          Strike
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <StrikethroughIcon decorative={true} /> Strike
+          </Box>
         </MenuItemCheckbox>
       </Menu>
     </>
@@ -67,24 +74,34 @@ export const RadioMenu: StoryFn = () => {
   return (
     <>
       <MenuButton {...menu} variant="secondary">
-        Disaply view
+        Display view <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Display view">
-        <MenuItemRadio {...menu} name="display-view" value="wrap">
-          Word wrap
+        <MenuItemRadio {...menu} name="display-view" value="grid">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataTableIcon decorative={true} /> Data grid
+          </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" value="bold">
-          Bold
+        <MenuItemRadio {...menu} name="display-view" value="bar">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataBarChartIcon decorative={true} /> Bar chart
+          </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" value="underlined">
-          Underlined
+        <MenuItemRadio {...menu} name="display-view" value="line">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataLineChartIcon decorative={true} /> Line chart
+          </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" disabled value="italic">
-          Italic
+        <MenuItemRadio {...menu} name="display-view" disabled value="pie">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataPieChartIcon decorative={true} /> Pie chart
+          </Box>
         </MenuItemRadio>
         <MenuSeparator {...menu} />
-        <MenuItemRadio {...menu} name="display-view" value="strike">
-          Strike
+        <MenuItemRadio {...menu} name="display-view" value="list">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnorderedListIcon decorative={true} /> List
+          </Box>
         </MenuItemRadio>
       </Menu>
     </>
