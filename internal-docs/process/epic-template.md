@@ -34,7 +34,7 @@
 ### Design component
 
 1. Design the component
-2. Includes design for states listed in the acceptance criteria: [LINK TO SPEC]
+2. Includes design for states listed in the acceptance criteria.
 3. Schedule a review with the team.
 4. Share the design as a Request for Comment (RFC) on Github Discussions. Share the post in all the design + front-end Slack channels.
 
@@ -42,8 +42,7 @@
 
 _Always create this as a placeholder, add details as they come to light or close ticket as "won't do" if not needed._
 
-1. Iterate on spec based on feedback from internal review, crits, and peer review:
-   - [Add details]
+1. Iterate on spec based on feedback from internal review, crits, and peer review.
 2. Schedule final team review.
 3. Revise original RFCs.
 
