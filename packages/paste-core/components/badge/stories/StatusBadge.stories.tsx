@@ -23,12 +23,6 @@ const Template: StoryFn<typeof StatusBadge> = ({variant}) => (
     <StatusBadge as="span" variant={variant}>
       {variant}
     </StatusBadge>
-    <StatusBadge as="span" variant={variant}>
-      {variant}
-    </StatusBadge>
-    <StatusBadge as="span" variant={variant}>
-      {variant}
-    </StatusBadge>
   </Stack>
 );
 

@@ -12,7 +12,7 @@ const BadgeMenu: React.FC<React.PropsWithChildren<{variant: BadgeProps['variant'
   };
   return (
     <>
-      <MenuBadge {...menu} buttonLabel="Change account" variant={variant}>
+      <MenuBadge {...menu} i18nButtonLabel="Change account" variant={variant}>
         {children}
       </MenuBadge>
       <Menu {...menu} aria-label="Preferences">

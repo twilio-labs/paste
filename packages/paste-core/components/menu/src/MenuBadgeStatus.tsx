@@ -1,7 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {StatusBadge} from '@twilio-paste/badge';
+import {StatusBadge, StatusObject} from '@twilio-paste/badge';
 import type {StatusBadgeProps} from '@twilio-paste/badge';
+import {ButtonPropTypes} from '@twilio-paste/button';
 
 import {MenuBadgeContent} from './MenuBadge';
 import type {MenuBadgeProps} from './MenuBadge';
@@ -11,10 +12,10 @@ export interface MenuBadgeStatusProps extends Omit<MenuBadgeProps, 'variant'> {
 }
 
 const MenuBadgeStatus = React.forwardRef<HTMLButtonElement, MenuBadgeStatusProps>(
-  ({children, variant, ...props}, ref) => {
+  ({children, variant, element = 'MENU_BADGE_STATUS', ...props}, ref) => {
     return (
-      <StatusBadge as="span" variant={variant}>
-        <MenuBadgeContent {...props} ref={ref}>
+      <StatusBadge as="span" element={element} variant={variant}>
+        <MenuBadgeContent {...props} element={element} ref={ref}>
           {children}
         </MenuBadgeContent>
       </StatusBadge>
@@ -25,7 +26,9 @@ const MenuBadgeStatus = React.forwardRef<HTMLButtonElement, MenuBadgeStatusProps
 MenuBadgeStatus.displayName = 'MenuBadgeStatus';
 
 MenuBadgeStatus.propTypes = {
-  children: PropTypes.node.isRequired,
+  ...ButtonPropTypes,
+  i18nButtonLabel: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(Object.keys(StatusObject)).isRequired,
 };
 
 export {MenuBadgeStatus};

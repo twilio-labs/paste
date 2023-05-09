@@ -478,10 +478,44 @@ These props are returned by the state hook. You can spread them into this compon
 
 ##### MenuButton
 
-| Prop     | Type                 | Description                                                                               | Default       |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |               |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_BUTTON' |
+| Prop                   | Type                                     | Description                                                                                                                                                                          | Default                                |
+| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'                               |
+| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false                                  |
+| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
+| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
+| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
+| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                   | 'default'                              |
+| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
+| variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
+| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
+| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                         |                                        |
+| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'MENU_BUTTON'                          |
+
+##### MenuBadge
+
+Same as `MenuButton` except:
+
+| Prop     | Type            | Description                                                                                                                                                       | Default      |
+| -------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| variant  | `BadgeVariants` | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`       |
+| element? | `string`        | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'MENU_BADGE' |
+
+##### MenuBadgeStatus
+
+Same as `MenuButton` except:
+
+| Prop     | Type                  | Description                                                                                                                                                                                                                                        | Default             |
+| -------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| variant  | `StatusBadgeVariants` | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`              |
+| element? | `string`              | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                          | 'MENU_BADGE_STATUS' |
 
 ##### MenuGroup
 
@@ -501,6 +535,45 @@ These props are returned by the state hook. You can spread them into this compon
 | onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
 | href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
 | element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+
+##### MenuItemCheckbox
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
+
+##### MenuItemRadio
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
+
+##### MenuItemStatus
+
+| Prop     | Type                  | Description                                                                                                                                                                                                                                                                                  | Default            |
+| -------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| variant  | `StatusBadgeVariants` | Swaps the menu item variant. Options are `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `ConnectivityAvailable`, `ConnectivityBusy`, `ConnectivityUnavailable`, `ConnectivityOffline`, `ConnectivityNeutral`. |                    |
+| disabled | `boolean, undefined`  | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
+| id       | `string, undefined`   | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
+| onClick  | `() => void`          | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
+| href     | `string, undefined`   | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
+| element? | `string`              | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                                                                    | 'MENU_ITEM_STATUS' |
 
 <ChangelogRevealer>
   <Changelog />

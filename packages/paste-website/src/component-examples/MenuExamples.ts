@@ -220,7 +220,7 @@ const MenuBadgeExample = () => {
   };
   return (
     <>
-      <MenuBadge {...menu} buttonLabel="Change account" variant="decorative10">
+      <MenuBadge {...menu} i18nButtonLabel="Change account" variant="decorative10">
         {account}
       </MenuBadge>
       <Menu {...menu} aria-label="Accounts">
@@ -283,7 +283,7 @@ const ProcessStatusMenu = () => {
   };
   return (
     <>
-      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={process.variant}>
+      <MenuBadgeStatus {...menu} i18nButtonLabel="Change account" variant={process.variant}>
         {process.children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
@@ -350,7 +350,7 @@ const ConnectivityStatusMenu = () => {
   };
   return (
     <>
-      <MenuBadgeStatus {...menu} buttonLabel="Change account" variant={availability.variant}>
+      <MenuBadgeStatus {...menu} i18nButtonLabel="Change account" variant={availability.variant}>
         {availability.children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">

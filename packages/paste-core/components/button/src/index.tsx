@@ -300,5 +300,6 @@ Button.propTypes = ButtonPropTypes;
 
 Button.displayName = 'Button';
 
+export {ButtonPropTypes} from './proptypes';
 export type {ButtonProps};
 export {Button};
