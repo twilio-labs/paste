@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Menu] Add Menu Badge and Status options as prescribed by the Paste Status patterns, to be able to compose status based menus and actions
+[Menu] Add Menu Badge, Menu Badge Status, and Menu Item Status options as prescribed by the Paste Status patterns, to be able to compose status based menus and actions

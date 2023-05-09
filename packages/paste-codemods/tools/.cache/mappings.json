@@ -28,6 +28,7 @@
   "BreadcrumbItem": "@twilio-paste/core/breadcrumb",
   "ButtonGroup": "@twilio-paste/core/button-group",
   "Button": "@twilio-paste/core/button",
+  "ButtonPropTypes": "@twilio-paste/core/button",
   "ButtonToggleStyles": "@twilio-paste/core/button",
   "DestructiveSecondaryButtonToggleStyles": "@twilio-paste/core/button",
   "Callout": "@twilio-paste/core/callout",

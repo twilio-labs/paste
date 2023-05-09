@@ -30,7 +30,7 @@ MenuItemStatus.displayName = 'MenuItemStatus';
 
 MenuItemStatus.propTypes = {
   href: PropTypes.string,
-  variant: PropTypes.oneOf([Object.keys(StatusObject)]).isRequired,
+  variant: PropTypes.oneOf(Object.keys(StatusObject)).isRequired,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,
