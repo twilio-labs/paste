@@ -10,10 +10,14 @@ export const SidebarCollapseButtonWrapper = React.forwardRef<HTMLDivElement, Box
 
     return (
       <Box
-        position="absolute"
-        bottom="space50"
-        right={collapsed ? 'space60' : 'space50'}
         {...safelySpreadBoxProps(props)}
+        display="flex"
+        justifyContent="flex-end"
+        position="relative"
+        height="sizeSquare100"
+        marginY="space50"
+        marginRight={collapsed ? 'space60' : 'space50'}
+        transition="margin-right 100ms ease"
         ref={ref}
         element={element}
       />
