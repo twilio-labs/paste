@@ -4,6 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import type {BoxProps} from '@twilio-paste/box';
+import {useTheme} from '@twilio-paste/theme';
 
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 import {
@@ -15,20 +16,21 @@ import {
 export interface SidebarNavigationDisclosureHeadingProps extends React.ComponentPropsWithRef<'div'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
-  variant?: 'default' | 'nested';
   selected?: boolean;
 }
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
-  ({children, element, variant, selected, ...props}, ref) => {
+  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, ...props}, ref) => {
+    const {nested} = React.useContext(SidebarNavigationDisclosureContext);
     const isExpanded = props['aria-expanded'];
+    const theme = useTheme();
 
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        {...(variant === 'nested' ? sidebarNavigationLabelNestedStyles : sidebarNavigationLabelStyles)}
+        {...(nested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles)}
         {...(selected && sidebarNavigationLabelSelectedStyles)}
       >
         <Box
@@ -60,7 +62,6 @@ SidebarNavigationDisclosureHeading.displayName = 'SidebarNavigationDisclosureHea
 SidebarNavigationDisclosureHeading.propTypes = {
   children: PropTypes.node,
   element: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'nested']),
   selected: PropTypes.bool,
 };
 

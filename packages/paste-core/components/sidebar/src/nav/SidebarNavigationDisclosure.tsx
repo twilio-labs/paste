@@ -6,29 +6,29 @@ import type {BoxProps} from '@twilio-paste/box';
 import type {DisclosurePrimitiveInitialState} from '@twilio-paste/disclosure-primitive';
 
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
-import type {SidebarNavigationDisclosureVariants, SidebarNavigationDisclosureStateReturn} from './types';
+import type {SidebarNavigationDisclosureStateReturn} from './types';
 
-export interface DisclosureProps extends DisclosurePrimitiveInitialState, Pick<BoxProps, 'element'> {
+export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
   state?: SidebarNavigationDisclosureStateReturn;
-  variant?: SidebarNavigationDisclosureVariants;
+  element?: BoxProps['element'];
 }
 
 const SidebarNavigationDisclosure = React.forwardRef<HTMLDivElement, DisclosureProps>(
-  ({children, element = 'DISCLOSURE', variant = 'default', state, ...props}, ref) => {
+  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE', state, ...props}, ref) => {
+    // We check context to see if this disclosure is nested
+    const {disclosure: parentDisclosure} = React.useContext(SidebarNavigationDisclosureContext);
+    // Set the disclosure state to provide into this component's context
     const disclosure = state || useDisclosurePrimitiveState({animated: false, ...props});
-    const [isDisabled, setIsDisabled] = React.useState(false);
 
     const disclosureContext = {
       disclosure,
-      variant,
-      isDisabled,
-      setIsDisabled,
+      nested: parentDisclosure != null,
     };
 
     return (
       <SidebarNavigationDisclosureContext.Provider value={disclosureContext}>
-        <Box {...safelySpreadBoxProps(props)} variant={variant} element={element} ref={ref}>
+        <Box {...safelySpreadBoxProps(props)} element={element} ref={ref}>
           {children}
         </Box>
       </SidebarNavigationDisclosureContext.Provider>
@@ -39,7 +39,6 @@ SidebarNavigationDisclosure.displayName = 'SidebarNavigationDisclosure';
 SidebarNavigationDisclosure.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'inner'] as SidebarNavigationDisclosureVariants[]),
 };
 
 export {SidebarNavigationDisclosure};

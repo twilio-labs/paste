@@ -1,5 +1,7 @@
 import type {BoxProps} from '@twilio-paste/box';
+import type {ThemeShape} from '@twilio-paste/theme';
 
+// Label styles
 export const sidebarNavigationLabelStyles: BoxProps = {
   width: '100%',
   fontStyle: 'normal',
@@ -25,17 +27,25 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   },
 };
 
-export const sidebarNavigationLabelNestedStyles: BoxProps = {
-  ...sidebarNavigationLabelStyles,
-  paddingY: 'space20',
-  fontSize: 'fontSize20',
-};
-
+// Lavel Selected styles
 export const sidebarNavigationLabelSelectedStyles: BoxProps = {
   fontWeight: 'fontWeightSemibold',
   color: 'colorTextInverse',
 };
 
+// Nested label styles
+export const sidebarNavigationLabelNestedStyles: (theme: ThemeShape) => BoxProps = (theme) => ({
+  ...sidebarNavigationLabelStyles,
+  paddingY: 'space20',
+  fontSize: 'fontSize20',
+  marginLeft: 'spaceNegative60',
+  width: `calc(100% - ${theme.space.spaceNegative60})`,
+  paddingLeft: 'space60',
+});
+
+/**
+ * Item selected styles
+ */
 export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
   backgroundColor: 'colorBackgroundInverseStrong',

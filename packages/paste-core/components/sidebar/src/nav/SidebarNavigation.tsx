@@ -21,12 +21,12 @@ const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
     ) center bottom,
     radial-gradient(
       farthest-side at 50% 0,
-      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
     ) center top,
     radial-gradient(
       farthest-side at 50% 100%,
-      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
     ) center bottom`,
     backgroundRepeat: 'no-repeat',

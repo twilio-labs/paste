@@ -7,34 +7,15 @@ import type {DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-pri
 
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 
-const baseContainedStyles: BoxStyleProps = {
-  borderWidth: 'borderWidth10',
-  borderStyle: 'solid',
-  borderBottomLeftRadius: 'borderRadius20',
-  borderBottomRightRadius: 'borderRadius20',
-  borderTop: 'none',
-  transition: 'border-color 100ms ease-out',
-};
-
-const containedStyles: BoxStyleProps = {
-  ...baseContainedStyles,
-  borderColor: 'colorBorderWeaker',
-};
-
 export interface SidebarNavigationDisclosureContentProps
-  extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps>,
-    Pick<BoxProps, 'element'> {
+  extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
+  element?: BoxProps['element'];
 }
 
 const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureContentProps>(
-  ({children, element = 'DISCLOSURE_CONTENT', visible, ...props}, ref) => {
-    const {disclosure, variant} = React.useContext(SidebarNavigationDisclosureContext);
-
-    let variantStyles: BoxStyleProps = {};
-    if (variant === 'inner') {
-      variantStyles = containedStyles;
-    }
+  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT', ...props}, ref) => {
+    const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
 
     return (
       <DisclosurePrimitiveContent
@@ -45,7 +26,6 @@ const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, Side
         paddingLeft="space60"
         color="colorTextInverseWeak"
         ref={ref}
-        {...variantStyles}
       >
         {children}
       </DisclosurePrimitiveContent>
