@@ -2,12 +2,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
 
 import {
   sidebarNavigationLabelStyles,
   sidebarNavigationLabelNestedStyles,
-  sidebarNavigationLabelSelectedStyles,
+  sidebarNavigationItemSelectedStyles,
 } from './styles';
 
 export interface SidebarNavigationItemProps extends React.ComponentPropsWithRef<'div'> {
@@ -30,7 +29,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLDivElement, SidebarNavigation
         ref={ref}
         element={element}
         {...(variant === 'nested' ? sidebarNavigationLabelNestedStyles : sidebarNavigationLabelStyles)}
-        {...(selected && sidebarNavigationLabelSelectedStyles)}
+        {...(selected && sidebarNavigationItemSelectedStyles)}
       >
         {children}
       </Box>

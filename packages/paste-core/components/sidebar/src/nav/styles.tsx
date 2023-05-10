@@ -1,6 +1,7 @@
 import type {BoxProps} from '@twilio-paste/box';
 
 export const sidebarNavigationLabelStyles: BoxProps = {
+  width: '100%',
   fontStyle: 'normal',
   fontWeight: 'fontWeightNormal',
   fontSize: 'fontSize30',
@@ -33,4 +34,9 @@ export const sidebarNavigationLabelNestedStyles: BoxProps = {
 export const sidebarNavigationLabelSelectedStyles: BoxProps = {
   fontWeight: 'fontWeightSemibold',
   color: 'colorTextInverse',
+};
+
+export const sidebarNavigationItemSelectedStyles: BoxProps = {
+  ...sidebarNavigationLabelSelectedStyles,
+  backgroundColor: 'colorBackgroundInverseStrong',
 };
