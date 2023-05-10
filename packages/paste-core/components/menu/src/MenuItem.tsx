@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {MenuPrimitiveItem, MenuPrimitiveItemCheckbox, MenuPrimitiveItemRadio} from '@twilio-paste/menu-primitive';
 import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
 
@@ -56,6 +57,19 @@ const variantStyles: MenuItemVariantStyles = {
   ...groupVariantStyles,
 };
 
+const getCheckedIconColor = ({
+  disabled,
+  variant,
+}: {
+  disabled?: boolean;
+  variant: MenuItemVariant;
+}): BoxProps['color'] => {
+  if (disabled || variant === MenuItemVariants.DESTRUCTIVE || variant === MenuItemVariants.DESTRUCTIVE_GROUP_ITEM) {
+    return 'inherit';
+  }
+  return 'colorTextPrimary';
+};
+
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
   ({element = 'STYLED_MENU_ITEM', href, variant = 'default', tabIndex, children, ...props}, ref) => {
     return (
@@ -96,7 +110,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         {props['aria-checked'] === true ? (
           <Box as="span" display="flex" justifyContent="space-between" alignItems="center">
             {children}
-            <SelectedIcon decorative color={props.disabled ? 'colorTextWeaker' : 'colorTextPrimary'} />
+            <SelectedIcon decorative color={getCheckedIconColor({disabled: props.disabled, variant})} />
           </Box>
         ) : (
           children

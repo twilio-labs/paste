@@ -223,14 +223,7 @@ export const tableExample = `
         <Td>WE902990c21gjioGasd</Td>
         <Td>North America</Td>
         <Td>
-          <Box display="inline-flex" columnGap="space20">
-            <ProcessSuccessIcon
-              color="colorTextIconSuccess"
-              decorative={false}
-              title="active"
-            />
-            <Text as="div">Active</Text>
-          </Box>
+          <StatusBadge variant="ProcessSuccess">Active</StatusBadge>
         </Td>
         <Td>2020-10-15</Td>
       </Tr>
@@ -239,14 +232,7 @@ export const tableExample = `
         <Td>WE928471c21gjioGasd</Td>
         <Td>North America</Td>
         <Td>
-          <Box display="inline-flex" columnGap="space20">
-            <ProcessNeutralIcon
-              color="colorTextIconNeutral"
-              decorative={false}
-              title="active"
-            />
-            <Text as="div">Ready</Text>
-          </Box>
+          <StatusBadge variant="ProcessNeutral">Ready</StatusBadge>
         </Td>
         <Td>2020-10-15</Td>
       </Tr>
@@ -274,10 +260,7 @@ export const tableWithPlainTextExample = `
         <Td>Bewitched</Td>
         <Td>Series</Td>
         <Td>
-          <Box display="flex">
-            <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="progress halted" />
-            <Text marginLeft="space20">Progress halted</Text>
-          </Box>
+          <StatusBadge variant="ProcessWarning">Progress halted</StatusBadge>
         </Td>
       </Tr>
       <Tr>
@@ -366,21 +349,9 @@ export const otherCommonPlacements = `
         <Heading as="h3" variant="heading40" marginBottom="space0">
           Business Profile
         </Heading>
-        <Box
-          as="span"
-          display="flex"
-          alignItems="center"
-          fontSize="fontSize20"
-        >
-          <Text marginRight="space20">
-            Approved
-          </Text>
-          <ProcessSuccessIcon
-            color="colorTextIconSuccess"
-            decorative={false}
-            title="success"
-          />
-        </Box>
+        <StatusBadge variant="ProcessSuccess">
+          Approved
+        </StatusBadge>
       </Box>
       <Paragraph marginBottom="space0">Information about your business</Paragraph>
     </Card>
@@ -395,19 +366,9 @@ export const otherCommonPlacements = `
       marginBottom="space30"
     >
       <Text fontWeight="fontWeightSemibold">Account Security</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Connected</Text>
-        <ProcessSuccessIcon
-          color="colorTextIconSuccess"
-          decorative={false}
-          title="connected"
-        />
-      </Box>
+      <StatusBadge variant="ProcessSuccess">
+        Connected
+      </StatusBadge>
     </Box>
     <Box
       as="span"
@@ -418,19 +379,9 @@ export const otherCommonPlacements = `
       marginBottom="space30"
     >
       <Text fontWeight="fontWeightSemibold">Autopilot</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Connected</Text>
-        <ProcessSuccessIcon
-          color="colorTextIconSuccess"
-          decorative={false}
-          title="connected"
-        />
-      </Box>
+      <StatusBadge variant="ProcessSuccess">
+        Connected
+      </StatusBadge>
     </Box>
     <Box
       as="span"
@@ -440,19 +391,9 @@ export const otherCommonPlacements = `
       justifyContent="space-between"
     >
       <Text fontWeight="fontWeightSemibold">Carrier Network</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Intermittent</Text>
-        <ProcessWarningIcon
-          color="colorTextIconWarning"
-          decorative={false}
-          title="warning"
-        />
-      </Box>
+      <StatusBadge variant="ProcessWarning">
+        Intermittent
+      </StatusBadge>
     </Box>
   </Box>
 </Stack>
