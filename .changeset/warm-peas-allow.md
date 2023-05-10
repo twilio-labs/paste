@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Button] Export sharable Button Prop types
+[Button] Export sharable Button PropTypes

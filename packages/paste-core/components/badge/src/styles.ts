@@ -155,13 +155,11 @@ export const badgeButtonStyles: {
   },
 };
 
-export const getBadgeAnchorStyles = (): BoxStyleProps => {
-  return {
-    textDecoration: 'underline',
-    cursor: 'pointer',
-    _hover: {textDecoration: 'none'},
-    _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
-  };
+export const badgeAnchorStyles: BoxStyleProps = {
+  textDecoration: 'underline',
+  cursor: 'pointer',
+  _hover: {textDecoration: 'none'},
+  _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
 };
 
 export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): BoxStyleProps => {

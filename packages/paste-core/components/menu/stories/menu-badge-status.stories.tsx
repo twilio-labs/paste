@@ -124,7 +124,7 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
           onClick={() => onClick('Available')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityAvailable">Available</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityAvailable">{ConnectivityObject.Available.children}</MenuItemStatus>
         </MenuItemRadio>
         <MenuItemRadio
           name="availability"
@@ -134,7 +134,7 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
           onClick={() => onClick('Busy')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityBusy">Busy</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityBusy">{ConnectivityObject.Busy.children}</MenuItemStatus>
         </MenuItemRadio>
         <MenuItemRadio
           name="availability"
@@ -144,7 +144,7 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
           onClick={() => onClick('Unavailable')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityUnavailable">Unavailable</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityUnavailable">{ConnectivityObject.Unavailable.children}</MenuItemStatus>
         </MenuItemRadio>
         <MenuItemRadio
           name="availability"
@@ -154,7 +154,7 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
           onClick={() => onClick('Neutral')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityNeutral">Neutral</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityNeutral">{ConnectivityObject.Neutral.children}</MenuItemStatus>
         </MenuItemRadio>
         <MenuItemRadio
           name="availability"
@@ -164,7 +164,7 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
           onClick={() => onClick('Offline')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityOffline">Break</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityOffline">{ConnectivityObject.Offline.children}</MenuItemStatus>
         </MenuItemRadio>
       </Menu>
     </>
@@ -174,19 +174,19 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
 const ProcessObject = {
   Success: {
     variant: 'ProcessSuccess',
-    children: 'Success',
+    children: 'Complete',
   },
   Neutral: {
     variant: 'ProcessNeutral',
-    children: 'Neutral',
+    children: 'In review',
   },
   Warning: {
     variant: 'ProcessWarning',
-    children: 'Warning',
+    children: 'Needs attention',
   },
   Error: {
     variant: 'ProcessError',
-    children: 'Error',
+    children: 'Rejected',
   },
   InProgress: {
     variant: 'ProcessInProgress',
@@ -194,7 +194,7 @@ const ProcessObject = {
   },
   Disabled: {
     variant: 'ProcessDisabled',
-    children: 'Disabled',
+    children: 'Paused',
   },
   Draft: {
     variant: 'ProcessDraft',
@@ -215,25 +215,25 @@ const WorkingProcessStatusMenu: React.FC = () => {
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
         <MenuItem {...menu} onClick={() => onClick('Success')} variant="default">
-          <MenuItemStatus variant="ProcessSuccess">Success</MenuItemStatus>
+          <MenuItemStatus variant="ProcessSuccess">{ProcessObject.Success.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
-          <MenuItemStatus variant="ProcessNeutral">Neutral</MenuItemStatus>
+          <MenuItemStatus variant="ProcessNeutral">{ProcessObject.Neutral.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
-          <MenuItemStatus variant="ProcessWarning">Warning</MenuItemStatus>
+          <MenuItemStatus variant="ProcessWarning">{ProcessObject.Warning.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Error')} variant="default">
-          <MenuItemStatus variant="ProcessError">Error</MenuItemStatus>
+          <MenuItemStatus variant="ProcessError">{ProcessObject.Error.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
-          <MenuItemStatus variant="ProcessInProgress">In progress</MenuItemStatus>
+          <MenuItemStatus variant="ProcessInProgress">{ProcessObject.InProgress.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
-          <MenuItemStatus variant="ProcessDisabled">Disabled</MenuItemStatus>
+          <MenuItemStatus variant="ProcessDisabled">{ProcessObject.Disabled.children}</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
-          <MenuItemStatus variant="ProcessDraft">Draft</MenuItemStatus>
+          <MenuItemStatus variant="ProcessDraft">{ProcessObject.Draft.children}</MenuItemStatus>
         </MenuItem>
       </Menu>
     </>

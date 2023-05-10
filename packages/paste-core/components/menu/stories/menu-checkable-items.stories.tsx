@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
+import {Box} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
 import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
@@ -22,7 +23,6 @@ import {
   useMenuState,
   MenuItemRadio,
 } from '../src';
-import {Box} from '@twilio-paste/box';
 
 // eslint-disable-next-line import/no-default-export
 export default {

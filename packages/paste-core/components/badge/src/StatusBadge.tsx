@@ -7,9 +7,10 @@ import type {StatusBadgeProps, StatusBadgeVariants} from './types';
 import {badgeBaseStyles, badgeVariantStyles} from './styles';
 import {BadgePropTypes} from './propTypes';
 
+const badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles.default};
+
 const StatusBadge = React.forwardRef<HTMLElement, StatusBadgeProps>(
   ({children, element = 'STATUS_BADGE', size, variant, ...props}, ref) => {
-    const badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles.default};
     return (
       <Box
         {...safelySpreadBoxProps(props)}

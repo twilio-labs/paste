@@ -288,22 +288,22 @@ const ProcessStatusMenu = () => {
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
         <MenuItem {...menu} onClick={() => onClick('Success')} variant="default">
-          <MenuItemStatus variant="ProcessSuccess">Success</MenuItemStatus>
+          <MenuItemStatus variant="ProcessSuccess">Complete</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
-          <MenuItemStatus variant="ProcessNeutral">Neutral</MenuItemStatus>
+          <MenuItemStatus variant="ProcessNeutral">In review</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
-          <MenuItemStatus variant="ProcessWarning">Warning</MenuItemStatus>
+          <MenuItemStatus variant="ProcessWarning">Needs attention</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Error')} variant="default">
-          <MenuItemStatus variant="ProcessError">Error</MenuItemStatus>
+          <MenuItemStatus variant="ProcessError">Rejected</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
           <MenuItemStatus variant="ProcessInProgress">In progress</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
-          <MenuItemStatus variant="ProcessDisabled">Disabled</MenuItemStatus>
+          <MenuItemStatus variant="ProcessDisabled">Paused</MenuItemStatus>
         </MenuItem>
         <MenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
           <MenuItemStatus variant="ProcessDraft">Draft</MenuItemStatus>
@@ -402,7 +402,7 @@ const ConnectivityStatusMenu = () => {
           onClick={() => onClick('Offline')}
           variant="default"
         >
-          <MenuItemStatus variant="ConnectivityOffline">Break</MenuItemStatus>
+          <MenuItemStatus variant="ConnectivityOffline">Offline</MenuItemStatus>
         </MenuItemRadio>
       </Menu>
     </>

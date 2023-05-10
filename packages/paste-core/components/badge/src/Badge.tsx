@@ -6,7 +6,7 @@ import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import type {BadgeProps} from './types';
 import {BadgePropTypes} from './propTypes';
 import {useResizeChildIcons} from './hooks';
-import {badgeBaseStyles, badgeVariantStyles, getBadgeAnchorStyles, getBadgeButtonStyles} from './styles';
+import {badgeBaseStyles, badgeVariantStyles, badgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
   ({as, href, variant, size = 'default', children, element = 'BADGE', ...props}, ref) => {
@@ -15,10 +15,10 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
     let badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles[variant]};
 
     if (as === 'a') {
-      badgeStyles = {...badgeBaseStyles, ...badgeStyles, ...getBadgeAnchorStyles()};
+      badgeStyles = {...badgeStyles, ...badgeAnchorStyles};
     }
     if (as === 'button') {
-      badgeStyles = {...badgeBaseStyles, ...badgeStyles, ...getBadgeButtonStyles(variant)};
+      badgeStyles = {...badgeStyles, ...getBadgeButtonStyles(variant)};
     }
 
     return (
