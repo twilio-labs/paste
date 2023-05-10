@@ -292,7 +292,7 @@ The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `succ
 
 Status menus follow the [Process and Connectivity Status Patterns](/patterns/status). They can be used to display and update Connectivity and Process statuses.
 
-Status is represented via the `MenuBadgeStatus` and `MenuItemStatus` components. `MenuBadgeStatus` is a wrapper around the [`StatusBadge`](/components/badge#status-badge) that accepts both `MenuButton` props and the `StatusBadge` variant prop. The `MenuItemStatus` component is a wrapper around the `MenuItem` component that also provides a collection of variants that map to the [Status Pattern](/patterns/status).
+Status is represented via the `MenuBadgeStatus` and `MenuItemStatus` components. `MenuBadgeStatus` is a wrapper around the [`StatusBadge`](/components/badge#status-badge) that accepts both `MenuButton` props and the `StatusBadge` variant prop. The `MenuItemStatus` component is a composed child of `MenuItem`, that also provides a collection of variants that map to the [Status Pattern](/patterns/status). It can be used in conjunction with `MenuItem`, `MenuItemCheckbox` and `MenuItemRadio`.
 
 #### Process
 
@@ -300,6 +300,7 @@ Status is represented via the `MenuBadgeStatus` and `MenuItemStatus` components.
   scope={{
     useMenuState,
     Menu,
+    MenuItem,
     MenuBadgeStatus,
     MenuItemStatus,
     ProcessObject,
@@ -316,6 +317,7 @@ Status is represented via the `MenuBadgeStatus` and `MenuItemStatus` components.
   scope={{
     useMenuState,
     Menu,
+    MenuItemRadio,
     MenuBadgeStatus,
     MenuItemStatus,
     ConnectivityObject,
@@ -569,10 +571,6 @@ Same as `MenuButton` except:
 | Prop     | Type                  | Description                                                                                                                                                                                                                                                                                  | Default            |
 | -------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | variant  | `StatusBadgeVariants` | Swaps the menu item variant. Options are `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `ConnectivityAvailable`, `ConnectivityBusy`, `ConnectivityUnavailable`, `ConnectivityOffline`, `ConnectivityNeutral`. |                    |
-| disabled | `boolean, undefined`  | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
-| id       | `string, undefined`   | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
-| onClick  | `() => void`          | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
-| href     | `string, undefined`   | Same as the HTML attribute.                                                                                                                                                                                                                                                                  |                    |
 | element? | `string`              | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                                                                    | 'MENU_ITEM_STATUS' |
 
 <ChangelogRevealer>

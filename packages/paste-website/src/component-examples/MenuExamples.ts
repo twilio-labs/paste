@@ -287,27 +287,27 @@ const ProcessStatusMenu = () => {
         {process.children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItemStatus {...menu} variant="ProcessSuccess" onClick={() => onClick('Success')}>
-          Complete
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessNeutral" onClick={() => onClick('Neutral')}>
-          In review
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessWarning" onClick={() => onClick('Warning')}>
-          Needs attention
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessError" onClick={() => onClick('Error')}>
-          Rejected
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessInProgress" onClick={() => onClick('InProgress')}>
-          In progress
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessDisabled" onClick={() => onClick('Disabled')}>
-          Paused
-        </MenuItemStatus>
-        <MenuItemStatus {...menu} variant="ProcessDraft" onClick={() => onClick('Draft')}>
-          Draft
-        </MenuItemStatus>
+        <MenuItem {...menu} onClick={() => onClick('Success')} variant="default">
+          <MenuItemStatus variant="ProcessSuccess">Success</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
+          <MenuItemStatus variant="ProcessNeutral">Neutral</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
+          <MenuItemStatus variant="ProcessWarning">Warning</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('Error')} variant="default">
+          <MenuItemStatus variant="ProcessError">Error</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
+          <MenuItemStatus variant="ProcessInProgress">In progress</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
+          <MenuItemStatus variant="ProcessDisabled">Disabled</MenuItemStatus>
+        </MenuItem>
+        <MenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
+          <MenuItemStatus variant="ProcessDraft">Draft</MenuItemStatus>
+        </MenuItem>
       </Menu>
     </>
   );
@@ -321,7 +321,7 @@ render(
 export const ConnectivityObject = {
   Available: {
     variant: 'ConnectivityAvailable',
-    children: 'Online',
+    children: 'Available',
   },
   Busy: {
     variant: 'ConnectivityBusy',
@@ -354,21 +354,56 @@ const ConnectivityStatusMenu = () => {
         {availability.children}
       </MenuBadgeStatus>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItemStatus variant="ConnectivityAvailable" {...menu} onClick={() => onClick('Available')}>
-          Online
-        </MenuItemStatus>
-        <MenuItemStatus variant="ConnectivityBusy" {...menu} onClick={() => onClick('Busy')}>
-          Busy
-        </MenuItemStatus>
-        <MenuItemStatus variant="ConnectivityUnavailable" {...menu} onClick={() => onClick('Unavailable')}>
-          Unavailable
-        </MenuItemStatus>
-        <MenuItemStatus variant="ConnectivityNeutral" {...menu} onClick={() => onClick('Neutral')}>
-          Neutral
-        </MenuItemStatus>
-        <MenuItemStatus variant="ConnectivityOffline" {...menu} onClick={() => onClick('Offline')}>
-          Offline
-        </MenuItemStatus>
+        <MenuItemRadio
+          name="availability"
+          checked={availability.children === 'Available'}
+          value="available"
+          {...menu}
+          onClick={() => onClick('Available')}
+          variant="default"
+        >
+          <MenuItemStatus variant="ConnectivityAvailable">Available</MenuItemStatus>
+        </MenuItemRadio>
+        <MenuItemRadio
+          name="availability"
+          checked={availability.children === 'Busy'}
+          value="busy"
+          {...menu}
+          onClick={() => onClick('Busy')}
+          variant="default"
+        >
+          <MenuItemStatus variant="ConnectivityBusy">Busy</MenuItemStatus>
+        </MenuItemRadio>
+        <MenuItemRadio
+          name="availability"
+          checked={availability.children === 'Unavailable'}
+          value="unavailable"
+          {...menu}
+          onClick={() => onClick('Unavailable')}
+          variant="default"
+        >
+          <MenuItemStatus variant="ConnectivityUnavailable">Unavailable</MenuItemStatus>
+        </MenuItemRadio>
+        <MenuItemRadio
+          name="availability"
+          checked={availability.children === 'Neutral'}
+          value="neutral"
+          {...menu}
+          onClick={() => onClick('Neutral')}
+          variant="default"
+        >
+          <MenuItemStatus variant="ConnectivityNeutral">Neutral</MenuItemStatus>
+        </MenuItemRadio>
+        <MenuItemRadio
+          name="availability"
+          checked={availability.children === 'Offline'}
+          value="offline"
+          {...menu}
+          onClick={() => onClick('Offline')}
+          variant="default"
+        >
+          <MenuItemStatus variant="ConnectivityOffline">Break</MenuItemStatus>
+        </MenuItemRadio>
       </Menu>
     </>
   );

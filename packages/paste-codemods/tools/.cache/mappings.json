@@ -31,6 +31,7 @@
   "ButtonPropTypes": "@twilio-paste/core/button",
   "ButtonToggleStyles": "@twilio-paste/core/button",
   "DestructiveSecondaryButtonToggleStyles": "@twilio-paste/core/button",
+  "DirectButtonPropTypes": "@twilio-paste/core/button",
   "Callout": "@twilio-paste/core/callout",
   "CalloutHeading": "@twilio-paste/core/callout",
   "CalloutList": "@twilio-paste/core/callout",

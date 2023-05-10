@@ -7,7 +7,16 @@ import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {Menu, MenuBadgeStatus, SubMenuButton, MenuGroup, MenuItemStatus, MenuSeparator, useMenuState} from '../src';
+import {
+  Menu,
+  MenuBadgeStatus,
+  SubMenuButton,
+  MenuGroup,
+  MenuItem,
+  MenuItemStatus,
+  MenuSeparator,
+  useMenuState,
+} from '../src';
 import type {MenuBadgeStatusProps} from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;
@@ -98,37 +107,38 @@ export const BaseMenu: React.FC<
           label="Settings"
           data-testid="menu-group-settings"
         >
-          <MenuItemStatus
-            {...menu}
-            variant="ConnectivityAvailable"
-            element={getElementName(element, 'ITEM_STATUS')}
-            onClick={onClick}
-            data-testid="menu-item-1"
-          >
-            User info
-          </MenuItemStatus>
-          <MenuItemStatus
-            {...menu}
-            variant="ProcessError"
-            element={getElementName(element, 'ITEM_STATUS')}
-            onClick={onClick}
-            data-testid="menu-item-2"
-          >
-            Extensions
-          </MenuItemStatus>
+          <MenuItem {...menu} onClick={onClick}>
+            <MenuItemStatus
+              variant="ConnectivityAvailable"
+              element={getElementName(element, 'ITEM_STATUS')}
+              data-testid="menu-item-1"
+            >
+              User info
+            </MenuItemStatus>
+          </MenuItem>
+          <MenuItem {...menu} onClick={onClick}>
+            <MenuItemStatus
+              variant="ProcessError"
+              element={getElementName(element, 'ITEM_STATUS')}
+              data-testid="menu-item-2"
+            >
+              Extensions
+            </MenuItemStatus>
+          </MenuItem>
           {/* submenu */}
           <SubMenuButton {...subMenu} element={getElementName(element, 'BUTTON', 'SUB')} data-testid="submenu-button">
             Advanced settings
           </SubMenuButton>
           <Menu {...subMenu} aria-label="Advanced settings" element={getElementName(element)} data-testid="submenu">
-            <MenuItemStatus
-              variant="ProcessInProgress"
-              {...subMenu}
-              element={getElementName(element, 'ITEM_STATUS')}
-              data-testid="submenu-item-1"
-            >
-              Keyboard shortcuts
-            </MenuItemStatus>
+            <MenuItem {...subMenu}>
+              <MenuItemStatus
+                variant="ProcessInProgress"
+                element={getElementName(element, 'ITEM_STATUS')}
+                data-testid="submenu-item-1"
+              >
+                Keyboard shortcuts
+              </MenuItemStatus>
+            </MenuItem>
           </Menu>
           {/* submenu */}
         </MenuGroup>

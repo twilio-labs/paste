@@ -24,9 +24,7 @@ describe('Menu Customization', () => {
       const menuItem = screen.getByTestId('menu-item-1');
       expect(menuButton.getAttribute(PASTE_ELEMENT)).toEqual('MENU_BADGE_STATUS_BUTTON');
       expect(menuItem.getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM_STATUS');
-      expect(menuButton.parentElement?.parentElement?.parentElement?.getAttribute(PASTE_ELEMENT)).toEqual(
-        'MENU_BADGE_STATUS'
-      );
+      expect(menuButton.parentElement?.parentElement?.getAttribute(PASTE_ELEMENT)).toEqual('MENU_BADGE_STATUS');
     });
 
     it('Should add the correct "data-paste-element" attribute when element prop is "CUSTOM_MENU"', () => {
@@ -36,9 +34,7 @@ describe('Menu Customization', () => {
       const menuItem = screen.getByTestId('menu-item-1');
       expect(menuButton.getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_BADGE_STATUS_BUTTON');
       expect(menuItem.getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM_STATUS');
-      expect(menuButton.parentElement?.parentElement?.parentElement?.getAttribute(PASTE_ELEMENT)).toEqual(
-        'CUSTOM_MENU_BADGE_STATUS'
-      );
+      expect(menuButton.parentElement?.parentElement?.getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_BADGE_STATUS');
     });
   });
 
