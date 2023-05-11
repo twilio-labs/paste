@@ -26,9 +26,12 @@ props:
   shadow-focus-inset:
     value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-blue-60-transparent-70}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
+  shadow-focus-inverse-inset:
+    value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0-transparent-40}"
+    comment: Shadow for inset focus ring on interactive elements on inverse backgrounds.
   shadow-focus-shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-60-transparent-70}, {!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
-    comment: Shadow for simultaneous focus and border
+    comment: Shadow for simultaneous focus and border.
   shadow-border-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
     comment: Weaker shadow border for disabled inputs.
