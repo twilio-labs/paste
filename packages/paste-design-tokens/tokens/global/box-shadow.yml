@@ -184,5 +184,5 @@ props:
 
   # User
   shadow-border-user:
-    value: "{!palette-purple-30}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-50}"
     comment: Shadow border for user.
