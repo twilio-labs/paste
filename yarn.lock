@@ -11117,7 +11117,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/disclosure-primitive@^1.0.0, @twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure":
+"@twilio-paste/disclosure-primitive@1.0.0, @twilio-paste/disclosure-primitive@^1.0.0, @twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure"
   dependencies:
