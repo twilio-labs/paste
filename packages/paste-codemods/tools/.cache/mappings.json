@@ -9,6 +9,7 @@
   "isExternalUrl": "@twilio-paste/core/anchor",
   "secureExternalLink": "@twilio-paste/core/anchor",
   "Avatar": "@twilio-paste/core/avatar",
+  "AvatarGroup": "@twilio-paste/core/avatar",
   "Badge": "@twilio-paste/core/badge",
   "badgeBaseStyles": "@twilio-paste/core/badge",
   "useResizeChildIcons": "@twilio-paste/core/badge",

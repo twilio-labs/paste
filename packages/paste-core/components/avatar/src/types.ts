@@ -21,3 +21,10 @@ export type AvatarContentProps = {
   icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
   src?: string;
 };
+
+export type AvatarGroupProps = React.HTMLAttributes<'div'> &
+  Pick<BoxProps, 'element'> & {
+    size: IconSize;
+    variant: AvatarVariants;
+    children: NonNullable<React.ReactNode>;
+  };
