@@ -9927,6 +9927,7 @@ __metadata:
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.2
     "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/text": ^9.0.0
@@ -9947,6 +9948,7 @@ __metadata:
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.0
     "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/stack": ^7.0.0
     "@twilio-paste/style-props": ^8.0.0
     "@twilio-paste/styling-library": ^2.0.0
     "@twilio-paste/text": ^9.0.0

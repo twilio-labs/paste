@@ -7,7 +7,7 @@ import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
 import {useTheme} from '@twilio-paste/theme';
 
-import {Avatar} from '../src';
+import {Avatar, AvatarGroup} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -112,6 +112,113 @@ export const Variants = (): React.ReactNode => {
       <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
       <Avatar variant="entity" name="entity example" src="./avatars/avatar-sizeIcon70.png" />
     </Stack>
+  );
+};
+
+export const UserSizes = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size="sizeIcon10" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon20" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon30" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon40" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon50" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon60" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon70" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon80" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon90" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon100" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon110" variant="user" name="Avatar Example" />
+    </Stack>
+  );
+};
+
+export const EntitySizes = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size="sizeIcon10" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon20" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon30" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon40" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon50" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon60" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon70" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon80" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon90" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon100" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon110" variant="entity" name="Avatar Example" />
+    </Stack>
+  );
+};
+
+export const Grouped = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space50">
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+      </Stack>
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+      </Stack>
+    </Stack>
+  );
+};
+
+export const GroupedUsingContext = (): React.ReactNode => {
+  return (
+    <AvatarGroup size="sizeIcon70" variant="entity">
+      <Avatar size="sizeIcon10" variant="entity" name="First Avatar" />
+      <Avatar size="sizeIcon110" name="Second Avatar" />
+      <Avatar variant="user" name="Third Avatar" />
+    </AvatarGroup>
   );
 };
 
