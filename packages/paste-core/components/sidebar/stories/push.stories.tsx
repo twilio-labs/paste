@@ -10,6 +10,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+ß;
 import {
   Sidebar,
   SidebarHeader,
@@ -31,10 +32,11 @@ export default {
   title: 'Components/Sidebar/Push',
 };
 
+const onClick = (): void => {};
+
 export const Default: StoryFn = () => {
   const id = useUID();
   const menu = useMenuState();
-  const onClick = () => {};
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   /* eslint-disable react/jsx-max-depth */
@@ -130,7 +132,6 @@ Default.parameters = {
 export const Compact: StoryFn = () => {
   const id = useUID();
   const menu = useMenuState();
-  const onClick = () => {};
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   return (
