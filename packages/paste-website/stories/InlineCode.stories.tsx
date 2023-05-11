@@ -2,23 +2,20 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-
-import {InlineCode} from '../src/components/Typography';
+import {InlineCode} from '@twilio-paste/inline-code';
 
 export const RegularInline = (): React.ReactNode => <InlineCode>string</InlineCode>;
 
 export const AnchorInline = (): React.ReactNode => (
-  <InlineCode>
-    <Anchor href="#">string</Anchor>
-  </InlineCode>
+  <Anchor href="#">
+    <InlineCode>string</InlineCode>
+  </Anchor>
 );
 
 export const ExternalAnchorInline = (): React.ReactNode => (
-  <InlineCode>
-    <Anchor href="#" showExternal>
-      string
-    </Anchor>
-  </InlineCode>
+  <Anchor href="#" showExternal>
+    <InlineCode>string</InlineCode>
+  </Anchor>
 );
 
 export const InParagraphInline = (): React.ReactNode => (

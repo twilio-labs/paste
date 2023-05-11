@@ -1,6 +1,7 @@
 // https://github.com/FormidableLabs/react-live
 import * as React from 'react';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
+import type {LiveProviderProps} from 'react-live';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Theme, useTheme} from '@twilio-paste/theme';
@@ -10,7 +11,6 @@ import {HideIcon} from '@twilio-paste/icons/esm/HideIcon';
 
 import {CodeblockTheme} from './theme';
 import {CodeBlockOverlayShadow} from './CodeBlockOverlayShadow';
-import type {Language} from '../../codeblock';
 import {CopyButton} from '../../CopyButton';
 import {ThemeSwitcher} from './ThemeSwitcher';
 import {usePreviewThemeContext} from '../../../context/PreviewThemeContext';
@@ -18,7 +18,7 @@ import {usePreviewThemeContext} from '../../../context/PreviewThemeContext';
 interface LivePreviewProps {
   children: string;
   scope: {[key: string]: any};
-  language?: Language;
+  language?: LiveProviderProps['language'];
   disabled?: boolean;
   noInline?: boolean;
   showOverflow?: boolean;

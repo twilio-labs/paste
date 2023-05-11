@@ -4,8 +4,8 @@ import {Heading} from '@twilio-paste/heading';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {CodeBlock} from '@twilio-paste/code-block';
 
-import {Codeblock} from '../codeblock';
 import {CopyButton} from '../CopyButton';
 import {SiteLink} from '../SiteLink';
 import type {IconObject} from './types';
@@ -39,7 +39,7 @@ const IconCard: React.FC<React.PropsWithChildren<IconCardProps>> = ({selectedIco
           Install using React
         </Heading>
         <Box marginBottom="space70" position="relative">
-          <Codeblock>{iconSnippet(selectedIcon.name)}</Codeblock>
+          <CodeBlock language="jsx" code={iconSnippet(selectedIcon.name)} />
           <Box bottom="10px" position="absolute" right="10px">
             <CopyButton text={iconSnippet(selectedIcon.name)} />
           </Box>
