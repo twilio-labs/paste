@@ -10,7 +10,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-ß;
+
 import {
   Sidebar,
   SidebarHeader,
