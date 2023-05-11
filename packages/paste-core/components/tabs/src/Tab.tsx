@@ -25,7 +25,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         borderLeftColor: 'transparent',
         borderLeftStyle: 'solid',
         borderLeftWidth: 'borderWidth10',
-        color: isInverse ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeak',
         display: 'block',
         marginBottom: 'space40',
         paddingBottom: 'space30',
@@ -41,11 +41,11 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         _hover: {
           borderLeftColor: isInverse ? 'colorBorderInverse' : 'colorBorderPrimaryStronger',
-          color: isInverse ? 'colorTextInverseWeak' : 'colorTextLinkStronger',
+          color: isInverse ? 'colorTextInverseWeaker' : 'colorTextLinkStronger',
         },
         _disabled: {
           borderLeftColor: 'transparent',
-          color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+          color: isInverse ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         },
         _focus: {
           boxShadow: isInverse ? 'shadowFocusInverse' : 'shadowFocus',
@@ -80,7 +80,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         /* Disabled state */
         _disabled: {
           borderBottomColor: 'transparent',
-          color: isInverse ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+          color: isInverse ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         },
         /* Hover states */
         _hover: {

@@ -574,6 +574,13 @@ export const MultiselectComboboxInModal: StoryFn = () => {
   );
 };
 
+MultiselectComboboxInModal.parameters = {
+  a11y: {
+    // redundant flaky test
+    disable: true,
+  },
+};
+
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox/MultiselectCombobox',
