@@ -84,24 +84,21 @@ export const getStaticProps = async () => {
           <Anchor href="/components/stack">Stack</Anchor>
         </Heading>
       </Card>
+    </Stack>
+  </Column>
+  <Column>
+    <Stack orientation="vertical" spacing="space50">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/description-list">Description List</Anchor>
+        </Heading>
+      </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="/components/grid">Grid</Anchor>
         </Heading>
       </Card>
     </Stack>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40">
-        Description list
-        <br />
-        (coming soon)
-      </Heading>
-      <Paragraph marginBottom="space0">
-        Learn more <Anchor href="#standard-details">about description lists and how to compose them</Anchor> below.
-      </Paragraph>
-    </Card>
   </Column>
 </Grid>
 
@@ -113,6 +110,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@twilio-paste/core/tabs
 import {​ Text } from "@twilio-paste/core/text";
 import { Box } from "@twilio-paste/core/box";
 import { Stack } from "@twilio-paste/core/stack";
+import { DescriptionList } from "@twilio-paste/core/description-list";
 import { Grid, Column } from "@twilio-paste/core/grid";
 ```
 
@@ -144,43 +142,9 @@ To structure a page:
 
 ### Standard details
 
-The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be vertically placed.
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Composing a Description List</CalloutHeading>
-  <CalloutText>
-    A list of properties should be structured into a description list using the{' '}
-    <Anchor href="/primitives/box">Box</Anchor> and <Anchor href="/primitives/text">Text</Anchor> primitives (e.g.,{' '}
-    <Text as="span" fontFamily="fontFamilyCode" color="currentColor">
-      Box as="dl"
-    </Text>
-    , <Text as="span" fontFamily="fontFamilyCode" color="currentColor">
-      w
-    </Text>) to help define the relationship between a property and its label, and spaced with the <Anchor href="/components/stack">
-      Stack
-    </Anchor> component.
-  </CalloutText>
-  <CalloutText>
-    In the future, this composition will be replaced with a Description List component.{' '}
-    <Anchor
-      href="https://css-tricks.com/utilizing-the-underused-but-semantically-awesome-definition-list/"
-      showExternal
-    >
-      Read more about description lists
-    </Anchor>
-  </CalloutText>
-</Callout>
+The most common way to structure an object details page is to first show an overview of properties in a [Description List](/components/description-list), followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be vertically placed.
 
 <ResponsiveImage src={ObjectDetailsStandardImage} alt="Screen of message details and list of properties" />
-
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h4" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
 
 If there are more than 6 properties, divide the properties into 2 columns.
 
@@ -193,29 +157,11 @@ For example, when viewing the details of a sent email campaign, a customer may w
   alt="Screen of email campaign details showing a chart first"
 />
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h4" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
-
 ### Tabbed details
 
 When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](/components/tabs).
 
 <ResponsiveImage src={ObjectDetailsTabbedImage} alt="Screen of call details with tabs and list of properties" />
-
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h4" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
 
 ### Placement of object actions
 
