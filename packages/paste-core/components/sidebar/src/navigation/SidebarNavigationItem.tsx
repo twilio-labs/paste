@@ -1,8 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
+import {Button} from '@twilio-paste/button';
+import type {ButtonProps} from '@twilio-paste/button';
 
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 import {
@@ -11,37 +13,48 @@ import {
   sidebarNavigationItemSelectedStyles,
 } from './styles';
 
-export interface SidebarNavigationItemProps extends React.ComponentPropsWithRef<'div'> {
+export interface SidebarNavigationItemProps
+  extends Pick<ButtonProps, 'as' | 'href' | 'onClick' | 'i18nExternalLinkLabel'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   selected?: boolean;
 }
 
-const SidebarNavigationItem = React.forwardRef<HTMLDivElement, SidebarNavigationItemProps>(
+const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigationItemProps>(
   ({element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, ...props}, ref) => {
     const theme = useTheme();
     const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
     // Any disclosure context means we're nested
     const isNested = disclosure != null;
 
+    const bonusStyles = React.useMemo(
+      () => ({
+        background: 'none',
+        border: 'none',
+        outline: 'none',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+        paddingX: 'space30',
+        ...(isNested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles),
+        ...(selected && sidebarNavigationItemSelectedStyles),
+      }),
+      [theme, isNested, selected]
+    );
+
     return (
-      <Box
+      <Button
         {...safelySpreadBoxProps(props)}
-        as="button"
-        background="none"
-        border="none"
-        outline="none"
-        variant="reset"
-        whiteSpace="nowrap"
-        textOverflow="ellipsis"
-        overflow="hidden"
         ref={ref}
         element={element}
-        {...(isNested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles)}
-        {...(selected && sidebarNavigationItemSelectedStyles)}
+        type="button"
+        variant="reset"
+        size="reset"
+        fullWidth
+        {...(bonusStyles as any)}
       >
         {children}
-      </Box>
+      </Button>
     );
   }
 );

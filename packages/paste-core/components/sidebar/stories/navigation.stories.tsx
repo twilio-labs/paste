@@ -193,8 +193,16 @@ export const Compact: StoryFn = () => {
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
               </SidebarNavigationDisclosure>
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-              <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem
+                onClick={() => {
+                  setPushSidebarCollapsed(!pushSidebarCollapsed);
+                }}
+              >
+                Navigation Item
+              </SidebarNavigationItem>
+              <SidebarNavigationItem as="a" href="https://google.com" selected>
+                Navigation Item
+              </SidebarNavigationItem>
               <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
