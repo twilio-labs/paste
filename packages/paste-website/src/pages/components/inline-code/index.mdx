@@ -86,14 +86,6 @@ Inline Code is also commonly used standalone for key pieces of code text, such a
 `}
 </LivePreview>
 
-### Minimal variant
-
-Set `variant="minimal"` to use a more subtle snippet of code.
-
-<LivePreview scope={{InlineCode, Text}} language="jsx">
-  {`<InlineCode variant='minimal'>WQC0000001111111122234444444</InlineCode>`}
-</LivePreview>
-
 ## Usage Guide
 
 ### API
@@ -114,11 +106,10 @@ const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</
 
 #### Props
 
-| Prop     | Type                   | Description                                                                               | Default       |
-| -------- | ---------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children | `string`               | text to display inline as code                                                            |               |
-| element? | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
-| variant? | `'default', 'minimal'` | Sets the variant to display                                                               | 'default'     |
+| Prop     | Type     | Description                                                                               | Default       |
+| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
+| children | `string` | text to display inline as code                                                            |               |
+| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
 
 ### Figma
 

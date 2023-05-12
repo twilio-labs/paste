@@ -11,6 +11,7 @@ import {
   getCorrespondingIconSizeFromSizeToken,
   getComputedTokenNames,
   getInitialsFromName,
+  getGroupSpacing,
 } from '../src/utils';
 
 describe('Avatar', () => {
@@ -103,6 +104,15 @@ describe('Avatar', () => {
           lineHeight: ['lineHeight50', 'lineHeight100'],
           iconSize: ['sizeIcon20', 'sizeIcon70'],
         });
+      });
+    });
+
+    describe('getGroupSpacing', () => {
+      it('should return the correct space token', () => {
+        expect(getGroupSpacing('sizeIcon30', 'user')).toEqual('spaceNegative10');
+        expect(getGroupSpacing('sizeIcon100', 'user')).toEqual('spaceNegative40');
+        expect(getGroupSpacing('sizeIcon30', 'entity')).toEqual('spaceNegative10');
+        expect(getGroupSpacing('sizeIcon100', 'entity')).toEqual('spaceNegative20');
       });
     });
   });

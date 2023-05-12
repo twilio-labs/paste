@@ -5,7 +5,10 @@ import type {
   IconSize,
   LineHeight,
   FontSize,
+  SpaceOptions,
 } from '@twilio-paste/style-props';
+
+import type {AvatarVariants} from './types';
 
 export const getInitialsFromName = (fullname: string): string => {
   return fullname
@@ -118,4 +121,48 @@ export const getComputedTokenNames = (
     };
   }
   throw new Error('[Avatar]: size must be a string or an array');
+};
+
+/*
+ * Spacing for Avatar Group
+ */
+
+export const getGroupSpacing = (size: IconSize, variant: AvatarVariants): SpaceOptions => {
+  if (variant === 'user') {
+    switch (size) {
+      case 'sizeIcon10':
+      case 'sizeIcon20':
+      case 'sizeIcon30':
+        return 'spaceNegative10';
+      case 'sizeIcon40':
+      case 'sizeIcon50':
+      case 'sizeIcon60':
+      case 'sizeIcon70':
+        return 'spaceNegative20';
+      case 'sizeIcon80':
+      case 'sizeIcon90':
+        return 'spaceNegative30';
+      case 'sizeIcon100':
+        return 'spaceNegative40';
+      case 'sizeIcon110':
+        return 'spaceNegative50';
+    }
+  }
+  switch (size) {
+    case 'sizeIcon10':
+    case 'sizeIcon20':
+    case 'sizeIcon30':
+      return 'spaceNegative10';
+    case 'sizeIcon40':
+    case 'sizeIcon50':
+    case 'sizeIcon60':
+    case 'sizeIcon70':
+    case 'sizeIcon80':
+    case 'sizeIcon90':
+    case 'sizeIcon100':
+    case 'sizeIcon110':
+      return 'spaceNegative20';
+    default:
+      return 'spaceNegative20';
+  }
 };

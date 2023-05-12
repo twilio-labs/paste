@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
+import {CodeBlock} from '@twilio-paste/code-block';
 import {format as prettyFormat} from 'pretty-format';
-
-import {Codeblock} from './codeblock';
 
 export const ThemeObjectDisplay: React.FC<React.PropsWithChildren<unknown>> = () => {
   const theme = useTheme();
@@ -13,8 +12,8 @@ export const ThemeObjectDisplay: React.FC<React.PropsWithChildren<unknown>> = ()
     reducedTheme[key] = {};
   });
   return (
-    <Box as="pre" marginBottom="space70">
-      <Codeblock>{prettyFormat(reducedTheme)}</Codeblock>
+    <Box marginBottom="space70">
+      <CodeBlock code={prettyFormat(reducedTheme)} language="json" />
     </Box>
   );
 };
