@@ -1,20 +1,20 @@
 /* Wrapper */
 export * from './Sidebar';
 export * from './SidebarContext';
-export * from './SidebarPushContentWrapper';
-export * from './SidebarOverlayContentWrapper';
+export * from './content-wrappers/SidebarPushContentWrapper';
+export * from './content-wrappers/SidebarOverlayContentWrapper';
 /* Header */
-export * from './SidebarHeader';
-export * from './SidebarHeaderLabel';
-export * from './SidebarHeaderIconButton';
+export * from './header/SidebarHeader';
+export * from './header/SidebarHeaderLabel';
+export * from './header/SidebarHeaderIconButton';
 /* Footer */
-export * from './SidebarCollapseButtonWrapper';
-export * from './SidebarCollapseButton';
+export * from './footer/SidebarCollapseButtonWrapper';
+export * from './footer/SidebarCollapseButton';
 /* Navigation */
-export * from './nav/SidebarNavigation';
-export * from './nav/SidebarNavigationDisclosure';
-export * from './nav/SidebarNavigationDisclosureContent';
-export * from './nav/SidebarNavigationDisclosureHeading';
-export * from './nav/SidebarNavigationItem';
+export * from './navigation/SidebarNavigation';
+export * from './navigation/SidebarNavigationDisclosure';
+export * from './navigation/SidebarNavigationDisclosureContent';
+export * from './navigation/SidebarNavigationDisclosureHeading';
+export * from './navigation/SidebarNavigationItem';
 /* Misc */
 export * from './SidebarBetaBadge';

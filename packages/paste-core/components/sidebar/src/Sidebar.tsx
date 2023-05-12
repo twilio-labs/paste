@@ -13,7 +13,7 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
   <Box
     {...props}
     as="nav"
-    overflow="hidden"
+    overflow="visible"
     display="flex"
     flexDirection="column"
     ref={ref}

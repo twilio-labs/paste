@@ -2,13 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
-import type {BoxProps} from '@twilio-paste/box';
 
-export interface SidebarHeaderIconButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface SidebarHeaderIconButtonProps extends Omit<ButtonProps, 'size' | 'variant'> {
   children: NonNullable<React.ReactNode>;
-  tabIndex?: ButtonProps['tabIndex'];
-  onClick?: () => void;
-  element?: BoxProps['element'];
 }
 
 export const SidebarHeaderIconButton = React.forwardRef<HTMLButtonElement, SidebarHeaderIconButtonProps>(
