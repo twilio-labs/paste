@@ -59,13 +59,11 @@ export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElem
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
   ({element = 'SIDEBAR_NAVIGATION', children}, ref) => {
-    const {collapsed} = React.useContext(SidebarContext);
     return (
       <Box
         as={SidebarNavigationWrapper as any}
         element={element}
         ref={ref}
-        opacity={collapsed ? 0 : 1}
         transition="opacity 150ms ease"
         maxHeight="100%"
         overflowY="auto"

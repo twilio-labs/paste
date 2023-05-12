@@ -5,6 +5,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {DisclosurePrimitiveInitialState} from '@twilio-paste/disclosure-primitive';
 
+import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 import type {SidebarNavigationDisclosureStateReturn} from './types';
 
@@ -16,6 +17,7 @@ export interface DisclosureProps extends DisclosurePrimitiveInitialState {
 
 const SidebarNavigationDisclosure = React.forwardRef<HTMLDivElement, DisclosureProps>(
   ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE', state, ...props}, ref) => {
+    const {collapsed} = React.useContext(SidebarContext);
     // We check context to see if this disclosure is nested
     const {disclosure: parentDisclosure} = React.useContext(SidebarNavigationDisclosureContext);
     // Set the disclosure state to provide into this component's context
@@ -28,7 +30,7 @@ const SidebarNavigationDisclosure = React.forwardRef<HTMLDivElement, DisclosureP
 
     return (
       <SidebarNavigationDisclosureContext.Provider value={disclosureContext}>
-        <Box {...safelySpreadBoxProps(props)} element={element} ref={ref}>
+        <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} display={collapsed ? 'none' : 'block'}>
           {children}
         </Box>
       </SidebarNavigationDisclosureContext.Provider>

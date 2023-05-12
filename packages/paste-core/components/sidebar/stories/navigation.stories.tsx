@@ -42,7 +42,7 @@ export const Default: StoryFn = () => {
   /* eslint-disable react/jsx-max-depth */
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         {/* Header */}
         <SidebarHeader>
           <SidebarHeaderIconButton>
@@ -52,9 +52,17 @@ export const Default: StoryFn = () => {
         </SidebarHeader>
         {/* Nav */}
         <SidebarNavigation>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
-
+          <SidebarNavigationItem
+            onClick={() => {
+              setPushSidebarCollapsed(!pushSidebarCollapsed);
+            }}
+            icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+          >
+            This item closes the sidebar
+          </SidebarNavigationItem>
+          <SidebarNavigationItem as="a" href="https://google.com" selected>
+            Go to Google.com
+          </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
             <Box display="flex" alignItems="center" justifyContent="space-between">
               <SidebarNavigationDisclosureHeading selected>
@@ -88,24 +96,33 @@ export const Default: StoryFn = () => {
             </Box>
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationDisclosure>
-                <SidebarNavigationDisclosureHeading selected>
-                  <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                  <Box marginLeft="space20">Heading</Box>
-                </SidebarNavigationDisclosureHeading>
+                <Box display="flex" alignItems="center" justifyContent="space-between">
+                  <SidebarNavigationDisclosureHeading selected>
+                    <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
+                    <Box marginLeft="space20">Heading</Box>
+                  </SidebarNavigationDisclosureHeading>
+                  <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                </Box>
                 <SidebarNavigationDisclosureContent>
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                   <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
               </SidebarNavigationDisclosure>
-
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-              <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem
+                onClick={() => {
+                  setPushSidebarCollapsed(!pushSidebarCollapsed);
+                }}
+              >
+                This item closes the sidebar
+              </SidebarNavigationItem>
+              <SidebarNavigationItem as="a" href="https://google.com" selected>
+                Go to Google.com
+              </SidebarNavigationItem>
               <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
         </SidebarNavigation>
-        {/* Footer */}
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -116,7 +133,7 @@ export const Default: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
@@ -145,8 +162,16 @@ export const Compact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarNavigation>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem
+            onClick={() => {
+              setPushSidebarCollapsed(!pushSidebarCollapsed);
+            }}
+          >
+            This item closes the sidebar
+          </SidebarNavigationItem>
+          <SidebarNavigationItem as="a" href="https://google.com" selected>
+            Go to Google.com
+          </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
             <Box display="flex" alignItems="center" justifyContent="space-between">
               <SidebarNavigationDisclosureHeading selected>
