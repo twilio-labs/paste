@@ -2,17 +2,18 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {StatusObject} from '@twilio-paste/badge';
-import type {StatusBadgeVariants} from '@twilio-paste/badge';
 
-type MenuItemStatusVariant = StatusBadgeVariants;
+import {StatusObject} from './constants';
+import type {StatusBadgeVariants} from './types';
 
-export interface MenuItemStatusProps extends React.HTMLAttributes<HTMLDivElement> {
+type StatusMenuItemChildVariant = StatusBadgeVariants;
+
+export interface StatusMenuItemChildProps extends React.HTMLAttributes<HTMLDivElement> {
   element?: BoxProps['element'];
-  variant: MenuItemStatusVariant;
+  variant: StatusMenuItemChildVariant;
 }
 
-const MenuItemStatus = React.forwardRef<HTMLDivElement, MenuItemStatusProps>(
+const StatusMenuItemChild = React.forwardRef<HTMLDivElement, StatusMenuItemChildProps>(
   ({children, variant, element = 'MENU_ITEM_STATUS', ...props}, ref) => {
     return (
       <Box
@@ -32,11 +33,11 @@ const MenuItemStatus = React.forwardRef<HTMLDivElement, MenuItemStatusProps>(
   }
 );
 
-MenuItemStatus.displayName = 'MenuItemStatus';
+StatusMenuItemChild.displayName = 'StatusMenuItemChild';
 
-MenuItemStatus.propTypes = {
+StatusMenuItemChild.propTypes = {
   variant: PropTypes.oneOf(Object.keys(StatusObject)).isRequired,
   element: PropTypes.string,
 };
 
-export {MenuItemStatus};
+export {StatusMenuItemChild};

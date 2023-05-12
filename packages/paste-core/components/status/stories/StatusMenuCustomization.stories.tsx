@@ -4,20 +4,10 @@ import {Box} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {
-  Menu,
-  MenuBadgeStatus,
-  SubMenuButton,
-  MenuGroup,
-  MenuItem,
-  MenuItemStatus,
-  MenuSeparator,
-  useMenuState,
-} from '../src';
-import type {MenuBadgeStatusProps} from '../src';
+import {StatusMenu, StatusMenuBadge, StatusMenuItem, StatusMenuItemChild, useStatusMenuState} from '../src';
+import type {StatusMenuBadgeProps} from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;
 
@@ -62,9 +52,8 @@ const getElementName = (elementName: string | undefined, suffix?: string, prefix
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Menu/MenuStatus/Customization',
-  component: Menu,
-  subcomponents: {MenuBadgeStatus, SubMenuButton, MenuGroup, MenuItemStatus, MenuSeparator},
+  title: 'Components/Status/MenuStatus/Customization',
+  component: StatusMenu,
   parameters: {
     // Sets a delay for the component's stories
     chromatic: {delay: 3000},
@@ -77,21 +66,20 @@ export default {
 };
 
 export const BaseMenu: React.FC<
-  React.PropsWithChildren<{menuBadgeStatusVariant?: MenuBadgeStatusProps['variant']; element?: string}>
+  React.PropsWithChildren<{menuBadgeStatusVariant?: StatusMenuBadgeProps['variant']; element?: string}>
 > = React.memo(function BaseMenu({menuBadgeStatusVariant = 'ProcessError', element}) {
   const uniqueBaseID = useUID();
-  const menu = useMenuState({
+  const menu = useStatusMenuState({
     visible: true,
     baseId: `${uniqueBaseID}-${menuBadgeStatusVariant}-menu-customization-story`,
   });
 
-  const subMenu = useMenuState({baseId: `${uniqueBaseID}-${menuBadgeStatusVariant}-menu-submenu`});
   const onClick = React.useCallback(() => {
     menu.hide();
   }, [menu]);
   return (
     <>
-      <MenuBadgeStatus
+      <StatusMenuBadge
         {...menu}
         i18nButtonLabel="Open menu"
         element={getElementName(element, 'BADGE_STATUS')}
@@ -99,50 +87,36 @@ export const BaseMenu: React.FC<
         data-testid="menu-badge-status"
       >
         Preferences
-      </MenuBadgeStatus>
-      <Menu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
-        <MenuGroup
-          element={getElementName(element, 'GROUP')}
-          icon={<ProductSettingsIcon decorative />}
-          label="Settings"
-          data-testid="menu-group-settings"
-        >
-          <MenuItem {...menu} onClick={onClick}>
-            <MenuItemStatus
-              variant="ConnectivityAvailable"
-              element={getElementName(element, 'ITEM_STATUS')}
-              data-testid="menu-item-1"
-            >
-              User info
-            </MenuItemStatus>
-          </MenuItem>
-          <MenuItem {...menu} onClick={onClick}>
-            <MenuItemStatus
-              variant="ProcessError"
-              element={getElementName(element, 'ITEM_STATUS')}
-              data-testid="menu-item-2"
-            >
-              Extensions
-            </MenuItemStatus>
-          </MenuItem>
-          {/* submenu */}
-          <SubMenuButton {...subMenu} element={getElementName(element, 'BUTTON', 'SUB')} data-testid="submenu-button">
-            Advanced settings
-          </SubMenuButton>
-          <Menu {...subMenu} aria-label="Advanced settings" element={getElementName(element)} data-testid="submenu">
-            <MenuItem {...subMenu}>
-              <MenuItemStatus
-                variant="ProcessInProgress"
-                element={getElementName(element, 'ITEM_STATUS')}
-                data-testid="submenu-item-1"
-              >
-                Keyboard shortcuts
-              </MenuItemStatus>
-            </MenuItem>
-          </Menu>
-          {/* submenu */}
-        </MenuGroup>
-      </Menu>
+      </StatusMenuBadge>
+      <StatusMenu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
+        <StatusMenuItem {...menu} onClick={onClick}>
+          <StatusMenuItemChild
+            variant="ConnectivityAvailable"
+            element={getElementName(element, 'ITEM_STATUS')}
+            data-testid="menu-item-1"
+          >
+            User info
+          </StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={onClick}>
+          <StatusMenuItemChild
+            variant="ProcessError"
+            element={getElementName(element, 'ITEM_STATUS')}
+            data-testid="menu-item-2"
+          >
+            Extensions
+          </StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={onClick}>
+          <StatusMenuItemChild
+            variant="ProcessInProgress"
+            element={getElementName(element, 'ITEM_STATUS')}
+            data-testid="submenu-item-1"
+          >
+            Keyboard shortcuts
+          </StatusMenuItemChild>
+        </StatusMenuItem>
+      </StatusMenu>
     </>
   );
 });

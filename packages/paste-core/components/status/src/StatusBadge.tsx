@@ -1,11 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {BadgePropTypes, badgeBaseStyles, badgeVariantStyles} from '@twilio-paste/badge';
 
 import {StatusObject} from './constants';
 import type {StatusBadgeProps, StatusBadgeVariants} from './types';
-import {badgeBaseStyles, badgeVariantStyles} from './styles';
-import {BadgePropTypes} from './propTypes';
 
 const badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles.default};
 

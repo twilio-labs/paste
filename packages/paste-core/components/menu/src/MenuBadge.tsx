@@ -51,11 +51,13 @@ const MenuBadge = React.forwardRef<HTMLButtonElement, MenuBadgeProps>(
   }
 );
 
-MenuBadge.displayName = 'MenuBadge';
-MenuBadge.propTypes = {
+export const MenuBadgePropTypes = {
   ...ButtonPropTypes,
   i18nButtonLabel: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(Object.values(BadgeVariants)).isRequired,
 };
+
+MenuBadge.displayName = 'MenuBadge';
+MenuBadge.propTypes = MenuBadgePropTypes;
 
 export {MenuBadge};

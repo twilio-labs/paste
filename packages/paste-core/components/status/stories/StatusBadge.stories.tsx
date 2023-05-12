@@ -1,12 +1,11 @@
 import * as React from 'react';
 import type {Meta, StoryFn} from '@storybook/react';
-import {Stack} from '@twilio-paste/stack';
 
 import {StatusBadge} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Badge/StatusBadge',
+  title: 'Components/Status/StatusBadge',
   component: StatusBadge,
   argTypes: {
     variant: {
@@ -19,11 +18,9 @@ export default {
 } as Meta<typeof StatusBadge>;
 
 const Template: StoryFn<typeof StatusBadge> = ({variant}) => (
-  <Stack orientation="horizontal" spacing="space40">
-    <StatusBadge as="span" variant={variant}>
-      {variant}
-    </StatusBadge>
-  </Stack>
+  <StatusBadge as="span" variant={variant}>
+    {variant}
+  </StatusBadge>
 );
 
 export const ProcessSuccessStatusBadge = Template.bind({});

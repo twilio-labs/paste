@@ -7,7 +7,7 @@ export const meta = {
 
 import Changelog from '@twilio-paste/badge/CHANGELOG.md';
 
-import {Badge, StatusBadge} from '@twilio-paste/badge';
+import {Badge} from '@twilio-paste/badge';
 import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
@@ -261,56 +261,6 @@ When using the Subaccount Badge, it is recommended that you include a Users icon
     <UsersIcon decorative />
     Subaccount
   </Badge>
-</Box>
-`.trim()}
-</LivePreview>
-
-### Status Badge
-
-Following the [Paste Status Pattern](/patterns/status), Status Badges can be used in cases where a Badge represents either a Process or Connectivity. These composed Status Badges choose the right color and icon pairing for you, based on the variant you choose. The variants available are mapped to the [Status Pattern](/patterns/status).
-
-<LivePreview scope={{Box, StatusBadge}} language="jsx">
-  {`<Box display="flex" flexDirection="column" rowGap="space40">
-  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
-    <StatusBadge variant="ProcessSuccess">
-      Success
-    </StatusBadge>
-    <StatusBadge variant="ProcessError">
-      Error
-    </StatusBadge>
-    <StatusBadge variant="ProcessWarning">
-      Warning
-    </StatusBadge>
-    <StatusBadge variant="ProcessNeutral">
-      Neutral
-    </StatusBadge>
-    <StatusBadge variant="ProcessInProgress">
-      In Progress
-    </StatusBadge>
-    <StatusBadge variant="ProcessDisabled">
-      Disabled
-    </StatusBadge>
-    <StatusBadge variant="ProcessDraft">
-      Draft
-    </StatusBadge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <StatusBadge variant="ConnectivityAvailable">
-      Available
-    </StatusBadge>
-    <StatusBadge variant="ConnectivityUnavailable">
-      Unavailable
-    </StatusBadge>
-    <StatusBadge variant="ConnectivityBusy">
-      Busy
-    </StatusBadge>
-    <StatusBadge variant="ConnectivityNeutral">
-      Neutral
-    </StatusBadge>
-    <StatusBadge variant="ConnectivityOffline">
-      Offline
-    </StatusBadge>
-  </Box>
 </Box>
 `.trim()}
 </LivePreview>
@@ -711,15 +661,6 @@ const BadgeExample = () => (
 | href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
 | onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
 | element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |
-
-##### StatusBadge
-
-| Prop     | Type                           | Description                                                                                                                                                                                                                                        | Default        |
-| -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| children | `NonNullable<React.ReactNode>` |                                                                                                                                                                                                                                                    | `null`         |
-| variant  | `StatusBadgeVariants`          | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`         |
-| size     | `BadgeSizes`                   | `default`, `small`                                                                                                                                                                                                                                 | `default`      |
-| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                          | 'STATUS_BADGE' |
 
 <ChangelogRevealer>
   <Changelog />

@@ -78,6 +78,7 @@
     "/packages/paste-core/components/skeleton-loader",
     "/packages/paste-core/components/spinner",
     "/packages/paste-core/layout/stack",
+    "/packages/paste-core/components/status",
     "/packages/paste-style-props",
     "/packages/paste-libraries/styling",
     "/packages/paste-core/components/switch",

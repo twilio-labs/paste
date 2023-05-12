@@ -87,6 +87,7 @@
     "@twilio-paste/skeleton-loader": "^5.0.0",
     "@twilio-paste/spinner": "^13.0.0",
     "@twilio-paste/stack": "^7.0.0",
+    "@twilio-paste/status": "^0.0.0",
     "@twilio-paste/style-props": "^8.0.0",
     "@twilio-paste/styling-library": "^2.0.0",
     "@twilio-paste/table": "^7.0.0",

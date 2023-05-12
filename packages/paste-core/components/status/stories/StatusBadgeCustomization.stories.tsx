@@ -114,7 +114,7 @@ export const ConnectivityNeutral: StoryFn = (_args, {parameters: {isTestEnvironm
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Badge/StatusBadge/Customization',
+  title: 'Components/Status/StatusBadge/Customization',
   component: StatusBadge,
   excludeStories: ['getStyles', 'makeBadge'],
   parameters: {

@@ -1,31 +1,8 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {TextColorOptions} from '@twilio-paste/style-props';
 
 import type {BadgeVariants} from './constants';
 
-export type StatusBadgeVariants =
-  | 'ProcessError'
-  | 'ProcessWarning'
-  | 'ProcessSuccess'
-  | 'ProcessNeutral'
-  | 'ProcessInProgress'
-  | 'ProcessDisabled'
-  | 'ProcessDraft'
-  | 'ConnectivityAvailable'
-  | 'ConnectivityBusy'
-  | 'ConnectivityUnavailable'
-  | 'ConnectivityOffline'
-  | 'ConnectivityNeutral';
-
 export type BadgeSizes = 'default' | 'small';
-
-export type StatusBadges = {
-  [key in StatusBadgeVariants]: {
-    badgeVariant: typeof BadgeVariants[number];
-    icon: React.ReactNode;
-    color: TextColorOptions;
-  };
-};
 
 export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
@@ -49,8 +26,3 @@ export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
 };
 
 export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);
-
-export type StatusBadgeProps = Omit<BadgeBaseProps, 'variant'> &
-  BadgeSpanProps & {
-    variant: StatusBadgeVariants;
-  };
