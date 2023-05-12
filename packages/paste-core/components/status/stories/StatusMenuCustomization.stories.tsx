@@ -6,13 +6,21 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {StatusMenu, StatusMenuBadge, StatusMenuItem, StatusMenuItemChild, useStatusMenuState} from '../src';
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItem,
+  StatusMenuItemCheckbox,
+  StatusMenuItemRadio,
+  StatusMenuItemChild,
+  useStatusMenuState,
+} from '../src';
 import type {StatusMenuBadgeProps} from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;
 
 export const initStyles = (element: string): ElementOverrides => ({
-  [`${element}_BADGE_STATUS`]: {
+  [`${element}_BADGE`]: {
     variants: {
       ProcessSuccess: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
       ProcessNeutral: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
@@ -31,10 +39,22 @@ export const initStyles = (element: string): ElementOverrides => ({
       },
     },
   },
-  [`${element}_BADGE_STATUS_BUTTON`]: {
+  [`${element}_BADGE_BUTTON`]: {
     backgroundColor: 'colorBackgroundErrorStrong',
   },
-  [`${element}_ITEM_STATUS`]: {
+  [`${element}`]: {
+    borderColor: 'colorBorderWarning',
+  },
+  [`${element}_ITEM`]: {
+    borderColor: 'colorBorderSuccess',
+  },
+  [`${element}_ITEM_CHECKBOX`]: {
+    fontWeight: 'fontWeightBold',
+  },
+  [`${element}_ITEM_RADIO`]: {
+    color: 'colorTextWarningStrong',
+  },
+  [`${element}_ITEM_CHILD`]: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     variants: {
       ConnectivityAvailable: {
@@ -82,40 +102,70 @@ export const BaseMenu: React.FC<
       <StatusMenuBadge
         {...menu}
         i18nButtonLabel="Open menu"
-        element={getElementName(element, 'BADGE_STATUS')}
+        element={getElementName(element, 'BADGE')}
         variant={menuBadgeStatusVariant}
         data-testid="menu-badge-status"
       >
         Preferences
       </StatusMenuBadge>
       <StatusMenu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
-        <StatusMenuItem {...menu} onClick={onClick}>
+        <StatusMenuItem data-testid="menu-item-1" {...menu} element={getElementName(element, 'ITEM')} onClick={onClick}>
           <StatusMenuItemChild
             variant="ConnectivityAvailable"
-            element={getElementName(element, 'ITEM_STATUS')}
-            data-testid="menu-item-1"
+            element={getElementName(element, 'ITEM_CHILD')}
+            data-testid="menu-child-item-1"
           >
             User info
           </StatusMenuItemChild>
         </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={onClick}>
+        <StatusMenuItem data-testid="menu-item-2" {...menu} element={getElementName(element, 'ITEM')} onClick={onClick}>
           <StatusMenuItemChild
             variant="ProcessError"
-            element={getElementName(element, 'ITEM_STATUS')}
-            data-testid="menu-item-2"
+            element={getElementName(element, 'ITEM_CHILD')}
+            data-testid="menu-child-item-2"
           >
             Extensions
           </StatusMenuItemChild>
         </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={onClick}>
+        <StatusMenuItem data-testid="menu-item-3" {...menu} element={getElementName(element, 'ITEM')} onClick={onClick}>
           <StatusMenuItemChild
             variant="ProcessInProgress"
-            element={getElementName(element, 'ITEM_STATUS')}
-            data-testid="submenu-item-1"
+            element={getElementName(element, 'ITEM_CHILD')}
+            data-testid="menu-child-item-3"
           >
             Keyboard shortcuts
           </StatusMenuItemChild>
         </StatusMenuItem>
+        <StatusMenuItemCheckbox
+          {...menu}
+          element={getElementName(element, 'ITEM_CHECKBOX')}
+          onClick={onClick}
+          checked
+          data-testid="menu-item-4"
+        >
+          <StatusMenuItemChild
+            variant="ProcessInProgress"
+            element={getElementName(element, 'ITEM_CHILD')}
+            data-testid="menu-child-item-4"
+          >
+            Checkbox
+          </StatusMenuItemChild>
+        </StatusMenuItemCheckbox>
+        <StatusMenuItemRadio
+          {...menu}
+          element={getElementName(element, 'ITEM_RADIO')}
+          checked
+          onClick={onClick}
+          data-testid="menu-item-5"
+        >
+          <StatusMenuItemChild
+            variant="ProcessInProgress"
+            element={getElementName(element, 'ITEM_CHILD')}
+            data-testid="menu-child-item-5"
+          >
+            Radio
+          </StatusMenuItemChild>
+        </StatusMenuItemRadio>
       </StatusMenu>
     </>
   );
@@ -124,13 +174,17 @@ export const BaseMenu: React.FC<
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('MENU')}>
+    <CustomizationProvider
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
+      elements={initStyles('STATUS_MENU')}
+    >
       <Box display="flex" flexDirection="row" justifyContent="space-between">
-        <BaseMenu menuBadgeStatusVariant="ProcessSuccess" />
-        <BaseMenu menuBadgeStatusVariant="ProcessNeutral" />
-        <BaseMenu menuBadgeStatusVariant="ConnectivityAvailable" />
-        <BaseMenu menuBadgeStatusVariant="ConnectivityOffline" />
-        <BaseMenu menuBadgeStatusVariant="ConnectivityUnavailable" />
+        <BaseMenu element="STATUS_MENU" menuBadgeStatusVariant="ProcessSuccess" />
+        <BaseMenu element="STATUS_MENU" menuBadgeStatusVariant="ProcessNeutral" />
+        <BaseMenu element="STATUS_MENU" menuBadgeStatusVariant="ConnectivityAvailable" />
+        <BaseMenu element="STATUS_MENU" menuBadgeStatusVariant="ConnectivityOffline" />
+        <BaseMenu element="STATUS_MENU" menuBadgeStatusVariant="ConnectivityUnavailable" />
       </Box>
     </CustomizationProvider>
   );

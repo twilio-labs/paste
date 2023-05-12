@@ -5,14 +5,14 @@ import type {MenuBadgeProps} from '@twilio-paste/menu';
 
 import {StatusBadge} from './StatusBadge';
 import {StatusObject} from './constants';
-import type {StatusBadgeProps} from './types';
+import type {StatusBadgeProps} from './StatusBadge';
 
 export interface StatusMenuBadgeProps extends Omit<MenuBadgeProps, 'variant'> {
   variant: StatusBadgeProps['variant'];
 }
 
 const StatusMenuBadge = React.forwardRef<HTMLButtonElement, StatusMenuBadgeProps>(
-  ({children, variant, element = 'MENU_BADGE_STATUS', ...props}, ref) => {
+  ({children, variant, element = 'STATUS_MENU_BADGE', ...props}, ref) => {
     return (
       <StatusBadge as="span" element={element} variant={variant}>
         <MenuBadgeContent {...props} element={element} ref={ref}>

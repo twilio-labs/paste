@@ -2,9 +2,15 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {BadgePropTypes, badgeBaseStyles, badgeVariantStyles} from '@twilio-paste/badge';
+import type {BadgeBaseProps, BadgeSpanProps} from '@twilio-paste/badge';
 
 import {StatusObject} from './constants';
-import type {StatusBadgeProps, StatusBadgeVariants} from './types';
+import type {StatusBadgeVariants} from './types';
+
+export type StatusBadgeProps = Omit<BadgeBaseProps, 'variant'> &
+  BadgeSpanProps & {
+    variant: StatusBadgeVariants;
+  };
 
 const badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles.default};
 

@@ -1,6 +1,10 @@
+export {useMenuState as useStatusMenuState} from '@twilio-paste/menu';
 export * from './constants';
 export * from './types';
 export * from './StatusMenu';
+export * from './StatusMenuItem';
+export * from './StatusMenuItemCheckbox';
+export * from './StatusMenuItemRadio';
 export * from './StatusMenuItemChild';
 export * from './StatusMenuBadge';
 export * from './StatusBadge';

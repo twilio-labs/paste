@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Badge] Add Status Badge as prescribed by the Paste Status pattern
+[Badge] Update to default badge styles. Makes Badge styles more sharable with other packages.
