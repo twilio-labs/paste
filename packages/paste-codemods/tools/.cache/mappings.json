@@ -255,6 +255,7 @@
   "Tooltip": "@twilio-paste/core/tooltip",
   "useTooltipState": "@twilio-paste/core/tooltip",
   "Topbar": "@twilio-paste/core/topbar",
+  "UserDialog": "@twilio-paste/core/topbar",
   "Truncate": "@twilio-paste/core/truncate",
   "AspectRatio": "@twilio-paste/core/aspect-ratio",
   "Flex": "@twilio-paste/core/flex",
