@@ -3,7 +3,6 @@ import type {ThemeShape} from '@twilio-paste/theme';
 
 // Label styles
 export const sidebarNavigationLabelStyles: BoxProps = {
-  width: '100%',
   fontStyle: 'normal',
   fontWeight: 'fontWeightNormal',
   fontSize: 'fontSize30',

@@ -4,6 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
+import {Truncate} from '@twilio-paste/truncate';
 import type {ButtonProps} from '@twilio-paste/button';
 
 import {SidebarContext} from '../SidebarContext';
@@ -16,7 +17,7 @@ import {
 
 export interface SidebarNavigationItemProps
   extends Pick<ButtonProps, 'as' | 'href' | 'onClick' | 'i18nExternalLinkLabel'> {
-  children: NonNullable<React.ReactNode>;
+  children: string;
   element?: BoxProps['element'];
   selected?: boolean;
   icon?: React.ReactNode;
@@ -30,7 +31,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigat
     // Any disclosure context means we're nested
     const isNested = disclosure != null;
 
-    const bonusStyles = React.useMemo(
+    const styles = React.useMemo(
       () => ({
         background: 'none',
         border: 'none',
@@ -54,20 +55,20 @@ const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigat
         variant="reset"
         size="reset"
         fullWidth
-        {...(bonusStyles as any)}
-        opacity={collapsed && !icon ? '0' : '1'}
+        {...(styles as any)}
+        display={collapsed && !icon ? 'none' : 'flex'}
       >
         <Box display="flex" justifyContent="center">
           {icon}
         </Box>
-        {!collapsed && children}
+        {collapsed ? null : <Truncate title={children}>{children}</Truncate>}
       </Button>
     );
   }
 );
 SidebarNavigationItem.displayName = 'SidebarNavigationItem';
 SidebarNavigationItem.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.string.isRequired,
   element: PropTypes.string,
   selected: PropTypes.bool,
 };

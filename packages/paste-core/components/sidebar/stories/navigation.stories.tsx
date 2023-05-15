@@ -42,7 +42,7 @@ export const Default: StoryFn = () => {
   /* eslint-disable react/jsx-max-depth */
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
         {/* Header */}
         <SidebarHeader>
           <SidebarHeaderIconButton>
@@ -60,7 +60,12 @@ export const Default: StoryFn = () => {
           >
             This item closes the sidebar
           </SidebarNavigationItem>
-          <SidebarNavigationItem as="a" href="https://google.com" selected>
+          <SidebarNavigationItem
+            as="a"
+            href="https://google.com"
+            selected
+            icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+          >
             Go to Google.com
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
@@ -133,7 +138,7 @@ export const Default: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
         <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
           Toggle Push Sidebar
         </Button>
@@ -166,10 +171,16 @@ export const Compact: StoryFn = () => {
             onClick={() => {
               setPushSidebarCollapsed(!pushSidebarCollapsed);
             }}
+            icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
           >
             This item closes the sidebar
           </SidebarNavigationItem>
-          <SidebarNavigationItem as="a" href="https://google.com" selected>
+          <SidebarNavigationItem
+            as="a"
+            href="https://google.com"
+            selected
+            icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+          >
             Go to Google.com
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
