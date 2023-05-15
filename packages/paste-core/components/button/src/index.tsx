@@ -153,6 +153,7 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
         justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
         columnGap="space20"
         alignItems="center"
+        width="100%"
       >
         {children}
       </Box>
