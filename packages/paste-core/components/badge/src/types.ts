@@ -1,27 +1,12 @@
 import type {BoxProps} from '@twilio-paste/box';
 
-export type BadgeVariants =
-  | 'neutral'
-  | 'warning'
-  | 'error'
-  | 'success'
-  | 'new'
-  | 'subaccount'
-  | 'decorative10'
-  | 'decorative20'
-  | 'decorative30'
-  | 'decorative40'
-  | 'neutral_counter'
-  | 'error_counter'
-  // the following variants are outdated but still supported to prevent breaking changes
-  | 'default'
-  | 'info';
+import type {BadgeVariants} from './constants';
 
 export type BadgeSizes = 'default' | 'small';
 
 export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
-  variant: BadgeVariants;
+  variant: typeof BadgeVariants[number];
   size?: BadgeSizes;
 };
 export type BadgeSpanProps = React.HTMLAttributes<HTMLSpanElement> & {

@@ -33,6 +33,8 @@ describe('Menu Customization', () => {
       expect(screen.getByTestId('menu-item-4').getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM');
       expect(screen.getByTestId('menu-item-5').getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM');
       expect(screen.getByTestId('menu-item-6').getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM');
+      expect(screen.getByTestId('menu-item-7').getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM_CHECKBOX');
+      expect(screen.getByTestId('menu-item-8').getAttribute(PASTE_ELEMENT)).toEqual('MENU_ITEM_RADIO');
 
       expect(screen.getByTestId('submenu-button').getAttribute(PASTE_ELEMENT)).toEqual('SUBMENU_BUTTON');
 
@@ -55,6 +57,8 @@ describe('Menu Customization', () => {
       expect(screen.getByTestId('menu-item-4').getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM');
       expect(screen.getByTestId('menu-item-5').getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM');
       expect(screen.getByTestId('menu-item-6').getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM');
+      expect(screen.getByTestId('menu-item-7').getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM_CHECKBOX');
+      expect(screen.getByTestId('menu-item-8').getAttribute(PASTE_ELEMENT)).toEqual('CUSTOM_MENU_ITEM_RADIO');
 
       expect(screen.getByTestId('submenu-button').getAttribute(PASTE_ELEMENT)).toEqual('SUBCUSTOM_MENU_BUTTON');
 
@@ -65,7 +69,7 @@ describe('Menu Customization', () => {
 
   describe('Custom styles', () => {
     describe('Style overrides using the default element name', () => {
-      it('Should apply correct style rules when menu button variant is "primary"', () => {
+      it('Should apply correct style rules', () => {
         render(<BaseMenu menuButtonVariant="primary" />, {
           wrapper: initWrapper('menu'),
         });
@@ -74,6 +78,8 @@ describe('Menu Customization', () => {
         const nodeCalledMenuButton = screen.getByTestId('menu-button');
 
         const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
+        const nodeCalledMenuItemCheckbox = screen.getByTestId('menu-item-7');
+        const nodeCalledMenuItemRadio = screen.getByTestId('menu-item-8');
         const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
         const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
 
@@ -103,129 +109,15 @@ describe('Menu Customization', () => {
         expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
 
-      it('Should apply correct style rules when menu button variant is "secondary"', () => {
-        render(<BaseMenu menuButtonVariant="secondary" />, {
-          wrapper: initWrapper('menu'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
-
-      it('Should apply correct style rules when menu button variant is "destructive"', () => {
-        render(<BaseMenu menuButtonVariant="destructive" />, {
-          wrapper: initWrapper('menu'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
-
-      it('Should apply correct style rules when menu button variant is "destructive_secondary"', () => {
-        render(<BaseMenu menuButtonVariant="destructive_secondary" />, {
-          wrapper: initWrapper('menu'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
+        expect(nodeCalledMenuItemCheckbox).toHaveStyleRule('font-style', 'italic');
+        expect(nodeCalledMenuItemCheckbox).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+        expect(nodeCalledMenuItemRadio).toHaveStyleRule('background-color', 'rgb(237, 253, 243)');
       });
     });
 
     describe('Style overrides using a custom element name', () => {
-      it('Should apply correct style rules when menu button variant is "primary"', () => {
+      it('Should apply correct style rules', () => {
         render(<BaseMenu menuButtonVariant="primary" element="CUSTOM" />, {
           wrapper: initWrapper('custom'),
         });
@@ -234,6 +126,8 @@ describe('Menu Customization', () => {
         const nodeCalledMenuButton = screen.getByTestId('menu-button');
 
         const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
+        const nodeCalledMenuItemCheckbox = screen.getByTestId('menu-item-7');
+        const nodeCalledMenuItemRadio = screen.getByTestId('menu-item-8');
         const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
         const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
 
@@ -262,123 +156,10 @@ describe('Menu Customization', () => {
         expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
 
-      it('Should apply correct style rules when menu button variant is "secondary"', () => {
-        render(<BaseMenu menuButtonVariant="secondary" element="CUSTOM" />, {
-          wrapper: initWrapper('custom'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
-
-      it('Should apply correct style rules when menu button variant is "destructive"', () => {
-        render(<BaseMenu menuButtonVariant="destructive" element="CUSTOM" />, {
-          wrapper: initWrapper('custom'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
-      });
-
-      it('Should apply correct style rules when menu button variant is "destructive_secondary"', () => {
-        render(<BaseMenu menuButtonVariant="destructive_secondary" element="CUSTOM" />, {
-          wrapper: initWrapper('custom'),
-        });
-
-        const nodeCalledMenu = screen.getByTestId('menu');
-        const nodeCalledMenuButton = screen.getByTestId('menu-button');
-
-        const nodeCalledMenuItem = screen.getByTestId('menu-item-1');
-        const nodeCalledSubmenuButton = screen.getByTestId('submenu-button');
-        const nodeCalledMenuSeparator = screen.getByTestId('menu-separator-1');
-
-        expect(nodeCalledMenu).toHaveStyleRule('box-shadow', '0 16px 24px 0 rgba(18, 28, 45, 0.2)');
-        expect(nodeCalledMenu).toHaveStyleRule('border-radius', '0');
-        expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(235, 244, 255)');
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
-
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-width', '8px');
-        expect(nodeCalledMenuSeparator).toHaveStyleRule('border-color', 'rgb(225, 227, 234)');
+        expect(nodeCalledMenuItemCheckbox).toHaveStyleRule('font-style', 'italic');
+        expect(nodeCalledMenuItemCheckbox).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
+        expect(nodeCalledMenuItemRadio).toHaveStyleRule('background-color', 'rgb(237, 253, 243)');
       });
     });
   });

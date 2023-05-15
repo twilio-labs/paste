@@ -2,7 +2,16 @@ import * as React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 
-import {useMenuState, Menu, MenuItem, MenuButton, MenuGroup, MenuSeparator} from '../src';
+import {
+  useMenuState,
+  Menu,
+  MenuItem,
+  MenuButton,
+  MenuGroup,
+  MenuSeparator,
+  MenuItemCheckbox,
+  MenuItemRadio,
+} from '../src';
 import type {MenuButtonProps} from '../src';
 
 const handleClickMock: jest.Mock = jest.fn();
@@ -53,6 +62,18 @@ const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivEl
             Search with Bing
           </MenuItem>
         </MenuGroup>
+        <MenuItemCheckbox {...menu} name="formatting" value="wrap">
+          Check Wrap
+        </MenuItemCheckbox>
+        <MenuItemCheckbox {...menu} name="formatting" value="no-wrap">
+          Check No Wrap
+        </MenuItemCheckbox>
+        <MenuItemRadio {...menu} name="display-view" value="wrap">
+          Radio Wrap
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" value="no-wrap">
+          Radio No Wrap
+        </MenuItemRadio>
       </Menu>
     </>
   );
@@ -169,6 +190,47 @@ describe('Menu', () => {
       expect(handleClickMock).toHaveBeenCalled();
       fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
       expect(handleClickMock).toHaveBeenCalled();
+    });
+
+    it('should render a checkbox menu item', () => {
+      render(<MenuMock />);
+      const renderedCheckboxMenuItem = screen.getByText('Check Wrap');
+      expect(renderedCheckboxMenuItem.getAttribute('role')).toEqual('menuitemcheckbox');
+      expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
+    });
+
+    it('should check a checkbox menu item', () => {
+      render(<MenuMock />);
+      const renderedCheckboxMenuItem = screen.getByText('Check Wrap');
+      expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
+      fireEvent.click(renderedCheckboxMenuItem);
+      expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('true');
+      fireEvent.click(renderedCheckboxMenuItem);
+      expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
+    });
+
+    it('should render a radio menu item', () => {
+      render(<MenuMock />);
+      const renderedCheckboxMenuItem = screen.getByText('Radio Wrap');
+      expect(renderedCheckboxMenuItem.getAttribute('role')).toEqual('menuitemradio');
+      expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
+    });
+
+    it('should check a radio menu item', () => {
+      render(<MenuMock />);
+      const renderedRadioMenuItem = screen.getByText('Radio Wrap');
+      const renderedRadioboxMenuItem2 = screen.getByText('Radio No Wrap');
+      // none of the radio menu items should be checked
+      expect(renderedRadioMenuItem.getAttribute('aria-checked')).toEqual('false');
+      expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('false');
+      fireEvent.click(renderedRadioMenuItem);
+      // the first radio menu item should be checked
+      expect(renderedRadioMenuItem.getAttribute('aria-checked')).toEqual('true');
+      expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('false');
+      fireEvent.click(renderedRadioboxMenuItem2);
+      // the second radio menu item should be checked and the first should be unchecked
+      expect(renderedRadioMenuItem.getAttribute('aria-checked')).toEqual('false');
+      expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('true');
     });
   });
 });

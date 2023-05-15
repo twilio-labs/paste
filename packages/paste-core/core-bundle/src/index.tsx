@@ -62,6 +62,7 @@ export * from '@twilio-paste/sidebar';
 export * from '@twilio-paste/skeleton-loader';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/stack';
+export * from '@twilio-paste/status';
 export * from '@twilio-paste/switch';
 export * from '@twilio-paste/table';
 export * from '@twilio-paste/tabs';

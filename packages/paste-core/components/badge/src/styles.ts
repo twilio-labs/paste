@@ -1,6 +1,6 @@
 import type {BoxStyleProps} from '@twilio-paste/box';
 
-import type {BadgeVariants} from './types';
+import type {BadgeVariants} from './constants';
 
 export const badgeBaseStyles: BoxStyleProps = {
   alignItems: 'center',
@@ -21,7 +21,7 @@ export const badgeBaseStyles: BoxStyleProps = {
 };
 
 export const badgeVariantStyles: {
-  [key in BadgeVariants]: {
+  [key in typeof BadgeVariants[number]]: {
     backgroundColor: BoxStyleProps['backgroundColor'];
     color: BoxStyleProps['color'];
     borderRadius?: BoxStyleProps['borderRadius'];
@@ -90,14 +90,14 @@ export const badgeVariantStyles: {
     borderRadius: 'borderRadiusPill',
     boxShadow: 'shadowBorderErrorWeaker',
   },
+  default: {
+    backgroundColor: 'colorBackgroundBody',
+    color: 'colorTextWeak',
+    boxShadow: 'shadowBorderWeaker',
+  },
   /*
    * the following variants are outdated but still supported to prevent breaking changes
    */
-  default: {
-    backgroundColor: 'colorBackground',
-    color: 'colorTextWeak',
-    boxShadow: 'shadowBorderDecorative10Weaker',
-  },
   info: {
     backgroundColor: 'colorBackgroundNeutralWeakest',
     color: 'colorTextNeutral',
@@ -106,7 +106,7 @@ export const badgeVariantStyles: {
 };
 
 export const badgeButtonStyles: {
-  [key in BadgeVariants]: {
+  [key in typeof BadgeVariants[number]]: {
     boxShadow: BoxStyleProps['boxShadow'];
   };
 } = {
@@ -155,16 +155,14 @@ export const badgeButtonStyles: {
   },
 };
 
-export const getBadgeAnchorStyles = (): BoxStyleProps => {
-  return {
-    textDecoration: 'underline',
-    cursor: 'pointer',
-    _hover: {textDecoration: 'none'},
-    _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
-  };
+export const badgeAnchorStyles: BoxStyleProps = {
+  textDecoration: 'underline',
+  cursor: 'pointer',
+  _hover: {textDecoration: 'none'},
+  _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
 };
 
-export const getBadgeButtonStyles = (variant: BadgeVariants): BoxStyleProps => {
+export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): BoxStyleProps => {
   const variantButtonStyle = badgeButtonStyles[variant];
   return {
     ...variantButtonStyle,

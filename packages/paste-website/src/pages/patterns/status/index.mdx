@@ -9,6 +9,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {StatusBadge} from '@twilio-paste/status';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
@@ -397,6 +398,56 @@ to ensure that the icon and the text are vertically aligned.
 
 **It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
 
+### Status badges
+
+For convience and consistency, we have created a `StatusBadge` (coming soon) component that can be used to compose a status icon with a text label.
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge as="span" variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessInProgress">
+      In Progress
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge as="span" variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
 ### Positioning in a table
 
 Statuses are most often used in tables across our products.
@@ -415,7 +466,7 @@ Placement of the status in the table should depend on the importance of the stat
     Td,
     Th,
     ProcessSuccessIcon,
-    ProcessNeutralIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
@@ -439,7 +490,7 @@ is a great way to highlight information that is most important for a user to kno
     Tr,
     Td,
     Th,
-    ProcessWarningIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
@@ -493,8 +544,7 @@ Statuses are not always placed in tables. Other common placements are near avata
     MediaBody,
     Paragraph,
     Stack,
-    ProcessSuccessIcon,
-    ProcessWarningIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
