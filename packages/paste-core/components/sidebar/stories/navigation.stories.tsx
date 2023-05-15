@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';

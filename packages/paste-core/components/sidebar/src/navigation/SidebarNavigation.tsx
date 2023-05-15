@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
@@ -56,9 +56,10 @@ export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElem
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  ({element = 'SIDEBAR_NAVIGATION', children}, ref) => {
+  ({element = 'SIDEBAR_NAVIGATION', children, ...props}, ref) => {
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         as={SidebarNavigationWrapper as any}
         element={element}
         ref={ref}
