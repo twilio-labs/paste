@@ -11,7 +11,17 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {useUID} from '@twilio-paste/uid-library';
 import type {ButtonProps} from '@twilio-paste/button';
 
-import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
+import {
+  Menu,
+  MenuButton,
+  SubMenuButton,
+  MenuGroup,
+  MenuItem,
+  MenuSeparator,
+  useMenuState,
+  MenuItemCheckbox,
+  MenuItemRadio,
+} from '../src';
 
 type ButtonVariants = ButtonProps['variant'];
 type ElementOverrides = Record<string, PasteCustomCSS>;
@@ -80,6 +90,14 @@ export const initStyles = (element: string): ElementOverrides => ({
     ':disabled': {
       borderLeftWidth: 'borderWidth0',
     },
+  },
+  [`${element}_ITEM_CHECKBOX`]: {
+    backgroundColor: 'colorBackgroundDestructiveWeakest',
+    fontStyle: 'italic',
+  },
+  [`${element}_ITEM_RADIO`]: {
+    backgroundColor: 'colorBackgroundSuccessWeakest',
+    fontStyle: 'italic',
   },
 });
 
@@ -192,6 +210,24 @@ export const BaseMenu: React.FC<React.PropsWithChildren<{menuButtonVariant?: But
               View FAQ
             </MenuItem>
           </MenuGroup>
+          <MenuItemCheckbox
+            {...menu}
+            element={getElementName(element, 'ITEM_CHECKBOX')}
+            name="formatting"
+            value="wrap"
+            data-testid="menu-item-7"
+          >
+            Check Wrap
+          </MenuItemCheckbox>
+          <MenuItemRadio
+            {...menu}
+            element={getElementName(element, 'ITEM_RADIO')}
+            name="display-view"
+            value="wrap"
+            data-testid="menu-item-8"
+          >
+            Radio Wrap
+          </MenuItemRadio>
         </Menu>
       </>
     );

@@ -5,7 +5,18 @@ export const meta = {
   slug: '/components/menu/',
 };
 
-import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, useMenuState} from '@twilio-paste/menu';
+import {
+  Menu,
+  MenuButton,
+  MenuBadge,
+  SubMenuButton,
+  MenuItem,
+  MenuGroup,
+  MenuSeparator,
+  useMenuState,
+  MenuItemRadio,
+  MenuItemCheckbox,
+} from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -13,6 +24,15 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {InlineCode} from '@twilio-paste/inline-code';
@@ -25,6 +45,9 @@ import {
   iconButtonExample,
   actionsExample,
   itemContentExample,
+  menuBadgeExample,
+  RadioMenuExample,
+  CheckboxMenuExample,
 } from '../../../component-examples/MenuExamples.ts';
 import packageJson from '@twilio-paste/menu/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -187,6 +210,78 @@ For example, you can create an icon button menu trigger like so:
   {iconButtonExample}
 </LivePreview>
 
+### Selectable menu items
+
+Menu items come with the ability to be selected, in the same way as a checkbox or radio button. This is useful when a user is asked to perform a persistant action, where the selection should be preserved for future reference. Selections can either be single, or multiple, just like radio and checkboxes.
+
+#### Single select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemRadio,
+    MenuSeparator,
+    ChevronDownIcon,
+    UnorderedListIcon,
+    DataBarChartIcon,
+    DataLineChartIcon,
+    DataPieChartIcon,
+    DataTableIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {RadioMenuExample}
+</LivePreview>
+
+#### Multi select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemCheckbox,
+    MenuSeparator,
+    ChevronDownIcon,
+    BoldIcon,
+    UnderlineIcon,
+    ItalicIcon,
+    StrikethroughIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {CheckboxMenuExample}
+</LivePreview>
+
+## Composed variants
+
+Paste provides a few composed variants of the Menu component. These compositions are designed to help you build menus for common scenarios and use cases.
+
+### Menu Badge
+
+Using a Badge to contain a menu trigger can be useful when you want display a dynamic identifier. A example use case might be an account, or availability of an agent.
+
+The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter`
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadge,
+    MenuItem,
+  }}
+  noInline
+  showOverflow
+>
+  {menuBadgeExample}
+</LivePreview>
+
 ## Composition notes
 
 ### Performing actions
@@ -216,7 +311,7 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 ### Composing menu items
 
 <Callout variant="neutral" marginY="space70">
-  <CalloutHeading>Note</CalloutHeading>
+  <CalloutHeading as="h4">Note</CalloutHeading>
   <CalloutText>
     Menu item content is composible however you want. We'll have more complete best practice guidelines soon, but in the
     meantime here are some example compositions using Paste components.
@@ -244,65 +339,6 @@ Use the `variant` prop in `MenuItem` to use a default or destructive item. We re
 >
   {itemContentExample}
 </LivePreview>
-
-## Anatomy
-
-### MenuButton
-
-See the [button](/components/button) component.
-
-### Menu
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-| border-width     | border-width-10       | No          |
-| border-color     | color-border-weak     | No          |
-| border-radius    | border-radius-20      | No          |
-| box-shadow       | shadow                | No          |
-| max-width        | size-30               | No          |
-| min-width        | size-20               | No          |
-| padding-top      | space-30              | No          |
-| padding-bottom   | space-30              | No          |
-| z-index          | z-index-20            | No          |
-
-### SubMenuButton and MenuItem
-
-#### Default
-
-| Property       | Default token                                                                                 | Modifiable? |
-| -------------- | --------------------------------------------------------------------------------------------- | ----------- |
-| color          | color-text (default), color-text-link-destructive (destructive), color-text-weaker (disabled) | No          |
-| padding-top    | space-30                                                                                      | No          |
-| padding-bottom | space-30                                                                                      | No          |
-| padding-left   | space-90 (in-group) or space-70 (regular)                                                     | No          |
-| padding-right  | space-90 (in-group) or space-70 (regular)                                                     | No          |
-
-#### Hover & focused
-
-| Property | Default token                                                                 | Modifiable? |
-| -------- | ----------------------------------------------------------------------------- | ----------- |
-| color    | color-text-link (default), color-text-link-destructive-stronger (destructive) | No          |
-
-### MenuGroup
-
-| Property       | Default token    | Modifiable? |
-| -------------- | ---------------- | ----------- |
-| padding-top    | space-30         | No          |
-| padding-bottom | space-30         | No          |
-| padding-left   | space-70         | No          |
-| padding-right  | space-70         | No          |
-| color          | color-text       | No          |
-| font-weight    | font-weight-bold | No          |
-
-### MenuSeparator
-
-See the [separator](/components/separator) component.
-
-| Property       | Default token | Modifiable? |
-| -------------- | ------------- | ----------- |
-| padding-top    | space-40      | No          |
-| padding-bottom | space-40      | No          |
 
 ---
 
@@ -398,10 +434,35 @@ These props are returned by the state hook. You can spread them into this compon
 
 ##### MenuButton
 
-| Prop     | Type                 | Description                                                                               | Default       |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |               |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_BUTTON' |
+| Prop                   | Type                                     | Description                                                                                                                                                                          | Default                                |
+| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'                               |
+| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false                                  |
+| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
+| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
+| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
+| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                   | 'default'                              |
+| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
+| variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
+| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
+| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                         |                                        |
+| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
+| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'MENU_BUTTON'                          |
+
+##### MenuBadge
+
+Same as `MenuButton` except:
+
+| Prop     | Type            | Description                                                                                                                                                       | Default      |
+| -------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| variant  | `BadgeVariants` | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`       |
+| element? | `string`        | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'MENU_BADGE' |
 
 ##### MenuGroup
 
@@ -421,6 +482,34 @@ These props are returned by the state hook. You can spread them into this compon
 | onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
 | href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
 | element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+
+##### MenuItemCheckbox
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
+
+##### MenuItemRadio
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
 
 <ChangelogRevealer>
   <Changelog />

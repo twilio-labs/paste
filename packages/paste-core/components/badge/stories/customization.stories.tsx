@@ -8,9 +8,9 @@ import {Card} from '@twilio-paste/card';
 import type {StoryFn} from '@storybook/react';
 
 import {Badge} from '../src';
-import type {BadgeVariants} from '../src/types';
+import type {BadgeVariants} from '../src/constants';
 
-export const makeBadge = (variant: BadgeVariants, element?: string): React.ReactElement => (
+export const makeBadge = (variant: typeof BadgeVariants[number], element?: string): React.ReactElement => (
   <Badge as="span" element={element} variant={variant} data-testid={`${variant}_badge`}>
     HelloWorld
   </Badge>
@@ -37,10 +37,9 @@ export const getStyles = (element = 'BADGE'): {[key: string]: PasteCustomCSS} =>
   };
 };
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren<{variant: BadgeVariants; isTestEnvironment: boolean}>> = ({
-  variant,
-  isTestEnvironment,
-}): React.ReactElement => {
+const CustomizationWrapper: React.FC<
+  React.PropsWithChildren<{variant: typeof BadgeVariants[number]; isTestEnvironment: boolean}>
+> = ({variant, isTestEnvironment}): React.ReactElement => {
   const theme = useTheme();
   const customElement = 'FOO';
   return (

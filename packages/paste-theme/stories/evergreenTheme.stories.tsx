@@ -75,7 +75,7 @@ export const Evergreen = (): React.ReactNode => (
           {'neutral warning error success new'.split(' ').map((variant) => {
             return (
               <Callout key={variant} variant={variant as CalloutProps['variant']}>
-                <CalloutHeading>{variant} heading</CalloutHeading>
+                <CalloutHeading as="h2">{variant} heading</CalloutHeading>
                 <CalloutText>{variant} variant text</CalloutText>
               </Callout>
             );

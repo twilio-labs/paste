@@ -26,6 +26,7 @@
   "peerDependencies": {
     "@twilio-paste/anchor": "^11.0.0",
     "@twilio-paste/animation-library": "^1.0.0",
+    "@twilio-paste/badge": "^7.0.0",
     "@twilio-paste/box": "^9.0.0",
     "@twilio-paste/button": "^13.0.0",
     "@twilio-paste/color-contrast-utils": "^4.0.0",
@@ -35,6 +36,7 @@
     "@twilio-paste/media-object": "^9.0.0",
     "@twilio-paste/menu-primitive": "^1.0.0",
     "@twilio-paste/reakit-library": "^1.0.0",
+    "@twilio-paste/screen-reader-only": "^12.0.0",
     "@twilio-paste/separator": "^7.0.0",
     "@twilio-paste/spinner": "^13.0.0",
     "@twilio-paste/stack": "^7.0.0",
@@ -53,6 +55,7 @@
   "devDependencies": {
     "@twilio-paste/anchor": "^11.0.0",
     "@twilio-paste/animation-library": "^1.0.0",
+    "@twilio-paste/badge": "^7.0.0",
     "@twilio-paste/box": "^9.0.0",
     "@twilio-paste/button": "^13.0.0",
     "@twilio-paste/color-contrast-utils": "^4.0.0",
@@ -62,6 +65,7 @@
     "@twilio-paste/media-object": "^9.0.0",
     "@twilio-paste/menu-primitive": "^1.0.0",
     "@twilio-paste/reakit-library": "^1.0.0",
+    "@twilio-paste/screen-reader-only": "^12.0.0",
     "@twilio-paste/separator": "^7.0.0",
     "@twilio-paste/spinner": "^13.0.0",
     "@twilio-paste/stack": "^7.0.0",
