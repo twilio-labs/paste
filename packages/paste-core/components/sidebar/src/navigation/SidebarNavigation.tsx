@@ -4,8 +4,6 @@ import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
 
-import {SidebarContext} from '../SidebarContext';
-
 const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
   const {colorBackgroundInverse, colorBackgroundInverseStronger} = theme.backgroundColors;
 
@@ -68,7 +66,7 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
         maxHeight="100%"
         overflowY="auto"
         overflowX="hidden"
-        padding="space50"
+        padding="space60"
         flexGrow={1}
       >
         {children}
