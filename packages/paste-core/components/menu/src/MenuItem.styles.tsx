@@ -108,10 +108,12 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         }}
         ref={ref}
       >
-        {props['aria-checked'] === true ? (
-          <Box as="span" display="flex" justifyContent="space-between" alignItems="center">
+        {props['aria-checked'] != null ? (
+          <Box as="span" display="flex" columnGap="space50" justifyContent="space-between" alignItems="center">
             {children}
-            <SelectedIcon decorative color={getCheckedIconColor({disabled: props.disabled, variant})} />
+            <Box as="span" visibility={props['aria-checked'] ? 'visible' : 'hidden'}>
+              <SelectedIcon decorative color={getCheckedIconColor({disabled: props.disabled, variant})} />
+            </Box>
           </Box>
         ) : (
           children

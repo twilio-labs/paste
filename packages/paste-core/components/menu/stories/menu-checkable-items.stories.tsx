@@ -43,7 +43,7 @@ export const CheckboxMenu: StoryFn = () => {
         Text formatting <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Display view">
-        <MenuItemCheckbox {...menu} name="display-view" value="bold">
+        <MenuItemCheckbox {...menu} checked name="display-view" value="bold">
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <BoldIcon decorative={true} /> Bold
           </Box>
@@ -53,7 +53,7 @@ export const CheckboxMenu: StoryFn = () => {
             <UnderlineIcon decorative={true} /> Underlined
           </Box>
         </MenuItemCheckbox>
-        <MenuItemCheckbox {...menu} name="display-view" value="italic">
+        <MenuItemCheckbox {...menu} checked name="display-view" value="italic">
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <ItalicIcon decorative={true} /> Italic
           </Box>
