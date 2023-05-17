@@ -64,14 +64,17 @@ props:
       - color-background-primary
       - color-background-destructive
   color-text-inverse-weak:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-30}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
     text_contrast_pairing:
       - color-background-body-inverse
       - color-background-brand
   color-text-inverse-weaker:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-50}"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+  color-text-inverse-weakest:
+    value: "{!palette-gray-70}"
+    comment: Weakest inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
     value: "{!white}"
     comment: Text color used on any brand color

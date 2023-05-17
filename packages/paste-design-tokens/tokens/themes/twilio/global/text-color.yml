@@ -4,14 +4,6 @@ global:
 imports:
   - ../../../global/text-color.yml
 props:
-  # body text
-  color-text-inverse-weak:
-    value: "{!palette-gray-50}"
-    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
-  color-text-inverse-weaker:
-    value: "{!palette-gray-70}"
-    comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
-
   # links
   color-text-link-destructive:
     value: "{!palette-red-65}"
