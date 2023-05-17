@@ -36,7 +36,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   ) => {
     let textColor = 'colorText' as TextColor;
     if (disabled && variant === 'inverse') {
-      textColor = 'colorTextInverseWeak';
+      textColor = 'colorTextInverseWeaker';
     } else if (disabled) {
       textColor = 'colorTextWeak';
     } else if (variant === 'inverse') {

@@ -21,8 +21,8 @@ const IconColors: {[variant in Variants]: {[key in StateOptions]: TextColor}} = 
   },
   inverse: {
     default: 'colorTextIconInverse',
-    disabled: 'colorTextInverseWeaker',
-    readOnly: 'colorTextInverseWeaker',
+    disabled: 'colorTextInverseWeakest',
+    readOnly: 'colorTextInverseWeakest',
   },
 };
 

@@ -68,16 +68,16 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       variant={props.variant}
       ref={ref}
       _placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
         fontStyle: 'italic',
       }}
       _focus_placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
       }}
       _disabled={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         cursor: 'not-allowed',
-        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         '-webkit-opacity': '1',
       }}
       __webkit_datetime_edit={{
