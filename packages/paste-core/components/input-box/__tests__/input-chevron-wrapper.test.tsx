@@ -33,9 +33,9 @@ describe('getInputChevronIconColor util', () => {
     expect(getInputChevronIconColor('default', true, true)).toBe('colorTextWeaker');
     // inverse
     expect(getInputChevronIconColor('inverse', false, false)).toBe('colorTextIconInverse');
-    expect(getInputChevronIconColor('inverse', true, false)).toBe('colorTextInverseWeaker');
-    expect(getInputChevronIconColor('inverse', false, true)).toBe('colorTextInverseWeaker');
-    expect(getInputChevronIconColor('inverse', true, true)).toBe('colorTextInverseWeaker');
+    expect(getInputChevronIconColor('inverse', true, false)).toBe('colorTextInverseWeakest');
+    expect(getInputChevronIconColor('inverse', false, true)).toBe('colorTextInverseWeakest');
+    expect(getInputChevronIconColor('inverse', true, true)).toBe('colorTextInverseWeakest');
 
     // missing args defaults to normal color
     expect(getInputChevronIconColor()).toBe('colorTextIcon');

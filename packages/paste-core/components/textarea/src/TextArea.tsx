@@ -52,19 +52,19 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
       width: '100%',
 
       '&::placeholder': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
         fontStyle: 'italic',
       },
 
       '&:focus::placeholder': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
       },
 
       '&:disabled': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        color: props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         cursor: 'not-allowed',
         // Fixes value color in Safari
-        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
         '-webkit-opacity': '1',
       },
     }),

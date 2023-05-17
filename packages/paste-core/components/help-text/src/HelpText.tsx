@@ -37,7 +37,7 @@ const VariantOptions: VariantOptionsProps = {
     icon: null,
   },
   [HelpTextVariants.INVERSE]: {
-    textColor: 'colorTextInverseWeak',
+    textColor: 'colorTextInverseWeaker',
     icon: null,
   },
   [HelpTextVariants.ERROR]: {

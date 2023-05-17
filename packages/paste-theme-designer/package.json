@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "next start",
     "clean": "rm -rf .next",
     "lint": "next lint",

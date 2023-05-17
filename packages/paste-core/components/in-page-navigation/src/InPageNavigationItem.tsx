@@ -44,7 +44,7 @@ const CURRENT_PAGE_STYLES: BoxStyleProps = {
 };
 
 const INVERSE_STYLES: BoxStyleProps = {
-  color: 'colorTextInverseWeak',
+  color: 'colorTextInverseWeaker',
   _focus: {
     boxShadow: 'shadowFocusInverse',
     outline: 'none',
@@ -52,7 +52,7 @@ const INVERSE_STYLES: BoxStyleProps = {
   },
   _hover: {
     borderBottomColor: 'colorBorderInverse',
-    color: 'colorTextInverseWeak',
+    color: 'colorTextInverseWeaker',
   },
 };
 
