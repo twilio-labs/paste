@@ -7,7 +7,7 @@ export interface TopbarProductSwitcherProps extends MenuProps {
 }
 
 const TopbarProductSwitcher = React.forwardRef<HTMLDivElement, TopbarProductSwitcherProps>(
-  ({children, element = 'TOPBAR_ACCOUNT_SWITCHER', ...props}, ref) => {
+  ({children, element = 'TOPBAR_PRODUCT_SWITCHER', ...props}, ref) => {
     return (
       <Menu element={element} {...props} ref={ref}>
         {children}

@@ -11,11 +11,11 @@ export interface TopbarProductSwitcherItemProps extends Omit<MenuItemRadioProps,
 }
 
 const TopbarProductSwitcherItem = React.forwardRef<HTMLDivElement, TopbarProductSwitcherItemProps>(
-  ({productName, productStrapline, productIcon, element = 'TOPBAR_ACCOUNT_SWITCHER_ITEM', ...props}, ref) => {
+  ({productName, productStrapline, productIcon, element = 'TOPBAR_PRODUCT_SWITCHER_ITEM', ...props}, ref) => {
     return (
-      <MenuItemRadio element={element} {...props} variant="default" ref={ref}>
+      <MenuItemRadio element={element} {...props} ref={ref}>
         <Box display="flex" flexDirection="row" columnGap="space50" alignItems="center">
-          <Box>{productIcon}</Box>
+          <Box color="colorTextIcon">{productIcon}</Box>
           <Box>
             <Text as="span" display="block">
               {productName}

@@ -9,7 +9,7 @@ export interface TopbarProductSwitcherButtonProps extends Omit<MenuButtonProps, 
 }
 
 const TopbarProductSwitcherButton = React.forwardRef<HTMLButtonElement, TopbarProductSwitcherButtonProps>(
-  ({element = 'TOPBAR_ACCOUNT_SWITCHER_BADGE', i18nButtonLabel, ...props}, ref) => {
+  ({element = 'TOPBAR_PRODUCT_SWITCHER_BUTTON', i18nButtonLabel, ...props}, ref) => {
     return (
       <MenuButton element={element} {...props} variant="secondary_icon" size="icon_small" ref={ref}>
         <ProductSwitcherIcon decorative={true} />
