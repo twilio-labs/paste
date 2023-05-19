@@ -28,7 +28,7 @@ const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(
             ) : null}
             <Text
               as="span"
-              color="colorText"
+              color="colorTextWeak"
               role="presentation"
               fontWeight="fontWeightBold"
               paddingLeft={icon != null ? 'space20' : undefined}

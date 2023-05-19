@@ -4,6 +4,7 @@
   "packages": [
     "/packages/paste-icons",
     "/packages/paste-core/core-bundle",
+    "/packages/paste-core/components/account-switcher",
     "/packages/paste-core/components/alert",
     "/packages/paste-core/components/alert-dialog",
     "/packages/paste-core/components/anchor",
@@ -65,6 +66,7 @@
     "/packages/paste-core/components/pagination",
     "/packages/paste-core/components/paragraph",
     "/packages/paste-core/components/popover",
+    "/packages/paste-core/components/product-switcher",
     "/packages/paste-core/components/radio-button-group",
     "/packages/paste-core/components/radio-group",
     "/packages/paste-libraries/react-textarea-autosize",

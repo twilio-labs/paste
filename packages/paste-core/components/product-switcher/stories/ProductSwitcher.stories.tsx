@@ -5,26 +5,21 @@ import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 
-import {
-  TopbarProductSwitcher,
-  TopbarProductSwitcherButton,
-  TopbarProductSwitcherItem,
-  useTopbarProductSwitcherState,
-} from '../../src';
+import {ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Topbar/ProductSwitcher',
+  title: 'Components/ProductSwitcher',
 };
 
 export const ProductSwitcherMenu: StoryFn = () => {
-  const productSwitcher = useTopbarProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({visible: true});
   const [product, setProduct] = React.useState('twilio');
   return (
     <>
-      <TopbarProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
-      <TopbarProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
-        <TopbarProductSwitcherItem
+      <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
+      <ProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="twilio"
@@ -36,7 +31,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           productStrapline="SMS, Voice & Video"
           productIcon={<LogoTwilioIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="segment"
@@ -48,7 +43,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           productStrapline="Customer data platform"
           productIcon={<ProductSegmentIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="flex"
@@ -60,7 +55,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           productStrapline="Cloud-based contact center"
           productIcon={<ProductFlexIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="sendgrid"
@@ -72,7 +67,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           productStrapline="Email delivery and API"
           productIcon={<ProductEmailAPIIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="admin"
@@ -84,7 +79,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           productStrapline="Admin center"
           productIcon={<LogoTwilioIcon decorative />}
         />
-      </TopbarProductSwitcher>
+      </ProductSwitcher>
     </>
   );
 };

@@ -6,32 +6,27 @@ import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
-import {
-  TopbarProductSwitcher,
-  TopbarProductSwitcherButton,
-  TopbarProductSwitcherItem,
-  useTopbarProductSwitcherState,
-} from '../../src';
+import {ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Topbar/ProductSwitcher/Customization',
+  title: 'Components/ProductSwitcher/Customization',
 };
 
 export const DefaultElementName: StoryFn = () => {
-  const productSwitcher = useTopbarProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({visible: true});
   const [product, setProduct] = React.useState('twilio');
   return (
     <CustomizationProvider
       elements={{
-        TOPBAR_PRODUCT_SWITCHER_BUTTON: {backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest'},
-        TOPBAR_PRODUCT_SWITCHER: {borderColor: 'colorBorderDestructiveStrong'},
-        TOPBAR_PRODUCT_SWITCHER_ITEM: {textDecoration: 'underline'},
+        PRODUCT_SWITCHER_BUTTON: {backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest'},
+        PRODUCT_SWITCHER: {borderColor: 'colorBorderDestructiveStrong'},
+        PRODUCT_SWITCHER_ITEM: {textDecoration: 'underline'},
       }}
     >
-      <TopbarProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
-      <TopbarProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
-        <TopbarProductSwitcherItem
+      <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
+      <ProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="twilio"
@@ -43,7 +38,7 @@ export const DefaultElementName: StoryFn = () => {
           productStrapline="SMS, Voice & Video"
           productIcon={<LogoTwilioIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="segment"
@@ -55,7 +50,7 @@ export const DefaultElementName: StoryFn = () => {
           productStrapline="Customer data platform"
           productIcon={<ProductSegmentIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="flex"
@@ -67,7 +62,7 @@ export const DefaultElementName: StoryFn = () => {
           productStrapline="Cloud-based contact center"
           productIcon={<ProductFlexIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="sendgrid"
@@ -79,7 +74,7 @@ export const DefaultElementName: StoryFn = () => {
           productStrapline="Email delivery and API"
           productIcon={<ProductEmailAPIIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           name="product"
           value="admin"
@@ -91,13 +86,13 @@ export const DefaultElementName: StoryFn = () => {
           productStrapline="Admin center"
           productIcon={<LogoTwilioIcon decorative />}
         />
-      </TopbarProductSwitcher>
+      </ProductSwitcher>
     </CustomizationProvider>
   );
 };
 
 export const CustomElementName: StoryFn = () => {
-  const productSwitcher = useTopbarProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({visible: true});
   const [product, setProduct] = React.useState('twilio');
   return (
     <CustomizationProvider
@@ -107,9 +102,9 @@ export const CustomElementName: StoryFn = () => {
         BAZ: {textDecoration: 'underline'},
       }}
     >
-      <TopbarProductSwitcherButton {...productSwitcher} element="FOO" i18nButtonLabel="Switch products" />
-      <TopbarProductSwitcher {...productSwitcher} element="BAR" aria-label="Avaiable accounts">
-        <TopbarProductSwitcherItem
+      <ProductSwitcherButton {...productSwitcher} element="FOO" i18nButtonLabel="Switch products" />
+      <ProductSwitcher {...productSwitcher} element="BAR" aria-label="Avaiable accounts">
+        <ProductSwitcherItem
           {...productSwitcher}
           element="BAZ"
           name="product"
@@ -122,7 +117,7 @@ export const CustomElementName: StoryFn = () => {
           productStrapline="SMS, Voice & Video"
           productIcon={<LogoTwilioIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           element="BAZ"
           name="product"
@@ -135,7 +130,7 @@ export const CustomElementName: StoryFn = () => {
           productStrapline="Customer data platform"
           productIcon={<ProductSegmentIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           element="BAZ"
           name="product"
@@ -148,7 +143,7 @@ export const CustomElementName: StoryFn = () => {
           productStrapline="Cloud-based contact center"
           productIcon={<ProductFlexIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           element="BAZ"
           name="product"
@@ -161,7 +156,7 @@ export const CustomElementName: StoryFn = () => {
           productStrapline="Email delivery and API"
           productIcon={<ProductEmailAPIIcon decorative />}
         />
-        <TopbarProductSwitcherItem
+        <ProductSwitcherItem
           {...productSwitcher}
           element="BAZ"
           name="product"
@@ -174,7 +169,7 @@ export const CustomElementName: StoryFn = () => {
           productStrapline="Admin center"
           productIcon={<LogoTwilioIcon decorative />}
         />
-      </TopbarProductSwitcher>
+      </ProductSwitcher>
     </CustomizationProvider>
   );
 };

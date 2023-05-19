@@ -1,3 +1,4 @@
+export * from '@twilio-paste/account-switcher';
 export * from '@twilio-paste/alert';
 export * from '@twilio-paste/alert-dialog';
 export * from '@twilio-paste/anchor';
@@ -51,6 +52,7 @@ export * from '@twilio-paste/non-modal-dialog-primitive';
 export * from '@twilio-paste/pagination';
 export * from '@twilio-paste/paragraph';
 export * from '@twilio-paste/popover';
+export * from '@twilio-paste/product-switcher';
 export * from '@twilio-paste/radio-button-group';
 export * from '@twilio-paste/radio-group';
 export * from '@twilio-paste/screen-reader-only';

@@ -4,12 +4,12 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {MenuButtonProps} from '@twilio-paste/menu';
 import {ProductSwitcherIcon} from '@twilio-paste/icons/esm/ProductSwitcherIcon';
 
-export interface TopbarProductSwitcherButtonProps extends Omit<MenuButtonProps, 'variant' | 'size' | 'children'> {
+export interface ProductSwitcherButtonProps extends Omit<MenuButtonProps, 'variant' | 'size' | 'children'> {
   i18nButtonLabel: string;
 }
 
-const TopbarProductSwitcherButton = React.forwardRef<HTMLButtonElement, TopbarProductSwitcherButtonProps>(
-  ({element = 'TOPBAR_PRODUCT_SWITCHER_BUTTON', i18nButtonLabel, ...props}, ref) => {
+const ProductSwitcherButton = React.forwardRef<HTMLButtonElement, ProductSwitcherButtonProps>(
+  ({element = 'PRODUCT_SWITCHER_BUTTON', i18nButtonLabel, ...props}, ref) => {
     return (
       <MenuButton element={element} {...props} variant="secondary_icon" size="icon_small" ref={ref}>
         <ProductSwitcherIcon decorative={true} />
@@ -19,6 +19,6 @@ const TopbarProductSwitcherButton = React.forwardRef<HTMLButtonElement, TopbarPr
   }
 );
 
-TopbarProductSwitcherButton.displayName = 'TopbarProductSwitcherButton';
+ProductSwitcherButton.displayName = 'ProductSwitcherButton';
 
-export {TopbarProductSwitcherButton};
+export {ProductSwitcherButton};
