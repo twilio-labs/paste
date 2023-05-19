@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MenuItem} from '@twilio-paste/menu';
+import {MenuItem, MenuItemPropTypes} from '@twilio-paste/menu';
 import type {MenuItemProps} from '@twilio-paste/menu';
 
 export interface AccountSwitcherItemProps extends MenuItemProps {
@@ -17,5 +17,5 @@ const AccountSwitcherItem = React.forwardRef<HTMLDivElement, AccountSwitcherItem
 );
 
 AccountSwitcherItem.displayName = 'AccountSwitcherItem';
-
+AccountSwitcherItem.propTypes = MenuItemPropTypes;
 export {AccountSwitcherItem};

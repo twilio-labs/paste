@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Menu} from '@twilio-paste/menu';
+import {Menu, MenuPropTypes} from '@twilio-paste/menu';
 import type {MenuProps} from '@twilio-paste/menu';
 
 export interface ProductSwitcherProps extends MenuProps {
@@ -17,5 +17,5 @@ const ProductSwitcher = React.forwardRef<HTMLDivElement, ProductSwitcherProps>(
 );
 
 ProductSwitcher.displayName = 'ProductSwitcher';
-
+ProductSwitcher.propTypes = MenuPropTypes;
 export {ProductSwitcher};

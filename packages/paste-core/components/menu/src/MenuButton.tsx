@@ -13,6 +13,9 @@ const MenuButton = React.forwardRef<HTMLButtonElement, MenuButtonProps>(({elemen
     </MenuPrimitiveButton>
   );
 });
+
+export const MenuButtonPropTypes = ButtonPropTypes;
+
 MenuButton.displayName = 'MenuButton';
-MenuButton.propTypes = ButtonPropTypes;
+MenuButton.propTypes = MenuButtonPropTypes;
 export {MenuButton};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MenuItemRadio} from '@twilio-paste/menu';
+import {MenuItemRadio, MenuItemRadioPropTypes} from '@twilio-paste/menu';
 import type {MenuItemRadioProps} from '@twilio-paste/menu';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
@@ -31,5 +31,5 @@ const ProductSwitcherItem = React.forwardRef<HTMLDivElement, ProductSwitcherItem
 );
 
 ProductSwitcherItem.displayName = 'ProductSwitcherItem';
-
+ProductSwitcherItem.propTypes = MenuItemRadioPropTypes;
 export {ProductSwitcherItem};

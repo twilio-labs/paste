@@ -15,8 +15,8 @@ const MenuItemRadio = React.forwardRef<HTMLDivElement, MenuItemRadioProps>(
     return <MenuPrimitiveItemRadio {...props} element={element} variant={variant} as={as} ref={ref} />;
   }
 );
-MenuItemRadio.displayName = 'MenuItemRadio';
-MenuItemRadio.propTypes = {
+
+export const MenuItemRadioPropTypes = {
   href: PropTypes.string,
   variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
   disabled: PropTypes.bool,
@@ -27,4 +27,7 @@ MenuItemRadio.propTypes = {
   checked: PropTypes.bool,
   name: PropTypes.string,
 };
+
+MenuItemRadio.displayName = 'MenuItemRadio';
+MenuItemRadio.propTypes = MenuItemRadioPropTypes;
 export {MenuItemRadio};

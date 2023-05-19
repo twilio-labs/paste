@@ -15,8 +15,8 @@ const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
     return <MenuPrimitiveItem {...props} element={element} variant={variant} as={as} ref={ref} />;
   }
 );
-MenuItem.displayName = 'MenuItem';
-MenuItem.propTypes = {
+
+export const MenuItemPropTypes = {
   href: PropTypes.string,
   variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
   disabled: PropTypes.bool,
@@ -24,4 +24,7 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
   element: PropTypes.string,
 };
+
+MenuItem.displayName = 'MenuItem';
+MenuItem.propTypes = MenuItemPropTypes;
 export {MenuItem};
