@@ -38,23 +38,23 @@ describe('TopbarAccountSwitcher', () => {
       expect(screen.getAllByRole('separator')[0].dataset.pasteElement).toEqual('LINE');
     });
   });
-  // describe('customization of styles', () => {
-  //   it('should set all custom styles', async () => {
-  //     await act(async () => {
-  //       render(<DefaultElementName />);
-  //       expect(screen.getByRole('button', {name: 'Switch accounts'})).toHaveStyleRule(
-  //         'background-color',
-  //         'rgb(214, 31, 31)'
-  //       );
-  //       expect(screen.getByRole('menu')).toHaveStyleRule('border-color', 'rgb(117, 12, 12)');
-  //       expect(screen.getByRole('menuitem', {name: 'Account settings'})).toHaveStyleRule(
-  //         'backgound-color',
-  //         'rgb(0, 20, 137)'
-  //       );
-  //       expect(screen.getByRole('menuitemradio', {name: 'Owl Telehealth'})).toHaveStyleRule('font-style', 'italic');
-  //     });
-  //   });
-  // });
+  describe.skip('customization of styles', () => {
+    it('should set all custom styles', async () => {
+      await act(async () => {
+        render(<DefaultElementName />);
+        expect(screen.getByRole('button', {name: 'Switch accounts'})).toHaveStyleRule(
+          'background-color',
+          'rgb(214, 31, 31)'
+        );
+        expect(screen.getByRole('menu')).toHaveStyleRule('border-color', 'rgb(117, 12, 12)');
+        expect(screen.getByRole('menuitem', {name: 'Account settings'})).toHaveStyleRule(
+          'backgound-color',
+          'rgb(0, 20, 137)'
+        );
+        expect(screen.getByRole('menuitemradio', {name: 'Owl Telehealth'})).toHaveStyleRule('font-style', 'italic');
+      });
+    });
+  });
   describe('customization of styles with custom name', () => {
     it('should set all custom styles', async () => {
       await act(async () => {
