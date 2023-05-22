@@ -2,62 +2,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {Text} from '@twilio-paste/text';
 import {Separator} from '@twilio-paste/separator';
 import {Avatar} from '@twilio-paste/avatar';
 
-import type {UserDialogUserInfoProps, UserDialogUserTextProps} from './types';
-import {UserDialogContext} from './UserDialog';
-
-export const UserDialogUserName = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
-  ({children, element = 'USER_DIALOG', ...props}, ref) => {
-    return (
-      <Text
-        {...props}
-        as="div"
-        fontSize="fontSize40"
-        color="colorText"
-        fontWeight="fontWeightSemibold"
-        lineHeight="lineHeight40"
-        element={`${element}_USER_NAME`}
-        ref={ref}
-      >
-        {children}
-      </Text>
-    );
-  }
-);
-UserDialogUserName.displayName = 'UserDialogName';
-
-UserDialogUserName.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
-
-export const UserDialogUserEmail = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
-  ({children, element = 'USER_DIALOG', ...props}, ref) => {
-    return (
-      <Text
-        {...props}
-        as="div"
-        fontSize="fontSize30"
-        color="colorTextWeak"
-        fontWeight="fontWeightLight"
-        lineHeight="lineHeight20"
-        element={`${element}_USER_EMAIL`}
-        ref={ref}
-      >
-        {children}
-      </Text>
-    );
-  }
-);
-UserDialogUserEmail.displayName = 'UserDialogEmail';
-
-UserDialogUserEmail.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
+import type {UserDialogUserInfoProps} from '../types';
+import {UserDialogContext} from './UserDialogContainer';
 
 export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUserInfoProps>(
   ({children, element = 'USER_DIALOG', ...props}, ref) => {

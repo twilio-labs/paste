@@ -3,6 +3,8 @@ import type {StoryFn} from '@storybook/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 
 import {
   useUserDialogState,
@@ -20,7 +22,7 @@ export default {
 
 export const BasicUserDialog: StoryFn = () => {
   return (
-    <UserDialogContainer name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
+    <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
       <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
         <UserDialogUserInfo>
           <UserDialogUserName>Name</UserDialogUserName>
@@ -43,7 +45,7 @@ export const StateHookUserDialog: StoryFn = () => {
           Close User Dialog
         </Button>
       </Box>
-      <UserDialogContainer state={userDialog} name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
+      <UserDialogContainer state={userDialog} name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
         <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
           <UserDialogUserInfo>
             <UserDialogUserName>Name</UserDialogUserName>
@@ -52,5 +54,67 @@ export const StateHookUserDialog: StoryFn = () => {
         </UserDialog>
       </UserDialogContainer>
     </Box>
+  );
+};
+
+export const CustomizedUserDialog: StoryFn = () => {
+  const theme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={theme}
+      elements={{
+        // Default element names
+        USER_DIALOG_BUTTON: {backgroundColor: 'colorBackgroundDecorative10Weakest'},
+        USER_DIALOG_BUTTON_CONTENTS: {padding: 'space20'},
+        USER_DIALOG_BUTTON_AVATAR: {
+          backgroundColor: 'colorBackgroundDecorative30Weakest',
+          color: 'colorTextDecorative20',
+        },
+        USER_DIALOG_BUTTON_ICON: {marginLeft: 'space30'},
+        USER_DIALOG: {padding: 'space40'},
+        USER_DIALOG_USER_INFO: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        USER_DIALOG_USER_AVATAR: {
+          backgroundColor: 'colorBackgroundDecorative30Weakest',
+          color: 'colorTextDecorative20',
+        },
+        USER_DIALOG_USER_NAME: {color: 'colorTextDecorative30'},
+        USER_DIALOG_USER_EMAIL: {color: 'colorTextDecorative20'},
+        // Custom element names
+        FOO_BUTTON: {backgroundColor: 'colorBackgroundDecorative10Weakest'},
+        FOO_BUTTON_CONTENTS: {padding: 'space20'},
+        FOO_BUTTON_AVATAR: {
+          backgroundColor: 'colorBackgroundDecorative30Weakest',
+          color: 'colorTextDecorative20',
+        },
+        FOO_BUTTON_ICON: {marginLeft: 'space30'},
+        FOO: {padding: 'space40'},
+        FAZ_USER_INFO: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        FAZ_USER_AVATAR: {
+          backgroundColor: 'colorBackgroundDecorative30Weakest',
+          color: 'colorTextDecorative20',
+        },
+        BAR: {color: 'colorTextDecorative30'},
+        BAZ: {color: 'colorTextDecorative20'},
+      }}
+    >
+      <Box display="flex" columnGap="space50">
+        <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
+          <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+            <UserDialogUserInfo>
+              <UserDialogUserName>Name</UserDialogUserName>
+              <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+            </UserDialogUserInfo>
+          </UserDialog>
+        </UserDialogContainer>
+        <UserDialogContainer name="User Name" icon={UserIcon}>
+          <UserDialog element="FOO" aria-label="user menu">
+            <UserDialogUserInfo element="FAZ">
+              <UserDialogUserName element="BAR">Name</UserDialogUserName>
+              <UserDialogUserEmail element="BAZ">email@email.com</UserDialogUserEmail>
+            </UserDialogUserInfo>
+          </UserDialog>
+        </UserDialogContainer>
+      </Box>
+    </CustomizationProvider>
   );
 };

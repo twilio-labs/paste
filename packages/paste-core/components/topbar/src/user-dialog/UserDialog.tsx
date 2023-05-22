@@ -3,57 +3,14 @@ import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Avatar} from '@twilio-paste/avatar';
 import {Button} from '@twilio-paste/button';
-import {
-  NonModalDialogPrimitive,
-  NonModalDialogDisclosurePrimitive,
-  useNonModalDialogPrimitiveState,
-} from '@twilio-paste/non-modal-dialog-primitive';
-import type {
-  NonModalDialogPrimitiveStateReturn,
-  NonModalDialogPrimitivePopoverInitialState,
-} from '@twilio-paste/non-modal-dialog-primitive';
+import {NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {StyledBase} from '@twilio-paste/theme';
 
-import type {UserDialogProps, UserDialogPopoverProps, UserDialogContainerProps, UserDialogContextProps} from './types';
+import type {UserDialogProps, UserDialogPopoverProps} from '../types';
+import {UserDialogContext} from './UserDialogContainer';
 
-export const UserDialogContext = React.createContext<UserDialogContextProps>({} as UserDialogContextProps);
-
-export const UserDialogContainer: React.FC<UserDialogContainerProps> = ({
-  children,
-  state,
-  name,
-  src,
-  icon,
-  ...initialState
-}) => {
-  const nonModalDialogState =
-    state ||
-    useNonModalDialogPrimitiveState({
-      modal: true,
-      visible: false,
-      placement: 'bottom-start',
-      gutter: 0,
-      ...initialState,
-    });
-  const avatarProps = {name, src, icon};
-  return (
-    <UserDialogContext.Provider value={{userDialogState: nonModalDialogState, avatarProps}}>
-      {children}
-    </UserDialogContext.Provider>
-  );
-};
-UserDialogContainer.displayName = 'UserDialogContainer';
-
-UserDialogContainer.propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string,
-  icon: (props) => {
-    if (typeof props.icon !== 'function') new Error('[Paste User Dialog]: icon prop must be a Paste Icon');
-    return null;
-  },
-};
-
+// styled popover for UserDialog Non Modal Dialog Primitive
 const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>((props, ref) => {
   return (
     <Box
@@ -86,6 +43,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
           variant="reset"
           size="reset"
           element={`${element}_BUTTON`}
+          //   borderRadius="borderRadius20" uncomment once sidenav is merged and topbar is rebased and styles can be set on reset buttons
         >
           <Box display="flex" columnGap="space30" alignItems="center" element={`${element}_BUTTON_CONTENTS`}>
             <Avatar
@@ -120,10 +78,4 @@ UserDialog.propTypes = {
   children: PropTypes.node.isRequired,
   'aria-label': PropTypes.string.isRequired,
   element: PropTypes.string,
-};
-
-export const useUserDialogState = (
-  props: NonModalDialogPrimitivePopoverInitialState
-): NonModalDialogPrimitiveStateReturn => {
-  return useNonModalDialogPrimitiveState({...props, placement: 'bottom-start', gutter: 0});
 };
