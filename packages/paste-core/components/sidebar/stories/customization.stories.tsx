@@ -23,7 +23,7 @@ import {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/Customization',
+  title: 'Components/Sidebar/Sidebar/Customization',
 };
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {

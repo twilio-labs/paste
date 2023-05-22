@@ -27,6 +27,7 @@ import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
 import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
 import {NormalizedComponentHeader} from '../shortcodes/normalized-component-header';
+import {EmbeddedStory} from '../shortcodes/EmbeddedStory';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -54,6 +55,7 @@ const shortcodes = {
   ArticleContent,
   ArticleAside,
   NormalizedComponentHeader,
+  EmbeddedStory,
 };
 
 const MDXPoviderComponents = {

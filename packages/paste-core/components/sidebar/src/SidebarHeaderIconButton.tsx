@@ -1,11 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
+import type {ButtonProps} from '@twilio-paste/button';
 import type {BoxProps} from '@twilio-paste/box';
 
 export interface SidebarHeaderIconButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: NonNullable<React.ReactNode>;
-  onClick?: () => void;
+  as: 'a' | 'button';
+  onClick?: ButtonProps['onClick'];
+  href?: ButtonProps['href'];
   element?: BoxProps['element'];
 }
 
