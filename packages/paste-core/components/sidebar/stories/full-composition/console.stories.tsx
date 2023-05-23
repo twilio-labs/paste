@@ -6,6 +6,7 @@ import type {StoryFn} from '@storybook/react';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import {useUID} from '@twilio-paste/uid-library';
+import {Topbar} from '@twilio-paste/topbar';
 
 import {
   Sidebar,
@@ -16,7 +17,6 @@ import {
   SidebarCollapseButtonWrapper,
   SidebarPushContentWrapper,
 } from '../../src';
-import {Topbar} from '@twilio-paste/topbar';
 
 // eslint-disable-next-line import/no-default-export
 export default {
