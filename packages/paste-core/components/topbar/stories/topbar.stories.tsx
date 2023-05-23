@@ -17,8 +17,16 @@ import {
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
 } from '@twilio-paste/sidebar';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
-import {Topbar} from '../src';
+import {
+  Topbar,
+  UserDialog,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  UserDialogUserEmail,
+  UserDialogContainer,
+} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -59,6 +67,14 @@ export const PushDefaultTopbar: StoryFn = () => {
         <Topbar>
           <Box display="flex" alignItems="center" justifyContent="space-between">
             <div>Topbar Left</div>
+            <UserDialogContainer name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
+              <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+                <UserDialogUserInfo>
+                  <UserDialogUserName>Name</UserDialogUserName>
+                  <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+                </UserDialogUserInfo>
+              </UserDialog>
+            </UserDialogContainer>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
               Toggle Sidebar
             </Button>
