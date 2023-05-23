@@ -33,6 +33,19 @@ export const BasicUserDialog: StoryFn = () => {
   );
 };
 
+export const ImageUserDialog: StoryFn = () => {
+  return (
+    <UserDialogContainer name="User Name" src="./avatars/avatar-sizeIcon10.png" baseId="i-am-user-dialog">
+      <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+        <UserDialogUserInfo>
+          <UserDialogUserName>Name</UserDialogUserName>
+          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+        </UserDialogUserInfo>
+      </UserDialog>
+    </UserDialogContainer>
+  );
+};
+
 export const StateHookUserDialog: StoryFn = () => {
   const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz'});
   return (

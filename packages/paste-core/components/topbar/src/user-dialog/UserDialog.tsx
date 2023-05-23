@@ -51,6 +51,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
               size="sizeIcon70"
               name={avatarProps.name}
               icon={avatarProps.icon}
+              src={avatarProps.src}
               element={`${element}_BUTTON_AVATAR`}
             />
             <ChevronDownIcon decorative size="sizeIcon30" element={`${element}_BUTTON_ICON`} />
