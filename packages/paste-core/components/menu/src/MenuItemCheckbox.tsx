@@ -15,8 +15,8 @@ const MenuItemCheckbox = React.forwardRef<HTMLDivElement, MenuItemCheckboxProps>
     return <MenuPrimitiveItemCheckbox {...props} element={element} variant={variant} as={as} ref={ref} />;
   }
 );
-MenuItemCheckbox.displayName = 'MenuItemCheckbox';
-MenuItemCheckbox.propTypes = {
+
+export const MenuItemCheckboxPropTypes = {
   href: PropTypes.string,
   variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
   disabled: PropTypes.bool,
@@ -27,4 +27,7 @@ MenuItemCheckbox.propTypes = {
   checked: PropTypes.bool,
   name: PropTypes.string,
 };
+
+MenuItemCheckbox.displayName = 'MenuItemCheckbox';
+MenuItemCheckbox.propTypes = MenuItemCheckboxPropTypes;
 export {MenuItemCheckbox};

@@ -62,16 +62,16 @@ const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivEl
             Search with Bing
           </MenuItem>
         </MenuGroup>
-        <MenuItemCheckbox {...menu} name="formatting" value="wrap">
+        <MenuItemCheckbox {...menu} data-testid="checkboxmenuitem" name="formatting" value="wrap">
           Check Wrap
         </MenuItemCheckbox>
         <MenuItemCheckbox {...menu} name="formatting" value="no-wrap">
           Check No Wrap
         </MenuItemCheckbox>
-        <MenuItemRadio {...menu} name="display-view" value="wrap">
+        <MenuItemRadio {...menu} data-testid="radiomenuitem" name="display-view" value="wrap">
           Radio Wrap
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" value="no-wrap">
+        <MenuItemRadio {...menu} data-testid="radiomenuitem2" name="display-view" value="no-wrap">
           Radio No Wrap
         </MenuItemRadio>
       </Menu>
@@ -194,14 +194,14 @@ describe('Menu', () => {
 
     it('should render a checkbox menu item', () => {
       render(<MenuMock />);
-      const renderedCheckboxMenuItem = screen.getByText('Check Wrap');
+      const renderedCheckboxMenuItem = screen.getByTestId('checkboxmenuitem');
       expect(renderedCheckboxMenuItem.getAttribute('role')).toEqual('menuitemcheckbox');
       expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
     });
 
     it('should check a checkbox menu item', () => {
       render(<MenuMock />);
-      const renderedCheckboxMenuItem = screen.getByText('Check Wrap');
+      const renderedCheckboxMenuItem = screen.getByTestId('checkboxmenuitem');
       expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
       fireEvent.click(renderedCheckboxMenuItem);
       expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('true');
@@ -211,15 +211,15 @@ describe('Menu', () => {
 
     it('should render a radio menu item', () => {
       render(<MenuMock />);
-      const renderedCheckboxMenuItem = screen.getByText('Radio Wrap');
+      const renderedCheckboxMenuItem = screen.getByTestId('radiomenuitem');
       expect(renderedCheckboxMenuItem.getAttribute('role')).toEqual('menuitemradio');
       expect(renderedCheckboxMenuItem.getAttribute('aria-checked')).toEqual('false');
     });
 
     it('should check a radio menu item', () => {
       render(<MenuMock />);
-      const renderedRadioMenuItem = screen.getByText('Radio Wrap');
-      const renderedRadioboxMenuItem2 = screen.getByText('Radio No Wrap');
+      const renderedRadioMenuItem = screen.getByTestId('radiomenuitem');
+      const renderedRadioboxMenuItem2 = screen.getByTestId('radiomenuitem2');
       // none of the radio menu items should be checked
       expect(renderedRadioMenuItem.getAttribute('aria-checked')).toEqual('false');
       expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('false');

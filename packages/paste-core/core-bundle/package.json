@@ -71,6 +71,7 @@
     "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'"
   },
   "dependencies": {
+    "@twilio-paste/account-switcher": "^0.0.0",
     "@twilio-paste/alert": "^13.0.0",
     "@twilio-paste/alert-dialog": "^8.0.0",
     "@twilio-paste/anchor": "^11.0.0",
@@ -132,6 +133,7 @@
     "@twilio-paste/pagination": "^6.0.1",
     "@twilio-paste/paragraph": "^9.0.0",
     "@twilio-paste/popover": "^12.0.0",
+    "@twilio-paste/product-switcher": "^0.0.0",
     "@twilio-paste/radio-button-group": "^3.0.0",
     "@twilio-paste/radio-group": "^12.0.0",
     "@twilio-paste/react-textarea-autosize-library": "^2.0.0",

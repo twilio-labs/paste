@@ -92,7 +92,7 @@ export const badgeVariantStyles: {
   },
   default: {
     backgroundColor: 'colorBackgroundBody',
-    color: 'colorTextWeak',
+    color: 'colorText',
     boxShadow: 'shadowBorderWeaker',
   },
   /*

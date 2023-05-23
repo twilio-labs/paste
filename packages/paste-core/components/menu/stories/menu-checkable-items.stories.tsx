@@ -37,29 +37,51 @@ export default {
 
 export const CheckboxMenu: StoryFn = () => {
   const menu = useMenuState();
+  const [bold, setBold] = React.useState(false);
+  const [underlined, setUnderlined] = React.useState(false);
+  const [italic, setItalic] = React.useState(false);
+  const [struck, setStruck] = React.useState(false);
   return (
     <>
       <MenuButton {...menu} variant="secondary">
         Text formatting <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Display view">
-        <MenuItemCheckbox {...menu} name="display-view" value="bold">
+        <MenuItemCheckbox {...menu} checked={bold} onChange={() => setBold(!bold)} name="display-view" value="bold">
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <BoldIcon decorative={true} /> Bold
           </Box>
         </MenuItemCheckbox>
-        <MenuItemCheckbox {...menu} name="display-view" value="underlined">
+        <MenuItemCheckbox
+          {...menu}
+          checked={underlined}
+          onChange={() => setUnderlined(!underlined)}
+          name="display-view"
+          value="underlined"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <UnderlineIcon decorative={true} /> Underlined
           </Box>
         </MenuItemCheckbox>
-        <MenuItemCheckbox {...menu} name="display-view" value="italic">
+        <MenuItemCheckbox
+          {...menu}
+          checked={italic}
+          onChange={() => setItalic(!italic)}
+          name="display-view"
+          value="italic"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <ItalicIcon decorative={true} /> Italic
           </Box>
         </MenuItemCheckbox>
         <MenuSeparator {...menu} />
-        <MenuItemCheckbox {...menu} name="display-view" value="strike">
+        <MenuItemCheckbox
+          {...menu}
+          checked={struck}
+          onChange={() => setStruck(!struck)}
+          name="display-view"
+          value="strike"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <StrikethroughIcon decorative={true} /> Strike
           </Box>
@@ -71,34 +93,66 @@ export const CheckboxMenu: StoryFn = () => {
 
 export const RadioMenu: StoryFn = () => {
   const menu = useMenuState();
+  const [value, setValue] = React.useState('grid');
   return (
     <>
       <MenuButton {...menu} variant="secondary">
         Display view <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Display view">
-        <MenuItemRadio {...menu} name="display-view" value="grid">
+        <MenuItemRadio
+          {...menu}
+          name="display-view"
+          checked={value === 'grid'}
+          onChange={() => setValue('grid')}
+          value="grid"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <DataTableIcon decorative={true} /> Data grid
           </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" value="bar">
+        <MenuItemRadio
+          {...menu}
+          name="display-view"
+          checked={value === 'bar'}
+          onChange={() => setValue('bar')}
+          value="bar"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <DataBarChartIcon decorative={true} /> Bar chart
           </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" value="line">
+        <MenuItemRadio
+          {...menu}
+          name="display-view"
+          checked={value === 'line'}
+          onChange={() => setValue('line')}
+          value="line"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <DataLineChartIcon decorative={true} /> Line chart
           </Box>
         </MenuItemRadio>
-        <MenuItemRadio {...menu} name="display-view" disabled value="pie">
+        <MenuItemRadio
+          {...menu}
+          name="display-view"
+          disabled
+          checked={value === 'pie'}
+          onChange={() => setValue('pie')}
+          value="pie"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <DataPieChartIcon decorative={true} /> Pie chart
           </Box>
         </MenuItemRadio>
         <MenuSeparator {...menu} />
-        <MenuItemRadio {...menu} name="display-view" value="list">
+        <MenuItemRadio
+          {...menu}
+          name="display-view"
+          checked={value === 'list'}
+          onChange={() => setValue('list')}
+          value="list"
+        >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
             <UnorderedListIcon decorative={true} /> List
           </Box>

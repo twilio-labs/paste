@@ -9714,6 +9714,71 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@twilio-paste/account-switcher@^0.0.0, @twilio-paste/account-switcher@workspace:packages/paste-core/components/account-switcher":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/account-switcher@workspace:packages/paste-core/components/account-switcher"
+  dependencies:
+    "@twilio-paste/anchor": ^11.0.0
+    "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
+    "@twilio-paste/box": ^9.1.0
+    "@twilio-paste/button": ^13.0.0
+    "@twilio-paste/color-contrast-utils": ^4.0.0
+    "@twilio-paste/customization": ^7.0.0
+    "@twilio-paste/design-tokens": ^9.1.0
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/media-object": ^9.0.0
+    "@twilio-paste/menu": ^13.0.0
+    "@twilio-paste/menu-primitive": ^1.0.0
+    "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": 12.0.0
+    "@twilio-paste/separator": ^7.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
+    "@twilio-paste/style-props": ^8.0.0
+    "@twilio-paste/styling-library": ^2.0.2
+    "@twilio-paste/text": 9.0.1
+    "@twilio-paste/theme": ^10.0.2
+    "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    typescript: ^4.9.4
+  peerDependencies:
+    "@twilio-paste/anchor": ^11.0.0
+    "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
+    "@twilio-paste/box": ^9.1.0
+    "@twilio-paste/button": ^13.0.0
+    "@twilio-paste/color-contrast-utils": ^4.0.0
+    "@twilio-paste/customization": ^7.0.0
+    "@twilio-paste/design-tokens": ^9.1.0
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/media-object": ^9.0.0
+    "@twilio-paste/menu": ^13.0.0
+    "@twilio-paste/menu-primitive": ^1.0.0
+    "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": 12.0.0
+    "@twilio-paste/separator": ^7.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
+    "@twilio-paste/style-props": ^8.0.0
+    "@twilio-paste/styling-library": ^2.0.2
+    "@twilio-paste/text": 9.0.1
+    "@twilio-paste/theme": ^10.0.2
+    "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/alert-dialog@^8.0.0, @twilio-paste/alert-dialog@workspace:packages/paste-core/components/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/alert-dialog@workspace:packages/paste-core/components/alert-dialog"
@@ -10678,6 +10743,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
+    "@twilio-paste/account-switcher": ^0.0.0
     "@twilio-paste/alert": ^13.0.0
     "@twilio-paste/alert-dialog": ^8.0.0
     "@twilio-paste/anchor": ^11.0.0
@@ -10740,6 +10806,7 @@ __metadata:
     "@twilio-paste/pagination": ^6.0.1
     "@twilio-paste/paragraph": ^9.0.0
     "@twilio-paste/popover": ^12.0.0
+    "@twilio-paste/product-switcher": ^0.0.0
     "@twilio-paste/radio-button-group": ^3.0.0
     "@twilio-paste/radio-group": ^12.0.0
     "@twilio-paste/react-textarea-autosize-library": ^2.0.0
@@ -12339,6 +12406,71 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/product-switcher@^0.0.0, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher"
+  dependencies:
+    "@twilio-paste/anchor": ^11.0.0
+    "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
+    "@twilio-paste/box": ^9.1.0
+    "@twilio-paste/button": ^13.0.0
+    "@twilio-paste/color-contrast-utils": ^4.0.0
+    "@twilio-paste/customization": ^7.0.0
+    "@twilio-paste/design-tokens": ^9.1.0
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/media-object": ^9.0.0
+    "@twilio-paste/menu": ^13.0.0
+    "@twilio-paste/menu-primitive": ^1.0.0
+    "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": 12.0.0
+    "@twilio-paste/separator": ^7.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
+    "@twilio-paste/style-props": ^8.0.0
+    "@twilio-paste/styling-library": ^2.0.2
+    "@twilio-paste/text": 9.0.1
+    "@twilio-paste/theme": ^10.0.2
+    "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    typescript: ^4.9.4
+  peerDependencies:
+    "@twilio-paste/anchor": ^11.0.0
+    "@twilio-paste/animation-library": ^1.0.0
+    "@twilio-paste/badge": ^7.0.0
+    "@twilio-paste/box": ^9.1.0
+    "@twilio-paste/button": ^13.0.0
+    "@twilio-paste/color-contrast-utils": ^4.0.0
+    "@twilio-paste/customization": ^7.0.0
+    "@twilio-paste/design-tokens": ^9.1.0
+    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/media-object": ^9.0.0
+    "@twilio-paste/menu": ^13.0.0
+    "@twilio-paste/menu-primitive": ^1.0.0
+    "@twilio-paste/reakit-library": ^1.0.0
+    "@twilio-paste/screen-reader-only": 12.0.0
+    "@twilio-paste/separator": ^7.0.0
+    "@twilio-paste/spinner": ^13.0.0
+    "@twilio-paste/stack": ^7.0.0
+    "@twilio-paste/style-props": ^8.0.0
+    "@twilio-paste/styling-library": ^2.0.2
+    "@twilio-paste/text": 9.0.1
+    "@twilio-paste/theme": ^10.0.2
+    "@twilio-paste/types": ^5.0.0
+    "@twilio-paste/uid-library": ^1.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/radio-button-group@^3.0.0, @twilio-paste/radio-button-group@workspace:packages/paste-core/components/radio-button-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/radio-button-group@workspace:packages/paste-core/components/radio-button-group"
@@ -12493,7 +12625,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/screen-reader-only@^12.0.0, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
+"@twilio-paste/screen-reader-only@12.0.0, @twilio-paste/screen-reader-only@^12.0.0, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only"
   dependencies:
@@ -13162,7 +13294,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/text@^9.0.0, @twilio-paste/text@^9.0.1, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
+"@twilio-paste/text@9.0.1, @twilio-paste/text@^9.0.0, @twilio-paste/text@^9.0.1, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/text@workspace:packages/paste-core/primitives/text"
   dependencies:
