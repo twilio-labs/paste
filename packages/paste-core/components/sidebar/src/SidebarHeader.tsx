@@ -16,7 +16,8 @@ export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderPr
         {...safelySpreadBoxProps(props)}
         element={element}
         ref={ref}
-        padding="space60"
+        paddingX="space60"
+        minHeight="sizeTopbar"
         borderBottomWidth="borderWidth10"
         borderBottomStyle="solid"
         borderBottomColor="colorBorderInverseWeaker"

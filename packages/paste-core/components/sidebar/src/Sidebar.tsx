@@ -15,7 +15,9 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
     as="nav"
     display="block"
     ref={ref}
-    boxShadow="shadowBorderInverse"
+    borderRightStyle="solid"
+    borderRightWidth="borderWidth10"
+    borderRightColor="colorBorderInverseWeaker"
     backgroundColor="colorBackgroundInverse"
     zIndex="zIndex40"
     position="fixed"
