@@ -1,5 +1,6 @@
 # Automatically generated from "yarn generate-packages"
 /dist
+/account-switcher
 /alert
 /alert-dialog
 /anchor
@@ -61,6 +62,7 @@
 /pagination
 /paragraph
 /popover
+/product-switcher
 /radio-button-group
 /radio-group
 /react-textarea-autosize-library
@@ -74,6 +76,7 @@
 /skeleton-loader
 /spinner
 /stack
+/status
 /style-props
 /styling-library
 /switch

@@ -66,6 +66,8 @@ export const SITEMAP = [
   '/components/select/',
   '/components/separator/',
   '/components/stack/',
+  '/components/status-badge/',
+  '/components/status-menu/',
   '/components/spinner/',
   '/components/skeleton-loader/',
   '/components/switch/',

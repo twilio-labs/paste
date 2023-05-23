@@ -1,0 +1,313 @@
+export const meta = {
+  title: 'Status Badge - Components',
+  package: '@twilio-paste/status',
+  description:
+    'A status should be used to communicate to a user the status of a process or connection to an application or service.',
+  slug: '/components/status-badge/',
+};
+
+import Changelog from '@twilio-paste/status/CHANGELOG.md';
+import {StatusBadge} from '@twilio-paste/status';
+
+import {Box} from '@twilio-paste/box';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/status/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Status Badge');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
+  storybookUrl="/?path=/story/components-status--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge variant="ProcessInProgress">
+      In Progress
+    </StatusBadge>
+    <StatusBadge variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
+## Guidelines
+
+## About Status Badge
+
+### Accessibility
+
+## Examples
+
+### Variants
+
+#### ProcessSuccess
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessSuccess">
+  Success
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessError
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessError">
+  Error
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessWarning
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessWarning">
+  Warning
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessNeutral
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessNeutral">
+  Neutral
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessInProgress
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessInProgress">
+  In Progress
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessDisabled
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessDisabled">
+  Disabled
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ProcessDraft
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ProcessDraft">
+  Draft
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ConnectivityAvailable
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ConnectivityAvailable">
+  Available
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ConnectivityUnavailable
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ConnectivityUnavailable">
+  Unavailable
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ConnectivityBusy
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ConnectivityBusy">
+  Busy
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ConnectivityNeutral
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ConnectivityNeutral">
+  Neutral
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+#### ConnectivityOffline
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<StatusBadge variant="ConnectivityOffline">
+  Offline
+</StatusBadge>
+`.trim()}
+</LivePreview>
+
+### Small Badges
+
+Use small Badges sparingly, only when needed for vertical density. Guidelines for using variants in small Badge are the same as in their default size.
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge size="small" variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessInProgress">
+      In Progress
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge size="small" variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge size="small" variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge size="small" variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge size="small" variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge size="small" variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge size="small" variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
+---
+
+## Composition Notes
+
+Use a Status Badge when you want to add a label to a piece of UI for quick identification and navigation.
+
+Status Badge labels should be one to three words, or numbers.
+
+### Use cases
+
+### Do &amp; Don't
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/status - or - yarn add @twilio-paste/status
+```
+
+#### Usage
+
+```jsx
+import {Badge} from '@twilio-paste/core/status';
+
+const BadgeExample = () => <StatusBadge variant="ProcessError">Process Error Badge</StatusBadge>;
+```
+
+#### Props
+
+##### StatusBadge
+
+| Prop     | Type                           | Description                                                                                                                                                                                                                                        | Default        |
+| -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| children | `NonNullable<React.ReactNode>` |                                                                                                                                                                                                                                                    | `null`         |
+| variant  | `StatusBadgeVariants`          | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`         |
+| size     | `BadgeSizes`                   | `default`, `small`                                                                                                                                                                                                                                 | `default`      |
+| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                          | 'STATUS_BADGE' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

@@ -5,7 +5,7 @@ import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 
-import {StyledMenuItem} from './MenuItem';
+import {StyledMenuItem} from './MenuItem.styles';
 
 export type SubMenuButtonProps = MenuPrimitiveButtonProps & {element?: BoxElementProps['element']};
 

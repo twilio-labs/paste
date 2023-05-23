@@ -1,0 +1,314 @@
+export const meta = {
+  title: 'Status Menu - Components',
+  package: '@twilio-paste/status',
+  description:
+    'A status should be used to communicate to a user the status of a process or connection to an application or service.',
+  slug: '/components/status-menu/',
+};
+
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItem,
+  StatusMenuItemChild,
+  useStatusMenuState,
+  StatusMenuItemRadio,
+  StatusMenuItemCheckbox,
+} from '@twilio-paste/status';
+import Changelog from '@twilio-paste/menu/CHANGELOG.md';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
+import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {InlineCode} from '../../../components/Typography';
+import {
+  processStatusMenuExample,
+  availabilityStatusMenuExample,
+  ConnectivityObject,
+  ProcessObject,
+} from '../../../component-examples/StatusMenuExamples.ts';
+import packageJson from '@twilio-paste/status/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Status Menu');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
+  storybookUrl="/?path=/story/components-status--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    useStatusMenuState,
+    StatusMenu,
+    StatusMenuItem,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    ProcessObject,
+  }}
+  noInline
+  showOverflow
+>
+  {processStatusMenuExample}
+</LivePreview>
+
+## Guidelines
+
+### About Menu
+
+### Accessibility
+
+## Examples
+
+### Basic menu
+
+Status menus follow the [Process and Connectivity Status Patterns](/patterns/status). They can be used to display and update Connectivity and Process statuses.
+
+#### Process
+
+<LivePreview
+  scope={{
+    useStatusMenuState,
+    StatusMenu,
+    StatusMenuItem,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    ProcessObject,
+  }}
+  noInline
+  showOverflow
+>
+  {processStatusMenuExample}
+</LivePreview>
+
+#### Connectivity
+
+<LivePreview
+  scope={{
+    useStatusMenuState,
+    StatusMenu,
+    StatusMenuItemRadio,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    ConnectivityObject,
+  }}
+  noInline
+  showOverflow
+>
+  {availabilityStatusMenuExample}
+</LivePreview>
+
+## Composition notes
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/Status - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItem,
+  StatusMenuItemChild,
+  useStatusMenuState,
+} from '@twilio-paste/core/status';
+
+const PreferencesMenu = () => {
+  const menu = useStatusMenuState();
+  return (
+    <>
+      <StatusMenuBadge {...menu} variant="ProcessErro">
+        Preferences
+      </StatusMenuBadge>
+      <StatusMenu {...menu} aria-label="Preferences">
+        <StatusMenuItem {...menu}>Settings</StatusMenuItem>
+        <StatusMenuItem {...menu} disabled>
+          Extensions
+        </StatusMenuItem>
+        <StatusMenuItem {...menu}>Keyboard shortcuts</StatusMenuItem>
+      </StatusMenu>
+    </>
+  );
+};
+```
+
+#### Props
+
+##### useStatusMenuState
+
+Pass these as part of an object to the `useStatusMenuState` hook.
+
+| Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
+| baseId      | `string`                                                                                                                                           | ID that will serve as a base for all the items IDs.                                                           |         |
+| rtl         | `boolean`                                                                                                                                          |                                                                                                               |         |
+| orientation | `horizontal, vertical, undefined`                                                                                                                  |                                                                                                               |         |
+| currentId   | `string, null, undefined`                                                                                                                          | The current focused item `id`.                                                                                |         |
+| loop        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
+| wrap        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
+| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |         |
+| animated    | `number, boolean`                                                                                                                                  |                                                                                                               |         |
+| placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
+| gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
+
+##### useStatusMenuState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+| Prop          | Type                                                                                          | Description                                                                                                                                  | Default |
+| ------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| baseId        | `string`                                                                                      | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| baseId        | string                                                                                        | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| visible       | boolean                                                                                       | Whether it's visible or not.                                                                                                                 |         |
+| animated      | number &#124; boolean                                                                         |                                                                                                                                              |         |
+| modal         | boolean                                                                                       | Toggles Dialog's `modal` state.                                                                                                              |         |
+| animating     | boolean                                                                                       | Whether it's animating or not.                                                                                                               |         |
+| stopAnimation | () =&#62; void                                                                                | Stops animation. It's called automatically if there's a CSS transition.                                                                      |         |
+| hide          | () =&#62; void                                                                                | Changes the `visible` state to `false`                                                                                                       |         |
+| placement     | &#34;auto-start&#34; &#124; &#34;auto&#34; &#124; &#34;auto-end&#34; &#124; &#34;top-start... | Actual `placement`.                                                                                                                          |         |
+| orientation   | &#34;horizontal&#34; &#124; &#34;vertical&#34; &#124; undefined                               | Defines the orientation of the composite widget.                                                                                             |         |
+| currentId     | string &#124; null &#124; undefined                                                           | The current focused item `id`.                                                                                                               |         |
+| wrap          | boolean &#124; &#34;horizontal&#34; &#124; &#34;vertical&#34;                                 | If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa. |         |
+| groups        | Group[]                                                                                       | Lists all the composite groups with their `id` and DOM `ref`.                                                                                |         |
+| items         | Item[]                                                                                        | Lists all the composite items with their `id`, DOM `ref`, `disabled` state and `groupId` if any.                                             |         |
+| setCurrentId  | (value: SetStateAction&#60;string &#124; null &#124; undefine...                              | Sets `currentId`.                                                                                                                            |         |
+| first         | () =&#62; void                                                                                | Moves focus to the first item.                                                                                                               |         |
+| last          | () =&#62; void                                                                                | Moves focus to the last item.                                                                                                                |         |
+| move          | (id: string &#124; null) =&#62; void                                                          | Moves focus to a given item ID.                                                                                                              |         |
+| next          | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the next item.                                                                                                                |         |
+| previous      | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the previous item.                                                                                                            |         |
+
+##### StatusMenu
+
+| Prop               | Type                 | Description                                                                               | Default |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it.                            |         |
+| disabled           | `boolean, undefined` | Same as the HTML attribute.                                                               |         |
+| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU'  |
+
+##### StatusMenuBadge
+
+| Prop                   | Type                                     | Description                                                                                                                                                                                                                                        | Default                                |
+| ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                                                                                | 'button'                               |
+| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                                                                                         | false                                  |
+| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                                                                                             | false                                  |
+| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                                                                                        | null                                   |
+| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                                                                                         | false                                  |
+| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                                                                                 | 'default'                              |
+| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                                                                                   | 'button'                               |
+| variant                | `StatusBadgeVariants`                    | `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `AvailabilityAvailable`, `AvailabilityBusy`, `AvailabilityUnavailable`, `AvailabilityNeutral`, `AvailabilityOffline` | `null`                                 |
+| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                                                                                      | '(link takes you to an external page)' |
+| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                                                                                       |                                        |
+| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                                                                                    | null                                   |
+| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                          | 'STATUS_MENU_BADGE'                    |
+
+##### StatusMenuItem
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+
+##### StatusMenuItemCheckbox
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
+
+##### StatusMenuItemRadio
+
+| Prop     | Type                 | Description                                                                               | Default     |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
+| value?   | `string`             |                                                                                           |             |
+| checked? | `boolean`            |                                                                                           |             |
+| name?    | `string`             |                                                                                           |             |
+
+##### StatusMenuItemChild
+
+| Prop     | Type                  | Description                                                                                                                                                                                                                                                                                  | Default            |
+| -------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| variant  | `StatusBadgeVariants` | Swaps the menu item variant. Options are `ProcessError`, `ProcessWarning`, `ProcessSuccess`, `ProcessNeutral`, `ProcessInProgress`, `ProcessDisabled`, `ProcessDraft`, `ConnectivityAvailable`, `ConnectivityBusy`, `ConnectivityUnavailable`, `ConnectivityOffline`, `ConnectivityNeutral`. |                    |
+| element? | `string`              | Overrides the default element name to apply unique styles with the Customization Provider                                                                                                                                                                                                    | 'MENU_ITEM_STATUS' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
