@@ -33,7 +33,8 @@
         "{projectRoot}/cjs",
         "{projectRoot}/esm",
         "{projectRoot}/json",
-        "{projectRoot}/types"
+        "{projectRoot}/types",
+        "{projectRoot}/.next"
       ]
     },
     "build:js": {
