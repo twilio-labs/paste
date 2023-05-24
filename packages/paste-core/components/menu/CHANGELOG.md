@@ -1,5 +1,19 @@
 # Change Log
 
+## 13.1.0
+
+### Minor Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] Add Menu Badge, and Checkbox and Radio group Menu Items added. Enables the ability to create menus from badges. Enables single and multiselect menu items.
+
+### Patch Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] add and export proptypes for various menu related components.
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] update to Menu Group text color to Color Text Weak
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu]: Improved handling of styling checked menu items and reserving space for the checkmark to prevent resizing on selection
+
 ## 13.0.0
 
 ### Major Changes

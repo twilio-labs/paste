@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.0.1
+
+### Patch Changes
+
+- [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button, Help Text, In Page Navigation, Input, Input Box, Label, Select, Tab, Text Area] Update color text tokens for inverse styles
+
 ## 12.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "category": "user input",
   "status": "production",
   "description": "An Input is a form element that lets users enter one of various types of text on a single line.",
@@ -46,8 +46,8 @@
     "@twilio-paste/box": "^9.0.0",
     "@twilio-paste/color-contrast-utils": "^4.0.0",
     "@twilio-paste/customization": "^7.0.0",
-    "@twilio-paste/design-tokens": "^9.0.2",
-    "@twilio-paste/input-box": "^9.0.0",
+    "@twilio-paste/design-tokens": "^9.2.0",
+    "@twilio-paste/input-box": "^9.0.1",
     "@twilio-paste/style-props": "^8.0.0",
     "@twilio-paste/styling-library": "^2.0.0",
     "@twilio-paste/theme": "^10.0.0",

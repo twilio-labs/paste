@@ -1,5 +1,11 @@
 # @twilio-paste/inline-code
 
+## 3.0.1
+
+### Patch Changes
+
+- [`0d57f59af`](https://github.com/twilio-labs/paste/commit/0d57f59af2d8fc53afc9976fe81708965c8f589c) [#3171](https://github.com/twilio-labs/paste/pull/3171) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Inline Code] Design upate to the default inline code to match the minimal styles with a view to deprecating "blue" inline code styles
+
 ## 3.0.0
 
 ### Major Changes
