@@ -1,0 +1,207 @@
+export const meta = {
+  title: 'Topbar',
+  package: '@twilio-paste/topbar',
+  description: 'A Topbar encapsulates application-wide controls that rest at the top of the screen.',
+  slug: '/components/topbar/',
+};
+
+import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Topbar} from '@twilio-paste/topbar';
+import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
+import {
+  ProductSwitcher,
+  ProductSwitcherButton,
+  ProductSwitcherItem,
+  useProductSwitcherState,
+} from '@twilio-paste/product-switcher';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import packageJson from '@twilio-paste/topbar/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {
+  defaultTopbarExample,
+  defaultAccountSwitcherExample,
+  defaultProductSwitcherExample,
+} from '../../../component-examples/TopbarExamples.ts';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Topbar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar"
+  storybookUrl="/?path=/story/components-topbar--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Guidelines
+
+### About Topbar
+
+A Topbar is sticky to the top of the screen and includes application-wide controls including User Dialog (coming soon!), [Product Switcher](#product-switcher), [Account Switcher](#account-switcher), and search [Input](/components/input).
+
+## Examples
+
+### Default Topbar
+
+Use a Topbar at the top of your application to house application-wide controls.
+
+Account-specific controls are aligned to the left (e.g. [Account Switcher](#account-switcher), account type indicator [Badges](/components/badge), and possible upgrade actions).
+
+User-specific controls are aligned to the right (e.g. search [Input](/components/input), support [Button](/components/button), [Product Switcher](#product-switcher), and User Dialog (coming soon!)).
+
+<LivePreview scope={{Topbar}} noInline>
+  {defaultTopbarExample}
+</LivePreview>
+
+## Account Switcher
+
+An Account Switcher is a stylized [Menu Badge](/components/menu#menu-badge) with a list of actions related to a user’s accounts.
+
+Examples of account-related actions include navigating to other recently visited accounts, creating an account, and viewing all of a user’s accounts. Other names for accounts in Twilio products include workspaces and projects.
+
+### Accessibility
+
+Refer to the accessibility section of [Menu](/components/menu).
+
+### Examples
+
+Use an Account Switcher to display actions that a user can trigger related to their accounts.
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadge,
+    MenuItem,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultAccountSwitcherExample}
+</LivePreview>
+
+## User Dialog
+
+Coming soon!
+
+## Product Switcher
+
+A Product Switcher is an opinionated menu that presents a list of Twilio products that a user has access to and can switch between.
+
+### Accessibility
+
+Refer to the accessibility section of [Menu](/components/menu).
+
+### Examples
+
+Use a Product Switcher for when a user has access to multiple Twilio products so a user can switch between them.
+
+The default state of a Product Switcher item indicates that the control is static or not selected. A Product Switcher item can be placed into a selected state in the same way as a radio button. Use the `checked` prop to set a selected item by default.
+
+<LivePreview
+  scope={{
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultProductSwitcherExample}
+</LivePreview>
+
+## Usage guide
+
+### Figma
+
+Topbar, Account Switcher, Product Switcher, and User Dialog components are available in the Paste Components library.
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/topbar - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/menu - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/product-switcher - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Topbar} from '@twilio-paste/core/topbar';
+
+const Topbar = () => {
+  return (
+    <Topbar>
+      {Topbar contents}
+    </Topbar>
+  );
+};
+```
+
+#### Topbar props
+
+| Prop      | Type              | Description                                                                               | Default  |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------- |
+| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.          |          |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'TOPBAR' |
+
+#### Account Switcher props
+
+Refer to [Menu props](/components/menu#props)
+
+#### Product Switcher props
+
+useProductSwitcher props extends [useMenuState props](/components/menu#usemenustate)
+
+ProductSwitcherProps extends [MenuProps](/components/menu#menu)
+
+ProductSwitcherButtonProps extends [MenuButtonProps](/components/menu#menubutton)
+
+ProductSwitcherItemProps extends [MenuItemRadioProps](/components/menu#menuitemradio) plus the following properties:
+
+| Prop             | Type                           | Description | Default |
+| ---------------- | ------------------------------ | ----------- | ------- |
+| productName      | `string`                       |             |         |
+| productStrapline | `string`                       |             |         |
+| productIcon      | `NonNullable<React.ReactNode>` |             |         |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
