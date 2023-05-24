@@ -46,7 +46,7 @@ UserDialogContainer.propTypes = {
 };
 
 export const useUserDialogState = (
-  props: NonModalDialogPrimitivePopoverInitialState
+  props?: NonModalDialogPrimitivePopoverInitialState
 ): NonModalDialogPrimitiveStateReturn => {
   return useNonModalDialogPrimitiveState({...props, placement: 'bottom-start', gutter: 0});
 };
