@@ -63,7 +63,7 @@ const MockPushSidebarWithNavigation = ({
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure data-testid="nav-item-disclosure">
             <Box display="flex" alignItems="center" justifyContent="space-between">
-              <SidebarNavigationDisclosureHeading selected>
+              <SidebarNavigationDisclosureHeading selected data-testid="nav-item-disclosure-heading">
                 <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                 <Box marginLeft="space20">Heading</Box>
               </SidebarNavigationDisclosureHeading>
@@ -92,7 +92,7 @@ const MockPushSidebarWithNavigation = ({
                 </Menu>
               </Box>
             </Box>
-            <SidebarNavigationDisclosureContent>
+            <SidebarNavigationDisclosureContent data-testid="nav-item-disclosure-content">
               <SidebarNavigationDisclosure>
                 <Box display="flex" alignItems="center" justifyContent="space-between">
                   <SidebarNavigationDisclosureHeading selected>
@@ -162,7 +162,7 @@ describe('SidebarNavigation', () => {
 
     // Disclosure works
     expect(disclosure).toBeInTheDocument();
-    expect(disclosure).toHaveStyleRule('display', 'none');
+    expect(disclosure).not.toBeVisible();
   });
 
   it('renders expanded SidebarNavigationItems correctly', () => {
@@ -171,6 +171,8 @@ describe('SidebarNavigation', () => {
     render(<MockPushSidebarWithNavigation collapsed={false} onClick={onClick} />);
     const wrapper = screen.getByTestId('nav-wrapper');
     const disclosure = screen.getByTestId('nav-item-disclosure');
+    const disclosureHeading = screen.getByTestId('nav-item-disclosure-heading');
+    const disclosureContent = screen.getByTestId('nav-item-disclosure-content');
 
     /*
      * Check that the sidebar has the correct number of children, including the disclosure
@@ -189,6 +191,14 @@ describe('SidebarNavigation', () => {
     // Disclosure is visible
     expect(disclosure).toBeInTheDocument();
     expect(disclosure).toHaveStyleRule('display', 'block');
+    // Disclosure is closed
+    expect(disclosureHeading).toHaveAttribute('aria-expanded', 'false');
+    expect(disclosureContent.getAttribute('id')).toEqual(disclosureHeading.getAttribute('aria-controls'));
+    expect(disclosureContent).not.toBeVisible();
+    // Disclosure is open
+    fireEvent.click(disclosureHeading);
+    expect(disclosureHeading).toHaveAttribute('aria-expanded', 'true');
+    expect(disclosureContent).toBeVisible();
   });
 
   /**

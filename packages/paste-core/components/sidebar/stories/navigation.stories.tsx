@@ -24,7 +24,9 @@ import {
   SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
+  useSidebarNavigationDisclosureState,
 } from '../src';
+import type {SidebarNavigationDisclosureInitialState} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -74,7 +76,7 @@ export const Default: StoryFn = () => {
                 <Box marginLeft="space20">Heading</Box>
               </SidebarNavigationDisclosureHeading>
               <Box display="flex" alignItems="center" justifyContent="flex-end">
-                <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
                 <MenuButton {...menu} variant="inverse_link" size="icon_small">
                   <MoreIcon decorative={false} title="More" />
                 </MenuButton>
@@ -126,6 +128,21 @@ export const Default: StoryFn = () => {
               <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
+
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
         </SidebarNavigation>
         <SidebarCollapseButtonWrapper>
           <SidebarCollapseButton
@@ -262,5 +279,88 @@ export const Compact: StoryFn = () => {
   /* eslint-enable react/jsx-max-depth */
 };
 Compact.parameters = {
+  padding: false,
+};
+
+interface UseDelayedDisclosureStateProps extends SidebarNavigationDisclosureInitialState {
+  delay: number;
+}
+const useDelayedDisclosureState = ({delay, ...initialState}: UseDelayedDisclosureStateProps): DisclosureStateReturn => {
+  const disclosure = useSidebarNavigationDisclosureState(initialState);
+  const [transitioning, setTransitioning] = React.useState(false);
+  return {
+    ...disclosure,
+    transitioning,
+    toggle: () => {
+      setTransitioning(true);
+      setTimeout(() => {
+        disclosure.toggle();
+        setTransitioning(false);
+      }, delay);
+    },
+  };
+};
+
+export const StateHookDisclosure: StoryFn = () => {
+  const id = useUID();
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+
+  // Custom state hook to control state of disclosure
+  const {transitioning, ...disclosure} = useDelayedDisclosureState({
+    delay: 1000,
+  });
+  const clickableHeading = disclosure.visible ? 'Hide with delay' : 'Show with delay';
+
+  return (
+    /* eslint-disable react/jsx-max-depth */
+    <Box>
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+        <SidebarHeader>
+          <SidebarHeaderIconButton>
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarNavigation>
+          <SidebarNavigationDisclosure state={disclosure}>
+            <SidebarNavigationDisclosureHeading selected>
+              <ProductContactCenterTasksIcon decorative />
+              <Box marginLeft="space20">{transitioning ? 'Please wait...' : clickableHeading}</Box>
+            </SidebarNavigationDisclosureHeading>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem
+                onClick={() => {
+                  setPushSidebarCollapsed(!pushSidebarCollapsed);
+                }}
+              >
+                Navigation Item
+              </SidebarNavigationItem>
+              <SidebarNavigationItem as="a" href="https://google.com" selected>
+                Go to google.com
+              </SidebarNavigationItem>
+              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+        </SidebarNavigation>
+        <SidebarCollapseButtonWrapper>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarCollapseButtonWrapper>
+      </Sidebar>
+
+      {/* Must wrap content area */}
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+          Toggle Sidebar
+        </Button>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+  /* eslint-enable react/jsx-max-depth */
+};
+StateHookDisclosure.parameters = {
   padding: false,
 };

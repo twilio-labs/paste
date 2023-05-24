@@ -4,11 +4,17 @@ import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
 
+/**
+ * This wrapper applies styles that customize the scrollbar and its track,
+ * as well as using a gradient to fade out the top and bottom of the sidebar
+ * only when they are scrolled out of view
+ */
 const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
   const {colorBackgroundInverse, colorBackgroundInverseStronger} = theme.backgroundColors;
 
   return css({
     overflowScrolling: 'touch',
+    // CSS magic to apply shadow on top and bottom of container when they scroll
     background: `linear-gradient(
       ${colorBackgroundInverse} 30%,
       rgba(255, 255, 255, 0)

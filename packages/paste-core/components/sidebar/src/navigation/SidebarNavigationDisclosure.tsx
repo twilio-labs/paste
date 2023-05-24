@@ -7,7 +7,7 @@ import type {DisclosurePrimitiveInitialState} from '@twilio-paste/disclosure-pri
 
 import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
-import type {SidebarNavigationDisclosureStateReturn} from './types';
+import type {SidebarNavigationDisclosureInitialState, SidebarNavigationDisclosureStateReturn} from './types';
 
 export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
@@ -46,3 +46,4 @@ SidebarNavigationDisclosure.propTypes = {
 export {SidebarNavigationDisclosure};
 
 export {useDisclosurePrimitiveState as useSidebarNavigationDisclosureState};
+export type {SidebarNavigationDisclosureInitialState, SidebarNavigationDisclosureStateReturn};
