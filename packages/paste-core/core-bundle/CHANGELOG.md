@@ -1,5 +1,89 @@
 # Change Log
 
+## 19.2.0
+
+### Minor Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] Add Menu Badge, and Checkbox and Radio group Menu Items added. Enables the ability to create menus from badges. Enables single and multiselect menu items.
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Add Avatar Group component
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] Introduces a new Status badge for communicating the status of processes and connections. Provides compositions of the Status Pattern for ease of use.
+
+* [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add `size` prop ("default" and "small") and add new variant ("subaccount"), export styles for Sidebar Beta Badge
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Add User Dialog component
+
+* [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add Sidebar Beta Badge
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Topbar] add package with stories and tests
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Created the Account Switcher and Product Switcher pacakges for use in Topbar and navigation UI kit
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar] Export types for use in the Topbar package
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge styles. Makes Badge styles more sharable with other packages.
+
+- [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow tokens (shadow-border-subaccount, shadow-border-bottom-subaccount, shadow-border-inverse-new, shadow-border-bottom-inverse-new) and text tokens (color-text-subaccount, color-text-inverse-new) and update existing background color token (color-background-subaccount) for use in the subaccount badge and the sidebar beta badge
+
+* [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add shadow-focus-inverse-inset token, adjust inverse text tokens for navigation ui kit
+
+### Patch Changes
+
+- [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button, Help Text, In Page Navigation, Input, Input Box, Label, Select, Tab, Text Area] Update color text tokens for inverse styles
+
+* [`0d57f59af`](https://github.com/twilio-labs/paste/commit/0d57f59af2d8fc53afc9976fe81708965c8f589c) [#3171](https://github.com/twilio-labs/paste/pull/3171) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Inline Code] Design upate to the default inline code to match the minimal styles with a view to deprecating "blue" inline code styles
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] add and export proptypes for various menu related components.
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemod]: updated exports
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] set width to 100% for `SidebarOverlayContentWrapper`
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] update to Menu Group text color to Color Text Weak
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] fix SidebarOverlayContentWrapper left margin when `compact=true`
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] adjust avatar border tokens for default and dark themes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods]: Updated package exports for new components
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu]: Improved handling of styling checked menu items and reserving space for the checkmark to prevent resizing on selection
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge color to Color Text
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update `shadow-border-user` token to fix grouped avatars bug in default theme
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-topbar` token
+
+* [`ed2ae23e2`](https://github.com/twilio-labs/paste/commit/ed2ae23e2aadb8a80cda313672c052a0c3225c82) [#3212](https://github.com/twilio-labs/paste/pull/3212) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] split up SidebarHeader so it now is composable with the new SidebarHeaderLabel and SidebarHeaderIconButton components
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Export sharable Button PropTypes
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu Primitive]: Corrected the name of previously undocumented exports for Radio and Checkbox Menu Items
+
+* Updated dependencies [[`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8), [`0d57f59af`](https://github.com/twilio-labs/paste/commit/0d57f59af2d8fc53afc9976fe81708965c8f589c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`ed2ae23e2`](https://github.com/twilio-labs/paste/commit/ed2ae23e2aadb8a80cda313672c052a0c3225c82), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8)]:
+  - @twilio-paste/menu@13.1.0
+  - @twilio-paste/avatar@8.1.0
+  - @twilio-paste/status@1.0.0
+  - @twilio-paste/button@13.0.2
+  - @twilio-paste/help-text@12.0.1
+  - @twilio-paste/in-page-navigation@3.0.1
+  - @twilio-paste/input@8.0.1
+  - @twilio-paste/input-box@9.0.1
+  - @twilio-paste/label@12.0.2
+  - @twilio-paste/select@11.0.2
+  - @twilio-paste/tabs@7.0.2
+  - @twilio-paste/textarea@9.0.1
+  - @twilio-paste/inline-code@3.0.1
+  - @twilio-paste/badge@7.1.0
+  - @twilio-paste/sidebar@0.2.0
+  - @twilio-paste/topbar@0.1.0
+  - @twilio-paste/design-tokens@9.2.0
+  - @twilio-paste/product-switcher@1.0.0
+  - @twilio-paste/account-switcher@1.0.0
+  - @twilio-paste/menu-primitive@1.0.1
+
 ## 19.1.0
 
 ### Minor Changes

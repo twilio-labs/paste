@@ -1,5 +1,17 @@
 # @twilio-paste/badge
 
+## 7.1.0
+
+### Minor Changes
+
+- [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add `size` prop ("default" and "small") and add new variant ("subaccount"), export styles for Sidebar Beta Badge
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge styles. Makes Badge styles more sharable with other packages.
+
+### Patch Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge color to Color Text
+
 ## 7.0.0
 
 ### Major Changes
