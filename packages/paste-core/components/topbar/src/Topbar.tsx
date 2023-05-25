@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -16,7 +17,9 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(({element = 
       width="100%"
       minHeight="sizeTopbar"
       backgroundColor="colorBackgroundWeak"
-      boxShadow="shadowBorderWeaker"
+      borderBottomWidth="borderWidth10"
+      borderBottomStyle="solid"
+      borderBottomColor="colorBorderWeaker"
       paddingX="space70"
       paddingY="space60"
       position="sticky"
@@ -27,3 +30,8 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(({element = 
   );
 });
 Topbar.displayName = 'Topbar';
+
+Topbar.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+};

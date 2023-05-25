@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Add Avatar Group component
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar] Export types for use in the Topbar package
+
 ## 8.0.0
 
 ### Major Changes

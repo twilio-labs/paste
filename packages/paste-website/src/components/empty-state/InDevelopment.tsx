@@ -26,8 +26,11 @@ const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({t
       <Box>
         <Paragraph>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Paragraph>
         <Paragraph>
-          Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
-          details on how you want to use this {type} and we&apos;ll respond to you directly.
+          Feel free to{' '}
+          <Anchor showExternal href="https://github.com/twilio-labs/paste/discussions">
+            start a discussion
+          </Anchor>{' '}
+          with details on how you want to use this {type} and we&apos;ll respond to you directly.
         </Paragraph>
       </Box>
     </>

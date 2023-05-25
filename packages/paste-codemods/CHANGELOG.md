@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemod]: updated exports
+
+* [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] Add `@twilio-paste/topbar` package
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods]: Updated package exports for new components
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] add AvatarGroup to `@twilio-paste/avatar` package
+
 ## 0.3.3
 
 ### Patch Changes

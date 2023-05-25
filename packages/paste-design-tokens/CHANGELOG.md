@@ -1,5 +1,21 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+- [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow tokens (shadow-border-subaccount, shadow-border-bottom-subaccount, shadow-border-inverse-new, shadow-border-bottom-inverse-new) and text tokens (color-text-subaccount, color-text-inverse-new) and update existing background color token (color-background-subaccount) for use in the subaccount badge and the sidebar beta badge
+
+* [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add shadow-focus-inverse-inset token, adjust inverse text tokens for navigation ui kit
+
+### Patch Changes
+
+- [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] adjust avatar border tokens for default and dark themes
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update `shadow-border-user` token to fix grouped avatars bug in default theme
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-topbar` token
+
 ## 9.1.0
 
 ### Minor Changes
