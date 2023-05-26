@@ -12406,7 +12406,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/product-switcher@^1.0.0, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
+"@twilio-paste/product-switcher@1.0.0, @twilio-paste/product-switcher@^1.0.0, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher"
   dependencies:
@@ -13767,6 +13767,7 @@ __metadata:
     "@next/mdx": ^13.1.6
     "@sparticuz/chromium": ^110.0.0
     "@testing-library/react": ^13.4.0
+    "@twilio-paste/account-switcher": ^1.0.0
     "@twilio-paste/alert": ^13.0.0
     "@twilio-paste/alert-dialog": ^8.0.0
     "@twilio-paste/anchor": ^11.0.0
@@ -13829,6 +13830,7 @@ __metadata:
     "@twilio-paste/pagination": ^6.0.0
     "@twilio-paste/paragraph": ^9.0.0
     "@twilio-paste/popover": ^12.0.0
+    "@twilio-paste/product-switcher": 1.0.0
     "@twilio-paste/radio-button-group": ^3.0.0
     "@twilio-paste/radio-group": ^12.0.0
     "@twilio-paste/react-textarea-autosize-library": ^2.0.0
