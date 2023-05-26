@@ -1,11 +1,10 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Badge} from '@twilio-paste/badge';
+import {StatusBadge} from '@twilio-paste/status';
 import type {BadgeProps} from '@twilio-paste/badge';
 import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
 import {useUID} from '@twilio-paste/uid-library';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
 import {StatusDescriptions} from '../../../constants';
 
@@ -69,16 +68,14 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
       <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
         {shouldShowStatusBadge && <PackageStatusBadge status={packageStatus} />}
         {shouldShowFigmaNeeded && (
-          <Badge as="span" variant="decorative10">
-            <ProcessDraftIcon decorative size="sizeIcon10" />
-            <Box>Design assets pending</Box>
-          </Badge>
+          <StatusBadge as="span" variant="ProcessDraft">
+            Design assets pending
+          </StatusBadge>
         )}
         {shouldShowPeerReviewNeeded ? (
-          <Badge as="span" variant="decorative10">
-            <ProcessDraftIcon decorative size="sizeIcon10" />
-            <Box>Peer review pending</Box>
-          </Badge>
+          <StatusBadge as="span" variant="ProcessDraft">
+            Peer review pending
+          </StatusBadge>
         ) : null}
       </Box>
     );

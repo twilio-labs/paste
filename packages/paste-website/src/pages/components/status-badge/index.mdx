@@ -2,7 +2,7 @@ export const meta = {
   title: 'Status Badge - Components',
   package: '@twilio-paste/status',
   description:
-    'A status should be used to communicate to a user the status of a process or connection to an application or service.',
+    'A Status Badge should be used to communicate the status of a process, or the connection to an application or service.',
   slug: '/components/status-badge/',
 };
 
@@ -36,6 +36,7 @@ export const getStaticProps = async () => {
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
   storybookUrl="/?path=/story/components-status--"
+  name="Status Badge"
   data={props.data}
 />
 
@@ -97,7 +98,15 @@ export const getStaticProps = async () => {
 
 ## About Status Badge
 
+The Status badge is an implementation of the the [Status Pattern](/patterns/status), pre-built for you to display and indicate the status of a process or connection in your product.
+
+It pairs Status level with color and icon to assist with visual design and accessbility.
+
 ### Accessibility
+
+The idea of the Status Badge is that helps you communicate a status in a more accessible way but automatically pairing an icon with a color that represents a specific status level. This ensure there are distinct visual difference between each status type.
+
+Care must still be taken to ensure the word used to describe the status in the badge is unique to the status level it is paired with for any given screen.
 
 ## Examples
 
@@ -268,10 +277,6 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
 Use a Status Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
 Status Badge labels should be one to three words, or numbers.
-
-### Use cases
-
-### Do &amp; Don't
 
 ---
 

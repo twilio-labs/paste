@@ -1,0 +1,343 @@
+export const meta = {
+  title: 'Account Switcher - Components',
+  package: '@twilio-paste/account-switcher',
+  description: 'An account switcher is a stylized menu badge with a list of actions related to a users accounts.',
+  slug: '/components/account-switcher/',
+};
+
+import Changelog from '@twilio-paste/account-switcher/CHANGELOG.md';
+import {
+  AccountSwitcher,
+  AccountSwitcherBadge,
+  AccountSwitcherGroup,
+  AccountSwitcherItem,
+  AccountSwitcherItemRadio,
+  AccountSwitcherSeparator,
+  useAccountSwitcherState,
+} from '@twilio-paste/account-switcher';
+
+import {Box} from '@twilio-paste/box';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/account-switcher/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {accountSwitcherExample} from '../../../component-examples/AccountSwitcherExamples';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Account Switcher');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/account-switcher"
+  storybookUrl="/?path=/story/components-account-switcher--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+  }}
+  noInline
+  showOverflow
+>
+  {accountSwitcherExample}
+</LivePreview>
+
+## Guidelines
+
+## About Account Switcher
+
+The Account Switcher is designed to be used anywhere a user needs to be able to switch between accounts or sub-accounts, and can usually be found in the Topbar.
+
+The Account Switcher is a Menu Badge, with groups of account options displayed in the menu dropdown. These include recent accounts, account settings and account view controls. The Menu Badge itself should display the current account the user is viewing and update if a new account is selected.
+
+The Account Switcher is an implementation of the [Menu](/components/menu) component and shares a lot of sub components and hooks. That means it share a lot of the API.
+
+### Accessibility
+
+The Account Switcher implements a grouped Menu and supports all the same keyboard navigation that the [Menu](/components/menu) component does.
+
+## Examples
+
+<LivePreview
+  scope={{
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+  }}
+  noInline
+  showOverflow
+>
+  {accountSwitcherExample}
+</LivePreview>
+
+---
+
+## Composition Notes
+
+The Account Switcher is made up of the following sub-components:
+
+- `AccountSwitcherBadge`
+- `AccountSwitcher`
+- `AccountSwitcherGroup`
+- `AccountSwitcherItem`
+- `AccountSwitcherItemRadio`
+- `AccountSwitcherSeparator`
+- `useAccountSwitcherState`
+
+### Account Switcher Badge
+
+Used to display the name of the current account selected or being viewed, and contains the menu trigger. The text inside the badge should update when a new account is selected.
+
+### Account Switcher
+
+Container for the Account Switcher Menu.
+
+### Account Switcher Group
+
+Used to group similar items together in the Account Switcher Menu. An example of this might be a list of recent accounts with in the Menu.
+
+### Account Switcher Item
+
+A menu item that can either perform an action or navigate to a new url.
+
+### Account Switcher ItemRadio
+
+A menu item that can perform a single selection of an item with in a named group. Similar to a radio button group, only one item can be selected at a time. Each item in the group should have a `name` and `value` and must be contained in a Group.
+
+### Account Switcher Separator
+
+Simple horizontal rule used to seperate groups or individual items.
+
+### useAccountSwitcherState state hook
+
+React Hook used to initialise the Account Switcher with vaious options. It returns state and actions that can be taken on the Account Switcher menu.
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/account-switcher - or - yarn add @twilio-paste/account-switcher
+```
+
+#### Usage
+
+```jsx
+import {
+  AccountSwitcher,
+  AccountSwitcherBadge,
+  AccountSwitcherGroup,
+  AccountSwitcherItem,
+  AccountSwitcherItemRadio,
+  AccountSwitcherSeparator,
+  useAccountSwitcherState,
+} from '@twilio-paste/core/account-switcher';
+
+const AccountSwitcherMenu = () => {
+  const accountSwitcher = useAccountSwitcherState();
+  const [selectedAccount, setSelectedAccount] = React.useState('Owl Telehealth');
+  return (
+    <>
+      <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
+        Owl Telehealth
+      </AccountSwitcherBadge>
+      <AccountSwitcher {...accountSwitcher} aria-label="Avaiable accounts">
+        <AccountSwitcherGroup label="Recent accounts">
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Telehealth"
+            checked={selectedAccount === 'Owl Telehealth'}
+            onChange={() => setSelectedAccount('Owl Telehealth')}
+            {...accountSwitcher}
+          >
+            Owl Telehealth
+          </AccountSwitcherItemRadio>
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Health Demo"
+            checked={selectedAccount === 'Owl Health Demo'}
+            onChange={() => setSelectedAccount('Owl Health Demo')}
+            {...accountSwitcher}
+          >
+            Owl Health Demo
+          </AccountSwitcherItemRadio>
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Subway"
+            checked={selectedAccount === 'Owl Subway'}
+            onChange={() => setSelectedAccount('Owl Subway')}
+            {...accountSwitcher}
+          >
+            Owl Subway
+          </AccountSwitcherItemRadio>
+        </AccountSwitcherGroup>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          Account settings
+        </AccountSwitcherItem>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          View all accounts
+        </AccountSwitcherItem>
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          View all subaccounts
+        </AccountSwitcherItem>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          Admin Center
+        </AccountSwitcherItem>
+      </AccountSwitcher>
+    </>
+  );
+};
+```
+
+#### Props
+
+##### useAccountSwitcherState
+
+Pass these as part of an object to the `useAccountSwitcherState` hook.
+
+| Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
+| baseId      | `string`                                                                                                                                           | ID that will serve as a base for all the items IDs.                                                           |         |
+| rtl         | `boolean`                                                                                                                                          |                                                                                                               |         |
+| orientation | `horizontal, vertical, undefined`                                                                                                                  |                                                                                                               |         |
+| currentId   | `string, null, undefined`                                                                                                                          | The current focused item `id`.                                                                                |         |
+| loop        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
+| wrap        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
+| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |         |
+| animated    | `number, boolean`                                                                                                                                  |                                                                                                               |         |
+| placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
+| gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
+
+##### useAccountSwitcherState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+| Prop          | Type                                                                                          | Description                                                                                                                                  | Default |
+| ------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| baseId        | `string`                                                                                      | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| baseId        | string                                                                                        | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| visible       | boolean                                                                                       | Whether it's visible or not.                                                                                                                 |         |
+| animated      | number &#124; boolean                                                                         |                                                                                                                                              |         |
+| modal         | boolean                                                                                       | Toggles Dialog's `modal` state.                                                                                                              |         |
+| animating     | boolean                                                                                       | Whether it's animating or not.                                                                                                               |         |
+| stopAnimation | () =&#62; void                                                                                | Stops animation. It's called automatically if there's a CSS transition.                                                                      |         |
+| hide          | () =&#62; void                                                                                | Changes the `visible` state to `false`                                                                                                       |         |
+| placement     | &#34;auto-start&#34; &#124; &#34;auto&#34; &#124; &#34;auto-end&#34; &#124; &#34;top-start... | Actual `placement`.                                                                                                                          |         |
+| orientation   | &#34;horizontal&#34; &#124; &#34;vertical&#34; &#124; undefined                               | Defines the orientation of the composite widget.                                                                                             |         |
+| currentId     | string &#124; null &#124; undefined                                                           | The current focused item `id`.                                                                                                               |         |
+| wrap          | boolean &#124; &#34;horizontal&#34; &#124; &#34;vertical&#34;                                 | If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa. |         |
+| groups        | Group[]                                                                                       | Lists all the composite groups with their `id` and DOM `ref`.                                                                                |         |
+| items         | Item[]                                                                                        | Lists all the composite items with their `id`, DOM `ref`, `disabled` state and `groupId` if any.                                             |         |
+| setCurrentId  | (value: SetStateAction&#60;string &#124; null &#124; undefine...                              | Sets `currentId`.                                                                                                                            |         |
+| first         | () =&#62; void                                                                                | Moves focus to the first item.                                                                                                               |         |
+| last          | () =&#62; void                                                                                | Moves focus to the last item.                                                                                                                |         |
+| move          | (id: string &#124; null) =&#62; void                                                          | Moves focus to a given item ID.                                                                                                              |         |
+| next          | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the next item.                                                                                                                |         |
+| previous      | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the previous item.                                                                                                            |         |
+
+##### AccountSwitcher
+
+| Prop               | Type                 | Description                                                                               | Default            |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it.                            |                    |
+| disabled           | `boolean, undefined` | Same as the HTML attribute.                                                               |                    |
+| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'ACCOUNT_SWITCHER' |
+
+##### AccountSwitcherBadge
+
+| Prop            | Type                                     | Description                                                                                  | Default                  |
+| --------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------ |
+| as?             | `string`                                 | The HTML tag to replace the default `<button>` tag.                                          | 'button'                 |
+| i18nButtonLabel | `string`                                 | Button name or menu description                                                              |                          |
+| disabled?       | `boolean`                                | Prevent actions from firing on this Button                                                   | false                    |
+| loading?        | `boolean`                                | Prevent actions and show a loading spinner                                                   | false                    |
+| pressed?        | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants. |                          |
+| onClick?        | `(event: React.MouseEvent<HTMLElement>)` |                                                                                              | null                     |
+| onMouseDown?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                              | null                     |
+| onMouseUp?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                              | null                     |
+| onMouseEnter?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                              | null                     |
+| onMouseLeave?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                              | null                     |
+| onFocus?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                              | null                     |
+| onBlur?         | `(event: React.FocusEvent<HTMLElement>)` |                                                                                              | null                     |
+| element?        | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider    | 'ACCOUNT_SWITCHER_BADGE' |
+
+##### AccountSwitcherGroup
+
+| Prop     | Type              | Description                                                                               | Default                  |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
+| label    | `string`          | Names the grouping                                                                        |                          |
+| icon     | `React.ReactNode` | One of our icon components. Must be decorative.                                           |                          |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'ACCOUNT_SWITCHER_GROUP' |
+
+##### AccountSwitcherItem
+
+| Prop     | Type                 | Description                                                                               | Default                 |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`               |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |                         |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |                         |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |                         |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |                         |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'ACCOUNT_SWITCHER_ITEM' |
+
+##### AccountSwitcherItemRadio
+
+| Prop     | Type                 | Description                                                                               | Default                 |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`               |
+| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |                         |
+| id       | `string, undefined`  | Same as the HTML attribute.                                                               |                         |
+| onClick  | `() => void`         | Same as the HTML attribute.                                                               |                         |
+| href     | `string, undefined`  | Same as the HTML attribute.                                                               |                         |
+| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'ACCOUNT_SWITCHER_ITEM' |
+| value?   | `string`             |                                                                                           |                         |
+| checked? | `boolean`            |                                                                                           |                         |
+| name?    | `string`             |                                                                                           |                         |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
