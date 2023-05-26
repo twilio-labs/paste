@@ -5,6 +5,11 @@ import type {
   NonModalDialogPrimitivePopoverInitialState,
 } from '@twilio-paste/non-modal-dialog-primitive';
 import type {AvatarContentProps} from '@twilio-paste/avatar';
+import type {
+  ListboxPrimitiveProps,
+  ListboxPrimitiveItemProps,
+  ListboxPrimitiveGroupProps,
+} from '@twilio-paste/listbox-primitive';
 
 export interface UserDialogUserInfoProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
@@ -42,4 +47,31 @@ export interface UserDialogContainerProps extends NonModalDialogPrimitivePopover
 export interface UserDialogContextProps {
   userDialogState: NonModalDialogPrimitiveStateReturn;
   avatarProps: Pick<AvatarContentProps, 'name' | 'src' | 'icon'>;
+}
+
+export interface UserDialogListProps extends ListboxPrimitiveProps {
+  children: NonNullable<React.ReactNode>;
+  element?: BoxProps['element'];
+}
+
+export interface UserDialogListboxProps extends React.HTMLAttributes<HTMLDivElement> {
+  element?: BoxProps['element'];
+}
+
+export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
+  href?: string;
+  element?: BoxProps['element'];
+  as?: any;
+}
+
+export interface UserDialogListboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  element?: BoxProps['element'];
+}
+
+export interface UserDialogListGroupProps extends ListboxPrimitiveGroupProps {
+  element?: BoxProps['element'];
+}
+
+export interface UserDialogListboxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+  element?: BoxProps['element'];
 }

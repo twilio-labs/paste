@@ -5,6 +5,7 @@ import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+import {Separator} from '@twilio-paste/separator';
 
 import {
   useUserDialogState,
@@ -13,6 +14,9 @@ import {
   UserDialogUserName,
   UserDialogUserEmail,
   UserDialogContainer,
+  UserDialogList,
+  UserDialogListItem,
+  useUserDialogListState,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -21,6 +25,7 @@ export default {
 };
 
 export const BasicUserDialog: StoryFn = () => {
+  const userDialogList = useUserDialogListState();
   return (
     <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
       <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
@@ -28,6 +33,17 @@ export const BasicUserDialog: StoryFn = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
+        <UserDialogList {...userDialogList}>
+          <UserDialogListItem {...userDialogList}>
+            <UserIcon decorative color="colorTextIcon" />
+            Item
+          </UserDialogListItem>
+          <Separator orientation="horizontal" />
+          <UserDialogListItem {...userDialogList}>
+            <UserIcon decorative color="colorTextIcon" />
+            Item
+          </UserDialogListItem>
+        </UserDialogList>
       </UserDialog>
     </UserDialogContainer>
   );
