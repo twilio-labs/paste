@@ -21,6 +21,7 @@ export interface SidebarNavigationDisclosureHeadingProps extends React.Component
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, ...props}, ref) => {
+    const [shouldIconMove, setShouldIconMove] = React.useState(false);
     const {nested} = React.useContext(SidebarNavigationDisclosureContext);
     const isExpanded = props['aria-expanded'];
     const theme = useTheme();
@@ -30,6 +31,8 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
+        onMouseEnter={() => setShouldIconMove(true)}
+        onMouseLeave={() => setShouldIconMove(false)}
         {...(nested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles)}
         {...(selected && sidebarNavigationLabelSelectedStyles)}
       >
@@ -41,7 +44,9 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
           height="sizeIcon20"
           width="sizeIcon20"
           transition="transform 150ms ease"
-          transform={isExpanded ? `rotate(90deg)` : 'rotate(0deg)'}
+          transform={`
+          ${shouldIconMove ? `translateX(${theme.space.space10})` : 'translateX(0)'}
+          ${isExpanded ? `rotate(90deg)` : 'rotate(0deg)'}`}
         >
           <ChevronDisclosureIcon color="inherit" decorative size="sizeIcon20" />
         </Box>
