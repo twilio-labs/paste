@@ -13,8 +13,9 @@ export * from './footer/SidebarCollapseButton';
 /* Navigation */
 export * from './navigation/SidebarNavigation';
 export * from './navigation/SidebarNavigationDisclosure';
-export * from './navigation/SidebarNavigationDisclosureContent';
+export * from './navigation/SidebarNavigationDisclosureHeadingWrapper';
 export * from './navigation/SidebarNavigationDisclosureHeading';
+export * from './navigation/SidebarNavigationDisclosureContent';
 export * from './navigation/SidebarNavigationItem';
 /* Misc */
 export * from './SidebarBetaBadge';

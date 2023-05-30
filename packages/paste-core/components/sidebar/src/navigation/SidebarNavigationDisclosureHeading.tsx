@@ -33,7 +33,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         element={element}
         onMouseEnter={() => setShouldIconMove(true)}
         onMouseLeave={() => setShouldIconMove(false)}
-        {...(nested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles)}
+        {...(nested ? sidebarNavigationLabelNestedStyles : sidebarNavigationLabelStyles)}
         {...(selected && sidebarNavigationLabelSelectedStyles)}
       >
         <Box

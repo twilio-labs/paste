@@ -1,7 +1,10 @@
 import type {BoxProps} from '@twilio-paste/box';
 import type {ThemeShape} from '@twilio-paste/theme';
 
-// Label styles
+/*
+ * Disclosure Heading styles
+ */
+// Base disclosure heading styles
 export const sidebarNavigationLabelStyles: BoxProps = {
   fontStyle: 'normal',
   fontWeight: 'fontWeightNormal',
@@ -12,39 +15,60 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   borderRadius: 'borderRadius20',
   cursor: 'pointer',
   display: 'flex',
+  columnGap: 'space20',
   outline: 'none',
   paddingY: 'space30',
-  marginBottom: 'space20',
   position: 'relative',
   role: 'button',
   zIndex: 'zIndex10',
-  _hover: {
-    textDecoration: 'underline',
-  },
   _focus: {
     boxShadow: 'shadowFocusInverse',
   },
 };
 
-// Lavel Selected styles
+// Nested disclosure heading styles
+export const sidebarNavigationLabelNestedStyles: BoxProps = {
+  ...sidebarNavigationLabelStyles,
+  paddingY: 'space20',
+  fontSize: 'fontSize20',
+  flexGrow: 1,
+};
+
+// Selected disclosure heading styles
 export const sidebarNavigationLabelSelectedStyles: BoxProps = {
   fontWeight: 'fontWeightSemibold',
   color: 'colorTextInverse',
 };
 
-// Nested label styles
-export const sidebarNavigationLabelNestedStyles: (theme: ThemeShape) => BoxProps = (theme) => ({
+/*
+ * Item styles
+ */
+// Base item styles
+export const sidebarNavigationItemStyles: BoxProps = {
   ...sidebarNavigationLabelStyles,
+  background: 'none',
+  border: 'none',
+  outline: 'none',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  paddingLeft: 'space30',
+  paddingRight: 'space30',
+  marginBottom: 'space30',
+};
+
+// Nested item styles
+export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps = (theme) => ({
+  ...sidebarNavigationItemStyles,
   paddingY: 'space20',
   fontSize: 'fontSize20',
+  flexGrow: 1,
   marginLeft: 'spaceNegative60',
-  width: `calc(100% - ${theme.space.spaceNegative60})`,
+  width: `calc(100% + ${theme.space.space60})`,
   paddingLeft: 'space60',
 });
 
-/**
- * Item selected styles
- */
+// Selected item styles
 export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
   backgroundColor: 'colorBackgroundInverseStrong',

@@ -30,7 +30,13 @@ const SidebarNavigationDisclosure = React.forwardRef<HTMLDivElement, DisclosureP
 
     return (
       <SidebarNavigationDisclosureContext.Provider value={disclosureContext}>
-        <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} display={collapsed ? 'none' : 'block'}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          element={element}
+          ref={ref}
+          display={collapsed ? 'none' : 'block'}
+          marginBottom="space30"
+        >
           {children}
         </Box>
       </SidebarNavigationDisclosureContext.Provider>

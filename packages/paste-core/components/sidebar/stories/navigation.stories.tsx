@@ -21,6 +21,7 @@ import {
   SidebarBetaBadge,
   SidebarNavigation,
   SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
@@ -70,10 +71,10 @@ export const Default: StoryFn = () => {
             Go to Google.com
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
-            <Box display="flex" alignItems="center" justifyContent="space-between">
+            <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading selected>
                 <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                <Box marginLeft="space20">Heading</Box>
+                <Box>Heading</Box>
               </SidebarNavigationDisclosureHeading>
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
@@ -99,16 +100,16 @@ export const Default: StoryFn = () => {
                   </MenuItem>
                 </Menu>
               </Box>
-            </Box>
+            </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationDisclosure>
-                <Box display="flex" alignItems="center" justifyContent="space-between">
+                <SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureHeading selected>
                     <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                     <Box marginLeft="space20">Heading</Box>
                   </SidebarNavigationDisclosureHeading>
                   <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                </Box>
+                </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent>
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                   <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
@@ -200,7 +201,7 @@ export const Compact: StoryFn = () => {
             Go to Google.com
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
-            <Box display="flex" alignItems="center" justifyContent="space-between">
+            <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading selected>
                 <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                 <Box marginLeft="space20">Heading</Box>
@@ -229,16 +230,16 @@ export const Compact: StoryFn = () => {
                   </MenuItem>
                 </Menu>
               </Box>
-            </Box>
+            </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationDisclosure>
-                <Box display="flex" alignItems="center" justifyContent="space-between">
+                <SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureHeading selected>
                     <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                     <Box marginLeft="space20">Heading</Box>
                   </SidebarNavigationDisclosureHeading>
                   <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                </Box>
+                </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent>
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                   <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
@@ -323,10 +324,12 @@ export const StateHookDisclosure: StoryFn = () => {
         </SidebarHeader>
         <SidebarNavigation>
           <SidebarNavigationDisclosure state={disclosure}>
-            <SidebarNavigationDisclosureHeading selected>
-              <ProductContactCenterTasksIcon decorative />
-              <Box marginLeft="space20">{transitioning ? 'Please wait...' : clickableHeading}</Box>
-            </SidebarNavigationDisclosureHeading>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading selected>
+                <ProductContactCenterTasksIcon decorative />
+                <Box marginLeft="space20">{transitioning ? 'Please wait...' : clickableHeading}</Box>
+              </SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationItem
                 onClick={() => {

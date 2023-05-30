@@ -10,13 +10,16 @@ import type {ButtonProps} from '@twilio-paste/button';
 import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 import {
-  sidebarNavigationLabelStyles,
-  sidebarNavigationLabelNestedStyles,
+  sidebarNavigationItemStyles,
+  sidebarNavigationItemNestedStyles,
   sidebarNavigationItemSelectedStyles,
 } from './styles';
 
-export interface SidebarNavigationItemProps
-  extends Pick<ButtonProps, 'as' | 'href' | 'onClick' | 'i18nExternalLinkLabel'> {
+export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLElement> {
+  as?: ButtonProps['as'];
+  href?: ButtonProps['href'];
+  onClick?: ButtonProps['onClick'];
+  i18nExternalLinkLabel?: ButtonProps['i18nExternalLinkLabel'];
   children: string;
   element?: BoxProps['element'];
   selected?: boolean;
@@ -28,19 +31,12 @@ const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigat
     const theme = useTheme();
     const {collapsed} = React.useContext(SidebarContext);
     const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
-    // Any disclosure context means we're nested
+    // If there is any disclosure context, that indicates that this component is nested
     const isNested = disclosure != null;
 
     const styles = React.useMemo(
       () => ({
-        background: 'none',
-        border: 'none',
-        outline: 'none',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
-        overflow: 'hidden',
-        paddingX: 'space30',
-        ...(isNested ? sidebarNavigationLabelNestedStyles(theme) : sidebarNavigationLabelStyles),
+        ...(isNested ? sidebarNavigationItemNestedStyles(theme) : sidebarNavigationItemStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
       }),
       [theme, isNested, selected]
