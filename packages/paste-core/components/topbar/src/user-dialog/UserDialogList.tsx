@@ -10,7 +10,7 @@ const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProp
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      style={props.style}
+      // style={props.style}
       backgroundColor="colorBackgroundBody"
       borderRadius="borderRadius30"
       ref={ref}
@@ -35,7 +35,6 @@ UserDialogList.propTypes = {
   element: PropTypes.string,
 };
 
-// export {useListboxPrimitiveState as useUserDialogListState};
 export const useUserDialogListState = (props?: ListboxPrimitiveInitialState): ListboxPrimitiveStateReturn => {
   return useListboxPrimitiveState({...props, orientation: 'vertical'});
 };

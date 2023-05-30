@@ -1,11 +1,15 @@
 import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
+import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {Separator} from '@twilio-paste/separator';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {Badge} from '@twilio-paste/badge';
 
 import {
   useUserDialogState,
@@ -35,13 +39,27 @@ export const BasicUserDialog: StoryFn = () => {
         </UserDialogUserInfo>
         <UserDialogList {...userDialogList}>
           <UserDialogListItem {...userDialogList}>
-            <UserIcon decorative color="colorTextIcon" />
+            <UserIcon decorative color="inherit" />
             Item
           </UserDialogListItem>
           <Separator orientation="horizontal" />
           <UserDialogListItem {...userDialogList}>
-            <UserIcon decorative color="colorTextIcon" />
+            <UserIcon decorative color="inherit" />
             Item
+          </UserDialogListItem>
+          <Separator orientation="horizontal" />
+          <UserDialogListItem {...userDialogList}>
+            <ThemeIcon decorative color="inherit" />
+            <Box width="100%" display="flex" justifyContent="space-between">
+              Theme
+              <Badge variant="decorative10" as="span" size="small">
+                Light
+              </Badge>
+            </Box>
+          </UserDialogListItem>
+          <UserDialogListItem {...userDialogList}>
+            <TranslationIcon decorative color="inherit" />
+            Language
           </UserDialogListItem>
         </UserDialogList>
       </UserDialog>

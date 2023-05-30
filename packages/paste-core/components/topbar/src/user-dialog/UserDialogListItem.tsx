@@ -8,12 +8,29 @@ import type {UserDialogListItemProps, UserDialogListboxItemProps} from '../types
 const UserDoalogListboxItem = React.forwardRef<HTMLDivElement, UserDialogListboxItemProps>(({children, ...props}) => {
   return (
     <Box
+      as="button"
       {...safelySpreadBoxProps(props)}
       width="100%"
       paddingX="space70"
       paddingY="space50"
       display="flex"
       columnGap="space30"
+      _hover={{
+        cursor: 'pointer',
+        backgroundColor: 'colorBackgroundPrimaryWeakest',
+        color: 'colorTextPrimary',
+        borderLeftStyle: 'solid',
+        borderLeftWidth: 'borderWidth20',
+        borderLeftColor: 'colorBorderPrimary',
+      }}
+      _focus={{
+        cursor: 'pointer',
+        backgroundColor: 'colorBackgroundBrandHighlight',
+        color: 'colorTextPrimary',
+        borderLeftStyle: 'solid',
+        borderLeftWidth: 'borderWidth20',
+        borderLeftColor: 'colorBorderPrimary',
+      }}
     >
       {children}
     </Box>
