@@ -30,6 +30,8 @@ export default {
 
 export const BasicUserDialog: StoryFn = () => {
   const userDialogList = useUserDialogListState();
+  const [selected, setSelected] = React.useState('');
+  console.log('selected', selected);
   return (
     <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
       <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
@@ -38,17 +40,17 @@ export const BasicUserDialog: StoryFn = () => {
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
         <UserDialogList {...userDialogList}>
-          <UserDialogListItem {...userDialogList}>
+          <UserDialogListItem {...userDialogList} key="1" selected={selected === '1'} onSelect={() => setSelected('1')}>
             <UserIcon decorative color="inherit" />
             Item
           </UserDialogListItem>
           <Separator orientation="horizontal" />
-          <UserDialogListItem {...userDialogList}>
+          <UserDialogListItem {...userDialogList} key="2" selected={selected === '2'} onSelect={() => setSelected('2')}>
             <UserIcon decorative color="inherit" />
             Item
           </UserDialogListItem>
           <Separator orientation="horizontal" />
-          <UserDialogListItem {...userDialogList}>
+          <UserDialogListItem {...userDialogList} key="3" selected={selected === '3'} onSelect={() => setSelected('3')}>
             <ThemeIcon decorative color="inherit" />
             <Box width="100%" display="flex" justifyContent="space-between">
               Theme
@@ -57,7 +59,7 @@ export const BasicUserDialog: StoryFn = () => {
               </Badge>
             </Box>
           </UserDialogListItem>
-          <UserDialogListItem {...userDialogList}>
+          <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
             <TranslationIcon decorative color="inherit" />
             Language
           </UserDialogListItem>

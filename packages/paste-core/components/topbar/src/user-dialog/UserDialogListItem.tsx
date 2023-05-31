@@ -8,7 +8,6 @@ import type {UserDialogListItemProps, UserDialogListboxItemProps} from '../types
 const UserDoalogListboxItem = React.forwardRef<HTMLDivElement, UserDialogListboxItemProps>(({children, ...props}) => {
   return (
     <Box
-      as="button"
       {...safelySpreadBoxProps(props)}
       width="100%"
       paddingX="space70"
