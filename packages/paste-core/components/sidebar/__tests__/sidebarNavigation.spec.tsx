@@ -20,6 +20,7 @@ import {
   SidebarBetaBadge,
   SidebarNavigation,
   SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
@@ -62,7 +63,7 @@ const MockPushSidebarWithNavigation = ({
             Go to Google.com
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure data-testid="nav-item-disclosure">
-            <Box display="flex" alignItems="center" justifyContent="space-between">
+            <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading selected data-testid="nav-item-disclosure-heading">
                 <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                 <Box marginLeft="space20">Heading</Box>
@@ -91,16 +92,16 @@ const MockPushSidebarWithNavigation = ({
                   </MenuItem>
                 </Menu>
               </Box>
-            </Box>
+            </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent data-testid="nav-item-disclosure-content">
               <SidebarNavigationDisclosure>
-                <Box display="flex" alignItems="center" justifyContent="space-between">
+                <SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureHeading selected>
                     <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
                     <Box marginLeft="space20">Heading</Box>
                   </SidebarNavigationDisclosureHeading>
                   <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                </Box>
+                </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent>
                   <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
                   <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
@@ -214,6 +215,7 @@ describe('SidebarNavigation', () => {
             SIDEBAR_NAVIGATION: {margin: 'space100'},
             SIDEBAR_NAVIGATION_ITEM: {margin: 'space100'},
             SIDEBAR_NAVIGATION_DISCLOSURE: {margin: 'space100'},
+            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER: {margin: 'space100'},
             SIDEBAR_NAVIGATION_DISCLOSURE_HEADING: {margin: 'space100'},
             SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
           }}
@@ -231,7 +233,9 @@ describe('SidebarNavigation', () => {
               </SidebarNavigationItem>
               <SidebarNavigationItem onClick={() => {}}>ButtonItem</SidebarNavigationItem>
               <SidebarNavigationDisclosure data-testid="disclosure">
-                <SidebarNavigationDisclosureHeading>Heading</SidebarNavigationDisclosureHeading>
+                <SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureHeading>Heading</SidebarNavigationDisclosureHeading>
+                </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent data-testid="disclosure-content">
                   <SidebarNavigationItem onClick={() => {}}>Content Button Item</SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
@@ -243,15 +247,14 @@ describe('SidebarNavigation', () => {
       const nav = screen.getByTestId('nav-wrapper');
       const disclosure = screen.getByTestId('disclosure');
       const disclosureHeading = screen.getByText('Heading');
+      const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
       const buttonItem = screen.getByText('ButtonItem').parentElement?.parentElement;
       const anchorItem = screen.getByText('AnchorItem').parentElement?.parentElement;
-      // TODO variant?
-      // const anchorItemSelected = screen.getByText('AnchorItem Selected');
-      // const buttonItemSelected = screen.getByText('ButtonItem Selected');
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');
+      expect(disclosureHeadingWrapper).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureHeading).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureContent).toHaveStyleRule('margin', '2.25rem');
       expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
@@ -269,6 +272,7 @@ describe('SidebarNavigation', () => {
             NAVIGATION_ITEM_ANCHOR: {margin: 'space100'},
             NAVIGATION_ITEM_BUTTON: {margin: 'space100'},
             NAVIGATION_DISCLOSURE: {margin: 'space100'},
+            NAVIGATION_DISCLOSURE_HEADING_WRAPPER: {margin: 'space100'},
             NAVIGATION_DISCLOSURE_HEADING: {margin: 'space100'},
             NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
           }}
@@ -288,9 +292,11 @@ describe('SidebarNavigation', () => {
                 ButtonItem
               </SidebarNavigationItem>
               <SidebarNavigationDisclosure element="NAVIGATION_DISCLOSURE" data-testid="disclosure">
-                <SidebarNavigationDisclosureHeading element="NAVIGATION_DISCLOSURE_HEADING">
-                  Heading
-                </SidebarNavigationDisclosureHeading>
+                <SidebarNavigationDisclosureHeadingWrapper element="NAVIGATION_DISCLOSURE_HEADING_WRAPPER">
+                  <SidebarNavigationDisclosureHeading element="NAVIGATION_DISCLOSURE_HEADING">
+                    Heading
+                  </SidebarNavigationDisclosureHeading>
+                </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent
                   element="NAVIGATION_DISCLOSURE_CONTENT"
                   data-testid="disclosure-content"
@@ -307,15 +313,14 @@ describe('SidebarNavigation', () => {
       const nav = screen.getByTestId('nav-wrapper');
       const disclosure = screen.getByTestId('disclosure');
       const disclosureHeading = screen.getByText('Heading');
+      const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
       const buttonItem = screen.getByText('ButtonItem').parentElement?.parentElement;
       const anchorItem = screen.getByText('AnchorItem').parentElement?.parentElement;
-      // TODO variant?
-      // const anchorItemSelected = screen.getByText('AnchorItem Selected');
-      // const buttonItemSelected = screen.getByText('ButtonItem Selected');
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');
+      expect(disclosureHeadingWrapper).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureHeading).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureContent).toHaveStyleRule('margin', '2.25rem');
       expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
