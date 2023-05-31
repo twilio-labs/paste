@@ -19,6 +19,7 @@ export const SidebarNavigationDisclosureHeadingWrapper = React.forwardRef<
       display="flex"
       alignItems="center"
       justifyContent="space-between"
+      columnGap="space30"
     />
   );
 });

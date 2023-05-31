@@ -15,6 +15,7 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   borderRadius: 'borderRadius20',
   cursor: 'pointer',
   display: 'flex',
+  flexGrow: 1,
   columnGap: 'space20',
   outline: 'none',
   paddingY: 'space30',
@@ -31,7 +32,6 @@ export const sidebarNavigationLabelNestedStyles: BoxProps = {
   ...sidebarNavigationLabelStyles,
   paddingY: 'space20',
   fontSize: 'fontSize20',
-  flexGrow: 1,
 };
 
 // Selected disclosure heading styles
