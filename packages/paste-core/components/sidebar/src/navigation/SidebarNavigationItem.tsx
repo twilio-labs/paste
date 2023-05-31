@@ -13,6 +13,7 @@ import {
   sidebarNavigationItemStyles,
   sidebarNavigationItemNestedStyles,
   sidebarNavigationItemSelectedStyles,
+  sidebarNavigationItemCollapsedStyles,
 } from './styles';
 
 export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLElement> {
@@ -37,9 +38,11 @@ const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigat
     const styles = React.useMemo(
       () => ({
         ...(isNested ? sidebarNavigationItemNestedStyles(theme) : sidebarNavigationItemStyles),
+        ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
+        display: collapsed && !icon ? 'none' : 'flex',
       }),
-      [theme, isNested, selected]
+      [theme, isNested, selected, collapsed, icon]
     );
 
     return (
@@ -52,7 +55,6 @@ const SidebarNavigationItem = React.forwardRef<HTMLButtonElement, SidebarNavigat
         size="reset"
         fullWidth
         {...(styles as any)}
-        display={collapsed && !icon ? 'none' : 'flex'}
       >
         <Box display="flex" justifyContent="center">
           {icon}

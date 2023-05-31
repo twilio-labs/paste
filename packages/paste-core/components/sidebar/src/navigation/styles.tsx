@@ -55,6 +55,9 @@ export const sidebarNavigationItemStyles: BoxProps = {
   paddingLeft: 'space30',
   paddingRight: 'space30',
   marginBottom: 'space30',
+  _hover: {
+    textDecoration: 'underline',
+  },
 };
 
 // Nested item styles
@@ -68,8 +71,18 @@ export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps 
   paddingLeft: 'space60',
 });
 
+// Collapsed item styles
+export const sidebarNavigationItemCollapsedStyles: BoxProps = {
+  color: 'colorTextIconInverse',
+  _hover: {
+    background: 'none',
+    color: 'colorTextInverse',
+  },
+};
+
 // Selected item styles
 export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
   backgroundColor: 'colorBackgroundInverseStrong',
+  color: 'colorTextInverse',
 };

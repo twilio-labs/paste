@@ -230,6 +230,7 @@
   "SidebarNavigationDisclosure": "@twilio-paste/core/sidebar",
   "SidebarNavigationDisclosureContent": "@twilio-paste/core/sidebar",
   "SidebarNavigationDisclosureHeading": "@twilio-paste/core/sidebar",
+  "SidebarNavigationDisclosureHeadingWrapper": "@twilio-paste/core/sidebar",
   "SidebarNavigationItem": "@twilio-paste/core/sidebar",
   "SidebarOverlayContentWrapper": "@twilio-paste/core/sidebar",
   "SidebarPushContentWrapper": "@twilio-paste/core/sidebar",
