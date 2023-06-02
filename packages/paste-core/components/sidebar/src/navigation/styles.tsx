@@ -23,7 +23,7 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   role: 'button',
   zIndex: 'zIndex10',
   _focus: {
-    boxShadow: 'shadowFocusInverse',
+    boxShadow: 'shadowFocusInverseInset',
   },
 };
 
