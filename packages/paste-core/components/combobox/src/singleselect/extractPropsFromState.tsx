@@ -1,6 +1,11 @@
 import * as React from 'react';
 import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
-import type {UseComboboxPrimitiveStateChange, UseComboboxPrimitiveReturnValue} from '@twilio-paste/combobox-primitive';
+import type {
+  UseComboboxPrimitiveState,
+  UseComboboxPrimitiveStateChange,
+  UseComboboxPrimitiveStateChangeOptions,
+  UseComboboxPrimitiveReturnValue,
+} from '@twilio-paste/combobox-primitive';
 import isEmpty from 'lodash/isEmpty';
 
 import type {ComboboxProps} from '../types';
@@ -16,6 +21,7 @@ type DefaultStateProps = {
   selectedItem: ComboboxProps['selectedItem'];
   initialSelectedItem: ComboboxProps['initialSelectedItem'];
   items: ComboboxProps['items'];
+  disabledItems: ComboboxProps['disabledItems'];
   getA11yStatusMessage: ComboboxProps['getA11yStatusMessage'];
   getA11ySelectionMessage: ComboboxProps['getA11ySelectionMessage'];
 };
@@ -33,10 +39,24 @@ const getDefaultState = ({
   items,
   getA11yStatusMessage,
   getA11ySelectionMessage,
+  disabledItems,
 }: DefaultStateProps): Partial<UseComboboxPrimitiveReturnValue<any>> => {
+  const stateReducer = (
+    state: UseComboboxPrimitiveState<any>,
+    actionAndChanges: UseComboboxPrimitiveStateChangeOptions<any>
+  ): Partial<UseComboboxPrimitiveState<any>> => {
+    // If the item to be selected is disabled, return the current state without changes
+    if (disabledItems?.includes(actionAndChanges.changes.selectedItem)) {
+      return state;
+    }
+
+    return actionAndChanges.changes;
+  };
+
   return useComboboxPrimitive({
     initialSelectedItem,
     items,
+    stateReducer,
     onHighlightedIndexChange: React.useCallback(
       (changes: UseComboboxPrimitiveStateChange<string>) => {
         if (onHighlightedIndexChange) {
