@@ -3,7 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
 
-import type {Variants} from './types';
+import type {Variants} from '../types';
 
 export interface SidebarOverlayContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

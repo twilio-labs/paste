@@ -18,6 +18,7 @@ const IconWrapper = React.forwardRef<HTMLElement, IconWrapperProps>(
       color={color}
       size={size}
       ref={ref}
+      flexShrink={0}
     />
   )
 );

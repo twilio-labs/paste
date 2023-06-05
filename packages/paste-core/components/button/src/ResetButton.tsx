@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
 import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
@@ -29,9 +29,9 @@ const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
       <Box
         ref={ref}
         width={fullWidth ? '100%' : 'auto'}
-        {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
+        {...(props as any)}
       />
     );
   }
