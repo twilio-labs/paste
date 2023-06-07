@@ -6,7 +6,8 @@ import type {As} from './types';
 
 export interface ListboxPrimitiveItemProps
   extends Omit<CompositeItemProps, 'unstable_virtual' | 'unstable_moves' | 'unstable_system' | 'wrapElement' | 'wrap'> {
-  selected?: boolean;
+  /** Applies the aria-selected attribute for accessibility purposes */
+  selected: boolean;
   /** Event handler to respond to selection events */
   onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   as?: As;
