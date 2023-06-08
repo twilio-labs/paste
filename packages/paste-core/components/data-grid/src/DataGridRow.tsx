@@ -7,7 +7,7 @@ import {Tr} from './table/Tr';
 import {DataGridContext} from './DataGridContext';
 
 export interface DataGridRowProps {
-  children?: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
   selected?: boolean;
   element?: BoxElementProps['element'];
 }

@@ -2,13 +2,13 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import {TrPropTypes} from '@twilio-paste/table';
+import type {TrProps as TableTrProps} from '@twilio-paste/table';
 
-export interface TrProps {
+export interface TrProps extends TableTrProps {
   role: string;
   striped: boolean;
   selected?: boolean;
-  element?: BoxElementProps['element'];
 }
 
 const StyledTr = styled.tr<TrProps>(
@@ -43,7 +43,8 @@ export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
 
 Tr.displayName = 'Tr';
 Tr.propTypes = {
+  ...TrPropTypes,
   role: PropTypes.string.isRequired,
   selected: PropTypes.bool,
-  element: PropTypes.string,
+  striped: PropTypes.bool.isRequired,
 };

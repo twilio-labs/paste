@@ -62,9 +62,8 @@ export interface TrProps extends React.TableHTMLAttributes<HTMLTableRowElement> 
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   verticalAlign?: TableVerticalAlignmentOptions;
-  isLastRow?: boolean;
 }
-export interface ThProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {
+export interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
   textAlign?: TableAlignmentOptions;

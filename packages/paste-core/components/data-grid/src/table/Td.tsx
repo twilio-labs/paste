@@ -1,13 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {TextAlign} from '@twilio-paste/style-props';
+import {TdPropTypes} from '@twilio-paste/table';
+import type {TdProps as TableTdProps} from '@twilio-paste/table';
 
-export interface TdProps {
-  textAlign?: TextAlign;
+export interface TdProps extends TableTdProps {
   onClick?: React.MouseEventHandler;
-  element?: BoxElementProps['element'];
 }
 
 export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
@@ -47,6 +45,6 @@ export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
 
 Td.displayName = 'Td';
 Td.propTypes = {
+  ...TdPropTypes,
   onClick: PropTypes.func,
-  element: PropTypes.string,
 };
