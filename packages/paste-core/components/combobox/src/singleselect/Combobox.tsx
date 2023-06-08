@@ -100,6 +100,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       state,
       getA11yStatusMessage,
       getA11ySelectionMessage,
+      disabledItems,
     });
 
     if (
