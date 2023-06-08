@@ -18,11 +18,8 @@ export const THeadPropTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
 };
-
-export const TBodyPropTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
+export const TBodyPropTypes = THeadPropTypes;
+export const TFootPropTypes = THeadPropTypes;
 
 export const TrPropTypes = {
   children: PropTypes.node.isRequired,
@@ -35,15 +32,12 @@ export const ThPropTypes = {
   element: PropTypes.string,
   textAlign: PropTypes.oneOf(Object.values(TableAlignmentObject)),
   width: isWidthTokenProp,
+  colSpan: PropTypes.number,
 };
 
 export const TdPropTypes = {
+  colSpan: PropTypes.number,
   children: PropTypes.node,
   element: PropTypes.string,
   textAlign: PropTypes.oneOf(Object.values(TableAlignmentObject)),
-};
-
-export const TFootPropTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
 };
