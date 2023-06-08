@@ -341,7 +341,7 @@ const chatTemplates = [
 
 const ChatLoggerExample = () => {
   const [templateIdx, setTemplateIdx] = React.useState(2);
-  const { chats, push, pop } = useChatLogger(
+  const { chats, push, pop, clear } = useChatLogger(
     chatFactory(chatTemplates[0]),
     chatFactory(chatTemplates[1])
   );
@@ -365,6 +365,9 @@ const ChatLoggerExample = () => {
         </Button>
         <Button variant="primary" onClick={popChat}>
           Pop Chat
+        </Button>
+        <Button variant="primary" onClick={clear}>
+          Clear Chat
         </Button>
       </ButtonGroup>
       <ChatLogger chats={chats} />
