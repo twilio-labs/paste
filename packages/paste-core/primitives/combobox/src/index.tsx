@@ -13,6 +13,7 @@ export type {
   UseComboboxState as UseComboboxPrimitiveState,
   UseComboboxReturnValue as UseComboboxPrimitiveReturnValue,
   UseComboboxStateChange as UseComboboxPrimitiveStateChange,
+  UseComboboxStateChangeOptions as UseComboboxPrimitiveStateChangeOptions,
   UseComboboxGetItemPropsOptions as UseComboboxPrimitiveGetItemPropsOptions,
   UseComboboxGetMenuPropsOptions as UseComboboxPrimitiveGetMenuPropsOptions,
   GetPropsCommonOptions as GetComboboxPrimitivePropsCommonOptions,

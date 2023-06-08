@@ -484,6 +484,7 @@ export const ComboboxObject: StoryFn = () => {
         }
       }}
       itemToString={(item: ObjectItem) => (item ? item.label : '')}
+      disabledItems={objectItems.slice(2, 5)}
     />
   );
 };
