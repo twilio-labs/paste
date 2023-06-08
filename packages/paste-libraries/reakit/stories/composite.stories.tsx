@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {useCompositeState, Composite, CompositeGroup, CompositeItem} from '../src';
 
 // eslint-disable-next-line import/no-default-export
