@@ -192,7 +192,7 @@ const DualExample = () => {
           </Stack>
         </ListboxPrimitive>
         <Button variant="primary_icon" onClick={() => {
-          updateFavs(favs => [...favs, ...Array.from(selectedComps)]);
+          updateFavs([...favs, ...Array.from(selectedComps)]);
           updateComponents(components.filter((item) => !selectedComps.has(item)));
           selectedComps.clear();
         }}
@@ -227,7 +227,7 @@ const DualExample = () => {
           </Stack>
         </ListboxPrimitive>
         <Button variant="primary_icon" onClick={() => {
-          updateComponents(components => [...components, ...Array.from(selectedFavs)]);
+          updateComponents([...components, ...Array.from(selectedFavs)]);
           updateFavs(favs.filter((item) => !selectedFavs.has(item)));
           selectedFavs.clear();
         }}
