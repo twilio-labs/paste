@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "category": "layout",
   "status": "alpha",
-  "description": "Topbar encapsulates application-wide controls that rest at the top of the screen.",
+  "description": "Topbar contains application-wide controls that rest at the top of the screen.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

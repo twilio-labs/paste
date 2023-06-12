@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Topbar',
   package: '@twilio-paste/topbar',
-  description: 'A Topbar encapsulates application-wide controls that rest at the top of the screen.',
+  description: 'A Topbar contains application-wide controls that rest at the top of the screen.',
   slug: '/components/topbar/',
 };
 
@@ -9,6 +9,10 @@ import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Topbar} from '@twilio-paste/topbar';
 import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
+import {Badge} from '@twilio-paste/badge';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {
   ProductSwitcher,
   ProductSwitcherButton,
@@ -22,11 +26,7 @@ import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 import packageJson from '@twilio-paste/topbar/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {
-  defaultTopbarExample,
-  defaultAccountSwitcherExample,
-  defaultProductSwitcherExample,
-} from '../../../component-examples/TopbarExamples.ts';
+import {defaultTopbarExample, emptyTopbarExample} from '../../../component-examples/TopbarExamples.ts';
 
 export default DefaultLayout;
 
@@ -59,73 +59,16 @@ export const getStaticProps = async () => {
 
 <content>
 
-## Guidelines
-
-### About Topbar
-
-A Topbar is sticky to the top of the screen and includes application-wide controls including User Dialog (coming soon!), [Product Switcher](#product-switcher), [Account Switcher](#account-switcher), and search [Input](/components/input).
-
-## Examples
-
-### Default Topbar
-
-Use a Topbar at the top of your application to house application-wide controls.
-
-Account-specific controls are aligned to the left (e.g. [Account Switcher](#account-switcher), account type indicator [Badges](/components/badge), and possible upgrade actions).
-
-User-specific controls are aligned to the right (e.g. search [Input](/components/input), support [Button](/components/button), [Product Switcher](#product-switcher), and User Dialog (coming soon!)).
-
-<LivePreview scope={{Topbar}} noInline>
-  {defaultTopbarExample}
-</LivePreview>
-
-## Account Switcher
-
-An Account Switcher is a stylized [Menu Badge](/components/menu#menu-badge) with a list of actions related to a user’s accounts.
-
-Examples of account-related actions include navigating to other recently visited accounts, creating an account, and viewing all of a user’s accounts. Other names for accounts in Twilio products include workspaces and projects.
-
-### Accessibility
-
-Refer to the accessibility section of [Menu](/components/menu).
-
-### Examples
-
-Use an Account Switcher to display actions that a user can trigger related to their accounts.
-
 <LivePreview
   scope={{
-    useMenuState,
+    Topbar,
+    Box,
+    Input,
     Menu,
-    MenuBadge,
     MenuItem,
-  }}
-  noInline
-  showOverflow
->
-  {defaultAccountSwitcherExample}
-</LivePreview>
-
-## User Dialog
-
-Coming soon!
-
-## Product Switcher
-
-A Product Switcher is an opinionated menu that presents a list of Twilio products that a user has access to and can switch between.
-
-### Accessibility
-
-Refer to the accessibility section of [Menu](/components/menu).
-
-### Examples
-
-Use a Product Switcher for when a user has access to multiple Twilio products so a user can switch between them.
-
-The default state of a Product Switcher item indicates that the control is static or not selected. A Product Switcher item can be placed into a selected state in the same way as a radio button. Use the `checked` prop to set a selected item by default.
-
-<LivePreview
-  scope={{
+    useMenuState,
+    MenuBadge,
+    Badge,
     ProductSwitcher,
     ProductSwitcherButton,
     ProductSwitcherItem,
@@ -134,18 +77,54 @@ The default state of a Product Switcher item indicates that the control is stati
     ProductSegmentIcon,
     ProductFlexIcon,
     ProductEmailAPIIcon,
+    SearchIcon,
   }}
   noInline
-  showOverflow
 >
-  {defaultProductSwitcherExample}
+  {defaultTopbarExample}
 </LivePreview>
+
+## Guidelines
+
+### About Topbar
+
+A Topbar is sticky to the top of the screen and consists of application-wide controls including:
+
+- [Account Switcher](/components/account-switcher)
+- Search [Input](/components/input)
+- [User Dialog](#user-dialog)
+- [Product Switcher](/components/product-switcher)
+
+## Default Topbar
+
+Use a Topbar at the top of your application to house application-wide controls.
+
+Account-specific controls are aligned to the left, such as:
+
+- [Account Switcher](/components/account-switcher)
+- Account type indicators, such as subaccount [Badges](/components/badge)
+- Possible upgrade actions
+
+User-specific controls are aligned to the right, such as:
+
+- Search [Input](/components/input)
+- Support [Button](/components/button)
+- [Product Switcher](/components/product-switcher)
+- [User Dialog](#user-dialog)
+
+<LivePreview scope={{Topbar}} noInline>
+  {emptyTopbarExample}
+</LivePreview>
+
+## User Dialog
+
+Coming soon!
 
 ## Usage guide
 
 ### Figma
 
-Topbar, Account Switcher, Product Switcher, and User Dialog components are available in the Paste Components library.
+Topbar, Account Switcher, Product Switcher, and User Dialog components are available in the Paste Components library as [Navigation components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&t=xcPacI1AN13MooNC-0).
 
 ### API
 
@@ -153,8 +132,6 @@ Topbar, Account Switcher, Product Switcher, and User Dialog components are avail
 
 ```bash
 yarn add @twilio-paste/topbar - or - yarn add @twilio-paste/core
-yarn add @twilio-paste/menu - or - yarn add @twilio-paste/core
-yarn add @twilio-paste/product-switcher - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -177,26 +154,6 @@ const Topbar = () => {
 | --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------- |
 | children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.          |          |
 | element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'TOPBAR' |
-
-#### Account Switcher props
-
-Refer to [Menu props](/components/menu#props)
-
-#### Product Switcher props
-
-useProductSwitcher props extends [useMenuState props](/components/menu#usemenustate)
-
-ProductSwitcherProps extends [MenuProps](/components/menu#menu)
-
-ProductSwitcherButtonProps extends [MenuButtonProps](/components/menu#menubutton)
-
-ProductSwitcherItemProps extends [MenuItemRadioProps](/components/menu#menuitemradio) plus the following properties:
-
-| Prop             | Type                           | Description | Default |
-| ---------------- | ------------------------------ | ----------- | ------- |
-| productName      | `string`                       |             |         |
-| productStrapline | `string`                       |             |         |
-| productIcon      | `NonNullable<React.ReactNode>` |             |         |
 
 <ChangelogRevealer>
   <Changelog />
