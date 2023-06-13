@@ -19,14 +19,14 @@ export const BasicUsage = (): React.ReactNode => {
   const composite = useCompositeState();
 
   return (
-    <Composite {...composite} role="toolbar" aria-label="My toolbar">
-      <CompositeItem {...composite} onClick={onClick(1)}>
+    <Composite {...composite} role="listbox" aria-label="My toolbar">
+      <CompositeItem {...composite} role="option" onClick={onClick(1)}>
         Item 1
       </CompositeItem>
-      <CompositeItem {...composite} onClick={onClick(2)}>
+      <CompositeItem {...composite} role="option" onClick={onClick(2)}>
         Item 2
       </CompositeItem>
-      <CompositeItem {...composite} onClick={onClick(3)}>
+      <CompositeItem {...composite} role="option" onClick={onClick(3)}>
         Item 3
       </CompositeItem>
     </Composite>
@@ -37,14 +37,14 @@ export const BasicUsage = (): React.ReactNode => {
 export const AriaActivedescendant = (): React.ReactNode => {
   const composite = useCompositeState({unstable_virtual: true});
   return (
-    <Composite {...composite} role="toolbar" aria-label="My toolbar">
-      <CompositeItem {...composite} onClick={onClick(1)}>
+    <Composite {...composite} role="listbox" aria-label="My toolbar">
+      <CompositeItem {...composite} role="option" onClick={onClick(1)}>
         Item 1
       </CompositeItem>
-      <CompositeItem {...composite} onClick={onClick(2)}>
+      <CompositeItem {...composite} role="option" onClick={onClick(2)}>
         Item 2
       </CompositeItem>
-      <CompositeItem {...composite} onClick={onClick(3)}>
+      <CompositeItem {...composite} role="option" onClick={onClick(3)}>
         Item 3
       </CompositeItem>
     </Composite>
