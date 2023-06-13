@@ -6,7 +6,7 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ChevronDoubleLeftIcon} from '@twilio-paste/icons/esm/ChevronDoubleLeftIcon';
 import {ChevronDoubleRightIcon} from '@twilio-paste/icons/esm/ChevronDoubleRightIcon';
 
-import {SidebarContext} from './SidebarContext';
+import {SidebarContext} from '../SidebarContext';
 
 export interface SidebarCollapseButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   i18nCollapseLabel: string;

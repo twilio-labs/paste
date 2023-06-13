@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import type {StoryFn} from '@storybook/react';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
@@ -15,6 +15,8 @@ import {
   SidebarCollapseButton,
   SidebarCollapseButtonWrapper,
   SidebarOverlayContentWrapper,
+  SidebarBetaBadge,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -37,6 +39,9 @@ export const Default: StoryFn = () => {
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
           </SidebarHeader>
+          <SidebarNavigation>
+            <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+          </SidebarNavigation>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
@@ -75,6 +80,9 @@ export const Compact: StoryFn = () => {
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
           </SidebarHeader>
+          <SidebarNavigation>
+            <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
+          </SidebarNavigation>
           <SidebarCollapseButtonWrapper>
             <SidebarCollapseButton
               onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}

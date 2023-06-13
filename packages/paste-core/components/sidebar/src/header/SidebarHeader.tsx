@@ -23,6 +23,7 @@ export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderPr
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
+        flexShrink={0}
         columnGap="space50"
         overflow="hidden"
       >

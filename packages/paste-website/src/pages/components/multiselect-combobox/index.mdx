@@ -46,7 +46,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('MultiselectCombobox');
+  const feature = await getFeature('Multiselect Combobox');
   return {
     props: {
       data: {
