@@ -2,6 +2,7 @@ import * as React from 'react';
 import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
+import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
@@ -23,7 +24,7 @@ export const UseChatLogger: StoryFn = () => {
   const messageID = useUID();
   const variantId = useUID();
 
-  const {chats, push, pop} = useChatLogger(
+  const {chats, push, pop, clear} = useChatLogger(
     {
       variant: 'inbound',
       content: (
@@ -87,7 +88,7 @@ export const UseChatLogger: StoryFn = () => {
 
   return (
     <Stack orientation="vertical" spacing="space80">
-      <Stack orientation="horizontal" spacing="space80">
+      <Box display="flex" columnGap="space80" alignItems="flex-start">
         <form onSubmit={handlePushSubmit}>
           <Stack orientation="vertical" spacing="space40">
             <legend>Push</legend>
@@ -122,6 +123,12 @@ export const UseChatLogger: StoryFn = () => {
             </Button>
           </Stack>
         </form>
+        <Stack orientation="vertical" spacing="space40">
+          <legend>Clear</legend>
+          <Button type="submit" variant="secondary" onClick={clear}>
+            Clear All History
+          </Button>
+        </Stack>
         <OrderedList aria-label="ordered list">
           {chats.map(({id}) => (
             <ListItem key={id}>
@@ -129,7 +136,7 @@ export const UseChatLogger: StoryFn = () => {
             </ListItem>
           ))}
         </OrderedList>
-      </Stack>
+      </Box>
       <ChatLogger chats={chats} />
     </Stack>
   );
