@@ -3,6 +3,7 @@ import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import type {
   NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
+  NonModalDialogDisclosurePrimitiveProps,
 } from '@twilio-paste/non-modal-dialog-primitive';
 import type {AvatarContentProps} from '@twilio-paste/avatar';
 import type {
@@ -10,6 +11,7 @@ import type {
   ListboxPrimitiveItemProps,
   ListboxPrimitiveGroupProps,
 } from '@twilio-paste/listbox-primitive';
+import type {ButtonProps} from '@twilio-paste/button';
 
 export interface UserDialogUserInfoProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
@@ -34,6 +36,8 @@ export interface UserDialogProps
   element?: BoxProps['element'];
   'aria-label': string;
 }
+
+export type UserDialogButtonProps = Omit<ButtonProps, 'variant'> & NonModalDialogDisclosurePrimitiveProps;
 
 export interface UserDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;

@@ -37,7 +37,52 @@ describe('Topbar', () => {
         expect(renderedUserDialog.getAttribute('role')).toEqual('dialog');
       });
 
-      // Add tests for initial focus once list items are added
+      it('should render a listbox with options', async () => {
+        render(<BasicUserDialog />);
+        const renderedUserDialogListbox = screen.getByTestId('user-dialog-listbox');
+        expect(renderedUserDialogListbox.getAttribute('role')).toEqual('listbox');
+        expect(renderedUserDialogListbox?.firstElementChild?.getAttribute('role')).toEqual('option');
+      });
+
+      it('should focus the first list item on open', async () => {
+        render(<BasicUserDialog />);
+        const renderedUserDialogButton = screen.getByRole('button');
+        await waitFor(() => {
+          userEvent.click(renderedUserDialogButton);
+        });
+        expect(screen.getByTestId('FIRST_ITEM')).toHaveFocus();
+      });
+
+      it('should move focus with up and down keyboard navigation', async () => {
+        render(<BasicUserDialog />);
+        const renderedUserDialogButton = screen.getByRole('button');
+        await waitFor(() => {
+          userEvent.click(renderedUserDialogButton);
+          userEvent.keyboard('{arrowdown}');
+        });
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
+        await waitFor(() => {
+          userEvent.keyboard('{arrowright}');
+        });
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
+        await waitFor(() => {
+          userEvent.keyboard('{arrowleft}');
+        });
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
+      });
+
+      it('should select the current option when enter is pressed', async () => {
+        render(<BasicUserDialog />);
+        const renderedUserDialogButton = screen.getByRole('button');
+        await waitFor(() => {
+          userEvent.click(renderedUserDialogButton);
+        });
+        expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('false');
+        await waitFor(() => {
+          userEvent.keyboard('{enter}');
+        });
+        expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('true');
+      });
 
       it('should render a user dialog and show/hide on external button click', async () => {
         render(<StateHookUserDialog />);
@@ -91,8 +136,12 @@ describe('Topbar', () => {
       expect(renderedCustomTopbar).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
       expect(renderedCustomTopbar).toHaveStyleRule('color', 'rgb(18, 28, 45)');
     });
-    it('User Dialog - should add custom styling correctly', (): void => {
+    it('User Dialog - should add custom styling correctly', async (): void => {
       render(<CustomizedUserDialog />);
+      const theButton = screen.getAllByRole('button')[0];
+      await waitFor(() => {
+        userEvent.click(theButton);
+      });
 
       const renderedUserDialogButton = screen.getAllByRole('button')[0];
       const renderedUserDialogButtonContents = renderedUserDialogButton.firstElementChild?.firstElementChild;
@@ -106,6 +155,9 @@ describe('Topbar', () => {
         renderedUserDialogUserInfo?.firstElementChild?.lastElementChild?.firstElementChild;
       const renderedUserDialogUserEmail =
         renderedUserDialogUserInfo?.firstElementChild?.lastElementChild?.lastElementChild;
+      const renderedUserDialogList = screen.getByRole('listbox');
+      const renderedUserDialogListItem = screen.getAllByRole('option')[0];
+
       expect(renderedUserDialogButton.getAttribute('data-paste-element')).toEqual('USER_DIALOG_BUTTON');
       expect(renderedUserDialogButton).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
       expect(renderedUserDialogButtonContents?.getAttribute('data-paste-element')).toEqual(
@@ -126,6 +178,8 @@ describe('Topbar', () => {
       expect(renderedUserDialogUserName).toHaveStyleRule('color', 'rgb(14, 124, 58)');
       expect(renderedUserDialogUserEmail?.getAttribute('data-paste-element')).toEqual('USER_DIALOG_USER_EMAIL');
       expect(renderedUserDialogUserEmail).toHaveStyleRule('color', 'rgb(0, 20, 137)');
+      expect(renderedUserDialogList).toHaveStyleRule('background-color', 'rgb(237, 253, 243)');
+      expect(renderedUserDialogListItem).toHaveStyleRule('border-left-color', 'rgb(117, 12, 12)');
     });
   });
 });

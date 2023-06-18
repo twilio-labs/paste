@@ -5,45 +5,55 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {UserDialogListItemProps, UserDialogListboxItemProps} from '../types';
 
-const UserDoalogListboxItem = React.forwardRef<HTMLDivElement, UserDialogListboxItemProps>(({children, ...props}) => {
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      width="100%"
-      paddingX="space70"
-      paddingY="space50"
-      display="flex"
-      columnGap="space30"
-      _hover={{
-        cursor: 'pointer',
-        backgroundColor: 'colorBackgroundPrimaryWeakest',
-        color: 'colorTextPrimary',
-        borderLeftStyle: 'solid',
-        borderLeftWidth: 'borderWidth20',
-        borderLeftColor: 'colorBorderPrimary',
-      }}
-      _focus={{
-        cursor: 'pointer',
-        backgroundColor: 'colorBackgroundBrandHighlight',
-        color: 'colorTextPrimary',
-        borderLeftStyle: 'solid',
-        borderLeftWidth: 'borderWidth20',
-        borderLeftColor: 'colorBorderPrimary',
-      }}
-    >
-      {children}
-    </Box>
-  );
-});
-UserDoalogListboxItem.displayName = 'UserDialogListboxItem';
+const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
+  ({children, ...props}, ref) => {
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        width="100%"
+        paddingLeft="space60"
+        paddingRight="space70"
+        paddingY="space50"
+        display="flex"
+        columnGap="space30"
+        borderLeftStyle="solid"
+        borderLeftWidth="borderWidth20"
+        borderLeftColor="colorBorderWeakest"
+        outline="none"
+        _hover={{
+          cursor: 'pointer',
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          color: 'colorTextPrimary',
+          borderLeftStyle: 'solid',
+          borderLeftWidth: 'borderWidth20',
+          borderLeftColor: 'colorBorderPrimary',
+        }}
+        _focus={{
+          cursor: 'pointer',
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          color: 'colorTextPrimary',
+          borderLeftStyle: 'solid',
+          borderLeftWidth: 'borderWidth20',
+          borderLeftColor: 'colorBorderPrimary',
+        }}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
+UserDialogListboxItem.displayName = 'UserDialogListboxItem';
 
-export const UserDialogListItem = React.forwardRef<HTMLDivElement, UserDialogListItemProps>(({children, ...props}) => {
-  return (
-    <ListboxPrimitiveItem {...props} as={UserDoalogListboxItem}>
-      {children}
-    </ListboxPrimitiveItem>
-  );
-});
+export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialogListItemProps>(
+  ({children, element = 'USER_DIALOG', ...props}, ref) => {
+    return (
+      <ListboxPrimitiveItem {...props} ref={ref} as={UserDialogListboxItem} element={`${element}_LIST_ITEM`}>
+        {children}
+      </ListboxPrimitiveItem>
+    );
+  }
+);
 UserDialogListItem.displayName = 'UserDialogListItem';
 
 UserDialogListItem.propTypes = {

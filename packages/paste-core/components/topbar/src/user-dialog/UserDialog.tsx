@@ -7,7 +7,7 @@ import {NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive} from '@twili
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {StyledBase} from '@twilio-paste/theme';
 
-import type {UserDialogProps, UserDialogPopoverProps} from '../types';
+import type {UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps} from '../types';
 import {UserDialogContext} from './UserDialogContainer';
 
 // styled popover for UserDialog Non Modal Dialog Primitive
@@ -32,19 +32,32 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
 });
 UserDialogPopover.displayName = 'UserDialogPopover';
 
+const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonProps>(
+  ({children, element, ...props}, ref) => {
+    return (
+      <Button
+        {...props}
+        variant="reset"
+        size="reset"
+        // @ts-expect-error remove when Reset Button types extends BoxProps
+        borderRadius="borderRadius20"
+        backgroundColor="colorBackgroundBody"
+        element={`${element}_BUTTON`}
+        ref={ref}
+      >
+        {children}
+      </Button>
+    );
+  }
+);
+UserDialogButton.displayName = 'UserDialogButton';
+
 export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
   ({children, 'aria-label': label, element = 'USER_DIALOG', ...props}, ref) => {
     const {userDialogState, avatarProps} = React.useContext(UserDialogContext);
     return (
       <>
-        <NonModalDialogDisclosurePrimitive
-          {...userDialogState}
-          as={Button}
-          variant="reset"
-          size="reset"
-          element={`${element}_BUTTON`}
-          //   borderRadius="borderRadius20" uncomment once sidenav is merged and topbar is rebased and styles can be set on reset buttons
-        >
+        <NonModalDialogDisclosurePrimitive {...userDialogState} as={UserDialogButton} element={element}>
           <Box display="flex" columnGap="space30" alignItems="center" element={`${element}_BUTTON_CONTENTS`}>
             <Avatar
               variant="user"

@@ -8,27 +8,22 @@ import type {UserDialogListProps, UserDialogListboxProps} from '../types';
 
 const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProps>((props, ref) => {
   return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      // style={props.style}
-      backgroundColor="colorBackgroundBody"
-      borderRadius="borderRadius30"
-      ref={ref}
-    >
+    <Box {...safelySpreadBoxProps(props)} backgroundColor="colorBackgroundBody" borderRadius="borderRadius30" ref={ref}>
       {props.children}
     </Box>
   );
 });
 UserDialogListbox.displayName = 'UserDialogListbox';
 
-export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(({children, ...props}, ref) => {
-  // element = 'USER_DIALOG_LIST',
-  return (
-    <ListboxPrimitive {...props} as={UserDialogListbox} ref={ref}>
-      {children}
-    </ListboxPrimitive>
-  );
-});
+export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(
+  ({children, element = 'USER_DIALOG', ...props}, ref) => {
+    return (
+      <ListboxPrimitive element={`${element}_LIST`} {...props} as={UserDialogListbox} ref={ref}>
+        {children}
+      </ListboxPrimitive>
+    );
+  }
+);
 UserDialogList.displayName = 'UserDialogList';
 
 UserDialogList.propTypes = {

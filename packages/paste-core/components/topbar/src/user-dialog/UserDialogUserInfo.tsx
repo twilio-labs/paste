@@ -36,7 +36,7 @@ export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUse
             <MediaBody as="div">{children}</MediaBody>
           </MediaObject>
         </Box>
-        <Separator orientation="horizontal" />
+        <Separator orientation="horizontal" element={`${element}_USER_INFO_SEPARATOR`} />
       </>
     );
   }

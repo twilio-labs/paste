@@ -8,4 +8,4 @@ export * from './user-dialog/UserDialogUserName';
 export * from './user-dialog/UserDialogUserEmail';
 export * from './user-dialog/UserDialogList';
 export * from './user-dialog/UserDialogListItem';
-export * from './user-dialog/UserDialogListGroup';
+export * from './user-dialog/UserDialogSeparator';
