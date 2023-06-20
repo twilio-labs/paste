@@ -26,9 +26,9 @@ const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
     enter: {opacity: 1, x: 0},
     leave: (chat: Chat): StyleProps => ({opacity: 0, x: buildTransitionX(chat)}),
     config: {
-      mass: 1,
-      tension: 150,
-      friction: 20,
+      mass: 0.7,
+      tension: 190,
+      friction: 16,
     },
   });
 

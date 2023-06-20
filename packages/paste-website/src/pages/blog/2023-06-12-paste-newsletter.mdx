@@ -1,0 +1,155 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - June 2023 Edition',
+  slug: '/blog/2023-06-12-paste-newsletter/',
+  date: '2023-06-12',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'published',
+  excerpt:
+    "What's new in Paste in June 2023? The Navigation UI Kit in Figma, updated component designs, Error Messaging Content guidelines, and more!",
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import NavUIKit from '../../assets/images/articles/2023-06-12-paste-newsletter/nav-ui-kit.png';
+import ErrorAlert from '../../assets/images/articles/2023-06-12-paste-newsletter/error-guidelines.png';
+import AvatarGroup from '../../assets/images/articles/2023-06-12-paste-newsletter/avatar-group.png';
+import Tabs from '../../assets/images/articles/2023-06-12-paste-newsletter/tabs.png';
+import Megan from '../../assets/images/articles/2023-06-12-paste-newsletter/megan-allison.png';
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### [Navigation UI Kit](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27798-177016) now available in Figma 🎉
+
+<ResponsiveImage src={NavUIKit} alt="Preview of the Navigation UI Kit components" />
+
+Throughout Q1, we collaborated with you to design a universal [Navigation UI kit](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27798-177016&t=E7jyEiqJbaiVdQsU-0) for every Twilio application. The aim? To begin the process of creating a cohesive user experience as customers navigate between our product offerings. This includes everything from Console to Segment, and from Sendgrid to Flex and Engage.
+
+**We’ve built design assets in Figma for teams to compose their navigation frames across Console, Segment, Aion, and SendGrid, including:**
+
+- Sidebars
+- Topbars
+- Account/workspace switchers
+- User dialogs (aka user menus)
+- And more!
+
+Our company's goal shouldn’t be to produce stand-alone products, but rather to gradually create a seamless and intentional collection of them. Don't worry, achieving cohesion doesn't have to be a monumental task — **The new designs accommodate all existing features across these products.**
+
+Our focus is not on overhauling information architecture or application features, but on visually aligning our existing products. [The design assets are now available in Figma.](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27798-177016&t=E7jyEiqJbaiVdQsU-0) **Look out for the upcoming React components in our next release!**
+
+### [Introducing Error Messaging Content Guidelines](/patterns/error-state)
+
+<ResponsiveImage src={ErrorAlert} alt="Error messaging example in an Alert" />
+
+We understand how frustrating a poorly designed error message can be. Thanks to the incredible efforts of Megan Allison, Content Designer for Segment, we now have a guide to help you create informative, helpful, and appropriate error messages.
+
+The newly published [Error State pattern](/patterns/error-state) offers advice on crafting and displaying different types of error messages. Together with Aren Goetcherian, the team have also provided revamped, context-specific suggestions throughout the Paste docs site to aid in error messaging.
+
+So the next time you need to write an error into a user flow, be sure to check out the new Error State pattern.
+
+### Refined [Avatar component](/components/avatar) and new [Avatar Group](/components/avatar#avatar-group-examples)
+
+<ResponsiveImage src={AvatarGroup} alt="Avatar Group shown in user variant and entity variant" />
+
+We've given the [Avatar component](/components/avatar) some much-needed care, adding features like the ability to display a collection of entities or humans in a single group.
+
+With this improvement, the Segment team can now replace their Evergreen-based Stacked Connections with the Avatar Group. This universal component can be used across all Twilio products for a variety of use cases.
+
+Remember to check out the updated docs for new visual tweaks, expanded examples, and how to update your Paste dependencies to get the new Avatar Group in your application.
+
+### [Refreshed Tabs: A new look](/components/tabs)
+
+<ResponsiveImage src={Tabs} alt="New Tabs design" />
+
+We've given [Tabs](/components/tabs) a makeover too, to look more... well, like tabs!
+
+To avoid confusion between in-page navigation and tabs, we've made these two fundamentally different UI components look distinct from each other. Now you can easily choose the right UI concept for your task.
+
+Tabs update the content of your current page, while in-page navigation takes you to an entirely new page. We hope this visual update will help guide your user interactions. This refresh to Tabs is available today in both the Figma and React libraries.
+
+### Additional updates
+
+#### Improvements
+
+- We’ve extended the functionality of the Styling Library to include additional features of Emotion CSS. This allows Paste powered applications to take advantage of native CSS style encapsulation via Shadow DOM. It's particularly useful if you're embedding Paste into an existing website, and you don’t want your styles to clash.
+- Also, **Brandon Scott**, an engineer on the Segment App Foundations team, has enhanced the VS Code Paste plugin. It now shows a color preview of any design token you're using in code. As we understand how challenging it can be to transition from an existing library, we hope this update simplifies the process and makes life a little better during the onboarding process.
+- The [Progress Steps component](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=29156-191856&t=E7jyEiqJbaiVdQsU-0) was released in Figma.
+- Text styles were added to each theme in Figma to support more streamlined theme-switching.
+
+<Box marginBottom="space120" />
+
+## ⚡️ Pastemates™ spotlight
+
+<em>
+  We want to take a moment to acknowledge our incredible Pastemates—individuals and teams who are integral to the
+  success of Paste. They are tireless advocates for its adoption within their respective products, offering invaluable
+  feedback and contributions to our thriving system.
+</em>
+
+<Box marginBottom="space70" />
+
+<ResponsiveImage src={Megan} alt="Megan Allison" style={{maxHeight: '300px', maxWidth: '220px'}} />
+
+Our mate this month, Megan Allison, isn't a new name to this newsletter. Megan is a content designer at Segment and has been continuously working on enhancing our documentation.
+
+As Segment embraces Paste, Megan has been there every step of the way, supporting product designers in translating existing designs and patterns into the Paste ecosystem. She's been taking a deep dive into our documentation, refining the guidance we offer to designers and developers.
+
+What's amazing about Megan is her 'One Twilio' spirit. Instead of just focusing on guidelines for Segment, she's been putting her time into improving centralized guidelines, so everyone at Twilio can benefit.
+
+Here at Paste, we love seeing cross-company collaboration. It's even more exciting when it involves a specialized skill like content design. Megan's decision to share her expertise broadly helps us all build better products, amplifying the impact of her work.
+
+We can't thank Megan enough for her contributions. Her dedication to creating a better Twilio is truly inspiring. Thank you, Megan, for embodying the spirit of collaboration and making a big difference in Paste and Twilio!
+
+## 👀 What we’re working on next
+
+| Feature                            | Description                                                                                                                          |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **Navigation UI Kit components**   | Complementary React components to implement our Navigation UI kit.                                                                   |
+| **Progress Steps component**       | A highly requested component that shows a user a clear path to complete a complex multi-step task.                                   |
+| **Number Input component**         | An input that limits data to number entry and has styled +/- buttons.                                                                |
+| **Status components**              | Components that implement the [Status Pattern](https://paste.twilio.design/patterns/status), including Status Badge and Status Menu. |
+| **Checkbox and Radio Menu Items**  | A menu that presents a list of items that a user can choose to perform an action with.                                               |
+| **Design of the Slider component** | A component that allows a draggable input over a range of numbers.                                                                   |
+
+<Box marginBottom="space120" />
+
+As always, we’re better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>

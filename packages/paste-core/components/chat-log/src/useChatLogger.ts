@@ -18,6 +18,7 @@ export type UseChatLogger = (...initialChats: PartialIDChat[]) => {
   chats: Chat[];
   push: PushChat;
   pop: PopChat;
+  clear: () => void;
 };
 
 const chatWithId = (chat: PartialIDChat): Chat => ({...chat, id: chat.id || uid(chat.content)});
@@ -27,19 +28,15 @@ export const useChatLogger: UseChatLogger = (...initialChats) => {
 
   const [chats, setChats] = React.useState<Chat[]>(parsedInitialChats);
 
-  const push: PushChat = React.useCallback(
-    (next) => {
-      setChats((prev) => prev.concat(chatWithId(next)));
-    },
-    [setChats]
-  );
+  const push: PushChat = React.useCallback((next) => {
+    setChats((prev) => prev.concat(chatWithId(next)));
+  }, []);
 
-  const pop: PopChat = React.useCallback(
-    (id) => {
-      setChats((prev) => (id ? prev.filter((chat) => chat.id !== id) : prev.slice(0, -1)));
-    },
-    [setChats]
-  );
+  const pop: PopChat = React.useCallback((id) => {
+    setChats((prev) => (id ? prev.filter((chat) => chat.id !== id) : prev.slice(0, -1)));
+  }, []);
 
-  return {push, pop, chats};
+  const clear: () => void = React.useCallback(() => setChats([]), []);
+
+  return {push, pop, chats, clear};
 };
