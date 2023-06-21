@@ -1,5 +1,6 @@
 /* Wrapper */
 export * from './Topbar';
+export * from './TopbarActions';
 /* User Dialog */
 export * from './user-dialog/UserDialog';
 export * from './user-dialog/UserDialogContainer';

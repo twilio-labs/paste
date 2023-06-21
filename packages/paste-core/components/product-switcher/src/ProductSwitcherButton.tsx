@@ -11,7 +11,7 @@ export interface ProductSwitcherButtonProps extends Omit<MenuButtonProps, 'varia
 const ProductSwitcherButton = React.forwardRef<HTMLButtonElement, ProductSwitcherButtonProps>(
   ({element = 'PRODUCT_SWITCHER_BUTTON', i18nButtonLabel, ...props}, ref) => {
     return (
-      <MenuButton element={element} {...props} variant="secondary_icon" size="icon_small" ref={ref}>
+      <MenuButton element={element} {...props} variant="secondary_icon" size="reset" ref={ref}>
         <ProductSwitcherIcon decorative={true} />
         <ScreenReaderOnly>{i18nButtonLabel}</ScreenReaderOnly>
       </MenuButton>

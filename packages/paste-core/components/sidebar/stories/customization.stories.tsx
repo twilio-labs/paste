@@ -14,7 +14,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
@@ -48,7 +48,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         SIDEBAR_HEADER_LABEL: {
           fontWeight: 'fontWeightNormal',
         },
-        SIDEBAR_COLLAPSE_BUTTON_WRAPPER: {
+        SIDEBAR_FOOTER: {
           boxShadow: 'shadowBorder',
         },
         SIDEBAR_COLLAPSE_BUTTON: {
@@ -78,13 +78,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
           <SidebarNavigation>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarNavigation>
-          <SidebarCollapseButtonWrapper>
+          <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Sidebar>
 
         {/* Must wrap content area */}
@@ -155,14 +155,14 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
               Beta
             </SidebarBetaBadge>
           </SidebarNavigation>
-          <SidebarCollapseButtonWrapper element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
+          <SidebarFooter element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
             <SidebarCollapseButton
               element="SIDECAR_COLLAPSE_BUTTON"
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Sidebar>
 
         {/* Must wrap content area */}

@@ -11,7 +11,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
@@ -29,14 +29,14 @@ const MockPushSidebar = ({
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
@@ -56,14 +56,14 @@ const MockOverlaySidebar = ({
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={collapsed} variant={variant}>
         <div>Content area</div>
@@ -224,7 +224,7 @@ describe('Sidebar', () => {
             SIDEBAR_COLLAPSE_BUTTON: {
               padding: 'space40',
             },
-            SIDEBAR_COLLAPSE_BUTTON_WRAPPER: {
+            SIDEBAR_FOOTER: {
               padding: 'space40',
             },
             SIDEBAR_PUSH_CONTENT_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
@@ -236,9 +236,9 @@ describe('Sidebar', () => {
           <Sidebar aria-label="main" variant="compact" data-testid="aaa">
             <Box color="colorTextInverse">Sidebar header</Box>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-            <SidebarCollapseButtonWrapper data-testid="collapseButtonWrapper">
+            <SidebarFooter data-testid="collapseButtonWrapper">
               <SidebarCollapseButton i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
-            </SidebarCollapseButtonWrapper>
+            </SidebarFooter>
           </Sidebar>
 
           {/* Must wrap content area */}
@@ -289,13 +289,13 @@ describe('Sidebar', () => {
             <SidebarBetaBadge as="span" element="XSIDE_BETA_BADGE">
               Beta
             </SidebarBetaBadge>
-            <SidebarCollapseButtonWrapper element="XSIDE_COLLAPSE_BUTTON_WRAPPER" data-testid="collapseButtonWrapper">
+            <SidebarFooter element="XSIDE_COLLAPSE_BUTTON_WRAPPER" data-testid="collapseButtonWrapper">
               <SidebarCollapseButton
                 element="XSIDE_COLLAPSE_BUTTON"
                 i18nCollapseLabel="Close sidebar"
                 i18nExpandLabel="Open sidebar"
               />
-            </SidebarCollapseButtonWrapper>
+            </SidebarFooter>
           </Sidebar>
 
           {/* Must wrap content area */}

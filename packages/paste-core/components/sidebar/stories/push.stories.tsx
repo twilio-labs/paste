@@ -13,7 +13,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarBetaBadge,
   SidebarNavigation,
@@ -42,13 +42,13 @@ export const Default: StoryFn = () => {
           <SidebarNavigation>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarNavigation>
-          <SidebarCollapseButtonWrapper>
+          <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Stack>
       </Sidebar>
 
@@ -85,13 +85,13 @@ export const Compact: StoryFn = () => {
           <SidebarNavigation>
             <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
           </SidebarNavigation>
-          <SidebarCollapseButtonWrapper>
+          <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Stack>
       </Sidebar>
 

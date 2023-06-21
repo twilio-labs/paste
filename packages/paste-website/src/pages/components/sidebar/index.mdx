@@ -191,7 +191,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
 } from '@twilio-paste/core/sidebar';
@@ -210,13 +210,13 @@ const SideModalExample: React.FC = () => {
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-          <SidebarCollapseButtonWrapper>
+          <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Stack>
       </Sidebar>
 
@@ -266,12 +266,12 @@ const SideModalExample: React.FC = () => {
 | `onClick?`  | `() => void`      |                                                                                           |                                |
 | `children?` | `React.ReactNode` |                                                                                           |                                |
 
-##### SidebarCollapseButtonWrapper
+##### SidebarFooter
 
-| Prop        | Type              | Description                                                                               | Default                             |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_COLLAPSE_BUTTON_WRAPPER'` |
-| `children?` | `React.ReactNode` |                                                                                           |                                     |
+| Prop        | Type              | Description                                                                               | Default            |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_FOOTER'` |
+| `children?` | `React.ReactNode` |                                                                                           |                    |
 
 ##### SidebarCollapseButton
 

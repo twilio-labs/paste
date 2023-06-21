@@ -88,7 +88,7 @@
 
 ### Minor Changes
 
-- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarCollapseButtonWrapper` components. Renamed ContentWrappers
+- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarFooter` components. Renamed ContentWrappers
 
 * [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Code Block] Switch the Code block tabs to use the inverse variant of the Tabs component
 

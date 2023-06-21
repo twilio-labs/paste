@@ -17,7 +17,7 @@ import {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Topbar',
+  title: 'Components/Topbar/UserDialog',
 };
 
 export const BasicUserDialog: StoryFn = () => {

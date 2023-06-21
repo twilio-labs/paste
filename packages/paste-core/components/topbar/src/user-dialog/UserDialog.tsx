@@ -25,6 +25,8 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
       padding="space0"
       marginTop="space30"
       width="size30"
+      zIndex="zIndex80"
+      outline="none"
     >
       {props.children}
     </Box>

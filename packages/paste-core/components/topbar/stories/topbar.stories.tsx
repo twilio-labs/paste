@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
@@ -15,7 +14,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
 } from '@twilio-paste/sidebar';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
@@ -26,6 +25,7 @@ import {
   UserDialogUserName,
   UserDialogUserEmail,
   UserDialogContainer,
+  TopbarActions,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -47,26 +47,24 @@ export const PushDefaultTopbar: StoryFn = () => {
   return (
     <>
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton>
-              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarCollapseButtonWrapper>
-            <SidebarCollapseButton
-              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarCollapseButtonWrapper>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
         <Topbar>
-          <Box display="flex" alignItems="center" justifyContent="space-between">
-            <div>Topbar Left</div>
+          <TopbarActions justify="start">Topbar Left</TopbarActions>
+          <TopbarActions>
             <UserDialogContainer name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
               <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
                 <UserDialogUserInfo>
@@ -78,7 +76,7 @@ export const PushDefaultTopbar: StoryFn = () => {
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
               Toggle Sidebar
             </Button>
-          </Box>
+          </TopbarActions>
         </Topbar>
         <TonsOfContent />
       </SidebarPushContentWrapper>
@@ -95,30 +93,28 @@ export const PushCompactTopbar: StoryFn = () => {
   return (
     <>
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton>
-              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarCollapseButtonWrapper>
-            <SidebarCollapseButton
-              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarCollapseButtonWrapper>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Topbar>
-          <Box display="flex" alignItems="center" justifyContent="space-between">
-            <div>Topbar Left</div>
+          <TopbarActions justify="start">Topbar Left</TopbarActions>
+          <TopbarActions>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
               Toggle Sidebar
             </Button>
-          </Box>
+          </TopbarActions>
         </Topbar>
         <TonsOfContent />
       </SidebarPushContentWrapper>
@@ -135,26 +131,24 @@ export const OverlayDefaultTopbar: StoryFn = () => {
   return (
     <>
       <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="default">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton>
-              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarCollapseButtonWrapper>
-            <SidebarCollapseButton
-              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarCollapseButtonWrapper>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="default">
         <Topbar>
-          <Box display="flex" alignItems="center" justifyContent="space-between">
-            <div>Topbar Left</div>
+          <TopbarActions justify="start">Topbar Left</TopbarActions>
+          <TopbarActions>
             <Button
               variant="secondary"
               size="small"
@@ -162,7 +156,7 @@ export const OverlayDefaultTopbar: StoryFn = () => {
             >
               Toggle Sidebar
             </Button>
-          </Box>
+          </TopbarActions>
         </Topbar>
         <TonsOfContent />
       </SidebarOverlayContentWrapper>
@@ -179,26 +173,24 @@ export const OverlayCompactTopbar: StoryFn = () => {
   return (
     <>
       <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="compact">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton>
-              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarCollapseButtonWrapper>
-            <SidebarCollapseButton
-              onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarCollapseButtonWrapper>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="compact">
         <Topbar>
-          <Box display="flex" alignItems="center" justifyContent="space-between">
-            <div>Topbar Left</div>
+          <TopbarActions justify="start">Topbar Left</TopbarActions>
+          <TopbarActions>
             <Button
               variant="secondary"
               size="small"
@@ -206,7 +198,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
             >
               Toggle Sidebar
             </Button>
-          </Box>
+          </TopbarActions>
         </Topbar>
         <TonsOfContent />
       </SidebarOverlayContentWrapper>

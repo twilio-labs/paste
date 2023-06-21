@@ -20,8 +20,7 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   outline: 'none',
   paddingY: 'space30',
   position: 'relative',
-  role: 'button',
-  zIndex: 'zIndex10',
+  textDecoration: 'none',
   _focus: {
     boxShadow: 'shadowFocusInverseInset',
   },
@@ -49,12 +48,11 @@ export const sidebarNavigationItemStyles: BoxProps = {
   background: 'none',
   border: 'none',
   outline: 'none',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
   overflow: 'hidden',
   paddingLeft: 'space30',
   paddingRight: 'space30',
   marginBottom: 'space30',
+  columnGap: 'space30',
   _hover: {
     textDecoration: 'underline',
   },
@@ -66,9 +64,9 @@ export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps 
   paddingY: 'space20',
   fontSize: 'fontSize20',
   flexGrow: 1,
-  marginLeft: 'spaceNegative60',
   width: `calc(100% + ${theme.space.space60})`,
-  paddingLeft: 'space60',
+  paddingLeft: 'space70',
+  marginBottom: 'space20',
 });
 
 // Collapsed item styles

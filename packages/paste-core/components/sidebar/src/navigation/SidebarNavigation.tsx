@@ -73,7 +73,8 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
         maxHeight="100%"
         overflowY="auto"
         overflowX="hidden"
-        padding="space60"
+        paddingY="space50"
+        paddingX="space60"
         flexGrow={1}
       >
         {children}

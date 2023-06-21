@@ -16,7 +16,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarBetaBadge,
   SidebarNavigation,
@@ -27,7 +27,7 @@ import {
   SidebarNavigationItem,
   useSidebarNavigationDisclosureState,
 } from '../src';
-import type {SidebarNavigationDisclosureInitialState} from '../src';
+import type {SidebarNavigationDisclosureInitialState, SidebarNavigationDisclosureStateReturn} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -47,7 +47,7 @@ export const Default: StoryFn = () => {
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
         {/* Header */}
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
@@ -55,6 +55,7 @@ export const Default: StoryFn = () => {
         {/* Nav */}
         <SidebarNavigation>
           <SidebarNavigationItem
+            href="https://www.google.com"
             onClick={() => {
               setPushSidebarCollapsed(!pushSidebarCollapsed);
             }}
@@ -63,18 +64,19 @@ export const Default: StoryFn = () => {
             This item closes the sidebar
           </SidebarNavigationItem>
           <SidebarNavigationItem
-            as="a"
             href="https://google.com"
             selected
             icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
           >
             Go to Google.com
           </SidebarNavigationItem>
-          <SidebarNavigationDisclosure>
+          <SidebarNavigationDisclosure visible>
             <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading selected>
-                <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                <Box>Heading</Box>
+              <SidebarNavigationDisclosureHeading
+                icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                selected
+              >
+                Heading
               </SidebarNavigationDisclosureHeading>
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
@@ -102,56 +104,102 @@ export const Default: StoryFn = () => {
               </Box>
             </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent>
-              <SidebarNavigationDisclosure>
-                <SidebarNavigationDisclosureHeadingWrapper>
-                  <SidebarNavigationDisclosureHeading selected>
-                    <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                    <Box marginLeft="space20">Heading</Box>
-                  </SidebarNavigationDisclosureHeading>
-                  <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                </SidebarNavigationDisclosureHeadingWrapper>
-                <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-                </SidebarNavigationDisclosureContent>
-              </SidebarNavigationDisclosure>
               <SidebarNavigationItem
+                href="https://www.google.com"
                 onClick={() => {
                   setPushSidebarCollapsed(!pushSidebarCollapsed);
                 }}
               >
                 This item closes the sidebar
               </SidebarNavigationItem>
-              <SidebarNavigationItem as="a" href="https://google.com" selected>
+              <SidebarNavigationDisclosure visible>
+                <SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureHeading
+                    icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                    selected
+                  >
+                    Heading
+                  </SidebarNavigationDisclosureHeading>
+                  <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                </SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureContent>
+                  <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com" selected>
+                    Navigation Item
+                  </SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+                </SidebarNavigationDisclosureContent>
+              </SidebarNavigationDisclosure>
+              <SidebarNavigationItem href="https://google.com" selected>
                 Go to Google.com
               </SidebarNavigationItem>
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
 
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-          <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading
+                icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                selected
+              >
+                Voice Intelligence
+              </SidebarNavigationDisclosureHeading>
+              <Box display="flex" alignItems="center" justifyContent="flex-end">
+                <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
+              </Box>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="https://www.google.com">
+                Very Very long level two nav item
+              </SidebarNavigationItem>
+              <SidebarNavigationDisclosure>
+                <SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureHeading
+                    icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                    selected
+                  >
+                    Very Very long level two nav item
+                  </SidebarNavigationDisclosureHeading>
+                  <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                </SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureContent>
+                  <SidebarNavigationItem href="https://www.google.com">
+                    Very long level three nav item
+                  </SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com" selected>
+                    Very long level three nav item
+                  </SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com">
+                    Very long level three nav item
+                  </SidebarNavigationItem>
+                </SidebarNavigationDisclosureContent>
+              </SidebarNavigationDisclosure>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+
+          <SidebarNavigationItem href="#">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+          <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
         </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -178,13 +226,14 @@ export const Compact: StoryFn = () => {
     <Box>
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="a" href="https://www.google.com">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarNavigation>
           <SidebarNavigationItem
+            href="https://www.google.com"
             onClick={() => {
               setPushSidebarCollapsed(!pushSidebarCollapsed);
             }}
@@ -193,7 +242,6 @@ export const Compact: StoryFn = () => {
             This item closes the sidebar
           </SidebarNavigationItem>
           <SidebarNavigationItem
-            as="a"
             href="https://google.com"
             selected
             icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
@@ -202,9 +250,11 @@ export const Compact: StoryFn = () => {
           </SidebarNavigationItem>
           <SidebarNavigationDisclosure>
             <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading selected>
-                <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                <Box marginLeft="space20">Heading</Box>
+              <SidebarNavigationDisclosureHeading
+                icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                selected
+              >
+                Heading
               </SidebarNavigationDisclosureHeading>
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
@@ -234,39 +284,44 @@ export const Compact: StoryFn = () => {
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationDisclosure>
                 <SidebarNavigationDisclosureHeadingWrapper>
-                  <SidebarNavigationDisclosureHeading selected>
-                    <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                    <Box marginLeft="space20">Heading</Box>
+                  <SidebarNavigationDisclosureHeading
+                    icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+                    selected
+                  >
+                    Heading
                   </SidebarNavigationDisclosureHeading>
                   <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
                 </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com" selected>
+                    Navigation Item
+                  </SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
               </SidebarNavigationDisclosure>
               <SidebarNavigationItem
+                href="https://www.google.com"
                 onClick={() => {
                   setPushSidebarCollapsed(!pushSidebarCollapsed);
                 }}
               >
                 Navigation Item
               </SidebarNavigationItem>
-              <SidebarNavigationItem as="a" href="https://google.com" selected>
+              <SidebarNavigationItem href="https://google.com" selected>
                 Navigation Item
               </SidebarNavigationItem>
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
         </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -286,7 +341,10 @@ Compact.parameters = {
 interface UseDelayedDisclosureStateProps extends SidebarNavigationDisclosureInitialState {
   delay: number;
 }
-const useDelayedDisclosureState = ({delay, ...initialState}: UseDelayedDisclosureStateProps): DisclosureStateReturn => {
+const useDelayedDisclosureState = ({
+  delay,
+  ...initialState
+}: UseDelayedDisclosureStateProps): SidebarNavigationDisclosureStateReturn => {
   const disclosure = useSidebarNavigationDisclosureState(initialState);
   const [transitioning, setTransitioning] = React.useState(false);
   return {
@@ -317,7 +375,7 @@ export const StateHookDisclosure: StoryFn = () => {
     <Box>
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
@@ -325,33 +383,33 @@ export const StateHookDisclosure: StoryFn = () => {
         <SidebarNavigation>
           <SidebarNavigationDisclosure state={disclosure}>
             <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading selected>
-                <ProductContactCenterTasksIcon decorative />
-                <Box marginLeft="space20">{transitioning ? 'Please wait...' : clickableHeading}</Box>
+              <SidebarNavigationDisclosureHeading icon={<ProductContactCenterTasksIcon decorative />} selected>
+                {transitioning ? 'Please wait...' : clickableHeading}
               </SidebarNavigationDisclosureHeading>
             </SidebarNavigationDisclosureHeadingWrapper>
             <SidebarNavigationDisclosureContent>
               <SidebarNavigationItem
+                href="https://www.google.com"
                 onClick={() => {
                   setPushSidebarCollapsed(!pushSidebarCollapsed);
                 }}
               >
                 Navigation Item
               </SidebarNavigationItem>
-              <SidebarNavigationItem as="a" href="https://google.com" selected>
+              <SidebarNavigationItem href="https://google.com" selected>
                 Go to google.com
               </SidebarNavigationItem>
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
         </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
