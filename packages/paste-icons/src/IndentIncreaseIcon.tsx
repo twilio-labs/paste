@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkIconProps extends IconWrapperProps {
+export interface IndentIncreaseIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
+const IndentIncreaseIcon = React.forwardRef<HTMLElement, IndentIncreaseIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `LinkIcon-${useUID()}`;
+    const titleId = `IndentIncreaseIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LinkIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[IndentIncreaseIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,11 +35,7 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M13.074 5.674a2.3 2.3 0 013.252 3.252l-2.97 2.97A2.3 2.3 0 019.869 8.92a.5.5 0 10-.808-.588 3.3 3.3 0 005.004 4.272l2.97-2.97a3.3 3.3 0 00-4.667-4.666l-.467.466a.5.5 0 10.707.707l.467-.466z"
-          />
-          <path
-            fill="currentColor"
-            d="M9.18 7.163a2.3 2.3 0 011.952 3.65.5.5 0 10.809.59A3.3 3.3 0 006.936 7.13l-2.97 2.97a3.3 3.3 0 004.667 4.667l.58-.58a.5.5 0 10-.707-.707l-.58.58a2.3 2.3 0 11-3.252-3.252l2.97-2.97c.409-.41.958-.652 1.536-.675z"
+            d="M2 5.5c0-.276.21-.5.47-.5h15.06c.26 0 .47.224.47.5s-.21.5-.47.5H2.47C2.21 6 2 5.776 2 5.5zM10.941 8c-.26 0-.47.224-.47.5s.21.5.47.5h6.588c.26 0 .471-.224.471-.5s-.21-.5-.47-.5h-6.59zm-.471 3.5c0-.276.211-.5.471-.5h6.588c.26 0 .471.224.471.5s-.21.5-.47.5h-6.59c-.26 0-.47-.224-.47-.5zM2 14.5c0-.276.21-.5.47-.5h15.06c.26 0 .47.224.47.5s-.21.5-.47.5H2.47c-.26 0-.47-.224-.47-.5zm3.161-6.339a.55.55 0 01.778 0l1.65 1.65.046.052a.55.55 0 01-.046.726l-1.65 1.65-.052.046a.55.55 0 01-.726-.046l-.046-.052a.55.55 0 01.046-.726l1.26-1.261-1.26-1.261-.046-.052a.55.55 0 01.046-.726z"
           />
         </svg>
       </IconWrapper>
@@ -47,5 +43,5 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
   }
 );
 
-LinkIcon.displayName = 'LinkIcon';
-export {LinkIcon};
+IndentIncreaseIcon.displayName = 'IndentIncreaseIcon';
+export {IndentIncreaseIcon};
