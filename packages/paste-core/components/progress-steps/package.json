@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "data display",
   "status": "production",
-  "description": "Progress steps show a user a clear path to complete a complex multi step task.",
+  "description": "Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
