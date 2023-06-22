@@ -14,7 +14,7 @@ import {Divs, Buttons, Anchors} from '../stories/horizontal.stories';
 
 describe('ProgressSteps', () => {
   it('should render divs correctly', () => {
-    const {queryAllByText} = render(<Divs />);
+    const {queryAllByText, getAllByRole} = render(<Divs />);
     const [completeIcon, completeLabel] = queryAllByText('Complete');
     const [incompleteIcon, incompleteLabel] = queryAllByText('Incomplete');
     const [errorIcon, errorLabel] = queryAllByText('Error');
@@ -30,6 +30,10 @@ describe('ProgressSteps', () => {
     expect(currentLabel).toBeDefined();
 
     expect(completeLabel.parentElement?.tagName).toEqual('DIV');
+
+    // Make sure each step is a listitem
+    const items = getAllByRole('listitem');
+    expect(items.length).toBe(4);
   });
 
   it('should render buttons correctly', () => {
@@ -55,7 +59,7 @@ describe('ProgressSteps', () => {
       const validateEmail = getByRole('button', {name: 'Error Validate email'});
       const completeProfile = getByRole('button', {name: 'Current Complete profile'});
       const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
-      const wrapper = signupLabel?.parentElement;
+      const wrapper = getByRole('list');
 
       expect(signupLabel?.dataset.pasteElement).toEqual('PROGRESS_STEP_COMPLETE');
       expect(validateEmail?.dataset.pasteElement).toEqual('PROGRESS_STEP_ERROR');
@@ -127,7 +131,7 @@ describe('ProgressSteps', () => {
       const validateEmail = getByRole('button', {name: 'Error Validate email'});
       const completeProfile = getByRole('button', {name: 'Current Complete profile'});
       const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
-      const wrapper = signupLabel?.parentElement;
+      const wrapper = getByRole('list');
 
       expect(signupLabel?.dataset.pasteElement).toEqual('STEP_COMPLETE');
       expect(validateEmail?.dataset.pasteElement).toEqual('STEP_ERROR');

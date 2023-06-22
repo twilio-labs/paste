@@ -32,6 +32,7 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
           ref={ref}
           element={element}
           display="flex"
+          role="list"
           {...(orientation === 'horizontal' ? HorizontalStyles : VerticalStyles)}
         >
           {props.children}

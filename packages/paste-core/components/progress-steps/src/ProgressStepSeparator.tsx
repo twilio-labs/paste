@@ -34,6 +34,7 @@ export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressSt
         {...safelySpreadBoxProps(props)}
         {...(orientation === 'horizontal' ? HorizontalStyles : VerticalStyles)}
         ref={ref}
+        aria-hidden
         flexShrink={0}
         flexGrow={1}
         element={element}

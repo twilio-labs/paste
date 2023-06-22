@@ -9,32 +9,34 @@ import {ProgressStepPropTypes} from './propTypes';
 export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepErrorProps>(
   ({element = 'PROGRESS_STEP_ERROR', as = 'div', children, i18nErrorLabel = 'Error', ...props}, ref) => {
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        element={element}
-        as={as}
-        type={as === 'button' ? 'button' : undefined}
-        ref={ref}
-        display="flex"
-        columnGap="space30"
-        border="none"
-        background="none"
-        padding="space0"
-        margin="space0"
-        fontFamily="fontFamilyText"
-        fontSize="fontSize20"
-        lineHeight="lineHeight20"
-        fontWeight="fontWeightMedium"
-        outline="none"
-        borderRadius="borderRadius20"
-        cursor={as !== 'div' ? 'pointer' : 'default'}
-        color="colorTextLinkDestructive"
-        _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextLinkDestructiveStrongest'} : undefined}
-        _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
-      >
-        <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
-        <Box as="span">{children}</Box>
-      </Box>
+      <div role="listitem">
+        <Box
+          {...safelySpreadBoxProps(props)}
+          element={element}
+          as={as}
+          type={as === 'button' ? 'button' : undefined}
+          ref={ref}
+          display="flex"
+          columnGap="space30"
+          border="none"
+          background="none"
+          padding="space0"
+          margin="space0"
+          fontFamily="fontFamilyText"
+          fontSize="fontSize20"
+          lineHeight="lineHeight20"
+          fontWeight="fontWeightMedium"
+          outline="none"
+          borderRadius="borderRadius20"
+          cursor={as !== 'div' ? 'pointer' : 'default'}
+          color="colorTextLinkDestructive"
+          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextLinkDestructiveStrongest'} : undefined}
+          _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
+        >
+          <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
+          <Box as="span">{children}</Box>
+        </Box>
+      </div>
     );
   }
 );
