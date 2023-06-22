@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type {CompositeItemProps} from '@twilio-paste/reakit-library';
 import {CompositeItem} from '@twilio-paste/reakit-library';
-import type {BoxProps} from '@twilio-paste/box';
 
 import type {As} from './types';
 
@@ -12,7 +11,6 @@ export interface ListboxPrimitiveItemProps
   /** Event handler to respond to selection events */
   onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   as?: As;
-  element?: BoxProps['element'];
 }
 
 export const ListboxPrimitiveItem = React.forwardRef<HTMLButtonElement, ListboxPrimitiveItemProps>(

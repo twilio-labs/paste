@@ -6,24 +6,30 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {UserDialogListProps, UserDialogListboxProps} from './types';
 
-const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProps>((props, ref) => {
-  return (
-    <Box {...safelySpreadBoxProps(props)} backgroundColor="colorBackgroundBody" borderRadius="borderRadius30" ref={ref}>
-      {props.children}
-    </Box>
-  );
-});
-UserDialogListbox.displayName = 'UserDialogListbox';
-
-export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(
-  ({children, element = 'USER_DIALOG', ...props}, ref) => {
+const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProps>(
+  ({element = 'USER_DIALOG', ...props}, ref) => {
     return (
-      <ListboxPrimitive element={`${element}_LIST`} {...props} as={UserDialogListbox} ref={ref}>
-        {children}
-      </ListboxPrimitive>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        element={`${element}_LIST`}
+        backgroundColor="colorBackgroundBody"
+        borderRadius="borderRadius30"
+        ref={ref}
+      >
+        {props.children}
+      </Box>
     );
   }
 );
+UserDialogListbox.displayName = 'UserDialogListbox';
+
+export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(({children, ...props}, ref) => {
+  return (
+    <ListboxPrimitive {...props} as={UserDialogListbox} ref={ref}>
+      {children}
+    </ListboxPrimitive>
+  );
+});
 UserDialogList.displayName = 'UserDialogList';
 
 UserDialogList.propTypes = {

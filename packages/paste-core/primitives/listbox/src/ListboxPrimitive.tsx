@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type {CompositeProps} from '@twilio-paste/reakit-library';
 import {Composite} from '@twilio-paste/reakit-library';
-import type {BoxProps} from '@twilio-paste/box';
 
 import type {As, ListboxPrimitiveVariants} from './types';
 
@@ -12,7 +11,6 @@ export interface ListboxPrimitiveProps
   > {
   variant?: ListboxPrimitiveVariants;
   as?: As;
-  element?: BoxProps['element'];
 }
 
 export const ListboxPrimitive = React.forwardRef<HTMLDivElement, ListboxPrimitiveProps>(

@@ -41,7 +41,6 @@ const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonPro
         size="reset"
         // @ts-expect-error remove when Reset Button types extends BoxProps
         borderRadius="borderRadius20"
-        backgroundColor="colorBackgroundBody"
         element={`${element}_BUTTON`}
         ref={ref}
       >
