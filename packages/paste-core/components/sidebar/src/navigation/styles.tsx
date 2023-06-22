@@ -64,7 +64,7 @@ export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps 
   paddingY: 'space20',
   fontSize: 'fontSize20',
   flexGrow: 1,
-  width: `calc(100% + ${theme.space.space60})`,
+  width: '100%',
   paddingLeft: 'space70',
   marginBottom: 'space20',
 });

@@ -14,7 +14,7 @@ export interface SidebarHeaderIconButtonProps extends Omit<ButtonProps, 'size' |
 
 export const SidebarHeaderIconButton = React.forwardRef<HTMLButtonElement, SidebarHeaderIconButtonProps>(
   ({element = 'SIDEBAR_HEADER_ICON_BUTTON', ...props}, ref) => {
-    return <Button {...props} tabIndex={0} size="icon" variant="inverse" element={element} ref={ref} />;
+    return <Button {...props} size="icon" variant="inverse" element={element} ref={ref} />;
   }
 );
 
