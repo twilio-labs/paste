@@ -7,7 +7,7 @@ import {NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive} from '@twili
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {StyledBase} from '@twilio-paste/theme';
 
-import type {UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps} from '../types';
+import type {UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps} from './types';
 import {UserDialogContext} from './UserDialogContainer';
 
 // styled popover for UserDialog Non Modal Dialog Primitive
@@ -89,7 +89,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
 UserDialog.displayName = 'UserDialog';
 
 UserDialog.propTypes = {
-  children: PropTypes.node.isRequired,
   'aria-label': PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   element: PropTypes.string,
 };

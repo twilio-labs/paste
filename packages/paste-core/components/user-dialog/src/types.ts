@@ -32,7 +32,7 @@ export type UserDialogStateReturn = NonModalDialogPrimitiveStateReturn;
 export interface UserDialogProps
   extends React.HTMLAttributes<HTMLDivElement>,
     NonModalDialogPrimitivePopoverInitialState {
-  children: NonNullable<React.ReactNode>;
+  children: React.ReactNode;
   element?: BoxProps['element'];
   'aria-label': string;
 }

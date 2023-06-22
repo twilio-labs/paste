@@ -99,6 +99,7 @@
     "/packages/paste-core/components/truncate",
     "/packages/paste-types",
     "/packages/paste-libraries/uid",
+    "/packages/paste-core/components/user-dialog",
     "/packages/paste-utils"
   ],
   "sandboxes": [

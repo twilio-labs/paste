@@ -6,7 +6,7 @@ import type {
   NonModalDialogPrimitivePopoverInitialState,
 } from '@twilio-paste/non-modal-dialog-primitive';
 
-import type {UserDialogContainerProps, UserDialogContextProps} from '../types';
+import type {UserDialogContainerProps, UserDialogContextProps} from './types';
 
 export const UserDialogContext = React.createContext<UserDialogContextProps>({} as UserDialogContextProps);
 

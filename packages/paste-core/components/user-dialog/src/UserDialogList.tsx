@@ -4,7 +4,7 @@ import type {ListboxPrimitiveInitialState, ListboxPrimitiveStateReturn} from '@t
 import {useListboxPrimitiveState, ListboxPrimitive} from '@twilio-paste/listbox-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-import type {UserDialogListProps, UserDialogListboxProps} from '../types';
+import type {UserDialogListProps, UserDialogListboxProps} from './types';
 
 const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProps>((props, ref) => {
   return (

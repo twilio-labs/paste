@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {ListboxPrimitiveItem} from '@twilio-paste/listbox-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-import type {UserDialogListItemProps, UserDialogListboxItemProps} from '../types';
+import type {UserDialogListItemProps, UserDialogListboxItemProps} from './types';
 
 const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
   ({children, ...props}, ref) => {

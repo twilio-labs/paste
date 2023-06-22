@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Separator} from '@twilio-paste/separator';
-import type {SeparatorProps} from '@twilio-paste/separator';
+import {Separator, type SeparatorProps} from '@twilio-paste/separator';
 
 export const UserDialogSeparator = React.forwardRef<
   HTMLHRElement,

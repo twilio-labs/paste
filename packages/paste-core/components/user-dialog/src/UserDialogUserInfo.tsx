@@ -5,7 +5,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Separator} from '@twilio-paste/separator';
 import {Avatar} from '@twilio-paste/avatar';
 
-import type {UserDialogUserInfoProps} from '../types';
+import type {UserDialogUserInfoProps} from './types';
 import {UserDialogContext} from './UserDialogContainer';
 
 export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUserInfoProps>(
