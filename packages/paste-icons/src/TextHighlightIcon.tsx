@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkIconProps extends IconWrapperProps {
+export interface TextHighlightIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
+const TextHighlightIcon = React.forwardRef<HTMLElement, TextHighlightIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `LinkIcon-${useUID()}`;
+    const titleId = `TextHighlightIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LinkIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[TextHighlightIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,11 +35,9 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M13.074 5.674a2.3 2.3 0 013.252 3.252l-2.97 2.97A2.3 2.3 0 019.869 8.92a.5.5 0 10-.808-.588 3.3 3.3 0 005.004 4.272l2.97-2.97a3.3 3.3 0 00-4.667-4.666l-.467.466a.5.5 0 10.707.707l.467-.466z"
-          />
-          <path
-            fill="currentColor"
-            d="M9.18 7.163a2.3 2.3 0 011.952 3.65.5.5 0 10.809.59A3.3 3.3 0 006.936 7.13l-2.97 2.97a3.3 3.3 0 004.667 4.667l.58-.58a.5.5 0 10-.707-.707l-.58.58a2.3 2.3 0 11-3.252-3.252l2.97-2.97c.409-.41.958-.652 1.536-.675z"
+            fillRule="evenodd"
+            d="M4.195 14.043l1.052-3.157a.498.498 0 01.161-.265l7.66-7.662a1.568 1.568 0 012.216 0l2.757 2.759a1.567 1.567 0 010 2.215l-7.685 7.688a.5.5 0 01-.195.12l-3.2 1.068a.5.5 0 01-.416-.046l-.991.992a.5.5 0 01-.354.146H2a.5.5 0 01-.354-.854l2.593-2.591a.5.5 0 01-.044-.413zM14.175 3.5a.567.567 0 00-.4.166l-7.333 7.336 3.56 3.56 7.332-7.336a.567.567 0 000-.801l-2.758-2.759a.567.567 0 00-.4-.166zm-9.24 11.674L3.207 16.9h1.786l.835-.834-.893-.893zm4.14-.124l-3.121-3.122-.713 2.138 1.696 1.696 2.138-.712z"
+            clipRule="evenodd"
           />
         </svg>
       </IconWrapper>
@@ -47,5 +45,5 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
   }
 );
 
-LinkIcon.displayName = 'LinkIcon';
-export {LinkIcon};
+TextHighlightIcon.displayName = 'TextHighlightIcon';
+export {TextHighlightIcon};

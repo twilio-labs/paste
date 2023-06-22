@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface ProductPersonasIconProps extends IconWrapperProps {
+export interface ProductUnifyIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ProductPersonasIcon = React.forwardRef<HTMLElement, ProductPersonasIconProps>(
+const ProductUnifyIcon = React.forwardRef<HTMLElement, ProductUnifyIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `ProductPersonasIcon-${useUID()}`;
+    const titleId = `ProductUnifyIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductPersonasIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[ProductUnifyIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -47,5 +47,5 @@ const ProductPersonasIcon = React.forwardRef<HTMLElement, ProductPersonasIconPro
   }
 );
 
-ProductPersonasIcon.displayName = 'ProductPersonasIcon';
-export {ProductPersonasIcon};
+ProductUnifyIcon.displayName = 'ProductUnifyIcon';
+export {ProductUnifyIcon};
