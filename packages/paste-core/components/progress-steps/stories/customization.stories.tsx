@@ -63,9 +63,9 @@ export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironm
           Error
         </ProgressStepError>
         <ProgressStepSeparator />
-        <ProgressStepCurrent>Current</ProgressStepCurrent>
+        <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
         <ProgressStepSeparator />
-        <ProgressStepIncomplete>Incomplete</ProgressStepIncomplete>
+        <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>
       </ProgressSteps>
     </CustomizationProvider>
   );

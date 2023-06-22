@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
 export const ProgressStepPropTypes = {
-  children: PropTypes.node,
+  as: PropTypes.oneOf(['div', 'button', 'a']).isRequired,
+  children: PropTypes.node.isRequired,
   element: PropTypes.string,
   href: PropTypes.string,
-  as: PropTypes.oneOf(['div', 'button', 'a']),
   disabled: PropTypes.bool,
 };

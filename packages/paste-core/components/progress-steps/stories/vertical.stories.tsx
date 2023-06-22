@@ -18,13 +18,13 @@ export default {
 export const Divs = (): React.ReactNode => {
   return (
     <ProgressSteps orientation="vertical">
-      <ProgressStepComplete>Complete</ProgressStepComplete>
+      <ProgressStepComplete as="div">Complete</ProgressStepComplete>
       <ProgressStepSeparator />
-      <ProgressStepError>Error</ProgressStepError>
+      <ProgressStepError as="div">Error</ProgressStepError>
       <ProgressStepSeparator />
-      <ProgressStepCurrent>Current</ProgressStepCurrent>
+      <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
       <ProgressStepSeparator />
-      <ProgressStepIncomplete>Incomplete</ProgressStepIncomplete>
+      <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>
     </ProgressSteps>
   );
 };

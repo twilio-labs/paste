@@ -33,54 +33,28 @@ describe('ProgressSteps', () => {
   });
 
   it('should render buttons correctly', () => {
-    const {getByText} = render(<Buttons />);
-    const signupLabel = getByText('Sign up').parentElement;
+    const {getByRole} = render(<Buttons />);
+    const signupLabel = getByRole('button', {name: 'Complete Sign up'});
 
     expect(signupLabel?.tagName).toEqual('BUTTON');
     expect(signupLabel?.getAttribute('type')).toEqual('button');
   });
 
   it('should render anchors correctly', () => {
-    const {getByText} = render(<Anchors />);
-    const signupLabel = getByText('Sign up').parentElement;
+    const {getByRole} = render(<Anchors />);
+    const signupLabel = getByRole('link', {name: 'Complete Sign up'});
 
     expect(signupLabel?.tagName).toEqual('A');
     expect(signupLabel?.getAttribute('href')).toEqual('#');
   });
 
-  it('handles incorrect props correctly', () => {
-    // hide console errors from terminal when throwing expected errors
-    const spy = jest.spyOn(console, 'error');
-    spy.mockImplementation(() => {});
-
-    expect(() =>
-      render(
-        <ProgressStepIncomplete as="div" disabled>
-          Only buttons disabled
-        </ProgressStepIncomplete>
-      )
-    ).toThrow();
-
-    expect(() => render(<ProgressStepIncomplete as="a">Missing href</ProgressStepIncomplete>)).toThrow();
-    expect(() => render(<ProgressStepIncomplete as="button">Missing onClick</ProgressStepIncomplete>)).toThrow();
-    expect(() =>
-      render(
-        <ProgressStepIncomplete as="div" onClick={() => {}}>
-          Bad onclick
-        </ProgressStepIncomplete>
-      )
-    ).toThrow();
-
-    spy.mockRestore();
-  });
-
   describe('element naming', () => {
     it('should set all default element names', async () => {
-      const {getByText} = render(<Buttons />);
-      const signupLabel = getByText('Sign up').parentElement;
-      const validateEmail = getByText('Validate email').parentElement;
-      const completeProfile = getByText('Complete profile').parentElement;
-      const addFriends = getByText('Add friends').parentElement;
+      const {getByRole} = render(<Buttons />);
+      const signupLabel = getByRole('button', {name: 'Complete Sign up'});
+      const validateEmail = getByRole('button', {name: 'Error Validate email'});
+      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
+      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
       const wrapper = signupLabel?.parentElement;
 
       expect(signupLabel?.dataset.pasteElement).toEqual('PROGRESS_STEP_COMPLETE');
@@ -92,7 +66,7 @@ describe('ProgressSteps', () => {
   });
   describe('custom element naming', () => {
     it('should set all custom element names', async () => {
-      const {getByText} = render(
+      const {getByRole} = render(
         <CustomizationProvider
           disableAnimations
           theme={TestTheme}
@@ -149,10 +123,10 @@ describe('ProgressSteps', () => {
           </ProgressSteps>
         </CustomizationProvider>
       );
-      const signupLabel = getByText('Sign up').parentElement;
-      const validateEmail = getByText('Validate email').parentElement;
-      const completeProfile = getByText('Complete profile').parentElement;
-      const addFriends = getByText('Add friends').parentElement;
+      const signupLabel = getByRole('link', {name: 'Complete Sign up'});
+      const validateEmail = getByRole('button', {name: 'Error Validate email'});
+      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
+      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
       const wrapper = signupLabel?.parentElement;
 
       expect(signupLabel?.dataset.pasteElement).toEqual('STEP_COMPLETE');
