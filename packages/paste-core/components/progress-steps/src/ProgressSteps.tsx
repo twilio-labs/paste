@@ -44,4 +44,5 @@ ProgressSteps.displayName = 'ProgressSteps';
 ProgressSteps.propTypes = {
   children: PropTypes.node,
   element: PropTypes.string,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 };

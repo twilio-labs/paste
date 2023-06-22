@@ -47,7 +47,7 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
       color={disabled ? 'colorTextWeaker' : 'colorTextWeak'}
       _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextPrimary'} : undefined}
       _focus={as !== 'div' ? {boxShadow: 'shadowFocus', color: 'colorTextPrimaryStrongest'} : undefined}
-      _disabled={{textDecoration: 'none', cursor: 'not-allowed'}}
+      _disabled={{textDecoration: 'none', color: 'colorTextWeaker', cursor: 'not-allowed'}}
     >
       <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
       <Box as="span">{children}</Box>
