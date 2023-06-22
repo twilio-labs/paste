@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
 import type {ButtonProps} from '@twilio-paste/button';
 
 import {SidebarContext} from '../SidebarContext';
@@ -24,7 +23,6 @@ export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLAnc
 
 const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigationItemProps>(
   ({element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props}, ref) => {
-    const theme = useTheme();
     const {collapsed} = React.useContext(SidebarContext);
     const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
     // If there is any disclosure context, that indicates that this component is nested
@@ -32,12 +30,12 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
 
     const styles = React.useMemo(
       () => ({
-        ...(isNested ? sidebarNavigationItemNestedStyles(theme) : sidebarNavigationItemStyles),
+        ...(isNested ? sidebarNavigationItemNestedStyles : sidebarNavigationItemStyles),
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
         display: collapsed && !icon ? 'none' : 'flex',
       }),
-      [theme, isNested, selected, collapsed, icon]
+      [isNested, selected, collapsed, icon]
     );
 
     return (

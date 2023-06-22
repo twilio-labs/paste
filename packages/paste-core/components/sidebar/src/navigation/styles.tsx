@@ -1,5 +1,4 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {ThemeShape} from '@twilio-paste/theme';
 
 /*
  * Disclosure Heading styles
@@ -59,7 +58,7 @@ export const sidebarNavigationItemStyles: BoxProps = {
 };
 
 // Nested item styles
-export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps = (theme) => ({
+export const sidebarNavigationItemNestedStyles: BoxProps = {
   ...sidebarNavigationItemStyles,
   paddingY: 'space20',
   fontSize: 'fontSize20',
@@ -67,7 +66,7 @@ export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps 
   width: '100%',
   paddingLeft: 'space70',
   marginBottom: 'space20',
-});
+};
 
 // Collapsed item styles
 export const sidebarNavigationItemCollapsedStyles: BoxProps = {
