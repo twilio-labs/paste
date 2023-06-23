@@ -8,7 +8,7 @@ export const SearchBox: React.FC = () => {
     <Combobox
       placeholder="Search"
       autocomplete
-      insertBefore={<SearchIcon decorative />}
+      insertBefore={<SearchIcon color="colorTextIcon" decorative />}
       labelText={<ScreenReaderOnly>Search application</ScreenReaderOnly>}
       items={['one', 'two']}
     />

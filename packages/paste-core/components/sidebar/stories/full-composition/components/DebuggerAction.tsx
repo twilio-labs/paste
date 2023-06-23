@@ -4,7 +4,7 @@ import {Button} from '@twilio-paste/button';
 
 export const DebuggerAction: React.FC = () => {
   return (
-    <Button variant="reset" size="reset">
+    <Button variant="secondary_icon" size="reset">
       <ProductDebuggerIcon decorative={false} title="Debugger" />
     </Button>
   );
