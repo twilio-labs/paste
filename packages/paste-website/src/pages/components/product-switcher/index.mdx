@@ -2,7 +2,7 @@ export const meta = {
   title: 'Product Switcher - Components',
   package: '@twilio-paste/product-switcher',
   description:
-    'A product switcher is an opinionated menu that presents a list of Twilio products that a user has access to and can switch between.',
+    'A Product Switcher is an opinionated Menu that presents a list of Twilio products that a user has access to and can switch between.',
   slug: '/components/product-switcher/',
 };
 
@@ -79,9 +79,9 @@ export const getStaticProps = async () => {
 
 ## About Product Switcher
 
-The Product Switcher is an implementation of a Menu, that is designed to show the Twilio products a user has access to and can switch between.
+Product Switcher is an implementation of [Menu](/components/menu) that shows the Twilio products a user has access to and can switch between.
 
-It is designed to be used as a quick mechnism to jump between top level Twilio product applications such as Twilio Console, Segment, Sendgrid and Flex. It is ideally placed in the application [Topbar](/components/topbar).
+It's a mechanism to jump between top-level Twilio product applications such as Twilio Console, Segment, SendGrid, and Flex. It is ideally placed in the application [Topbar](/components/topbar).
 
 ### Accessibility
 
@@ -119,19 +119,19 @@ The Product Switcher is made up of the following sub-components:
 
 ### Product Switcher Button
 
-The Product Switcher Button is a composed Icon Only Menu Button.
+Product Switcher Button is a composed [icon-only Menu Button](/components/menu#choosing-a-menu-trigger).
 
 ### Product Switcher
 
-Container for the Product Switcher Menu.
+Container for Product Switcher menu items.
 
 ### Product Switcher Item
 
 A radio menu item that can either perform an action or navigate to a new url. It can show the currently selected product the user is in. Only one product can be selected at a time via the `checked` property. Ensure that the Items all belong to the same group by sharing a `name`.
 
-### useProductSwitcherState state hook
+### useProductSwitcherState hook
 
-React Hook used to initialise the Product Switcher with vaious options. It returns state and actions that can be taken on the Product Switcher menu.
+React Hook used to initialise the Product Switcher with various options. It returns state and actions that can be taken on the Product Switcher.
 
 ---
 

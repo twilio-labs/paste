@@ -2,7 +2,7 @@ export const meta = {
   title: 'Status Badge - Components',
   package: '@twilio-paste/status',
   description:
-    'A Status Badge should be used to communicate the status of a process, or the connection to an application or service.',
+    'A Status Badge communicates the status of a process or connectivity to an application or service.',
   slug: '/components/status-badge/',
 };
 
@@ -98,15 +98,13 @@ export const getStaticProps = async () => {
 
 ## About Status Badge
 
-The Status badge is an implementation of the the [Status Pattern](/patterns/status), pre-built for you to display and indicate the status of a process or connection in your product.
-
-It pairs Status level with color and icon to assist with visual design and accessbility.
+Status badge is an implementation of the [Status Pattern](/patterns/status) to display the status of a process or connectivity in your product.
 
 ### Accessibility
 
-The idea of the Status Badge is that helps you communicate a status in a more accessible way but automatically pairing an icon with a color that represents a specific status level. This ensure there are distinct visual difference between each status type.
+Status Badge communicates a status in an accessible way by automatically pairing an icon with a color that represents a specific status type. This ensures there are distinct visual differences between each status type.
 
-Care must still be taken to ensure the word used to describe the status in the badge is unique to the status level it is paired with for any given screen.
+Care must still be taken to ensure the word used to describe the status in the badge is unique to the status type it is paired with for any given screen.
 
 ## Examples
 
@@ -276,7 +274,7 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
 
 Use a Status Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
-Status Badge labels should be one to three words, or numbers.
+Status Badge labels should be 1–3 words.
 
 ---
 
