@@ -1,8 +1,7 @@
 export const meta = {
   title: 'Status Badge - Components',
   package: '@twilio-paste/status',
-  description:
-    'A Status Badge communicates the status of a process or connectivity to an application or service.',
+  description: 'A Status Badge communicates the status of a process or connectivity to an application or service.',
   slug: '/components/status-badge/',
 };
 
@@ -64,7 +63,7 @@ export const getStaticProps = async () => {
       Neutral
     </StatusBadge>
     <StatusBadge variant="ProcessInProgress">
-      In Progress
+      In-progress
     </StatusBadge>
     <StatusBadge variant="ProcessDisabled">
       Disabled
@@ -150,7 +149,7 @@ Care must still be taken to ensure the word used to describe the status in the b
 
 <LivePreview scope={{Box, StatusBadge}} language="jsx">
   {`<StatusBadge variant="ProcessInProgress">
-  In Progress
+  In-progress
 </StatusBadge>
 `.trim()}
 </LivePreview>
@@ -238,7 +237,7 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
       Neutral
     </StatusBadge>
     <StatusBadge size="small" variant="ProcessInProgress">
-      In Progress
+      In-progress
     </StatusBadge>
     <StatusBadge size="small" variant="ProcessDisabled">
       Disabled

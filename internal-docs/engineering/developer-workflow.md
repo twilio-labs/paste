@@ -30,7 +30,7 @@ All our work is stored in Jira and we have an [active sprint](https://issues.cor
 
 We work in 2 week sprints.
 
-Pick a ticket that you feel comfortable working on, assign it to yourself to let others know you’re working on it, and pull it into the “In Progress” column. Try to limit in-progress tickets to 1 or 2 at a time.
+Pick a ticket that you feel comfortable working on, assign it to yourself to let others know you’re working on it, and pull it into the “In-progress” column. Try to limit in-progress tickets to 1 or 2 at a time.
 
 ## Branching
 

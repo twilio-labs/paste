@@ -38,7 +38,7 @@ export const StatusObject: StatusBadges = {
   ProcessInProgress: {
     badgeVariant: 'default',
     icon: (
-      <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} size="sizeIcon10" title="In progress" />
+      <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} size="sizeIcon10" title="In-progress" />
     ),
     color: 'colorTextNeutral',
   },

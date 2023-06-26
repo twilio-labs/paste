@@ -17,7 +17,7 @@ export const ProcessObject = {
   },
   InProgress: {
     variant: 'ProcessInProgress',
-    children: 'In progress',
+    children: 'In-progress',
   },
   Disabled: {
     variant: 'ProcessDisabled',
@@ -27,7 +27,7 @@ export const ProcessObject = {
     variant: 'ProcessDraft',
     children: 'Draft',
   },
-};
+} as const;
 export const processStatusMenuExample = `
 const ProcessStatusMenu = () => {
   const [process, setProcess] = React.useState(ProcessObject.Success);
@@ -42,28 +42,77 @@ const ProcessStatusMenu = () => {
         {process.children}
       </StatusMenuBadge>
       <StatusMenu {...menu} aria-label="Preferences">
-        <StatusMenuItem {...menu} onClick={() => onClick('Success')} variant="default">
-          <StatusMenuItemChild variant="ProcessSuccess">Complete</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
-          <StatusMenuItemChild variant="ProcessNeutral">In review</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
-          <StatusMenuItemChild variant="ProcessWarning">Needs attention</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('Error')} variant="default">
-          <StatusMenuItemChild variant="ProcessError">Rejected</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
-          <StatusMenuItemChild variant="ProcessInProgress">In progress</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
-          <StatusMenuItemChild variant="ProcessDisabled">Paused</StatusMenuItemChild>
-        </StatusMenuItem>
-        <StatusMenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
-          <StatusMenuItemChild variant="ProcessDraft">Draft</StatusMenuItemChild>
-        </StatusMenuItem>
-      </Menu>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="success"
+          checked={process.children === ProcessObject.Success.children}
+          onClick={() => onClick('Success')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessSuccess">{ProcessObject.Success.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="neutral"
+          checked={process.children === ProcessObject.Neutral.children}
+          onClick={() => onClick('Neutral')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessNeutral">{ProcessObject.Neutral.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="warning"
+          checked={process.children === ProcessObject.Warning.children}
+          onClick={() => onClick('Warning')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessWarning">{ProcessObject.Warning.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="error"
+          checked={process.children === ProcessObject.Error.children}
+          onClick={() => onClick('Error')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessError">{ProcessObject.Error.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="InProgress"
+          checked={process.children === ProcessObject.InProgress.children}
+          onClick={() => onClick('InProgress')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessInProgress">{ProcessObject.InProgress.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="disabled"
+          checked={process.children === ProcessObject.Disabled.children}
+          onClick={() => onClick('Disabled')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessDisabled">{ProcessObject.Disabled.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+        <StatusMenuItemRadio
+          {...menu}
+          name="process"
+          value="draft"
+          checked={process.children === ProcessObject.Draft.children}
+          onClick={() => onClick('Draft')}
+          variant="default"
+        >
+          <StatusMenuItemChild variant="ProcessDraft">{ProcessObject.Draft.children}</StatusMenuItemChild>
+        </StatusMenuItemRadio>
+      </StatusMenu>
     </>
   );
 };

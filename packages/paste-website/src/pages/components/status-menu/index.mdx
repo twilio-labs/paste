@@ -48,7 +48,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
-  storybookUrl="/?path=/story/components-status--"
+  storybookUrl="/?path=/story/components-status-menustatus"
   name="Status Menu"
   data={props.data}
 />
@@ -65,7 +65,7 @@ export const getStaticProps = async () => {
   scope={{
     useStatusMenuState,
     StatusMenu,
-    StatusMenuItem,
+    StatusMenuItemRadio,
     StatusMenuBadge,
     StatusMenuItemChild,
     ProcessObject,
@@ -96,7 +96,7 @@ Use the process-related variants of Status Menu to display and interact with the
   scope={{
     useStatusMenuState,
     StatusMenu,
-    StatusMenuItem,
+    StatusMenuItemRadio,
     StatusMenuBadge,
     StatusMenuItemChild,
     ProcessObject,
@@ -185,7 +185,7 @@ const ProcessStatusMenu = () => {
           <StatusMenuItemChild variant="ProcessError">Rejected</StatusMenuItemChild>
         </StatusMenuItem>
         <StatusMenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
-          <StatusMenuItemChild variant="ProcessInProgress">In progress</StatusMenuItemChild>
+          <StatusMenuItemChild variant="ProcessInProgress">In-progress</StatusMenuItemChild>
         </StatusMenuItem>
         <StatusMenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
           <StatusMenuItemChild variant="ProcessDisabled">Paused</StatusMenuItemChild>
