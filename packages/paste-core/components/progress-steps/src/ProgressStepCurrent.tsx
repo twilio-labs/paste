@@ -16,6 +16,7 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           as={as}
           type={as === 'button' ? 'button' : undefined}
           ref={ref}
+          aria-current="step"
           display="flex"
           columnGap="space30"
           border="none"

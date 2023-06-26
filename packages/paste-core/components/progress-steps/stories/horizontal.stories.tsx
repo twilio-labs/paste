@@ -76,3 +76,29 @@ export const Anchors: React.FC = () => {
     </ProgressSteps>
   );
 };
+
+export const Internationalized: React.FC = () => {
+  return (
+    <ProgressSteps>
+      <ProgressStepComplete i18nCompleteLabel="Complété" as="div">
+        S'inscrire
+      </ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepError i18nErrorLabel="Erreur" as="div">
+        Email validé
+      </ProgressStepError>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent i18nCurrentLabel="Actuelle" as="div">
+        Profil complet
+      </ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="div">
+        Ajouter des amis
+      </ProgressStepIncomplete>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="button" disabled onClick={() => {}}>
+        Démarrer l'événement
+      </ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
