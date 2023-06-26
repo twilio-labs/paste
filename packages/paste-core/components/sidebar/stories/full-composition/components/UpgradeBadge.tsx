@@ -3,7 +3,7 @@ import {Badge} from '@twilio-paste/badge';
 
 export const UpgradeBadge: React.FC = () => {
   return (
-    <Badge variant="decorative30" as="button" onClick={() => console.log('clicked')}>
+    <Badge variant="decorative30" as="button" onClick={() => {}}>
       Upgrade
     </Badge>
   );
