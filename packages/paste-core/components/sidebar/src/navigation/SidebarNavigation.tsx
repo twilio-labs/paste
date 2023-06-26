@@ -3,6 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
+
 import {SidebarNavigationContext} from './SidebarNavigationContext';
 
 /**
