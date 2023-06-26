@@ -18,7 +18,7 @@ export default {
 export const Divs: React.FC = () => {
   return (
     <ProgressSteps>
-      <ProgressStepComplete as="div">Complete</ProgressStepComplete>
+      <ProgressStepComplete as="div">Completed</ProgressStepComplete>
       <ProgressStepSeparator />
       <ProgressStepError as="div">Error</ProgressStepError>
       <ProgressStepSeparator />

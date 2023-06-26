@@ -15,7 +15,7 @@ import {Divs, Buttons, Anchors} from '../stories/horizontal.stories';
 describe('ProgressSteps', () => {
   it('should render divs correctly', () => {
     const {queryAllByText, getAllByRole} = render(<Divs />);
-    const [completeIcon, completeLabel] = queryAllByText('Complete');
+    const [completeIcon, completeLabel] = queryAllByText('Completed');
     const [incompleteIcon, incompleteLabel] = queryAllByText('Incomplete');
     const [errorIcon, errorLabel] = queryAllByText('Error');
     const [currentIcon, currentLabel] = queryAllByText('Current');
@@ -34,11 +34,14 @@ describe('ProgressSteps', () => {
     // Make sure each step is a listitem
     const items = getAllByRole('listitem');
     expect(items.length).toBe(4);
+
+    // Make sure current step has correct aria attributes
+    expect(currentLabel.parentElement?.getAttribute('aria-current')).toEqual('step');
   });
 
   it('should render buttons correctly', () => {
     const {getByRole} = render(<Buttons />);
-    const signupLabel = getByRole('button', {name: 'Complete Sign up'});
+    const signupLabel = getByRole('button', {name: 'Completed Sign up'});
 
     expect(signupLabel?.tagName).toEqual('BUTTON');
     expect(signupLabel?.getAttribute('type')).toEqual('button');
@@ -46,7 +49,7 @@ describe('ProgressSteps', () => {
 
   it('should render anchors correctly', () => {
     const {getByRole} = render(<Anchors />);
-    const signupLabel = getByRole('link', {name: 'Complete Sign up'});
+    const signupLabel = getByRole('link', {name: 'Completed Sign up'});
 
     expect(signupLabel?.tagName).toEqual('A');
     expect(signupLabel?.getAttribute('href')).toEqual('#');
@@ -55,7 +58,7 @@ describe('ProgressSteps', () => {
   describe('element naming', () => {
     it('should set all default element names', async () => {
       const {getByRole} = render(<Buttons />);
-      const signupLabel = getByRole('button', {name: 'Complete Sign up'});
+      const signupLabel = getByRole('button', {name: 'Completed Sign up'});
       const validateEmail = getByRole('button', {name: 'Error Validate email'});
       const completeProfile = getByRole('button', {name: 'Current Complete profile'});
       const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
@@ -127,7 +130,7 @@ describe('ProgressSteps', () => {
           </ProgressSteps>
         </CustomizationProvider>
       );
-      const signupLabel = getByRole('link', {name: 'Complete Sign up'});
+      const signupLabel = getByRole('link', {name: 'Completed Sign up'});
       const validateEmail = getByRole('button', {name: 'Error Validate email'});
       const completeProfile = getByRole('button', {name: 'Current Complete profile'});
       const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
