@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkIconProps extends IconWrapperProps {
+export interface RedoIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
+const RedoIcon = React.forwardRef<HTMLElement, RedoIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `LinkIcon-${useUID()}`;
+    const titleId = `RedoIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LinkIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[RedoIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,11 +35,7 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M13.074 5.674a2.3 2.3 0 013.252 3.252l-2.97 2.97A2.3 2.3 0 019.869 8.92a.5.5 0 10-.808-.588 3.3 3.3 0 005.004 4.272l2.97-2.97a3.3 3.3 0 00-4.667-4.666l-.467.466a.5.5 0 10.707.707l.467-.466z"
-          />
-          <path
-            fill="currentColor"
-            d="M9.18 7.163a2.3 2.3 0 011.952 3.65.5.5 0 10.809.59A3.3 3.3 0 006.936 7.13l-2.97 2.97a3.3 3.3 0 004.667 4.667l.58-.58a.5.5 0 10-.707-.707l-.58.58a2.3 2.3 0 11-3.252-3.252l2.97-2.97c.409-.41.958-.652 1.536-.675z"
+            d="M17.99 5.01a.611.611 0 00-1.203-.212l-.48 2.718a7.457 7.457 0 00-12.1-2.355 7.456 7.456 0 003.958 12.638.611.611 0 00.212-1.204 6.233 6.233 0 117.018-8.03l-3.186-.561a.611.611 0 00-.213 1.204l4.09.721.029.005.375.066a.611.611 0 00.708-.496l.793-4.493z"
           />
         </svg>
       </IconWrapper>
@@ -47,5 +43,5 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
   }
 );
 
-LinkIcon.displayName = 'LinkIcon';
-export {LinkIcon};
+RedoIcon.displayName = 'RedoIcon';
+export {RedoIcon};

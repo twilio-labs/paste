@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkIconProps extends IconWrapperProps {
+export interface TextFormatClearIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
+const TextFormatClearIcon = React.forwardRef<HTMLElement, TextFormatClearIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `LinkIcon-${useUID()}`;
+    const titleId = `TextFormatClearIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LinkIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[TextFormatClearIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,11 +35,7 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M13.074 5.674a2.3 2.3 0 013.252 3.252l-2.97 2.97A2.3 2.3 0 019.869 8.92a.5.5 0 10-.808-.588 3.3 3.3 0 005.004 4.272l2.97-2.97a3.3 3.3 0 00-4.667-4.666l-.467.466a.5.5 0 10.707.707l.467-.466z"
-          />
-          <path
-            fill="currentColor"
-            d="M9.18 7.163a2.3 2.3 0 011.952 3.65.5.5 0 10.809.59A3.3 3.3 0 006.936 7.13l-2.97 2.97a3.3 3.3 0 004.667 4.667l.58-.58a.5.5 0 10-.707-.707l-.58.58a2.3 2.3 0 11-3.252-3.252l2.97-2.97c.409-.41.958-.652 1.536-.675z"
+            d="M9.931 7.76l1.28-2.505H8.64a.624.624 0 010-1.25h3.514a.62.62 0 01.16 0h4.062a.624.624 0 010 1.25h-3.763L11.042 8.33a.623.623 0 11-1.11-.57zm-1.006 4.715a.623.623 0 10-1.11-.57L6.188 15.09a.623.623 0 101.11.57l1.627-3.185zM3.836 4.131a.498.498 0 10-.674.738l11.979 11a.498.498 0 10.674-.738l-11.979-11z"
           />
         </svg>
       </IconWrapper>
@@ -47,5 +43,5 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
   }
 );
 
-LinkIcon.displayName = 'LinkIcon';
-export {LinkIcon};
+TextFormatClearIcon.displayName = 'TextFormatClearIcon';
+export {TextFormatClearIcon};

@@ -7,17 +7,17 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkIconProps extends IconWrapperProps {
+export interface SuperscriptIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
+const SuperscriptIcon = React.forwardRef<HTMLElement, SuperscriptIconProps>(
   ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
-    const titleId = `LinkIcon-${useUID()}`;
+    const titleId = `SuperscriptIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LinkIcon]: Missing a title for non-decorative icon.');
+      throw new Error('[SuperscriptIcon]: Missing a title for non-decorative icon.');
     }
 
     return (
@@ -35,11 +35,7 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M13.074 5.674a2.3 2.3 0 013.252 3.252l-2.97 2.97A2.3 2.3 0 019.869 8.92a.5.5 0 10-.808-.588 3.3 3.3 0 005.004 4.272l2.97-2.97a3.3 3.3 0 00-4.667-4.666l-.467.466a.5.5 0 10.707.707l.467-.466z"
-          />
-          <path
-            fill="currentColor"
-            d="M9.18 7.163a2.3 2.3 0 011.952 3.65.5.5 0 10.809.59A3.3 3.3 0 006.936 7.13l-2.97 2.97a3.3 3.3 0 004.667 4.667l.58-.58a.5.5 0 10-.707-.707l-.58.58a2.3 2.3 0 11-3.252-3.252l2.97-2.97c.409-.41.958-.652 1.536-.675z"
+            d="M16.635 3A1.135 1.135 0 0015.5 4.135v.327a.5.5 0 01-1 0v-.327a2.135 2.135 0 014.27-.003 2.566 2.566 0 01-.959 2.027l-.005.003-1.36 1.069H18.5a.5.5 0 010 1H15a.5.5 0 01-.309-.893l2.495-1.96a1.566 1.566 0 00.583-1.238v-.005A1.135 1.135 0 0016.635 3zM4.17 5.624a.5.5 0 01.706.047l3.47 3.965 3.47-3.965a.5.5 0 11.753.658L9.01 10.396l3.558 4.066a.5.5 0 01-.753.658l-3.47-3.965-3.47 3.965a.5.5 0 01-.752-.658l3.558-4.066-3.558-4.067a.5.5 0 01.047-.705z"
           />
         </svg>
       </IconWrapper>
@@ -47,5 +43,5 @@ const LinkIcon = React.forwardRef<HTMLElement, LinkIconProps>(
   }
 );
 
-LinkIcon.displayName = 'LinkIcon';
-export {LinkIcon};
+SuperscriptIcon.displayName = 'SuperscriptIcon';
+export {SuperscriptIcon};
