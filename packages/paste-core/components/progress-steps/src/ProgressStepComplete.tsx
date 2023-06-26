@@ -7,7 +7,7 @@ import type {ProgressStepCompleteProps} from './types';
 import {ProgressStepPropTypes} from './propTypes';
 
 export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressStepCompleteProps>(
-  ({element = 'PROGRESS_STEP_COMPLETE', as = 'div', children, i18nCompleteLabel = 'Complete', ...props}, ref) => {
+  ({element = 'PROGRESS_STEP_COMPLETE', as = 'div', children, i18nCompleteLabel = 'Completed', ...props}, ref) => {
     return (
       <div role="listitem">
         <Box
