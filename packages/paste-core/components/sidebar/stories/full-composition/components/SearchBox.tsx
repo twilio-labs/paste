@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Combobox} from '@twilio-paste/combobox';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 
 export const SearchBox: React.FC = () => {
@@ -9,7 +8,8 @@ export const SearchBox: React.FC = () => {
       placeholder="Search"
       autocomplete
       insertBefore={<SearchIcon color="colorTextIcon" decorative />}
-      labelText={<ScreenReaderOnly>Search application</ScreenReaderOnly>}
+      labelText="Search application"
+      hideVisibleLabel
       items={['one', 'two']}
     />
   );
