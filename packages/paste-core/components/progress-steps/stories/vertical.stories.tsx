@@ -81,7 +81,7 @@ export const Internationalized: React.FC = () => {
   return (
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete i18nCompleteLabel="Complété" as="div">
-        S'inscrire
+        S&apos;inscrire
       </ProgressStepComplete>
       <ProgressStepSeparator />
       <ProgressStepError i18nErrorLabel="Erreur" as="div">
@@ -97,7 +97,7 @@ export const Internationalized: React.FC = () => {
       </ProgressStepIncomplete>
       <ProgressStepSeparator />
       <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="button" disabled onClick={() => {}}>
-        Démarrer l'événement
+        Démarrer l&apos;événement
       </ProgressStepIncomplete>
     </ProgressSteps>
   );
