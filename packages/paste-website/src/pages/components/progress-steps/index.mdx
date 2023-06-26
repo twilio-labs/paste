@@ -1,0 +1,399 @@
+export const meta = {
+  title: 'Progress Steps',
+  package: '@twilio-paste/progress-steps',
+  description:
+    'Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task.',
+  slug: '/components/progress-steps/',
+};
+
+import Changelog from '@twilio-paste/progress-steps/CHANGELOG.md';
+import packageJson from '@twilio-paste/progress-steps/package.json';
+import {
+  ProgressSteps,
+  ProgressStepIncomplete,
+  ProgressStepComplete,
+  ProgressStepCurrent,
+  ProgressStepError,
+  ProgressStepSeparator,
+} from '@twilio-paste/progress-steps';
+import {
+  divExample,
+  buttonExample,
+  anchorExample,
+  verticalExample,
+  i18nExample,
+} from '../../../component-examples/ProgressStepsExamples';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress Steps');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-steps"
+  storybookUrl="/?path=/story/components-progress-steps--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {buttonExample}
+</LivePreview>
+
+## Guidelines
+
+### About Progress Steps
+
+Progress Steps are a visual representation of a complex task broken up
+into multiple steps, ideally 3–5. They indicate what has and what needs
+to be done to fully complete the task. Use Progress Steps to show a
+clear path to completion, especially when the task is nonlinear or
+can’t be completed in one sitting.
+
+_Not all multi-step tasks need Progress Steps_. Tasks that are short,
+straightforward, and linear probably don’t need the extra layer of
+information that Progress Steps provides.
+
+Each step can communicate one of these statuses:
+
+- **Complete**: The user has completed this step with no more action needed.
+- **Incomplete**: The user has interacted with this step but there is still more action needed.
+- **Current**: The user is currently on this step.
+- **Error**: The user has interacted with this step but more action is required that will prevent completing the full task.
+- **Incomplete + Disabled**: This step is not yet reached by a user.
+
+### Accessibility
+
+- Give each step a concise label describing what the goal of that step is.
+- Each step icon has a `title` prop whose value is the current status of that step (e.g. complete, incomplete, etc.) to inform screen readers of a step's status. This label is adjustable for i18n.
+- The ProgressStep has `role=list` and each step has `role=listitem` for screen readers.
+- The ProgressStep has `aria-current` set to `step` for the current step.
+
+---
+
+## Examples
+
+### Progress Steps as buttons
+
+Use Progress Steps as buttons when each step triggers an in-page action and doesn’t have a unique URL.
+We recommend using this button action to save information in each step.
+
+Only button steps may be disabled.
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {buttonExample}
+</LivePreview>
+
+### Progress Steps as anchors
+
+Use Progress Steps as anchors when each step links to other pages and has a unique URL.
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {anchorExample}
+</LivePreview>
+
+### Non-interactive Progress Steps
+
+Use Progress Steps as divs when steps have no need for user interaction.
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {divExample}
+</LivePreview>
+
+### Progress Steps represented vertically
+
+Use vertical Progress Steps when you’re constrained on vertical space in your layout.
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {verticalExample}
+</LivePreview>
+
+### Internationalization
+
+Each step within the Progress Step component has a label which can be set to adjust the icon's title for Internationalization.
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepError,
+    ProgressStepSeparator,
+  }}
+  noInline
+>
+  {i18nExample}
+</LivePreview>
+
+---
+
+## When to use an error step
+
+Show the error status on a step when it’s not the current step they’re on. When a
+user navigates to the step that has errors, set the status of the step to `current`
+and use in-page validation to communicate the errors in the current step.
+Check out the [Error state pattern](https://paste.twilio.design/patterns/error-state) for more guidance.
+
+## Composition Notes
+
+- Each step must have a label. Keep the label concise with fewer than 5 words per label.
+- Consider skipping articles like “a” or “the” to shorten the step.
+- Generally, start each step with a verb to keep the user grounded in the task at hand.
+- If the process has 5 steps and describing each one with a verb + noun is too long, consider shortening the step labels to just a verb, and using the in-page step label to clarify the full scope of the task. For example, use “Add” as a step label, but include “Add entry step” as the page label.
+- If the process does not fit into a mental model of performing tasks, make sure each step is phrased consistently. For example, “Business profile” and “Brand registration.”
+- Keep the placement of Progress Steps consistent between different pages (steps).
+
+<DoDont>
+  <Do center title="Do" body="Use Progress Steps for complex, noncontinuous tasks with 3–5 steps">
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
+    </ProgressSteps>
+  </Do>
+  <Dont
+    center
+    title="Don't"
+    body="Don’t use Progress Steps for every single kind of task that has multiple steps. A line of text can be used as an alternative to show progression (e.g., “Step 1 of 2”)"
+  >
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">Name</ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent as="div">Email</ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="div">Password</ProgressStepIncomplete>
+    </ProgressSteps>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    center
+    title="Do"
+    body="Make the labels of each step short, descriptive, and consistent. Use fewer than 5 words for each step label.">
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
+    </ProgressSteps>
+    </Do>
+
+  <Dont
+    center
+    title="Don't"
+    body="Don’t use long or inconsistent labels with mismatched parts of speech.">
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">Business profile for your primary business account</ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent as="div">A2P brand</ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="div">Finalize campaign registration</ProgressStepIncomplete>
+    </ProgressSteps>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Keep Progress Steps in a consistent location between steps or pages." />
+  <Dont title="Don't" body="Don’t change the placement of Progress Steps between steps or pages." />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Include only one Progress Steps component per task or page." />
+  <Dont
+    title="Don't"
+    body="Don’t embed a Progress Steps component within a task that’s already being tracked with another Progress Steps component. Don’t use multiple Progress Steps per page."
+  />
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/progress-steps - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {
+  ProgressSteps,
+  ProgressStepIncomplete,
+  ProgressStepComplete,
+  ProgressStepCurrent,
+  ProgressStepError,
+  ProgressStepSeparator,
+} from '@twilio-paste/core/progress-steps';
+
+const PopoverExample: React.FC = () => {
+  return (
+    <ProgressSteps>
+      <ProgressStepComplete as="button" onClick={() => {}}>
+        Sign up
+      </ProgressStepComplete>
+      <ProgressStepSeparator />
+      <ProgressStepError as="button" onClick={() => {}}>
+        Validate email
+      </ProgressStepError>
+      <ProgressStepSeparator />
+      <ProgressStepCurrent as="button" onClick={() => {}}>
+        Complete profile
+      </ProgressStepCurrent>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="button" onClick={() => {}}>
+        Add friends
+      </ProgressStepIncomplete>
+      <ProgressStepSeparator />
+      <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
+        Start event
+      </ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
+```
+
+#### Props
+
+##### ProgressSteps
+
+| Prop         | Type                         | Description                                                                               | Default          |
+| ------------ | ---------------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| orientation? | `'horizontal' \| 'vertical'` | Sets the orientation for the progress steps component.                                    | 'horizontal'     |
+| element?     | `string`                     | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS' |
+
+##### ProgressStepsSeparator
+
+| Prop     | Type     | Description                                                                               | Default                   |
+| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------- |
+| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEP_SEPARATOR' |
+
+##### ProgressStepComplete
+
+| Prop               | Type                   | Description                                                                               | Default                   |
+| ------------------ | ---------------------- | ----------------------------------------------------------------------------------------- | ------------------------- |
+| as                 | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                     |
+| href?              | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                 |
+| onClick?           | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                 |
+| i18nCompleteLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Completed'               |
+| element?           | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_COMPLETE' |
+
+##### ProgressStepCurrent
+
+| Prop              | Type                   | Description                                                                               | Default                  |
+| ----------------- | ---------------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
+| as                | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                    |
+| href?             | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                |
+| onClick?          | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                |
+| i18nCurrentLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Current'                |
+| element?          | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_CURRENT' |
+
+##### ProgressStepError
+
+| Prop            | Type                   | Description                                                                               | Default                |
+| --------------- | ---------------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| as              | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                  |
+| href?           | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined              |
+| onClick?        | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined              |
+| i18nErrorLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Error'                |
+| element?        | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_ERROR' |
+
+##### ProgressStepIncomplete
+
+| Prop                 | Type                   | Description                                                                               | Default                     |
+| -------------------- | ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
+| as                   | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                       |
+| href?                | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                   |
+| onClick?             | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                   |
+| i18nIncompleteLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Incomplete'                |
+| disabled?            | `boolean`              | Sets the disabled state for the button tag. Only used when `as` is set to `button`.       | undefined                   |
+| element?             | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_INCOMPLETE' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
