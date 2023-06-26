@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
 import type {StoryFn} from '@storybook/react';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
@@ -16,7 +15,7 @@ import {
   SidebarFooter,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
-  SidebarNavigation,
+  SidebarBody,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -32,24 +31,22 @@ export const Default: StoryFn = () => {
     <Box>
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="default">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton as="a" href="#">
-              <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarNavigation>
-            <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-          </SidebarNavigation>
-          <SidebarFooter>
-            <SidebarCollapseButton
-              onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarFooter>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -73,24 +70,22 @@ export const Compact: StoryFn = () => {
     <Box>
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton as="a" href="#">
-              <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
-          </SidebarHeader>
-          <SidebarNavigation>
-            <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
-          </SidebarNavigation>
-          <SidebarFooter>
-            <SidebarCollapseButton
-              onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarFooter>
-        </Stack>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}

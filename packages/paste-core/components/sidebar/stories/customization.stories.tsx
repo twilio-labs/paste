@@ -18,7 +18,7 @@ import {
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
-  SidebarNavigation,
+  SidebarBody,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -70,14 +70,14 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
           <SidebarHeader>
-            <SidebarHeaderIconButton>
+            <SidebarHeaderIconButton as="button">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
-          <SidebarNavigation>
+          <SidebarBody>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-          </SidebarNavigation>
+          </SidebarBody>
           <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -145,16 +145,16 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <SidebarHeader element="SIDECAR_HEADER">
-            <SidebarHeaderIconButton element="SIDECAR_HEADER_ICON_BUTTON">
+            <SidebarHeaderIconButton as="button" element="SIDECAR_HEADER_ICON_BUTTON">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
-          <SidebarNavigation element="SIDECAR_NAVIGATION">
+          <SidebarBody element="SIDECAR_NAVIGATION">
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>
-          </SidebarNavigation>
+          </SidebarBody>
           <SidebarFooter element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
             <SidebarCollapseButton
               element="SIDECAR_COLLAPSE_BUTTON"

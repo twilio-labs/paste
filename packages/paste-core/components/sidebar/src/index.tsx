@@ -1,5 +1,6 @@
 /* Wrapper */
 export * from './Sidebar';
+export * from './SidebarBody';
 export * from './SidebarContext';
 export * from './content-wrappers/SidebarPushContentWrapper';
 export * from './content-wrappers/SidebarOverlayContentWrapper';
@@ -18,6 +19,5 @@ export * from './navigation/SidebarNavigationDisclosureHeading';
 export * from './navigation/SidebarNavigationDisclosureContent';
 export * from './navigation/SidebarNavigationItem';
 export * from './navigation/SidebarNavigationSeparator';
-export * from './navigation/SidebarNavigationAction';
 /* Misc */
 export * from './SidebarBetaBadge';

@@ -57,15 +57,18 @@ export const sidebarNavigationItemStyles: BoxProps = {
   },
 };
 
+// hierarchical item styles
+export const sidebarNavigationItemHierarchicalStyles: BoxProps = {
+  paddingLeft: 'space70',
+};
 // Nested item styles
 export const sidebarNavigationItemNestedStyles: BoxProps = {
-  ...sidebarNavigationItemStyles,
   paddingY: 'space20',
-  fontSize: 'fontSize20',
   flexGrow: 1,
   width: '100%',
-  paddingLeft: 'space70',
+  fontSize: 'fontSize20',
   marginBottom: 'space20',
+  paddingLeft: 'space60',
 };
 
 // Collapsed item styles

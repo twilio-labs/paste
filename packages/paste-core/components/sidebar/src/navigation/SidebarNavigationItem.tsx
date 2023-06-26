@@ -11,7 +11,9 @@ import {
   sidebarNavigationItemNestedStyles,
   sidebarNavigationItemSelectedStyles,
   sidebarNavigationItemCollapsedStyles,
+  sidebarNavigationItemHierarchicalStyles,
 } from './styles';
+import {SidebarNavigationContext} from './SidebarNavigationContext';
 
 export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: ButtonProps['href'];
@@ -25,17 +27,20 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
   ({element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props}, ref) => {
     const {collapsed} = React.useContext(SidebarContext);
     const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
+    const {hideItemsOnCollapse, hierarchical} = React.useContext(SidebarNavigationContext);
     // If there is any disclosure context, that indicates that this component is nested
     const isNested = disclosure != null;
 
     const styles = React.useMemo(
       () => ({
-        ...(isNested ? sidebarNavigationItemNestedStyles : sidebarNavigationItemStyles),
+        ...sidebarNavigationItemStyles,
+        ...(hierarchical && sidebarNavigationItemHierarchicalStyles),
+        ...(isNested && sidebarNavigationItemNestedStyles),
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
-        display: collapsed && !icon ? 'none' : 'flex',
+        display: collapsed && hideItemsOnCollapse ? 'none' : 'flex',
       }),
-      [isNested, selected, collapsed, icon]
+      [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical]
     );
 
     return (

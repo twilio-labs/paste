@@ -3,6 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
+import {SidebarNavigationContext} from './SidebarNavigationContext';
 
 /**
  * This wrapper applies styles that customize the scrollbar and its track,
@@ -59,26 +60,35 @@ const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
 export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   element?: BoxProps['element'];
+  hideItemsOnCollapse?: boolean;
+  hierarchical?: boolean;
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  ({element = 'SIDEBAR_NAVIGATION', children, ...props}, ref) => {
+  ({element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props}, ref) => {
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        as={SidebarNavigationWrapper as any}
-        element={element}
-        ref={ref}
-        transition="opacity 150ms ease"
-        maxHeight="100%"
-        overflowY="auto"
-        overflowX="hidden"
-        paddingY="space50"
-        paddingX="space60"
-        flexGrow={1}
+      <SidebarNavigationContext.Provider
+        value={{
+          hideItemsOnCollapse,
+          hierarchical,
+        }}
       >
-        {children}
-      </Box>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          as={SidebarNavigationWrapper as any}
+          element={element}
+          ref={ref}
+          transition="opacity 150ms ease"
+          maxHeight="100%"
+          overflowY="auto"
+          overflowX="hidden"
+          paddingY="space50"
+          paddingX="space60"
+          flexGrow={1}
+        >
+          {children}
+        </Box>
+      </SidebarNavigationContext.Provider>
     );
   }
 );

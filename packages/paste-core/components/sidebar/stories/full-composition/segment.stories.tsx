@@ -16,6 +16,7 @@ import {Topbar, TopbarActions} from '@twilio-paste/topbar';
 
 import {
   Sidebar,
+  SidebarBody,
   SidebarHeader,
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
@@ -58,74 +59,76 @@ export const Segment: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation>
-          <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
-            Home
-          </SidebarNavigationItem>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
-                Connections
-              </SidebarNavigationDisclosureHeading>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com" selected>
-                Overview
-              </SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
-                Reverse ETL
-              </SidebarNavigationDisclosureHeading>
-              <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
-                Privacy
-              </SidebarNavigationDisclosureHeading>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
-                Protocols
-              </SidebarNavigationDisclosureHeading>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
-                Enagage
-              </SidebarNavigationDisclosureHeading>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
-                Settings
-              </SidebarNavigationDisclosureHeading>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-        </SidebarNavigation>
+        <SidebarBody>
+          <SidebarNavigation hierarchical hideItemsOnCollapse>
+            <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+              Home
+            </SidebarNavigationItem>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+                  Connections
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com" selected>
+                  Overview
+                </SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
+                  Reverse ETL
+                </SidebarNavigationDisclosureHeading>
+                <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+                  Privacy
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
+                  Protocols
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
+                  Enagage
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
+                  Settings
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}

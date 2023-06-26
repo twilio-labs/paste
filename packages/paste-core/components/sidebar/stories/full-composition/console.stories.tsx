@@ -15,6 +15,7 @@ import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 
 import {
   Sidebar,
+  SidebarBody,
   SidebarHeader,
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
@@ -29,7 +30,6 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationSeparator,
   SidebarBetaBadge,
-  SidebarNavigationAction,
 } from '../../src';
 import {AccountSwitcherMenu} from './components/AccountSwitcher';
 import {TrialBadge} from './components/TrialBadge';
@@ -66,111 +66,113 @@ export const Console: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
-                Messaging
-              </SidebarNavigationDisclosureHeading>
-              <MenuButton {...menu} variant="inverse_link" size="icon_small">
-                <MoreIcon decorative={false} title="More" />
-              </MenuButton>
-              <Menu {...menu} aria-label="Preferences">
-                <MenuItem {...menu} onClick={onClick}>
-                  Unpin from sidebar
-                </MenuItem>
-                <MenuItem {...menu} href="http://www.google.com">
-                  Go to docs
-                </MenuItem>
-              </Menu>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-              <SidebarNavigationDisclosure>
-                <SidebarNavigationDisclosureHeadingWrapper>
-                  <SidebarNavigationDisclosureHeading selected>Try it out</SidebarNavigationDisclosureHeading>
-                </SidebarNavigationDisclosureHeadingWrapper>
-                <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem href="https://google.com">Send an SMS</SidebarNavigationItem>
-                  <SidebarNavigationItem href="https://google.com" selected>
-                    Send a Whatsapp message
-                  </SidebarNavigationItem>
-                </SidebarNavigationDisclosureContent>
-              </SidebarNavigationDisclosure>
-              <SidebarNavigationItem href="https://google.com">Services</SidebarNavigationItem>
-              <SidebarNavigationDisclosure>
-                <SidebarNavigationDisclosureHeadingWrapper>
-                  <SidebarNavigationDisclosureHeading>Senders</SidebarNavigationDisclosureHeading>
-                  <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                </SidebarNavigationDisclosureHeadingWrapper>
-                <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem href="https://google.com">Addons</SidebarNavigationItem>
-                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
-                </SidebarNavigationDisclosureContent>
-              </SidebarNavigationDisclosure>
-              <SidebarNavigationDisclosure>
-                <SidebarNavigationDisclosureHeadingWrapper>
-                  <SidebarNavigationDisclosureHeading>Settings</SidebarNavigationDisclosureHeading>
-                </SidebarNavigationDisclosureHeadingWrapper>
-                <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem>
-                    Addons <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-                  </SidebarNavigationItem>
-                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
-                </SidebarNavigationDisclosureContent>
-              </SidebarNavigationDisclosure>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductLookupIcon decorative />}>
-                Lookup
-              </SidebarNavigationDisclosureHeading>
-              <MenuButton {...menuLookup} variant="inverse_link" size="icon_small">
-                <MoreIcon decorative={false} title="More" />
-              </MenuButton>
-              <Menu {...menuLookup} aria-label="Preferences">
-                <MenuItem {...menuLookup} onClick={onClick}>
-                  Unpin from sidebar
-                </MenuItem>
-                <MenuItem {...menuLookup} href="http://www.google.com">
-                  Go to docs
-                </MenuItem>
-              </Menu>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Lookup a phone number</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
-          </SidebarNavigationDisclosure>
-          <SidebarNavigationSeparator />
-          <SidebarNavigationDisclosure>
-            <SidebarNavigationDisclosureHeadingWrapper>
-              <SidebarNavigationDisclosureHeading icon={<ProductVideoIcon decorative />}>
-                Video
-              </SidebarNavigationDisclosureHeading>
-              <MenuButton {...menuVideo} variant="inverse_link" size="icon_small">
-                <MoreIcon decorative={false} title="More" />
-              </MenuButton>
-              <Menu {...menuVideo} aria-label="Preferences">
-                <MenuItem {...menuVideo} onClick={onClick}>
-                  Unpin from sidebar
-                </MenuItem>
-                <MenuItem {...menuVideo} href="http://www.google.com">
-                  Go to docs
-                </MenuItem>
-              </Menu>
-            </SidebarNavigationDisclosureHeadingWrapper>
-            <SidebarNavigationDisclosureContent>
-              <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
-            </SidebarNavigationDisclosureContent>
+        <SidebarBody>
+          <SidebarNavigation hierarchical hideItemsOnCollapse>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
+                  Messaging
+                </SidebarNavigationDisclosureHeading>
+                <MenuButton {...menu} variant="inverse_link" size="icon_small">
+                  <MoreIcon decorative={false} title="More" />
+                </MenuButton>
+                <Menu {...menu} aria-label="Preferences">
+                  <MenuItem {...menu} onClick={onClick}>
+                    Unpin from sidebar
+                  </MenuItem>
+                  <MenuItem {...menu} href="http://www.google.com">
+                    Go to docs
+                  </MenuItem>
+                </Menu>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+                <SidebarNavigationDisclosure>
+                  <SidebarNavigationDisclosureHeadingWrapper>
+                    <SidebarNavigationDisclosureHeading selected>Try it out</SidebarNavigationDisclosureHeading>
+                  </SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureContent>
+                    <SidebarNavigationItem href="https://google.com">Send an SMS</SidebarNavigationItem>
+                    <SidebarNavigationItem href="https://google.com" selected>
+                      Send a Whatsapp message
+                    </SidebarNavigationItem>
+                  </SidebarNavigationDisclosureContent>
+                </SidebarNavigationDisclosure>
+                <SidebarNavigationItem href="https://google.com">Services</SidebarNavigationItem>
+                <SidebarNavigationDisclosure>
+                  <SidebarNavigationDisclosureHeadingWrapper>
+                    <SidebarNavigationDisclosureHeading>Senders</SidebarNavigationDisclosureHeading>
+                    <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                  </SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureContent>
+                    <SidebarNavigationItem href="https://google.com">Addons</SidebarNavigationItem>
+                    <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+                    <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+                  </SidebarNavigationDisclosureContent>
+                </SidebarNavigationDisclosure>
+                <SidebarNavigationDisclosure>
+                  <SidebarNavigationDisclosureHeadingWrapper>
+                    <SidebarNavigationDisclosureHeading>Settings</SidebarNavigationDisclosureHeading>
+                  </SidebarNavigationDisclosureHeadingWrapper>
+                  <SidebarNavigationDisclosureContent>
+                    <SidebarNavigationItem>
+                      Addons <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                    </SidebarNavigationItem>
+                    <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+                    <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+                  </SidebarNavigationDisclosureContent>
+                </SidebarNavigationDisclosure>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductLookupIcon decorative />}>
+                  Lookup
+                </SidebarNavigationDisclosureHeading>
+                <MenuButton {...menuLookup} variant="inverse_link" size="icon_small">
+                  <MoreIcon decorative={false} title="More" />
+                </MenuButton>
+                <Menu {...menuLookup} aria-label="Preferences">
+                  <MenuItem {...menuLookup} onClick={onClick}>
+                    Unpin from sidebar
+                  </MenuItem>
+                  <MenuItem {...menuLookup} href="http://www.google.com">
+                    Go to docs
+                  </MenuItem>
+                </Menu>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Lookup a phone number</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
             <SidebarNavigationSeparator />
-            <SidebarNavigationItem href="https://google.com" icon={<PlusIcon decorative title="Teams view" />}>
-              Explore products
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductVideoIcon decorative />}>
+                  Video
+                </SidebarNavigationDisclosureHeading>
+                <MenuButton {...menuVideo} variant="inverse_link" size="icon_small">
+                  <MoreIcon decorative={false} title="More" />
+                </MenuButton>
+                <Menu {...menuVideo} aria-label="Preferences">
+                  <MenuItem {...menuVideo} onClick={onClick}>
+                    Unpin from sidebar
+                  </MenuItem>
+                  <MenuItem {...menuVideo} href="http://www.google.com">
+                    Go to docs
+                  </MenuItem>
+                </Menu>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+              <SidebarNavigationSeparator />
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationItem href="https://google.com">
+              Explore products <PlusIcon decorative />
             </SidebarNavigationItem>
-          </SidebarNavigationDisclosure>
-        </SidebarNavigation>
+          </SidebarNavigation>
+        </SidebarBody>
 
         <SidebarFooter>
           <SidebarCollapseButton

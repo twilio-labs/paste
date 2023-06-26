@@ -15,6 +15,7 @@ import {Topbar, TopbarActions} from '@twilio-paste/topbar';
 
 import {
   Sidebar,
+  SidebarBody,
   SidebarHeader,
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
@@ -49,39 +50,41 @@ export const Flex: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation>
-          <SidebarNavigationItem
-            href="https://google.com"
-            selected
-            icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
-          >
-            Admin
-          </SidebarNavigationItem>
-          <SidebarNavigationItem
-            href="https://google.com"
-            icon={<ProductContactCenterTasksIcon decorative title="Agent dashboard" />}
-          >
-            Agent dashboard
-          </SidebarNavigationItem>
-          <SidebarNavigationItem
-            href="https://google.com"
-            icon={<ProductContactCenterTeamsIcon decorative title="Teams view" />}
-          >
-            Teams view
-          </SidebarNavigationItem>
-          <SidebarNavigationItem
-            href="https://google.com"
-            icon={<ProductContactCenterQueuesIcon decorative title="Queue stats" />}
-          >
-            Queue stats
-          </SidebarNavigationItem>
-          <SidebarNavigationItem href="https://google.com" icon={<ProductPrivacyIcon decorative title="Privacy" />}>
-            Privacy
-          </SidebarNavigationItem>
-          <SidebarNavigationItem href="https://google.com" icon={<ProductUsageIcon decorative title="Insights" />}>
-            Insights
-          </SidebarNavigationItem>
-        </SidebarNavigation>
+        <SidebarBody>
+          <SidebarNavigation>
+            <SidebarNavigationItem
+              href="https://google.com"
+              selected
+              icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+            >
+              Admin
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTasksIcon decorative title="Agent dashboard" />}
+            >
+              Agent dashboard
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTeamsIcon decorative title="Teams view" />}
+            >
+              Teams view
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterQueuesIcon decorative title="Queue stats" />}
+            >
+              Queue stats
+            </SidebarNavigationItem>
+            <SidebarNavigationItem href="https://google.com" icon={<ProductPrivacyIcon decorative title="Privacy" />}>
+              Privacy
+            </SidebarNavigationItem>
+            <SidebarNavigationItem href="https://google.com" icon={<ProductUsageIcon decorative title="Insights" />}>
+              Insights
+            </SidebarNavigationItem>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
