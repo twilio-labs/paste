@@ -21,7 +21,6 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
       borderWidth="borderWidth10"
       borderColor="colorBorderWeaker"
       borderRadius="borderRadius30"
-      backgroundColor="colorBackgroundBody"
       padding="space0"
       marginTop="space30"
       width="size30"
@@ -57,7 +56,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
     return (
       <>
         <NonModalDialogDisclosurePrimitive {...userDialogState} as={UserDialogButton} element={element}>
-          <Box display="flex" columnGap="space30" alignItems="center" element={`${element}_BUTTON_CONTENTS`}>
+          <Box display="flex" columnGap="space20" alignItems="center" element={`${element}_BUTTON_CONTENTS`}>
             <Avatar
               variant="user"
               size="sizeIcon70"

@@ -7,6 +7,7 @@ import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+import {useUID} from '@twilio-paste/uid-library';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {Badge} from '@twilio-paste/badge';
 
@@ -29,6 +30,9 @@ export default {
 };
 
 export const BasicUserDialog: StoryFn = () => {
+  const id1 = useUID();
+  const id2 = useUID();
+  const id3 = useUID();
   const userDialog = useUserDialogState();
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
@@ -42,34 +46,34 @@ export const BasicUserDialog: StoryFn = () => {
         <UserDialogList {...userDialogList} data-testid="user-dialog-listbox">
           <UserDialogListItem
             {...userDialogList}
-            key="1"
-            selected={selected === '1'}
-            onSelect={() => setSelected('1')}
+            key={id1}
+            selected={selected === id1}
+            onSelect={() => setSelected(id1)}
             data-testid="FIRST_ITEM"
           >
-            <UserIcon decorative color="inherit" />
+            <UserIcon decorative color="colorTextIcon" />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
           <UserDialogListItem
             {...userDialogList}
-            key="2"
-            selected={selected === '2'}
-            onSelect={() => setSelected('2')}
+            key={id2}
+            selected={selected === id2}
+            onSelect={() => setSelected(id2)}
             data-testid="SECOND_ITEM"
           >
-            <UserIcon decorative color="inherit" />
+            <UserIcon decorative color="colorTextIcon" />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
           <UserDialogListItem
             {...userDialogList}
-            key="3"
-            selected={selected === '3'}
-            onSelect={() => setSelected('3')}
+            key={id3}
+            selected={selected === id3}
+            onSelect={() => setSelected(id3)}
             data-testid="THIRD_ITEM"
           >
-            <ThemeIcon decorative color="inherit" />
+            <ThemeIcon decorative color="colorTextIcon" />
             <Box width="100%" display="flex" justifyContent="space-between">
               Theme
               <Badge variant="decorative10" as="span" size="small">
@@ -79,7 +83,7 @@ export const BasicUserDialog: StoryFn = () => {
           </UserDialogListItem>
           <UserDialogSeparator />
           <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
-            <TranslationIcon decorative color="inherit" />
+            <TranslationIcon decorative color="colorTextIcon" />
             <Box width="100%" display="flex" justifyContent="space-between">
               Language
               <Badge variant="decorative10" as="span" size="small">
@@ -96,33 +100,37 @@ export const BasicUserDialog: StoryFn = () => {
 export const ImageUserDialog: StoryFn = () => {
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
+  const id1 = useUID();
+  const id2 = useUID();
   return (
-    <UserDialogContainer name="User Name" src="./avatars/avatar-sizeIcon10.png" baseId="i-am-user-dialog">
-      <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
-        <UserDialogUserInfo>
-          <UserDialogUserName>Name</UserDialogUserName>
-          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
-        </UserDialogUserInfo>
-        <UserDialogList {...userDialogList}>
-          <UserDialogListItem
-            {...userDialogList}
-            key="item1"
-            selected={selected === 'item1'}
-            onSelect={() => setSelected('item1')}
-          >
-            Item1
-          </UserDialogListItem>
-          <UserDialogListItem
-            {...userDialogList}
-            key="item2"
-            selected={selected === 'item2'}
-            onSelect={() => setSelected('item2')}
-          >
-            Item2
-          </UserDialogListItem>
-        </UserDialogList>
-      </UserDialog>
-    </UserDialogContainer>
+    <Box backgroundColor="colorBackgroundBrandHighlightWeakest" padding="space60">
+      <UserDialogContainer name="User Name" src="./avatars/avatar-sizeIcon10.png" baseId="i-am-user-dialog">
+        <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+          <UserDialogUserInfo>
+            <UserDialogUserName>Name</UserDialogUserName>
+            <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+          </UserDialogUserInfo>
+          <UserDialogList {...userDialogList}>
+            <UserDialogListItem
+              {...userDialogList}
+              key={id1}
+              selected={selected === id1}
+              onSelect={() => setSelected(id1)}
+            >
+              Item1
+            </UserDialogListItem>
+            <UserDialogListItem
+              {...userDialogList}
+              key={id2}
+              selected={selected === id2}
+              onSelect={() => setSelected(id2)}
+            >
+              Item2
+            </UserDialogListItem>
+          </UserDialogList>
+        </UserDialog>
+      </UserDialogContainer>
+    </Box>
   );
 };
 
@@ -130,6 +138,8 @@ export const StateHookUserDialog: StoryFn = () => {
   const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz'});
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
+  const id1 = useUID();
+  const id2 = useUID();
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between" width="size60">
       <Box display="flex" columnGap="space40" padding="space40" flexWrap="wrap">
@@ -160,17 +170,17 @@ export const StateHookUserDialog: StoryFn = () => {
           <UserDialogList {...userDialogList}>
             <UserDialogListItem
               {...userDialogList}
-              key="item1"
-              selected={selected === 'item1'}
-              onSelect={() => setSelected('item1')}
+              key={id1}
+              selected={selected === id1}
+              onSelect={() => setSelected(id1)}
             >
               Item1
             </UserDialogListItem>
             <UserDialogListItem
               {...userDialogList}
-              key="item2"
-              selected={selected === 'item2'}
-              onSelect={() => setSelected('item2')}
+              key={id2}
+              selected={selected === id2}
+              onSelect={() => setSelected(id2)}
             >
               Item2
             </UserDialogListItem>
@@ -185,6 +195,10 @@ export const CustomizedUserDialog: StoryFn = () => {
   const theme = useTheme();
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
+  const id1a = useUID();
+  const id2a = useUID();
+  const id1b = useUID();
+  const id2b = useUID();
   return (
     <CustomizationProvider
       theme={theme}
@@ -237,21 +251,21 @@ export const CustomizedUserDialog: StoryFn = () => {
             <UserDialogList {...userDialogList}>
               <UserDialogListItem
                 {...userDialogList}
-                key="2"
-                selected={selected === '2'}
-                onSelect={() => setSelected('2')}
+                key={id1a}
+                selected={selected === id1a}
+                onSelect={() => setSelected(id1a)}
               >
-                <UserIcon decorative color="inherit" />
+                <UserIcon decorative color="colorTextIcon" />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
               <UserDialogListItem
                 {...userDialogList}
-                key="3"
-                selected={selected === '3'}
-                onSelect={() => setSelected('3')}
+                key={id2a}
+                selected={selected === id2a}
+                onSelect={() => setSelected(id2a)}
               >
-                <ThemeIcon decorative color="inherit" />
+                <ThemeIcon decorative color="colorTextIcon" />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">
@@ -271,23 +285,23 @@ export const CustomizedUserDialog: StoryFn = () => {
             <UserDialogList {...userDialogList} element="FOO">
               <UserDialogListItem
                 {...userDialogList}
-                key="2"
-                selected={selected === '2'}
-                onSelect={() => setSelected('2')}
+                key={id1b}
+                selected={selected === id1b}
+                onSelect={() => setSelected(id1b)}
                 element="FOO"
               >
-                <UserIcon decorative color="inherit" />
+                <UserIcon decorative color="colorTextIcon" />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
               <UserDialogListItem
                 {...userDialogList}
-                key="3"
-                selected={selected === '3'}
-                onSelect={() => setSelected('3')}
+                key={id2b}
+                selected={selected === id2b}
+                onSelect={() => setSelected(id2b)}
                 element="FOO"
               >
-                <ThemeIcon decorative color="inherit" />
+                <ThemeIcon decorative color="colorTextIcon" />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">
