@@ -28,7 +28,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import packageJson from '@twilio-paste/user-dialog/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {defaultUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
+import {defaultUserDialogExample, imageUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
@@ -62,7 +62,6 @@ export const getStaticProps = async () => {
 
 <LivePreview
   scope={{
-    useUserDialogState,
     UserDialog,
     UserDialogUserInfo,
     UserDialogUserName,
@@ -105,9 +104,11 @@ When the user is focused on a list item, the following keyboard interactions app
 
 ## Default User Dialog
 
-Account-specific controls are aligned to the left, such as:
-
 Use a User Dialog to display actions that a user can trigger related to their profile. Add separators to group menu items.
+
+User Dialog works similarly to [Avatar](/components/avatar), in that you may use either initials, an image, or a [Paste Icon](/components/icons) to represent the user. Pass `name`/`src`/`icon` to UserDialogContainer.
+
+In order to use links as options for the UserDialogList items, provide the `href` prop to the UserDialogListItem.
 
 <LivePreview
   scope={{
@@ -130,7 +131,7 @@ Use a User Dialog to display actions that a user can trigger related to their pr
   }}
   noInline
 >
-  {defaultUserDialogExample}
+  {imageUserDialogExample}
 </LivePreview>
 
 ## Usage guide
