@@ -25,12 +25,12 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
           fontFamily="fontFamilyText"
           fontSize="fontSize20"
           lineHeight="lineHeight20"
-          fontWeight="fontWeightMedium"
+          fontWeight={as === 'button' ? 'fontWeightSemibold' : 'fontWeightMedium'}
           outline="none"
           borderRadius="borderRadius20"
           cursor={as !== 'div' ? 'pointer' : 'default'}
-          color="colorTextLinkDestructive"
-          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextLinkDestructiveStrongest'} : undefined}
+          color="colorTextError"
+          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextErrorStrongest'} : undefined}
           _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
         >
           <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />

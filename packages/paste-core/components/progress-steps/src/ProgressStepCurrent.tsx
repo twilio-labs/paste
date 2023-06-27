@@ -26,7 +26,7 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           fontFamily="fontFamilyText"
           fontSize="fontSize20"
           lineHeight="lineHeight20"
-          fontWeight="fontWeightMedium"
+          fontWeight={as === 'button' ? 'fontWeightSemibold' : 'fontWeightMedium'}
           outline="none"
           borderRadius="borderRadius20"
           cursor={as !== 'div' ? 'pointer' : 'default'}

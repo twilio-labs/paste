@@ -8,16 +8,17 @@ import {ProgressStepsContext} from './ProgressStepsContext';
 const VerticalStyles: BoxProps = {
   borderLeftWidth: 'borderWidth20',
   borderLeftStyle: 'solid',
-  borderLeftColor: 'colorBorderWeak',
-  minHeight: '60px',
+  borderLeftColor: 'colorBorderWeaker',
   borderRadius: 'borderRadius0',
+  minHeight: '32px',
   marginLeft: 'space30',
 };
 const HorizontalStyles: BoxProps = {
   borderBottomWidth: 'borderWidth20',
   borderBottomStyle: 'solid',
-  borderBottomColor: 'colorBorderWeak',
+  borderBottomColor: 'colorBorderWeaker',
   borderRadius: 'borderRadius20',
+  minWidth: '32px',
 };
 
 export interface ProgressStepSeparatorProps {
