@@ -56,7 +56,14 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
     return (
       <>
         <NonModalDialogDisclosurePrimitive {...userDialogState} as={UserDialogButton} element={element}>
-          <Box display="flex" columnGap="space20" alignItems="center" element={`${element}_BUTTON_CONTENTS`}>
+          <Box
+            display="flex"
+            columnGap="space20"
+            alignItems="center"
+            element={`${element}_BUTTON_CONTENTS`}
+            color="colorTextIcon"
+            _hover={{color: 'colorTextPrimaryStrongest'}}
+          >
             <Avatar
               variant="user"
               size="sizeIcon70"

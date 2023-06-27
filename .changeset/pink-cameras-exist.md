@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Topbar] Add list, list item, and separator to User Dialog
+[Topbar] Separate user dialog into its own package
