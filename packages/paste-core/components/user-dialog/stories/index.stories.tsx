@@ -51,7 +51,7 @@ export const BasicUserDialog: StoryFn = () => {
             onSelect={() => setSelected(id1)}
             data-testid="FIRST_ITEM"
           >
-            <UserIcon decorative color="colorTextIcon" />
+            <UserIcon decorative color="inherit" />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
@@ -61,8 +61,9 @@ export const BasicUserDialog: StoryFn = () => {
             selected={selected === id2}
             onSelect={() => setSelected(id2)}
             data-testid="SECOND_ITEM"
+            href="https://www.google.com"
           >
-            <UserIcon decorative color="colorTextIcon" />
+            <UserIcon decorative color="inherit" />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
@@ -73,7 +74,7 @@ export const BasicUserDialog: StoryFn = () => {
             onSelect={() => setSelected(id3)}
             data-testid="THIRD_ITEM"
           >
-            <ThemeIcon decorative color="colorTextIcon" />
+            <ThemeIcon decorative color="inherit" />
             <Box width="100%" display="flex" justifyContent="space-between">
               Theme
               <Badge variant="decorative10" as="span" size="small">
@@ -83,7 +84,7 @@ export const BasicUserDialog: StoryFn = () => {
           </UserDialogListItem>
           <UserDialogSeparator />
           <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
-            <TranslationIcon decorative color="colorTextIcon" />
+            <TranslationIcon decorative color="inherit" />
             <Box width="100%" display="flex" justifyContent="space-between">
               Language
               <Badge variant="decorative10" as="span" size="small">
@@ -121,6 +122,7 @@ export const ImageUserDialog: StoryFn = () => {
             </UserDialogListItem>
             <UserDialogListItem
               {...userDialogList}
+              href="https://www.google.com"
               key={id2}
               selected={selected === id2}
               onSelect={() => setSelected(id2)}
@@ -181,6 +183,7 @@ export const StateHookUserDialog: StoryFn = () => {
               key={id2}
               selected={selected === id2}
               onSelect={() => setSelected(id2)}
+              href="https://www.google.com"
             >
               Item2
             </UserDialogListItem>
@@ -255,7 +258,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 selected={selected === id1a}
                 onSelect={() => setSelected(id1a)}
               >
-                <UserIcon decorative color="colorTextIcon" />
+                <UserIcon decorative color="inherit" />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
@@ -264,8 +267,9 @@ export const CustomizedUserDialog: StoryFn = () => {
                 key={id2a}
                 selected={selected === id2a}
                 onSelect={() => setSelected(id2a)}
+                href="https://www.google.com"
               >
-                <ThemeIcon decorative color="colorTextIcon" />
+                <ThemeIcon decorative color="inherit" />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">
@@ -290,7 +294,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 onSelect={() => setSelected(id1b)}
                 element="FOO"
               >
-                <UserIcon decorative color="colorTextIcon" />
+                <UserIcon decorative color="inherit" />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
@@ -300,8 +304,9 @@ export const CustomizedUserDialog: StoryFn = () => {
                 selected={selected === id2b}
                 onSelect={() => setSelected(id2b)}
                 element="FOO"
+                href="https://www.google.com"
               >
-                <ThemeIcon decorative color="colorTextIcon" />
+                <ThemeIcon decorative color="inherit" />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">

@@ -94,6 +94,16 @@ describe('User Dialog', () => {
       if (userDialog === null) return;
       expect(userDialog).not.toBeVisible();
     });
+
+    it('should render an anchor when href is passed', async () => {
+      render(<BasicUserDialog />);
+      const renderedUserDialogButton = screen.getByRole('button');
+      await waitFor(() => {
+        userEvent.click(renderedUserDialogButton);
+      });
+      expect(screen.getByTestId('SECOND_ITEM').getAttribute('href')).toBe('https://www.google.com');
+      expect(document.querySelector('a')).toBeInTheDocument();
+    });
   });
 });
 

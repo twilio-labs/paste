@@ -65,11 +65,11 @@ export interface UserDialogListboxProps extends React.HTMLAttributes<HTMLDivElem
 export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
   href?: string;
   element?: BoxProps['element'];
-  as?: any;
 }
 
 export interface UserDialogListboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
   element?: BoxProps['element'];
+  href?: string;
 }
 
 export interface UserDialogListGroupProps extends ListboxPrimitiveGroupProps {

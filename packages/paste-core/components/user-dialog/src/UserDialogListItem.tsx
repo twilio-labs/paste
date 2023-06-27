@@ -6,11 +6,13 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {UserDialogListItemProps, UserDialogListboxItemProps} from './types';
 
 const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
-  ({children, element = 'USER_DIALOG', ...props}, ref) => {
+  ({children, href, element = 'USER_DIALOG', ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         element={`${element}_LIST_ITEM`}
+        as={href ? 'a' : 'div'}
+        href={href}
         ref={ref}
         width="100%"
         paddingLeft="space60"
@@ -18,6 +20,7 @@ const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogList
         paddingY="space50"
         display="flex"
         columnGap="space30"
+        color="colorText"
         borderLeftStyle="solid"
         borderLeftWidth="borderWidth20"
         borderLeftColor="colorBorderWeakest"
