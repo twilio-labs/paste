@@ -17,6 +17,7 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
           type={as === 'button' ? 'button' : undefined}
           ref={ref}
           display="flex"
+          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"

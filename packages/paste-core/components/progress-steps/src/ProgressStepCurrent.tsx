@@ -18,6 +18,7 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           ref={ref}
           aria-current="step"
           display="flex"
+          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"
