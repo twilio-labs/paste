@@ -26,10 +26,11 @@ export interface SideModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   'aria-label': string;
   element?: BoxProps['element'];
+  hideOnEsc?: boolean;
 }
 
 export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
-  ({children, element = 'SIDE_MODAL', ...props}, ref) => {
+  ({children, element = 'SIDE_MODAL', hideOnEsc = false, ...props}, ref) => {
     const dialog = React.useContext(SideModalContext);
     const transitions = useTransition(dialog.visible, getAnimationStates());
 
@@ -44,6 +45,7 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
         {...safelySpreadBoxProps(props)}
         preventBodyScroll={false}
         hideOnClickOutside={false}
+        hideOnEsc={hideOnEsc}
         element={`${element}_CONTAINER`}
         ref={ref}
         as={Box}
