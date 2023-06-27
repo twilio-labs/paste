@@ -34,7 +34,9 @@ export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressSte
           _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
         >
           <ProgressSuccessIcon decorative={false} title={i18nCompleteLabel} />
-          <Box as="span">{children}</Box>
+          <Box as="span" textAlign="left">
+            {children}
+          </Box>
         </Box>
       </div>
     );
