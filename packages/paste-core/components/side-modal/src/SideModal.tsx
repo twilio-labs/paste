@@ -1,34 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import type {BoxProps} from '@twilio-paste/box';
 import {useTransition, animated} from '@twilio-paste/animation-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 
 import {SideModalContext} from './SideModalContext';
 
-const StyledSideModal = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => (
-  <Box
-    {...safelySpreadBoxProps(props)}
-    ref={ref}
-    style={style}
-    boxShadow="shadow"
-    width="size80"
-    zIndex="zIndex80"
-    position="fixed"
-    top="0 !important"
-    left="auto !important"
-    right="0 !important"
-    bottom="0 !important"
-    _focus={{
-      outline: 'none',
-    }}
-  />
-));
-StyledSideModal.displayName = 'StyledSideModal';
-
-const AnimatedStyledSideModal = animated(StyledSideModal);
+export const AnimatedBox = animated(Box);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
@@ -37,9 +16,9 @@ const getAnimationStates = (): any => ({
   leave: {opacity: 0, transform: `translateX(100%)`},
   // https://www.react-spring.dev/docs/advanced/config
   config: {
-    mass: 0.3,
-    tension: 288,
-    friction: 15,
+    mass: 0.5,
+    tension: 220,
+    friction: 20,
   },
 });
 
@@ -59,34 +38,48 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
      * To enable an unmount animation we need to hardcode `visible={true}` on NonModalDialogPrimitive
      * so that react-spring can manage cleanup. That said, I think it looks better to close instantly.
      */
-    return transitions((styles, item) => {
-      return (
-        item && (
-          <NonModalDialogPrimitive
-            {...dialog}
-            {...safelySpreadBoxProps(props)}
-            as={AnimatedStyledSideModal}
-            element={`${element}_CONTAINER`}
-            ref={ref}
-            preventBodyScroll={false}
-            hideOnClickOutside={false}
-            style={styles}
-          >
-            <StyledBase>
-              <Box
-                element={element}
-                display="grid"
-                gridTemplateRows="auto 1fr auto"
-                height="100vh"
-                backgroundColor="colorBackgroundBody"
-              >
-                {children}
-              </Box>
-            </StyledBase>
-          </NonModalDialogPrimitive>
-        )
-      );
-    });
+    return (
+      <NonModalDialogPrimitive
+        {...dialog}
+        {...safelySpreadBoxProps(props)}
+        preventBodyScroll={false}
+        hideOnClickOutside={false}
+        element={`${element}_CONTAINER`}
+        ref={ref}
+        as={Box}
+        zIndex="zIndex80"
+        position="fixed"
+        top="0 !important"
+        right="0 !important"
+        bottom="0 !important"
+        left="auto !important"
+        transform="none !important"
+        _focus={{
+          outline: 'none',
+        }}
+      >
+        <StyledBase>
+          {transitions((styles, item) => {
+            return (
+              item && (
+                <AnimatedBox
+                  style={styles}
+                  element={element}
+                  display="grid"
+                  gridTemplateRows="auto 1fr auto"
+                  height="100vh"
+                  backgroundColor="colorBackgroundBody"
+                  boxShadow="shadow"
+                  width="size80"
+                >
+                  {children}
+                </AnimatedBox>
+              )
+            );
+          })}
+        </StyledBase>
+      </NonModalDialogPrimitive>
+    );
   }
 );
 
