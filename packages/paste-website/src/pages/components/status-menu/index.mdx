@@ -2,7 +2,7 @@ export const meta = {
   title: 'Status Menu - Components',
   package: '@twilio-paste/status',
   description:
-    'A status should be used to communicate to a user the status of a process or connection to an application or service.',
+    'A Status Menu communicates the status of a process or connectivity to an application or service, and provides a way to update that status type.',
   slug: '/components/status-menu/',
 };
 
@@ -15,34 +15,17 @@ import {
   StatusMenuItemRadio,
   StatusMenuItemCheckbox,
 } from '@twilio-paste/status';
-import Changelog from '@twilio-paste/menu/CHANGELOG.md';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
-import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
-import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
-import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
-import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
-import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
-import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
-import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
-import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import Changelog from '@twilio-paste/status/CHANGELOG.md';
+import packageJson from '@twilio-paste/status/package.json';
+
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {InlineCode} from '../../../components/Typography';
 import {
   processStatusMenuExample,
   availabilityStatusMenuExample,
   ConnectivityObject,
   ProcessObject,
-} from '../../../component-examples/StatusMenuExamples.ts';
-import packageJson from '@twilio-paste/status/package.json';
+} from '../../../component-examples/StatusMenuExamples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
@@ -65,7 +48,8 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
-  storybookUrl="/?path=/story/components-status--"
+  storybookUrl="/?path=/story/components-status-menustatus"
+  name="Status Menu"
   data={props.data}
 />
 
@@ -81,7 +65,7 @@ export const getStaticProps = async () => {
   scope={{
     useStatusMenuState,
     StatusMenu,
-    StatusMenuItem,
+    StatusMenuItemRadio,
     StatusMenuBadge,
     StatusMenuItemChild,
     ProcessObject,
@@ -94,23 +78,25 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
-### About Menu
+### About Status Menu
+
+Use a Status Menu to both display and change the status of a connection or process. It closely follows the [Status Pattern](/patterns/status) and comes with preconfigured options for displaying the status of both processes and connections, using the correct icons for each.
 
 ### Accessibility
 
+Status Menu implements a Menu and supports all the same keyboard navigation that the [Menu](/components/menu) component does.
+
 ## Examples
 
-### Basic menu
+### Process menu
 
-Status menus follow the [Process and Connectivity Status Patterns](/patterns/status). They can be used to display and update Connectivity and Process statuses.
-
-#### Process
+Use the process-related variants of Status Menu to display and interact with the status of a particular process.
 
 <LivePreview
   scope={{
     useStatusMenuState,
     StatusMenu,
-    StatusMenuItem,
+    StatusMenuItemRadio,
     StatusMenuBadge,
     StatusMenuItemChild,
     ProcessObject,
@@ -121,7 +107,9 @@ Status menus follow the [Process and Connectivity Status Patterns](/patterns/sta
   {processStatusMenuExample}
 </LivePreview>
 
-#### Connectivity
+### Connectivity Menu
+
+Use the connectivity-related variants of Status Menu to display and interact with the status of a particular connection.
 
 <LivePreview
   scope={{
@@ -139,6 +127,12 @@ Status menus follow the [Process and Connectivity Status Patterns](/patterns/sta
 </LivePreview>
 
 ## Composition notes
+
+Status Menu consists of `StatusMenu`, `StatusMenuBadge`, `StatusMenuItem`, `StatusMenuItemRadio`, `StatusMenuItemCheckbox`, and `useStatusMenuState`. These are all namesakes of their [Menu](/components/menu) equivalents and follow the same API. It also comes with one additional component called `StatusMenuItemChild`.
+
+### Status Menu Item Child
+
+`StatusMenuItemChild` is where the status pattern is implemented. It takes a `variant` prop that is set to a value that directly relates to one of the connectivity or process status types. It pairs the correct icon with its color implementation for the status. Check out the [full list of variant options in the props table](#statusmenuitemchild).
 
 ---
 
@@ -161,22 +155,45 @@ import {
   StatusMenuItem,
   StatusMenuItemChild,
   useStatusMenuState,
+  StatusMenuItemRadio,
+  StatusMenuItemCheckbox,
 } from '@twilio-paste/core/status';
 
-const PreferencesMenu = () => {
+const ProcessStatusMenu = () => {
+  const [process, setProcess] = React.useState(ProcessObject.Success);
   const menu = useStatusMenuState();
+  const onClick = (status) => {
+    setProcess(ProcessObject[status]);
+    menu.hide();
+  };
   return (
     <>
-      <StatusMenuBadge {...menu} variant="ProcessErro">
-        Preferences
+      <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={process.variant}>
+        {process.children}
       </StatusMenuBadge>
       <StatusMenu {...menu} aria-label="Preferences">
-        <StatusMenuItem {...menu}>Settings</StatusMenuItem>
-        <StatusMenuItem {...menu} disabled>
-          Extensions
+        <StatusMenuItem {...menu} onClick={() => onClick('Success')} variant="default">
+          <StatusMenuItemChild variant="ProcessSuccess">Complete</StatusMenuItemChild>
         </StatusMenuItem>
-        <StatusMenuItem {...menu}>Keyboard shortcuts</StatusMenuItem>
-      </StatusMenu>
+        <StatusMenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
+          <StatusMenuItemChild variant="ProcessNeutral">In review</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
+          <StatusMenuItemChild variant="ProcessWarning">Needs attention</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Error')} variant="default">
+          <StatusMenuItemChild variant="ProcessError">Rejected</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
+          <StatusMenuItemChild variant="ProcessInProgress">In-progress</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
+          <StatusMenuItemChild variant="ProcessDisabled">Paused</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
+          <StatusMenuItemChild variant="ProcessDraft">Draft</StatusMenuItemChild>
+        </StatusMenuItem>
+      </Menu>
     </>
   );
 };

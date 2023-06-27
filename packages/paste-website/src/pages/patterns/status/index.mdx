@@ -400,7 +400,7 @@ to ensure that the icon and the text are vertically aligned.
 
 ### Status badges
 
-For convience and consistency, we have created a `StatusBadge` (coming soon) component that can be used to compose a status icon with a text label.
+Use the [`StatusBadge`](/components/status-badge) component to compose a status icon with a text label, usually when a status is shown outside of a Table. Common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
 
 <LivePreview scope={{Box, StatusBadge}} language="jsx">
   {`<Box display="flex" flexDirection="column" rowGap="space40">
@@ -418,7 +418,7 @@ For convience and consistency, we have created a `StatusBadge` (coming soon) com
       Neutral
     </StatusBadge>
     <StatusBadge as="span" variant="ProcessInProgress">
-      In Progress
+      In-progress
     </StatusBadge>
     <StatusBadge as="span" variant="ProcessDisabled">
       Disabled
@@ -585,8 +585,8 @@ Statuses are not always placed in tables. Other common placements are near avata
         <Tr>
           <Td>
             <Box display="flex">
-              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
-              <Text marginLeft="space20">In Progress</Text>
+              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In-progress" />
+              <Text marginLeft="space20">In-progress</Text>
             </Box>
           </Td>
         </Tr>
@@ -643,8 +643,8 @@ Statuses are not always placed in tables. Other common placements are near avata
         <Tr>
           <Td>
             <Box display="flex">
-              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
-              <Text marginLeft="space20">In Progress</Text>
+              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In-progress" />
+              <Text marginLeft="space20">In-progress</Text>
             </Box>
           </Td>
         </Tr>
