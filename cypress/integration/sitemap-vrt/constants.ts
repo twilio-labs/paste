@@ -79,6 +79,7 @@ export const SITEMAP = [
   '/components/toast/',
   '/components/time-picker/',
   '/components/truncate/',
+  '/components/user-dialog/',
   '/components/topbar',
   '/components/tooltip/',
   '/components/textarea/',

@@ -7,7 +7,6 @@ export const meta = {
 
 import Changelog from '@twilio-paste/user-dialog/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Topbar} from '@twilio-paste/topbar';
 import {
   useUserDialogState,
   UserDialog,
@@ -23,27 +22,12 @@ import {
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
 import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
-import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
-import {
-  ProductSwitcher,
-  ProductSwitcherButton,
-  ProductSwitcherItem,
-  useProductSwitcherState,
-} from '@twilio-paste/product-switcher';
 import {useUID} from '@twilio-paste/uid-library';
-
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 import packageJson from '@twilio-paste/user-dialog/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {defaultTopbarExample, emptyTopbarExample} from '../../../component-examples/TopbarExamples.ts';
 import {defaultUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
 export default DefaultLayout;
 

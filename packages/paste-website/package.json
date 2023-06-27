@@ -123,6 +123,7 @@
     "@twilio-paste/truncate": "^13.0.0",
     "@twilio-paste/types": "^5.0.0",
     "@twilio-paste/uid-library": "^1.0.0",
+    "@twilio-paste/user-dialog": "^0.0.0",
     "@twilio-paste/utils": "^4.0.0",
     "@types/airtable": "^0.10.1",
     "@types/gtag.js": "^0.0.12",
