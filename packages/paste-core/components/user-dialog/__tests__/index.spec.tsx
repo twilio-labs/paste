@@ -46,32 +46,32 @@ describe('User Dialog', () => {
     it('should move focus with up and down keyboard navigation', async () => {
       render(<BasicUserDialog />);
       const renderedUserDialogButton = screen.getByRole('button');
+      userEvent.click(renderedUserDialogButton);
+      userEvent.keyboard('{arrowdown}');
       await waitFor(() => {
-        userEvent.click(renderedUserDialogButton);
-        userEvent.keyboard('{arrowdown}');
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
       });
-      expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
+      userEvent.keyboard('{arrowright}');
       await waitFor(() => {
-        userEvent.keyboard('{arrowright}');
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
       });
-      expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
+      userEvent.keyboard('{arrowleft}');
       await waitFor(() => {
-        userEvent.keyboard('{arrowleft}');
+        expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
       });
-      expect(screen.getByTestId('SECOND_ITEM')).toHaveFocus();
     });
 
     it('should select the current option when enter is pressed', async () => {
       render(<BasicUserDialog />);
       const renderedUserDialogButton = screen.getByRole('button');
+      userEvent.click(renderedUserDialogButton);
       await waitFor(() => {
-        userEvent.click(renderedUserDialogButton);
+        expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('false');
       });
-      expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('false');
+      userEvent.keyboard('{enter}');
       await waitFor(() => {
-        userEvent.keyboard('{enter}');
+        expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('true');
       });
-      expect(screen.getByTestId('FIRST_ITEM').getAttribute('aria-selected')).toEqual('true');
     });
 
     it('should render a user dialog and show/hide on external button click', async () => {
@@ -83,16 +83,16 @@ describe('User Dialog', () => {
         return;
       }
       expect(userDialog.getAttribute('hidden')).toBeDefined();
-      await waitFor(() => {
-        userEvent.click(ButtonOne);
-      });
+      userEvent.click(ButtonOne);
       if (userDialog === null) return;
-      expect(userDialog).toBeVisible();
       await waitFor(() => {
-        userEvent.click(ButtonTwo);
+        expect(userDialog).toBeVisible();
       });
+      userEvent.click(ButtonTwo);
       if (userDialog === null) return;
-      expect(userDialog).not.toBeVisible();
+      await waitFor(() => {
+        expect(userDialog).not.toBeVisible();
+      });
     });
 
     it('should render an anchor when href is passed', async () => {
