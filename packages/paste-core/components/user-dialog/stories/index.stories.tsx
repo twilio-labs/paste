@@ -51,7 +51,7 @@ export const BasicUserDialog: StoryFn = () => {
             onSelect={() => setSelected(id1)}
             data-testid="FIRST_ITEM"
           >
-            <UserIcon decorative color="inherit" />
+            <UserIcon decorative />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
@@ -63,7 +63,7 @@ export const BasicUserDialog: StoryFn = () => {
             data-testid="SECOND_ITEM"
             href="https://www.google.com"
           >
-            <UserIcon decorative color="inherit" />
+            <UserIcon decorative />
             Item
           </UserDialogListItem>
           <UserDialogSeparator />
@@ -74,7 +74,7 @@ export const BasicUserDialog: StoryFn = () => {
             onSelect={() => setSelected(id3)}
             data-testid="THIRD_ITEM"
           >
-            <ThemeIcon decorative color="inherit" />
+            <ThemeIcon decorative />
             <Box width="100%" display="flex" justifyContent="space-between">
               Theme
               <Badge variant="decorative10" as="span" size="small">
@@ -84,7 +84,7 @@ export const BasicUserDialog: StoryFn = () => {
           </UserDialogListItem>
           <UserDialogSeparator />
           <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
-            <TranslationIcon decorative color="inherit" />
+            <TranslationIcon decorative />
             <Box width="100%" display="flex" justifyContent="space-between">
               Language
               <Badge variant="decorative10" as="span" size="small">
@@ -258,7 +258,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 selected={selected === id1a}
                 onSelect={() => setSelected(id1a)}
               >
-                <UserIcon decorative color="inherit" />
+                <UserIcon decorative />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
@@ -269,7 +269,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 onSelect={() => setSelected(id2a)}
                 href="https://www.google.com"
               >
-                <ThemeIcon decorative color="inherit" />
+                <ThemeIcon decorative />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">
@@ -294,7 +294,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 onSelect={() => setSelected(id1b)}
                 element="FOO"
               >
-                <UserIcon decorative color="inherit" />
+                <UserIcon decorative />
                 Item
               </UserDialogListItem>
               <UserDialogSeparator />
@@ -306,7 +306,7 @@ export const CustomizedUserDialog: StoryFn = () => {
                 element="FOO"
                 href="https://www.google.com"
               >
-                <ThemeIcon decorative color="inherit" />
+                <ThemeIcon decorative />
                 <Box width="100%" display="flex" justifyContent="space-between">
                   Theme
                   <Badge variant="decorative10" as="span" size="small">
