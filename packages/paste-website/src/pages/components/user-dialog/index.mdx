@@ -8,6 +8,21 @@ export const meta = {
 import Changelog from '@twilio-paste/user-dialog/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Topbar} from '@twilio-paste/topbar';
+import {
+  useUserDialogState,
+  UserDialog,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  UserDialogUserEmail,
+  UserDialogContainer,
+  UserDialogList,
+  UserDialogListItem,
+  useUserDialogListState,
+  UserDialogSeparator,
+} from '@twilio-paste/user-dialog';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
+import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
 import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
@@ -19,15 +34,17 @@ import {
   ProductSwitcherItem,
   useProductSwitcherState,
 } from '@twilio-paste/product-switcher';
+import {useUID} from '@twilio-paste/uid-library';
+
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
-import packageJson from '@twilio-paste/topbar/package.json';
+import packageJson from '@twilio-paste/user-dialog/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {defaultTopbarExample, emptyTopbarExample} from '../../../component-examples/TopbarExamples.ts';
-
+import {defaultUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
@@ -61,27 +78,27 @@ export const getStaticProps = async () => {
 
 <LivePreview
   scope={{
-    Topbar,
+    useUserDialogState,
+    UserDialog,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    UserDialogUserEmail,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    useUserDialogListState,
+    UserDialogSeparator,
+    useUID,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
     Box,
-    Input,
-    Menu,
-    MenuItem,
-    useMenuState,
-    MenuBadge,
     Badge,
-    ProductSwitcher,
-    ProductSwitcherButton,
-    ProductSwitcherItem,
-    useProductSwitcherState,
-    LogoTwilioIcon,
-    ProductSegmentIcon,
-    ProductFlexIcon,
-    ProductEmailAPIIcon,
-    SearchIcon,
   }}
   noInline
+  showOverflow
 >
-  {defaultTopbarExample}
+  {defaultUserDialogExample}
 </LivePreview>
 
 ## Guidelines
@@ -108,8 +125,28 @@ Account-specific controls are aligned to the left, such as:
 
 Use a User Dialog to display actions that a user can trigger related to their profile. Add separators to group menu items.
 
-<LivePreview scope={{Topbar}} noInline>
-  {emptyTopbarExample}
+<LivePreview
+  scope={{
+    useUserDialogState,
+    UserDialog,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    UserDialogUserEmail,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    useUserDialogListState,
+    UserDialogSeparator,
+    useUID,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    Box,
+    Badge,
+  }}
+  noInline
+>
+  {defaultUserDialogExample}
 </LivePreview>
 
 ## Usage guide
@@ -131,21 +168,77 @@ yarn add @twilio-paste/user-dialog - or - yarn add @twilio-paste/core
 ```jsx
 import {UserDialog} from '@twilio-paste/core/user-dialog';
 
-const Topbar = () => {
+const UserDialog = () => {
+  const userDialogList = useUserDialogListState();
   return (
-    <Topbar>
-      {TODO:}
-    </Topbar>
+    <UserDialogContainer name="Nora Krantz">
+      <UserDialog aria-label="my_user_menu">
+        <UserDialogUserInfo>
+          <UserDialogUserName>Name</UserDialogUserName>
+          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+        </UserDialogUserInfo>
+        <UserDialogList {...userDialogList}>
+          <UserDialogListItem {...userDialogList} onSelect={() => {}}>One</UserDialogListItem>
+          <UserDialogListItem {...userDialogList} href="www.#.com"}>Two</UserDialogListItem>
+        </UserDialogList>
+    </UserDialogContainer>
   );
 };
 ```
 
-#### Topbar props
+#### UserDialogContainer props
 
-| Prop      | Type              | Description                                                                               | Default  |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------- |
-| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.          |          |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'TOPBAR' |
+| Prop     | Type                                                  | Description                           | Default |
+| -------- | ----------------------------------------------------- | ------------------------------------- | ------- |
+| children | `NonNullable<React.ReactNode>`                        |                                       |         |
+| state?   | `NonModalDialogPrimitiveStateReturn`                  | User Dialog state hook                |         |
+| name     | `string`                                              | Provides name for the Avatar initials |         |
+| src?     | `string`                                              | Provides an image for the Avatar      |         |
+| icon?    | `React.FC<React.PropsWithChildren<GenericIconProps>>` | Provides an icon for the Avatar       |         |
+
+#### UserDialog props
+
+| Prop       | Type              | Description                                                                               | Default       |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| children   | `React.ReactNode` |                                                                                           |               |
+| aria-label | `string`          | Accessible label for the User Dialog                                                      |               |
+| element?   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG' |
+
+#### UserDialogUserInfo props
+
+| Prop     | Type              | Description                                                                               | Default                 |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| children | `React.ReactNode` |                                                                                           |                         |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_INFO' |
+
+#### UserDialogUserName props
+
+| Prop     | Type              | Description                                                                               | Default                 |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| children | `React.ReactNode` |                                                                                           |                         |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_NAME' |
+
+#### UserDialogUserEmail props
+
+| Prop     | Type              | Description                                                                               | Default                  |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
+| children | `React.ReactNode` |                                                                                           |                          |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_EMAIL' |
+
+#### UserDialogList props
+
+| Prop     | Type              | Description                                                                               | Default            |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children | `React.ReactNode` |                                                                                           |                    |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST' |
+
+#### UserDialogListItem props
+
+| Prop     | Type              | Description                                                                               | Default                 |
+| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
+| children | `React.ReactNode` |                                                                                           |                         |
+| href?    | `string`          | Providing an href will make the list item an `<a>` tag                                    |                         |
+| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST_ITEM' |
 
 <ChangelogRevealer>
   <Changelog />
