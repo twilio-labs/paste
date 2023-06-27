@@ -1,8 +1,7 @@
 export const meta = {
   title: 'Progress Steps',
   package: '@twilio-paste/progress-steps',
-  description:
-    'Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task.',
+  description: 'Progress Steps show a user a clear path to complete a complex multi-step task.',
   slug: '/components/progress-steps/',
 };
 
@@ -98,7 +97,7 @@ Each step can communicate one of these statuses:
 ### Accessibility
 
 - Give each step a concise label describing what the goal of that step is.
-- Each step icon has a `title` prop whose value is the current status of that step (e.g. complete, incomplete, etc.) to inform screen readers of a step's status. This label is adjustable for i18n.
+- Each step icon has a `title` prop whose value is the current status of that step (e.g. complete, incomplete, etc.) to inform screen readers of a step's status. This label is adjustable for internationalization.
 - The ProgressStep has `role=list` and each step has `role=listitem` for screen readers.
 - The ProgressStep has `aria-current` set to `step` for the current step.
 
@@ -183,7 +182,7 @@ Use vertical Progress Steps when you’re constrained on vertical space in your 
 
 ### Internationalization
 
-Each step within the Progress Step component has a label which can be set to adjust the icon's title for Internationalization.
+Each step within the Progress Step component has a label which can be set to adjust the icon's title for internationalization.
 
 <LivePreview
   scope={{
@@ -201,24 +200,28 @@ Each step within the Progress Step component has a label which can be set to adj
 
 ---
 
-## When to use an error step
-
-Show the error status on a step when it’s not the current step they’re on. When a
-user navigates to the step that has errors, set the status of the step to `current`
-and use in-page validation to communicate the errors in the current step.
-Check out the [Error state pattern](https://paste.twilio.design/patterns/error-state) for more guidance.
-
 ## Composition Notes
 
 - Each step must have a label. Keep the label concise with fewer than 5 words per label.
-- Consider skipping articles like “a” or “the” to shorten the step.
+- Skip articles like “a” or “the” to shorten the step.
 - Generally, start each step with a verb to keep the user grounded in the task at hand.
 - If the process has 5 steps and describing each one with a verb + noun is too long, consider shortening the step labels to just a verb, and using the in-page step label to clarify the full scope of the task. For example, use “Add” as a step label, but include “Add entry step” as the page label.
 - If the process does not fit into a mental model of performing tasks, make sure each step is phrased consistently. For example, “Business profile” and “Brand registration.”
 - Keep the placement of Progress Steps consistent between different pages (steps).
 
+### When to use an error step
+
+Show the error status on a step when it’s not the current step they’re on. When a
+user navigates to the step that has errors, use `ProgressStepCurrent` to set the status of the step to current,
+and use in-page validation to then communicate the errors in the current page.
+Check out the [Error state pattern](https://paste.twilio.design/patterns/error-state) for more guidance.
+
 <DoDont>
-  <Do center title="Do" body="Use Progress Steps for complex, noncontinuous tasks with 3–5 steps">
+  <Do
+    center
+    title="Do"
+    body="Use Progress Steps for complex tasks with 3–5 steps that can't be completed in one session."
+  >
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
       <ProgressStepSeparator />
