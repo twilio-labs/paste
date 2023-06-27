@@ -17,78 +17,62 @@ import type {StatusBadges} from './types';
 export const StatusObject: StatusBadges = {
   ProcessError: {
     badgeVariant: 'default',
-    icon: <ProcessErrorIcon color="colorTextIconError" decorative={false} size="sizeIcon10" title="Error" />,
+    icon: <ProcessErrorIcon color="colorTextIconError" decorative size="sizeIcon10" />,
     color: 'colorTextError',
   },
   ProcessWarning: {
     badgeVariant: 'default',
-    icon: <ProcessWarningIcon color="colorTextIconWarning" decorative={false} size="sizeIcon10" title="Warning" />,
+    icon: <ProcessWarningIcon color="colorTextIconWarning" decorative size="sizeIcon10" />,
     color: 'colorTextWarning',
   },
   ProcessSuccess: {
     badgeVariant: 'default',
-    icon: <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} size="sizeIcon10" title="Success" />,
+    icon: <ProcessSuccessIcon color="colorTextIconSuccess" decorative size="sizeIcon10" />,
     color: 'colorTextSuccess',
   },
   ProcessNeutral: {
     badgeVariant: 'default',
-    icon: <ProcessNeutralIcon color="colorTextIconNeutral" decorative={false} size="sizeIcon10" title="Neutral" />,
+    icon: <ProcessNeutralIcon color="colorTextIconNeutral" decorative size="sizeIcon10" />,
     color: 'colorTextNeutral',
   },
   ProcessInProgress: {
     badgeVariant: 'default',
-    icon: (
-      <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} size="sizeIcon10" title="In-progress" />
-    ),
+    icon: <ProcessInProgressIcon color="colorTextIconNeutral" decorative size="sizeIcon10" />,
     color: 'colorTextNeutral',
   },
   ProcessDisabled: {
     badgeVariant: 'decorative10',
-    icon: <ProcessDisabledIcon color="colorTextIcon" decorative={false} size="sizeIcon10" title="Disabled" />,
+    icon: <ProcessDisabledIcon color="colorTextIcon" decorative size="sizeIcon10" />,
     color: 'colorTextWeak',
   },
   ProcessDraft: {
     badgeVariant: 'decorative10',
-    icon: <ProcessDraftIcon color="colorTextIcon" decorative={false} size="sizeIcon10" title="Draft" />,
+    icon: <ProcessDraftIcon color="colorTextIcon" decorative size="sizeIcon10" />,
     color: 'colorTextWeak',
   },
   ConnectivityAvailable: {
     badgeVariant: 'default',
-    icon: (
-      <ConnectivityAvailableIcon
-        color="colorTextIconAvailable"
-        decorative={false}
-        size="sizeIcon10"
-        title="Available"
-      />
-    ),
+    icon: <ConnectivityAvailableIcon color="colorTextIconAvailable" decorative size="sizeIcon10" />,
     color: 'colorTextSuccess',
   },
   ConnectivityBusy: {
     badgeVariant: 'default',
-    icon: <ConnectivityBusyIcon color="colorTextIconBusy" decorative={false} size="sizeIcon10" title="Busy" />,
+    icon: <ConnectivityBusyIcon color="colorTextIconBusy" decorative size="sizeIcon10" />,
     color: 'colorTextWarning',
   },
   ConnectivityUnavailable: {
     badgeVariant: 'default',
-    icon: (
-      <ConnectivityUnavailableIcon
-        color="colorTextIconUnavailable"
-        decorative={false}
-        size="sizeIcon10"
-        title="Unavailable"
-      />
-    ),
+    icon: <ConnectivityUnavailableIcon color="colorTextIconUnavailable" decorative size="sizeIcon10" />,
     color: 'colorTextError',
   },
   ConnectivityNeutral: {
     badgeVariant: 'default',
-    icon: <ConnectivityNeutralIcon color="colorTextIconNeutral" decorative={false} size="sizeIcon10" title="Neutral" />,
+    icon: <ConnectivityNeutralIcon color="colorTextIconNeutral" decorative size="sizeIcon10" />,
     color: 'colorTextNeutral',
   },
   ConnectivityOffline: {
     badgeVariant: 'decorative10',
-    icon: <ConnectivityOfflineIcon color="colorTextIconOffline" decorative={false} size="sizeIcon10" title="Offline" />,
+    icon: <ConnectivityOfflineIcon color="colorTextIconOffline" decorative size="sizeIcon10" />,
     color: 'colorTextWeak',
   },
 } as const;
