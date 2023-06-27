@@ -11,4 +11,5 @@ export const DEPRECATED_ICONS = [
   'ChevronDisclosureExpandedIcon',
   'ChevronDisclosureCollapsedIcon',
   'ProductEngagementIntelligencePlatformIcon',
+  'ProductPersonasIcon',
 ];

@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
-import type {UserDialogUserTextProps} from '../types';
+import type {UserDialogUserTextProps} from './types';
 
 export const UserDialogUserEmail = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
   ({children, element = 'USER_DIALOG_USER_EMAIL', ...props}, ref) => {

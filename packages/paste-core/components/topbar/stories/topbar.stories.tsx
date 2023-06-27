@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Paragraph} from '@twilio-paste/paragraph';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import {useUID} from '@twilio-paste/uid-library';
@@ -16,17 +16,15 @@ import {
   SidebarCollapseButton,
   SidebarFooter,
 } from '@twilio-paste/sidebar';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-
 import {
-  Topbar,
   UserDialog,
   UserDialogUserInfo,
   UserDialogUserName,
   UserDialogUserEmail,
   UserDialogContainer,
-  TopbarActions,
-} from '../src';
+} from '@twilio-paste/user-dialog';
+
+import {Topbar, TopbarActions} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

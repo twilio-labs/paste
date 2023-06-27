@@ -67,6 +67,7 @@
     "/packages/paste-core/components/paragraph",
     "/packages/paste-core/components/popover",
     "/packages/paste-core/components/product-switcher",
+    "/packages/paste-core/components/progress-steps",
     "/packages/paste-core/components/radio-button-group",
     "/packages/paste-core/components/radio-group",
     "/packages/paste-libraries/react-textarea-autosize",
@@ -99,6 +100,7 @@
     "/packages/paste-core/components/truncate",
     "/packages/paste-types",
     "/packages/paste-libraries/uid",
+    "/packages/paste-core/components/user-dialog",
     "/packages/paste-utils"
   ],
   "sandboxes": [

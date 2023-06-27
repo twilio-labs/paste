@@ -53,8 +53,8 @@ const DescriptionListExample = () => {
             <ProcessInProgressIcon
               color="colorTextIconNeutral"
               decorative={false}
-              title="in progress" />
-            <Text as="span" marginLeft="space20">In progress</Text>
+              title="In-progress" />
+            <Text as="span" marginLeft="space20">In-progress</Text>
           </Box>
         </DescriptionListDetails>
       </DescriptionListSet>
