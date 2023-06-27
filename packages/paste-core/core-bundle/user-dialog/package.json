@@ -1,0 +1,8 @@
+{
+  "name": "@twilio-paste-core/user-dialog",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/user-dialog.js",
+  "types": "../dist/user-dialog.d.ts"
+}
