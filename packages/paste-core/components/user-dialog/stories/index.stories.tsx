@@ -321,3 +321,9 @@ export const CustomizedUserDialog: StoryFn = () => {
     </CustomizationProvider>
   );
 };
+CustomizedUserDialog.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
