@@ -40,7 +40,7 @@ const ProcessStatusMenu: React.FC<React.PropsWithChildren<{variant: StatusMenuBa
           <StatusMenuItemChild variant="ProcessError">Error</StatusMenuItemChild>
         </StatusMenuItem>
         <StatusMenuItem {...menu} onClick={onClick} variant="default">
-          <StatusMenuItemChild variant="ProcessInProgress">In progress</StatusMenuItemChild>
+          <StatusMenuItemChild variant="ProcessInProgress">In-progress</StatusMenuItemChild>
         </StatusMenuItem>
         <StatusMenuItem {...menu} onClick={onClick} variant="default">
           <StatusMenuItemChild variant="ProcessDisabled">Disabled</StatusMenuItemChild>
@@ -201,7 +201,7 @@ const ProcessObject = {
   },
   InProgress: {
     variant: 'ProcessInProgress',
-    children: 'In progress',
+    children: 'In-progress',
   },
   Disabled: {
     variant: 'ProcessDisabled',
@@ -315,7 +315,7 @@ export const Process: StoryFn = () => (
     <ProcessStatusMenu variant="ProcessWarning">Warning</ProcessStatusMenu>
     <ProcessStatusMenu variant="ProcessSuccess">Success</ProcessStatusMenu>
     <ProcessStatusMenu variant="ProcessNeutral">Neutral</ProcessStatusMenu>
-    <ProcessStatusMenu variant="ProcessInProgress">In Progress</ProcessStatusMenu>
+    <ProcessStatusMenu variant="ProcessInProgress">In-progress</ProcessStatusMenu>
     <ProcessStatusMenu variant="ProcessDisabled">Disabled</ProcessStatusMenu>
     <ProcessStatusMenu variant="ProcessDraft">Draft</ProcessStatusMenu>
   </Stack>

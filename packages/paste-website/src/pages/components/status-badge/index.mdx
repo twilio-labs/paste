@@ -1,8 +1,7 @@
 export const meta = {
   title: 'Status Badge - Components',
   package: '@twilio-paste/status',
-  description:
-    'A status should be used to communicate to a user the status of a process or connection to an application or service.',
+  description: 'A Status Badge communicates the status of a process or connectivity to an application or service.',
   slug: '/components/status-badge/',
 };
 
@@ -36,6 +35,7 @@ export const getStaticProps = async () => {
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status"
   storybookUrl="/?path=/story/components-status--"
+  name="Status Badge"
   data={props.data}
 />
 
@@ -63,7 +63,7 @@ export const getStaticProps = async () => {
       Neutral
     </StatusBadge>
     <StatusBadge variant="ProcessInProgress">
-      In Progress
+      In-progress
     </StatusBadge>
     <StatusBadge variant="ProcessDisabled">
       Disabled
@@ -97,7 +97,13 @@ export const getStaticProps = async () => {
 
 ## About Status Badge
 
+Status badge is an implementation of the [Status Pattern](/patterns/status) to display the status of a process or connectivity in your product.
+
 ### Accessibility
+
+Status Badge communicates a status in an accessible way by automatically pairing an icon with a color that represents a specific status type. This ensures there are distinct visual differences between each status type.
+
+Care must still be taken to ensure the word used to describe the status in the badge is unique to the status type it is paired with for any given screen.
 
 ## Examples
 
@@ -143,7 +149,7 @@ export const getStaticProps = async () => {
 
 <LivePreview scope={{Box, StatusBadge}} language="jsx">
   {`<StatusBadge variant="ProcessInProgress">
-  In Progress
+  In-progress
 </StatusBadge>
 `.trim()}
 </LivePreview>
@@ -231,7 +237,7 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
       Neutral
     </StatusBadge>
     <StatusBadge size="small" variant="ProcessInProgress">
-      In Progress
+      In-progress
     </StatusBadge>
     <StatusBadge size="small" variant="ProcessDisabled">
       Disabled
@@ -267,11 +273,7 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
 
 Use a Status Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
-Status Badge labels should be one to three words, or numbers.
-
-### Use cases
-
-### Do &amp; Don't
+Status Badge labels should be 1–3 words.
 
 ---
 
