@@ -30,7 +30,7 @@ export interface SideModalProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
-  ({children, element = 'SIDE_MODAL', hideOnEsc = false, ...props}, ref) => {
+  ({children, element = 'SIDE_MODAL', hideOnEsc = true, ...props}, ref) => {
     const dialog = React.useContext(SideModalContext);
     const transitions = useTransition(dialog.visible, getAnimationStates());
 
