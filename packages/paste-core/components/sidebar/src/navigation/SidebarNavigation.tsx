@@ -17,26 +17,11 @@ const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
   return css({
     overflowScrolling: 'touch',
     // CSS magic to apply shadow on top and bottom of container when they scroll
-    background: `linear-gradient(
-      ${colorBackgroundInverse} 30%,
-      rgba(255, 255, 255, 0)
-    ) center top,
-    linear-gradient(
-      rgba(255, 255, 255, 0),
-      ${colorBackgroundInverse} 70%
-    ) center bottom,
-    radial-gradient(
-      farthest-side at 50% 0,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0)
-    ) center top,
-    radial-gradient(
-      farthest-side at 50% 100%,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0)
-    ) center bottom`,
+    background: `linear-gradient(${colorBackgroundInverse} 33%, rgba(20,28,44, 0)),
+    linear-gradient(rgba(20,28,44, 0), ${colorBackgroundInverse} 66%) 0 100%,
+    radial-gradient(farthest-side at 50% 100%, rgba(57, 71, 98, 0.5), rgba(0,0,0,0)) 0 100%`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 40px, 100% 40px, 100% 14px, 100% 14px',
+    backgroundSize: '100% 15px, 100% 15px, 100% 5px, 100% 5px',
     backgroundAttachment: `local, local, scroll, scroll`,
     // Scrollbar
     '::-webkit-scrollbar': {
