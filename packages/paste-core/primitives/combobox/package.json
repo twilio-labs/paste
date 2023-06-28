@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox-primitive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "user input",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build a combobox.",

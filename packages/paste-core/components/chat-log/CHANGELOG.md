@@ -1,5 +1,11 @@
 # @twilio-paste/chat-log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b) [#3271](https://github.com/twilio-labs/paste/pull/3271) Thanks [@TheSisb](https://github.com/TheSisb)! - [Chat Log] `useChatLogger` now exposes a `clear` function to clear all chats at once. Also, the animations have been slightly adjusted.
+
 ## 4.0.0
 
 ### Major Changes

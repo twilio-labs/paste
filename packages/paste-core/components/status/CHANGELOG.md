@@ -1,5 +1,11 @@
 # @twilio-paste/status
 
+## 1.0.1
+
+### Patch Changes
+
+- [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27) [#3255](https://github.com/twilio-labs/paste/pull/3255) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] paired iconography should be decorative and paired with visible, descriptive text
+
 ## 1.0.0
 
 ### Major Changes

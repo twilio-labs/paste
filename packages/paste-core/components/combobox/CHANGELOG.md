@@ -1,5 +1,11 @@
 # Change Log
 
+## 15.0.2
+
+### Patch Changes
+
+- [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] prevent selection of disabled items when using keyboard navigation and the enter key
+
 ## 15.0.1
 
 ### Patch Changes

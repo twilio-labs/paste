@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.2.1
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] update the `shadowFocusInverseInset` token in the `twilio` and `twilio-dark` themes
+
+* [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba) [#3279](https://github.com/twilio-labs/paste/pull/3279) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Make focus shadows in evergreen theme consistent by matching them to twilio theme
+
 ## 9.2.0
 
 ### Minor Changes
