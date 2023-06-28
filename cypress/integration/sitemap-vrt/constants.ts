@@ -63,6 +63,7 @@ export const SITEMAP = [
   '/components/paragraph/',
   '/components/popover/',
   '/components/product-switcher/',
+  '/components/progress-steps/',
   '/components/radio-group/',
   '/components/radio-button-group/',
   '/components/screen-reader-only/',

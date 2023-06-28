@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox Primitive] export new type `UseComboboxPrimitiveStateChangeOptions` to help type stateReducers
+
 ## 1.0.0
 
 ### Major Changes

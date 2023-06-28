@@ -28,6 +28,7 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           disabled={disabled}
           ref={ref}
           display="flex"
+          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"

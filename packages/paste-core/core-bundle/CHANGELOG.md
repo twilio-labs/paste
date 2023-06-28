@@ -1,5 +1,58 @@
 # Change Log
 
+## 19.3.0
+
+### Minor Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add SidebarNavigation and all relevant sub-components
+
+* [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986) [#3254](https://github.com/twilio-labs/paste/pull/3254) Thanks [@nkrantz](https://github.com/nkrantz)! - [User Dialog] create package
+
+- [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38) [#3272](https://github.com/twilio-labs/paste/pull/3272) Thanks [@TheSisb](https://github.com/TheSisb)! - [ProgressSteps] Add new ProgressSteps package. Progress steps show a user a clear path to complete a complex multi step task.
+
+* [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b) [#3271](https://github.com/twilio-labs/paste/pull/3271) Thanks [@TheSisb](https://github.com/TheSisb)! - [Chat Log] `useChatLogger` now exposes a `clear` function to clear all chats at once. Also, the animations have been slightly adjusted.
+
+- [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986) [#3254](https://github.com/twilio-labs/paste/pull/3254) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Separate user dialog into its own package
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Button] allow passing all style props to Button with variant="reset", effectively making it a Button primitive.
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codeblock] Update styles
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] update the `shadowFocusInverseInset` token in the `twilio` and `twilio-dark` themes
+
+* [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] prevent selection of disabled items when using keyboard navigation and the enter key
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add SidebarNavigation components
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Update styles
+
+- [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba) [#3279](https://github.com/twilio-labs/paste/pull/3279) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Make focus shadows in evergreen theme consistent by matching them to twilio theme
+
+* [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf) [#3261](https://github.com/twilio-labs/paste/pull/3261) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Typescript type improvements for Tr, Th, and Td elements
+
+- [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27) [#3255](https://github.com/twilio-labs/paste/pull/3255) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] paired iconography should be decorative and paired with visible, descriptive text
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Update styles
+
+- [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox Primitive] export new type `UseComboboxPrimitiveStateChangeOptions` to help type stateReducers
+
+- Updated dependencies [[`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986), [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b), [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986), [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba), [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf), [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553)]:
+  - @twilio-paste/button@13.0.3
+  - @twilio-paste/code-block@3.1.1
+  - @twilio-paste/sidebar@0.3.0
+  - @twilio-paste/user-dialog@1.0.0
+  - @twilio-paste/progress-steps@1.0.0
+  - @twilio-paste/design-tokens@9.2.1
+  - @twilio-paste/combobox@15.0.2
+  - @twilio-paste/topbar@0.2.0
+  - @twilio-paste/chat-log@4.1.0
+  - @twilio-paste/data-grid@7.0.1
+  - @twilio-paste/table@7.0.1
+  - @twilio-paste/status@1.0.1
+  - @twilio-paste/combobox-primitive@1.0.1
+
 ## 19.2.0
 
 ### Minor Changes

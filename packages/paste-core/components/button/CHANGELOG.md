@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.0.3
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Button] allow passing all style props to Button with variant="reset", effectively making it a Button primitive.
+
 ## 13.0.2
 
 ### Patch Changes

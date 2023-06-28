@@ -1,5 +1,15 @@
 # @twilio-paste/sidebar
 
+## 0.3.0
+
+### Minor Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add SidebarNavigation and all relevant sub-components
+
+### Patch Changes
+
+- [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Update styles
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 11.2.0
+
+### Minor Changes
+
+- [`93ba0eb8b`](https://github.com/twilio-labs/paste/commit/93ba0eb8be08538e817cb756e2dd5f6a1880a079) [#3289](https://github.com/twilio-labs/paste/pull/3289) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] add rich text editor icons and product unify icon
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] apply `flex-shrink: 0` to IconWrapper by default, as we never want icons to be compressed unexpectedly
+
 ## 11.1.0
 
 ### Minor Changes

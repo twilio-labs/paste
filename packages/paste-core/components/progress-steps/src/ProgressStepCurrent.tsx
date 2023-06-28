@@ -18,6 +18,7 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           ref={ref}
           aria-current="step"
           display="flex"
+          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"
@@ -35,7 +36,9 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
         >
           <ProgressCurrentIcon decorative={false} title={i18nCurrentLabel} />
-          <Box as="span">{children}</Box>
+          <Box as="span" textAlign="left">
+            {children}
+          </Box>
         </Box>
       </div>
     );
