@@ -35,7 +35,7 @@ import {SearchBox} from './components/SearchBox';
 import {SupportMenu} from './components/SupportMenu';
 import {NotificationsDialog} from './components/NotificationsDialog';
 import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialog';
+import {UserDialogExample} from './components/UserDialogSegment';
 import {WorkspaceSwitcherMenu} from './components/WorkspaceSwitcher';
 import {UpgradeBadge} from './components/UpgradeBadge';
 

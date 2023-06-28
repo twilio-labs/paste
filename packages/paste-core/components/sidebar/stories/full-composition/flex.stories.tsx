@@ -28,7 +28,7 @@ import {
 import {StatusMenuExample} from './components/StatusMenu';
 import {SupportMenu} from './components/SupportMenu';
 import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialog';
+import {UserDialogExample} from './components/UserDialogFlex';
 import {DebuggerAction} from './components/DebuggerAction';
 
 // eslint-disable-next-line import/no-default-export

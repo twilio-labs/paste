@@ -36,7 +36,7 @@ import {TrialBadge} from './components/TrialBadge';
 import {SearchBox} from './components/SearchBox';
 import {SupportMenu} from './components/SupportMenu';
 import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialog';
+import {UserDialogExample} from './components/UserDialogConsole';
 import {AccountMenu} from './components/AccountMenu';
 import {BillingMenu} from './components/BillingMenu';
 

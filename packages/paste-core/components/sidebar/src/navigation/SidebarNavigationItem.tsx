@@ -17,7 +17,7 @@ import {SidebarNavigationContext} from './SidebarNavigationContext';
 
 export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: ButtonProps['href'];
-  children: string;
+  children: React.ReactNode;
   element?: BoxProps['element'];
   selected?: boolean;
   icon?: React.ReactNode;

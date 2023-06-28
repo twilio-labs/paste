@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Sidebar',
   package: '@twilio-paste/sidebar',
-  description: 'Sidebar encapsulates navigation elements offering traversal throughout web applications.',
+  description: 'Sidebar contains navigation controls that rest on the left side of the screen.',
   slug: '/components/sidebar/',
 };
 
@@ -9,7 +9,23 @@ import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {SidebarHeader, SidebarBetaBadge, SidebarHeaderLabel, SidebarHeaderIconButton} from '@twilio-paste/sidebar';
+import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import {
+  SidebarBody,
+  SidebarHeader,
+  SidebarBetaBadge,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
+  SidebarFooter,
+  SidebarCollapseButton,
+  SidebarNavigation,
+  SidebarNavigationItem,
+  SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
+  SidebarNavigationDisclosureContent,
+} from '@twilio-paste/sidebar';
 import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
 
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -61,31 +77,19 @@ export const getStaticProps = async () => {
 
 ### About Sidebar
 
-The Sidebar component is a container that sits on the left side of the screen. It is meant to encapsulate app navigation.
-
-<Callout variant="warning" marginY="space70">
-  <CalloutHeading as="h4">Only use one Sidebar on a page</CalloutHeading>
-  <CalloutText>
-    We currenly only support having one Sidebar on a page. If you have questions, please post{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
-      a GitHub Discussion
-    </Anchor>
-    .
-  </CalloutText>
-</Callout>
+Sidebar contains app navigation. It sits on the left side of the screen.
 
 ### Accessibility
 
 The Sidebar follows these accessibility guidelines:
 
-- The `Sidebar` component is a nav element.
-- The `Sidebar` component must be provided an `aria-label` prop for screen reader software. `aria-label="Main`" is read as "Main Navigation", with the word "navigation" being pulled from the nav element.
-- The `SidebarCollapseButton` internally provides an `aria-controls` and `aria-expanded` HTML attribute that matches the `Sidebar` component.
-- The `SidebarCollapseButton` must always be used in tandem with the `Sidebar` component, otherwise there is no accessible `Sidebar` trigger for screen readers.
+- `Sidebar` is a navigation element. You must provide an `aria-label` prop for screen reader software. `aria-label="Main"` is read as "Main Navigation", with the word "navigation" being pulled from the navigation element.
+- `SidebarCollapseButton` provides `aria-controls` and `aria-expanded` HTML attributes that match `Sidebar`.
+- Always use `SidebarCollapseButton` with `Sidebar`. Otherwise there is no accessible `Sidebar` trigger for screen readers.
 
 ## Examples
 
-### The compact push Sidebar
+### Compact push Sidebar
 
 The compact "push" Sidebar moves the page content as it expands and collapses. The difference between it and the default variant is that it maintains a fixed, visible width when collapsed.
 
@@ -103,7 +107,7 @@ For most Twilio products, which are desktop experiences, we currently believe th
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-### The push Sidebar
+### Push Sidebar
 
 The "push" Sidebar moves the page content as it expands and collapses. The default variant hides completely on collapse. This can be a useful variant for responsive layouts, where screen real estate can be limited on smaller viewports.
 
@@ -115,7 +119,7 @@ The "push" Sidebar moves the page content as it expands and collapses. The defau
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-### The compact overlay Sidebar
+### Compact overlay Sidebar
 
 The "overlay" Sidebar sits on top of the page content as it expands and collapses. The compact variant maintains a fixed visible width on collapse.
 
@@ -129,7 +133,7 @@ A significant downside to the overlay Sidebar is that it can cover up or hide pa
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-### The overlay Sidebar
+### Overlay Sidebar
 
 The "overlay" Sidebar sits on top of the page content as it expands and collapses. The default variant hides completely on collapse.
 
@@ -164,12 +168,74 @@ The `SidebarHeaderLabel` should be used to display the name of the application t
 </Box>`}
 </LivePreview>
 
-### Sidebar Beta Badge
+### Sidebar Body
+
+The `SidebarBody` component is used to house the main content of the sidebar. Typically, this includes the Sidebar Navigation collection of components that can be used to compose your applications navigation structure.
+
+The `SidebarBody` should be place between the `SidebarHeader` and `SidebarFooter`, within the `Sidebar`.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    ProductHomeIcon,
+    ProductConnectionsIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+#### Sidebar Beta Badge
 
 The `SidebarBetaBadge` component is used to indicate that a product or feature is in beta. It should be used in conjunction with the Sidebar navigation items.
 
 <LivePreview scope={{SidebarBetaBadge}} language="jsx">
   {`<SidebarBetaBadge as="span">Beta</SidebarBetaBadge>`}
+</LivePreview>
+
+### Sidebar Footer
+
+The `SidebarFooter` is used to house the collapse feature of the Sidebar. It is anchored to the foot of the Sidebar and should contain the `SidebarCollapseButton` component.
+
+Use the `SidebarCollapseButton` to control the expand and collapse behavior of the Sidebar.
+
+<LivePreview scope={{Box, SidebarFooter, SidebarCollapseButton}} language="jsx">
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Box>`}
 </LivePreview>
 
 ## Usage Guide
@@ -191,6 +257,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
+  SidebarBody,
   SidebarFooter,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
@@ -202,22 +269,22 @@ const SideModalExample: React.FC = () => {
     <Box>
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label="Main" collapsed={pushSidebarCollapsed} variant="default">
-        <Stack orientation="vertical" spacing="space100">
-          <SidebarHeader>
-            <SidebarHeaderIconButton as="a" href="/">
-              <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-            </SidebarHeaderIconButton>
-            <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-          </SidebarHeader>
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="/">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
           <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-          <SidebarFooter>
-            <SidebarCollapseButton
-              onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
-              i18nCollapseLabel="Close sidebar"
-              i18nExpandLabel="Open sidebar"
-            />
-          </SidebarFooter>
-        </Stack>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -282,6 +349,13 @@ const SideModalExample: React.FC = () => {
 | `i18nExpandLabel`   | `string`          | A label for the expand trigger for screenreader software.                                 |                             |
 | `onClick?`          | `() => void`      |                                                                                           |                             |
 | `children?`         | `React.ReactNode` |                                                                                           |                             |
+
+##### SidebarBody
+
+| Prop        | Type              | Description                                                                               | Default          |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_BODY'` |
+| `children?` | `React.ReactNode` |                                                                                           |                  |
 
 ##### SidebarBetaBadge
 

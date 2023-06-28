@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "category": "layout",
   "status": "alpha",
-  "description": "Sidebar encapsulates key navigation items to enable page & product offering traversal throughout web applications.",
+  "description": "Sidebar contains navigation controls that rest on the left side of the screen.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
