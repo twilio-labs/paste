@@ -215,6 +215,7 @@
   "Select": "@twilio-paste/core/select",
   "SelectElement": "@twilio-paste/core/select",
   "Separator": "@twilio-paste/core/separator",
+  "AnimatedBox": "@twilio-paste/core/side-modal",
   "SideModal": "@twilio-paste/core/side-modal",
   "SideModalBody": "@twilio-paste/core/side-modal",
   "SideModalButton": "@twilio-paste/core/side-modal",
