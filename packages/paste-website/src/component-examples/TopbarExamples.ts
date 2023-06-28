@@ -30,7 +30,7 @@ const TopbarExample = () => {
           <Input placeholder="Search" insertBefore={<SearchIcon decorative/>}/>
         </Box>
         <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
-        <ProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
+        <ProductSwitcher {...productSwitcher} aria-label="Available products">
         <ProductSwitcherItem
             {...productSwitcher}
             name="product"
@@ -151,7 +151,7 @@ const ProductSwitcherMenu = () => {
     return (
       <>
         <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
-        <ProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
+        <ProductSwitcher {...productSwitcher} aria-label="Available products">
           <ProductSwitcherItem
             {...productSwitcher}
             name="product"
