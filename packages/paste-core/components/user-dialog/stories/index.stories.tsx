@@ -29,11 +29,11 @@ export default {
   title: 'Components/User Dialog',
 };
 
-export const BasicUserDialog: StoryFn = () => {
+export const BasicUserDialog: StoryFn = ({visible = true}) => {
   const id1 = useUID();
   const id2 = useUID();
   const id3 = useUID();
-  const userDialog = useUserDialogState({visible: true});
+  const userDialog = useUserDialogState({visible});
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
   return (
@@ -134,8 +134,8 @@ export const ImageUserDialog: StoryFn = () => {
   );
 };
 
-export const StateHookUserDialog: StoryFn = () => {
-  const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz', visible: true});
+export const StateHookUserDialog: StoryFn = ({visible = true}) => {
+  const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz', visible});
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
   const id1 = useUID();
@@ -243,7 +243,7 @@ export const CustomizedUserDialog: StoryFn = () => {
       }}
     >
       <Box display="flex" columnGap="space50">
-        <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
+        <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog" visible>
           <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
             <UserDialogUserInfo>
               <UserDialogUserName>Name</UserDialogUserName>
@@ -278,7 +278,7 @@ export const CustomizedUserDialog: StoryFn = () => {
             </UserDialogList>
           </UserDialog>
         </UserDialogContainer>
-        <UserDialogContainer name="User Name" icon={UserIcon} visible>
+        <UserDialogContainer name="User Name" icon={UserIcon}>
           <UserDialog element="FOO" aria-label="user menu">
             <UserDialogUserInfo element="FAZ">
               <UserDialogUserName element="BAR">Name</UserDialogUserName>

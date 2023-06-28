@@ -7,7 +7,7 @@ import {BasicUserDialog, StateHookUserDialog, CustomizedUserDialog} from '../sto
 describe('User Dialog', () => {
   describe('Render', () => {
     it('should render a user dialog button with aria attributes', async () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialogButton = screen.getByRole('button');
       const renderedUserDialog = screen.getByTestId('basic-user-dialog');
       expect(renderedUserDialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
@@ -22,7 +22,7 @@ describe('User Dialog', () => {
     });
 
     it('should render a user dialog', () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialog = screen.getByLabelText('user menu');
       expect(renderedUserDialog.getAttribute('role')).toEqual('dialog');
     });
@@ -35,7 +35,7 @@ describe('User Dialog', () => {
     });
 
     it('should focus the first list item on open', async () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialogButton = screen.getByRole('button');
       await waitFor(() => {
         userEvent.click(renderedUserDialogButton);
@@ -44,7 +44,7 @@ describe('User Dialog', () => {
     });
 
     it('should move focus with up and down keyboard navigation', async () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialogButton = screen.getByRole('button');
       userEvent.click(renderedUserDialogButton);
       userEvent.keyboard('{arrowdown}');
@@ -62,7 +62,7 @@ describe('User Dialog', () => {
     });
 
     it('should select the current option when enter is pressed', async () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialogButton = screen.getByRole('button');
       userEvent.click(renderedUserDialogButton);
       await waitFor(() => {
@@ -75,7 +75,7 @@ describe('User Dialog', () => {
     });
 
     it('should render a user dialog and show/hide on external button click', async () => {
-      render(<StateHookUserDialog />);
+      render(<StateHookUserDialog visible={false} />);
       const ButtonOne = screen.queryByTestId('show-button');
       const ButtonTwo = screen.queryByTestId('hide-button');
       const userDialog = screen.getByTestId('basic-user-dialog');
@@ -96,7 +96,7 @@ describe('User Dialog', () => {
     });
 
     it('should render an anchor when href is passed', async () => {
-      render(<BasicUserDialog />);
+      render(<BasicUserDialog visible={false} />);
       const renderedUserDialogButton = screen.getByRole('button');
       await waitFor(() => {
         userEvent.click(renderedUserDialogButton);
@@ -108,12 +108,8 @@ describe('User Dialog', () => {
 });
 
 describe('customization', () => {
-  it('User Dialog - should add custom styling correctly', async (): void => {
+  it('User Dialog - should add custom styling correctly', async () => {
     render(<CustomizedUserDialog />);
-    const theButton = screen.getAllByRole('button')[0];
-    await waitFor(() => {
-      userEvent.click(theButton);
-    });
 
     const renderedUserDialogButton = screen.getAllByRole('button')[0];
     const renderedUserDialogButtonContents = renderedUserDialogButton.firstElementChild?.firstElementChild;
