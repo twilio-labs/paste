@@ -5,7 +5,7 @@ const ProductSwitcherMenu = () => {
   return (
     <>
       <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
-      <ProductSwitcher {...productSwitcher} aria-label="Avaiable accounts">
+      <ProductSwitcher {...productSwitcher} aria-label="Available products">
         <ProductSwitcherItem
           {...productSwitcher}
           name="product"
