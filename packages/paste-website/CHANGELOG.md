@@ -1,5 +1,22 @@
 # @twilio-paste/website
 
+## 2.23.29
+
+### Patch Changes
+
+- Updated dependencies [[`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553), [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b), [`93ba0eb8b`](https://github.com/twilio-labs/paste/commit/93ba0eb8be08538e817cb756e2dd5f6a1880a079), [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba), [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf), [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981)]:
+  - @twilio-paste/button@13.0.3
+  - @twilio-paste/code-block@3.1.1
+  - @twilio-paste/progress-steps@1.0.0
+  - @twilio-paste/design-tokens@9.2.1
+  - @twilio-paste/combobox@15.0.2
+  - @twilio-paste/chat-log@4.1.0
+  - @twilio-paste/icons@11.2.0
+  - @twilio-paste/data-grid@7.0.1
+  - @twilio-paste/table@7.0.1
+  - @twilio-paste/status@1.0.1
+  - @twilio-paste/combobox-primitive@1.0.1
+
 ## 2.23.28
 
 ### Patch Changes

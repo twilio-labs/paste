@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 3.1.1
+
+### Patch Changes
+
+- [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codeblock] Update styles
+
 ## 3.1.0
 
 ### Minor Changes

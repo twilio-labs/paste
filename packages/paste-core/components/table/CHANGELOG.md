@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+- [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf) [#3261](https://github.com/twilio-labs/paste/pull/3261) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Typescript type improvements for Tr, Th, and Td elements
+
 ## 7.0.0
 
 ### Major Changes
