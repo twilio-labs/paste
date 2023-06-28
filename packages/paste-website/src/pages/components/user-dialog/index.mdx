@@ -1,7 +1,7 @@
 export const meta = {
   title: 'User Dialog',
   package: '@twilio-paste/user-dialog',
-  description: 'User dialog is an expandable menu that contains profile related actions.',
+  description: 'User dialog is a menu that contains user profile-related actions.',
   slug: '/components/user-dialog/',
 };
 
@@ -88,9 +88,7 @@ export const getStaticProps = async () => {
 
 ### About User Dialog
 
-A User Dialog is a composition of [Avatar](/components/avatar) and [Button](/components/button) that opens a dialog of items that trigger profile-related actions.
-
-A User Dialog item can be used to perform a single action, such as a page navigation or opening a modal. A profile-related action could be visiting a user settings page, switching the language of a product, or logging out.
+A User Dialog is a composition of [Avatar](/components/avatar), [Button](/components/button), the [Non-Modal Dialog primitive](/primitives/non-modal-dialog-primitive), and the [Listbox primitive](/primitives/listbox-primitive) that opens a dialog of profile-related actions. These actions can include visiting a user settings page, switching the language of a product, or logging out.
 
 ### Accessibility
 
