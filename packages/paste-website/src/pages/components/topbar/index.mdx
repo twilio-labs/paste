@@ -1,0 +1,158 @@
+export const meta = {
+  title: 'Topbar',
+  package: '@twilio-paste/topbar',
+  description: 'A Topbar contains application-wide controls that rest at the top of the screen.',
+  slug: '/components/topbar/',
+};
+
+import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Topbar} from '@twilio-paste/topbar';
+import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
+import {Badge} from '@twilio-paste/badge';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {
+  ProductSwitcher,
+  ProductSwitcherButton,
+  ProductSwitcherItem,
+  useProductSwitcherState,
+} from '@twilio-paste/product-switcher';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import packageJson from '@twilio-paste/topbar/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {defaultTopbarExample, emptyTopbarExample} from '../../../component-examples/TopbarExamples.ts';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Topbar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar"
+  storybookUrl="/?path=/story/components-topbar--"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    Topbar,
+    Box,
+    Input,
+    Menu,
+    MenuItem,
+    useMenuState,
+    MenuBadge,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    SearchIcon,
+  }}
+  noInline
+>
+  {defaultTopbarExample}
+</LivePreview>
+
+## Guidelines
+
+### About Topbar
+
+A Topbar is sticky to the top of the screen and consists of application-wide controls including:
+
+- [Account Switcher](/components/account-switcher)
+- Search [Input](/components/input)
+- [User Dialog](/components/user-dialog)
+- [Product Switcher](/components/product-switcher)
+
+## Examples
+
+Account-specific controls are aligned to the left, such as:
+
+- [Account Switcher](/components/account-switcher)
+- Account type indicators, such as subaccount [Badges](/components/badge)
+- Possible upgrade actions
+
+User-specific controls are aligned to the right, such as:
+
+- Search [Input](/components/input)
+- Support [Button](/components/button)
+- [Product Switcher](/components/product-switcher)
+- [User Dialog](/components/user-dialog)
+
+<LivePreview scope={{Topbar}} noInline>
+  {emptyTopbarExample}
+</LivePreview>
+
+## Usage guide
+
+### Figma
+
+Topbar, Account Switcher, Product Switcher, and User Dialog components are available in the Paste Components library as [Navigation components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&t=xcPacI1AN13MooNC-0).
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/topbar - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Topbar} from '@twilio-paste/core/topbar';
+
+const Topbar = () => {
+  return (
+    <Topbar>
+      {Topbar contents}
+    </Topbar>
+  );
+};
+```
+
+#### Topbar props
+
+| Prop      | Type              | Description                                                                               | Default  |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------- |
+| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.          |          |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'TOPBAR' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

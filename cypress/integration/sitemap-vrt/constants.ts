@@ -80,6 +80,8 @@ export const SITEMAP = [
   '/components/time-picker/',
   '/components/truncate/',
   '/components/tooltip/',
+  '/components/topbar',
+  '/components/user-dialog/',
   '/components/textarea/',
   '/core/changelog/',
   '/components/table/',
