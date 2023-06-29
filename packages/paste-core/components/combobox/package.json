@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox",
-  "version": "15.0.2",
+  "version": "15.0.3",
   "category": "user input",
   "status": "production",
   "description": "A Combobox is a styled dropdown form element that allows users to either type a value or select a value from a list.",
@@ -76,7 +76,7 @@
     "@twilio-paste/flex": "^7.0.0",
     "@twilio-paste/form-pill-group": "^7.0.0",
     "@twilio-paste/help-text": "^12.0.0",
-    "@twilio-paste/icons": "^11.2.0",
+    "@twilio-paste/icons": "^11.2.1",
     "@twilio-paste/input": "^8.0.0",
     "@twilio-paste/input-box": "^9.0.0",
     "@twilio-paste/label": "^12.0.1",

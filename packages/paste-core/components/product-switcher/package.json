@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/product-switcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "navigation",
   "status": "production",
   "description": "A product switcher is an opinionated menu that presents a list of twilio products that a user has access to and can switch between.",
@@ -62,7 +62,7 @@
     "@twilio-paste/color-contrast-utils": "^4.0.0",
     "@twilio-paste/customization": "^7.0.0",
     "@twilio-paste/design-tokens": "^9.2.0",
-    "@twilio-paste/icons": "^11.1.0",
+    "@twilio-paste/icons": "^11.2.1",
     "@twilio-paste/media-object": "^9.0.0",
     "@twilio-paste/menu": "^13.1.0",
     "@twilio-paste/menu-primitive": "^1.0.1",

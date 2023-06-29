@@ -1,5 +1,11 @@
 # @twilio-paste/topbar
 
+## 0.2.1
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Topbar] Update to the size of the User Dialog trigger for better alignment with other topbar related components
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @twilio-paste/side-modal
 
+## 3.1.0
+
+### Minor Changes
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Add new prop `hideOnEsc` which enables closing the SideModal when the "Escape" keyboard key is pressed
+
+### Patch Changes
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Fix to correctly focus the close button when the SideModal first opens
+
 ## 3.0.1
 
 ### Patch Changes
