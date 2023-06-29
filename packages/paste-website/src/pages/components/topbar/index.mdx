@@ -7,8 +7,15 @@ export const meta = {
 
 import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Topbar} from '@twilio-paste/topbar';
-import {Menu, MenuItem, useMenuState, MenuBadge} from '@twilio-paste/menu';
+import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import {Menu, MenuItem, MenuButton, useMenuState, MenuBadge} from '@twilio-paste/menu';
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItemChild,
+  StatusMenuItemRadio,
+  useStatusMenuState,
+} from '@twilio-paste/status';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
@@ -19,14 +26,32 @@ import {
   ProductSwitcherItem,
   useProductSwitcherState,
 } from '@twilio-paste/product-switcher';
+import {ProductDebuggerIcon} from '@twilio-paste/icons/esm/ProductDebuggerIcon';
+import {Button} from '@twilio-paste/button';
+import {
+  UserDialog,
+  UserDialogContainer,
+  UserDialogList,
+  UserDialogListItem,
+  UserDialogSeparator,
+  UserDialogUserEmail,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  useUserDialogListState,
+} from '@twilio-paste/user-dialog';
+import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
+import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
+import {LogOutIcon} from '@twilio-paste/icons/esm/LogOutIcon';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import packageJson from '@twilio-paste/topbar/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {defaultTopbarExample, emptyTopbarExample} from '../../../component-examples/TopbarExamples.ts';
+import {basicTopbarExample, flexTopbarExample} from '../../../component-examples/TopbarExamples.ts';
 
 export default DefaultLayout;
 
@@ -62,10 +87,12 @@ export const getStaticProps = async () => {
 <LivePreview
   scope={{
     Topbar,
+    TopbarActions,
     Box,
     Input,
     Menu,
     MenuItem,
+    MenuButton,
     useMenuState,
     MenuBadge,
     Badge,
@@ -78,10 +105,31 @@ export const getStaticProps = async () => {
     ProductFlexIcon,
     ProductEmailAPIIcon,
     SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
   }}
   noInline
 >
-  {defaultTopbarExample}
+  {basicTopbarExample}
 </LivePreview>
 
 ## Guidelines
@@ -108,10 +156,12 @@ User-specific controls (aligned to the right) such as:
 <LivePreview
   scope={{
     Topbar,
+    TopbarActions,
     Box,
     Input,
     Menu,
     MenuItem,
+    MenuButton,
     useMenuState,
     MenuBadge,
     Badge,
@@ -124,11 +174,88 @@ User-specific controls (aligned to the right) such as:
     ProductFlexIcon,
     ProductEmailAPIIcon,
     SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
   }}
   noInline
 >
-  {defaultTopbarExample}
+  {basicTopbarExample}
 </LivePreview>
+
+## Composition notes
+
+### Topbar for Twilio Flex
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+  }}
+  noInline
+>
+  {flexTopbarExample}
+</LivePreview>
+
+### Topbar for Twilio Segment
+
+### Topbar for Twilio Console
 
 ## Usage guide
 
