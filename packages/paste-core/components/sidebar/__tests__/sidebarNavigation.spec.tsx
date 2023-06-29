@@ -15,7 +15,7 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarBetaBadge,
   SidebarNavigation,
@@ -40,13 +40,14 @@ const MockPushSidebarWithNavigation = ({
     <Theme.Provider theme="twilio">
       <Sidebar aria-label="Main" collapsed={collapsed} variant="compact">
         <SidebarHeader>
-          <SidebarHeaderIconButton>
+          <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarNavigation data-testid="nav-wrapper">
           <SidebarNavigationItem
+            href="https://google.com"
             data-testid="nav-item-button"
             onClick={onClick}
             icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
@@ -55,7 +56,6 @@ const MockPushSidebarWithNavigation = ({
           </SidebarNavigationItem>
           <SidebarNavigationItem
             data-testid="nav-item-anchor"
-            as="a"
             href="https://google.com"
             selected
             icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
@@ -66,7 +66,7 @@ const MockPushSidebarWithNavigation = ({
             <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading selected data-testid="nav-item-disclosure-heading">
                 <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                <Box marginLeft="space20">Heading</Box>
+                Heading
               </SidebarNavigationDisclosureHeading>
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
@@ -98,27 +98,31 @@ const MockPushSidebarWithNavigation = ({
                 <SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureHeading selected>
                     <ProductContactCenterTasksIcon decorative={false} title="Description of icon" />
-                    <Box marginLeft="space20">Heading</Box>
+                    Heading
                   </SidebarNavigationDisclosureHeading>
                   <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
                 </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem selected>Navigation Item</SidebarNavigationItem>
-                  <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://google.com" selected>
+                    Navigation Item
+                  </SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
               </SidebarNavigationDisclosure>
-              <SidebarNavigationItem onClick={onClick}>Navigation Item</SidebarNavigationItem>
-              <SidebarNavigationItem as="a" href="https://google.com" selected>
+              <SidebarNavigationItem href="https://google.com" onClick={onClick}>
                 Navigation Item
               </SidebarNavigationItem>
-              <SidebarNavigationItem>Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com" selected>
+                Navigation Item
+              </SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
             </SidebarNavigationDisclosureContent>
           </SidebarNavigationDisclosure>
         </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        <SidebarFooter>
           <SidebarCollapseButton onClick={onClick} i18nCollapseLabel="Close sidebar" i18nExpandLabel="Open sidebar" />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -222,22 +226,24 @@ describe('SidebarNavigation', () => {
         >
           <Sidebar aria-label="main" variant="compact" data-testid="aaa">
             <SidebarNavigation data-testid="nav-wrapper">
-              <SidebarNavigationItem as="a" href="http://www.google.com" selected>
+              <SidebarNavigationItem href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>
-              <SidebarNavigationItem as="a" href="http://www.google.com">
-                AnchorItem
-              </SidebarNavigationItem>
-              <SidebarNavigationItem onClick={() => {}} selected>
+              <SidebarNavigationItem href="http://www.google.com">AnchorItem</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com" onClick={() => {}} selected>
                 ButtonItem Selected
               </SidebarNavigationItem>
-              <SidebarNavigationItem onClick={() => {}}>ButtonItem</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com" onClick={() => {}}>
+                ButtonItem
+              </SidebarNavigationItem>
               <SidebarNavigationDisclosure data-testid="disclosure">
                 <SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureHeading>Heading</SidebarNavigationDisclosureHeading>
                 </SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureContent data-testid="disclosure-content">
-                  <SidebarNavigationItem onClick={() => {}}>Content Button Item</SidebarNavigationItem>
+                  <SidebarNavigationItem href="https://google.com" onClick={() => {}}>
+                    Content Button Item
+                  </SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
               </SidebarNavigationDisclosure>
             </SidebarNavigation>
@@ -246,19 +252,19 @@ describe('SidebarNavigation', () => {
       );
       const nav = screen.getByTestId('nav-wrapper');
       const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByText('Heading');
+      const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByText('ButtonItem').parentElement?.parentElement;
-      const anchorItem = screen.getByText('AnchorItem').parentElement?.parentElement;
+      const buttonItem = screen.getByRole('link', {name: 'ButtonItem'});
+      const anchorItem = screen.getByRole('link', {name: 'AnchorItem'});
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureHeadingWrapper).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureHeading).toHaveStyleRule('margin', '2.25rem');
       expect(disclosureContent).toHaveStyleRule('margin', '2.25rem');
-      expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
       expect(anchorItem).toHaveStyleRule('margin', '2.25rem');
+      expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
     });
 
     it('should work with custom element values', () => {
@@ -279,16 +285,21 @@ describe('SidebarNavigation', () => {
         >
           <Sidebar aria-label="main" variant="compact" data-testid="aaa">
             <SidebarNavigation element="NAVIGATION" data-testid="nav-wrapper">
-              <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" as="a" href="http://www.google.com" selected>
+              <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>
-              <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" as="a" href="http://www.google.com">
+              <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" href="http://www.google.com">
                 AnchorItem
               </SidebarNavigationItem>
-              <SidebarNavigationItem element="NAVIGATION_ITEM_BUTTON" onClick={() => {}} selected>
+              <SidebarNavigationItem
+                href="https://google.com"
+                element="NAVIGATION_ITEM_BUTTON"
+                onClick={() => {}}
+                selected
+              >
                 ButtonItem Selected
               </SidebarNavigationItem>
-              <SidebarNavigationItem element="NAVIGATION_ITEM_BUTTON" onClick={() => {}}>
+              <SidebarNavigationItem href="https://google.com" element="NAVIGATION_ITEM_BUTTON" onClick={() => {}}>
                 ButtonItem
               </SidebarNavigationItem>
               <SidebarNavigationDisclosure element="NAVIGATION_DISCLOSURE" data-testid="disclosure">
@@ -301,7 +312,7 @@ describe('SidebarNavigation', () => {
                   element="NAVIGATION_DISCLOSURE_CONTENT"
                   data-testid="disclosure-content"
                 >
-                  <SidebarNavigationItem element="NAVIGATION_ITEM" onClick={() => {}}>
+                  <SidebarNavigationItem href="https://google.com" element="NAVIGATION_ITEM" onClick={() => {}}>
                     Content Button Item
                   </SidebarNavigationItem>
                 </SidebarNavigationDisclosureContent>
@@ -312,11 +323,11 @@ describe('SidebarNavigation', () => {
       );
       const nav = screen.getByTestId('nav-wrapper');
       const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByText('Heading');
+      const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByText('ButtonItem').parentElement?.parentElement;
-      const anchorItem = screen.getByText('AnchorItem').parentElement?.parentElement;
+      const buttonItem = screen.getByRole('link', {name: 'ButtonItem'});
+      const anchorItem = screen.getByRole('link', {name: 'AnchorItem'});
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');

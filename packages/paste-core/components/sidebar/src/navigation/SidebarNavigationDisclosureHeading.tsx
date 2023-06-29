@@ -17,10 +17,11 @@ export interface SidebarNavigationDisclosureHeadingProps extends React.Component
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   selected?: boolean;
+  icon?: React.ReactNode;
 }
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
-  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, ...props}, ref) => {
+  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, icon, ...props}, ref) => {
     const [shouldIconMove, setShouldIconMove] = React.useState(false);
     const {nested} = React.useContext(SidebarNavigationDisclosureContext);
     const isExpanded = props['aria-expanded'];
@@ -38,9 +39,9 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
       >
         <Box
           as="span"
-          element={`${element}_ICON`}
+          element={`${element}_EXPAND_ICON`}
           display="flex"
-          color="colorTextInverseWeak"
+          color="colorTextIconInverse"
           height="sizeIcon20"
           width="sizeIcon20"
           transition="transform 150ms ease"
@@ -50,7 +51,10 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         >
           <ChevronDisclosureIcon color="inherit" decorative size="sizeIcon20" />
         </Box>
-        {children}
+        {icon ? icon : null}
+        <Box as="span" display="block" marginLeft="space20">
+          {children}
+        </Box>
       </Box>
     );
   }

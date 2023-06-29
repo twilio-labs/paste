@@ -56,6 +56,7 @@ export interface UserDialogContextProps {
 export interface UserDialogListProps extends ListboxPrimitiveProps {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
+  ['aria-label']: string;
 }
 
 export interface UserDialogListboxProps extends React.HTMLAttributes<HTMLDivElement> {

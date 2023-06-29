@@ -278,6 +278,12 @@ export const ComboboxAutocomplete: StoryFn = () => {
 
 ComboboxAutocomplete.storyName = 'Combobox - Autocomplete';
 
+export const ComboboxHiddenLabel: StoryFn = () => {
+  return <Combobox items={items} labelText="Choose a component:" hideVisibleLabel helpText="This is the help text" />;
+};
+
+ComboboxHiddenLabel.storyName = 'Combobox - Non-visble label';
+
 export const ComboboxRequired: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
 };

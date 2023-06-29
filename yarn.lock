@@ -10620,7 +10620,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^19.3.0
+    "@twilio-paste/core": ^19.4.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -10661,7 +10661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox@^15.0.2, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
+"@twilio-paste/combobox@^15.0.3, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
@@ -10678,7 +10678,7 @@ __metadata:
     "@twilio-paste/flex": ^7.0.0
     "@twilio-paste/form-pill-group": ^7.0.0
     "@twilio-paste/help-text": ^12.0.0
-    "@twilio-paste/icons": ^11.2.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/input": ^8.0.0
     "@twilio-paste/input-box": ^9.0.0
     "@twilio-paste/label": ^12.0.1
@@ -10739,7 +10739,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^19.0.0, @twilio-paste/core@^19.3.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^19.0.0, @twilio-paste/core@^19.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
@@ -10764,7 +10764,7 @@ __metadata:
     "@twilio-paste/clipboard-copy-library": ^2.0.0
     "@twilio-paste/code-block": ^3.1.1
     "@twilio-paste/color-contrast-utils": ^4.0.0
-    "@twilio-paste/combobox": ^15.0.2
+    "@twilio-paste/combobox": ^15.0.3
     "@twilio-paste/combobox-primitive": ^1.0.1
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/data-grid": ^7.0.1
@@ -10786,7 +10786,7 @@ __metadata:
     "@twilio-paste/grid": ^7.0.0
     "@twilio-paste/heading": ^10.0.0
     "@twilio-paste/help-text": ^12.0.1
-    "@twilio-paste/icons": ^11.2.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/in-page-navigation": ^3.0.1
     "@twilio-paste/inline-code": ^3.0.1
     "@twilio-paste/inline-control-group": ^12.0.0
@@ -10806,7 +10806,7 @@ __metadata:
     "@twilio-paste/pagination": ^6.0.1
     "@twilio-paste/paragraph": ^9.0.0
     "@twilio-paste/popover": ^12.0.0
-    "@twilio-paste/product-switcher": ^1.0.0
+    "@twilio-paste/product-switcher": ^1.0.1
     "@twilio-paste/progress-steps": ^1.0.0
     "@twilio-paste/radio-button-group": ^3.0.0
     "@twilio-paste/radio-group": ^12.0.0
@@ -10816,8 +10816,8 @@ __metadata:
     "@twilio-paste/select": ^11.0.2
     "@twilio-paste/separator": ^7.0.0
     "@twilio-paste/sibling-box": ^8.0.0
-    "@twilio-paste/side-modal": ^3.0.1
-    "@twilio-paste/sidebar": ^0.3.0
+    "@twilio-paste/side-modal": ^3.1.0
+    "@twilio-paste/sidebar": ^0.3.1
     "@twilio-paste/skeleton-loader": ^5.0.0
     "@twilio-paste/spinner": ^13.0.0
     "@twilio-paste/stack": ^7.0.0
@@ -10836,11 +10836,11 @@ __metadata:
     "@twilio-paste/toast": ^11.0.0
     "@twilio-paste/tooltip": ^10.0.1
     "@twilio-paste/tooltip-primitive": ^1.0.0
-    "@twilio-paste/topbar": ^0.2.0
+    "@twilio-paste/topbar": ^0.2.1
     "@twilio-paste/truncate": ^13.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@twilio-paste/user-dialog": ^1.0.0
+    "@twilio-paste/user-dialog": ^1.0.1
     "@twilio-paste/utils": ^4.0.0
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -11628,7 +11628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@11.2.0, @twilio-paste/icons@^11.0.0, @twilio-paste/icons@^11.1.0, @twilio-paste/icons@^11.2.0, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@11.2.1, @twilio-paste/icons@^11.0.0, @twilio-paste/icons@^11.1.0, @twilio-paste/icons@^11.2.0, @twilio-paste/icons@^11.2.1, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
@@ -12408,7 +12408,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/product-switcher@1.0.0, @twilio-paste/product-switcher@^1.0.0, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
+"@twilio-paste/product-switcher@1.0.1, @twilio-paste/product-switcher@^1.0.1, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher"
   dependencies:
@@ -12420,7 +12420,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.2.0
-    "@twilio-paste/icons": ^11.1.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/media-object": ^9.0.0
     "@twilio-paste/menu": ^13.1.0
     "@twilio-paste/menu-primitive": ^1.0.1
@@ -12825,7 +12825,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/side-modal@^3.0.1, @twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal":
+"@twilio-paste/side-modal@^3.1.0, @twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/side-modal@workspace:packages/paste-core/components/side-modal"
   dependencies:
@@ -12837,7 +12837,7 @@ __metadata:
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.0.3
     "@twilio-paste/heading": ^10.0.0
-    "@twilio-paste/icons": ^11.0.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/non-modal-dialog-primitive": ^1.0.0
     "@twilio-paste/reakit-library": ^1.0.0
     "@twilio-paste/screen-reader-only": ^12.0.0
@@ -12883,7 +12883,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/sidebar@^0.3.0, @twilio-paste/sidebar@workspace:packages/paste-core/components/sidebar":
+"@twilio-paste/sidebar@^0.3.1, @twilio-paste/sidebar@workspace:packages/paste-core/components/sidebar":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/sidebar@workspace:packages/paste-core/components/sidebar"
   dependencies:
@@ -12896,7 +12896,7 @@ __metadata:
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.2.1
     "@twilio-paste/disclosure-primitive": ^1.0.0
-    "@twilio-paste/icons": ^11.2.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/reakit-library": ^1.0.0
     "@twilio-paste/screen-reader-only": ^12.0.0
     "@twilio-paste/spinner": ^13.0.0
@@ -13638,7 +13638,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/topbar@^0.2.0, @twilio-paste/topbar@workspace:packages/paste-core/components/topbar":
+"@twilio-paste/topbar@^0.2.1, @twilio-paste/topbar@workspace:packages/paste-core/components/topbar":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/topbar@workspace:packages/paste-core/components/topbar"
   dependencies:
@@ -13650,7 +13650,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.2.1
-    "@twilio-paste/icons": ^11.2.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/listbox-primitive": ^2.0.0
     "@twilio-paste/media-object": ^9.0.0
     "@twilio-paste/non-modal-dialog-primitive": ^1.0.0
@@ -13767,7 +13767,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/user-dialog@^1.0.0, @twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog":
+"@twilio-paste/user-dialog@^1.0.1, @twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog"
   dependencies:
@@ -13779,7 +13779,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^4.0.0
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/design-tokens": ^9.2.1
-    "@twilio-paste/icons": ^11.2.0
+    "@twilio-paste/icons": ^11.2.1
     "@twilio-paste/listbox-primitive": ^2.0.0
     "@twilio-paste/media-object": ^9.0.0
     "@twilio-paste/non-modal-dialog-primitive": ^1.0.0
@@ -13895,7 +13895,7 @@ __metadata:
     "@twilio-paste/clipboard-copy-library": ^2.0.0
     "@twilio-paste/code-block": ^3.1.1
     "@twilio-paste/color-contrast-utils": ^4.0.0
-    "@twilio-paste/combobox": ^15.0.2
+    "@twilio-paste/combobox": ^15.0.3
     "@twilio-paste/combobox-primitive": ^1.0.1
     "@twilio-paste/customization": ^7.0.0
     "@twilio-paste/data-grid": ^7.0.1
@@ -13917,7 +13917,7 @@ __metadata:
     "@twilio-paste/grid": ^7.0.0
     "@twilio-paste/heading": ^10.0.0
     "@twilio-paste/help-text": ^12.0.1
-    "@twilio-paste/icons": 11.2.0
+    "@twilio-paste/icons": 11.2.1
     "@twilio-paste/in-page-navigation": ^3.0.1
     "@twilio-paste/inline-code": ^3.0.1
     "@twilio-paste/inline-control-group": ^12.0.0
@@ -13937,7 +13937,7 @@ __metadata:
     "@twilio-paste/pagination": ^6.0.0
     "@twilio-paste/paragraph": ^9.0.0
     "@twilio-paste/popover": ^12.0.0
-    "@twilio-paste/product-switcher": 1.0.0
+    "@twilio-paste/product-switcher": 1.0.1
     "@twilio-paste/progress-steps": ^1.0.0
     "@twilio-paste/radio-button-group": ^3.0.0
     "@twilio-paste/radio-group": ^12.0.0
@@ -13947,7 +13947,8 @@ __metadata:
     "@twilio-paste/select": ^11.0.2
     "@twilio-paste/separator": ^7.0.0
     "@twilio-paste/sibling-box": ^8.0.0
-    "@twilio-paste/side-modal": ^3.0.1
+    "@twilio-paste/side-modal": ^3.1.0
+    "@twilio-paste/sidebar": ^0.3.1
     "@twilio-paste/skeleton-loader": ^5.0.0
     "@twilio-paste/spinner": ^13.0.0
     "@twilio-paste/stack": ^7.0.0
@@ -13966,11 +13967,11 @@ __metadata:
     "@twilio-paste/toast": ^11.0.0
     "@twilio-paste/tooltip": ^10.0.0
     "@twilio-paste/tooltip-primitive": ^1.0.0
-    "@twilio-paste/topbar": ^0.2.0
+    "@twilio-paste/topbar": ^0.2.1
     "@twilio-paste/truncate": ^13.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
-    "@twilio-paste/user-dialog": ^1.0.0
+    "@twilio-paste/user-dialog": ^1.0.1
     "@twilio-paste/utils": ^4.0.0
     "@types/airtable": ^0.10.1
     "@types/gtag.js": ^0.0.12

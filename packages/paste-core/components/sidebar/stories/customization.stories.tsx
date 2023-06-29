@@ -14,16 +14,16 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarPushContentWrapper,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
-  SidebarNavigation,
+  SidebarBody,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/Customization',
+  title: 'Components/Sidebar/Sidebar/Customization',
 };
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
@@ -48,7 +48,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         SIDEBAR_HEADER_LABEL: {
           fontWeight: 'fontWeightNormal',
         },
-        SIDEBAR_COLLAPSE_BUTTON_WRAPPER: {
+        SIDEBAR_FOOTER: {
           boxShadow: 'shadowBorder',
         },
         SIDEBAR_COLLAPSE_BUTTON: {
@@ -70,21 +70,21 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
           <SidebarHeader>
-            <SidebarHeaderIconButton>
+            <SidebarHeaderIconButton as="button">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
-          <SidebarNavigation>
+          <SidebarBody>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-          </SidebarNavigation>
-          <SidebarCollapseButtonWrapper>
+          </SidebarBody>
+          <SidebarFooter>
             <SidebarCollapseButton
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Sidebar>
 
         {/* Must wrap content area */}
@@ -145,24 +145,24 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
         {/* Can be placed anywhere - position fixed */}
         <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
           <SidebarHeader element="SIDECAR_HEADER">
-            <SidebarHeaderIconButton element="SIDECAR_HEADER_ICON_BUTTON">
+            <SidebarHeaderIconButton as="button" element="SIDECAR_HEADER_ICON_BUTTON">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
-          <SidebarNavigation element="SIDECAR_NAVIGATION">
+          <SidebarBody element="SIDECAR_NAVIGATION">
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>
-          </SidebarNavigation>
-          <SidebarCollapseButtonWrapper element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
+          </SidebarBody>
+          <SidebarFooter element="SIDECAR_COLLAPSE_BUTTON_WRAPPER">
             <SidebarCollapseButton
               element="SIDECAR_COLLAPSE_BUTTON"
               onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
               i18nCollapseLabel="Close sidebar"
               i18nExpandLabel="Open sidebar"
             />
-          </SidebarCollapseButtonWrapper>
+          </SidebarFooter>
         </Sidebar>
 
         {/* Must wrap content area */}

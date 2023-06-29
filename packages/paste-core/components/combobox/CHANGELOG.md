@@ -1,5 +1,11 @@
 # Change Log
 
+## 15.0.3
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox]: ability to have a truly visually hidden label for search comboboxes
+
 ## 15.0.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @twilio-paste/sidebar
 
+## 0.3.1
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarBetaBadge` no longer passes `onClick` when `as="span"`. Other miscellaneous typescript fixes.
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] Style updates to the Sidebar navigation components
+
 ## 0.3.0
 
 ### Minor Changes
@@ -28,7 +36,7 @@
 
 ### Minor Changes
 
-- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarCollapseButtonWrapper` components. Renamed ContentWrappers
+- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarFooter` components. Renamed ContentWrappers
 
 * [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add new Sidebar component with several variant styles
 

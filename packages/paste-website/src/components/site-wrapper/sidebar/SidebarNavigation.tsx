@@ -344,6 +344,30 @@ const SidebarNavigation = (): JSX.Element => {
                 </NavigationDisclosure>
               );
             }
+            if (name === 'Sidebar') {
+              return (
+                <NavigationDisclosure
+                  buttonText={name}
+                  categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                  key={slug}
+                  level={1}
+                  onClick={() =>
+                    event({
+                      category: 'Left Navigation',
+                      action: `click-${name}`,
+                      label: name,
+                    })
+                  }
+                >
+                  <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar`}>
+                    Sidebar
+                  </SidebarAnchor>
+                  <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`}>
+                    Sidebar Navigation
+                  </SidebarAnchor>
+                </NavigationDisclosure>
+              );
+            }
             return (
               <SidebarAnchor level={1} href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
                 {name}

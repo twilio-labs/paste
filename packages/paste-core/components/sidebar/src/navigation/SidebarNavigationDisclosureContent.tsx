@@ -23,9 +23,9 @@ const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, Side
         {...safelySpreadBoxProps(props)}
         as={Box}
         element={element}
-        paddingLeft="space60"
+        paddingLeft="space70"
         color="colorTextInverseWeak"
-        marginTop="space30"
+        marginTop="space20"
         ref={ref}
       >
         {children}
