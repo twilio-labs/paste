@@ -51,6 +51,7 @@ export interface ComboboxProps
   variant?: InputVariants;
   disabledItems?: any[];
   emptyState?: React.FC;
+  hideVisibleLabel?: boolean;
 
   // Downshift useCombobox Hook Props. Thes are mainly covered in https://github.com/downshift-js/downshift/blob/master/src/hooks/useCombobox/README.md#advanced-props docs
   initialIsOpen?: UseComboboxPrimitiveProps<any>['initialIsOpen'];
@@ -92,6 +93,8 @@ export interface MultiselectComboboxProps
     | 'getA11yStatusMessage'
     | 'getA11ySelectionMessage'
     | 'state'
+    // until such time as we have a usecase for hidden multi-select comboboxes
+    | 'hideVisibleLabel'
   > {
   initialSelectedItems?: any[];
   onSelectedItemsChange?: (newSelectedItems: any[]) => void;

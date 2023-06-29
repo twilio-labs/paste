@@ -13948,6 +13948,7 @@ __metadata:
     "@twilio-paste/separator": ^7.0.0
     "@twilio-paste/sibling-box": ^8.0.0
     "@twilio-paste/side-modal": ^3.0.1
+    "@twilio-paste/sidebar": ^0.3.0
     "@twilio-paste/skeleton-loader": ^5.0.0
     "@twilio-paste/spinner": ^13.0.0
     "@twilio-paste/stack": ^7.0.0

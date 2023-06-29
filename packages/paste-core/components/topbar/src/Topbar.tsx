@@ -24,6 +24,10 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(({element = 
       paddingY="space60"
       position="sticky"
       top="0"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      zIndex="zIndex10"
     >
       {children}
     </Box>

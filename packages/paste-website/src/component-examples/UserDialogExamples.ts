@@ -7,18 +7,17 @@ const UserDialogExample = () => {
     const id3 = useUID();
     return (
         <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
-          <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+          <UserDialog aria-label="user menu">
             <UserDialogUserInfo>
               <UserDialogUserName>Name</UserDialogUserName>
               <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList} data-testid="user-dialog-listbox">
+            <UserDialogList {...userDialogList} aria-label="User menu actions">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1}
                 selected={selected === id1}
                 onSelect={() => setSelected(id1)}
-                data-testid="FIRST_ITEM"
               >
                 <UserIcon decorative />
                 Item
@@ -29,7 +28,6 @@ const UserDialogExample = () => {
                 key={id2}
                 selected={selected === id2}
                 onSelect={() => setSelected(id2)}
-                data-testid="SECOND_ITEM"
                 href="https://www.google.com"
               >
                 <UserIcon decorative />
@@ -41,7 +39,6 @@ const UserDialogExample = () => {
                 key={id3}
                 selected={selected === id3}
                 onSelect={() => setSelected(id3)}
-                data-testid="THIRD_ITEM"
               >
                 <ThemeIcon decorative />
                 <Box width="100%" display="flex" justifyContent="space-between">
@@ -80,18 +77,17 @@ const UserDialogExample = () => {
     const id3 = useUID();
     return (
         <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog" src="/images/avatars/avatar3.png" >
-          <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+          <UserDialog aria-label="user menu">
             <UserDialogUserInfo>
               <UserDialogUserName>Name</UserDialogUserName>
               <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList} data-testid="user-dialog-listbox">
+            <UserDialogList {...userDialogList} aria-label="User menu actions">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1}
                 selected={selected === id1}
                 onSelect={() => setSelected(id1)}
-                data-testid="FIRST_ITEM"
               >
                 <UserIcon decorative />
                 Item
@@ -102,7 +98,6 @@ const UserDialogExample = () => {
                 key={id2}
                 selected={selected === id2}
                 onSelect={() => setSelected(id2)}
-                data-testid="SECOND_ITEM"
                 href="https://www.google.com"
               >
                 <UserIcon decorative />
@@ -114,7 +109,6 @@ const UserDialogExample = () => {
                 key={id3}
                 selected={selected === id3}
                 onSelect={() => setSelected(id3)}
-                data-testid="THIRD_ITEM"
               >
                 <ThemeIcon decorative />
                 <Box width="100%" display="flex" justifyContent="space-between">

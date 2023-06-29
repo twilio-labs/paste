@@ -40,6 +40,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       disabled,
       element = 'COMBOBOX',
       hasError,
+      hideVisibleLabel,
       helpText,
       initialSelectedItem,
       disabledItems,
@@ -145,9 +146,11 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
-        <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
-          {labelText}
-        </Label>
+        {!hideVisibleLabel && (
+          <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
+            {labelText}
+          </Label>
+        )}
         <InputBox
           disabled={disabled}
           element={element}
@@ -165,6 +168,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
+              aria-label={hideVisibleLabel ? labelText : null}
               element={`${element}_ELEMENT`}
             />
             {!autocomplete && (

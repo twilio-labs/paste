@@ -1,5 +1,4 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {ThemeShape} from '@twilio-paste/theme';
 
 /*
  * Disclosure Heading styles
@@ -20,8 +19,7 @@ export const sidebarNavigationLabelStyles: BoxProps = {
   outline: 'none',
   paddingY: 'space30',
   position: 'relative',
-  role: 'button',
-  zIndex: 'zIndex10',
+  textDecoration: 'none',
   _focus: {
     boxShadow: 'shadowFocusInverseInset',
   },
@@ -49,27 +47,29 @@ export const sidebarNavigationItemStyles: BoxProps = {
   background: 'none',
   border: 'none',
   outline: 'none',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
   overflow: 'hidden',
   paddingLeft: 'space30',
   paddingRight: 'space30',
   marginBottom: 'space30',
+  columnGap: 'space30',
   _hover: {
     textDecoration: 'underline',
   },
 };
 
+// hierarchical item styles
+export const sidebarNavigationItemHierarchicalStyles: BoxProps = {
+  paddingLeft: 'space70',
+};
 // Nested item styles
-export const sidebarNavigationItemNestedStyles: (theme: ThemeShape) => BoxProps = (theme) => ({
-  ...sidebarNavigationItemStyles,
+export const sidebarNavigationItemNestedStyles: BoxProps = {
   paddingY: 'space20',
-  fontSize: 'fontSize20',
   flexGrow: 1,
-  marginLeft: 'spaceNegative60',
-  width: `calc(100% + ${theme.space.space60})`,
+  width: '100%',
+  fontSize: 'fontSize20',
+  marginBottom: 'space20',
   paddingLeft: 'space60',
-});
+};
 
 // Collapsed item styles
 export const sidebarNavigationItemCollapsedStyles: BoxProps = {

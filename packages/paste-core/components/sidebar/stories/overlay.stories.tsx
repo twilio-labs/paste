@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import {useUID} from '@twilio-paste/uid-library';
 
@@ -12,15 +12,15 @@ import {
   SidebarHeaderLabel,
   SidebarHeaderIconButton,
   SidebarCollapseButton,
-  SidebarCollapseButtonWrapper,
+  SidebarFooter,
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
-  SidebarNavigation,
+  SidebarBody,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/Overlay',
+  title: 'Components/Sidebar/Sidebar/Overlay',
 };
 
 export const Default: StoryFn = () => {
@@ -32,21 +32,21 @@ export const Default: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="default">
         <SidebarHeader>
-          <SidebarHeaderIconButton>
-            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          <SidebarHeaderIconButton as="a" href="#">
+            <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
-          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation>
+        <SidebarBody>
           <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-        </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        </SidebarBody>
+        <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}
@@ -71,21 +71,21 @@ export const Compact: StoryFn = () => {
       {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
         <SidebarHeader>
-          <SidebarHeaderIconButton>
-            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          <SidebarHeaderIconButton as="a" href="#">
+            <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
-          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+          <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation>
+        <SidebarBody>
           <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
-        </SidebarNavigation>
-        <SidebarCollapseButtonWrapper>
+        </SidebarBody>
+        <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
-        </SidebarCollapseButtonWrapper>
+        </SidebarFooter>
       </Sidebar>
 
       {/* Must wrap content area */}

@@ -29,11 +29,11 @@ export default {
   title: 'Components/User Dialog',
 };
 
-export const BasicUserDialog: StoryFn = () => {
+export const BasicUserDialog: StoryFn = ({visible = true}) => {
   const id1 = useUID();
   const id2 = useUID();
   const id3 = useUID();
-  const userDialog = useUserDialogState();
+  const userDialog = useUserDialogState({visible});
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
   return (
@@ -43,7 +43,7 @@ export const BasicUserDialog: StoryFn = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList} data-testid="user-dialog-listbox">
+        <UserDialogList {...userDialogList} aria-label="User menu actions" data-testid="user-dialog-listbox">
           <UserDialogListItem
             {...userDialogList}
             key={id1}
@@ -104,40 +104,38 @@ export const ImageUserDialog: StoryFn = () => {
   const id1 = useUID();
   const id2 = useUID();
   return (
-    <Box backgroundColor="colorBackgroundBrandHighlightWeakest" padding="space60">
-      <UserDialogContainer name="User Name" src="./avatars/avatar-sizeIcon10.png" baseId="i-am-user-dialog">
-        <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
-          <UserDialogUserInfo>
-            <UserDialogUserName>Name</UserDialogUserName>
-            <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
-          </UserDialogUserInfo>
-          <UserDialogList {...userDialogList}>
-            <UserDialogListItem
-              {...userDialogList}
-              key={id1}
-              selected={selected === id1}
-              onSelect={() => setSelected(id1)}
-            >
-              Item1
-            </UserDialogListItem>
-            <UserDialogListItem
-              {...userDialogList}
-              href="https://www.google.com"
-              key={id2}
-              selected={selected === id2}
-              onSelect={() => setSelected(id2)}
-            >
-              Item2
-            </UserDialogListItem>
-          </UserDialogList>
-        </UserDialog>
-      </UserDialogContainer>
-    </Box>
+    <UserDialogContainer name="User Name" src="./avatars/avatar-sizeIcon10.png" baseId="i-am-user-dialog" visible>
+      <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
+        <UserDialogUserInfo>
+          <UserDialogUserName>Name</UserDialogUserName>
+          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+        </UserDialogUserInfo>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
+          <UserDialogListItem
+            {...userDialogList}
+            key={id1}
+            selected={selected === id1}
+            onSelect={() => setSelected(id1)}
+          >
+            Item1
+          </UserDialogListItem>
+          <UserDialogListItem
+            {...userDialogList}
+            href="https://www.google.com"
+            key={id2}
+            selected={selected === id2}
+            onSelect={() => setSelected(id2)}
+          >
+            Item2
+          </UserDialogListItem>
+        </UserDialogList>
+      </UserDialog>
+    </UserDialogContainer>
   );
 };
 
-export const StateHookUserDialog: StoryFn = () => {
-  const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz'});
+export const StateHookUserDialog: StoryFn = ({visible = true}) => {
+  const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz', visible});
   const userDialogList = useUserDialogListState();
   const [selected, setSelected] = React.useState('');
   const id1 = useUID();
@@ -169,7 +167,7 @@ export const StateHookUserDialog: StoryFn = () => {
             <UserDialogUserName>Name</UserDialogUserName>
             <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
           </UserDialogUserInfo>
-          <UserDialogList {...userDialogList}>
+          <UserDialogList {...userDialogList} aria-label="User menu actions">
             <UserDialogListItem
               {...userDialogList}
               key={id1}
@@ -245,13 +243,13 @@ export const CustomizedUserDialog: StoryFn = () => {
       }}
     >
       <Box display="flex" columnGap="space50">
-        <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
+        <UserDialogContainer name="User Name" icon={UserIcon} baseId="i-am-user-dialog" visible>
           <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
             <UserDialogUserInfo>
               <UserDialogUserName>Name</UserDialogUserName>
               <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList}>
+            <UserDialogList {...userDialogList} aria-label="User menu actions">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1a}
@@ -286,7 +284,7 @@ export const CustomizedUserDialog: StoryFn = () => {
               <UserDialogUserName element="BAR">Name</UserDialogUserName>
               <UserDialogUserEmail element="BAZ">email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList} element="FOO">
+            <UserDialogList {...userDialogList} aria-label="User menu actions" element="FOO">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1b}
