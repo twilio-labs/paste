@@ -1,5 +1,18 @@
 # @twilio-paste/website
 
+## 2.23.30
+
+### Patch Changes
+
+- Updated dependencies [[`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`cc840e4aa`](https://github.com/twilio-labs/paste/commit/cc840e4aa0f83922d80ace5acfa6fe409c98216a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a)]:
+  - @twilio-paste/product-switcher@1.0.1
+  - @twilio-paste/side-modal@3.1.0
+  - @twilio-paste/icons@11.2.1
+  - @twilio-paste/user-dialog@1.0.1
+  - @twilio-paste/sidebar@0.3.1
+  - @twilio-paste/topbar@0.2.1
+  - @twilio-paste/combobox@15.0.3
+
 ## 2.23.29
 
 ### Patch Changes

@@ -1,5 +1,37 @@
 # Change Log
 
+## 19.4.0
+
+### Minor Changes
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Add new prop `hideOnEsc` which enables closing the SideModal when the "Escape" keyboard key is pressed
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Product Switcher] minor change to the size of the trigger button
+
+* [`cc840e4aa`](https://github.com/twilio-labs/paste/commit/cc840e4aa0f83922d80ace5acfa6fe409c98216a) [#3298](https://github.com/twilio-labs/paste/pull/3298) Thanks [@nkrantz](https://github.com/nkrantz)! - [User dialog] add zindex so menu overlays the page its on
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarBetaBadge` no longer passes `onClick` when `as="span"`. Other miscellaneous typescript fixes.
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [User Dialog] ensure the user dialog list is correctly labelled for accessibility reasons
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] Style updates to the Sidebar navigation components
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Topbar] Update to the size of the User Dialog trigger for better alignment with other topbar related components
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Fix to correctly focus the close button when the SideModal first opens
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox]: ability to have a truly visually hidden label for search comboboxes
+
+* Updated dependencies [[`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`cc840e4aa`](https://github.com/twilio-labs/paste/commit/cc840e4aa0f83922d80ace5acfa6fe409c98216a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a)]:
+  - @twilio-paste/product-switcher@1.0.1
+  - @twilio-paste/side-modal@3.1.0
+  - @twilio-paste/user-dialog@1.0.1
+  - @twilio-paste/sidebar@0.3.1
+  - @twilio-paste/topbar@0.2.1
+  - @twilio-paste/combobox@15.0.3
+
 ## 19.3.0
 
 ### Minor Changes

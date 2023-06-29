@@ -1,5 +1,13 @@
 # @twilio-paste/sidebar
 
+## 0.3.1
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarBetaBadge` no longer passes `onClick` when `as="span"`. Other miscellaneous typescript fixes.
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] Style updates to the Sidebar navigation components
+
 ## 0.3.0
 
 ### Minor Changes
