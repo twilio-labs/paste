@@ -27,7 +27,7 @@ export const UserDialogExample: React.FC = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList}>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
           <UserDialogListItem {...userDialogList}>
             <UserIcon decorative />
             User settings

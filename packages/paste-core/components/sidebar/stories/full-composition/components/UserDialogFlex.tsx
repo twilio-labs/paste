@@ -13,7 +13,6 @@ import {
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
 import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
-import {CodeIcon} from '@twilio-paste/icons/esm/CodeIcon';
 import {LogOutIcon} from '@twilio-paste/icons/esm/LogOutIcon';
 import {Box} from '@twilio-paste/box';
 import {Badge} from '@twilio-paste/badge';
@@ -27,7 +26,7 @@ export const UserDialogExample: React.FC = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList}>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
           <UserDialogListItem {...userDialogList}>
             <UserIcon decorative />
             User settings

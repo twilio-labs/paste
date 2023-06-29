@@ -43,7 +43,7 @@ export const BasicUserDialog: StoryFn = ({visible = true}) => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList} data-testid="user-dialog-listbox">
+        <UserDialogList {...userDialogList} aria-label="User menu actions" data-testid="user-dialog-listbox">
           <UserDialogListItem
             {...userDialogList}
             key={id1}
@@ -110,7 +110,7 @@ export const ImageUserDialog: StoryFn = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList}>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
           <UserDialogListItem
             {...userDialogList}
             key={id1}
@@ -167,7 +167,7 @@ export const StateHookUserDialog: StoryFn = ({visible = true}) => {
             <UserDialogUserName>Name</UserDialogUserName>
             <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
           </UserDialogUserInfo>
-          <UserDialogList {...userDialogList}>
+          <UserDialogList {...userDialogList} aria-label="User menu actions">
             <UserDialogListItem
               {...userDialogList}
               key={id1}
@@ -249,7 +249,7 @@ export const CustomizedUserDialog: StoryFn = () => {
               <UserDialogUserName>Name</UserDialogUserName>
               <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList}>
+            <UserDialogList {...userDialogList} aria-label="User menu actions">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1a}
@@ -284,7 +284,7 @@ export const CustomizedUserDialog: StoryFn = () => {
               <UserDialogUserName element="BAR">Name</UserDialogUserName>
               <UserDialogUserEmail element="BAZ">email@email.com</UserDialogUserEmail>
             </UserDialogUserInfo>
-            <UserDialogList {...userDialogList} element="FOO">
+            <UserDialogList {...userDialogList} aria-label="User menu actions" element="FOO">
               <UserDialogListItem
                 {...userDialogList}
                 key={id1b}

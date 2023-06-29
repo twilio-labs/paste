@@ -61,26 +61,32 @@ export const Flex: StoryFn = () => {
             </SidebarNavigationItem>
             <SidebarNavigationItem
               href="https://google.com"
-              icon={<ProductContactCenterTasksIcon decorative title="Agent dashboard" />}
+              icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
             >
               Agent dashboard
             </SidebarNavigationItem>
             <SidebarNavigationItem
               href="https://google.com"
-              icon={<ProductContactCenterTeamsIcon decorative title="Teams view" />}
+              icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
             >
               Teams view
             </SidebarNavigationItem>
             <SidebarNavigationItem
               href="https://google.com"
-              icon={<ProductContactCenterQueuesIcon decorative title="Queue stats" />}
+              icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
             >
               Queue stats
             </SidebarNavigationItem>
-            <SidebarNavigationItem href="https://google.com" icon={<ProductPrivacyIcon decorative title="Privacy" />}>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+            >
               Privacy
             </SidebarNavigationItem>
-            <SidebarNavigationItem href="https://google.com" icon={<ProductUsageIcon decorative title="Insights" />}>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductUsageIcon decorative={false} title="Insights" />}
+            >
               Insights
             </SidebarNavigationItem>
           </SidebarNavigation>

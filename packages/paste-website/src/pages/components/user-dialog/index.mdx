@@ -160,7 +160,7 @@ const UserDialog = () => {
           <UserDialogUserName>Name</UserDialogUserName>
           <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
         </UserDialogUserInfo>
-        <UserDialogList {...userDialogList}>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
           <UserDialogListItem {...userDialogList} onSelect={() => {}}>One</UserDialogListItem>
           <UserDialogListItem {...userDialogList} href="www.#.com"}>Two</UserDialogListItem>
         </UserDialogList>
@@ -211,10 +211,11 @@ const UserDialog = () => {
 
 #### UserDialogList props
 
-| Prop     | Type              | Description                                                                               | Default            |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children | `React.ReactNode` |                                                                                           |                    |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST' |
+| Prop       | Type              | Description                                                                               | Default            |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| children   | `React.ReactNode` |                                                                                           |                    |
+| element?   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST' |
+| aria-label | `string`          | Description of the list                                                                   |                    |
 
 #### UserDialogListItem props
 
