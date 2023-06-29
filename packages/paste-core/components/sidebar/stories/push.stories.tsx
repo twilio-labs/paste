@@ -14,7 +14,6 @@ import {
   SidebarCollapseButton,
   SidebarFooter,
   SidebarPushContentWrapper,
-  SidebarBetaBadge,
   SidebarBody,
 } from '../src';
 
@@ -37,9 +36,7 @@ export const Default: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody>
-          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-        </SidebarBody>
+        <SidebarBody></SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -70,7 +67,6 @@ export const Compact: StoryFn = () => {
 
   return (
     <Box>
-      {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
@@ -78,9 +74,7 @@ export const Compact: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody>
-          <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
-        </SidebarBody>
+        <SidebarBody></SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -89,8 +83,6 @@ export const Compact: StoryFn = () => {
           />
         </SidebarFooter>
       </Sidebar>
-
-      {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Box padding="space70">
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
