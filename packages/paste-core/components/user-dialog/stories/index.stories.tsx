@@ -82,7 +82,6 @@ export const BasicUserDialog: StoryFn = ({visible = true}) => {
               </Badge>
             </Box>
           </UserDialogListItem>
-          <UserDialogSeparator />
           <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
             <TranslationIcon decorative />
             <Box width="100%" display="flex" justifyContent="space-between">

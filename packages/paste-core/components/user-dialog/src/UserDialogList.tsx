@@ -14,6 +14,7 @@ const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProp
         element={`${element}_LIST`}
         backgroundColor="colorBackgroundBody"
         borderRadius="borderRadius30"
+        paddingY="space30"
         ref={ref}
       >
         {props.children}
