@@ -192,9 +192,9 @@ export const Console: StoryFn = () => {
           </TopbarActions>
           <TopbarActions justify="end">
             <SearchBox />
-            <SupportMenu />
             <AccountMenu />
             <BillingMenu />
+            <SupportMenu />
             <AppSwitcher />
             <UserDialogExample />
           </TopbarActions>
