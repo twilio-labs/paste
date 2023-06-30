@@ -28,6 +28,7 @@ const ProductSupportIcon = React.forwardRef<HTMLElement, ProductSupportIconProps
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
+          fill="none"
           viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
@@ -35,7 +36,8 @@ const ProductSupportIcon = React.forwardRef<HTMLElement, ProductSupportIconProps
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M15.657 4.343A8 8 0 114.343 15.657 8 8 0 0115.657 4.343zm-9.34 4.095L4.102 6.226a7.01 7.01 0 000 7.55l2.214-2.213a4.013 4.013 0 010-3.125zm7.457 7.459l-2.212-2.213a4.013 4.013 0 01-3.124 0l-2.212 2.213a7.01 7.01 0 007.548 0zm-1.653-8.018A3 3 0 107.88 12.12 3 3 0 0012.12 7.88zM6.225 4.104l2.212 2.213a4.013 4.013 0 013.126 0l2.212-2.213a7.01 7.01 0 00-7.31-.147l-.24.147zm9.672 2.122l-2.213 2.212a4.013 4.013 0 010 3.125l2.212 2.212a7.01 7.01 0 00.001-7.55z"
+            d="M1.4 10a8.6 8.6 0 1117.2 0 8.6 8.6 0 01-17.2 0zM10 2.6a7.4 7.4 0 100 14.8 7.4 7.4 0 000-14.8zm.23 3.713a2.01 2.01 0 00-2.239 2v.6l-1.2.002v-.6a3.21 3.21 0 113.903 3.13l-.013.002a.1.1 0 00-.081.096v.957H9.4v-.97a1.301 1.301 0 011.04-1.258 2.01 2.01 0 00-.21-3.959zm-1.003 8.139a.774.774 0 111.548 0 .774.774 0 01-1.548 0z"
+            clipRule="evenodd"
           />
         </svg>
       </IconWrapper>
