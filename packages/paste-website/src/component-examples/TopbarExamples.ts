@@ -256,6 +256,7 @@ const TopbarExample = () => {
   const userDialogList = useUserDialogListState();
 
   return (
+    <Box minWidth="size70">
       <Topbar>
         <TopbarActions justify="start">
           <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={availability.variant}>
@@ -434,6 +435,7 @@ const TopbarExample = () => {
           </UserDialogContainer>
         </TopbarActions>
       </Topbar>
+    </Box>
   )
 }
 render(
@@ -457,6 +459,7 @@ const TopbarExample = () => {
   const userDialogList = useUserDialogListState();
 
   return (
+    <Box minWidth="size100">
       <Topbar>
         <TopbarActions justify="start">
           <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
@@ -671,6 +674,7 @@ const TopbarExample = () => {
           </UserDialogContainer>
         </TopbarActions>
       </Topbar>
+    </Box>
   )
 }
 render(
@@ -694,6 +698,7 @@ const TopbarExample = () => {
   const userDialogList = useUserDialogListState();
 
   return (
+    <Box minWidth="size80">
       <Topbar>
         <TopbarActions justify="start">
           <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
@@ -873,6 +878,7 @@ const TopbarExample = () => {
           </UserDialogContainer>
         </TopbarActions>
       </Topbar>
+    </Box>
   )
 }
 render(
