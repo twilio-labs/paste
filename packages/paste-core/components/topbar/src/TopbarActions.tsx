@@ -19,7 +19,7 @@ const TopbarActions = React.forwardRef<HTMLDivElement, TopbarActionsProps>(
         flexShrink={justify === 'start' ? null : 0}
         flexWrap="wrap"
         flexGrow={1}
-        columnGap={justify === 'start' ? 'space30' : 'space50'}
+        columnGap="space50"
         element={element}
         alignItems="center"
         ref={ref}
