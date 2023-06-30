@@ -6,6 +6,7 @@ import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import type {BoxProps} from '@twilio-paste/box';
 import {useTheme} from '@twilio-paste/theme';
 
+import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
 import {
   sidebarNavigationLabelStyles,
@@ -22,10 +23,26 @@ export interface SidebarNavigationDisclosureHeadingProps extends React.Component
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, icon, ...props}, ref) => {
+    const {collapsed, variant} = React.useContext(SidebarContext);
     const [shouldIconMove, setShouldIconMove] = React.useState(false);
     const {nested} = React.useContext(SidebarNavigationDisclosureContext);
     const isExpanded = props['aria-expanded'];
     const theme = useTheme();
+    const isCompact = variant === 'compact';
+    const [visible, setVisible] = React.useState(!isCompact ? true : !isExpanded);
+    const timeout = React.useRef(0);
+
+    React.useEffect(() => {
+      clearTimeout(timeout.current);
+      // If not compact mode, we don't show/hide item titles
+      if (!isCompact) {
+        return;
+      }
+      // @ts-expect-error timeout is a number
+      timeout.current = setTimeout(() => {
+        setVisible(!collapsed);
+      }, 120);
+    }, [collapsed, isCompact]);
 
     return (
       <Box
@@ -52,8 +69,16 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
           <ChevronDisclosureIcon color="inherit" decorative size="sizeIcon20" />
         </Box>
         {icon ? icon : null}
-        <Box as="span" display="block" marginLeft="space20">
-          {children}
+        <Box
+          as="span"
+          display="block"
+          marginLeft="space20"
+          transition="all 120ms ease"
+          float={visible ? 'none' : 'left'}
+          opacity={visible ? 1 : 0}
+          whiteSpace={visible ? 'normal' : 'nowrap'}
+        >
+          {collapsed ? null : children}
         </Box>
       </Box>
     );

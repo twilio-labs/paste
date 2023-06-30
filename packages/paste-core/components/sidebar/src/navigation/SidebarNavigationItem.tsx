@@ -25,9 +25,26 @@ export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLAnc
 
 const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigationItemProps>(
   ({element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props}, ref) => {
-    const {collapsed} = React.useContext(SidebarContext);
+    const {collapsed, variant} = React.useContext(SidebarContext);
     const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
     const {hideItemsOnCollapse, hierarchical} = React.useContext(SidebarNavigationContext);
+    const isCompact = variant === 'compact';
+    const [visible, setVisible] = React.useState(!isCompact ? true : !collapsed);
+    const timeout = React.useRef(0);
+
+    React.useEffect(() => {
+      clearTimeout(timeout.current);
+      // If not compact mode, we don't show/hide item titles
+      if (!isCompact) {
+        return;
+      }
+
+      // @ts-expect-error timeout is a number
+      timeout.current = setTimeout(() => {
+        setVisible(!collapsed);
+      }, 120);
+    }, [collapsed, isCompact]);
+
     // If there is any disclosure context, that indicates that this component is nested
     const isNested = disclosure != null;
 
@@ -39,6 +56,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
         display: collapsed && hideItemsOnCollapse ? 'none' : 'flex',
+        width: collapsed ? '36px' : '100%',
       }),
       [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical]
     );
@@ -55,7 +73,16 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         <Box as="span" color={selected ? 'colorTextInverse' : 'colorTextIconInverse'}>
           {icon}
         </Box>
-        {collapsed ? null : children}
+        <Box
+          as="span"
+          display="block"
+          transition="all 120ms ease"
+          float={visible ? 'none' : 'left'}
+          opacity={visible ? 1 : 0}
+          whiteSpace={visible ? 'normal' : 'nowrap'}
+        >
+          {collapsed ? null : children}
+        </Box>
       </Box>
     );
   }
