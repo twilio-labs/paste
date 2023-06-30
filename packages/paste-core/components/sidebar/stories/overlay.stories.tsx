@@ -35,7 +35,7 @@ export const Default: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody></SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
@@ -72,7 +72,7 @@ export const Compact: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody></SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
           <Box padding="space70">
             <SidebarCollapseButton

@@ -36,7 +36,7 @@ export const Default: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody></SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -74,7 +74,7 @@ export const Compact: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody></SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
