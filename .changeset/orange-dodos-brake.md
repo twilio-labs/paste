@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Topbar] fix column gap in topbar actions
+[Topbar] style adjustment to the column-gap in TopbarActions
