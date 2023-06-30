@@ -14,7 +14,6 @@ import {
   SidebarCollapseButton,
   SidebarFooter,
   SidebarOverlayContentWrapper,
-  SidebarBetaBadge,
   SidebarBody,
 } from '../src';
 
@@ -29,7 +28,6 @@ export const Default: StoryFn = () => {
 
   return (
     <Box>
-      {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="default">
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
@@ -37,9 +35,7 @@ export const Default: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody>
-          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-        </SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
@@ -48,12 +44,12 @@ export const Default: StoryFn = () => {
           />
         </SidebarFooter>
       </Sidebar>
-
-      {/* Must wrap content area */}
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default">
-        <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-          Toggle Overlay Sidebar
-        </Button>
+        <Box padding="space70">
+          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+            Toggle Overlay Sidebar
+          </Button>
+        </Box>
       </SidebarOverlayContentWrapper>
     </Box>
   );
@@ -76,15 +72,15 @@ export const Compact: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody>
-          <SidebarBetaBadge as="button">Beta</SidebarBetaBadge>
-        </SidebarBody>
+        <SidebarBody />
         <SidebarFooter>
-          <SidebarCollapseButton
-            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
-            i18nCollapseLabel="Close sidebar"
-            i18nExpandLabel="Open sidebar"
-          />
+          <Box padding="space70">
+            <SidebarCollapseButton
+              onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+              i18nCollapseLabel="Close sidebar"
+              i18nExpandLabel="Open sidebar"
+            />
+          </Box>
         </SidebarFooter>
       </Sidebar>
 

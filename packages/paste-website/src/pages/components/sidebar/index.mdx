@@ -65,13 +65,32 @@ export const getStaticProps = async () => {
 
 <content>
 
-<iframe
-  src="https://codesandbox.io/embed/sidebar-push-variant-default-55wkwx?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
-  title="Sidebar Push variant=default"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<StoryPreview
+  title="Compact push Sidebar example"
+  storyID="components-sidebar-sidebar-push--compact"
+  code={`
+<Sidebar aria-label={id} collapsed={true} variant="compact">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
 
 ## Guidelines
 
@@ -99,25 +118,64 @@ For most Twilio products, which are desktop experiences, we currently believe th
   <CalloutText>This is the variant that the Paste team recommends in most Twilio applications.</CalloutText>
 </Callout>
 
-<iframe
-  src="https://codesandbox.io/embed/sidebar-push-variant-compact-j7d2yr?fontsize=14&hidenavigation=1&theme=dark"
-  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
-  title="Sidebar Push variant=compact"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<StoryPreview
+  title="Compact push Sidebar example"
+  storyID="components-sidebar-sidebar-push--compact"
+  code={`
+<Sidebar aria-label={id} collapsed={true} variant="compact">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
 
 ### Push Sidebar
 
 The "push" Sidebar moves the page content as it expands and collapses. The default variant hides completely on collapse. This can be a useful variant for responsive layouts, where screen real estate can be limited on smaller viewports.
 
-<iframe
-  src="https://codesandbox.io/embed/sidebar-push-variant-default-55wkwx?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
-  title="Sidebar Push variant=default"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<StoryPreview
+  title="Push Sidebar example"
+  storyID="components-sidebar-sidebar-push--default"
+  code={`
+<Sidebar aria-label={id} collapsed={false} variant="default">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={false} variant="default">
+  <Box padding="space70">
+    <Button variant="primary">
+      Toggle Push Sidebar
+    </Button>
+  </Box>
+</SidebarPushContentWrapper>`}
+/>
 
 ### Compact overlay Sidebar
 
@@ -125,25 +183,65 @@ The "overlay" Sidebar sits on top of the page content as it expands and collapse
 
 A significant downside to the overlay Sidebar is that it can cover up or hide page content, which can result in a poor user experience for some users, particularly those with low vision or cognitive disabilities. If you choose to use this option in your application, you should carefully weigh up the accessibility challenges you might introduce to some Twilio customers against your desired experience and use case.
 
-<iframe
-  src="https://codesandbox.io/embed/sidebar-overlay-variant-compact-i9gbf7?fontsize=14&hidenavigation=1&theme=dark"
-  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
-  title="Sidebar Overlay variant=compact"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<StoryPreview
+  title="Compact overlay Sidebar example"
+  storyID="components-sidebar-sidebar-overlay--compact"
+  code={`
+<Sidebar aria-label={id} collapsed={true} variant="compact">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <Box padding="space70">
+      <SidebarCollapseButton
+        i18nCollapseLabel="Close sidebar"
+        i18nExpandLabel="Open sidebar"
+      />
+    </Box>
+  </SidebarFooter>
+</Sidebar>
+<SidebarOverlayContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Overlay Sidebar
+  </Button>
+</SidebarOverlayContentWrapper>`}
+/>
 
 ### Overlay Sidebar
 
 The "overlay" Sidebar sits on top of the page content as it expands and collapses. The default variant hides completely on collapse.
 
-<iframe
-  src="https://codesandbox.io/embed/sidebar-overlay-variant-default-i4ktck?fontsize=14&hidenavigation=1&theme=dark"
-  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
-  title="Sidebar Overlay variant=default"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<StoryPreview
+  title="Overlay Sidebar example"
+  storyID="components-sidebar-sidebar-overlay--default"
+  code={`
+<Sidebar aria-label={id} collapsed={false} variant="default">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarOverlayContentWrapper collapsed={false} variant="default">
+  <Box padding="space70">
+    <Button variant="primary">
+      Toggle Overlay Sidebar
+    </Button>
+  </Box>
+</SidebarOverlayContentWrapper>`}
+/>
 
 ## Composition notes
 

@@ -24,6 +24,7 @@ import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {PageAside} from '../shortcodes/PageAside';
 import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
+import {StoryPreview} from '../shortcodes/StoryPreview';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
 import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
 import {NormalizedComponentHeader} from '../shortcodes/normalized-component-header';
@@ -54,6 +55,7 @@ const shortcodes = {
   ArticleContent,
   ArticleAside,
   NormalizedComponentHeader,
+  StoryPreview,
 };
 
 const MDXPoviderComponents = {
