@@ -1,0 +1,849 @@
+export const meta = {
+  title: 'Sidebar Navigation',
+  package: '@twilio-paste/sidebar',
+  description:
+    'Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application.',
+  slug: '/components/sidebar-navigation/',
+};
+
+import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
+import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
+import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
+import {ProductContactCenterTeamsIcon} from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
+import {ProductContactCenterQueuesIcon} from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
+import {ProductUsageIcon} from '@twilio-paste/icons/esm/ProductUsageIcon';
+import {ProductMessagingIcon} from '@twilio-paste/icons/esm/ProductMessagingIcon';
+import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
+import {ProductLookupIcon} from '@twilio-paste/icons/esm/ProductLookupIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
+import {
+  SidebarBody,
+  SidebarHeader,
+  SidebarBetaBadge,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
+  SidebarFooter,
+  SidebarCollapseButton,
+  SidebarNavigation,
+  SidebarNavigationItem,
+  SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
+  SidebarNavigationDisclosureContent,
+  SidebarNavigationSeparator,
+  useSidebarNavigationDisclosureState,
+} from '@twilio-paste/sidebar';
+import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/sidebar/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {navigationActions, navigationStateHook} from '../../../component-examples/SidebarNavigationExamples.ts';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sidebar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar"
+  storybookUrl="?path=/story/components-sidebar-navigation--default"
+  description={meta.description}
+  data={props.data}
+  name="Sidebar Navigation"
+  description="Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application."
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    SidebarBetaBadge,
+    ProductHomeIcon,
+    ProductConnectionsIcon,
+    ProductReverseETLIcon,
+    ProductPrivacyIcon,
+    ProductProtocolsIcon,
+    ProductEngageIcon,
+    ProductSettingsIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
+            Reverse ETL
+          </SidebarNavigationDisclosureHeading>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+            Privacy
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
+            Protocols
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
+            Enagage
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
+            Settings
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+## Guidelines
+
+### About Sidebar Navigation
+
+Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application. The Navigation components are presentational and can be used to composed the simplest, or most complex navigation structures with deep nesting.
+
+The maximum depth that we would recommend is three levels deep. You might consider using [In-page Navigation](/components/in-page-navigation) beyond that point.
+
+### Accessibility
+
+When nested, the Sidebar Navigation is implemented using the [Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+
+- Additional controls or actions should be implemented as siblings to each `SidebarNavigationItem` in the navigation. Do not nest actions inside a navigation item.
+- Each `SidebarNavigationItem` should implement an anchor element, by setting a valid url as the `href` value.
+- A `selected` `SidebarNavigationItem` will be annotated as the "current page" via `aria-current="page"`.
+
+## Examples
+
+### Flat
+
+In its simplest form, the Sidebar Navigation can be used to create a simple, flat list of navigation items. This is ideal for smaller applications, or a single product with a very specific use case.
+
+Each `SidebarNavigationItem` must have an `href` provided, a valid url that the user will navigate to. This allows people to open links in a new tab by pressed cmd/ctrl and clicking, or right clicking on the item. It also ensures the correct keyboard navigation becomes available to keyboard only users.
+
+To provide an icon to the `SidebarNavigationItem`, set the `icon` property value to any valid [Paste Icon](/components/icons).
+
+To highlight the current page, set `selected` on the item that represents where the user currently is in the application.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    ProductHomeIcon,
+    ProductContactCenterAdminIcon,
+    ProductContactCenterTasksIcon,
+    ProductContactCenterTeamsIcon,
+    ProductContactCenterQueuesIcon,
+    ProductPrivacyIcon,
+    ProductUsageIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation>
+      <SidebarNavigationItem
+        href="https://google.com"
+        selected
+        icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+      >
+        Admin
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
+      >
+        Agent dashboard
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
+      >
+        Teams view
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
+      >
+        Queue stats
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+      >
+        Privacy
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductUsageIcon decorative={false} title="Insights" />}
+      >
+        Insights
+      </SidebarNavigationItem>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+### Hierarchical
+
+Sidebar Navigation also comes with the ability to create some information architecture hierarchy, using nested disclosures. You also have the ability to create "groups" of navigation section by using the `SidebarNavigationSeparator` placed between two or more groups of items.
+
+Each `SidebarNavigationDisclosure` composes a heading with content. `SidebarNavigationDisclosureHeading` takes a string as content and describes the navigation items beneath it in the hierarchy. A `SidebarNavigationDisclosureHeading` must not contain clickable actions. If you would like to pair additional actions to a parent navigation item, see the [Navigation item actions](#navigation-item-actions) section below.
+
+Both the `icon` and `selected` props from `SidebarNavigationItem` can be utlized on the `SidebarNavigationDisclosureHeading` to display an icon, and indicate to the user that they are currently within a specific section. When implementing multiple levels of navigation, be sure to display each `selected` parent item down the navigation tree. As an example, below I can see that I am currently on "Send a Whatsapp message" item, which is a child page of "Try it out" and "Messaging".
+
+`SidebarNavigationItem`s are listed in the `SidebarNavigationDisclosureContent` and displayed upon expanding the disclosure using the `SidebarNavigationDisclosureHeading`.
+
+When creating a hierarchical navigation structure, be sure to set `hierarchical` on the `SidebarNavigation` component as this will help set some additional context for children placed within.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    SidebarNavigationSeparator,
+    ProductMessagingIcon,
+    ProductVideoIcon,
+    ProductLookupIcon,
+    PlusIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation hierarchical hideItemsOnCollapse>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
+            Messaging
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading selected>Try it out</SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="https://google.com">Send an SMS</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com" selected>
+                Send a Whatsapp message
+              </SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+          <SidebarNavigationItem href="https://google.com">Services</SidebarNavigationItem>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading>Senders</SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="https://google.com">Addons</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading>Settings</SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="#">
+                Addons
+              </SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductLookupIcon decorative />}>
+            Lookup
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Lookup a phone number</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationSeparator />
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductVideoIcon decorative />}>
+            Video
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+### Mixed
+
+Sometimes it is necessary to combine a simple flat structure with some nested pages. The components provided by Sidebar Navigation allow for easy, flexible composition to suit your navigation needs. Pair `SidebarNavigationItem`s with `SidebarNavigationDisclosure`s to create this form of navigation strucuture.
+
+When mixing, you _must_ ensure `hierarchical` is set on `SidebarNavigation` to get the correct indentation.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    SidebarBetaBadge,
+    ProductHomeIcon,
+    ProductConnectionsIcon,
+    ProductReverseETLIcon,
+    ProductPrivacyIcon,
+    ProductProtocolsIcon,
+    ProductEngageIcon,
+    ProductSettingsIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductReverseETLIcon decorative />}>
+        Reverse ETL <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+            Privacy
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+## Composition notes
+
+### Handling a collapsing Sidebar
+
+When using a Flat navigation list and a `compact` Sidebar variant, when the Sidebar collapses only the icons will remain visible. In this situation you **must** ensure the navigation item icons have a title and are set to not decorative to make certain the collapsed navigation items keep an accessible name.
+
+<StoryPreview
+  title="Collapsing sidebar visible icons"
+  storyID="components-sidebar-navigation--flex-example"
+  code={`<Sidebar aria-label="main navigation" collapsed={false} variant="compact">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation>
+      <SidebarNavigationItem
+        href=""
+        selected
+        icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+      >
+        Admin
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href=""
+        icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
+      >
+        Agent dashboard
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href=""
+        icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
+      >
+        Teams view
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href=""
+        icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
+      >
+        Queue stats
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href=""
+        icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+      >
+        Privacy
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href=""
+        icon={<ProductUsageIcon decorative={false} title="Insights" />}
+      >
+        Insights
+      </SidebarNavigationItem>
+    </SidebarNavigation>
+  </SidebarBody>
+</Sidebar>`}
+/>
+
+If you are using a collapsible, compact sidebar and choose to hide the navigation items entirely on collapse, be sure to set `hideItemsOnCollapse` on `SidebarNavigation`.
+
+In all situations, Sidebar Navigation Discolsures will always hide when in a collapsed Sidebar.
+
+<StoryPreview
+  title="Collapsing sidebar hidden icons"
+  storyID="components-sidebar-navigation--segment-example"
+  code={`
+<Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
+            Reverse ETL
+          </SidebarNavigationDisclosureHeading>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+            Privacy
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
+            Protocols
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
+            Enagage
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
+            Settings
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>`}
+/>
+
+### Navigation item actions
+
+There can be times where a navigation item has some additional information or action the user can take upon it, other than navigating to, or showing and hiding child pages. In these instances we must place those actions as siblings to the navigation items or disclosure headings. We must not nest actionable UI elements as they can become undiscoverable for assistive technology users.
+
+Only parent `SidebarNavigationDisclosure` items can have associated actions. They must be placed as a sibling to the `SidebarNavigationDisclosureHeading`, inside the `SidebarNavigationDisclosureHeadingWrapper`. Alignment will happen automatically.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    SidebarBetaBadge,
+    ProductMessagingIcon,
+    ProductVideoIcon,
+    ProductLookupIcon,
+    Menu,
+    MenuButton,
+    MenuItem,
+    useMenuState,
+    MoreIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {navigationActions}
+</LivePreview>
+
+### State hooks
+
+State hooks allow you to "hook" into the disclosure state. This allows you blend application state and functionality into the internal state of the disclosure. This might be useful if your applicaiton is controled via a central state management library like Redux, or actions within the application control how the navigation is displayed outside of the user interacting with it.
+
+In the simple example below, you can control the expanded state of each disclosure without the user interacting with it.
+
+Further information on using the disclosure state hook can be found on the [Disclosure component docs](/components/disclosure#using-state-hooks) and [Disclosure Primitive docs](/primitives/disclosure-primitive)
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    useSidebarNavigationDisclosureState,
+    SidebarBetaBadge,
+    ProductMessagingIcon,
+    ProductVideoIcon,
+    ProductLookupIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {navigationStateHook}
+</LivePreview>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/sidebar - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {
+  Sidebar,
+  SidebarOverlayContentWrapper,
+  SidebarBody,
+  SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
+  SidebarFooter,
+  SidebarCollapseButton,
+  SidebarNavigation,
+  SidebarNavigationItem,
+  SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
+  SidebarNavigationDisclosureContent,
+} from '@twilio-paste/core/sidebar';
+
+const SideModalExample: React.FC = () => {
+  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
+  return (
+    <Box>
+      <Sidebar aria-label="Main navigation" collapsed={overlaySidebarExpanded} variant="compact">
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarNavigation>
+            <SidebarNavigationItem
+              href="https://google.com"
+              selected
+              icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+            >
+              Admin
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
+            >
+              Agent dashboard
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
+            >
+              Teams view
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
+            >
+              Queue stats
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+            >
+              Privacy
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductUsageIcon decorative={false} title="Insights" />}
+            >
+              Insights
+            </SidebarNavigationItem>
+          </SidebarNavigation>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
+      </Sidebar>
+
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+        <Box padding="space70">
+          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+            Toggle Overlay Sidebar
+          </Button>
+        </Box>
+      </SidebarOverlayContentWrapper>
+    </Box>
+  );
+};
+```
+
+#### Props
+
+##### SidebarNavigation
+
+| Prop                   | Type              | Description                                                                               | Default                |
+| ---------------------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION'` |
+| `children?`            | `React.ReactNode` |                                                                                           |                        |
+| `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar        |                        |
+| `hierarchical?`        | `boolean`         | Set whether you are displating an hirarchical navigation structure.                       |                        |
+
+##### SidebarNavigationItem
+
+| Prop        | Type              | Description                                                                               | Default                     |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_ITEM'` |
+| `children?` | `React.ReactNode` |                                                                                           |                             |
+| `href`      | `string`          | String for the url to link to.                                                            |                             |
+| `selected`  | `boolean`         | Set to indicate this item matches to the current page the user is on                      |                             |
+| `icon`      | `React.ReactNode` | Any product icons cna be used here                                                        |                             |
+
+##### SidebarNavigationDisclosure
+
+| Prop        | Type              | Description                                                                                                             | Default                           |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                               | `'SIDEBAR_NAVIGATION_DISCLOSURE'` |
+| `children?` | `React.ReactNode` |                                                                                                                         |                                   |
+| `baseId?`   | `string`          | Base ID string to base subsequent, dynamic ids on                                                                       |                                   |
+| `visible?`  | `boolean`         | Set the initial visibilty of the Disclosure                                                                             | `false`                           |
+| `state?`    | `object`          | Ability to control the disclosure by passing in the returned values from the `useSidebarNavigationDisclosureState` hook |                                   |
+
+##### SidebarNavigationDisclosureHeadingWrapper
+
+| Prop        | Type              | Description                                                                               | Default                                           |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER'` |
+| `children?` | `React.ReactNode` |                                                                                           |                                                   |
+
+##### SidebarNavigationDisclosureHeading
+
+| Prop         | Type              | Description                                                                               | Default                                   |
+| ------------ | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `element?`   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING'` |
+| `children?`  | `React.ReactNode` |                                                                                           |                                           |
+| `disabled?`  | `boolean`         | Set to disable the ability to expand the Navigation section                               |                                           |
+| `focusable?` | `boolean`         | Set to control the focusability of the Navigation Heading                                 |                                           |
+| `selected?`  | `boolean`         | Set to make the Heading part of the selected page hierarchy                               |                                           |
+| `icon?`      | `React.ReactNode` | Icon to be displayed within the Heading                                                   |                                           |
+
+##### SidebarNavigationDisclosureContent
+
+| Prop        | Type              | Description                                                                               | Default                                   |
+| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT'` |
+| `children?` | `React.ReactNode` |                                                                                           |                                           |
+
+##### SidebarNavigationSeparator
+
+| Prop       | Type     | Description                                                                               | Default                          |
+| ---------- | -------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
+| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_SEPARATOR'` |
+
+##### useSidebarNavigationDisclosureState
+
+Pass these as part of an object to the hook.
+
+| Prop       | Type      | Description                                                   | Default |
+| ---------- | --------- | ------------------------------------------------------------- | ------- |
+| `baseId?`  | `string`  | Set to create a base ID that all dynamic IDs will be based on |         |
+| `visible?` | `boolean` | Set the initial visibilty of the Disclosure                   |         |
+
+##### useSidebarNavigationDisclosureState Return props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+| Prop       | Type         | Description                                         | Default |
+| ---------- | ------------ | --------------------------------------------------- | ------- |
+| `baseId?`  | `string`     | ID that will serve as a base for all the items IDs. |         |
+| `visible?` | `boolean`    | Whether it's visible or not                         |         |
+| `toggle?`  | `() => void` | Toggles the visible state                           |         |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

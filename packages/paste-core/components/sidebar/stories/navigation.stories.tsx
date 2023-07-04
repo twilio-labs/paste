@@ -30,6 +30,18 @@ import {
   useSidebarNavigationDisclosureState,
 } from '../src';
 import type {SidebarNavigationDisclosureInitialState, SidebarNavigationDisclosureStateReturn} from '../src';
+import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
+import {ProductContactCenterTeamsIcon} from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
+import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import {ProductUsageIcon} from '@twilio-paste/icons/esm/ProductUsageIcon';
+import {ProductContactCenterQueuesIcon} from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -72,6 +84,12 @@ export const Default: StoryFn = () => {
               icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
             >
               Go to Google.com
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTasksIcon decorative={false} title="Description of icon" />}
+            >
+              Include children <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
             </SidebarNavigationItem>
             <SidebarNavigationDisclosure visible>
               <SidebarNavigationDisclosureHeadingWrapper>
@@ -132,6 +150,9 @@ export const Default: StoryFn = () => {
                   Go to Google.com
                 </SidebarNavigationItem>
                 <SidebarNavigationItem href="https://www.google.com">Navigation Item</SidebarNavigationItem>
+                <SidebarNavigationItem href="https://www.google.com">
+                  Include children <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+                </SidebarNavigationItem>
               </SidebarNavigationDisclosureContent>
             </SidebarNavigationDisclosure>
             <SidebarNavigationDisclosure>
@@ -495,5 +516,192 @@ export const StateHookDisclosure: StoryFn = () => {
   /* eslint-enable react/jsx-max-depth */
 };
 StateHookDisclosure.parameters = {
+  padding: false,
+};
+
+export const FlexExample: StoryFn = () => {
+  const id = useUID();
+  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
+
+  return (
+    <Box>
+      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarNavigation>
+            <SidebarNavigationItem
+              href="https://google.com"
+              selected
+              icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+            >
+              Admin
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
+            >
+              Agent dashboard
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
+            >
+              Teams view
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
+            >
+              Queue stats
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+            >
+              Privacy
+            </SidebarNavigationItem>
+            <SidebarNavigationItem
+              href="https://google.com"
+              icon={<ProductUsageIcon decorative={false} title="Insights" />}
+            >
+              Insights
+            </SidebarNavigationItem>
+          </SidebarNavigation>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
+      </Sidebar>
+
+      <SidebarPushContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+        <Box padding="space70">
+          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+            Toggle Push Sidebar
+          </Button>
+        </Box>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+  /* eslint-enable react/jsx-max-depth */
+};
+FlexExample.parameters = {
+  padding: false,
+};
+
+export const SegmentExample: StoryFn = () => {
+  const id = useUID();
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+
+  return (
+    /* eslint-disable react/jsx-max-depth */
+    <Box>
+      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="#">
+            <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarNavigation hierarchical hideItemsOnCollapse>
+            <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+              Home
+            </SidebarNavigationItem>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+                  Connections
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com" selected>
+                  Overview
+                </SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
+                  Reverse ETL
+                </SidebarNavigationDisclosureHeading>
+                <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+                  Privacy
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
+                  Protocols
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
+                  Enagage
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosure>
+              <SidebarNavigationDisclosureHeadingWrapper>
+                <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
+                  Settings
+                </SidebarNavigationDisclosureHeading>
+              </SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureContent>
+                <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+              </SidebarNavigationDisclosureContent>
+            </SidebarNavigationDisclosure>
+          </SidebarNavigation>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
+      </Sidebar>
+
+      {/* Must wrap content area */}
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <Box padding="space70">
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </Box>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+  /* eslint-enable react/jsx-max-depth */
+};
+SegmentExample.parameters = {
   padding: false,
 };

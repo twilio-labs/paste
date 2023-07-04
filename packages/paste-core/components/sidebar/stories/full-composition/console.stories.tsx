@@ -115,7 +115,7 @@ export const Console: StoryFn = () => {
                     <SidebarNavigationDisclosureHeading>Settings</SidebarNavigationDisclosureHeading>
                   </SidebarNavigationDisclosureHeadingWrapper>
                   <SidebarNavigationDisclosureContent>
-                    <SidebarNavigationItem>
+                    <SidebarNavigationItem href="#">
                       Addons <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
                     </SidebarNavigationItem>
                     <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>

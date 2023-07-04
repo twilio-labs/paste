@@ -42,7 +42,6 @@ export const Flex: StoryFn = () => {
 
   return (
     <Box>
-      {/* Can be placed anywhere - position fixed */}
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
@@ -100,7 +99,6 @@ export const Flex: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
 
-      {/* Must wrap content area */}
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
         <Topbar>
           <TopbarActions justify="start">

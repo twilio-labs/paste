@@ -70,13 +70,19 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         aria-current={selected ? 'page' : undefined}
         {...styles}
       >
-        <Box as="span" color={selected ? 'colorTextInverse' : 'colorTextIconInverse'}>
-          {icon}
-        </Box>
+        {icon && (
+          <Box as="span" color={selected ? 'colorTextInverse' : 'colorTextIconInverse'}>
+            {icon}
+          </Box>
+        )}
         <Box
           as="span"
-          display="block"
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          columnGap="space20"
           transition="all 120ms ease"
+          flexGrow={1}
           float={visible ? 'none' : 'left'}
           opacity={visible ? 1 : 0}
           whiteSpace={visible ? 'normal' : 'nowrap'}

@@ -68,7 +68,7 @@ export const sidebarNavigationItemNestedStyles: BoxProps = {
   width: '100%',
   fontSize: 'fontSize20',
   marginBottom: 'space20',
-  paddingLeft: 'space60',
+  paddingLeft: 'space80',
 };
 
 // Collapsed item styles
