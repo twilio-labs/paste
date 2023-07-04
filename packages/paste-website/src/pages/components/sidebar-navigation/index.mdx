@@ -187,29 +187,29 @@ export const getStaticProps = async () => {
 
 ### About Sidebar Navigation
 
-Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application. The Navigation components are presentational and can be used to composed the simplest, or most complex navigation structures with deep nesting.
+Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application. The navigation components are presentational and can be utilized to create navigation structures ranging from simple lists to complex, deeply nested structures.
 
-The maximum depth that we would recommend is three levels deep. You might consider using [In-page Navigation](/components/in-page-navigation) beyond that point.
+We recommend limiting the nesting depth to three levels. For navigation beyond this depth, consider also using the [In-page Navigation](/components/in-page-navigation).
 
 ### Accessibility
 
-When nested, the Sidebar Navigation is implemented using the [Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+Nested sidebar navigation employs the [Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
-- Additional controls or actions should be implemented as siblings to each `SidebarNavigationItem` in the navigation. Do not nest actions inside a navigation item.
-- Each `SidebarNavigationItem` should implement an anchor element, by setting a valid url as the `href` value.
-- A `selected` `SidebarNavigationItem` will be annotated as the "current page" via `aria-current="page"`.
+- Additional controls or actions should be placed as siblings to each `SidebarNavigationItem` in the navigation, not nested within.
+- Every `SidebarNavigationItem` must implement an anchor element by assigning a valid URL to the `href` attribute.
+- A `selected` `SidebarNavigationItem` is designated as the "current page" via `aria-current="page"`.
 
 ## Examples
 
 ### Flat
 
-In its simplest form, the Sidebar Navigation can be used to create a simple, flat list of navigation items. This is ideal for smaller applications, or a single product with a very specific use case.
+In its most basic form, the Sidebar Navigation can be utilized to create a straightforward, flat list of navigation items. This is ideal for smaller applications or single-product use cases.
 
-Each `SidebarNavigationItem` must have an `href` provided, a valid url that the user will navigate to. This allows people to open links in a new tab by pressed cmd/ctrl and clicking, or right clicking on the item. It also ensures the correct keyboard navigation becomes available to keyboard only users.
+Each `SidebarNavigationItem` should be provided with an `href`, a valid URL that the user will navigate to upon interaction. This facilitates opening links in new tabs via cmd/ctrl + clicking or right-clicking on the item, ensuring proper keyboard navigation for keyboard-only users.
 
-To provide an icon to the `SidebarNavigationItem`, set the `icon` property value to any valid [Paste Icon](/components/icons).
+The `SidebarNavigationItem` can be decorated with an icon by setting the icon property value to any valid [Paste Icon](/components/icons).
 
-To highlight the current page, set `selected` on the item that represents where the user currently is in the application.
+To indicate the current page, the `selected` property should be set on the item that represents the user's current location in the application.
 
 <LivePreview
   scope={{
@@ -274,15 +274,15 @@ To highlight the current page, set `selected` on the item that represents where 
 
 ### Hierarchical
 
-Sidebar Navigation also comes with the ability to create some information architecture hierarchy, using nested disclosures. You also have the ability to create "groups" of navigation section by using the `SidebarNavigationSeparator` placed between two or more groups of items.
+Sidebar Navigation also supports the creation of hierarchical information architectures using nested disclosures. You can establish "groups" of navigation sections by deploying the `SidebarNavigationSeparator` between groups of items.
 
-Each `SidebarNavigationDisclosure` composes a heading with content. `SidebarNavigationDisclosureHeading` takes a string as content and describes the navigation items beneath it in the hierarchy. A `SidebarNavigationDisclosureHeading` must not contain clickable actions. If you would like to pair additional actions to a parent navigation item, see the [Navigation item actions](#navigation-item-actions) section below.
+Each `SidebarNavigationDisclosure` pairs a heading with its content. `SidebarNavigationDisclosureHeading` accepts a string as content, which describes the navigation items beneath it in the hierarchy. It should not contain clickable actions. For additional actions associated with a parent navigation item, refer to the [Navigation item actions](#navigation-item-actions) section below.
 
-Both the `icon` and `selected` props from `SidebarNavigationItem` can be utlized on the `SidebarNavigationDisclosureHeading` to display an icon, and indicate to the user that they are currently within a specific section. When implementing multiple levels of navigation, be sure to display each `selected` parent item down the navigation tree. As an example, below I can see that I am currently on "Send a Whatsapp message" item, which is a child page of "Try it out" and "Messaging".
+The `icon` and `selected` properties from `SidebarNavigationItem` can be used on the `SidebarNavigationDisclosureHeading` to display an icon and indicate the user's current section. When implementing multiple levels of navigation, ensure each `selected` parent item is displayed down the navigation tree. For instance, in the example below, I can see that I am currently on the "Send a Whatsapp message" item, which is a child page of "Try it out" and "Messaging".
 
-`SidebarNavigationItem`s are listed in the `SidebarNavigationDisclosureContent` and displayed upon expanding the disclosure using the `SidebarNavigationDisclosureHeading`.
+`SidebarNavigationItems` are listed in the `SidebarNavigationDisclosureContent` and are displayed when the disclosure is expanded using the `SidebarNavigationDisclosureHeading`.
 
-When creating a hierarchical navigation structure, be sure to set `hierarchical` on the `SidebarNavigation` component as this will help set some additional context for children placed within.
+When creating a hierarchical navigation structure, ensure the `SidebarNavigation` component's `hierarchical` property is set, as it provides additional context for children placed within.
 
 <LivePreview
   scope={{
@@ -377,9 +377,9 @@ When creating a hierarchical navigation structure, be sure to set `hierarchical`
 
 ### Mixed
 
-Sometimes it is necessary to combine a simple flat structure with some nested pages. The components provided by Sidebar Navigation allow for easy, flexible composition to suit your navigation needs. Pair `SidebarNavigationItem`s with `SidebarNavigationDisclosure`s to create this form of navigation strucuture.
+There may be situations where a combination of simple flat structures and nested pages is necessary. The components provided by Sidebar Navigation allow for easy, flexible composition to suit your navigation needs. Pair `SidebarNavigationItems` with `SidebarNavigationDisclosures` to create this form of navigation structure.
 
-When mixing, you _must_ ensure `hierarchical` is set on `SidebarNavigation` to get the correct indentation.
+When mixing, you **must** ensure `hierarchical` is set on `SidebarNavigation` to achieve correct indentation.
 
 <LivePreview
   scope={{
@@ -442,7 +442,7 @@ When mixing, you _must_ ensure `hierarchical` is set on `SidebarNavigation` to g
 
 ### Handling a collapsing Sidebar
 
-When using a Flat navigation list and a `compact` Sidebar variant, when the Sidebar collapses only the icons will remain visible. In this situation you **must** ensure the navigation item icons have a title and are set to not decorative to make certain the collapsed navigation items keep an accessible name.
+When using a flat navigation list and a `compact` Sidebar variant, only the icons remain visible when the Sidebar collapses. In this situation, ensure the navigation item icons have a title and are not decorative to maintain accessible names for collapsed navigation items.
 
 <StoryPreview
   title="Collapsing sidebar visible icons"
@@ -498,9 +498,9 @@ When using a Flat navigation list and a `compact` Sidebar variant, when the Side
 </Sidebar>`}
 />
 
-If you are using a collapsible, compact sidebar and choose to hide the navigation items entirely on collapse, be sure to set `hideItemsOnCollapse` on `SidebarNavigation`.
+If you are using a collapsible, compact sidebar and decide to hide the navigation items completely when collapsed, remember to set `hideItemsOnCollapse` on `SidebarNavigation`.
 
-In all situations, Sidebar Navigation Discolsures will always hide when in a collapsed Sidebar.
+Regardless of the situation, Sidebar Navigation Disclosures will always be hidden in a collapsed Sidebar.
 
 <StoryPreview
   title="Collapsing sidebar hidden icons"
@@ -595,9 +595,9 @@ In all situations, Sidebar Navigation Discolsures will always hide when in a col
 
 ### Navigation item actions
 
-There can be times where a navigation item has some additional information or action the user can take upon it, other than navigating to, or showing and hiding child pages. In these instances we must place those actions as siblings to the navigation items or disclosure headings. We must not nest actionable UI elements as they can become undiscoverable for assistive technology users.
+There may be instances where a navigation item has some additional information or an action that a user can take, other than navigating to, or showing and hiding child pages. In such cases, these actions should be placed as siblings to the navigation items or disclosure headings. Nesting actionable UI elements can make them undiscoverable for assistive technology users.
 
-Only parent `SidebarNavigationDisclosure` items can have associated actions. They must be placed as a sibling to the `SidebarNavigationDisclosureHeading`, inside the `SidebarNavigationDisclosureHeadingWrapper`. Alignment will happen automatically.
+Only parent `SidebarNavigationDisclosure` items can have associated actions. These actions should be placed as siblings to the `SidebarNavigationDisclosureHeading`, inside the `SidebarNavigationDisclosureHeadingWrapper`. Alignment will be handled automatically.
 
 <LivePreview
   scope={{
@@ -627,11 +627,11 @@ Only parent `SidebarNavigationDisclosure` items can have associated actions. The
 
 ### State hooks
 
-State hooks allow you to "hook" into the disclosure state. This allows you blend application state and functionality into the internal state of the disclosure. This might be useful if your applicaiton is controled via a central state management library like Redux, or actions within the application control how the navigation is displayed outside of the user interacting with it.
+State hooks allow you to integrate the disclosure state with your application state and functionality. This can be particularly useful if your application is controlled via a central state management library like Redux, or if actions within the application control how the navigation is displayed beyond the user's interaction with it.
 
 In the simple example below, you can control the expanded state of each disclosure without the user interacting with it.
 
-Further information on using the disclosure state hook can be found on the [Disclosure component docs](/components/disclosure#using-state-hooks) and [Disclosure Primitive docs](/primitives/disclosure-primitive)
+For more information on using the disclosure state hook, refer to the [Disclosure component docs](/components/disclosure#using-state-hooks) and [Disclosure Primitive docs](/primitives/disclosure-primitive)
 
 <LivePreview
   scope={{
