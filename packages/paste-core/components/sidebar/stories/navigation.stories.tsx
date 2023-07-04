@@ -9,6 +9,18 @@ import {useUID} from '@twilio-paste/uid-library';
 // import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
+import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
+import {ProductContactCenterTeamsIcon} from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
+import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import {ProductUsageIcon} from '@twilio-paste/icons/esm/ProductUsageIcon';
+import {ProductContactCenterQueuesIcon} from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 
 import {
@@ -28,20 +40,9 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
   useSidebarNavigationDisclosureState,
+  type SidebarNavigationDisclosureInitialState,
+  type SidebarNavigationDisclosureStateReturn,
 } from '../src';
-import type {SidebarNavigationDisclosureInitialState, SidebarNavigationDisclosureStateReturn} from '../src';
-import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
-import {ProductContactCenterTeamsIcon} from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
-import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
-import {ProductUsageIcon} from '@twilio-paste/icons/esm/ProductUsageIcon';
-import {ProductContactCenterQueuesIcon} from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
-import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
-import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
-import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -524,6 +525,7 @@ export const FlexExample: StoryFn = () => {
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
 
   return (
+    /* eslint-disable react/jsx-max-depth */
     <Box>
       <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
         <SidebarHeader>
