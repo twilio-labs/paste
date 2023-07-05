@@ -4,6 +4,7 @@ import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
 
+import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationContext} from './SidebarNavigationContext';
 
 /**
@@ -25,10 +26,11 @@ const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
     backgroundAttachment: `local, local, scroll, scroll`,
     // Scrollbar
     '::-webkit-scrollbar': {
-      width: '10px',
+      width: '6px',
     },
     // Track
     '::-webkit-scrollbar-track': {
+      marginTop: '8px',
       background: colorBackgroundInverse,
     },
     // Handle
@@ -52,6 +54,8 @@ export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElem
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
   ({element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props}, ref) => {
+    const {collapsed} = React.useContext(SidebarContext);
+
     return (
       <SidebarNavigationContext.Provider
         value={{
@@ -69,7 +73,8 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
           overflowY="auto"
           overflowX="hidden"
           paddingY="space50"
-          paddingX="space60"
+          paddingLeft="space60"
+          paddingRight={collapsed ? 'space40' : 'space60'}
           flexGrow={1}
         >
           {children}
