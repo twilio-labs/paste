@@ -525,7 +525,7 @@ const TopbarExample = () => {
             items={['one', 'two']}
           />
           <MenuButton {...menu} variant="reset" size="reset">
-            Account <ChevronDownIcon decorative />
+            Account <ChevronDownIcon decorative color="colorTextIcon" />
           </MenuButton>
           <Menu {...menu} aria-label="Preferences">
             <MenuGroup label="Manage account">
@@ -543,7 +543,7 @@ const TopbarExample = () => {
             </MenuGroup>
           </Menu>
           <MenuButton {...billingMenu} variant="reset" size="reset">
-            Billing <ChevronDownIcon decorative />
+            Billing <ChevronDownIcon decorative color="colorTextIcon" />
           </MenuButton>
           <Menu {...billingMenu} aria-label="Preferences">
             <MenuGroup label="Manage Billing">
