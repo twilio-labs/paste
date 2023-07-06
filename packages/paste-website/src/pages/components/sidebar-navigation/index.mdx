@@ -2,7 +2,7 @@ export const meta = {
   title: 'Sidebar Navigation',
   package: '@twilio-paste/sidebar',
   description:
-    'Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application.',
+    'Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar.',
   slug: '/components/sidebar-navigation/',
 };
 
@@ -77,7 +77,7 @@ export const getStaticProps = async () => {
   description={meta.description}
   data={props.data}
   name="Sidebar Navigation"
-  description="Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application."
+  description="Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar."
 />
 
 ---
@@ -187,13 +187,13 @@ export const getStaticProps = async () => {
 
 ### About Sidebar Navigation
 
-Sidebar navigation comprises a set of user interface controls, designed to facilitate both flat and hierarchical navigation structures within an application. The navigation components are presentational and can be utilized to create navigation structures ranging from simple lists to complex, deeply nested structures.
+Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar. The navigation components are presentational and can be used to create navigation structures ranging from simple lists to complex, deeply nested structures.
 
-We recommend limiting the nesting depth to three levels. For navigation beyond this depth, consider also using the [In-page Navigation](/components/in-page-navigation).
+We recommend limiting the nesting depth to 3 levels. For navigation beyond this depth, consider also using the [In-page Navigation](/components/in-page-navigation).
 
 ### Accessibility
 
-Nested sidebar navigation employs the [Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+Nested sidebar navigation uses the [ARIA Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
 - Additional controls or actions should be placed as siblings to each `SidebarNavigationItem` in the navigation, not nested within.
 - Every `SidebarNavigationItem` must implement an anchor element by assigning a valid URL to the `href` attribute.
@@ -203,9 +203,9 @@ Nested sidebar navigation employs the [Disclosure pattern](https://www.w3.org/WA
 
 ### Flat
 
-In its most basic form, the Sidebar Navigation can be utilized to create a straightforward, flat list of navigation items. This is ideal for smaller applications or single-product use cases.
+In its most basic form, Sidebar Navigation can be used to create a flat list of navigation items. This is ideal for smaller applications or single-product use cases.
 
-Each `SidebarNavigationItem` should be provided with an `href`, a valid URL that the user will navigate to upon interaction. This facilitates opening links in new tabs via cmd/ctrl + clicking or right-clicking on the item, ensuring proper keyboard navigation for keyboard-only users.
+Each `SidebarNavigationItem` should be provided with an `href`, a valid URL that the user will navigate to upon interaction. This facilitates opening links in new tabs via CMD/CTRL + clicking or right-clicking on the item, ensuring proper keyboard navigation for keyboard-only users.
 
 The `SidebarNavigationItem` can be decorated with an icon by setting the icon property value to any valid [Paste Icon](/components/icons).
 
@@ -274,7 +274,7 @@ To indicate the current page, the `selected` property should be set on the item 
 
 ### Hierarchical
 
-Sidebar Navigation also supports the creation of hierarchical information architectures using nested disclosures. You can establish "groups" of navigation sections by deploying the `SidebarNavigationSeparator` between groups of items.
+Sidebar Navigation also supports hierarchical information architectures with nested navigation items. You can establish "groups" of navigation sections by using `SidebarNavigationSeparator` between groups of items.
 
 Each `SidebarNavigationDisclosure` pairs a heading with its content. `SidebarNavigationDisclosureHeading` accepts a string as content, which describes the navigation items beneath it in the hierarchy. It should not contain clickable actions. For additional actions associated with a parent navigation item, refer to the [Navigation item actions](#navigation-item-actions) section below.
 
@@ -768,7 +768,7 @@ const SideModalExample: React.FC = () => {
 | `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION'` |
 | `children?`            | `React.ReactNode` |                                                                                           |                        |
 | `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar        |                        |
-| `hierarchical?`        | `boolean`         | Set whether you are displating an hirarchical navigation structure.                       |                        |
+| `hierarchical?`        | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                       |                        |
 
 ##### SidebarNavigationItem
 
@@ -778,7 +778,7 @@ const SideModalExample: React.FC = () => {
 | `children?` | `React.ReactNode` |                                                                                           |                             |
 | `href`      | `string`          | String for the url to link to.                                                            |                             |
 | `selected`  | `boolean`         | Set to indicate this item matches to the current page the user is on                      |                             |
-| `icon`      | `React.ReactNode` | Any product icons cna be used here                                                        |                             |
+| `icon`      | `React.ReactNode` | Any product icons can be used here                                                        |                             |
 
 ##### SidebarNavigationDisclosure
 
@@ -786,8 +786,8 @@ const SideModalExample: React.FC = () => {
 | ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
 | `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                               | `'SIDEBAR_NAVIGATION_DISCLOSURE'` |
 | `children?` | `React.ReactNode` |                                                                                                                         |                                   |
-| `baseId?`   | `string`          | Base ID string to base subsequent, dynamic ids on                                                                       |                                   |
-| `visible?`  | `boolean`         | Set the initial visibilty of the Disclosure                                                                             | `false`                           |
+| `baseId?`   | `string`          | Base ID string to base subsequent, dynamic IDs on                                                                       |                                   |
+| `visible?`  | `boolean`         | Set the initial visibility of the Disclosure                                                                             | `false`                           |
 | `state?`    | `object`          | Ability to control the disclosure by passing in the returned values from the `useSidebarNavigationDisclosureState` hook |                                   |
 
 ##### SidebarNavigationDisclosureHeadingWrapper
