@@ -28,6 +28,19 @@ const nextConfig = {
   experimental: {
     legacyBrowsers: false,
   },
+  async headers() {
+    return [
+      {
+        source: '/components/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Polic',
+            value: 'frame-src * frame-ancestors *',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withBundleAnalyzer(withMDX(nextConfig));
