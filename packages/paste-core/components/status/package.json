@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "category": "feedback",
   "status": "production",
-  "description": "A status should be used to communicate to a user the status of a process or connection to an application or service.",
+  "description": "A Status component communicates the status of a process or connectivity to an application or service.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

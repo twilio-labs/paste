@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "category": "navigation",
   "status": "production",
-  "description": "A product switcher is an opinionated menu that presents a list of twilio products that a user has access to and can switch between.",
+  "description": "A Product Switcher is an opinionated Menu that presents a list of Twilio products that a user has access to and can switch between.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
