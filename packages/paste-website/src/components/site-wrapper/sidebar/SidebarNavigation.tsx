@@ -360,7 +360,7 @@ const SidebarNavigation = (): JSX.Element => {
                   }
                 >
                   <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar`}>
-                    Sidebar
+                    Sidebar Container
                   </SidebarAnchor>
                   <SidebarAnchor level={2} href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`}>
                     Sidebar Navigation

@@ -70,6 +70,7 @@ export const SITEMAP = [
   '/components/select/',
   '/components/separator/',
   '/components/sidebar/',
+  '/components/sidebar-navigation/',
   '/components/stack/',
   '/components/status-badge/',
   '/components/status-menu/',
