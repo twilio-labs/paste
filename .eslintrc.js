@@ -75,6 +75,8 @@ module.exports = {
           '__moz_focus_inner',
           '__webkit_datetime_edit',
           '__webkit_calendar_picker_indicator_hover',
+          '__webkit_inner_spin_button',
+          '__webkit_outer_spin_button',
           // these are variant names we use as keys in style objects
           'destructive_link',
           'destructive_secondary',
