@@ -1,11 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import {useMergeRefs} from '@twilio-paste/utils';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
 
 import {safelySpreadFormControlProps} from './utils';
+import {IncrementButton, DecrementButton} from './NumberStep';
 
 export type InputVariants = 'default' | 'inverse';
 
@@ -86,6 +88,16 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       __webkit_calendar_picker_indicator_hover={{
         cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
       }}
+      // Hide native number input stepper buttons
+      __webkit_inner_spin_button={{
+        display: 'none',
+        margin: 'space0',
+      }}
+      __webkit_outer_spin_button={{
+        display: 'none',
+        margin: 'space0',
+      }}
+      {...{'-moz-appearance': 'textfield'}}
       {...props}
     />
   );
@@ -102,10 +114,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       id,
       insertAfter,
       insertBefore,
+      max,
+      min,
       name,
       placeholder,
       readOnly,
       required,
+      step,
       type,
       value,
       variant,
@@ -115,12 +130,27 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const typeProps: TypeProps = {type};
 
-    // https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/
-    if (type === 'number') {
-      typeProps.type = 'text';
-      typeProps.inputmode = 'numeric';
-      typeProps.pattern = '[0-9]*';
-    }
+    const internalRef = React.useRef<HTMLInputElement>();
+    const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
+
+    const [showIncrement, setShowIncrement] = React.useState(true);
+    const [showDecrement, setShowDecrement] = React.useState(true);
+
+    const numVal = Number(value);
+    const numStep = step ? Number(step) : 0;
+
+    React.useEffect(() => {
+      if (max) {
+        const numMax = Number(max);
+        if (numVal < numMax && numVal + numStep <= numMax && !disabled) setShowIncrement(true);
+        else setShowIncrement(false);
+      }
+      if (min) {
+        const numMin = Number(min);
+        if (numVal > numMin && numVal - numStep >= numMin && !disabled) setShowDecrement(true);
+        else setShowDecrement(false);
+      }
+    }, [max, min, numVal, numStep, disabled]);
 
     return (
       <InputBox
@@ -142,13 +172,48 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           element={`${element}_ELEMENT`}
           id={id}
           name={name}
+          max={max}
+          min={min}
           placeholder={placeholder}
           readOnly={readOnly}
-          ref={ref}
+          ref={mergedRef}
           required={required}
+          step={step}
           value={value}
           variant={variant}
         />
+        {type === 'number' ? (
+          <Box
+            display="flex"
+            flexDirection="column"
+            rowGap="space10"
+            justifyContent="center"
+            element={`${element}_STEP_WRAPPER`}
+          >
+            {showIncrement ? (
+              <IncrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepUp();
+                }}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_INCREMENT_PLACEHOLDER`} />
+            )}
+            {showDecrement ? (
+              <DecrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepDown();
+                }}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_DECREMENT_PLACEHOLDER`} />
+            )}
+          </Box>
+        ) : (
+          <></>
+        )}
       </InputBox>
     );
   }

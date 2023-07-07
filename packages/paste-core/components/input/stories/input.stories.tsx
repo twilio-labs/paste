@@ -630,6 +630,75 @@ export const InputPlaceholderInverse = (): React.ReactNode => {
 
 InputPlaceholderInverse.storyName = 'Input - Placeholder inverse';
 
+export const DefaultNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState('0');
+  return (
+    <Input
+      id={uid}
+      type="number"
+      max="50"
+      min="-50"
+      step={3}
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+    />
+  );
+};
+
+DefaultNumberInput.storyName = 'Number Input - Controlled';
+
+export const UncontrolledNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  return <Input id={uid} type="number" max="50" min="-50" value="0" />;
+};
+
+UncontrolledNumberInput.storyName = 'Number Input - Uncontrolled';
+
+export const ErrorNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState('0');
+  return (
+    <Input
+      id={uid}
+      type="number"
+      max="50"
+      min="-50"
+      step={3}
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+      hasError
+    />
+  );
+};
+
+ErrorNumberInput.storyName = 'Number Input - Error';
+
+export const DisabledNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState('0');
+  return (
+    <Input
+      id={uid}
+      type="number"
+      max="50"
+      min="-50"
+      step={3}
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+      disabled
+    />
+  );
+};
+
+DisabledNumberInput.storyName = 'Number Input - Disabled';
+
 export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const uidOne = useUID();
   const uidTwo = useUID();
