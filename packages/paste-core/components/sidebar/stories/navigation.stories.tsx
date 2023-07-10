@@ -236,10 +236,13 @@ export const Default: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default" id={mainContentSkipLinkID}>
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -320,10 +323,13 @@ export const FlatCompact: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact" id={mainContentSkipLinkID}>
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -454,10 +460,13 @@ export const HierarchicalCompact: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact" id={mainContentSkipLinkID}>
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -553,10 +562,13 @@ export const StateHookDisclosure: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact" id={mainContentSkipLinkID}>
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Sidebar
-        </Button>
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -639,8 +651,9 @@ export const FlexExample: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarPushContentWrapper collapsed={overlaySidebarExpanded} variant="compact" id={mainContentSkipLinkID}>
-        <Box padding="space70">
+      <SidebarPushContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <Box id={mainContentSkipLinkID} padding="space70">
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Push Sidebar
           </Button>
@@ -762,8 +775,9 @@ export const SegmentExample: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact" id={mainContentSkipLinkID}>
-        <Box padding="space70">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

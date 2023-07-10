@@ -30,7 +30,6 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
   SidebarBetaBadge,
-  SkipLinkContainer,
 } from '../../src';
 import {SearchBox} from './components/SearchBox';
 import {SupportMenu} from './components/SupportMenu';
