@@ -30,6 +30,7 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
   SidebarBetaBadge,
+  SkipLinkContainer,
 } from '../../src';
 import {SearchBox} from './components/SearchBox';
 import {SupportMenu} from './components/SupportMenu';
@@ -48,11 +49,20 @@ export default {
 export const Segment: StoryFn = () => {
   const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
@@ -60,7 +70,12 @@ export const Segment: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation hierarchical hideItemsOnCollapse>
+          <SidebarNavigation
+            aria-label={id}
+            hierarchical
+            hideItemsOnCollapse
+            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          >
             <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
               Home
             </SidebarNavigationItem>
@@ -140,7 +155,7 @@ export const Segment: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar>
+        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <WorkspaceSwitcherMenu />
             <UpgradeBadge />
@@ -153,7 +168,7 @@ export const Segment: StoryFn = () => {
             <UserDialogExample />
           </TopbarActions>
         </Topbar>
-        <Box padding="space70">
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

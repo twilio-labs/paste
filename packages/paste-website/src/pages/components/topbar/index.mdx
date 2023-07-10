@@ -153,6 +153,10 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
+### Accessibility
+
+- Set a value for `topbarSkipLinkID` to be used with Sidebar skip link functionality. The ID must be a unique string not used elsewhere in the application.
+
 ### About Topbar
 
 A Topbar is sticky to the top of the screen and consists of application-wide controls including:
@@ -169,6 +173,8 @@ User-specific controls (aligned to the right) such as:
 - Support [Button](/components/button)
 - [Product Switcher](/components/product-switcher)
 - [User Dialog](/components/user-dialog)
+
+Each set of controls should be contained within a `TopbarActions` component, which comes with a `justify` property. You can justify these controls to either the `start` or the `end` of the `Topbar`.
 
 ## Examples
 
@@ -421,8 +427,9 @@ import {Topbar} from '@twilio-paste/core/topbar';
 
 const Topbar = () => {
   return (
-    <Topbar>
-      {Topbar contents}
+    <Topbar topbarSkipLinkID="topbar">
+      <TopbarActions justify="start">{actions}</TopbarActions>
+      <TopbarActions justify="end">{actions}</TopbarActions>
     </Topbar>
   );
 };
@@ -430,10 +437,19 @@ const Topbar = () => {
 
 #### Topbar props
 
-| Prop      | Type              | Description                                                                               | Default  |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------- |
-| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.          |          |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'TOPBAR' |
+| Prop             | Type              | Description                                                                                 | Default  |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------- | -------- |
+| children?        | `React.ReactNode` |                                                                                             |          |
+| element?         | `string`          | Overrides the default element name to apply unique styles with the Customization Provider.s | 'TOPBAR' |
+| topbarSkipLinkID | `string`          | Unique ID used to identify the Topbar element for Skip Link functionality.                  |          |
+
+#### TopbarActions props
+
+| Prop      | Type              | Description                                                                                   | Default          |
+| --------- | ----------------- | --------------------------------------------------------------------------------------------- | ---------------- |
+| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.              |                  |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider,    | 'TOPBAR_ACTIONS' |
+| justify   | `"start", "end"`  | Used to control where the actions are aligned visually, to the start or end of the container. |                  |
 
 <ChangelogRevealer>
   <Changelog />

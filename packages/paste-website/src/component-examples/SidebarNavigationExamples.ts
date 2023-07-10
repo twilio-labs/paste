@@ -5,7 +5,7 @@ const SidebarNavigationExample = () => {
   return (
     <Box backgroundColor="colorBackgroundInverse">
       <SidebarBody>
-        <SidebarNavigation hierarchical hideItemsOnCollapse>
+        <SidebarNavigation aria-label="Main navigation" hierarchical hideItemsOnCollapse>
           <SidebarNavigationDisclosure>
             <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
@@ -71,7 +71,7 @@ const SidebarNavigationStateHookExample  = () => {
     </Box>
     <Box backgroundColor="colorBackgroundInverse">
       <SidebarBody>
-        <SidebarNavigation hierarchical hideItemsOnCollapse>
+        <SidebarNavigation aria-label="Main navigation" hierarchical hideItemsOnCollapse>
           <SidebarNavigationDisclosure state={messagingDisclosure}>
             <SidebarNavigationDisclosureHeadingWrapper>
               <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>

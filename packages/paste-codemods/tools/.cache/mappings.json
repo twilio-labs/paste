@@ -244,6 +244,7 @@
   "SidebarNavigationSeparator": "@twilio-paste/core/sidebar",
   "SidebarOverlayContentWrapper": "@twilio-paste/core/sidebar",
   "SidebarPushContentWrapper": "@twilio-paste/core/sidebar",
+  "SkipLinkContainer": "@twilio-paste/core/sidebar",
   "useSidebarNavigationDisclosureState": "@twilio-paste/core/sidebar",
   "SkeletonLoader": "@twilio-paste/core/skeleton-loader",
   "Spinner": "@twilio-paste/core/spinner",

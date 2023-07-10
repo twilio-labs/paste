@@ -69,7 +69,13 @@ export const getStaticProps = async () => {
   title="Compact push Sidebar example"
   storyID="components-sidebar-sidebar-push--compact"
   code={`
-<Sidebar aria-label={id} collapsed={true} variant="compact">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
@@ -102,9 +108,13 @@ Sidebar contains app navigation. It sits on the left side of the screen.
 
 The Sidebar follows these accessibility guidelines:
 
-- `Sidebar` is a navigation element. You must provide an `aria-label` prop for screen reader software. `aria-label="Main"` is read as "Main Navigation", with the word "navigation" being pulled from the navigation element.
+- `Sidebar` is an `aside` element.
 - `SidebarCollapseButton` provides `aria-controls` and `aria-expanded` HTML attributes that match `Sidebar`.
 - Always use `SidebarCollapseButton` with `Sidebar`. Otherwise there is no accessible `Sidebar` trigger for screen readers.
+- For skip links to function correctly you must provide the follow three props:
+  - `mainContentSkipLinkID`: ID given to the container that wraps the main content of your application.
+  - `sidebarNavigationSkipLinkID`: ID given to the `SidebarNavigation` component in your application.
+  - `topbarSkipLinkID`: ID given to the `Topbar` component in your application
 
 ## Examples
 
@@ -122,7 +132,13 @@ For most Twilio products, which are desktop experiences, we currently believe th
   title="Compact push Sidebar example"
   storyID="components-sidebar-sidebar-push--compact"
   code={`
-<Sidebar aria-label={id} collapsed={true} variant="compact">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
@@ -153,7 +169,13 @@ The "push" Sidebar moves the page content as it expands and collapses. The defau
   title="Push Sidebar example"
   storyID="components-sidebar-sidebar-push--default"
   code={`
-<Sidebar aria-label={id} collapsed={false} variant="default">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={false}
+  variant="default"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
@@ -170,7 +192,7 @@ The "push" Sidebar moves the page content as it expands and collapses. The defau
 </Sidebar>
 <SidebarPushContentWrapper collapsed={false} variant="default">
   <Box padding="space70">
-    <Button variant="primary">
+    <Button variant="primary" mainContentSkipLinkID={mainContentSkipLinkID}>
       Toggle Push Sidebar
     </Button>
   </Box>
@@ -187,7 +209,13 @@ A significant downside to the overlay Sidebar is that it can cover up or hide pa
   title="Compact overlay Sidebar example"
   storyID="components-sidebar-sidebar-overlay--compact"
   code={`
-<Sidebar aria-label={id} collapsed={true} variant="compact">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
@@ -219,7 +247,13 @@ The "overlay" Sidebar sits on top of the page content as it expands and collapse
   title="Overlay Sidebar example"
   storyID="components-sidebar-sidebar-overlay--default"
   code={`
-<Sidebar aria-label={id} collapsed={false} variant="default">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={false}
+  variant="default"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
@@ -235,7 +269,7 @@ The "overlay" Sidebar sits on top of the page content as it expands and collapse
   </SidebarFooter>
 </Sidebar>
 <SidebarOverlayContentWrapper collapsed={false} variant="default">
-  <Box padding="space70">
+  <Box as="main" padding="space70" id={mainContentSkipLinkID}>
     <Button variant="primary">
       Toggle Overlay Sidebar
     </Button>
@@ -289,7 +323,7 @@ The `SidebarBody` should be place between the `SidebarHeader` and `SidebarFooter
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="Main navigation" hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -363,10 +397,20 @@ import {
 
 const SideModalExample: React.FC = () => {
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label="Main" collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="/">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -387,9 +431,11 @@ const SideModalExample: React.FC = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+        <main id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </main>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -400,12 +446,18 @@ const SideModalExample: React.FC = () => {
 
 ##### Sidebar
 
-| Prop         | Type                       | Description                                                                               | Default     |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| `element?`   | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR'` |
-| `collapsed?` | `boolean`                  | Whether the sidebar is collapsed / closed.                                                | false       |
-| `variant?`   | `'default'` \| `'compact'` | Whether the sidebar should hide completely or collapse into a fixed width bar.            |             |
-| `children?`  | `React.ReactNode`          |                                                                                           |             |
+| Prop                           | Type                       | Description                                                                               | Default     |
+| ------------------------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| `element?`                     | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR'` |
+| `collapsed?`                   | `boolean`                  | Whether the sidebar is collapsed / closed.                                                | false       |
+| `variant?`                     | `'default'` \| `'compact'` | Whether the sidebar should hide completely or collapse into a fixed width bar.            |             |
+| `children?`                    | `React.ReactNode`          |                                                                                           |             |
+| `mainContentSkipLinkID`        | `string`                   | ID of the element that contains the main content of your application                      |             |
+| `sidebarNavigationSkipLinkID`  | `string`                   | ID given to the `SidebarNavigation` component                                             |             |
+| `topbarSkipLinkID`             | `string`                   | ID given to the `Topbar` component                                                        |             |
+| `i18nMainContentSkipLinkText?` | `string`                   | String used to change the text of the "skip to content" link                              |             |
+| `i18nNavigationSkipLinkText?`  | `string`                   | String used to change the text of the "skip to navigation" link                           |             |
+| `i18nTopbarSkipLinkText?`      | `string`                   | String used to change the text of the "skip to topbar" link                               |             |
 
 ##### SidebarHeader
 

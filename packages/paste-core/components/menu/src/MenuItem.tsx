@@ -18,7 +18,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
 
 export const MenuItemPropTypes = {
   href: PropTypes.string,
-  variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
+  variant: PropTypes.oneOf(Object.values(MenuItemVariants)),
   disabled: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,

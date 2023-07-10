@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
@@ -12,7 +13,7 @@ import {SidebarNavigationContext} from './SidebarNavigationContext';
  * as well as using a gradient to fade out the top and bottom of the sidebar
  * only when they are scrolled out of view
  */
-const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
+const SidebarNavigationWrapper = styled.nav(({theme}: {theme: ThemeShape}) => {
   const {colorBackgroundInverse, colorBackgroundInverseStronger} = theme.backgroundColors;
 
   return css({
@@ -47,13 +48,25 @@ const SidebarNavigationWrapper = styled.div(({theme}: {theme: ThemeShape}) => {
 
 export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  'aria-label': string;
   element?: BoxProps['element'];
   hideItemsOnCollapse?: boolean;
   hierarchical?: boolean;
+  sidebarNavigationSkipLinkID: string;
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  ({element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props}, ref) => {
+  (
+    {
+      element = 'SIDEBAR_NAVIGATION',
+      hideItemsOnCollapse = false,
+      hierarchical = false,
+      sidebarNavigationSkipLinkID,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const {collapsed} = React.useContext(SidebarContext);
 
     return (
@@ -66,6 +79,8 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
         <Box
           {...safelySpreadBoxProps(props)}
           as={SidebarNavigationWrapper as any}
+          id={sidebarNavigationSkipLinkID}
+          aria-label={props['aria-label']}
           element={element}
           ref={ref}
           transition="opacity 150ms ease"
@@ -84,3 +99,10 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
   }
 );
 SidebarNavigation.displayName = 'SidebarNavigation';
+SidebarNavigation.propTypes = {
+  element: PropTypes.string,
+  'aria-label': PropTypes.string.isRequired,
+  hideItemsOnCollapse: PropTypes.bool,
+  hierarchical: PropTypes.bool,
+  sidebarNavigationSkipLinkID: PropTypes.string.isRequired,
+};

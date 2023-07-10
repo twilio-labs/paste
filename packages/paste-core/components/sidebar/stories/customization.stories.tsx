@@ -27,9 +27,11 @@ export default {
 };
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
-  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <CustomizationProvider
@@ -68,7 +70,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+        <Sidebar
+          sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          topbarSkipLinkID={topbarSkipLinkID}
+          mainContentSkipLinkID={mainContentSkipLinkID}
+          collapsed={pushSidebarCollapsed}
+          variant="default"
+        >
           <SidebarHeader>
             <SidebarHeaderIconButton as="button">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -102,9 +110,11 @@ WithDefaultElementName.parameters = {
 };
 
 export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
-  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <CustomizationProvider
@@ -143,7 +153,14 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
+        <Sidebar
+          sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          topbarSkipLinkID={topbarSkipLinkID}
+          mainContentSkipLinkID={mainContentSkipLinkID}
+          collapsed={pushSidebarCollapsed}
+          variant="compact"
+          element="SIDECAR"
+        >
           <SidebarHeader element="SIDECAR_HEADER">
             <SidebarHeaderIconButton as="button" element="SIDECAR_HEADER_ICON_BUTTON">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />

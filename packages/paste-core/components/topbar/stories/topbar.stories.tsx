@@ -40,11 +40,20 @@ const TonsOfContent: React.FC = () => {
 };
 
 export const PushDefaultTopbar: StoryFn = () => {
-  const id = useUID();
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
   return (
     <>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -60,7 +69,7 @@ export const PushDefaultTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Topbar>
+        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <UserDialogContainer name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
@@ -71,9 +80,11 @@ export const PushDefaultTopbar: StoryFn = () => {
                 </UserDialogUserInfo>
               </UserDialog>
             </UserDialogContainer>
-            <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-              Toggle Sidebar
-            </Button>
+            <div id={mainContentSkipLinkID}>
+              <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+                Toggle Sidebar
+              </Button>
+            </div>
           </TopbarActions>
         </Topbar>
         <TonsOfContent />
@@ -86,11 +97,19 @@ PushDefaultTopbar.parameters = {
 };
 
 export const PushCompactTopbar: StoryFn = () => {
-  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
   return (
     <>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -106,7 +125,7 @@ export const PushCompactTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar>
+        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
@@ -114,7 +133,9 @@ export const PushCompactTopbar: StoryFn = () => {
             </Button>
           </TopbarActions>
         </Topbar>
-        <TonsOfContent />
+        <div id={mainContentSkipLinkID}>
+          <TonsOfContent />
+        </div>
       </SidebarPushContentWrapper>
     </>
   );
@@ -124,11 +145,20 @@ PushCompactTopbar.parameters = {
 };
 
 export const OverlayDefaultTopbar: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
   return (
     <>
-      <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarCollapsed}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -144,7 +174,7 @@ export const OverlayDefaultTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="default">
-        <Topbar>
+        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button
@@ -156,7 +186,9 @@ export const OverlayDefaultTopbar: StoryFn = () => {
             </Button>
           </TopbarActions>
         </Topbar>
-        <TonsOfContent />
+        <div id={mainContentSkipLinkID}>
+          <TonsOfContent />
+        </div>
       </SidebarOverlayContentWrapper>
     </>
   );
@@ -166,11 +198,20 @@ OverlayDefaultTopbar.parameters = {
 };
 
 export const OverlayCompactTopbar: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarCollapsed, setOverlaySidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
   return (
     <>
-      <Sidebar aria-label={id} collapsed={overlaySidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -186,7 +227,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="compact">
-        <Topbar>
+        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button
@@ -198,7 +239,9 @@ export const OverlayCompactTopbar: StoryFn = () => {
             </Button>
           </TopbarActions>
         </Topbar>
-        <TonsOfContent />
+        <div if={mainContentSkipLinkID}>
+          <TonsOfContent />
+        </div>
       </SidebarOverlayContentWrapper>
     </>
   );

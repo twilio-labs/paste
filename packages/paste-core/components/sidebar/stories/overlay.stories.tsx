@@ -23,19 +23,29 @@ export default {
 };
 
 export const Default: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <></>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
@@ -44,7 +54,7 @@ export const Default: StoryFn = () => {
           />
         </SidebarFooter>
       </Sidebar>
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default">
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default" id={mainContentSkipLinkID}>
         <Box padding="space70">
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
@@ -59,20 +69,30 @@ Default.parameters = {
 };
 
 export const Compact: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <></>
+        </SidebarBody>
         <SidebarFooter>
           <Box padding="space70">
             <SidebarCollapseButton
@@ -85,7 +105,7 @@ export const Compact: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact" id={mainContentSkipLinkID}>
         <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
           Toggle Overlay Sidebar
         </Button>

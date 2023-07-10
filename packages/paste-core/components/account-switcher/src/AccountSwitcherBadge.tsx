@@ -16,6 +16,8 @@ const AccountSwitcherBadge = React.forwardRef<HTMLButtonElement, AccountSwitcher
   }
 );
 
+// omit variant from MenuBadgePropTypes because it conflicts with AccountSwitcherBadge
+const {variant, ...accountSwitcherPropTypes} = MenuBadgePropTypes;
 AccountSwitcherBadge.displayName = 'AccountSwitcherBadge';
-AccountSwitcherBadge.propTypes = MenuBadgePropTypes;
+AccountSwitcherBadge.propTypes = accountSwitcherPropTypes;
 export {AccountSwitcherBadge};

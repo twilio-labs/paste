@@ -28,7 +28,9 @@ describe('User Dialog', () => {
     });
 
     it('should render a listbox with options', async () => {
-      render(<BasicUserDialog />);
+      await waitFor(() => {
+        render(<BasicUserDialog />);
+      });
       const renderedUserDialogListbox = screen.getByTestId('user-dialog-listbox');
       expect(renderedUserDialogListbox.getAttribute('role')).toEqual('listbox');
       expect(renderedUserDialogListbox?.firstElementChild?.getAttribute('role')).toEqual('option');
@@ -109,7 +111,9 @@ describe('User Dialog', () => {
 
 describe('customization', () => {
   it('User Dialog - should add custom styling correctly', async () => {
-    render(<CustomizedUserDialog />);
+    await waitFor(() => {
+      render(<CustomizedUserDialog />);
+    });
 
     const renderedUserDialogButton = screen.getAllByRole('button')[0];
     const renderedUserDialogButtonContents = renderedUserDialogButton.firstElementChild?.firstElementChild;
