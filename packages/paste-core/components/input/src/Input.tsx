@@ -34,6 +34,8 @@ export interface InputProps
   padding?: 'space0';
   paddingRight?: BoxStyleProps['paddingRight'];
   cursor?: BoxStyleProps['cursor'];
+  i18nStepUpLabel?: string;
+  i18nStepDownLabel?: string;
 }
 
 interface TypeProps {
@@ -124,6 +126,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type,
       value,
       variant,
+      i18nStepUpLabel,
+      i18nStepDownLabel,
       ...props
     },
     ref
@@ -136,21 +140,37 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showIncrement, setShowIncrement] = React.useState(true);
     const [showDecrement, setShowDecrement] = React.useState(true);
 
-    const numVal = Number(value);
-    const numStep = step ? Number(step) : 0;
-
     React.useEffect(() => {
-      if (max) {
-        const numMax = Number(max);
-        if (numVal < numMax && numVal + numStep <= numMax && !disabled) setShowIncrement(true);
-        else setShowIncrement(false);
+      if (type !== 'number') return;
+      if (disabled) {
+        setShowDecrement(false);
+        setShowIncrement(false);
+        return;
       }
-      if (min) {
-        const numMin = Number(min);
-        if (numVal > numMin && numVal - numStep >= numMin && !disabled) setShowDecrement(true);
-        else setShowDecrement(false);
+      // const numVal = value !== undefined ? Number(value) : Number(internalRef.current?.value); TODO: for when value isn't set by consumer?
+      const numVal = Number(value);
+      const numStep = step && !isNaN(Number(step)) ? Number(step) : 1;
+      const numMax = Number(max);
+      if (isNaN(numMax)) return;
+      const numMin = Number(min);
+      if (isNaN(numMin)) return;
+
+      if ((numMax - numMin) % numStep !== 0)
+        // eslint-disable-next-line no-console
+        console.error(
+          '[Paste Input]: when using min/max, and step values with a Number Input, please make sure that the min and max are multiples of the step value.'
+        );
+      if (numVal < numMax && numVal + numStep <= numMax) {
+        setShowIncrement(true);
+      } else {
+        setShowIncrement(false);
       }
-    }, [max, min, numVal, numStep, disabled]);
+      if (numVal > numMin && numVal - numStep >= numMin) {
+        setShowDecrement(true);
+      } else {
+        setShowDecrement(false);
+      }
+    }, [max, min, value, step, disabled, type]);
 
     return (
       <InputBox
@@ -195,7 +215,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 element={element}
                 onClick={() => {
                   internalRef.current?.stepUp();
+                  const ev = new Event('change', {bubbles: true});
+                  internalRef.current?.dispatchEvent(ev);
                 }}
+                i18nStepUpLabel={i18nStepUpLabel}
               />
             ) : (
               <Box height="12px" width="12px" element={`${element}_INCREMENT_PLACEHOLDER`} />
@@ -205,7 +228,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 element={element}
                 onClick={() => {
                   internalRef.current?.stepDown();
+                  const ev = new Event('change', {bubbles: true});
+                  internalRef.current?.dispatchEvent(ev);
                 }}
+                i18nStepDownLabel={i18nStepDownLabel}
               />
             ) : (
               <Box height="12px" width="12px" element={`${element}_DECREMENT_PLACEHOLDER`} />

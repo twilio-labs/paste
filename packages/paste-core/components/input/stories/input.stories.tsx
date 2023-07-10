@@ -634,21 +634,80 @@ export const DefaultNumberInput = (): React.ReactNode => {
   const uid = useUID();
   const [value, setValue] = React.useState('0');
   return (
-    <Input
-      id={uid}
-      type="number"
-      max="50"
-      min="-50"
-      step={3}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-    />
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={5}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+      />
+    </Box>
   );
 };
 
 DefaultNumberInput.storyName = 'Number Input - Controlled';
+
+export const TestNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState('0');
+  const [minValue, setMinValue] = React.useState('-10');
+  const [maxValue, setMaxValue] = React.useState('10');
+  const [stepValue, setStepValue] = React.useState('1');
+  return (
+    <>
+      <Box display="flex" flexDirection="row" columnGap="space40">
+        <Box maxWidth="size10">
+          <Label htmlFor="min">Min</Label>
+          <Input type="text" id="min" value={minValue} onChange={(evt) => setMinValue(evt.target.value)} />
+        </Box>
+        <Box maxWidth="size10">
+          <Label htmlFor="max">Max</Label>
+          <Input type="text" id="max" value={maxValue} onChange={(evt) => setMaxValue(evt.target.value)} />
+        </Box>
+        <Box maxWidth="size10">
+          <Label htmlFor="step">Step</Label>
+          <Input type="text" id="step" value={stepValue} onChange={(evt) => setStepValue(evt.target.value)} />
+        </Box>
+        <Box width="size20">
+          <Label htmlFor={uid} variant="default">
+            Number Input
+          </Label>
+          <Input
+            id={uid}
+            type="number"
+            max={maxValue}
+            min={minValue}
+            step={stepValue}
+            value={value}
+            onChange={(event) => {
+              setValue(event.target.value);
+            }}
+          />
+        </Box>
+      </Box>
+      <Box paddingY="space50" maxWidth="size50">
+        <strong>Note:</strong> this story is for testing the functionality of the Number Input logic (specifically the
+        increment and decrement buttons). Min, max, and step inputs are type=text just for the purpose of testing the
+        one type=number input in a controlled way, but please only put number values in those fields. <br /> <br /> The
+        expected behavior is that a console error will be thrown if the min/max values do not line up with the step
+        value (e.g. min=0; max=10; step=6). Valid min/max/step values are only when the step value brings the value from
+        the min to the max without any remainders (e.g. min=0; max=10; step=2). <br /> <br /> The increment and
+        decrement buttons should not appear if the value is hitting the min or max. Arrow keys (up/down) and clicking
+        the stepper buttons should have the same effect.
+      </Box>
+    </>
+  );
+};
+
+TestNumberInput.storyName = 'Number Input - Test';
 
 export const UncontrolledNumberInput = (): React.ReactNode => {
   const uid = useUID();
@@ -661,18 +720,23 @@ export const ErrorNumberInput = (): React.ReactNode => {
   const uid = useUID();
   const [value, setValue] = React.useState('0');
   return (
-    <Input
-      id={uid}
-      type="number"
-      max="50"
-      min="-50"
-      step={3}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-      hasError
-    />
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={3}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        hasError
+      />
+    </Box>
   );
 };
 
@@ -682,22 +746,116 @@ export const DisabledNumberInput = (): React.ReactNode => {
   const uid = useUID();
   const [value, setValue] = React.useState('0');
   return (
-    <Input
-      id={uid}
-      type="number"
-      max="50"
-      min="-50"
-      step={3}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-      disabled
-    />
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={3}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        disabled
+      />
+    </Box>
   );
 };
 
 DisabledNumberInput.storyName = 'Number Input - Disabled';
+
+export const I18nNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState('0');
+  return (
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Número
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        i18nStepUpLabel="incrementar"
+        i18nStepDownLabel="decrementar"
+      />
+    </Box>
+  );
+};
+
+I18nNumberInput.storyName = 'Number Input - i18n';
+
+export const CustomizedNumberInput = (): React.ReactNode => {
+  const theme = useTheme();
+  const uid1 = useUID();
+  const uid2 = useUID();
+  const [value1, setValue1] = React.useState('0');
+  const [value2, setValue2] = React.useState('0');
+  return (
+    <Box>
+      <Box margin="space60">
+        <Label htmlFor={uid1} variant="default">
+          Label
+        </Label>
+        <Input
+          id={uid1}
+          type="number"
+          max="50"
+          min="-50"
+          value={value1}
+          onChange={(event) => {
+            setValue1(event.target.value);
+          }}
+        />
+      </Box>
+      <CustomizationProvider
+        theme={theme}
+        elements={{
+          INPUT: {backgroundColor: 'colorBackgroundPrimaryWeakest'},
+          INPUT_ELEMENT: {
+            padding: 'space50',
+          },
+          INPUT_STEP_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest', paddingLeft: 'space30'},
+          INPUT_INCREMENT_BUTTON: {
+            borderRadius: 'borderRadiusCircle',
+            backgroundColor: 'colorBackgroundDestructiveWeak',
+          },
+          INPUT_INCREMENT_ICON: {size: 'sizeIcon20'},
+          INPUT_DECREMENT_BUTTON: {
+            borderRadius: 'borderRadiusCircle',
+            backgroundColor: 'colorBackgroundDestructiveWeak',
+          },
+          INPUT_DECREMENT_ICON: {size: 'sizeIcon20'},
+        }}
+      >
+        <Box margin="space60">
+          <Label htmlFor={uid2} variant="inverse">
+            Label
+          </Label>
+          <Input
+            id={uid2}
+            type="number"
+            max="50"
+            min="-50"
+            value={value2}
+            onChange={(event) => {
+              setValue2(event.target.value);
+            }}
+          />
+        </Box>
+      </CustomizationProvider>
+    </Box>
+  );
+};
+
+CustomizedNumberInput.storyName = 'Number Input - Customized';
 
 export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const uidOne = useUID();
