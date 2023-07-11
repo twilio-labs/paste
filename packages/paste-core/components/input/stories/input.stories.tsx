@@ -711,7 +711,12 @@ TestNumberInput.storyName = 'Number Input - Test';
 
 export const UncontrolledNumberInput = (): React.ReactNode => {
   const uid = useUID();
-  return <Input id={uid} type="number" max="50" min="-50" />;
+  return (
+    <>
+      <Label htmlFor={uid}>number input</Label>
+      <Input id={uid} type="number" max="50" min="-50" />
+    </>
+  );
 };
 
 UncontrolledNumberInput.storyName = 'Number Input - Uncontrolled';
@@ -854,6 +859,30 @@ export const CustomizedNumberInput = (): React.ReactNode => {
     </Box>
   );
 };
+
+export const MinNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>number input</Label>
+      <Input id={uid} type="number" defaultValue="-50" max="50" min="-50" />
+    </>
+  );
+};
+
+MinNumberInput.storyName = 'Number Input - Min number matched';
+
+export const MaxNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>number input</Label>
+      <Input id={uid} type="number" defaultValue="50" max="50" min="-50" />
+    </>
+  );
+};
+
+MaxNumberInput.storyName = 'Number Input - Max number matched';
 
 CustomizedNumberInput.storyName = 'Number Input - Customized';
 

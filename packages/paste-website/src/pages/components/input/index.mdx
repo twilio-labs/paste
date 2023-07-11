@@ -58,7 +58,7 @@ export const getStaticProps = async () => {
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -145,7 +145,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -158,7 +158,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange={()=>{}} required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
@@ -177,7 +177,7 @@ The input component should include the base input, along with supporting element
         <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
       </Button>
     }
-    onChange=""
+    onChange={()=>{}}
   />
   <HelpText id="display_name_help_text">Enter a short title for your message.</HelpText>
 </>`}
@@ -203,7 +203,12 @@ An input that is not displayed but whose value is submitted to the server.
 
 An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
 
-**Note:** We do not support the native HTML `input[type="number"]` element due to some accessibility concerns. These are best described in the following [research article from the gov.uk digital team](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="quantity">Quantity</Label>
+  <Input id="quantity" name="quantity" type="number" />
+</>`}
+</LivePreview>
 
 #### password
 
@@ -232,7 +237,7 @@ A Help Text inline error is placed below the field to inform a user of any error
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_error">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange={()=>{}} hasError />
   <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -246,7 +251,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
-  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
+  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange={()=>{}} disabled />
   <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -258,7 +263,7 @@ Use a read-only form field when a field's value can't be changed, but users shou
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_readonly">Email address</Label>
-  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
+  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange={()=>{}} readOnly />
   <HelpText id="email_readonly_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -270,7 +275,7 @@ An input field must have at least a label and an input.
 <LivePreview scope={{Input, Label}} language="jsx">
   {`<>
   <Label htmlFor="name">Name</Label>
-  <Input id="name" name="name" type="text" onChange=""/>
+  <Input id="name" name="name" type="text" onChange={()=>{}}/>
 </>`}
 </LivePreview>
 
@@ -282,11 +287,11 @@ Stack form fields vertically with `$space-80` spacing between each field.
   {`<>
   <Box marginBottom="space80">
     <Label htmlFor="first_name">First name</Label>
-    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
+    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange={()=>{}} />
   </Box>
   <Box>
     <Label htmlFor="last_name">Last name</Label>
-    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
+    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange={()=>{}} />
   </Box>
 </>`}
 </LivePreview>
@@ -311,7 +316,7 @@ Use required indicators to show users which fields they must fill out.
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -346,7 +351,7 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Use an input to encourage short text entry." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="short_do">Name</Label>
-      <Input id="short_do" name="short_do" type="text" onChange="" />
+      <Input id="short_do" name="short_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont
@@ -356,7 +361,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="short_dont">Tell us your life story</Label>
-      <Input id="short_dont" name="short_dont" type="text" onChange="" />
+      <Input id="short_dont" name="short_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -368,7 +373,13 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_do">Job title (60 characters)</Label>
-      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
+      <Input
+        aria-describedby="limited_do_help_text"
+        id="limited_do"
+        name="limited_do"
+        type="text"
+        onChange={() => {}}
+      />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
   </Do>
@@ -379,7 +390,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_dont">Abbreviated country</Label>
-      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
+      <Input id="limited_dont" name="limited_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -393,7 +404,7 @@ Use an input when users are expected to enter less than a single line of text, o
         name="email_do"
         type="email"
         placeholder="example@twilio.com"
-        onChange=""
+        onChange={() => {}}
       />
       <HelpText id="email_do_help_text">Use your work email address.</HelpText>
     </Box>
@@ -401,7 +412,13 @@ Use an input when users are expected to enter less than a single line of text, o
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_dont">Email address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Use your work email address" onChange="" />
+      <Input
+        id="email_dont"
+        name="email_dont"
+        type="email"
+        placeholder="Use your work email address"
+        onChange={() => {}}
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -413,7 +430,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_do">Phone number</Label>
-      <Input id="tel_do" name="tel_do" type="tel" onChange="" />
+      <Input id="tel_do" name="tel_do" type="tel" onChange={() => {}} />
     </Box>
   </Do>
   <Dont
@@ -423,7 +440,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_dont">Phone number</Label>
-      <Input id="tel_dont" name="tel_dont" type="text" onChange="" />
+      <Input id="tel_dont" name="tel_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -435,14 +452,14 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Phone number</Label>
-      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange={() => {}} />
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Email address</Label>
-      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange={() => {}} />
       <HelpText id="help_dont_help_text">
         Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
         field.
@@ -454,7 +471,7 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="label_do">Name</Label>
-      <Input id="label_do" name="label_do" type="text" onChange="" />
+      <Input id="label_do" name="label_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
@@ -463,7 +480,7 @@ Use an input when users are expected to enter less than a single line of text, o
         id="label_dont"
         name="label_dont"
         type="text"
-        onChange=""
+        onChange={() => {}}
         insertBefore={
           <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             Name
@@ -481,7 +498,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">Name</Label>
-      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled />
+      <Input id="disabled_do" name="disabled_do" type="text" onChange={() => {}} disabled />
     </Box>
   </Do>
   <Dont
@@ -491,7 +508,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
-      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled />
+      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange={() => {}} disabled />
     </Box>
   </Dont>
 </DoDont>

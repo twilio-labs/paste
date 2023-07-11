@@ -1,11 +1,17 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {Input} from '../src';
 import type {InputTypes} from '../src';
 
 const NOOP = (): void => {};
+
+const NumberInput: React.FC = () => {
+  const [value, setValue] = React.useState('0');
+  return <Input type="number" value={value} min="-1" max="2" onChange={(e) => setValue(e.currentTarget.value)} />;
+};
 
 describe('Input inner input props', () => {
   const initialProps = {
@@ -101,6 +107,8 @@ describe('Input event handlers', () => {
     expect(onFocusMock).toHaveBeenCalledTimes(1);
     RenderedInput.blur();
     expect(onBlurMock).toHaveBeenCalledTimes(1);
+    userEvent.type(RenderedInput, 'foo');
+    expect(onChangeMock).toHaveBeenCalledTimes(3);
   });
 });
 
@@ -177,6 +185,60 @@ describe('HTML attributes', () => {
   });
 });
 
+describe('Number Input', () => {
+  it('increases when step up clicked', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={1} />);
+    userEvent.click(getByRole('button', {name: 'step value up'}));
+    expect(getByRole('spinbutton').value).toBe('2');
+  });
+
+  it('decreases when step down clicked', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={3} />);
+    userEvent.click(getByRole('button', {name: 'step value down'}));
+    expect(getByRole('spinbutton').value).toBe('2');
+  });
+  it('increases by step when step up clicked', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={1} step={2} />);
+    userEvent.click(getByRole('button', {name: 'step value up'}));
+    expect(getByRole('spinbutton').value).toBe('3');
+  });
+
+  it('decreases by step when step down clicked', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={3} step={2} />);
+    userEvent.click(getByRole('button', {name: 'step value down'}));
+    expect(getByRole('spinbutton').value).toBe('1');
+  });
+
+  it('does not decrement below min value', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={1} min={1} />);
+    userEvent.click(getByRole('button', {name: 'step value down'}));
+    expect(getByRole('spinbutton').value).toBe('1');
+  });
+
+  it('does not increment above max value', () => {
+    const {getByRole} = render(<Input type="number" defaultValue={5} max={5} />);
+    userEvent.click(getByRole('button', {name: 'step value up'}));
+    expect(getByRole('spinbutton').value).toBe('5');
+  });
+
+  it('increase button hides when hit max', () => {
+    const {getByRole} = render(<NumberInput />);
+    const IncreaseButton = getByRole('button', {name: 'step value up'});
+    userEvent.click(IncreaseButton);
+    expect(getByRole('spinbutton').value).toBe('1');
+    userEvent.click(IncreaseButton);
+    expect(getByRole('spinbutton').value).toBe('2');
+    expect(IncreaseButton).not.toBeInTheDocument();
+  });
+  it('decrease button hides when hit min', () => {
+    const {getByRole} = render(<NumberInput />);
+    const DecreaseButton = getByRole('button', {name: 'step value down'});
+    userEvent.click(DecreaseButton);
+    expect(getByRole('spinbutton').value).toBe('-1');
+    expect(DecreaseButton).not.toBeInTheDocument();
+  });
+});
+
 describe('Customization', () => {
   it('should add custom styles to Input', (): void => {
     const {container} = render(
@@ -246,11 +308,17 @@ describe('Customization', () => {
               },
             },
           },
+          INPUT_INCREMENT_BUTTON: {
+            backgroundColor: 'colorBackgroundNew',
+          },
+          INPUT_DECREMENT_BUTTON: {
+            backgroundColor: 'colorBackgroundError',
+          },
         }}
       >
         <Input
           id="input"
-          type="text"
+          type="number"
           value="test"
           onChange={NOOP}
           variant="inverse"
@@ -260,13 +328,17 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInput = container.querySelector('[data-paste-element="INPUT"]');
-    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputElement = screen.getByRole('spinbutton');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
+    const renderedIncrement = screen.getByRole('button', {name: 'step value up'});
+    const renderedDecrement = screen.getByRole('button', {name: 'step value down'});
     expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
+    expect(renderedIncrement).toHaveStyleRule('background-color', 'rgb(245, 240, 252)');
+    expect(renderedDecrement).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
   });
 
   it('should add custom styles to Input with a custom element data attribute', (): void => {
@@ -278,11 +350,17 @@ describe('Customization', () => {
           FOO_ELEMENT: {backgroundColor: 'colorBackground'},
           FOO_PREFIX: {backgroundColor: 'colorBackground'},
           FOO_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO_INCREMENT_BUTTON: {
+            backgroundColor: 'colorBackgroundNew',
+          },
+          FOO_DECREMENT_BUTTON: {
+            backgroundColor: 'colorBackgroundError',
+          },
         }}
       >
         <Input
           id="input"
-          type="text"
+          type="number"
           value="test"
           onChange={NOOP}
           element="FOO"
@@ -292,13 +370,17 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedInput = container.querySelector('[data-paste-element="FOO"]');
-    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputElement = screen.getByRole('spinbutton');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
+    const renderedIncrement = screen.getByRole('button', {name: 'step value up'});
+    const renderedDecrement = screen.getByRole('button', {name: 'step value down'});
     expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
+    expect(renderedIncrement).toHaveStyleRule('background-color', 'rgb(245, 240, 252)');
+    expect(renderedDecrement).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
   });
 
   it('should add custom styles to a Input variant with a custom element data attribute', (): void => {
