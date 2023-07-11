@@ -1,5 +1,32 @@
 # Change Log
 
+## 19.5.0
+
+### Minor Changes
+
+- [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639) [#3306](https://github.com/twilio-labs/paste/pull/3306) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Improved ability to place children, like badges, inside a navigation item and have it positioned nicely by default
+
+### Patch Changes
+
+- [`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421) [#3319](https://github.com/twilio-labs/paste/pull/3319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] exposing missing typography style properties that are allowed via typescript, but aren't actually implemented on the component. These include list-style-type, textOverflow and overflowWrap
+
+* [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae) [#3299](https://github.com/twilio-labs/paste/pull/3299) Thanks [@nkrantz](https://github.com/nkrantz)! - [User Dialog] adjust padding of list items to more clearly define item groups
+
+- [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1) [#3304](https://github.com/twilio-labs/paste/pull/3304) Thanks [@serifluous](https://github.com/serifluous)! - Updates navigation component descriptions
+
+* [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73) [#3301](https://github.com/twilio-labs/paste/pull/3301) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] style adjustment to the column-gap in TopbarActions
+
+- [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d) [#3303](https://github.com/twilio-labs/paste/pull/3303) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] fix flicker in animation when expanding/collapsing the sidebar in compact mode. Reduce width of custom scrollbar and add margin-top.
+
+- Updated dependencies [[`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421), [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae), [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639), [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1), [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73), [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d)]:
+  - @twilio-paste/text@9.0.2
+  - @twilio-paste/user-dialog@1.0.2
+  - @twilio-paste/sidebar@0.4.0
+  - @twilio-paste/account-switcher@1.0.1
+  - @twilio-paste/product-switcher@1.0.2
+  - @twilio-paste/status@1.0.2
+  - @twilio-paste/topbar@0.2.2
+
 ## 19.4.0
 
 ### Minor Changes
