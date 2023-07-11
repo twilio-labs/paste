@@ -44,7 +44,7 @@ export const Default: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <></>
+          <div id={sidebarNavigationSkipLinkID} />
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -54,8 +54,9 @@ export const Default: StoryFn = () => {
           />
         </SidebarFooter>
       </Sidebar>
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default" id={mainContentSkipLinkID}>
-        <Box padding="space70">
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>
@@ -91,7 +92,7 @@ export const Compact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <></>
+          <div id={sidebarNavigationSkipLinkID} />
         </SidebarBody>
         <SidebarFooter>
           <Box padding="space70">
@@ -105,10 +106,13 @@ export const Compact: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact" id={mainContentSkipLinkID}>
-        <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-          Toggle Overlay Sidebar
-        </Button>
+      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+            Toggle Overlay Sidebar
+          </Button>
+        </div>
       </SidebarOverlayContentWrapper>
     </Box>
   );

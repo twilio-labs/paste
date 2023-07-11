@@ -84,6 +84,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody>
+            <div id={sidebarNavigationSkipLinkID} />
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarBody>
           <SidebarFooter>
@@ -97,9 +98,12 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
 
         {/* Must wrap content area */}
         <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <div id={topbarSkipLinkID} />
+          <div id={mainContentSkipLinkID}>
+            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Push Sidebarrrr
+            </Button>
+          </div>
         </SidebarPushContentWrapper>
       </Box>
     </CustomizationProvider>
@@ -168,6 +172,7 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody element="SIDECAR_NAVIGATION">
+            <div id={sidebarNavigationSkipLinkID} />
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>
@@ -188,9 +193,12 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           variant="compact"
           element="OVERLAY_SIDECAR_WRAPPER"
         >
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <div id={topbarSkipLinkID} />
+          <div id={mainContentSkipLinkID}>
+            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Push Sidebar
+            </Button>
+          </div>
         </SidebarOverlayContentWrapper>
       </Box>
     </CustomizationProvider>

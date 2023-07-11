@@ -44,7 +44,7 @@ export const Default: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <></>
+          <div id={sidebarNavigationSkipLinkID} />
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -56,8 +56,9 @@ export const Default: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default" id={mainContentSkipLinkID}>
-        <Box padding="space70">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
@@ -92,7 +93,7 @@ export const Compact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <></>
+          <div id={sidebarNavigationSkipLinkID} />
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -102,8 +103,9 @@ export const Compact: StoryFn = () => {
           />
         </SidebarFooter>
       </Sidebar>
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact" id={mainContentSkipLinkID}>
-        <Box padding="space70">
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

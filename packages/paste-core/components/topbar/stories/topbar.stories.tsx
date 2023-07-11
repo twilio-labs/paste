@@ -15,6 +15,7 @@ import {
   SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarFooter,
+  SidebarBody,
 } from '@twilio-paste/sidebar';
 import {
   UserDialog,
@@ -60,6 +61,9 @@ export const PushDefaultTopbar: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
+        <SidebarBody>
+          <div id={sidebarNavigationSkipLinkID} />
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -116,6 +120,9 @@ export const PushCompactTopbar: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
+        <SidebarBody>
+          <div id={sidebarNavigationSkipLinkID} />
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -165,6 +172,9 @@ export const OverlayDefaultTopbar: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
+        <SidebarBody>
+          <div id={sidebarNavigationSkipLinkID} />
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
@@ -218,6 +228,9 @@ export const OverlayCompactTopbar: StoryFn = () => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
+        <SidebarBody>
+          <div id={sidebarNavigationSkipLinkID} />
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarCollapsed(!overlaySidebarCollapsed)}
@@ -239,7 +252,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
             </Button>
           </TopbarActions>
         </Topbar>
-        <div if={mainContentSkipLinkID}>
+        <div id={mainContentSkipLinkID}>
           <TonsOfContent />
         </div>
       </SidebarOverlayContentWrapper>
