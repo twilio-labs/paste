@@ -12,4 +12,9 @@ export const customStyleProps = {
   wordBreak: true,
   wordWrap: true,
   fontVariantNumeric: true,
+  textOverflow: true,
+  overflowWrap: true,
+  listStyleType: true,
+  listStylePosition: true,
+  listStyleImage: true,
 };
