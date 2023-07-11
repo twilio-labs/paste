@@ -711,7 +711,7 @@ TestNumberInput.storyName = 'Number Input - Test';
 
 export const UncontrolledNumberInput = (): React.ReactNode => {
   const uid = useUID();
-  return <Input id={uid} type="number" max="50" min="-50" value="0" />;
+  return <Input id={uid} type="number" max="50" min="-50" />;
 };
 
 UncontrolledNumberInput.storyName = 'Number Input - Uncontrolled';

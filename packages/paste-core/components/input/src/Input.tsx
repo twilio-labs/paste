@@ -140,6 +140,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showIncrement, setShowIncrement] = React.useState(true);
     const [showDecrement, setShowDecrement] = React.useState(true);
 
+    // used for number inputs to be able to track uncontrolled number inputs value being changed by a user and it not being tracked by an applications
+    const [internalValue, setInternalValue] = React.useState(value ? value : '0');
+
     React.useEffect(() => {
       if (type !== 'number') return;
       if (disabled) {
@@ -147,8 +150,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         setShowIncrement(false);
         return;
       }
-      // const numVal = value !== undefined ? Number(value) : Number(internalRef.current?.value); TODO: for when value isn't set by consumer?
-      const numVal = Number(value);
+
+      const numVal = Number(internalValue);
       const numStep = step && !isNaN(Number(step)) ? Number(step) : 1;
       const numMax = Number(max);
       if (isNaN(numMax)) return;
@@ -170,7 +173,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       } else {
         setShowDecrement(false);
       }
-    }, [max, min, value, step, disabled, type]);
+    }, [max, min, step, disabled, type, internalValue]);
 
     return (
       <InputBox
@@ -201,6 +204,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           step={step}
           value={value}
           variant={variant}
+          onChange={(event) => {
+            if (props.onChange != null) props.onChange(event);
+            setInternalValue(event.target.value);
+          }}
         />
         {type === 'number' ? (
           <Box
