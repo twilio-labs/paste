@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+- [`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421) [#3319](https://github.com/twilio-labs/paste/pull/3319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] exposing missing typography style properties that are allowed via typescript, but aren't actually implemented on the component. These include list-style-type, textOverflow and overflowWrap
+
 ## 9.0.1
 
 ### Patch Changes

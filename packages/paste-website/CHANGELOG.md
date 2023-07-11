@@ -1,5 +1,19 @@
 # @twilio-paste/website
 
+## 2.23.31
+
+### Patch Changes
+
+- Updated dependencies [[`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421), [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae), [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639), [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1), [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73), [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d), [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73)]:
+  - @twilio-paste/text@9.0.2
+  - @twilio-paste/user-dialog@1.0.2
+  - @twilio-paste/sidebar@0.4.0
+  - @twilio-paste/account-switcher@1.0.1
+  - @twilio-paste/product-switcher@1.0.2
+  - @twilio-paste/status@1.0.2
+  - @twilio-paste/topbar@0.2.2
+  - @twilio-paste/icons@11.2.2
+
 ## 2.23.30
 
 ### Patch Changes

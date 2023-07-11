@@ -29,6 +29,19 @@ describe('Ordered List', () => {
       expect(renderedList).toHaveStyleRule('margin-bottom', '0.75rem');
     });
 
+    it('should set list style type styles to combat css reset stylesheets', () => {
+      render(
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+          <OrderedList data-testID="ordered-list">Children</OrderedList>
+          <UnorderedList data-testID="unordered-list">Children</UnorderedList>
+        </CustomizationProvider>
+      );
+      const renderedOrderedList = screen.getByTestId('ordered-list');
+      const renderedUnorderedList = screen.getByTestId('unordered-list');
+      expect(renderedOrderedList).toHaveStyleRule('list-style-type', 'decimal');
+      expect(renderedUnorderedList).toHaveStyleRule('list-style-type', 'disc');
+    });
+
     it('should allow aria attributes', () => {
       render(<OrderedList aria-expanded="true">Children</OrderedList>);
       const renderedList = screen.getByRole('list');

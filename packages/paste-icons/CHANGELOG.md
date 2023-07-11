@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.2.2
+
+### Patch Changes
+
+- [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73) [#3301](https://github.com/twilio-labs/paste/pull/3301) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] update ProductSupport and Support icons
+
 ## 11.2.1
 
 ### Patch Changes
