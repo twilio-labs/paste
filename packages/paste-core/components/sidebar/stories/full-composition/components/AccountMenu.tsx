@@ -7,7 +7,7 @@ export const AccountMenu: React.FC = () => {
   return (
     <>
       <MenuButton {...menu} variant="reset" size="reset">
-        Account <ChevronDownIcon decorative />
+        Account <ChevronDownIcon decorative color="colorTextIcon" />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
         <MenuGroup label="Manage account">

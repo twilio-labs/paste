@@ -7,7 +7,7 @@ export const BillingMenu: React.FC = () => {
   return (
     <>
       <MenuButton {...menu} variant="reset" size="reset">
-        Billing <ChevronDownIcon decorative />
+        Billing <ChevronDownIcon decorative color="colorTextIcon" />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
         <MenuGroup label="Manage Billing">
