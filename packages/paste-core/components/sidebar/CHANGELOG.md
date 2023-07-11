@@ -1,5 +1,15 @@
 # @twilio-paste/sidebar
 
+## 0.4.0
+
+### Minor Changes
+
+- [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639) [#3306](https://github.com/twilio-labs/paste/pull/3306) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Improved ability to place children, like badges, inside a navigation item and have it positioned nicely by default
+
+### Patch Changes
+
+- [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d) [#3303](https://github.com/twilio-labs/paste/pull/3303) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] fix flicker in animation when expanding/collapsing the sidebar in compact mode. Reduce width of custom scrollbar and add margin-top.
+
 ## 0.3.1
 
 ### Patch Changes

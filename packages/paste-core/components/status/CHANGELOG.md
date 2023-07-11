@@ -1,5 +1,11 @@
 # @twilio-paste/status
 
+## 1.0.2
+
+### Patch Changes
+
+- [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1) [#3304](https://github.com/twilio-labs/paste/pull/3304) Thanks [@serifluous](https://github.com/serifluous)! - Updates navigation component descriptions
+
 ## 1.0.1
 
 ### Patch Changes

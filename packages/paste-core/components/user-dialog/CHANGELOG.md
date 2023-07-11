@@ -1,5 +1,11 @@
 # @twilio-paste/user-dialog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae) [#3299](https://github.com/twilio-labs/paste/pull/3299) Thanks [@nkrantz](https://github.com/nkrantz)! - [User Dialog] adjust padding of list items to more clearly define item groups
+
 ## 1.0.1
 
 ### Patch Changes
