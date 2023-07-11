@@ -80,7 +80,7 @@ export const PasteTheme: editor.IStandaloneThemeData = {
     'tab.unfocusedInactiveForeground': '#5f7e97',
     'editor.background': '#011627',
     'editor.foreground': '#d6deeb',
-    'editorLineNumber.foreground': '#4b6479',
+    'editorLineNumber.foreground': '#728ea6',
     'editorLineNumber.activeForeground': '#C5E4FD',
     'editorCursor.foreground': '#80a4c2',
     'editor.selectionBackground': '#1d3b53',

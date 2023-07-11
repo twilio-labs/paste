@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import type {Monaco, IStandaloneCodeEditor, IMarker, IModelContentChangedEvent} from 'monaco-editor';
+
 import {CodeEditorDiff, CodeEditorPasteTheme, type Editor, type Monaco} from '../src';
 
 // eslint-disable-next-line import/no-default-export
