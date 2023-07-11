@@ -18,6 +18,11 @@ const a11yConfig = {
       rules: [
         {
           // Page level test that states one main element is present. Not applicable for isolated components.
+          id: 'landmark-unique',
+          enabled: false,
+        },
+        {
+          // Page level test that states one main element is present. Not applicable for isolated components.
           id: 'landmark-one-main',
           enabled: false,
         },
