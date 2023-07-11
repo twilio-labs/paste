@@ -1,4 +1,10 @@
-export {Editor as CodeEditor, DiffEditor as CodeEditorDiff, type Monaco} from '@monaco-editor/react';
+export {
+  Editor as CodeEditor,
+  DiffEditor as CodeEditorDiff,
+  type EditorProps as CodeEditorProps,
+  type DiffEditorProps as CodeEditorDiffProps,
+  type Monaco,
+} from '@monaco-editor/react';
 export {PasteTheme as CodeEditorPasteTheme} from './PasteTheme';
 export type {
   editor as Editor,

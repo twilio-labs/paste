@@ -26,6 +26,7 @@ export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';
 export * from '@twilio-paste/display-heading';
 export * from '@twilio-paste/display-pill-group';
+export * from '@twilio-paste/editable-code-block';
 export * from '@twilio-paste/file-picker';
 export * from '@twilio-paste/file-uploader';
 export * from '@twilio-paste/flex';
