@@ -19,6 +19,7 @@ import {
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
   SidebarBody,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -27,9 +28,11 @@ export default {
 };
 
 export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
-  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <CustomizationProvider
@@ -68,7 +71,13 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+        <Sidebar
+          sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          topbarSkipLinkID={topbarSkipLinkID}
+          mainContentSkipLinkID={mainContentSkipLinkID}
+          collapsed={pushSidebarCollapsed}
+          variant="default"
+        >
           <SidebarHeader>
             <SidebarHeaderIconButton as="button">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -76,6 +85,9 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody>
+            <SidebarNavigation aria-label="main">
+              <></>
+            </SidebarNavigation>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarBody>
           <SidebarFooter>
@@ -89,9 +101,12 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
 
         {/* Must wrap content area */}
         <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <div id={topbarSkipLinkID} />
+          <div id={mainContentSkipLinkID}>
+            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Push Sidebarrrr
+            </Button>
+          </div>
         </SidebarPushContentWrapper>
       </Box>
     </CustomizationProvider>
@@ -102,9 +117,11 @@ WithDefaultElementName.parameters = {
 };
 
 export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
-  const id = useUID();
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <CustomizationProvider
@@ -143,7 +160,14 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
     >
       <Box>
         {/* Can be placed anywhere - position fixed */}
-        <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact" element="SIDECAR">
+        <Sidebar
+          sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          topbarSkipLinkID={topbarSkipLinkID}
+          mainContentSkipLinkID={mainContentSkipLinkID}
+          collapsed={pushSidebarCollapsed}
+          variant="compact"
+          element="SIDECAR"
+        >
           <SidebarHeader element="SIDECAR_HEADER">
             <SidebarHeaderIconButton as="button" element="SIDECAR_HEADER_ICON_BUTTON">
               <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -151,6 +175,9 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody element="SIDECAR_NAVIGATION">
+            <SidebarNavigation aria-label="main">
+              <></>
+            </SidebarNavigation>
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>
@@ -171,9 +198,12 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
           variant="compact"
           element="OVERLAY_SIDECAR_WRAPPER"
         >
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
+          <div id={topbarSkipLinkID} />
+          <div id={mainContentSkipLinkID}>
+            <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+              Toggle Push Sidebar
+            </Button>
+          </div>
         </SidebarOverlayContentWrapper>
       </Box>
     </CustomizationProvider>

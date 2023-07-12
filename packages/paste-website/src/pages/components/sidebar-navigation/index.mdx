@@ -111,7 +111,7 @@ export const getStaticProps = async () => {
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -195,6 +195,7 @@ We recommend limiting the nesting depth to 3 levels. For navigation beyond this 
 
 Nested sidebar navigation uses the [ARIA Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
+- You must provide an `aria-label` prop for screen reader software. `aria-label="Main"` is read as "Main Navigation", with the word "navigation" being pulled from the navigation element.
 - Additional controls or actions should be placed as siblings to each `SidebarNavigationItem` in the navigation, not nested within.
 - Every `SidebarNavigationItem` must implement an anchor element by assigning a valid URL to the `href` attribute.
 - A `selected` `SidebarNavigationItem` is designated as the "current page" via `aria-current="page"`.
@@ -229,7 +230,7 @@ To indicate the current page, the `selected` property should be set on the item 
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation>
+    <SidebarNavigation aria-label="main">
       <SidebarNavigationItem
         href="https://google.com"
         selected
@@ -304,7 +305,7 @@ When creating a hierarchical navigation structure, ensure the `SidebarNavigation
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationDisclosure>
         <SidebarNavigationDisclosureHeadingWrapper>
           <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
@@ -404,7 +405,7 @@ When mixing, you **must** ensure `hierarchical` is set on `SidebarNavigation` to
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -447,7 +448,13 @@ When using a flat navigation list and a `compact` Sidebar variant, only the icon
 <StoryPreview
   title="Collapsing sidebar visible icons"
   storyID="components-sidebar-navigation--flex-example"
-  code={`<Sidebar aria-label="main navigation" collapsed={false} variant="compact">
+  code={`<Sidebar
+    sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+    topbarSkipLinkID={topbarSkipLinkID}
+    mainContentSkipLinkID={mainContentSkipLinkID}
+    collapsed={false}
+    variant="compact"
+  >
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
@@ -455,7 +462,7 @@ When using a flat navigation list and a `compact` Sidebar variant, only the icon
     <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
   </SidebarHeader>
   <SidebarBody>
-    <SidebarNavigation>
+    <SidebarNavigation aria-label="main navigation">
       <SidebarNavigationItem
         href=""
         selected
@@ -506,7 +513,13 @@ Regardless of the situation, Sidebar Navigation Disclosures will always be hidde
   title="Collapsing sidebar hidden icons"
   storyID="components-sidebar-navigation--segment-example"
   code={`
-<Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={pushSidebarCollapsed}
+  variant="compact"
+>
   <SidebarHeader>
     <SidebarHeaderIconButton as="a" href="#">
       <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
@@ -514,7 +527,7 @@ Regardless of the situation, Sidebar Navigation Disclosures will always be hidde
     <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
   </SidebarHeader>
   <SidebarBody>
-    <SidebarNavigation hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -690,7 +703,13 @@ const SideModalExample: React.FC = () => {
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
   return (
     <Box>
-      <Sidebar aria-label="Main navigation" collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
@@ -698,7 +717,7 @@ const SideModalExample: React.FC = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation>
+          <SidebarNavigation aria-label="Main navigation">
             <SidebarNavigationItem
               href="https://google.com"
               selected
@@ -748,7 +767,7 @@ const SideModalExample: React.FC = () => {
       </Sidebar>
 
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Box padding="space70">
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>
@@ -763,12 +782,13 @@ const SideModalExample: React.FC = () => {
 
 ##### SidebarNavigation
 
-| Prop                   | Type              | Description                                                                               | Default                |
-| ---------------------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION'` |
-| `children?`            | `React.ReactNode` |                                                                                           |                        |
-| `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar        |                        |
-| `hierarchical?`        | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                       |                        |
+| Prop                   | Type              | Description                                                                                              | Default                |
+| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                | `'SIDEBAR_NAVIGATION'` |
+| `children?`            | `React.ReactNode` |                                                                                                          |                        |
+| `aria-label`           | `string`          | Accessible name for the navigation element, useful for application navigation using assistive technology |                        |
+| `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar                       |                        |
+| `hierarchical?`        | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                                     |                        |
 
 ##### SidebarNavigationItem
 
@@ -787,7 +807,7 @@ const SideModalExample: React.FC = () => {
 | `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                               | `'SIDEBAR_NAVIGATION_DISCLOSURE'` |
 | `children?` | `React.ReactNode` |                                                                                                                         |                                   |
 | `baseId?`   | `string`          | Base ID string to base subsequent, dynamic IDs on                                                                       |                                   |
-| `visible?`  | `boolean`         | Set the initial visibility of the Disclosure                                                                             | `false`                           |
+| `visible?`  | `boolean`         | Set the initial visibility of the Disclosure                                                                            | `false`                           |
 | `state?`    | `object`          | Ability to control the disclosure by passing in the returned values from the `useSidebarNavigationDisclosureState` hook |                                   |
 
 ##### SidebarNavigationDisclosureHeadingWrapper
@@ -828,7 +848,7 @@ Pass these as part of an object to the hook.
 | Prop       | Type      | Description                                                   | Default |
 | ---------- | --------- | ------------------------------------------------------------- | ------- |
 | `baseId?`  | `string`  | Set to create a base ID that all dynamic IDs will be based on |         |
-| `visible?` | `boolean` | Set the initial visibility of the Disclosure                   |         |
+| `visible?` | `boolean` | Set the initial visibility of the Disclosure                  |         |
 
 ##### useSidebarNavigationDisclosureState Return props
 
