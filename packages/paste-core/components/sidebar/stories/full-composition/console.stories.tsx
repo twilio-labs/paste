@@ -76,12 +76,7 @@ export const Console: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation
-            aria-label={id}
-            hierarchical
-            hideItemsOnCollapse
-            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-          >
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationDisclosure>
               <SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>

@@ -69,12 +69,7 @@ export const Segment: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation
-            aria-label={id}
-            hierarchical
-            hideItemsOnCollapse
-            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-          >
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
               Home
             </SidebarNavigationItem>

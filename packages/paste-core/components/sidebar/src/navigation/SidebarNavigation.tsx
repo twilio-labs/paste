@@ -52,22 +52,11 @@ export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElem
   element?: BoxProps['element'];
   hideItemsOnCollapse?: boolean;
   hierarchical?: boolean;
-  sidebarNavigationSkipLinkID: string;
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  (
-    {
-      element = 'SIDEBAR_NAVIGATION',
-      hideItemsOnCollapse = false,
-      hierarchical = false,
-      sidebarNavigationSkipLinkID,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const {collapsed} = React.useContext(SidebarContext);
+  ({element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props}, ref) => {
+    const {collapsed, sidebarNavigationSkipLinkID} = React.useContext(SidebarContext);
 
     return (
       <SidebarNavigationContext.Provider
@@ -104,5 +93,4 @@ SidebarNavigation.propTypes = {
   'aria-label': PropTypes.string.isRequired,
   hideItemsOnCollapse: PropTypes.bool,
   hierarchical: PropTypes.bool,
-  sidebarNavigationSkipLinkID: PropTypes.string.isRequired,
 };

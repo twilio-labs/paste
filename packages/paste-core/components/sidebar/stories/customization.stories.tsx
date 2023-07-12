@@ -19,6 +19,7 @@ import {
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
   SidebarBody,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -84,7 +85,9 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody>
-            <div id={sidebarNavigationSkipLinkID} />
+            <SidebarNavigation aria-label="main">
+              <></>
+            </SidebarNavigation>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarBody>
           <SidebarFooter>
@@ -172,7 +175,9 @@ export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnviro
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody element="SIDECAR_NAVIGATION">
-            <div id={sidebarNavigationSkipLinkID} />
+            <SidebarNavigation aria-label="main">
+              <></>
+            </SidebarNavigation>
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>

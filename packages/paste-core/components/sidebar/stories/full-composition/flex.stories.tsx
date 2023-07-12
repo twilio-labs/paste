@@ -59,7 +59,7 @@ export const Flex: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label={id} sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://google.com"
               selected

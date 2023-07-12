@@ -78,12 +78,7 @@ export const Default: StoryFn = () => {
         </SidebarHeader>
         <SidebarBody>
           {/* Nav */}
-          <SidebarNavigation
-            aria-label={id}
-            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-            hierarchical
-            hideItemsOnCollapse
-          >
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -276,7 +271,7 @@ export const FlatCompact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label={id} sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -364,12 +359,7 @@ export const HierarchicalCompact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation
-            aria-label={id}
-            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-            hierarchical
-            hideItemsOnCollapse
-          >
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -528,7 +518,7 @@ export const StateHookDisclosure: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label={id} sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationDisclosure state={disclosure}>
               <SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureHeading icon={<ProductContactCenterTasksIcon decorative />} selected>
@@ -602,7 +592,7 @@ export const FlexExample: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label={id} sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://google.com"
               selected
@@ -691,12 +681,7 @@ export const SegmentExample: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation
-            aria-label={id}
-            sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-            hierarchical
-            hideItemsOnCollapse
-          >
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
               Home
             </SidebarNavigationItem>

@@ -15,6 +15,7 @@ import {
   SidebarFooter,
   SidebarPushContentWrapper,
   SidebarBody,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -44,7 +45,9 @@ export const Default: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -93,7 +96,9 @@ export const Compact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton

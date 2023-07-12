@@ -111,7 +111,7 @@ export const getStaticProps = async () => {
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav" hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -199,7 +199,6 @@ Nested sidebar navigation uses the [ARIA Disclosure pattern](https://www.w3.org/
 - Additional controls or actions should be placed as siblings to each `SidebarNavigationItem` in the navigation, not nested within.
 - Every `SidebarNavigationItem` must implement an anchor element by assigning a valid URL to the `href` attribute.
 - A `selected` `SidebarNavigationItem` is designated as the "current page" via `aria-current="page"`.
-- Set a value for `sidebarNavigationSkipLinkID` to be used with Sidebar skip link functionality. The ID must be a unique string not used elsewhere in the application.
 
 ## Examples
 
@@ -231,7 +230,7 @@ To indicate the current page, the `selected` property should be set on the item 
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav">
+    <SidebarNavigation aria-label="main">
       <SidebarNavigationItem
         href="https://google.com"
         selected
@@ -306,7 +305,7 @@ When creating a hierarchical navigation structure, ensure the `SidebarNavigation
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav" hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationDisclosure>
         <SidebarNavigationDisclosureHeadingWrapper>
           <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
@@ -406,7 +405,7 @@ When mixing, you **must** ensure `hierarchical` is set on `SidebarNavigation` to
 >
   {`<Box backgroundColor="colorBackgroundInverse">
   <SidebarBody>
-    <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav" hierarchical hideItemsOnCollapse>
+    <SidebarNavigation aria-label="main" hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -463,7 +462,7 @@ When using a flat navigation list and a `compact` Sidebar variant, only the icon
     <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
   </SidebarHeader>
   <SidebarBody>
-    <SidebarNavigation aria-label="main navigation" sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+    <SidebarNavigation aria-label="main navigation">
       <SidebarNavigationItem
         href=""
         selected
@@ -528,7 +527,7 @@ Regardless of the situation, Sidebar Navigation Disclosures will always be hidde
     <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
   </SidebarHeader>
   <SidebarBody>
-    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
       <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
         Home
       </SidebarNavigationItem>
@@ -718,7 +717,7 @@ const SideModalExample: React.FC = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="Main navigation" sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}>
+          <SidebarNavigation aria-label="Main navigation">
             <SidebarNavigationItem
               href="https://google.com"
               selected
@@ -783,14 +782,13 @@ const SideModalExample: React.FC = () => {
 
 ##### SidebarNavigation
 
-| Prop                          | Type              | Description                                                                                              | Default                |
-| ----------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `element?`                    | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                | `'SIDEBAR_NAVIGATION'` |
-| `children?`                   | `React.ReactNode` |                                                                                                          |                        |
-| `aria-label`                  | `string`          | Accessible name for the navigation element, useful for application navigation using assistive technology |                        |
-| `hideItemsOnCollapse?`        | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar                       |                        |
-| `hierarchical?`               | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                                     |                        |
-| `sidebarNavigationSkipLinkID` | `string`          | Unique ID used to identify the Sidebar Navigation element for Skip Link functionality.                   |                        |
+| Prop                   | Type              | Description                                                                                              | Default                |
+| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                | `'SIDEBAR_NAVIGATION'` |
+| `children?`            | `React.ReactNode` |                                                                                                          |                        |
+| `aria-label`           | `string`          | Accessible name for the navigation element, useful for application navigation using assistive technology |                        |
+| `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar                       |                        |
+| `hierarchical?`        | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                                     |                        |
 
 ##### SidebarNavigationItem
 

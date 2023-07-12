@@ -51,7 +51,7 @@ const MockPushSidebarWithNavigation = ({
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav">
+        <SidebarNavigation aria-label="main">
           <SidebarNavigationItem
             href="https://google.com"
             data-testid="nav-item-button"
@@ -237,7 +237,7 @@ describe('SidebarNavigation', () => {
             variant="compact"
             data-testid="aaa"
           >
-            <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav">
+            <SidebarNavigation aria-label="main">
               <SidebarNavigationItem href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>
@@ -302,7 +302,7 @@ describe('SidebarNavigation', () => {
             variant="compact"
             data-testid="aaa"
           >
-            <SidebarNavigation aria-label="main" sidebarNavigationSkipLinkID="nav" element="NAVIGATION">
+            <SidebarNavigation aria-label="main" element="NAVIGATION">
               <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>

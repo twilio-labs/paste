@@ -106,17 +106,15 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     const styles = useSpring(springConfig);
 
     return (
-      <SidebarContext.Provider value={{collapsed, variant, sidebarId}}>
+      <SidebarContext.Provider value={{collapsed, variant, sidebarId, sidebarNavigationSkipLinkID}}>
         <SidebarSkipLinks
           element={`${element}_SKIPLINKS`}
-          {...{
-            mainContentSkipLinkID,
-            sidebarNavigationSkipLinkID,
-            topbarSkipLinkID,
-            i18nMainContentSkipLinkText,
-            i18nNavigationSkipLinkText,
-            i18nTopbarSkipLinkText,
-          }}
+          mainContentSkipLinkID={mainContentSkipLinkID}
+          sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+          topbarSkipLinkID={topbarSkipLinkID}
+          i18nMainContentSkipLinkText={i18nMainContentSkipLinkText}
+          i18nNavigationSkipLinkText={i18nNavigationSkipLinkText}
+          i18nTopbarSkipLinkText={i18nTopbarSkipLinkText}
         />
         <AnimatedStyledSidebar
           {...safelySpreadBoxProps(props)}
@@ -141,4 +139,7 @@ Sidebar.propTypes = {
   mainContentSkipLinkID: PropTypes.string,
   sidebarNavigationSkipLinkID: PropTypes.string,
   topbarSkipLinkID: PropTypes.string,
+  i18nMainContentSkipLinkText: PropTypes.string,
+  i18nNavigationSkipLinkText: PropTypes.string,
+  i18nTopbarSkipLinkText: PropTypes.string,
 };

@@ -16,6 +16,7 @@ import {
   SidebarCollapseButton,
   SidebarFooter,
   SidebarBody,
+  SidebarNavigation,
 } from '@twilio-paste/sidebar';
 import {
   UserDialog,
@@ -62,7 +63,9 @@ export const PushDefaultTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -121,7 +124,9 @@ export const PushCompactTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -173,7 +178,9 @@ export const OverlayDefaultTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -229,7 +236,9 @@ export const OverlayCompactTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <div id={sidebarNavigationSkipLinkID} />
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
