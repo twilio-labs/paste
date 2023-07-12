@@ -7,7 +7,8 @@ import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
 
 import {safelySpreadFormControlProps} from './utils';
-import {IncrementButton, DecrementButton} from './NumberStep';
+import {DecrementButton} from './DecrementButton';
+import {IncrementButton} from './IncrementButton';
 
 export type InputVariants = 'default' | 'inverse';
 
@@ -226,6 +227,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   internalRef.current?.stepUp();
                   const ev = new Event('change', {bubbles: true});
                   internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
                 }}
                 i18nStepUpLabel={i18nStepUpLabel}
               />
@@ -239,6 +241,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   internalRef.current?.stepDown();
                   const ev = new Event('change', {bubbles: true});
                   internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
                 }}
                 i18nStepDownLabel={i18nStepDownLabel}
               />
