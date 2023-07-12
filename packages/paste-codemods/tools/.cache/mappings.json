@@ -99,6 +99,7 @@
   "DisplayHeading": "@twilio-paste/core/display-heading",
   "DisplayPill": "@twilio-paste/core/display-pill-group",
   "DisplayPillGroup": "@twilio-paste/core/display-pill-group",
+  "EditableCodeBlock": "@twilio-paste/core/editable-code-block",
   "FilePicker": "@twilio-paste/core/file-picker",
   "FilePickerButton": "@twilio-paste/core/file-picker",
   "FileUploader": "@twilio-paste/core/file-uploader",

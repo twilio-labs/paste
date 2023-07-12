@@ -1,0 +1,38 @@
+{
+  "name": "@twilio-paste/code-editor-library",
+  "version": "0.0.0",
+  "category": "library",
+  "status": "production",
+  "description": "A library to display and make changes to large blocks of code.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "4.5.1",
+    "monaco-editor": "0.39.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
+  },
+  "devDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
