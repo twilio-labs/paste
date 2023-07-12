@@ -149,7 +149,7 @@ export const Segment: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <WorkspaceSwitcherMenu />
             <UpgradeBadge />

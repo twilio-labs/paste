@@ -20,7 +20,7 @@ export const DefaultElement: StoryFn = () => {
         },
       }}
     >
-      <Topbar topbarSkipLinkID="topbar">Topbar</Topbar>
+      <Topbar id="topbar">Topbar</Topbar>
     </CustomizationProvider>
   );
 };
@@ -39,7 +39,7 @@ export const CustomElement: StoryFn = () => {
         },
       }}
     >
-      <Topbar topbarSkipLinkID="topbar" element="CUSTOM_TOPBAR">
+      <Topbar id="topbar" element="CUSTOM_TOPBAR">
         Topbar
       </Topbar>
     </CustomizationProvider>

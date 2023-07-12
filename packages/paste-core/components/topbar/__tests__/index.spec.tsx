@@ -6,7 +6,7 @@ import {Topbar} from '../src';
 
 describe('Topbar', () => {
   it('renders correctly', () => {
-    render(<Topbar topbarSkipLinkID="topbar">Topbar</Topbar>);
+    render(<Topbar id="topbar">Topbar</Topbar>);
     const renderedTopbar = screen.getByText('Topbar');
     expect(renderedTopbar).toHaveStyleRule('position', 'sticky');
     expect(renderedTopbar).toHaveStyleRule('top', '0');
@@ -28,8 +28,8 @@ describe('Topbar', () => {
             },
           }}
         >
-          <Topbar topbarSkipLinkID="topbar">Topbar</Topbar>
-          <Topbar topbarSkipLinkID="topbar" element="CUSTOM_TOPBAR">
+          <Topbar id="topbar">Topbar</Topbar>
+          <Topbar id="topbar" element="CUSTOM_TOPBAR">
             CustomTopbar
           </Topbar>
         </CustomizationProvider>

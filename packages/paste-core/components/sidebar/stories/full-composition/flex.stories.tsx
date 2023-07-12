@@ -109,7 +109,7 @@ export const Flex: StoryFn = () => {
       </Sidebar>
 
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <StatusMenuExample />
           </TopbarActions>

@@ -6,15 +6,18 @@ import type {BoxProps} from '@twilio-paste/box';
 export interface TopbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   element?: BoxProps['element'];
-  topbarSkipLinkID: string;
+  /**
+   * Create a unique ID for the topbar and provide it to the Sidebar component for accessible skip links
+   */
+  id: string;
 }
 
 export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
-  ({element = 'TOPBAR', topbarSkipLinkID, children, ...props}, ref) => {
+  ({element = 'TOPBAR', id, children, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        id={topbarSkipLinkID}
+        id={id}
         ref={ref}
         element={element}
         width="100%"
@@ -42,5 +45,5 @@ Topbar.displayName = 'Topbar';
 Topbar.propTypes = {
   children: PropTypes.node.isRequired,
   element: PropTypes.string,
-  topbarSkipLinkID: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };

@@ -155,7 +155,7 @@ export const getStaticProps = async () => {
 
 ### Accessibility
 
-- Set a value for `topbarSkipLinkID` to be used with Sidebar skip link functionality. The ID must be a unique string not used elsewhere in the application.
+- Set a value for `id` to be used with Sidebar skip link functionality. The ID must be a unique string not used elsewhere in the application.
 
 ### About Topbar
 
@@ -427,7 +427,7 @@ import {Topbar} from '@twilio-paste/core/topbar';
 
 const Topbar = () => {
   return (
-    <Topbar topbarSkipLinkID="topbar">
+    <Topbar id="topbar">
       <TopbarActions justify="start">{actions}</TopbarActions>
       <TopbarActions justify="end">{actions}</TopbarActions>
     </Topbar>
@@ -437,11 +437,11 @@ const Topbar = () => {
 
 #### Topbar props
 
-| Prop             | Type              | Description                                                                                 | Default  |
-| ---------------- | ----------------- | ------------------------------------------------------------------------------------------- | -------- |
-| children?        | `React.ReactNode` |                                                                                             |          |
-| element?         | `string`          | Overrides the default element name to apply unique styles with the Customization Provider.s | 'TOPBAR' |
-| topbarSkipLinkID | `string`          | Unique ID used to identify the Topbar element for Skip Link functionality.                  |          |
+| Prop      | Type              | Description                                                                                 | Default  |
+| --------- | ----------------- | ------------------------------------------------------------------------------------------- | -------- |
+| children? | `React.ReactNode` |                                                                                             |          |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider.s | 'TOPBAR' |
+| id        | `string`          | Unique ID used to identify the Topbar element for Skip Link functionality.                  |          |
 
 #### TopbarActions props
 

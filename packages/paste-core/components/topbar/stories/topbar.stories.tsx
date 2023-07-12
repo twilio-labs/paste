@@ -76,7 +76,7 @@ export const PushDefaultTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <UserDialogContainer name="nora krantz" icon={UserIcon} baseId="i-am-user-dialog">
@@ -137,7 +137,7 @@ export const PushCompactTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button variant="secondary" size="small" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
@@ -191,7 +191,7 @@ export const OverlayDefaultTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="default">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button
@@ -249,7 +249,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarCollapsed} variant="compact">
-        <Topbar topbarSkipLinkID={topbarSkipLinkID}>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">Topbar Left</TopbarActions>
           <TopbarActions>
             <Button
