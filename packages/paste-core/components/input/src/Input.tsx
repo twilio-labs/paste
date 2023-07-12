@@ -205,10 +205,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           value={value}
           variant={variant}
           onChange={(event) => {
-            if (props.onChange != null && typeof props.onChange === 'function' && !readOnly && !disabled) {
+            if (props.onChange != null && typeof props.onChange === 'function') {
               props.onChange(event);
-              setInternalValue(event.target.value);
             }
+            setInternalValue(event.target.value);
           }}
         />
         {type === 'number' ? (

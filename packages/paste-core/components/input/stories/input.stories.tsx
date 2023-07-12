@@ -713,8 +713,17 @@ export const UncontrolledNumberInput = (): React.ReactNode => {
   const uid = useUID();
   return (
     <>
-      <Label htmlFor={uid}>number input</Label>
-      <Input id={uid} type="number" max="50" min="-50" />
+      <Label htmlFor={uid}>Reload amount</Label>
+      <Input
+        aria-describedby="reload_amount_help"
+        id={uid}
+        name="reload_amount"
+        type="number"
+        defaultValue="0"
+        min="0"
+        max="1000"
+      />
+      <HelpText id="reload_amount_help">Maximum amount is $1,000.</HelpText>
     </>
   );
 };

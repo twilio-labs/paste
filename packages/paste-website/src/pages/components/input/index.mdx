@@ -18,6 +18,7 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
+import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
 import packageJson from '@twilio-paste/input/package.json';
@@ -199,17 +200,6 @@ An input for editing an email address. This looks like a text-type input but has
 
 An input that is not displayed but whose value is submitted to the server.
 
-#### number
-
-An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
-
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
-  {`<>
-  <Label htmlFor="quantity">Quantity</Label>
-  <Input id="quantity" name="quantity" type="number" />
-</>`}
-</LivePreview>
-
 #### password
 
 An input whose value is obscured. This input alerts a user if the site isn't secure.
@@ -225,6 +215,35 @@ An input for entering search strings. It may include an icon in supporting brows
 #### tel
 
 An input for entering a telephone number. It displays a telephone keypad in some devices with dynamic keypads.
+
+### Input with number functionality
+
+Use an Input with number functionality by setting `type="number"`. Users can change the numeric value by entering a number,
+using keyboard arrow keys and increment buttons.
+
+It displays a numeric keypad in some devices with dynamic keypads.
+
+<Blockquote
+  name="Mozilla"
+  source="MDN web docs"
+  sourceUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs"
+>
+  The number input type should only be used for incremental numbers...The number input type is not appropriate for
+  values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
+  countries or credit card numbers.
+</Blockquote>
+
+In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use Help
+Text to explain what inputs are accepted, like minimum or maximum values or step intervals, especially if there's no default value.
+Help Text should also include any important contextual information about what the number input represents.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="reload_amount">Reload amount</Label>
+  <Input aria-describedby="reload_amount_help" id="reload_amount" name="reload_amount" defaultValue="0" type="number" min="0" max="1000" />
+  <HelpText id="reload_amount_help">Maximum amount is $1,000.</HelpText>
+</>`}
+</LivePreview>
 
 ## States
 
@@ -509,6 +528,24 @@ Use an input when users are expected to enter less than a single line of text, o
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
       <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange={() => {}} disabled />
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use an input with number functionality when a user is expected to input numbers." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="number_do">Reload amount</Label>
+      <Input id="number_do" name="number_do" type="number" defaultValue="0" min="0" max="1000" />
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don't use an input with number functionality when a user is expected to input other characters. Use Input instead."
+    center
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="number_dont">Phone number</Label>
+      <Input id="number_dont" name="number_dont" type="number" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
