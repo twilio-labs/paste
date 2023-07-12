@@ -18,7 +18,7 @@ const MenuItemCheckbox = React.forwardRef<HTMLDivElement, MenuItemCheckboxProps>
 
 export const MenuItemCheckboxPropTypes = {
   href: PropTypes.string,
-  variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
+  variant: PropTypes.oneOf(Object.values(MenuItemVariants)),
   disabled: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,

@@ -15,6 +15,7 @@ import {
   SidebarFooter,
   SidebarOverlayContentWrapper,
   SidebarBody,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -23,19 +24,31 @@ export default {
 };
 
 export const Default: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
@@ -45,7 +58,8 @@ export const Default: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="default">
-        <Box padding="space70">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>
@@ -59,20 +73,32 @@ Default.parameters = {
 };
 
 export const Compact: StoryFn = () => {
-  const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <Box padding="space70">
             <SidebarCollapseButton
@@ -86,9 +112,12 @@ export const Compact: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-          Toggle Overlay Sidebar
-        </Button>
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+            Toggle Overlay Sidebar
+          </Button>
+        </div>
       </SidebarOverlayContentWrapper>
     </Box>
   );

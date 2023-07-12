@@ -38,14 +38,20 @@ const MockPushSidebarWithNavigation = ({
   /* eslint-disable react/jsx-max-depth */
   return (
     <Theme.Provider theme="twilio">
-      <Sidebar aria-label="Main" collapsed={collapsed} variant="compact">
+      <Sidebar
+        topbarSkipLinkID="topbar"
+        mainContentSkipLinkID="main"
+        sidebarNavigationSkipLinkID="nav"
+        collapsed={collapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarNavigation data-testid="nav-wrapper">
+        <SidebarNavigation aria-label="main">
           <SidebarNavigationItem
             href="https://google.com"
             data-testid="nav-item-button"
@@ -141,7 +147,7 @@ describe('SidebarNavigation', () => {
     const onClick: jest.Mock = jest.fn(() => {});
 
     render(<MockPushSidebarWithNavigation collapsed onClick={onClick} />);
-    const wrapper = screen.getByTestId('nav-wrapper');
+    const wrapper = screen.getByRole('navigation');
     const buttonIcon = screen.getByTestId('nav-item-button');
     const anchorIcon = screen.getByTestId('nav-item-anchor');
     const disclosure = screen.getByTestId('nav-item-disclosure');
@@ -174,7 +180,7 @@ describe('SidebarNavigation', () => {
     const onClick: jest.Mock = jest.fn(() => {});
 
     render(<MockPushSidebarWithNavigation collapsed={false} onClick={onClick} />);
-    const wrapper = screen.getByTestId('nav-wrapper');
+    const wrapper = screen.getByRole('navigation');
     const disclosure = screen.getByTestId('nav-item-disclosure');
     const disclosureHeading = screen.getByTestId('nav-item-disclosure-heading');
     const disclosureContent = screen.getByTestId('nav-item-disclosure-content');
@@ -224,8 +230,14 @@ describe('SidebarNavigation', () => {
             SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
           }}
         >
-          <Sidebar aria-label="main" variant="compact" data-testid="aaa">
-            <SidebarNavigation data-testid="nav-wrapper">
+          <Sidebar
+            topbarSkipLinkID="topbar"
+            mainContentSkipLinkID="main"
+            sidebarNavigationSkipLinkID="nav"
+            variant="compact"
+            data-testid="aaa"
+          >
+            <SidebarNavigation aria-label="main">
               <SidebarNavigationItem href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>
@@ -250,7 +262,7 @@ describe('SidebarNavigation', () => {
           </Sidebar>
         </CustomizationProvider>
       );
-      const nav = screen.getByTestId('nav-wrapper');
+      const nav = screen.getByRole('navigation');
       const disclosure = screen.getByTestId('disclosure');
       const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
@@ -283,8 +295,14 @@ describe('SidebarNavigation', () => {
             NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
           }}
         >
-          <Sidebar aria-label="main" variant="compact" data-testid="aaa">
-            <SidebarNavigation element="NAVIGATION" data-testid="nav-wrapper">
+          <Sidebar
+            topbarSkipLinkID="topbar"
+            mainContentSkipLinkID="main"
+            sidebarNavigationSkipLinkID="nav"
+            variant="compact"
+            data-testid="aaa"
+          >
+            <SidebarNavigation aria-label="main" element="NAVIGATION">
               <SidebarNavigationItem element="NAVIGATION_ITEM_ANCHOR" href="http://www.google.com" selected>
                 AnchorItem Selected
               </SidebarNavigationItem>
@@ -321,7 +339,7 @@ describe('SidebarNavigation', () => {
           </Sidebar>
         </CustomizationProvider>
       );
-      const nav = screen.getByTestId('nav-wrapper');
+      const nav = screen.getByRole('navigation');
       const disclosure = screen.getByTestId('disclosure');
       const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
       const disclosureHeadingWrapper = disclosureHeading.parentElement;

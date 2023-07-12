@@ -39,10 +39,19 @@ export default {
 export const Flex: StoryFn = () => {
   const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
@@ -50,7 +59,7 @@ export const Flex: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://google.com"
               selected
@@ -100,7 +109,7 @@ export const Flex: StoryFn = () => {
       </Sidebar>
 
       <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Topbar>
+        <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <StatusMenuExample />
           </TopbarActions>
@@ -111,7 +120,7 @@ export const Flex: StoryFn = () => {
             <UserDialogExample />
           </TopbarActions>
         </Topbar>
-        <Box padding="space70">
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Overlay Sidebar
           </Button>

@@ -27,7 +27,13 @@ const MockPushSidebar = ({
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
+      <Sidebar
+        topbarSkipLinkID="topbar"
+        mainContentSkipLinkID="main"
+        sidebarNavigationSkipLinkID="nav"
+        collapsed={collapsed}
+        variant={variant}
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -54,7 +60,13 @@ const MockOverlaySidebar = ({
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
-      <Sidebar aria-label="main" collapsed={collapsed} variant={variant}>
+      <Sidebar
+        topbarSkipLinkID="topbar"
+        mainContentSkipLinkID="main"
+        sidebarNavigationSkipLinkID="nav"
+        collapsed={collapsed}
+        variant={variant}
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -79,25 +91,25 @@ describe('Sidebar', () => {
   describe('Push Sidebar', () => {
     it('should have an id', () => {
       render(<MockPushSidebar collapsed />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav).toHaveAttribute('id');
     });
 
     it('should render expanded', () => {
       render(<MockPushSidebar collapsed={false} />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('15rem');
     });
 
     it('should render expanded by default', () => {
       render(<MockPushSidebar />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('15rem');
     });
 
     it('should render compact width', () => {
       render(<MockPushSidebar collapsed={true} variant="compact" />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('4.75rem');
     });
   });
@@ -108,25 +120,25 @@ describe('Sidebar', () => {
   describe('Overlay Sidebar', () => {
     it('should have an id', () => {
       render(<MockOverlaySidebar collapsed />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav).toHaveAttribute('id');
     });
 
     it('should render expanded', () => {
       render(<MockOverlaySidebar collapsed={false} />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('15rem');
     });
 
     it('should render expanded by default', () => {
       render(<MockOverlaySidebar />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('15rem');
     });
 
     it('should render compact width', () => {
       render(<MockOverlaySidebar collapsed={true} variant="compact" />);
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav.style.width).toBe('4.75rem');
     });
   });
@@ -138,7 +150,7 @@ describe('Sidebar', () => {
     it('should have aria-expanded and aria-controls set correctly when collapsed', async () => {
       render(<MockOverlaySidebar collapsed />);
       const toggleButton = screen.getAllByRole('button')[1];
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('false');
       expect(toggleButton.textContent).toBe('Open sidebar');
@@ -147,7 +159,7 @@ describe('Sidebar', () => {
     it('should have aria-expanded and aria-controls set correctly when expanded', async () => {
       render(<MockOverlaySidebar collapsed={false} />);
       const toggleButton = screen.getAllByRole('button')[1];
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
       expect(toggleButton.getAttribute('aria-expanded')).toEqual('true');
       expect(toggleButton.textContent).toBe('Close sidebar');
@@ -233,7 +245,13 @@ describe('Sidebar', () => {
             },
           }}
         >
-          <Sidebar aria-label="main" variant="compact" data-testid="aaa">
+          <Sidebar
+            topbarSkipLinkID="topbar"
+            mainContentSkipLinkID="main"
+            sidebarNavigationSkipLinkID="nav"
+            variant="compact"
+            data-testid="aaa"
+          >
             <Box color="colorTextInverse">Sidebar header</Box>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
             <SidebarFooter data-testid="collapseButtonWrapper">
@@ -247,7 +265,7 @@ describe('Sidebar', () => {
           </SidebarPushContentWrapper>
         </CustomizationProvider>
       );
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav).toHaveStyleRule('margin', '1rem');
       expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
 
@@ -284,7 +302,13 @@ describe('Sidebar', () => {
             },
           }}
         >
-          <Sidebar aria-label="main" variant="compact" element="XSIDE">
+          <Sidebar
+            topbarSkipLinkID="topbar"
+            mainContentSkipLinkID="main"
+            sidebarNavigationSkipLinkID="nav"
+            variant="compact"
+            element="XSIDE"
+          >
             <Box color="colorTextInverse">Sidebar header</Box>
             <SidebarBetaBadge as="span" element="XSIDE_BETA_BADGE">
               Beta
@@ -304,7 +328,7 @@ describe('Sidebar', () => {
           </SidebarPushContentWrapper>
         </CustomizationProvider>
       );
-      const nav = screen.getByRole('navigation');
+      const nav = screen.getByRole('complementary');
       expect(nav).toHaveStyleRule('margin', '1rem');
       expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
 
