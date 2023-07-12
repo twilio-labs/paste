@@ -1,11 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import {useMergeRefs} from '@twilio-paste/utils';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
 
 import {safelySpreadFormControlProps} from './utils';
+import {DecrementButton} from './DecrementButton';
+import {IncrementButton} from './IncrementButton';
 
 export type InputVariants = 'default' | 'inverse';
 
@@ -32,6 +35,8 @@ export interface InputProps
   padding?: 'space0';
   paddingRight?: BoxStyleProps['paddingRight'];
   cursor?: BoxStyleProps['cursor'];
+  i18nStepUpLabel?: string;
+  i18nStepDownLabel?: string;
 }
 
 interface TypeProps {
@@ -86,6 +91,16 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       __webkit_calendar_picker_indicator_hover={{
         cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
       }}
+      // Hide native number input stepper buttons
+      __webkit_inner_spin_button={{
+        display: 'none',
+        margin: 'space0',
+      }}
+      __webkit_outer_spin_button={{
+        display: 'none',
+        margin: 'space0',
+      }}
+      {...{'-moz-appearance': 'textfield'}}
       {...props}
     />
   );
@@ -102,25 +117,64 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       id,
       insertAfter,
       insertBefore,
+      max,
+      min,
       name,
       placeholder,
       readOnly,
       required,
+      step,
       type,
       value,
       variant,
+      i18nStepUpLabel,
+      i18nStepDownLabel,
       ...props
     },
     ref
   ) => {
     const typeProps: TypeProps = {type};
 
-    // https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/
-    if (type === 'number') {
-      typeProps.type = 'text';
-      typeProps.inputmode = 'numeric';
-      typeProps.pattern = '[0-9]*';
-    }
+    const internalRef = React.useRef<HTMLInputElement>();
+    const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
+
+    const [showIncrement, setShowIncrement] = React.useState(true);
+    const [showDecrement, setShowDecrement] = React.useState(true);
+
+    // used for number inputs to be able to track uncontrolled number inputs value being changed by a user and it not being tracked by an applications
+    const [internalValue, setInternalValue] = React.useState(props.defaultValue ? props.defaultValue : '0');
+
+    React.useEffect(() => {
+      if (type !== 'number') return;
+      if (disabled) {
+        setShowDecrement(false);
+        setShowIncrement(false);
+        return;
+      }
+
+      const numVal = Number(internalValue);
+      const numStep = step && !isNaN(Number(step)) ? Number(step) : 1;
+      const numMax = Number(max);
+      if (isNaN(numMax)) return;
+      const numMin = Number(min);
+      if (isNaN(numMin)) return;
+
+      if ((numMax - numMin) % numStep !== 0)
+        // eslint-disable-next-line no-console
+        console.error(
+          '[Paste Input]: when using min/max, and step values with a Number Input, please make sure that the min and max are multiples of the step value.'
+        );
+      if (numVal < numMax && numVal + numStep <= numMax) {
+        setShowIncrement(true);
+      } else {
+        setShowIncrement(false);
+      }
+      if (numVal > numMin && numVal - numStep >= numMin) {
+        setShowDecrement(true);
+      } else {
+        setShowDecrement(false);
+      }
+    }, [max, min, step, disabled, type, internalValue]);
 
     return (
       <InputBox
@@ -142,13 +196,62 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           element={`${element}_ELEMENT`}
           id={id}
           name={name}
+          max={max}
+          min={min}
           placeholder={placeholder}
           readOnly={readOnly}
-          ref={ref}
+          ref={mergedRef}
           required={required}
+          step={step}
           value={value}
           variant={variant}
+          onChange={(event) => {
+            if (props.onChange != null && typeof props.onChange === 'function') {
+              props.onChange(event);
+            }
+            setInternalValue(event.target.value);
+          }}
         />
+        {type === 'number' ? (
+          <Box
+            display="flex"
+            flexDirection="column"
+            rowGap="space10"
+            justifyContent="center"
+            element={`${element}_STEP_WRAPPER`}
+          >
+            {showIncrement ? (
+              <IncrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepUp();
+                  const ev = new Event('change', {bubbles: true});
+                  internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
+                }}
+                i18nStepUpLabel={i18nStepUpLabel}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_INCREMENT_PLACEHOLDER`} />
+            )}
+            {showDecrement ? (
+              <DecrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepDown();
+                  const ev = new Event('change', {bubbles: true});
+                  internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
+                }}
+                i18nStepDownLabel={i18nStepDownLabel}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_DECREMENT_PLACEHOLDER`} />
+            )}
+          </Box>
+        ) : (
+          <></>
+        )}
       </InputBox>
     );
   }

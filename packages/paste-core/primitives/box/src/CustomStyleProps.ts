@@ -71,4 +71,5 @@ export const customStyleProps = {
     property: 'rowGap',
     scale: 'space',
   },
+  '-moz-appearance': true,
 };
