@@ -66,8 +66,8 @@ Headings should allow users to easily distinguish content sections on the page.
 - Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content
 - Headings should be used with intention that maintains a coherent document outline
 - Don’t use heading tags to resize text. Instead use the `<Text>` primitive
-- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
-- There can only be one `<h1>` tag per page
+- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on. In other words, you cannot use an `<h3>` unless preceded by an `<h2>`.
+- There can **only be one `<h1>` tag** per page.
 - Always use sentence case when writing headings, for more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
 
 #### Accessibility
@@ -166,6 +166,37 @@ It is important to not skip one or more heading levels as it is common for scree
 </LivePreview>
 
 ## Composition Notes
+
+### Difference between the as and variant props
+
+Visual hierarchy doesn't always follow <em>document hierarchy</em>. For
+this reason, we've decoupled the visual appearance (the `variant` prop)
+from the semantic hierarchy (the `as` prop) of the element.
+
+For accessibility reasons we want to create a nice clean document hierarchy where:
+
+- We only have one h1
+- We don't skip levels as we travel the DOM:
+
+```
+h1
+  h2
+    h3
+    h3
+  h2
+  h2
+    h3
+      h4
+    h3
+      h4
+```
+
+Sometimes, the appropriate document level doesn't match the visual design,
+because, for example, the third section of content is less important than
+the previous two, but at the same logical level of document hierarchy.
+
+By decoupling visual appearance from hierarchy, we enable designers
+and engineers to create visual and semantic hierarchy correctly for all users.
 
 ### When to use Heading
 
