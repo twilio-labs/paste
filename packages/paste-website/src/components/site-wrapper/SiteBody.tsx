@@ -3,46 +3,67 @@ import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarBody,
+  SidebarFooter,
+  SidebarPushContentWrapper,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
+  SidebarCollapseButton,
+} from '@twilio-paste/sidebar';
 import {useRouter} from 'next/router';
+import {useUID} from '@twilio-paste/uid-library';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
-import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {
   PASTE_DOCS_CONTENT_AREA,
-  SITE_BREAKPOINTS,
   TOKEN_STICKY_FILTER_HEIGHT,
   TOKEN_LIST_PAGE_REGEX,
+  PASTE_DOCS_TOPBAR,
+  PASTE_DOCS_SIDEBAR_NAV,
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
+import {SidebarNavigation} from './sidebar/SidebarNavigation';
 
 /* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
-  display: flex;
   min-width: 240px;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')};
-  overflow: auto;
   /* note: needed for scrollspy, removing position breaks site layout  */
   position: relative;
-
-  @supports (scroll-behavior: smooth) {
-    scroll-behavior: smooth;
-  }
-
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @media screen and (min-width: ${SITE_BREAKPOINTS[1]}) {
-      grid-template-columns: ${themeGet('sizes.sizeSidebar')} 1fr;
-    }
-  }
+  scroll-behavior: smooth;
 `;
+
+const SiteMain: React.FC<React.PropsWithChildren<Omit<React.HTMLAttributes<HTMLElement>, 'color'>>> = ({
+  children,
+  ...props
+}) => {
+  return (
+    <Box
+      element="SITE_MAIN"
+      paddingTop={['space40', 'space140', 'space200']}
+      paddingX={['space70', 'space200', 'space200']}
+      backgroundColor="colorBackgroundBody"
+      marginX="auto"
+      maxWidth="size100"
+      boxSizing="content-box"
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+};
 
 export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
+
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
 
   /**
    * The Tokens List page has a sticky filter when scrolled, which means that we need to set a
@@ -64,16 +85,43 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   }
 
   return (
-    <Box display="flex" flexDirection="column" height="100vh">
+    <>
       <StylingGlobals styles={{...docSearchStyles({theme: themeObject}), ...docSearchVariable(themeObject)}} />
-      <SiteHeader />
-      <StyledSiteBody id="styled-site-body" css={{scrollPaddingTop: `${scrollOffset}px`}}>
-        {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
-        <Box flex="1" minWidth="size0">
-          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
+      <Sidebar
+        variant="compact"
+        collapsed={sidebarCollapsed}
+        mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
+        sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
+        topbarSkipLinkID={PASTE_DOCS_TOPBAR}
+      >
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="/">
+            <LogoTwilioIcon decorative={false} title="Twilio Paste" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
+        </SidebarHeader>
+        {breakpointIndex === undefined || breakpointIndex > 1 ? (
+          <>
+            <SidebarBody>
+              <SidebarNavigation />
+            </SidebarBody>
+            <SidebarFooter>
+              <SidebarCollapseButton
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                i18nCollapseLabel="Close sidebar"
+                i18nExpandLabel="Open sidebar"
+              />
+            </SidebarFooter>
+          </>
+        ) : null}
+      </Sidebar>
+      <SidebarPushContentWrapper collapsed={sidebarCollapsed}>
+        <StyledSiteBody id="styled-site-body" css={{scrollPaddingTop: `${scrollOffset}px`}}>
+          <SiteHeader />
+          <SiteMain id={PASTE_DOCS_CONTENT_AREA}>{children}</SiteMain>
           <SiteFooter />
-        </Box>
-      </StyledSiteBody>
-    </Box>
+        </StyledSiteBody>
+      </SidebarPushContentWrapper>
+    </>
   );
 };

@@ -9,6 +9,8 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
 
+import {SITE_MASTHEAD_HEIGHT} from '../../constants';
+
 export interface TokensListFilterProps {
   value: string;
   handleThemeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -44,7 +46,7 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
     <Box
       marginBottom="space80"
       position="sticky"
-      top="0"
+      top={`${SITE_MASTHEAD_HEIGHT}px`}
       zIndex="zIndex10"
       marginX="spaceNegative40"
       css={{

@@ -37,35 +37,29 @@ export const docSearchVariable = (theme: GenericThemeShape): CSSObject => {
 };
 export const docSearchStyles = css({
   '.DocSearch-Button': {
-    backgroundColor: 'colorBackgroundInverseStrong',
+    backgroundColor: 'colorBackgroundBody',
     borderRadius: 'borderRadius20',
-    boxShadow: 'shadowBorderInverse',
-    color: 'colorTextInverseWeak',
+    boxShadow: 'shadowBorder',
+    color: 'colorTextWeak',
     paddingX: 'space40',
     margin: '0',
-
     width: '100%',
-    '&:active, &:focus, &:hover': {
-      backgroundColor: 'colorBackgroundInverseStrong',
-      color: 'colorTextInverse',
-    },
     '&:hover': {
-      boxShadow: 'shadowBorderInverseStrongest',
+      boxShadow: 'shadowBorderPrimary',
     },
     '&:active, &:focus': {
-      boxShadow: 'shadowFocusInverse',
+      boxShadow: 'shadowFocusShadowBorder',
     },
     '.DocSearch-Search-Icon': {
-      color: 'colorTextInverse',
+      color: 'colorTextIcon',
       size: 'sizeIcon10',
     },
   },
   '.DocSearch-Button-Placeholder': {
     fontSize: 'fontSize30',
     fontFamily: 'fontFamilyText',
-    fontWeight: 'fontWeightNormal',
+    fontWeight: 'fontWeightMedium',
     fontStyle: 'italic',
-    fontVariationSettings: '"slnt" 0',
     paddingX: 'space40',
   },
   '.DocSearch-Button-Key': {

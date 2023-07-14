@@ -187,7 +187,7 @@ export const TokensList = (): JSX.Element => {
         data={tokenCategories
           .filter((value) => value !== 'colors') // filter out colors section
           .map((value) => ({value: sentenceCase(value), depth: 2}))}
-        stickyTop="space0"
+        stickyTop="0px"
         topPadding="space130"
       />
       <Content>

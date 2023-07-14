@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Head from 'next/head';
-import {Box} from '@twilio-paste/box';
 import {useRouter} from 'next/router';
 
 import {SiteWrapper} from '../components/site-wrapper';
@@ -36,16 +35,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({c
         <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
         <meta key="description" name="description" content={pageDescription} />
       </Head>
-      <Box
-        paddingTop={['space40', 'space40', 'space100']}
-        paddingX={['space70', 'space200', 'space200']}
-        backgroundColor="colorBackgroundBody"
-        marginX="auto"
-        maxWidth="size100"
-        boxSizing="content-box"
-      >
-        <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>
-      </Box>
+      <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>
     </SiteWrapper>
   );
 };

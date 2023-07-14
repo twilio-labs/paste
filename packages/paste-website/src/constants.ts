@@ -2,7 +2,7 @@ export const TWILIO_RED = '#F22F46';
 export const TWILIO_BLUE = '#0D122B';
 export const PSA_ALERT_HEIGHT = 40;
 export const PASTE_THEME_ALERT_HEIGHT = 54;
-export const SITE_MASTHEAD_HEIGHT = 76;
+export const SITE_MASTHEAD_HEIGHT = 77;
 /*
  * Note:
  * Changing the mobile breakpoint should be reflected
@@ -21,8 +21,8 @@ export const FIGMA_PROFILE_URL = 'https://www.figma.com/@twilio';
 
 // IDs for skip links
 export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';
-export const PASTE_DOCS_SEARCH_INPUT = 'paste-docs-search-input';
-export const PASTE_DOCS_SEARCH_INPUT_MOBILE = 'paste-docs-search-input-mobile';
+export const PASTE_DOCS_TOPBAR = 'paste-docs-topbar';
+export const PASTE_DOCS_SIDEBAR_NAV = 'paste-docs-sidebar-nav';
 
 // Used to adjust scrolling elements to account for sticky filter on tokens/list page
 export const TOKEN_STICKY_FILTER_HEIGHT = [192, 108, 192, 108];
