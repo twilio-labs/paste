@@ -1133,9 +1133,9 @@ If a piece of data is missing because the metric in a certain column does not ap
 
 ### Errors
 
-**When a single row contains an error,** do not explain the full error within the row. Use an indicator, like an icon or short message. Then use other methods, like selectable rows or popups, to communicate complete error and resolution information. 
+Avoid documenting an entire error message within a row. Use an indicator, like an icon or an icon with a short message. Then use other methods, like a popup, side sheet, or full page to communicate complete error and resolution information. 
 
-**When the same error affects multiple rows,** consider a consistent indicator for each affected row, like an icon. Then use a [Callout](/components/callout) at the page level to explain the error and resolution.
+**When multiple errors affect a single row,** indicate the number of errors and provide specific error and resolution information within a popover, side sheet, or full page.
 
 **When an error affects an entire column,** consider an indicator near the column header with additional information available in a popover or other component. 
 
