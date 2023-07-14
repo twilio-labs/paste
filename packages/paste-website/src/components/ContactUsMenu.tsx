@@ -4,7 +4,7 @@ import {ProductSupportIcon} from '@twilio-paste/icons/esm/ProductSupportIcon';
 
 import {event} from '../lib/gtag';
 
-export const ContactUsMenu: React.FC<React.PropsWithChildren<ContactUsMenuProps>> = () => {
+export const ContactUsMenu: React.FC = () => {
   const menu = useMenuState();
 
   const handleClick = (category: string, action: string, label: string): void => {

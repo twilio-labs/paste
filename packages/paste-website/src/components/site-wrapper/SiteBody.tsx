@@ -14,7 +14,6 @@ import {
   SidebarCollapseButton,
 } from '@twilio-paste/sidebar';
 import {useRouter} from 'next/router';
-import {useUID} from '@twilio-paste/uid-library';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
 import {SiteHeader} from './site-header';

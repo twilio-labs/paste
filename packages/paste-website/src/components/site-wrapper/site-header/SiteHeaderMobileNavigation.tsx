@@ -118,7 +118,7 @@ const MobileNavigation: React.FC<React.PropsWithChildren<MobileNavigationProps>>
                 <SidebarNavigation />
                 <DropShadowWrapper>
                   <Separator orientation="horizontal" verticalSpacing="space30" />
-                  <ContactUsMenu placement="top" />
+                  <ContactUsMenu />
                 </DropShadowWrapper>
               </StyledModalDialogContent>
             </StyledModalDialogOverlay>

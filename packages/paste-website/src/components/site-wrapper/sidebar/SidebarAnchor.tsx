@@ -10,7 +10,7 @@ interface SidebarAnchorProps {
   onClick?: () => void;
 }
 
-const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({children, level, href, onClick}) => {
+const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({children, href, onClick}) => {
   const pathname = useLocationPathname();
   const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
