@@ -19,6 +19,8 @@ const ProductSwitcherButton = React.forwardRef<HTMLButtonElement, ProductSwitche
   }
 );
 
+// omit variant and size from MenuButtonPropTypes as we set them intenrally
+const {variant, size, ...productSwitcherButtonPropTypes} = MenuButtonPropTypes;
 ProductSwitcherButton.displayName = 'ProductSwitcherButton';
-ProductSwitcherButton.propTypes = MenuButtonPropTypes;
+ProductSwitcherButton.propTypes = productSwitcherButtonPropTypes;
 export {ProductSwitcherButton};

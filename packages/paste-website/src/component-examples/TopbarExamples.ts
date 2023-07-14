@@ -36,7 +36,7 @@ const TopbarExample = () => {
   const userDialogList = useUserDialogListState();
 
   return (
-      <Topbar>
+      <Topbar id='topbar'>
         <TopbarActions justify="start">
           <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={availability.variant}>
             {availability.children} | 3h 50min
@@ -257,7 +257,7 @@ const TopbarExample = () => {
 
   return (
     <Box minWidth="size70">
-      <Topbar>
+      <Topbar id='topbar'>
         <TopbarActions justify="start">
           <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={availability.variant}>
             {availability.children} | 3h 50min
@@ -460,7 +460,7 @@ const TopbarExample = () => {
 
   return (
     <Box minWidth="size100">
-      <Topbar>
+      <Topbar id='topbar'>
         <TopbarActions justify="start">
           <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
             Owl Telehealth
@@ -699,7 +699,7 @@ const TopbarExample = () => {
 
   return (
     <Box minWidth="size80">
-      <Topbar>
+      <Topbar id='topbar'>
         <TopbarActions justify="start">
           <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
             Workspace name

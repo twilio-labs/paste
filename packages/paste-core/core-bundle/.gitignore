@@ -20,6 +20,7 @@
 /checkbox
 /clipboard-copy-library
 /code-block
+/code-editor-library
 /color-contrast-utils
 /combobox
 /combobox-primitive
@@ -35,6 +36,7 @@
 /display-heading
 /display-pill-group
 /dropdown-library
+/editable-code-block
 /file-picker
 /file-uploader
 /flex

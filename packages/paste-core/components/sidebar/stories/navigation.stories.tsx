@@ -55,11 +55,20 @@ export const Default: StoryFn = () => {
   const id = useUID();
   const menu = useMenuState();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   /* eslint-disable react/jsx-max-depth */
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="default"
+      >
         {/* Header */}
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
@@ -69,7 +78,7 @@ export const Default: StoryFn = () => {
         </SidebarHeader>
         <SidebarBody>
           {/* Nav */}
-          <SidebarNavigation hierarchical hideItemsOnCollapse>
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -223,9 +232,12 @@ export const Default: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -238,11 +250,20 @@ Default.parameters = {
 export const FlatCompact: StoryFn = () => {
   const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     /* eslint-disable react/jsx-max-depth */
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="https://www.google.com">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -250,7 +271,7 @@ export const FlatCompact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -298,9 +319,12 @@ export const FlatCompact: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -314,11 +338,20 @@ export const HierarchicalCompact: StoryFn = () => {
   const id = useUID();
   const menu = useMenuState();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     /* eslint-disable react/jsx-max-depth */
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="https://www.google.com">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console product homepage" />
@@ -326,7 +359,7 @@ export const HierarchicalCompact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation hierarchical hideItemsOnCollapse>
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem
               href="https://www.google.com"
               onClick={() => {
@@ -418,9 +451,12 @@ export const HierarchicalCompact: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Push Sidebar
-        </Button>
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -455,6 +491,9 @@ const useDelayedDisclosureState = ({
 export const StateHookDisclosure: StoryFn = () => {
   const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   // Custom state hook to control state of disclosure
   const {transitioning, ...disclosure} = useDelayedDisclosureState({
@@ -465,7 +504,13 @@ export const StateHookDisclosure: StoryFn = () => {
   return (
     /* eslint-disable react/jsx-max-depth */
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="button">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
@@ -473,7 +518,7 @@ export const StateHookDisclosure: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationDisclosure state={disclosure}>
               <SidebarNavigationDisclosureHeadingWrapper>
                 <SidebarNavigationDisclosureHeading icon={<ProductContactCenterTasksIcon decorative />} selected>
@@ -508,9 +553,12 @@ export const StateHookDisclosure: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-          Toggle Sidebar
-        </Button>
+        <div id={topbarSkipLinkID} />
+        <div id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </div>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -523,11 +571,20 @@ StateHookDisclosure.parameters = {
 export const FlexExample: StoryFn = () => {
   const id = useUID();
   const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     /* eslint-disable react/jsx-max-depth */
     <Box>
-      <Sidebar aria-label={id} collapsed={overlaySidebarExpanded} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={overlaySidebarExpanded}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
@@ -535,7 +592,7 @@ export const FlexExample: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation>
+          <SidebarNavigation aria-label={id}>
             <SidebarNavigationItem
               href="https://google.com"
               selected
@@ -585,7 +642,8 @@ export const FlexExample: StoryFn = () => {
       </Sidebar>
 
       <SidebarPushContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Box padding="space70">
+        <div id={topbarSkipLinkID} />
+        <Box id={mainContentSkipLinkID} padding="space70">
           <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
             Toggle Push Sidebar
           </Button>
@@ -602,11 +660,20 @@ FlexExample.parameters = {
 export const SegmentExample: StoryFn = () => {
   const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     /* eslint-disable react/jsx-max-depth */
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
@@ -614,7 +681,7 @@ export const SegmentExample: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation hierarchical hideItemsOnCollapse>
+          <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
               Home
             </SidebarNavigationItem>
@@ -694,7 +761,8 @@ export const SegmentExample: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Box padding="space70">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

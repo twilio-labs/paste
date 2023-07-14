@@ -43,4 +43,6 @@ export const PseudoPropStyles = {
   __moz_focus_inner: '&::-moz-focus-inner',
   __webkit_datetime_edit: '&::-webkit-datetime-edit',
   __webkit_calendar_picker_indicator_hover: '&::-webkit-calendar-picker-indicator:hover',
+  __webkit_inner_spin_button: '&::-webkit-inner-spin-button',
+  __webkit_outer_spin_button: '&::-webkit-outer-spin-button',
 };

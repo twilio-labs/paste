@@ -14,7 +14,7 @@ class _Document extends Document {
       <Html lang="en" dir="ltr">
         <Head>
           <link rel="preconnect" href="https://assets.twilio.com" crossOrigin="" />
-          <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.0/fonts.css" />
+          <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.1/fonts.css" />
 
           <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
           <link rel="manifest" href="/manifest.json" />

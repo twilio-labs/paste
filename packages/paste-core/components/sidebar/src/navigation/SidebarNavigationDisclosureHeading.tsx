@@ -97,6 +97,7 @@ SidebarNavigationDisclosureHeading.propTypes = {
   children: PropTypes.node,
   element: PropTypes.string,
   selected: PropTypes.bool,
+  icon: PropTypes.node,
 };
 
 export {SidebarNavigationDisclosureHeading};

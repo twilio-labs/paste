@@ -15,6 +15,7 @@ import {
   SidebarFooter,
   SidebarPushContentWrapper,
   SidebarBody,
+  SidebarNavigation,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -23,20 +24,31 @@ export default {
 };
 
 export const Default: StoryFn = () => {
-  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
-
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
   return (
     <Box>
       {/* Can be placed anywhere - position fixed */}
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="default">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="default"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -48,7 +60,8 @@ export const Default: StoryFn = () => {
 
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <Box padding="space70">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>
@@ -62,19 +75,31 @@ Default.parameters = {
 };
 
 export const Compact: StoryFn = () => {
-  const id = useUID();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
 
   return (
     <Box>
-      <Sidebar aria-label={id} collapsed={pushSidebarCollapsed} variant="compact">
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="compact"
+      >
         <SidebarHeader>
           <SidebarHeaderIconButton as="a" href="#">
             <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
-        <SidebarBody />
+        <SidebarBody>
+          <SidebarNavigation aria-label="main">
+            <></>
+          </SidebarNavigation>
+        </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
             onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
@@ -84,7 +109,8 @@ export const Compact: StoryFn = () => {
         </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
-        <Box padding="space70">
+        <div id={topbarSkipLinkID} />
+        <Box padding="space70" id={mainContentSkipLinkID}>
           <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
             Toggle Push Sidebar
           </Button>

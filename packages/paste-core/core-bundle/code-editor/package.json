@@ -1,0 +1,8 @@
+{
+  "name": "@twilio-paste-core/code-editor",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/code-editor.js",
+  "types": "../dist/code-editor.d.ts"
+}
