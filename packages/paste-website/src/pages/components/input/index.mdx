@@ -239,9 +239,21 @@ Help Text should also include any important contextual information about what th
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="reload_amount">Reload amount</Label>
+  <Label htmlFor="reload_amount">Number Input</Label>
   <Input aria-describedby="reload_amount_help" id="reload_amount" name="reload_amount" defaultValue="0" type="number" min="0" max="1000" />
   <HelpText id="reload_amount_help">Maximum amount is $1,000.</HelpText>
+</>`}
+</LivePreview>
+
+#### Internationalization
+
+To internationalize Number Input, provide translated strings to be used for the increment and decrement button accessible labels. Use the `i18nStepUpLabel` and `i18nStepDownLabel` props.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="cantidad_de_recarga">Cantidad de recarga</Label>
+  <Input aria-describedby="cantidad_de_recarga_help" id="cantidad_de_recarga" name="cantidad_de_recarga" defaultValue="0" type="number" min="0" max="1000" i18nStepUpLabel="incrementar" i18nStepDownLabel="decrementar" />
+  <HelpText id="cantidad_de_recarga_help">La cantidad máxima es $1,000.</HelpText>
 </>`}
 </LivePreview>
 
@@ -550,153 +562,6 @@ Use an input when users are expected to enter less than a single line of text, o
   </Dont>
 </DoDont>
 
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No, but it can take any children</Td>
-      </Tr>
-      <Tr>
-        <Td>Placeholder text </Td>
-        <Td>$color-text-weak, italic</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
 ---
 
 ## Usage guide
@@ -731,22 +596,24 @@ const Component = () => (
 
 All the valid HTML attributes for `input` are supported including the following props:
 
-| Prop         | Type                                                             | Description                                                                               | Default   |
-| ------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                     | null      |
-| name?        | string                                                           | Sets the name of the input.                                                               | null      |
-| value?       | string                                                           | Sets the value of the input.                                                              | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                                                        | null      |
-| disabled?    | boolean                                                          | Disables the input.                                                                       | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                                               | false     |
-| required?    | boolean                                                          | Sets the input as required.                                                               | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                                                         | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                                           | 'default' |
-| element?     | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider | 'INPUT'   |
+| Prop               | Type                                                             | Description                                                                                                       | Default           |
+| ------------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------- |
+| id?                | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                                                    | null              |
+| type               | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                                             | null              |
+| name?              | string                                                           | Sets the name of the input.                                                                                       | null              |
+| value?             | string                                                           | Sets the value of the input.                                                                                      | null              |
+| placeholder?       | string                                                           | Sets the placeholder of the input.                                                                                | null              |
+| disabled?          | boolean                                                          | Disables the input.                                                                                               | false             |
+| readOnly?          | boolean                                                          | Sets the input to readonly.                                                                                       | false             |
+| required?          | boolean                                                          | Sets the input as required.                                                                                       | false             |
+| hasError?          | boolean                                                          | Sets the input to an error state.                                                                                 | false             |
+| onChange?          | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
+| onFocus?           | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
+| onBlur?            | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
+| variant?           | 'default', 'inverse'                                             |                                                                                                                   | 'default'         |
+| element?           | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider                         | 'INPUT'           |
+| i18nStepUpLabel?   | `string`                                                         | Provides an accessible label for the increment button on inputs of type "number" when using non-English languages | 'step value up'   |
+| i18nStepDownLabel? | `string`                                                         | Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages | 'step value down' |
 
 <ChangelogRevealer>
   <Changelog />
