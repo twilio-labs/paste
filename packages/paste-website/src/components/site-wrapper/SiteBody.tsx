@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
+import {styled, themeGet, StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
 import {
   Sidebar,
@@ -24,9 +23,21 @@ import {
   TOKEN_LIST_PAGE_REGEX,
   PASTE_DOCS_TOPBAR,
   PASTE_DOCS_SIDEBAR_NAV,
+  SITE_MASTHEAD_HEIGHT,
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 import {SidebarNavigation} from './sidebar/SidebarNavigation';
+
+// height of the topbar plus a little extra whitespace
+const defaultScrollOffset = `calc(${SITE_MASTHEAD_HEIGHT}px + 24px)`;
+
+const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObject => ({
+  html: {
+    scrollBehavior: 'smooth',
+    // compensate for the sticky topbar, this offset allows for the jump to links to keep the headings in view when you jump to the section
+    scrollPaddingTop: scrollOffset,
+  },
+});
 
 /* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
@@ -34,60 +45,41 @@ const StyledSiteBody = styled.div`
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')};
   /* note: needed for scrollspy, removing position breaks site layout  */
   position: relative;
-  scroll-behavior: smooth;
 `;
-
-const SiteMain: React.FC<React.PropsWithChildren<Omit<React.HTMLAttributes<HTMLElement>, 'color'>>> = ({
-  children,
-  ...props
-}) => {
-  return (
-    <Box
-      element="SITE_MAIN"
-      paddingTop={['space40', 'space140', 'space200']}
-      paddingX={['space70', 'space200', 'space200']}
-      backgroundColor="colorBackgroundBody"
-      marginX="auto"
-      maxWidth="size100"
-      boxSizing="content-box"
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-};
 
 export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
 
-  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(breakpointIndex === undefined || breakpointIndex > 1);
+
+  React.useEffect(() => {
+    setSidebarCollapsed(breakpointIndex === undefined || breakpointIndex < 1);
+  }, [breakpointIndex]);
 
   /**
-   * The Tokens List page has a sticky filter when scrolled, which means that we need to set a
-   * CSS property called 'scrollPaddingTop' to adjust where the page scrolls to on jump links,
-   * so the content doesn't appear underneath the sticky filter.
-   *
-   * We have a global array, 'TOKEN_STICKY_FILTER_HEIGHT' that returns a value for the height
-   * of the filter (different breakpoints have different heights), and we use that, combined
-   * with router awareness of our current location, to determine the value to set for scrollPaddingTop.
-   *
-   * We also have a default value set to optimize the scroll jump so there's some space above the content.
+   * The tokens list page an extra sticky filter bar so the jump to scroll offset needs an extra offset.
+   * its the masthead height + the sticky filter height
    */
 
-  const defaultScrollOffset = 16;
   let scrollOffset = defaultScrollOffset;
 
   if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(router.pathname)) {
-    scrollOffset = TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + defaultScrollOffset;
+    scrollOffset = `calc(${TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex]}px + ${defaultScrollOffset})`;
   }
 
   return (
     <>
-      <StylingGlobals styles={{...docSearchStyles({theme: themeObject}), ...docSearchVariable(themeObject)}} />
+      <StylingGlobals
+        styles={{
+          ...GlobalScrollBehaviourStyles(scrollOffset),
+          ...docSearchStyles({theme: themeObject}),
+          ...docSearchVariable(themeObject),
+        }}
+      />
       <Sidebar
-        variant="compact"
+        variant="default"
         collapsed={sidebarCollapsed}
         mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
         sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
@@ -99,25 +91,21 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
           </SidebarHeaderIconButton>
           <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
         </SidebarHeader>
-        {breakpointIndex === undefined || breakpointIndex > 1 ? (
-          <>
-            <SidebarBody>
-              <SidebarNavigation />
-            </SidebarBody>
-            <SidebarFooter>
-              <SidebarCollapseButton
-                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                i18nCollapseLabel="Close sidebar"
-                i18nExpandLabel="Open sidebar"
-              />
-            </SidebarFooter>
-          </>
-        ) : null}
+        <SidebarBody>
+          <SidebarNavigation />
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={sidebarCollapsed}>
-        <StyledSiteBody id="styled-site-body" css={{scrollPaddingTop: `${scrollOffset}px`}}>
+        <StyledSiteBody id="styled-site-body">
           <SiteHeader />
-          <SiteMain id={PASTE_DOCS_CONTENT_AREA}>{children}</SiteMain>
+          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
           <SiteFooter />
         </StyledSiteBody>
       </SidebarPushContentWrapper>

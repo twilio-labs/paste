@@ -28,7 +28,7 @@ export const PASTE_DOCS_SIDEBAR_NAV = 'paste-docs-sidebar-nav';
 export const TOKEN_STICKY_FILTER_HEIGHT = [192, 108, 192, 108];
 
 // Regex that looks for match on `/tokens/list/` route, specifically
-export const TOKEN_LIST_PAGE_REGEX = /^\/tokens\/list\/$/;
+export const TOKEN_LIST_PAGE_REGEX = /^\/tokens\/list$/;
 
 // env variables
 export const DATADOG_APPLICATION_ID = process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID || 'no env variable';

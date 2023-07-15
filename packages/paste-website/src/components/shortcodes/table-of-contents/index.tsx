@@ -7,7 +7,7 @@ import {TableOfContentsListItem} from './TableOfContentsListItem';
 import {TableOfContentsAnchor} from './TableOfContentsAnchor';
 import {slugify, useLocationPathname} from '../../../utils/RouteUtils';
 import {useWindowSize} from '../../../hooks/useWindowSize';
-import {TOKEN_STICKY_FILTER_HEIGHT, TOKEN_LIST_PAGE_REGEX} from '../../../constants';
+import {TOKEN_STICKY_FILTER_HEIGHT, TOKEN_LIST_PAGE_REGEX, SITE_MASTHEAD_HEIGHT} from '../../../constants';
 
 // Table of contents should only include h2, h3, h4 headings
 const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
@@ -23,20 +23,14 @@ const TableOfContents: React.FC<React.PropsWithChildren<TableOfContentsProps>> =
   });
 
   /**
-   * The Tokens List page has a sticky filter when scrolled, which means that we need to
-   * set a negative offset to adjust whew ScrollSpy transitions from one section to the next.
-   *
-   * We have a global array, 'TOKEN_STICKY_FILTER_HEIGHT' that returns a value for the height
-   * of the filter for the current breakpoint (different breakpoints have different heights),
-   * and we use that, combined with router awareness of our current location, to determine the
-   * value to set for ScrollSpy's offset prop. We also adjust by 42px, which is the value of
-   * the margin between token category sections.
+   * The Tokens List page has a sticky filter bar that needs an extra offset.
+   * its the masthead height + the sticky filter height
    */
   const {breakpointIndex} = useWindowSize();
   let scrollOffset = 0;
 
   if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(useLocationPathname())) {
-    scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + 32;
+    scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] - SITE_MASTHEAD_HEIGHT;
   }
 
   /*
@@ -45,12 +39,7 @@ const TableOfContents: React.FC<React.PropsWithChildren<TableOfContentsProps>> =
    */
   return (
     <Box as="nav" aria-label="document outline" data-cy="table-of-contents">
-      <TableOfContentsList
-        items={headingsList}
-        currentClassName="is-current"
-        rootEl="#styled-site-body"
-        offset={scrollOffset}
-      >
+      <TableOfContentsList items={headingsList} currentClassName="is-current" offset={scrollOffset}>
         {
           // Get heading anchors and convert to #anchor format. Excluding h1 elements.
           headings.filter(shouldIncludeInToC).map(({value, depth}) => {

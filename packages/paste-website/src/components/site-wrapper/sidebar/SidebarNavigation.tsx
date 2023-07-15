@@ -1,8 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
 import kebabCase from 'lodash/kebabCase';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
 import {
   SidebarNavigation,
   SidebarNavigationDisclosure,
@@ -20,7 +17,6 @@ import {filteredComponents, alphabetizeComponents} from '../../../utils/componen
 import {getNormalizedNavigationData} from '../../../utils/DataUtils';
 import {useNavigationContext} from '../../../context/NavigationContext';
 import {SidebarAnchor} from './SidebarAnchor';
-import Logo from '../../../assets/logo.svg';
 import {event} from '../../../lib/gtag';
 import {useLocationPathname} from '../../../utils/RouteUtils';
 
@@ -70,30 +66,6 @@ const SiteSidebarNavigation = (): JSX.Element => {
 
   return (
     <SidebarNavigation aria-label="main">
-      <Box display={['block', 'block', 'none']}>
-        <Box
-          as="a"
-          href="/"
-          display={['flex', 'flex', 'none']}
-          alignItems="center"
-          lineHeight="lineHeight20"
-          width="100%"
-          textDecoration="none"
-          borderRadius="borderRadius10"
-          padding="space40"
-          outline="none"
-          columnGap="space30"
-          _focus={{
-            boxShadow: 'shadowFocus',
-            textDecoration: 'underline',
-          }}
-        >
-          <Image src={Logo} alt="" width={28} height={28} />
-          <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-            Paste Home
-          </Text>
-        </Box>
-      </Box>
       <NavigationDisclosure
         buttonText="Introduction"
         categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
