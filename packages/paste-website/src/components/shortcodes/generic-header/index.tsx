@@ -6,6 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import {PackageStatusLegend} from '../package-status-legend';
 import {STORYBOOK_DOMAIN, SidebarCategoryRoutes} from '../../../constants';
@@ -19,8 +20,8 @@ const IconAnchor: React.FC<React.PropsWithChildren<{href: string; icon: React.Re
   children,
 }) => (
   <Anchor href={href}>
-    <Box as="span">
-      <Box as="span" display="inline-block" marginRight="space20">
+    <Box as="span" display="flex" alignItems="center" columnGap="space20">
+      <Box as="span" display="inline-block">
         {icon}
       </Box>
       {children}
@@ -39,6 +40,7 @@ export interface GenericHeaderProps {
   packageName?: string;
   packageStatus?: string | null;
   storybookUrl?: string;
+  url?: string;
   version?: string;
   shouldShowBreadcrumbs?: boolean;
 }
@@ -54,6 +56,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   packageName,
   packageStatus,
   storybookUrl,
+  url,
   version,
   shouldShowBreadcrumbs = true,
 }) => {
@@ -125,6 +128,11 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
               <Text as="span" color="colorTextWeak">
                 Version {version}
               </Text>
+            )}
+            {url && (
+              <IconAnchor href={url} icon={<LinkExternalIcon decorative />}>
+                Website
+              </IconAnchor>
             )}
             {githubUrl && (
               <IconAnchor
