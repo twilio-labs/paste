@@ -92,7 +92,7 @@ const MDXPoviderComponents = {
     <Separator {...props} orientation="horizontal" verticalSpacing="space100" />
   ),
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
-  img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  img: (props: React.ComponentProps<'img'>): React.ReactElement => <img style={{maxWidth: '100%'}} {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
     <Box as="div" maxWidth="size70" minWidth="0" {...props} />
