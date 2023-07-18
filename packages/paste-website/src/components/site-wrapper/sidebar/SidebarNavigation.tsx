@@ -158,8 +158,10 @@ const SiteSidebarNavigation = (): JSX.Element => {
         >
           Spacing and layout
         </SidebarAnchor>
-        <SidebarAnchor
-          href={`${SidebarCategoryRoutes.FOUNDATIONS}/typography`}
+        <NavigationDisclosure
+          buttonText="Theme"
+          categoryRoute={SidebarCategoryRoutes.THEME}
+          level={0}
           onClick={() =>
             event({
               category: 'Left Navigation',
@@ -169,7 +171,6 @@ const SiteSidebarNavigation = (): JSX.Element => {
           }
         >
           Typography
-        </SidebarAnchor>
       </NavigationDisclosure>
       <NavigationDisclosure
         buttonText="Patterns"

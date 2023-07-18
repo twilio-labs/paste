@@ -1,0 +1,108 @@
+export const meta = {
+  title: 'Code Editor',
+  package: '@twilio-paste/code-editor-library',
+  description: 'A library to display and make changes to large blocks of code.',
+  slug: '/core/libraries/code-editor/',
+};
+
+import packageJson from '@twilio-paste/code-editor-library/package.json';
+import {SidebarCategoryRoutes} from '../../../../constants';
+import {getNavigationData} from '../../../../utils/api';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
+  categoryRoute={SidebarCategoryRoutes.LIBRARIES}
+  storybookUrl="https://paste-storybook.twilio.design/?path=/story/libraries-code-editor-editor--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/code-editor"
+  packageName={packageJson.name}
+  version={packageJson.version}
+  description={packageJson.description}
+/>
+
+---
+
+<contentwrapper>
+<PageAside data={mdxHeadings} />
+<content>
+
+## About
+
+The Code Editor allows for a full code-editing experiences on the web, including syntax highlighting and displaying line numbers.
+
+This library is built on top of [monaco-react](https://github.com/suren-atoyan/monaco-react), which wraps the
+[Monaco Editor](https://github.com/microsoft/monaco-editor).
+
+Our library exposes a theme for use in Twilio products, aptly called the `PasteTheme`. This theme is based on the
+`night owl` theme.
+
+### Installation
+
+```bash
+yarn add @twilio-paste/code-editor-library - or - yarn add @twilio-paste/core
+```
+
+## Examples
+
+### Basic JavaScript editor
+
+<StoryPreview
+  title="Basic JavaScript editor"
+  storyID="libraries-code-editor-editor--javascript-editor"
+  code={`<CodeEditor
+  height="90vh"
+  defaultLanguage="javascript"
+  defaultValue={JavascriptExample}
+/>`}
+/>
+
+### Code Editor with PasteTheme
+
+<StoryPreview
+  title="Code Editor with PasteTheme"
+  storyID="libraries-code-editor-editor--paste-theme-editor"
+  code={`
+const handleEditorDidMount = (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
+  monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
+  monaco.editor.setTheme('paste');
+};
+const PasteThemeEditor = (): React.ReactNode => {
+  return (
+    <CodeEditor
+      onMount={handleEditorDidMount}
+      options={{
+        scrollBeyondLastLine: false,
+        readOnly: false,
+        wordWrap: 'wordWrapColumn',
+        wordWrapColumn: 120,
+        scrollbar: {
+          verticalScrollbarSize: 8,
+          horizontalScrollbarSize: 8,
+        },
+      }}
+      height="70vh"
+      defaultLanguage="typescript"
+      defaultValue={TypescriptExample}
+    />
+  );
+};`}
+/>
+
+---
+
+See more examples on the [storybook](https://paste-storybook.twilio.design/?path=/story/libraries-code-editor-editor--).
+
+</content>
+
+</contentwrapper>

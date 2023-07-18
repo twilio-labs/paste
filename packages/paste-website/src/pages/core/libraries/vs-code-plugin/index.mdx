@@ -1,0 +1,75 @@
+export const meta = {
+  title: 'Twilio Paste Intellisense',
+  description:
+    'Twilio Paste Intellisense extends the development experience of Twilio Paste by giving Visual Studio Code users additional functionality.',
+  slug: '/core/libraries/vs-code-plugin/',
+};
+
+import {SidebarCategoryRoutes} from '../../../../constants';
+import {getNavigationData} from '../../../../utils/api';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
+  categoryRoute={SidebarCategoryRoutes.LIBRARIES}
+  url="https://marketplace.visualstudio.com/items?itemName=TwilioPaste.vs-code-intellisense"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/apps/vs-code-intellisense"
+  packageName={meta.title}
+  version="1.0.0"
+  description={meta.description}
+/>
+
+---
+
+<contentwrapper>
+<PageAside data={mdxHeadings} />
+<content>
+
+## About
+
+The transition coming from writing CSS to using design tokens can feel tedious at first.
+This is because before we can use a token, we don't know which ones we can use and what their values are. For example,
+if we want to use a margin and the available options are `space10 - space100` tokens, how are we to know which ones translates
+to `20px` to match the designs? This is where Twilio Paste Intellisense comes into play!
+
+It has two features:
+
+- **Hover preview** - check the value of the token by hovering over it;
+- **Autocomplete** - use a dropdown menu with the name and value of the token when we start typing the component's paste properties.
+
+## Installation
+
+**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=TwilioPaste.vs-code-intellisense)**
+
+## Features
+
+### Autocomplete
+
+Intelligent suggestions for twilio paste token attributes.
+
+![the autocomplete suggestions include the token name with the value in rems and pixels](https://raw.githubusercontent.com/twilio-labs/paste/main/apps/vs-code-intellisense/assets/completion-example.png)
+
+### Hover Preview
+
+View the value and description of the Twilio Paste token property by hovering over it.
+
+![hover panel over a color token includes the rgb value of the color and a description of where the token should be used](https://raw.githubusercontent.com/twilio-labs/paste/main/apps/vs-code-intellisense/assets/hover-example.png)
+
+### Contributing
+
+We welcome and encourage contributions to this project. Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)
+
+</content>
+
+</contentwrapper>
