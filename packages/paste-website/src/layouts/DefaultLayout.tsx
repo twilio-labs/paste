@@ -31,7 +31,7 @@ const SiteMain: React.FC<React.PropsWithChildren<Omit<React.HTMLAttributes<HTMLE
   return (
     <Box
       element="SITE_MAIN"
-      paddingTop={['space40', 'space140', 'space200']}
+      paddingTop={['space100', 'space140', 'space200']}
       paddingX={['space70', 'space200', 'space200']}
       backgroundColor="colorBackgroundBody"
       marginX="auto"

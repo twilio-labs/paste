@@ -71,6 +71,7 @@ export const TokensList = (): JSX.Element => {
   const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(tokens);
   const [exampleColors, setExampleColors] = React.useState<TokenExampleColors>(getTokenExampleColors(tokens));
   const [shadowOpacity, setShadowOpacity] = React.useState(0);
+  const [showJumpLink, setShowJumpLink] = React.useState(false);
 
   // State related to select and filter controls
   const [filterString, setFilterString] = React.useState('');
@@ -162,9 +163,10 @@ export const TokensList = (): JSX.Element => {
       (entries) => {
         const shadowState = entries[0].intersectionRatio;
         setShadowOpacity(1 - shadowState);
+        setShowJumpLink(shadowState < 1);
       },
       {
-        root: document.querySelector('#styled-site-body'),
+        root: null,
         rootMargin: '0px',
         threshold: [1, 0.8, 0.6, 0.4, 0.2, 0],
       }
@@ -245,11 +247,11 @@ export const TokensList = (): JSX.Element => {
                     <p>Placeholder...</p>
                   )}
                 </Box>
-                <ScrollToTopLink />
               </Box>
             );
           })
         )}
+        <ScrollToTopLink show={showJumpLink} />
       </Content>
     </ContentWrapper>
   ) : (

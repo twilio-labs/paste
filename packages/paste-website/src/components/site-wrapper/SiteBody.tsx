@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {styled, themeGet, StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
+import {StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
 import {
@@ -27,6 +27,9 @@ import {
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 import {SidebarNavigation} from './sidebar/SidebarNavigation';
+import {SiteMain} from './SiteMain';
+import {SidebarDesktop} from './sidebar/SidebarDesktop';
+import {SidebarMobile} from './sidebar/SidebarMobile';
 
 // height of the topbar plus a little extra whitespace
 const defaultScrollOffset = `calc(${SITE_MASTHEAD_HEIGHT}px + 24px)`;
@@ -39,24 +42,12 @@ const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObj
   },
 });
 
-/* Wraps the main region and footer on the doc site page */
-const StyledSiteBody = styled.div`
-  min-width: 240px;
-  background-color: ${themeGet('backgroundColors.colorBackgroundBody')};
-  /* note: needed for scrollspy, removing position breaks site layout  */
-  position: relative;
-`;
-
 export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
 
-  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(breakpointIndex === undefined || breakpointIndex > 1);
-
-  React.useEffect(() => {
-    setSidebarCollapsed(breakpointIndex === undefined || breakpointIndex < 1);
-  }, [breakpointIndex]);
+  const [sidebarMobileCollapsed, setSidebarMobileCollapsed] = React.useState(true);
 
   /**
    * The tokens list page an extra sticky filter bar so the jump to scroll offset needs an extra offset.
@@ -78,36 +69,25 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
           ...docSearchVariable(themeObject),
         }}
       />
-      <Sidebar
-        variant="default"
-        collapsed={sidebarCollapsed}
+      <SidebarDesktop
         mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
         sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
         topbarSkipLinkID={PASTE_DOCS_TOPBAR}
-      >
-        <SidebarHeader>
-          <SidebarHeaderIconButton as="a" href="/">
-            <LogoTwilioIcon decorative={false} title="Twilio Paste" />
-          </SidebarHeaderIconButton>
-          <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
-        </SidebarHeader>
-        <SidebarBody>
-          <SidebarNavigation />
-        </SidebarBody>
-        <SidebarFooter>
-          <SidebarCollapseButton
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            i18nCollapseLabel="Close sidebar"
-            i18nExpandLabel="Open sidebar"
-          />
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarPushContentWrapper collapsed={sidebarCollapsed}>
-        <StyledSiteBody id="styled-site-body">
-          <SiteHeader />
-          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
-          <SiteFooter />
-        </StyledSiteBody>
+      />
+      <SidebarMobile
+        collapsed={sidebarMobileCollapsed}
+        setCollapsed={setSidebarMobileCollapsed}
+        mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
+        sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
+        topbarSkipLinkID={PASTE_DOCS_TOPBAR}
+      />
+      <SidebarPushContentWrapper id="styled-site-body">
+        <SiteHeader
+          sidebarMobileCollapsed={sidebarMobileCollapsed}
+          setSidebarMobileCollapsed={setSidebarMobileCollapsed}
+        />
+        <SiteMain id={PASTE_DOCS_CONTENT_AREA}>{children}</SiteMain>
+        <SiteFooter />
       </SidebarPushContentWrapper>
     </>
   );

@@ -41,7 +41,8 @@ export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, Sideba
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        style={breakpointIndex === 0 ? undefined : styles}
+        style={!breakpointIndex ? undefined : styles}
+        marginLeft={['space0', theme.sizes.sizeSidebar]}
       >
         {children}
       </AnimatedStyledContentWrapper>
