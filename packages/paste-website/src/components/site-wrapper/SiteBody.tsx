@@ -2,18 +2,8 @@ import * as React from 'react';
 import {StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarBody,
-  SidebarFooter,
-  SidebarPushContentWrapper,
-  SidebarHeaderIconButton,
-  SidebarHeaderLabel,
-  SidebarCollapseButton,
-} from '@twilio-paste/sidebar';
+import {SidebarPushContentWrapper} from '@twilio-paste/sidebar';
 import {useRouter} from 'next/router';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
@@ -26,7 +16,6 @@ import {
   SITE_MASTHEAD_HEIGHT,
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
-import {SidebarNavigation} from './sidebar/SidebarNavigation';
 import {SiteMain} from './SiteMain';
 import {SidebarDesktop} from './sidebar/SidebarDesktop';
 import {SidebarMobile} from './sidebar/SidebarMobile';
