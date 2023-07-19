@@ -41,7 +41,8 @@ export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, Sideba
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        style={!breakpointIndex ? undefined : styles}
+        // when using push sidebars in responsive layouts, we don't want any left margin in small screen, or initial SSR render situations. So basically never apply it in those situations
+        style={breakpointIndex !== undefined && breakpointIndex !== 0 ? undefined : styles}
         marginLeft={['space0', theme.sizes.sizeSidebar]}
       >
         {children}

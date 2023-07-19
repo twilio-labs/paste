@@ -7,7 +7,7 @@ import {TableOfContentsListItem} from '../shortcodes/table-of-contents/TableOfCo
 import {TableOfContentsAnchor} from '../shortcodes/table-of-contents/TableOfContentsAnchor';
 import {slugify} from '../../utils/RouteUtils';
 import type {RoadmapProps} from './types';
-import {SITE_MASTHEAD_HEIGHT} from '../../constants';
+import {SITE_TOPBAR_HEIGHT} from '../../constants';
 
 type RoadmapAsideProps = RoadmapProps;
 
@@ -19,7 +19,7 @@ const RoadmapAside: React.FC<React.PropsWithChildren<RoadmapAsideProps>> = ({dat
     <Box order={2} marginLeft="space140" minWidth="size20" id="page-aside" display={['none', 'none', 'block']}>
       <Box position="sticky" top="space130">
         <FeedbackPopover />
-        <TableOfContentsList items={releaseList} currentClassName="is-current" offset={-SITE_MASTHEAD_HEIGHT}>
+        <TableOfContentsList items={releaseList} currentClassName="is-current" offset={-SITE_TOPBAR_HEIGHT}>
           {Object.keys(data).map((release) => {
             const headingLink = `#${slugify(release)}`;
 

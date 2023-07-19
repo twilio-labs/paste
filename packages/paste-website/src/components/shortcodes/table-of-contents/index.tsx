@@ -7,7 +7,7 @@ import {TableOfContentsListItem} from './TableOfContentsListItem';
 import {TableOfContentsAnchor} from './TableOfContentsAnchor';
 import {slugify, useLocationPathname} from '../../../utils/RouteUtils';
 import {useWindowSize} from '../../../hooks/useWindowSize';
-import {TOKEN_STICKY_FILTER_HEIGHT, TOKEN_LIST_PAGE_REGEX, SITE_MASTHEAD_HEIGHT} from '../../../constants';
+import {TOKEN_STICKY_FILTER_HEIGHT, TOKEN_LIST_PAGE_REGEX, SITE_TOPBAR_HEIGHT} from '../../../constants';
 
 // Table of contents should only include h2, h3, h4 headings
 const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
@@ -30,7 +30,7 @@ const TableOfContents: React.FC<React.PropsWithChildren<TableOfContentsProps>> =
   let scrollOffset = 0;
 
   if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(useLocationPathname())) {
-    scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] - SITE_MASTHEAD_HEIGHT;
+    scrollOffset = -TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] - SITE_TOPBAR_HEIGHT;
   }
 
   /*

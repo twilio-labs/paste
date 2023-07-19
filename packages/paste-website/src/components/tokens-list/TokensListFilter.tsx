@@ -9,7 +9,7 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Select, Option} from '@twilio-paste/select';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {SITE_MASTHEAD_HEIGHT} from '../../constants';
+import {SITE_TOPBAR_HEIGHT} from '../../constants';
 
 export interface TokensListFilterProps {
   value: string;
@@ -46,7 +46,7 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
     <Box
       marginBottom="space80"
       position="sticky"
-      top={`${SITE_MASTHEAD_HEIGHT}px`}
+      top={`${SITE_TOPBAR_HEIGHT}px`}
       zIndex="zIndex10"
       marginX="spaceNegative40"
       css={{

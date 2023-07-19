@@ -15,8 +15,9 @@ const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({c
   const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
   return (
-    <Link href={href} legacyBehavior>
-      <SidebarNavigationItem href={href} onClick={onClick} selected={pathnameWithoutTrailingSlash === href}>
+    <Link href={href} legacyBehavior passHref>
+      {/* @ts-expect-error using nextjs passHref means that we can't satisfy the nav item href required prop */}
+      <SidebarNavigationItem onClick={onClick} selected={pathnameWithoutTrailingSlash === href}>
         {children}
       </SidebarNavigationItem>
     </Link>

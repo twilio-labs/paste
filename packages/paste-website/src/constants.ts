@@ -2,7 +2,7 @@ export const TWILIO_RED = '#F22F46';
 export const TWILIO_BLUE = '#0D122B';
 export const PSA_ALERT_HEIGHT = 40;
 export const PASTE_THEME_ALERT_HEIGHT = 54;
-export const SITE_MASTHEAD_HEIGHT = 77;
+export const SITE_TOPBAR_HEIGHT = 77;
 /*
  * Note:
  * Changing the mobile breakpoint should be reflected

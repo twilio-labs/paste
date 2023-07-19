@@ -13,7 +13,7 @@ import {
   TOKEN_LIST_PAGE_REGEX,
   PASTE_DOCS_TOPBAR,
   PASTE_DOCS_SIDEBAR_NAV,
-  SITE_MASTHEAD_HEIGHT,
+  SITE_TOPBAR_HEIGHT,
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 import {SiteMain} from './SiteMain';
@@ -21,7 +21,7 @@ import {SidebarDesktop} from './sidebar/SidebarDesktop';
 import {SidebarMobile} from './sidebar/SidebarMobile';
 
 // height of the topbar plus a little extra whitespace
-const defaultScrollOffset = `calc(${SITE_MASTHEAD_HEIGHT}px + 24px)`;
+const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;
 
 const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObject => ({
   html: {
