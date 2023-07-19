@@ -24,6 +24,7 @@ import type {
   TransformOriginProperty,
   TransformProperty,
   TransitionProperty,
+  TransitionDelayProperty,
   UserSelectProperty,
   VisibilityProperty,
   WillChangeProperty,
@@ -59,6 +60,7 @@ export interface BoxBaseStyleProps
   transform?: TransformProperty;
   transformOrigin?: TransformOriginProperty;
   transition?: TransitionProperty;
+  transitionDelay?: TransitionDelayProperty;
   userSelect?: UserSelectProperty;
   visibility?: VisibilityProperty;
   willChange?: WillChangeProperty;

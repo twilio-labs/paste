@@ -1,9 +1,18 @@
 import * as React from 'react';
+import {useRouter} from 'next/router';
 import {StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
-import {SidebarPushContentWrapper} from '@twilio-paste/sidebar';
-import {useRouter} from 'next/router';
+import {Box} from '@twilio-paste/box';
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarBody,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
+  SidebarPushContentWrapper,
+} from '@twilio-paste/sidebar';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
@@ -17,8 +26,7 @@ import {
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
 import {SiteMain} from './SiteMain';
-import {SidebarDesktop} from './sidebar/SidebarDesktop';
-import {SidebarMobile} from './sidebar/SidebarMobile';
+import {SidebarNavigation} from './sidebar/SidebarNavigation';
 
 // height of the topbar plus a little extra whitespace
 const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;
@@ -35,8 +43,25 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
+  // sidebar is not collapsed by default, most common use case for desktop viewing
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
-  const [sidebarMobileCollapsed, setSidebarMobileCollapsed] = React.useState(true);
+  /**
+   * Handle responsive sidebar collapse state for small screen sizes and initial render for SSR
+   */
+  React.useEffect(() => {
+    // no breakpoints? No Javascript, do nothing, this is initial render
+    if (breakpointIndex === undefined) {
+      return;
+    }
+    // if the screen is small, collapse the sidebar on mount
+    if (breakpointIndex === 0) {
+      setSidebarCollapsed(true);
+    }
+    // track mounted state to help prevent flash of content on SSR
+    setMounted(true);
+  }, [breakpointIndex]);
 
   /**
    * The tokens list page an extra sticky filter bar so the jump to scroll offset needs an extra offset.
@@ -58,23 +83,37 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
           ...docSearchVariable(themeObject),
         }}
       />
-      <SidebarDesktop
-        mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
-        sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
-        topbarSkipLinkID={PASTE_DOCS_TOPBAR}
-      />
-      <SidebarMobile
-        collapsed={sidebarMobileCollapsed}
-        setCollapsed={setSidebarMobileCollapsed}
-        mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
-        sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
-        topbarSkipLinkID={PASTE_DOCS_TOPBAR}
-      />
+      {/**
+       * No judgement zone
+       * To successfully handle a single sidebar that is responsive but also adaptive in it's state handling
+       * We need to handle initial render for both mobile and desktop views because the sidebar has inverse initial state
+       * - On mobile, the sidebar should start collapsed
+       * - On desktop, the sidebar should start expanded
+       * We then do a little trickery with opocity and responsive values to stop you seeing the state change flash
+       * when it's not mounted we use a transparent sidebar on small screens, after it's mounted we switch to visible,
+       * but transition it and delay the transistion start. For desktop, we start visible and never transition.
+       */}
+      <Box opacity={[!mounted ? '0' : '1', '1']} transitionDelay="50ms" transition="opacity 150ms ease">
+        <Sidebar
+          variant="default"
+          collapsed={sidebarCollapsed}
+          mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
+          sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
+          topbarSkipLinkID={PASTE_DOCS_TOPBAR}
+        >
+          <SidebarHeader>
+            <SidebarHeaderIconButton as="a" href="/">
+              <LogoTwilioIcon decorative={false} title="Twilio Paste" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
+          </SidebarHeader>
+          <SidebarBody>
+            <SidebarNavigation />
+          </SidebarBody>
+        </Sidebar>
+      </Box>
       <SidebarPushContentWrapper id="styled-site-body">
-        <SiteHeader
-          sidebarMobileCollapsed={sidebarMobileCollapsed}
-          setSidebarMobileCollapsed={setSidebarMobileCollapsed}
-        />
+        <SiteHeader sidebarMobileCollapsed={sidebarCollapsed} setSidebarMobileCollapsed={setSidebarCollapsed} />
         <SiteMain id={PASTE_DOCS_CONTENT_AREA}>{children}</SiteMain>
         <SiteFooter />
       </SidebarPushContentWrapper>

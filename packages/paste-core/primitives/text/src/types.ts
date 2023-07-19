@@ -10,6 +10,7 @@ import type {
   CursorProperty,
   OutlineProperty,
   TransitionProperty,
+  TransitionDelayProperty,
 } from '@twilio-paste/style-props';
 
 import type {PseudoPropStyles} from './PseudoPropStyles';
@@ -20,6 +21,7 @@ export interface TextBaseStyleProps extends OverflowProps, PositionProps, Shadow
   display?: Display;
   outline?: OutlineProperty;
   transition?: TransitionProperty;
+  transitionDelay?: TransitionDelayProperty;
   verticalAlign?: VerticalAlign;
 }
 
