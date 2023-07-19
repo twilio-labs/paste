@@ -58,14 +58,16 @@ export const getStaticProps = async () => {
 
 ### About Alert Dialog
 
-The Alert Dialog should be used to interrupt a user flow until a specific action is taken. It is used to convey important messages that can't be ignored like [Alert](/components/alert) content. Potential use cases for Alert Dialog are:
+The Alert Dialog should be used to interrupt a user flow until a specific action is taken. It is used to convey important messages that can't be ignored like [Alerts](/components/alert) and [confirmation messages for deletions](/patterns/delete). Potential use cases for an Alert Dialog are:
 
-- Confirming a permanent change, like deleting data
+- Confirming a permanent change, like [deleting data](/patterns/delete)
 - Relaying an important system message like a maintenance downtime window
 
-Though it's visually similar to a [Modal](/components/modal), an Alert Dialog requires the user to acknowledge the information in the dialog.
+Though visually similar to a [Modal](/components/modal), an Alert Dialog requires the user to acknowledge the information in the dialog before they can interact with outside content.
 
-Users cannot interact with content outside an active Alert Dialog window until the user explicitly closes it. When the Alert Dialog opens, focus moves to an element contained in it (by default, the first element that can be focused), and the focus should stay in and cycle through the Alert Dialog's content. Focus shouldn't return to the underlying page until the user closes the Alert Dialog. This can happen in any of the following ways:
+Avoid using Alert Dialogs for error messages. Since the Alert Dialog blocks interaction with the underlying page, the user loses access to the information contained in the message when they go to fix the error. Instead, refer to the error message pattern for [additional guidance on components](/patterns/error-state#when-to-use-which-component).
+
+When the Alert Dialog opens, focus moves to an element contained in it (by default, the first element that can be focused), and the focus should stay in and cycle through the Alert Dialog's content. Focus shouldn't return to the underlying page until the user closes the Alert Dialog. This can happen in any of the following ways:
 
 - Presses a "Cancel" button in the Alert Dialog footer
 - Presses a "Submit" or "Confirm" button in the Alert Dialog footer
