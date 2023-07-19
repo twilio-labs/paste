@@ -6,6 +6,7 @@ export const customStyleProps = {
   cursor: true,
   outline: true,
   transition: true,
+  transitionDelay: true,
   textDecoration: true,
   textTransform: true,
   whiteSpace: true,
