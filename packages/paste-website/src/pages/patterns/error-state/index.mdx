@@ -378,6 +378,10 @@ Place error codes at the end of the message inside parentheses.
 
 An empty state is also an error state when content fails to load. Error empty states can result from problems like a system issue or access issue. Error empty states are different from [empty states that result from a lack of data to show](/patterns/empty-state). If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
 
+### Metrics cards
+
+When cards are used as part of a dashboard to display metrics, error states can occur on individual cards because the data populating a particular card isn’t available. Since these cards are usually small, use error iconography paired with a 3-5 word error message. 
+
 ## Specific component guidance
 
 ### When to use which component
