@@ -1,5 +1,24 @@
 # @twilio-paste/website
 
+## 2.23.32
+
+### Patch Changes
+
+- Updated dependencies [[`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61)]:
+  - @twilio-paste/account-switcher@1.0.2
+  - @twilio-paste/menu@13.1.1
+  - @twilio-paste/product-switcher@1.0.3
+  - @twilio-paste/topbar@0.3.0
+  - @twilio-paste/style-props@8.0.1
+  - @twilio-paste/text@9.0.3
+  - @twilio-paste/sidebar@0.5.0
+  - @twilio-paste/utils@4.1.0
+  - @twilio-paste/theme@10.0.3
+  - @twilio-paste/date-picker@5.0.1
+  - @twilio-paste/time-picker@5.0.1
+  - @twilio-paste/box@9.2.0
+  - @twilio-paste/input@8.1.0
+
 ## 2.23.31
 
 ### Patch Changes

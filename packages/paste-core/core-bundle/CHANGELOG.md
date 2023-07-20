@@ -1,5 +1,66 @@
 # Change Log
 
+## 19.6.0
+
+### Minor Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Included skip link functionality, allowing consumers an easy way to create application navigation skip links. Added three new required props `mainContentSkipLinkID`, `sidebarNavigationSkipLinkID` and `topbarSkipLinkID`. Plus three optional internationalization props to translate the skip link text
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Utils] Add useMergeRefs util (previously removed because it was unused) for use in the input package.
+
+- [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4) [#3309](https://github.com/twilio-labs/paste/pull/3309) Thanks [@TheSisb](https://github.com/TheSisb)! - [Code Editor Library] Add new Code Editor library package which wraps the excellent Monaco editor. Enables building full featured code editors in the browser, like Visual Studio code.
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add PseudoPropStyles **webkit_inner_spin_button and **webkit_outer_spin_button and CustomStyleProp -moz-appearance to Box Primitive Style Props for use in the Input package for hiding native components from all browsers.
+
+- [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Input] Adjust type="number" Input to use native HTML element, add custom styling and functionality.
+
+* [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4) [#3309](https://github.com/twilio-labs/paste/pull/3309) Thanks [@TheSisb](https://github.com/TheSisb)! - [Editable Code Block] Add the new EditableCodeBlock component. Enables building code editors in the browser, styled with Paste default styles.
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Enable application navigation by providing an ID to the topbar for users to jump to via skiplink navigation.
+
+### Patch Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] include new skiplinks export from Sidebar
+
+* [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed incorrect prop types for menu based components
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] improved alignment with the sidebar header
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Style-props] Create types for responsive versions of basic CSS properties to be use in Box and Text style primitives. Previously they were just static single css property values
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Allow responsive display properties on Topbar Actions to enable building responsive and adaptive topbars
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Add transistionDelay CSS property to accompany transistion style prop
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] corrected the SideBarNavigationItem children proptype validation rule
+
+* [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f) [#3327](https://github.com/twilio-labs/paste/pull/3327) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Update Inter font version from 3.15 to 3.19, which fixes a Chrome issue with number emojis
+
+- [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Date Picker, Time Picker] add missing dependencies to package.json
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] match z-index level to that of the sidebar so they share the same plane within an application
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Allow responsive values for the CSS properties Box supports as style props.
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] improved SSR handling of the push content wrapper for small screen responsive layouts
+
+* Updated dependencies [[`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61)]:
+  - @twilio-paste/account-switcher@1.0.2
+  - @twilio-paste/menu@13.1.1
+  - @twilio-paste/product-switcher@1.0.3
+  - @twilio-paste/topbar@0.3.0
+  - @twilio-paste/style-props@8.0.1
+  - @twilio-paste/text@9.0.3
+  - @twilio-paste/sidebar@0.5.0
+  - @twilio-paste/utils@4.1.0
+  - @twilio-paste/theme@10.0.3
+  - @twilio-paste/date-picker@5.0.1
+  - @twilio-paste/time-picker@5.0.1
+  - @twilio-paste/code-editor-library@1.0.0
+  - @twilio-paste/box@9.2.0
+  - @twilio-paste/input@8.1.0
+  - @twilio-paste/editable-code-block@1.0.0
+
 ## 19.5.0
 
 ### Minor Changes
