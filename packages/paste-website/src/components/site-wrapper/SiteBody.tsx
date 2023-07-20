@@ -58,6 +58,8 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
     // if the screen is small, collapse the sidebar on mount
     if (breakpointIndex === 0) {
       setSidebarCollapsed(true);
+    } else {
+      setSidebarCollapsed(false);
     }
     // track mounted state to help prevent flash of content on SSR
     setMounted(true);
