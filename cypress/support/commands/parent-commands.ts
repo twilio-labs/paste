@@ -98,7 +98,7 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
 
 Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
   cy.visit(url);
-  cy.wait(2000);
+  cy.wait(2500);
   cy.log('[VRT]: checking if VRT is enabled');
 
   if (vrtIsEnabled()) {

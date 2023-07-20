@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
+import {SITE_TOPBAR_HEIGHT} from '../../constants';
 import {TableOfContents} from './table-of-contents';
 import {FeedbackPopover} from './feedback-popover';
 
@@ -19,11 +20,12 @@ interface PageAsideProps {
 const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
   data,
   hideFeedback,
-  stickyTop = 'space130',
+  stickyTop = '36px',
   topPadding = 'space0',
 }) => {
   return (
     <Box
+      element="SITE_MAIN_ASIDE"
       order={2}
       marginLeft="space160"
       minWidth="size20"
@@ -32,7 +34,7 @@ const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
       display={['none', 'none', 'block']}
       data-cy="page-aside"
     >
-      <Box position="sticky" top={stickyTop} paddingTop={topPadding}>
+      <Box position="sticky" top={`calc(${SITE_TOPBAR_HEIGHT}px + ${stickyTop})`} paddingTop={topPadding}>
         {hideFeedback ? null : <FeedbackPopover />}
         <TableOfContents headings={data} />
       </Box>

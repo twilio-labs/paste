@@ -31,6 +31,7 @@ export const customStyleProps = {
   cursor: true,
   appearance: true,
   transition: true,
+  transitionDelay: true,
   transform: true,
   animation: true,
   transformOrigin: true,
