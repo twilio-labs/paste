@@ -719,7 +719,9 @@ Tables must be created using a combination of:
 Tables fill 100% width of the space of their containing element. Use Layout components, like [Grid](/components/grid), to control the size and
 placement of Tables within a page.
 
-### Ordering columns
+### Formatting
+
+#### Ordering columns
 
 In many cases, each table row has some kind of identifier, such as a username, SID, or friendly name. In cases
 where the data in each row is associated with an overarching, named object, the name of that object should generally
@@ -729,13 +731,13 @@ For the remaining columns, you will need to conduct usability testing to hone in
 best for your users and their particular needs. Generally, it is a good practice to put columns that are closely
 related to one another (such as a unit price, quantity purchased, and total price) near each other in a table.
 
-### Text alignment in cells
+#### Text alignment in cells
 
 In general, text should be left-aligned, numbers should be right-aligned, and the header should be aligned with
 the data. Data should rarely ever be centered. Numbers only need to be right-aligned when they indicate size and/or
 are meant to be compared to each other. Numbers like ID numbers, phone numbers, etc. should stay left-aligned.
 
-### Zebra striping
+#### Zebra striping
 
 Tables can have zebra stripes (i.e. alternating row highlighting), which can improve readability of particularly
 large data sets. Tables have zebra stripes turned off by default, but these can optionally be turned on by
@@ -777,7 +779,7 @@ setting `striped` on `Table`.
 </Table>`}
 </LivePreview>
 
-### Table with description text
+#### Table with description text
 
 Each individual table cell can support multiple rows of text, which we'll refer to as "description text".
 This is useful when you want to provide related details in a table without adding additional columns, such as
@@ -836,7 +838,7 @@ understand data in an individual row.
 </Table>`}
 </LivePreview>
 
-### Table with avatars
+#### Table with avatars
 
 Tables can be composed using Avatar, which can be used to make a table of user data more scannable.
 You can put an avatar next to a user's first and last name using `Stack` inside a single `Td`.
@@ -900,7 +902,7 @@ You can put an avatar next to a user's first and last name using `Stack` inside 
 </Table>`}
 </LivePreview>
 
-### Table with status indicators
+#### Table with status indicators
 
 Tables can support custom compositions using `Box` and `Text`, such as custom status indicators.
 When including statuses in a table, be sure to include supporting text so color isn't the only
@@ -992,7 +994,7 @@ Refer to our Status Indicator pattern (coming soon!) for guidance on displaying 
 </Table>`}
 </LivePreview>
 
-### Table with tooltips on headers
+#### Table with tooltips on headers
 
 A `Th` can be composed to include [icon buttons](/components/button#link-style-button), such as an information icon button with additional
 details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/popover/).
@@ -1071,7 +1073,7 @@ details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/pop
 </Table>`}
 </LivePreview>
 
-### Table with truncated cells
+#### Table with truncated cells
 
 In rare cases, you may want to [truncate](/components/truncate) the text in a given cell. For example, when a table contains
 long URLs, and the user does not need to read the full URL.
@@ -1122,6 +1124,23 @@ long URLs, and the user does not need to read the full URL.
   </TBody>
 </Table>`}
 </LivePreview>
+
+### Displaying missing data
+
+If the data grid is not capable of showing data yet (for example, if it’s in a draft state), leave cells blank.
+
+If a piece of data is missing because the metric in a certain column does not apply to a given row, show “N/A” and use the HTML abbreviation element to communicate the full meaning of the abbreviation (“Not applicable”). This ensures any customers using assistive technologies will understand the cell entry.
+
+### Errors
+
+Avoid documenting an entire error message within a row. Use an indicator, like an icon or an icon with a short message. The short message can be displayed in a [Popover](/components/popover) on the icon, or in a cell. Then use other methods, like a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page to communicate complete error and resolution information. 
+
+**When multiple errors affect a single row,** indicate the number of errors and provide specific error and resolution information within a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page.
+
+**When an error affects an entire column,** consider an indicator near the column header with additional information available in a popover or other component. 
+
+**When all data in a Data Grid does not load,** show an [error empty state](/patterns/empty-state).
+
 
 ## When to use Table
 
