@@ -27,7 +27,6 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
         borderBottomStyle="solid"
         borderBottomColor="colorBorderWeaker"
         paddingX="space70"
-        paddingY="space60"
         position="sticky"
         top="0"
         display="flex"
