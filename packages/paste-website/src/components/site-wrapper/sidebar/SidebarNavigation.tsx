@@ -65,7 +65,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
   const filteredPrimitives = allPastePrimitive?.filter(filteredComponents).sort(alphabetizeComponents);
 
   return (
-    <SidebarNavigation aria-label="main">
+    <SidebarNavigation aria-label="main" hierarchical>
       <NavigationDisclosure
         buttonText="Introduction"
         categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
