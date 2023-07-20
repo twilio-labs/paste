@@ -5,6 +5,7 @@ export const meta = {
   slug: '/patterns/empty-state/',
 };
 
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -15,14 +16,15 @@ import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Callout, CalloutText} from '@twilio-paste/callout';
-import {
-  AwaitingDataImage,
-  ChangeRegionImage,
-  CreateObjectImage,
-  GenericDependencyImage,
-  NoPermissionsImage,
-  NoResultImage,
-} from '../../../components/images/EmptyStateImages';
+import EmptyCreateSomething from '../../../assets/images/patterns/empty-create-something.png';
+import EmptyApproval from '../../../assets/illustrations/empty-approval.svg';
+import EmptyCleared from '../../../assets/illustrations/empty-cleared.svg';
+import EmptyDenied from '../../../assets/illustrations/empty-denied.svg';
+import EmptyDoSomething from '../../../assets/illustrations/empty-do-something.svg';
+import EmptyLost from '../../../assets/illustrations/empty-lost.svg';
+import EmptySearch from '../../../assets/illustrations/empty-search.svg';
+import EmptyWaiting from '../../../assets/illustrations/empty-waiting.svg';
+import EmptyWarning from '../../../assets/illustrations/empty-warning.svg';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -156,9 +158,9 @@ The [Paragraph](/components/paragraph) should provide additional context or info
 
 The CTA should appear within the empty state, unless the CTA is already on the page when it loads. A CTA separate from the rest of the empty state could draw the user’s attention away from their primary goal.
 
-When there’s no immediate action to be taken, consider making the CTA a way to get back to a previous screen or start a related workflow. This approach is useful when the user is waiting for data to process or for an approval. 
+When there’s no immediate action to be taken, consider making the CTA a way to get back to a previous screen or start a related workflow. This approach is useful when the user is waiting for data to process or for an approval.
 
-Occasionally, CTAs aren’t necessary. For example, if the empty state is a preview pane and is dependent on the user taking action elsewhere on the page. 
+Occasionally, CTAs aren’t necessary. For example, if the empty state is a preview pane and is dependent on the user taking action elsewhere on the page.
 
 #### Illustrations
 
@@ -212,36 +214,47 @@ These empty states occur during the user’s first interaction with a feature an
       <Tr>
         <Th width="200px">Use case</Th>
         <Th>Sample content format</Th>
-        <Th width="200px">CTA</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
       </Tr>
     </THead>
     <TBody>
       <Tr verticalAlign="top">
         <Td scope="row">A user needs to create something to populate the empty state</Td>
         <Td>
-          <b>No [items] yet</b> <br/> To get started [doing task], create [item].
+          <b>No [items] yet</b> <br /> To get started [doing task], create [item].
         </Td>
         <Td>Create [item]</Td>
+        <Td>
+          <Image src={EmptyCreateSomething} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">The system populates the empty state once the user does something</Td>
-        <Td><b>No [thing] yet</b> <br/> You haven't [taken an action]. [Take an action], then track [things] here.</Td>
+        <Td>
+          <b>No [thing] yet</b> <br /> You haven't [taken an action]. [Take an action], then track [things] here.
+        </Td>
         <Td> [Take an action] (optional)</Td>
+        <Td>
+          <Image src={EmptyDoSomething} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
     </TBody>
   </Table>
 </Box>
 
 ### No data
+
 A no data empty state can occur when:
+
 - A search or filter yields no results.
-- A user has cleared the data. 
+- A user has cleared the data.
 - A user must wait for data to populate.
 - A user is waiting for permission/access.
 
-When data is absent due to search parameters, the content should communicate why there is no data and explain what the user could change to populate results. 
+When data is absent due to search parameters, the content should communicate why there is no data and explain what the user could change to populate results.
 
-When data is absent due to a user waiting for data to populate, consider a CTA leading them back to a previous screen or suggesting a related task. 
+When data is absent due to a user waiting for data to populate, consider a CTA leading them back to a previous screen or suggesting a related task.
 
 #### Examples
 
@@ -251,36 +264,58 @@ When data is absent due to a user waiting for data to populate, consider a CTA l
       <Tr>
         <Th width="200px">Use case</Th>
         <Th>Sample content format</Th>
-        <Th width="200px">CTA</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
       </Tr>
     </THead>
     <TBody>
       <Tr verticalAlign="top">
         <Td scope="row">A user ran a search/filter and no results matched the criteria</Td>
         <Td>
-          <b>No [thing] matched your search</b> <br/> Try [action].
+          <b>No [thing] matched your search</b> <br /> Try [action].
         </Td>
         <Td></Td>
+        <Td>
+          <Image src={EmptySearch} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">A user is waiting on the system to populate something</Td>
-        <Td><b>No [thing] yet</b> <br/> You'll see [thing] here when [something happens].</Td>
+        <Td>
+          <b>No [thing] yet</b> <br /> You'll see [thing] here when [something happens].
+        </Td>
         <Td></Td>
+        <Td>
+          <Image src={EmptyWaiting} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">A user is waiting for access/permissions</Td>
-        <Td><b>Your request was submitted</b> <br/> You'll see [thing] here when your request is approved.</Td>
+        <Td>
+          <b>Your request was submitted</b> <br /> You'll see [thing] here when your request is approved.
+        </Td>
         <Td>Go back to [page] (optional)</Td>
+        <Td>
+          <Image src={EmptyApproval} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">A user cleared all the data (like alerts or notifications)</Td>
-        <Td><b>No new [things]</b> <br/> To review previous [things], go to [page].</Td>
+        <Td>
+          <b>No new [things]</b> <br /> To review previous [things], go to [page].
+        </Td>
         <Td>Go to [page] (optional)</Td>
+        <Td>
+          <Image src={EmptyCleared} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">A preview is populated after the user inputs info elsewhere on the page</Td>
-        <Td><b>No preview yet</b> <br/> To see what your [thing] will look like, [do a task].</Td>
+        <Td>
+          <b>No preview yet</b> <br /> To see what your [thing] will look like, [do a task].
+        </Td>
         <Td>Do task (optional)</Td>
+        <Td>(optional)</Td>
       </Tr>
     </TBody>
   </Table>
@@ -308,26 +343,40 @@ Error empty states can result from problems like a system issue or access issue.
       <Tr>
         <Th width="200px">Use case</Th>
         <Th>Sample content format</Th>
-        <Th width="200px">CTA</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
       </Tr>
     </THead>
     <TBody>
       <Tr verticalAlign="top">
         <Td scope="row">Something went wrong with the system</Td>
         <Td>
-          <b>We could not load [thing]</b> <br/> Try reloading the page.
+          <b>We could not load [thing]</b> <br /> Try reloading the page.
         </Td>
         <Td>Reload page (optional)</Td>
+        <Td>
+          <Image src={EmptyWarning} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
       <Tr verticalAlign="top">
         <Td scope="row">User doesn’t have access or permissions</Td>
-        <Td><b>No [thing] yet</b> <br/> You'll see [thing] here when [something happens].</Td>
+        <Td>
+          <b>No [thing] yet</b> <br /> You'll see [thing] here when [something happens].
+        </Td>
         <Td></Td>
+        <Td>
+          <Image src={EmptyDenied} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
-   <Tr verticalAlign="top">
+      <Tr verticalAlign="top">
         <Td scope="row">404 page</Td>
-        <Td><b>Page not found</b> <br/> The page you're looking for either doesn't exist or was moved.</Td>
+        <Td>
+          <b>Page not found</b> <br /> The page you're looking for either doesn't exist or was moved.
+        </Td>
         <Td>Go back</Td>
+        <Td>
+          <Image src={EmptyLost} width={150} aria-hidden="true" alt="" />
+        </Td>
       </Tr>
     </TBody>
   </Table>
@@ -337,7 +386,7 @@ Error empty states can result from problems like a system issue or access issue.
 
 Use a cross-sell or upsell empty state on pages that give access to parts of a product that need to be purchased by the customer.
 
-Focus the headline on the overall user benefit, with supplemental text providing additional content on the ‘how’. 
+Focus the headline on the overall user benefit, with supplemental text providing additional content on the ‘how’.
 
 Cross-sell and upsell empty states almost always include a CTA to contact Sales and an illustration.
 
@@ -347,7 +396,7 @@ When an empty state appears in a situation with limited space, like a [Combobox]
 
 ### Charts and graphs
 
-For empty states that are eventually replaced by visual components like a chart or graph, consider including information that shows users what the eventual chart or graph would look like. For example, you could include the labels for the x- and y-axes or a muted graphic that shows the type of chart. 
+For empty states that are eventually replaced by visual components like a chart or graph, consider including information that shows users what the eventual chart or graph would look like. For example, you could include the labels for the x- and y-axes or a muted graphic that shows the type of chart.
 
 ### Multiple empty states on a page
 
@@ -358,11 +407,7 @@ A possible exception to this is the case where all pieces of the page are simult
 ## Dos and Don'ts
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Include a heading that summarizes the situation."
-    preview={false}
-  />
+  <Do title="Do" body="Include a heading that summarizes the situation." preview={false} />
   <Dont
     title="Don't"
     body="Don't include too many details in a heading. A heading shouldn't be more than 2 lines."
@@ -371,16 +416,8 @@ A possible exception to this is the case where all pieces of the page are simult
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Do use a period in supplemental text."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Don't use a period at the end of a heading."
-    preview={false}
-  />
+  <Do title="Do" body="Do use a period in supplemental text." preview={false} />
+  <Dont title="Don't" body="Don't use a period at the end of a heading." preview={false} />
 </DoDont>
 
 <DoDont>
@@ -389,19 +426,11 @@ A possible exception to this is the case where all pieces of the page are simult
     body="Include a more detailed explanation of the situation and next steps, when applicable."
     preview={false}
   />
-  <Dont
-    title="Don't"
-    body="Don't repeat the heading copy in supplemental text."
-    preview={false}
-  />
+  <Dont title="Don't" body="Don't repeat the heading copy in supplemental text." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Show a CTA within the empty state."
-    preview={false}
-  />
+  <Do title="Do" body="Show a CTA within the empty state." preview={false} />
   <Dont title="Don't" body="Avoid showing the same CTA twice on a page." preview={false} />
 </DoDont>
 
@@ -415,16 +444,8 @@ A possible exception to this is the case where all pieces of the page are simult
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use an illustration that's directly related to the message you are sending."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Don't use a random illustration."
-    preview={false}
-  />
+  <Do title="Do" body="Use an illustration that's directly related to the message you are sending." preview={false} />
+  <Dont title="Don't" body="Don't use a random illustration." preview={false} />
 </DoDont>
 
 ## Starter kits
