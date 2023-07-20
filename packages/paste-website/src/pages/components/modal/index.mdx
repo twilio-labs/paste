@@ -87,7 +87,7 @@ A Modal is a dialog that appears over the main content and moves the system into
 - When you want to capture information from the user without having them leave the parent page.
 - When you want to show additional information to the user without losing context of the parent page.
 
-If you need to _interrupt_ a user's current task in order to make them perform an action, use an [Alert Dialog](/components/alert-dialog) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
+If you need to to guarantee a user acknowledges a critical piece of information, use an [Alert Dialog](/components/alert-dialog) instead.
 
 Users cannot interact with content outside an active modal window until the user explicitly closes it. When the modal opens, focus moves to an element contained in it (by default, the first element that can be focused) in the modal, and the focus should stay in and cycle through the modal's content. Focus shouldn't return to the underlying page until the user closes the modal. This can happen in any of the following ways:
 
@@ -228,15 +228,13 @@ To internationalize the modal, simply pass different text as children to the Mod
   {i18nExample}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-Include a Header, Body, and Footer in your modal.
+Include a header, body, and footer in your modal.
 
-Modal Header text should be concise (2-4 words), start with a verb, and clearly describe the information or action the modal presents.
-
-Modal Body should have 1 main section of content that's described by the text in the Modal Header. If you do need to create multiple sections of content with Headings in Modal Body, use a [Heading with the `heading40` variant](/components/heading#heading-as-h-2-with-heading-40-variant).
-
-Modal Footers should include 1–2 actions aligned to the right side of the modal. Place the primary action farthest on the right to indicate to users they're progressing through their task.
+- The header should be concise (2-4 words), start with a verb, and clearly describe the information or action the modal presents.
+- The body should expand on the topic in the header. If you need multiple sections of content with Headings in the body, use a [Heading with the `heading40` variant](/components/heading#heading-as-h-2-with-heading-40-variant).
+- The footers should include 1–2 actions aligned to the right side of the modal. Place the primary action farthest on the right to indicate to users they're progressing through their task.
 
 ### Footer actions alignment
 
@@ -300,12 +298,14 @@ By using both alignment types, you are able to create directional alignments of 
 
 ### When to use Modal
 
-Use Modals to
+Use a Modal to:
 
 - Request the user enter information to continue the current process.
 - Guide the user through a complex workflow with a series of steps, while still maintaining context of the task that initiated the modal.
 
-If you need to show an important warning to prevent or correct critical errors, use an [Alert Dialog](/components/alert-dialog) instead.
+Do not use modals to show important warnings, since they can be dismissed without the user acknowledging the information. Instead, use an [Alert Dialog](/components/alert-dialog).
+
+Do not use modals to show error messages. Refer to the error state pattern for [additional guidance on components](/patterns/error-state#when-to-use-which-component).
 
 <DoDont>
   <Do title="Do" body="Use a clear and concise heading to describe the purpose of the Modal." preview={false} />
