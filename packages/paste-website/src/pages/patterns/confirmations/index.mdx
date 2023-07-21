@@ -101,43 +101,14 @@ Confirmation messages typically have 2 (Buttons)[/components/button]: one that c
 
 Confirmation messages are used in a variety of situations where it’s important to confirm that the user wants to proceed with an action, like saving changes before exiting, starting a process that could incur unexpected costs, or [deleting something](/patterns/delete).
 
-<Box marginBottom="space70">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th width="200px">Use case</Th>
-        <Th>Scenario</Th>
-        <Th width="200px">Sample text</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr verticalAlign="top">
-        <Td> User wants to [delete](/patterns/delete) something </Td>
-        <Td> **Delete [thing]?** <br/> You’re deleting “[object name]”. You cannot undo this action. <br/> Cancel | Delete [thing] </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Td> User wants to [delete](/patterns/delete) something that has major consequences</Td>
-        <Td> **Delete [thing]?** <br/> When you delete [thing], all [objects] are permanently deleted. You cannot undo this action. <br/> Enter [user input] to delete [thing] <br/> Cancel | Delete [thing] </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Td> User wants to change something</Td>
-        <Td> **Change [thing]?** <br/> When you change [thing], your [objects] are deleted. <br/> Cancel | Change [thing] </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Td> User wants to leave a flow but may want to save changes</Td>
-        <Td> **Save changes?** <br/> If you close without saving, changes are lost. <br/> Close without saving | Save and close </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Td> User wants to leave a flow but changes can’t be saved</Td>
-        <Td> **Stop [doing thing]?** <br/> Your changes will not be saved. <br/> Keep [doing thing] | Stop [doing thing] </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Td> The customer needs to swap regions to access the data.</Td>
-        <Td> **Use title to repeat action** <br/> Explain what could happen to the resource, and offer other options if available and appropriate.</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
+| Use case  | Sample text | Sample CTAs |
+| ------------- | ------------- | ------------- |
+| User wants to [delete](/patterns/delete) something  | **Delete [thing]?** <br/> You’re deleting “[object name]”. You cannot undo this action. | Cancel \| Delete [thing]  |
+| User wants to [delete](/patterns/delete) something that has major consequences  | **Delete [thing]?** <br/> When you delete [thing], all [objects] are permanently deleted. You cannot undo this action. Enter [user input] to delete [thing] | Cancel \| Delete [thing]  |
+| User wants to change something | **Change [thing]?** <br/> When you change [thing], your [objects] are deleted. | Cancel \| Change [thing] |
+| User wants to leave a flow but may want to save changes | **Save changes?** <br/> If you close without saving, changes are lost. | Close without saving \| Save and close |
+| User wants to leave a flow but changes can’t be saved | **Stop [doing thing]?** <br/> Your changes will not be saved. | Keep [doing thing] \| Stop [doing thing] |
+| User wants to perform an action that has implications for resources (money, credits, etc.) | **Use title to repeat action** <br/> Explain what could happen to the resource, and offer other options if available and appropriate. | _Offer clear alternatives_ |
 
 ## Dos and Don'ts
 
