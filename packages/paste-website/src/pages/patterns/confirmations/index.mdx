@@ -9,6 +9,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -146,7 +147,7 @@ Confirmation messages are used in a variety of situations where it’s important
     />
   <Dont
     title="Don't"
-    body="Don't use a Cancel CTA if the action is related to cancellation. It's confusing!"
+    body="Don't use a Cancel as a CTA button if the user action is related to cancellation. It's confusing!"
     preview={false}
   />
 </DoDont>
