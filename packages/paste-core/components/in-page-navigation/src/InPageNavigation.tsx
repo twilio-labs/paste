@@ -9,12 +9,13 @@ import {InPageNavigationContext} from './InPageNavigationContext';
 export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
+  marginBottom?: 'space0';
   'aria-label': string;
   variant?: Variants;
 }
 
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
-  ({element = 'IN_PAGE_NAVIGATION', variant = 'default', children, ...props}, ref) => {
+  ({element = 'IN_PAGE_NAVIGATION', variant = 'default', marginBottom, children, ...props}, ref) => {
     const isFullWidth = variant === 'fullWidth' || variant === 'inverse_fullWidth';
 
     return (
@@ -27,7 +28,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             display="flex"
             justifyContent={isFullWidth ? 'space-evenly' : 'flex-start'}
             margin="space0"
-            marginBottom="space60"
+            marginBottom={marginBottom || 'space60'}
             padding="space0"
             columnGap={!isFullWidth ? 'space80' : 'space0'}
           >

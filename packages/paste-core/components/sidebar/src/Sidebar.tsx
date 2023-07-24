@@ -22,7 +22,7 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
     borderRightWidth="borderWidth10"
     borderRightColor="colorBorderInverseWeaker"
     backgroundColor="colorBackgroundInverse"
-    zIndex="zIndex40"
+    zIndex="zIndex50"
     position="fixed"
     top={0}
     left={0}

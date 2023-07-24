@@ -1,0 +1,276 @@
+export const meta = {
+  title: 'Navigation',
+  description:
+    'The Navigation pattern structures the main navigation bars, Sidebar and Topbar, in a unified way across customer experiences.',
+  slug: '/patterns/navigation/',
+};
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import NavigationPattern from '../../../assets/images/patterns/navigation-pattern.png';
+import NavigationWireframe from '../../../assets/images/patterns/navigation-wireframe.png';
+import NavigationTopbar from '../../../assets/images/patterns/navigation-topbar.png';
+import NavigationSidebar from '../../../assets/images/patterns/navigation-sidebar.png';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Navigation');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<ResponsiveImage src={NavigationPattern} aria-hidden="true" alt="" />
+
+## Usage
+
+### General
+
+The Navigation pattern structures common elements found in Twilio products to provide customers a cohesive, expected way to find what they’re looking for. Applying this pattern across all our experiences also makes the Twilio product suite feel and behave like one family of products.
+
+### What’s a product, experience, or feature?
+
+- **Products** or **product platforms**: Twilio Console, Flex, Segment, and SendGrid.
+- **Experiences**: All the products above, as well as Twilio Docs and internal tools.
+- **Product features**: Something with a distinct Twilio name (e.g., Voice, Engage) or groups of task-based features (e.g., Queue stats, Insights)
+- **Product-wide features**: Controls that apply to the entire product, like search, support, and user settings.
+
+These are different from Twilio’s internal definition of these terms, but are used in these guidelines for simplicity.
+
+### What’s an account, workspace, or user?
+
+At Twilio, we define accounts, users, and workspaces as:
+
+- **Account**: In Twilio Console, a group of resources that are administered and billed together. Similar to workspaces in Segment. [Read more about accounts.](https://support.twilio.com/hc/en-us/articles/360011132374-Getting-Started-with-Twilio-Accounts-and-Subaccounts)
+- **Workspace**: In Segment, a group of sources that are administered and billed together. Similar to accounts in Twilio Console. [Read more about workspaces.](https://segment.com/docs/guides/#whats-a-workspace)
+- **User**: A person with a login. Users can have access to multiple accounts or workspaces.
+
+### Layout and composition
+
+To decide where to place new navigation elements, use these general principles:
+
+- The **Sidebar** is where customers navigate between product features using [Sidebar Navigation](/components/sidebar-navigation), or where they control Sidebar visibility.
+- The **left side of the Topbar** is where customers navigate to account or workspace controls.
+- The **right side of the Topbar** is where customers find product- or experience-wide features, like search, [Product Switcher](/components/product-switcher), and [User Dialog](/components/user-dialog).
+- **Navigating within a product feature** should be handled at the page-level, with components like [In-Page Navigation](/components/in-page-navigation) and [Breadcrumb](/components/breadcrumb).
+
+<ResponsiveImage src={NavigationWireframe} aria-hidden="true" alt="" />
+
+### Accessibility
+
+The Sidebar and Topbar navigation components have the following considerations:
+
+- Ensure the [Skip links](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html) are [correctly implemented](/components/sidebar#skip-links). This ensures users can easily and quickly access the main content of a web page by bypassing repeated blocks of content such as navigation links.
+- Ensure the `SidebarNavigation` component is labelled with an accessible name.
+
+### Topbar ingredients
+
+<ResponsiveImage src={NavigationTopbar} aria-hidden="true" alt="" />
+
+- [Topbar](/components/topbar)
+- [Account Switcher](/components/account-switcher)
+- [Anchor](/components/anchor)
+- [Badge](/components/badge)
+- [Combobox](/components/combobox)
+- [Icons](/components/icons), particularly `ChevronDownIcon`, `SearchIcon`, `SupportIcon`, `UserIcon`
+- [Menu](/components/menu)
+- [Product Switcher](/components/product-switcher)
+- [Status Menu](/components/status-menu)
+- [User Dialog](/components/user-dialog)
+
+### Sidebar ingredients
+
+<ResponsiveImage src={NavigationSidebar} aria-hidden="true" alt="" />
+
+- [Sidebar container](/components/sidebar)
+- [Sidebar Navigation](/components/sidebar-navigation)
+- [Icons](/components/icons), mainly product and feature logo icons
+
+## Examples
+
+### Product-agnostic
+
+<StoryPreview
+  title="Generic docs full composition"
+  storyID="components-sidebar-fullcompositions--docs"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+<Box marginBottom="space70">
+  <Callout variant="neutral">
+    <CalloutHeading>Do you work on a Twilio product platform team?</CalloutHeading>
+    <CalloutText>
+      Navigation and information architecture are ever-evolving. Collaborate with us on defining more specific
+      guidelines for your product by [starting a GitHub Discussion](https://github.com/twilio-labs/paste/discussions).
+    </CalloutText>
+  </Callout>
+</Box>
+
+### Flex
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--flex"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+### Segment
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--segment"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+### Twilio Console
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--console"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+## Starter kits
+
+- [Figma](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&mode=design)
+- Paste prototyping kit (update coming soon)
+
+</content>
+
+</contentwrapper>
