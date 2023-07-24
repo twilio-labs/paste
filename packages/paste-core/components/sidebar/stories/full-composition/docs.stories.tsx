@@ -64,7 +64,7 @@ export const Docs: StoryFn = () => {
         <SidebarBody>
           <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
             <SidebarNavigationItem href="https://google.com" selected>
-              Twilio Cli
+              Twilio CLI
             </SidebarNavigationItem>
             <SidebarNavigationDisclosure>
               <SidebarNavigationDisclosureHeadingWrapper>
