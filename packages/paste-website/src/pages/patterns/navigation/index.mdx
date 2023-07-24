@@ -91,6 +91,8 @@ The Sidebar and Topbar navigation components have the following considerations:
 - Ensure the [Skip links](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html) are [correctly implemented](/components/sidebar#skip-links). This ensures users can easily and quickly access the main content of a web page by bypassing repeated blocks of content such as navigation links.
 - Ensure the `SidebarNavigation` component is labelled with an accessible name.
 
+## Ingredients
+
 ### Topbar ingredients
 
 <ResponsiveImage src={NavigationTopbar} aria-hidden="true" alt="" />
@@ -153,10 +155,14 @@ The Sidebar and Topbar navigation components have the following considerations:
 
 <Box marginBottom="space70">
   <Callout variant="neutral">
-    <CalloutHeading>Do you work on a Twilio product platform team?</CalloutHeading>
+    <CalloutHeading as="h3">Do you work on a Twilio product platform team?</CalloutHeading>
     <CalloutText>
       Navigation and information architecture are ever-evolving. Collaborate with us on defining more specific
-      guidelines for your product by <Anchor href="https://github.com/twilio-labs/paste/discussions">starting a GitHub Discussion<Anchor>.
+      guidelines for your product by{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+        starting a GitHub Discussion
+      </Anchor>
+      .
     </CalloutText>
   </Callout>
 </Box>
