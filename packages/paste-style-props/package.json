@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/style-props",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "Shared utilities for style properties used in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "@twilio-paste/color-contrast-utils": "^4.0.0",
     "@twilio-paste/design-tokens": "^9.0.2",
     "@twilio-paste/styling-library": "^2.0.0",
-    "@twilio-paste/theme": "^10.0.0",
+    "@twilio-paste/theme": "^10.0.3",
     "@twilio-paste/types": "^5.0.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",

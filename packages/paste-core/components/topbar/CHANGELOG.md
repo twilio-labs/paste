@@ -1,5 +1,19 @@
 # @twilio-paste/topbar
 
+## 0.3.0
+
+### Minor Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Enable application navigation by providing an ID to the topbar for users to jump to via skiplink navigation.
+
+### Patch Changes
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] improved alignment with the sidebar header
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Allow responsive display properties on Topbar Actions to enable building responsive and adaptive topbars
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] match z-index level to that of the sidebar so they share the same plane within an application
+
 ## 0.2.2
 
 ### Patch Changes

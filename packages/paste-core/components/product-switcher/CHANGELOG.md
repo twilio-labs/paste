@@ -1,5 +1,14 @@
 # @twilio-paste/product-switcher
 
+## 1.0.3
+
+### Patch Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed incorrect prop types for menu based components
+
+- Updated dependencies [[`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df)]:
+  - @twilio-paste/text@9.0.3
+
 ## 1.0.2
 
 ### Patch Changes

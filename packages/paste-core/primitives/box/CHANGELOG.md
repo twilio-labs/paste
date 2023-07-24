@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.2.0
+
+### Minor Changes
+
+- [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add PseudoPropStyles **webkit_inner_spin_button and **webkit_outer_spin_button and CustomStyleProp -moz-appearance to Box Primitive Style Props for use in the Input package for hiding native components from all browsers.
+
+### Patch Changes
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Allow responsive values for the CSS properties Box supports as style props.
+
 ## 9.1.0
 
 ### Minor Changes

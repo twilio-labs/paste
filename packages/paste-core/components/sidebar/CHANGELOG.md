@@ -1,5 +1,17 @@
 # @twilio-paste/sidebar
 
+## 0.5.0
+
+### Minor Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Included skip link functionality, allowing consumers an easy way to create application navigation skip links. Added three new required props `mainContentSkipLinkID`, `sidebarNavigationSkipLinkID` and `topbarSkipLinkID`. Plus three optional internationalization props to translate the skip link text
+
+### Patch Changes
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] corrected the SideBarNavigationItem children proptype validation rule
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] improved SSR handling of the push content wrapper for small screen responsive layouts
+
 ## 0.4.0
 
 ### Minor Changes
