@@ -123,6 +123,7 @@ export const SITEMAP = [
   '/patterns/',
   '/patterns/empty-state/',
   '/patterns/error-state/',
+  '/patterns/navigation/',
   '/patterns/notifications-and-feedback/',
   '/patterns/object-details/',
   '/patterns/privacy/',
