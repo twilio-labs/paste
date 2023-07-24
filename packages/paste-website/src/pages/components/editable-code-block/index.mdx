@@ -1,0 +1,183 @@
+export const meta = {
+  title: 'Editable CodeBlock',
+  package: '@twilio-paste/editable-code-block',
+  description: 'An Editable Code Block is a text field that allows users to enter formatted code.',
+  slug: '/components/editable-code-block/',
+};
+
+import {Alert} from '@twilio-paste/alert';
+import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Anchor} from '@twilio-paste/anchor';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import Changelog from '@twilio-paste/editable-code-block/CHANGELOG.md';
+import packageJson from '@twilio-paste/editable-code-block/package.json';
+
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Blockquote} from '../../../components/Blockquote';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Editable Code Block');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  storybookUrl="/?path=/story/components-alert--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview scope={{Alert, Text}} language="jsx">
+  {`<Alert variant="warning">
+    <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for reducing it.
+</Alert>`}
+</LivePreview>
+
+## Guidelines
+
+### About Editable Code Block
+
+Editable Code Block allows basic text input features for code-editing experiences on the web,
+including syntax highlighting and displaying line numbers.
+
+This component is built on top of the [Code Editor library](/core/libraries/code-editor),
+which wraps the [Monaco Editor](https://microsoft.github.io/monaco-editor/) used by Visual Studio Code.
+
+This component uses the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl).
+If you’re looking for more functionality than what’s provided through Editable Code Block, use the [Code Editor library](/core/libraries/code-editor).
+
+### Accessibility
+
+Because Editable Code Block takes text input, it follows the same accessibility guidelines
+as other form elements:
+
+- Include a label on _all_ Editable Code Blocks. Use one of these ways to label an Editable Code Block:
+- Editable Code Block Header (preferred). Use the correct heading level in Editable Code Block Header.
+- Visible label (for example, a page heading) that's associated to the input with `aria-labelledby`
+- Visible label with [Label](/components/label)
+- Label directly using `aria-label`
+- Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
+- Include inline [error Help Text](/components/help-text#error-help-text) on any field that errors to make it visually clear that the field changed.
+- If the input has associated help text, include the `aria-describedby` prop on the input. This should match the `id` of the help text
+
+#### Keyboard interaction
+
+Excerpts from [Monaco accessibility guide](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide):
+
+- “By default, pressing Tab in an editable editor inserts the Tab character (or spaces depending on the indentation setting) and does not navigate to the next focusable element on the page. You can toggle the trapping of Tab with Ctrl+M on Windows and Linux and with Ctrl+Shift+M on OSX, and subsequent Tab keys will move focus out of the editor.”
+- [Screen reader support](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide#ui-optimized-for-screen-readers)
+- “You can press Alt+F1 or Ctrl+F1 in IE to trigger the "Show Accessibility Help" dialog while in an editor to find out the current position in the editor and to check the state of various accessibility options. The editor can be dynamically optimized for screen reader software from this dialog.”
+
+## Examples
+
+### Default
+
+Use an Editable Code Block to allow users to enter code on multiple lines.
+
+Line numbers help with identifying errors, and cross-referencing with existing code.
+Use line numbers when the expected input is longer than 5 lines.
+
+### Using Editable Code Block Header
+
+TBD some guidelines on how to use Editable Code Block with header. And what to do when header isn’t used.
+
+### Adding more features
+
+If you’re looking for more features to provide users with more powerful code-editing experiences, you can roll your own editor through the [Code Editor library](), which wraps the Monaco Editor.
+
+## States
+
+### Error
+
+TBD but this might move to a composition section because the final implementation might not include line-specific error highlighting. We may recommend just showing a Callout above Editable Code Block.
+
+### When to use Editable Code Block
+
+Do
+Don’t
+
+<DoDont>
+  <Do title="Do" body="Use Editable Code Block for a multi-line code input." />
+  <Dont
+    title="Don't"
+    body="Don’t use Textarea for a multi-line code input. The monospace formatting and line numbers of Editable Code Block can help a user check that their code is entered correctly."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Pair Editable Code Block with a visible label. This can be the Editable Code Block Header, a page Heading, or Label."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use an Editable Code Block without clear, contextual guidance or links to documentation. Provide immediate feedback or code previews when possible."
+  />
+</DoDont>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/editable-code-block - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Alert} from '@twilio-paste/core/editable-code-block';
+
+const Component = () => <Alert variant="error">There is an error in the system.</Alert>;
+```
+
+#### Props
+
+| Prop              | Type         | Description                                                                                      | Default                                                           |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| children?         | `ReactNode`  |                                                                                                  | null                                                              |
+| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null                                                              |
+| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | `status` for neutral alerts, `alert` for warning and error alerts |
+| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null                                                              |
+| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert'                                                   |
+| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'                                                         |
+| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)'                                                   |
+| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'                                                       |
+| element?          | `string`     | Overrides the default element name to apply unique styles with the Customization Provider        | 'ALERT'                                                           |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

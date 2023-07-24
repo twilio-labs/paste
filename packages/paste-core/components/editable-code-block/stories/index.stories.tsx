@@ -34,14 +34,12 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const ReadOnly = (): React.ReactNode => {
+export const Minimap = (): React.ReactNode => {
   return (
     <EditableCodeBlock
       height="70vh"
-      options={{
-        readOnly: true,
-      }}
       defaultLanguage="typescript"
+      minimap
       defaultValue={`interface User {
     name: string;
     id: number;
@@ -58,6 +56,92 @@ export const ReadOnly = (): React.ReactNode => {
   }
 
   const user: User = new UserAccount("Murphy", 1);`}
+    />
+  );
+};
+
+export const NoLineNumbers = (): React.ReactNode => {
+  return (
+    <EditableCodeBlock
+      height="70vh"
+      defaultLanguage="typescript"
+      options={{
+        lineNumbers: 'off',
+        glyphMargin: false,
+        folding: false,
+      }}
+      defaultValue={`interface User {
+    name: string;
+    id: number;
+  }
+
+  class UserAccount {
+    name: string;
+    id: number;
+
+    constructor(name: string, id: number) {
+      this.name = name;
+      this.id = id;
+    }
+  }
+
+  const user: User = new UserAccount("Murphy", 1);`}
+    />
+  );
+};
+
+export const NoCodeFolding = (): React.ReactNode => {
+  return (
+    <EditableCodeBlock
+      height="70vh"
+      defaultLanguage="typescript"
+      options={{
+        folding: false,
+      }}
+      defaultValue={`interface User {
+    name: string;
+    id: number;
+  }
+
+  class UserAccount {
+    name: string;
+    id: number;
+
+    constructor(name: string, id: number) {
+      this.name = name;
+      this.id = id;
+    }
+  }
+
+  const user: User = new UserAccount("Murphy", 1);`}
+    />
+  );
+};
+
+export const ReadOnly = (): React.ReactNode => {
+  return (
+    <EditableCodeBlock
+      height="70vh"
+      options={{
+        readOnly: true,
+      }}
+      defaultLanguage="typescript"
+      defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
     />
   );
 };

@@ -11,29 +11,44 @@ import {
 export interface EditableCodeBlockProps
   extends Omit<CodeEditorProps, 'wrapperProps' | 'className' | 'loading' | 'theme'> {
   element?: BoxProps['element'];
+  minimap?: boolean;
 }
 
 export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   onMount,
   element = 'EDITABLE_CODE_BLOCK',
+  options = {},
+  minimap = false,
   ...props
 }) => {
-  const handleEditorDidMount = (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
-    // Sets the Paste theme for the editor
-    monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
-    monaco.editor.setTheme('paste');
+  const controlledOptions = React.useMemo(() => {
+    return {
+      minimap: {
+        enabled: minimap,
+      },
+      ...options,
+    } as CodeEditorProps['options'];
+  }, [options, minimap]);
 
-    /*
-     * Call provided onMount function.
-     * This can be used to add custom language support, or to grab a
-     * reference to the ref (monaco) object.
-     */
-    onMount?.(editor, monaco);
-  };
+  const handleEditorDidMount = React.useCallback(
+    (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
+      // Sets the Paste theme for the editor
+      monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
+      monaco.editor.setTheme('paste');
+
+      /*
+       * Call provided onMount function.
+       * This can be used to add custom language support, or to grab a
+       * reference to the ref (monaco) object.
+       */
+      onMount?.(editor, monaco);
+    },
+    [onMount]
+  );
 
   return (
     <Box element={element} borderRadius="borderRadius10" overflow="hidden">
-      <CodeEditor {...props} onMount={handleEditorDidMount} />
+      <CodeEditor {...props} options={controlledOptions} onMount={handleEditorDidMount} />
     </Box>
   );
 };

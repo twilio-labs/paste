@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "data display",
   "status": "alpha",
-  "description": "An Editable Code Block is used to display and make changes to large blocks of code.",
+  "description": "An Editable Code Block is a text field that allows users to enter formatted code.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
