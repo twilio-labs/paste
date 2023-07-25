@@ -172,3 +172,4 @@ export const Segment: React.FC<React.PropsWithChildren<{collapsed: boolean; setC
     </Box>
   );
 };
+/* eslint-enable react/jsx-max-depth */
