@@ -11,6 +11,7 @@ import {
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationSeparator,
 } from '@twilio-paste/sidebar';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
@@ -158,10 +159,8 @@ const SiteSidebarNavigation = (): JSX.Element => {
         >
           Spacing and layout
         </SidebarAnchor>
-        <NavigationDisclosure
-          buttonText="Theme"
-          categoryRoute={SidebarCategoryRoutes.THEME}
-          level={0}
+        <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/typography`}
           onClick={() =>
             event({
               category: 'Left Navigation',
@@ -171,6 +170,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
           }
         >
           Typography
+        </SidebarAnchor>
       </NavigationDisclosure>
       <NavigationDisclosure
         buttonText="Patterns"
@@ -344,11 +344,22 @@ const SiteSidebarNavigation = (): JSX.Element => {
         <SidebarAnchor href={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>Upgrade guide</SidebarAnchor>
         <NavigationDisclosure buttonText="Libraries" categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
           <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}`}>Overview</SidebarAnchor>
-          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>UID library</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/code-editor`}>Code Editor</SidebarAnchor>
           <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>Codemods</SidebarAnchor>
           <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/data-visualization`}>
             Data visualization
           </SidebarAnchor>
+          <SidebarAnchor href="https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/libraries-clipboard-copy--default">
+            <span>Clipboard Copy</span>
+            <LinkExternalIcon decorative />
+          </SidebarAnchor>
+          <SidebarAnchor href="https://github.com/twilio-labs/svg-to-react/blob/master/README.md">
+            <span>SVG-to-React</span>
+            <LinkExternalIcon decorative />
+          </SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>UID library</SidebarAnchor>
+
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/vs-code-plugin`}>VS Code Plugin</SidebarAnchor>
         </NavigationDisclosure>
       </NavigationDisclosure>
       <NavigationDisclosure
