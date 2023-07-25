@@ -36,9 +36,9 @@ export default {
   title: 'Components/Sidebar/FullCompositions',
 };
 
-export const Flex: StoryFn = () => {
+export const FlexExpanded: StoryFn = () => {
   const id = useUID();
-  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
+  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
   const sidebarNavigationSkipLinkID = useUID();
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
@@ -129,6 +129,6 @@ export const Flex: StoryFn = () => {
     </Box>
   );
 };
-Flex.parameters = {
+FlexExpanded.parameters = {
   padding: false,
 };

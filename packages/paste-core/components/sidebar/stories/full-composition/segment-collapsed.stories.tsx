@@ -45,9 +45,9 @@ export default {
 };
 
 /* eslint-disable react/jsx-max-depth */
-export const Segment: StoryFn = () => {
+export const SegmentCollapsed: StoryFn = () => {
   const id = useUID();
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
   const sidebarNavigationSkipLinkID = useUID();
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
@@ -172,6 +172,6 @@ export const Segment: StoryFn = () => {
   );
 };
 /* eslint-enable react/jsx-max-depth */
-Segment.parameters = {
+SegmentCollapsed.parameters = {
   padding: false,
 };
