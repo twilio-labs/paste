@@ -112,8 +112,9 @@ The Sidebar follows these accessibility guidelines:
 - `SidebarCollapseButton` provides `aria-controls` and `aria-expanded` HTML attributes that match `Sidebar`.
 - Always use `SidebarCollapseButton` with `Sidebar`. Otherwise there is no accessible `Sidebar` trigger for screen readers.
 - For skip links to function correctly you must provide the follow three props:
+  - `sidebarNavigationSkipLinkID`: ID given to the `SidebarNavigation` component.
   - `mainContentSkipLinkID`: ID given to the container that wraps the main content of your application.
-  - `topbarSkipLinkID`: ID given to the `Topbar` component in your application
+  - `topbarSkipLinkID`: ID given to the `Topbar` component in your application.
 
 ## Examples
 
@@ -368,6 +369,24 @@ Use the `SidebarCollapseButton` to control the expand and collapse behavior of t
   </SidebarFooter>
 </Box>`}
 </LivePreview>
+
+### Skip links
+
+The Sidebar incorporates a feature known as "[Skip links](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)". This feature provides users with the ability to bypass large, repeated content areas, such as navigation. Skip Links are essentially a hidden set of links that facilitate navigation to key points within the application. Within the Sidebar, there are three types of skip links:
+
+- Skip to navigation - allows quick access to the site navigation.
+- Skip to Topbar - enables a swift jump to the site's Topbar.
+- Skip to content - provides a fast route to the main content, bypassing both the Sidebar and Topbar.
+
+Skip Links are the first items in the Document Object Model (DOM) structure. They remain hidden until a keyboard user presses the Tab key, at which point the skip link becomes visible and is brought into user focus.
+
+For these links to function correctly, it's vital to correctly assign unique ID references to the corresponding DOM elements:
+
+- `sidebarNavigationSkipLinkID`: This ID should be given to the SidebarNavigation component.
+- `mainContentSkipLinkID`: This ID should be assigned to the container that wraps the main content of your application.
+- `topbarSkipLinkID`: This ID should be given to the Topbar component in your application.
+
+If these unique ID references are not correctly applied to the target DOM elements and passed to the Sidebar, the Skip Links will not function as intended.
 
 ## Usage Guide
 

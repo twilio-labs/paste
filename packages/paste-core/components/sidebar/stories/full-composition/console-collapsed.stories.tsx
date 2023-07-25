@@ -48,7 +48,7 @@ export default {
 const onClick = (): void => {};
 
 /* eslint-disable react/jsx-max-depth */
-export const Console: StoryFn = () => {
+export const ConsoleCollapsed: StoryFn = () => {
   const id = useUID();
   const menu = useMenuState();
   const menuLookup = useMenuState();
@@ -57,7 +57,7 @@ export const Console: StoryFn = () => {
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
 
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
 
   return (
     <Box minWidth="1000px">
@@ -218,6 +218,6 @@ export const Console: StoryFn = () => {
   );
 };
 /* eslint-enable react/jsx-max-depth */
-Console.parameters = {
+ConsoleCollapsed.parameters = {
   padding: false,
 };
