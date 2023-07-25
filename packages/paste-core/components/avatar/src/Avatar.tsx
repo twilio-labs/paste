@@ -123,11 +123,13 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         flexShrink={0}
         ref={ref}
         size={groupSize || size}
-        {...(src ? undefined : shadowVariants[color])}
+        {...(src ? {boxShadow: 'shadowBorderWeaker'} : shadowVariants[color])}
         {...colorVariants[color]}
         {...variants[groupVariant || variant]}
+        // when its an image the background should be transparent, for when you are using transparent images
+        {...(src && {backgroundColor: 'transparent'})}
       >
-        <AvatarContents name={name} size={size} icon={icon} src={src} />
+        <AvatarContents name={name} size={groupSize || size} icon={icon} src={src} />
       </Box>
     );
   }
