@@ -46,7 +46,7 @@ export const Docs: StoryFn = () => {
   const mainContentSkipLinkID = useUID();
 
   return (
-    <Box minWidth="1000px">
+    <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}

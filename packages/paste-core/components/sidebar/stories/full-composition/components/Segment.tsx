@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
 import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
 import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
@@ -30,14 +29,14 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
   SidebarBetaBadge,
-} from '../../src';
-import {SearchBox} from './components/SearchBox';
-import {SupportMenu} from './components/SupportMenu';
-import {NotificationsDialog} from './components/NotificationsDialog';
-import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialogSegment';
-import {WorkspaceSwitcherMenu} from './components/WorkspaceSwitcher';
-import {UpgradeBadge} from './components/UpgradeBadge';
+} from '../../../src';
+import {SearchBox} from './SearchBox';
+import {SupportMenu} from './SupportMenu';
+import {NotificationsDialog} from './NotificationsDialog';
+import {AppSwitcher} from './AppSwitcher';
+import {UserDialogExample} from './UserDialogSegment';
+import {WorkspaceSwitcherMenu} from './WorkspaceSwitcher';
+import {UpgradeBadge} from './UpgradeBadge';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -45,21 +44,23 @@ export default {
 };
 
 /* eslint-disable react/jsx-max-depth */
-export const SegmentCollapsed: StoryFn = () => {
+export const Segment: React.FC<React.PropsWithChildren<{collapsed: boolean; setCollapsed: (collapsed) => void}>> = ({
+  collapsed,
+  setCollapsed,
+}) => {
   const id = useUID();
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
   const sidebarNavigationSkipLinkID = useUID();
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
 
   return (
-    <Box minWidth="1000px">
+    <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
         mainContentSkipLinkID={mainContentSkipLinkID}
-        collapsed={pushSidebarCollapsed}
+        collapsed={collapsed}
         variant="compact"
       >
         <SidebarHeader>
@@ -140,7 +141,7 @@ export const SegmentCollapsed: StoryFn = () => {
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
-            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            onClick={() => setCollapsed(!collapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
@@ -148,7 +149,7 @@ export const SegmentCollapsed: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+      <SidebarPushContentWrapper collapsed={collapsed} variant="compact">
         <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <WorkspaceSwitcherMenu />
@@ -163,15 +164,11 @@ export const SegmentCollapsed: StoryFn = () => {
           </TopbarActions>
         </Topbar>
         <Box padding="space70" id={mainContentSkipLinkID}>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+          <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
             Toggle Push Sidebar
           </Button>
         </Box>
       </SidebarPushContentWrapper>
     </Box>
   );
-};
-/* eslint-enable react/jsx-max-depth */
-SegmentCollapsed.parameters = {
-  padding: false,
 };
