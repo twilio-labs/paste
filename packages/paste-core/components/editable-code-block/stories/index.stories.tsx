@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
 import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
 
-import {EditableCodeBlock} from '../src';
+import {EditableCodeBlockHeader, EditableCodeBlockWrapper, EditableCodeBlock} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -11,122 +11,12 @@ export default {
 
 export const Default = (): React.ReactNode => {
   return (
-    <EditableCodeBlock
-      height="70vh"
-      defaultLanguage="typescript"
-      defaultValue={`interface User {
-    name: string;
-    id: number;
-  }
-
-  class UserAccount {
-    name: string;
-    id: number;
-
-    constructor(name: string, id: number) {
-      this.name = name;
-      this.id = id;
-    }
-  }
-
-  const user: User = new UserAccount("Murphy", 1);`}
-    />
-  );
-};
-
-export const Minimap = (): React.ReactNode => {
-  return (
-    <EditableCodeBlock
-      height="70vh"
-      defaultLanguage="typescript"
-      minimap
-      defaultValue={`interface User {
-    name: string;
-    id: number;
-  }
-
-  class UserAccount {
-    name: string;
-    id: number;
-
-    constructor(name: string, id: number) {
-      this.name = name;
-      this.id = id;
-    }
-  }
-
-  const user: User = new UserAccount("Murphy", 1);`}
-    />
-  );
-};
-
-export const NoLineNumbers = (): React.ReactNode => {
-  return (
-    <EditableCodeBlock
-      height="70vh"
-      defaultLanguage="typescript"
-      options={{
-        lineNumbers: 'off',
-        glyphMargin: false,
-        folding: false,
-      }}
-      defaultValue={`interface User {
-    name: string;
-    id: number;
-  }
-
-  class UserAccount {
-    name: string;
-    id: number;
-
-    constructor(name: string, id: number) {
-      this.name = name;
-      this.id = id;
-    }
-  }
-
-  const user: User = new UserAccount("Murphy", 1);`}
-    />
-  );
-};
-
-export const NoCodeFolding = (): React.ReactNode => {
-  return (
-    <EditableCodeBlock
-      height="70vh"
-      defaultLanguage="typescript"
-      options={{
-        folding: false,
-      }}
-      defaultValue={`interface User {
-    name: string;
-    id: number;
-  }
-
-  class UserAccount {
-    name: string;
-    id: number;
-
-    constructor(name: string, id: number) {
-      this.name = name;
-      this.id = id;
-    }
-  }
-
-  const user: User = new UserAccount("Murphy", 1);`}
-    />
-  );
-};
-
-export const ReadOnly = (): React.ReactNode => {
-  return (
-    <EditableCodeBlock
-      height="70vh"
-      options={{
-        readOnly: true,
-      }}
-      defaultLanguage="typescript"
-      defaultValue={`interface User {
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="45vh"
+        defaultLanguage="typescript"
+        defaultValue={`interface User {
   name: string;
   id: number;
 }
@@ -142,11 +32,165 @@ class UserAccount {
 }
 
 const user: User = new UserAccount("Murphy", 1);`}
-    />
+      />
+    </EditableCodeBlockWrapper>
   );
 };
 
-const Files = {
+export const CustomInlineError = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Custom Inline Error Example (Try hovering it)</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="45vh"
+        onChange={(value) => console.log(value)}
+        inlineErrorRange={{
+          startLineNumber: 3,
+          endLineNumber: 3,
+          startColumn: 7,
+          endColumn: 13,
+        }}
+        inlineErrorIsWholeLine={false}
+        inlineErrorHoverMessage={{value: '"id" can only be a string type.'}}
+        defaultLanguage="typescript"
+        defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const Minimap = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Minimap Example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="45vh"
+        defaultLanguage="typescript"
+        showMinimap
+        defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const NoLineNumbers = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>No Line Numbers Example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="70vh"
+        defaultLanguage="typescript"
+        lineNumbers="off"
+        defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const NoCodeFolding = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="70vh"
+        defaultLanguage="typescript"
+        folding={false}
+        defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const ReadOnly = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="70vh"
+        readOnly
+        defaultLanguage="typescript"
+        defaultValue={`interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+const Files: any = {
   JS: {
     name: 'script.js',
     language: 'javascript',
@@ -213,17 +257,16 @@ export const MultiFileEditor = (): React.ReactNode => {
           </RadioButton>
         ))}
       </RadioButtonGroup>
-      <EditableCodeBlock
-        height="400px"
-        options={{
-          minimap: {
-            enabled: false,
-          },
-        }}
-        path={Files[fileKey].name}
-        defaultLanguage={Files[fileKey].language}
-        defaultValue={Files[fileKey].value}
-      />
+
+      <EditableCodeBlockWrapper>
+        <EditableCodeBlockHeader>{Files[fileKey].name}</EditableCodeBlockHeader>
+        <EditableCodeBlock
+          height="400px"
+          path={Files[fileKey].name}
+          defaultLanguage={Files[fileKey].language}
+          defaultValue={Files[fileKey].value}
+        />
+      </EditableCodeBlockWrapper>
     </Stack>
   );
 };
