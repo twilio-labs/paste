@@ -77,18 +77,18 @@ const HomeHero = (): JSX.Element => {
                   <NewIcon decorative />
                   New
                 </Badge>
-                <NewComponentBannerText>Check out our newest Foundations page,</NewComponentBannerText>
+                <NewComponentBannerText>The Navigation UI Kit,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  href="/foundations/typography"
+                  href="/patterns/navigation"
                   onClick={() =>
                     event({
                       category: 'Hero',
                       action: 'click-new-banner',
-                      label: 'Typography page',
+                      label: 'Navigation page',
                     })
                   }
                 >
-                  Typography guidelines!
+                  check it out!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
