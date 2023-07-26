@@ -55,53 +55,40 @@ const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
 
 AvatarContents.displayName = 'AvatarContents';
 
-const colorVariants: Record<ColorVariants, BoxStyleProps> = {
+const colorPropStyles: Record<ColorVariants, BoxStyleProps> = {
   default: {
     backgroundColor: 'colorBackgroundUser',
+    boxShadow: 'shadowBorderUser',
     color: 'colorTextUser',
   },
   decorative10: {
     backgroundColor: 'colorBackgroundDecorative10Weakest',
+    boxShadow: 'shadowBorderDecorative10Weaker',
     color: 'colorTextDecorative10',
   },
   decorative20: {
     backgroundColor: 'colorBackgroundDecorative20Weakest',
+    boxShadow: 'shadowBorderDecorative20Weaker',
     color: 'colorTextDecorative20',
   },
   decorative30: {
     backgroundColor: 'colorBackgroundDecorative30Weakest',
+    boxShadow: 'shadowBorderDecorative30Weaker',
     color: 'colorTextDecorative30',
   },
   decorative40: {
     backgroundColor: 'colorBackgroundDecorative40Weakest',
+    boxShadow: 'shadowBorderDecorative40Weaker',
     color: 'colorTextDecorative40',
   },
 };
 
-const variants: Record<AvatarVariants, BoxStyleProps> = {
+const variantStyles: Record<AvatarVariants, BoxStyleProps> = {
   user: {
     borderRadius: 'borderRadiusCircle',
   },
   entity: {
     borderRadius: 'borderRadius30',
-  },
-};
-
-const shadowVariants: Record<ColorVariants, BoxStyleProps> = {
-  default: {
-    boxShadow: 'shadowBorderUser',
-  },
-  decorative10: {
-    boxShadow: 'shadowBorderDecorative10Weaker',
-  },
-  decorative20: {
-    boxShadow: 'shadowBorderDecorative20Weaker',
-  },
-  decorative30: {
-    boxShadow: 'shadowBorderDecorative30Weaker',
-  },
-  decorative40: {
-    boxShadow: 'shadowBorderDecorative40Weaker',
   },
 };
 
@@ -123,11 +110,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         flexShrink={0}
         ref={ref}
         size={groupSize || size}
-        {...(src ? undefined : shadowVariants[color])}
-        {...colorVariants[color]}
-        {...variants[groupVariant || variant]}
+        {...colorPropStyles[color]}
+        {...variantStyles[groupVariant || variant]}
+        // when its an image set specific styles that are unrelated to color or variants
+        {...(src && {backgroundColor: 'colorBackgroundBody', boxShadow: 'shadowBorderWeaker'})}
       >
-        <AvatarContents name={name} size={size} icon={icon} src={src} />
+        <AvatarContents name={name} size={groupSize || size} icon={icon} src={src} />
       </Box>
     );
   }
