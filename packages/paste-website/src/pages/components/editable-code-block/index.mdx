@@ -5,14 +5,6 @@ export const meta = {
   slug: '/components/editable-code-block/',
 };
 
-import {Alert} from '@twilio-paste/alert';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Anchor} from '@twilio-paste/anchor';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
 import Changelog from '@twilio-paste/editable-code-block/CHANGELOG.md';
 import packageJson from '@twilio-paste/editable-code-block/package.json';
 
@@ -41,8 +33,8 @@ export const getStaticProps = async () => {
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-alert--"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert"
+  storybookUrl="/?path=/story/components-editable-code-block--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block"
   data={props.data}
 />
 
@@ -54,11 +46,18 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{Alert, Text}} language="jsx">
-  {`<Alert variant="warning">
-    <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for reducing it.
-</Alert>`}
-</LivePreview>
+<StoryPreview
+  title="Default Editable Code Block"
+  storyID="components-editable-code-block--default"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
 
 ## Guidelines
 
