@@ -9,7 +9,17 @@ import {
   type IRange,
   type IMarkdownString,
 } from '@twilio-paste/code-editor-library';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {Spinner} from '@twilio-paste/spinner';
 import {StylingGlobals} from '@twilio-paste/styling-library';
+
+const LoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({i18nLoadingLabel}) => (
+  <>
+    <Spinner color="colorTextPrimaryWeak" decorative />
+    <ScreenReaderOnly>{i18nLoadingLabel}</ScreenReaderOnly>
+  </>
+);
+LoadingMessage.displayName = 'LoadingMessage';
 
 export interface EditableCodeBlockProps
   extends Omit<CodeEditorProps, 'wrapperProps' | 'className' | 'loading' | 'theme' | 'options'> {
@@ -30,6 +40,7 @@ export interface EditableCodeBlockProps
   inlineErrorRange?: IRange;
   inlineErrorHoverMessage?: IMarkdownString | IMarkdownString[] | null;
   inlineErrorIsWholeLine?: boolean;
+  i18nLoadingLabel?: string;
 }
 
 export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
@@ -45,6 +56,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   inlineErrorRange,
   inlineErrorHoverMessage,
   inlineErrorIsWholeLine = true,
+  i18nLoadingLabel = 'Loading code...',
   ...props
 }) => {
   const controlledOptions = React.useMemo(() => {
@@ -131,7 +143,12 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
           }}
         />
       ) : null}
-      <CodeEditor {...props} options={controlledOptions} onMount={handleEditorDidMount} />
+      <CodeEditor
+        {...props}
+        loading={<LoadingMessage i18nLoadingLabel={i18nLoadingLabel} />}
+        options={controlledOptions}
+        onMount={handleEditorDidMount}
+      />
     </Box>
   );
 };
