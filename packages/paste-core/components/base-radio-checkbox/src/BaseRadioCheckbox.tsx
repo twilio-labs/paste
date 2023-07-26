@@ -13,9 +13,10 @@ import type {BoxProps} from '@twilio-paste/box';
 export interface BaseRadioCheckboxControlProps extends SiblingBoxProps, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
+  applyHoverStyles?: boolean;
 }
 const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxControlProps>(
-  ({children, disabled, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props}, ref) => {
+  ({children, disabled, applyHoverStyles = false, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props}, ref) => {
     return (
       <SiblingBox
         as="span"
@@ -23,7 +24,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         display="flex"
         element={element}
         backgroundColor="colorBackgroundBody"
-        borderColor="colorBorder"
+        borderColor={applyHoverStyles ? 'colorBorderPrimaryStronger' : 'colorBorder'}
         borderStyle="solid"
         borderWidth="borderWidth10"
         height="sizeSquare50"
@@ -36,7 +37,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
           color: 'colorTextWeakest',
         }}
         _focusSibling={{
-          borderColor: 'colorBorderPrimaryStronger',
+          borderColor: 'colorBorder',
           boxShadow: 'shadowFocus',
           color: 'colorTextInverse',
         }}
