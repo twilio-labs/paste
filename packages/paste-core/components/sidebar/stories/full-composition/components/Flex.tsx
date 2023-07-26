@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
 import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
@@ -24,32 +23,34 @@ import {
   SidebarOverlayContentWrapper,
   SidebarNavigation,
   SidebarNavigationItem,
-} from '../../src';
-import {StatusMenuExample} from './components/StatusMenu';
-import {SupportMenu} from './components/SupportMenu';
-import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialogFlex';
-import {DebuggerAction} from './components/DebuggerAction';
+} from '../../../src';
+import {StatusMenuExample} from './StatusMenu';
+import {SupportMenu} from './SupportMenu';
+import {AppSwitcher} from './AppSwitcher';
+import {UserDialogExample} from './UserDialogFlex';
+import {DebuggerAction} from './DebuggerAction';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Sidebar/FullCompositions',
 };
 
-export const FlexExpanded: StoryFn = () => {
+export const Flex: React.FC<React.PropsWithChildren<{collapsed: boolean; setCollapsed: (collapsed) => void}>> = ({
+  collapsed,
+  setCollapsed,
+}) => {
   const id = useUID();
-  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(false);
   const sidebarNavigationSkipLinkID = useUID();
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
 
   return (
-    <Box minWidth="1000px">
+    <Box minWidth="1200px">
       <Sidebar
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
         mainContentSkipLinkID={mainContentSkipLinkID}
-        collapsed={overlaySidebarExpanded}
+        collapsed={collapsed}
         variant="compact"
       >
         <SidebarHeader>
@@ -101,14 +102,14 @@ export const FlexExpanded: StoryFn = () => {
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
-            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
+            onClick={() => setCollapsed(!collapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
+      <SidebarOverlayContentWrapper collapsed={collapsed} variant="compact">
         <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <StatusMenuExample />
@@ -121,14 +122,11 @@ export const FlexExpanded: StoryFn = () => {
           </TopbarActions>
         </Topbar>
         <Box padding="space70" id={mainContentSkipLinkID}>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
+          <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
             Toggle Overlay Sidebar
           </Button>
         </Box>
       </SidebarOverlayContentWrapper>
     </Box>
   );
-};
-FlexExpanded.parameters = {
-  padding: false,
 };
