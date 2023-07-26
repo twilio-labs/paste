@@ -195,7 +195,10 @@ export const CustomInlineError = (): React.ReactNode => {
       <EditableCodeBlockHeader>Custom inline error example (try hovering it)</EditableCodeBlockHeader>
       <EditableCodeBlock
         height="45vh"
-        onChange={(value) => console.log(value)}
+        onChange={(value) => {
+          // eslint-disable-next-line no-console
+          console.log(value);
+        }}
         inlineErrorRange={{
           startLineNumber: 3,
           endLineNumber: 3,
