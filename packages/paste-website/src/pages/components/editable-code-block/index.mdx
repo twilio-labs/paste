@@ -64,7 +64,7 @@ export const getStaticProps = async () => {
 
 ### About Editable Code Block
 
-Editable Code Block allows basic text input features for code-editing experiences on the web,
+Editable Code Block allows basic text input features for code-editing experiences on web,
 including syntax highlighting and displaying line numbers.
 
 This component is built on top of the [Code Editor library](/core/libraries/code-editor),
@@ -75,53 +75,213 @@ If you’re looking for more functionality than what’s provided through Editab
 
 ### Accessibility
 
-Because Editable Code Block takes text input, it follows the same accessibility guidelines
-as other form elements:
+Because Editable Code Block takes text input, it follows similar labeling accessibility
+guidelines as other form elements:
 
 - Include a label on _all_ Editable Code Blocks. Use one of these ways to label an Editable Code Block:
-- Editable Code Block Header (preferred). Use the correct heading level in Editable Code Block Header.
-- Visible label (for example, a page heading) that's associated to the input with `aria-labelledby`
-- Visible label with [Label](/components/label)
-- Label directly using `aria-label`
+  - Editable Code Block Header (preferred). Use the correct heading level in Editable Code Block Header.
+  - Visible label (for example, a page heading) that's associated to the input with `aria-labelledby`
+  - Visible label with [Label](/components/label)
+  - Label directly using `aria-label`
 - Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
-- Include inline [error Help Text](/components/help-text#error-help-text) on any field that errors to make it visually clear that the field changed.
-- If the input has associated help text, include the `aria-describedby` prop on the input. This should match the `id` of the help text
+
+Since Editable Code Block takes up more vertical space than typical form elements,
+any help or error content should appear before the component by using an
+introductory [Paragraph](/components/paragraph) or [error Callout](#Generic-errors).
 
 #### Keyboard interaction
 
 Excerpts from [Monaco accessibility guide](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide):
 
-- “By default, pressing Tab in an editable editor inserts the Tab character (or spaces depending on the indentation setting) and does not navigate to the next focusable element on the page. You can toggle the trapping of Tab with Ctrl+M on Windows and Linux and with Ctrl+Shift+M on OSX, and subsequent Tab keys will move focus out of the editor.”
-- [Screen reader support](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide#ui-optimized-for-screen-readers)
-- “You can press Alt+F1 or Ctrl+F1 in IE to trigger the "Show Accessibility Help" dialog while in an editor to find out the current position in the editor and to check the state of various accessibility options. The editor can be dynamically optimized for screen reader software from this dialog.”
+| Action                          | Keyboard shortcut             | Description                                                                                                                                                                                                   |
+| ------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open the Command Palette        | F1 or Alt+F1                  | Provides “an exhaustive list of commands in the Command Palette…, so you can use the editor without using the mouse.”                                                                                         |
+| Insert Tab character            | Tab                           | “Inserts the Tab character (or spaces depending on the indentation setting) and does not navigate to the next focusable element on the page.”                                                                 |
+| Toggle tab trapping             | Ctrl+Shift+M or Ctrl+M        | “Subsequent Tab keys will move focus out of the editor.”                                                                                                                                                      |
+| Go to Next Error or Warning     | F8                            |                                                                                                                                                                                                               |
+| Go to Previous Error or Warning | Shift+F8                      |                                                                                                                                                                                                               |
+| Show accessibility help         | Option+F1, Alt+F1, or Ctrl+F1 | Shows a “dialog…to find out the current position in the editor and to check the state of various accessibility options. The editor can be dynamically optimized for screen reader software from this dialog.” |
 
 ## Examples
 
 ### Default
 
 Use an Editable Code Block to allow users to enter code on multiple lines.
+To help users differentiate this from a static [Code Block](/components/code-block),
+Editable Code Block enables line numbers, code folding, and indentation guides by default.
 
-Line numbers help with identifying errors, and cross-referencing with existing code.
+Put a logical label in an _Editable Code Block Header_ to describe what users need
+to put in the code block and/or the language used, similar to a form label.
+
+_Line numbers_ help users identify errors and cross-reference with existing code.
 Use line numbers when the expected input is longer than 5 lines.
 
-### Using Editable Code Block Header
+_Indentation guides and code folding_ help users read long blocks of
+code and troubleshoot errors.
 
-TBD some guidelines on how to use Editable Code Block with header. And what to do when header isn’t used.
+<StoryPreview
+  title="Default Editable Code Block"
+  storyID="components-editable-code-block--default"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
 
-### Adding more features
+### Simple Editable Code Block
 
-If you’re looking for more features to provide users with more powerful code-editing experiences, you can roll your own editor through the [Code Editor library](), which wraps the Monaco Editor.
+Remove line numbers, indentation guides, and code folding from Editable Code Block only when:
+
+- Your page layout makes it visually clear to the user that the code block is editable, _and_
+- The expected code input is simple, like a short snippet of JSON.
+
+<StoryPreview
+  title="Simple Editable Code Block"
+  storyID="components-editable-code-block--no-special-features"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Simple Editable Code Block</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    lineNumbers="off"
+    folding={false}
+    indentationGuide={false}
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Editable Code Block with minimap
+
+For large files, use a minimap to help users navigate the code block.
+
+<StoryPreview
+  title="Editable Code Block with minimap"
+  storyID="components-editable-code-block--minimap"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Minimap example</EditableCodeBlockHeader>
+  <EditableCodeBlock height="45vh" defaultLanguage="typescript" showMinimap defaultValue={TypeScriptExample} />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Multi-file Editable Code Block
+
+You can alternate the content in a single instance of the Editable Code Block.
+This is useful for editing multiple files in a single editor.
+
+<StoryPreview
+  title="Multi-file Editable Code Block"
+  storyID="components-editable-code-block--multi-file-editor"
+  code={`<Stack orientation="vertical" spacing="space40">
+  <RadioButtonGroup
+    attached
+    name="file-selector"
+    legend="Select file"
+    helpText="Show code for the selected file"
+    onChange={(_fileKey) => setFileKey(_fileKey)}
+  >
+    {Object.keys(Files).map((key) => (
+      <RadioButton key={key} value={key} defaultChecked={fileKey === key}>
+        {Files[key].name}
+      </RadioButton>
+    ))}
+  </RadioButtonGroup>
+  <EditableCodeBlockWrapper>
+    <EditableCodeBlockHeader>{Files[fileKey].name}</EditableCodeBlockHeader>
+    <EditableCodeBlock
+      height="400px"
+      path={Files[fileKey].name}
+      defaultLanguage={Files[fileKey].language}
+      defaultValue={Files[fileKey].value}
+    />
+  </EditableCodeBlockWrapper>
+</Stack>`}
+/>
 
 ## States
 
-### Error
+### Read only
 
-TBD but this might move to a composition section because the final implementation might not include line-specific error highlighting. We may recommend just showing a Callout above Editable Code Block.
+If the user doesn't have permission to edit the code, use the `readOnly` prop to make the Editable Code Block read-only.
 
-### When to use Editable Code Block
+<StoryPreview
+  title="Read-Only Editable Code Block"
+  storyID="components-editable-code-block--read-only"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
+  <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+</EditableCodeBlockWrapper>`}
+/>
 
-Do
-Don’t
+### Syntax errors
+
+Monaco Editor will detect and show syntax errors out of the box.
+
+<StoryPreview
+  title="Syntax error example in Editable Code Block"
+  storyID="components-editable-code-block--syntax-error"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Syntax error example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={CodeStringWithSyntaxError}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Line-specific errors
+
+Show line-specific errors to help users pinpoint what line of code they need to fix.
+
+<StoryPreview
+  title="Custom line-specific errors in Editable Code Block"
+  storyID="components-editable-code-block--custom-inline-error"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Custom inline error example (try hovering it)</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    onChange={(value) => console.log(value)}
+    inlineErrorRange={{
+      startLineNumber: 3,
+      endLineNumber: 3,
+      startColumn: 7,
+      endColumn: 13,
+    }}
+    inlineErrorIsWholeLine={false}
+    inlineErrorHoverMessage={{value: '"id" can only be a string type.'}}
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Generic errors
+
+If there’s an error that can’t be traced to specific line numbers, use a [Callout](/components/callout).
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<StoryPreview
+  title="Generic errors in Editable Code Block"
+  storyID="components-editable-code-block--generic-error"
+  code={`<Stack orientation="vertical" spacing="space40">
+  <Callout variant="error">
+    <CalloutHeading as="h3">401 Unauthorized Request</CalloutHeading>
+    <CalloutText>Please provide a valid API key.</CalloutText>
+  </Callout>
+  <EditableCodeBlockWrapper>
+    <EditableCodeBlockHeader>Generic error example</EditableCodeBlockHeader>
+    <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue="const API_KEY = null;" />
+  </EditableCodeBlockWrapper>
+</Stack>`}
+/>
+
+## When to use Editable Code Block
 
 <DoDont>
   <Do title="Do" body="Use Editable Code Block for a multi-line code input." />
@@ -155,24 +315,51 @@ yarn add @twilio-paste/editable-code-block - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Alert} from '@twilio-paste/core/editable-code-block';
+import {
+  EditableCodeBlockHeader,
+  EditableCodeBlockWrapper,
+  EditableCodeBlock,
+} from '@twilio-paste/core/editable-code-block';
 
-const Component = () => <Alert variant="error">There is an error in the system.</Alert>;
+const Component = () => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>My cool example</EditableCodeBlockHeader>
+      <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+    </EditableCodeBlockWrapper>
+  );
+};
 ```
 
-#### Props
+#### EditableCodeBlockWrapper Props
 
-| Prop              | Type         | Description                                                                                      | Default                                                           |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| children?         | `ReactNode`  |                                                                                                  | null                                                              |
-| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null                                                              |
-| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | `status` for neutral alerts, `alert` for warning and error alerts |
-| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null                                                              |
-| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert'                                                   |
-| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'                                                         |
-| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)'                                                   |
-| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'                                                       |
-| element?          | `string`     | Overrides the default element name to apply unique styles with the Customization Provider        | 'ALERT'                                                           |
+| Prop      | Type        | Description                                                                               | Default                       |
+| --------- | ----------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
+| children? | `ReactNode` |                                                                                           | null                          |
+| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK_WRAPPER' |
+
+#### EditableCodeBlockHeader Props
+
+| Prop      | Type                                               | Description                                                                               | Default                      |
+| --------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------- |
+| children? | `ReactNode`                                        |                                                                                           | null                         |
+| element?  | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK_HEADER' |
+| as?       | `h1, h2, h3, h4, h5, h6, div, label, span, header` | Replaces the underlying HTML tag                                                          | 'h3'                         |
+
+#### EditableCodeBlock Props
+
+| Prop                     | Type              | Description                                                                               | Default               |
+| ------------------------ | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| lineNumbers?             | `on, off`         | Show line numbers in the gutter                                                           | 'on'                  |
+| folding?                 | `boolean`         | Enable code folding                                                                       | true                  |
+| readOnly                 | `boolean`         | Disable editing                                                                           | false                 |
+| indentationGuide?        | `boolean`         | Show indentation guides                                                                   | true                  |
+| showMinimap?             | `boolean`         | Show minimap                                                                              | false                 |
+| scrollBeyondLastLine?    | `boolean`         | Allow scrolling beyond the last line                                                      | false                 |
+| inlineErrorRange?        | `IRange`          | Range of the error in the editor                                                          | null                  |
+| inlineErrorHoverMessage? | `IMarkdownString` | Hover message for the error in the editor. If null, the hover message will be cleared.    | null                  |
+| inlineErrorIsWholeLine?  | `boolean`         | Whether the error is a whole line or not.                                                 | false                 |
+| element?                 | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK' |
 
 <ChangelogRevealer>
   <Changelog />

@@ -13,6 +13,7 @@ import {StylingGlobals} from '@twilio-paste/styling-library';
 
 export interface EditableCodeBlockProps
   extends Omit<CodeEditorProps, 'wrapperProps' | 'className' | 'loading' | 'theme' | 'options'> {
+  children?: never;
   /*
    * NOTE: I leave these commented out because I'm not sure whether we want to allow users to override these options.
    * If we do, we can uncomment these easily in the future since the work is already done.

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
 
 import {EditableCodeBlockHeader, EditableCodeBlockWrapper, EditableCodeBlock} from '../src';
@@ -9,67 +10,28 @@ export default {
   title: 'Components/Editable Code Block',
 };
 
+const TypeScriptExample = `interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1);`;
+
 export const Default = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
-      <EditableCodeBlock
-        height="45vh"
-        defaultLanguage="typescript"
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
-      />
-    </EditableCodeBlockWrapper>
-  );
-};
-
-export const CustomInlineError = (): React.ReactNode => {
-  return (
-    <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>Custom Inline Error Example (Try hovering it)</EditableCodeBlockHeader>
-      <EditableCodeBlock
-        height="45vh"
-        onChange={(value) => console.log(value)}
-        inlineErrorRange={{
-          startLineNumber: 3,
-          endLineNumber: 3,
-          startColumn: 7,
-          endColumn: 13,
-        }}
-        inlineErrorIsWholeLine={false}
-        inlineErrorHoverMessage={{value: '"id" can only be a string type.'}}
-        defaultLanguage="typescript"
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
-      />
+      <EditableCodeBlockHeader>Typescript example</EditableCodeBlockHeader>
+      <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -77,28 +39,8 @@ const user: User = new UserAccount("Murphy", 1);`}
 export const Minimap = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>Minimap Example</EditableCodeBlockHeader>
-      <EditableCodeBlock
-        height="45vh"
-        defaultLanguage="typescript"
-        showMinimap
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
-      />
+      <EditableCodeBlockHeader>Minimap example</EditableCodeBlockHeader>
+      <EditableCodeBlock height="45vh" defaultLanguage="typescript" showMinimap defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -106,27 +48,12 @@ const user: User = new UserAccount("Murphy", 1);`}
 export const NoLineNumbers = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>No Line Numbers Example</EditableCodeBlockHeader>
+      <EditableCodeBlockHeader>No line numbers example</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="70vh"
+        height="45vh"
         defaultLanguage="typescript"
         lineNumbers="off"
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
+        defaultValue={TypeScriptExample}
       />
     </EditableCodeBlockWrapper>
   );
@@ -135,27 +62,23 @@ const user: User = new UserAccount("Murphy", 1);`}
 export const NoCodeFolding = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+      <EditableCodeBlockHeader>No code folding example</EditableCodeBlockHeader>
+      <EditableCodeBlock height="45vh" defaultLanguage="typescript" folding={false} defaultValue={TypeScriptExample} />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const NoSpecialFeatures = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Plain old editable code block</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="70vh"
+        height="45vh"
         defaultLanguage="typescript"
+        lineNumbers="off"
         folding={false}
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
+        indentationGuide={false}
+        defaultValue={TypeScriptExample}
       />
     </EditableCodeBlockWrapper>
   );
@@ -165,27 +88,7 @@ export const ReadOnly = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
-      <EditableCodeBlock
-        height="70vh"
-        readOnly
-        defaultLanguage="typescript"
-        defaultValue={`interface User {
-  name: string;
-  id: number;
-}
-
-class UserAccount {
-  name: string;
-  id: number;
-
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
-
-const user: User = new UserAccount("Murphy", 1);`}
-      />
+      <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -257,7 +160,6 @@ export const MultiFileEditor = (): React.ReactNode => {
           </RadioButton>
         ))}
       </RadioButtonGroup>
-
       <EditableCodeBlockWrapper>
         <EditableCodeBlockHeader>{Files[fileKey].name}</EditableCodeBlockHeader>
         <EditableCodeBlock
@@ -266,6 +168,59 @@ export const MultiFileEditor = (): React.ReactNode => {
           defaultLanguage={Files[fileKey].language}
           defaultValue={Files[fileKey].value}
         />
+      </EditableCodeBlockWrapper>
+    </Stack>
+  );
+};
+
+export const SyntaxError = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Syntax error example</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="45vh"
+        defaultLanguage="typescript"
+        defaultValue={`const One = 1;
+const Two = "two";
+const Four = true;
+const Three === 3;`}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const CustomInlineError = (): React.ReactNode => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>Custom inline error example (try hovering it)</EditableCodeBlockHeader>
+      <EditableCodeBlock
+        height="45vh"
+        onChange={(value) => console.log(value)}
+        inlineErrorRange={{
+          startLineNumber: 3,
+          endLineNumber: 3,
+          startColumn: 7,
+          endColumn: 13,
+        }}
+        inlineErrorIsWholeLine={false}
+        inlineErrorHoverMessage={{value: '"id" can only be a string type.'}}
+        defaultLanguage="typescript"
+        defaultValue={TypeScriptExample}
+      />
+    </EditableCodeBlockWrapper>
+  );
+};
+
+export const GenericError = (): React.ReactNode => {
+  return (
+    <Stack orientation="vertical" spacing="space40">
+      <Callout variant="error">
+        <CalloutHeading as="h3">401 Unauthorized Request</CalloutHeading>
+        <CalloutText>Please provide a valid API key.</CalloutText>
+      </Callout>
+      <EditableCodeBlockWrapper>
+        <EditableCodeBlockHeader>Generic error example</EditableCodeBlockHeader>
+        <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue="const API_KEY = null;" />
       </EditableCodeBlockWrapper>
     </Stack>
   );
