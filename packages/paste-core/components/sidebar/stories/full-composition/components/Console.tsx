@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {ProductMessagingIcon} from '@twilio-paste/icons/esm/ProductMessagingIcon';
 import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
@@ -30,25 +29,23 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationSeparator,
   SidebarBetaBadge,
-} from '../../src';
-import {AccountSwitcherMenu} from './components/AccountSwitcher';
-import {TrialBadge} from './components/TrialBadge';
-import {SearchBox} from './components/SearchBox';
-import {SupportMenu} from './components/SupportMenu';
-import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialogConsole';
-import {AccountMenu} from './components/AccountMenu';
-import {BillingMenu} from './components/BillingMenu';
-
-// eslint-disable-next-line import/no-default-export
-export default {
-  title: 'Components/Sidebar/FullCompositions',
-};
+} from '../../../src';
+import {AccountSwitcherMenu} from './AccountSwitcher';
+import {TrialBadge} from './TrialBadge';
+import {SearchBox} from './SearchBox';
+import {SupportMenu} from './SupportMenu';
+import {AppSwitcher} from './AppSwitcher';
+import {UserDialogExample} from './UserDialogConsole';
+import {AccountMenu} from './AccountMenu';
+import {BillingMenu} from './BillingMenu';
 
 const onClick = (): void => {};
 
 /* eslint-disable react/jsx-max-depth */
-export const ConsoleCollapsed: StoryFn = () => {
+export const Console: React.FC<React.PropsWithChildren<{collapsed: boolean; setCollapsed: (collapsed) => void}>> = ({
+  collapsed,
+  setCollapsed,
+}) => {
   const id = useUID();
   const menu = useMenuState();
   const menuLookup = useMenuState();
@@ -57,13 +54,11 @@ export const ConsoleCollapsed: StoryFn = () => {
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
 
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
-
   return (
-    <Box minWidth="1000px">
+    <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
-        collapsed={pushSidebarCollapsed}
+        collapsed={collapsed}
         variant="compact"
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
@@ -185,7 +180,7 @@ export const ConsoleCollapsed: StoryFn = () => {
 
         <SidebarFooter>
           <SidebarCollapseButton
-            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            onClick={() => setCollapsed(!collapsed)}
             i18nCollapseLabel="Close sidebar"
             i18nExpandLabel="Open sidebar"
           />
@@ -193,7 +188,7 @@ export const ConsoleCollapsed: StoryFn = () => {
       </Sidebar>
 
       {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+      <SidebarPushContentWrapper collapsed={collapsed} variant="compact">
         <Topbar id={topbarSkipLinkID}>
           <TopbarActions justify="start">
             <AccountSwitcherMenu />
@@ -209,7 +204,7 @@ export const ConsoleCollapsed: StoryFn = () => {
           </TopbarActions>
         </Topbar>
         <Box padding="space70" id={mainContentSkipLinkID}>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+          <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
             Toggle Push Sidebar
           </Button>
         </Box>
@@ -218,6 +213,3 @@ export const ConsoleCollapsed: StoryFn = () => {
   );
 };
 /* eslint-enable react/jsx-max-depth */
-ConsoleCollapsed.parameters = {
-  padding: false,
-};
