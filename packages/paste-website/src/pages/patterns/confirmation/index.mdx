@@ -1,8 +1,8 @@
 export const meta = {
-  title: 'Confirmations',
+  title: 'Confirmation',
   description:
     'A confirmation ensures a user understands what will happen if they take an action that’s destructive, complex, or has an unexpected result.',
-  slug: '/patterns/confirmations/',
+  slug: '/patterns/confirmation/',
 };
 
 import {Anchor} from '@twilio-paste/anchor';
@@ -25,7 +25,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Confirmations');
+  const feature = await getFeature('Confirmation');
   return {
     props: {
       data: {
@@ -63,9 +63,9 @@ export const getStaticProps = async () => {
 </Grid>
 
 ```jsx
-// import all ingredients for the confirmations pattern
+// import all ingredients for the confirmation pattern
 
-import { AlertDialog } from *@twilio-paste/core/alert-dialog*;
+import {AlertDialog} from '@twilio-paste/core/alert-dialog';
 ```
 
 ## Usage
@@ -77,13 +77,14 @@ Confirmations are displayed using an [Alert Dialog](/components/alert-dialog), s
 
 ### Composition notes
 
-Each confirmation [Alert Dialog](/components/alert-dialog) should follow a predictable content pattern. 
+Each confirmation [Alert Dialog](/components/alert-dialog) should follow a predictable content pattern.
 
 #### Heading
 
 The [Heading](/components/heading) should be phrased as a question. In general:
-- Avoid using articles like “the” or “a.” 
-- Avoid the phrase “Are you sure?” 
+
+- Avoid using articles like “the” or “a.”
+- Avoid the phrase “Are you sure?”
 - Use sentence case.
 
 #### Paragraph (optional)
@@ -91,55 +92,36 @@ The [Heading](/components/heading) should be phrased as a question. In general:
 The [Paragraph](/components/paragraph) should include 1-3 sentences that explain the outcomes of the actions. If the action is irreversible, say so.
 
 #### Buttons
+
 Confirmation messages typically have 2 [Buttons](/components/button): one that confirms the action and another that offers an alternative. Labels should be short and mirror the language in the title whenever possible.
 
 ## Variations
 
 Confirmation messages are used in a variety of situations where it’s important to confirm that the user wants to proceed with an action, like saving changes before exiting, starting a process that could incur unexpected costs, or [deleting something](/patterns/delete).
 
-| Use case  | Sample text | Sample CTAs |
-| ------------- | ------------- | ------------- |
-| User wants to [delete](/patterns/delete) something  | **Delete [thing]?** <br/> You’re deleting [object name]. You cannot undo this action. | Cancel \| Delete [thing]  |
-| User wants to [delete](/patterns/delete) something that has major consequences  | **Delete [thing]?** <br/> When you delete [thing], all [objects] are permanently deleted. You cannot undo this action. Enter [user input] to delete [thing] | Cancel \| Delete [thing]  |
-| User wants to change something | **Change [thing]?** <br/> When you change [thing], your [objects] are deleted. | Cancel \| Change [thing] |
-| User wants to leave a flow but may want to save changes | **Save changes?** <br/> If you close without saving, changes are lost. | Close without saving \| Save and close |
-| User wants to leave a flow but changes can’t be saved | **Stop [doing thing]?** <br/> Your changes will not be saved. | Keep [doing thing] \| Stop [doing thing] |
-| User wants to perform an action that has implications for resources (money, credits, etc.) | **Use title to repeat action** <br/> Explain what could happen to the resource, and offer other options if available and appropriate. | _Offer clear alternatives_ |
+| Use case                                                                                   | Sample text                                                                                                                                                 | Sample CTAs                              |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| User wants to [delete](/patterns/delete) something                                         | **Delete [thing]?** <br/> You’re deleting [object name]. You cannot undo this action.                                                                       | Cancel \| Delete [thing]                 |
+| User wants to [delete](/patterns/delete) something that has major consequences             | **Delete [thing]?** <br/> When you delete [thing], all [objects] are permanently deleted. You cannot undo this action. Enter [user input] to delete [thing] | Cancel \| Delete [thing]                 |
+| User wants to change something                                                             | **Change [thing]?** <br/> When you change [thing], your [objects] are deleted.                                                                              | Cancel \| Change [thing]                 |
+| User wants to leave a flow but may want to save changes                                    | **Save changes?** <br/> If you close without saving, changes are lost.                                                                                      | Close without saving \| Save and close   |
+| User wants to leave a flow but changes can’t be saved                                      | **Stop [doing thing]?** <br/> Your changes will not be saved.                                                                                               | Keep [doing thing] \| Stop [doing thing] |
+| User wants to perform an action that has implications for resources (money, credits, etc.) | **Use title to repeat action** <br/> Explain what could happen to the resource, and offer other options if available and appropriate.                       | _Offer clear alternatives_               |
 
 ## Dos and Don'ts
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Tell the user if they cannot undo the action."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Don't use confirmation messages for routine, easily reversed actions."
-    preview={false}
-  />
+  <Do title="Do" body="Tell the user if they cannot undo the action." preview={false} />
+  <Dont title="Don't" body="Don't use confirmation messages for routine, easily reversed actions." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Phrase the heading as a question."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Don't use the phrase “Are you sure?”"
-    preview={false}
-  />
+  <Do title="Do" body="Phrase the heading as a question." preview={false} />
+  <Dont title="Don't" body="Don't use the phrase “Are you sure?”" preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Make the buttons clear alternatives."
-    preview={false}
-    />
+  <Do title="Do" body="Make the buttons clear alternatives." preview={false} />
   <Dont
     title="Don't"
     body="Don't use a Cancel as a CTA button if the user action is related to cancellation. It's confusing!"

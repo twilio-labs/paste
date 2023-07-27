@@ -117,7 +117,7 @@ export const SITEMAP = [
   '/introduction/for-engineers/quickstart/',
   '/patterns/button-vs-anchor/',
   '/introduction/working-with-us/',
-  '/patterns/confirmations/',
+  '/patterns/confirmation/',
   '/patterns/delete/',
   '/patterns/data-export/',
   '/patterns/filter-group/',
