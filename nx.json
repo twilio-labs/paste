@@ -27,9 +27,7 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [
         "{projectRoot}/dist",
         "{projectRoot}/cjs",
@@ -40,9 +38,7 @@
       ]
     },
     "build:js": {
-      "dependsOn": [
-        "^build:js"
-      ],
+      "dependsOn": ["^build:js"],
       "outputs": [
         "{projectRoot}/dist",
         "{projectRoot}/cjs",
@@ -52,59 +48,32 @@
       ]
     },
     "tsc": {
-      "dependsOn": [
-        "^tsc"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ]
+      "dependsOn": ["^tsc"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
     },
     "build:dev": {
-      "dependsOn": [
-        "^build:dev"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ]
+      "dependsOn": ["^build:dev"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
     },
     "build:types": {
-      "dependsOn": [
-        "^build:types"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ]
+      "dependsOn": ["^build:types"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
     },
     "tokens": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
+      "outputs": ["{projectRoot}/dist"]
     },
     "list-icons": {
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/json"
-      ]
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/json"]
     },
     "compile:dev": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
+      "outputs": ["{projectRoot}/dist"]
     }
   },
   "defaultBase": "main",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "sharedGlobals": [],
-    "production": [
-      "default"
-    ]
+    "production": ["default"]
   }
 }
