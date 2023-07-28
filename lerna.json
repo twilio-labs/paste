@@ -2,12 +2,11 @@
   "packages": ["packages/**"],
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true,
-  "useNx": true,
   "command": {
     "publish": {
       "ignoreChanges": ["**/stories/**", "**/__tests__/**", "**/*.md"],
       "npmClient": "npm"
     }
-  }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }
