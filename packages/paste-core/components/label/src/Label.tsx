@@ -4,11 +4,12 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import type {TextColor} from '@twilio-paste/style-props';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {RequiredDot} from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<BoxProps, 'element'> {
+export interface LabelProps extends HTMLPasteProps<'label'>, Pick<BoxProps, 'element'> {
   as?: 'label' | 'legend' | 'div';
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;

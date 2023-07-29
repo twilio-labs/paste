@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build": "yarn clean && tsc",
     "build:js": "NODE_ENV=development node build.js",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"

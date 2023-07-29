@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import type {ValueOf} from '@twilio-paste/types';
+import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {TextColor} from '@twilio-paste/style-props';
@@ -20,7 +20,7 @@ export const HelpTextVariants = {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type HelpTextVariants = ValueOf<typeof HelpTextVariants>;
 
-export interface HelpTextProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
+export interface HelpTextProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   marginTop?: 'space0';
   variant?: HelpTextVariants;
 }

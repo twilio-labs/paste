@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import {styled} from '@twilio-paste/styling-library';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 import {Anchor, isExternalUrl} from '@twilio-paste/anchor';
 import type {AnchorProps} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -94,13 +95,13 @@ const MDXPoviderComponents = {
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img style={{maxWidth: '100%'}} {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
-  content: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+  content: (props: HTMLPasteProps<'div'>): React.ReactElement => (
     <Box as="div" maxWidth="size70" minWidth="0" {...props} />
   ),
-  contentwrapper: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+  contentwrapper: (props: HTMLPasteProps<'input'>): React.ReactElement => (
     <Box as="div" display={['block', 'block', 'flex']} {...props} />
   ),
-  contentspacer: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+  contentspacer: (props: HTMLPasteProps<'input'>): React.ReactElement => (
     <Box as="div" marginBottom="space70" {...props} />
   ),
 };

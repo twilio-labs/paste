@@ -1,4 +1,5 @@
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
 export type ButtonSizes =
@@ -32,7 +33,7 @@ export interface ButtonContentsProps {
   variant?: ButtonVariants;
 }
 
-export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
+export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
   size: ButtonSizes;
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
@@ -47,7 +48,7 @@ export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   target?: string;
 }
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
+export interface ButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
   variant: ButtonVariants;
   size?: ButtonSizes;
   as?: keyof JSX.IntrinsicElements;

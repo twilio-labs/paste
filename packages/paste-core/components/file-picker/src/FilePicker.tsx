@@ -6,8 +6,9 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {SiblingBox} from '@twilio-paste/sibling-box';
 import type {TextColor} from '@twilio-paste/style-props';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface FilePickerProps extends React.HTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
+export interface FilePickerProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   accept?: string;
   children: React.ReactElement;
   disabled?: boolean;

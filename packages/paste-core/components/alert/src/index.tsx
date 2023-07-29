@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
+import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Button} from '@twilio-paste/button';
@@ -43,9 +43,7 @@ export type AlertRoles = ValueOf<typeof AlertRoles>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertTextColors = ValueOf<typeof AlertTextColors>;
 
-export interface AlertProps extends Pick<BoxProps, 'element'> {
-  id?: never;
-  className?: never;
+export interface AlertProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   onDismiss?: () => void;
   role?: string;

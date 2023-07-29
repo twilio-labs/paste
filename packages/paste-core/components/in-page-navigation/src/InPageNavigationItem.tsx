@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {InPageNavigationContext} from './InPageNavigationContext';
 
@@ -61,7 +62,7 @@ const INVERSE_CURRENT_PAGE_STYLES: BoxStyleProps = {
   color: 'colorTextInverse',
 };
 
-export interface InPageNavigationItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface InPageNavigationItemProps extends HTMLPasteProps<'a'> {
   currentPage?: boolean;
   children: NonNullable<React.ReactNode>;
   href: string;

@@ -4,8 +4,9 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface AlertDialogFooterProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
+export interface AlertDialogFooterProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   destructive?: boolean;
   onConfirm: () => void;
   onConfirmLabel: string;

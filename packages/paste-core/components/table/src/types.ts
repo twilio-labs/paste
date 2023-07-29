@@ -1,5 +1,5 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
+import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import type {WidthOptions} from '@twilio-paste/style-props';
 
 import type {
@@ -18,7 +18,7 @@ export interface TableContextProps {
   striped: boolean;
 }
 
-export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
+export interface TableProps extends HTMLPasteProps<'table'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   striped?: boolean;
@@ -36,7 +36,7 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
   isActionable?: boolean;
 }
 
-export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
+export interface THeadProps extends HTMLPasteProps<'thead'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   /**
@@ -54,27 +54,27 @@ export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionEl
    */
   top?: BoxProps['top'];
 }
-export interface TBodyProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
+export interface TBodyProps extends HTMLPasteProps<'tbody'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
 }
-export interface TrProps extends React.TableHTMLAttributes<HTMLTableRowElement> {
+export interface TrProps extends HTMLPasteProps<'tr'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
   verticalAlign?: TableVerticalAlignmentOptions;
 }
-export interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
+export interface ThProps extends HTMLPasteProps<'th'> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
   textAlign?: TableAlignmentOptions;
   width?: WidthOptions;
 }
-export interface TdProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
+export interface TdProps extends HTMLPasteProps<'td'> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
   textAlign?: TableAlignmentOptions;
 }
-export interface TFootProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
+export interface TFootProps extends HTMLPasteProps<'tfoot'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
 }

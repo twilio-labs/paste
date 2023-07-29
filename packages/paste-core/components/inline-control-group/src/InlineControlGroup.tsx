@@ -4,10 +4,11 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 export interface InlineControlGroupProps
   extends Pick<BoxProps, 'element'>,
-    Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+    Omit<HTMLPasteProps<'fieldset'>, 'onChange'> {
   children: React.ReactNode;
   disabled?: boolean;
   errorText?: string | React.ReactNode;

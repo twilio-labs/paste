@@ -4,6 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {ButtonProps} from '@twilio-paste/button';
 import {secureExternalLink} from '@twilio-paste/anchor';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
@@ -16,7 +17,7 @@ import {
 } from './styles';
 import {SidebarNavigationContext} from './SidebarNavigationContext';
 
-export interface SidebarNavigationItemProps extends React.HTMLAttributes<HTMLAnchorElement> {
+export interface SidebarNavigationItemProps extends HTMLPasteProps<'a'> {
   href: ButtonProps['href'];
   children: React.ReactNode;
   element?: BoxProps['element'];

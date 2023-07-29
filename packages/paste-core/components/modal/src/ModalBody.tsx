@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalBodyProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
 }
