@@ -95,7 +95,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
 );
 SidebarNavigationItem.displayName = 'SidebarNavigationItem';
 SidebarNavigationItem.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   element: PropTypes.string,
   selected: PropTypes.bool,
 };

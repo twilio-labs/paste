@@ -8,25 +8,7 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-  AnimationProperty,
-  AppearanceProperty,
-  BoxSizingProperty,
-  ClipProperty,
-  CursorProperty,
-  FloatProperty,
-  ObjectFitProperty,
-  ObjectPositionProperty,
-  OpacityProperty,
-  OutlineProperty,
-  PointerEventsProperty,
-  ResizeProperty,
-  TableLayoutProperty,
-  TransformOriginProperty,
-  TransformProperty,
-  TransitionProperty,
-  UserSelectProperty,
-  VisibilityProperty,
-  WillChangeProperty,
+  CSSProps,
 } from '@twilio-paste/style-props';
 import type {CustomTheme} from '@twilio-paste/customization';
 
@@ -41,30 +23,8 @@ export interface BoxBaseStyleProps
     PositionProps,
     TypographyProps,
     FlexboxProps,
-    GridProps {
-  animation?: AnimationProperty;
-  appearance?: AppearanceProperty;
-  boxSizing?: BoxSizingProperty;
-  clip?: ClipProperty;
-  content?: string;
-  cursor?: CursorProperty;
-  float?: FloatProperty;
-  objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty;
-  opacity?: OpacityProperty;
-  outline?: OutlineProperty;
-  pointerEvents?: PointerEventsProperty;
-  resize?: ResizeProperty;
-  tableLayout?: TableLayoutProperty;
-  transform?: TransformProperty;
-  transformOrigin?: TransformOriginProperty;
-  transition?: TransitionProperty;
-  userSelect?: UserSelectProperty;
-  visibility?: VisibilityProperty;
-  willChange?: WillChangeProperty;
-  '-webkit-text-fill-color'?: string;
-  '-webkit-opacity'?: string;
-}
+    GridProps,
+    CSSProps {}
 
 export type BoxPseudoStyleProps = Partial<Record<keyof typeof PseudoPropStyles, BoxBaseStyleProps>>;
 

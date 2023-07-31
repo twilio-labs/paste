@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.3.7
+
+### Patch Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] include new skiplinks export from Sidebar
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] add new export to utils package
+
 ## 0.3.6
 
 ### Patch Changes

@@ -42,16 +42,7 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
   const logoTransition = 'ease-out 350ms';
 
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      paddingRight="space70"
-      paddingLeft="space70"
-      borderRightColor="colorBorderInverseWeaker"
-      borderRightStyle="solid"
-      borderRightWidth={['borderWidth0', 'borderWidth0', 'borderWidth10']}
-      minWidth={subtitle ? 'sizeSidebar' : 'size0'}
-    >
+    <Box display="flex" alignItems="center" minWidth={subtitle ? 'sizeSidebar' : 'size0'}>
       <LogoLink
         href="/"
         onClick={() =>
@@ -85,7 +76,7 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
             />
           </MediaFigure>
           <MediaBody>
-            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorTextInverse">
+            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorText">
               {title}
             </Text>
             {subtitle ? (
@@ -94,7 +85,7 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
                 fontSize="fontSize20"
                 fontWeight="fontWeightNormal"
                 lineHeight="lineHeight20"
-                color="colorTextInverse"
+                color="colorText"
               >
                 {subtitle}
               </Text>

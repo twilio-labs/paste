@@ -346,7 +346,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
         </InputBox>
         <Portal>
           <Box
-            position="absolute"
+            position="fixed"
             top={inputBoxDimensions?.bottom}
             left={inputBoxDimensions?.left}
             right={inputBoxDimensions?.right}

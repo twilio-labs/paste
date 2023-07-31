@@ -194,7 +194,7 @@ in the cells to create a more pleasant loading experience.
 
 The Data Grid inherits from the [Table component](/components/table/), so you can take advantage of all the same layout techniques found in the [Table examples](/components/table#layouts) to control how your Data Grids render on the page.
 
-### Kitchen sink
+### Combined features
 
 This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
 
@@ -240,6 +240,24 @@ This package provides the following component exports, which correspond closely 
 
 You are free to put any Paste component in the Data Grid cells and it should just work.
 Keep in mind that anything that dynamically updates an element's `tabIndex` value may fail to work correctly.
+
+### Displaying missing data
+
+If the Data Grid can’t show data yet (for example, it’s in a draft state), leave cells blank.
+
+If the data underlying the Data Grid is active but the value for the cell is zero, show 0 in the cell.
+
+If a piece of data is missing because the metric in a certain column does not apply to a given row, show “N/A” and use the HTML abbreviation element to communicate the full meaning of the abbreviation (“Not applicable”). This ensures any customers using assistive technologies will understand the cell entry.
+
+### Errors
+
+Avoid documenting an entire error message within a row. Use an indicator, like an icon or an icon with a short message. The short message can be displayed in a [Popover](/components/popover) on the icon, or in a cell. Then use other methods, like a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page to communicate complete error and resolution information.  
+
+**When multiple errors affect a single row,** indicate the number of errors and provide specific error and resolution information within a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page.
+
+**When an error(s) affects an entire column,** consider an indicator near the column header with additional information available in a popover or other component. 
+
+**When all data in a Data Grid does not load,** show an [error empty state](/patterns/empty-state).
 
 ### When to use a Data Grid
 

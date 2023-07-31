@@ -9,7 +9,7 @@ describe('Docs website search', () => {
   });
 
   beforeEach(() => {
-    cy.get('[data-cy="paste-docsearch-container"] button').as('searchButtonEl');
+    cy.get('[data-cy="paste-docsearch-container"] button:visible').as('searchButtonEl');
   });
 
   it('should handle a search string', () => {

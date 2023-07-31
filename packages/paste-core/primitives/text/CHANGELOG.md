@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.3
+
+### Patch Changes
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Add transistionDelay CSS property to accompany transistion style prop
+
 ## 9.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.0.3
+
+### Patch Changes
+
+- [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f) [#3327](https://github.com/twilio-labs/paste/pull/3327) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Update Inter font version from 3.15 to 3.19, which fixes a Chrome issue with number emojis
+
 ## 10.0.2
 
 ### Patch Changes

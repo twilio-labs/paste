@@ -1,79 +1,124 @@
 import * as React from 'react';
-import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {useWindowSize} from '@twilio-paste/utils';
 import {useRouter} from 'next/router';
+import {StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
+import {useTheme} from '@twilio-paste/theme';
+import {useWindowSize} from '@twilio-paste/utils';
+import {Box} from '@twilio-paste/box';
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarBody,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
+  SidebarPushContentWrapper,
+} from '@twilio-paste/sidebar';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
-import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {
   PASTE_DOCS_CONTENT_AREA,
-  SITE_BREAKPOINTS,
   TOKEN_STICKY_FILTER_HEIGHT,
   TOKEN_LIST_PAGE_REGEX,
+  PASTE_DOCS_TOPBAR,
+  PASTE_DOCS_SIDEBAR_NAV,
+  SITE_TOPBAR_HEIGHT,
 } from '../../constants';
 import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
+import {SiteMain} from './SiteMain';
+import {SidebarNavigation} from './sidebar/SidebarNavigation';
 
-/* Wraps the main region and footer on the doc site page */
-const StyledSiteBody = styled.div`
-  display: flex;
-  min-width: 240px;
-  background-color: ${themeGet('backgroundColors.colorBackgroundBody')};
-  overflow: auto;
-  /* note: needed for scrollspy, removing position breaks site layout  */
-  position: relative;
+// height of the topbar plus a little extra whitespace
+const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;
 
-  @supports (scroll-behavior: smooth) {
-    scroll-behavior: smooth;
-  }
-
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @media screen and (min-width: ${SITE_BREAKPOINTS[1]}) {
-      grid-template-columns: ${themeGet('sizes.sizeSidebar')} 1fr;
-    }
-  }
-`;
+const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObject => ({
+  html: {
+    scrollBehavior: 'smooth',
+    // compensate for the sticky topbar, this offset allows for the jump to links to keep the headings in view when you jump to the section
+    scrollPaddingTop: scrollOffset,
+  },
+});
 
 export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   const {breakpointIndex} = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
+  // sidebar is not collapsed by default, most common use case for desktop viewing
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
   /**
-   * The Tokens List page has a sticky filter when scrolled, which means that we need to set a
-   * CSS property called 'scrollPaddingTop' to adjust where the page scrolls to on jump links,
-   * so the content doesn't appear underneath the sticky filter.
-   *
-   * We have a global array, 'TOKEN_STICKY_FILTER_HEIGHT' that returns a value for the height
-   * of the filter (different breakpoints have different heights), and we use that, combined
-   * with router awareness of our current location, to determine the value to set for scrollPaddingTop.
-   *
-   * We also have a default value set to optimize the scroll jump so there's some space above the content.
+   * Handle responsive sidebar collapse state for small screen sizes and initial render for SSR
+   */
+  React.useEffect(() => {
+    // no breakpoints? No Javascript, do nothing, this is initial render
+    if (breakpointIndex === undefined) {
+      return;
+    }
+    // if the screen is small, collapse the sidebar on mount
+    if (breakpointIndex === 0) {
+      setSidebarCollapsed(true);
+    } else {
+      setSidebarCollapsed(false);
+    }
+    // track mounted state to help prevent flash of content on SSR
+    setMounted(true);
+  }, [breakpointIndex]);
+
+  /**
+   * The tokens list page an extra sticky filter bar so the jump to scroll offset needs an extra offset.
+   * its the masthead height + the sticky filter height
    */
 
-  const defaultScrollOffset = 16;
   let scrollOffset = defaultScrollOffset;
 
   if (breakpointIndex !== undefined && TOKEN_LIST_PAGE_REGEX.test(router.pathname)) {
-    scrollOffset = TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex] + defaultScrollOffset;
+    scrollOffset = `calc(${TOKEN_STICKY_FILTER_HEIGHT[breakpointIndex]}px + ${defaultScrollOffset})`;
   }
 
   return (
-    <Box display="flex" flexDirection="column" height="100vh">
-      <StylingGlobals styles={{...docSearchStyles({theme: themeObject}), ...docSearchVariable(themeObject)}} />
-      <SiteHeader />
-      <StyledSiteBody id="styled-site-body" css={{scrollPaddingTop: `${scrollOffset}px`}}>
-        {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
-        <Box flex="1" minWidth="size0">
-          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
-          <SiteFooter />
-        </Box>
-      </StyledSiteBody>
-    </Box>
+    <>
+      <StylingGlobals
+        styles={{
+          ...GlobalScrollBehaviourStyles(scrollOffset),
+          ...docSearchStyles({theme: themeObject}),
+          ...docSearchVariable(themeObject),
+        }}
+      />
+      {/**
+       * No judgement zone
+       * To successfully handle a single sidebar that is responsive but also adaptive in it's state handling
+       * We need to handle initial render for both mobile and desktop views because the sidebar has inverse initial state
+       * - On mobile, the sidebar should start collapsed
+       * - On desktop, the sidebar should start expanded
+       * We then do a little trickery with opocity and responsive values to stop you seeing the state change flash
+       * when it's not mounted we use a transparent sidebar on small screens, after it's mounted we switch to visible,
+       * but transition it and delay the transistion start. For desktop, we start visible and never transition.
+       */}
+      <Box opacity={[!mounted ? '0' : '1', '1']} transitionDelay="50ms" transition="opacity 150ms ease">
+        <Sidebar
+          variant="default"
+          collapsed={sidebarCollapsed}
+          mainContentSkipLinkID={PASTE_DOCS_CONTENT_AREA}
+          sidebarNavigationSkipLinkID={PASTE_DOCS_SIDEBAR_NAV}
+          topbarSkipLinkID={PASTE_DOCS_TOPBAR}
+        >
+          <SidebarHeader>
+            <SidebarHeaderIconButton as="a" href="/">
+              <LogoTwilioIcon decorative={false} title="Twilio Paste" />
+            </SidebarHeaderIconButton>
+            <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
+          </SidebarHeader>
+          <SidebarBody>
+            <SidebarNavigation />
+          </SidebarBody>
+        </Sidebar>
+      </Box>
+      <SidebarPushContentWrapper id="styled-site-body">
+        <SiteHeader sidebarMobileCollapsed={sidebarCollapsed} setSidebarMobileCollapsed={setSidebarCollapsed} />
+        <SiteMain id={PASTE_DOCS_CONTENT_AREA}>{children}</SiteMain>
+        <SiteFooter />
+      </SidebarPushContentWrapper>
+    </>
   );
 };
