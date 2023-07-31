@@ -127,18 +127,26 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
       if (inlineErrorRange) {
         editor.createDecorationsCollection([
           {
+            // https://microsoft.github.io/monaco-editor/docs.html#interfaces/IRange.html
             range: new monaco.Range(
               inlineErrorRange.startLineNumber,
               inlineErrorRange.startColumn,
               inlineErrorRange.endLineNumber,
               inlineErrorRange.endColumn
             ),
+            // https://microsoft.github.io/monaco-editor/docs.html#interfaces/editor.IModelDecorationOptions.html
             options: {
               isWholeLine: inlineErrorIsWholeLine,
               className: '.paste-editable-code-editor-row-error',
               hoverMessage: inlineErrorHoverMessage,
               glyphMarginClassName: '.paste-editable-code-editor-margin-error',
               glyphMarginHoverMessage: inlineErrorHoverMessage,
+              // Adds the red error line in the scrollbar canvas
+              overviewRuler: {
+                color: '#b82430',
+                darkColor: '#b82430',
+                position: monaco.editor.OverviewRulerLane.Right,
+              },
             },
           },
         ]);
