@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box, type BoxProps} from '@twilio-paste/box';
+import {useTheme} from '@twilio-paste/theme';
 import {
   CodeEditor,
   CodeEditorPasteTheme,
@@ -13,13 +14,30 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Spinner} from '@twilio-paste/spinner';
 import {StylingGlobals} from '@twilio-paste/styling-library';
 
-const LoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({i18nLoadingLabel}) => (
+const EditableCodeblockLoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({i18nLoadingLabel}) => (
   <>
     <Spinner color="colorTextPrimaryWeak" decorative />
     <ScreenReaderOnly>{i18nLoadingLabel}</ScreenReaderOnly>
   </>
 );
-LoadingMessage.displayName = 'LoadingMessage';
+EditableCodeblockLoadingMessage.displayName = 'EditableCodeblockLoadingMessage';
+
+const InlineErrorStyles: {[key: string]: any} = {
+  '.paste-editable-code-editor-margin-error': {
+    ':before': {
+      content: '""',
+      display: 'inline-block',
+      position: 'relative',
+      left: '2px',
+      width: '16px',
+      height: '16px',
+      background: `url(https://assets.twilio.com/public_assets/paste-assets/1.0.0/icons/editable-codeblock-error.svg) no-repeat center center`,
+    },
+  },
+  '.paste-editable-code-editor-row-error': {
+    backgroundColor: 'rgba(255, 0, 0, 0.3)',
+  },
+};
 
 export interface EditableCodeBlockProps
   extends Omit<CodeEditorProps, 'wrapperProps' | 'className' | 'loading' | 'theme' | 'options'> {
@@ -59,8 +77,11 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   i18nLoadingLabel = 'Loading code...',
   ...props
 }) => {
+  const theme = useTheme();
   const controlledOptions = React.useMemo(() => {
     return {
+      lineHeight: 20,
+      fontFamily: theme.fonts.fontFamilyCode,
       lineNumbers,
       folding,
       readOnly,
@@ -85,7 +106,17 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
     scrollBeyondLastLine,
     indentationGuide,
     lineNumbers,
+    theme,
   ]);
+
+  const globalStyles = React.useMemo(() => {
+    return {
+      '.monaco-hover-content': {
+        fontFamily: theme.fonts.fontFamilyText,
+      },
+      ...(inlineErrorRange ? InlineErrorStyles : {}),
+    };
+  }, [theme, inlineErrorRange]);
 
   const handleEditorDidMount = React.useCallback(
     (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
@@ -125,27 +156,10 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
 
   return (
     <Box element={element} borderRadius="borderRadius10" overflow="hidden">
-      {inlineErrorRange ? (
-        <StylingGlobals
-          styles={{
-            '.paste-editable-code-editor-margin-error': {
-              ':before': {
-                content: '""',
-                display: 'inline-block',
-                width: '16px',
-                height: '16px',
-                background: `url(https://assets.twilio.com/public_assets/paste-assets/1.0.0/icons/editable-codeblock-error.svg) no-repeat center center`,
-              },
-            },
-            '.paste-editable-code-editor-row-error': {
-              backgroundColor: 'rgba(255, 0, 0, 0.3)',
-            },
-          }}
-        />
-      ) : null}
+      <StylingGlobals styles={globalStyles} />
       <CodeEditor
         {...props}
-        loading={<LoadingMessage i18nLoadingLabel={i18nLoadingLabel} />}
+        loading={<EditableCodeblockLoadingMessage i18nLoadingLabel={i18nLoadingLabel} />}
         options={controlledOptions}
         onMount={handleEditorDidMount}
       />

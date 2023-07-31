@@ -6,6 +6,7 @@ export const meta = {
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
+import {SidebarCategoryRoutes} from '../../../constants';
 
 export default DefaultLayout;
 
@@ -18,17 +19,15 @@ export const getStaticProps = async () => {
   };
 };
 
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} description={meta.description} />
+
+---
+
 <contentwrapper>
 
 <PageAside data={mdxHeadings} />
 
 <content>
-
-<h1>{meta.title}</h1>
-
-<p>{meta.description}</p>
-
----
 
 All of these libraries are first-party; we actively support them and hope they provide you with as much value as they provide us.
 

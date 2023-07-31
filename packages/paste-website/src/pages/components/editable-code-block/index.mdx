@@ -63,14 +63,19 @@ export const getStaticProps = async () => {
 
 ### About Editable Code Block
 
-Editable Code Block allows basic text input features for code-editing experiences on web,
-including syntax highlighting and displaying line numbers.
+Editable Code Block allows basic text input features for code-editing experiences on the
+web. To help users differentiate this from a static [Code Block](/components/code-block),
+Editable Code Block enables line numbers, code folding, and indentation guides by default.
 
-This component is built on top of the [Code Editor library](/core/libraries/code-editor),
-which wraps the [Monaco Editor](https://microsoft.github.io/monaco-editor/) used by Visual Studio Code.
+This component is built on top of the Paste [Code Editor library](/core/libraries/code-editor),
+which wraps the [Monaco Editor](https://microsoft.github.io/monaco-editor/) used by Visual
+Studio Code. If you’re looking for more functionality than what’s provided through Editable
+Code Block, use the Code Editor library instead.
 
-This component uses the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl).
-If you’re looking for more functionality than what’s provided through Editable Code Block, use the [Code Editor library](/core/libraries/code-editor).
+This component uses the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl),
+an accessible theme by Sarah Drasner for people with colorblindness and low vision situations.
+If you’re looking for more functionality than what’s provided through Editable Code Block,
+use the [Code Editor library](/core/libraries/code-editor).
 
 ### Accessibility
 
@@ -78,7 +83,7 @@ Because Editable Code Block takes text input, it follows similar labeling access
 guidelines as other form elements:
 
 - Include a label on _all_ Editable Code Blocks. Use one of these ways to label an Editable Code Block:
-  - Editable Code Block Header (preferred). Use the correct heading level in Editable Code Block Header.
+  - [Editable Code Block Header](#editablecodeblockheader-props) (preferred). Use the correct heading level in Editable Code Block Header.
   - Visible label (for example, a page heading) that's associated to the input with `aria-labelledby`
   - Visible label with [Label](/components/label)
   - Label directly using `aria-label`
@@ -86,11 +91,11 @@ guidelines as other form elements:
 
 Since Editable Code Block takes up more vertical space than typical form elements,
 any help or error content should appear before the component by using an
-introductory [Paragraph](/components/paragraph) or [error Callout](#Generic-errors).
+introductory [Paragraph](/components/paragraph) or [Error Callout](#generic-errors).
 
 #### Keyboard interaction
 
-Excerpts from [Monaco accessibility guide](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide):
+Excerpts from the [Monaco accessibility guide](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide):
 
 | Action                          | Keyboard shortcut             | Description                                                                                                                                                                                                   |
 | ------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -105,18 +110,14 @@ Excerpts from [Monaco accessibility guide](https://github.com/Microsoft/monaco-e
 
 ### Default
 
-Use an Editable Code Block to allow users to enter code on multiple lines.
-To help users differentiate this from a static [Code Block](/components/code-block),
-Editable Code Block enables line numbers, code folding, and indentation guides by default.
+The default Editable Code Block includes:
 
-Put a logical label in an _Editable Code Block Header_ to describe what users need
-to put in the code block and/or the language used, similar to a form label.
-
-_Line numbers_ help users identify errors and cross-reference with existing code.
-Use line numbers when the expected input is longer than 5 lines.
-
-_Indentation guides and code folding_ help users read long blocks of
-code and troubleshoot errors.
+- An Editable Code Block Header: Contains a logical label at the correct heading level
+  that describes what users need to put in the code block and/or the language used.
+- Line numbers: Helps users identify errors and cross-reference with existing code.
+  Use line numbers when the expected input is longer than 5 lines.
+- Indentation guides and code folding: Helps users read long blocks of code and
+  troubleshoot errors.
 
 <StoryPreview
   title="Default Editable Code Block"
@@ -167,54 +168,7 @@ For large files, use a minimap to help users navigate the code block.
 </EditableCodeBlockWrapper>`}
 />
 
-### Multi-file Editable Code Block
-
-You can alternate the content in a single instance of the Editable Code Block.
-This is useful for editing multiple files in a single editor.
-
-<StoryPreview
-  title="Multi-file Editable Code Block"
-  storyID="components-editable-code-block--multi-file-editor"
-  code={`<Stack orientation="vertical" spacing="space40">
-  <RadioButtonGroup
-    attached
-    name="file-selector"
-    legend="Select file"
-    helpText="Show code for the selected file"
-    onChange={(_fileKey) => setFileKey(_fileKey)}
-  >
-    {Object.keys(Files).map((key) => (
-      <RadioButton key={key} value={key} defaultChecked={fileKey === key}>
-        {Files[key].name}
-      </RadioButton>
-    ))}
-  </RadioButtonGroup>
-  <EditableCodeBlockWrapper>
-    <EditableCodeBlockHeader>{Files[fileKey].name}</EditableCodeBlockHeader>
-    <EditableCodeBlock
-      height="400px"
-      path={Files[fileKey].name}
-      defaultLanguage={Files[fileKey].language}
-      defaultValue={Files[fileKey].value}
-    />
-  </EditableCodeBlockWrapper>
-</Stack>`}
-/>
-
 ## States
-
-### Read only
-
-If the user doesn't have permission to edit the code, use the `readOnly` prop to make the Editable Code Block read-only.
-
-<StoryPreview
-  title="Read-Only Editable Code Block"
-  storyID="components-editable-code-block--read-only"
-  code={`<EditableCodeBlockWrapper>
-  <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
-  <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
-</EditableCodeBlockWrapper>`}
-/>
 
 ### Syntax errors
 
@@ -233,9 +187,11 @@ Monaco Editor will detect and show syntax errors out of the box.
 </EditableCodeBlockWrapper>`}
 />
 
-### Line-specific errors
+### Custom line-specific errors
 
 Show line-specific errors to help users pinpoint what line of code they need to fix.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <StoryPreview
   title="Custom line-specific errors in Editable Code Block"
@@ -280,6 +236,30 @@ For additional guidance on how to compose error messages, refer to the [error st
 </Stack>`}
 />
 
+### Read only
+
+Only if the user doesn't have permission to edit the code, use the `readOnly` prop to
+make the Editable Code Block read-only. In most cases, use the
+[Code Block](/components/code-block] component instead to show static code.
+
+<StoryPreview
+  title="Read-Only Editable Code Block"
+  storyID="components-editable-code-block--read-only"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
+  <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+</EditableCodeBlockWrapper>`}
+/>
+
+## Composition notes
+
+Ensure the surrounding page contains any information required to successfully use
+the editor. For example, include the expected language or any input constraints.
+
+Supporting content can be placed before or next to an Editable Code Block by using
+an introductory [Paragraph](/components/paragraph), [Callout](/components/callout),
+or [Card](/components/card).
+
 ## When to use Editable Code Block
 
 <DoDont>
@@ -293,7 +273,7 @@ For additional guidance on how to compose error messages, refer to the [error st
 <DoDont>
   <Do
     title="Do"
-    body="Pair Editable Code Block with a visible label. This can be the Editable Code Block Header, a page Heading, or Label."
+    body="Pair Editable Code Block with a visible label. This can be the Editable Code Block Header, an associated page Heading, or Label."
   />
   <Dont
     title="Don't"
