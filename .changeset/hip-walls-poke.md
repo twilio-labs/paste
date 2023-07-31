@@ -45,4 +45,10 @@
 '@twilio-paste/core': patch
 ---
 
-Improved types where Paste extends the base HTML element that a component is based on, so that blocked styling properties are not exposed as valid properties for the component
+Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+Existing blocked component properties include:
+
+- `className`
+- `style`
+- `color`
