@@ -31,7 +31,7 @@ export const Default = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Typescript example</EditableCodeBlockHeader>
-      <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+      <EditableCodeBlock height="320px" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -40,7 +40,7 @@ export const Minimap = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Minimap example</EditableCodeBlockHeader>
-      <EditableCodeBlock height="45vh" defaultLanguage="typescript" showMinimap defaultValue={TypeScriptExample} />
+      <EditableCodeBlock height="320px" defaultLanguage="typescript" showMinimap defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -50,7 +50,7 @@ export const NoLineNumbers = (): React.ReactNode => {
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>No line numbers example</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="45vh"
+        height="320px"
         defaultLanguage="typescript"
         lineNumbers="off"
         defaultValue={TypeScriptExample}
@@ -63,7 +63,7 @@ export const NoCodeFolding = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>No code folding example</EditableCodeBlockHeader>
-      <EditableCodeBlock height="45vh" defaultLanguage="typescript" folding={false} defaultValue={TypeScriptExample} />
+      <EditableCodeBlock height="320px" defaultLanguage="typescript" folding={false} defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -73,7 +73,7 @@ export const NoSpecialFeatures = (): React.ReactNode => {
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Plain old editable code block</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="45vh"
+        height="320px"
         defaultLanguage="typescript"
         lineNumbers="off"
         folding={false}
@@ -88,7 +88,7 @@ export const ReadOnly = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
-      <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+      <EditableCodeBlock height="320px" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
     </EditableCodeBlockWrapper>
   );
 };
@@ -163,7 +163,7 @@ export const MultiFileEditor = (): React.ReactNode => {
       <EditableCodeBlockWrapper>
         <EditableCodeBlockHeader>{Files[fileKey].name}</EditableCodeBlockHeader>
         <EditableCodeBlock
-          height="400px"
+          height="250px"
           path={Files[fileKey].name}
           defaultLanguage={Files[fileKey].language}
           defaultValue={Files[fileKey].value}
@@ -178,7 +178,7 @@ export const SyntaxError = (): React.ReactNode => {
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Syntax error example</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="45vh"
+        height="320px"
         defaultLanguage="typescript"
         defaultValue={`const One = 1;
 const Two = "two";
@@ -194,7 +194,7 @@ export const CustomInlineError = (): React.ReactNode => {
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Custom inline error example (try hovering it)</EditableCodeBlockHeader>
       <EditableCodeBlock
-        height="45vh"
+        height="320px"
         onChange={(value) => {
           // eslint-disable-next-line no-console
           console.log(value);
@@ -223,7 +223,7 @@ export const GenericError = (): React.ReactNode => {
       </Callout>
       <EditableCodeBlockWrapper>
         <EditableCodeBlockHeader>Generic error example</EditableCodeBlockHeader>
-        <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue="const API_KEY = null;" />
+        <EditableCodeBlock height="220px" defaultLanguage="typescript" defaultValue="const API_KEY = null;" />
       </EditableCodeBlockWrapper>
     </Stack>
   );
