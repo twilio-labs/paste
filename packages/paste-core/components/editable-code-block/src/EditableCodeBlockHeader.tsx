@@ -24,6 +24,9 @@ export const EditableCodeBlockHeader = React.forwardRef<HTMLHeadingElement, Edit
       borderTopRightRadius="borderRadius20"
       fontWeight="fontWeightSemibold"
       fontSize="fontSize30"
+      borderBottomWidth="borderWidth30"
+      borderBottomColor="colorBorderInverseWeakest"
+      borderBottomStyle="solid"
     >
       {children}
     </Box>

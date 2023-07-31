@@ -9,9 +9,6 @@ const StyledEditableCodeBlockWrapper = styled(Box)(
     backgroundColor: 'rgb(1, 22, 39)', // Matches the Night Owl background theme
     borderRadius: 'borderRadius20',
     overflow: 'hidden',
-    borderTopWidth: 'borderWidth30',
-    borderTopColor: 'colorBorderInverseWeakest',
-    borderTopStyle: 'solid',
   })
 );
 
