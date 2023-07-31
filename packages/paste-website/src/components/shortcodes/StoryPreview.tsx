@@ -8,6 +8,9 @@ export interface StoryPreviewProps {
   code: string;
 }
 
+const ENV = process.env.NODE_ENV || 'development';
+const BASE_URL = ENV === 'production' ? 'https://paste-storybook.twilio.design' : 'http://localhost:9001';
+
 const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({storyID, title, code}) => {
   return (
     <Box
@@ -19,7 +22,7 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({sto
       marginBottom="space70"
     >
       <iframe
-        src={`https://paste-storybook.twilio.design/iframe.html?args=&id=${storyID}&viewMode=story`}
+        src={`${BASE_URL}/iframe.html?args=&id=${storyID}&viewMode=story`}
         style={{
           width: '100%',
           height: '500px',
@@ -36,7 +39,7 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({sto
           i18nLinkLabel="Open in Storybook"
           language="jsx"
           maxLines={10}
-          externalLink={`https://paste-storybook.twilio.design/?path=/story/${storyID}`}
+          externalLink={`${BASE_URL}/?path=/story/${storyID}`}
           code={code}
         />
       </CodeBlockWrapper>
