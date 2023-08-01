@@ -65,11 +65,11 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
-A textarea allows users to enter text on multiple lines. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
+A Textarea allows users to enter text on multiple lines. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
 
 ### About Textarea
 
-Use a textarea when you want to allow a user to enter text on multiple lines. A textarea allows for any text to be entered and can't be restricted as other [inputs](/components/input/) can.
+Use a Textarea when you want to allow a user to enter text on multiple lines. A Textarea allows for any text to be entered and can't be restricted as other [inputs](/components/input/) can.
 
 ### Accessibility
 
@@ -82,12 +82,10 @@ Use a textarea when you want to allow a user to enter text on multiple lines. A 
     associated textarea.
   </ListItem>
   <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
+    Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
   </ListItem>
   <ListItem>
-    Use one of 3 ways to label a form field:
+    Use 1 of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
       <ListItem>
         Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
@@ -110,7 +108,7 @@ Use a textarea when you want to allow a user to enter text on multiple lines. A 
     </UnorderedList>
   </ListItem>
   <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
+    Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field
     changed.
   </ListItem>
   <ListItem>
@@ -123,11 +121,11 @@ Use a textarea when you want to allow a user to enter text on multiple lines. A 
 
 ### Textarea
 
-The textarea should include the base textarea, along with supporting elements to compose a textarea field that gives the user the context they need to successfully fill it out:
+The textarea should include the base Textarea, along with supporting elements to compose a textarea field that gives the user the context they need to successfully fill it out:
 
-- **Label** — A label should be included for every form field and provide a short title for its associated textarea.
-- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful
+- [Label](/components/label) — Every form field should have a label. The label should indicate what should be entered into field.
+- **Required field indicator** — If most of the fields on a form are optional, indicate the few that are required with text or a required indicator.
+- [**Help Text**](/components/help-text) — Text that's placed below the field to help users prevent an error and describe what makes the form field successful
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
@@ -200,7 +198,7 @@ By default, the textarea is not resizable. To change this, add the prop `resize=
 
 Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-The Help Text inline error is placed below the field to inform a user of any errors in their value. The error text should replace and repeat the help text.
+The Help Text inline error is placed below the field to inform a user of any errors in their value. The error text should replace and repeat the help text. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
@@ -266,8 +264,8 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
 
-- Use help text to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
-- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
 To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
 
@@ -277,7 +275,7 @@ Give users enough information in help text to prevent textarea and formatting er
 
 Ask for information only when needed. Consider removing the field otherwise.
 
-Use required indicators to show users which fields they must fill out.
+Use text or required indicators to show users which fields they must fill out.
 
 ### Validation
 
@@ -295,7 +293,6 @@ Use Help Text to show an inline error that to explains how to fix the error. For
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their textarea and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
 
 ## When to use a Textarea
 
