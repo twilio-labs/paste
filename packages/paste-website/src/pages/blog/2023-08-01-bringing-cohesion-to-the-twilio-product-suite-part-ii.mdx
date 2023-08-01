@@ -1,0 +1,26 @@
+export const meta = {
+  title: 'Bringing Cohesion to the Twilio Product Suite: Part II, Navigation',
+  slug: '/blog/2023-08-01-bringing-cohesion-to-the-twilio-product-suite-part-ii/',
+  date: '2023-08-01',
+  author: 'Loreina Chew',
+  avatar: 'https://avatars.githubusercontent.com/u/23108291?v=4',
+  author_link: 'https://linkedin.com/in/loreina',
+  status: 'published',
+  external_link: 'https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-ii',
+  excerpt:
+    "Learn about how we leveraged our design system to unifying navigation experiences across Twilio's product suite.",
+};
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};

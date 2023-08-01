@@ -1,0 +1,26 @@
+export const meta = {
+  title: 'Bringing Cohesion to the Twilio Product Suite: Part I',
+  slug: '/blog/2022-05-17-bringing-cohesion-to-the-twilio-product-suite-part-i/',
+  date: '2022-05-17',
+  author: 'Katie Porter',
+  avatar: 'https://avatars.githubusercontent.com/u/5374045?v=4',
+  author_link: 'https://www.linkedin.com/in/jane-k-porter/',
+  status: 'published',
+  external_link: 'https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i',
+  excerpt:
+    "Learn about the research driving Twilio's work in creating a cohesive design language in order to pave the way for a unified product experience.",
+};
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
