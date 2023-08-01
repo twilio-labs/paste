@@ -34,7 +34,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
     );
 
     const state: HiddenRadioState = {
-      name: name != null ? name : visualPickerRadioGroupContext.name,
+      name: visualPickerRadioGroupContext.name || name || visualPickerRadioGroupContext.name,
       disabled: disabled != null ? disabled : visualPickerRadioGroupContext.groupIsDisabled,
       hasError: hasError != null ? hasError : visualPickerRadioGroupContext.groupHasError,
       checked: visualPickerRadioGroupContext.value === value,
@@ -65,7 +65,12 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         padding="space50"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onClick={() => internalRef.current?.click()}
+        onClick={(e) => {
+          internalRef.current?.click();
+          internalRef.current?.focus();
+          e.preventDefault();
+          e.stopPropagation();
+        }}
         _hover={
           disabled || groupIsDisabled
             ? {cursor: 'not-allowed'}
@@ -82,7 +87,11 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
           aria-describedby={helpTextId}
           aria-invalid={state.hasError}
           aria-labelledby={labelId}
-          onChange={handleChange}
+          onChange={(e) => {
+            handleChange(e);
+            // eslint-disable-next-line no-console
+            console.log('change ran');
+          }}
           id={radioId}
           ref={mergedRef}
         />

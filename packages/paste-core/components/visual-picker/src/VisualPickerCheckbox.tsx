@@ -49,7 +49,12 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         padding="space50"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onClick={() => internalRef.current?.click()}
+        onClick={(e) => {
+          internalRef.current?.click();
+          internalRef.current?.focus();
+          e.preventDefault();
+          e.stopPropagation();
+        }}
         _hover={
           disabled || groupIsDisabled
             ? {cursor: 'not-allowed'}
@@ -64,7 +69,9 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
           checked={checked}
           disabled={disabled}
           name={name}
-          onChange={onChange}
+          onChange={(e) => {
+            onChange(e);
+          }}
           aria-describedby={helpTextId}
           aria-checked={indeterminate ? 'mixed' : checked}
           aria-labelledby={labelId}

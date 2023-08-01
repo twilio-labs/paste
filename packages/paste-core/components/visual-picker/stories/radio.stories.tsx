@@ -29,7 +29,7 @@ export const VerticalRadioGroup = (): React.ReactNode => {
           This is a Visual Picker Radio Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_vertical`}
       helpText="Help text should go here."
       value={value}
       onChange={(newValue) => {
@@ -131,7 +131,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
           This is a Visual Picker Radio Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_disabled_radio`}
       helpText="Help text should go here."
       value={value}
       onChange={(newValue) => {
@@ -233,7 +233,7 @@ export const VerticalRadioGroupRadioError = (): React.ReactNode => {
           This is a Visual Picker Radio Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_radio_error`}
       helpText="Help text should go here."
       value={value}
       onChange={(newValue) => {
@@ -335,7 +335,7 @@ export const HorizontalRadioGroup = (): React.ReactNode => {
           Select a plan
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_horizontal`}
       value={value}
       onChange={(newValue) => {
         setValue(newValue);
@@ -409,7 +409,7 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
           Select a plan
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_disabled_group`}
       disabled
       value={value}
       onChange={(newValue) => {
@@ -484,7 +484,7 @@ export const HorizontalRadioGroupGroupError = (): React.ReactNode => {
           Select a plan
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_group_error`}
       errorText="Please select an option before submitting."
       value={value}
       onChange={(newValue) => {

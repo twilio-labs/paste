@@ -8,6 +8,7 @@ import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AcceptIcon} from '@twilio-paste/icons/esm/AcceptIcon';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Box} from '@twilio-paste/box';
+import {useUID} from 'react-uid';
 
 import {VisualPickerCheckboxGroup, VisualPickerCheckbox} from '../src';
 
@@ -32,7 +33,7 @@ export const VerticalCheckboxGroup = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_vertical`}
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
@@ -99,7 +100,7 @@ export const VerticalCheckboxGroupDisabledCheckbox = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_disabled_checkbox`}
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1} disabled>
@@ -166,7 +167,7 @@ export const VerticalCheckboxGroupCheckboxError = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_checkbox_error`}
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
@@ -231,7 +232,7 @@ export const HorizontalCheckboxGroup = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_horizontal`}
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
@@ -315,7 +316,7 @@ export const HorizontalCheckboxGroupDisabledGroup = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_disabled_group`}
       helpText="Help text should go here."
       disabled
     >
@@ -414,7 +415,7 @@ export const HorizontalCheckboxGroupGroupError = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_group_error`}
       helpText="Help text should go here."
       errorText="This is the error text."
     >
@@ -481,7 +482,7 @@ export const VerticalCheckboxGroupSelectAll = (): React.ReactNode => {
           This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
         </Text>
       }
-      name="visual-picker"
+      name={`${useUID()}_select_all`}
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox
