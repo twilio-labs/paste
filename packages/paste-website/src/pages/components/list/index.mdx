@@ -80,16 +80,16 @@ Lists can be ordered or unordered. If the order of the list items matters for co
 
 Lists are a number of connected list items that are printed consecutively, typically one after the other. Lists can be ordered, using numbers as an indicator to the reader, or unordered with bullet points.
 
-- Ordered lists are displayed with a preceding number
-- Unordered lists are displayed with a preceding bullet point
-- Lists can be nested as deeply as needed, and they may alternate between ordered and unordered
-- Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers
-- Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase
+- Ordered lists are displayed with a preceding number.
+- Unordered lists are displayed with a preceding bullet point.
+- Lists can be nested as deeply as needed, and they may alternate between ordered and unordered.
+- Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers.
+- Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase.
 
 ### Accessibility
 
-- List text should meet AA requirements (4.5:1) for color contrast from itself and the background color
-- `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component
+- List text should meet AA requirements (4.5:1) for color contrast from itself and the background color.
+- `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component.
 - Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component, e.g.
 
 ```jsx
@@ -107,7 +107,9 @@ Lists are a number of connected list items that are printed consecutively, typic
 
 ### Unordered List
 
-Use unordered list to display a basic list of items. This is the default variant for List.
+An unordered list is the default variant for List.
+
+Use unordered list to display a basic list of items related to a particular topic. Use Heading and/or body text preceding the list to introduce the linked topic. 
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
@@ -206,9 +208,15 @@ List items can be nested within other list items. To do so create a new list as 
 </div>`}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-### When to Use a OrderedList and UnorderedList
+Start each list item with the same part of speech, usually a noun or verb. This makes the list "parallel."
+
+Do not use a period at the end of list items unless they are complete sentences. Do not use commas or ellipses at the end of list items.
+
+Avoid listing more than very long lists. Where possible, make a big list into smaller ones with explanatory [Headings](/components/heading).
+
+## Dos and don'ts
 
 <DoDont>
   <Do title="Do" body="Use a list when you have more than one item or point." center>

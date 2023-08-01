@@ -73,7 +73,7 @@ If you need a click handler, you can use our [Button component](/components/butt
 
 #### Accessibility
 
-The anchor is built with standard accessible practices in mind. Those include an href attribute, link context, and opening and closing tags.
+The Anchor is built with standard accessible practices in mind. Those include an href attribute, link context, and opening and closing tags.
 
 The title attribute was not included because it’s not exposed to all browsers in an accessible way, meaning most screen readers and touch-only devices will likely never see that information.
 
@@ -118,10 +118,15 @@ Soy enlace externo
 </Anchor>`}
 </LivePreview>
 
-## When to Use an Anchor
+## Composition notes
 
-You can use an anchor to navigate the user to another webpage.
+Anchor text should indicate what kind of information the user can expect to find when they click the link. Avoid "Learn more" or "Click here," since they don't offer any indication of where the link will take the user.
 
+When placing an Anchor within a sentence, don't link the whole sentence. Instead, only link the text that describes that describes where the user will go when they follow the link.
+
+When the link is at the end of a sentence, avoid punctuation except for a question mark.
+
+## Dos and don'ts
 <DoDont>
   <Do title="Do" body="Anchors should only be used to link to another page, app, or another website." center>
     <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>

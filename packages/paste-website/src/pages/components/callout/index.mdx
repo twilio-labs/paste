@@ -84,7 +84,9 @@ Use a neutral Callout to communicate relevant information to the page or flow. T
 
 ### Success Callout
 
-Use a success Callout to communicate that the desired outcome was achieved. A success callout can be appropriate when the outcome is relevant to a particular part of the page, or when additional information or context needs to be provided.
+Use a success Callout to communicate that the desired outcome was achieved. A success Callout can be appropriate when the outcome is relevant to a particular part of the page, or when additional information or context needs to be provided.
+
+When composing a success Callout, avoid using the word "successfully" - it's redundant. 
 
 <LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
   {`
@@ -97,6 +99,8 @@ Use a success Callout to communicate that the desired outcome was achieved. A su
 ### Warning Callout
 
 Use a warning Callout to help users avoid an undesirable outcome, or inform users of unexpected behaviors or outcomes.
+
+A warning Callout should should explain the possible issue, what to do, and what happens if they don't.
 
 <LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
   {`
@@ -172,7 +176,7 @@ Callouts can be inline with text, so use the `marginY` prop to add a vertical ma
 
 Compose a Callout with:
 
-- **Title (option).** The title should be concise and convey the essense of the issue.
+- **Title (optional).** The title should be concise and convey the essense of the issue.
 - **Body text.** Use the default text style. Do not repeat information contained in a title. If the user needs to take action on another page, or more information would be helpful, include an [Anchor](/components/anchor).
 - **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
 
