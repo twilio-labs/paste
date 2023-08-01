@@ -1,6 +1,6 @@
 # Twilio Paste Intellisense
 
-Twilio Paste Intellisense extends the development experience of Twilio Paste by giving Visual Studio Code users additional functionality such as hover.
+Twilio Paste Intellisense extends the development experience of Twilio Paste by giving Visual Studio Code users additional functionality.
 
 ## About Paste
 
@@ -14,20 +14,24 @@ In Paste, 1 rem unit = 16 pixels.
 
 ## Why should we use Twilio Paste Intellisense
 
-Twilio Paste is a great design system, but working with tokens is time consuming. Because before using the token, we need to check the list of tokens, which one suits us. For example, if we want to use a margin like 20px, we need to check what `space` token is [20px (space60 = 20px)](https://paste.twilio.design/tokens/list/#spacings). This is where Twilio Paste Intellisense comes into play. It has two features:
+The transition coming from writing CSS to using design tokens can feel tedious at first.
+This is because before we can use a token, we don't know which ones we can use and what their values are. For example,
+if we want to use a margin and the available options are `space10 - space100` tokens, how do we know which ones translate to `20px` to match the designs? This is where Twilio Paste Intellisense comes into play!
 
-- `Hover preview` - check the value of the token by hovering over it;
-- `Autocomplete` - use a dropdown menu with the name and value of the token when we start typing the component's paste properties.
+It has two features:
+
+- **Hover preview**: Check the value of the token by hovering over it;
+- **Autocomplete**: Use a dropdown menu with the name and value of the token when we start typing the component's Paste properties.
 
 ## Installation
 
-**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=TwilioPaste.vs-code-intellisense)**
+**[Install via the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=TwilioPaste.vs-code-intellisense)**
 
 ## Features
 
 ### Autocomplete
 
-Intelligent suggestions for twilio paste token attributes.
+Intelligent suggestions for [Twilio Paste](https://paste.twilio.design) token attributes.
 
 <img src="https://raw.githubusercontent.com/twilio-labs/paste/main/apps/vs-code-intellisense/assets/completion-example.png" alt="the autocomplete suggestions include the token name with the value in rems and pixels" />
 
@@ -39,4 +43,4 @@ View the value and description of the Twilio Paste token property by hovering ov
 
 ### Contributing
 
-Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)
+We welcome and encourage contributions to this project. Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)

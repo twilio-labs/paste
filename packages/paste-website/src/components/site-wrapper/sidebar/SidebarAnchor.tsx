@@ -10,12 +10,12 @@ interface SidebarAnchorProps {
   onClick?: () => void;
 }
 
-const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({children, href, onClick}) => {
+const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({children, href, onClick, ...props}) => {
   const pathname = useLocationPathname();
   const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
   return (
-    <Link href={href} legacyBehavior passHref>
+    <Link href={href} {...props} legacyBehavior passHref>
       {/* @ts-expect-error using nextjs passHref means that we can't satisfy the nav item href required prop */}
       <SidebarNavigationItem onClick={onClick} selected={pathnameWithoutTrailingSlash === href}>
         {children}

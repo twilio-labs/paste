@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {ButtonProps} from '@twilio-paste/button';
+import {secureExternalLink} from '@twilio-paste/anchor';
 
 import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
@@ -64,6 +65,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
     return (
       <Box
         {...safelySpreadBoxProps(props)}
+        {...(props.href ? secureExternalLink(props.href) : {})}
         ref={ref}
         element={element}
         as="a"
