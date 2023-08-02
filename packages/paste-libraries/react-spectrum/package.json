@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "library",
   "status": "production",
-  "description": "A collection tools that help you build adaptive, accessible, and robust user experiences.",
+  "description": "React Spectrum Library is a collection of tools that help you build adaptive, accessible, and robust user experiences.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
