@@ -73,13 +73,13 @@ Use an Alert for one of these types of information:
 
 ### Accessibility
 
-- Pass in `role="alert"` or `role="status"` through [props](#props). Otherwise, the default role is `status` for neutral Alerts and `alert` for warning and error Alerts.
-- Screen readers announce error and warning Alert text immediately. Alerts that persist across multiple pages announce themselves repeatedly which may become annoying. Consider making Alerts in these cases dismissible.
-- Render an Alert only when it's needed. Assistive technologies will be able to read a visually hidden element. Don't visually hide an Alert and then make it visible through client-side code.
+- Pass in `role="alert"` or `role="status"` through [props](#props). Otherwise, the default role is `status` for neutral alerts and `alert` for warning and error alerts.
+- Screen readers announce error and warning alert text immediately. Alerts that persist across multiple pages announce themselves repeatedly which may become annoying. Consider making alerts in these cases dismissible.
+- Render an alert only when it's needed. Assistive technologies will be able to read a visually hidden element. Don't visually hide an alert and then make it visible through client-side code.
 
 The Alert uses multiple methods to indicate the alert type.
 - **Icon.**  The icon visually indicates the alert type, and announces the type to a screenreader.
-- **Color.** Each Alert type is a different color.
+- **Color.** Each alert type is a different color.
 
 ## Examples
 
@@ -131,11 +131,13 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 ### Warning
 
-Use a warning Alert to help a user avoid an issue. If the user can take an immediate action to avoid the issue, provide a way to do it. A Warning Alert should provide explain the possible issue, what to do, and what happens if they don't.
+Use a warning alert to help a user avoid an issue. 
 
-Be cautious about using a warning Alert because they can be stressful for a user to see. In most cases, a warning Alert should be assigned `role="alert"`.
+A warning alert should provide explain the possible issue, what to do, and what happens if they don't. If the user can take an immediate action, provide a way to do it. 
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning Alerts.
+Be cautious about using a warning alert because they can be stressful for a user to see. In most cases, a warning alert should be assigned `role="alert"`.
+
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning alerts.
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
@@ -145,15 +147,13 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 ### Error
 
-Use an error Alert to help a user understand a critical issue at the system level, like site-wide service disruptions, active incidents, or expired billing information. Alerts should not appear in response to user action or inputs.
-
-When possible, provide a way to resolve the issue in the Alert.
+Use an error alert to help a user understand a critical issue at the system level, like site-wide service disruptions, active incidents, or expired billing information. When possible, provide a way to resolve the issue in the alert.
 
 In most cases, error Alerts should be assigned `role="alert"`.
 
 For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text). For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error Alerts.
+You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error alerts.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="error">
@@ -163,15 +163,15 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 ### Dismissible
 
-Add a close button to the Alert if it doesn't communicate a persistent status of the system or the account. If you make an Alert dismissible, provide another way for the user to retrieve the Alert information.
+Add a close button to the alert if it doesn't communicate a persistent status of the system or the account. If you make an alert dismissible, provide another way for the user to retrieve the alert information.
 
-Don't add a close button to the Alert if all these conditions are true:
+Don't add a close button to the alert if all these conditions are true:
 
-- The Alert communicates a persistent status of the system or the account.
-- The information is relevant to the user's goals on the page(s) the Alert is on.
-- The user wouldn't be able to access the information in the Alert if it were closed.
+- The alert communicates a persistent status of the system or the account.
+- The information is relevant to the user's goals on the page(s) the alert is on.
+- The user wouldn't be able to access the information in the alert if it were closed.
 
-Keep in mind that the longer an Alert is present, the more it starts looking like part of the page and loses its interruptive intent. This might make users start to ignore important Alert information.
+Keep in mind that the longer an alert is present, the more it starts looking like part of the page and loses its interruptive intent. This might make users start to ignore important alert information.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert onDismiss={() => alert('dismissed')} variant="neutral">
@@ -181,7 +181,7 @@ Keep in mind that the longer an Alert is present, the more it starts looking lik
 
 ### Internationalization
 
-To internationalize an Alert, simply pass different text as children to the Alert.
+To internationalize an alert, simply pass different text as children.
 The only exceptions to this are the labels for both the dismiss button and the variant icons.
 To change the dismiss button&apos;s label text, use the `i18nDismissLabel` prop.
 To change the label of a variant's icon, use the matching i18n prop for the variant.
@@ -195,7 +195,7 @@ For an `error` variant, for example, set the `i18nErrorLabel` prop.
 
 ## Composition notes
 
-Keep Alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
+Keep alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
 
 <Blockquote
   name="Matthew Butterick"
@@ -217,11 +217,11 @@ Compose an alert with:
 Alert
 
 - Alerts communicate information relevant at the system level.
-- Do not use Alerts in response to user action.
+- Do not use an Alert in response to user action.
 
 [Callout](/components/callout)
 
-- Calloutscommunicate information particular to a section of a page, or information that applies to a whole page.
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
 - Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
 - Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
 
@@ -240,9 +240,9 @@ Alert
 
 ### Placement and behavior
 
-Place an Alert where it makes the most contextual sense. Don't cover other UI elements with an Alert.
+Place an alert where it makes the most contextual sense. Don't cover other UI elements with an alert.
 
-In general, the persistence and behavior on scroll of an Alert should match the element it's scoped to. For example, if an Alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the Alert should similarly be sticky and persist across several pages. However, don't persist the Alert across too many pages in a user session since it may lose its interruptive intent.
+In general, the persistence and behavior on scroll of an alert should match the element it's scoped to. For example, if an alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the alert should similarly be sticky and persist across several pages. However, don't persist the alert across too many pages in a user session since it may lose its interruptive intent.
 
 ## Do & Don't
 

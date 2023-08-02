@@ -132,8 +132,8 @@ Designing a good form requires making decisions about composition, sequence, for
   - Help Text is optional. Use it to describe what makes the form field successful and help users avoid errors.
   - Avoid placeholder text. It is not broadly supported by assistive technologies, does not display in older browsers, and disappears from the field when a user enters text. 
 - Use fieldsets and legends.
-  - When you need to group related form elements, use a [Form section](/components/form#sections), which renders a HTML fieldset. To add clarity to the section, use a Form section Heading, which renders a HTML legend, to clearly describe the group. It should be concise and descriptive.
-  - You can have nested Form sections if applicable.
+  - When you need to group related form elements, use a [form section](/components/form#sections), which renders a HTML fieldset. To add clarity to the section, use a form section Heading, which renders a HTML legend, to clearly describe the group. It should be concise and descriptive.
+  - You can have nested form sections if applicable.
   - Embed multiple fieldsets and legends for more complex forms.
 - Use Help Text for [form validation errors](/patterns/error-state#when-to-use-which-component). For successful submissions, use a [Toast](/components/toast)
 
@@ -299,7 +299,7 @@ Use [Help Text](/components/help-text) to show inline error messaging that infor
 
 If there are multiple errors, use Help Text to show inline error messages and a [Callout to show an error summary](/components/callout#callout-with-a-list). Place the Callout below the form title or section title, if applicable, and above the form elements.
 
-If the Form lives within a Modal or Side Modal and has a form action to submit or save the information, we suggest closing the Modal on submit, then display a Toast that indicates the action was successful or experienced a system error.
+If the Form lives within a [Modal](/components/modal) or [Side Modal](/components/side-modal) and has a form action to submit or save the information, we suggest closing the Modal on submit, then display a Toast that indicates the action was successful or experienced a system error.
 
 Error messaging for required fields should explain how to resolve the error and not reiterate that the field is required. The required field indicator is sufficient. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
