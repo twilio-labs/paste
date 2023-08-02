@@ -14073,9 +14073,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/react-spectrum-library@^0.0.0, @twilio-paste/react-spectrum-library@workspace:packages/paste-libraries/react-":
+"@twilio-paste/react-spectrum-library@^0.0.0, @twilio-paste/react-spectrum-library@workspace:packages/paste-libraries/react-spectrum":
   version: 0.0.0-use.local
-  resolution: "@twilio-paste/react-spectrum-library@workspace:packages/paste-libraries/react-"
+  resolution: "@twilio-paste/react-spectrum-library@workspace:packages/paste-libraries/react-spectrum"
   dependencies:
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
