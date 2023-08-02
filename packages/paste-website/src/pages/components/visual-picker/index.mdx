@@ -8,27 +8,33 @@ export const meta = {
 import Changelog from '@twilio-paste/visual-picker/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
-  useUserDialogState,
-  UserDialog,
-  UserDialogUserInfo,
-  UserDialogUserName,
-  UserDialogUserEmail,
-  UserDialogContainer,
-  UserDialogList,
-  UserDialogListItem,
-  useUserDialogListState,
-  UserDialogSeparator,
-} from '@twilio-paste/user-dialog';
+  VisualPickerCheckboxGroup,
+  VisualPickerCheckbox,
+  VisualPickerRadioGroup,
+  VisualPickerRadio,
+} from '@twilio-paste/visual-picker';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
 import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Anchor} from '@twilio-paste/anchor';
 import {useUID} from '@twilio-paste/uid-library';
 import packageJson from '@twilio-paste/visual-picker/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {defaultUserDialogExample, imageUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
+import {
+  VisualPickerRadioVertical,
+  VisualPickerRadioHorizontal,
+  VisualPickerCheckboxVertical,
+  VisualPickerCheckboxHorizontal,
+  VisualPickerCheckboxI18n,
+  VisualPickerRadioChecked,
+  VisualPickerCheckboxDisabled,
+  VisualPickerRadioIndividualError,
+  VisualPickerCheckboxGroupError,
+} from '../../../component-examples/VisualPickerExamples.ts';
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
@@ -62,26 +68,16 @@ export const getStaticProps = async () => {
 
 <LivePreview
   scope={{
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerRadioGroup,
+    VisualPickerRadio,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
   showOverflow
 >
-  {defaultUserDialogExample}
+  {VisualPickerRadioVertical}
 </LivePreview>
 
 ## Guidelines
@@ -98,6 +94,8 @@ Visual Picker follows the same accessibility guidelines as [Radio Group](/compon
 
 Like all input elements, both Radio and Checkbox Visual Pickers require a group label that describes the collection. Provide an accessible label using the `legend` prop on VisualPickerRadioGroup or VisualPickerCheckboxGroup. The grouping should be visually implicit, but a description still needs to be provided for assistive technology.
 
+Always use the `labelText` prop on VisualPickerRadio and VisualPickerCheckbox to provide a descriptive string for each option.
+
 When focused on a Visual Picker Radio control, use arrow keys to navigate to the other radios. When focused on a Visual Picker Checkbox control, use the tab key to navigate to the other checkboxes.
 
 ## Examples
@@ -108,28 +106,20 @@ Use a Visual Picker Radio when a user must select a single option.
 
 #### Vertical
 
+Vertical is the default orientation for Visual Picker.
+
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerRadioGroup,
+    VisualPickerRadio,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerRadioVertical}
 </LivePreview>
 
 #### Horizontal
@@ -138,26 +128,16 @@ Use the horizontal Visual Picker when more complex visuals will help users compa
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerRadioGroup,
+    VisualPickerRadio,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerRadioHorizontal}
 </LivePreview>
 
 ### Visual Picker Checkbox
@@ -166,28 +146,20 @@ Use a Visual Picker Checkbox when a user can select multiple options.
 
 #### Vertical
 
+Vertical is the default orientation for Visual Picker.
+
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerCheckboxGroup,
+    VisualPickerCheckbox,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerCheckboxVertical}
 </LivePreview>
 
 #### Horizontal
@@ -196,54 +168,34 @@ Use the horizontal Visual Picker when more complex visuals will help users compa
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerCheckboxGroup,
+    VisualPickerCheckbox,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerCheckboxHorizontal}
 </LivePreview>
 
 ### Internationalization
 
-Internationalizing Visual Picker is the same for both Radio and Checkbox Visual Pickers. To internationalize a Visual Picker, simply pass translated text as children. The only exception to this is the required dot in the legend of a required Visual Picker. To change the required dot's text, use the i18nRequiredLabel prop.
+Internationalizing Visual Picker is the same for both Radio and Checkbox Visual Pickers. To internationalize a Visual Picker, simply pass translated text as children. The only exception to this is the required dot in the legend of a required Visual Picker. To change the required dot's text, use the i18nRequiredLabel prop. Hover over the required dot to see the translated string.
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerCheckboxGroup,
+    VisualPickerCheckbox,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerCheckboxI18n}
 </LivePreview>
 
 ## States
@@ -260,26 +212,16 @@ If you do apply a pre-checked value, make the checked option the first option.
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerRadioGroup,
+    VisualPickerRadio,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerRadioChecked}
 </LivePreview>
 
 ### Disabled
@@ -288,52 +230,32 @@ Use a Disabled Visual Picker to show users that they can’t interact with it.
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerCheckboxGroup,
+    VisualPickerCheckbox,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerCheckboxDisabled}
 </LivePreview>
 
 ### Individual error
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerRadioGroup,
+    VisualPickerRadio,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerRadioIndividualError}
 </LivePreview>
 
 ### Group error
@@ -351,27 +273,23 @@ For additional guidance on how to compose error messages, refer to the [error st
 
 <LivePreview
   scope={{
-    useUserDialogState,
-    UserDialog,
-    UserDialogUserInfo,
-    UserDialogUserName,
-    UserDialogUserEmail,
-    UserDialogContainer,
-    UserDialogList,
-    UserDialogListItem,
-    useUserDialogListState,
-    UserDialogSeparator,
+    VisualPickerCheckboxGroup,
+    VisualPickerCheckbox,
     useUID,
-    UserIcon,
-    ThemeIcon,
-    TranslationIcon,
-    Box,
-    Badge,
+    Text,
+    Anchor,
   }}
   noInline
+  showOverflow
 >
-  {imageUserDialogExample}
+  {VisualPickerCheckboxGroupError}
 </LivePreview>
+
+## Composition notes
+
+Refer to the [Radio](/components/radio#composition-notes) and [Checkbox](/components/checkbox#composition-notes) composition notes for general guidance. Due to the visual nature of the component, avoid including more than two sentences in description text.
+
+Visual Picker Radios and Checkboxes are sized based on their contents. In order to control and standardize the size of all pickers within a group, pass equally sized children to each picker.
 
 ## Usage guide
 
@@ -395,37 +313,45 @@ const VisualPickerExample = () => {
 
 #### VisualPickerRadioGroup props
 
-| Prop     | Type                                                  | Description                           | Default |
-| -------- | ----------------------------------------------------- | ------------------------------------- | ------- |
-| children | `NonNullable<React.ReactNode>`                        |                                       |         |
-| state?   | `NonModalDialogPrimitiveStateReturn`                  | User Dialog state hook                |         |
-| name     | `string`                                              | Provides name for the Avatar initials |         |
-| src?     | `string`                                              | Provides an image for the Avatar      |         |
-| icon?    | `React.FC<React.PropsWithChildren<GenericIconProps>>` | Provides an icon for the Avatar       |         |
+| Prop               | Type                                | Description                                                                               | Default                     |
+| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
+| children           | `React.ReactNode`                   | VisualPickerRadio                                                                         |                             |
+| orientation?       | `oneOf(['vertical', 'horizontal'])` |                                                                                           | 'vertical'                  |
+| name               | `string`                            | Provides name for the VisualPickerRadioGroup and VisualPickerRadio(s)                     |                             |
+| value              | `string`                            | Set value equal to the value of the currently selected VisualPickerRadio                  |                             |
+| onChange           | `(value: string) => void`           |                                                                                           |
+| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'                |
+| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO_GROUP' |
 
 #### VisualPickerRadio props
 
-All the valid HTML attributes for input[type=radio] are supported as well as the following props:
-
-| Prop       | Type              | Description                                                                               | Default       |
-| ---------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children   | `React.ReactNode` |                                                                                           |               |
-| aria-label | `string`          | Accessible label for the User Dialog                                                      |               |
-| element?   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG' |
+| Prop      | Type              | Description                                                                               | Default               |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| children  | `React.ReactNode` |                                                                                           |                       |
+| value     | `string`          | Pass to VisualPickerRadioGroup `value` when checked                                       |                       |
+| labelText | `string`          | Label text for the radio                                                                  |                       |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO' |
 
 #### VisualPickerCheckboxGroup props
 
-| Prop     | Type              | Description                                                                               | Default                 |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children | `React.ReactNode` |                                                                                           |                         |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_INFO' |
+| Prop               | Type                                | Description                                                                               | Default                        |
+| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
+| children           | `React.ReactNode`                   |                                                                                           |                                |
+| orientation?       | `oneOf(['vertical', 'horizontal'])` |                                                                                           | 'vertical'                     |
+| id?                | `string`                            |                                                                                           | 'vertical'                     |
+| name               | `string`                            | Provides name for the VisualPickerCheckboxGroup and VisualPickerCheckbox(es)              |                                |
+| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'                   |
+| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_CHECKBOX_GROUP' |
 
 #### VisualPickerCheckbox props
 
-| Prop     | Type              | Description                                                                               | Default                 |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children | `React.ReactNode` |                                                                                           |                         |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_NAME' |
+| Prop      | Type              | Description                                                                               | Default               |
+| --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| children  | `React.ReactNode` |                                                                                           |                       |
+| checked   | `boolean`         | Determines the checked state of the checkbox                                              |                       |
+| labelText | `string`          | Label text for the checkbox                                                               |                       |
+| onChange  | `(event) => void` | Used to change the current state of the checkbox                                          |                       |
+| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO' |
 
 <ChangelogRevealer>
   <Changelog />
