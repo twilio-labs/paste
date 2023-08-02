@@ -1,5 +1,5 @@
 /**
- * Inspiration curtesy of ChakraUI https://github.com/chakra-ui/chakra-ui/tree/main/packages/core/system
+ * Inspiration courtesy of ChakraUI https://github.com/chakra-ui/chakra-ui/tree/main/packages/core/system
  */
 
 export type As = React.ElementType;

@@ -5,7 +5,7 @@ import type {BoxProps} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface AlertDialogHeaderProps extends HTMLPasteProps<'head'>, Pick<BoxProps, 'element'> {
+export interface AlertDialogHeaderProps extends HTMLPasteProps<'header'>, Pick<BoxProps, 'element'> {
   children: string;
   headingID: string;
 }
