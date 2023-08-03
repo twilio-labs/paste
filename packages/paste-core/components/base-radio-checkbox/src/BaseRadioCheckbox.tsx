@@ -13,7 +13,7 @@ import type {BoxProps} from '@twilio-paste/box';
 export interface BaseRadioCheckboxControlProps extends SiblingBoxProps, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  applyHoverStyles?: boolean;
+  applyHoverStyles?: boolean; // only used in Visual Picker
 }
 const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxControlProps>(
   ({children, disabled, applyHoverStyles = false, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props}, ref) => {

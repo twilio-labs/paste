@@ -33,6 +33,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
       [onChange, visualPickerRadioGroupContext.onChange]
     );
 
+    // Prioritizing direct props values over whatever visualPickerRadioGroupContext passes down, except for `name` which should always be consistent across radios in a group
     const state: HiddenRadioState = {
       name: visualPickerRadioGroupContext.name || name || visualPickerRadioGroupContext.name,
       disabled: disabled != null ? disabled : visualPickerRadioGroupContext.groupIsDisabled,
@@ -45,6 +46,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
     const internalRef = React.useRef<HTMLInputElement>();
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
+    // Border color shouldn't change on hover of selected radio because a radio can't be unselected by clicking on it
     let pickerBorderColor = 'colorBorderWeak' as BorderColor;
     if (disabled || groupIsDisabled) pickerBorderColor = 'colorBorderWeak';
     else if (!state.checked) {

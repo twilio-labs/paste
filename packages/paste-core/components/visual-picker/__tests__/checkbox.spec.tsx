@@ -75,7 +75,7 @@ describe('VisualPickerCheckbox', () => {
     expect(getByLabelText('foo').id).toBe('foo');
 
     // name
-    expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
+    expect((getByLabelText('foo') as HTMLInputElement).name).toBe('visual-picker');
 
     // disabled
     expect((getByLabelText('foo') as HTMLInputElement).disabled).toBeTruthy();

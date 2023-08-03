@@ -19,9 +19,9 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
     const labelId = useUID();
     const checkboxId = id ? id : useUID();
 
-    // Prioritizing direct props values over whatever visualPickerCheckboxGroupContext passes down
+    // Prioritizing direct props values over whatever visualPickerCheckboxGroupContext passes down, except for `name` which should always be consistent across checkboxes in a group
     const disabled = props.disabled != null ? props.disabled : visualPickerCheckboxGroupContext.groupIsDisabled;
-    const name = props.name != null ? props.name : visualPickerCheckboxGroupContext.name;
+    const name = visualPickerCheckboxGroupContext.name || props.name || visualPickerCheckboxGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : visualPickerCheckboxGroupContext.groupHasError;
 
     const {groupHasError, groupIsDisabled} = visualPickerCheckboxGroupContext;
