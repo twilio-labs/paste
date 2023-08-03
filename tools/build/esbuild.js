@@ -57,7 +57,7 @@ async function build(packageJson) {
      * Sets the target environment so the code is changed into a format that
      * works  with node12 and the listed browsers
      */
-    target: ['chrome66', 'firefox58', 'safari11', 'edge79', 'node12.19.0'],
+    target: ['chrome100', 'firefox100', 'safari14', 'edge100', 'node18.16.0'],
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },

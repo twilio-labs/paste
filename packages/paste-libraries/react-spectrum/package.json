@@ -1,0 +1,42 @@
+{
+  "name": "@twilio-paste/react-spectrum-library",
+  "version": "0.0.0",
+  "category": "library",
+  "status": "production",
+  "description": "React Spectrum Library is a collection of tools that help you build adaptive, accessible, and robust user experiences.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "react-aria": "3.26.0",
+    "react-stately": "3.24.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
