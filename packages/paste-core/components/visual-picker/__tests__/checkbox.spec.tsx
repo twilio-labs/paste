@@ -246,6 +246,7 @@ describe('Checkbox Group event handlers', () => {
       </VisualPickerCheckboxGroup>
     );
   };
+
   it('Should call the appropriate event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
@@ -255,7 +256,6 @@ describe('Checkbox Group event handlers', () => {
     const renderedCheckbox = getByTestId('checkbox') as HTMLInputElement;
     fireEvent.click(getByTestId('checkbox'));
     expect(renderedCheckbox.checked).toEqual(true);
-    fireEvent.focus(getByTestId('checkbox'));
     expect(onFocusMock).toHaveBeenCalledTimes(1);
     fireEvent.blur(getByTestId('checkbox'));
     expect(onBlurMock).toHaveBeenCalledTimes(1);

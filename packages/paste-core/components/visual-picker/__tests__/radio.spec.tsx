@@ -217,7 +217,6 @@ describe('VisualPickerRadio event handlers', () => {
 
     fireEvent.click(getByTestId('radio'));
     expect(onChangeMock).toHaveBeenCalledTimes(1);
-    fireEvent.focus(getByTestId('radio'));
     expect(onFocusMock).toHaveBeenCalledTimes(1);
     fireEvent.blur(getByTestId('radio'));
     expect(onBlurMock).toHaveBeenCalledTimes(1);
@@ -248,7 +247,6 @@ describe('Radio Group event handlers', () => {
 
     fireEvent.click(getByTestId('radio'));
     expect(onChangeMock).toHaveBeenCalledTimes(1);
-    fireEvent.focus(getByTestId('radio'));
     expect(onFocusMock).toHaveBeenCalledTimes(1);
     fireEvent.blur(getByTestId('radio'));
     expect(onBlurMock).toHaveBeenCalledTimes(1);
