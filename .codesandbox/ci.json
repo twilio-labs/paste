@@ -104,7 +104,8 @@
     "/packages/paste-types",
     "/packages/paste-libraries/uid",
     "/packages/paste-core/components/user-dialog",
-    "/packages/paste-utils"
+    "/packages/paste-utils",
+    "/packages/paste-core/components/visual-picker"
   ],
   "sandboxes": [
     "/packages/paste-nextjs-template",

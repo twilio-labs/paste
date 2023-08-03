@@ -215,4 +215,4 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export {Radio};
+export {Radio, HiddenRadio, type HiddenRadioState};

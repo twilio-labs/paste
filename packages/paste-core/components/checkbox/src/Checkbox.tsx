@@ -235,4 +235,4 @@ Checkbox.propTypes = {
   defaultChecked: PropTypes.bool,
 };
 
-export {Checkbox};
+export {Checkbox, HiddenCheckbox, CheckboxIcon};
