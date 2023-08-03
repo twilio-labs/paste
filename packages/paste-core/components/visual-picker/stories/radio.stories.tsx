@@ -145,7 +145,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
             </MediaFigure>
             <MediaBody>
-              <Text as="div" fontWeight="fontWeightSemibold">
+              <Text as="div" fontWeight="fontWeightSemibold" color="colorTextWeak">
                 ACME
               </Text>
               <Text as="div" color="colorTextWeak">
@@ -172,7 +172,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
             </MediaFigure>
             <MediaBody>
-              <Text as="div" fontWeight="fontWeightSemibold">
+              <Text as="div" fontWeight="fontWeightSemibold" color="colorTextWeak">
                 ACME
               </Text>
               <Text as="div" color="colorTextWeak">
@@ -426,7 +426,7 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
           flexDirection="column"
           rowGap="space50"
         >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
             $30
           </Text>
           <Text as="div" color="colorTextWeak">
@@ -444,7 +444,7 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
           flexDirection="column"
           rowGap="space50"
         >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
             $150
           </Text>
           <Text as="div" color="colorTextWeak">
@@ -462,7 +462,7 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
           flexDirection="column"
           rowGap="space50"
         >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
             $300
           </Text>
           <Text as="div" color="colorTextWeak">

@@ -94,12 +94,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
           </BaseRadioCheckboxControl>
         </BaseRadioCheckboxLabel>
 
-        <Box
-          element={`${element}_CONTENT`}
-          id={helpTextId}
-          paddingLeft="space50"
-          opacity={disabled || groupIsDisabled ? '70%' : '100%'}
-        >
+        <Box element={`${element}_CONTENT`} id={helpTextId} paddingLeft="space50">
           {children}
         </Box>
       </Box>

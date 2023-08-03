@@ -109,7 +109,7 @@ export const VerticalCheckboxGroupDisabledCheckbox = (): React.ReactNode => {
             <Avatar size="sizeIcon90" name="B T" color="decorative20" />
           </MediaFigure>
           <MediaBody>
-            <Text as="div" fontWeight="fontWeightSemibold">
+            <Text as="div" fontWeight="fontWeightSemibold" color="colorTextWeak">
               SQL
             </Text>
             <Text as="div" color="colorTextWeak">
@@ -124,7 +124,7 @@ export const VerticalCheckboxGroupDisabledCheckbox = (): React.ReactNode => {
             <Avatar size="sizeIcon90" name="B T" color="decorative20" />
           </MediaFigure>
           <MediaBody>
-            <Text as="div" fontWeight="fontWeightSemibold">
+            <Text as="div" fontWeight="fontWeightSemibold" color="colorTextWeak">
               SQL
             </Text>
             <Text as="div" color="colorTextWeak">
@@ -492,7 +492,7 @@ export const VerticalCheckboxGroupSelectAll = (): React.ReactNode => {
       helpText="Help text should go here."
     >
       <VisualPickerCheckbox
-        id="1"
+        id={useUID()}
         labelText="Select all"
         checked={allChecked}
         indeterminate={indeterminate}
@@ -514,7 +514,7 @@ export const VerticalCheckboxGroupSelectAll = (): React.ReactNode => {
         </MediaObject>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox
-        id="2"
+        id={useUID()}
         labelText="SQL"
         checked={checkedItems[0]}
         onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
@@ -534,7 +534,7 @@ export const VerticalCheckboxGroupSelectAll = (): React.ReactNode => {
         </MediaObject>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox
-        id="3"
+        id={useUID()}
         labelText="SQL"
         checked={checkedItems[1]}
         onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
