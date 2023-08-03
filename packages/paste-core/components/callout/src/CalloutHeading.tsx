@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {asTags} from '@twilio-paste/heading';
 import type {BoxProps} from '@twilio-paste/box';
@@ -27,8 +26,3 @@ export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadin
 );
 
 CalloutHeading.displayName = 'CalloutHeading';
-CalloutHeading.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span', 'header'] as asTags[]).isRequired,
-};

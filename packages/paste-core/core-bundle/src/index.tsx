@@ -80,3 +80,4 @@ export * from '@twilio-paste/tooltip-primitive';
 export * from '@twilio-paste/topbar';
 export * from '@twilio-paste/truncate';
 export * from '@twilio-paste/user-dialog';
+export * from '@twilio-paste/visual-picker';
