@@ -5,6 +5,7 @@ import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '@twilio-paste/utils';
 import {useUID} from '@twilio-paste/uid-library';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SidebarContext} from './SidebarContext';
 import type {Variants} from './types';
@@ -63,7 +64,7 @@ const getMobileSpringConfig = (collapsed: boolean): any => ({
   config,
 });
 
-export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement>, Omit<SidebarSkipLinksProps, 'element'> {
+export interface SidebarProps extends HTMLPasteProps<'div'>, Omit<SidebarSkipLinksProps, 'element'> {
   children: React.ReactNode;
   element?: BoxProps['element'];
   collapsed?: boolean;

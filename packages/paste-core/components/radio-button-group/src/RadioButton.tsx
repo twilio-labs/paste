@@ -4,13 +4,14 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {RadioButtonContext} from './RadioButtonContext';
 import {HiddenRadio} from './HiddenRadio';
 import type {HiddenRadioState} from './HiddenRadio';
 import {StyledRadioButtonLabel} from './StyledRadioButtonLabel';
 
-export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioButtonProps extends HTMLPasteProps<'input'> {
   id?: string;
   value?: string;
   name?: string;

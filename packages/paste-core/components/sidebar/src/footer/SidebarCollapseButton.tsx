@@ -5,10 +5,11 @@ import {Box, type BoxProps} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ChevronDoubleLeftIcon} from '@twilio-paste/icons/esm/ChevronDoubleLeftIcon';
 import {ChevronDoubleRightIcon} from '@twilio-paste/icons/esm/ChevronDoubleRightIcon';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SidebarContext} from '../SidebarContext';
 
-export interface SidebarCollapseButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface SidebarCollapseButtonProps extends HTMLPasteProps<'button'> {
   i18nCollapseLabel: string;
   i18nExpandLabel: string;
   element?: BoxProps['element'];

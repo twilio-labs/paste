@@ -2,10 +2,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 
-export interface MinimizableDialogContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MinimizableDialogContentProps extends HTMLPasteProps<'div'> {
   children?: React.ReactNode;
   element?: BoxProps['element'];
 }

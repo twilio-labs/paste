@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface MediaBodyProps extends React.HTMLAttributes<any>, Pick<BoxProps, 'as' | 'element'> {
+export interface MediaBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as' | 'element'> {
   children: NonNullable<React.ReactNode>;
 }
 

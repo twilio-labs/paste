@@ -276,8 +276,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant={variant}
         size={smartDefaultSize as ButtonSizes}
         aria-busy={buttonState === 'loading' ? 'true' : 'false'}
-        className={undefined}
-        style={undefined}
         ref={ref}
       >
         <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>

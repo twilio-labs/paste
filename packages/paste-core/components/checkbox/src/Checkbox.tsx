@@ -13,6 +13,7 @@ import {
 } from '@twilio-paste/base-radio-checkbox';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {RequiredDot} from '@twilio-paste/label';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {CheckboxContext} from './CheckboxContext';
 
@@ -35,7 +36,7 @@ const selectAllChildStyleProps = {
   paddingRight: 'space30',
 };
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
+export interface CheckboxProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   helpText?: string | React.ReactNode;

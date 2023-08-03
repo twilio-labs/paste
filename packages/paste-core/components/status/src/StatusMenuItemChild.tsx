@@ -2,13 +2,14 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {StatusObject} from './constants';
 import type {StatusBadgeVariants} from './types';
 
 type StatusMenuItemChildVariant = StatusBadgeVariants;
 
-export interface StatusMenuItemChildProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface StatusMenuItemChildProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
   variant: StatusMenuItemChildVariant;
 }

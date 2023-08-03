@@ -1,4 +1,5 @@
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import type {BadgeVariants} from './constants';
 
@@ -9,17 +10,17 @@ export type BadgeBaseProps = Pick<BoxProps, 'element'> & {
   variant: typeof BadgeVariants[number];
   size?: BadgeSizes;
 };
-export type BadgeSpanProps = React.HTMLAttributes<HTMLSpanElement> & {
+export type BadgeSpanProps = HTMLPasteProps<'span'> & {
   as: 'span';
   href?: never;
   onClick?: never;
 };
-export type BadgeButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+export type BadgeButtonProps = HTMLPasteProps<'button'> & {
   as: 'button';
-  onClick: React.HTMLAttributes<HTMLButtonElement>['onClick'];
+  onClick: HTMLPasteProps<'button'>['onClick'];
   href?: never;
 };
-export type BadgeAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
+export type BadgeAnchorProps = HTMLPasteProps<'a'> & {
   as: 'a';
   href: string;
   onClick?: never;

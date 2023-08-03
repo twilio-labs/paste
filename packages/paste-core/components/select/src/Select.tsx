@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import type {Variants, Element} from './types';
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends HTMLPasteProps<'select'> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   element?: Element;

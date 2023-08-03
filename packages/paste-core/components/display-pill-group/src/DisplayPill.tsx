@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 import {secureExternalLink} from '@twilio-paste/anchor';
 
-type DisplayPillProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<BoxElementProps, 'element'>;
+type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
 
 /**
  * Display represents a saved entity as part of a collection, usually as a result of multi selection.

@@ -8,12 +8,13 @@ import {SiblingBox} from '@twilio-paste/sibling-box';
 import {Label, RequiredDot} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH} from './constants';
 import {SwitchContext} from './SwitchContext';
 import {SwitchKnob} from './SwitchKnob';
 
-export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
+export interface SwitchProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   helpText?: string | React.ReactNode;

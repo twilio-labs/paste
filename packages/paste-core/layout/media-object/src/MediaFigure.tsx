@@ -4,8 +4,9 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {isMarginTokenProp} from '@twilio-paste/style-props';
 import type {Space} from '@twilio-paste/style-props';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface MediaFigureProps extends React.HTMLAttributes<any>, Pick<BoxProps, 'as' | 'element'> {
+export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as' | 'element'> {
   align?: 'start' | 'end';
   children: NonNullable<React.ReactNode>;
   spacing?: Space;

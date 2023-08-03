@@ -5,10 +5,11 @@ import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SideModalContext} from './SideModalContext';
 
-export interface SideModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SideModalHeaderProps extends HTMLPasteProps<'div'> {
   children?: React.ReactNode;
   i18nDismissLabel?: string;
   element?: BoxProps['element'];

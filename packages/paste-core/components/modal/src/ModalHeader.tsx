@@ -6,10 +6,11 @@ import {Button} from '@twilio-paste/button';
 import {Flex} from '@twilio-paste/flex';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {useModalContext} from './ModalContext';
 
-export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
+export interface ModalHeaderProps extends HTMLPasteProps<'head'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
   i18nDismissLabel?: string;

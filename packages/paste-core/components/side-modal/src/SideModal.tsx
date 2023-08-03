@@ -4,6 +4,7 @@ import {useTransition, animated} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SideModalContext} from './SideModalContext';
 
@@ -22,7 +23,7 @@ const getAnimationStates = (): any => ({
   },
 });
 
-export interface SideModalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SideModalProps extends HTMLPasteProps<'div'> {
   children: React.ReactNode;
   'aria-label': string;
   element?: BoxProps['element'];
