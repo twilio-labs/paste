@@ -139,6 +139,7 @@
     "@twilio-paste/progress-steps": "^1.0.0",
     "@twilio-paste/radio-button-group": "^3.0.0",
     "@twilio-paste/radio-group": "^12.0.0",
+    "@twilio-paste/react-spectrum-library": "^0.0.0",
     "@twilio-paste/react-textarea-autosize-library": "^2.0.0",
     "@twilio-paste/reakit-library": "^1.0.0",
     "@twilio-paste/screen-reader-only": "^12.0.0",
