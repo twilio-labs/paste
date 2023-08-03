@@ -246,6 +246,7 @@ describe('Checkbox Group event handlers', () => {
       </VisualPickerCheckboxGroup>
     );
   };
+
   it('Should call the appropriate event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
