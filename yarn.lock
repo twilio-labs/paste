@@ -16956,6 +16956,7 @@ __metadata:
     "@twilio-paste/uid-library": ^1.0.0
     "@twilio-paste/user-dialog": ^1.0.2
     "@twilio-paste/utils": ^4.1.0
+    "@twilio-paste/visual-picker": ^0.0.0
     "@types/airtable": ^0.10.1
     "@types/gtag.js": ^0.0.12
     "@types/lodash": ^4.14.182
