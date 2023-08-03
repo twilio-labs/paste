@@ -14,19 +14,27 @@ import {inCypress} from '../utils/inCypress';
 import {PreviewThemeContext} from '../context/PreviewThemeContext';
 import {SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = ENVIRONMENT_CONTEXT === 'production';
 
 datadogRum.init({
   applicationId: DATADOG_APPLICATION_ID,
   clientToken: DATADOG_CLIENT_TOKEN,
   site: 'datadoghq.com',
   env: ENVIRONMENT_CONTEXT,
-  service: 'paste',
+  // enable filtering by cypress or human page views in DD
+  service: inCypress() ? 'cypress' : 'paste',
   // paste core version
   version: packageJSON.version,
   sampleRate: 100,
   trackInteractions: true,
+  sessionSampleRate: 100,
+  sessionReplaySampleRate: 20,
+  trackUserInteractions: true,
+  trackResources: true,
+  trackLongTasks: true,
+  defaultPrivacyLevel: 'mask-user-input',
 });
+datadogRum.startSessionReplayRecording();
 
 const App = ({Component, pageProps}: AppProps): React.ReactElement => {
   const [theme, toggleMode, componentMounted] = useDarkMode();

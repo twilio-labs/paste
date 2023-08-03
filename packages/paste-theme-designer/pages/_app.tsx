@@ -17,7 +17,14 @@ datadogRum.init({
   version: '1.0.0',
   sampleRate: 100,
   trackInteractions: true,
+  sessionSampleRate: 100,
+  sessionReplaySampleRate: 20,
+  trackUserInteractions: true,
+  trackResources: true,
+  trackLongTasks: true,
+  defaultPrivacyLevel: 'mask-user-input',
 });
+datadogRum.startSessionReplayRecording();
 
 function MyApp({Component, pageProps}: AppProps): JSX.Element {
   const [tokens, setTokens] = React.useState<GenericTokensShape>(Tokens);
