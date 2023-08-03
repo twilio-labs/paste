@@ -47,8 +47,14 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
 
     let pickerBorderColor = 'colorBorderWeak' as BorderColor;
     if (disabled || groupIsDisabled) pickerBorderColor = 'colorBorderWeak';
-    else if (hasError || groupHasError) pickerBorderColor = 'colorBorderError' as BorderColor;
-    else if (state.checked === true) pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+    else if (!state.checked) {
+      if ((hasError || groupHasError) && !isHovering) pickerBorderColor = 'colorBorderError' as BorderColor;
+      else if ((hasError || groupHasError) && isHovering) pickerBorderColor = 'colorBorderErrorStrong' as BorderColor;
+      else if (isHovering) pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+    } else if (state.checked) {
+      if (hasError || groupHasError) pickerBorderColor = 'colorBorderError' as BorderColor;
+      else pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+    }
 
     return (
       <Box
@@ -57,6 +63,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         display="inline-flex"
         alignItems={visualPickerRadioGroupContext.orientation === 'vertical' ? 'center' : 'flex-start'}
         flexDirection="row"
+        height="100%"
         backgroundColor={disabled || groupIsDisabled ? 'colorBackgroundWeak' : undefined}
         borderStyle="solid"
         borderColor={pickerBorderColor}
@@ -68,17 +75,9 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         onClick={(e) => {
           internalRef.current?.click();
           internalRef.current?.focus();
-          e.preventDefault();
           e.stopPropagation();
         }}
-        _hover={
-          disabled || groupIsDisabled
-            ? {cursor: 'not-allowed'}
-            : {
-                cursor: 'pointer',
-                borderColor: hasError || groupHasError ? 'colorBorderErrorStronger' : 'colorBorderPrimaryStrong',
-              }
-        }
+        _hover={{cursor: disabled || groupIsDisabled ? 'not-allowed' : 'pointer'}}
       >
         <HiddenRadio
           {...props}
@@ -89,8 +88,6 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
           aria-labelledby={labelId}
           onChange={(e) => {
             handleChange(e);
-            // eslint-disable-next-line no-console
-            console.log('change ran');
           }}
           id={radioId}
           ref={mergedRef}
@@ -98,6 +95,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={radioId} id={labelId}>
           <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
           <BaseRadioCheckboxControl
+            onClick={(e) => e.stopPropagation()}
             element={`${element}_CONTROL`}
             borderRadius="borderRadiusCircle"
             disabled={state.disabled}
@@ -124,11 +122,8 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         <Box
           element={`${element}_CONTENT`}
           id={helpTextId}
-          display="flex"
-          justifyContent="space-between"
-          width="100%"
           paddingLeft="space50"
-          alignItems="center"
+          opacity={disabled || groupIsDisabled ? '70%' : '100%'}
         >
           {children}
         </Box>

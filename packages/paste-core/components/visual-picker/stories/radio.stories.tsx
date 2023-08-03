@@ -138,7 +138,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
         setValue(newValue);
       }}
     >
-      <VisualPickerRadio id={useUID()} value="1" labelText="ACME Website" disabled>
+      <VisualPickerRadio id={useUID()} value="1" labelText="ACME Website" disabled hasError>
         <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">

@@ -295,7 +295,7 @@ export const HorizontalCheckboxGroup = (): React.ReactNode => {
             lineHeight="lineHeight30"
             fontSize="fontSize30"
           >
-            Independent Software Vendor, Reseller or Partner who uses WhatsApp for end clients.
+            Independent Software Vendor
           </Text>
         </Box>
       </VisualPickerCheckbox>
@@ -420,49 +420,55 @@ export const HorizontalCheckboxGroupGroupError = (): React.ReactNode => {
       errorText="This is the error text."
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
-        <MediaObject verticalAlign="center">
-          <MediaFigure spacing="space50">
-            <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-          </MediaFigure>
-          <MediaBody>
-            <Text as="div" fontWeight="fontWeightSemibold">
-              SQL
-            </Text>
-            <Text as="div" color="colorTextWeak">
-              Create any trait from your data warehouse by writing SQL.
-            </Text>
-          </MediaBody>
-        </MediaObject>
+        <Box maxWidth="size30">
+          <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space50">
+              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
+            </MediaFigure>
+            <MediaBody>
+              <Text as="div" fontWeight="fontWeightSemibold">
+                SQL
+              </Text>
+              <Text as="div" color="colorTextWeak">
+                Create any trait from your data warehouse by writing SQL.
+              </Text>
+            </MediaBody>
+          </MediaObject>
+        </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox labelText="SQL" checked={checked2} onChange={handleChange2}>
-        <MediaObject verticalAlign="center">
-          <MediaFigure spacing="space50">
-            <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-          </MediaFigure>
-          <MediaBody>
-            <Text as="div" fontWeight="fontWeightSemibold">
-              SQL
-            </Text>
-            <Text as="div" color="colorTextWeak">
-              Create any trait from your data warehouse by writing SQL.
-            </Text>
-          </MediaBody>
-        </MediaObject>
+        <Box maxWidth="size30">
+          <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space50">
+              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
+            </MediaFigure>
+            <MediaBody>
+              <Text as="div" fontWeight="fontWeightSemibold">
+                SQL
+              </Text>
+              <Text as="div" color="colorTextWeak">
+                Create any trait from your data warehouse by writing SQL.
+              </Text>
+            </MediaBody>
+          </MediaObject>
+        </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox labelText="SQL" checked={checked3} onChange={handleChange3}>
-        <MediaObject verticalAlign="center">
-          <MediaFigure spacing="space50">
-            <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-          </MediaFigure>
-          <MediaBody>
-            <Text as="div" fontWeight="fontWeightSemibold">
-              SQL
-            </Text>
-            <Text as="div" color="colorTextWeak">
-              Create any trait from your data warehouse by writing SQL.
-            </Text>
-          </MediaBody>
-        </MediaObject>
+        <Box maxWidth="size30">
+          <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space50">
+              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
+            </MediaFigure>
+            <MediaBody>
+              <Text as="div" fontWeight="fontWeightSemibold">
+                SQL
+              </Text>
+              <Text as="div" color="colorTextWeak">
+                Create any trait from your data warehouse by writing SQL.
+              </Text>
+            </MediaBody>
+          </MediaObject>
+        </Box>
       </VisualPickerCheckbox>
     </VisualPickerCheckboxGroup>
   );

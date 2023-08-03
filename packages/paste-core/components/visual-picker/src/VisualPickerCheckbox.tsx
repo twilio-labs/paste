@@ -41,6 +41,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         display="inline-flex"
         alignItems={visualPickerCheckboxGroupContext.orientation === 'vertical' ? 'center' : 'flex-start'}
         flexDirection="row"
+        height="100%"
         backgroundColor={disabled || groupIsDisabled ? 'colorBackgroundWeak' : undefined}
         borderStyle="solid"
         borderColor={pickerBorderColor}
@@ -52,7 +53,6 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         onClick={(e) => {
           internalRef.current?.click();
           internalRef.current?.focus();
-          e.preventDefault();
           e.stopPropagation();
         }}
         _hover={
@@ -82,6 +82,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         <BaseRadioCheckboxLabel disabled={disabled} htmlFor={checkboxId} id={labelId}>
           <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
           <BaseRadioCheckboxControl
+            onClick={(e) => e.stopPropagation()}
             borderRadius="borderRadius20"
             element={`${element}_CONTROL`}
             disabled={disabled}
@@ -96,11 +97,8 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         <Box
           element={`${element}_CONTENT`}
           id={helpTextId}
-          display="flex"
-          justifyContent="space-between"
-          width="100%"
           paddingLeft="space50"
-          alignItems="center"
+          opacity={disabled || groupIsDisabled ? '70%' : '100%'}
         >
           {children}
         </Box>

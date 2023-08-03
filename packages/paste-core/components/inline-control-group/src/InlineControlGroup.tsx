@@ -29,7 +29,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
       orientation = 'vertical',
       required,
       i18nRequiredLabel,
-      fieldStyleProps,
+      fieldStyleProps, // Only used in Visual Picker
       ...props
     },
     ref
@@ -58,32 +58,34 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
         <Box element={`${element}_SET`} marginRight="space20">
-          {React.Children.map(children, (child, index) => {
-            return (
-              <Box
-                element={`${element}_FIELD`}
-                display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-                marginTop={
-                  fieldStyleProps?.marginTop
-                    ? // eslint-disable-next-line unicorn/no-nested-ternary
-                      index === 0 && orientation === 'vertical'
-                      ? 'space40'
-                      : fieldStyleProps?.marginTop
-                    : 'space40'
-                }
-                marginRight={
-                  fieldStyleProps?.marginRight
-                    ? fieldStyleProps?.marginRight
-                    : // eslint-disable-next-line unicorn/no-nested-ternary
-                    orientation === 'horizontal'
-                    ? 'space70'
-                    : null
-                }
-              >
-                {child}
-              </Box>
-            );
-          })}
+          <Box display={fieldStyleProps && orientation === 'horizontal' ? 'inline-flex' : 'block'}>
+            {React.Children.map(children, (child, index) => {
+              return (
+                <Box
+                  element={`${element}_FIELD`}
+                  display={orientation === 'horizontal' ? 'inline-block' : 'block'}
+                  marginTop={
+                    fieldStyleProps?.marginTop
+                      ? // eslint-disable-next-line unicorn/no-nested-ternary
+                        index === 0 && orientation === 'vertical'
+                        ? 'space40'
+                        : fieldStyleProps?.marginTop
+                      : 'space40'
+                  }
+                  marginRight={
+                    fieldStyleProps?.marginRight
+                      ? fieldStyleProps?.marginRight
+                      : // eslint-disable-next-line unicorn/no-nested-ternary
+                      orientation === 'horizontal'
+                      ? 'space70'
+                      : null
+                  }
+                >
+                  {child}
+                </Box>
+              );
+            })}
+          </Box>
           {errorText && (
             <Box element={`${element}_ERROR_TEXT_WRAPPER`} marginTop="space40">
               <HelpText variant="error">{errorText}</HelpText>
