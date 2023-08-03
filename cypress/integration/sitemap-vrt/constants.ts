@@ -90,6 +90,7 @@ export const SITEMAP = [
   '/components/user-dialog/',
   '/components/textarea/',
   '/components/table/',
+  '/components/visual-picker/',
   '/core/',
   '/core/changelog/',
   '/core/libraries/',

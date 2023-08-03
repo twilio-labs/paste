@@ -21,6 +21,15 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
 import {useUID} from '@twilio-paste/uid-library';
+import {Avatar, AvatarGroup} from '@twilio-paste/avatar';
+import {StatusBadge} from '@twilio-paste/status';
+import {CodeIcon} from '@twilio-paste/icons/esm/CodeIcon';
+import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+import {CommunityIcon} from '@twilio-paste/icons/esm/CommunityIcon';
+import {SMSIcon} from '@twilio-paste/icons/esm/SMSIcon';
+import {VoiceCapableIcon} from '@twilio-paste/icons/esm/VoiceCapableIcon';
+import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
+import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
 import packageJson from '@twilio-paste/visual-picker/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -72,7 +81,15 @@ export const getStaticProps = async () => {
     VisualPickerRadio,
     useUID,
     Text,
-    Anchor,
+    Box,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Avatar,
+    AvatarGroup,
+    StatusBadge,
+    CodeIcon,
+    CommunityIcon,
   }}
   noInline
   showOverflow
@@ -114,7 +131,15 @@ Vertical is the default orientation for Visual Picker.
     VisualPickerRadio,
     useUID,
     Text,
-    Anchor,
+    Box,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Avatar,
+    AvatarGroup,
+    StatusBadge,
+    CodeIcon,
+    CommunityIcon,
   }}
   noInline
   showOverflow
@@ -132,7 +157,7 @@ Use the horizontal Visual Picker when more complex visuals will help users compa
     VisualPickerRadio,
     useUID,
     Text,
-    Anchor,
+    Box,
   }}
   noInline
   showOverflow
@@ -154,7 +179,18 @@ Vertical is the default orientation for Visual Picker.
     VisualPickerCheckbox,
     useUID,
     Text,
-    Anchor,
+    Box,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Avatar,
+    AvatarGroup,
+    UserIcon,
+    SMSIcon,
+    CodeIcon,
+    VoiceCapableIcon,
+    ProductVideoIcon,
+    EmailIcon,
   }}
   noInline
   showOverflow
@@ -172,7 +208,7 @@ Use the horizontal Visual Picker when more complex visuals will help users compa
     VisualPickerCheckbox,
     useUID,
     Text,
-    Anchor,
+    Box,
   }}
   noInline
   showOverflow
@@ -216,7 +252,15 @@ If you do apply a pre-checked value, make the checked option the first option.
     VisualPickerRadio,
     useUID,
     Text,
-    Anchor,
+    Box,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Avatar,
+    AvatarGroup,
+    StatusBadge,
+    CodeIcon,
+    CommunityIcon,
   }}
   noInline
   showOverflow
@@ -226,7 +270,7 @@ If you do apply a pre-checked value, make the checked option the first option.
 
 ### Disabled
 
-Use a Disabled Visual Picker to show users that they can’t interact with it.
+Use a Disabled Visual Picker to show users that they can’t interact with it. When disabling an item, set all text colors to `color-text-weak` and gray out any other content.
 
 <LivePreview
   scope={{
@@ -234,7 +278,18 @@ Use a Disabled Visual Picker to show users that they can’t interact with it.
     VisualPickerCheckbox,
     useUID,
     Text,
-    Anchor,
+    Box,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Avatar,
+    AvatarGroup,
+    UserIcon,
+    SMSIcon,
+    CodeIcon,
+    VoiceCapableIcon,
+    ProductVideoIcon,
+    EmailIcon,
   }}
   noInline
   showOverflow
@@ -250,7 +305,7 @@ Use a Disabled Visual Picker to show users that they can’t interact with it.
     VisualPickerRadio,
     useUID,
     Text,
-    Anchor,
+    Box,
   }}
   noInline
   showOverflow
@@ -277,7 +332,7 @@ For additional guidance on how to compose error messages, refer to the [error st
     VisualPickerCheckbox,
     useUID,
     Text,
-    Anchor,
+    Box,
   }}
   noInline
   showOverflow
@@ -351,6 +406,7 @@ const VisualPickerExample = () => {
 | checked   | `boolean`         | Determines the checked state of the checkbox                                              |                       |
 | labelText | `string`          | Label text for the checkbox                                                               |                       |
 | onChange  | `(event) => void` | Used to change the current state of the checkbox                                          |                       |
+| name?     | `string`          | Provides a name for the checkbox if not part of a VisualPickerCheckboxGroup               |                       |
 | element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO' |
 
 <ChangelogRevealer>
