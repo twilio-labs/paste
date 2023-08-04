@@ -113,7 +113,7 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
         <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
           <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
             <Component {...pageProps} />
-            {cookiesAccepted == null && <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />}
+            {cookiesAccepted === null && <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />}
           </PreviewThemeContext.Provider>
         </DarkModeContext.Provider>
       </Theme.Provider>
