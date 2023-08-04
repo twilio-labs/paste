@@ -17,7 +17,7 @@
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
-    "@datadog/browser-rum": "^2.8.1",
+    "@datadog/browser-rum": "^4.46.0",
     "@docsearch/css": "^3.3.3",
     "@docsearch/react": "^3.3.3",
     "@hookform/error-message": "2.0.0",

@@ -4345,33 +4345,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@datadog/browser-core@npm:2.18.0":
-  version: 2.18.0
-  resolution: "@datadog/browser-core@npm:2.18.0"
-  dependencies:
-    tslib: ^1.10.0
-  checksum: 4c85b5354661c6e854eb88d92c831dd4bc27f74292d5fe22ad901dc3641b9c06fda39fba923b9a2a098012cc61546e29b9ecb4f38ceeddb98c16e5e5c535684a
+"@datadog/browser-core@npm:4.46.0":
+  version: 4.46.0
+  resolution: "@datadog/browser-core@npm:4.46.0"
+  checksum: 13d4eaf93191cb46520d7efca35082acc3cceaf6d9383d5b01b0b21ac4c8a91678cdf1f0f1d48df50665fa4bf9284d822f2fde11b80dae9f331435be230b6cbf
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum-core@npm:2.18.0":
-  version: 2.18.0
-  resolution: "@datadog/browser-rum-core@npm:2.18.0"
+"@datadog/browser-rum-core@npm:4.46.0":
+  version: 4.46.0
+  resolution: "@datadog/browser-rum-core@npm:4.46.0"
   dependencies:
-    "@datadog/browser-core": 2.18.0
-    tslib: ^1.10.0
-  checksum: e7993c64281cf58cc770f5f810f4d18424bad13816b337b9f1692fa15912e0bdf8aab7278a96f947b9764500a5b2c44da536988701dfa8857cfb3193724f5fdf
+    "@datadog/browser-core": 4.46.0
+  checksum: d90269e080550d6a33d031a8fad4789fd8a2d65f3d6e65bab25e44591c621f4c4b6f703feabdf538cfa0af641d42e3b94e84af47f1d36d947c139d7303548ed0
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum@npm:^2.8.1":
-  version: 2.18.0
-  resolution: "@datadog/browser-rum@npm:2.18.0"
+"@datadog/browser-rum@npm:^4.46.0":
+  version: 4.46.0
+  resolution: "@datadog/browser-rum@npm:4.46.0"
   dependencies:
-    "@datadog/browser-core": 2.18.0
-    "@datadog/browser-rum-core": 2.18.0
-    tslib: ^1.10.0
-  checksum: 35aa14e1e53af29cc6e24b389f7d290eb38111e5736c4ca063473d28cc08285199e7730a2ebbe0f67a644ba6bf59fb5fba4251ea11b2356062fe0c55b0ab5098
+    "@datadog/browser-core": 4.46.0
+    "@datadog/browser-rum-core": 4.46.0
+    "@datadog/browser-worker": 4.46.0
+  peerDependencies:
+    "@datadog/browser-logs": 4.46.0
+  peerDependenciesMeta:
+    "@datadog/browser-logs":
+      optional: true
+  checksum: 5d308bc580beda2dda7cad70d83261789fcdea6b73f640a94feaae37303eed1cc4dd6aa26a255d7a0b576144f300cdb878268188d4eae064954baefd6a033a97
+  languageName: node
+  linkType: hard
+
+"@datadog/browser-worker@npm:4.46.0":
+  version: 4.46.0
+  resolution: "@datadog/browser-worker@npm:4.46.0"
+  dependencies:
+    "@datadog/browser-core": 4.46.0
+  checksum: 597ef77e6cbc5faf9cee0d88efec5af3460bcd5c8289485228fa00da63c62000274d205bc23abac8cc819938369ae42af4941f7bfa9c4c72469b3e7919c77b25
   languageName: node
   linkType: hard
 
@@ -14879,7 +14890,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme-designer@workspace:packages/paste-theme-designer"
   dependencies:
-    "@datadog/browser-rum": ^2.8.1
+    "@datadog/browser-rum": ^4.46.0
     "@twilio-paste/core": ^19.0.0
     "@twilio-paste/icons": ^11.0.0
     next: ^13.1.6
@@ -15393,7 +15404,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/website@workspace:packages/paste-website"
   dependencies:
-    "@datadog/browser-rum": ^2.8.1
+    "@datadog/browser-rum": ^4.46.0
     "@docsearch/css": ^3.3.3
     "@docsearch/react": ^3.3.3
     "@hookform/error-message": 2.0.0
