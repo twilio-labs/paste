@@ -15,8 +15,6 @@ import {
   SidebarCollapseButton,
 } from '@twilio-paste/sidebar';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {Button} from '@twilio-paste/button';
 
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
