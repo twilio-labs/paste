@@ -5,11 +5,11 @@ import {styled, css} from '@twilio-paste/styling-library';
 import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 export type TextAreaVariants = 'default' | 'inverse';
 
-export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, Pick<BoxProps, 'element'> {
-  className?: never;
+export interface TextAreaProps extends HTMLPasteProps<'textarea'>, Pick<BoxProps, 'element'> {
   disabled?: boolean;
   hasError?: boolean;
   height?: never;
@@ -22,7 +22,6 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   required?: boolean;
   resize?: 'none' | 'vertical';
   size?: never;
-  style?: never;
   variant?: TextAreaVariants;
   width?: never;
 }

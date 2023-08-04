@@ -5,6 +5,7 @@ import {useTransition} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {ModalDialogOverlay} from '@twilio-paste/modal';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {AlertDialogHeader} from './AlertDialogHeader';
 import {AlertDialogBody} from './AlertDialogBody';
@@ -24,7 +25,7 @@ const getAnimationStates = (): any => ({
   },
 });
 
-export interface AlertDialogProps extends React.HTMLAttributes<HTMLElement>, Pick<BoxProps, 'element'> {
+export interface AlertDialogProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   destructive?: boolean;
   heading: string;

@@ -6,6 +6,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import type {AnchorProps} from '@twilio-paste/anchor';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {useUIDSeed} from '@twilio-paste/uid-library';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{element: BoxElementProps['element']}>> = ({element}) => (
   <Text
@@ -30,7 +31,7 @@ type BreadcrumbItemBaseProps = Pick<BoxProps, 'element'> & {
   last?: boolean;
 };
 
-type BreadcrumbItemAsSpanProps = React.HTMLAttributes<HTMLSpanElement> &
+type BreadcrumbItemAsSpanProps = HTMLPasteProps<'span'> &
   BreadcrumbItemBaseProps & {
     href?: never;
   };
@@ -93,7 +94,7 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export interface BreadcrumbProps extends React.HTMLAttributes<'nav'> {
+export interface BreadcrumbProps extends HTMLPasteProps<'nav'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
 }

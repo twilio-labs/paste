@@ -5,6 +5,7 @@ import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {safelySpreadFormControlProps} from './utils';
 import {DecrementButton} from './DecrementButton';
@@ -12,10 +13,7 @@ import {IncrementButton} from './IncrementButton';
 
 export type InputVariants = 'default' | 'inverse';
 
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'color'>,
-    Pick<BoxProps, 'element'> {
-  className?: never;
+export interface InputProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   disabled?: boolean;
   hasError?: boolean;
   height?: never;

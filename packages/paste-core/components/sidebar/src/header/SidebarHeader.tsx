@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface SidebarHeaderProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface SidebarHeaderProps extends HTMLPasteProps<'button'> {
   children: React.ReactNode;
   element?: BoxProps['element'];
 }

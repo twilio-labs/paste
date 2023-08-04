@@ -6,6 +6,7 @@ import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/b
 import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {ModalContext} from './ModalContext';
 
@@ -65,7 +66,7 @@ export const ModalDialogContent = animated(
   )
 );
 
-export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
   isOpen: boolean;

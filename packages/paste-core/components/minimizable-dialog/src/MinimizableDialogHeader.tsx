@@ -7,10 +7,11 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {BoxProps} from '@twilio-paste/box';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {MinimizableDialogContext} from './MinimizableDialogContext';
 
-export interface MinimizableDialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MinimizableDialogHeaderProps extends HTMLPasteProps<'div'> {
   children?: React.ReactNode;
   i18nDismissLabel?: string;
   i18nMinimizeLabel?: string;

@@ -1,12 +1,12 @@
 import type {BoxProps} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
+import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import type {Left} from '@twilio-paste/style-props';
 
 import type {ToastVariantObject} from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
 
-export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
+export interface ToastProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   /**
    * callback when user clicks the dismiss button
@@ -42,12 +42,12 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
   i18nWarningLabel?: string;
 }
 
-export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastPortalProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;
   left?: Left;
 }
 
-export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastContainerProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;
   left?: Left;
 }

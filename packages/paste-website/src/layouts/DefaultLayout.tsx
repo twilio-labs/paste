@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
 import {Box} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
@@ -24,10 +25,7 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const SiteMain: React.FC<React.PropsWithChildren<Omit<React.HTMLAttributes<HTMLElement>, 'color'>>> = ({
-  children,
-  ...props
-}) => {
+const SiteMain: React.FC<React.PropsWithChildren<HTMLPasteProps<'div'>>> = ({children, ...props}) => {
   return (
     <Box
       element="SITE_MAIN"

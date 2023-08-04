@@ -4,6 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 import type {ThemeShape} from '@twilio-paste/theme';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SidebarContext} from '../SidebarContext';
 import {SidebarNavigationContext} from './SidebarNavigationContext';
@@ -46,7 +47,7 @@ const SidebarNavigationWrapper = styled.nav(({theme}: {theme: ThemeShape}) => {
   });
 });
 
-export interface SidebarNavigationProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarNavigationProps extends HTMLPasteProps<'div'> {
   children: React.ReactNode;
   'aria-label': string;
   element?: BoxProps['element'];

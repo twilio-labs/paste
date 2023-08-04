@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface DisplayPillGroupProps extends React.OlHTMLAttributes<HTMLElement> {
+export interface DisplayPillGroupProps extends HTMLPasteProps<'ol'> {
   'aria-label': string;
   element?: string;
   children: React.ReactNode;
