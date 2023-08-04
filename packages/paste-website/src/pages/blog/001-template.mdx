@@ -1,0 +1,55 @@
+export const meta = {
+  title: 'Title',
+  slug: '/blog/match-the-file-name/',
+  date: '2023-06-12',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'draft',
+  excerpt: 'Intro text',
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+
+import NavUIKit from '../../assets/images/articles/2023-06-12-paste-newsletter/nav-ui-kit.png';
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## Heading 1
+
+<ResponsiveImage src={NavUIKit} alt="Example of an image" />
+
+</ArticleContent>
+
+</contentwrapper>
