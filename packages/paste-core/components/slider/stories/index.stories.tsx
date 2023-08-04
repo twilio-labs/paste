@@ -1,11 +1,11 @@
 import * as React from 'react';
-
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Form, FormControl} from '@twilio-paste/form';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+
 import {Slider} from '../src';
 
 // eslint-disable-next-line import/no-default-export
