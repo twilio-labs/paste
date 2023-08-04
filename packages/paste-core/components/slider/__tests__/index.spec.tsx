@@ -36,7 +36,6 @@ describe('Slider', () => {
       // Slider input
       const input = screen.getByRole('slider');
       expect(input).toBeInTheDocument();
-      expect(input).toHaveAttribute('aria-labelledby', 'test-slider');
       expect(input).toHaveAttribute('min', '0');
       expect(input).toHaveAttribute('max', '1');
       expect(input).toHaveAttribute('step', '0.01');
@@ -44,7 +43,7 @@ describe('Slider', () => {
       expect(input).toHaveAttribute('type', 'range');
       expect(input).toHaveAttribute('aria-valuetext', '50%');
       expect(input).toHaveAttribute('tabindex', '0');
-      expect(input).toHaveAttribute('id', 'test-slider-0');
+      expect(input).toHaveAttribute('id', 'test-slider');
 
       // Fires events correctly
       fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});

@@ -50,7 +50,8 @@ export const Slider: React.FC<SliderProps> = (props) => {
     ...props,
     id,
     isDisabled,
-    'aria-labelledby': id, // needed to silence react-aria a11y guardrails
+    // needed to silence react-aria a11y guardrails
+    'aria-labelledby': id,
   };
 
   // These hooks manage the state of the slider
@@ -125,7 +126,8 @@ export const Slider: React.FC<SliderProps> = (props) => {
               <input
                 ref={inputRef}
                 {...inputProps}
-                aria-labelledby={id}
+                aria-labelledby={undefined}
+                id={inputProps.id?.replace('-0', '')}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
               />

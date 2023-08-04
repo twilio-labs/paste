@@ -23,7 +23,7 @@ export const Default = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={`${id}`}>Volume</Label>
+        <Label htmlFor={id}>Volume</Label>
         <Slider
           id={id}
           value={value}
@@ -49,7 +49,7 @@ export const Disabled = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={`${id}-0`}>Volume</Label>
+        <Label htmlFor={id}>Volume</Label>
         <Slider
           disabled
           id={id}
@@ -76,7 +76,7 @@ export const Error = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label required htmlFor={`${id}-0`}>
+        <Label required htmlFor={id}>
           How many radios do you own?
         </Label>
         <Slider
@@ -105,7 +105,7 @@ export const CustomRange = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={`${id}-0`}>Screen brightness</Label>
+        <Label htmlFor={id}>Screen brightness</Label>
         <Slider
           id={id}
           value={value}
@@ -127,7 +127,7 @@ export const CustomStep = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={`${id}-0`}>Player count</Label>
+        <Label htmlFor={id}>Player count</Label>
         <Slider
           id={id}
           value={value}
@@ -147,7 +147,7 @@ export const HiddenRangeLabels = (): React.ReactNode => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={`${id}-0`}>Scale</Label>
+        <Label htmlFor={id}>Scale</Label>
         <Slider
           id={id}
           value={value}
@@ -190,7 +190,7 @@ export const CustomizedSlider = (): React.ReactNode => {
     >
       <Form>
         <FormControl>
-          <Label htmlFor={`${id}-0`}>Player count</Label>
+          <Label htmlFor={id}>Player count</Label>
           <Slider
             element="SLOODER"
             id={id}
