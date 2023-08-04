@@ -37,9 +37,9 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
         service: inCypress() ? 'cypress' : 'paste',
         // paste core version
         version: packageJSON.version,
-        sampleRate: 100,
-        trackInteractions: true,
+        // controls the percentage of overall sessions being tracked. It defaults to 100%
         sessionSampleRate: 100,
+        // applied after the overall sample rate, and controls the percentage of sessions tracked as Browser RUM & Session Replay
         sessionReplaySampleRate: 20,
         trackUserInteractions: true,
         trackResources: true,
