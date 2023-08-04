@@ -19,8 +19,8 @@ export const CookieConsent: React.FC<{onAccept: () => void; onReject: () => void
       justifyContent="space-around"
     >
       <Box display="flex" alignItems="center" columnGap="space40" maxWidth="1200px">
-        To enhance our site, we utilize tools that establish cookies. The data gathered by these tools is anonymized. If
-        you opt to decline the use of cookies on this site, no analytics service will be initiated.
+        To help us improve this site, we use tools that set cookies. The data gathered by these tools is anonymized. If
+        you reject the use of cookies, no analytics service will be initiated.
         <Box
           flexShrink={0}
           flexGrow={1}
