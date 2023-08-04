@@ -1,0 +1,239 @@
+export const meta = {
+  title: 'Slider',
+  package: '@twilio-paste/slider',
+  description:
+    'A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.',
+  slug: '/components/slider/',
+};
+
+import {Slider} from '@twilio-paste/slider';
+import Changelog from '@twilio-paste/slider/CHANGELOG.md';
+import packageJson from '@twilio-paste/slider/package.json';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {Form, FormControl} from '@twilio-paste/form';
+import {useUID} from '@twilio-paste/uid-library';
+
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {
+  defaultSlider,
+  disabledSlider,
+  errorSlider,
+  customRangeSlider,
+  customStepSlider,
+  hiddenRangeLabelsSlider,
+} from '../../../component-examples/SliderExamples';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Slider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  storybookUrl="/?path=/story/components-alert--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {defaultSlider}
+</LivePreview>
+
+## Guidelines
+
+### About Slider
+
+A Slider allows a user to select a numerical value when:
+
+- immediate feedback is important
+- the value doesn’t need to be precise, especially when the act of choosing a
+  bigger or smaller value is more important than the value itself.
+- the value is in a defined range
+
+Slider uses [Adobe's Spectrum React-Aria useSlider](https://react-spectrum.adobe.com/react-aria/useSlider.html) under the hood.
+
+### Slider vs. number Input vs. Meter
+
+Both Sliders and [number Inputs](/components/input#input-with-number-functionality) are form
+fields that take numerical values. Because the mouse and touch interaction on a Slider is less
+precise, use a Slider when the exact number value isn’t important, for example, when
+selecting image opacity or audio volume.
+
+If the user needs to select an exact value, use a [number Input](/components/input#input-with-number-functionality)
+instead. If you want to let users select between consecutive values, you can
+also use a [Radio Button Group](/components/radio-button-group).
+
+In cases where visually showing the size of a numerical value is important and
+it’s not enough to show it as text, use a [number Input](/components/input#input-with-number-functionality)
+paired with a Meter (component to come!) instead.
+
+### Accessibility
+
+Slider is a form element and follows the same accessibility guidelines as other form fields:
+
+- Include a label on **all** form fields. Use one of 3 ways to label a form field:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
+- Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
+- Provide clear identification of required fields in the label or at the start of a form.
+  Use the `required` prop to programmatically indicate they are required to browsers.
+- Include inline [error Help Text](/components/help-text#error-help-text) on any field
+  that errors to make it visually clear that the field changed.
+- If the input has associated help text, include the `aria-describedby` prop on the input.
+  This should match the `id` of the help text
+
+## Examples
+
+### Default
+
+Use a Slider when a user should select an imprecise value from a midsized and defined numerical range, such as 1–100.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {defaultSlider}
+</LivePreview>
+
+### Error
+
+Avoid errors on Sliders by changing the defined range so no errors can occur.
+
+If a user is still able to choose an invalid option, change the Slider to its error
+state and use [Help Text](/components/help-text#error-help-text) to add an inline error.
+For additional guidance on how to compose error messages, refer to the
+[error state pattern](/patterns/error-state).
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {errorSlider}
+</LivePreview>
+
+### Disabled
+
+Use a disabled Slider to show users that they can't interact with the Slider.
+
+If you want to show a value that can't be edited, use a Meter (to come) or
+consider another way of showing static information.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {disabledSlider}
+</LivePreview>
+
+### Custom Range
+
+Use a custom range Slider when the default range doesn't fit your use case.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {customRangeSlider}
+</LivePreview>
+
+### Custom Step
+
+Use a custom step Slider when the default step doesn't fit your use case.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {customStepSlider}
+</LivePreview>
+
+### Hide Range Labels
+
+Use a Slider with hidden range labels when the range is obvious or the labels are not needed.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {hiddenRangeLabelsSlider}
+</LivePreview>
+
+### Do & Don't
+
+<DoDont>
+  <Do title="Do" body="Use a Slider for mid-sized, defined ranges, usually 1–100">
+    <Label>Opacity</Label>
+    <Slider />
+  </Do>
+  <Dont title="Don't" body="Don’t use a Slider for very large or very small ranges.">
+    <Label>Number of backups</Label>
+    <Slider />
+  </Dont>
+</DoDont>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/core - or - yarn add @twilio-paste/slider
+```
+
+#### Usage
+
+```jsx
+import {Slider} from '@twilio-paste/core/slider';
+
+const Component = () => {
+  const [value, setValue] = React.useState(10);
+  const sliderId = useUID();
+  // const helpTextId = useUID(); // optional if you have Help Text
+
+  return (
+    <Slider
+      id={sliderId}
+      aria-describedby={helpTextId}
+      value={value}
+      minValue={0}
+      maxValue={100}
+      step={1}
+      onChange={(newValue) => setValue(newValue)}
+      numberFormatter={PercentFormatter}
+    />
+  );
+};
+```
+
+#### Props
+
+| Prop              | Type                      | Description                                                                                 | Default  |
+| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------- | -------- |
+| id                | `string`                  | Must provide an id to match with a label                                                    | null     |
+| aria-describedby? | `string`                  | Optional id to pair the input to its help text                                              | null     |
+| disabled?         | `boolean`                 | Disables the slider                                                                         | false    |
+| hasError?         | `boolean`                 | Shows error styling on the Slider                                                           | false    |
+| hideRangeLabels?  | `boolean`                 | Hides the min and max values that appear over the slider                                    | false    |
+| minValue?         | `number`                  | The smallest number in the slider range                                                     | 1        |
+| maxValue?         | `number`                  | The largest number in the slider range                                                      | 100      |
+| step?             | `number`                  | The incremented value as you drag along the range                                           | 1        |
+| numberFormatter   | `Intl.NumberFormatter`    | Used to format the value into i18n formats. Can return localized currencies and percentages |          |
+| value?            | `number`                  | The current selected value                                                                  | 1        |
+| onChange?         | `(value: number) => void` | Fired on every change as the thumb is dragged along the track                               |          |
+| onChangeEnd?      | `(value: number) => void` | Fired at the end of the dragging event once                                                 |          |
+| element?          | `string`                  | Overrides the default element name to apply unique styles with the Customization Provider   | 'SLIDER' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
