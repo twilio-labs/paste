@@ -1,0 +1,182 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - August 2023 Edition',
+  slug: '/blog/2023-08-02-paste-newsletter/',
+  date: '2023-08-02',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'published',
+  excerpt: "What's new in Paste in August 2023? The Navigation UI Kit is live!",
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+
+import NavUIKitImage from '../../assets/images/articles/2023-06-12-paste-newsletter/nav-ui-kit.png';
+import TopbarImage from '../../assets/images/articles/2023-08-02-paste-newsletter/topbar.png';
+import TopbarIngredientsImage from '../../assets/images/articles/2023-08-02-paste-newsletter/topbar-ingredients.png';
+import SidebarImage from '../../assets/images/articles/2023-08-02-paste-newsletter/sidebar.png';
+import SidebarIngredientsImage from '../../assets/images/articles/2023-08-02-paste-newsletter/sidebar-ingredients.png';
+import AccountSwitcherImage from '../../assets/images/articles/2023-08-02-paste-newsletter/acount-switcher.png';
+import ProductSwitcherImage from '../../assets/images/articles/2023-08-02-paste-newsletter/product-switcher.png';
+import UserDialogImage from '../../assets/images/articles/2023-08-02-paste-newsletter/user-dialog.png';
+import StatusBadgeImage from '../../assets/images/articles/2023-08-02-paste-newsletter/status-badge.png';
+import StatusMenuImage from '../../assets/images/articles/2023-08-02-paste-newsletter/status-menu.png';
+import ProgressStepsImage from '../../assets/images/articles/2023-08-02-paste-newsletter/progress-steps.png';
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 Everything in the [Navigation UI Kit](/patterns/navigation)
+
+The Navigation UI kit structures common elements found in Twilio products to provide customers a cohesive, expected way to find what they're looking for. Applying this pattern across all our experiences also makes the Twilio product suite feel and behave like one family of products.
+
+The Navigation UI Kit is composed of a collection of ingredients that can be combined in different ways to create navigation structure for a variety of applications.
+
+<ResponsiveImage src={NavUIKitImage} alt="Preview of the Navigation UI Kit components" />
+
+### [Topbar](/components/topbar)
+
+<ResponsiveImage src={TopbarIngredientsImage} alt="Topbar Ingredients" />
+
+<ResponsiveImage src={TopbarImage} alt="Preview of the Topbar component" />
+
+Our Topbar is fixed at the top of your app window for easy access to key application controls. It conveniently categorizes controls into two sections: User and Account. To keep things organized, we recommend separating these controls; user controls on the right and account controls on the left.
+
+Account control examples include:
+
+- [Account Switcher](/components/account-switcher)
+- [Online Status controls](/components/status-menu)
+- Account type indicators, such as subaccount [Badges](/components/badge)
+- Possible upgrade actions
+
+Here are some user control possibilities:
+
+- Search function using [Input](/components/input) or [Combobox](/components/combobox)
+- Support [Menu](/components/menu)
+- [Product Switcher](/components/product-switcher)
+- [User Dialog](/components/user-dialog)
+
+### [Sidebar](/components/sidebar)
+
+<Box display="flex">
+  <ResponsiveImage src={SidebarIngredientsImage} alt="Preview of the Navigation UI Kit components" />
+  <ResponsiveImage src={SidebarImage} alt="Preview of the Navigation UI Kit components" />
+</Box>
+
+The Sidebar forms the heart of primary navigation within any application. It caters to both flat and hierarchical structures, thereby meeting the diverse needs of different Twilio applications. Its consistent design ensures a familiar way to navigate back to an applications home dashboard across all Twilio products. With two collapsible modes—"push" and "overlay"—it intends to cater to the needs of distinct, and different user personas based on their screen real estate needs.
+
+### [Account Switcher](/components/account-switcher)
+
+<Box maxWidth="400px">
+  <ResponsiveImage src={AccountSwitcherImage} alt="Preview of the Navigation UI Kit components" />
+</Box>
+
+An essential part of any Twilio application is the ability to switch between Accounts, Sub-accounts, Workspaces or Projects. The Account Switcher offers a uniform method of changing accounts across all applications, fostering familiarity even as users switch between distinct products.
+
+### [Product Switcher](/components/product-switcher)
+
+<Box maxWidth="400px">
+  <ResponsiveImage src={ProductSwitcherImage} alt="Preview of the Navigation UI Kit components" />
+</Box>
+
+Transitioning between different products or applications is another key feature required by our customers as they weave their engagement solutions together with Twilio's multitude of capabilities and APIs. The Product Switcher ensures a consistent and intuitive means for navigating through purchased Twilio services and can be located conveniently in the [Topbar](/components/topbar).
+
+### [User Dialog](/components/user-dialog)
+
+<Box maxWidth="400px">
+  <ResponsiveImage src={UserDialogImage} alt="Preview of the Navigation UI Kit components" />
+</Box>
+
+Providing a common way for a user to control or edit their account, settings or preferences is the job of the User Dialog. Designed to be housed in the [Topbar](/components/topbar), the User Dialog provides you with a way to display user data such as an Avatar, email address and name, along with actions that user might wish to take. Actions might include editing user settings, visiting documentation, switching between light and dark modes, or languages and logging out.
+
+### [Status Badge](/components/status-badge)
+
+<ResponsiveImage src={StatusBadgeImage} alt="Preview of the Navigation UI Kit components" />
+
+The [Status Badge](/components/status-badge) further evolves from our [Status Pattern](/pattern/status), allowing you to communicate status updates for any process or connection seamlessly. It provides an implementation of the Status Pattern using an appropriate combination of status level indicators, icons and colors.
+
+### [Status Menu](/components/status-menu)
+
+<Box maxWidth="400px">
+  <ResponsiveImage src={StatusMenuImage} alt="Preview of the Navigation UI Kit components" />
+</Box>
+
+For processes that require frequent changes in status, we've married together the [Menu](/components/menu) with the [Status Badge](/components/status-badge). The resulting Status Menu allows quick understanding and modification of ongoing statuses.
+
+## 📣 What else is new in Paste?
+
+### [Progress Steps](/components/progress-steps)
+
+<ResponsiveImage src={ProgressStepsImage} alt="Preview of the Navigation UI Kit components" />
+
+One of our highest requested components lands into production! Catering especially to product areas featuring multi-step flows—the Progress Steps component aims at delivering a smooth sequence towards completion.
+
+It visually breaks down complex tasks into manageable chunks—ideal for 3–5 steps—and indicates both completed and remaining steps. Use these Progress Steps when tasks are nonlinear or require multiple sessions for completion.
+
+### Additional updates
+
+#### New
+
+- [Selectable menu items](/components/menu#selectable-menu-items)
+- [Menu badge](/components/menu#menu-badge)
+- Added Rich Text Editor [Icons](/components/icons)
+
+#### Improvements
+
+- Updated the Paste Patterns library in Figma to ["Paste Patterns & Layouts"](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Layouts?type=design&node-id=367%3A27339&mode=design&t=t0tpwajosYvlkUh5-1), which now uses the new twilio theme.
+- Resolved issues where slot styles would override swapped components.
+
+<Box marginBottom="space120" />
+
+## 👀 What we're working on next
+
+| Feature                                 | Description                                                                                                                                                                                    |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Visual Picker component**             | Visual Picker is a visually enhanced checkbox or radio button selection element.                                                                                                               |
+| **Slider component**                    | Draggable input over a range of numbers.                                                                                                                                                       |
+| **Editable Code block component**       | A component used to create editable, syntax highlighted blocks of code.                                                                                                                        |
+| **Empty state pattern updates**         | Improved guidance on how to compose empty states within product UI.                                                                                                                            |
+| **Meter component**                     | Communicates the capacity of an object within a range, especially when there's no user need to completely fill the range.                                                                      |
+| **Progress Bar component**              | Communicates progress through a linear process, especially when there's a need to finish the process.                                                                                          |
+| **Product page layouts**                | Figma templates for common Twilio page layouts, such as Manage List and Settings pages.                                                                                                        |
+| **Variables for Paste Figma libraries** | Adding [variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma) to Paste Figma libraries to allow easier swapping between themes and light/dark modes. |
+
+<Box marginBottom="space120" />
+
+As always, we're better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>

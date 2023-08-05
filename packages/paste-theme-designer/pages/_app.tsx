@@ -15,9 +15,16 @@ datadogRum.init({
   service: 'paste-remix',
   env: process.env.ENVIRONMENT_CONTEXT,
   version: '1.0.0',
-  sampleRate: 100,
-  trackInteractions: true,
+  // controls the percentage of overall sessions being tracked. It defaults to 100%
+  sessionSampleRate: 100,
+  // applied after the overall sample rate, and controls the percentage of sessions tracked as Browser RUM & Session Replay
+  sessionReplaySampleRate: 20,
+  trackUserInteractions: true,
+  trackResources: true,
+  trackLongTasks: true,
+  defaultPrivacyLevel: 'mask-user-input',
 });
+datadogRum.startSessionReplayRecording();
 
 function MyApp({Component, pageProps}: AppProps): JSX.Element {
   const [tokens, setTokens] = React.useState<GenericTokensShape>(Tokens);
