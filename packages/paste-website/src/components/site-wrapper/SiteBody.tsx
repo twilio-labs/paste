@@ -11,6 +11,8 @@ import {
   SidebarHeaderIconButton,
   SidebarHeaderLabel,
   SidebarPushContentWrapper,
+  SidebarFooter,
+  SidebarCollapseButton,
 } from '@twilio-paste/sidebar';
 import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
@@ -46,6 +48,7 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
   // sidebar is not collapsed by default, most common use case for desktop viewing
   const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
+  const mobileSidebarCloseButton = React.useRef<HTMLButtonElement>(null);
 
   /**
    * Handle responsive sidebar collapse state for small screen sizes and initial render for SSR
@@ -64,6 +67,15 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
     // track mounted state to help prevent flash of content on SSR
     setMounted(true);
   }, [breakpointIndex]);
+
+  /**
+   * Handle user focus on mobile sidebar open, place them in the overlaid Sidebar
+   */
+  React.useEffect(() => {
+    if (!sidebarCollapsed && mobileSidebarCloseButton.current) {
+      mobileSidebarCloseButton.current.focus();
+    }
+  }, [sidebarCollapsed]);
 
   /**
    * The tokens list page an extra sticky filter bar so the jump to scroll offset needs an extra offset.
@@ -112,6 +124,15 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
           <SidebarBody>
             <SidebarNavigation />
           </SidebarBody>
+          {breakpointIndex === 0 && (
+            <SidebarFooter>
+              <SidebarCollapseButton
+                i18nCollapseLabel="Collapse Site Navigation"
+                i18nExpandLabel="Expand Site Navigation"
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              />
+            </SidebarFooter>
+          )}
         </Sidebar>
       </Box>
       <SidebarPushContentWrapper id="styled-site-body">
