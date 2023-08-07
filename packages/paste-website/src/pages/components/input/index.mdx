@@ -262,7 +262,7 @@ Provide translated strings for the 'increment' and 'decrement' button labels to 
 
 Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-A Help Text inline error is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
+An error Help Text is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -371,8 +371,6 @@ For additional guidance on how to compose error messages, refer to the [error st
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-
-Use an input when users are expected to enter less than a single line of text, or text that's shorter than a sentence.
 
 <DoDont>
   <Do title="Do" body="Use an input to encourage short text entry." center>

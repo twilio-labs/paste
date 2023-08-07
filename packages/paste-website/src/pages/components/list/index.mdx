@@ -88,9 +88,8 @@ Lists are a number of connected list items that are printed consecutively, typic
 
 ### Accessibility
 
-- List text should meet AA requirements (4.5:1) for color contrast from itself and the background color.
 - `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component.
-- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component, e.g.
+- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component. For example:
 
 ```jsx
 <OrderedList>
@@ -109,7 +108,7 @@ Lists are a number of connected list items that are printed consecutively, typic
 
 An unordered list is the default variant for List.
 
-Use unordered list to display a basic list of items related to a particular topic. Use Heading and/or body text preceding the list to introduce the linked topic. 
+Use unordered lists to display a basic list of items related to a particular topic. Use Heading and/or body text preceding the list to introduce the linked topic. 
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
@@ -214,7 +213,7 @@ Start each list item with the same part of speech, usually a noun or verb. This 
 
 Do not use a period at the end of list items unless they are complete sentences. Do not use commas or ellipses at the end of list items.
 
-Avoid listing more than very long lists. Where possible, make a big list into smaller ones with explanatory [Headings](/components/heading).
+Avoid listing very long lists. Where possible, make a big list into smaller ones with explanatory [Headings](/components/heading).
 
 ## Dos and don'ts
 
