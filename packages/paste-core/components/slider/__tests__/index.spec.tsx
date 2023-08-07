@@ -17,6 +17,7 @@ describe('Slider', () => {
         <Theme.Provider theme="twilio">
           <Slider
             id="test-slider"
+            aria-describedby="test-description"
             value={0.5}
             minValue={0}
             maxValue={1}
@@ -27,11 +28,6 @@ describe('Slider', () => {
           />
         </Theme.Provider>
       );
-
-      // wrapper
-      expect(screen.getByRole('group')).toBeInTheDocument();
-      // Range
-      expect(screen.getByRole('presentation')).toBeInTheDocument();
 
       // Slider input
       const input = screen.getByRole('slider');
@@ -44,11 +40,16 @@ describe('Slider', () => {
       expect(input).toHaveAttribute('aria-valuetext', '50%');
       expect(input).toHaveAttribute('tabindex', '0');
       expect(input).toHaveAttribute('id', 'test-slider');
+      expect(input).toHaveAttribute('aria-describedby', 'test-description');
 
       // Fires events correctly
       fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});
       expect(onChangeMock).toHaveBeenCalledTimes(1);
       expect(onChangeEndMock).toHaveBeenCalledTimes(1);
+
+      // Check that the range is being rendered
+      const minValue = screen.getByText('0%');
+      expect(minValue).toBeInTheDocument();
 
       // New render to test other conditions
       rerender(
@@ -68,11 +69,8 @@ describe('Slider', () => {
         </Theme.Provider>
       );
 
-      /*
-       * Check that range isn't rendering
-       * queryByRole returns null if no element is found, getByRole throws an error
-       */
-      expect(screen.queryByRole('presentation')).toBe(null);
+      // Check that range isn't rendering anymore
+      expect(minValue).not.toBeInTheDocument();
 
       fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});
       // Disabled so unchanged in call count
@@ -98,15 +96,17 @@ describe('Slider', () => {
         </CustomizationProvider>
       );
 
-      const slider = screen.getByRole('group');
-      expect(slider).toHaveAttribute('data-paste-element', 'SLIDER');
+      const minValue = screen.getByText('0%');
+      expect(minValue).toHaveAttribute('data-paste-element', 'SLIDER_RANGE_LABELS_MIN');
+      const rangeLabelsWrapper = minValue.parentElement;
+      expect(rangeLabelsWrapper).toHaveAttribute('data-paste-element', 'SLIDER_RANGE_LABELS');
+      const sliderWrapper = rangeLabelsWrapper?.parentElement;
+      expect(sliderWrapper).toHaveAttribute('data-paste-element', 'SLIDER');
 
-      expect(slider.querySelector('[data-paste-element="SLIDER_RANGE_LABELS"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="SLIDER_RANGE_LABELS_MIN"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="SLIDER_RANGE_LABELS_MAX"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="SLIDER_TRACK_CONTAINER"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="SLIDER_TRACK"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="SLIDER_THUMB"]')).toBeInTheDocument();
+      expect(rangeLabelsWrapper?.querySelector('[data-paste-element="SLIDER_RANGE_LABELS_MAX"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK_CONTAINER"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_THUMB"]')).toBeInTheDocument();
     });
 
     it('should set custom data-paste-element attribute on Slider and its children', (): void => {
@@ -126,15 +126,17 @@ describe('Slider', () => {
         </CustomizationProvider>
       );
 
-      const slider = screen.getByRole('group');
-      expect(slider).toHaveAttribute('data-paste-element', 'PASTA');
+      const minValue = screen.getByText('0%');
+      expect(minValue).toHaveAttribute('data-paste-element', 'PASTA_RANGE_LABELS_MIN');
+      const rangeLabelsWrapper = minValue.parentElement;
+      expect(rangeLabelsWrapper).toHaveAttribute('data-paste-element', 'PASTA_RANGE_LABELS');
+      const sliderWrapper = rangeLabelsWrapper?.parentElement;
+      expect(sliderWrapper).toHaveAttribute('data-paste-element', 'PASTA');
 
-      expect(slider.querySelector('[data-paste-element="PASTA_RANGE_LABELS"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="PASTA_RANGE_LABELS_MIN"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="PASTA_RANGE_LABELS_MAX"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="PASTA_TRACK_CONTAINER"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="PASTA_TRACK"]')).toBeInTheDocument();
-      expect(slider.querySelector('[data-paste-element="PASTA_THUMB"]')).toBeInTheDocument();
+      expect(rangeLabelsWrapper?.querySelector('[data-paste-element="PASTA_RANGE_LABELS_MAX"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK_CONTAINER"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_THUMB"]')).toBeInTheDocument();
     });
   });
 });
