@@ -2,13 +2,17 @@ import * as React from 'react';
 import {Box, type BoxProps} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {useSliderState, useSlider, useSliderThumb} from '@twilio-paste/react-spectrum-library';
+import {useMergeRefs} from '@twilio-paste/utils';
 
 import {SliderThumb} from './SliderThumb';
 import {StyledTrack} from './StyledTrack';
 
+const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
+
 export interface SliderProps {
   element?: BoxProps['element'];
   id: string;
+  'aria-describedby'?: string;
   disabled?: boolean;
   hasError?: boolean;
   hideRangeLabels?: boolean;
@@ -19,16 +23,19 @@ export interface SliderProps {
    * Used to adjust how the numbers are rendered and interpreted.
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat \
    */
-  numberFormatter: Intl.NumberFormat;
+  numberFormatter?: Intl.NumberFormat;
   value?: number;
   onChange?: (value: number) => void;
   /** Fired when the slider stops moving, due to being let go. */
   onChangeEnd?: (value: number) => void;
+  i18nMaxRangeLabel?: string;
+  i18nMinRangeLabel?: string;
 }
 
-export const Slider: React.FC<SliderProps> = (props) => {
+export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const inputRef = React.useRef(null);
   const trackRef = React.useRef(null);
+  const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;
   const [hovered, setHovered] = React.useState(false);
   const [focused, setFocused] = React.useState(false);
 
@@ -43,6 +50,8 @@ export const Slider: React.FC<SliderProps> = (props) => {
     hideRangeLabels = false,
     disabled: isDisabled = false,
     id,
+    i18nMaxRangeLabel = 'Maximum value:',
+    i18nMinRangeLabel = 'Minimum value:',
   } = props;
 
   // Our API differs from the underlying library, so we need to remap props
@@ -52,6 +61,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
     isDisabled,
     // needed to silence react-aria a11y guardrails
     'aria-labelledby': id,
+    numberFormatter: props.numberFormatter || DefaultNumberFormatter,
   };
 
   // These hooks manage the state of the slider
@@ -61,7 +71,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
     {
       index: 0,
       trackRef,
-      inputRef,
+      inputRef: mergedInputRef,
     },
     state
   );
@@ -78,11 +88,10 @@ export const Slider: React.FC<SliderProps> = (props) => {
   }, [isDisabled, props.hasError, hovered, focused, isDragging]);
 
   return (
-    <Box role="group" element={element}>
+    <Box element={element}>
       {/* Create a container for the optional min and max values */}
       {!hideRangeLabels && (
         <Box
-          role="presentation"
           element={`${element}_RANGE_LABELS`}
           display="flex"
           justifyContent="space-between"
@@ -91,11 +100,13 @@ export const Slider: React.FC<SliderProps> = (props) => {
           fontWeight="fontWeightSemibold"
           color="colorTextWeak"
         >
-          <Box as="span" element={`${element}_RANGE_LABELS_MIN`}>
-            {props.numberFormatter.format(minValue)}
+          <Box element={`${element}_RANGE_LABELS_MIN`}>
+            <ScreenReaderOnly>{i18nMinRangeLabel}</ScreenReaderOnly>
+            {remappedProps.numberFormatter.format(minValue)}
           </Box>
-          <Box as="span" element={`${element}_RANGE_LABELS_MAX`}>
-            {props.numberFormatter.format(maxValue)}
+          <Box element={`${element}_RANGE_LABELS_MAX`}>
+            <ScreenReaderOnly>{i18nMaxRangeLabel}</ScreenReaderOnly>
+            {remappedProps.numberFormatter.format(maxValue)}
           </Box>
         </Box>
       )}
@@ -110,7 +121,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
         alignItems="center"
         height="20px"
         width="100%"
-        cursor="pointer"
+        cursor={isDisabled ? 'not-allowed' : 'pointer'}
       >
         <StyledTrack
           {...uiStateProps}
@@ -119,14 +130,15 @@ export const Slider: React.FC<SliderProps> = (props) => {
           height="4px"
           width="100%"
           borderRadius="borderRadius20"
-          cursor="pointer"
+          transition="background 150ms ease"
         >
           <SliderThumb {...thumbProps} {...uiStateProps} element={`${element}_THUMB`}>
             <ScreenReaderOnly>
               <input
-                ref={inputRef}
+                ref={mergedInputRef}
                 {...inputProps}
                 aria-labelledby={undefined}
+                aria-describedby={props['aria-describedby']}
                 id={inputProps.id?.replace('-0', '')}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
@@ -137,6 +149,6 @@ export const Slider: React.FC<SliderProps> = (props) => {
       </Box>
     </Box>
   );
-};
+});
 
 Slider.displayName = 'Slider';

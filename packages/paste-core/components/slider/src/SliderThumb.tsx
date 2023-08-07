@@ -16,10 +16,11 @@ export const SliderThumb: React.FC<SliderThumbProps> = ({element = 'SLIDER_THUMB
       backgroundColor={getColorToken(props)}
       boxShadow={props.dragging || props.focused ? 'shadowFocus' : 'none'}
       borderRadius="borderRadiusCircle"
+      transition="background-color 150ms ease, box-shadow 150ms ease"
       width="20px"
       height="20px"
       marginTop="space10"
-      cursor="pointer"
+      cursor={props.disabled ? 'not-allowed' : 'pointer'}
       left={left}
       element={element}
     />

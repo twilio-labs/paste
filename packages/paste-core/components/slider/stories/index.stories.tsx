@@ -18,14 +18,16 @@ const PercentFormatter = new Intl.NumberFormat('en-US', {style: 'percent'});
 
 export const Default = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(0.75);
-  const id = useUID();
+  const sliderId = useUID();
+  const helpTextId = useUID();
 
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={id}>Volume</Label>
+        <Label htmlFor={sliderId}>Volume</Label>
         <Slider
-          id={id}
+          id={sliderId}
+          aria-describedby={helpTextId}
           value={value}
           minValue={0}
           maxValue={1}
@@ -33,8 +35,8 @@ export const Default = (): React.ReactNode => {
           onChange={(newValue) => setValue(newValue)}
           numberFormatter={PercentFormatter}
         />
-        <HelpText>
-          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast. I said to myself “well, I
+        <HelpText id={helpTextId}>
+          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”. I said to myself “well, I
           can’t turn that down.”
         </HelpText>
       </FormControl>
@@ -44,15 +46,19 @@ export const Default = (): React.ReactNode => {
 
 export const Disabled = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(0.01);
-  const id = useUID();
+  const sliderId = useUID();
+  const helpTextId = useUID();
 
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={id}>Volume</Label>
+        <Label disabled htmlFor={sliderId}>
+          Volume
+        </Label>
         <Slider
           disabled
-          id={id}
+          id={sliderId}
+          aria-describedby={helpTextId}
           value={value}
           minValue={0}
           maxValue={1}
@@ -60,8 +66,8 @@ export const Disabled = (): React.ReactNode => {
           onChange={(newValue) => setValue(newValue)}
           numberFormatter={PercentFormatter}
         />
-        <HelpText>
-          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast. I said to myself “well, I
+        <HelpText id={helpTextId}>
+          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”. I said to myself “well, I
           can’t turn that down.”
         </HelpText>
       </FormControl>
@@ -71,17 +77,19 @@ export const Disabled = (): React.ReactNode => {
 
 export const Error = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(32);
-  const id = useUID();
+  const sliderId = useUID();
+  const helpTextId = useUID();
 
   return (
     <Form>
       <FormControl>
-        <Label required htmlFor={id}>
+        <Label required htmlFor={sliderId}>
           How many radios do you own?
         </Label>
         <Slider
           hasError
-          id={id}
+          id={sliderId}
+          aria-describedby={helpTextId}
           value={value}
           minValue={0}
           maxValue={100}
@@ -89,8 +97,8 @@ export const Error = (): React.ReactNode => {
           onChange={(newValue) => setValue(newValue)}
           numberFormatter={NumberFormatter}
         />
-        <HelpText variant="error">
-          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast. I said to myself “well, I
+        <HelpText id={helpTextId} variant="error">
+          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”. I said to myself “well, I
           can’t turn that down.”
         </HelpText>
       </FormControl>
