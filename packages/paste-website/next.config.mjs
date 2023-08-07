@@ -35,7 +35,7 @@ const nextConfig = {
         source: '/components/:path*',
         headers: [
           {
-            key: 'Content-Security-Polic',
+            key: 'Content-Security-Policy',
             value: 'frame-src * frame-ancestors *',
           },
         ],
