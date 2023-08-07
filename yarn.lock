@@ -14464,6 +14464,7 @@ __metadata:
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
+    "@twilio-paste/utils": 4.1.0
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
@@ -14483,6 +14484,7 @@ __metadata:
     "@twilio-paste/theme": ^10.0.0
     "@twilio-paste/types": ^5.0.0
     "@twilio-paste/uid-library": ^1.0.0
+    "@twilio-paste/utils": 4.1.0
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
@@ -15351,7 +15353,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/utils@^4.0.0, @twilio-paste/utils@^4.1.0, @twilio-paste/utils@workspace:packages/paste-utils":
+"@twilio-paste/utils@4.1.0, @twilio-paste/utils@^4.0.0, @twilio-paste/utils@^4.1.0, @twilio-paste/utils@workspace:packages/paste-utils":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/utils@workspace:packages/paste-utils"
   dependencies:
