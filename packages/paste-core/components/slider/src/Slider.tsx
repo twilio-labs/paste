@@ -33,8 +33,8 @@ export interface SliderProps {
 }
 
 export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
-  const inputRef = React.useRef(null);
-  const trackRef = React.useRef(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const trackRef = React.useRef<HTMLDivElement>(null);
   const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;
   const [hovered, setHovered] = React.useState(false);
   const [focused, setFocused] = React.useState(false);
@@ -71,7 +71,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
     {
       index: 0,
       trackRef,
-      inputRef: mergedInputRef,
+      inputRef,
     },
     state
   );
@@ -86,6 +86,10 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
       dragging: isDragging,
     };
   }, [isDisabled, props.hasError, hovered, focused, isDragging]);
+
+  const onClickHandler = React.useCallback(() => {
+    inputRef?.current?.focus();
+  }, [inputRef]);
 
   return (
     <Box element={element}>
@@ -122,6 +126,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         height="20px"
         width="100%"
         cursor={isDisabled ? 'not-allowed' : 'pointer'}
+        onClick={onClickHandler}
       >
         <StyledTrack
           {...uiStateProps}
@@ -131,8 +136,9 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
           width="100%"
           borderRadius="borderRadius20"
           transition="background 150ms ease"
+          onClick={onClickHandler}
         >
-          <SliderThumb {...thumbProps} {...uiStateProps} element={`${element}_THUMB`}>
+          <SliderThumb {...thumbProps} {...uiStateProps} element={`${element}_THUMB`} onClick={onClickHandler}>
             <ScreenReaderOnly>
               <input
                 ref={mergedInputRef}

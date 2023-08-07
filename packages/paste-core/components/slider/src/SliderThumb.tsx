@@ -8,6 +8,7 @@ export interface SliderThumbProps extends UIStates {
   children?: React.ReactNode;
   left?: string | number;
   element: BoxProps['element'];
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 export const SliderThumb: React.FC<SliderThumbProps> = ({element = 'SLIDER_THUMB', left = '0%', ...props}) => {
   return (

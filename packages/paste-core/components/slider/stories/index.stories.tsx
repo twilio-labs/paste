@@ -3,6 +3,8 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Form, FormControl} from '@twilio-paste/form';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -129,22 +131,27 @@ export const CustomRange = (): React.ReactNode => {
 };
 
 export const CustomStep = (): React.ReactNode => {
-  const [value, setValue] = React.useState<number>(32);
+  const [value, setValue] = React.useState<number>(25);
   const id = useUID();
 
   return (
-    <Form>
-      <FormControl>
-        <Label htmlFor={id}>Player count</Label>
-        <Slider
-          id={id}
-          value={value}
-          step={25}
-          onChange={(newValue) => setValue(newValue)}
-          numberFormatter={NumberFormatter}
-        />
-      </FormControl>
-    </Form>
+    <>
+      <Form>
+        <FormControl>
+          <Label htmlFor={id}>Player count</Label>
+          <Slider
+            id={id}
+            value={value}
+            step={25}
+            onChange={(newValue) => setValue(newValue)}
+            numberFormatter={NumberFormatter}
+          />
+        </FormControl>
+      </Form>
+      <Box marginTop="space70">
+        <Paragraph>You selected: {NumberFormatter.format(value)}</Paragraph>
+      </Box>
+    </>
   );
 };
 
