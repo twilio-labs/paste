@@ -7,13 +7,13 @@ const VisualPickerExample = () => {
           id={useUID()} 
           legend={
             <Text as="span" color="currentColor">
-              Select a data source
+              Select data source
             </Text>
           }
           onChange={(newValue) => {
             setValue(newValue);
           }}
-          helpText="The connected source you select will send data to the client."
+          helpText="The source sends data to the client."
           value={value}
         >
           <VisualPickerRadio id={useUID()} value='1' labelText="my first site (website)">
@@ -114,7 +114,7 @@ const VisualPickerExample = () => {
           id={useUID()} 
           legend={
             <Text as="span" color="currentColor">
-              Select a plan
+              Select plan
             </Text>
           }
           onChange={(newValue) => {
@@ -132,6 +132,7 @@ const VisualPickerExample = () => {
               rowGap="space50"
               padding="space20"
               paddingTop="space50"
+              paddingRight="space40"
             >
               <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
                 $30
@@ -150,6 +151,7 @@ const VisualPickerExample = () => {
             rowGap="space50"
             padding="space20"
             paddingTop="space50"
+            paddingRight="space40"
           >
             <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
               $150
@@ -168,6 +170,7 @@ const VisualPickerExample = () => {
               rowGap="space50"
               padding="space20"
               paddingTop="space50"
+              paddingRight="space40"
             >
               <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
                 $300
@@ -201,10 +204,10 @@ const VisualPickerExample = () => {
             id={useUID()} 
             legend={
               <Text as="span" color="currentColor">
-                Select one or more service for your scheduled message
+                Select service
               </Text>
             }
-            helpText="The message will be delivered to all selected recipients."
+            helpText="The message will be sent to all recipients for each selected service."
         >
             <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
               <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
@@ -343,6 +346,7 @@ const VisualPickerExample = () => {
                 rowGap="space50"
                 padding="space20"
                 paddingTop="space50"
+                paddingRight="space70"
               >
                 <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
                   SMS
@@ -361,6 +365,7 @@ const VisualPickerExample = () => {
                 rowGap="space50"
                 padding="space20"
                 paddingTop="space50"
+                paddingRight="space70"
               >
                 <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
                   Whatsapp
@@ -379,6 +384,7 @@ const VisualPickerExample = () => {
                 rowGap="space50"
                 padding="space20"
                 paddingTop="space50"
+                paddingRight="space70"
               >
                 <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
                   Email
@@ -780,7 +786,7 @@ const VisualPickerExample = () => {
       }
       required
       helpText="The test message will only be sent to test recipients."
-      errorText="You must select at least one channel before proceeding."
+      errorText="Select a channel."
   >
       <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
         <Box

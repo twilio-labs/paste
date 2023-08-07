@@ -62,8 +62,8 @@ export const getStaticProps = async () => {
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/user-dialog"
-  storybookUrl="/?path=/story/components-user-dialog--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/visual-picker"
+  storybookUrl="/?path=/story/components-visual-picker-checkbox--vertical-checkbox-group"
   data={props.data}
 />
 
@@ -109,9 +109,9 @@ This component is built on top of [Radio Group](/components/radio-group) and [Ch
 
 Visual Picker follows the same accessibility guidelines as [Radio Group](/components/radio-group) and [Checkbox](/components/checkbox).
 
-Like all input elements, both Radio and Checkbox Visual Pickers require a group label that describes the collection. Provide an accessible label using the `legend` prop on VisualPickerRadioGroup or VisualPickerCheckboxGroup. The grouping should be visually implicit, but a description still needs to be provided for assistive technology.
+Like all input elements, both Radio and Checkbox Visual Pickers require a group label that describes the collection. Provide an accessible label using the `legend` prop on `VisualPickerRadioGroup` or `VisualPickerCheckboxGroup`. The grouping should be visually implicit, but a description still needs to be provided for assistive technology.
 
-Always use the `labelText` prop on VisualPickerRadio and VisualPickerCheckbox to provide a descriptive string for each option.
+Always use the `labelText` prop on `VisualPickerRadio` and `VisualPickerCheckbox` to provide a descriptive string for each option.
 
 When focused on a Visual Picker Radio control, use arrow keys to navigate to the other radios. When focused on a Visual Picker Checkbox control, use the tab key to navigate to the other checkboxes.
 
@@ -149,7 +149,7 @@ Vertical is the default orientation for Visual Picker.
 
 #### Horizontal
 
-Use the horizontal Visual Picker when more complex visuals will help users compare information. Avoid using horizontal if there are more than 3-4 options.
+Use the horizontal Visual Picker when more complex visuals will help users compare information. Avoid using horizontal if there are more than 3 options.
 
 <LivePreview
   scope={{
@@ -218,7 +218,7 @@ Use the horizontal Visual Picker when more complex visuals will help users compa
 
 ### Internationalization
 
-Internationalizing Visual Picker is the same for both Radio and Checkbox Visual Pickers. To internationalize a Visual Picker, simply pass translated text as children. The only exception to this is the required dot in the legend of a required Visual Picker. To change the required dot's text, use the i18nRequiredLabel prop. Hover over the required dot to see the translated string.
+Internationalizing Visual Picker is the same for both Radio and Checkbox. To internationalize, provide translated text as children. The only exception to this is the required dot in the legend of a required Visual Picker. To change the required dot's text, use the `i18nRequiredLabel` prop. You can hover over the required dot to see the translated string.
 
 <LivePreview
   scope={{
@@ -240,9 +240,9 @@ Internationalizing Visual Picker is the same for both Radio and Checkbox Visual 
 
 Use a Visual Picker with a pre-checked value only if:
 
-- The default value would not cause harm if accidentally used
-- You don’t mind collecting biased data. Defaulting to a value biases or alters the experience so that your data may be skewed
-- The user doesn't need to make an explicit choice for safety, security, or legal reasons
+- The default value would not cause harm if accidentally used.
+- You don’t mind collecting biased data. Defaulting to a value biases or alters the experience so that your data may be skewed.
+- The user doesn't need to make an explicit choice for safety, security, or legal reasons.
 
 If you do apply a pre-checked value, make the checked option the first option.
 
@@ -319,10 +319,10 @@ If the selected items don't pass the group validation requirements, use the `err
 
 For simple required field errors, consider the following formats depending on the use case:
 
-| Situation                                     | Recommended phrasing            |
-| --------------------------------------------- | ------------------------------- |
-| When the option being selected is not a noun. | Select an option.               |
-| When the option to be selected is a noun      | Select a [noun in group label]. |
+| Situation              | Recommended phrasing            |
+| ---------------------- | ------------------------------- |
+| Options are not nouns. | Select an option.               |
+| Options are nouns.     | Select a [noun in group label]. |
 
 For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
@@ -362,7 +362,25 @@ yarn add @twilio-paste/visual-picker - or - yarn add @twilio-paste/core
 import {VisualPickerRadioGroup, VisualPickerRadio} from '@twilio-paste/core/visual-picker';
 
 const VisualPickerExample = () => {
-  return <></>;
+  const [value, setValue] = React.useState('1');
+  return (
+    <VisualPickerRadioGroup
+      legend="Select an option"
+      name="visual-picker"
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <VisualPickerRadio labelText="one" value="1">
+        Option one
+      </VisualPickerRadio>
+      <VisualPickerRadio labelText="two" value="2">
+        Option two
+      </VisualPickerRadio>
+      <VisualPickerRadio labelText="three" value="3">
+        Option three
+      </VisualPickerRadio>
+    </VisualPickerRadioGroup>
+  );
 };
 ```
 
@@ -379,6 +397,8 @@ const VisualPickerExample = () => {
 | element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO_GROUP' |
 
 #### VisualPickerRadio props
+
+All the valid HTML attributes for input[type=radio] are supported including/in addition to the following props:
 
 | Prop      | Type              | Description                                                                               | Default               |
 | --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
@@ -399,6 +419,8 @@ const VisualPickerExample = () => {
 | element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_CHECKBOX_GROUP' |
 
 #### VisualPickerCheckbox props
+
+All the valid HTML attributes for input[type=checkbox] are supported including/in addition to the following props:
 
 | Prop      | Type              | Description                                                                               | Default               |
 | --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
