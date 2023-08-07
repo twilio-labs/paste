@@ -71,49 +71,17 @@ A Textarea allows for any text to be entered and can't be restricted as other [i
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated textarea.
-  </ListItem>
-  <ListItem>
-    Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
-  </ListItem>
-  <ListItem>
-    Use 1 of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the textarea with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the textarea has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop
-    on the textarea. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated textarea.
+- Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
+- Use 1 of 3 ways to label a form field:
+    - Visible label with [Label](/components/label) (preferred)
+    - Visible label that's associated to the textarea with `aria-labelledby`
+    - Label directly using `aria-label`
+-     Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+    - Use the `required` prop to programatically indicate they are required to browsers.
+- Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
+- If the textarea has associated help text or error text, include the `aria-describedby` prop on the textarea. This should match the `id` of the help or error text.
 
 ## Examples
 
