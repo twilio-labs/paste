@@ -1,10 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import type {Element} from './types';
 
-export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
+export interface OptionProps extends HTMLPasteProps<'option'> {
   value: string;
   children: React.ReactNode;
   element?: Element;

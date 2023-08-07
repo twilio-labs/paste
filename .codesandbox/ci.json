@@ -72,6 +72,7 @@
     "/packages/paste-core/components/progress-steps",
     "/packages/paste-core/components/radio-button-group",
     "/packages/paste-core/components/radio-group",
+    "/packages/paste-libraries/react-spectrum",
     "/packages/paste-libraries/react-textarea-autosize",
     "/packages/paste-libraries/reakit",
     "/packages/paste-core/components/screen-reader-only",
@@ -103,7 +104,8 @@
     "/packages/paste-types",
     "/packages/paste-libraries/uid",
     "/packages/paste-core/components/user-dialog",
-    "/packages/paste-utils"
+    "/packages/paste-utils",
+    "/packages/paste-core/components/visual-picker"
   ],
   "sandboxes": [
     "/packages/paste-nextjs-template",

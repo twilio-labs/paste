@@ -4,12 +4,10 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {PaddingProps} from '@twilio-paste/style-props';
 import {isPaddingTokenProp} from '@twilio-paste/style-props';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 /** element identifier from BoxProps for customization */
-export interface CardProps
-  extends React.HTMLAttributes<HTMLElement>,
-    PaddingProps,
-    Pick<BoxProps, 'element' | 'variant'> {}
+export interface CardProps extends HTMLPasteProps<'article'>, PaddingProps, Pick<BoxProps, 'element' | 'variant'> {}
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
   (

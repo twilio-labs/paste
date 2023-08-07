@@ -12,26 +12,25 @@ import type {
   ListboxPrimitiveGroupProps,
 } from '@twilio-paste/listbox-primitive';
 import type {ButtonProps} from '@twilio-paste/button';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface UserDialogUserInfoProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogUserInfoProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxProps['element'];
 }
 
-export interface UserDialogUserTextProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogUserTextProps extends HTMLPasteProps<'div'> {
   children: string;
   element?: BoxProps['element'];
 }
 
-export interface UserDialogPopoverProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogPopoverProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
 }
 
 export type UserDialogStateReturn = NonModalDialogPrimitiveStateReturn;
 
-export interface UserDialogProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    NonModalDialogPrimitivePopoverInitialState {
+export interface UserDialogProps extends HTMLPasteProps<'div'>, NonModalDialogPrimitivePopoverInitialState {
   children: React.ReactNode;
   element?: BoxProps['element'];
   'aria-label': string;
@@ -59,7 +58,7 @@ export interface UserDialogListProps extends ListboxPrimitiveProps {
   ['aria-label']: string;
 }
 
-export interface UserDialogListboxProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogListboxProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
 }
 
@@ -68,7 +67,7 @@ export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
   element?: BoxProps['element'];
 }
 
-export interface UserDialogListboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogListboxItemProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
   href?: string;
 }
@@ -77,6 +76,6 @@ export interface UserDialogListGroupProps extends ListboxPrimitiveGroupProps {
   element?: BoxProps['element'];
 }
 
-export interface UserDialogListboxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserDialogListboxGroupProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
 }

@@ -68,6 +68,7 @@
 /progress-steps
 /radio-button-group
 /radio-group
+/react-spectrum-library
 /react-textarea-autosize-library
 /reakit-library
 /screen-reader-only
@@ -100,3 +101,4 @@
 /uid-library
 /user-dialog
 /utils
+/visual-picker

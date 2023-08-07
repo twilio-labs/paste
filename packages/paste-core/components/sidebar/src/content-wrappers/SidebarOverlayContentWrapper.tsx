@@ -2,10 +2,11 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useWindowSize} from '@twilio-paste/utils';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import type {Variants} from '../types';
 
-export interface SidebarOverlayContentWrapper extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarOverlayContentWrapper extends HTMLPasteProps<'div'> {
   children: React.ReactNode;
   element?: BoxProps['element'];
   collapsed?: boolean;

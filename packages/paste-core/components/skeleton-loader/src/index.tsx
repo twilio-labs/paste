@@ -3,6 +3,7 @@ import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SkeletonLoaderKeyframes} from './keyframes';
 
@@ -27,7 +28,7 @@ const SkeletonLoaderInner = styled.div`
 `;
 
 export interface SkeletonLoaderProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends HTMLPasteProps<'div'>,
     Pick<BoxElementProps, 'element'>,
     Omit<LayoutProps, 'verticalAlign'>,
     BorderRadiusProps {}

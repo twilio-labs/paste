@@ -1,20 +1,21 @@
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 type BaseStepProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
 };
 
-type StepDivProps = React.HTMLAttributes<HTMLDivElement> & {
+type StepDivProps = HTMLPasteProps<'div'> & {
   as: 'div';
   href?: never;
   onClick?: never;
 };
-type StepButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+type StepButtonProps = HTMLPasteProps<'button'> & {
   as: 'button';
-  onClick: React.HTMLAttributes<HTMLButtonElement>['onClick'];
+  onClick: HTMLPasteProps<'button'>['onClick'];
   href?: never;
 };
-type StepAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
+type StepAnchorProps = HTMLPasteProps<'a'> & {
   as: 'a';
   href: string;
   onClick?: never;
@@ -35,19 +36,19 @@ export type ProgressStepCurrentProps = ProgressStepProps & {
 /**
  * Special case for incomplete steps since they're the only ones that can be disabled
  */
-type IncompleteStepDivProps = React.HTMLAttributes<HTMLDivElement> & {
+type IncompleteStepDivProps = HTMLPasteProps<'div'> & {
   as: 'div';
   href?: never;
   onClick?: never;
   disabled?: never;
 };
-type IncompleteStepButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+type IncompleteStepButtonProps = HTMLPasteProps<'button'> & {
   as: 'button';
-  onClick: React.HTMLAttributes<HTMLButtonElement>['onClick'];
+  onClick: HTMLPasteProps<'button'>['onClick'];
   href?: never;
   disabled?: boolean;
 };
-type IncompleteStepAnchorProps = React.HTMLAttributes<HTMLAnchorElement> & {
+type IncompleteStepAnchorProps = HTMLPasteProps<'a'> & {
   as: 'a';
   href: string;
   onClick?: never;

@@ -9,10 +9,11 @@ import {
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {RadioContext} from './RadioContext';
 
-export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends HTMLPasteProps<'input'> {
   id?: string;
   value?: string;
   name?: string;
@@ -214,4 +215,4 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export {Radio};
+export {Radio, HiddenRadio, type HiddenRadioState};

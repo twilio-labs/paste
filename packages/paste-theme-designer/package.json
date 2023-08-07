@@ -13,7 +13,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@datadog/browser-rum": "^2.8.1",
+    "@datadog/browser-rum": "^4.46.0",
     "@twilio-paste/core": "^19.0.0",
     "@twilio-paste/icons": "^11.0.0",
     "next": "^13.1.6",

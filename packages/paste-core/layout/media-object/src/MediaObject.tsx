@@ -2,9 +2,10 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 export interface MediaObjectProps
-  extends React.HTMLAttributes<any>,
+  extends HTMLPasteProps<'div'>,
     Pick<BoxProps, 'as' | 'element' | 'marginTop' | 'marginBottom'> {
   children: NonNullable<React.ReactNode>;
   verticalAlign?: 'center' | 'top';

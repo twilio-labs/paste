@@ -1,10 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import type {Element} from './types';
 
-export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
+export interface OptionGroupProps extends HTMLPasteProps<'optgroup'> {
   label: string;
   children: NonNullable<React.ReactNode>;
   element?: Element;

@@ -2,10 +2,10 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {TextProps} from '@twilio-paste/text';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement>, Pick<TextProps, 'element'> {
+export interface ParagraphProps extends HTMLPasteProps<'p'>, Pick<TextProps, 'element'> {
   id?: never;
-  className?: never;
   marginBottom?: 'space0';
 }
 
