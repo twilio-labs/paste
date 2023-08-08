@@ -64,6 +64,7 @@ export * from '@twilio-paste/sibling-box';
 export * from '@twilio-paste/side-modal';
 export * from '@twilio-paste/sidebar';
 export * from '@twilio-paste/skeleton-loader';
+export * from '@twilio-paste/slider';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/stack';
 export * from '@twilio-paste/status';

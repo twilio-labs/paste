@@ -251,6 +251,7 @@
   "SidebarPushContentWrapper": "@twilio-paste/core/sidebar",
   "useSidebarNavigationDisclosureState": "@twilio-paste/core/sidebar",
   "SkeletonLoader": "@twilio-paste/core/skeleton-loader",
+  "Slider": "@twilio-paste/core/slider",
   "Spinner": "@twilio-paste/core/spinner",
   "StatusBadge": "@twilio-paste/core/status",
   "StatusMenu": "@twilio-paste/core/status",

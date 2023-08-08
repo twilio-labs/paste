@@ -82,6 +82,7 @@
     "/packages/paste-core/components/side-modal",
     "/packages/paste-core/components/sidebar",
     "/packages/paste-core/components/skeleton-loader",
+    "/packages/paste-core/components/slider",
     "/packages/paste-core/components/spinner",
     "/packages/paste-core/layout/stack",
     "/packages/paste-core/components/status",
