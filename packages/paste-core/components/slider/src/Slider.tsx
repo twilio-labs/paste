@@ -9,8 +9,6 @@ import {SliderTrack} from './SliderTrack';
 
 const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
 
-const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
-
 export interface SliderProps {
   element?: BoxProps['element'];
   id: string;
@@ -141,7 +139,6 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
               <input
                 ref={mergedInputRef}
                 {...inputProps}
-                aria-describedby={props['aria-describedby']}
                 aria-labelledby={undefined}
                 aria-describedby={props['aria-describedby']}
                 id={inputProps.id?.replace('-0', '')}
