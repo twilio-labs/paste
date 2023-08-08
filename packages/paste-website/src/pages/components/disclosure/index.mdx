@@ -320,9 +320,7 @@ Each Disclosure can be disabled by setting the `disabled` prop on the `Disclosur
 
 ## Composition notes
 
-Both `DisclosureHeading` and `DisclosureContent` accept any child component, leaving flexibility to create a large number of custom compositions for your product needs.
-
-The only thing you **must not** do is place a focusable element inside the `DisclosureHeading`, see [accessibility notes](/components/disclosure#accessibility).
+Both `DisclosureHeading` and `DisclosureContent` accept any child component. However, [avoid placing a focusable element inside the `DisclosureHeading`](/components/disclosure#accessibility).
 
 <LivePreview
   scope={{
@@ -347,6 +345,10 @@ The only thing you **must not** do is place a focusable element inside the `Disc
   </DisclosureContent>
 </Disclosure>`}
 </LivePreview>
+
+Disclosure headers should be short, no more than 1 line, and priortize the user goal. Use sentence case for the headers.
+
+Any content contained within a disclosure can be formatted into multiple paragraphs with sub-headers, if needed.
 
 Disclosures with an error icon in the header must include additional information on the nature of the error and how the user can fix it within the disclosure content. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
