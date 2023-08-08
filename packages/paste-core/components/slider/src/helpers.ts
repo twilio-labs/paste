@@ -4,6 +4,9 @@ export const getColorToken = (states: UIStates): BackgroundColorTokens => {
   if (states.disabled) {
     return 'colorBackgroundStrong';
   } else if (states.error) {
+    if (states.hovered) {
+      return 'colorBackgroundErrorStrong';
+    }
     return 'colorBackgroundError';
   } else if (states.dragging) {
     return 'colorBackgroundPrimary';

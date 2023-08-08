@@ -135,7 +135,6 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
           height="4px"
           width="100%"
           borderRadius="borderRadius20"
-          transition="background 150ms ease"
           onClick={onClickHandler}
         >
           <SliderThumb {...thumbProps} {...uiStateProps} element={`${element}_THUMB`} onClick={onClickHandler}>
