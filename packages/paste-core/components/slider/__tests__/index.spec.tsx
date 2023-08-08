@@ -106,6 +106,8 @@ describe('Slider', () => {
       expect(rangeLabelsWrapper?.querySelector('[data-paste-element="SLIDER_RANGE_LABELS_MAX"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK_CONTAINER"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK_BACKGROUND"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_TRACK_FILL"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="SLIDER_THUMB"]')).toBeInTheDocument();
     });
 
@@ -136,6 +138,8 @@ describe('Slider', () => {
       expect(rangeLabelsWrapper?.querySelector('[data-paste-element="PASTA_RANGE_LABELS_MAX"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK_CONTAINER"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK_BACKGROUND"]')).toBeInTheDocument();
+      expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_TRACK_FILL"]')).toBeInTheDocument();
       expect(sliderWrapper?.querySelector('[data-paste-element="PASTA_THUMB"]')).toBeInTheDocument();
     });
   });

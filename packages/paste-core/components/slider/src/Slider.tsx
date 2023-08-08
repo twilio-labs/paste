@@ -5,7 +5,7 @@ import {useSliderState, useSlider, useSliderThumb} from '@twilio-paste/react-spe
 import {useMergeRefs} from '@twilio-paste/utils';
 
 import {SliderThumb} from './SliderThumb';
-import {StyledTrack} from './StyledTrack';
+import {SliderTrack} from './SliderTrack';
 
 const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
 
@@ -128,13 +128,10 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         cursor={isDisabled ? 'not-allowed' : 'pointer'}
         onClick={onClickHandler}
       >
-        <StyledTrack
+        <SliderTrack
           {...uiStateProps}
+          fillPercent={thumbProps?.style?.left}
           element={`${element}_TRACK`}
-          left={thumbProps.style?.left}
-          height="4px"
-          width="100%"
-          borderRadius="borderRadius20"
           onClick={onClickHandler}
         >
           <SliderThumb {...thumbProps} {...uiStateProps} element={`${element}_THUMB`} onClick={onClickHandler}>
@@ -150,7 +147,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
               />
             </ScreenReaderOnly>
           </SliderThumb>
-        </StyledTrack>
+        </SliderTrack>
       </Box>
     </Box>
   );

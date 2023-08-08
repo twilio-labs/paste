@@ -184,20 +184,26 @@ export const CustomizedSlider = (): React.ReactNode => {
     <CustomizationProvider
       theme={activeTheme}
       elements={{
+        // SLIDER
         SLOODER: {borderWidth: 'borderWidth10', borderRadius: 'borderRadius20', padding: 'space20'},
+        // TRACK
         SLOODER_TRACK_CONTAINER: {
           height: '32px',
           borderStyle: 'solid',
           borderWidth: 'borderWidth10',
           borderColor: 'colorBorder',
         },
-        SLOODER_TRACK: {height: '8px', borderRadius: 'borderRadius0'},
+        SLOODER_TRACK: {height: '8px'},
+        SLOODER_TRACK_BACKGROUND: {backgroundColor: 'colorBackgroundStrongest'},
+        SLOODER_TRACK_FILL: {backgroundColor: 'colorBackgroundSuccess'},
+        // THUMB
         SLOODER_THUMB: {
           width: '32px',
           height: '32px',
           borderRadius: 'borderRadius0',
           backgroundColor: 'colorBackgroundStrongest',
         },
+        // RANGE LABELS
         SLOODER_RANGE_LABELS: {color: 'colorTextSuccess', fontSize: 'fontSize50', fontWeight: 'fontWeightBold'},
         SLOODER_RANGE_LABELS_MIN: {fontSize: 'fontSize70', fontWeight: 'fontWeightBold'},
         SLOODER_RANGE_LABELS_MAX: {fontSize: 'fontSize80', fontWeight: 'fontWeightBold'},
